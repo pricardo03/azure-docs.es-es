@@ -32,13 +32,13 @@ Para más información, consulte nuestra [directiva de soporte técnico para los
 
 Puede utilizar las herramientas estándar del sistema operativo para crear un par de claves SSH RSA públicas y privadas para la autenticación en las máquinas virtuales Linux del clúster. Para conocer los pasos, consulte las instrucciones para [OS X y Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) o [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). 
 
-Si usa los [comandos de la CLI de Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implementar un clúster de servicio de contenedor, se pueden generar claves SSH para el clúster automáticamente.
+Si usa los [comandos de la CLI de Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implementar un clúster de servicio de contenedor, se pueden generar claves SSH para el clúster automáticamente.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>¿Cómo creo una entidad de servicio para el clúster de Kubernetes?
 
 Para crear un clúster de Kubernetes en Azure Container Service también se necesitan ID y contraseña de la entidad de servicio de Azure Active Directory. Para más información, consulte [About the Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md) (Acerca de la entidad de servicio de Azure Active Directory para un clúster de Kubernetes de Azure Container Service).
 
-Si usa los [comandos de la CLI de Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implementar un clúster de Kubernetes, se pueden generar credenciales de entidad de servicio para el clúster automáticamente.
+Si usa los [comandos de la CLI de Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implementar un clúster de Kubernetes, se pueden generar credenciales de entidad de servicio para el clúster automáticamente.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>¿Cómo de grande puedo crear un clúster?
 Puede crear un clúster con 1, 3 o 5 nodos maestros. Puede elegir hasta 100 nodos de agente.
@@ -105,4 +105,4 @@ Hay algunos problemas conocidos de DNS en Windows cuyas correcciones siguen elim
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) sobre Azure Container Service.
-* Implementar un clúster del servicio de contenedores mediante el [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) o la [CLI de Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Implementar un clúster del servicio de contenedores mediante el [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) o la [CLI de Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

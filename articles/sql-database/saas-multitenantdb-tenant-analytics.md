@@ -1,26 +1,27 @@
 ---
 title: Ejecución de consultas de análisis en bases de datos de Azure SQL | Microsoft Docs
-description: Consultas de análisis entre inquilinos mediante datos extraídos de varias bases de datos de Azure SQL Database.
-keywords: tutorial de sql
+description: Consultas de análisis entre inquilinos mediante datos extraídos de varias bases de datos de Azure SQL Database en una aplicación multiinquilino.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: anjangsh
-ms.reviewer: billgib, genemi
-ms.openlocfilehash: 8ed444320db641408b69efb19018e41e2170b51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: stevestein
+ms.author: sstein
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644644"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055066"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Análisis entre inquilinos mediante datos extraídos
-
-En este tutorial se le guiará a través de un escenario de análisis completo. En el escenario se explica cómo los análisis pueden permitir a las empresas tomar decisiones inteligentes. Con datos extraídos de la base de datos con particiones, utilice los análisis para obtener información acerca del comportamiento del inquilino, incluido el uso de la aplicación SaaS de ejemplo Wingtip Tickets. Este escenario engloba tres pasos: 
+# <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino
+ 
+En este tutorial, recorrerá un escenario completo de análisis para la implementación de un multiinquilino. En el escenario se explica cómo los análisis pueden permitir a las empresas tomar decisiones inteligentes. Con datos extraídos de la base de datos con particiones, utilice los análisis para obtener información acerca del comportamiento del inquilino, incluido el uso de la aplicación SaaS de ejemplo Wingtip Tickets. Este escenario engloba tres pasos: 
 
 1.  **Extraer datos** de cada base de datos de inquilino en un almacén de análisis.
 2.  **Optimizar los datos extraídos** para el procesamiento de análisis.
@@ -65,7 +66,7 @@ Saber con qué coherencia cada inquilino usa el servicio brinda una oportunidad 
 
 ## <a name="setup"></a>Configuración
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -207,7 +208,7 @@ Puede profundizar en los datos de nuevo para ver si tal desenfrenada demanda se 
 
 En el gráfico anterior de Contoso Concert Hall, se refleja que la desenfrenada demanda no se registra para todos los eventos. Practique con las opciones de filtro para ver las tendencias de venta de otros lugares.
 
-La información de los patrones de venta de entradas pueden permitir a Wingtip Tickets optimizar su modelo de negocio. En lugar de aplicar los mismos cargos a todos los inquilinos, quizá Wingtip debería introducir niveles de servicio con distintos niveles de rendimiento. A los lugares más grandes que necesitan vender más entradas al día se les podría ofrecer un nivel superior con un contrato de nivel de servicio (SLA) de categoría superior. Estos lugares podrían tener sus bases de datos agrupadas con límites de recursos por base de datos más altos. Cada nivel de servicio podría tener una asignación de ventas por hora, con tarifas adicionales por exceder la asignación. Los lugares más grandes que tienen intensas actividades de ventas se beneficiarían de los niveles más altos, y Wingtip Tickets puede monetizar su servicio con mayor eficacia.
+La información de los patrones de venta de entradas pueden permitir a Wingtip Tickets optimizar su modelo de negocio. En lugar de aplicar los mismos cargos a todos los inquilinos, quizá Wingtip debería introducir niveles de servicio con distintos tamaños de proceso. A los lugares más grandes que necesitan vender más entradas al día se les podría ofrecer un nivel superior con un contrato de nivel de servicio (SLA) de categoría superior. Estos lugares podrían tener sus bases de datos agrupadas con límites de recursos por base de datos más altos. Cada nivel de servicio podría tener una asignación de ventas por hora, con tarifas adicionales por exceder la asignación. Los lugares más grandes que tienen intensas actividades de ventas se beneficiarían de los niveles más altos, y Wingtip Tickets puede monetizar su servicio con mayor eficacia.
 
 Mientras tanto, algunos clientes de Wingtip Tickets se quejan de que tienen dificultades para vender las suficientes entradas como para cubrir el costo del servicio. Quizá en esta información se ofrece la oportunidad de impulsar las ventas de entradas para los lugares que presentan déficit de rendimiento. Un aumento de las ventas aumentaría el valor percibido del servicio. Haga clic con el botón derecho en fact_Tickets y seleccione **Nueva medida**. Escriba la siguiente expresión para la nueva medida denominada **AverageTicketsSold**:
 
@@ -240,5 +241,6 @@ Felicidades.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Otros [tutoriales basados en la aplicación SaaS de Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
+- [Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino](saas-tenancy-tenant-analytics.md) 

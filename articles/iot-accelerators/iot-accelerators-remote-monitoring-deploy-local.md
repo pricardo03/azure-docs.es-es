@@ -1,23 +1,23 @@
 ---
 title: 'Implementación local de la solución de supervisión remota: Azure | Microsoft Docs'
-description: En este tutorial se muestra cómo implementar el acelerador de la solución de supervisión remota en la máquina local para pruebas y desarrollo.
-author: dominicbetts
+description: En esta guía paso a paso se muestra cómo implementar el acelerador de soluciones de supervisión remota en la máquina local para pruebas y desarrollo.
+author: asdonald
 manager: timlt
-ms.author: dobett
+ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 03/07/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21bc8c27a44c940279b0c5bdcdbe04e579dc4bfa
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7007b1406dbcfab3af4700418ac2ce07b9e521c0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188665"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407440"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementación local del acelerador de la solución Supervisión remota
 
-En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. Este enfoque implementa los microservicios en un contenedor Docker local y utiliza IoT Hub, Cosmos DB y servicios de almacenamiento de Azure en la nube. Puede utilizar la CLI de aceleradores de soluciones (PCS) para implementar los servicios en la nube de Azure.
+En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. En el enfoque descrito en este artículo se implementan los microservicios en un contenedor de Docker local y se usan los servicios IoT Hub, Cosmos DB y Azure Time Series Insights en la nube. Para aprender a ejecutar el acelerador de soluciones de supervisión remota en un IDE en la máquina local, consulte [Starting Microservices on local environment](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) (Inicio de microservicios en el entorno local) en GitHub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,83 +30,62 @@ Para completar la implementación local, necesita que las herramientas siguiente
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Docker Compose](https://docs.docker.com/compose/install/)
-* [Node.js](https://nodejs.org/): este software es un requisito previo para la CLI de PCS.
-* CLI DE PCS
-* Repositorio local del código fuente
+* [Node.js v8](https://nodejs.org/): este software es un requisito previo para la CLI de PCS que usan los scripts para crear recursos de Azure. No use Node.js v10.
 
 > [!NOTE]
 > Estas herramientas están disponibles en varias plataformas, como Windows, Linux e iOS.
 
-### <a name="install-the-pcs-cli"></a>Instalación de la CLI de PCS
-
-Para instalar la CLI de PCS a través de npm, ejecute el siguiente comando en el entorno de la línea de comandos:
-
-```cmd/sh
-npm install iot-solutions -g
-```
-
-Para más información sobre la CLI, consulte [Uso de la CLI](https://github.com/Azure/pcs-cli/blob/master/README.md).
-
 ### <a name="download-the-source-code"></a>Descarga del código fuente
 
- El repositorio de código fuente de Supervisión remota incluye los archivos de configuración de Docker que necesita para descargar, configurar y ejecutar las imágenes de Docker que contienen los microservicios. Para clonar y crear una versión local del repositorio, vaya a la carpeta adecuada del equipo local mediante la línea de comandos favorita o el terminal y ejecute alguno de los siguientes comandos:
+El repositorio de GitHub de código fuente de supervisión remota incluye los archivos de configuración de Docker que necesita para descargar, configurar y ejecutar las imágenes de Docker que contienen los microservicios. Para clonar y crear una versión local del repositorio, use el entorno de línea de comandos para ir a una carpeta adecuada en la máquina local y, luego, ejecute uno de los siguientes comandos:
 
-Para instalar las implementaciones de Java de los microservicios, ejecute:
+Para descargar la versión más reciente de las implementaciones de microservicios de Java, ejecute:
 
 ```cmd/sh
-git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
+git clone https://github.com/Azure/remote-monitoring-services-java.git
 ```
 
-Para instalar las implementaciones de .NET de los microservicios, ejecute:
+Para descargar la versión más reciente de las implementaciones de microservicios de .NET, ejecute:
 
 ```cmd\sh
-git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
+git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
 ```
 
-Repositorio y submódulos de la solución preconfigurada de supervisión remota [[Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) | [.Net](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)]
-
 > [!NOTE]
-> Estos comandos descargan el código fuente de todos los microservicios. Aunque no necesita el código fuente para ejecutar los microservicios en Docker, el código fuente es útil si más tarde piensa modificar la solución preconfigurada y probar los cambios localmente.
+> Estos comandos descargan el código fuente de todos los microservicios, además de los scripts que se usan para ejecutar los microservicios localmente. Aunque no necesita el código fuente para ejecutar los microservicios en Docker, el código fuente es útil si más tarde piensa modificar el acelerador de soluciones y probar los cambios localmente.
 
 ## <a name="deploy-the-azure-services"></a>Implementación de servicios de Azure
 
-Aunque en este artículo se muestra cómo ejecutar los microservicios localmente, dependen de los tres servicios de Azure que se ejecutan en la nube. Puede implementar estos servicios de Azure de manera [manual mediante Azure Portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), o utilizar la CLI de PCS. En este artículo se muestra cómo usar la herramienta `pcs`.
+Aunque en este artículo se muestra cómo ejecutar los microservicios localmente, dependen de los servicios de Azure que se ejecutan en la nube. Puede implementar estos servicios de Azure de manera [manual mediante Azure Portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), o usar el script proporcionado. En los siguientes ejemplos de scripts se da por hecho que usa el repositorio de .NET en una máquina Windows. Si está trabajando en otro entorno, ajuste las rutas de acceso, las extensiones de archivo y los separadores de ruta de acceso de la manera correcta. Puede usar los scripts proporcionados para:
 
-### <a name="sign-in-to-the-cli"></a>Inicio de sesión en la CLI
+### <a name="create-new-azure-resources"></a>Crear nuevos recursos de Azure
 
-Para poder implementar el acelerador de la solución, debe iniciar sesión en su suscripción de Azure mediante la CLI de la manera siguiente:
+Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
 
-```cmd/sh
-pcs login
-```
+1. En el entorno de línea de comandos, vaya a la carpeta **remote-monitoring-services-dotnet\scripts\local\launch** de la copia clonada del repositorio.
 
-Siga las instrucciones que aparecen en pantalla para completar el proceso de inicio de sesión. Asegúrese de no hacer clic en ningún lugar dentro de la CLI o, de lo contrario, el inicio de sesión podría dar errores. Si ha completado el inicio de sesión, verá un mensaje de inicio de sesión correcto en la CLI. 
+2. Ejecute el script **start.cmd** y siga los avisos. El script le pide que inicie sesión en su cuenta de Azure y que reinicie el script. El script le pide entonces la siguiente información:
+    * Nombre de la solución.
+    * La suscripción de Azure que se va a usar.
+    * La ubicación del centro de datos de Azure que se va a usar.
 
-### <a name="run-a-local-deployment"></a>Ejecución de una implementación local
+    El script crea el grupo de recursos en Azure con el nombre de la solución. Este grupo de recursos contiene los recursos de Azure que usa el acelerador de soluciones.
 
-Utilice el comando siguiente para iniciar la implementación local. Así creará los recursos de Azure necesarios e imprimirá las variables de entorno en la consola. 
+3. Cuando finaliza el script, se muestra una lista de variables de entorno. Siga las instrucciones de la salida del comando para guardar estas variables en el archivo **remote-monitoring-services-dotnet\\scripts\\local\\.env**.
 
-```cmd/pcs
-pcs -s local
-```
+### <a name="use-existing-azure-resources"></a>Usar recursos de Azure existentes
 
-El script le pedirá la siguiente información:
-
-* Nombre de la solución.
-* La suscripción de Azure que se va a usar.
-* La ubicación del centro de datos de Azure que se va a usar.
-
-> [!NOTE]
-> El script crea una instancia de IoT Hub, una instancia de Cosmos DB y una cuenta de almacenamiento de Azure en un grupo de recursos de su suscripción de Azure. El nombre del grupo de recursos es el nombre de la solución que ha elegido al ejecutar la herramienta `pcs` anterior. 
-
-> [!IMPORTANT]
-> El script puede tardar varios minutos en ejecutarse. Cuando se complete, verá un mensaje `Copy the following environment variables to /scripts/local/.env file:`. Copie las definiciones de variables de entorno que siguen al mensaje; las utilizará en un paso posterior.
+Si ya ha creado los recursos de Azure necesarios, edite las definiciones de variable de entorno en el archivo **remote-monitoring-services-dotnet\\scripts\\local\\.env** con los valores requeridos. El archivo **.env** contiene información detallada sobre dónde encontrar los valores necesarios.
 
 ## <a name="run-the-microservices-in-docker"></a>Ejecución de los microservicios en Docker
 
-Para ejecutar los microservicios en Docker, modifique primero el archivo **scripts\\local\\.env** de la copia local del repositorio clonado en un paso anterior. Reemplace todo el contenido del archivo con las definiciones de las variables de entorno que anotó cuando ejecutó el comando `pcs` en el último paso. Estas variables de entorno permiten a los microservicios del contenedor de Docker conectarse a los servicios de Azure creados por la herramienta `pcs`.
+Los microservicios que se ejecutan en los contenedores de Docker locales necesitan acceso a los servicios que se ejecutan en Azure. Puede probar la conectividad a Internet de su entorno de Docker mediante el siguiente comando que inicia un contenedor pequeño e intenta hacer ping a una dirección de Internet:
 
-Para ejecutar el acelerador de la solución, vaya a la carpeta **scripts\local** en el entorno de línea de comandos y ejecute el comando siguiente:
+```cmd/sh
+docker run --rm -ti library/alpine ping google.com
+```
+
+Para ejecutar el acelerador de soluciones, vaya a la carpeta **remote-monitoring-services-dotnet\\scripts\\local** en el entorno de la línea de comandos y ejecute el siguiente comando:
 
 ```cmd\sh
 docker-compose up
@@ -120,7 +99,7 @@ Para acceder al panel de la solución Supervisión remota, vaya a [http://localh
 
 ## <a name="clean-up"></a>Limpieza
 
-Para evitar cargos innecesarios, cuando haya terminado las pruebas, elimine los servicios en la nube de su suscripción de Azure. La forma más sencilla de quitar los servicios es ir a [Azure Portal](https://ms.portal.azure.com) y eliminar el grupo de recursos creado con la herramienta `pcs`.
+Para evitar cargos innecesarios, cuando haya terminado las pruebas, elimine los servicios en la nube de su suscripción de Azure. La forma más sencilla de quitar los servicios es ir a [Azure Portal](https://ms.portal.azure.com) y eliminar el grupo de recursos que se creó cuando ejecutó el script **start.cmd**.
 
 Utilice el comando `docker-compose down --rmi all` para quitar las imágenes de Docker y liberar espacio en la máquina local. También puede eliminar la copia local del repositorio de Supervisión remota que se ha creado al clonar el código fuente de GitHub.
 

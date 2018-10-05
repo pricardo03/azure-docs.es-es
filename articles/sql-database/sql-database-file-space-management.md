@@ -2,19 +2,22 @@
 title: Administración del espacio de archivo de Azure SQL Database | Microsoft Docs
 description: En esta página se describe cómo administrar el espacio de archivo con Azure SQL Database, y se proporcionan ejemplos de código para determinar si se debe reducir una base de datos y cómo hacerlo.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/15/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143413"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159948"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Administración del espacio de archivo en Azure SQL Database
 En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
@@ -27,7 +30,7 @@ En Azure SQL Database, la mayoría de las métricas de espacio de almacenamiento
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan.  Esto puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos.  Esto se debe a que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.  En tales escenarios, el espacio asignado para una base de datos o un grupo puede superar los límites admitidos e impedir el crecimiento de los datos o evitar cambios de nivel de rendimiento, y requieren la reducción de los archivos de datos para mitigar esta circunstancia.
+Hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan.  Esto puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos.  Esto se debe a que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.  En tales escenarios, el espacio asignado para una base de datos o un grupo puede superar los límites admitidos e impedir el crecimiento de los datos o evitar cambios de nivel de servicio y de tamaño de proceso, y requieren la reducción de los archivos de datos para mitigar esta circunstancia.
 
 El servicio SQL DB no reduce automáticamente los archivos de datos para reclamar el espacio asignado sin usar debido a las posibles repercusiones en el rendimiento de la base de datos.  Sin embargo, los clientes pueden reducir los archivos de datos a través de un autoservicio en el momento que estimen oportuno siguiendo los pasos descritos en [Reclamación del espacio asignado sin usar](#reclaim-unused-allocated-space). 
 

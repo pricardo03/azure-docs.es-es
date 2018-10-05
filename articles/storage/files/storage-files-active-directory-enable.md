@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: 31bfcd99e23cc7fe0575a293e3dc22507dbd9e13
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8ad5a509b4fd4b6fd59212ac0df17f98f417fd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973276"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222444"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)
 
@@ -103,8 +103,6 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 **CLI**
-
-"Primero debe agregar la extensión de almacenamiento de la versión preliminar y, después, seguir el ejemplo a continuación. Reemplace los valores del marcador de posición por los suyos propios. Consulte este artículo para obtener más información acerca de cómo agregar extensiones de la CLI de Azure."
 
 Para habilitar la autenticación de Azure AD a través de SMB desde la CLI de Azure 2.0, instale primero la extensión *storage-preview*:
 
@@ -274,7 +272,7 @@ Después, use el comando siguiente para montar el recurso compartido de archivos
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
-Ahora ha habilitado correctamente la autenticación de Azure AD a través de SMB y ha asignado un rol personalizado que proporciona acceso a un recurso compartido de archivos a una identidad de Azure AD. Para conceder acceso a su recurso compartido de archivos a usuarios adicionales, siga las instrucciones proporcionadas en el paso 2.
+Ahora ha habilitado correctamente la autenticación de Azure AD a través de SMB y ha asignado un rol personalizado que proporciona acceso a un recurso compartido de archivos a una identidad de Azure AD. Para conceder acceso a su recurso compartido de archivos a usuarios adicionales, siga las instrucciones proporcionadas en los pasos 2 y 3.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,46 +1,68 @@
 ---
-title: Guía de inicio rápido de Computer Vision API para Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision con Java en Cognitive Services.
+title: 'Guía de inicio rápido: Generación de una miniatura - REST, Java - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 8907b104cacfbcce53f6e490e348f108580d84a3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8627a3b2e5f0a1e250401bdddc1870381979dca8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772424"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225921"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-java"></a>Guía de inicio rápido: Generación de una miniatura (REST, Java)
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API REST y Java en Computer Vision
 
-En esta guía de inicio rápido, generará una miniatura de una imagen con Computer Vision.
+En esta guía de inicio rápido, generará una miniatura de una imagen mediante la API REST de Computer Vision. Con el método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener instalados la plataforma de [Java&trade;, y el kit de desarrollo de edición estándar 7 u 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 u 8).
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Solicitud Get Thumbnail
+## <a name="create-and-run-the-sample-application"></a>Creación y ejecución de la aplicación de ejemplo
 
-Con el método [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-Para ejecutar el ejemplo, siga estos pasos:
+1. Cree un nuevo proyecto de Java en su IDE o editor favorito. Si la opción está disponible, cree el proyecto de Java desde una plantilla de aplicación de línea de comandos.
+1. Importe las bibliotecas siguientes en el proyecto de Java. Si usa a Maven, se proporcionan las coordenadas de Maven para cada biblioteca.
+   - [Cliente HTTP de Apache](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
+   - [Núcleo del cliente HTTP de Apache](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
+   - [Biblioteca JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+1. Agregue las siguientes instrucciones `import` al archivo que contiene la clase pública `Main` para el proyecto.  
 
-1. Cree una aplicación de línea de comandos.
-1. Reemplace la clase Main por el código siguiente (mantenga las instrucciones `package`).
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `uriBase` por la ubicación donde obtuvo las claves de suscripción.
-1. Tiene la opción de cambiar el valor `imageToAnalyze` por otra imagen.
-1. Descargue estas bibliotecas del repositorio de Maven en el directorio `lib` del proyecto:
-   * `org.apache.httpcomponents:httpclient:4.5.5`
-   * `org.apache.httpcomponents:httpcore:4.4.9`
-   * `org.json:json:20180130`
-1. Ejecute "Main".
+   ```java
+   import java.awt.*;
+   import javax.swing.*;
+   import java.net.URI;
+   import java.io.InputStream;
+   import javax.imageio.ImageIO;
+   import java.awt.image.BufferedImage;
+   import org.apache.http.HttpEntity;
+   import org.apache.http.HttpResponse;
+   import org.apache.http.client.methods.HttpPost;
+   import org.apache.http.entity.StringEntity;
+   import org.apache.http.client.utils.URIBuilder;
+   import org.apache.http.impl.client.CloseableHttpClient;
+   import org.apache.http.impl.client.HttpClientBuilder;
+   import org.apache.http.util.EntityUtils;
+   import org.json.JSONObject;
+   ```
+
+1. Reemplace la clase pública `Main` por el código siguiente y, a continuación, realice los cambios siguientes en el código cuando sea necesario:
+   1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
+   1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+   1. También puede reemplazar el valor de `imageToAnalyze` por la dirección URL de una imagen diferente para la que desea generar una miniatura.
+1. Guárdela y compile el proyecto de Java.
+1. Si usa un IDE, ejecute `Main`. En caso contrario, abra una ventana del símbolo del sistema y, a continuación, utilice el comando `java` para ejecutar la clase compilada. Por ejemplo, `java Main`.
 
 ```java
 // This sample uses the following libraries:
@@ -48,22 +70,6 @@ Para ejecutar el ejemplo, siga estos pasos:
 //  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
 //  - JSON library (org.json:json:20180130).
 
-import java.awt.*;
-import javax.swing.*;
-import java.net.URI;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 
 public class Main {
     // **********************************************
@@ -73,12 +79,14 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // You must use the same region in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URI below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
     //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     private static final String uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail";
 
@@ -96,7 +104,7 @@ public class Main {
             uriBuilder.setParameter("height", "150");
             uriBuilder.setParameter("smartCropping", "true");
 
-            // Prepare the URI for the REST API call.
+            // Prepare the URI for the REST API method.
             URI uri = uriBuilder.build();
             HttpPost request = new HttpPost(uri);
 
@@ -109,7 +117,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Make the REST API call and get the response entity.
+            // Call the REST API method and get the response entity.
             HttpResponse response = httpClient.execute(request);
             HttpEntity entity = response.getEntity();
 
@@ -154,32 +162,17 @@ public class Main {
 }
 ```
 
-## <a name="get-thumbnail-response"></a>Respuesta de Get Thumbnail
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Una respuesta correcta contiene el binario de la imagen en miniatura. Si se produce un error en la solicitud, la respuesta contiene un código de error y un mensaje para ayudar a determinar qué salió mal. El siguiente texto es un ejemplo de una respuesta correcta.
+Se devuelve una respuesta correcta como datos binarios, que representan los datos de imagen para la miniatura. Si la solicitud se realiza correctamente, la miniatura se genera a partir de los datos binarios de la respuesta y se muestra en una ventana independiente creada por la aplicación de ejemplo. Si se produce un error en la solicitud, la respuesta se muestra en la ventana de consola. La respuesta de la solicitud con error contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
 
-```text
-Response:
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
-StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
-{
-  Pragma: no-cache
-  apim-request-id: 131eb5b4-5807-466d-9656-4c1ef0a64c9b
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  x-content-type-options: nosniff
-  Cache-Control: no-cache
-  Date: Tue, 06 Jun 2017 20:54:07 GMT
-  X-AspNet-Version: 4.0.30319
-  X-Powered-By: ASP.NET
-  Content-Length: 5800
-  Content-Type: image/jpeg
-  Expires: -1
-}
-```
+Cuando ya no lo necesite, elimine el proyecto de Java, incluidas las bibliotecas importadas y de clase compilada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore una aplicación de Java Swing que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore una aplicación de Java Swing que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Java Tutorial](../Tutorials/java-tutorial.md) (Tutorial de Computer Vision API para Java)

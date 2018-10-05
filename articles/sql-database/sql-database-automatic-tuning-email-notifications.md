@@ -1,21 +1,23 @@
 ---
 title: 'Guía de procedimientos sobre las notificaciones por correo electrónico del ajuste automático: Azure SQL Database | Microsoft Docs'
-description: Azure SQL Database analiza una consulta SQL y se adapta automáticamente a la carga de trabajo del usuario.
+description: Habilite las notificaciones por correo electrónico para la optimización automática de consultas de Azure SQL Database.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/05/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 643740ea76769f857e8c99ebaa6d27eceed99067
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644338"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064108"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificaciones por correo electrónico para el ajuste automático
 
@@ -205,12 +207,12 @@ En el siguiente paso, debe agregar tres trabajos (crear, obtener salida y enviar
 1. Cree una acción para ejecutar el script de PowerShell para recuperar las recomendaciones de ajuste.
 - Seleccione "**+ Nuevo paso**", seguido de "**Agregar una acción**" dentro del panel de flujo Periodicidad.
 - En el campo de búsqueda, escriba "**automation**" y seleccione "**Azure Automation – Create job**" (Azure Automation - Crear un trabajo) en los resultados de la búsqueda.
-- En el panel de trabajo Crear, configure las propiedades del trabajo. En esta configuración, necesitará los detalles del identificador de la suscripción de Azure, el grupo de recursos y la cuenta de automatización que se **registraron anteriormente** en el **panel Cuenta de automatización**. Para obtener más información acerca de las opciones disponibles en esta sección, consulte [Azure Automation – Create job](https://docs.microsoft.com/connectors/azureautomation/#Create_job) (Azure Automation - Crear un trabajo).
+- En el panel de trabajo Crear, configure las propiedades del trabajo. En esta configuración, necesitará los detalles del identificador de la suscripción de Azure, el grupo de recursos y la cuenta de automatización que se **registraron anteriormente** en el **panel Cuenta de automatización**. Para obtener más información acerca de las opciones disponibles en esta sección, consulte [Azure Automation – Create job](https://docs.microsoft.com/connectors/azureautomation/#create-job) (Azure Automation - Crear un trabajo).
 - Para completar la creación de esta acción, haga clic en "**Guardar flujo**".
 
 2. Crear una acción para recuperar la salida del script de PowerShell ejecutado.
 - Seleccione "**+ Nuevo paso**", seguido de "**Agregar una acción**" dentro del panel de flujo Periodicidad.
-- En el campo de búsqueda, escriba "**automation**" y seleccione "**Azure Automation – Get job output**" (Azure Automation - Obtener la salida de trabajo) en los resultados de la búsqueda. Para obtener más información acerca de las opciones disponibles en esta sección, consulte [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output)" (Azure Automation - Obtener la salida de trabajo).
+- En el campo de búsqueda, escriba "**automation**" y seleccione "**Azure Automation – Get job output**" (Azure Automation - Obtener la salida de trabajo) en los resultados de la búsqueda. Para obtener más información acerca de las opciones disponibles en esta sección, consulte [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)" (Azure Automation - Obtener la salida de trabajo).
 - Rellene los campos obligatorios (como cuando creó el trabajo anterior): rellene su identificador de suscripción de Azure, el grupo de recursos y la cuenta de automatización (tal y como se indicó en el panel de la cuenta de automatización).
 - Haga clic en el campo "**Id. de trabajo**" para que se muestre el menú "**Contenido dinámico**". En este menú, seleccione la opción "**Id. de trabajo**".
 - Para completar la creación de esta acción, haga clic en "**Guardar flujo**".

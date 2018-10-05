@@ -1,26 +1,27 @@
 ---
-title: 'Azure Content Moderator: Flujos de trabajo de moderación de contenido de la consola de API | Microsoft Docs'
+title: 'Flujos de trabajo de moderación de contenido de la consola de API: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Aprenda a usar flujos de trabajo de moderación de contenido de la consola de API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: 700b2bea5e902141659266a94d61ceb810c1b802
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380274"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223857"
 ---
 # <a name="workflows-from-the-api-console"></a>Flujos de trabajo de la consola de API
 
 Use las [operaciones de flujo de trabajo](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) en Azure Content Moderator para crear o actualizar un flujo de trabajo u obtener detalles de un flujo de trabajo mediante Review API. Puede definir expresiones simples, complejas e incluso anidadas para los flujos de trabajo mediante esta API. Los flujos de trabajo aparecen en la herramienta de revisión para que su equipo los use. Los flujos de trabajo también se utilizan en las operaciones de trabajo de Review API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Vaya a la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/). Suscríbase, si aún no lo ha hecho. 
 2. En la herramienta de revisión, en **Configuración**, seleccione la pestaña **Flujos de trabajo** tal y como se indica en el [tutorial sobre flujos de trabajo](Review-Tool-User-Guide/Workflows.md) de la herramienta de revisión.

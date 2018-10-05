@@ -2,23 +2,26 @@
 title: Importación de un archivo BACPAC para crear una base de datos de Azure SQL | Microsoft Docs
 description: Cree una base de datos de Azure SQL Database nueva mediante la importación de archivo BACPAC.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 04/10/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: d22c9a05d1fe56d71eb901c0a4bf22c179dfe937
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 9de7fe9972f1ae0fca1c4e527f718b31fddf4294
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646922"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161546"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importación de un archivo BACPAC en una base de datos de Azure SQL Database
 
-Cuando sea preciso importar una base de datos de un archivo o al realizar una migración desde otra plataforma, el esquema y los datos de la base de datos y los datos se pueden importar desde un archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Un archivo BACPAC es un archivo ZIP con una extensión de BACPAC que contiene los metadatos y los datos de una base de datos de SQL Server. Los archivos BACPAC se pueden importar de Azure Blob Storage (solo almacenamiento estándar) o del almacenamiento local en una ubicación local. Para maximizar la velocidad de importación, es aconsejable especificar un nivel de rendimiento y una capa de servicio superiores, como un P6 y, después escalarlos hacia abajo tanto como sea apropiado cuando la importación se haya realizado correctamente. Además, el nivel de compatibilidad de la base de datos después de la importación se basa en el nivel de compatibilidad de la base de datos de origen. 
+Cuando sea preciso importar una base de datos de un archivo o al realizar una migración desde otra plataforma, el esquema y los datos de la base de datos y los datos se pueden importar desde un archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Un archivo BACPAC es un archivo ZIP con una extensión de BACPAC que contiene los metadatos y los datos de una base de datos de SQL Server. Los archivos BACPAC se pueden importar de Azure Blob Storage (solo almacenamiento estándar) o del almacenamiento local en una ubicación local. Para maximizar la velocidad de importación, es aconsejable especificar un nivel de servicio y un tamaño de proceso más altos, como un P6, y después escalarlos hacia abajo tanto como sea apropiado cuando la importación se haya realizado correctamente. Además, el nivel de compatibilidad de la base de datos después de la importación se basa en el nivel de compatibilidad de la base de datos de origen. 
 
 > [!IMPORTANT] 
 > Después de migrar la base de datos a Azure SQL Database, puede elegir utilizar la base de datos en su nivel de compatibilidad actual (nivel 100 para la base de datos AdventureWorks2008R2) o en un nivel superior. Para más información acerca de las implicaciones y las opciones para la utilización de una base de datos en un nivel de compatibilidad específico, consulte [ALTER DATABASE (Transact-SQL) Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) [Nivel de compatibilidad de ALTER DATABASE (Transact-SQL)]. Vea también [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) para obtener información sobre los valores de nivel de base de datos adicionales relacionados con los niveles de compatibilidad.   >
@@ -27,7 +30,7 @@ Cuando sea preciso importar una base de datos de un archivo o al realizar una mi
 
 En este artículo encontrará instrucciones para crear una base de datos de Azure SQL Database a partir de un archivo BACPAC almacenado en Azure Blob Storage mediante [Azure Portal](https://portal.azure.com). La importación mediante Azure Portal solo admite la importación de un archivo BACPAC desde Azure Blob Storage.
 
-Para importar una base de datos mediante Azure Portal, abra la página del servidor para asociar la base de datos y, después, haga clic en **Importar** en la barra de herramientas. Especifique la cuenta de almacenamiento y el contenedor, y seleccione el archivo BACPAC que desea importar. Seleccione el tamaño de la nueva base de datos (normalmente el mismo que el origen) y proporcione las credenciales del servidor SQL Server de destino.  
+Para importar una base de datos mediante Azure Portal, abra la página del servidor (no la de la base de datos) para asociar la base de datos y, después, haga clic en **Importar** en la barra de herramientas. Especifique la cuenta de almacenamiento y el contenedor, y seleccione el archivo BACPAC que desea importar. Seleccione el tamaño de la nueva base de datos (normalmente el mismo que el origen) y proporcione las credenciales del servidor SQL Server de destino.  
 
    ![Importación de base de datos](./media/sql-database-import/import.png)
 
@@ -104,7 +107,7 @@ $importStatus
 Para ver otro ejemplo de script, consulte [Importación de una base de datos desde un archivo BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Limitaciones
-- No se pueden importar datos en una base de datos que esté en un grupo elástico. Sin embargo, puede importar los datos en una base de datos singleton y después mover la base de datos a un grupo.
+- No se pueden importar datos en una base de datos que esté en un grupo elástico. Puede importar los datos en una base de datos única y después moverla a un grupo.
 
 ## <a name="import-using-other-methods"></a>Importación mediante otros métodos
 

@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929822"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404315"
 ---
-# <a name="shipping-an-application"></a>Envío de una aplicación
+# <a name="ship-an-application"></a>Distribuir una aplicación
 
-Tenga en cuenta la [licencia del SDK de Voz](license.md), así como los [avisos de software de terceros](third-party-notices.md) al distribuir el SDK de Voz de Cognitive Services. Además revise la [Declaración de privacidad de Microsoft](https://aka.ms/csspeech/privacy).
+Respete la [licencia de Speech SDK](https://aka.ms/csspeech/license201809), así como los [avisos de software de terceros](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html), cuando distribuya Speech SDK de Azure Cognitive Services. Además revise la [Declaración de privacidad de Microsoft](https://aka.ms/csspeech/privacy).
 
 En función de la plataforma, existen otras dependencias para ejecutar la aplicación.
 
@@ -33,19 +33,19 @@ El SDK de Voz de Cognitive Services requiere [Microsoft Visual C++ Redistributab
 
 Si en la aplicación se usa código administrado, se necesita `.NET Framework 4.6.1` o una versión posterior en el equipo de destino.
 
-Para la entrada de micrófono, se deben instalar las bibliotecas de Media Foundation. Estas bibliotecas forman parte de Windows 10 y Windows Server 2016. Es posible usar el SDK de Voz sin estas bibliotecas, siempre y cuando no se use el micrófono como dispositivo de entrada de audio.
+Para la entrada de micrófono, las bibliotecas de Media Foundation deben estar instaladas. Estas bibliotecas forman parte de Windows 10 y Windows Server 2016. Es posible usar Speech SDK sin estas bibliotecas, siempre y cuando no se use un micrófono como dispositivo de entrada de audio.
 
 Los archivos necesarios del SDK de Voz se pueden implementar en el mismo directorio que la aplicación. De esta forma la aplicación puede acceder directamente a las bibliotecas. Asegúrese de seleccionar la versión correcta (Win32/x64) que coincida con la aplicación.
 
 | NOMBRE | Función
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK básico, necesario para la implementación nativa y administrada
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Necesaria para la implementación administrada
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | Necesaria para la implementación administrada
+| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Necesario para la implementación administrada
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | Necesario para la implementación administrada
 
 ## <a name="linux"></a>Linux
 
-Para una aplicación nativa, se debe suministrar la biblioteca del SDK de Voz, `libMicrosoft.CognitiveServices.Speech.core.so`.
+Para una aplicación nativa, se debe distribuir la biblioteca de Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Asegúrese de seleccionar la versión (x86, x64) que coincida con la aplicación. Según la versión de Linux, es posible que también tenga que incluir las dependencias siguientes:
 
 * Las bibliotecas compartidas de la biblioteca GNU C (incluida la biblioteca de programación de subprocesos de POSIX, `libpthreads`)

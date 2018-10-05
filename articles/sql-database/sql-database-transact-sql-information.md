@@ -2,19 +2,22 @@
 title: Resolución de diferencias de T-SQL de migración a Azure SQL Database | Microsoft Docs
 description: Instrucciones de Transact-SQL que no son totalmente compatibles con Azure SQL Database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: e89c863ac50a8b906b388c505f444cd60fdbaad3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649081"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160714"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database   
 Cuando se [migra la base de datos](sql-database-cloud-migrate.md) de SQL Server a Azure SQL Server, es posible que descubra que la base de datos requiere cierta reingeniería antes de que se pueda migrar el servidor SQL Server. En este artículo se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. Para detectar incompatibilidades, utilice el [Asistente para migración de datos (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -49,7 +52,7 @@ Además de las instrucciones de Transact-SQL relacionadas con las funciones no a
 - Alta disponibilidad: sintaxis relacionada con la alta disponibilidad que se administra mediante la cuenta de Microsoft Azure. Esto incluye la sintaxis de las copias de seguridad, restauración, Siempre activado, creación de reflejos de las bases de datos, trasvase de registros, modos de recuperación.
 - Registro del LOG: sintaxis que se basa en el registro del LOG, que no está disponible en SQL Database: replicación de inserción y captura de datos modificados. SQL Database puede estar suscrito a un artículo de replicación de inserción.
 - Funciones: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- Hardware: sintaxis relacionada con la configuración del servidor relativa al hardware: memoria, subprocesos de trabajo, afinidad de CPU, marcas de seguimiento. Usar en su lugar niveles de servicio.
+- Hardware: sintaxis relacionada con la configuración del servidor relativa al hardware: memoria, subprocesos de trabajo, afinidad de CPU, marcas de seguimiento. Use niveles de servicio y tamaños de proceso en su lugar.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` y nombres de cuatro partes
 - .NET Framework: integración de CLR con SQL Server

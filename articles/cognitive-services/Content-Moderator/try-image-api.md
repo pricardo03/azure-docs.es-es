@@ -1,27 +1,28 @@
 ---
-title: Moderación de imágenes con Azure Content Moderator | Microsoft Docs
+title: 'Moderación de imágenes con la consola de API: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Pruebe la moderación de imágenes en la consola de API de Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: fec54826c70ae10e56c68406f629c56639985295
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a88eb1e0fc91fb47a95c8b1fea84cfac32674266
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380198"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224982"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderación de imágenes desde la consola de API
 
 Use [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) de Azure Content Moderator para iniciar flujos de trabajo de moderación de examen y revisión de contenido de imágenes. El trabajo de moderación examina el contenido en busca de palabras soeces y también lo compara con listas negras compartidas y personalizadas.
 
 ## <a name="use-the-api-console"></a>Uso de la consola de API
-Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Settings** (Configuración), en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
+Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración**, en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
 
 1.  Vaya a la [referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 

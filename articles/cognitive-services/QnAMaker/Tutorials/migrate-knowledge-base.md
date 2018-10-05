@@ -1,28 +1,28 @@
 ---
-title: 'Cómo importar una base de conocimiento: Microsoft Cognitive Services | Microsoft Docs'
-titleSuffix: Azure
+title: 'Migrar bases de conocimiento de versión preliminar: Qna Maker'
+titleSuffix: Azure Cognitive Services
 description: Cómo importar una base de conocimiento
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383162"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031635"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar una base de conocimiento mediante la exportación e importación
 QnA Maker anunció la disponibilidad general el 7 de mayo de 2018, en la conferencia \\\build\. QnA Maker GA tiene una nueva arquitectura basada en Azure. Las bases de conocimiento que se crean con la versión preliminar gratuita de QnA Maker se tienen que migrar a QnA Maker GA (disponibilidad general). QnA Maker Preview quedará en desuso en noviembre de 2018. Para obtener más información sobre los cambios en QnA Maker GA, vea la [entrada de blog](https://aka.ms/qnamakerga-blog) del anuncio de QnA Maker GA.
 
 QnA Maker ahora tiene un [modelo de precios](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
 
-requisitos previos
+Requisitos previos
 > [!div class="checklist"]
 > * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 > * Configure un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md) nuevo.

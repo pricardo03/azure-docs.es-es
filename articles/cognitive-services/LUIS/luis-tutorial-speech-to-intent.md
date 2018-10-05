@@ -1,26 +1,24 @@
 ---
-title: Uso del SDK de C# de Voz con LUIS - Azure | Microsoft Docs
-titleSuffix: Azure
-description: Utilice el ejemplo del SDK de C# de Voz para hablar al micrófono y obtener la devolución de predicciones de intenciones y de entidades de LUIS.
+title: Uso del SDK de C# de Speech con LUIS
+titleSuffix: Azure Cognitive Services
+description: Speech Service le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete NuGet de Voz, que ya se incluye como referencia.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124403"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042081"
 ---
 # <a name="integrate-speech-service"></a>Integración de Speech Service
-[Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS.
-
-En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, que ya se incluye como referencia. 
+[Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, que ya se incluye como referencia. 
 
 En este artículo, necesita una cuenta de sitio web de [LUIS][LUIS] gratuita para importar la aplicación.
 
@@ -32,12 +30,13 @@ Las intenciones y expresiones de este artículo proceden de la aplicación Human
 
 Esta aplicación tiene intenciones, entidades y expresiones relacionadas con el dominio de Human Resources. Las expresiones de ejemplo incluyen:
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|Expresiones de ejemplo|
+|--|
+|¿Quién es el administrador de John Smith?|
+|¿A quién administra John Smith?|
+|¿Dónde está el formulario 123456?|
+|¿Tengo algún permiso remunerado?|
+
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Incorporación de entidad pregenerada KeyPhrase
 Después de importar la aplicación, seleccione **Entidades** y luego **Manage prebuilt entities** (Administrar entidades pregeneradas). Agregue la entidad **KeyPhrase**. La entidad KeyPhrase extrae el tema principal de la expresión.
@@ -45,19 +44,18 @@ Después de importar la aplicación, seleccione **Entidades** y luego **Manage p
 ## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
 1. En la barra de navegación superior derecha, seleccione el botón **Entrenar** para entrenar la aplicación de LUIS.
 
-2. Seleccione **Publicar** para ir a la página de publicación. 
+2. Seleccione **Administrar** en la barra de la parte superior derecha y, a continuación, seleccione **Claves y puntos de conexión** en el panel de navegación de la izquierda. 
 
-3. En la parte inferior de la página **Publicar**, agregue la clave de LUIS creada en la sección [Creación de clave de punto de conexión de LUIS](#create-luis-endpoint-key).
+3. En la página **Claves y puntos finales**, asigne la clave de LUIS creada en la sección [Creación de clave de punto de conexión de LUIS](#create-luis-endpoint-key).
 
-4. Publique la aplicación de LUIS seleccionando el botón **Publicar** que se encuentra a la derecha del espacio Publicar. 
-
-  En la página **Publicar**, recopile el identificador de aplicación, la región de publicación y el identificador de suscripción de la clave de LUIS creada en la sección [Creación de clave de punto de conexión de LUIS](#create-luis-endpoint-key). Debe modificar el código para utilizar estos valores posteriormente en este artículo. 
-
-  Estos valores están todos incluidos en la dirección URL del punto de conexión en la parte inferior de la página **Publicar** para la clave que creó. 
+  En esta página, recopile el identificador de aplicación, la región de publicación y el identificador de suscripción de la clave de LUIS creada en la sección [Creación de clave de punto de conexión de LUIS](#create-luis-endpoint-key). Debe modificar el código para utilizar estos valores posteriormente en este artículo. 
   
   **No** utilice la clave de inicio gratuita para este ejercicio. Solo funcionará en este ejercicio una clave de **Language Understanding** creada en Azure Portal. 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+
+
+4. Publique la aplicación de LUIS seleccionando el botón **Publicar** que se encuentra en la barra superior derecha. 
 
 ## <a name="audio-device"></a>Dispositivo de audio
 En este artículo se usa el dispositivo de audio en el equipo. Pueden ser unos auriculares con micrófono o un dispositivo de audio integrado. Compruebe los niveles de entrada de audio para ver si debería hablar más alto de lo que lo hace normalmente para que el dispositivo de audio pueda detectar su voz. 

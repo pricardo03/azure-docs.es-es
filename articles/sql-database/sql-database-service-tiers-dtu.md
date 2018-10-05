@@ -1,24 +1,27 @@
 ---
 title: 'Niveles de servicio de Azure SQL Database: DTU | Microsoft Docs'
-description: Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar niveles de rendimiento y tamaños de almacenamiento.
+description: Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar los tamaños de proceso y de almacenamiento.
 services: sql-database
-author: sachinpMSFT
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
 manager: craigg
-ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 09/14/2018
+ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144453"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162379"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Elección de un nivel de servicio basado en DTU, nivel de rendimiento y recursos de almacenamiento 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Elección de un nivel de servicio basado en DTU, tamaño de proceso y recursos de almacenamiento 
 
-Los niveles de servicio se diferencian por una variedad de niveles de rendimiento con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio proporcionan la flexibilidad de cambiar los niveles de rendimiento sin tiempo de inactividad. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el nivel de rendimiento.
+Los niveles de servicio se diferencian por una variedad de tamaños de proceso con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio proporcionan la flexibilidad de cambiar los tamaños de proceso sin tiempo de inactividad. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el tamaño de proceso.
 
 > [!IMPORTANT]
 > Instancia administrada de Azure SQL Database, actualmente en versión preliminar pública, no admite un modelo de compra basado en DTU. Para más información, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). 
@@ -40,7 +43,7 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Límites de DTU de una sola base de datos y almacenamiento
 
-Los niveles de rendimiento se expresan como unidades de transmisión de datos (DTU) para las bases de datos únicas y como unidades de transmisión de datos elásticas (eDTU) para los grupos de bases de datos elásticas. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)
+Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)
 
 ||Básica|Estándar|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +76,7 @@ Los niveles de rendimiento se expresan como unidades de transmisión de datos (D
 Las características físicas (CPU, memoria, E/S) asociadas a cada medida de DTU se calibran con una prueba comparativa que simula la carga de trabajo de base de datos real.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlación de los resultados de la prueba comparativa con el rendimiento real de la base de datos
-Es importante comprender que todas las pruebas comparativas solo son representativas e indicativas. Las velocidades de transacción logradas con la aplicación de la prueba comparativa no serán iguales que las que se podrían lograr con otras aplicaciones. La prueba comparativa comprende un conjunto de diferentes tipos de transacción ejecutados en un esquema que contiene una variedad de tipos de datos y tablas. Si bien la prueba comparativa ejerce las mismas operaciones básicas que son comunes para todas las cargas de trabajo OLTP, no representa ninguna clase específica de base de datos o aplicación. El objetivo de la prueba comparativa es proporcionar una orientación razonable del rendimiento relativo de una base de datos que se puede esperar al aumentar o reducir el nivel de rendimiento. En realidad, las bases de datos son de distintos tamaños y complejidad, tienen distintas combinaciones de cargas de trabajo y responden de maneras diferentes. Por ejemplo, una aplicación que haga un uso intensivo de ES podría alcanzar antes el umbral de ES, o una que haga un uso intensivo de la CPU podría alcanzar antes los límites de CPU. No se garantiza que una base de datos concreta se escale de la misma manera que la prueba comparativa bajo una carga creciente.
+Es importante comprender que todas las pruebas comparativas solo son representativas e indicativas. Las velocidades de transacción logradas con la aplicación de la prueba comparativa no serán iguales que las que se podrían lograr con otras aplicaciones. La prueba comparativa comprende un conjunto de diferentes tipos de transacción ejecutados en un esquema que contiene una variedad de tipos de datos y tablas. Si bien la prueba comparativa ejerce las mismas operaciones básicas que son comunes para todas las cargas de trabajo OLTP, no representa ninguna clase específica de base de datos o aplicación. El objetivo de la prueba comparativa es proporcionar una orientación razonable del rendimiento relativo de una base de datos que se puede esperar al aumentar o reducir el tamaño de proceso. En realidad, las bases de datos son de distintos tamaños y complejidad, tienen distintas combinaciones de cargas de trabajo y responden de maneras diferentes. Por ejemplo, una aplicación que haga un uso intensivo de ES podría alcanzar antes el umbral de ES, o una que haga un uso intensivo de la CPU podría alcanzar antes los límites de CPU. No se garantiza que una base de datos concreta se escale de la misma manera que la prueba comparativa bajo una carga creciente.
 
 La prueba comparativa y su metodología se describen a continuación de forma más detallada.
 
@@ -155,5 +158,5 @@ Las métricas clave de la prueba comparativa son rendimiento y tiempo de respues
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre niveles de rendimiento y opciones de tamaño de almacenamiento específicos disponibles para bases de datos únicas, consulte [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels) (Límites de recursos basados en DTU de SQL Database para bases de datos únicas).
-- Para más información sobre niveles de rendimiento y opciones de tamaño de almacenamiento específicos disponibles para grupos elásticos, consulte [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels) (Límites de recursos basados en DTU de SQL Database).
+- Para más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes) (Límites de recursos basados en DTU de SQL Database para bases de datos únicas).
+- Para más información sobre las opciones de tamaño de almacenamiento y tamaños de proceso específicas que hay disponibles para los grupos elásticos, consulte [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes) (Límites de recursos basados en DTU de SQL Database).

@@ -1,27 +1,28 @@
 ---
-title: 'Límites de QnA Maker: Azure Cognitive Services | Microsoft Docs'
-description: Límites de QnA Maker
+title: 'Límites: QnA Maker'
+titleSuffix: Azure Cognitive Services
+description: Lista completa de los límites de QnA Maker.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 93471faab9aac94616c770cbee21fb0364f73639
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501894"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162328"
 ---
 # <a name="qna-maker-limits"></a>Límites de QnA Maker
 Lista completa de los límites de QnA Maker.
 
 ## <a name="knowledge-bases"></a>Bases de conocimiento
 
-* Número máximo de bases de conocimiento en función de los [límites de plan de Azure Search](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Número máximo de bases de conocimiento en función de los [límites de plan de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Plan de Azure Search** | **Gratis** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,7 +33,7 @@ Lista completa de los límites de QnA Maker.
 * Número máximo de vínculos profundos que se pueden rastrear para la extracción de QnA desde las páginas HTML de preguntas más frecuentes: 20
 
 ## <a name="metadata-limits"></a>Límites de metadatos
-* Número máximo de campos de metadatos por base de conocimiento en función de los [límites de plan de Azure Search](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Número máximo de campos de metadatos por base de conocimiento en función de los [límites de plan de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Plan de Azure Search** | **Gratis** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|

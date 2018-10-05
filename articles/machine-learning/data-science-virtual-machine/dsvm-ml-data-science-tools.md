@@ -15,17 +15,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409557"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392410"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Herramientas de aprendizaje automático y ciencia de datos
 Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia. 
 
 A continuación se muestran algunas de las herramientas de aprendizaje automático y bibliotecas de DSVM. 
+
+## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>SDK del [servicio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)
+|    |           |
+| ------------- | ------------- |
+| ¿Qué es?   |   El servicio Azure Machine Learning es un servicio en la nube que puede usar para desarrollar e implementar modelos de aprendizaje automático.  Puede realizar un seguimiento de los modelos mientras los compila, entrena, escala y administra mediante el SDK de Python. Implemente modelos como contenedores y ejecútelos en la nube, de forma local o en IoT Edge.   |
+| Ediciones compatibles de DSVM     | Windows (entorno de Conda: AzureML), Linux (entorno de Conda: py36)    |
+| Usos típicos      | Plataforma general de ML      |
+| ¿Cómo se configura/instala en DSVM?      |  Se instala con la compatibilidad de GPU   |
+| ¿Cómo se usa o ejecuta?      | Como el SDK de Python y la herramienta de línea de comandos de Azure (AZ CLI). Active el entorno de Conda `AzureML` en la edición de Windows o `py36` en la edición de Linux.      |
+| Vínculos a ejemplos      | Se incluyen ejemplos de cuadernos de Jupyter en el directorio `AzureML` bajo los cuadernos.  |
+| Herramientas relacionadas en DSVM      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |

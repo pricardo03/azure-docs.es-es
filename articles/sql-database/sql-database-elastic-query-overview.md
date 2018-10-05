@@ -2,19 +2,22 @@
 title: Información general sobre las consultas elásticas de Azure SQL Database | Microsoft Docs
 description: La consulta elástica permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8a7962866b70ae0ec99b8425a365575fbd4e5913
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435781"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164382"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Información general sobre las consultas elásticas de Azure SQL Database (versión preliminar)
 
@@ -28,7 +31,7 @@ Realice consultas entre bases de datos SQL de Azure completamente en T-SQL. Esto
 
 ### <a name="available-on-standard-tier"></a>Disponible en el nivel Estándar
 
-La consulta elástica se admite en los niveles de rendimiento Estándar y Premium. Vea la sección Limitaciones de versión preliminar más adelante, que trata sobre las limitaciones del rendimiento para los niveles de rendimiento inferiores.
+La consulta elástica se admite en los niveles de servicio Estándar y Premium. Consulte más adelante la sección Limitaciones de la versión preliminar, que trata sobre las limitaciones del rendimiento para los niveles de servicio inferiores.
 
 ### <a name="push-parameters-to-remote-databases"></a>Inserción de parámetros en bases de datos remotas
 
@@ -101,7 +104,7 @@ El uso de una consulta elástica para realizar tareas de informes en una capa de
 
 > [!NOTE]
 > La base de datos de consulta elástica (nodo principal) puede ser una independiente o la misma que hospeda el mapa de particiones.
-> Sea cual sea la configuración que elija, asegúrese de que ese servicio y el nivel de rendimiento de esa base de datos es suficientemente alto como para controlar la cantidad de solicitudes de inicio de sesión/consulta esperada.
+> Sea cual sea la configuración que elija, asegúrese de que ese nivel de servicio y el tamaño de proceso de esa base de datos es suficientemente alto como para controlar la cantidad de solicitudes de inicio de sesión/consulta esperada.
 
 Con los siguientes pasos, se configuran consultas de bases de datos elásticas para escenarios de particionamiento horizontal que requieren acceso a un conjunto de tablas ubicadas, por lo general, en varias bases de datos SQL remotas:
 
@@ -133,7 +136,7 @@ La consulta elástica se incluye en el costo de las bases de datos de Azure SQL 
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* Ejecutar una consulta elástica por primera vez puede tardar unos minutos en el nivel de rendimiento Estándar. Esta vez es necesario cargar la funcionalidad de consulta elástica; el rendimiento de carga mejora con niveles superiores de rendimiento.
+* Ejecutar una consulta elástica por primera vez puede tardar unos minutos en el nivel de servicio Estándar. Esta vez es necesario cargar la funcionalidad de consulta elástica; el rendimiento de carga mejora con niveles de servicio y tamaños de proceso más altos.
 * Aún no se admite el scripting de orígenes de datos externos o tablas externas desde SSMS o SSDT.
 * La función Importación/Exportación para bases de datos SQL aún no admite orígenes de datos externos ni tablas externas. Si necesita usar Importación/Exportación, quite estos objetos antes de exportar y después vuelva a crearlos después de importar.
 * Actualmente, la consulta elástica solo es compatible con el acceso de solo lectura a tablas externas. Sin embargo, puede usar toda la funcionalidad de T-SQL en la base de datos donde se define la tabla externa. Esto puede ser útil, por ejemplo, para conservar resultados temporales mediante por ejemplo SELECT <column_list> INTO <local_table>, o para definir procedimientos almacenados en la base de datos de consulta elástica que hacen referencia a tablas externas.

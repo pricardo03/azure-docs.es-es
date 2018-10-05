@@ -1,22 +1,23 @@
 ---
-title: 'Descripción de los procedimientos recomendados de LUIS: Azure | Microsoft Docs'
+title: 'Procedimientos recomendados para compilar aplicaciones con LUIS: Language Understanding'
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre los procedimientos recomendados de LUIS para conseguir los mejores resultados.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 81a2523f37cac926d9f498953a831c2d877a7528
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 511e6c732613cc577644365e38b271135659f2d3
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224014"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042251"
 ---
-# <a name="best-practices"></a>Procedimientos recomendados
+# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS. 
 
 * Compilar el modelo de lenguaje

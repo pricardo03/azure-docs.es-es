@@ -3,7 +3,7 @@ title: 'Tutorial: Uso de Azure Security Center para máquinas virtuales Linux en
 description: En este tutorial, aprenderá sobre las características de Azure Security Center para ayudar a proteger las máquinas virtuales Linux en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/07/2017
-ms.author: iainfou
+ms.date: 06/11/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092618"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Uso de Azure Security Center para supervisar las máquinas virtuales Linux
 
@@ -46,12 +47,13 @@ Security Center no se limita a la detección de datos para proporcionar recomend
 
 ## <a name="set-up-data-collection"></a>Configuración de una recolección de datos
 
-Para poder ver las configuraciones de seguridad de máquinas virtuales, es preciso configurar la recolección de datos de Security Center, lo que implica habilitar la recolección de datos y crear una cuenta de Azure Storage que contenga los datos recopilados. 
+Para poder ver las configuraciones de seguridad de máquinas virtuales, es preciso configurar la recolección de datos de Security Center, Esto implica activar la recopilación de datos que instala automáticamente Microsoft Monitoring Agent en todas las máquinas virtuales en su suscripción.
 
 1. En el panel de Security Center, haga clic en **Directiva de seguridad** y, luego, seleccione su suscripción. 
-2. En **Recopilación de datos**, seleccione **Activado**.
-3. Para crear una cuenta de almacenamiento, seleccione **Elija una cuenta de almacenamiento**. Después, seleccione **Aceptar**.
-4. En la hoja **Directiva de seguridad**, seleccione **Guardar**. 
+2. En **Recopilación de datos**, en **Aprovisionamiento automático**, seleccione **Activado**.
+3. En **Configuración del área de trabajo predeterminada**, deje **Use workspace(s) created by Security center** (predeterminado) (Usar áreas de trabajo creadas por Security Center).
+4. En **Eventos de seguridad**, mantenga la opción predeterminada **Común**.
+4. Haga clic en **Guardar** en la parte superior de la página. 
 
 El agente de recopilación de datos de Security Center se instala en todas las máquinas virtuales y se inicia la recolección de datos. 
 
@@ -59,26 +61,12 @@ El agente de recopilación de datos de Security Center se instala en todas las m
 
 Las directivas de seguridad se utilizan para definir los elementos para los que Security Center recopila datos y hace recomendaciones. Se pueden aplicar diferentes directivas de seguridad a distintos conjuntos de recursos de Azure. Aunque de forma predeterminada los recursos de Azure se evalúan con respecto a todos los elementos de la directiva, es posible desactivar elementos individuales de la directiva tanto para todos los recursos de Azure como para un solo grupo de recursos. Para más información acerca de las directivas de seguridad de Security Center, consulte [Establecimiento de directivas de seguridad en Azure Security Center](../../security-center/security-center-policies.md). 
 
-Para configurar una directiva de seguridad para todos los recursos de Azure, siga estos pasos:
+Para configurar una directiva de seguridad para una suscripción entera:
 
 1. En el panel de Security Center, haga clic en **Directiva de seguridad** y, luego, seleccione su suscripción.
-2. Seleccione **Prevention policy** (Directiva de prevención).
-3. Active o desactive los elementos de la directiva que desea aplicar a todos los recursos de Azure.
-4. Cuando haya terminado de seleccionar la configuración, haga clic en **Aceptar**.
-5. En la hoja **Directiva de seguridad**, seleccione **Guardar**. 
-
-Para configurar una directiva para un grupo de recursos concreto, siga estos pasos:
-
-1. En el panel de Security Center, haga clic en **Directiva de seguridad** y, después, seleccione un grupo de recursos.
-2. Seleccione **Prevention policy** (Directiva de prevención).
-3. Active o desactive los elementos de la directiva que desea aplicar al grupo de recursos.
-4. En **INHERITANCE** (HERENCIA), seleccione **Unique** (Único).
-5. Cuando haya terminado de seleccionar la configuración, haga clic en **Aceptar**.
-6. En la hoja **Directiva de seguridad**, seleccione **Guardar**.  
-
-En esta página también se puede desactivar la recopilación de datos de un grupo de recursos concreto.
-
-En el ejemplo siguiente, se ha creado una directiva única para un grupo de recursos denominado *myResoureGroup*. En esta directiva, se han desactivado las recomendaciones tanto para el cifrado de disco como para el Firewall de aplicaciones web.
+2. En la hoja **Directiva de seguridad**, seleccione **Directiva de seguridad**. 
+3. En la hoja **Directiva de seguridad - Directiva de seguridad**, active o desactive los elementos de la directiva que desee aplicar a la suscripción.
+4. Cuando haya terminado de seleccionar la configuración, seleccione **Aceptar** en la parte superior de la hoja. 
 
 ![Directiva única](./media/tutorial-azure-security/unique-policy.png)
 
@@ -90,12 +78,12 @@ A medida que se recopilan datos, se agrega el estado de los recursos de cada má
 
 Para ver el estado de los recursos, siga estos pasos:
 
-1.  En el panel de Security Center, en **Resource security health** (Estado de seguridad de los recursos), seleccione **Compute**. 
-2.  En la hoja **Compute**, seleccione **Virtual machines** (Máquinas virtuales). Esta vista proporciona un resumen del estado de configuración de todas las máquinas virtuales.
+1.  En el panel de Security Center, en **Prevención**, seleccione **Proceso**. 
+2.  En la hoja **Proceso**, seleccione **VM y equipos**. Esta vista proporciona un resumen del estado de configuración de todas las máquinas virtuales.
 
 ![Estado de Compute](./media/tutorial-azure-security/compute-health.png)
 
-Para ver todas las recomendaciones existentes para una máquina virtual, seleccione la máquina en cuestión. Las recomendaciones y las correcciones se tratan con más detalle en la siguiente sección de este tutorial.
+Para ver todas las recomendaciones existentes para una máquina virtual, seleccione la máquina en cuestión. 
 
 ## <a name="remediate-configuration-issues"></a>Corrección de los problemas de configuración
 
@@ -105,7 +93,7 @@ Para ver una lista de todas las recomendaciones:
 
 1. En el panel de Security Center, seleccione **Recomendaciones**.
 2. Seleccione una recomendación concreta. Aparece una lista de todos los recursos a los que se aplica la recomendación.
-3. Para aplicar una recomendación, seleccione un recurso concreto. 
+3. Para aplicar una recomendación, seleccione el recurso. 
 4. Siga las instrucciones de los pasos de corrección. 
 
 En muchos casos, Security Center proporciona pasos que se pueden dar para poner en práctica recomendación sin salir de Security Center. En el ejemplo siguiente, Security Center detecta un grupo de seguridad de red que tiene una regla de entrada sin restricciones. En la página de la recomendación, puede hacer clic en el botón **Editar reglas de entrada**. Aparecerá la interfaz de usuario necesaria para modificar la regla. 
@@ -118,14 +106,14 @@ A medida que se corrigen las recomendaciones, se marcan como resueltas.
 
 Además de las recomendaciones de configuración de recursos, Security Center muestra alertas de detección de amenazas. La característica de alertas de seguridad agrega los datos recopilados de cada máquina virtual, de los registros de redes de Azure y de las soluciones de asociados conectados para detectar las amenazas de seguridad de los recursos de Azure. Para más información acerca de las funcionalidades de detección de amenazas de Security Center, consulte [Funcionalidades de detección de Azure Security Center](../../security-center/security-center-detection-capabilities.md).
 
-Para poder usar la característica de alertas de seguridad, es preciso aumentar el plan de tarifa de Security Center de *Gratis* a *Estándar*. Al pasar a este plan de tarifa superior, podrá disfrutar de una **evaluación gratuita** de 30 días. 
+Para poder usar la característica de alertas de seguridad, es preciso aumentar el plan de tarifa de Security Center de *Gratis* a *Estándar*. Al pasar a este plan de tarifa superior, podrá disfrutar de una **evaluación gratuita** de 60 días. 
 
 Para cambiar el plan de tarifa:  
 
 1. En el panel de Security Center, haga clic en **Directiva de seguridad** y, luego, seleccione su suscripción.
 2. Seleccione **Plan de tarifa**.
-3. Elija el nuevo plan y haga clic en **Seleccionar**.
-4. En la hoja **Directiva de seguridad**, seleccione **Guardar**. 
+3. Seleccione **Estándar** y, a continuación, haga clic en **Guardar** en la parte superior de la hoja.
+
 
 Cuando haya cambiado el plan de tarifa, el gráfico de alertas de seguridad empezará a llenarse cuando se detecten amenazas de seguridad.
 

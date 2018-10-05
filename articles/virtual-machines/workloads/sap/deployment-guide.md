@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715410"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407933"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -483,7 +483,7 @@ En Azure Portal, especifique los siguientes parámetros para la plantilla:
   * **Admin username** (Nombre de usuario de administrador) y **Admin password** (Contraseña de administrador): nombre de usuario y contraseña.
     Se crea un nuevo usuario para iniciar sesión en la máquina virtual.
   * **New or existing subnet** (Subred nueva o existente): determina si es necesario crear una red virtual y una subred nuevas o si se debe usar una que ya exista. Si ya tiene una red virtual conectada a la red local, seleccione **Existing** (Existente).
-  * **Subnet ID** (Id. de subred): identificador de la subred a la que se conectarán las máquinas virtuales. Seleccione la subred de la red privada virtual (VPN) o de la red virtual de Azure ExpressRoute que se usará para conectar la máquina virtual a la red local. El identificador suele tener este formato: /subscriptions/&lt;id. de suscripción>/resourceGroups/&lt;nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nombre de red virtual>/subnets/&lt;nombre de subred>
+  * **Id. de subred**: si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre a esa subred específica. El identificador suele tener este formato: /subscriptions/&lt;id. de suscripción>/resourceGroups/&lt;nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nombre de red virtual>/subnets/&lt;nombre de subred>
 
 1. **Términos y condiciones**:  
     Lea y acepte los términos legales.
@@ -614,9 +614,7 @@ En Azure Portal, especifique los siguientes parámetros para la plantilla:
 
     Se crea un nuevo usuario para iniciar sesión en la máquina virtual.
   * **New or existing subnet** (Subred nueva o existente): determina si es necesario crear una red virtual y una subred nuevas o si se debe usar una que ya exista. Si ya tiene una red virtual conectada a la red local, seleccione **Existing** (Existente).
-  * **Subnet ID** (Id. de subred): identificador de la subred a la que se conectarán las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de ExpressRoute que se usará para conectar la máquina virtual a la red local. Normalmente, el identificador tiene este aspecto:
-
-    /subscriptions/&lt;id. de suscripción>/resourceGroups/&lt;nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nombre de red virtual>/subnets/&lt;nombre de subred>
+  * **Id. de subred**: si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre a esa subred específica. El identificador suele tener este formato: /subscriptions/&lt;id. de suscripción>/resourceGroups/&lt;nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nombre de red virtual>/subnets/&lt;nombre de subred>
 
 1. **Términos y condiciones**:  
     Lea y acepte los términos legales.
@@ -697,9 +695,7 @@ En Azure Portal, especifique los siguientes parámetros para la plantilla:
   * **OS disk VHD URI** (URI del VHD de disco de SO) (plantilla de disco sin administrar): identificador URI del disco de sistema operativo privado; por ejemplo, https://&lt;nombreDeCuenta&gt;.blob.core.windows.net/vhds/osdisk.vhd.
   * **Id. de Managed Disks del SO** (solo plantilla de Managed Disks): el id. del disco del SO de Managed Disks, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **New or existing subnet** (Subred nueva o existente): determina si es necesario crear una red virtual y una subred nuevas o si se debe usar una que ya exista. Si ya tiene una red virtual conectada a la red local, seleccione **Existing** (Existente).
-  * **Subnet ID** (Id. de subred): identificador de la subred a la que se conectarán las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Azure ExpressRoute que se usará para conectar la máquina virtual a la red local. Normalmente, el identificador tiene este aspecto:
-
-    /subscriptions/&lt;id. de suscripción>/resourceGroups/&lt;nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nombre de red virtual>/subnets/&lt;nombre de subred>
+  * **Id. de subred**: si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre a esa subred específica. El identificador suele tener este formato: /subscriptions/&lt;id. de suscripción>/resourceGroups/&lt;nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nombre de red virtual>/subnets/&lt;nombre de subred>
 
 1. **Términos y condiciones**:  
     Lea y acepte los términos legales.
@@ -923,9 +919,7 @@ La salida del script incluye la información siguiente:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI de Azure para máquinas virtuales de Linux
 Para instalar la extensión de supervisión mejorada de Azure para SAP mediante la CLI de Azure:
 
-1. Instalación mediante la CLI de Azure 1.0
-
-   1. Instale la CLI de Azure 1.0 como se describe en [Instalación de la CLI de Azure 1.0][azure-cli].
+   1. Instale la CLI de Azure clásica como se describe en [Install the Azure classic CLI][azure-cli] (Instalación de la CLI clásica de Azure).
    1. Inicie sesión con su cuenta de Azure:
 
       ```
@@ -1005,6 +999,10 @@ Con esta comprobación, se asegura de que la infraestructura de supervisión de 
   >
 
 Si la extensión de supervisión mejorada de Azure no está instalada, o el servicio AzureEnhancedMonitoring no se está ejecutando, la extensión no se configuró correctamente. Para obtener información detallada sobre cómo implementar la extensión, consulte [Solución de problemas de la infraestructura de supervisión de Azure para SAP][deployment-guide-5.3].
+
+> [!NOTE]
+> Azperflib.exe es un componente que no se puede usar para fines propios. Proporciona datos de supervisión de Azure relacionados con la máquina virtual al agente de host de SAP.
+> 
 
 ##### <a name="check-the-output-of-azperflibexe"></a>Revise la salida del archivo azperflib.exe.
 La salida del archivo azperflib.exe muestra todos los contadores de rendimiento de Azure para SAP rellenados. En la parte inferior de la lista de los contadores recopilados, encontrará un resumen y un indicador que muestra el estado de la supervisión de Azure.
@@ -1099,6 +1097,10 @@ Si parte de los datos de supervisión no se entregan correctamente según lo ind
 
 Asegúrese de que todos los resultados de la comprobación del estado de mantenimiento sean **OK**. Si algunas comprobaciones no muestran **OK**, ejecute el cmdlet de actualización tal y como se describe en [Configuración de la extensión de supervisión mejorada de Azure para SAP][deployment-guide-4.5]. Espere 15 minutos y vuelva a ejecutar las comprobaciones que se describen en [Comprobación de la preparación de la supervisión mejorada de Azure para SAP][deployment-guide-5.1] y [Comprobación del estado de la configuración de la infraestructura de supervisión de Azure][deployment-guide-5.2]. Si las comprobaciones siguen con problemas en algunos contadores o en todos ellos, consulte [Solución de problemas de la infraestructura de supervisión de Azure para SAP][deployment-guide-5.3].
 
+> [!Note]
+> En casos en los que use Azure Managed Disks estándar, puede que experimente algunas advertencias. En lugar de que las pruebas devuelvan "Correcto", se mostrarán advertencias. Esto es normal y se espera en el caso de ese tipo de disco. Consulte también [Solución de problemas de la infraestructura de supervisión de Azure para SAP][deployment-guide-5.3].
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Solución de problemas de la infraestructura de supervisión de Azure para SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] No aparecen contadores de rendimiento de Azure
@@ -1150,6 +1152,23 @@ El directorio \\var\\lib\\waagent\\ no contiene un subdirectorio para la extensi
 
 ###### <a name="solution"></a>Solución
 La extensión no está instalada. Determine si se trata de un problema de proxy (como se describió anteriormente). Puede que tenga que reiniciar la máquina o volver a ejecutar el script de configuración `Set-AzureRmVMAEMExtension`.
+
+##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>La ejecución de Set-AzureRmVMAEMExtension y Test-AzureRmVMAEMExtension muestra mensajes de advertencia que indican que Managed Disks estándar no se admite.
+
+###### <a name="issue"></a>Problema
+Al ejecutar Set-AzureRmVMAEMExtension o Test-AzureRmVMAEMExtension, se muestran mensajes como los siguientes:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+Cuando ejecuta azperfli.exe como se describió anteriormente, puede obtener un resultado que indica un estado incorrecto. 
+
+###### <a name="solution"></a>Solución
+Los mensajes se deben a que el servicio Managed Disks estándar no proporciona las API que usa la extensión de supervisión para comprobar las estadísticas de las cuentas de Azure Storage estándar. Esto no es motivo de preocupación. La razón para introducir la supervisión de cuentas de almacenamiento de discos estándar era limitar las E/S que se producían con frecuencia. Los discos administrados evitan tal limitación al restringir el número de discos en una cuenta de almacenamiento. Por lo tanto, no es esencial tener ese tipo de datos de supervisión.
+
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Faltan algunos contadores de rendimiento de Azure
 Un demonio recopila las métricas de rendimiento en Azure, y obtiene datos de varios orígenes. Algunos datos de configuración se recopilan localmente, y algunas métricas de rendimiento se leen de Diagnósticos de Azure. Los contadores de almacenamiento proceden de los registros en su suscripción de almacenamiento.

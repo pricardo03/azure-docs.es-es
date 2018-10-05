@@ -1,22 +1,23 @@
 ---
-title: Entidades precompiladas de LUIS | Microsoft Docs
-description: Este artículo contiene listas de las entidades precompiladas que se incluyen en Language Understanding Intelligent Services (LUIS).
+title: Entidades precompiladas para Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes de información, como fechas, horas, números, medidas y moneda. La compatibilidad de entidades precompiladas varía según la referencia cultural de la aplicación LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248244"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041564"
 ---
-# <a name="prebuilt-entities"></a>Entidades precompiladas
+# <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades precompiladas para reconocer tipos de datos comunes
 
 LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes de información, como fechas, horas, números, medidas y moneda. La compatibilidad de entidades precompiladas varía según la referencia cultural de la aplicación LUIS. Para ver una lista completa de las entidades precompiladas que LUIS admite, incluso la compatibilidad por referencia cultural, consulte la [referencia de entidades precompiladas](./luis-reference-prebuilt-entities.md).
 
@@ -28,7 +29,6 @@ LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes
 1. Haga clic en la aplicación para abrirla desde la página **Mis aplicaciones** y, después, haga clic en **Entidades** a la izquierda. 
 2. En la página **Entities** (Entidades), haga clic en **Manage prebuilt entities** (Administrar entidades precompiladas).
 
-    ![Página Entities (Entidades): Manage prebuilt entities (Administrar entidades precompiladas)](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. En el cuadro de diálogo **Add prebuilt entities** (Agregar entidades precompiladas), haga clic en la entidad precompilada que desea agregar (por ejemplo, "datetimeV2"). A continuación, haga clic en **Guardar**.
 
     ![Cuadro de diálogo Add prebuilt entity (Agregar entidades precompiladas)](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)

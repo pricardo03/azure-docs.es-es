@@ -1,25 +1,27 @@
 ---
 title: 'Azure Portal: Creación de una base de datos SQL | Microsoft Docs'
 description: Cree un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y una base de datos en Azure Portal y realice consultas en ella.
-keywords: tutorial de sql database, creación de una base de datos sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090537"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165014"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creación de una instancia de Azure SQL Database en Azure Portal
 
-Esta guía de inicio rápido le guía por el proceso de creación de una base de datos SQL en Azure mediante el [método de compra basado en DTU](sql-database-service-tiers-dtu.md). Azure SQL Database es una oferta de "base de datos como servicio" que permite ejecutar y escalar bases de datos de SQL Server de alta disponibilidad en la nube. En esta guía de inicio rápido se muestra cómo comenzar mediante la creación de una base de datos SQL a través de Azure Portal.
+Esta guía de inicio rápido le guía por el proceso de creación de una base de datos SQL en Azure mediante el [método de compra basado en DTU](sql-database-service-tiers-dtu.md). Azure SQL Database es una oferta de "base de datos como servicio" que permite ejecutar y escalar bases de datos de SQL Server de alta disponibilidad en la nube. En este inicio rápido se muestra cómo comenzar mediante la creación y la posterior consulta de una base de datos SQL a través de Azure Portal.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -28,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-sql-database"></a>Creación de una base de datos SQL
 
@@ -96,36 +98,6 @@ Siga estos pasos para crear una base de datos SQL que contenga los datos de ejem
 
      ![notificación](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
-
-El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor, a menos que se cree una regla de firewall para abrir el firewall para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](sql-database-firewall-configure.md) para la dirección IP de su cliente y habilite la conectividad externa a través de dicho firewall solo para su dirección IP.
-
-> [!NOTE]
-> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
->
-
-1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20170824.database.windows.net**) y proporciona opciones para otras configuraciones.
-
-2. Copie este nombre para conectarse a su servidor y a sus bases de datos en las guías de inicio rápido posteriores.
-
-   ![nombre del servidor](./media/sql-database-get-started-portal/server-name.png)
-
-3. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la imagen anterior. Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
-
-   ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
-
-5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
-
-6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
-
-Ahora puede conectarse al servidor de SQL Database y a sus bases de datos mediante SQL Server Management Studio o cualquier otra herramienta que elija desde esta dirección IP usando la cuenta de administrador del servidor creada con anterioridad.
-
-> [!IMPORTANT]
-> De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
->
-
 ## <a name="query-the-sql-database"></a>Consulta a SQL Database
 
 Ahora que ha creado una base de datos de ejemplo en Azure, vamos a usar la herramienta de consulta integrada en Azure Portal para confirmar que puede conectarse a la base de datos y consultar los datos.
@@ -161,7 +133,9 @@ Guarde estos recursos si desea volver a la sección [Pasos siguientes](#next-ste
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ahora que tiene una base de datos, puede [conectarse y realizar consultas](sql-database-connect-query.md) con las herramientas o lenguajes que desee. 
-- Para aprender a diseñar su primera base de datos, crear tablas e insertar datos, consulte uno de estos tutoriales:
- - [Diseño de la primera instancia de Azure SQL Database mediante SSMS](sql-database-design-first-database.md)
-  - [Diseño de una base de datos de Azure SQL Database y conexión con C# y ADO.NET](sql-database-design-first-database-csharp.md)
+- Ahora que tiene una base de datos, debe crear una regla de firewall de nivel de servidor para conectarse a ella desde las herramientas locales. Vea [Create server-level firewall rule](sql-database-get-started-portal-firewall.md) (Crear regla de firewall de nivel de servidor)
+- Si crea una regla de firewall de nivel de servidor, puede [conectarse y consultar](sql-database-connect-query.md) mediante una de sus herramientas preferidas o lenguajes, lo que incluye
+  - [Conectar y consultar con SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Conectar y consultar con Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- Para crear bases de datos mediante la CLI de Azure, vea [Ejemplos de la CLI de Azure](sql-database-cli-samples.md)
+- Para crear bases de datos mediante Azure PowerShell, vea [Ejemplos de Azure PowerShell](sql-database-powershell-samples.md)

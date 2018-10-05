@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ac22ba34bff1d5321c05bc0a0a1b14ca742079a7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051514"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406012"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Preguntas frecuentes sobre la API de uso de Azure Stack
 
@@ -29,7 +28,7 @@ En este artículo se responde a algunas preguntas frecuentes sobre la API de uso
 ## <a name="what-meter-ids-can-i-see"></a>¿Qué identificadores de medidor veo?
 Se informa del uso para los siguientes proveedores de recursos:
 
-**Red**  
+### <a name="network"></a>Red
   
 **Id. del medidor**: F271A8A388C44D93956A063E1D2FA80B  
 **Nombre del medidor**: Uso de la dirección IP estática  
@@ -41,7 +40,7 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Unidad**: Direcciones IP  
 **Notas**: Número de direcciones IP usadas. Si llama a la API de uso con una granularidad diaria, el medidor devuelve la dirección IP multiplicada por el número de horas.  
   
-**Storage**  
+### <a name="storage"></a>Storage
   
 **Id. del medidor**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Nombre del medidor**: TableCapacity  
@@ -107,22 +106,8 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Nombre del medidor**: QueueDataTransOut  
 **Unidad**: Salida en GB  
 **Notas**: Salida de datos de Queue service en GB.  
-  
-**Proveedor de recursos de SQL**  
-  
-**Id. del medidor**: CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
-**Nombre del medidor**: DatabaseSizeHourSqlMeter  
-**Unidad**: MB\*horas  
-**Notas**: Capacidad total de BD en la creación. Si llama a la API de uso con una granularidad diaria, el medidor devuelve los MB multiplicados por el número de horas.  
-  
-**Proveedor de recursos de MySql**  
-  
-**Id. del medidor**: E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
-**Nombre del medidor**: DatabaseSizeHourMySqlMeter  
-**Unidad**: MB\*horas  
-**Notas**: Capacidad total de BD en la creación. Si llama a la API de uso con una granularidad diaria, el medidor devuelve los MB multiplicados por el número de horas.  
-  
-**Proceso**  
+
+### <a name="compute"></a>Compute 
   
 **Id. del medidor**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Nombre del medidor**: Horas de tamaño de la máquina virtual base  
@@ -139,7 +124,122 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Unidad** : Horas de la máquina virtual  
 **Notas**: Captura de la máquina virtual base y Windows. No se ajusta para los núcleos.  
   
-**Key Vault**  
+### <a name="managed-disks"></a>Managed Disks
+
+**Id. de medidor**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
+**Nombre del medidor**: S4   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado estándar -32 GB 
+
+**Id. de medidor**: dc9fc6a9-0782-432a-b8dc-978130457494   
+**Nombre del medidor**: S6   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado estándar -64 GB 
+
+**Id. de medidor**: e5572fce-9f58-49d7-840c-b168c0f01fff   
+**Nombre del medidor**: S10   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado estándar -128 GB 
+
+**Id. de medidor**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
+**Nombre del medidor**: S15   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado estándar -256 GB 
+
+**Id. de medidor**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
+**Nombre del medidor**: S20   
+**Unidad**: recuento de discos      
+**Notas**: disco administrado estándar -512 GB 
+
+**Id. de medidor**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
+**Nombre del medidor**: S30   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado estándar -1024 GB 
+
+**Id. de medidor**: d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
+**Nombre del medidor**: S40   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado estándar -2048 GB 
+
+**Id. de medidor**: a54899dd-458e-4a40-9abd-f57cafd936a7   
+**Nombre del medidor**: S50   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado estándar -4096 GB 
+
+**Id. de medidor**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
+**Nombre del medidor**: P4   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado premium -32 GB 
+
+**Id. de medidor**: 518b412b-1927-4f25-985f-4aea24e55c4f   
+**Nombre del medidor**: P6   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado premium -64 GB 
+
+**Id. de medidor**: 5cfb1fed-0902-49e3-8217-9add946fd624   
+**Nombre del medidor**: P10   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado premium -128 GB  
+
+**Id. de medidor**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
+**Nombre del medidor**: P15  
+**Unidad**: recuento de discos   
+**Notas**: disco administrado premium -256 GB 
+
+**Id. de medidor**: c7e7839c-293b-4761-ae4c-848eda91130b   
+**Nombre del medidor**: P20   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado premium -512 GB 
+
+**Id. de medidor**: 9f502103-adf4-4488-b494-456c95d23a9f   
+**Nombre del medidor**: P30   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado premium -1024 GB 
+
+**Id. de medidor**: 043757fc-049f-4e8b-8379-45bb203c36b1   
+**Nombre del medidor**: P40   
+**Unidad**: recuento de discos    
+**Notas**: disco administrado premium -2048 GB 
+
+**Id. de medidor**: c0342c6f-810b-4942-85d3-6eaa561b6570   
+**Nombre del medidor**: P50   
+**Unidad**: recuento de discos   
+**Notas**: disco administrado premium -4096 GB 
+
+**Id. de medidor**: 8a409390-1913-40ae-917b-08d0f16f3c38   
+**Nombre del medidor**: ActualStandardDiskSize   
+**Unidad**: byte      
+**Notas**: tamaño real en disco del disco administrado estándar  
+
+**Id. de medidor**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
+**Nombre del medidor**: ActualPremiumDiskSize   
+**Unidad**: byte      
+**Notas**: tamaño real en disco del disco administrado premium 
+
+**Id. de medidor**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
+**Nombre del medidor**: ActualStandardSnapshotSize   
+**Unidad**: byte   
+**Notas**: tamaño real en disco de la instantánea estándar administrada.  
+
+**Id. de medidor**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
+**Nombre del medidor**: ActualPremiumSnapshotSize   
+**Unidad**: byte   
+**Notas**: tamaño real en disco de la instantánea premium administrada.   
+
+### <a name="sql-rp"></a>Proveedor de recursos de SQL
+  
+**Id. del medidor**: CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
+**Nombre del medidor**: DatabaseSizeHourSqlMeter  
+**Unidad**: MB\*horas  
+**Notas**: Capacidad total de BD en la creación. Si llama a la API de uso con una granularidad diaria, el medidor devuelve los MB multiplicados por el número de horas.  
+  
+### <a name="mysql-rp"></a>Proveedor de recursos de MySql   
+  
+**Id. del medidor**: E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
+**Nombre del medidor**: DatabaseSizeHourMySqlMeter  
+**Unidad**: MB\*horas  
+**Notas**: Capacidad total de BD en la creación. Si llama a la API de uso con una granularidad diaria, el medidor devuelve los MB multiplicados por el número de horas.    
+### <a name="key-vault"></a>Key Vault   
   
 **Id. del medidor**: EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **Nombre del medidor**: Transacciones de Key Vault  
@@ -151,7 +251,7 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Unidad**: Transacciones de 10K  
 **Notas**: Transacciones de claves RSA 3K/4K, ECC. (versión preliminar)  
   
-*App Service**  
+### <a name="app-service"></a>App Service   
   
 **Id. del medidor**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Nombre del medidor**: App Service  
@@ -193,7 +293,7 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Unidad**: 1 hora  
 **Notas**: Se calcula en función del tamaño y el número de instancias.  
   
-**Niveles de trabajo personalizados**  
+### <a name="custom-worker-tiers"></a>Niveles de trabajo personalizados   
   
 **Id. del medidor**: *Niveles de trabajo personalizados*  
 **Nombre del medidor**: Niveles de trabajo personalizados  
@@ -221,10 +321,10 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Notas**: Bytes totales de respuesta de solicitud de entrada + bytes totales de solicitud de salida + bytes totales de respuesta de solicitud FTP de entrada + bytes totales de respuesta de solicitud de implementación web de entrada.  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>¿Cómo se comparan las API de uso de Azure Stack con la [API de uso de Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (actualmente en versión preliminar pública)?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>¿Cómo se comparan las API de uso de Azure Stack con la [API de uso de Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (actualmente en versión preliminar pública)?
 * La API de uso de inquilinos es coherente con la API de Azure, con una excepción: actualmente, la marca *showDetails* no se admite en Azure Stack.
 * La API de uso de proveedor solo se aplica a Azure Stack.
-* Actualmente, la [API RateCard](https://msdn.microsoft.com/library/azure/mt219004.aspx) disponible en Azure no se encuentra disponible en Azure Stack.
+* Actualmente, la [API RateCard](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) disponible en Azure no se encuentra disponible en Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>¿Cuál es la diferencia entre el tiempo notificado y el tiempo de uso?
 Los informes de datos de uso tienen dos valores de tiempo principales:

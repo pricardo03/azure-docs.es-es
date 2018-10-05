@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: 86dbce55bcafdd63271143145069116db9664b52
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 41e80e04051a24fd32086c61c65bc3eec1564c57
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182135"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094942"
 ---
 # <a name="azure-cli-samples-for-load-balancer"></a>Ejemplos de la CLI de Azure para Load Balancer
 
@@ -29,6 +29,8 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 | | |
 |-|-|
 | [Equilibrio de carga del tráfico a las máquinas virtuales para conseguir alta disponibilidad](./scripts/load-balancer-linux-cli-sample-nlb.md) | Crea varias máquinas virtuales de alta disponibilidad y una configuración de equilibrio de carga. |
+| [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md) | Crea tres máquinas virtuales en zonas de disponibilidad diferentes dentro de una región y una instancia de Standard Load Balancer con una dirección IP de front-end con redundancia de zona. Esta configuración del equilibrador de carga le ayudará a proteger sus aplicaciones y sus datos en el caso improbable de que se produzca una pérdida o un error en todo el centro de datos. |
+|[Equilibrio de carga de máquinas virtuales en una zona de disponibilidad específica](./scripts/load-balancer-linux-cli-sample-zonal-frontend.md)|Crea tres máquinas virtuales, una instancia de Standard Load Balancer con la dirección IP de front-end de zona que ayuda a alinear la ruta de acceso a los datos y los recursos en una sola zona de una región específica.|
 | [Equilibrio de carga entre varios sitios web en máquinas virtuales](./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md) | Creación de dos máquinas virtuales con varias configuraciones de IP, unidas a un conjunto de disponibilidad de Azure, accesibles a través de una instancia de Azure Load Balancer. |
 | | |
 

@@ -1,22 +1,23 @@
 ---
-title: 'Probar la aplicación de LUIS: Azure | Microsoft Docs'
-description: Use Language Understanding (LUIS) para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
+title: Probar la aplicación de LUIS
+titleSuffix: Azure Cognitive Services
+description: La realización de pruebas es el proceso por el cual se proporcionan expresiones de ejemplo a LUIS y se obtiene una respuesta de intenciones y entidades reconocidas por LUIS. Puede probar LUIS de forma interactiva (una expresión a la vez) o proporcionar un lote de expresiones. Con la realización de pruebas puede comparar el modelo activo actual con el modelo publicado.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7999f25d9c8bd9a8e44bd858d2860d94be16a62f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224354"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033235"
 ---
-# <a name="testing-in-luis"></a>Realización de pruebas en LUIS
+# <a name="testing-example-utterances-in-luis"></a>Prueba de expresiones de ejemplo en LUIS
 
 La realización de pruebas es el proceso por el cual se proporcionan expresiones de ejemplo a LUIS y se obtiene una respuesta de intenciones y entidades reconocidas por LUIS. 
 
@@ -25,6 +26,7 @@ Puede [probar](luis-interactive-test.md) LUIS de forma interactiva (una expresi�
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## <a name="what-is-a-score-in-testing"></a>¿Qué es una puntuación en las pruebas?
 Vea los conceptos de [puntuación de predicción](luis-concept-prediction-score.md) para obtener más información sobre las puntuaciones de predicción.
 

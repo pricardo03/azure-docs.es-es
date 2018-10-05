@@ -2,18 +2,22 @@
 title: Creación y administración de trabajos de Azure SQL Elastic Database mediante Transact-SQL (T-SQL) | Microsoft Docs
 description: Ejecute scripts en muchas bases de datos con el agente de trabajo de Elastic Database mediante Transact-SQL (T-SQL).
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842630"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056794"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -482,7 +486,7 @@ sp_add_job se debe ejecutar desde la base de datos del agente de trabajo especif
 Después de ejecutar sp_add_job para agregar un trabajo, sp_add_jobstep puede utilizarse para agregar pasos que realice las actividades del trabajo. El número de versión inicial del trabajo es 0, que se incrementará en 1 cuando se agregue el primer paso.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 
 - jobs_reader
 
@@ -544,7 +548,7 @@ Fecha en que puede detenerse la ejecución del trabajo. schedule_end_time es DAT
 Después de ejecutar sp_add_job para agregar un trabajo, sp_add_jobstep puede utilizarse para agregar pasos que realice las actividades del trabajo. El número de versión inicial del trabajo es 0, que se incrementará en 1 cuando se agregue el primer paso.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -576,7 +580,7 @@ Especifica la eliminación si el trabajo tiene ejecuciones en curso y la cancela
 El historial de trabajos se elimina automáticamente cuando se elimina un trabajo.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -701,7 +705,7 @@ Nivel máximo de paralelismo por grupo elástico. Si está establecido, el paso 
 Si sp_add_jobstep se ejecuta correctamente, se incrementa el número de versión actual del trabajo. La próxima vez que se ejecute el trabajo, se usará la nueva versión. Si el trabajo se está ejecutando actualmente, la ejecución en curso no contendrá el nuevo paso.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:  
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:  
 
 - jobs_reader
 
@@ -825,7 +829,7 @@ Nivel máximo de paralelismo por grupo elástico. Si está establecido, el paso 
 Las ejecuciones en curso del trabajo no se verán afectadas. Si sp_update_jobstep se ejecuta correctamente, se incrementa el número de versión del trabajo. La próxima vez que se ejecute el trabajo, se usará la nueva versión.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 
 - jobs_reader
 
@@ -870,7 +874,7 @@ Las ejecuciones en curso del trabajo no se verán afectadas. Si sp_update_jobste
 Los demás pasos del trabajo se renumerarán automáticamente para ocupar el espacio que dejó el paso de trabajo eliminado.
  
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -906,7 +910,7 @@ Parámetro de salida al que se asignará el identificador de la ejecución del t
 Ninguno.
  
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -934,7 +938,7 @@ Número de identificación de la ejecución del trabajo que se va a detener. job
 Ninguno.
  
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -966,7 +970,7 @@ Nombre del grupo de destino que se va a crear. target_group_name es nvarchar(128
 Los grupos de destino proporcionan una manera sencilla de dirigir un trabajo a una colección de bases de datos.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -994,7 +998,7 @@ Nombre del grupo de destino que se va a eliminar. target_group_name es nvarchar(
 Ninguno.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -1050,7 +1054,7 @@ Valores de código de retorno 0 (correcto) o 1 (error)
 Un trabajo se ejecuta en todas las bases de datos de un servidor o grupo elástico en tiempo de ejecución, cuando un servidor lógico o un grupo elástico está incluido en el grupo de destino.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -1106,7 +1110,7 @@ Argumentos [ @target_group_name = ] 'target_group_name'
 Nombre del grupo de destino del que se va a quitar el miembro del grupo de destino. target_group_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ @target_id = ] target_id  
- Número de identificación de destino asignado al miembro del grupo de destino que se va a quitar. target_id es uniqueidentifier, con un valor predeterminado de NULL.
+ Número de identificación de destino asignado al miembro del grupo de destino que se va a quitar. target_id es un identificador único, con el valor predeterminado NULL.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
@@ -1115,7 +1119,7 @@ Nombre del grupo de destino del que se va a quitar el miembro del grupo de desti
 Los grupos de destino proporcionan una manera sencilla de dirigir un trabajo a una colección de bases de datos.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -1166,7 +1170,7 @@ Nombre del trabajo del que se van a eliminar los registros de historial. job_nam
 0 (correcto) o 1 (error) Comentarios Los grupos de destino proporcionan una manera sencilla de dirigir un trabajo a una colección de bases de datos.
 
 #### <a name="permissions"></a>Permisos
-De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el trabajo del agente:
+De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
 - jobs_reader
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
@@ -1336,7 +1340,7 @@ Muestra todos los miembros de todos los grupos de destino.
 
 ## <a name="resources"></a>Recursos
 
- - ![Icono de vínculo de tema](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icono de vínculo de tema") [Convenciones de sintaxis de Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Icono de vínculo de tema](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icono de vínculo de tema") [Convenciones de sintaxis de Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

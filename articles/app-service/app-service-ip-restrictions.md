@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 7/30/2018
 ms.author: ccompy
-ms.openlocfilehash: fb26d91ae772c4da1055da80366d6e8c6b80a6ac
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffeb01a46b62202292f6e1ea91f47cd87954387
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364315"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219135"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restricciones de IP estáticas de Azure App Service #
 
@@ -29,7 +29,7 @@ La funcionalidad de restricciones de direcciones IP funciona con todas las carga
 
 Cuando se realiza una solicitud a la aplicación, la dirección IP de origen se evalúa con respecto a la lista de restricciones de direcciones IP. Si la dirección no tiene permitido el acceso según las reglas de la lista, el servicio responde con un código de estado [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 
-La funcionalidad de restricciones de direcciones IP se implementa en los roles front-end de App Service, que son de nivel superior de los hosts de trabajo donde el código se ejecuta. Las restricciones de direcciones IP, por tanto, son efectivamente las listas de control de acceso de red.  
+La funcionalidad de restricciones de direcciones IP se implementa en los roles front-end de App Service, que son de nivel superior de los hosts de trabajo donde el código se ejecuta. Por lo tanto, las restricciones de IP son efectivamente las listas de control de acceso de red.  
 
 ![Flujo de restricciones de direcciones IP](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 

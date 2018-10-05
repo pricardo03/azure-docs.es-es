@@ -2,24 +2,26 @@
 title: Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync | Microsoft Docs
 description: Obtenga información sobre cómo automatizar la replicación de los cambios de esquema en Azure SQL Data Sync.
 services: sql-database
-ms.date: 06/19/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/20/2018
+ms.openlocfilehash: 3137b86dd186e628508111a932140fd9c1f59b5d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434965"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161443"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
 
-SQL Data Sync permite que los usuarios sincronicen datos entre instancias de Azure SQL Database y SQL Server local en una dirección o en ambas direcciones. Una de las limitaciones actuales de SQL Data Sync es la falta de compatibilidad con la replicación de cambios de esquema. Cada vez que cambia el esquema de tabla, debe aplicar los cambios de manera manual en todos los puntos de conexión, incluida la central y todos los miembros, y luego actualizar el esquema de sincronización.
+SQL Data Sync permite que los usuarios sincronicen datos entre bases de datos de Azure SQL Database y SQL Server local en una dirección o en ambas. Una de las limitaciones actuales de SQL Data Sync es la falta de compatibilidad con la replicación de cambios de esquema. Cada vez que cambia el esquema de tabla, debe aplicar los cambios de manera manual en todos los puntos de conexión, incluida la central y todos los miembros, y luego actualizar el esquema de sincronización.
 
 En este artículo se presenta una solución para replicar de manera automática los cambios de esquema en todos los puntos de conexión de SQL Data Sync.
 1. Esta solución usa un desencadenador DDL para realizar el seguimiento de cambios de esquema.
@@ -30,7 +32,7 @@ En este artículo se presenta una solución para replicar de manera automática 
 En este artículo se usa ALTER TABLE como ejemplo de un cambio de esquema, pero esta solución también sirve para otros tipos de cambios de esquema.
 
 > [!IMPORTANT]
-> Se recomienda leer este artículo con atención, especialmente las secciones [Solución de problemas](#troubleshooting) y [Otras consideraciones](#other), antes de empezar a implementar la replicación automatizada de cambios de esquema en el entorno de sincronización. También se recomienda leer [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md). Algunas operaciones de base de datos pueden interrumpir la solución que se describe en este artículo. Puede ser necesario tener conocimiento de dominio adicional de SQL Server y Transact-SQL para solucionar esos problemas.
+> Se recomienda leer este artículo con atención, especialmente las secciones [Solución de problemas](#troubleshoot) y [Otras consideraciones](#other), antes de empezar a implementar la replicación automatizada de cambios de esquema en el entorno de sincronización. También se recomienda leer [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md). Algunas operaciones de base de datos pueden interrumpir la solución que se describe en este artículo. Puede ser necesario tener conocimiento de dominio adicional de SQL Server y Transact-SQL para solucionar esos problemas.
 
 ![Automatización de la replicación de los cambios de esquema](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

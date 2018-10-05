@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325343"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434133"
 ---
 # <a name="about-the-speech-to-text-api"></a>Acerca de Speech to Text API
 
@@ -26,9 +26,9 @@ ms.locfileid: "39325343"
 
 - Reconocimiento continuo en tiempo real. **Speech to Text** permite a los usuarios transcribir audio en texto en tiempo real. También admite la recepción de los resultados intermedios de las palabras que reconoció hasta ahora. El servicio reconoce automáticamente el final del habla. Los usuarios también pueden elegir opciones de formato adicionales, incluidos el uso de mayúsculas y signos de puntuación, el enmascaramiento de palabras soeces y la normalización de texto inverso.
 
-- Optimización de los resultados de **Speech to Text** para escenarios interactivos, de conversación y de dictado. 
+- Optimización de los resultados de **Speech to Text** para escenarios interactivos, de conversación y de dictado. Los resultados reconocidos se devuelven en formato léxico y de visualización (para los resultados léxicos, consulte DetailedSpeechRecognitionResult en los ejemplos o la API).
 
-- Compatibilidad con muchos idiomas hablados y dialectos. Para obtener la lista completa de los idiomas admitidos en cada modo de reconocimiento, consulte [Supported languages](supported-languages.md#speech-to-text) (Idiomas admitidos).
+- Compatibilidad con muchos idiomas hablados y dialectos. Para obtener la lista completa de los idiomas admitidos en cada modo de reconocimiento, consulte [Supported languages](language-support.md#speech-to-text) (Idiomas admitidos).
 
 - Modelos acústicos y lingüísticos personalizados, que le permiten adaptar la aplicación al vocabulario de dominio especializado, al entorno de habla y a la forma de hablar de los usuarios.
 
@@ -36,7 +36,7 @@ ms.locfileid: "39325343"
 
 ## <a name="api-capabilities"></a>Funcionalidades de la API
 
-Algunas funcionalidades de **Speech to Text** API no están disponibles a través de REST. En la tabla siguiente se resumen las funcionalidades de cada método de acceso a la API.
+A través de REST hay disponible un lote de las capacidades de la API **Speech to Text**, especialmente en relación con la personalización. En la tabla siguiente se resumen las funcionalidades de cada método de acceso a la API. Para obtener una lista completa de las funcionalidades y detalles de la API, consulte [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/).
 
 | Caso de uso | REST | SDK |
 |-----|-----|-----|----|
@@ -44,6 +44,16 @@ Algunas funcionalidades de **Speech to Text** API no están disponibles a travé
 | Transcripción de una expresión más larga (> 15 s) | Sin  | SÍ |
 | Transcripción de secuencias de audio con resultados provisionales opcionales | Sin  | SÍ |
 | Reconocimiento de las intenciones del orador a través de LUIS | No\* | SÍ |
+| Creación de pruebas de precisión | SÍ | Sin  |
+| Carga de conjuntos de datos para la adaptación de modelos | SÍ | Sin  |
+| Creación y administración de modelos de voz | SÍ | Sin  |
+| Creación y administración de implementaciones de modelos | SÍ | Sin  |
+| Administrar suscripciones | SÍ | Sin  |
+| Creación y administración de implementaciones de modelos | SÍ | Sin  |
+| Creación y administración de implementaciones de modelos | SÍ | Sin  |
+
+> [!NOTE]
+> La API de REST implementa una medida que limita las solicitudes de API a 25 por cada 5 segundos. Los encabezados de los mensajes le informarán sobre los límites.
 
 \* *Las entidades e intenciones de LUIS pueden derivarse mediante una suscripción independiente de LUIS. Con esta suscripción, el SDK puede llamar a LUIS y proporcionar resultados de la entidad y la intención, así como transcripciones de voz. Con la API REST, puede llamar a LUIS usted mismo para deducir las entidades y las intenciones con su suscripción a LUIS.*
 

@@ -1,21 +1,21 @@
 ---
-title: 'P+F: Microsoft Cognitive Services | Microsoft Docs'
-titleSuffix: Azure
-description: Preguntas más frecuentes
+title: 'Preguntas más frecuentes: QnA Maker'
+titleSuffix: Azure Cognitive Services
+description: Lista de preguntas más frecuentes sobre el servicio QnA Maker
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: a6bf32549715d0357771b3f3b0ff72f64788ec20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: efefd595c43d7f46ff1ead91577d070cf8fb90e4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381811"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164623"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas frecuentes
 
@@ -87,6 +87,6 @@ Siga las instrucciones de [esta](./Tutorials/create-qna-bot.md) documentación p
 Siga estos pasos para insertar el servicio QnA Maker como control de chat en web en su sitio web:
 
 1. Cree su bot de P+F siguiendo las instrucciones que encontrará [aquí](./Tutorials/create-qna-bot.md).
-2. Habilite el chat en web mediante los pasos que se indican [aquí](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat).
+2. Habilite el chat en web mediante los pasos que se indican [aquí](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat).
 
 

@@ -1,22 +1,23 @@
 ---
-title: 'Prueba por lotes de la aplicación de LUIS: Azure | Microsoft Docs'
-description: Use las pruebas por lotes de Language Understanding (LUIS) para buscar expresiones con intenciones y entidades incorrectas.
+title: Prueba por lotes con 1000 expresiones de ejemplo
+titleSuffix: Azure Cognitive Services
+description: Use los conjuntos de pruebas por lotes de Language Understanding (LUIS) para buscar expresiones con intenciones y entidades incorrectas.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888633"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032128"
 ---
-# <a name="batch-testing"></a>Pruebas por lotes
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
  Las pruebas por lotes son una prueba completa en el modelo entrenado actual para medir su rendimiento en LUIS. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888633"
     ![Vínculo de Pruebas por lotes](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Seleccione **Importar conjunto de datos**. Aparece el cuadro de diálogo **Import new dataset** (Importar nuevo conjunto de datos). Seleccione **Choose File** (Elegir archivo) y ubique un archivo JSON con el [formato JSON](luis-concept-batch-test.md#batch-file-format) correcto que contiene *no más de 1000* expresiones para probar.
-
-    ![Importar archivo de conjunto de datos](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Los errores de importación se notifican en una barra de notificación de color rojo en la parte superior del explorador. Cuando una importación tiene errores, no se crea ningún conjunto de datos. Para obtener más información, vea [Errores comunes](luis-concept-batch-test.md#common-errors-importing-a-batch).
 

@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Información general
   items:
-  - name: ¿Qué es Azure Machine Learning?
+  - name: ¿Qué es el servicio Azure Machine Learning?
     href: overview-what-is-azure-ml.md
   - name: ¿Qué le ha ocurrido a Workbench?
     href: overview-what-happened-to-workbench.md
@@ -12,8 +12,10 @@ items:
   expanded: true
 - name: Guías de inicio rápido
   items:
-  - name: Introducción
+  - name: 'Introducción: Portal'
     href: quickstart-get-started.md
+  - name: 'Introducción: Python'
+    href: quickstart-create-workspace-with-python.md
 - name: Tutoriales
   items:
   - name: 'Entrenamiento de modelos: Parte 1'
@@ -42,8 +44,12 @@ items:
       href: how-to-choose-a-dev-environment.md
     - name: Configuración de un entorno
       href: how-to-configure-environment.md
-  - name: Configuración de entornos de entrenamiento
-    href: how-to-set-up-training-targets.md
+    - name: Visual Studio Code Tools for AI
+      items:
+      - name: Introducción
+        href: how-to-vscode-tools.md
+      - name: Entrenamiento e implementación
+        href: how-to-vscode-train-deploy.md
   - name: Preparación de los datos
     href: how-to-data-prep.md
     items:
@@ -53,19 +59,23 @@ items:
       href: how-to-transform-data.md
     - name: Escritura de datos
       href: how-to-write-data.md
-  - name: Entrenamiento y ajuste
+  - name: Acceso a los datos
+    href: how-to-access-data.md
+  - name: Entrenamiento de modelos
     items:
-    - name: Acceso a los datos
-      href: how-to-access-data.md
-    - name: Entrenamiento de modelos de Machine Learning
+    - name: Configuración de entornos de entrenamiento
+      href: how-to-set-up-training-targets.md
+    - name: Creación de estimadores
       href: how-to-train-ml-models.md
       items:
-      - name: Entrenamiento de modelos de PyTorch
+      - name: PyTorch
         href: how-to-train-pytorch.md
-      - name: Entrenamiento de modelos de TensorFlow
+      - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: Creación e implementación de modelos ONNX
       href: how-to-build-deploy-onnx.md
+  - name: Ajuste de modelos
+    items:
     - name: Ajuste de hiperparámetros
       href: how-to-tune-hyperparameters.md
     - name: Seguimiento de experimentos y métricas
@@ -77,21 +87,28 @@ items:
       href: how-to-configure-auto-train.md
     - name: Uso de destinos de proceso remoto
       href: how-to-auto-train-remote.md
-  - name: Implementación y supervisión
+  - name: Implementación de modelos
     items:
     - name: Lugar de implementación de modelos
       href: how-to-deploy-and-where.md
-      items:
-      - name: Implementación en ACI
-        href: how-to-deploy-to-aci.md
-      - name: Implementación en AKS
-        href: how-to-deploy-to-aks.md
-      - name: Implementación en FPGA
-        href: how-to-deploy-fpga-web-service.md
-      - name: Implementación en IoT Edge
-        href: how-to-deploy-to-iot.md
+    - name: Implementación en ACI
+      href: how-to-deploy-to-aci.md
+    - name: Implementación en AKS
+      href: how-to-deploy-to-aks.md
+    - name: Implementación en FPGA
+      href: how-to-deploy-fpga-web-service.md
+    - name: Implementación en IoT Edge
+      href: how-to-deploy-to-iot.md
+    - name: Solución de problemas
+      href: how-to-troubleshoot-deployment.md
+    - name: Protección con SSL
+      href: how-to-secure-web-service.md
+  - name: Supervisión de modelos
+    items:
     - name: Recopilación de datos de producción
       href: how-to-enable-data-collection.md
+    - name: Supervisión con Application Insights
+      href: how-to-enable-app-insights.md
   - name: Administración de cuotas de recursos
     href: how-to-manage-quotas.md
   - name: Exportación y eliminación de datos
@@ -104,8 +121,6 @@ items:
     href: reference-azure-machine-learning-cli.md
 - name: Recursos
   items:
-  - name: Guía del desarrollador de R
-    href: ../r-developers-guide.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Precios
@@ -114,6 +129,8 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Exportación o eliminación de datos de la cuenta
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Notas de la versión
+    href: azure-machine-learning-release-notes.md
   - name: Problemas conocidos
     href: resource-known-issues.md
   - name: Obtención de soporte técnico
@@ -314,17 +331,13 @@ items:
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Compilación e implementación de modelos de clasificación de texto
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: Notas de la versión más antiguas
-      href: azure-machine-learning-release-notes.md
     - name: Preguntas más frecuentes
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemas antiguos
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: Soporte técnico
-      href: support-for-aml-services.md
-ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb5ffe0b261d1c233765175170b5697050b58d20
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162158"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248826"

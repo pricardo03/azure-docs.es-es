@@ -2,29 +2,33 @@
 title: 'Configuración de la autenticación multifactor: Azure SQL | Microsoft Docs'
 description: Aprenda a usar Multi-Factor Authentication con SSMS para SQL Database y SQL Data Warehouse.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: 93c1548bfbb229140db8bbfc22c3fd198402dd5d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 06/13/2018
+ms.openlocfilehash: 1761c7040becf0bfe63caf12d8f5ea7b15e9b88b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650288"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162940"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD
 
-En este tema se muestra cómo usar la autenticación multifactor (MFA) de Azure Active Directory con SQL Server Management Studio. MFA de Azure AD puede usarse cuando se conecta SSMS o SqlPackage.exe a Azure SQL Database y Azure SQL Data Warehouse.
+En este tema se muestra cómo usar la autenticación multifactor (MFA) de Azure Active Directory con SQL Server Management Studio. MFA de Azure AD puede usarse al conectar SSMS o SqlPackage.exe a Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obtener información general de la autenticación multifactor de Azure SQL Database, vea [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md).
 
-Para obtener información general de la autenticación multifactor de Azure SQL Database, vea [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md).
+> [!NOTE]
+> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 
-1. **Configuración de una instancia de Azure Active Directory**: para más información, consulte [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Integración de identidades locales con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Incorporación de su nombre de dominio a Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Windows ahora admite la federación con Windows Server Active Directory) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+1. **Configuración de una instancia de Azure Active Directory**: para más información, consulte [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Integración de identidades locales con Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Incorporación de su nombre de dominio a Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Windows ahora admite la federación con Windows Server Active Directory) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 2. **Configurar MFA**: para obtener instrucciones detalladas, consulte [¿Qué es Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [Acceso condicional (MFA) con Azure SQL Database y Data Warehouse](sql-database-conditional-access.md). (El acceso condicional completo requiere una versión Premium de Azure Active Directory (Azure AD). MFA limitado está disponible con la versión estándar de Azure AD).
 3. **Configuración de SQL Database o SQL Data Warehouse para Autenticación de Azure AD**: para instrucciones detalladas, consulte [Conexión a SQL Database o a SQL Data Warehouse mediante Autenticación de Azure Active Directory](sql-database-aad-authentication.md).
 4. **Descarga de SSMS**: en el equipo cliente, descargue la versión más reciente de SSMS, desde [Descarga de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todas las características de este tema, utilice al menos la versión 17.2 de julio de 2017.  
@@ -39,7 +43,7 @@ Los pasos siguientes muestran cómo conectarse a SQL Database o SQL Data Warehou
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
 3. Si va a conectarse como un usuario invitado, debe hacer clic en **Opciones** y, en el cuadro d diálogo **Propiedad de conexión**, rellenar el cuadro **Nombre de dominio o ID de inquilino de AD**. Para más información, consulte [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md).
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
-4. Como es habitual para SQL Database y SQL Data Warehouse, debe hacer clic en **Opciones** y especificar la base de datos en el cuadro de diálogo **Opciones**. (Si el usuario conectado es un invitado (es decir, joe@outlook.com), debe activar la casilla y agregar el nombre de dominio de AD actual o el identificador de inquilino como parte de las opciones). Consulte [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)]()(sql-database-ssms-mfa-authentication.md. Haga clic en **Conectar**.  
+4. Como es habitual para SQL Database y SQL Data Warehouse, debe hacer clic en **Opciones** y especificar la base de datos en el cuadro de diálogo **Opciones**. (Si el usuario conectado es un invitado (es decir, joe@outlook.com), debe activar la casilla y agregar el nombre de dominio de AD actual o el identificador de inquilino como parte de las opciones). Consulte [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md). Haga clic en **Conectar**.  
 5. Cuando aparezca el cuadro de diálogo **Iniciar sesión con su cuenta** , escriba la cuenta y la contraseña de su identidad de Azure Active Directory. Si un usuario pertenece a un dominio federado con Azure AD, no se requiere contraseña.  
    ![2mfa-sign-in][2]  
 

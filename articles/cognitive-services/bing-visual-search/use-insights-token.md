@@ -1,21 +1,21 @@
 ---
-title: Usar el token de información con Bing Visual Search API| Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Aquí se muestra cómo usar el token de información de una imagen con Visual Search API para obtener información sobre esa imagen.
+title: 'Token de información predeterminado: Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Aquí se muestra cómo usar el token de información de una imagen con Bing Visual Search API para obtener información sobre esa imagen.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e853545e07709d82fa1e3b1143392e6d6012f6f6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126565"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227595"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Usar un token de información para obtener los detalles de una imagen
 

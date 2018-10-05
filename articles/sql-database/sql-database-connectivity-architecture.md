@@ -2,19 +2,22 @@
 title: Arquitectura de conectividad de Azure SQL Database | Microsoft Docs
 description: En este documento se explica la arquitectura de conectividad de Azure SQLDB, desde dentro o desde fuera de Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: DhruvMsft
+ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493679"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064159"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
 
@@ -51,13 +54,16 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen una directiva de 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Proxy**. Para habilitar la conectividad desde dentro de la red virtual, permita conexiones salientes a las direcciones IP de puerta de Azure SQL Database Gateway especificadas en la lista siguiente. Al usar los puntos de conexión de servicio se recomienda cambiar la directiva de conexión a **Redirigir** para habilitar un mejor rendimiento. Si cambia la directiva de conexión a **Redirigir**, no será suficiente permitir el tráfico saliente en el NSG a las direcciones IP de puerta de enlace de Azure SQLDB que se enumeran a continuación; debe permitir tráfico saliente a todas las direcciones IP de Azure SQLDB. Esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Proxy**. Para habilitar la conectividad desde dentro de la red virtual, debe permitir las conexiones salientes a las direcciones IP de puerta de enlace de Azure SQL Database especificadas en la lista siguiente. Al usar los puntos de conexión de servicio se recomienda cambiar la directiva de conexión a **Redirigir** para habilitar un mejor rendimiento. Si cambia la directiva de conexión a **Redirigir**, no será suficiente permitir el tráfico saliente en el NSG a las direcciones IP de puerta de enlace de Azure SQLDB que se enumeran a continuación; debe permitir tráfico saliente a todas las direcciones IP de Azure SQLDB. Esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure SQL Database
 
 Para conectarse a una base de datos SQL de Azure desde recursos locales, debe permitir el tráfico de red saliente a la puerta de enlace de Azure SQL Database en su región de Azure. Las conexiones solo se establecen a través de la puerta de enlace al conectarse en modo de proxy, que es el valor predeterminado para conexiones desde recursos locales.
 
 En la tabla siguiente se enumeran las direcciones IP principales y secundarias de la puerta de enlace de Azure SQL Database para todas las regiones de datos. En algunas regiones, hay dos direcciones IP. En estas regiones, la dirección IP principal es la dirección IP actual de la puerta de enlace y la dirección IP secundaria es una dirección IP de conmutación por error. La dirección de conmutación por error es la dirección a la que se puede mover el servidor para mantener la alta disponibilidad del servicio. En estas regiones, se recomienda que permita el tráfico saliente a ambas direcciones IP. La dirección IP secundaria es propiedad de Microsoft y no escucha en ningún servicio hasta que Azure SQL Database la activa para aceptar conexiones.
+
+> [!IMPORTANT]
+> Si se conecta desde dentro de Azure, la directiva de conexión será **Redirigir** de forma predeterminada (excepto si usa puntos de conexión de servicio). No será suficiente permitir las siguientes direcciones IP. Debe permitir todas las direcciones IP de Azure SQL Database. Si va a conectarse desde una red virtual, esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nombre de región | Dirección IP principal | Dirección IP secundaria |
 | --- | --- |--- |
@@ -160,10 +166,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para cambiar la configuración de la conexión a través de CLI de Azure 2.0
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script para cambiar la configuración de la conexión a través de la CLI de Azure
 
 > [!IMPORTANT]
-> Este script requiere [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Este script requiere la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 El siguiente script de CLI muestra cómo cambiar la directiva de conexión.

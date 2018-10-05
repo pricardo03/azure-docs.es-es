@@ -1,20 +1,21 @@
 ---
-title: 'Descripción de las claves de LUIS: Azure | Microsoft Docs'
-description: Use claves de Language Understanding (LUIS) para crear la aplicación y consultar su punto de conexión.
+title: Reconocimiento de claves de LUIS
+titleSuffix: Azure Cognitive Services
+description: 'LUIS usa dos claves: creación y punto de conexión. La clave de creación se crea automáticamente al crear la cuenta de LUIS. Cuando esté listo para publicar la aplicación de LUIS, tiene que crear la clave de punto de conexión, asignarla a la aplicación de LUIS y usarla con la consulta de punto de conexión.'
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034933"
 ---
 # <a name="keys-in-luis"></a>Claves en LUIS
 LUIS usa dos claves: de [creación](#programmatic-key) y [punto de conexión](#endpoint-key). La clave de creación se crea automáticamente al crear la cuenta de LUIS. Cuando esté listo para publicar la aplicación de LUIS, tiene que [crear la clave de punto de conexión](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [asignarla](luis-how-to-manage-keys.md#assign-endpoint-key) a la aplicación de LUIS y [usarla con la consulta de punto de conexión](#use-endpoint-key-in-query). 
@@ -35,15 +36,15 @@ Para encontrar la clave de creación, inicie sesión en [LUIS](luis-reference-re
 
 ![Clave de creación](./media/luis-concept-keys/programatic-key.png)
 
-Si quiere hacer **consultas de punto de conexión de producción**, cree una [suscripción a LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) de Azure. 
+Si quiere hacer **consultas de punto de conexión de producción**, cree la [suscripción de LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) de Azure. 
 
 > [!CAUTION]
 > Para mayor comodidad, en muchos de los ejemplos se usa la clave de creación, ya que ofrece algunas llamadas de punto de conexión en su [cuota](luis-boundaries.md#key-limits).  
 
 ## <a name="endpoint-key"></a>Clave de punto de conexión
- Si necesita hacer **consultas de punto de conexión de producción**, cree una [clave de LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) en Azure Portal. Recuerde el nombre que ha usado para crear la clave, lo necesitará cuando la agregue a la aplicación.
+ Si necesita hacer **consultas de punto de conexión de producción**, cree una [clave de LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) en Azure Portal. Recuerde el nombre que ha usado para crear la clave, ya que lo necesitará cuando la agregue a la aplicación.
 
-Cuando finalice el proceso de suscripción a LUIS, [agregue la clave](luis-how-to-manage-keys.md#assign-endpoint-key) a la aplicación en la página **Publicar**. 
+Cuando finalice el proceso de suscripción de LUIS, [asigne la clave](luis-how-to-manage-keys.md#assign-endpoint-key) a la aplicación. 
 
 La clave de punto de conexión permite una cuota de visitas de punto de conexión basada en el plan de uso que ha especificado al crear la clave. Vea [Precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para obtener información sobre los precios.
 
@@ -73,6 +74,10 @@ Las regiones de publicación son diferentes de las regiones de creación. Asegú
 
 ## <a name="key-limit-errors"></a>Errores del límite de la clave
 Si supera su cuota por segundo, recibirá un error HTTP 429. Si supera su cuota por mes, recibirá un error HTTP 403. Para solucionar estos errores, obtenga una clave de [punto de conexión](#endpoint-key) de LUIS y [asígnela](luis-how-to-manage-keys.md#assign-endpoint-key) a la aplicación en la página **Publicar** del sitio web de [LUIS](luis-reference-regions.md#luis-website).
+
+## <a name="automating-assignment-of-the-endpoint-key"></a>Automatización de la asignación de la clave de punto de conexión
+
+Para asignar la clave de punto de conexión a una aplicación de LUIS, debe usar el sitio web de LUIS para obtener las [regiones](luis-reference-regions.md) de creación y publicación correctas. No hay **ningún** método automatizado para hacerlo, aparte de mecanismos como un script de administrador de recursos de Azure, la CLI de Azure, un SDK de programación o las API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

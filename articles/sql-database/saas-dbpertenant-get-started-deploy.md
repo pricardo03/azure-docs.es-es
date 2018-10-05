@@ -1,21 +1,23 @@
 ---
 title: 'Tutorial de la aplicación de SaaS de base de datos por inquilino: Azure SQL Database | Microsoft Docs'
 description: Implemente y explore la aplicación SaaS Wingtip Tickets multiinquilino, en la que se muestra el patrón de base de datos por inquilino y otros patrones SaaS con Azure SQL Database.
-keywords: tutorial de SQL Database
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423572"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056393"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 
@@ -242,7 +244,7 @@ Vaya al servidor **tenants1-dpt-&lt;usuario&gt;** y seleccione **Pool1** para ve
 - El primer gráfico, con la etiqueta **Uso de recursos** muestra el uso de eDTU del grupo.
 - El segundo gráfico muestra el uso de eDTU de las cinco bases de datos más activas del grupo.
 
-Estos dos gráficos ilustran que los grupos elásticos y SQL Database funcionan bien para las cargas de trabajo impredecibles de una aplicación SaaS. Los gráficos muestran 4 bases de datos que emiten ráfagas de hasta 40 eDTU por base de datos y, aún así, un grupo de 50 eDTU las admite cómodamente. El grupo de 50 eDTU puede admitir cargas de trabajo incluso superiores. Si las bases de datos se aprovisionaron como bases de datos independientes, cada una debe ser de tipo S2 (50 DTU) para admitir las ráfagas. El costo de 4 bases de datos S2 independiente S2 es casi 3 veces superior al del grupo. En situaciones reales, los clientes de SQL Database ejecutan hasta 500 bases de datos en grupos de 200 eDTU. Para más información consulte el [tutorial de supervisión de rendimiento](saas-dbpertenant-performance-monitoring.md).
+Estos dos gráficos ilustran que los grupos elásticos y SQL Database funcionan bien para las cargas de trabajo impredecibles de una aplicación SaaS. Los gráficos muestran 4 bases de datos que emiten ráfagas de hasta 40 eDTU por base de datos y, aún así, un grupo de 50 eDTU las admite cómodamente. El grupo de 50 eDTU puede admitir cargas de trabajo incluso superiores. Si las bases de datos se aprovisionaron como únicas, cada una debe ser de tipo S2 (50 DTU) para admitir las ráfagas. El costo de 4 bases de datos S2 independiente S2 es casi 3 veces superior al del grupo. En situaciones reales, los clientes de SQL Database ejecutan hasta 500 bases de datos en grupos de 200 eDTU. Para más información consulte el [tutorial de supervisión de rendimiento](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

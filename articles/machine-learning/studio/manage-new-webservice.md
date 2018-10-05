@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: d6d40b1918422dc7e435c020a368f256c859ae27
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4e1444f385859044b2dadd83c8e9841d8fc78bb0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835056"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096418"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Administración de un servicio web mediante el portal Servicios web Azure Machine Learning
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
@@ -45,7 +45,7 @@ Si el usuario no tiene los permisos correctos para acceder a recursos en el port
 
 Para obtener más información sobre cómo crear un área de trabajo, consulte cómo [crear y compartir un área de trabajo de Azure Machine Learning](create-workspace.md).
 
-Para obtener más información sobre cómo establecer permisos de acceso, consulte cómo [ver las asignaciones de acceso para usuarios y grupos en Azure Portal: versión preliminar pública](../../role-based-access-control/role-assignments-users.md).
+Para más información acerca de cómo establecer los permisos de acceso, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## <a name="manage-new-web-services"></a>Administración de servicios web nuevos

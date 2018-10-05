@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/22/2018
+ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068910"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410024"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster Windows de Service Fabric en una red virtual de Azure
 
@@ -43,7 +43,7 @@ En esta serie de tutoriales, se aprende a:
 > * Crear un clúster seguro en Azure
 > * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -81,10 +81,10 @@ Este tutorial implementa un clúster de cinco nodos en un tipo de nodo único. N
 
 Descargue los siguientes archivos de plantilla de Resource Manager:
 
-* [vnet-cluster.json][template]
-* [vnet-cluster.parameters.json][parameters]
+* [azuredeploy.json][template]
+* [azuredeploy.parameters.json][parameters]
 
-El archivo [vnet-cluster.json][template] permite implementar varios recursos, incluido el siguiente.
+Esta plantilla implementa un clúster seguro de cinco máquinas virtuales, un tipo de nodo único en una red virtual y un grupo de seguridad de red.  Se pueden encontrar otras plantillas de ejemplo en [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  El archivo [azuredeploy.json][template] permite implementar varios recursos, como los siguientes.
 
 ### <a name="service-fabric-cluster"></a>Clúster de Service Fabric
 
@@ -97,7 +97,7 @@ Se implementa un clúster de Windows con las siguientes características:
 * se habilita el [proxy inverso](service-fabric-reverseproxy.md)
 * se habilita el [servicio DNS](service-fabric-dnsservice.md)
 * [Nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster): Bronze (configurable en los parámetros de plantilla)
- * [Nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster): Silver (configurable en los parámetros de plantilla)
+* [Nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster): Silver (configurable en los parámetros de plantilla)
 * punto de conexión de la conexión de cliente: 19000 (configurable en los parámetros de la plantilla)
 * punto de conexión de la puerta de enlace HTTP: 19080 (configurable en los parámetros de la plantilla)
 
@@ -135,15 +135,15 @@ Si se necesitan otros puertos de aplicación, debe ajustar el recurso Microsoft.
 
 ## <a name="set-template-parameters"></a>Configuración de los parámetros de plantilla
 
-El archivo de parámetros [vnet-cluster.parameters.json][parameters] permite declarar muchos valores que se utilizan para implementar el clúster y los recursos asociados. Estos son algunos de los parámetros que debe modificar para su implementación:
+El archivo de parámetros [azuredeploy.parameters.json][parameters] permite declarar muchos valores que se usan para implementar el clúster y los recursos asociados. Estos son algunos de los parámetros que debe modificar para su implementación:
 
 |Parámetro|Valor de ejemplo|Notas|
 |---|---||
-|adminUserName|vmadmin| Nombre de usuario administrador de las máquinas virtuales del clúster.[Requisitos de nombre de usuario para la máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
-|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|adminUserName|vmadmin| Nombre de usuario administrador de las máquinas virtuales del clúster.[Requisitos de nombre de usuario para la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
 |clusterName|mysfcluster123| Nombre del clúster. Solo puede contener letras y números. Puede tener entre 3 y 23 caracteres.|
 |location|southcentralus| Ubicación del clúster. |
-|certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
+|certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital SHA1 del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
 |certificateUrlValue|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados. </p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique la dirección URL del certificado. Por ejemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique el valor del almacén de claves de origen. Por ejemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
@@ -151,7 +151,7 @@ El archivo de parámetros [vnet-cluster.parameters.json][parameters] permite dec
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Implementación de la red virtual y el clúster
 
-A continuación, configure la topología de red e implemente el clúster de Service Fabric. La plantilla de Resource Manager [vnet-cluster.json][template] permite crear una red virtual (VNET) y también una subred y un grupo de seguridad de red (NSG) para Service Fabric. La plantilla permite también implementar un clúster con seguridad mediante certificados habilitada.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster. Un certificado autofirmado se puede usar para proteger los clústeres de prueba.
+A continuación, configure la topología de red e implemente el clúster de Service Fabric. La plantilla de Resource Manager [azuredeploy.json][template] permite crear una red virtual (VNET) y también una subred y un grupo de seguridad de red (NSG) para Service Fabric. La plantilla permite también implementar un clúster con seguridad mediante certificados habilitada.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster. Un certificado autofirmado se puede usar para proteger los clústeres de prueba.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creación de un clúster mediante un certificado existente
 
@@ -178,8 +178,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
@@ -209,8 +209,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
@@ -228,7 +228,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 Ahora está listo para conectarse a su clúster seguro.
 
-El módulo PowerShell de **Service Fabric** proporciona muchos cmdlets para administrar clústeres, aplicaciones y servicios de Service Fabric.  Use el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para conectarse al clúster seguro. Los detalles de la huella digital de certificado y del punto de conexión se encuentran en el resultado del paso anterior.
+El módulo PowerShell de **Service Fabric** proporciona muchos cmdlets para administrar clústeres, aplicaciones y servicios de Service Fabric.  Use el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para conectarse al clúster seguro. Los detalles de la huella digital SHA1 del certificado y del punto de conexión se encuentran en la salida del paso anterior.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
@@ -246,14 +246,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En el resto de artículos de esta serie de tutoriales se usa el clúster que creó anteriormente. Si no va a pasar inmediatamente al siguiente artículo, puede ser conveniente eliminar el clúster y el almacén de claves para evitar incurrir en cargos. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
-
-Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).  Además, elimine el grupo de recursos que contiene el almacén de claves.
-
-```powershell
-Remove-AzureRmResourceGroup -Name $groupname -Force
-Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
-```
+En el resto de artículos de esta serie de tutoriales se usa el clúster que se acaba de crear. Si no va a pasar inmediatamente al siguiente artículo, puede [eliminar el clúster](service-fabric-cluster-delete.md) para evitar incurrir en cargos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -271,5 +264,5 @@ Luego, avance hasta el tutorial siguiente para obtener información sobre cómo 
 > [!div class="nextstepaction"]
 > [Escalado de un clúster](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json

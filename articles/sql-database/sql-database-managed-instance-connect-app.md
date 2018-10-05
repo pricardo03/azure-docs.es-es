@@ -1,20 +1,23 @@
 ---
 title: Conexión de la aplicación a Instancia administrada de Azure SQL Database | Microsoft Docs
 description: En este artículo se describe la conexión de la aplicación a Instancia administrada de Azure SQL Database.
+services: sql-database
 ms.service: sql-database
-author: srdan-bozovic-msft
-manager: craigg
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/21/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: f57d582aacad568811314494c0ed614839ccabba
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818409"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221747"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -22,16 +25,13 @@ Hoy en día puede elegir entre varias opciones sobre cuándo y cómo hospedar la
  
 Puede elegir hospedar la aplicación en la nube mediante Azure App Service o algunas de las opciones de red virtual integradas de Azure, como Azure App Service Environment, Virtual Machine o Virtual Machine Scale Set. También podría elegir un enfoque de nube híbrida y mantener las aplicaciones en local. 
  
-Sea cual sea su opción, se podrá realizar una conexión a Instancia administrada (versión preliminar).  
+Sea cual sea su opción, se podrá realizar una conexión a una Instancia administrada.  
 
 ![alta disponibilidad](./media/sql-database-managed-instance/application-deployment-topologies.png)  
-
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Conexión de una aplicación dentro de la misma red virtual 
 
 Este escenario es el más sencillo. Las máquinas virtuales dentro de la red virtual pueden conectarse directamente entre sí aunque se encuentren en subredes diferentes. Esto significa que para conectar la aplicación dentro de una instancia de Azure Application Environment o de Virtual Machine solo tiene que establecer correctamente la cadena de conexión.  
  
-Si no puede establecer la conexión, compruebe si hay algún grupo de seguridad de red establecido en la subred de la aplicación. Si es así, abra una conexión saliente en el puerto 1433 de SQL, así como en los puertos 11000-12000 para el redireccionamiento. 
-
 ## <a name="connect-an-application-inside-a-different-vnet"></a>Conexión de una aplicación dentro de una red virtual distinta 
 
 Este escenario es un poco más complejo, ya que Instancia administrada tiene la dirección IP privada en su propia red virtual. Para conectarse, una aplicación necesita acceso a la red virtual donde Instancia administrada está implementada. Por lo tanto, primero debe establecer una conexión entre la aplicación y la red virtual de Instancia administrada. Las redes virtuales no tienen por qué estar en la misma suscripción para que este escenario funcione. 
@@ -55,6 +55,19 @@ Hay dos opciones de conexión local a una red virtual de Azure:
  
 Si ha establecido la conexión local a Azure correctamente y no puede establecer la conexión con Instancia administrada, compruebe si el firewall tiene abierta la conexión saliente en el puerto 1433 de SQL, así como los puertos 11000-12000 para el redireccionamiento. 
 
+## <a name="connect-an-application-on-the-developers-box"></a>Conexión de una aplicación en el cuadro de desarrollo
+
+A Instancia administrada se puede acceder solo mediante una dirección IP privada, por ello, para acceder desde el cuadro de desarrollo, primero debe realizar una conexión entre el cuadro de desarrollo y la red virtual de Instancia administrada. Para ello, configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa. Para obtener más información, consulte [Configure a point-to-site connection to connect to an Azure SQL Database Managed Instance from on-premises computer](sql-database-managed-instance-configure-p2s.md) (Configuración de una conexión de punto a sitio para conectarse a una Instancia administrada de Azure SQL Database desde el equipo local).
+
+## <a name="connect-from-on-premises-with-vnet-peering"></a>Conexión desde un entorno local con el emparejamiento de VNET
+Otro escenario implementado por los clientes es en el que VPN Gateway está instalado en una red virtual independiente y en el que una suscripción de este servicio hospeda Instancia administrada. Entonces, las dos redes virtuales se emparejan. El siguiente diagrama de arquitectura de ejemplo muestra cómo se puede realizar esta implementación.
+
+![Emparejamiento de VNET](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+
+Una vez configurada la infraestructura básica, deberá modificar alguna configuración para que VPN Gateway pueda ver las direcciones IP en la red virtual que hospeda Instancia administrada. Para ello, realice los siguientes cambios específicos en la **Configuración de emparejamiento**.
+1.  En la red virtual que hospeda VPN Gateway, vaya a **Emparejamientos**, a continuación, a la Instancia administrada emparejada con la conexión de red virtual y, luego, haga clic en **Permitir tránsito de puerta de enlace**.
+2.  En la red virtual que hospeda Instancia administrada, vaya a **Emparejamientos**, a continuación, a la instancia de VPN Gateway emparejada con la conexión de red virtual y, luego, haga clic en **Usar puertas de enlace remotas**.
+
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Conexión de una aplicación hospedada en Azure App Service 
 
 A Instancia administrada se puede acceder solo mediante una dirección IP privada, por ello, para acceder desde Azure App Service, primero debe realizar una conexión entre la aplicación y la red virtual de Instancia administrada. Consulte [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
@@ -71,11 +84,48 @@ Este escenario se ilustra en el diagrama siguiente:
 
 ![emparejamiento de aplicación integrada](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## <a name="connect-an-application-on-the-developers-box"></a>Conexión de una aplicación en el cuadro de desarrollo 
+## <a name="troubleshooting-connectivity-issues"></a>Solución de problemas de conectividad
 
-A Instancia administrada se puede acceder solo mediante una dirección IP privada, por ello, para acceder desde el cuadro de desarrollo, primero debe realizar una conexión entre el cuadro de desarrollo y la red virtual de Instancia administrada.  
- 
-En la configuración de una conexión de punto a sitio a una red virtual en los artículos de autenticación con certificados de Azure nativos ([Azure Portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [CLI de Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) se muestran los detalles de cómo se hace. 
+Para solucionar problemas de conectividad, consulte la siguiente información:
+- Si no puede conectarse a la Instancia administrada desde una máquina virtual de Azure dentro de la misma red virtual, pero desde una subred diferente, compruebe si tiene un grupo de seguridad de red establecido en la subred de la máquina virtual que podría estar bloqueando el acceso. Además, tenga en cuenta que deberá abrir una conexión saliente en el puerto 1433 de SQL, así como los puertos en el intervalo 11000-12000, ya que son necesarios para establecer conexión a través de un redireccionamiento dentro del límite de Azure. 
+- Asegúrese de que la propagación de BGP está establecida en **Habilitado** para la tabla de rutas asociada a la red virtual.
+- Si utiliza VPN de P2S, compruebe la configuración en Azure Portal para ver si detecta números de **entrada/salida**. Los números distintos de cero indican que Azure enruta el tráfico hacia y desde un entorno local.
+
+   ![Números de entrada/salida](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
+
+- Compruebe que el equipo cliente (que ejecuta el cliente VPN) tiene entradas de ruta para todas las redes virtuales para las que necesite tener acceso. Las rutas se almacenan en `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+
+
+   ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)
+
+   Como se muestra en esta imagen, hay dos entradas para cada red virtual implicada y una tercera entrada para el punto de conexión VPN que está configurada en el portal.
+
+   Otra manera de comprobar las rutas es mediante el comando siguiente. La salida muestra las rutas a las diversas subredes: 
+
+   ```cmd
+   C:\ >route print -4
+   ===========================================================================
+   Interface List
+   14...54 ee 75 67 6b 39 ......Intel(R) Ethernet Connection (3) I218-LM
+   57...........................rndatavnet
+   18...94 65 9c 7d e5 ce ......Intel(R) Dual Band Wireless-AC 7265
+   1...........................Software Loopback Interface 1
+   Adapter===========================================================================
+   
+   IPv4 Route Table
+   ===========================================================================
+   Active Routes:
+   Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0       10.83.72.1     10.83.74.112     35
+         10.0.0.0    255.255.255.0         On-link       172.26.34.2     43
+     
+         10.4.0.0    255.255.255.0         On-link       172.26.34.2     43
+   ===========================================================================
+   Persistent Routes:
+   None
+   ```
+
+- Si usa el emparejamiento de redes virtuales, asegúrese de que ha seguido las instrucciones de configuración [Permitir tránsito de puerta de enlace y Usar puertas de enlace remotas](#connect-from-on-premises-with-vnet-peering). 
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versiones necesarias de los controladores y las herramientas
 
@@ -89,7 +139,7 @@ Si desea conectarse a Instancia administrada, se recomiendan las siguientes vers
 |Controlador JDBC    | 6.4.0 |
 |Controlador de Node.js | 2.1.1 |
 |Controlador de OLEDB   | 18.0.2.0 |
-|SSMS   | 17.8.1 o [posterior](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 o [posterior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,20 +1,21 @@
 ---
-title: Descripción de los tipos de entidades de las aplicaciones de LUIS en Azure | Microsoft Docs
+title: 'Tipos de entidad en aplicaciones de LUIS: Language Understanding'
+titleSuffix: Azure Cognitive Services
 description: Agregue entidades (datos clave del dominio de la aplicación) a las aplicaciones de Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282286"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042455"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -45,10 +46,10 @@ Si la elección o la organización de las palabras es la misma pero no significa
 
 En las siguientes expresiones inglesas, la palabra `fair` es un homógrafo. Es decir, se escribe igual pero tiene un significado diferente:
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|Expresión|
+|--|
+|¿Qué tipo de ferias locales se producen en el área de Seattle este verano?|
+|¿La clasificación actual para la revisión de Seattle es razonable?|
 
 Si quiere que una entidad de evento busque todos los datos de eventos, etiquete la palabra `fair` en la primera expresión, pero no en la segunda.
 

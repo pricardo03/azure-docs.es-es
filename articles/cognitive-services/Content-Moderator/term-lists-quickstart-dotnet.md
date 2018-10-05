@@ -1,26 +1,27 @@
 ---
-title: Moderación con listas de términos personalizadas en Azure Content Moderator | Microsoft Docs
-description: Cómo moderar con listas de términos personalizadas con Azure Content Moderator SDK para .NET.
+title: 'Guía de inicio rápido: Moderación con listas de términos personalizados: Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Cómo moderar con listas de términos personalizadas con el SDK de Content Moderator para .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: quickstart
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6da72ad070d9c3a6be38e24626dff77b52fed852
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7a9e98444b47b058a17b18ba7d9a7c6b2249ba4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380322"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223226"
 ---
-# <a name="moderate-with-custom-term-lists-in-net"></a>Moderación con listas de términos personalizadas en .NET
+# <a name="quickstart-moderate-with-custom-term-lists-in-net"></a>Guía de inicio rápido: Moderación con listas de términos personalizados en .NET
 
 La lista global predeterminada de términos de Azure Content Moderator es suficiente para la mayoría de las necesidades de moderación de contenido. Sin embargo, puede que deba filtrar términos específicos de la organización. Por ejemplo, es aconsejable etiquetar los nombres de la competencia para revisarlos en profundidad. 
 
-Puede usar Content Moderator SDK para .NET para crear listas personalizadas de términos para emplearlas con Text Moderation API.
+Puede usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para crear listas personalizadas de términos para emplearlas con Text Moderation API.
 
 > [!NOTE]
 > Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
@@ -49,8 +50,6 @@ En el panel de Content Moderator, verá la clave de suscripción en **Configurac
 
 1. Asigne al proyecto el nombre **TermLists**. Seleccione este proyecto como proyecto de inicio único para la solución.
 
-1. Agregue una referencia al conjunto de proyectos **ModeratorHelper** que creó en [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md) (Inicio rápido de la aplicación auxiliar cliente de Content Moderator).
-
 ### <a name="install-required-packages"></a>Instalación de los paquetes requeridos
 
 Instale los siguientes paquetes NuGet para el proyecto TermLists:
@@ -64,11 +63,64 @@ Instale los siguientes paquetes NuGet para el proyecto TermLists:
 
 Modifique las instrucciones using del programa.
 
-    using System;
-    using System.Threading;
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Creación del cliente de Content Moderator
+
+Agregue el código siguiente para crear un cliente de Content Moderator para su suscripción.
+
+> [!IMPORTANT]
+> Actualice los campos **AzureRegion** y **CMSubscriptionKey** con los valores de su identificador de región y clave de suscripción.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="add-private-properties"></a>Adición de propiedades privadas
 
@@ -87,7 +139,7 @@ Agregue las siguientes propiedades privadas al espacio de nombres TermLists, cla
 
     /// <summary>
     /// The number of minutes to delay after updating the search index before
-    /// performing image match operations against a the list.
+    /// performing image match operations against the list.
     /// </summary>
     private const double latencyDelay = 0.5;
 
@@ -375,4 +427,4 @@ La salida se incluirá en las siguientes líneas, pero los datos pueden variar.
     
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Descargue la solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este y otros inicios rápidos de Content Moderator para .NET y empiece a trabajar en la integración.
+Obtenga el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) y la [solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este y otros inicios rápidos de Content Moderator para .NET y empiece a trabajar en la integración.

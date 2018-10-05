@@ -1,20 +1,20 @@
 ---
-title: 'Azure Content Moderator: moderación de texto | Microsoft Docs'
+title: 'Moderación de texto: Content Moderator'
 description: Use la moderación de texto para detectar posible texto no deseado, información de identificación personal y una lista de términos personalizada.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085766"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226575"
 ---
 # <a name="text-moderation"></a>Moderación de texto
 
@@ -46,7 +46,7 @@ Si la API detecta un término soez en cualquiera de los [idiomas admitidos](Text
 > [!NOTE]
 > Para el parámetro **language** (idioma), asigne `eng` o déjelo en blanco para ver asistida la respuesta de **classification** (clasificación) asistida por máquina (versión preliminar). **Esta característica solo admite inglés**.
 >
-> Para la detección de **profanity terms** (palabras soeces), use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
+> Para la detección de **palabras soeces**, use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
 
 ## <a name="classification"></a>clasificación
 
@@ -72,7 +72,7 @@ El siguiente extracto de JSON muestra una salida de ejemplo:
 - `Category1` se refiere a la posible presencia de lenguaje que se puede considerar sexualmente explícito o para adultos en ciertas situaciones.
 - `Category2` se refiere a la posible presencia de lenguaje que se puede considerar sexualmente insinuante o para adultos en ciertas situaciones.
 - `Category3` se refiere a la posible presencia de lenguaje que se puede considerar ofensivo en ciertas situaciones.
-- `Score` se encuentra entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta versión preliminar usa un modelo estadístico, en lugar de resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría en función de sus propios requisitos.
+- `Score` se encuentra entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta característica usa un modelo estadístico, en lugar de resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría en función de sus propios requisitos.
 - `ReviewRecommended` es true o false según los umbrales de puntuación internos. Los clientes deben evaluar si quieren usar este valor o decidir si desean umbrales personalizados basados en sus directivas de contenido.
 
 ## <a name="personally-identifiable-information-pii"></a>Información de identificación personal
@@ -149,7 +149,7 @@ Si solicita corrección automática, la respuesta contiene la versión corregida
 Si bien la lista global y predeterminada de términos funciona muy bien para la mayoría de los casos, puede que desee analizar términos específicos para sus necesidades empresariales. Por ejemplo, quizá desee filtrar nombres de marcas de la competencia presentes en las publicaciones de los usuarios.
 
 > [!NOTE]
-> Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
+> Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
 >
 
 En el ejemplo siguiente se muestra el identificador de la lista de coincidencias:

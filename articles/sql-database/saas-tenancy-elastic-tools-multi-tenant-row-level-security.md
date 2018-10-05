@@ -1,21 +1,23 @@
 ---
 title: Aplicaciones multiinquilino con RLS y herramientas de bases de datos elásticas | Microsoft Docs
 description: Use herramientas de bases de datos elásticas con seguridad de nivel de fila para crear una aplicación con una capa de datos altamente escalable.
-metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-manager: craigg
-author: tmullaney
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: tmullaney
 ms.author: thmullan
-ms.openlocfilehash: 02ad01185a86aa5a975be2a66b54a214029dd73f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645817"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056291"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
@@ -35,7 +37,7 @@ El objetivo es usar las API de [enrutamiento dependiente de los datos](sql-datab
 
 ## <a name="download-the-sample-project"></a>Descarga del proyecto de ejemplo
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 - Uso de Visual Studio (2012 o posterior) 
 - Creación de tres instancias de Azure SQL Database 

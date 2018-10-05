@@ -22,28 +22,32 @@ items:
   expanded: true
 - name: Tutoriales
   items:
-  - name: Creación de bases de datos SQL de alta disponibilidad
-    href: azure-stack-tutorial-sql.md
-  - name: Creación de bases de datos MySQL de alta disponibilidad
-    href: azure-stack-tutorial-mysql.md
-  - name: Implementación de aplicaciones en Azure y Azure Stack
-    href: azure-stack-solution-pipeline.md
-  - name: Configuración de una identidad de nube híbrida
-    href: azure-stack-solution-hybrid-identity.md
-  - name: Configuración de conectividad de nube híbrida
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: Suscripción a una oferta
-    href: azure-stack-subscribe-services.md
-  - name: Creación de una máquina virtual a partir de una plantilla
-    href: azure-stack-create-vm-template.md
-  - name: Creación de una solución de aprendizaje automático de borde
-    href: azure-stack-solution-machine-learning.md
-  - name: Creación de una solución de análisis de datos almacenados provisionalmente
-    href: azure-stack-solution-staged-data-analytics.md
-  - name: Creación de soluciones de escalado de toda la nube con Azure
-    href: azure-stack-solution-cloud-burst.md
-  - name: Creación de una solución de aplicación distribuida geográficamente
-    href: azure-stack-solution-geo-distributed.md
+  - name: Tareas comunes
+    items:
+    - name: Suscripción a una oferta
+      href: azure-stack-subscribe-services.md
+    - name: Creación de una máquina virtual a partir de una plantilla
+      href: azure-stack-create-vm-template.md
+    - name: Creación de bases de datos SQL de alta disponibilidad
+      href: azure-stack-tutorial-sql.md
+    - name: Creación de bases de datos MySQL de alta disponibilidad
+      href: azure-stack-tutorial-mysql.md
+  - name: Patrones de nube híbrida
+    items:
+    - name: Implementación de aplicaciones en Azure y Azure Stack
+      href: azure-stack-solution-pipeline.md
+    - name: Configuración de una identidad de nube híbrida
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Configuración de conectividad de nube híbrida
+      href: azure-stack-solution-hybrid-connectivity.md
+    - name: Creación de una solución de aprendizaje automático de borde
+      href: azure-stack-solution-machine-learning.md
+    - name: Creación de una solución de análisis de datos almacenados provisionalmente
+      href: azure-stack-solution-staged-data-analytics.md
+    - name: Creación de soluciones de escalado de toda la nube con Azure
+      href: azure-stack-solution-cloud-burst.md
+    - name: Creación de una solución de aplicación distribuida geográficamente
+      href: azure-stack-solution-geo-distributed.md
 - name: Guías de procedimientos
   items:
   - name: Uso del portal de Azure Stack
@@ -208,9 +212,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Aprendizaje y certificación
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a67adb5f0b641f5f4eadfeb08c9802214d9f217b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 52dbfaf7b7ea7b6f264dcb9ac3d75aec782c8bff
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405417"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239411"

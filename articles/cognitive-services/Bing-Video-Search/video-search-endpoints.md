@@ -1,23 +1,24 @@
 ---
-title: Puntos de conexión de Video Search | Microsoft Docs
-description: Resumen del punto de conexión de Video Search API.
+title: 'Puntos de conexión de búsqueda de vídeo: Bing Video Search'
+titlesuffix: Azure Cognitive Services
+description: Resumen del punto de conexión de Bing Video Search API.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
-ms.author: v-gedod
-ms.openlocfilehash: 9836d9928362ab37b0a81ff5043d99f9bf353f22
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: c153f577f76944d22f9a1b0fb4b24d332d2a02c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380090"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220778"
 ---
 # <a name="video-search-endpoints"></a>Puntos de conexión de Video Search
-**Video Search API** incluye tres puntos de conexión.  El punto de conexión 1 devuelve vídeos de la web en función de una consulta. El punto de conexión 2 devuelve información detallada sobre un vídeo en función del parámetro de dirección URL `modules`.  El punto de conexión 3 devuelve imágenes de tendencia.
+**Video Search API** incluye tres puntos de conexión.  El punto de conexión 1 devuelve vídeos de la web en función de una consulta. El punto de conexión 2 devuelve información detallada sobre un vídeo en función del parámetro de dirección URL `modules`.  El punto de conexión 3 devuelve imágenes populares.
 
 ## <a name="endpoints"></a>Puntos de conexión
 Para obtener resultados de vídeo con la API de Bing, envíe una solicitud `GET` a uno de los siguientes puntos de conexión. Use los encabezados y parámetros de dirección URL para definir especificaciones adicionales.

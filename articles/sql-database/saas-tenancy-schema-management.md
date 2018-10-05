@@ -1,25 +1,26 @@
 ---
-title: Administración del esquema de Azure SQL Database en una aplicación multiinquilino | Microsoft Docs
-description: Administración del esquema para varios inquilinos en una aplicación multiinquilino que usa Azure SQL Database
-keywords: tutorial de SQL Database
+title: Administración del esquema de Azure SQL Database en una de un solo multiinquilino | Microsoft Docs
+description: Administración del esquema para varios inquilinos en una aplicación de un solo inquilino que utiliza Azure SQL Database
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 2e4af3e3e1ef1d9da7c66b929885e3ec749b462f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646279"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054853"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Administración del esquema en una aplicación SaaS con el patrón base de datos por inquilino con Azure SQL Database
-
+ 
 A medida que una aplicación de base de datos evoluciona, resulta inevitable realizar cambios en los datos de referencia o el esquema de la base de datos.  También es necesario realizar las tareas de mantenimiento de la base de datos de manera periódica. Administrar una aplicación que usa el patrón de base de datos por inquilino requiere aplicar estos cambios o tareas de mantenimiento a todo un conjunto de bases de datos de inquilino.
 
 Este tutorial explora dos escenarios: la implementación de actualizaciones de datos de referencia para todos los inquilinos y la recompilación de un índice en la tabla que contiene los datos de referencia. La característica [Trabajos elásticos](sql-database-elastic-jobs-overview.md) se usa para ejecutar estas acciones en todas las bases de datos de inquilino y en la base de datos de plantilla que se usa para crear bases de datos de inquilino nuevas.

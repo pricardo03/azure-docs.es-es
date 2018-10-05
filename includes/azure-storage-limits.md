@@ -5,35 +5,34 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 09/25/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6572adb0d8d629910492603a17988b89acce2f17
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a0a777151216cb70b696da088b8a0d34779ebc39
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756036"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47396134"
 ---
+En la tabla siguiente se describen los límites predeterminados para Azure Storage. El límite de *entrada* hace referencia a todos los datos (solicitudes) que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.
+
 | Recurso | Límite predeterminado |
 | --- | --- |
-| Número de cuentas de almacenamiento por suscripción y región | 200<sup>1</sup> |
-| Capacidad máxima de la cuenta de almacenamiento | 500 TiB<sup>2</sup> |
+| Número de cuentas de almacenamiento por región y suscripción, incluidas las cuentas Estándar y Premium | 200 |
+| Capacidad máxima de la cuenta de almacenamiento<sup>1</sup> | 500 TiB |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento | Sin límite |
-| Tasa de solicitud total por cuenta de almacenamiento | 20 000 solicitudes por segundo<sup>2</sup> |
-| Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 10 Gbps si RA-GRS/GRS están habilitados, 20 Gbps en el caso de LRS/ZRS<sup>4</sup> |
-| Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 20 Gbps si RA-GRS/GRS están habilitados, 30 Gbps en el caso de LRS/ZRS<sup>4</sup> |
-| Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 5 Gbps si RA-GRS/GRS están habilitados, 10 Gbps en el caso de LRS/ZRS<sup>4</sup> |
-| Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 10 Gbps si RA-GRS/GRS están habilitados, 15 Gbps en el caso de LRS/ZRS<sup>4</sup> |
+| Tasa de solicitud total<sup>1</sup> por cuenta de almacenamiento | 20 000 solicitudes por segundo |
+| Entrada máxima<sup>1</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 10 Gbps si RA-GRS o GRS están habilitados, 20 Gbps en el caso de LRS o ZRS<sup>2</sup> |
+| Salida máxima<sup>1</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 20 Gbps si RA-GRS o GRS están habilitados, 30 Gbps en el caso de LRS o ZRS |
+| Entrada máxima<sup>1</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 5 Gbps si RA-GRS o GRS están habilitados, 10 Gbps en el caso de LRS o ZRS<sup>2</sup> |
+| Salida máxima<sup>1</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 10 Gbps si RA-GRS o GRS están habilitados, 15 Gbps en el caso de LRS o ZRS |
 
-<sup>1</sup>Incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento en una región dada, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento para una región dada. 
+<sup>1</sup> Las cuentas de almacenamiento de Azure admiten límites más altos de capacidad, tasa de solicitud, entrada y salida por solicitud. Para más información sobre los límites aumentados, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala). Para solicitar un aumento en los límites de cuenta, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
 
-<sup>2</sup> Si necesita límites ampliados de su cuenta de almacenamiento, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisa la solicitud y puede aprobar límites según el caso. Tanto las cuentas de uso general como las de Blob Storage admiten aumento de capacidad, entrada/salida y tasa de solicitudes por solicitud. Para información sobre los nuevos valores máximos para las cuentas de Blob Storage, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y a mayor escala).
-
-<sup>3</sup> limitado únicamente por los límites de entrada/salida de la cuenta. *Entrada* hace referencia a todos los datos (solicitudes) que se envían a una cuenta de almacenamiento. *Salida* hace referencia a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.  
-
-<sup>4</sup>Las opciones de redundancia de Azure Storage incluyen:
+Las opciones de <sup>2</sup>[replicación de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) incluyen:
 * **RA-GRS**: almacenamiento con redundancia geográfica con acceso de lectura. Si RA-GRS está habilitada, los destinos de salida para la ubicación secundaria son idénticos a los de la ubicación principal.
 * **GRS**: almacenamiento con redundancia geográfica. 
 * **ZRS**: almacenamiento con redundancia de zona.
 * **LRS**: almacenamiento con redundancia local. 
+

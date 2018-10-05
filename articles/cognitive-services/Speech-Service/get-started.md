@@ -1,20 +1,20 @@
 ---
 title: Prueba gratuita del servicio Voz
 description: Descubra cómo puede probar el servicio Voz sin costo alguno.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1615e3a492cd91fb998680094f131db454945303
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325214"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182576"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prueba gratuita del servicio Voz
 
@@ -26,110 +26,99 @@ Por último, el servicio Voz ofrece un plan gratuito de bajo volumen adecuado pa
 
 ## <a name="free-trial"></a>Evaluación gratuita
 
-La evaluación gratuita de 30 días le da acceso al plan de tarifa estándar S0 durante un tiempo limitado. Para suscribirse para obtener una prueba gratuita de 30 días, siga estos pasos.
+La evaluación gratuita de 30 días le da acceso al plan de tarifa estándar durante un tiempo limitado.
 
-1. Vaya a la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+Para registrarse a fin de obtener una evaluación gratuita de 30 días:
 
-1. Cambie a la pestaña Speech (Voz) y haga clic en el botón **Obtener clave de API** situado junto a "Servicios de voz".
+1. Vaya a [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-   ![Pestaña Servicios de voz](media/index/try-speech-api-free-trial1.png)<br>
+1. Seleccione la pestaña **Speech API**.
+
+   ![Pestaña Servicios de voz](media/index/try-speech-api-free-trial1.png)
+   
+1. En **Servicios de voz**, seleccione el botón **Obtener clave de API**.
+
    ![Clave de API](media/index/try-speech-api-free-trial2.png)
 
-3. Acepte los términos y seleccione la configuración regional en el menú desplegable.
+1. Acepte los términos y seleccione la configuración regional en el menú desplegable.
 
    ![Aceptación de los términos](media/index/try-speech-api-free-trial3.png)
 
-4. Inicie sesión con su cuenta de Microsoft, Facebook, LinkedIn o GitHub. O bien, puede registrarse para obtener una cuenta gratuita de Microsoft:
+1. Inicie sesión con su cuenta de Microsoft, Facebook, LinkedIn o GitHub.
 
-    * Vaya al [portal Cuenta de Microsoft](https://account.microsoft.com/account).
-    * Haga clic en **Iniciar sesión con Microsoft**.
+    Puede registrarse para obtener una cuenta Microsoft gratuita en el [portal de cuentas de Microsoft](https://account.microsoft.com/account). Para empezar, haga clic en **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, haga clic en **Crear una**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
 
-    ![Iniciar sesión](media/index/try-speech-api-free-trial4.png)
-
-    * Cuando se le pida que inicie sesión, haga clic en "Crear una".
-
-    ![Crear nueva cuenta](media/index/try-speech-api-free-trial5.png)
-
-    * En los pasos siguientes, escriba su dirección de correo electrónico o número de teléfono, asigne una contraseña y siga las instrucciones para comprobar la nueva cuenta de Microsoft.
-
-Después de iniciar la sesión, comienza la prueba gratuita. En la página web que se muestra se enumeran todos los Cognitive Services para los que actualmente tiene suscripciones de prueba. Junto a "Servicios de voz" se muestran dos claves de suscripción. Puede usar cualquiera de las claves en las aplicaciones.
+Después de iniciar sesión en Pruebe Cognitive Services, comienza la evaluación gratuita. En la página web que se muestra, se enumeran todos los servicios de Cognitive Services para los que actualmente tiene suscripciones de prueba. Junto a **Servicios de voz** se muestran dos claves de suscripción. Puede usar cualquiera de ellas en las aplicaciones.
 
 > [!NOTE]
-> Todas las suscripciones de prueba están en la región Oeste de EE. UU. Asegúrese de usar el punto de conexión correspondiente a su región al realizar las solicitudes.
+> Todas las suscripciones de prueba están en la región Oeste de EE. UU. Cuando realice solicitudes, asegúrese de usar el punto de conexión `westus`.
 
 ## <a name="new-azure-account"></a>Nueva cuenta de Azure
 
-Las cuentas nuevas de Azure reciben un crédito de servicio de 200 USD que dura hasta 30 días. Este crédito se puede usar para explorar más el servicio de voz o comenzar el desarrollo de aplicaciones.
+Las cuentas nuevas de Azure reciben un crédito de servicio de 200 USD que está disponible un máximo de 30 días. Este crédito se puede usar para explorar más a fondo el servicio de voz o para comenzar a desarrollar aplicaciones.
 
-Para suscribirse para obtener una cuenta nueva de Azure, siga estos pasos.
+Para registrarse y obtener una nueva cuenta de Azure, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), haga clic en **Comenzar gratis** y cree una nueva cuenta de Azure con su cuenta Microsoft.
 
-1. Vaya a la [página de registro de Azure](https://azure.microsoft.com/free/ai/). 
+Puede registrarse para obtener una cuenta Microsoft gratuita en el [portal de cuentas de Microsoft](https://account.microsoft.com/account). Para empezar, haga clic en **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, haga clic en **Crear una**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
 
-1. Haga clic en **Empiece gratis**.
-
-    ![Inicio gratuito](media/index/try-speech-api-new-azure1.png)
-
-3. Inicie sesión con la cuenta de Microsoft. Si no tiene una:
-
-    * Vaya al [portal Cuenta de Microsoft](https://account.microsoft.com/account).
-    * Haga clic en **Iniciar sesión con Microsoft**.
-    * Cuando se le pida que inicie sesión, haga clic en "Crear una".
-    * En los pasos siguientes, escriba su dirección de correo electrónico o número de teléfono, asigne una contraseña y siga las instrucciones para comprobar la nueva cuenta de Microsoft.
-
-1. Escriba el resto de la información solicitada para suscribirse para obtener una cuenta. Especifique su país y el nombre, y proporcione una dirección de correo electrónico y número de teléfono.
-
-    ![Escribir la información](media/index/try-speech-api-new-azure2.png)
-
-    Verifique su identidad por teléfono y proporcionando un número de tarjeta de crédito, y después acepte el contrato de usuario de Azure. (La tarjeta de crédito no recibirá ningún cargo).
-
-    ![Aceptación del contrato](media/index/try-speech-api-new-azure3.png)
-
-Se crea la cuenta de Azure gratuita. Siga los pasos descritos en la sección siguiente para iniciar una suscripción al servicio de voz.
+Después de crear la cuenta de Azure, siga los pasos de la sección siguiente para iniciar una suscripción al servicio de voz.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Crear un recurso de voz en Azure
 
-Para agregar un recurso de servicio de voz a la cuenta de Azure, siga estos pasos.
+Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta de Azure:
 
-1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com/) con la cuenta de Microsoft.
+1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com/) con la cuenta Microsoft.
 
-1. Haga clic en **Crear un recurso** (el icono **+** de color verde) en la parte superior izquierda del portal.
+1. Seleccione **Crear un recurso** en la parte superior izquierda del portal.
 
-    ![Crear el recurso](media/index/try-speech-api-create-speech1.png)
+    ![Creación de un recurso](media/index/try-speech-api-create-speech1.png)
 
-1. En la ventana Nuevos, busque Voz.
+1. En la ventana **Nuevo**, busque **voz**.
 
-    ![Haga clic en Voz](media/index/try-speech-api-create-speech2.png)
+1. En los resultados de la búsqueda, seleccione **Voz**.
 
-1. En los resultados de la búsqueda, haga clic en "Voz (versión preliminar)".
+    ![Selección de Voz](media/index/try-speech-api-create-speech2.png)
 
-1. Haga clic en el botón **Crear** situado en la parte inferior del panel del servicio de voz.
+1. En **Voz**, seleccione el botón **Crear**.
 
-    ![Click Create](media/index/try-speech-api-create-speech3.png)
+    ![Selección del botón Crear](media/index/try-speech-api-create-speech3.png)
 
-1. En el panel Crear, escriba:
+1. En **Crear**, escriba:
 
     * Un nombre para el recurso nuevo. El nombre ayuda a distinguir entre varias suscripciones al mismo servicio.
     * Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
     * Elija la región donde se va a usar el recurso. En la actualidad, el servicio Voz está disponible en las regiones de Asia Oriental, Europa del Norte y Oeste de EE. UU.
-    * Elija el plan de tarifa, ya sea F0 (suscripción gratuita limitada) o S0 (suscripción estándar). Haga clic en **Ver todos los detalles de los precios** para obtener información completa sobre los precios y las cuotas de uso de cada plan.
-    * Cree un grupo de recursos para esta suscripción de voz o asígnela a otro existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
+    * Elija un plan de tarifa de pago o gratuito. Haga clic en **Ver todos los detalles de los precios** para obtener información completa sobre los precios y las cuotas de uso de cada plan.
+    * Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
     * Para obtener acceso fácilmente a la suscripción en el futuro, active la casilla **Anclar al panel**.
-    * Haga clic en **Create** (Crear).
+    * Seleccione **Crear**.
 
-    ![Haga clic en Crear en el panel](media/index/try-speech-api-create-speech4.png)
+    ![Selección del botón Crear](media/index/try-speech-api-create-speech4.png)
 
-    La creación e implementación del recurso de voz nuevo puede tardar unos instantes. Aparece el panel Inicio rápido con información sobre el recurso nuevo.
+    La creación e implementación del recurso de voz nuevo puede tardar unos instantes. Seleccione **Inicio rápido** para ver información sobre el recurso nuevo.
 
     ![Panel Inicio rápido](media/index/try-speech-api-create-speech5.png)
 
-1. Haga clic en el vínculo **Claves** del Paso 1 en el panel Inicio rápido para mostrar las claves de suscripción. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Haga clic en el botón situado junto a cada clave para copiarla en el Portapapeles para pegarla en el código.
+1. En **Inicio rápido**, haga clic en el vínculo **Claves** del paso 1 para mostrar las claves de suscripción. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Seleccione el botón situado junto a cada clave para copiarla en el Portapapeles a fin de pegarla en el código.
 
 > [!NOTE]
-> Puede crear cualquier número de suscripciones de plan estándar en una o varias regiones. Pero solo puede crear una suscripción de plan gratuito.
+> Puede crear un número ilimitado de suscripciones de plan estándar en una o varias regiones. Pero solo puede crear una suscripción de plan gratuito. Las implementaciones de modelo del plan gratuito que permanezcan inactivas durante siete días se retirarán automáticamente.
+
+## <a name="switch-to-a-new-subscription"></a>Cambiar a una nueva suscripción
+
+Para cambiar de una suscripción a otra, por ejemplo, cuando la evaluación gratuita expire o al publicar la aplicación, sustituya la clave de región y suscripción del código por la clave de región y suscripción del nuevo recurso de Azure.
+
+> [!NOTE]
+> Las claves de evaluación gratuita se crean en la región Oeste de EE. UU. (`westus`). Una suscripción creada mediante el panel de Azure puede estar en alguna otra región, si así lo decide.
+
+* Si la aplicación usa [Speech SDK](speech-sdk.md), proporcione el código de región, por ejemplo, `westus`, al crear una configuración de voz.
+* Si la aplicación usa una de las [API de REST](rest-apis.md) del servicio de voz, la región forma parte del URI del punto de conexión que se emplea al realizar solicitudes.
+
+Las claves creadas para una región son válidas únicamente en esa región. Si intenta usarlas con otras regiones se producen errores de autenticación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Realice una de nuestras guías de inicio rápido de 10 minutos o visite nuestros ejemplos del SDK.
+Realice alguno de los inicios rápidos de 10 minutos o visite los ejemplos de SDK:
 
 > [!div class="nextstepaction"]
 > [Guía de inicio rápido: Reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)

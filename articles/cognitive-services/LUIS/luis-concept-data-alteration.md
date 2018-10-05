@@ -1,23 +1,24 @@
 ---
-title: 'Descripción de los conceptos de modificación de datos en LUIS: Azure | Microsoft Docs'
+title: 'Conceptos de modificación de datos en LUIS: Language Understanding'
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo se pueden modificar los datos antes de las predicciones en Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8421114bb5a7416ad2523fe9b0353f03f672619
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1aad540086764b1e2315d3b3e195c55ba5931e07
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223990"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036069"
 ---
 # <a name="data-alterations"></a>Modificaciones de datos
-LUIS proporciona distintos métodos para manipular la expresión antes o durante la predicción. 
+LUIS proporciona distintos métodos para manipular la expresión antes o durante la predicción. Entre ellos se incluyen la corrección de la ortografía y la solución de problemas de zona horaria para elementos datetimeV2 creados previamente. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corregir errores de ortografía de una expresión
 LUIS usa [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corregir los errores de ortografía de la expresión. LUIS necesita la clave asociada a ese servicio. Cree la clave y agréguela como parámetro de cadena de consulta en el [punto de conexión](https://aka.ms/luis-endpoint-apis). 
@@ -47,6 +48,9 @@ Cuando [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-
 }
 ```
  
+### <a name="whitelist-words"></a>Palabras de la lista de permitidas
+La API de corrección ortográfica de Bing que se utiliza en LUIS no admite una lista de palabras permitidas para omitir durante las alteraciones de la corrección ortográfica. Si necesita poner acrónimos o palabras en la lista de permitidas, procese la expresión en la aplicación cliente con una lista de permitidas antes de enviar la expresión a LUIS para la predicción de intenciones.
+
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Cambiar la zona horaria de la entidad datetimeV2 creada previamente
 Cuando una aplicación de LUIS usa la entidad datetimeV2 creada previamente, se puede devolver un valor de fecha y hora en la respuesta de la predicción. La zona horaria de la solicitud se usa para determinar la fecha y hora correctas que se van a devolver. Si la solicitud procede de un bot o de otra aplicación centralizada antes de llegar a LUIS, corrija la zona horaria que usa LUIS. 
 

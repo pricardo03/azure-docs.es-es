@@ -1,6 +1,6 @@
 ---
 title: Registros de diagnóstico de Azure | Microsoft Docs
-description: Los clientes pueden habilitar el análisis de registros para la red CDN de Azure.
+description: Los clientes pueden habilitar el análisis de registros para Azure CDN.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: v-deasim
-ms.openlocfilehash: 98a7fc5c4607115811e17a7cf6acd4e867663833
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0baa43977099af9c6c0d9c2e4c03abc121ec279d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261311"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47097013"
 ---
 # <a name="azure-diagnostic-logs"></a>Registros de diagnósticos de Azure
 
@@ -117,8 +117,6 @@ Para usar Log Analytics para almacenar los registros, siga estos pasos:
 
 9. Haga clic en **Aceptar** para completar la configuración.
 
-    ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/08_Workspace-resource.png)
-
 10. Una vez que se crea el área de trabajo, vuelve a la página **Registros de diagnóstico**. Confirme el nombre de la nueva área de trabajo de Log Analytics.
 
     ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/09_Return-to-logging.png)
@@ -127,7 +125,7 @@ Para usar Log Analytics para almacenar los registros, siga estos pasos:
 
 12. Para ver la nueva área de trabajo de Log Analytics, seleccione **Análisis básico** en la página de punto de conexión de red CDN.
 
-    ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
+    ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
     El área de trabajo de Log Analytics ahora está lista para registrar datos. Para consumir estos datos, debe utilizar una [solución de Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), que se describe más adelante en este artículo.
 
@@ -168,17 +166,16 @@ Antes de poder acceder a los datos de análisis básico desde una cuenta de alma
 2.  Busque la cuenta de almacenamiento.
 3.  Expanda el nodo **Contenedores de blob** en esta cuenta de almacenamiento.
 4.  Seleccione el contenedor llamado *insights-logs-coreanalytics*.
-5.  Los resultados se muestran en el panel derecho, comenzando por el primer nivel, como *resourceId=*. Siga seleccionando cada nivel hasta encontrar el archivo *PT1H.json*. Vea la siguiente nota de *formato de ruta de acceso de Blob* para obtener una explicación de la ruta de acceso.
+5.  Los resultados se muestran en el panel derecho, comenzando por el primer nivel, como *resourceId=*. Siga seleccionando cada nivel hasta encontrar el archivo *PT1H.json*. Para obtener una explicación de la ruta de acceso, consulte [Formato de las rutas de acceso de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Cada archivo blob *PT1H.json* representa los registros de análisis durante una hora de un punto de conexión de red CDN concreto o de su dominio personalizado.
 7.  El esquema del contenido de este archivo JSON se describe en la sección de esquema de los registros de análisis básico.
 
 
-> [!NOTE]
-> **Formato de ruta de acceso de blob**
-> 
-> Los registros de análisis básico se generan cada hora y los datos se recopilan y almacenan en un único blob de Azure como una carga JSON. Dado que la herramienta Explorador de Storage interpreta "/" como un separador de directorios y muestra la jerarquía, la ruta de acceso al blob de Azure aparece como si hubiera una estructura jerárquica y representa el nombre del blob. Este nombre del blob sigue la convención de nomenclatura siguiente: 
-    
-    resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+#### <a name="blob-path-format"></a>Formato de las rutas de acceso de blob
+
+Los registros de análisis básico se generan cada hora y los datos se recopilan y almacenan en un único blob de Azure como una carga JSON. Dado que la herramienta Explorador de Storage interpreta "/" como un separador de directorios y muestra la jerarquía, la ruta de acceso al blob de Azure aparece como si hubiera una estructura jerárquica y representa el nombre del blob. Este nombre del blob sigue la convención de nomenclatura siguiente:   
+
+```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
 **Descripción de los campos:**
 
@@ -241,7 +238,7 @@ Siga estos pasos para agregar una solución de administración de Log Analytics:
 
     ![Ver todos](./media/cdn-diagnostics-log/16_Search-for.png)
 
-5. Seleccione **Análisis Básico de la red CDN de Azure**. 
+5. Seleccione **Análisis Básico de Azure CDN**. 
 
     ![Ver todos](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
@@ -318,32 +315,32 @@ En la tabla siguiente se muestra una lista de métricas disponibles en los regis
 
 |Métrica                     | DESCRIPCIÓN | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Número total de aciertos de solicitud durante este periodo. | Sí | Sí |Sí |
-| RequestCountHttpStatus2xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 2xx (por ejemplo, 200, 202). | Sí | Sí |Sí |
-| RequestCountHttpStatus3xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 3xx (por ejemplo, 300, 302). | Sí | Sí |Sí |
-| RequestCountHttpStatus4xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 4xx (por ejemplo, 400, 404). | Sí | Sí |Sí |
-| RequestCountHttpStatus5xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 5xx (por ejemplo, 500, 504). | Sí | Sí |Sí |
-| RequestCountHttpStatusOthers | Recuento de todos los demás códigos HTTP (fuera del intervalo 2xx-5xx). | Sí | Sí |Sí |
-| RequestCountHttpStatus200 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 200. | Sí | Sin   |Sí |
-| RequestCountHttpStatus206 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 206. | Sí | Sin   |Sí |
-| RequestCountHttpStatus302 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 302. | Sí | Sin   |Sí |
-| RequestCountHttpStatus304 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 304. | Sí | Sin   |Sí |
-| RequestCountHttpStatus404 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 404. | Sí | Sin   |Sí |
-| RequestCountCacheHit | Recuento de todas las solicitudes que dieron lugar a un acierto de caché. El recurso se atendió directamente desde el servidor POP al cliente. | Sí | Sí | Sin   |
-| RequestCountCacheMiss | Recuento de todas las solicitudes que dieron lugar a un error de caché. Un error de caché significa que el recurso no se encontró en el servidor POP más cercano al cliente y, por tanto, se recupera del origen. | Sí | Sí | Sin  |
-| RequestCountCacheNoCache | Recuento de todas las solicitudes a un recurso a las que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | Sí | Sí | Sin  |
-| RequestCountCacheUncacheable | Recuento de todas las solicitudes a recursos cuyos encabezados Cache-Control y Expires impiden que se almacenen en caché. Estos encabezados indican que no se deben almacenar en caché en un servidor POP o por el cliente HTTP. | Sí | Sí | Sin  |
+| RequestCountTotal         | Número total de aciertos de solicitud durante este periodo. | SÍ | Sí |SÍ |
+| RequestCountHttpStatus2xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 2xx (por ejemplo, 200, 202). | SÍ | Sí |SÍ |
+| RequestCountHttpStatus3xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 3xx (por ejemplo, 300, 302). | SÍ | Sí |SÍ |
+| RequestCountHttpStatus4xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 4xx (por ejemplo, 400, 404). | SÍ | Sí |SÍ |
+| RequestCountHttpStatus5xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 5xx (por ejemplo, 500, 504). | SÍ | Sí |SÍ |
+| RequestCountHttpStatusOthers | Recuento de todos los demás códigos HTTP (fuera del intervalo 2xx-5xx). | SÍ | Sí |SÍ |
+| RequestCountHttpStatus200 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 200. | SÍ | Sin   |SÍ |
+| RequestCountHttpStatus206 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 206. | SÍ | Sin   |SÍ |
+| RequestCountHttpStatus302 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 302. | SÍ | Sin   |SÍ |
+| RequestCountHttpStatus304 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 304. | SÍ | Sin   |SÍ |
+| RequestCountHttpStatus404 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 404. | SÍ | Sin   |SÍ |
+| RequestCountCacheHit | Recuento de todas las solicitudes que dieron lugar a un acierto de caché. El recurso se atendió directamente desde el servidor POP al cliente. | SÍ | SÍ | Sin   |
+| RequestCountCacheMiss | Recuento de todas las solicitudes que dieron lugar a un error de caché. Un error de caché significa que el recurso no se encontró en el servidor POP más cercano al cliente y, por tanto, se recupera del origen. | SÍ | SÍ | Sin  |
+| RequestCountCacheNoCache | Recuento de todas las solicitudes a un recurso a las que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | SÍ | SÍ | Sin  |
+| RequestCountCacheUncacheable | Recuento de todas las solicitudes a recursos cuyos encabezados Cache-Control y Expires impiden que se almacenen en caché. Estos encabezados indican que no se deben almacenar en caché en un servidor POP o por el cliente HTTP. | SÍ | SÍ | Sin  |
 | RequestCountCacheOthers | Recuento de todas las solicitudes con un estado de caché no cubierto por lo anterior. | Sin  | Sí | Sin   |
-| EgressTotal | Transferencia de datos salientes en GB | Sí |Sí |Sí |
-| EgressHttpStatus2xx | Transferencia de datos salientes* para respuestas con códigos de estado HTTP 2xx en GB. | Sí | Sí | Sin   |
-| EgressHttpStatus3xx | Transferencia de datos salientes para respuestas con códigos de estado HTTP 3xx en GB. | Sí | Sí | Sin   |
-| EgressHttpStatus4xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 4xx en GB. | Sí | Sí | Sin   |
-| EgressHttpStatus5xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 5xx en GB. | Sí | Sí | Sin  |
-| EgressHttpStatusOthers | Transferencia de datos de salida para respuestas con otros códigos de estado HTTP en GB. | Sí | Sí | Sin   |
-| EgressCacheHit | Transferencia de datos de salida para respuestas que se entregaron directamente desde la caché de CDN en los servidores POP/perimetrales de CDN. | Sí | Sí | Sin  |
-| EgressCacheMiss. | Transferencia de datos de salida para respuestas que no se encontraron en el servidor POP más cercano y que se recuperaron del servidor de origen. | Sí | Sí | Sin  |
-| EgressCacheNoCache | Transferencia de datos de salida para recursos a los que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | Sí | Sí | Sin  |
-| EgressCacheUncacheable | Transferencia de datos de salida para recursos cuyos encabezados Cache-Control o Expires impiden que se almacenen en caché. Indica que no se debería almacenar en caché en un servidor POP o por el cliente HTTP. | Sí | Sí | Sin  |
+| EgressTotal | Transferencia de datos salientes en GB | SÍ |Sí |SÍ |
+| EgressHttpStatus2xx | Transferencia de datos salientes* para respuestas con códigos de estado HTTP 2xx en GB. | SÍ | SÍ | Sin   |
+| EgressHttpStatus3xx | Transferencia de datos salientes para respuestas con códigos de estado HTTP 3xx en GB. | SÍ | SÍ | Sin   |
+| EgressHttpStatus4xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 4xx en GB. | SÍ | SÍ | Sin   |
+| EgressHttpStatus5xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 5xx en GB. | SÍ | SÍ | Sin  |
+| EgressHttpStatusOthers | Transferencia de datos de salida para respuestas con otros códigos de estado HTTP en GB. | SÍ | SÍ | Sin   |
+| EgressCacheHit | Transferencia de datos de salida para respuestas que se entregaron directamente desde la caché de CDN en los servidores POP/perimetrales de CDN. | SÍ | SÍ | Sin  |
+| EgressCacheMiss. | Transferencia de datos de salida para respuestas que no se encontraron en el servidor POP más cercano y que se recuperaron del servidor de origen. | SÍ | SÍ | Sin  |
+| EgressCacheNoCache | Transferencia de datos de salida para recursos a los que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | SÍ | SÍ | Sin  |
+| EgressCacheUncacheable | Transferencia de datos de salida para recursos cuyos encabezados Cache-Control o Expires impiden que se almacenen en caché. Indica que no se debería almacenar en caché en un servidor POP o por el cliente HTTP. | SÍ | SÍ | Sin  |
 | EgressCacheOthers | Transferencias de datos de salida para otros escenarios de caché. | Sin  | Sí | Sin  |
 
 \*Con transferencia de datos de salida nos referimos al tráfico entregado al cliente desde los servidores POP de la red CDN.
@@ -437,7 +434,7 @@ Propiedades de ejemplo:
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Análisis básico mediante el portal complementario de la red CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
+* [Análisis básico mediante el portal complementario de Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [API de REST de Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 

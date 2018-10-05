@@ -1,20 +1,21 @@
 ---
-title: Expresiones en aplicaciones de LUIS en Azure | Microsoft Docs
-description: Adición de expresiones en aplicaciones de Language Understanding Intelligent Service (LUIS).
+title: Expresiones en aplicaciones de LUIS
+titleSuffix: Azure Cognitive Services
+description: Las expresiones son datos proporcionados por el usuario que la aplicación necesita interpretar. Recopile frases que crea que los usuarios pueden escribir. Incluya expresiones que signifiquen lo mismo, pero que se construyan de forma diferente tanto en longitud de palabras como en el orden de las palabras.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39c99cc35f4c2549efc9c20af0680b77483325c5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224422"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038942"
 ---
 # <a name="utterances-in-luis"></a>Expresiones en LUIS
 
@@ -35,12 +36,14 @@ Al elegir expresiones, tenga en cuenta que lo que cree que es un término o fras
 Observará que aunque realice esfuerzos para crear patrones de frases variadas,se seguirá repitiendo algo de vocabulario.
 
 Considere las siguientes expresiones de ejemplo:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Expresiones de ejemplo|
+|--|
+|¿Cómo puedo obtener un equipo?|
+|¿Dónde puedo obtener un equipo?|
+|Quiero obtener un equipo, ¿cómo lo hago?|
+|¿Cuándo puedo tener un equipo?| 
+
 En este caso, el término principal, "equipo", no varía. Se podría decir el equipo de escritorio, portátil, estación de trabajo o incluso simplemente máquina. LUIS deduce de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, también es mejor variarlas.
 
 ## <a name="example-utterances-in-each-intent"></a>Expresiones de ejemplo en cada intención

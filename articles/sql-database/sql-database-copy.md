@@ -2,19 +2,22 @@
 title: Copia de una base de datos SQL de Azure | Microsoft Docs
 description: Cree una copia transaccionalmente coherente de una base de datos de Azure SQL existente en el mismo servidor o en un servidor diferente.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 04/01/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 2217df046cf95ddcd12f6dcaa41b2c3f8b0090f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 2ce86bee96f22b4079afee3eacbeee7ea15a6ffa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646208"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226014"
 ---
 # <a name="copy-an-azure-sql-database"></a>Copiar una base de datos SQL de Azure
 
@@ -22,7 +25,7 @@ Azure SQL Database proporciona varios métodos para crear una copia transacciona
 
 ## <a name="overview"></a>Información general
 
-Una copia de la base de datos es una instantánea de la base de datos de origen en el momento de la solicitud de copia. Puede seleccionar el mismo servidor o un servidor diferente, su nivel de servicio, el nivel de rendimiento o un nivel de rendimiento diferente dentro del mismo nivel de servicio (edición). Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Llegado a este punto, puede actualizar a cualquier edición o cambiar a una edición anterior. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente.  
+Una copia de la base de datos es una instantánea de la base de datos de origen en el momento de la solicitud de copia. Puede seleccionar el mismo servidor o un servidor diferente, su nivel de servicio y tamaño de proceso, o un tamaño de proceso diferente dentro del mismo nivel de servicio (edición). Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Llegado a este punto, puede actualizar a cualquier edición o cambiar a una edición anterior. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente.  
 
 ## <a name="logins-in-the-database-copy"></a>Inicios de sesión en la copia de la base de datos
 
@@ -30,7 +33,7 @@ Al copiar una base de datos en el mismo servidor lógico, los mismos inicios de 
 
 Al copiar una base de datos en un servidor lógico diferente, la entidad de seguridad del nuevo servidor se convierte en el propietario de la nueva base de datos. Si usa [usuarios de base de datos contenidos](sql-database-manage-logins.md) para el acceso a datos, asegúrese de que tanto las bases de datos principales como las secundarias tengan siempre las mismas credenciales de usuario, de tal forma que, una vez completada la copia, pueda obtener acceso inmediato a ellas con las mismas credenciales. 
 
-Si usa [Azure Active Directory](../active-directory/active-directory-whatis.md), puede eliminar completamente la necesidad de administrar las credenciales en la copia. Pero al copiar la base de datos a un nuevo servidor, puede que el acceso basado en inicios de sesión no funcione debido a que esas cuentas de inicio de sesión no se encuentran en el nuevo servidor. Consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md) para obtener información sobre cómo administrar inicios de sesión al copiar una base de datos a un servidor lógico diferente. 
+Si usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), puede eliminar completamente la necesidad de administrar las credenciales en la copia. Pero al copiar la base de datos a un nuevo servidor, puede que el acceso basado en inicios de sesión no funcione debido a que esas cuentas de inicio de sesión no se encuentran en el nuevo servidor. Consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md) para obtener información sobre cómo administrar inicios de sesión al copiar una base de datos a un servidor lógico diferente. 
 
 Cuando la copia se realiza correctamente y antes de que se reasignen otros usuarios, solo el inicio de sesión que inició la copia, el propietario de la base de datos, puede iniciar sesión en la nueva base de datos. Para resolver los inicios de sesión una vez completada la operación de copia, consulte [Resolución de inicios de sesión](#resolve-logins).
 
@@ -68,7 +71,7 @@ Este comando copia Base de datos1 en una base de datos nueva denominada Base de 
 
     -- Execute on the master database.
     -- Start copying.
-    CREATE DATABASE Database1_copy AS COPY OF Database1;
+    CREATE DATABASE Database2 AS COPY OF Database1;
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>Copiar una base de datos SQL en un servidor diferente
 
@@ -78,7 +81,7 @@ Este comando copia Base de datos1 del servidor1 en una nueva base de datos denom
 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
-    CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Supervisión del progreso de la operación de copia

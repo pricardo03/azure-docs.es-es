@@ -1,20 +1,23 @@
 ---
 title: Uso de Azure Portal para crear alertas de SQL Database | Microsoft Docs
 description: Use Azure Portal para crear alertas de SQL Database, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones que ha especificado.
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: aamalvea
 ms.author: aamalvea
-ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648030"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159319"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar Azure Portal para crear alertas de Azure SQL Database y Data Warehouse
 
@@ -43,7 +46,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 1. En el [portal](https://portal.azure.com/), busque el recurso que desea supervisar y selecciónelo.
 2. Este paso es diferente para SQL Database y los grupos elásticos frente a SQL Data Warehouse: 
 
-   - **SOLO para SQL Database y grupos elásticos**: En la sección SUPERVISIÓN, seleccione **Alertas** o **Reglas de alerta**. El texto y el icono pueden variar ligeramente en los distintos recursos.  
+   - **SOLO para SQL Database y grupos elásticos**: en la sección SUPERVISIÓN, seleccione **Alertas** o **Reglas de alerta**. El texto y el icono pueden variar ligeramente en los distintos recursos.  
    
      ![Supervisión](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   
@@ -108,7 +111,7 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 | SQL Data Warehouse | connection_successful | Conexiones correctas | Total | 10 minutos |
 | SQL Data Warehouse | connection_failed | Conexiones con errores | Total | 10 minutos |
 | SQL Data Warehouse | blocked_by_firewall | Bloqueado por el firewall | Total | 10 minutos |
-| SQL Data Warehouse | service_level_objective | Objetivo de nivel de servicio de la base de datos | Total | 10 minutos |
+| SQL Data Warehouse | service_level_objective | Nivel de servicio de la base de datos | Total | 10 minutos |
 | SQL Data Warehouse | dwu_limit | Límite de DWU | Máxima | 10 minutos |
 | SQL Data Warehouse | dwu_consumption_percent | Porcentaje de DWU | Media | 10 minutos |
 | SQL Data Warehouse | dwu_used | DWU utilizada | Media | 10 minutos |

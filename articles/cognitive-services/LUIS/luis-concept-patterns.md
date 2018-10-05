@@ -1,24 +1,24 @@
 ---
-title: Cómo los patrones aumentan la precisión de las predicciones | Microsoft Docs
-titleSuffix: Azure
-description: Aprenda a diseñar patrones para aumentar las puntuaciones de predicción de intenciones y buscar entidades.
+title: Cómo los patrones aumentan la precisión de las predicciones
+titleSuffix: Azure Cognitive Services
+description: Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas. Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225224"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031550"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
-Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas. Al proporcionar un patrón para la expresión, LUIS puede tener una confianza elevada en la predicción. 
+Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Los patrones resuelven la confianza con intención baja
 Piense en una aplicación de recursos humanos que informa sobre el organigrama en relación con un empleado. Dados el nombre y la relación del empleado, LUIS devuelve los empleados implicados. Considere un empleado, Tom, con una jefa llamada Alice, y un equipo de subalternos llamados: Michael, Rebecca y Carl.
@@ -60,25 +60,25 @@ Las entidades en los patrones aparecen entre llaves, `{}`. Los patrones pueden i
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxis para agregar una entidad a una plantilla de patrón
 Para agregar una entidad a la plantilla de patrón, incluya el nombre de la entidad entre llaves, por ejemplo, `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Patrón con entidad|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Sintaxis para agregar una entidad y un rol a una plantilla de patrón
 Un rol de entidad se representa como `{entity:role}`, donde el nombre de la entidad va seguido por un signo de dos puntos y, a continuación, el nombre del rol. Para agregar una entidad con un rol a la plantilla de patrón, incluya el nombre de la entidad y el nombre del rol entre llaves, por ejemplo, `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Patrón con roles de entidad|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Sintaxis para agregar pattern.any a una plantilla de patrón
 La entidad pattern.any permite agregar una entidad de longitud variable al patrón. Mientras se siga la plantilla de patrón, pattern.any puede tener cualquier longitud. 
 
 Para agregar una entidad **pattern.any** a la plantilla de patrón, incluya dicha entidad entre llaves, por ejemplo, `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Patrón con entidad Pattern.any|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Títulos de libros en el patrón|
 |--|
@@ -107,9 +107,9 @@ Para corregir esta excepción al patrón, agregue `the man from la mancha` como 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintaxis para marcar texto opcional en una expresión de plantilla
 Marque texto opcional en la expresión mediante la sintaxis de corchetes de expresión regular, `[]`. El texto opcional solo puede anidar dos corchetes.
 
-```
-[find] email about {subject} [from {person}]
-```
+|Patrón con texto opcional|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 Los signos de puntuación como `.`, `!` y `?` se pueden omitir mediante los corchetes. Para omitir estos signos, cada signo debe estar en un patrón aparte. La sintaxis opcional no admite actualmente la omisión de un elemento de una lista de varios elementos.
 

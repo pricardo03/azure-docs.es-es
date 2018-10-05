@@ -3,10 +3,8 @@ title: Complemento de Excel para los servicios web Machine Learning | Microsoft 
 description: Uso de los servicios web Azure Machine Learning directamente en Excel sin escribir código.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: marthalc
+ms.author: marthalc
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.component: studio
@@ -15,26 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 68e2f72dfd8cc58d42263f4b6378d89304aaaa4d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834199"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095815"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning
+# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning Studio
 Excel facilita la llamada a servicios web directamente sin necesidad de escribir ningún código.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Pasos para usar un servicio web existente en el libro
 
-1. Abra el [archivo de Excel de ejemplo](http://aka.ms/amlexcel-sample-2)que contiene el complemento de Excel y los datos acerca de los pasajeros del Titanic.
+1. Abra el [archivo de Excel de ejemplo](http://aka.ms/amlexcel-sample-2)que contiene el complemento de Excel y los datos acerca de los pasajeros del Titanic. 
+ 
+> [!NOTE]
+> Verá que la lista de los servicios web relacionados en el archivo y en la parte inferior una casilla para "Predicción automática". Si habilita la predicción automática, las predicciones en **todos** los servicios se actualizarán cada vez que haya un cambio en las entradas. Si la desactiva, tendrá que hacer clic en "Predecir todo" para actualizar. Para habilitar la predicción automática en un nivel de servicio, vaya al paso 6.
+
 2. Elija el servicio web haciendo clic en él, "Predictor de supervivientes del Titanic (complemento de Excel de ejemplo) [puntuación]" en este ejemplo.
    
     ![Seleccionar un servicio web][01]
 3. Esto le lleva a la sección **Predicción**.  Este libro ya contiene datos de ejemplo, pero para un libro en blanco también puede seleccionar una celda en Excel y hacer clic en **Usar datos de ejemplo**.
 4. Seleccione los datos con encabezados y haga clic en el icono del intervalo de datos de entrada.  Asegúrese de que está activada la casilla "Mis datos tienen encabezados".
 5. En **Resultado**, escriba el número de la celda donde desea que se muestre el resultado, por ejemplo, "H1" aquí.
-6. Haga clic en **Predicción**.
+6. Haga clic en **Predicción**. Si selecciona la casilla "predicción automática", cualquier cambio en las áreas seleccionadas (las especificadas como entradas) desencadenará una solicitud y una actualización de las celdas de salida sin necesidad de presionar el botón de predicción.
    
     ![Sección Predicción][02]
 

@@ -1,20 +1,21 @@
 ---
-title: Administración de la suscripción de punto de conexión de Azure | Microsoft Docs
+title: Administración de suscripciones de punto de conexión en LUIS
+titleSuffix: Azure Cognitive Services
 description: En este artículo, se crea una clave de punto de conexión de uso medido para la cuenta de LUIS para proporcionar tráfico ilimitado al punto de conexión en función de un plan de pago.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223286"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040387"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Administración de las claves de suscripción de punto de conexión de Azure
 
@@ -40,8 +41,7 @@ Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de 
     ![Claves de Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Inicie sesión en el sitio web [LUIS](luis-reference-regions.md) de la región y [agregue la nueva clave de punto de conexión de LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * Tendrá que recordar el nombre del servicio de Azure que creó para poder seleccionarlo en la página de publicación de [LUIS](luis-reference-regions.md) de la región.  
+    > Inicie sesión en el sitio Web de [LUIS](luis-reference-regions.md) de la región y [asigne la nueva clave de punto de conexión de LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). Necesita el nombre de la suscripción de LUIS del paso 3.
 
 ## <a name="change-luis-pricing-tier"></a>Cambiar el plan de tarifa de LUIS
 

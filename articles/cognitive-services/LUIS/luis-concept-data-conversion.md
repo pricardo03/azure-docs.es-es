@@ -1,23 +1,24 @@
 ---
-title: Descripción de los conceptos de conversión de datos en LUIS - Azure | Microsoft Docs
+title: 'Conceptos de conversión de datos de LUIS: Language Understanding'
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo se pueden modificar las expresiones antes de las predicciones en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3862a0dbd94b5764cf506b05201d8dc60430fc7d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223708"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038976"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>Conceptos de conversión de datos en LUIS
-LUIS ofrece un método para convertir las expresiones de voz en texto antes de la predicción. 
+LUIS usa el servicio Speech de Cognitive Services para convertir las expresiones de voz en texto antes de la predicción. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Conceptos de la conversión de voz en intención
 La conversión de voz en texto en LUIS permite enviar expresiones de voz a un punto de conexión y recibir una respuesta de predicción de LUIS. El proceso consiste en integrar el servicio [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) con LUIS. 

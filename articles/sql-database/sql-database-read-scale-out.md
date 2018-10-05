@@ -2,19 +2,22 @@
 title: 'Azure SQL Database: lectura de consultas en réplicas| Microsoft Docs'
 description: Azure SQL Database ofrece la posibilidad de equilibrar la carga de las cargas de trabajo de solo lectura mediante la capacidad de las réplicas de solo lectura, lo que se conoce como escalado horizontal de lectura.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 8/27/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124824"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158709"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura (versión preliminar)
 
@@ -26,7 +29,7 @@ Cada base de datos del nivel Premium ([modelo de compra basado en la unidad de t
 
 ![Réplicas de solo lectura](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Estas réplicas se aprovisionan con el mismo nivel de rendimiento que la réplica de lectura-escritura que se usan en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de solo escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está destinada a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
+Estas réplicas se aprovisionan con el mismo tamaño de proceso que la réplica de lectura-escritura usada en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de solo escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está destinada a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
 
 Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También puede habilitarla más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager. 
 
@@ -119,7 +122,7 @@ Para más información, consulte [Databases - Create or Update](/rest/api/sql/da
 Si usa el escalado horizontal de lectura para equilibrar la carga de cargas de trabajo de solo lectura en una base de datos con replicación geográfica (por ejemplo, como miembro de un grupo de conmutación por error), asegúrese de que el escalado horizontal de lectura esté habilitado en las bases de datos principal y secundaria con replicación geográfica. Esto garantizará el mismo efecto de equilibrio de carga cuando la aplicación se conecte a la nueva base de datos principal después de la conmutación por error. Si se conecta a la base de datos secundaria con replicación geográfica con el escalado de lectura habilitado, las sesiones con `ApplicationIntent=ReadOnly` se enrutarán a una de las réplicas del mismo modo que se enrutan las conexiones en la base de datos principal.  Las sesiones sin `ApplicationIntent=ReadOnly` se enrutarán a la réplica principal de la secundaria con replicación geográfica, que también es de solo lectura. Dado que una base de datos secundaria con replicación geográfica tiene un punto de conexión diferente que la base de datos principal, históricamente para tener acceso a la base de datos secundaria no era necesario establecer `ApplicationIntent=ReadOnly`. Para garantizar la compatibilidad con versiones anteriores, la DMV de `sys.geo_replication_links` muestra `secondary_allow_connections=2` (se permite cualquier conexión de cliente).
 
 > [!NOTE]
-> Durante la versión preliminar, no se llevará a cabo round robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas locales de la base de datos secundaria. 
+> Durante la versión preliminar, no se admite round-robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas locales de la base de datos secundaria. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

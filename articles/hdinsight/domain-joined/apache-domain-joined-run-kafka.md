@@ -8,14 +8,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 5b262204fafa84d72f571e4551ecfd793d865040
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a8f04f39568816252175fc9e0893f1ab3e2cdc6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993891"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224824"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configuración de directivas de Kafka en HDInsight con Enterprise Security Package
+# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Kafka en HDInsight con Enterprise Security Package (versión preliminar)
 
 Obtenga información sobre cómo configurar directivas de Apache Ranger para los clústeres Kafka de Enterprise Security Package (ESP). Los clústeres de ESP se conectan a un dominio, lo que permite a los usuarios autenticarse con credenciales de dominio. En este tutorial, creará dos directivas de Ranger para restringir el acceso a los temas `sales*` y `marketingspend`.
 

@@ -1,21 +1,21 @@
 ---
-title: Solución de problemas de QnAMaker | Microsoft Docs
-titleSuffix: Azure
-description: Cómo solucionar problemas del sistema de tiempo de ejecución de QnAMaker
+title: 'Solución de problemas: QnAMaker'
+titlesuffix: Azure Cognitive Services
+description: QnAMaker está compuesto por componentes que se hospedan en la cuenta de usuario Azure. Para la depuración puede ser necesario que los usuarios manipulen sus recursos de QnAMaker en Azure o que proporcionen al equipo de soporte técnico de QnAMaker información adicional sobre su instalación.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 06/04/2018
-ms.author: saneppal
-ms.openlocfilehash: 23847c81a39ea392b6e64575406c9dc338b852de
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: ad3c01ebf37c8b544830b281144090694eeadfcd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35383234"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033741"
 ---
 # <a name="qnamaker-troubleshooting"></a>Solución de problemas de QnAMaker
 QnAMaker está compuesto por componentes que se hospedan en la cuenta de usuario Azure. Para la depuración puede ser necesario que los usuarios manipulen sus recursos de QnAMaker en Azure o que proporcionen al equipo de soporte técnico de QnAMaker información adicional sobre su instalación.

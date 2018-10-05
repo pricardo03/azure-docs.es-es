@@ -1,26 +1,27 @@
 ---
-title: 'Azure Content Moderator: moderación de vídeos | Microsoft Docs'
+title: 'Moderación de vídeo: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Use la moderación de vídeos para buscar contenido para adultos e inapropiado.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b6240ef0883e1a523c50c9b641065deb2669d53
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382490"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226542"
 ---
 # <a name="video-moderation"></a>Moderación de vídeo
 
 En la actualidad, los visitantes en línea reproducen miles de millones de vídeos tanto en redes sociales como en sitios los web regionales más populares, y esta cifra va en aumento. Al aplicar los servicios basados en el aprendizaje automático para detectar el posible contenido para adultos o que sea inapropiado, puede reducir el costo de sus esfuerzos de moderación.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>Regístrese para obtener el procesador de multimedia de Content Moderator (versión preliminar pública)
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>Registro en el procesador de multimedia de Content Moderator (versión preliminar)
 
 ### <a name="create-a-free-azure-account"></a>Crear una cuenta de Azure gratuita
 
@@ -65,7 +66,7 @@ Instale los siguientes paquetes NuGet que encontrará en [NuGet](https://www.nug
 
 ### <a name="update-the-programs-using-statements"></a>Actualizar las instrucciones "using" del programa
 
-Modifique las instrucciones "using" del programa.
+Modifique las instrucciones using del programa.
 
     using System;
     using System.Linq;
@@ -368,8 +369,8 @@ Una vez completado el trabajo de moderación de contenido, analice la respuesta 
 
 > - `adultScore` representa la posible presencia y la puntuación de predicción de contenido que se pueda considerar sexualmente explícito o para adultos en ciertas situaciones.
 > - `racyScore` representa la posible presencia y la puntuación de predicción de contenido que se pueda considerar sexualmente insinuante o para adultos en ciertas situaciones.
-> - `adultScore` y `racyScore` están entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta versión preliminar se basa en un modelo estadístico en lugar de en resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría en función de sus propios requisitos.
-> - `reviewRecommended` es true o false según los umbrales de puntuación internos. Los clientes deben evaluar si quieren usar este valor o decidir umbrales personalizados basados en sus directivas de contenido.
+> - `adultScore` y `racyScore` están entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta versión preliminar usa un modelo estadístico, en lugar de resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría en función de sus propios requisitos.
+> - `reviewRecommended` es true o false según los umbrales de puntuación internos. Los clientes deben evaluar si quieren usar este valor o decidir si desean umbrales personalizados basados en sus directivas de contenido.
 >
 
     {

@@ -1,21 +1,21 @@
 ---
-title: 'Glosario: Microsoft Cognitive Services | Microsoft Docs'
-titleSuffix: Azure
+title: 'Glosario: QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Glosario
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: e28cddec005cb6ba99b9f60d8b03a11f1bc97062
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: b22ec27b2999d322945e37c5a38d2b1d1532e7e3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381830"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166051"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -34,10 +34,10 @@ Una base de conocimientos tiene dos estados: prueba y publicada. La base de cono
 ## <a name="published-knowledge-base"></a>Base de conocimientos publicada
 Una base de conocimientos tiene dos estados: prueba y publicada.  La base de conocimiento publicada es la versión que se utiliza en la aplicación o en el bot de chat. La acción de publicar una base de conocimientos coloca el contenido de la base de conocimientos de prueba en la versión publicada de la base de conocimientos. Dado que la base de conocimientos publicada es la versión que la aplicación usa a través del punto de conexión, es preciso asegurarse de que el contenido es correcto y que se ha probado profusamente.
 
-## <a name="query"></a>Consulta
+## <a name="query"></a>Consultar
 Una consulta de usuario es la pregunta que el usuario final o el evaluador formulan en la base de conocimientos. A menudo la consulta está en un formato de lenguaje natural o se usan unas pocas palabras clave que representan la pregunta.
 
-## <a name="response"></a>Respuesta
+## <a name="response"></a>Response
 La respuesta es la respuesta que se recupera de la base de conocimientos, en función de la coincidencia más alta para una consulta de usuario dada.
 
 ## <a name="confidence-score"></a>Puntuación de confianza

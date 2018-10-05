@@ -1,21 +1,23 @@
 ---
 title: Supervisión del rendimiento de muchas bases de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs
 description: Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
-keywords: tutorial de SQL Database
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e774394eeb95fbc8d80e181a614a7e30258a100e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752278"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056777"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
@@ -49,9 +51,9 @@ Se deben supervisar los grupos y las bases de datos de estos para garantizar que
 ### <a name="performance-management-strategies"></a>Estrategias de administración del rendimiento
 
 * Para evitar tener que supervisar el rendimiento manualmente, resulta más eficaz **establecer alertas que se activan cuando las bases de datos o los grupos se alejan de los intervalos normales**.
-* Para responder a las fluctuaciones de rendimiento global de un grupo a corto plazo, **se puede escalar o reducir verticalmente el nivel de eDTU del grupo**. Si esta fluctuación es habitual o previsible, **se puede programar el escalado automático del grupo**. Por ejemplo, cuando haya poca carga de trabajo (por la noche o durante el fin de semana), redúzcalo verticalmente.
+* Para responder a las fluctuaciones a corto plazo en el tamaño de proceso de un grupo, **se puede escalar vertical u horizontalmente el nivel de eDTU del grupo**. Si esta fluctuación es habitual o previsible, **se puede programar el escalado automático del grupo**. Por ejemplo, cuando haya poca carga de trabajo (por la noche o durante el fin de semana), redúzcalo verticalmente.
 * Para responder a las fluctuaciones a largo plazo o a cambios en el número de bases de datos, **las bases de datos se pueden mover a otros grupos**.
-* Para responder a aumentos breves en la carga *individual* de una base de datos, **se puede sacar de un grupo para asignarle un nivel de rendimiento individual**. Una vez reducida la carga, la base de datos se puede devolver al grupo. Cuando se sepa de antemano, las bases de datos se pueden mover con antelación para garantizar que siempre tienen los recursos necesarios y evitar que otras bases de datos del grupo resulten afectadas. Si es predecible, como para un establecimiento, una avalancha de ventas de entradas para un evento popular, este comportamiento de administración puede integrarse en la aplicación.
+* Para responder a aumentos breves en la carga *individual* de una base de datos, **se puede sacar de un grupo para asignarle un tamaño de proceso individual**. Una vez reducida la carga, la base de datos se puede devolver al grupo. Cuando se sepa de antemano, las bases de datos se pueden mover con antelación para garantizar que siempre tienen los recursos necesarios y evitar que otras bases de datos del grupo resulten afectadas. Si es predecible, como para un establecimiento, una avalancha de ventas de entradas para un evento popular, este comportamiento de administración puede integrarse en la aplicación.
 
 [Azure Portal](https://portal.azure.com) proporciona supervisión y alertas integradas en la mayoría de recursos. Para SQL Database, la supervisión y las alertas están disponibles para las bases de datos y los grupos. La supervisión y las alertas integradas son específicas de los recursos, por lo que es conveniente usarlas con un número reducido de recursos, pero no cuando se trabaja con muchos recursos.
 
@@ -207,7 +209,7 @@ En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Ha
 2. Observe la pantalla **Supervisión de base de datos elástica** que muestra las bases de datos principales de la última hora. La base de datos *contosoconcerthall* pronto debería aparecer como una de las cinco bases de datos principales.
 3. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página****Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
 4. En la lista de bases de datos, haga clic en **contosoconcerthall**.
-5. Haga clic en **Plan de tarifa (escalar DTU)** para abrir la página **Configurar rendimiento** donde puede establecer un nivel de rendimiento independiente para la base de datos.
+5. Haga clic en **Plan de tarifa (escalar DTU)** para abrir la página **Configurar rendimiento** donde puede establecer un tamaño de proceso independiente para la base de datos.
 6. Haga clic en la pestaña **Estándar** para abrir las opciones de escalado del nivel Estándar.
 7. Deslice el **control deslizante de las DTU** a la derecha para seleccionar **100** DTU. Tenga en cuenta que esto se corresponde con el objetivo de servicio, **S3**.
 8. Haga clic en **Aplicar** para sacar la base de datos del grupo y convertirla en una base de datos *S3 Estándar*.

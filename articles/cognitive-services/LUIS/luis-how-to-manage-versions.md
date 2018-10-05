@@ -1,108 +1,66 @@
 ---
-title: Administrar versiones en aplicaciones de LUIS en Azure | Microsoft Docs
-description: Obtenga información acerca de cómo administrar versiones en las aplicaciones de Language Understanding (LUIS).
+title: Administración de las versiones en las aplicaciones de LUIS
+titleSuffix: Azure Cognitive Services
+description: Las versiones permiten compilar y publicar modelos diferentes. Una buena práctica consiste en clonar el modelo activo actual a una versión diferente de la aplicación antes de realizar cambios en el modelo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226601"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033794"
 ---
 # <a name="manage-versions"></a>Administración de versiones
 
-Cada vez que trabaje en el modelo, cree otra [versión](luis-concept-version.md) de la aplicación. 
+Las versiones permiten compilar y publicar modelos diferentes. Una buena práctica consiste en clonar el modelo activo actual a una [versión](luis-concept-version.md) diferente de la aplicación antes de realizar cambios en el modelo. 
 
-## <a name="set-active-version"></a>Establecer la versión activa
-Para trabajar con versiones, abra la aplicación, seleccione su nombre en la página **Mis aplicaciones** y, a continuación, seleccione **Configuración** en la barra superior.
+Para trabajar con versiones, abra la aplicación, seleccione su nombre en la página **Mis aplicaciones** y, a continuación, seleccione **Administrar**, en la barra superior, y **Versiones**, en el panel de navegación de la izquierda. 
 
-![Página de versiones](./media/luis-how-to-manage-versions/settings.png)
+La lista de versiones muestra las versiones que se publican, dónde se publican y qué versión está activa actualmente. 
 
-La página **Configuración** permite configurar opciones para toda la aplicación, incluidas las versiones y los colaboradores. 
+[![](./media/luis-how-to-manage-versions/versions-import.png "Sección Administrar, página de versiones")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Clonar una versión
-1. En la página **Configuración**, después de las secciones Configuración y Colaboradores, busque la fila que contiene la versión que quiere clonar. Seleccione el botón de los puntos suspensivos (***...***) que se encuentra en el extremo derecho. 
 
-    ![Propiedades de la fila de versión](./media/luis-how-to-manage-versions/version-section.png)
+1. Seleccione la versión que quiera clonar y, a continuación, seleccione **Clonar** en la barra de herramientas. 
 
-2. Seleccione **Clonar** en la lista.
-
-    ![Elección de las propiedades de la fila de versión](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
-
-3. En el cuadro de diálogo **Clone version** (Versión de clon), escriba un nombre para la nueva versión, como "0.2".
+2. En el cuadro de diálogo **Clone version** (Versión de clon), escriba un nombre para la nueva versión, como "0.2".
 
    ![Cuadro de diálogo de versión de clon](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
- > [!NOTE]
- > La id. de versión puede constar únicamente de caracteres, dígitos o "." y no puede tener más de 10 caracteres.
+     > [!NOTE]
+     > La id. de versión puede constar únicamente de caracteres, dígitos o "." y no puede tener más de 10 caracteres.
  
  Se crea una nueva versión con el nombre especificado y se establece como la versión activa.
- 
-  ![La versión se crea y agrega a la lista](./media/luis-how-to-manage-versions/new-version.png)
-
- > [!NOTE]
- > Como se muestra en la imagen anterior, una versión publicada se asocia con una marca de color, que indica el tipo de ranura donde se ha publicado: producción (verde), almacenamiento provisional (rojo) y ambos (negro). Se muestran las fechas de aprendizaje y publicación para cada versión publicada.
 
 ## <a name="set-active-version"></a>Establecer la versión activa
-1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
 
-2. En la lista emergente, seleccione **Establecer como activo**.
+Seleccione una versión de la lista y, a continuación, seleccione **Activar** en la barra de herramientas. 
 
-    ![Establecer la versión activa](./media/luis-how-to-manage-versions/set-active-version.png)
-
-    La versión activa aparece resaltada en color azul claro, como se muestra en la captura de pantalla siguiente:
-
-    ![Versión activa](./media/luis-how-to-manage-versions/set-active-version-done.png) 
-
+[![](./media/luis-how-to-manage-versions/versions-other.png "Sección Administrar, página de versiones")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importar versión
-Puede importar una versión de un archivo JSON. Después de importar una versión, la nueva versión se convierte en la versión activa.
 
-**Para importar una versión:**
+1. Seleccione **Importar versión** en la barra de herramientas. 
 
-1. En la página **Configuración**, seleccione el botón **Import new version** (Importar nueva versión).
+2. En la ventana emergente **Importar nueva versión**, escriba el nuevo nombre de la versión, de diez caracteres. Basta con establecer una id. de versión si la versión en el archivo JSON ya existe en la aplicación.
 
-    ![Botón Importar](./media/luis-how-to-manage-versions/import-version.png)
+    ![Sección Administrar, página de versiones](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
-2. Seleccione **examinar** y elija el archivo JSON.
+    Después de importar una versión, la nueva versión se convierte en la versión activa.
 
-    ![Cuadro de diálogo para importar versión](./media/luis-how-to-manage-versions/import-version-dialog.png)
+<a name = "export-version"></a>
 
-Basta con establecer una id. de versión si la versión en el archivo JSON ya existe en la aplicación.
+## <a name="other-actions"></a>Otras acciones
 
-## <a name="export-version"></a>Exportar versión
-Puede exportar una versión a un archivo JSON.
+* Para **eliminar** una versión, seleccione una versión de la lista y, a continuación, seleccione **Eliminar** desde la barra de herramientas. Seleccione **Aceptar**. 
+* Para **cambiar el nombre** de una versión, seleccione una versión de la lista y, a continuación, seleccione **Cambiar nombre** desde la barra de herramientas. Escriba un nombre nuevo y seleccione **Listo**. 
+* Para **exportar** una versión, seleccione una versión de la lista y, a continuación, seleccione **Exportar aplicación** desde la barra de herramientas. El archivo se descarga en el equipo local. 
 
-**Para exportar una versión:**
-
-1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
-
-2. Seleccione **Exportar** en la lista emergente de acciones y seleccione dónde desea guardar el archivo.
-
-## <a name="delete-a-version"></a>Eliminar una versión
-Puede eliminar versiones, pero se debe conservar al menos una versión de la aplicación. Puede eliminar todas las versiones, excepto la versión activa. 
-
-1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
-
-2. Seleccione **Eliminar** en la lista emergente de acciones y seleccione dónde desea guardar el archivo.
-
-    ![Confirmación de eliminación de versión](./media/luis-how-to-manage-versions/delete-menu.png) 
-
-
-## <a name="rename-a-version"></a>Cambiar el nombre de una versión
-Puede cambiar el nombre de las versiones, siempre que el nuevo nombre no esté ya en uso.  
-
-1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
-
-2. Seleccione **Cambiar nombre** en la lista emergente de acciones.
-
-3. Escriba el nuevo nombre de versión y seleccione **Listo**.
-
-    ![Confirmación del cambio de nombre de versión](./media/luis-how-to-manage-versions/rename-popup.png) 

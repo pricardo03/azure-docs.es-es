@@ -12,27 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 84eb1c08cc3f9ef104e2eb0b96ed397315c3f374
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 57869de8a99c65810da0c75f81c75d93eac88412
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937569"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090823"
 ---
 # <a name="validate-azure-registration"></a>Validación del registro de Azure 
 Use la herramienta Azure Stack Readiness Checker (AzsReadinessChecker) para validar que su suscripción de Azure está lista para usarse con Azure Stack. Valide el registro antes de empezar la implementación de Azure Stack. La herramienta Readiness Checker valida:
 - La suscripción de Azure que usa es de tipo compatible. Las suscripciones deben ser un proveedor de servicios en la nube (CSP) o el contrato Enterprise (EA). 
-- La cuenta que se usa para registrar la suscripción con Azure puede iniciar sesión en Azure y es propietario de la suscripción. 
+- La cuenta que se usa para registrar la suscripción en Azure puede iniciar sesión en Azure y es propietaria de una suscripción. 
 
 Para obtener más información sobre el registro de Azure Stack, vea [Registro de Azure Stack en Azure](azure-stack-registration.md). 
 
 ## <a name="get-the-readiness-checker-tool"></a>Obtención de la herramienta Readiness Checker
 Descargue la versión más reciente de Azure Stack Readiness Checker (AzsReadinessChecker) disponible en [PSGallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Deben cumplirse los siguientes requisitos previos.
 
 **Equipo donde se ejecuta la herramienta:**

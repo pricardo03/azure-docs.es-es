@@ -2,18 +2,22 @@
 title: Trabajos de Azure SQL Elastic Database | Microsoft Docs
 description: Utilice los trabajos de Elastic Database para ejecutar scripts de Transact-SQL (T-SQL) en un conjunto de una o más bases de datos de Azure SQL
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
-ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054734"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Administración de grupos de bases de datos con trabajos de Elastic Database
 
@@ -206,7 +210,7 @@ Cabe destacar un par de diferencias entre el Agente SQL Server (disponible de mo
 
 |  |Trabajos elásticos  |Agente SQL Server |
 |---------|---------|---------|
-|Ámbito     |  Cualquier número de instancias de Azure SQL Database o almacenamientos de datos en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores lógicos, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
+|Ámbito     |  Cualquier número de almacenamientos de datos o bases de datos SQL de Azure en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores lógicos, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
 |Herramientas y API admitidas     |  Azure Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

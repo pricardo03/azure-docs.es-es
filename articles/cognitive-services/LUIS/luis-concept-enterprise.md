@@ -1,20 +1,21 @@
 ---
-title: 'Conceptos de Enterprise para una aplicación de LUIS: Azure | Microsoft Docs'
+title: 'Conceptos de Enterprise para una aplicación de LUIS: Language Understanding'
+titleSuffix: Azure Cognitive Services
 description: Comprender los conceptos de diseño para las aplicaciones de LUIS grandes.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3782874ac69b299e24cf1555b290a9d2d86b6285
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224867"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038347"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estrategias de Enterprise para una aplicación de LUIS
 Revise estas estrategias de diseño de la aplicación de empresa.
@@ -50,9 +51,7 @@ Use la herramienta de línea de comandos [Dispatch][dispatch-tool] que se encuen
 
 ![Imagen conceptual de la arquitectura de distribución](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-El dominio primario se indica en LUIS como una aplicación de **V Dispatch**. 
-
-![Captura de pantalla de la lista de aplicaciones de LUIS creada por la herramienta de distribución](./media/luis-concept-enterprise/dispatch.png)
+El dominio principal se indica en LUIS con una versión denominada `Dispatch` en la lista de aplicaciones. 
 
 El bot de chat recibe la expresión y después la envía a la aplicación principal de LUIS para la predicción. La intención de predicción superior de la aplicación principal determina a qué aplicación secundaria de LUIS se llama a continuación. El bot de chat envía la expresión a la aplicación secundaria para una predicción más específica.
 
@@ -66,4 +65,4 @@ Una aplicación de distribución tiene 500 orígenes de envío, que equivalen a 
 * Obtenga información sobre cómo [probar un lote](luis-how-to-batch-test.md).
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

@@ -1,21 +1,23 @@
 ---
 title: Recuperación ante desastres para aplicaciones SaaS mediante la replicación geográfica de Azure SQL Database | Microsoft Docs
 description: Obtenga información sobre cómo usar la replicación geográfica de Azure SQL Database para recuperar una aplicación SaaS multiinquilino en caso de una interrupción del servicio
-keywords: tutorial de SQL Database
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
+ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34645800"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056342"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
 
@@ -51,9 +53,9 @@ Un plan de recuperación ante desastres basado en la replicación geográfica co
 Todas las partes deben evaluarse cuidadosamente, especialmente si se trabaja a escala. En general, el plan debe lograr varios objetivos:
 
 * Configuración
-    * Establecer y mantener un entorno con una imagen reflejada en la región de recuperación. Al crear los grupos elásticos y replicar las bases de datos independientes en este entorno de recuperación se reserva la capacidad en la región de recuperación. En el mantenimiento del entorno se incluye la replicación de las nuevas bases de datos de inquilino a medida que se aprovisionen.  
+    * Establecer y mantener un entorno con una imagen reflejada en la región de recuperación. Al crear los grupos elásticos y replicar alguna base de datos única en este entorno de recuperación, se reserva la capacidad en la región de recuperación. En el mantenimiento del entorno se incluye la replicación de las nuevas bases de datos de inquilino a medida que se aprovisionen.  
 * Recuperación
-    * Si se usa un entorno de recuperación de escala reducida para minimizar los costos diarios, los grupos y las bases de datos independientes deben escalarse verticalmente para que tengan una capacidad operativa completa en la región de recuperación
+    * Si se usa un entorno de recuperación de escala reducida para minimizar los costos diarios, los grupos y las bases de datos únicas deben escalarse verticalmente para que tengan una capacidad operativa completa en la región de recuperación
     * Habilitar el aprovisionamiento de nuevos inquilinos en la región de recuperación lo antes posible  
     * Optimizar el entorno para restaurar los inquilinos en orden de prioridad
     * Optimizar el entorno para que inquilinos vuelvan a estar en línea tan rápido como sea posible. Realice los pasos en paralelo cuando sea conveniente
@@ -158,7 +160,7 @@ El script de recuperación realiza las siguientes tareas:
 
 1. Marca todos los inquilinos existentes en el catálogo de recuperación como sin conexión para evitar el acceso a las bases de datos de inquilino antes de que se realice la conmutación por error.
 
-1. Actualiza la configuración de todos los grupos elásticos y las bases de datos independientes replicadas en la región de recuperación para reflejar su configuración en la región original. (Esta tarea solo es necesaria si los grupos o las bases de datos replicadas en el entorno de recuperación se reducen durante las operaciones normales para reducir los costos).
+1. Actualiza la configuración de todos los grupos elásticos y las bases de datos únicas replicadas en la región de recuperación para reflejar su configuración en la región original. (Esta tarea solo es necesaria si los grupos o las bases de datos replicadas en el entorno de recuperación se reducen durante las operaciones normales para reducir los costos).
 
 1. Habilita el punto de conexión de Traffic Manager de la aplicación web en la región de recuperación. La habilitación de este punto de conexión permite a la aplicación aprovisionar nuevos inquilinos. En esta fase, los inquilinos existentes siguen estando sin conexión.
 

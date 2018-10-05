@@ -2,20 +2,22 @@
 title: Azure SQL Data Sync | Microsoft Docs
 description: Esta introducción presenta Azure SQL Data Sync
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: data-sync
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+manager: craigg
+ms.date: 08/09/2018
+ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143167"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161988"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -49,7 +51,7 @@ Un grupo de sincronización tiene las siguientes propiedades:
 
 Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos de Azure SQL Database o de SQL Server. Estos son los casos de uso principales de Data Sync:
 
--   **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales e instancias de Azure SQL Databases para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
+-   **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales e instancias de Azure SQL Database para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
 
 -   **Aplicaciones distribuidas:** en muchos casos, es conveniente separar diferentes cargas de trabajo entre diferentes bases de datos. Por ejemplo, si tiene una base de datos de producción de grande, pero también debe ejecutar una carga de trabajo de informes o análisis en estos datos, resulta útil tener una segunda base de datos para esta carga de trabajo adicional. Este enfoque minimiza el impacto de rendimiento en la carga de trabajo de producción. Puede usar Data Sync para mantener estas dos bases de datos sincronizadas.
 

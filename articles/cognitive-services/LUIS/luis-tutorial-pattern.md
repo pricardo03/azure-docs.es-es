@@ -1,76 +1,56 @@
 ---
-title: 'Tutorial de uso de patrones para mejorar las predicciones de LUIS: Azure | Microsoft Docs'
-titleSuffix: Cognitive Services
-description: En este tutorial, use patrones para intenciones a fin de mejorar las predicciones de intenciones y entidades de LUIS.
+title: 'Tutorial 3: Patrones para mejorar las predicciones de LUIS'
+titleSuffix: Azure Cognitive Services
+description: Use patrones para aumentar la predicción de intención y entidad a la vez que proporciona menos expresiones de ejemplo. El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159580"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166408"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>Tutorial: Mejorar la aplicación con patrones
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Agregar formatos comunes de expresiones
 
-En este tutorial, use patrones para mejorar la predicción de intenciones y entidades.  
+En este tutorial se usan patrones para aumentar la predicción de intención y entidad a la vez que se proporcionan menos expresiones de ejemplo. El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto. Un patrón es una combinación de coincidencia de expresión y aprendizaje automático.  El ejemplo de expresión de plantilla junto con las expresiones de intención permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención. 
+
+**En este tutorial, aprenderá a:**
 
 > [!div class="checklist"]
-* Cómo identificar que un patrón ayudaría a la aplicación
-* Cómo crear un patrón
-* Cómo comprobar las mejoras de la predicción de patrones
+> * Usar la aplicación del tutorial existente 
+> * Crear intención
+> * Train
+> * Publicar
+> * Obtener intenciones y entidades del punto de conexión
+> * Crear un patrón
+> * Comprobar las mejoras de la predicción del patrón
+> * Marcar texto como irrelevante y anidar dentro del patrón
+> * Usar el panel de prueba para comprobar la corrección del patrón
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="use-existing-app"></a>Usar una aplicación existente
 
-Si no tiene la aplicación de recursos humanos del tutorial sobre [pruebas por lotes](luis-tutorial-batch-testing.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json).
+Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
-Si quiere conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `patterns`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
+Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Los patrones enseñan a LUIS expresiones comunes con menos ejemplos
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
-Dada la naturaleza del dominio de recursos humanos, hay algunas formas habituales de preguntar por relaciones de empleados en las organizaciones. Por ejemplo: 
+2. Importe el archivo JSON en una aplicación nueva.
 
-|Grabaciones de voz|
-|--|
-|Who does Jill Jones report to? (¿A quién informa Jill Jones?)|
-|Who reports to Jill Jones? (¿Quién informa a Jill Jones?)|
-
-Estas expresiones son demasiado cercanas como para determinar la singularidad contextual de cada una de ellas sin proporcionar muchos ejemplos de expresiones. Al agregar un patrón para una intención, LUIS aprende patrones de expresión comunes para una intención sin proporcionar muchos ejemplos de expresiones. 
-
-Entre las expresiones de plantilla de ejemplo de esta intención se incluyen las siguientes:
-
-|Expresiones de plantilla de ejemplo|
-|--|
-|Who does {Employee} report to? (¿A quién informa {empleado}?)|
-|Who reports to {Employee}? (¿Quién informa a {empleado}?)|
-
-El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto. Un patrón es una combinación de una coincidencia de expresión regular y el aprendizaje automático.  El ejemplo de expresión de plantilla junto con las expresiones de intención permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención.
-
-Para que un patrón coincida con una expresión, las entidades dentro de la expresión primero tienen que coincidir con las entidades de la expresión de plantilla. Sin embargo, la plantilla no ayuda a predecir las entidades, solo las intenciones. 
-
-**Si bien los patrones permiten proporcionar menos expresiones de ejemplo, si no se detectan las entidades, el patrón no coincide.**
-
-Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](luis-quickstart-intent-and-list-entity.md).
+3. Desde la sección **Administrar**, en la pestaña **Versiones**, clone la versión y asígnele el nombre `patterns`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creación de intenciones nuevas y sus expresiones
 
-Agregue dos intenciones nuevas: `OrgChart-Manager` y `OrgChart-Reports`. Una vez que LUIS devuelve una predicción a la aplicación cliente, el nombre de la intención se puede usar como un nombre de función en la aplicación cliente y la entidad Employee (Empleado) podría usarse como un parámetro para esa función.
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. Asegúrese de que la aplicación de recursos humanos se encuentra en la sección **Build** (Crear) de LUIS. Para cambiar a esta sección, seleccione **Build** (Crear) en la barra de menús superior derecha. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. En la página **Intents** (Intenciones), seleccione **Create new intent** (Crear intención). 
 
@@ -110,17 +90,17 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>Precaución sobre la cantidad de expresiones de ejemplo
 
-La cantidad de expresiones de ejemplo en estas intenciones no es suficiente para entrenar correctamente a LUIS. En una aplicación real, cada intención debe tener un mínimo de 15 expresiones con una variedad de elecciones de palabras y de duraciones de expresiones. Estas pocas expresiones se seleccionan específicamente para resaltar los patrones. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
+## <a name="train"></a>Train
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consulta del punto de conexión con una expresión diferente
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtener intenciones y entidades del punto de conexión
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -215,13 +195,53 @@ Use los patrones para que la puntuación de la intención correcta sea considera
 
 Deje esta segunda ventana del explorador abierta. Se usará más adelante en el tutorial. 
 
-## <a name="add-the-template-utterances"></a>Agregar las expresiones de plantilla
+## <a name="template-utterances"></a>Expresiones de plantilla
+Dada la naturaleza del dominio de recursos humanos, hay algunas formas habituales de preguntar por relaciones de empleados en las organizaciones. Por ejemplo: 
+
+|Grabaciones de voz|
+|--|
+|Who does Jill Jones report to? (¿A quién informa Jill Jones?)|
+|Who reports to Jill Jones? (¿Quién informa a Jill Jones?)|
+
+Estas expresiones son demasiado cercanas como para determinar la singularidad contextual de cada una de ellas sin proporcionar muchos ejemplos de expresiones. Al agregar un patrón para una intención, LUIS aprende patrones de expresión comunes para una intención sin proporcionar muchos ejemplos de expresiones. 
+
+Los ejemplos de expresiones de plantilla de esta intención incluyen:
+
+|Ejemplos de expresiones de plantilla|significado de sintaxis|
+|--|--|
+|[¿]Quién depende de {Employee}[?]|intercambiable {Employee}, omitir [?]}|
+|[¿]Quién depende de {Employee}[?]|intercambiable {Employee}, omitir [?]}|
+
+La sintaxis `{Employee}` marca la ubicación de la entidad dentro de la expresión de plantilla, así como qué entidad. La sintaxis opcional, `[?]`, marca palabras, o signos de puntuación, que son opcionales. LUIS coincide con la expresión y omite el texto opcional entre corchetes.
+
+Aunque la sintaxis se asemeja a las expresiones regulares, no son expresiones regulares. Solo se admite la sintaxis de llave, `{}`, y corchete, `[]`. Se pueden anidar hasta dos niveles.
+
+Para que un patrón coincida con una expresión, las entidades dentro de la expresión primero tienen que coincidir con las entidades de la expresión de plantilla. Sin embargo, la plantilla no ayuda a predecir las entidades, solo las intenciones. 
+
+**Si bien los patrones permiten proporcionar menos expresiones de ejemplo, si no se detectan las entidades, el patrón no coincide.**
+
+En este tutorial se agregan dos nuevas intenciones: `OrgChart-Manager` y `OrgChart-Reports`. 
+
+|Intención|Expresión|
+|--|--|
+|OrgChart-Manager (Organigrama-Administrador)|Who does Jill Jones report to? (¿A quién informa Jill Jones?)|
+|OrgChart-Reports|Who reports to Jill Jones? (¿Quién informa a Jill Jones?)|
+
+Una vez que LUIS devuelve una predicción a la aplicación cliente, el nombre de la intención se puede usar como un nombre de función en la aplicación cliente y la entidad Employee (Empleado) podría usarse como un parámetro para esa función.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](luis-quickstart-intent-and-list-entity.md).
 
 1. Seleccione **Build** (Compilación) en el menú superior.
 
 2. En el panel de navegación izquierdo, debajo de **Improve app performance** (Mejorar el rendimiento de la aplicación), seleccione **Patrones**.
 
-3. Seleccione la intención **OrgChart-Managert** y, después, escriba las siguientes expresiones de plantilla, una de cada vez, y presione ENTRAR después de cada expresión de plantilla:
+3. Seleccione la intención **OrgChart-Manager** y luego escriba las siguientes expresiones de plantilla:
 
     |Expresiones de plantilla|
     |:--|
@@ -232,17 +252,13 @@ Deje esta segunda ventana del explorador abierta. Se usará más adelante en el 
     |[¿]Quién es el supervisor de {Employee}[?]|
     |[¿]Quién es el jefe de {Employee}[?]|
 
-    La sintaxis `{Employee}` marca la ubicación de la entidad dentro de la expresión de plantilla, así como qué entidad. 
-
     Las entidades con roles usan una sintaxis que incluye el nombre del rol y se describen en un [tutorial independiente para los roles](luis-tutorial-pattern-roles.md). 
-
-    La sintaxis opcional, `[]`, marca las palabras o los signos de puntuación que son opcionales. LUIS coincide con la expresión y omite el texto opcional entre corchetes.
 
     Si escribe la expresión de plantilla, LUIS lo ayuda a rellenar la entidad al escribir la llave de apertura, `{`.
 
     [![Captura de pantalla del ingreso de expresiones de plantilla para la intención](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Seleccione la intención **OrgChart-Reports** y, después, escriba las siguientes expresiones de plantilla, una de cada vez, y presione ENTRAR después de cada expresión de plantilla:
+4. Seleccione la intención **OrgChart-Reports** y luego escriba las siguientes expresiones de plantilla:
 
     |Expresiones de plantilla|
     |:--|
@@ -427,6 +443,8 @@ Todas estas expresiones encuentran las entidades, por lo tanto coinciden con el 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial se agregan dos intenciones de expresiones que fueron difíciles de predecir con alta precisión sin tener muchas expresiones de ejemplo. La incorporación de patrones a ellas ha permitido a LUIS predecir mejor la intención con una puntuación considerablemente más alta. El marcado de entidades y texto irrelevante ha permitido a LUIS aplicar el patrón a una serie más amplia de expresiones.
 
 > [!div class="nextstepaction"]
 > [Información sobre cómo usar roles con un patrón](luis-tutorial-pattern-roles.md)

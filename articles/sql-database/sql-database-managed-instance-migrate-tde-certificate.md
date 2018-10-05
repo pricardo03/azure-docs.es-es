@@ -1,26 +1,27 @@
 ---
 title: 'Migración de certificados TDE: Instancia administrada de Azure SQL Database | Microsoft Docs'
-description: Migración del certificado que protege la clave de cifrado de base de datos de una base de datos con cifrado de datos transparente a Instancia administrada de Azure SQL
-keywords: tutorial de sql database, instancia administrada de sql database, migrar certificado TDE
+description: Migración del certificado que protege la clave de cifrado de base de datos de una base de datos con cifrado de datos transparente a Instancia administrada de Azure SQL Database
 services: sql-database
-author: MladjoA
-ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: tutorial
-ms.date: 08/09/2018
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
+ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/09/2018
+ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050618"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161784"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migración de certificados de una base de datos protegida por TDE a Instancia administrada de Azure SQL
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migración del certificado de una base de datos protegida por TDE a Instancia administrada de Azure SQL Database
 
-Al migrar una base de datos protegida mediante [Cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a Instancia administrada de Azure SQL con la opción de restauración nativa, se debe migrar el certificado correspondiente de SQL Server local o IaaS antes de restaurar la base de datos. Este artículo le guía en el proceso de migración manual del certificado a Instancia administrada de Azure SQL Database:
+Al migrar una base de datos protegida mediante el [Cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a la Instancia administrada de Azure SQL Database mediante la opción de restauración nativa, se debe migrar el certificado correspondiente de SQL Server local o IaaS antes de restaurar la base de datos. Este artículo le guía en el proceso de migración manual del certificado a Instancia administrada de Azure SQL Database:
 
 > [!div class="checklist"]
 > * Exportación del certificado a un archivo de intercambio de información personal (.pfx)
@@ -30,7 +31,7 @@ Al migrar una base de datos protegida mediante [Cifrado de datos transparente](h
 Para ver una opción alternativa que emplea el servicio totalmente administrado para la migración completa de la base de datos protegida con TDE y el certificado correspondiente, consulte [Migración de la base de datos local a Instancia administrada mediante Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Cifrado de datos transparente para Instancia administrada de Azure SQL funciona en modo de servicio administrado. El certificado migrado se usa únicamente para la restauración de la base de datos protegida por TDE. Poco después de realizar la restauración, el certificado migrado se sustituye por un certificado administrado por el sistema diferente.
+> Cifrado de datos transparente para Instancia administrada de Azure SQL Database funciona en modo de servicio administrado. El certificado migrado se usa únicamente para la restauración de la base de datos protegida por TDE. Poco después de realizar la restauración, el certificado migrado se sustituye por un certificado administrado por el sistema diferente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -109,7 +110,7 @@ Si el certificado se guarda en el almacén de certificados de la máquina local 
 
 4. Siga el asistente para exportar el certificado y la clave privada a un formato de intercambio de información personal.
 
-## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Carga del certificado en Instancia administrada de Azure SQL mediante el cmdlet de Azure PowerShell
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Carga del certificado en Instancia administrada de Azure SQL Database mediante el cmdlet de Azure PowerShell
 
 1. Comience con los pasos de preparación de PowerShell:
 
@@ -139,6 +140,6 @@ El certificado ya está disponible para la instancia administrada especificada y
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a migrar el certificado que protege la clave de cifrado de base de datos con Cifrado de datos transparente, de una instancia local o IaaS de SQL Server a Instancia administrada de Azure SQL.
+En este artículo, aprendió a migrar el certificado que protege la clave de cifrado de base de datos con Cifrado de datos transparente, de una instancia local o IaaS de SQL Server a Instancia administrada de Azure SQL Database.
 
 Para saber cómo restaurar la copia de seguridad de una base de datos en Instancia administrada de Azure SQL Database, consulte [Restauración de una copia de seguridad de datos en una instancia administrada de Azure SQL Database](sql-database-managed-instance-get-started-restore.md).

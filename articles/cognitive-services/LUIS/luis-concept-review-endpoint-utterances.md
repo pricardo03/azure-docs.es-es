@@ -1,23 +1,24 @@
 ---
-title: 'Revisión de las expresiones de punto de conexión para usar el aprendizaje activo en Language Understanding (LUIS): Azure | Microsoft Docs'
-description: Use la característica de aprendizaje activo denominada "Review endpoint utterances" (Revisar las expresiones de punto de conexión) para mejorar las predicciones de rendimiento con más rapidez.
+title: Revisión de las expresiones de punto de conexión para usar el aprendizaje activo en Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222620"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038177"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión
-El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. 
+El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
 
 ## <a name="what-is-active-learning"></a>¿Qué es el aprendizaje activo?
 El aprendizaje activo es un proceso de dos pasos. En primer lugar, LUIS selecciona las expresiones que recibe en el punto de conexión de la aplicación que necesitan validación. El segundo paso lo realiza el propietario de la aplicación o el colaborador para validar las expresiones seleccionadas para [revisión](luis-how-to-review-endoint-utt.md), incluida la intención correcta y todas las entidades dentro de la intención. Después de revisar las expresiones, vuelva a entrenar y publicar la aplicación. 

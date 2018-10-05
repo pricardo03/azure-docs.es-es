@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 10fef55ef09e4be427fbd36c730528a993dd64e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 470802c1119c1c367dcd72f782dfc1036f75f6db
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960876"
+ms.locfileid: "47035953"
 ---
 # <a name="what-is-azure-cost-management"></a>¿Qué es Administración de costos de Azure?
 
@@ -23,7 +23,7 @@ La administración de costos es el proceso en el que se planifican y controlan e
 
 Aunque están relacionados, la facturación difiere de administración de costos. La facturación es el proceso de facturar a los clientes por bienes o servicios y administrar la relación comercial.  Los equipos de adquisiciones y finanzas son los que normalmente realizan las tareas de facturación.
 
-Cost Management muestras los costos de organización y los patrones de uso con análisis avanzados. Los informes de Cost Management muestran los costos de Azure, el uso, las instancias reservadas y el uso de la ventaja híbrida de Azure. En conjunto, los informes muestran los costos internos y externos. Los informes le ayudan a comprender los gastos y el uso de recursos, y pueden ayudar a encontrar anomalías de gastos. Los análisis predictivos también están disponibles. Cost Management usa grupos de administración de Azure, presupuestos y recomendaciones para mostrar claramente cómo se organizan los gastos y cómo se pueden reducir los costos.
+Cost Management muestras los costos de organización y los patrones de uso con análisis avanzados. Los informes de Cost Management muestran los costos de Azure, el uso, las instancias reservadas y el uso de la ventaja híbrida de Azure. En conjunto, en los informes se muestran los costos internos y externos del uso y los cargos de Azure Marketplace. Otros cargos, como las compras de reservas, el soporte técnico y los impuestos no se muestran todavía en los informes. Los informes le ayudan a comprender los gastos y el uso de recursos, y pueden ayudar a encontrar anomalías de gastos. Los análisis predictivos también están disponibles. Cost Management usa grupos de administración de Azure, presupuestos y recomendaciones para mostrar claramente cómo se organizan los gastos y cómo se pueden reducir los costos.
 
 Puede usar Azure Portal o varias API para la automatización de la exportación, de manera que se integren los datos de costos con los procesos y sistemas externos. También están disponibles la exportación de datos de facturación automatizada y los informes programados.
 

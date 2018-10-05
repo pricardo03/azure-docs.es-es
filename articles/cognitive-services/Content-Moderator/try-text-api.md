@@ -1,20 +1,21 @@
 ---
-title: Moderación del texto mediante Text Moderation API en Azure Content Moderator | Microsoft Docs
+title: 'Moderación del texto mediante Text Moderation API: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Pruebe la moderación de texto mediante Text Moderation API en la consola en línea.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380906"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219794"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderación de texto desde la consola de API
 
@@ -71,10 +72,10 @@ En el ejemplo siguiente, puede ver la respuesta de clasificación de texto asist
 
 #### <a name="explanation"></a>Explicación
 
-- `Category1` representa la posible presencia de lenguaje que se puede considerar sexual explícito o para adultos en ciertas situaciones.
+- `Category1` representa la posible presencia de lenguaje que se puede considerar sexualmente explícito o para adultos en ciertas situaciones.
 - `Category2` representa la posible presencia de lenguaje que se puede considerar sexualmente insinuante o para adultos en ciertas situaciones.
 - `Category3` representa la posible presencia de lenguaje que se puede considerar ofensivo en ciertas situaciones.
-- `Score` se encuentra entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta versión preliminar se basa en un modelo estadístico en lugar de en resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría con sus requisitos.
+- `Score` se encuentra entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta versión preliminar usa un modelo estadístico, en lugar de resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría en función de sus propios requisitos.
 - `ReviewRecommended` es true o false según los umbrales de puntuación internos. Los clientes deben evaluar si quieren usar este valor o decidir umbrales personalizados basados en sus directivas de contenido.
 
 ### <a name="analyze-the-response"></a>Análisis de la respuesta

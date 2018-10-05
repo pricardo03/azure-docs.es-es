@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db0d796a407c8e33501b0a312c78e8508f17297d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075575"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406930"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -381,8 +381,10 @@ SQL Server 2014 y versiones posteriores ofrecen la posibilidad de almacenar arch
 
 * La cuenta de almacenamiento utilizada debe estar en la misma región de Azure que la que se empleó para implementar la máquina virtual que se está ejecutando en SQL Server.
 * Para este método de implementaciones también se aplican las consideraciones que se indicaron anteriormente relacionadas con la distribución de los discos virtuales en diferentes cuentas de Azure Storage. Significa que el número de operaciones de E/S cuenta para los límites de la cuenta de Azure Storage.
-* En lugar de contabilizarse en la cuota de E/S de almacenamiento de la máquina virtual, el tráfico de los blobs de almacenamiento que representan los datos y los archivos de registro de SQL Server se contabilizará en el ancho de banda de red de la máquina virtual del tipo de máquina virtual concreto. Para saber cuál es el ancho de banda de red de un determinado tipo de máquina virtual, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* En lugar de contabilizarse en la cuota de E/S de almacenamiento de la máquina virtual, el tráfico de los blobs de almacenamiento que representan los datos y los archivos de registro de SQL Server se contabilizará en el ancho de banda de red de la máquina virtual del tipo de máquina virtual concreto. Para saber cuál es la red y el ancho de banda de red de un determinado tipo de máquina virtual, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Como resultado de la inserción de E/S de archivos mediante la cuota de red, se eliminará mayormente la cuota de almacenamiento y, con ese uso, solo parcialmente el ancho de banda de red general de la máquina virtual.
 * Ya no se aplican los objetivos de rendimiento de E/S y de IOPS que tiene Azure Premium Storage para los distintos tamaños de disco. Incluso si los blobs que ha creado están en Azure Premium Storage. Los objetivos están documentados en el artículo [Discos administrados y Premium Storage de alto rendimiento para VM](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). Como resultado de colocar los archivos de datos y los archivos de registro de SQL Server directamente en blobs que se almacenan en Azure Premium Storage, las características de rendimiento pueden variar respecto a los discos duros virtuales de Azure Premium Storage.
+* El almacenamiento en caché basado en host que está disponible para los discos de Azure Premium Storage no está disponible al colocar los archivos de datos de SQL Server directamente en los blobs de Azure.
 * En las máquinas virtuales de la serie M no se puede usar el Acelerador de escritura de Azure para admitir escrituras inferiores a milisegundos en el archivo de registro de transacciones de SQL Server. 
 
 En el artículo [Archivos de datos de SQL Server en Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017) encontrará información detallada sobre esta funcionalidad.

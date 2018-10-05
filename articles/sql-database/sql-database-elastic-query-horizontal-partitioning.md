@@ -2,20 +2,22 @@
 title: Informes de bases de datos escaladas horizontalmente en la nube | Microsoft Docs
 description: Configuración de las consultas elásticas en particiones horizontales
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: fcb498542a496e4a887c825808642d3f586ef1d9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 906c6825dbfdf7d4873c765d0b3eba626ef52e1b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646361"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159370"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (vista previa)
 ![Consultas entre particiones][1]
@@ -26,7 +28,7 @@ Para un inicio rápido, consulte [Informes de bases de datos escaladas horizonta
 
 Para bases de datos no particionadas, consulte [Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Cree un mapa de particiones con una biblioteca de cliente de bases de datos elásticas. Consulte [Administración de asignaciones particionadas](sql-database-elastic-scale-shard-map-management.md). También puede usar la aplicación de ejemplo en [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 * También puede consultar [Migración de bases de datos existentes a bases de datos de escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 * El usuario debe poseer el permiso ALTER ANY EXTERNAL DATA SOURCE. Este permiso está incluido en el permiso ALTER DATABASE.
@@ -49,7 +51,7 @@ La credencial utiliza la consulta elástica para conectarse a las bases de datos
     [;]
 
 > [!NOTE]
-> Asegúrese de que *"\<nombre de usuario\>"* no incluya ningún sufijo *"@servername"*. 
+> Asegúrese de que *"\<username\>"* no incluya ningún sufijo *"\@servername"*. 
 > 
 > 
 

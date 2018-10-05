@@ -3,19 +3,22 @@ title: 'Códigos de error de SQL: error de conexión de base de datos | Microsof
 description: 'Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la SQL Database, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales. '
 keywords: código de error de SQL, acceder a SQL, error de conexión de base de datos, códigos de error de SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092535"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064397"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error para las aplicaciones cliente de SQL Database: errores de conexión de bases de datos y otros problemas
 
@@ -111,7 +114,7 @@ Los errores siguientes están relacionados con la creación y el uso de grupos e
 | 40857 |EX_USER |Grupo elástico no encontrado para el servidor: '%ls', nombre del grupo elástico: '%ls'. |Nombre del servidor; nombre del grupo elástico. |El grupo elástico especificado no existe en el servidor especificado. |Especifique un nombre de grupo elástico válido. |
 | 40858 |EX_USER |El grupo elástico '%ls' ya existe en el servidor: '%ls' |Nombre de grupo elástico, nombre del servidor. |El grupo elástico especificado ya existe en el servidor lógico especificado. |Proporcione un nuevo nombre de grupo elástico. |
 | 40859 |EX_USER |El grupo elástico no admite el nivel de servicio '%ls'. |Nivel de servicio de grupo elástico. |El nivel de servicio especificado no se admite para el aprovisionamiento de grupo elástico. |Especifique la versión correcta o deje el nivel de servicio en blanco para usar el nivel de servicio predeterminado. |
-| 40860 |EX_USER |La combinación del grupo elástico '%ls' y del objetivo de servicio '%ls' no es válida. |Nombre del grupo flexible; nombre del objetivo de nivel de servicio. |El grupo elástico y el objetivo de servicio pueden especificarse juntos solo si se especifica el objetivo de servicio como "ElasticPool". |Especifique la combinación correcta de grupo elástico y objetivo de servicio. |
+| 40860 |EX_USER |La combinación del grupo elástico '%ls' y del objetivo de servicio '%ls' no es válida. |nombre de grupo elástico; nivel de servicio |El grupo elástico y el nivel de servicio pueden especificarse juntos solo si se especifica el objetivo de servicio como "ElasticPool". |Especifique la combinación correcta de grupo elástico y nivel de servicio. |
 | 40861 |EX_USER |La versión de la base de datos '%.*ls' no puede ser distinta del nivel de servicio del grupo elástico, que es '%.* ls'. |Versión de la base de datos, nivel de servicio del grupo elástico. |La versión de la base de datos es distinta del nivel de servicio del grupo elástico. |No especifique una versión de la base de datos distinta del nivel de servicio del grupo elástico.  Tenga en cuenta que no es necesario especificar la versión de la base de datos. |
 | 40862 |EX_USER |Debe especificarse el nombre del grupo elástico si se especifica el objetivo de servicio del grupo elástico. |None |El objetivo del servicio de grupo elástico no identifica de manera única un grupo elástico. |Especifique el nombre del grupo elástico si usa el objetivo del servicio de grupo elástico. |
 | 40864 |EX_USER |El número de DTU del grupo elástico debe ser de al menos (%d) DTU para el nivel de servicio ' %.* ls'. |Número de DTU del grupo elástico; nivel de servicio del grupo elástico. |Se intentó establecer el número de DTU para el grupo elástico por debajo del límite mínimo. |Vuelva a intentar establecer el número de DTU para el grupo elástico al menos en el límite mínimo. |

@@ -1,21 +1,21 @@
 ---
-title: Cambiar tamaño y recortar miniaturas de Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Muestra cómo cambiar el tamaño y recortar las miniaturas incluidas en una respuesta de Bing.
+title: 'Cambio de tamaño y recorte de miniaturas: Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Cómo cambiar el tamaño y recortar las miniaturas incluidas en una respuesta de Bing.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: df5f2f080ea5136c1a7267f85641e19c02798987
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 877ba1ebea65afd4646cbade8cf0491fd9c7ad49
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381815"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225895"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>Cambio de tamaño y recorte de imágenes miniatura
 

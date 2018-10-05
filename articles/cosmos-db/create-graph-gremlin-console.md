@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700345"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422973"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: crear, consultar y recorrer un grafo en la consola de Gremlin
 
@@ -90,21 +90,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. A continuación ejecute `:remote console` para redirigir todos los comandos de la consola al servidor remoto.
 
+   > [!NOTE]
+   > Si no ejecuta el comando `:remote console` pero quiere redirigir todos los comandos de consola al servidor remoto, debe anteponer `:>` al comando. Por ejemplo, tiene que ejecutarlo como `:> g.V().count()`. Este prefijo es parte del comando y es importante si se usa la consola de Gremlin con Azure Cosmos DB. Si omite este prefijo, le indica a la consola que ejecute el comando localmente, a menudo en un gráfico en memoria. Con este prefijo `:>`, le indica a la consola que ejecute un comando remoto, en este caso en Azure Cosmos DB (ya sea el emulador local o una instancia de Azure).
+
 Estupendo. Ahora que hemos terminado la configuración, comencemos a ejecutar algunos comandos de la consola.
 
 Probemos un comando count() sencillo. En el símbolo del sistema de la consola, escriba lo siguiente:
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> ¿Ve los caracteres `:>` que preceden al texto `g.V().count()`? 
->
-> Forma parte del comando que debe escribir. Es importante si se usa la consola de Gremlin con Azure Cosmos DB.  
->
-> Si omite este prefijo `:>`, le indica a la consola que ejecute el comando localmente, a menudo con un grafo en memoria.
-> Mediante este prefijo `:>` le indica a la consola que ejecute un comando remoto, en este caso, con Cosmos DB (ya sea el emulador local o una instancia de Azure).
-
+```
+g.V().count()
+```
 
 ## <a name="create-vertices-and-edges"></a>Crear vértices y bordes
 
@@ -113,7 +108,7 @@ Comencemos agregando cinco vértices de personas para *Thomas*, *Mary Kay*, *Rob
 Entrada (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Salida:
@@ -124,7 +119,7 @@ Salida:
 Entrada (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -138,7 +133,7 @@ Salida:
 Entrada (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Salida:
@@ -150,7 +145,7 @@ Salida:
 Entrada (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -163,7 +158,7 @@ Salida:
 Entrada (Jack):
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 Salida:
@@ -178,7 +173,7 @@ Después, vamos a agregar bordes a las relaciones entre estas personas.
 Entrada (Thomas -> Mary Kay):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 Salida:
@@ -190,7 +185,7 @@ Salida:
 Entrada (Thomas -> Robin):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 Salida:
@@ -202,7 +197,7 @@ Salida:
 Entrada (Robin -> Ben):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 Salida:
@@ -217,7 +212,7 @@ Vamos a actualizar el vértice *Thomas* con una nueva edad de *45*.
 
 Entrada:
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Salida:
 
@@ -234,7 +229,7 @@ Primero, vamos a probar una consulta con un filtro para devolver solo las person
 Entrada (consulta de filtro):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 Salida:
@@ -248,7 +243,7 @@ Después, vamos a proyectar el nombre de las personas que sean mayores de 40 añ
 Entrada (filtro + consulta de proyección):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 Salida:
@@ -264,7 +259,7 @@ Vamos a recorrer el grafo para devolver todos los amigos de Thomas.
 Entrada (amigos de Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 Salida: 
@@ -279,7 +274,7 @@ Ahora, vamos a obtener la siguiente capa de vértices. Recorra el grafo para dev
 Entrada (amigos de los amigos de Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Salida:
 
@@ -294,7 +289,7 @@ Vamos a eliminar un vértice de la base de datos del grafo.
 Entrada (quitar vértice de Jack):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Borrar el grafo
@@ -304,8 +299,8 @@ Por último, vamos a borrar todos los vértices y bordes de la base de datos.
 Entrada:
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 Felicidades. Ha finalizado este tutorial de Gremlin API de Azure Cosmos DB.

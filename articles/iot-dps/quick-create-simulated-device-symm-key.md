@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1aa4cf5d0cae728392f09626293de0506c81757f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e455845a145e07bc59378818b95e23e572cb577
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976982"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227115"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Inicio rápido: aprovisionar un dispositivo simulado con claves simétricas
 
 En esta guía de inicio rápido, obtendrá información sobre cómo crear y ejecutar un simulador de dispositivos en una máquina de desarrollo Windows. Configurará este dispositivo simulado para utilizar una clave simétrica a fin de autenticarse con una instancia del Device Provisioning Service y recibir la asignación a un IoT Hub. Se usará código de ejemplo del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular una secuencia de arranque para el dispositivo que inicia el aprovisionamiento. El dispositivo se reconocerá en función de una inscripción individual en una instancia del servicio de aprovisionamiento y se asignará a un IoT Hub.
 
-Aunque en este artículo se muestra el aprovisionamiento con una inscripción individual, puede usar los mismos procedimientos con grupos de inscripción. La única diferencia es que debe usar una clave de dispositivo derivada con un identificador de registro único para el dispositivo. En los grupos de inscripción, la clave simétrica de inscripción y el identificador de registro no se usan directamente. Aunque no se limita únicamente a los dispositivos heredados, en [Cómo aprovisionar dispositivos heredados con la atestación de clave simétrica](how-to-legacy-device-symm-key.md) se proporciona un ejemplo. Para obtener más información, consulte [Inscripciones de grupo para la atestación de clave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
+Aunque en este artículo se muestra el aprovisionamiento con una inscripción individual, puede usar los mismos procedimientos con grupos de inscripción. La única diferencia es que debe usar una clave de dispositivo derivada con un identificador de registro único para el dispositivo. Con los grupos de inscripción, no se usa directamente la clave simétrica en la inscripción. Aunque los grupos de inscripción de clave simétrica no se limitan a los dispositivos heredados, en [Cómo aprovisionar dispositivos heredados con la atestación de clave simétrica](how-to-legacy-device-symm-key.md) se proporciona un ejemplo de grupo de inscripción. Para obtener más información, consulte [Inscripciones de grupo para la atestación de clave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Para obtener información conceptual más detallada sobre la atestación de clave simétrica, consulte [Atestación de clave simétrica](concepts-symmetric-key-attestation.md). Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). 
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). 
 
 Además, asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este inicio rápido. Para seguir esta guía de inicio rápido, ya debe haber creado la instancia del Device Provisioning Service.
 
@@ -40,11 +40,11 @@ En este artículo está orientado a una estación de trabajo basada en Windows. 
 
 <a id="setupdevbox"></a>
 
-## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparar un entorno de desarrollo del SDK para C de Azure IoT
+## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparación de un entorno de desarrollo del SDK de Azure IoT para C
 
 En esta sección, preparará un entorno de desarrollo para compilar el [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c). 
 
-El SDK incluye el código de ejemplo para un dispositivo simulado. Este dispositivo simulado tratará de aprovisionar durante la secuencia de arranque del dispositivo.
+El SDK incluye el código de ejemplo para un dispositivo simulado. Este dispositivo simulado tratará de aprovisionarse durante la secuencia de arranque del dispositivo.
 
 1. Descargue la versión más reciente del [sistema de compilación de CMake](https://cmake.org/download/). Desde ese mismo sitio, busque el hash criptográfico para la versión de la distribución binaria elegida. Compruebe el archivo binario descargado mediante el valor de hash criptográfico correspondiente. En el ejemplo siguiente se usa Windows PowerShell para comprobar el hash criptográfico de la versión 3.11.4 de la distribución de MSI x64:
 
@@ -56,7 +56,7 @@ El SDK incluye el código de ejemplo para un dispositivo simulado. Este disposit
 
     **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo de desarrollo de escritorio con C++) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
 
-2. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del SDK para C de Azure IoT:
+2. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del SDK de Azure IoT para C:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -159,7 +159,7 @@ En esta sección, actualizará el código de ejemplo para enviar la secuencia de
 
 6. Haga clic con el botón derecho en el proyecto **prov\_dev\_client\_sample** y seleccione **Set as Startup Project** (Establecer como proyecto de inicio). 
 
-7. En la ventana del *Explorador de soluciones* de Visual Studio, desplácese al proyecto **hsm\_security\_client** y amplíelo. Amplíe **Archivos de código fuente** y abra **hsm\_client\_key.c**. 
+7. En la ventana del *Explorador de soluciones* de Visual Studio, desplácese al proyecto **hsm\_security\_client** y expándalo. Expanda **Archivos de código fuente** y abra **hsm\_client\_key.c**. 
 
     Busque la declaración de las constantes `REGISTRATION_NAME` y `SYMMETRIC_KEY_VALUE`. Realice los siguientes cambios en el archivo y guárdelo.
 

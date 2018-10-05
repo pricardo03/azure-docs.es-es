@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: ed591007e6ad83dfbafe13db0bd3d8b53fc216f3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bca25f5e7a6fd7685d20236033a5a225c5183a2d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106376"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225352"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Introducción a la administración de dispositivos (.NET/.NET)
 
@@ -54,7 +54,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **TriggerReboot** y, luego, haga clic en **Administrar paquetes NuGet**.
 
-3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **Microsoft.Azure.Devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al paquete NuGet del [SDK de servicio de IoT de Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) y sus dependencias.
+3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **Microsoft.Azure.Devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al paquete NuGet del [SDK de servicios IoT de Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) y sus dependencias.
 
     ![Ventana del Administrador de paquetes NuGet](./media/iot-hub-csharp-csharp-device-management-get-started/servicesdknuget.png)
 
@@ -213,7 +213,7 @@ En esta sección realizará las siguientes tareas:
 8. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio...**. Seleccione **Proyecto de inicio único** y luego seleccione el proyecto **SimulateManagedDevice** en el menú desplegable. Compile la solución.       
 
 > [!NOTE]
-> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](https://msdn.microsoft.com/library/hh680901.aspx) (Tratamiento de errores temporales).
+> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo [Control de errores transitorios](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="run-the-apps"></a>Ejecución de las aplicaciones
 

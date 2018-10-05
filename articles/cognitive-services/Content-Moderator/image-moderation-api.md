@@ -1,20 +1,21 @@
 ---
-title: 'Azure Content Moderator: moderación de imágenes | Microsoft Docs'
+title: 'Moderación de imágenes: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Usar la moderación de imágenes para moderar imágenes inapropiadas
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: c7cbc343c6e9113642d0ac79f4a4d60a404e8171
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382475"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219658"
 ---
 # <a name="image-moderation"></a>Moderación de imágenes
 

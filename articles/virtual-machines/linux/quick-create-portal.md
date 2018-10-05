@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108813"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227289"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Linux en Azure Portal
 
@@ -49,26 +49,27 @@ Inicie sesión en Azure Portal en http://portal.azure.com
 
 1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. En el cuadro de búsqueda encima de la lista de recursos de Azure Marketplace, busque y seleccione **Ubuntu Server 16.04 LTS** de Canonical y, a continuación, elija **Crear**.
+1. En el cuadro de búsqueda encima de la lista de recursos de Azure Marketplace, busque y seleccione **Ubuntu Server 16.04 LTS** de Canonical y, a continuación, elija **Crear**.
 
-3. Proporcione un nombre de máquina virtual, como *myVM*, deje el tipo de disco como *SSD* y proporcione un nombre de usuario, como *azureuser*.
+1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** en **Grupo de recursos**. En el menú emergente, escriba *myResourceGroup* para el nombre del grupo de recursos y luego elija **Aceptar*. 
 
-4. En **Tipo de autenticación**, seleccione **Clave pública SSH** y luego pegue la clave pública en el cuadro de texto. Tenga cuidado de no quitar los espacios en blanco finales o iniciales de la clave pública.
+    ![Crear un nuevo grupo de recursos para la máquina virtual](./media/quick-create-portal/project-details.png)
 
-    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. En **Detalles de instancia**, escriba *myVM* en **Nombre de máquina virtual** y elija *Este de EE. UU.* como **Región**. Deje los demás valores predeterminados.
 
-5. Elija **Crear nuevo** para el grupo de recursos y proporcione un nombre, como *myResourceGroup*. Elija su **ubicación** deseada y seleccione **Aceptar**.
+    ![Sección Detalles de instancia](./media/quick-create-portal/instance-details.png)
 
-4. Seleccione un tamaño para la máquina virtual. Puede filtrar por *Tipo de proceso* o *Tipo de disco*, por ejemplo. Se recomienda un tamaño de máquina virtual de *D2s_v3*.
+1. En **Cuenta de administrador**, seleccione **Clave pública SSH**, escriba el nombre de usuario y luego pegue la clave pública en el cuadro de texto. Quite los espacios en blanco finales o iniciales de la clave pública.
 
-    ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Cuenta de administrador](./media/quick-create-portal/administrator-account.png)
 
-5. En la página **Configuración**, en **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **SSH (22)**. Deje el resto de valores predeterminados y seleccione **Aceptar**.
+1. En **Reglas de puerto de entrada** > **Puertos de entrada públicos**, elija **Permitir los puertos seleccionados** y luego seleccione **SSH (22)** y **HTTP (80)** en la lista desplegable. 
 
-6. En la página de resumen, seleccione **Crear** para iniciar la implementación de la máquina virtual.
+    ![Puertos abiertos para RDP y HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-7. La máquina virtual se ancla al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual.
+1. Deje los valores predeterminados restantes y luego seleccione el botón **Revisar + crear** en la parte inferior de la página.
 
+    
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
 Cree una conexión SSH con la máquina virtual.

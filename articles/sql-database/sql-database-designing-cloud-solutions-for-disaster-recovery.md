@@ -3,20 +3,22 @@ title: Diseño de servicios disponibles globalmente con Azure SQL Database | Mic
 description: Obtenga información sobre el diseño de aplicaciones para servicios de alta disponibilidad con Azure SQL Database.
 keywords: recuperación ante desastres en la nube, soluciones de recuperación ante desastres, copia de seguridad de datos de aplicación, planificación de continuidad del negocio
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/26/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264661"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064278"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Diseño de servicios disponibles globalmente con Azure SQL Database
 
@@ -160,4 +162,4 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md)
 * Para obtener información acerca de los grupos de conmutación por error y la replicación geográfica, vea [Replicación geográfica activa](sql-database-geo-replication-overview.md).  
-* Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Para información acerca de cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de SQL Database](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

@@ -1,21 +1,23 @@
 ---
 title: Supervisión del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino | Microsoft Docs
 description: Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
-keywords: tutorial de SQL Database
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753459"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055952"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
 
@@ -44,9 +46,9 @@ La administración del rendimiento de la base de datos consiste en compilar y an
 ### <a name="performance-management-strategies"></a>Estrategias de administración del rendimiento
 
 * Para evitar tener que supervisar el rendimiento manualmente, resulta más eficaz **establecer alertas que se activan cuando las bases de datos se alejan de los intervalos normales**.
-* Para responder a las fluctuaciones en el nivel de rendimiento de una base de datos a corto plazo, **se puede escalar o reducir verticalmente el nivel de DTU**. Si esta fluctuación es habitual o previsible, **se puede programar el escalado automático de la base de datos**. Por ejemplo, cuando haya poca carga de trabajo (por la noche o durante el fin de semana), redúzcalo verticalmente.
+* Para responder a las fluctuaciones en el tamaño de proceso de una base de datos a corto plazo, **se puede escalar horizontal o verticalmente el nivel de DTU**. Si esta fluctuación es habitual o previsible, **se puede programar el escalado automático de la base de datos**. Por ejemplo, cuando haya poca carga de trabajo (por la noche o durante el fin de semana), redúzcalo verticalmente.
 * Para responder a las fluctuaciones a largo plazo o a cambios en los inquilinos, **los inquilinos individuales se pueden mover a otra base de datos**.
-* Para responder a aumentos breves en la carga *individual* de un inquilino, **se pueden sacar los inquilinos individuales de una base de datos para asignarle un nivel de rendimiento individual**. Una vez reducida la carga, el inquilino se puede devolver a la base de datos multiinquilino. Si se sabe de antemano, los inquilinos se pueden mover con antelación para garantizar que la base de datos siempre tiene los recursos necesarios y evitar que otros inquilinos de la base de datos multiinquilino se vean afectados. Si es predecible, como para un establecimiento, una avalancha de ventas de entradas para un evento popular, este comportamiento de administración puede integrarse en la aplicación.
+* Para responder a aumentos breves a corto plazo en la carga *individual* de un inquilino, **se pueden sacar los inquilinos individuales de una base de datos para asignarle un tamaño de proceso individual**. Una vez reducida la carga, el inquilino se puede devolver a la base de datos multiinquilino. Si se sabe de antemano, los inquilinos se pueden mover con antelación para garantizar que la base de datos siempre tiene los recursos necesarios y evitar que otros inquilinos de la base de datos multiinquilino se vean afectados. Si es predecible, como para un establecimiento, una avalancha de ventas de entradas para un evento popular, este comportamiento de administración puede integrarse en la aplicación.
 
 [Azure Portal](https://portal.azure.com) proporciona supervisión y alertas integradas en la mayoría de recursos. Para SQL Database, la supervisión y las alertas están disponibles para las bases de datos. La supervisión y las alertas integradas son específicas de los recursos, por lo que es conveniente usarlas con un número reducido de recursos, pero no cuando se trabaja con muchos recursos.
 

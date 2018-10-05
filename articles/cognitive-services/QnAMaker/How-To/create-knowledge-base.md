@@ -1,56 +1,69 @@
 ---
-title: Cómo crear una base de conocimiento - QnA Maker - Azure Cognitive Services | Microsoft Docs
-description: Cómo crear una base de conocimiento
+title: 'Creación de una base de conocimiento: QnA Maker'
+titleSuffix: Azure Cognitive Services
+description: La incorporación de charlas al bot lo hace más atractivo y conversacional. QnA Maker permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la KB. Puede ser un punto de partida para las charlas del bot y ahorrarle el tiempo y el costo que supone escribirlas desde cero.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 93b64948ecc52feeb0f862f2b76ea898dce2333a
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 274c2289c75f44c5a1c8dd3799612a23f46a6d67
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383157"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037701"
 ---
 # <a name="create-a-knowledge-base"></a>Creación de una base de conocimientos
 
-Con QnA Maker, resulta muy fácil incorporar los orígenes de datos existentes para crear una base de conocimiento. Puede crear una nueva base de conocimiento de QnA Maker a partir de páginas de preguntas más frecuentes, manuales de productos o documentos estructurados, puede agregarlos editorialmente.
+QnA Maker facilita la incorporación de orígenes de datos existentes a la hora de crear una base de conocimiento. Puede crear una nueva base de conocimiento de QnA Maker a partir de los siguientes tipos de documentos:
+
+<!-- added for scanability -->
+* Páginas de preguntas más frecuentes
+* Manuales de productos
+* Documentos estructurados
 
 ## <a name="steps"></a>Pasos
 
-1. Para comenzar, inicie sesión en el [portal de QnA Maker](https://qnamaker.ai) con sus credenciales de Azure y haga clic en **Create new service** (Crear nuevo servicio).
+1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai) con las credenciales de Azure y seleccione **Crear un servicio nuevo**.
 
     ![Crear una base de conocimiento ](../media/qnamaker-how-to-create-kb/create-new-service.png)
 
-2. Si aún no ha creado un servicio QnA Maker, seleccione **Create a QnA service** (Crear un servicio QnA). En caso contrario, elija un servicio QnA Maker en las listas desplegables del paso 2. Seleccione el servicio QnA Maker que va a hospedar la base de conocimiento.
+2. Si aún no ha creado un servicio QnA Maker, haga clic en **Create a QnA service** (Crear un servicio QnA). 
 
-    ![Instalación del servicio de QnA](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
+3. Seleccione el inquilino de Azure, el nombre de la suscripción de Azure y el nombre del recurso de Azure asociado con el servicio QnA Maker en las listas del **paso 2** del portal de QnA Maker. Seleccione el servicio Azure QnA Maker que va a hospedar la base de conocimiento.
 
-3. Especifique la información siguiente para crear la base de conocimiento.
+    ![Instalación del servicio QnA](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
+
+4. Escriba el nombre de la base de conocimiento y los orígenes de datos de la nueva base de conocimiento.
 
     ![Establecimiento de los orígenes de datos](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - Asigne un **nombre** al servicio. Se admiten nombres duplicados y también se admiten caracteres especiales.
-    - Pegue las direcciones URL de las que se va a extraer la información. Vea más información sobre los tipos de orígenes admitidos [aquí](../Concepts/data-sources-supported.md).
-    - También puede cargar archivos de los que se extraerán los datos. Consulte la [información sobre precios](https://aka.ms/qnamaker-pricing
-) para ver cuántos documentos puede agregar.
-    - Si desea agregar QnA manualmente, puede omitir la vinculación de archivos.
+    - Asigne un **nombre** al servicio. Se admiten nombres duplicados y caracteres especiales.
+    - Agregue las direcciones URL de los datos que quiere extraer. Vea más información sobre los tipos de orígenes admitidos [aquí](../Concepts/data-sources-supported.md).
+    - Cargue los archivos de los datos que quiere extraer. Consulte la [información sobre precios](https://aka.ms/qnamaker-pricing) para ver cuántos documentos puede agregar.
+    - Si quiere agregar manualmente preguntas y respuestas, puede omitir el **paso 4** que se muestra en la imagen anterior.
 
-4. Seleccione **Crear**.
+5. Agregue **charlas** a la base de conocimiento. Opte por agregar compatibilidad de charla al bot al elegir entre una de las tres personalidades predefinidas. 
+
+    <!-- TBD: add back in when chit chat how-to is merged
+    ![Add chit-chat to KB ](../media/qnamaker-how-to-chitchat/create-kb-chit-chat.png)
+    -->
+
+6. Seleccione **Create your KB** (Crear la base de conocimiento).
 
     ![Crear una base de conocimiento](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-5. Se tarda unos minutos en extraer los datos.
+7. Se tarda unos minutos en extraer los datos.
 
     ![Extracción](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-6. Si la base de conocimiento se ha creado correctamente, se le redirigirá a la página **Knowledge Base** (Base de conocimiento).
+8. Si la base de conocimiento se ha creado correctamente, se le redirige a la página **Base de conocimiento**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Importación de una base de conocimiento](../Tutorials/migrate-knowledge-base.md)
+> [Agregar charlas personales](./chit-chat-knowledge-base.md)

@@ -2,26 +2,34 @@
 title: Instalación de trabajos de base de datos elástica | Microsoft Docs
 description: Pasos de instalación de la característica de trabajo elástico.
 services: sql-database
-manager: craigg
-author: ddove
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 37052c86736a05012b9bb996f07bbf2568d7c879
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645619"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163185"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Información general sobre la instalación de trabajos de Elastic Database
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+
 Los [**trabajos de Elastic Database**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Azure Portal. Obtendrá acceso para crear y administrar trabajos mediante la API de PowerShell solo si instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
 
 Si ya instaló los **trabajos de Elastic Database** a través del Portal a partir de un **grupo elástico** existente, la última versión preliminar de PowerShell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de Elastic Database** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Instale la versión más reciente mediante el [Instalador de plataforma web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de Elastic Database. Para más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
@@ -58,7 +66,7 @@ Los parámetros proporcionados en esta invocación de ejemplo pueden modificarse
 
 <table style="width:100%">
   <tr>
-    <th>.</th>
+    <th>Parámetro</th>
     <th>DESCRIPCIÓN</th>
   </tr>
 
@@ -88,7 +96,7 @@ Los parámetros proporcionados en esta invocación de ejemplo pueden modificarse
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Proporciona el objetivo de nivel de servicio para un servidor Standard Edition. El valor predeterminado de este parámetro es S0. Se aceptan valores de parámetro de S0/S1/S2/S3/S4/S6/S9/S12 lo que hace que Azure SQL Database use el cierre de sesión único respectivo. Para obtener más información sobre SLO de SQL Database, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Proporciona el tamaño de proceso para una edición Estándar. El valor predeterminado de este parámetro es S0. Se aceptan los valores de parámetro S0/S1/S2/S3/S4/S6/S9/S12, lo que hace que Azure SQL Database use el tamaño de proceso respectivo. Para más información acerca de los tamaños de proceso de SQL Database, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
@@ -119,7 +127,7 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 
 <table style="width:100%">
   <tr>
-  <th>.</th>
+  <th>Parámetro</th>
   <th>DESCRIPCIÓN</th>
 </tr>
 

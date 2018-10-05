@@ -3,8 +3,8 @@ title: Creación de una aplicación web de Node.js en Azure | Microsoft Docs
 description: Implementación de su primera aplicación Hola mundo de Node.js en Azure App Service Web Apps en cuestión de minutos.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.date: 09/27/2018
+ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 63e65ffc17ba71a5d2cf00cb5f04e3e0f87c1bfe
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184387"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433470"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "43184387"
 > En este artículo se implementa una aplicación en App Service en Windows. Para realizar implementaciones en App Service en _Linux_, consulte [Creación de una aplicación web de Node.js en Azure App Service en Linux](./containers/quickstart-nodejs.md).
 >
 
-[Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático.  En esta guía de inicio rápido se explica cómo se implementa una aplicación de Node.js en Azure Web Apps. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) y se usa Git para implementar el código Node.js de ejemplo en la aplicación web.
+[Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático.  En esta guía de inicio rápido se explica cómo se implementa una aplicación de Node.js en Azure Web Apps. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) y se usa ZipDeploy para implementar el código Node.js de ejemplo en la aplicación web.
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -47,6 +47,9 @@ Para completar esta guía de inicio rápido:
 Descargue el proyecto de ejemplo Node.js de [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) y extraiga el archivo ZIP.
 
 En una ventana de terminal, vaya al directorio raíz del proyecto de ejemplo de Node.js (el que contiene _index.php_).
+
+> [!NOTE]
+> No es necesario usar la aplicación de ejemplo; si quiere, puede usar su propio código de Node. Pero tenga en cuenta que el PUERTO de la aplicación será establecido en tiempo de ejecución por Azure y está disponible como `process.env.PORT`. Si usa Express, asegúrese de que tiene una comprobación de inicio (`app.listen`) para `process.env.PORT || 3000`. Si no lo hace y el puerto no coincide con lo establecido en tiempo de ejecución por Azure, verá un mensaje `Service Unavailable`. 
 
 ## <a name="run-the-app-locally"></a>Ejecución de la aplicación de forma local
 
@@ -71,21 +74,19 @@ En la ventana de terminal, presione **Ctrl + C** para salir del servidor web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)] 
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-scus.md)] 
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
 En Cloud Shell, cree una aplicación web en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
 
-En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `NODE|6.9`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`).
 
 ```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# Bash and Powershell
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 ```
 
 Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
@@ -104,6 +105,15 @@ Cuando se haya creado la aplicación web, la CLI de Azure mostrará información
 }
 ```
 
+### <a name="set-nodejs-runtime"></a>Tiempo de ejecución de Node.js
+
+Establece el tiempo de ejecución de Node en 8.11.1. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+
+```azurecli-interactive
+# Bash and Powershell
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+```
+
 Vaya a la aplicación web recién creada. Reemplace  _&lt;nombre de aplicación>_ por un nombre de aplicación único.
 
 ```bash
@@ -112,7 +122,7 @@ http://<app name>.azurewebsites.net
 
 Este es el aspecto que debería tener su nueva aplicación web:
 
-![Página de la aplicación web vacía](media/app-service-web-get-started-php/app-service-web-service-created.png)
+![Página de la aplicación web vacía](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
@@ -148,7 +158,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-Implemente este nuevo archivo ZIP en App Service utilizando los mismos pasos que en [Cargar el archivo ZIP](#upload-the-zip-file).
+Implemente este nuevo archivo ZIP en App Service mediante los mismos pasos de [Implementación de un archivo ZIP](#deploy-zip-file).
 
 Vuelva a la ventana del explorador que se abrió en el paso **Navegación hasta la aplicación** y actualice la página.
 

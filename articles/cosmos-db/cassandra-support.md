@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 70b2c3252380440a491e6d21a8b8a96a2390525b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 636b0d9ef42ad1e87d891329be7b7c11c4efcb4a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986280"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220149"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Cassandra API de Azure Cosmos DB es compatible con CQL versión **v4**. A contin
 
 ## <a name="cassandra-driver"></a>Controlador Cassandra
 
-Cassandra API de Azure Cosmos DB admite las siguientes versiones de los controladores Cassandra de DataStax:
+Cassandra API de Azure Cosmos DB admite las siguientes versiones de los controladores Cassandra:
 
 * [Java 3.5 y versiones posteriores](https://github.com/datastax/java-driver)  
 * [C# 3.5 y versiones posteriores](https://github.com/datastax/csharp-driver)  

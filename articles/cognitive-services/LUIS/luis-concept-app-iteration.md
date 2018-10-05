@@ -1,20 +1,21 @@
 ---
-title: 'Descripción del diseño de aplicaciones iterativas de LUIS: Azure | Microsoft Docs'
-description: Las aplicaciones de LUIS requieren iteraciones de diseño para entrenar a LUIS para obtener la mejor extracción de datos.
+title: Diseño de aplicaciones iterativo en Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: LUIS aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión.  Las aplicaciones de LUIS requieren iteraciones de diseño para entrenar a LUIS para obtener la mejor extracción de datos.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 947350a1d0dcfb0caaca654768c3660fc1b146e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 05f5ceb5a0f3529d7635f7aae0c3c41c19f0b1ad
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225448"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031958"
 ---
 # <a name="authoring-cycle"></a>Ciclo de creación
 LUIS aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -32,15 +33,12 @@ El modelo incluye intenciones y entidades.
 LUIS necesita expresiones de ejemplo en las intenciones. Los ejemplos necesitan una variación amplia de palabras y del orden de estas para poder determinar qué intención tiene la expresión. Cada expresión de ejemplo debe tener los datos necesarios etiquetados como entidades. 
 
 Debe indicar a LUIS que ignore las expresiones que no sean pertinentes para el dominio de la aplicación. Para ello, debe asignar la expresión a la intención **None** (Ninguno). No es necesario etiquetar todas las palabras o frases que no necesite extraer de una expresión. No hay ninguna etiqueta para las palabras o frases que se vayan a ignorar. 
-<!--
-## Not just yet
-Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
--->
-## <a name="train-and-publish-the-app"></a>Entrenar y publicar la aplicación
-Una vez que tenga entre 10 y 15 expresiones diferentes en cada intención, con las entidades necesarias etiquetadas, debe entrenar a LUIS y efectuar la publicación para obtener los puntos de conexión. Asegúrese de crear y publicar la aplicación de manera que esté disponible en las [regiones de punto de conexión](luis-reference-regions.md) que necesite. 
+
+## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
+Una vez que tenga entre 10 y 15 expresiones diferentes en cada intención, con las entidades necesarias etiquetadas, debe entrenar y efectuar la publicación. Desde la notificación de éxito de publicación, use el vínculo para obtener los puntos de conexión. Asegúrese de crear y publicar la aplicación de manera que esté disponible en las [regiones de punto de conexión](luis-reference-regions.md) que necesite. 
 
 ## <a name="https-endpoint-testing"></a>Pruebas de puntos de conexión HTTPS
-Puede probar la aplicación de LUIS desde el punto de conexión HTTPS que aparece en la página **[Publish](luis-how-to-publish-app.md)** (Publicar). La realización de pruebas desde el punto de conexión permite a LUIS elegir cualquier expresión con una confianza baja para la revisión.  
+Puede probar la aplicación de LUIS desde el punto de conexión HTTPS. La realización de pruebas desde el punto de conexión permite a LUIS elegir cualquier expresión con una confianza baja para la revisión.  
 
 ## <a name="recycle"></a>Reciclar
 Cuando haya terminado un ciclo de creación, puede empezar de nuevo. Empiece revisando las expresiones de punto de conexión que LUIS ha marcado con una confianza baja. Compruebe la intención y la entidad de estas expresiones. Una vez revisadas las expresiones, la lista de revisión debería estar vacía.  

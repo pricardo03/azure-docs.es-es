@@ -2,20 +2,22 @@
 title: Glosario de las herramientas de Elastic Database | Microsoft Docs
 description: Explicación de los términos usados en las herramientas de bases de datos elásticas
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647551"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162583"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de Elastic Database
 Los siguientes términos se definen para las [herramientas de Elastic Database](sql-database-elastic-scale-introduction.md), una característica de Azure SQL Database. Las herramientas se usan para administrar [mapas de particiones](sql-database-elastic-scale-shard-map-management.md) e incluyen la [biblioteca de cliente](sql-database-elastic-database-client-library.md), la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md), los [grupos elásticos](sql-database-elastic-pool.md) y las [consultas](sql-database-elastic-query-overview.md). 
@@ -79,7 +81,7 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 
 **Dividir**: el acto de mover varios shardlets desde una partición a otra (normalmente nueva). El usuario proporciona una clave de particionamiento como el punto de división.
 
-**Escalado vertical**: el acto de escalar (o reducir) verticalmente el nivel de rendimiento de una partición individual. Por ejemplo, cambiando una partición de Standard a Premium (lo que genera más recursos informáticos). 
+**Escalado vertical**: el acto de escalar (o reducir) verticalmente el tamaño de proceso de una partición individual. Por ejemplo, cambiando una partición de Standard a Premium (lo que genera más recursos informáticos). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

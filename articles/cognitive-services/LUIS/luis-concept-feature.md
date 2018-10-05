@@ -1,20 +1,21 @@
 ---
-title: Descripción de las características de las aplicaciones de LUIS en Azure | Microsoft Docs
-description: Obtenga información sobre las características, que ayudan a mejorar el rendimiento de la aplicación de LUIS. Las características incluyen listas de frases y patrones para el reconocimiento de expresiones regulares.
+title: Características de las aplicaciones de LUIS en Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
+description: Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar. Las características ayudan a LUIS a reconocer intenciones y entidades.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 015679b6020e9d2a4d702f9d6e723ecd9499d8dc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224935"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034474"
 ---
 # <a name="phrase-list-features-in-luis"></a>Características de lista de frases en LUIS
 

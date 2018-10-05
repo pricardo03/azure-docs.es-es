@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 69ead9e6dae400ce16cb2442c7b1c13e348d1572
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 92422a254bcfd5b31731dda6d1790cc85f467860
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094987"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 
@@ -29,7 +30,7 @@ Un ASE puede crearse con Azure Portal o con una plantilla de Azure Resource Mana
 Cuando crea un ASE en Azure Portal, puede crear la red virtual al mismo tiempo o seleccionar una red virtual existente en donde implementarlo. Cuando crea un ASE desde una plantilla, debe comenzar por: 
 
 * Una red virtual de Resource Manager.
-* Una subred de esa red virtual. Se recomienda que el tamaño de la subred del ASE sea `/25` con 128 direcciones para adaptarse al crecimiento futuro. Una vez creado el ASE, no se puede cambiar el tamaño.
+* Una subred de esa red virtual. Se recomienda que el tamaño de la subred del ASE sea `/24` con 256 direcciones para adaptarse al crecimiento futuro. Una vez creado el ASE, no se puede cambiar el tamaño.
 * El identificador de recurso de la red virtual. Puede obtener esta información en Azure Portal, en las propiedades de su red virtual.
 * La suscripción en la que desea implementarlo.
 * La ubicación en la que desea implementarlo.

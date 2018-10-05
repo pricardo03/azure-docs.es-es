@@ -1,20 +1,21 @@
 ---
-title: 'Inicio rápido de Python para Microsoft QnA Maker API (V4): Azure Cognitive Services | Microsoft Docs'
+title: 'Inicio rápido: Python para QnA Maker API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Microsoft Translator Text API en Microsoft Cognitive Services en Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: c0d02a0f586857f6dd303fc98407da71b2addb9b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5e95bf768cc00935067edd3365cc3d101be6a00a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869126"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034748"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Inicio rápido de Microsoft QnA Maker API con Python 
 <a name="HOLTop"></a>
@@ -36,7 +37,9 @@ En este artículo, se muestra cómo utilizar [Microsoft QnA Maker API](../Overvi
 - [Obtener el conjunto actual de modificaciones de palabras](#GetAlterations)
 - [Reemplazar el conjunto actual de modificaciones de palabras](#PutAlterations)
 
-## <a name="prerequisites"></a>requisitos previos
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener [Python.js 3.x](https://www.python.org/downloads/) para ejecutar este código.
 

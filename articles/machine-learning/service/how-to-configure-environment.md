@@ -9,14 +9,14 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 7796accffb7041e567c5e18857d09e105b5268ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961576"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220302"
 ---
-# <a name="how-to-configure-a-development-environment-for-the-azure-machine-learning-service"></a>Cómo configurar un entorno de desarrollo para el servicio Azure Machine Learning
+# <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Configuración de un entorno de desarrollo para el servicio Azure Machine Learning
 
 Obtenga información sobre cómo configurar un entorno de desarrollo al trabajar con el servicio Azure Machine Learning. Aprenderá a crear un archivo de configuración que asocia su entorno con un área de trabajo de Azure Machine Learning. También aprenderá a configurar los entornos de desarrollo siguientes:
 
@@ -29,7 +29,7 @@ El enfoque recomendado es usar [entornos virtuales conda](https://conda.io/docs/
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un área de trabajo del servicio Azure Machine Learning. Para crear una, siga los pasos del documento [Get started with Azure Machine Learning service](quickstart-get-started.md) (Introducción al servicio Azure Machine Learning).
+* Un área de trabajo de Azure Machine Learning. Para crear una, siga los pasos del documento [Get started with Azure Machine Learning service](quickstart-get-started.md) (Introducción al servicio Azure Machine Learning).
 
 * Administrador de paquetes de [Continuum Anaconda](https://www.anaconda.com/download/) o [Miniconda](https://conda.io/miniconda.html).
 
@@ -39,17 +39,31 @@ El enfoque recomendado es usar [entornos virtuales conda](https://conda.io/docs/
 
 El SDK usa el archivo de configuración del área de trabajo para comunicarse con el área de trabajo del servicio Azure Machine Learning.  Existen dos formas de obtener este archivo:
 
-* Cuando completa el [tutorial de inicio rápido](quickstart-get-started.md), el archivo `config.json` se crea automáticamente en Azure Notebooks.  Este archivo contiene información de configuración para el área de trabajo.  Descárguelo en el mismo directorio que los scripts o cuadernos que hacen referencia a él.
+* Complete la [guía de inicio rápido](quickstart-get-started.md) para crear un archivo de configuración y el área de trabajo. El archivo `config.json` se crea automáticamente en Azure Notebooks.  Este archivo contiene información de configuración para el área de trabajo.  Descárguelo o cópielo en el mismo directorio que los scripts o cuadernos que hacen referencia a él.
+
 
 * Cree el archivo de configuración usted mismo con los pasos siguientes:
 
     1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com). Copie el __Nombre de área de trabajo__, __Grupo de recursos__ e __Id. de suscripción__. Estos valores se usan para crear el archivo de configuración.
 
-       El panel del área de trabajo del portal solo es compatible con los exploradores Edge, Chrome y Firefox.
-    
         ![Azure Portal](./media/how-to-configure-environment/configure.png) 
     
-    3. En el editor de texto, cree un archivo llamado **config.json**.  Agregue el siguiente contenido a ese archivo, insertando los valores desde el portal:
+    1. Cree el archivo con este código de Python. Ejecute el código en el mismo directorio que los scripts o cuadernos que hacen referencia al área de trabajo.
+        ```
+        from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
+        
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
+        ```
+        Se escribe el siguiente archivo `aml_config/config.json`: 
     
         ```json
         {
@@ -58,12 +72,11 @@ El SDK usa el archivo de configuración del área de trabajo para comunicarse co
         "workspace_name": "<workspace-name>"
         }
         ```
-    
-        >[!NOTE] 
-        >Más adelante en el código, lea este archivo con: `ws = Workspace.from_config()`
-    
-    4. Asegúrese de guardar **config.json** en el mismo directorio que los scripts o cuadernos que hacen referencia a él.
-    
+        Puede copiar el directorio `aml_config` o simplemente el archivo `config.json` en cualquier otro directorio que haga referencia al área de trabajo.
+
+>[!NOTE] 
+>Otros scripts o cuadernos del mismo directorio o uno inferiorp cargarán el área de trabajo con `ws=Workspace.from_config()`.
+
 ## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Azure Notebooks y Data Science Virtual Machine
 
 Azure Notebooks y Azure Data Science Virtual Machine (DSVM) están preconfigurados para funcionar con el servicio Azure Machine Learning. Los componentes necesarios, como el SDK de Azure Machine Learning, están preinstalados en estos entornos.
@@ -98,7 +111,7 @@ Para obtener un ejemplo del uso de Azure Notebooks con el servicio Azure Machine
 3. Para instalar el SDK de Azure Machine Learning con cuadernos adicionales, use el siguiente comando:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
     Puede tardar varios minutos en instalar el SDK.
@@ -155,7 +168,7 @@ Para obtener un ejemplo del uso de Azure Notebooks con el servicio Azure Machine
 2. Para instalar el SDK de Azure Machine Learning, use el siguiente comando:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. Para instalar Visual Studio Tools for AI, consulte la entrada de Visual Studio Marketplace para [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 

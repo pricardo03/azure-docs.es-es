@@ -2,26 +2,29 @@
 title: Consulta entre bases de datos en la nube con diferente esquema | Microsoft Docs
 description: cómo configurar consultas entre bases de datos en particiones verticales
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3d94a52aaafca91d45d7f1a6406d3f998fbffe9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645762"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161767"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
 ![Consultas entre tablas de bases de datos diferentes][1]
 
 Las bases de datos con particiones verticales usan distintos conjuntos de tablas en bases de datos diferentes. Esto significa que el esquema es diferente en las distintas bases de datos. Por ejemplo, todas las tablas de inventario se encuentran en una base de datos mientras que todas las relacionadas con la contabilidad se encuentran en otra. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * El usuario debe poseer el permiso ALTER ANY EXTERNAL DATA SOURCE. Este permiso está incluido en el permiso ALTER DATABASE.
 * Se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para hacer referencia al origen de datos subyacente.
 
@@ -45,7 +48,7 @@ La credencial utiliza la consulta elástica para conectarse a las bases de datos
     [;]
 
 > [!NOTE]
-> Asegúrese de que `<username>` no incluya ningún sufijo **"@servername"**. 
+> Asegúrese de que `<username>` no incluye ningún sufijo **"\@nombreDeServidor"**. 
 >
 
 ## <a name="create-external-data-sources"></a>Creación de orígenes de datos externos

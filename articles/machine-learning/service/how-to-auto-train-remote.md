@@ -1,6 +1,6 @@
 ---
-title: 'Entrenamiento de modelos con aprendizaje automático automatizado en la nube: Azure Machine Learning'
-description: En este artículo se explica cómo crear un recurso de proceso remoto para entrenar los modelos de aprendizaje automático automáticamente.
+title: 'Configuración de destinos de proceso remoto para el aprendizaje automático automatizado: servicio Azure Machine Learning'
+description: En este artículo se explica cómo crear modelos mediante el aprendizaje automático automatizado en un destino de proceso remoto de Data Science Virtual Machine (DSVM) con el servicio Azure Machine Learning
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -10,26 +10,26 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 00d34fd0fe5f62e4da4be7d80afceb29753251bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946976"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163484"
 ---
-# <a name="train-models-with-automated-machine-learning-in-the-cloud-with-azure-machine-learning"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube mediante Azure Machine Learning
+# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube
 
 En Azure Machine Learning puede entrenar un modelo en los diferentes tipos de recursos de proceso que administre. El destino de proceso podría ser un equipo local o un equipo en la nube.
 
 Mediante la incorporación de destinos de procesos adicionales como Data Science Virtual Machine (DSVM) basado en Ubuntu o Azure Batch AI, resulta fácil escalar vertical y horizontalmente el experimento de aprendizaje automático. DSVM es una imagen de máquina virtual personalizada en la nube de Azure de Microsoft diseñada específicamente para realizar la ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y configuradas previamente.  
 
-En este artículo, aprenderá a crear un modelo mediante el aprendizaje automático automatizado en DSVM.  
+En este artículo, aprenderá a crear un modelo mediante ML automatizado en una máquina DSVM. Puede encontrar ejemplos de uso de Azure Batch AI en [estos cuadernos de ejemplo en GitHub](https://aka.ms/aml-notebooks).  
 
 ## <a name="how-does-remote-differ-from-local"></a>¿En qué se diferencia el modo remoto del local?
 
-El tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" (Entrenamiento de un modelo de clasificación con el aprendizaje automático automatizado) le enseña a usar un equipo local para entrenar el modelo de aprendizaje automático automatizado.  El flujo de trabajo del entrenamiento local también se aplica a los destinos remotos. Con un proceso remoto, las iteraciones del experimento de aprendizaje automático se ejecutan de forma asincrónica. De ese modo, se puede cancelar una iteración determinada, ver el estado de la ejecución y continuar trabajando en otras celdas del cuaderno de Jupyter. Para entrenar de forma remota, en primer lugar cree un destino de proceso remoto, como una máquina DSVM de Azure, configúrelo y envíe allí el código.
+El tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" (Entrenamiento de un modelo de clasificación con el aprendizaje automático automatizado) le enseña a usar un equipo local para entrenar el modelo con ML automatizado.  El flujo de trabajo del entrenamiento local también se aplica a los destinos remotos. Sin embargo, con un proceso remoto, las iteraciones del experimento de ML automatizado se ejecutan de forma asincrónica. De ese modo, se puede cancelar una iteración determinada, ver el estado de la ejecución y continuar trabajando en otras celdas del cuaderno de Jupyter. Para entrenar de forma remota, en primer lugar cree un destino de proceso remoto, como una máquina DSVM de Azure.  A continuación, configure el recurso remoto y envíe el código allí.
 
-Este artículo muestra los pasos adicionales necesarios para ejecutar un experimento de aprendizaje automático automatizado en una instancia de DSVM remota.  Aquí se usa, en todo el código, el objeto del área de trabajo, `ws` del tutorial.
+Este artículo muestra los pasos adicionales necesarios para ejecutar un experimento de ML automatizado en una máquina DSVM remota.  Aquí se usa, en todo el código, el objeto del área de trabajo, `ws` del tutorial.
 
 ```python
 ws = Workspace.from_config()
@@ -50,6 +50,7 @@ try:
     print('found existing dsvm.')
 except:
     print('creating new dsvm.')
+    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
     dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
     dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
     dsvm_compute.wait_for_completion(show_output = True)
@@ -69,22 +70,10 @@ Entre las restricciones en los nombres de máquina DSVM se incluyen:
 >    1. Salga sin crear realmente la máquina virtual.
 >    1. Vuelva a ejecutar el código de creación.
 
+Este código no crea un nombre de usuario ni una contraseña para la máquina DSVM que se aprovisiona. Si desea conectarse directamente a la máquina virtual, vaya a [Azure Portal](https://portal.azure.com) para aprovisionar las credenciales.  
 
-## <a name="create-a-runconfiguration-with-dsvm-name"></a>Creación de RunConfiguration con el nombre de la máquina DSVM
-Aquí se indica el valor de runconfiguration del nombre de la máquina DSVM
 
-```python
-
-# create the run configuration to use for remote training
-from azureml.core.runconfig import RunConfiguration
-run_config = RunConfiguration() 
-# set the target to dsvm_compute created above
-run_config.target = dsvm_compute 
-```
-
-Ahora puede usar el objeto `run_config` como destino para el aprendizaje automático automatizado. 
-
-## <a name="access-data-using-get-data-file"></a>Acceso a los datos con un archivo de obtención de datos
+## <a name="access-data-using-getdata-file"></a>Acceso a los datos con un archivo get_data
 
 Proporcione a los recursos remotos acceso a los datos de entrenamiento. Para los experimentos de aprendizaje automático automatizado que se ejecutan en el proceso remoto, los datos deben capturarse con una función `get_data()`.  
 
@@ -95,10 +84,15 @@ Para proporcionar acceso, debe:
 Puede encapsular el código para leer datos desde un almacenamiento de blobs o un disco local en el archivo get_data.py. En el siguiente ejemplo de código, los datos proceden del paquete sklearn.
 
 >[!Warning]
->Si usa un proceso remoto, debe usar `get_data()` para realizar las transformaciones de datos.
+>Si usa un proceso remoto, debe usar la función `get_data()` donde se realicen las transformaciones de datos. Si tiene que instalar bibliotecas adicionales para las transformaciones de datos como parte de get_data(), existen pasos adicionales que se deben seguir. Consulte el [Cuaderno de ejemplo auto-ml-dataprep](https://aka.ms/aml-auto-ml-data-prep ) para más información.
 
 
 ```python
+# Create a project_folder if it doesn't exist
+if not os.path.exists(project_folder):
+    os.makedirs(project_folder)
+
+#Write the get_data file.
 %%writefile $project_folder/get_data.py
 
 from sklearn import datasets
@@ -114,7 +108,7 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## <a name="configure-automated-machine-learning-experiment"></a>Configuración del experimento de aprendizaje automático automatizado
+## <a name="configure-experiment"></a>Configuración del experimento
 
 Especifique la configuración de `AutoMLConfig`.  (Consulte una [lista completa de parámetros]() y sus posibles valores).
 
@@ -139,13 +133,13 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             run_configuration=run_config,
-                             data_script=project_folder + "./get_data.py",
+                             compute_target = dsvm_compute,
+                             data_script=project_folder + "/get_data.py",
                              **automl_settings
                             )
 ```
 
-## <a name="submit-automated-machine-learning-training-experiment"></a>Envío del experimento de entrenamiento de aprendizaje automático automatizado
+## <a name="submit-training-experiment"></a>Envío del experimento de entrenamiento
 
 Ahora, envíe la configuración para seleccionar automáticamente el algoritmo y los hiperparámetros, y entrenar el modelo. (Más información [acerca de la configuración]() para el método `submit`).
 
@@ -215,4 +209,4 @@ El cuaderno `automl/03.auto-ml-remote-execution.ipynb` demuestra los conceptos d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de [cómo configurar opciones para el aprendizaje automático]().
+Más información acerca de [cómo configurar opciones para el aprendizaje automático](how-to-configure-auto-train.md).

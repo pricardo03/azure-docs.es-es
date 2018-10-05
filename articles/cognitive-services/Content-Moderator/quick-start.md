@@ -1,27 +1,28 @@
 ---
-title: Introducción a Azure Content Moderator | Microsoft Docs
-description: Introducción a Azure Content Moderator.
+title: Introducción a Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Cómo empezar a trabajar con Content Moderator
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae4333047ebd95733c7baaed0323a0c2c477d323
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380802"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225301"
 ---
 # <a name="get-started-with-content-moderator"></a>Introducción a Content Moderator
 
-Para empezar a trabajar con las API de Content Moderator y la herramienta de revisión, haga lo siguiente:
+Para empezar a trabajar con Content Moderator, haga lo siguiente:
 
-- [Comience con la herramienta de revisión](#start-with-the-review-tool) para crear las claves de API y un equipo de revisión. Explore la herramienta de revisión y aprenda a integrar con las API de Content Moderator.
-- [Suscríbase a Content Moderator](#start-with-the-apis) en Azure Portal. Aún deberá iniciar sesión en línea para crear un equipo de revisión.
+- [Comience con la herramienta de revisión](#start-with-the-review-tool) para obtener la clave de API y crear un equipo de revisión. La ventaja es que puede usar la clave de API para llamar a las API de moderación para examinar el contenido y a las API de revisión para generar las revisiones, sin realizar pasos adicionales.
+- [Regístrese en Content Moderator](#start-with-the-apis) en Azure para obtener la clave de API. Consulte la [referencia de API](api-reference.md) y los [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Aún deberá iniciar sesión en línea para crear un equipo de revisión.
 - [Use el conector y las plantillas de Flow](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) para comprobar una amplia gama de integraciones con un diseñador fácil de usar.
 
 Independientemente de la opción que elija, consulte el artículo [Administración de credenciales](review-tool-user-guide/credentials.md) para encontrar las credenciales de la API.
@@ -55,9 +56,9 @@ Aprenda a usar todas las [características de la herramienta de revisión](Revie
 
 ### <a name="use-the-apis"></a>Usar las API
 
-Ahora que ha explorado la moderación de contenido y la experiencia de la herramienta de revisión, obtenga información sobre cómo integrar Content Moderator con sus aplicaciones empresariales. En la sección siguiente, obtendrá más información y ampliará sus conocimientos con los SDK y ejemplos.
+Obtenga información sobre cómo integrar Content Moderator con sus aplicaciones empresariales. Consulte la [referencia de API](api-reference.md) y los [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net).
 
-## <a name="start-with-the-apis"></a>Comenzar con las API
+## <a name="subscribe-in-the-azure-portal"></a>Registro en Azure Portal
 
 [Suscríbase a Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) en Azure Portal. Comience con una de las API siguientes:
 
@@ -85,4 +86,4 @@ Empiece aquí eligiendo las API de trabajos, revisiones y flujos de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre cómo iniciar la moderación de contenido con la [API de moderación de imágenes](image-moderation-api.md).
+Consulte la [referencia de API](api-reference.md) y los [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Impulse su integración con los [ejemplos del SDK de .NET](sdk-and-samples.md#net-sdk-samples), los [ejemplos de API de REST en C#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) y los [tutoriales](sdk-and-samples.md#tutorials).

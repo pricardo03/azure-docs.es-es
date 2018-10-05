@@ -2,25 +2,33 @@
 title: 'Acceso condicional: Azure SQL Database y Data Warehouse | Microsoft Docs'
 description: Aprenda a configurar Acceso condicional para Azure SQL Database y Data Warehouse.
 services: sql-database
-author: GithubMirek
-manager: johammer
-ms.custom: security
 ms.service: sql-database
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: 83762136659756204aab5da367b905f66e770087
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e7386e2f926132f5657bdb17011dafe1e1c7b101
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647466"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063088"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acceso condicional (MFA) con Azure SQL Database y Data Warehouse  
 
-Tanto SQL Database como SQL Data Warehouse admiten Acceso condicional de Microsoft. Los pasos siguientes muestran cómo configurar SQL Database para aplicar una directiva de Acceso condicional.  
+Tanto Azure [SQL Database](sql-database-technical-overview.md) como [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) admiten Acceso condicional de Microsoft. 
 
-## <a name="prerequisites"></a>requisitos previos  
+> [!NOTE]
+> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
+
+Los pasos siguientes muestran cómo configurar SQL Database para aplicar una directiva de Acceso condicional.  
+
+## <a name="prerequisites"></a>Requisitos previos  
 - Debe configurar SQL Database o SQL Data Warehouse para que admitan la autenticación de Azure Active Directory. Para ver pasos concretos, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
 - Cuando se habilita la autenticación multifactor, debe conectarse con una herramienta admitida, como la versión más reciente de SSMS. Para más información, consulte [Configuración de Multi-Factor Authentication de Azure SQL Database para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 

@@ -1,6 +1,6 @@
 ---
-title: Roles integrados de Azure | Microsoft Docs
-description: En este tema se describen los roles integrados para el control de acceso basado en rol (RBAC) en Azure. Se enumeran las acciones, notActions, dataActions y notDataActions.
+title: Roles integrados en los recursos de Azure | Microsoft Docs
+description: En este tema se describen los roles integrados para el control de acceso basado en rol (RBAC) y los recursos de Azure. Se enumeran las acciones, notActions, dataActions y notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/19/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048375"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410279"
 ---
-# <a name="built-in-roles-in-azure"></a>Roles integrados de Azure
+# <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
 
 Los roles integrados siempre están en evolución. Para obtener las últimas definiciones de roles, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
@@ -43,7 +43,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Rol del operador del servicio API Management](#api-management-service-operator-role) | Puede administrar el servicio, pero no las API. |
 | [Rol de lector del servicio API Management](#api-management-service-reader-role) | Acceso de solo lectura al servicio y las API. |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights |
-| [Depurador de instantáneas de Application Insights](#application-insights-snapshot-debugger) | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que este rol no se incluye en los roles de [propietario](#owner) ni [colaborador](#contributor). |
+| [Depurador de instantáneas de Application Insights](#application-insights-snapshot-debugger) | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). |
 | [Operador de trabajos de Automation](#automation-job-operator) | Permite crear y administrar trabajos con los runbooks de Automation. |
 | [Operador de Automation](#automation-operator) | Los operadores de automatización pueden iniciar, detener, suspender y reanudar trabajos. |
 | [Operador de runbooks de Automation](#automation-runbook-operator) | Permite leer las propiedades de runbook para poder crear trabajos del runbook. |
@@ -62,16 +62,21 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de la red clásica](#classic-network-contributor) | Permite administrar las redes clásicas, pero no acceder a ellas. |
 | [Colaborador de cuentas de almacenamiento clásico](#classic-storage-account-contributor) | Permite administrar cuentas de almacenamiento clásicas, pero no acceder a ellas. |
 | [Rol de servicio de operador de claves de cuentas de almacenamiento clásicas](#classic-storage-account-key-operator-service-role) | Los operadores de claves de cuentas de almacenamiento clásicas pueden enumerar y regenerar claves en cuentas de almacenamiento clásicas |
-| [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas.|
+| [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. |
+| [Colaborador de Cognitive Services](#cognitive-services-contributor) | Le permite crear, leer, actualizar, eliminar y administrar las claves de Cognitive Services. |
+| [Usuario de Cognitive Services](#cognitive-services-user) | Le permite leer y mostrar las claves de Cognitive Services. |
 | [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. |
+| [Colaborador de Cost Management](#cost-management-contributor) | Puede ver los costos y administrar la configuración de estos (por ejemplo, presupuestos, exportaciones) |
+| [Lector de Cost Management](#cost-management-reader) | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) |
 | [Colaborador de Data Box](#data-box-contributor) | Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros usuarios. |
-| [Operador de Data Box](#data-box-operator) | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. |
+| [Lector de Data Box](#data-box-reader) | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. |
 | [Colaborador de Factoría de datos](#data-factory-contributor) | Permite administrar las fábricas de datos, pero no acceder a ellas. |
 | [Desarrollador de Data Lake Analytics](#data-lake-analytics-developer) | Le permite enviar, supervisar y administrar sus propios trabajos, pero no crear ni eliminar cuentas de Data Lake Analytics. |
 | [Purgador de datos](#data-purger) | Puede purgar datos de análisis. |
 | [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a las máquinas virtuales de Azure DevTest Labs, así como iniciarlas, reiniciarlas y cerrarlas. |
 | [Colaborador de zona DNS](#dns-zone-contributor) | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. |
 | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB. |
+| [Colaborador de Domain Services para HDInsight](#hdinsight-domain-services-contributor) | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Permite administrar las cuentas de Intelligent Systems, pero no acceder a ellas. |
 | [Colaborador de almacén de claves](#key-vault-contributor) | Le permite administrar almacenes de claves, pero no acceder a ellos. |
 | [Creador de laboratorio](#lab-creator) | Le permite crear, administrar y eliminar los laboratorios administrados en sus cuentas de Azure Lab. |
@@ -80,6 +85,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de aplicación lógica](#logic-app-contributor) | Le permite administrar aplicaciones lógicas, pero no acceder a ellas. |
 | [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas. |
 | [Rol de operador de aplicación administrada](#managed-application-operator-role) | Permite leer y realizar acciones en los recursos de aplicación administrada. |
+| [Lector de aplicaciones administradas](#managed-applications-reader) | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. |
 | [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. |
 | [Operador de identidad administrada](#managed-identity-operator) | Le permite leer y asignar identidades asignadas por el usuario. |
 | [Colaborador de grupo de administración](#management-group-contributor) | Rol de colaborador de grupo de administración |
@@ -89,6 +95,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Colaborador de la red](#network-contributor) | Permite administrar redes, pero no acceder a ellas. |
 | [Colaborador de la cuenta de NewRelic APM](#new-relic-apm-account-contributor) | Le permite administrar las aplicaciones y cuentas de Application Performance Management de New Relic, pero no acceder a ellas. |
+| [Prueba de administrador de PowerApps](#powerapps-administrator-test) | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. |
 | [Lector y acceso a los datos](#reader-and-data-access) | Permite ver todo el contenido, pero no eliminar ni crear una cuenta de almacenamiento ni un recurso incluido. También permitirá el acceso de lectura o escritura para todos los datos incluidos en una cuenta de almacenamiento a través del acceso a las claves de la cuenta de almacenamiento. |
 | [Colaborador de la memoria caché de Redis](#redis-cache-contributor) | Permite administrar cachés de Redis, pero no acceder a ellas. |
 | [Colaborador de la directiva de recursos (versión preliminar)](#resource-policy-contributor-preview) | (Versión preliminar) Los usuarios repuestos de EA, con derechos para crear o modificar la directiva de recursos, crean incidencias de soporte técnico y leen los recursos o la jerarquía. |
@@ -259,7 +266,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Concede permiso al usuario para usar las características del depurador de instantáneas de Application Insights. |
+> | **Descripción** | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -371,6 +378,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Network/virtualNetworks/read | Obtiene la definición de red virtual |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp es una operación interna que el servicio usa |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Administrar los resultados de la operación de administración de copias de seguridad |
@@ -391,14 +399,13 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obtiene las alertas del almacén de Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | La operación Get Vault obtiene un objeto que representa el recurso de Azure del tipo "almacén" |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Administrar la operación de detección para capturar contenedores recién creados |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Actualiza la lista de contenedores |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Crear y administrar identidades registradas |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Crear y administrar el uso del almacén de Recovery Services |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ## <a name="backup-operator"></a>Operador de copias de seguridad
@@ -504,9 +511,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Billing/*/read | Leer la información de facturación |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ## <a name="biztalk-contributor"></a>Colaborador de BizTalk
@@ -653,6 +661,52 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
+## <a name="cognitive-services-contributor"></a>Colaborador de Cognitive Services
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Le permite crear, leer, actualizar, eliminar y administrar las claves de Cognitive Services. |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | Obtiene las características de una suscripción. |
+> | Microsoft.Features/providers/features/read | Obtiene la característica de una suscripción de un proveedor de recursos determinado. |
+> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/diagnosticSettings/* | Crea, actualiza o lee la configuración de diagnóstico de Analysis Server. |
+> | Microsoft.Insights/logDefinitions/read | Lee definiciones de registro |
+> | Microsoft.Insights/metricdefinitions/read | Lee definiciones de métricas |
+> | Microsoft.Insights/metrics/read | Lee métricas |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Obtiene los resultados de la operación de suscripción. |
+> | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+## <a name="cognitive-services-user"></a>Usuario de Cognitive Services
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Le permite leer y mostrar las claves de Cognitive Services. |
+> | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **Acciones** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | Enumera las claves |
+> | Microsoft.Insights/metricdefinitions/read | Lee definiciones de métricas |
+> | Microsoft.Insights/metrics/read | Lee métricas |
+> | Microsoft.Insights/alertRules/read | Lee una alerta de métrica clásica. |
+> | Microsoft.Insights/diagnosticSettings/read | Lee la configuración de diagnóstico de un recurso. |
+> | Microsoft.Insights/logDefinitions/read | Lee definiciones de registro |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
+> | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Obtiene los resultados de la operación de suscripción. |
+> | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
 ## <a name="cosmos-db-account-reader-role"></a>Rol de lector de cuentas de Cosmos DB
 > [!div class="mx-tableFixed"]
 > | | |
@@ -665,6 +719,34 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Lee las claves de solo lectura de la cuenta de base de datos. |
 > | Microsoft.Insights/MetricDefinitions/read | Lee definiciones de métricas |
 > | Microsoft.Insights/Metrics/read | Lee métricas |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+## <a name="cost-management-contributor"></a>Colaborador de Cost Management
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Puede ver los costos y administrar la configuración de estos (por ejemplo, presupuestos, exportaciones) |
+> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **Acciones** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | Enumera los períodos de facturación disponibles. |
+> | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+## <a name="cost-management-reader"></a>Lector de Cost Management
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **Acciones** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | Enumera los períodos de facturación disponibles. |
+> | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
@@ -682,7 +764,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Databox/* |  |
 
-## <a name="data-box-operator"></a>Operador de Data Box
+## <a name="data-box-reader"></a>Lector de Data Box
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -690,9 +772,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.Databox/*/read |  |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | Enumera las credenciales sin cifrar relacionadas con el pedido. |
+> | Microsoft.Databox/locations/availableSkus/action | Este método devuelve la lista de SKU disponibles. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
-> | Microsoft.Databox/jobs/listsecrets/action | Enumera los secretos sin cifrar relacionados con el pedido. |
 
 ## <a name="data-factory-contributor"></a>Colaborador de Factoría de datos
 > [!div class="mx-tableFixed"]
@@ -822,6 +907,17 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
+## <a name="hdinsight-domain-services-contributor"></a>Colaborador de Domain Services para HDInsight
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **Acciones** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
+
 ## <a name="intelligent-systems-account-contributor"></a>Colaborador de la cuenta de Sistemas inteligentes
 > [!div class="mx-tableFixed"]
 > | | |
@@ -864,7 +960,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crea un laboratorio en una cuenta de laboratorio. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtiene información sobre la disponibilidad regional para cada categoría de tamaño configurada en una cuenta de laboratorio. |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
+> | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obtiene información sobre la disponibilidad regional para cada categoría de tamaño configurada en una cuenta de laboratorio. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
@@ -964,6 +1061,17 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.Solutions/applications/read | Recupera una lista de aplicaciones. |
 
+## <a name="managed-applications-reader"></a>Lector de aplicaciones administradas
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. |
+> | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | **Acciones** |  |
+> | */read | Leer recursos de todos los tipos, excepto secretos. |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Solutions/jitRequests/* |  |
+
 ## <a name="managed-identity-contributor"></a>Colaborador de identidad administrada
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1045,7 +1153,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera las claves compartidas del área de trabajo. Estas claves se utilizan para conectar los agentes de Microsoft Operational Insights al área de trabajo. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Leer, escribir o eliminar configuraciones de visión de almacenamiento de Log Analytics. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
-> | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/monitors/* |  |
+> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Supervisión del publicador de métricas
@@ -1101,6 +1210,21 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | NewRelic.APM/accounts/* |  |
+
+## <a name="powerapps-administrator-test"></a>Prueba de administrador de PowerApps
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. |
+> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Network/dnsZones/* |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ## <a name="reader-and-data-access"></a>Lector y acceso a los datos
 > [!div class="mx-tableFixed"]
@@ -1387,6 +1511,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Sql/servers/read | Devuelve la lista de servidores u obtiene las propiedades de un servidor específico. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | No puede editar la configuración de auditoría |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Recupera los registros de auditoría de blobs de bases de datos |
@@ -1414,6 +1539,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Crear y administrar directivas de auditoría de SQL Server |
 > | Microsoft.Sql/servers/auditingSettings/* | Crear y administrar configuración de auditoría de SQL Server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Crear y administrar directivas de auditoría de bases de datos de SQL Server |
@@ -1453,6 +1579,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Sql/servers/* | Crear y administrar servidores de SQL Server |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | No puede editar las directivas de auditoría de SQL Server |
 > | Microsoft.Sql/servers/auditingSettings/* | No puede editar la configuración de auditoría de SQL Server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría de bases de datos de SQL Server |
@@ -1632,10 +1759,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Network/virtualNetworks/read | Obtiene la definición de red virtual |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Se une a una red virtual |
 > | Microsoft.RecoveryServices/locations/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crea una intención de protección de la copia de seguridad. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Devuelve detalles de objeto del elemento protegido |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Crea un elemento protegido de copia de seguridad |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crea una intención de protección de la copia de seguridad. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Devuelve todas las directivas de protección |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Crea una directiva de protección |
 > | Microsoft.RecoveryServices/Vaults/read | La operación Get Vault obtiene un objeto que representa el recurso de Azure del tipo "almacén" |
@@ -1644,6 +1771,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |

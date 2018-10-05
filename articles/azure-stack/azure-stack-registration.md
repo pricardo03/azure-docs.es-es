@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841937"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452537"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 
@@ -45,18 +45,20 @@ Necesitará lo siguiente antes de registrar:
 
 Antes de registrar Azure Stack con Azure, debe tener:
 
-- El identificador de suscripción de una suscripción de Azure. Para obtener el identificador, inicie sesión en Azure, haga clic en **Más servicios** > **Suscripciones**, haga clic en la suscripción que desee usar y, en **Essentials**, encontrará el identificador de la suscripción.
+- El identificador de suscripción de una suscripción de Azure. Para el registro solo se admiten suscripciones de EA, CSP o servicios compartidos de CSP (CSPSS). Los CSP deben decidir si quieren [usar una suscripción de CSP o CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Para obtener el identificador, inicie sesión en Azure y haga clic en **Todos los servicios**. Luego, en la categoría **GENERAL**, seleccione **Suscripciones**, haga clic en la suscripción que quiere usar y, en **Información esencial**, encontrará el identificador de la suscripción.
 
   > [!Note]  
   > Actualmente no se admiten las suscripciones en la nube en Alemania.
 
-- El nombre de usuario y la contraseña de una cuenta que sea propietaria de la suscripción (se admiten las cuentas MSA/2FA).
+- El nombre de usuario y la contraseña de una cuenta que sea propietaria de la suscripción.
 
-- La cuenta de usuario debe ser la de un administrador en el inquilino de Azure AD en el que esté registrado Azure Stack, por ejemplo, `yourazurestacktenant.onmicrosoft.com`.
+- La cuenta de usuario debe tener acceso a la suscripción de Azure y contar con permisos para crear aplicaciones de identidad y entidades de servicio en el directorio asociado a esa suscripción.
 
 - Haber registrado el proveedor de recursos de Azure Stack (para más información, consulte la sección Registro de un proveedor de recursos de Azure Stack).
 
-  Si no tiene una suscripción de Azure que cumpla estos requisitos, puede [crear una cuenta gratuita de Azure aquí](https://azure.microsoft.com/free/?b=17.06). El registro de Azure Stack no supone ningún costo en su suscripción de Azure.
+Después del registro, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
+
+Si no tiene una suscripción de Azure que cumpla estos requisitos, puede [crear una cuenta gratuita de Azure aquí](https://azure.microsoft.com/free/?b=17.06). El registro de Azure Stack no supone ningún costo en su suscripción de Azure.
 
 ### <a name="powershell-language-mode"></a>Modo de lenguaje de PowerShell
 
@@ -93,6 +95,19 @@ La implementación de Azure Stack puede ser *conectada* o *desconectada*.
  Con la opción de implementación sin conexión a Azure, Azure Stack se podrá implementar y usar sin conexión a Internet. Sin embargo, este tipo de implementación tiene la limitación de que solo se puede usar un almacén de identidades de AD FS y el modelo de facturación por capacidad.
     - [Registro de una implementación de Azure Stack desconectada mediante el modelo de facturación por **capacidad**](#register-disconnected-with-capacity-billing)
 
+### <a name="determine-a-unique-registration-name-to-use"></a>Determinar un nombre de registro único para su uso 
+Al registrar Azure Stack en Azure, debe proporcionar un nombre de registro único. Una manera fácil de asociar la suscripción de Azure Stack con un registro de Azure es usar el **Id. de nube** de Azure Stack. 
+
+> [!NOTE]
+> Los registros de Azure Stack mediante el modelo de facturación basado en capacidad deben cambiar el nombre único al volver a registrarse tras la expiración de las suscripciones anuales.
+
+Para determinar el id. de nube de la implementación de Azure Stack, abra PowerShell como administrador en un equipo que pueda acceder al punto de conexión con privilegios, ejecute los siguientes comandos y registre el valor **CloudID**: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
+
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registro conectado con la facturación de pago por uso
 
 Use estos pasos para registrar Azure Stack en Azure mediante el modelo de facturación de pago por uso.
@@ -104,7 +119,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 
 1. Para registrar el proveedor de recursos de Azure Stack en Azure, inicie PowerShell ISE como administrador y use los siguientes cmdlets de PowerShell con el parámetro **EnvironmentName** establecido en el tipo de suscripción a Azure apropiado (a continuación puede ver los parámetros).
 
-2. Agregue la cuenta de Azure que usará para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount**. Se le pedirá que escriba sus credenciales de cuenta de administrador global de Azure, y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.
+2. Agregue la cuenta de Azure que usará para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount**. Se le pedirá que escriba sus credenciales de cuenta de Azure y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -164,7 +179,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 
 1. Para registrar el proveedor de recursos de Azure Stack en Azure, inicie PowerShell ISE como administrador y use los siguientes cmdlets de PowerShell con el parámetro **EnvironmentName** establecido en el tipo de suscripción a Azure apropiado (a continuación puede ver los parámetros).
 
-2. Agregue la cuenta de Azure que usará para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount**. Se le pedirá que escriba sus credenciales de cuenta de administrador global de Azure, y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.
+2. Agregue la cuenta de Azure que usará para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount**. Se le pedirá que escriba sus credenciales de cuenta de Azure y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -255,7 +270,7 @@ A continuación, debe recuperar una clave de activación del registro de recurso
 Para obtener la clave de activación, ejecute los siguientes cmdlets de PowerShell:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -284,7 +299,7 @@ Si lo desea, puede usar el cmdlet Get-Content para señalar a un archivo que con
 Siga estos pasos para comprobar que Azure Stack se ha registrado correctamente en Azure.
 
 1. Inicie sesión en el [portal de administrador](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal) de Azure Stack: https&#58;//adminportal.*&lt;región>.&lt;fqdn>*.
-2. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace)  > **Add from Azure** (Agregar desde Azure).
+2. Seleccione **Todos los servicios** y, luego, en la categoría **ADMINISTRACIÓN**, seleccione **Administración de Marketplace** > **Agregar desde Azure**.
 
 Si aparece una lista de elementos disponibles de Azure (como WordPress), la activación fue correcta. Sin embargo, en entornos desconectados no verá los elementos del Marketplace de Azure en el Marketplace de Azure Stack.
 
@@ -349,7 +364,7 @@ Puede usar el token de registro que se usó para crear el recurso:
 O bien, puede usar el nombre de registro:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

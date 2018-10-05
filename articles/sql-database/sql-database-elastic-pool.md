@@ -1,22 +1,23 @@
 ---
 title: 'Administración de varias instancias de SQL Database con grupos elásticos: Azure | Microsoft Docs'
 description: Administración y escalado de muchas instancias de SQL Database, cientos y miles, mediante los grupos elásticos. Un precio para los recursos que se puede distribuir cuando sea necesario.
-keywords: varias bases de datos, recursos de base de datos, rendimiento de la base de datos
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.subservice: elastic-pool
-ms.custom: DBs & servers
-ms.date: 07/27/2018
-ms.author: ninarn
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+author: oslake
+ms.author: moslake
+ms.reviewer: ninarn, carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 71269b4888d1b5c9724248ac91f0818d7f8f5bf5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003746"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162362"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database
 
@@ -55,7 +56,7 @@ La siguiente ilustración muestra un ejemplo de una base de datos que está much
 
    ![una base de datos única adecuada para un grupo](./media/sql-database-elastic-pool/one-database.png)
 
-En el período de cinco minutos de la ilustración, DB1 llega a las 90 DTU, pero su uso medio es inferior a cinco DTU. Se requiere un nivel de rendimiento S3 para ejecutar esta carga de trabajo en una base de datos única, pero esto deja a la mayoría de los recursos sin usar durante los períodos de baja actividad.
+En el período de cinco minutos de la ilustración, DB1 llega a las 90 DTU, pero su uso medio es inferior a cinco DTU. Se requiere un tamaño de proceso S3 para ejecutar esta carga de trabajo en una base de datos única, pero esto deja a la mayoría de los recursos sin usar durante los períodos de baja actividad.
 
 Con un grupo, estas DTU sin usar pueden compartirse entre varias bases de datos, lo que permite reducir el número total de DTU necesarias y el costo general.
 
@@ -65,7 +66,7 @@ Según el ejemplo anterior, suponga que existen bases de datos adicionales con p
 
    ![veinte bases de datos con un patrón de uso adecuado para un grupo](./media/sql-database-elastic-pool/twenty-databases.png)
 
-En la ilustración anterior, el uso total de DTU en las 20 bases de datos está representado por la línea negra. Esto muestra que la utilización de DTU agregada nunca supera las 100 DTU e indica que las 20 bases de datos pueden compartir 100 eDTU en este período. El resultado es una reducción multiplicada por 20 en las DTU y una reducción del precio 13 veces menor en comparación con la colocación de cada base de datos en los niveles de rendimiento S3 para bases de datos únicas.
+En la ilustración anterior, el uso total de DTU en las 20 bases de datos está representado por la línea negra. Esto muestra que la utilización de DTU agregada nunca supera las 100 DTU e indica que las 20 bases de datos pueden compartir 100 eDTU en este período. El resultado es una reducción en un factor de 20 en las DTU y una reducción del precio 13 veces menor si se compara con la colocación de cada base de datos en los tamaños de proceso S3 para bases de datos únicas.
 
 Este ejemplo es ideal por las siguientes razones:
 
@@ -75,21 +76,21 @@ Este ejemplo es ideal por las siguientes razones:
 
 El precio de un grupo es una función de las eDTU del grupo. Aunque el precio unitario de una eDTU para un grupo es 1,5 veces mayor que el de una DTU para una base de datos única, **las eDTU de grupo pueden compartirse entre muchas bases de datos, por lo que el número total de eDTU que se necesitan es menor**. Estas distinciones de precio y uso compartido de la eDTU son la base de la posibilidad de ahorro en el precio que pueden proporcionar los grupos.
 
-Las siguientes reglas generales relacionadas con el recuento de base de datos y la utilización de base de datos ayudan a garantizar que un grupo proporciona costes reducidos en comparación con el uso de niveles de rendimiento para bases de datos únicas.
+Las siguientes reglas generales relacionadas con el recuento de base de datos y la utilización de las bases de datos ayudan a garantizar que un grupo permite una reducción de los costos en comparación con el uso de tamaños de proceso para bases de datos únicas.
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bases de datos
 
 Si la cantidad total de recursos para una única base de datos es superior a 1,5 veces los recursos necesarios para el grupo, un grupo elástico resultaría más rentable.
 
 ***Ejemplo de modelo de compra basado en DTU***<br>
-: al menos dos bases de datos S3 o 15 bases de datos S0 son necesarias para que un grupo de 100 eDTU sea más rentable que usar niveles de rendimiento para bases de datos únicas.
+Al menos dos bases de datos S3 o 15 bases de datos S0 son necesarias para que un grupo de 100 eDTU sea más rentable que usar tamaños de proceso para bases de datos únicas.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de bases de datos de picos simultáneamente
 
 Al compartir recursos, no todas las bases de datos de un grupo pueden usar a la vez los recursos hasta el límite disponible para bases de datos únicas. Cuantas menos bases de datos con un pico simultáneo haya, más bajo puede establecerse el número de recursos de grupo y más rentable resultará el grupo. En general, no más de 2/3 (o el 67 %) de las bases de datos del grupo deben alcanzar el límite de recursos establecido como pico de forma simultánea.
 
 ***Ejemplo de modelo de compra basado en DTU***<br>
-: para reducir los costos de tres bases de datos S3 de un grupo de 200 eDTU, como mucho dos de estas bases de datos pueden alcanzar simultáneamente el pico de uso máximo. De lo contrario, si más de dos de estas cuatro bases de datos S3 establecen simultáneamente el pico, tendría que establecerse un tamaño del grupo en más de 200 eDTU. Si el tamaño del grupo se cambia a más de 200 eDTU, será necesario agregar más bases de datos S3 al grupo para que los costos sigan siendo inferiores a los niveles de rendimiento de las bases de datos únicas.
+: para reducir los costos de tres bases de datos S3 de un grupo de 200 eDTU, como mucho dos de estas bases de datos pueden alcanzar simultáneamente el pico de uso máximo. De lo contrario, si más de dos de estas cuatro bases de datos S3 establecen simultáneamente el pico, tendría que establecerse un tamaño del grupo en más de 200 eDTU. Si el tamaño del grupo se cambia a más de 200 eDTU, será necesario agregar más bases de datos S3 al grupo para que los costos sigan siendo inferiores a los tamaños de proceso de las bases de datos únicas.
 
 Tenga en cuenta que este ejemplo no tiene en cuenta la utilización de otras bases de datos en el grupo. Si en un momento determinado se están usando todas las bases de datos, menos de los 2/3 (o el 67%) de las bases de datos podrán alcanzar simultáneamente el pico de uso.
 
@@ -123,7 +124,7 @@ En casos donde no se pueden usar herramientas, las siguientes instrucciones paso
 2. Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento.
 3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleos virtuales toma la estimación de núcleos virtuales del paso 1.
 4. Consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) y busque el tamaño de grupo más pequeño que sea mayor que la estimación del paso 3.
-5. Compare el precio del grupo del paso 5 con el precio de uso de los niveles de rendimiento adecuados para bases de datos únicas.
+5. Compare el precio del grupo del paso 5 con el precio que supone usar los tamaños de proceso adecuados para bases de datos únicas.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Empleo de otras características de SQL Database con grupos elásticos
 
@@ -151,7 +152,7 @@ Hay dos maneras de crear un grupo elástico en Azure Portal.
 > [!NOTE]
 > Puede crear varios grupos a un servidor, pero no puede agregar bases de datos de servidores diferentes al mismo grupo.
 
-El nivel de servicio del grupo determina las características disponibles para las bases de datos elásticas del grupo y la cantidad máxima de recursos disponibles para cada base de datos. Para más información, consulte los límites de recursos para los grupos elásticos en el [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Para conocer los límites de recursos basados en núcleos virtuales, consulte [Límites de recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+El nivel de servicio del grupo determina las características disponibles para las bases de datos elásticas del grupo y la cantidad máxima de recursos disponibles para cada base de datos. Para más información, consulte los límites de recursos para los grupos elásticos en el [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). Para conocer los límites de recursos basados en núcleos virtuales, consulte [Límites de recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Para configurar los recursos y fijar el precio del grupo, haga clic en **Configurar grupo**. A continuación, seleccione un nivel de servicio, agregue las bases de datos al grupo y configure los límites de recursos para el grupo y sus bases de datos.
 

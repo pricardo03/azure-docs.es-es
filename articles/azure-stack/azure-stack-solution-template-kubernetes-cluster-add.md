@@ -11,26 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 978cce4642dc61143bd829fcae03357fd8c969c2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994571"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405519"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adición de Kubernetes a Marketplace de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!note]  
-> Kubernetes en Azure Stack está en versión preliminar. Para solicitar acceso al elemento Clúster de Kubernetes de Marketplace necesario para seguir las instrucciones de este artículo, [envíe una solicitud para obtener acceso](https://aka.ms/azsk8).
+> Kubernetes en Azure Stack está en versión preliminar.
 
 Puede ofrecer Kubernetes como un elemento de Marketplace a los usuarios. Los usuarios pueden implementar Kubernetes en una sola operación coordinada.
 
-En el artículo siguiente explica cómo usar una plantilla de Azure Resource Manager para implementar y aprovisionar los recursos para un clúster de Kubernetes independiente. Antes de empezar, compruebe Azure Stack y la configuración de inquilino de Azure global. Recopile la información necesaria sobre su entorno de Azure Stack. Agregue los recursos necesarios a su inquilino y a Marketplace de Azure Stack. El clúster depende de que Ubuntu Server, el script personalizado y los elementos de Kubernetes se encuentren en Marketplace.
+En el artículo siguiente explica cómo usar una plantilla de Azure Resource Manager para implementar y aprovisionar los recursos para un clúster de Kubernetes independiente. El elemento Clúster de Kubernetes de Marketplace 0.3.0 requiere la versión 1808 de Azure Stack. Antes de empezar, compruebe Azure Stack y la configuración de inquilino de Azure global. Recopile la información necesaria sobre su entorno de Azure Stack. Agregue los recursos necesarios a su inquilino y a Marketplace de Azure Stack. El clúster depende de que Ubuntu Server, el script personalizado y los elementos de Kubernetes se encuentren en Marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Crear un plan, una oferta y una suscripción
 
@@ -106,7 +106,7 @@ Agregue Kubernetes desde Marketplace:
 
 1. Abra el [portal de administración](https://adminportal.local.azurestack.external).
 
-1. Seleccione **Todos los servicios** y, a continuación, en la categoría **Administración**, seleccione **Marketplace management** (Administración de Marketplace).
+1. Seleccione **Todos los servicios** y, luego, en la categoría **ADMINISTRACIÓN**, seleccione **Administración de Marketplace**.
 
 1. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
 
@@ -127,14 +127,20 @@ Al actualizar el elemento de Kubernetes, debe quitar el elemento que se encuentr
 
 Para quitar el elemento de Kubernetes:
 
-1. Anote el nombre del elemento actual, por ejemplo, `Microsoft.AzureStackKubernetesCluster.0.2.0`.
+1. Conéctese a Azure Stack con PowerShell como operador. Para obtener instrucciones, vea [Configuración del entorno de PowerShell de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin).
 
-1. Conéctese a Azure Stack con PowerShell.
-
-1. Use el siguiente cmdlet de PowerShell para quitar el elemento:
+2. Busque el elemento actual Clúster de Kubernetes en la galería.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. Anote el nombre del elemento actual, por ejemplo, `Microsoft.AzureStackKubernetesCluster.0.2.0`.
+
+4. Use el siguiente cmdlet de PowerShell para quitar el elemento:
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```

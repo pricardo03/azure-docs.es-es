@@ -1,22 +1,23 @@
 ---
 title: 'Patrones de SaaS multiinquilino: Azure SQL Database | Microsoft Docs'
 description: Aprenda sobre los requisitos y patrones de arquitectura de datos comunes de las aplicaciones de base de datos de software como servicio (SaaS) multiinquilino que se ejecutan en el entorno de la nube de Azure.
-keywords: tutorial de SQL Database
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.reviewer: genemi
-ms.author: billgib
-ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, sstein
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737687"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227493"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -74,7 +75,7 @@ En este modelo, la aplicación entera se instala varias veces, una vez para cada
 
 Cada instancia de la aplicación se instala en un grupo de recursos de Azure independiente.  El grupo de recursos puede pertenecer a una suscripción que a su vez pertenezca al proveedor de software o al inquilino.  En cualquier caso, el proveedor puede administrar el software para el inquilino.  Cada instancia de la aplicación se configura para conectarse a su base de datos correspondiente.
 
-Cada base de datos de inquilino se implementa como una base de datos independiente.  Este modelo proporciona el mayor aislamiento de base de datos.  Pero el aislamiento requiere que se hayan asignado suficientes recursos para cada base de datos para controlar sus cargas máximas.  Aquí es importante saber que no se pueden usar grupos elásticos para bases de datos implementadas en distintos grupos de recursos o en suscripciones diferentes.  Esta limitación hace que este modelo de aplicación de inquilino único independiente sea la solución más costosa desde una perspectiva de costos de base de datos generales.
+Cada base de datos de inquilino se implementa como una base de datos única.  Este modelo proporciona el mayor aislamiento de base de datos.  Pero el aislamiento requiere que se hayan asignado suficientes recursos para cada base de datos para controlar sus cargas máximas.  Aquí es importante saber que no se pueden usar grupos elásticos para bases de datos implementadas en distintos grupos de recursos o en suscripciones diferentes.  Esta limitación hace que este modelo de aplicación de inquilino único independiente sea la solución más costosa desde una perspectiva de costos de base de datos generales.
 
 #### <a name="vendor-management"></a>Administración por el proveedor
 
@@ -131,13 +132,13 @@ Otro patrón disponible consiste en almacenar a muchos inquilinos en una base de
 
 #### <a name="lower-cost"></a>Menor costo
 
-En general, las bases de datos multiinquilino tienen el costo por inquilino más bajo.  Los costos en recursos para una base de datos independiente son menores que para un grupo elástico de tamaño equivalente.  Además, para escenarios donde los inquilinos necesitan solo un almacenamiento limitado, se pueden almacenar millones de inquilinos potenciales en una sola base de datos.  Ningún grupo elástico puede contener millones de bases de datos.  Sin embargo, una solución que contenga 1000 bases de datos por grupo, con 1000 grupos, podría llegar a la escala de millones con el riesgo de ser difícil de administrar.
+En general, las bases de datos multiinquilino tienen el costo por inquilino más bajo.  Los costos en recursos para una base de datos única son menores que para un grupo de bases de datos elásticas de tamaño equivalente.  Además, para escenarios donde los inquilinos necesitan solo un almacenamiento limitado, se pueden almacenar millones de inquilinos potenciales en una sola base de datos.  Ningún grupo elástico puede contener millones de bases de datos.  Sin embargo, una solución que contenga 1000 bases de datos por grupo, con 1000 grupos, podría llegar a la escala de millones con el riesgo de ser difícil de administrar.
 
 A continuación se describen dos variaciones de un modelo de base de datos multiinquilino, siendo el modelo multiinquilino con particiones el más flexible y escalable.
 
 ## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Aplicación multiinquilino con una única base de datos multiinquilino
 
-El patrón de base de datos multiinquilino más simple usa una base de datos única e independiente para hospedar los datos de todos los inquilinos.  Cuando se agregan más inquilinos, la base de datos se escala verticalmente con más recursos de proceso y almacenamiento.  Este escalado vertical puede ser suficiente, aunque siempre hay un límite de escala último.  Sin embargo, antes de que ese límite se alcance la base de datos pasa a ser difícil de administrar.
+El patrón de base de datos multiinquilino más simple usa una base de datos única para hospedar los datos de todos los inquilinos.  Cuando se agregan más inquilinos, la base de datos se escala verticalmente con más recursos de proceso y almacenamiento.  Este escalado vertical puede ser suficiente, aunque siempre hay un límite de escala último.  Sin embargo, antes de que ese límite se alcance la base de datos pasa a ser difícil de administrar.
 
 Las operaciones de administración que se centran en inquilinos individuales tienen una implementación más compleja en una base de datos multiinquilino.  Y a escala estas operaciones podrían resultar demasiado lentas.  Un ejemplo es una restauración a un momento determinado en el tiempo de los datos de un solo inquilino.
 
@@ -186,9 +187,9 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 | Medición | Aplicación independiente | Una base de datos por inquilino | Multiinquilino con particiones |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Escala | Mediano<br />1-100 | Muy alto<br />1-100.000 | Ilimitado<br />1-1.000.000 |
-| Aislamiento de inquilino | Muy alto | Alto | Baja; excepto para los inquilinos individualizados (que están solos en una base de datos multiinquilino). |
+| Aislamiento de inquilino | Muy alto | Alto | Bajo; excepto para los inquilinos únicos (que están solos en una base de datos multiinquilino). |
 | Costo de base de datos por inquilino | Alta; tiene un tamaño adecuado para picos. | Baja; se utilizan grupos. | Más bajo, para inquilinos pequeños en bases de datos multiinquilino. |
-| Administración y supervisión del rendimiento | Por inquilino solo | Agregado + por inquilino | Agregado; Aunque es por inquilino solo para los individualizados. |
+| Administración y supervisión del rendimiento | Por inquilino solo | Agregado + por inquilino | Agregado; aunque es por inquilino solo para los únicos. |
 | Complejidad de desarrollo | Bajo | Bajo | Media; debido al particionamiento. |
 | Complejidad operativa | Baja-Alta. Individualmente simples y complejas a escala. | Baja-Media. Los patrones tienen complejidad a escala. | Baja-Alta. La administración de inquilinos individuales es compleja. |
 | &nbsp; ||||

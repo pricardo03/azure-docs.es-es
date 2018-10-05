@@ -1,32 +1,38 @@
 ---
 title: Modelos de compra de Azure SQL Database | Microsoft Docs
-description: Información sobre el modelo de compra de Azure SQL Database.
+description: Obtenga información acerca del modelo de compra de modelos que son bases de datos disponibles en el servicio de Azure SQL Database.
 services: sql-database
-author: CarlRabeler
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/17/2018
-manager: craigg
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 5fcdf02fe75905fb3e492671ba44adb65dfd0da7
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8f1c16aba3a3c082091707e33d3341e6eb6dc31e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144710"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158726"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Modelos de compra y recursos de Azure SQL Database 
 
 Azure SQL Database le permite comprar fácilmente motores de base de datos PaaS completamente administrados que se ajusten a sus necesidades de rendimiento y costos. Según el modelo de implementación de Azure SQL Database, puede seleccionar el modelo de compra que se adapte a sus necesidades: 
- - Los [servidores lógicos](sql-database-logical-servers.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen dos modelos de compra para recursos de proceso, almacenamiento y E/S: uno basado en DTU y el otro en [núcleos virtuales](sql-database-service-tiers-vcore.md). 
+ - Los [servidores lógicos](sql-database-logical-servers.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen dos modelos de compra para recursos de proceso, de almacenamiento y de E/S: uno [basado en DTU](sql-database-service-tiers-dtu.md) y el otro en [núcleos virtuales](sql-database-service-tiers-vcore.md). En este modelo de compra, puede elegir [bases de datos únicas](sql-database-single-databases-manage.md) o [grupos elásticos](sql-database-elastic-pool.md).
  - Las [Instancias administradas](sql-database-managed-instance.md) de Azure SQL Database solo ofrecen el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+
+> [!IMPORTANT]
+> [Las bases de datos de hiperescala (versión preliminar)](sql-database-hyperscale.md) solo están disponibles en el modelo de compra basado en núcleos virtuales para bases de datos únicas con un servidor lógico o dentro de una Instancia administrada. 
 
 En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos de compra.
 
 |**Modelo de compra**|**Descripción**|**Más adecuado para**|
 |---|---|---|
-|Modelo basado en DTU|Este modelo se basa en una medida agrupada de recursos de proceso, almacenamiento y E/S. Los niveles de rendimiento se expresan como unidades de transmisión de datos (DTU) para las bases de datos únicas y como unidades de transmisión de datos elásticas (eDTU) para los grupos de bases de datos elásticas. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)|Recomendado para los clientes que desean opciones de recursos simples y configuradas previamente.| 
+|Modelo basado en DTU|Este modelo se basa en una medida agrupada de recursos de proceso, almacenamiento y E/S. Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)|Recomendado para los clientes que desean opciones de recursos simples y configuradas previamente.| 
 |Modelo basado en núcleos virtuales|Este modelo le permite elegir los recursos de proceso y almacenamiento de manera independiente. También permite usar Ventaja híbrida de Azure para SQL Server para ahorrar en los costos.|Recomendado para los clientes que valoran la flexibilidad, el control y la transparencia.|
 ||||  
 
@@ -34,38 +40,33 @@ En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos 
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales 
 
-Un núcleo virtual representa la CPU lógica que ofrece una opción para elegir entre varias generaciones de hardware y las características físicas de hardware (por ejemplo, el número de núcleos, memoria, el tamaño de almacenamiento). El modelo de compra basado en núcleos virtuales le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. En el modelo de compra basado en núcleos virtuales, los clientes pueden elegir entre los niveles de servicio [De uso general](sql-database-high-availability.md#standardgeneral-purpose-availability) y [Crítico para la empresa](sql-database-high-availability.md#premiumbusiness-critical-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [instancias administradas](sql-database-managed-instance.md) y [grupos elásticos](sql-database-elastic-pool.md). 
+Un núcleo virtual representa la CPU lógica que ofrece una opción para elegir entre varias generaciones de hardware y las características físicas de hardware (por ejemplo, el número de núcleos, memoria, el tamaño de almacenamiento). El modelo de compra basado en núcleos virtuales le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. En el modelo de compra basado en núcleos virtuales, puede elegir entre los niveles de servicio [De uso general](sql-database-high-availability.md#standardgeneral-purpose-availability) y [Crítico para la empresa](sql-database-high-availability.md#premiumbusiness-critical-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [instancias administradas](sql-database-managed-instance.md) y [grupos elásticos](sql-database-elastic-pool.md). Para las bases de datos únicas, también puede elegir el nivel de servicio [Hiperescala (versión preliminar)](sql-database-hyperscale.md).
 
 El modelo de compra basado en núcleos virtuales permite elegir los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. En un modelo de compra basado en núcleos virtuales, los clientes pagan por:
-- Proceso (nivel de servicio + número de núcleos virtuales y cantidad de memoria + generación de hardware)*
+- Proceso (nivel de servicio + número de núcleos virtuales y cantidad de memoria + generación de hardware)
 - Tipo y cantidad de almacenamiento de datos y registros 
-- Número de E/S** - aplicable solo a [servidores lógicos](sql-database-logical-servers.md)
-- Almacenamiento de copia de seguridad (RA-GRS)** 
-
-\* En la versión preliminar pública inicial, las CPU lógicas de Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) a 2,4 GHz.
-
-\*\* Durante la versión preliminar, las copias de seguridad y las E/S son gratuitas.
+- Almacenamiento de copia de seguridad (RA-GRS) 
 
 > [!IMPORTANT]
 > Los recursos de proceso, E/S y almacenamiento de datos y registros se cobran por base de datos o grupo elástico. El almacenamiento de copia de seguridad se cobra por cada base de datos. Para más información sobre los precios de Instancia administrada, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
 > **Limitaciones de región:** el modelo de compra basado en núcleos virtuales aún no está disponible en las regiones siguientes: Europa Occidental, Centro de Francia, Sur de Reino Unido, Oeste de Reino Unido y Sudeste de Australia.
 
-Si la base de datos o el grupo elástico consumen más de 300 DTU, la conversión a núcleos virtuales puede reducir los costos. Puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria. Si el modelo de compra de DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide pasar del modelo de DTU al modelo de núcleos virtuales, debe seleccionar el nivel de rendimiento mediante la siguiente regla general: cada 100 DTU del nivel Estándar requieren al menos 1 núcleo virtual en el nivel De uso general, y cada 125 DTU del nivel Premium requieren como mínimo 1 núcleo virtual en el nivel Crítico para la empresa.
+Si la base de datos o el grupo elástico consumen más de 300 DTU, la conversión a núcleos virtuales puede reducir los costos. Puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria. Si el modelo de compra de DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide pasar del modelo de DTU al modelo de núcleos virtuales, debe seleccionar el tamaño de proceso mediante la siguiente regla general: cada 100 DTU del nivel Estándar requieren al menos 1 núcleo virtual en el nivel De uso general, y cada 125 DTU del nivel Premium requieren como mínimo 1 núcleo virtual en el nivel Crítico para la empresa.
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra basado en DTU
 
 La unidad de transacción de base de datos (DTU) representa una medida combinada de CPU, memoria, lecturas y escrituras. El modelo de compra basado en DTU ofrece un conjunto de agrupaciones preconfiguradas de recursos de proceso y almacenamiento incluido para impulsar diferentes niveles de rendimiento de la aplicación. Los clientes que prefieren la simplicidad de una agrupación preconfigurada y pagos fijos cada mes pueden encontrar el modelo basado en DTU más adecuado para sus necesidades. En el modelo de compra basado en DTU, los clientes pueden elegir entre los niveles de servicio **Básico**, **Estándar** y **Premium** tanto para [bases de datos únicas](sql-database-single-database-scale.md) como para [grupos elásticos](sql-database-elastic-pool.md). Este modelo de compra no está disponible en [las instancias administradas](sql-database-managed-instance.md).
 
 ### <a name="what-are-database-transaction-units-dtus"></a>¿Qué son las unidades de transacción de base de datos?
-Para una sola base de datos de Azure SQL en un nivel de rendimiento específico dentro de un [nivel de servicio](sql-database-single-database-scale.md), Microsoft garantiza un determinado nivel de recursos para esa base de datos (independiente de cualquier otra base de datos en la nube de Azure), de forma que ofrece un nivel de rendimiento predecible. La cantidad de recursos se calcula como un número de unidades de transacción de base de datos o DTU y es una medida combinada de recursos de proceso, almacenamiento y E/S. La relación entre estos recursos se determinó originalmente mediante una [carga de trabajo OLTP de prueba comparativa](sql-database-benchmark-overview.md) diseñada para representar las típicas cargas de trabajo OLTP reales. Cuando la carga de trabajo supera la cantidad de cualquiera de estos recursos, se limita el rendimiento, con lo que se obtiene un rendimiento y tiempos de espera más lentos. Los recursos usados por la carga de trabajo no afectan a los recursos disponibles para otras bases de datos SQL en la nube de Azure, y los recursos usados por otras cargas de trabajo no afectan a los recursos disponibles para la base de datos SQL.
+Para una sola base de datos de Azure SQL en un tamaño de proceso específico dentro de un [nivel de servicio](sql-database-single-database-scale.md), Microsoft garantiza un determinado nivel de recursos para esa base de datos (independiente de cualquier otra base de datos en la nube de Azure), de forma que ofrece un nivel de rendimiento predecible. La cantidad de recursos se calcula como un número de unidades de transacción de base de datos o DTU y es una medida combinada de recursos de proceso, almacenamiento y E/S. La relación entre estos recursos se determinó originalmente mediante una [carga de trabajo OLTP de prueba comparativa](sql-database-benchmark-overview.md) diseñada para representar las típicas cargas de trabajo OLTP reales. Cuando la carga de trabajo supera la cantidad de cualquiera de estos recursos, se limita el rendimiento, con lo que se obtiene un rendimiento y tiempos de espera más lentos. Los recursos usados por la carga de trabajo no afectan a los recursos disponibles para otras bases de datos SQL en la nube de Azure, y los recursos usados por otras cargas de trabajo no afectan a los recursos disponibles para la base de datos SQL.
 
 ![rectángulo de selección](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Las DTU son especialmente útiles para comprender la cantidad relativa de recursos entre bases de datos de Azure SQL Database en diferentes niveles de rendimiento y niveles de servicio. Por ejemplo, duplicar el número de DTU al aumentar el nivel de rendimiento de una base de datos equivale a duplicar el conjunto de recursos disponibles para esa base de datos. Por ejemplo, una base de datos Premium P11 con 1750 DTU proporciona una potencia de proceso de DTU 350 veces mayor que una base de datos básica con 5 DTU.  
+Las DTU son especialmente útiles para comprender la cantidad relativa de recursos entre bases de datos de Azure SQL en diferentes tamaños de proceso y niveles de servicio. Por ejemplo, duplicar el número de DTU al aumentar el tamaño de proceso de una base de datos equivale a duplicar el conjunto de recursos disponibles para esa base de datos. Por ejemplo, una base de datos Premium P11 con 1750 DTU proporciona una potencia de proceso de DTU 350 veces mayor que una base de datos básica con 5 DTU.  
 
 Para obtener información más detallada sobre el consumo de recursos (DTU) de la carga de trabajo, use [Información de rendimiento de consultas de Azure SQL Database](sql-database-query-performance.md) para:
 
-- Identificar las consultas principales por CPU, duración y recuento de ejecuciones, que se pueden ajustar para mejorar el rendimiento. Por ejemplo, una consulta de uso intensivo de E/S puede beneficiarse del uso de [técnicas de optimización en memoria](sql-database-in-memory.md) para hacer un mejor uso de la memoria disponible en un cierto nivel de rendimiento y de nivel de servicio.
+- Identificar las consultas principales por CPU, duración y recuento de ejecuciones, que se pueden ajustar para mejorar el rendimiento. Por ejemplo, una consulta que realiza muchas operaciones de E/S puede beneficiarse del uso de [técnicas de optimización en memoria](sql-database-in-memory.md) para hacer un mejor uso de la memoria disponible en un cierto nivel de servicio y tamaño de proceso.
 - Profundizar en los detalles de una consulta, ver su texto e historial de uso de recursos.
 - Tener acceso a recomendaciones de ajuste del rendimiento que muestran las acciones realizadas por el [SQL Database Advisor](sql-database-advisor.md).
 

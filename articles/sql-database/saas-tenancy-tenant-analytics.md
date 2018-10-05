@@ -1,26 +1,27 @@
 ---
 title: Ejecución de análisis entre inquilinos mediante datos extraídos | Microsoft Docs
-description: Consultas de análisis entre inquilinos mediante datos extraídos de varias bases de datos de Azure SQL Database.
-keywords: tutorial de SQL Database
+description: Consultas de análisis entre inquilinos mediante datos extraídos de varias bases de datos de Azure SQL Database en una aplicación de un solo inquilino.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: 68057a2ae5925aa16288844759a34592aa7c7573
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644967"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393271"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Análisis entre inquilinos mediante datos extraídos
-
-En este tutorial se le guiará a través de un escenario de análisis completo. En el escenario se explica cómo los análisis pueden permitir a las empresas tomar decisiones inteligentes. Con los datos extraídos de cada base de datos de inquilino, utilice los análisis para obtener información del comportamiento del inquilino y el uso de la aplicación. Este escenario engloba tres pasos: 
+# <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
+ 
+En este tutorial, recorrerá un escenario completo de análisis para la implementación de un solo inquilino. En el escenario se explica cómo los análisis pueden permitir a las empresas tomar decisiones inteligentes. Con los datos extraídos de cada base de datos de inquilino, utilice los análisis para obtener información del comportamiento del inquilino, incluido el uso de la aplicación SaaS de ejemplo Wingtip Tickets. Este escenario engloba tres pasos: 
 
 1.  **Extraer** datos de cada base de datos de y **cargar** en un almacén de análisis.
 2.  **Transformar los datos extraídos** para el procesamiento de análisis.
@@ -64,7 +65,7 @@ La comprensión del uso que hace cada inquilino del servicio es relevante para e
 
 ## <a name="setup"></a>Configuración
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -206,12 +207,12 @@ Puede profundizar en los datos de nuevo para ver si tal desenfrenada demanda se 
 
 En el gráfico anterior de Contoso Concert Hall, se refleja que la desenfrenada demanda no se registra para todos los eventos. Practique con las opciones de filtro para ver las tendencias de venta de otros lugares.
 
-La información de los patrones de venta de entradas pueden permitir a Wingtip Tickets optimizar su modelo de negocio. En lugar de aplicar los mismos cargos a todos los inquilinos, quizá Wingtip debería introducir niveles de servicio con distintos niveles de rendimiento. A los lugares más grandes que necesitan vender más entradas al día se les podría ofrecer un nivel superior con un contrato de nivel de servicio (SLA) de categoría superior. Estos lugares podrían tener sus bases de datos agrupadas con límites de recursos por base de datos más altos. Cada nivel de servicio podría tener una asignación de ventas por hora, con tarifas adicionales por exceder la asignación. Los lugares más grandes que tienen intensas actividades de ventas se beneficiarían de los niveles más altos, y Wingtip Tickets puede monetizar su servicio con mayor eficacia.
+La información de los patrones de venta de entradas pueden permitir a Wingtip Tickets optimizar su modelo de negocio. En lugar de aplicar los mismos cargos a todos los inquilinos, quizá Wingtip debería introducir niveles de servicio con distintos tamaños de proceso. A los lugares más grandes que necesitan vender más entradas al día se les podría ofrecer un nivel superior con un contrato de nivel de servicio (SLA) de categoría superior. Estos lugares podrían tener sus bases de datos agrupadas con límites de recursos por base de datos más altos. Cada nivel de servicio podría tener una asignación de ventas por hora, con tarifas adicionales por exceder la asignación. Los lugares más grandes que tienen intensas actividades de ventas se beneficiarían de los niveles más altos, y Wingtip Tickets puede monetizar su servicio con mayor eficacia.
 
 Mientras tanto, algunos clientes de Wingtip Tickets se quejan de que tienen dificultades para vender las suficientes entradas como para cubrir el costo del servicio. Quizá en esta información se ofrece la oportunidad de impulsar las ventas de entradas para los lugares que presentan déficit de rendimiento. Un aumento de las ventas aumentaría el valor percibido del servicio. Haga clic con el botón derecho en fact_Tickets y seleccione **Nueva medida**. Escriba la siguiente expresión para la nueva medida denominada **AverageTicketsSold**:
 
 ```
-AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
 ```
 
 Seleccione las siguientes opciones de visualización para obtener un gráfico del porcentaje de entradas vendidas en cada lugar para determinar su éxito relativo.
@@ -241,3 +242,4 @@ Felicidades.
 
 - Otros [tutoriales basados en la aplicación SaaS de Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
+- [Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino](saas-multitenantdb-tenant-analytics.md)

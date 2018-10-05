@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 08335f676437a32aa2240298be4680633eff16ba
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41948133"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432977"
 ---
 # <a name="back-up-azure-stack"></a>Copia de seguridad de Azure Stack
 
@@ -38,15 +38,48 @@ Use Start-AzSBackup para iniciar una nueva copia de seguridad inmediatamente sin
 ```
 
 ### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Inicio de una copia de seguridad de Azure Stack con seguimiento del progreso de trabajo
-Use Start-AzSBackup para iniciar una nueva copia de seguridad con la variable -AsJob para realizar un seguimiento del progreso del trabajo de copia de seguridad.
+Use Start-AzSBackup para iniciar una nueva copia de seguridad con el parámetro **-AsJob** y guárdelo como una variable para realizar el seguimiento del progreso del trabajo de copia de seguridad.
+
+> [!NOTE]
+> El trabajo de copia de seguridad aparecerá como completado correctamente en el portal unos 10 o 15 minutos antes de que finalice el trabajo.
+>
+> Por lo tanto, el estado real se observa mejor mediante el código siguiente.
+
+> [!IMPORTANT]
+> El retraso inicial de un milisegundo se presenta porque el código es demasiado rápido para registrar correctamente el trabajo y vuelve sin ningún **PSBeginTime** y, a su vez, sin **Estado** del trabajo.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob 
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
-    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
-    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+    $BackupJob = Start-AzsBackup -Force -AsJob
+    While (!$BackupJob.PSBeginTime) {
+        Start-Sleep -Milliseconds 1
+    }
+    Write-Host "Start time: $($BackupJob.PSBeginTime)"
+    While ($BackupJob.State -eq "Running") {
+        Write-Host "Job is currently: $($BackupJob.State) - Duration: $((New-TimeSpan -Start ($BackupJob.PSBeginTime) -End (Get-Date)).ToString().Split(".")[0])"
+        Start-Sleep -Seconds 30
+    }
 
-    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+    If ($BackupJob.State -eq "Completed") {
+        Get-AzsBackup | Where-Object {$_.BackupId -eq $BackupJob.Output.BackupId}
+        $Duration = $BackupJob.Output.TimeTakenToCreate
+        $Pattern = '^P?T?((?<Years>\d+)Y)?((?<Months>\d+)M)?((?<Weeks>\d+)W)?((?<Days>\d+)D)?(T((?<Hours>\d+)H)?((?<Minutes>\d+)M)?((?<Seconds>\d*(\.)?\d*)S)?)$'
+        If ($Duration -match $Pattern) {
+            If (!$Matches.ContainsKey("Hours")) {
+                $Hours = ""
+            } 
+            Else {
+                $Hours = ($Matches.Hours).ToString + 'h '
+            }
+            $Minutes = ($Matches.Minutes)
+            $Seconds = [math]::round(($Matches.Seconds))
+            $Runtime = '{0}{1:00}m {2:00}s' -f $Hours, $Minutes, $Seconds
+        }
+        Write-Host "BackupJob: $($BackupJob.Output.BackupId) - Completed with Status: $($BackupJob.Output.Status) - It took: $($Runtime) to run" -ForegroundColor Green
+    }
+    ElseIf ($BackupJob.State -ne "Completed") {
+        $BackupJob
+        $BackupJob.Output
+    }
 ```
 
 ## <a name="confirm-backup-has-completed"></a>Confirmación de que la copia de seguridad se ha completado
@@ -81,7 +114,7 @@ El resultado debe tener un aspecto similar a la siguiente salida:
 Use el portal de administración de Azure Stack para comprobar que esa copia de seguridad se ha completado correctamente; para ello, siga estos pasos:
 
 1. Abra [el portal de administración de Azure Stack](azure-stack-manage-portals.md).
-2. Seleccione **Más servicios** > **Infrastructure backup** (Copia de seguridad de infraestructura). Elija **Configuración** en la hoja **Copia de seguridad de infraestructura**.
+2. Seleccione **Todos los servicios** y, luego, en la categoría **ADMINISTRACIÓN**, seleccione > **Copia de seguridad de infraestructura**. Elija **Configuración** en la hoja **Copia de seguridad de infraestructura**.
 3. Busque el **Nombre** y la **Fecha de finalización** de la copia de seguridad en la lista **Copias de seguridad disponibles**.
 4. Compruebe que el **Estado** es **Correcto**.
 

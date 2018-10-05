@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023300"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225266"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -382,7 +382,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Obtención del entorno de Azure donde se está ejecutando la máquina virtual 
 
-Azure tiene varias nubes independientes como [Azure Government](https://azure.microsoft.com/overview/clouds/government/); en ocasiones, necesitará conectarse con el entorno de Azure para tomar decisiones en tiempo de ejecución. En el ejemplo siguiente se muestra cómo puede hacerlo
+Azure tiene varias nubes soberanas, como [Azure Government](https://azure.microsoft.com/overview/clouds/government/). En ocasiones, necesitará el entorno de Azure para tomar algunas decisiones acerca del tiempo de ejecución. En el siguiente ejemplo se muestra cómo puede lograr esto.
 
 **Solicitud**
 
@@ -445,7 +445,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Sí, el servicio de metadatos está disponible para las instancias del conjunto de escala. 
 8. ¿Cómo puedo obtener soporte técnico para el servicio?
    * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal para la máquina virtual en la que no es posible obtener respuesta de metadatos después de reintentos prolongados 
-9. ¿Por qué se agotó el tiempo de espera de solicitud para la llamada al servicio?
+9. ¿Por qué se agotó el tiempo de espera de solicitud para mi llamada al servicio?
    * Se deben realizar llamadas de metadatos desde la dirección IP principal asignada a la tarjeta de red de la máquina virtual; además, en caso de que haya cambiado las rutas, debe tener una ruta para la dirección 169.254.0.0/16 desde su tarjeta de red.
 10. Se actualizaron las etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las máquinas virtuales.
    * Actualmente, las etiquetas para ScaleSets solo se muestran a la máquina virtual durante un reinicio, restablecimiento de imagen o cambio de disco en la instancia. 

@@ -1,25 +1,25 @@
 ---
-title: 'Colaboración en su base de conocimiento: Microsoft Cognitive Services | Microsoft Docs'
-titleSuffix: Azure
-description: Colaboración en la base de conocimiento de QnA Maker
+title: 'Colaboración en la base de conocimiento: QnA Maker'
+titleSuffix: Azure Cognitive Services
+description: QnA Maker permite que varias personas colaboren en una base de conocimiento. Esta característica se proporciona con el Control de acceso basado en rol de Azure.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: e18d656236276595fc5186a6656349bf28974ead
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381726"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035239"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaboración en su base de conocimiento
 
-QnA Maker permite que varias personas colaboren en una base de conocimiento. Esta característica se proporciona con el [Control de acceso basado en rol](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) de Azure. 
+QnA Maker permite que varias personas colaboren en una base de conocimiento. Esta característica se proporciona con el [Control de acceso basado en rol](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) de Azure. 
 
 Realice los pasos siguientes para compartir su servicio QnA Maker con otra persona:
 

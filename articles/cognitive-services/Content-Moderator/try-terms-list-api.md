@@ -1,20 +1,21 @@
 ---
-title: Moderar texto con listas de términos personalizados en Azure Content Moderator | Microsoft Docs
+title: 'Moderación de texto con listas de términos personalizados: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Pruebe las listas de términos personalizadas en la consola de Content Moderator API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2542e4590781879408aafe8d072eceef157e02c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99df9fda2cc56f169a61ec215a976de28fc13d27
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380302"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220285"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar con listas de términos personalizadas en la consola de API
 
@@ -35,7 +36,7 @@ Se puede utilizar List Management API para realizar las tareas siguientes:
 - Editar información de la lista.
 - Actualizar el índice para que los cambios en la lista se incluyan en un nuevo examen.
 
-## <a name="use-the-api-console"></a>Usar la consola de API
+## <a name="use-the-api-console"></a>Uso de la consola de API
 
 Antes de probar la API en la consola en línea, necesita la clave de suscripción. Esta clave está ubicada en la pestaña **Configuración**, en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
 
@@ -110,7 +111,7 @@ Después de realizar cambios en una lista de términos, debe actualizar su índi
 
   Se abre la consola de API **Term - Get All Terms** (Término: obtener todos los términos).
 
-11. En el cuadro **listId**, escriba la id. de lista y, a continuación, escriba la clave de suscripción. Seleccione **Enviar**.
+11. En el cuadro **listId**, escriba el identificador de lista y, a continuación, escriba la clave de suscripción. Seleccione **Enviar**.
 
 12. En el cuadro **Contenido de la respuesta**, compruebe los términos que especificó.
 

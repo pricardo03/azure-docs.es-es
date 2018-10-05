@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608508"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096248"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guía de inicio rápido: Integración de una cuenta de Azure Storage con Azure CDN
 En esta guía de inicio rápido, habilitará [Azure Content Delivery Network (CDN)](cdn-overview.md) para almacenar en caché el contenido de Azure Storage. Azure CDN ofrece a los desarrolladores una solución global para entregar contenido con alto ancho de banda. Es posible almacenar en caché blobs y contenido estático de instancias de proceso en nodos físicos en los Estados Unidos, Europa, Asia, Australia y Sudamérica.
@@ -84,7 +84,7 @@ Se pueden usar varios métodos para crear una cuenta de almacenamiento, incluido
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Habilitación de Azure CDN para la cuenta de almacenamiento
 
-Puede habilitar Azure CDN para la cuenta de almacenamiento directamente desde esta. Si desea especificar valores de configuración avanzada para el punto de conexión de CDN, como el tipo de optimización, puede usar en su lugar la [extensión de Azure CDN](cdn-create-new-endpoint.md) para crear un punto de conexión de CDN o un perfil de CDN.
+Puede habilitar Azure CDN para la cuenta de almacenamiento directamente desde esta. Si quiere especificar valores de configuración avanzados para el punto de conexión de CDN, como la [optimización de la descarga de archivos grandes](cdn-optimization-overview.md#large-file-download), puede usar la [extensión Azure CDN](cdn-create-new-endpoint.md) para crear un perfil y un punto de conexión de CDN.
 
 1. Seleccione una cuenta de almacenamiento del panel y luego seleccione **Azure CDN** en el panel izquierdo. Si el botón **Azure CDN** no está visible inmediatamente, puede escribir CDN en el cuadro **Buscar** del panel izquierdo para localizarlo.
     
@@ -109,6 +109,9 @@ Puede habilitar Azure CDN para la cuenta de almacenamiento directamente desde es
 En el página **Azure CDN** de la cuenta de almacenamiento, seleccione el punto de conexión de CDN de la lista para abrir la página de configuración del punto de conexión de CDN. Desde esta página, puede habilitar características adicionales de CDN para la entrega, como la [compresión](cdn-improve-performance.md), el [almacenamiento en memoria caché de la cadena de consulta](cdn-query-string.md) y el [filtrado geográfico](cdn-restrict-access-by-country.md). 
     
 ![Configuración del punto de conexión de CDN de almacenamiento](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>Habilitar SAS
+Si quiere conceder acceso limitado a los contenedores de almacenamiento privado, puede usar la característica de firma de acceso compartido (SAS) de la cuenta de Azure Storage. Una SAS es un identificador URI que concede derechos de acceso restringido a los recursos de Azure Storage sin exponer la clave de cuenta. Para obtener más información, vea [Uso de la red Azure CDN con SAS](cdn-sas-storage-support.md).
 
 ## <a name="access-cdn-content"></a>Obtener acceso a su contenido de la red CDN
 Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. La dirección de un blob en caché tiene el siguiente formato:
@@ -139,8 +142,8 @@ En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en u
 3. Para eliminar la cuenta de almacenamiento, selecciónela en el panel y, a continuación, seleccione **Eliminar** en el menú superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información acerca de cómo agregar un dominio personalizado al punto de conexión de CDN, consulte el tutorial siguiente:
+Para obtener información sobre cómo agregar un dominio personalizado y habilitar HTTPS en el punto de conexión de CDN, vea el tutorial siguiente:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adición de un dominio personalizado a un punto de conexión de Azure CDN](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Acceso a blobs mediante un dominio personalizado a través de HTTPS](cdn-storage-custom-domain-https.md)
 

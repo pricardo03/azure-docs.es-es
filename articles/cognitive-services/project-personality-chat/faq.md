@@ -1,26 +1,28 @@
 ---
-title: Preguntas frecuentes sobre Personality Chat en Azure Cognitive Services | Microsoft Docs
+title: 'Preguntas más frecuentes: Personality Chat'
+titlesuffix: Azure Cognitive Services
 description: Preguntas frecuentes sobre Personality Chat
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
+ms.component: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 5304b25672f9951e004876dfd19af75ea7d86502
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382850"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219828"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas frecuentes
 
 ## <a name="why-doesnt-this-answer-every-question-i-ask-it-like-other-chat-bots"></a>¿Por qué no responde a cada pregunta que hago, como otros bots de chat?
 
-Project Personality Chat mejorará un bot con una charla superficial habitual que muestra la personalidad y crea una experiencia de usuario más completa. No está diseñado para mantener largas conversaciones sobre temas que no sean pertinentes para la función principal del bot. Aunque podría responder a todas las conversaciones, está restringido (en la versión beta) a los dominios de charlas superficiales habituales.
+Project Personality Chat mejorará un bot con una charla superficial habitual que muestra la personalidad y crea una experiencia de usuario más completa. No está diseñado para mantener largas conversaciones sobre temas que no sean pertinentes para la función principal del bot. Aunque podría responder a todas las conversaciones, está restringido, en la versión beta, a los dominios de charlas superficiales habituales.
 
 ## <a name="how-can-i-customize-the-personality-to-suit-my-brand"></a>¿Cómo puedo personalizar la personalidad para que se adapte a mi marca?
 

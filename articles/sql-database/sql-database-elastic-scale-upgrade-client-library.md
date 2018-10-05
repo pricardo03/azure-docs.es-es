@@ -2,26 +2,29 @@
 title: Actualización a la última biblioteca de cliente de base de datos elástica | Microsoft Docs
 description: Use Nuget para actualizar la biblioteca de cliente de base de datos elástica.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 56500a21822f7c7122a20cb676b9ad307de49c87
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 9fb29b18397be83f5dc56464b3366d91c47f43b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647017"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160798"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente
 Las nuevas versiones de la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md) están disponibles a través de NuGet y de la interfaz del Administrador de paquetes NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
 
 **Para obtener la última versión** : vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Vuelve a generar la aplicación con la nueva biblioteca, así como cambiar los metadatos de administrador de asignación de particiones existentes almacenados en sus instancias de Azure SQL Database para admitir nuevas características.
+Vuelva a generar la aplicación con la nueva biblioteca, además de cambiar los metadatos de Shard Map Manager existentes almacenados en sus bases de datos de Azure SQL Database para admitir nuevas características.
 
 Al realizar estos pasos de actualización en orden se asegura de que las versiones anteriores de la biblioteca de cliente ya no está presentes en el entorno cuando se actualizan los objetos de metadatos, lo que significa que no se crearán objetos de metadatos de la antigua versión después de la actualización.   
 

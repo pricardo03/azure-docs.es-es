@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916122"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219726"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Windows en Azure Portal
 
@@ -37,23 +37,28 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. En el cuadro de búsqueda encima de la lista de recursos de Azure Marketplace, busque y seleccione **Windows Server 2016 Datacenter** y, a continuación, elija **Crear**.
+1. En el cuadro de búsqueda encima de la lista de recursos de Azure Marketplace, busque y seleccione **Windows Server 2016 Datacenter** y, a continuación, elija **Crear**.
 
-3. Proporcione un nombre de máquina virtual, como *myVM*, deje el tipo de disco como *SSD* y proporcione un nombre de usuario, como *azureuser*. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myResourceGroup* para el nombre. 
 
-    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
+    ![Crear un nuevo grupo de recursos para la máquina virtual](./media/quick-create-portal/project-details.png)
 
-5. Elija **Crear nuevo** para el grupo de recursos y proporcione un nombre, como *myResourceGroup*. Elija la **ubicación** y seleccione **Aceptar**.
+1. En **Detalles de instancia**, escriba *myVM* en **Nombre de máquina virtual** y elija *Este de EE. UU.* como **Ubicación**. Deje los demás valores predeterminados.
 
-4. Seleccione un tamaño para la máquina virtual. Puede filtrar por *Tipo de proceso* o *Tipo de disco*, por ejemplo. Se recomienda un tamaño de máquina virtual de *D2s_v3*. Haga clic en **Seleccionar** después de elegir un tamaño.
+    ![Sección Detalles de instancia](./media/quick-create-portal/instance-details.png)
 
-    ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
+1. En **Cuenta de administrador**, proporcione un nombre de usuario, como *azureuser*, y una contraseña. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-5. En la página **Configuración**, en **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP (3389)** en el menú desplegable. Deje el resto de valores predeterminados y seleccione **Aceptar**.
+    ![Escriba su nombre de usuario y contraseña](./media/quick-create-portal/administrator-account.png)
 
-6. En la página de resumen, seleccione **Crear** para iniciar la implementación de la máquina virtual.
+1. En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP** en la lista desplegable.
 
-7. La máquina virtual se ancla al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual.
+    ![Puertos abiertos para RDP y HTTP](./media/quick-create-portal/inbound-port-rules.png)
+
+1. Deje los valores predeterminados restantes y luego seleccione el botón **Revisar + crear** en la parte inferior de la página.
+
+    ![Revisar y crear](./media/quick-create-portal/review-create.png)
+
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
@@ -61,7 +66,7 @@ Cree una conexión a Escritorio remoto en la máquina virtual. Estas instruccion
 
 1. Haga clic en el botón **Conectar** en la página de propiedades de la máquina virtual. 
 
-    ![Conexión a una máquina virtual de Azure desde el portal](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    ![Conexión a una máquina virtual de Azure desde el portal](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. En la página **Connect to virtual machine** (Conexión a una máquina virtual), mantenga las opciones predeterminadas para conectarse por nombre DNS a través del puerto 3389 y haga clic en **Descargar archivo RDP**.
 

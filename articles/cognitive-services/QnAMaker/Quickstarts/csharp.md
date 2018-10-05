@@ -1,20 +1,21 @@
 ---
-title: 'Inicio rápido de C# para Microsoft QnA Maker API (V4): Azure Cognitive Services | Microsoft Docs'
+title: 'Inicio rápido: C# para QnA Maker API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Microsoft Translator Text API en Microsoft Cognitive Services en Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866090"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040286"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Inicio rápido de Microsoft QnA Maker API con C# 
 <a name="HOLTop"></a>
@@ -36,7 +37,9 @@ En este artículo, se muestra cómo utilizar [Microsoft QnA Maker API](../Overvi
 - [Obtener el conjunto actual de modificaciones de palabras](#GetAlterations)
 - [Reemplazar el conjunto actual de modificaciones de palabras](#PutAlterations)
 
-## <a name="prerequisites"></a>requisitos previos
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Se requiere [Visual Studio 2017](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita de Community Edition funcionará).
 
