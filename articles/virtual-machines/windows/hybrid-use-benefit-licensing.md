@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: a4b0baefc8c3c839a06d6540e57b34657138c8ff
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: fef057b5d1e1ba8b03b04852376b1e5a49926008
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071966"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432412"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -40,7 +40,7 @@ Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Formas de usar la ventaja para uso híbrido de Azure para Windows Server
 Hay varias maneras de utilizar máquinas virtuales de Windows con la ventaja para uso híbrido de Azure:
 
-1. Puede implementar máquinas virtuales desde una de las [imágenes de Windows Server en Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) proporcionadas.
+1. Puede implementar máquinas virtuales desde una de las [imágenes de Windows Server en Azure Marketplace](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) proporcionadas.
 2. Puede cargar una máquina virtual personalizada e implementar mediante una plantilla de Resource Manager o Azure PowerShell.
 3. Puede cambiar y convertir la máquina virtual existente entre la ejecución con la Ventaja híbrida de Azure o el pago del coste adicional por Windows Server
 4. También puede aplicar la Ventaja híbrida de Azure para Windows Server en un conjunto de escalado de máquinas virtuales.
@@ -82,7 +82,11 @@ En las plantillas de Resource Manager, se debe especificar un parámetro `licens
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Conversión de una máquina virtual existente con la Ventaja híbrida de Azure para Windows Server
-Si tiene una máquina virtual existente que le gustaría convertir para aprovechar la Ventaja híbrida de Azure para Windows Server, puede actualizar el tipo de licencia de dicha máquina del modo siguiente:
+Si tiene una máquina virtual existente que le gustaría convertir para aprovechar la Ventaja híbrida de Azure para Windows Server, puede actualizar el tipo de licencia de dicha máquina siguiendo las instrucciones que se indican a continuación.
+
+> [!NOTE]
+> Cuando se cambia el tipo de licencia de una máquina virtual, el sistema no se reinicia ni se interrumpe el servicio.  Se trata simplemente de una actualización de una marca de metadatos.
+> 
 
 ### <a name="portal"></a>Portal
 En la hoja de la máquina virtual del portal, puede actualizar la máquina virtual para usar la Ventaja híbrida de Azure; para ello, seleccione la opción "Configuración" y cambie a la opción "Ventaja híbrida de Azure".
@@ -110,7 +114,7 @@ En la hoja de la máquina virtual del portal, puede actualizar la máquina virtu
     ```azurecli
     az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
-    
+
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Cómo comprobar que la máquina virtual está usando la ventaja de licencia
 Cuando haya implementado la máquina virtual mediante PowerShell, la plantilla de Resource Manager o el portal, puede comprobar el valor en los siguientes métodos.
 
@@ -141,6 +145,10 @@ LicenseType              :
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
+
+> [!NOTE]
+> Cuando se cambia el tipo de licencia de una máquina virtual, el sistema no se reinicia ni se interrumpe el servicio. Se trata simplemente de una marca de licencia de metadatos.
+>
 
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Enumeración de todas las máquinas virtuales con la Ventaja híbrida de Azure para Windows Server en una suscripción
 Para ver y contar todas las máquinas virtuales implementadas con la ventaja para uso híbrido de Azure para Windows Server, puede ejecutar el siguiente comando desde su suscripción:

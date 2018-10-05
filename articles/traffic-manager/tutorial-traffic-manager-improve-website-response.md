@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 89518d30b862e18fb7c989c95144ffa7f1c294fc
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024856"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392527"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Mejorar la respuesta del sitio web mediante Traffic Manager 
 
@@ -171,7 +171,7 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
-    | Método de enrutamiento          | Seleccione el método de enrutamiento **Prioridad**.                                       |
+    | Método de enrutamiento          | Seleccione el método de enrutamiento de **rendimiento**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
     | Grupos de recursos          | Haga clic en **Crear nuevo** y escriba *myResourceGroupTM1*. |
     | Ubicación                | Seleccione **Este de EE. UU**.  Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
