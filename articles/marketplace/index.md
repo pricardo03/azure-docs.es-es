@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 338eb409ad04dd3d0da066f94acb0d418497c581
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e93d1b926b78a352e65a68fc71b07f7631d0b1af
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823757"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830029"
 ---
 # <a name="azure-marketplace-documentation"></a>Documentación sobre Azure Marketplace
 
-Obtenga información sobre Azure Marketplace, una tienda de aplicaciones y servicios en línea que permite a las nuevas empresas y a los fabricantes de software independientes (ISV) ofrecer sus soluciones a clientes de todo el mundo.
+Obtenga información sobre Azure Marketplace, una tienda de aplicaciones y servicios en línea que permite a las startups y a los fabricantes de software independientes (ISV) ofrecer sus soluciones a clientes de todo el mundo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -44,7 +44,7 @@ Obtenga información sobre Azure Marketplace, una tienda de aplicaciones y servi
         </a>
     </li>
     <li>
-        <a href="/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal">
+        <a href="/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
