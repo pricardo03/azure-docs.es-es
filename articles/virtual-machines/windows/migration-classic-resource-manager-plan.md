@@ -132,19 +132,19 @@ A continuación se indican problemas detectados en muchas de las migraciones má
 
     Puede comprobar las cuotas actuales de Azure Resource Manager mediante los comandos siguientes con la última versión de Azure PowerShell.
 
-    **Compute***(núcleos y conjuntos de disponibilidad)*
+    **Compute** *(núcleos y conjuntos de disponibilidad)*
 
     ```powershell
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
-    **Red***(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces, equilibradores de carga y tablas de rutas)*
+    **Red** *(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces, equilibradores de carga y tablas de rutas)*
 
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **Almacenamiento***(cuenta de almacenamiento)*
+    **Almacenamiento** *(cuenta de almacenamiento)*
 
     ```powershell
     Get-AzureRmStorageUsage

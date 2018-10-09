@@ -101,7 +101,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
     ![Establecer el encabezado Content-Type](media/monitoring-action-groups/content-type-header.png "Establecer el encabezado Content-Type")
 
-10. Seleccione **+****Nuevo paso** y luego elija **Agregar una acción**.
+10. Seleccione **+** **Nuevo paso** y luego elija **Agregar una acción**.
 
     ![Agregar una acción](media/monitoring-action-groups/add-action.png "Agregar una acción")
 
