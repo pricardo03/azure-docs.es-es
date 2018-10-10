@@ -1,26 +1,26 @@
 ---
-title: Tutorial de Translator Speech (C#) | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Obtenga información sobre cómo usar el servicio Translator Speech para traducir el texto en tiempo real.
+title: 'Tutorial: Translator Speech API, C#'
+titleSuffix: Azure Cognitive Services
+description: Use Translator Speech API para convertir texto en tiempo real.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2de56366c3204e77eb2e6775ddd88b6fc4f0c219
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41929757"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993874"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Tutorial: Aplicación WPF de Microsoft Translator en C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: aplicación Translator Speech en C#
 
-Este tutorial es un paseo por una herramienta interactiva de traducción de voz que utiliza el servicio de traducción Microsoft Translator Speech, una parte de Microsoft Cognitive Services en Azure. Aprenderá a:
+En este tutorial se realiza un recorrido por una herramienta interactiva de traducción de voz que utiliza Translator Speech API, que forma parte de Azure Cognitive Services. Aprenderá a:
 
 > [!div class="checklist"]
 > * Solicitar una lista de los idiomas admitidos por el servicio.
@@ -42,7 +42,7 @@ También se requiere la [biblioteca JSON.Net](https://www.newtonsoft.com/json) d
 
 ## <a name="trying-the-translation-app"></a>Prueba de la aplicación de traducción
 
-Después de abrir la solución Microsoft Translator Speech (`SpeechTranslator.sln`) en Visual STudio, presione F5 para compilar e iniciar la aplicación.  Aparece la ventana principal del programa.
+Después de abrir la solución Translator Speech (`SpeechTranslator.sln`) en Visual STudio, presione F5 para compilar e iniciar la aplicación.  Aparece la ventana principal del programa.
 
 ![[Ventana principal del traductor de voz]](media/speech-translator-main-window.png)
 
@@ -50,7 +50,7 @@ En la primera ejecución, elija **Configuración de la cuenta** en el menú **Co
 
 ![[Ventana principal del traductor de voz]](media/speech-translator-settings-window.png)
 
-Pegue la clave de suscripción de Microsoft Translator Speech en esta ventana, a continuación, haga clic en **Guardar.** La clave se guarda entre ejecuciones.
+Pegue la clave de suscripción de Translator Speech en esta ventana y haga clic en **Guardar.** La clave se guarda entre ejecuciones.
 
 De nuevo en la ventana principal, elija los dispositivos de entrada y salida de audio que quiera usar, así como los idiomas de origen y destino. Si desea oír el audio de la traducción, asegúrese de que la opción **TTS** (conversión de texto a voz) esté marcada. Si desea ver traducciones parciales especulativas mientras habla, habilite la opción **Resultados parciales**.
 
@@ -58,7 +58,7 @@ Por último, haga clic en **Iniciar** para comenzar la traducción. Diga algo qu
 
 ## <a name="obtaining-supported-languages"></a>Obtención de idiomas admitidos
 
-En el momento de escribir este documento, el servicio Microsoft Translator admite más de cinco docenas de idiomas para la traducción de texto. Para la traducción de voz, admite un número de idiomas menor. Estos idiomas requieren compatibilidad tanto para la transcripción (reconocimiento de voz) como para la salida de texto a voz, síntesis.
+En el momento de escribir este documento, el servicio Translator Speech admite más de cinco docenas de idiomas para la traducción de texto. Para la traducción de voz, admite un número de idiomas menor. Estos idiomas requieren compatibilidad tanto para la transcripción (reconocimiento de voz) como para la salida de texto a voz, síntesis.
 
 Es decir, para la traducción de voz, el idioma de origen debe ser compatible para la transcripción. El idioma de salida puede ser cualquiera de los idiomas admitidos para la traducción de texto, suponiendo que quiere un resultado de texto. Si desea salida de voz, solo puede traducir a un idioma admitido para la conversión de texto a voz.
 

@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c92a986d06deb9f7de10f0682fe46804e6ebb6e7
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 06af3351f5669f5cd9aeeb9c4cb2168666476b52
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069883"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994639"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integración de red virtual para los servicios de Azure
 
-La integración de los servicios de Azure en una instancia de Azure Virtual Network permite el acceso privado desde instancias de un servicio implementado en la red virtual.
+La integración de servicios de Azure en una red virtual de Azure permite el acceso privado al servicio desde las máquinas virtuales o los recursos de proceso de la red virtual.
+Puede integrar servicios de Azure en su red virtual con las siguientes opciones: implementando directamente instancias dedicadas del servicio en una red virtual. Luego se puede acceder de forma privada a los servicios dentro de la red virtual y desde redes locales.
+Mediante la extensión de una red virtual al servicio, a través de puntos de conexión de servicio. Los puntos de conexión de servicio permite que los recursos de servicio individuales se protejan en la red virtual.
 
-Puede integrar los servicios de Azure en la red virtual con las siguientes opciones:
-- Implementando directamente instancias dedicadas del servicio en una red virtual. Las instancias dedicadas de estos servicios pueden acceder de forma privada dentro de la red virtual y desde redes locales.
-- Mediante la extensión de una red virtual al servicio, a través de puntos de conexión de servicio. Los puntos de conexión de servicio permite que los recursos de servicio individuales se protejan en la red virtual.
+Para integrar varios servicios de Azure en una red virtual, puede combinar uno o varios de los patrones anteriores. Por ejemplo, puede implementar HDInsight en una red virtual y proteger una cuenta de almacenamiento en la subred de HDInsight mediante los punto de conexión de servicio.
  
 ## <a name="deploy-azure-services-into-virtual-networks"></a>Implementación de servicios de Azure en las redes virtuales
 
-Puede comunicarse con la mayoría de recursos de Azure por Internet a través de direcciones IP públicas. Al implementar los servicios de Azure en una [red virtual](virtual-networks-overview.md), puede comunicarse con los recursos de servicio de forma privada a través de direcciones IP privadas.
+Al implementar servicios de Azure dedicados en una [red virtual](virtual-networks-overview.md), puede comunicarse con los recursos de los servicios de forma privada mediante direcciones IP privadas.
 
 ![Servicios implementados en una red virtual](./media/virtual-network-for-azure-services/deploy-service-into-vnet.png)
 
@@ -42,39 +42,30 @@ La implementación de servicios dentro de una red virtual ofrece las siguientes 
 - Los recursos locales pueden acceder a recursos de una red virtual mediante direcciones IP privadas a través de [VPN de sitio a sitio (VPN Gateway)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Las redes virtuales pueden estar [emparejadas](virtual-network-peering-overview.md) para habilitar que los recursos de las redes virtuales se comuniquen entre sí mediante direcciones IP privadas.
 - Las instancias de servicio de una red virtual están totalmente administradas por el servicio de Azure, para supervisar el estado de dichas instancias y proporcionar la escala necesaria según la carga.
-- Las instancias de servicio se implementan en una subred dedicada en una red virtual. El acceso entrante y saliente de la red se debe abrir a través de [grupos de seguridad de red](security-overview.md#network-security-groups) para la subred, siguiendo las instrucciones proporcionadas por los servicios.
+- Las instancias de los servicios se implementan en una subred de una red virtual. El acceso entrante y saliente de la red se debe abrir a través de [grupos de seguridad de red](security-overview.md#network-security-groups) para la subred, siguiendo las instrucciones proporcionadas por los servicios.
+- Opcionalmente, los servicios pueden requerir una [subred delegada](virtual-network-manage-subnet.md#add-a-subnet) como un identificador explícito de que una subred puede hospedar un servicio determinado. La delegación de la subred proporciona al servicio permisos explícitos para crear recursos específicos del servicio en la subred.
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Servicios que pueden implementarse en una red virtual
 
-Cada servicio implementado directamente en la red virtual tiene requisitos específicos para el enrutamiento y los tipos de tráfico que deben permitirse dentro y fuera de subredes. Para más información, consulte: 
- 
-- Máquinas virtuales: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Service Fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
-- [Conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Entorno de App Service](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Application Gateway (interna)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Motor de Azure Container Service](https://github.com/Azure/acs-engine) con el [complemento](https://github.com/Azure/acs-engine/tree/master/examples/vnet) de CNI de Azure Virtual Network.
-- [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
-- [Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-vnet-configuration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Servicios en la nube](https://msdn.microsoft.com/library/azure/jj156091): solo red virtual (clásica)
+Cada servicio implementado directamente en la red virtual tiene requisitos específicos para el enrutamiento y los tipos de tráfico que deben permitirse dentro y fuera de subredes. A continuación, se clasifican los diferentes servicios que se pueden implementar en una red virtual. Seleccione el servicio concreto en la tabla para obtener más información acerca de él y de cómo integrarlo con la red virtual. 
 
-Puede implementar un [recurso interno de Azure Load Balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para equilibrar la carga de muchos de los recursos de la lista anterior. En algunos casos, el servicio crea e implementa automáticamente un equilibrador de carga cuando se crea un recurso.
+
+|Categoría|Servicio|
+|-|-|
+| Compute | Máquinas virtuales: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Servicio en la nube](https://msdn.microsoft.com/library/azure/jj156091): solo red virtual (clásica)<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)  |
+| Red | [Application Gateway - WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Aplicaciones de red virtual](/windowsserverdocs/WindowsServerDocs/networking/sdn/manage/Use-Network-Virtual-Appliances-on-a-VN.md) 
+|Datos|[RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-vnet-configuration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Análisis | [HDInsight de Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
+| Identidad | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
+| Contenedores | [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instancia de Azure Container (ACI)](http://www.aka.ms/acivnet)<br/>[Motor de Azure Container Service](https://github.com/Azure/acs-engine) con el [complemento](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI de Azure Virtual Network||
+| Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Entorno de App Service](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[WebApps](http://www.aka.ms/WebAppsVNet)
+| Hospedado*| [Azure NetApp Files (ANF)](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Módulo de seguridad de hardware dedicado de Azure](http://www.aka.ms/azurededicatedhsm)
+| | |
+<br/>
+* Servicios especializados que normalmente se ejecutan en hardware creado para tal fin.
+
+
 
 ## <a name="service-endpoints-for-azure-services"></a>Puntos de conexión de servicio para servicios de Azure
 
-Algunos servicios de Azure no se pueden implementar en redes virtuales. Puede restringir el acceso a algunos de los recursos de servicio solo a subredes de red virtual específicas, si lo desea, habilitando un punto de conexión de servicio de red virtual. Obtenga más información acerca de los [puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md) y los servicios para los que se pueden habilitar los puntos de conexión.
-
-## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integración de redes virtuales en varios servicios de Azure
-
-Puede implementar un servicio de Azure en una subred de una red virtual y proteger recursos de servicio críticos para esa subred. Por ejemplo, puede implementar HDInsight en la red virtual y proteger una cuenta de almacenamiento para la subred de HDInsight.
-
-
-
-
-
+Algunos servicios de Azure no se pueden implementar en redes virtuales. Puede restringir el acceso a algunos de los recursos de servicio solo a subredes de red virtual específicas, si lo desea, habilitando un punto de conexión de servicio de red virtual.  Obtenga más información acerca de los [puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md) y los servicios para los que se pueden habilitar los puntos de conexión.

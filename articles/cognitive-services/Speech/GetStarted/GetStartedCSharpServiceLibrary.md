@@ -1,22 +1,24 @@
 ---
 title: Introducción a Microsoft Speech Recognition API con la biblioteca de servicios de C#| Microsoft Docs
-description: Utilice la biblioteca de servicios de reconocimiento de voz de Microsoft para convertir el idioma hablado en texto.
+titlesuffix: Azure Cognitive Services
+description: Utilice la biblioteca del servicio de reconocimiento de Bing Speech para convertir el idioma hablado en texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0320f41658a7ac4d6bf9e88ed998c853b665d485
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380610"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967564"
 ---
-# <a name="get-started-with-the-speech-recognition-service-library-in-c35-for-net-windows"></a>Introducción a la biblioteca de servicios de reconocimiento de voz en C&#35; para Windows .NET
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Guía de inicio rápido: Uso de la biblioteca del servicio de reconocimiento de Bing Speech en C&#35; para Windows .NET
 
 La biblioteca de servicios está pensada para los desarrolladores que tienen su propio servicio en la nube y quieren llamar al servicio de voz desde su servicio. Si quiere llamar al servicio de reconocimiento de voz desde aplicaciones vinculadas a dispositivo, no utilice este SDK. (Use otras bibliotecas cliente o las API de REST para esto).
 
@@ -24,7 +26,7 @@ Para usar la biblioteca de servicios de C#, instale el [paquete NuGet Microsoft.
 
 En las secciones siguientes se describe cómo instalar, compilar y ejecutar la aplicación de ejemplo de C# mediante el uso de la biblioteca de servicios de C#.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 
@@ -36,7 +38,7 @@ Clone el ejemplo del repositorio del [ejemplo de biblioteca de servicios de C# d
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Suscribirse a Speech Recognition API y obtener una clave de suscripción de prueba gratuita
 
-Speech API forma parte de Cognitive Services (anteriormente proyecto Oxford). Puede obtener claves de suscripción de prueba gratuitas en la página de [suscripción a Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Después de seleccionar Speech API, seleccione **Obtener clave de API** para obtener la clave. Devuelve una clave principal y secundaria. Ambas claves están asociadas a la misma cuota, por lo que puede usar cualquiera de ellas.
+Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Puede obtener las claves de la suscripción de prueba gratuita en la página [Suscripción a Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Después de seleccionar Speech API, seleccione **Obtener clave de API** para obtener la clave. Devuelve una clave principal y una clave secundaria. Las dos claves están asociadas a la misma cuota, por lo que puede usar cualquiera de las claves.
 
 > [!IMPORTANT]
 > * Obtenga una clave suscripción. Para poder usar las bibliotecas cliente de voz, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
@@ -51,7 +53,7 @@ Speech API forma parte de Cognitive Services (anteriormente proyecto Oxford). Pu
 
 ## <a name="step-2-build-the-sample-application"></a>Paso 2: Compilar la aplicación de ejemplo
 
-Presione Ctrl+Mayús+B, o seleccione **Compilar** en el menú de la cinta de opciones. A continuación, seleccione **Generar solución**.
+Presione Ctrl+Mayús+B, o seleccione **Compilar** en el menú de la cinta de opciones. Después, seleccione **Compilar solución**.
 
 ## <a name="step-3-run-the-sample-application"></a>Paso 3: Ejecutar la aplicación de ejemplo
 

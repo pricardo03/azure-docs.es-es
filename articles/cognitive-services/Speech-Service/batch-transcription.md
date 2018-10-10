@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: b6fb39ef5941157cfe0d18324deeb9d836d7ab09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377628"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981379"
 ---
 # <a name="batch-transcription"></a>Transcripción de Azure Batch
 
@@ -59,36 +59,38 @@ Si se trata de secuencias de audio estéreo, la transcripción de Batch divide e
 
 ## <a name="authorization-token"></a>Token de autorización
 
-Al igual que con todas las características de Unified Speech Service, creará una clave de suscripción en [Azure Portal](https://portal.azure.com). Además, adquirirá una clave de API desde el portal de Voz: 
+Al igual que con todas las características de Unified Speech Service, creará una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md). Si va a obtener transcripciones de nuestros modelos de línea base, esto es todo lo que necesita hacer. 
+
+Si va a personalizar y usar un modelo personalizado, deberá agregar entonces esta clave de suscripción al portal de voz personalizado de la manera siguiente:
 
 1. Inicie sesión en [Custom Speech](https://customspeech.ai).
 
 2. Seleccione **Suscripciones**.
 
-3. Seleccione **Generate API Key** (Generar clave de API).
+3. Seleccione **Connect Existing Subscription** (Conectar la suscripción existente).
+
+4. Agregue la clave de suscripción y un alias en la vista que aparece.
 
     ![Captura de pantalla de la página de suscripciones de Custom Speech](media/stt/Subscriptions.jpg)
 
-4. Copie y pegue esa clave en el código de cliente del ejemplo siguiente.
+5. Copie y pegue esa clave en el código de cliente del ejemplo siguiente.
 
 > [!NOTE]
-> Si pretende usar un modelo personalizado, también necesitará el identificador de dicho modelo. Tenga en cuenta que este no es el identificador de implementación o de punto de conexión que encontrará en la vista de detalles del punto de conexión. Es el identificador de modelo que se puede recuperar cuando se seleccionan los detalles de ese modelo.
+> Si pretende usar un modelo personalizado, también necesitará el identificador de dicho modelo. Tenga en cuenta que este no es el identificador del punto de conexión que encontrará en la vista de detalles del punto de conexión. Es el identificador de modelo que se puede recuperar cuando se seleccionan los detalles de ese modelo.
 
 ## <a name="sample-code"></a>Código de ejemplo
 
 Personalice el siguiente código de ejemplo con una clave de suscripción y una clave de API. Esto le permite obtener un token de portador.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
@@ -98,8 +100,8 @@ Después de obtener el token, debe especificar el URI de SAS que apunta al archi
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client
@@ -167,7 +169,7 @@ Después de obtener el token, debe especificar el URI de SAS que apunta al archi
 ```
 
 > [!NOTE]
-> En el código anterior, la clave de suscripción es del recurso Speech(Preview) que crea en Azure Portal. Las claves obtenidas del recurso Custom Speech Service no sirven.
+> En el código anterior, la clave de suscripción es del recurso Speech que crea en Azure Portal. Las claves obtenidas del recurso Custom Speech Service no sirven.
 
 Observe la configuración asincrónica para publicar audio y recibir el estado de la transcripción. El cliente creado es un cliente HTTP de .NET. Hay un método `PostTranscriptions` para enviar los detalles del archivo de audio y un método `GetTranscriptions` para recibir los resultados. `PostTranscriptions` devuelve un identificador, y `GetTranscriptions` usa este identificador para crear un identificador para obtener el estado de la transcripción.
 

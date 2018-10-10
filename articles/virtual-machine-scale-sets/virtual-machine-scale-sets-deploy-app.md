@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718988"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979452"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En este artículo se presentan distintas formas de crear una imagen de máquina virtual personalizada para las instancias de un conjunto de escalado o de ejecutar automáticamente la instalación de scripts en instancias de máquinas virtuales existentes. También puede obtener información sobre cómo administrar actualizaciones del sistema operativo de la aplicación en un conjunto de escalado.
@@ -31,14 +31,14 @@ Al usar una de las imágenes de la plataforma Azure para crear las instancias en
 
 Para reducir la administración de configuración y el tiempo de aprovisionamiento de una máquina virtual, puede crear una imagen de máquina virtual personalizada que esté lista para ejecutar la aplicación tan pronto como se aprovisione una instancia en el conjunto de escalado. Para obtener más información sobre cómo crear y utilizar una imagen de máquina virtual personalizada con un conjunto de escalado, vea los siguientes tutoriales:
 
-- [CLI de Azure 2.0](tutorial-use-custom-image-cli.md)
+- [CLI de Azure](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Instalación de una aplicación con la extensión de script personalizado
 La extensión de script personalizado descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage o GitHub, o se pueden proporcionar a Azure Portal en el tiempo de ejecución de la extensión. Para obtener más información sobre cómo crear y utilizar una imagen de máquina virtual personalizada con un conjunto de escalado, vea los siguientes tutoriales:
 
-- [CLI de Azure 2.0](tutorial-install-apps-cli.md)
+- [CLI de Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Plantilla de Azure Resource Manager](tutorial-install-apps-template.md)
 
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Instalación de aplicaciones con actualizaciones del sistema operativo
 Si hay nuevas versiones del sistema operativo disponibles, puede usar o crear una nueva imagen personalizada e [implementar actualizaciones del sistema operativo](virtual-machine-scale-sets-upgrade-scale-set.md) en un conjunto de escalado. Cada instancia de máquinas virtuales se actualiza a la última imagen especificada. Puede usar una imagen personalizada con la aplicación preinstalada, la extensión de script personalizado o PowerShell DSC para que la aplicación esté automáticamente disponible a medida que realice la actualización. Es posible que sea necesaria la planeación del mantenimiento de la aplicación a medida que realice este proceso para garantizar que no haya problemas de compatibilidad de versión.
 
-Si usa una imagen de máquina virtual personalizada con la aplicación preinstalada, podría integrar las actualizaciones de la aplicación con una canalización de implementación para crear las nuevas imágenes e implementar actualizaciones del sistema operativo en el conjunto de escalado. Este enfoque permite a la canalización elegir las últimas compilaciones de aplicación, crear y validar una imagen de máquina virtual y, a continuación, actualizar las instancias de máquinas virtuales del conjunto de escalado. Para ejecutar una canalización de implementación que cree e implemente actualizaciones de la aplicación en imágenes de máquina virtual personalizadas, podría [crear una imagen de Packer e implementarla con Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), o bien usar otra plataforma, como [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
+Si usa una imagen de máquina virtual personalizada con la aplicación preinstalada, podría integrar las actualizaciones de la aplicación con una canalización de implementación para crear las nuevas imágenes e implementar actualizaciones del sistema operativo en el conjunto de escalado. Este enfoque permite a la canalización elegir las últimas compilaciones de aplicación, crear y validar una imagen de máquina virtual y, a continuación, actualizar las instancias de máquinas virtuales del conjunto de escalado. Para ejecutar una canalización de implementación que cree e implemente actualizaciones de la aplicación en imágenes de máquina virtual personalizadas, podría [crear una imagen de Packer e implementarla con Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), o bien usar otra plataforma, como [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

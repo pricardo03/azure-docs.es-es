@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Protección de un servidor web de Linux con certificados SSL en Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a utilizar la CLI de Azure 2.0 para proteger una máquina virtual de Linux que se ejecuta el servidor web NGINX con certificados SSL que se almacenan en el Azure Key Vault.
+description: En este tutorial, aprenderá a usar la CLI de Azure para proteger una máquina virtual Linux que ejecuta el servidor web NGINX con certificados SSL almacenados en Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11d884d9f1e7f805dd0796696152dda063ed7755
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a0156167142e87ffb7935828de1000a302f12e31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886138"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981714"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual de Linux en Azure con certificados SSL almacenados en Key Vault
 Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
@@ -34,7 +34,7 @@ Para proteger los servidores web, se puede utilizar un certificado Capa de socke
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="overview"></a>Información general

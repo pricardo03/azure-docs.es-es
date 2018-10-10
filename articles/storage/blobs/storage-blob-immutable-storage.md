@@ -1,27 +1,27 @@
 ---
-title: Almacenamiento inmutable para Azure Blob Storage (versión preliminar) | Microsoft Docs
+title: Almacenamiento inmutable en Azure Storage Blobs | Microsoft Docs
 description: Azure Storage ofrece compatibilidad WORM (escribir una vez, leer muchas) con el almacenamiento de Blob (objeto), lo que permite a los usuarios almacenar datos en un estado no modificable durante un intervalo de tiempo especificado.
 services: storage
-author: sangsinh
+author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
-ms.author: sangsinh
+ms.date: 09/18/2018
+ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: cfc25906e926e8dd6687eeccd311a38653772c4d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399005"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961984"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage (versión preliminar)
+# <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
 El almacenamiento inmutable para Azure Blob (objeto) Storage permite a los usuarios almacenar los datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). En este estado, los usuarios no pueden borrar ni modificar los datos durante el intervalo de tiempo especificado por el usuario. Los blobs se pueden crear y leer, aunque no modificar ni eliminar, durante el periodo de retención.
 
 ## <a name="overview"></a>Información general
 
-El almacenamiento inmutable ayuda a las instituciones financieras y a las industrias relacionadas (sobre todo las organizaciones de agente-distribuidor) a almacenar los datos de forma segura.
+El almacenamiento inmutable ayuda a las instituciones financieras y a las industrias relacionadas (sobre todo las organizaciones de agente-distribuidor) a almacenar los datos de forma segura. También puede utilizarse en cualquier escenario para proteger los datos críticos e impedir que se eliminen.  
 
 Las aplicaciones típicas son:
 
@@ -35,13 +35,13 @@ El almacenamiento inmutable permite:
 
 - **Compatibilidad con directivas de retención con duración definida:** los usuarios establecen directivas para almacenar los datos durante un intervalo especificado.
 
-- **Compatibilidad con directivas de suspensión legal**: cuando no se conoce el intervalo de retención, los usuarios pueden establecer suspensiones legales para almacenar los datos de una manera inmutable hasta que desaparezcan.  Cuando se establece una retención legal, los blobs se pueden crear y leer, pero no modificar ni eliminar. Cada suspensión legal está asociada a una etiqueta alfanumérica definida por el usuario que se utiliza como una cadena de identificador (por ejemplo, un identificador de caso).
+- **Compatibilidad con directivas de suspensión legal**: cuando no se conoce el intervalo de retención, los usuarios pueden establecer suspensiones legales para almacenar los datos de una manera inmutable hasta que desaparezcan.  Cuando se establece una retención legal, los blobs se pueden crear y leer, pero no modificar ni eliminar. Cada retención legal está asociada a una etiqueta alfanumérica definida por el usuario que se utiliza como una cadena de identificador (por ejemplo, un identificador de caso).
 
-- **Compatibilidad con todos los niveles de blobs:** las directivas WORM son independientes del nivel de Azure Blob Storage y se aplican a todos los niveles: frecuente, esporádico y archivo. Los usuarios pueden almacenar los datos en el nivel con mayor optimización de costos para sus cargas de trabajo y, al mismo tiempo, mantener la inmutabilidad de los datos.
+- **Compatibilidad con todos los niveles de blobs:** las directivas WORM son independientes del nivel de Azure Blob Storage y se aplican a todos los niveles: frecuente, esporádico y archivo. Los usuarios pueden transferir sus datos al nivel que les ofrezca la mayor optimización de costos de acuerdo con sus cargas de trabajo sin alterar la inmutabilidad de los datos.
 
-- **Configuración en el nivel de contenedor:** los usuarios configurar las directivas de retención con duración definida y las etiquetas de suspensión legal en el nivel de contenedor. Mediante el uso de valores simples en el nivel de contenedor, los usuarios pueden crear y bloquear directivas de retención con duración definida, ampliar intervalos de retención o establecer y eliminar suspensiones legales, etc. Estas directivas se aplican a todos los blobs del contenedor, tanto a los nuevos como a los existentes.
+- **Configuración en el nivel de contenedor:** los usuarios configurar las directivas de retención con duración definida y las etiquetas de suspensión legal en el nivel de contenedor. Utilizando valores de configuración sencillos en el nivel de contenedor, los usuarios pueden crear y bloquear las directivas de retención con duración definida, ampliar los intervalos de retención, establecer y eliminar retenciones legales, etc. Estas directivas se aplican a todos los blobs del contenedor, tanto a los nuevos como a los existentes.
 
-- **Compatibilidad con el registro de auditoría**: todos los contenedores incluyen un registro de auditoría. Muestra un máximo cinco comandos de retención con duración definida para las directivas de retención con duración definida bloqueadas, con un máximo de tres registros para las extensiones del intervalo de retención. En el caso de la retención con duración definida, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y el intervalo de retención. En el caso de las suspensiones legales, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. Este registro se conserva mientras dure el contenedor, de acuerdo con las directrices de regulación SEC 17a-4(f). El [registro de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) muestra un registro más completo de todas las actividades del plano de control. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podrían ser obligatorios por ley o con otros fines.
+- **Compatibilidad con el registro de auditoría**: todos los contenedores incluyen un registro de auditoría. Muestra un máximo cinco comandos de retención con duración definida para las directivas de retención con duración definida bloqueadas, con un máximo de tres registros para las extensiones del intervalo de retención. En el caso de la retención con duración definida, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y el intervalo de retención. En el caso de las suspensiones legales, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. Este registro se conserva mientras dure el contenedor, de acuerdo con las directrices de regulación SEC 17a-4(f). El [registro de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) muestra un registro más completo de todas las actividades del plano de control. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podría ser obligatorio por ley o por otros fines.
 
 El almacenamiento inmutable está habilitada en todas las regiones públicas de Azure.
 
@@ -54,13 +54,13 @@ Cuando se aplica una directiva de retención con duración definida o una suspen
 > [!IMPORTANT]
 > Una directiva de retención con duración definida debe estar *bloqueada* para que el blob esté en estado inmutable (protegido frente a escritura y eliminación) y, por consiguiente, se cumplan SEC 17a-4(f) y otras regulaciones. Se recomienda bloquear la directiva en un período razonable, normalmente antes de 24 horas. No se recomienda usar el estado *desbloqueado* con ningún fin que no sea evaluar la característica a corto plazo.
 
-Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los blobs existentes es igual a la diferencia entre la hora de creación de blob y el intervalo de retención especificado por el usuario. 
+Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los blobs existentes es igual a la diferencia entre la hora de creación de blob y el intervalo de retención especificado por el usuario.
 
-Para los nuevos blobs, el período de retención efectivo es igual al intervalo de retención especificado por el usuario. Como los usuarios pueden cambiar el intervalo de retención, el almacenamiento inmutable usa el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
+Para los nuevos blobs, el período de retención efectivo es igual al intervalo de retención especificado por el usuario. Como los usuarios pueden ampliar el intervalo de retención, el almacenamiento inmutable utiliza el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
 
 > [!TIP]
 > Ejemplo:
-> 
+>
 > un usuario crea una directiva de retención con duración definida con un intervalo de retención de cinco años.
 >
 > El blob que hay en ese contenedor, testblob1, se creó hace un año. El período de retención efectivo de testblob1 es de cuatro años.
@@ -77,35 +77,30 @@ La tabla siguiente muestra los tipos de operaciones de blob que se deshabilitan 
 
 |Escenario  |Estado del blob  |Operaciones de blob no permitidas  |
 |---------|---------|---------|
-|El intervalo de retención efectivo del blob no ha expirado todavía o se ha establecido una retención legal     |Inmutable: protegido frente a eliminación y escritura         |Delete Container, Delete Blob, Put Blob1, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
-|El intervalo de retención efectivo del blob ha expirado     |Protegido contra escritura únicamente (están permitidas las operaciones de eliminación)         |Put Blob, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
+|El intervalo de retención efectivo del blob no ha expirado todavía o se ha establecido una retención legal     |Inmutable: protegido frente a eliminación y escritura         |Delete Container, Delete Blob, Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
+|El intervalo de retención efectivo del blob ha expirado     |Protegido contra escritura únicamente (están permitidas las operaciones de eliminación)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
 |Todas las suspensiones legales eliminadas y sin ninguna directiva de retención basada en el tiempo establecida en el contenedor     |Mutable         |None         |
 |No se crea ninguna directiva WORM (retención basada en el tiempo o suspensión legal)     |Mutable         |None         |
 
+<sup>1</sup> La aplicación puede llamar una vez a esta operación para crear un blob. Todas las operaciones que se realicen posteriormente en el blob no estarán permitidas.
+
 > [!NOTE]
-> Tanto la primera operación Put Blob como las operaciones Put Block List y Put Block necesarias para crear un blob se permiten en los dos primeros escenarios de la tabla anterior. Sin embargo, las operaciones posteriores no se permiten.
 >
-> El almacenamiento inmutable solo está disponible en las cuentas de Blob Storage y GPv2. Se debe crear a través de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> El almacenamiento inmutable solo está disponible en las cuentas de Blob Storage y General Purpose V2. La cuenta debe crearse mediante [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Precios
 
-El uso de esta característica no tiene costo adicional. El precio de los datos inmutables es el mismo que el de los datos normales, mutables. Para obtener información detallada acerca de los precios, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+El uso de esta característica no tiene costo adicional. El precio de los datos inmutables es el mismo que el de los datos normales, mutables. Para información detallada sobre los precios de Azure Blob Storage, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### <a name="restrictions"></a>Restricciones
-
-Las siguientes restricciones se aplican durante la versión preliminar pública:
-
-- *No almacene datos de producción ni datos críticos para la empresa*
-- Se aplican todas las restricciones de la versión preliminar y del contrato de confidencialidad.
 
 ## <a name="getting-started"></a>Introducción
 
-Las versiones más recientes de [Azure Portal](http://portal.azure.com), [la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) admiten el almacenamiento inmutable para Azure Blob Storage.
+Las versiones más recientes de [Azure Portal](http://portal.azure.com), [la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y la versión preliminar de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) son compatibles con el almacenamiento inmutable de Azure Blob Storage.
 
 ### <a name="azure-portal"></a>Azure Portal
 
 1. Cree un nuevo contenedor o seleccione un contenedor existente para almacenar los blobs que se deben conservar en estado inmutable.
- El contenedor debe estar en una cuenta de almacenamiento GPv2.
+ El contenedor debe estar en una cuenta de Blob Storage o GPv2.
 2. Seleccione **Access policy** (Directiva de acceso) en la configuración del contenedor. Luego, seleccione **+ Agregar directiva** en **Almacenamiento de blobs inmutable**.
 
     ![Configuración del contenedor en el portal](media/storage-blob-immutable-storage/portal-image-1.png)
@@ -134,11 +129,9 @@ Las versiones más recientes de [Azure Portal](http://portal.azure.com), [la CLI
 
     ![Cuadro "Nombre de etiqueta" en el tipo de directiva](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-### <a name="azure-cli-20"></a>CLI de Azure 2.0
+8. Para eliminar una retención legal, basta con quitar la etiqueta.
 
-Instale la [extensión de la CLI de Azure](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) mediante `az extension add -n storage-preview`.
-
-Si ya tiene la extensión instalada, use el siguiente comando para habilitar el almacenamiento inmutable: `az extension update -n storage-preview`.
+### <a name="azure-cli"></a>Azure CLI
 
 La característica se incluye en los siguientes grupos de comandos: `az storage container immutability-policy` y `az storage container legal-hold`. Ejecute `-h` en ellos para ver los comandos.
 
@@ -160,7 +153,8 @@ Las siguientes bibliotecas de cliente admiten el almacenamiento inmutable para A
 
 - [Biblioteca de cliente .NET, versión 7.2.0 (versión preliminar) y versiones posteriores](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [Biblioteca de cliente Node.js, versión 4.0.0 y versiones posteriores](https://www.npmjs.com/package/azure-arm-storage)
-- [Biblioteca de cliente Python, versión 2.0.0 Release Candidate 2 y versiones posteriores](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+- [Biblioteca de cliente Python, versión 2.0.0 Release Candidate 2 y versiones posteriores](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
+- [Biblioteca cliente de Java](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
 ## <a name="supported-values"></a>Valores admitidos
 
@@ -176,15 +170,15 @@ Las siguientes bibliotecas de cliente admiten el almacenamiento inmutable para A
 
 **¿La característica se aplica solo a los blobs en bloques o también a los blobs en páginas y a los blobs en anexos?**
 
-El almacenamiento inmutable se puede usar con cualquier tipo de blob.  No obstante, se recomienda utilizarlo principalmente en los blobs en bloques. A diferencia de los blobs en bloques, los blobs en páginas y los blobs en anexos se deben crear fuera de un contenedor WORM y luego se deben copiar en él. Después de copiar estos blobs en un contenedor WORM, no se permiten más *anexos* en un blob en anexos ni cambios en un blob en páginas.
+El almacenamiento inmutable puede utilizarse con cualquier tipo de blob, pero se recomienda usarlo principalmente con blobs en bloques. A diferencia de los blobs en bloques, los blobs en páginas y los blobs en anexos se deben crear fuera de un contenedor WORM y luego se deben copiar en él. Después de copiar estos blobs en un contenedor WORM, no se permiten más *anexos* en un blob en anexos ni cambios en un blob en páginas.
 
 **Para usar esta característica, ¿debo crear siempre una nueva cuenta de almacenamiento?**
 
-El almacenamiento inmutable se puede usar con cualquier cuenta GPv2 existente o en las cuentas de almacenamiento nuevas si el tipo de cuenta es GPv2. Esta característica solo está disponible con Blob Storage.
+Puede utilizar el almacenamiento inmutable con cualquier cuenta de Blob Storage y General Purpose V2 existente o que acabe de crearse. Esta característica solo está disponible en Blob Storage.
 
 **¿Qué ocurre si se intenta eliminar un contenedor con una directiva de retención basada en el tiempo o una retención legal *bloqueada*?**
 
-Se producirá un error en la operación de eliminación del contenedor si hay al menos un blob con una directiva de retención con duración definida o una suspensión legal. Esto sucede aunque los datos se [han eliminado temporalmente](storage-blob-soft-delete.md). La operación de eliminación del contenedor se realizará correctamente si no hay ningún blob con un intervalo de retención activo y no hay retenciones legales. Para poder eliminar el contenedor, antes debe eliminar los blobs. 
+La operación Delete Container producirá un error si hay al menos un blob con una directiva de retención de duración definida o una retención legal. La operación Delete Container solo se ejecutará correctamente si no existe ningún intervalo de retención activo y no hay retenciones legales. Para poder eliminar el contenedor, antes debe eliminar los blobs.
 
 **¿Qué ocurre si se intenta eliminar una cuenta de almacenamiento con un contenedor WORM que tiene una directiva de retención basada en el tiempo o una retención legal*bloqueada*?**
 
@@ -192,7 +186,7 @@ Se producirá un error en la eliminación de la cuenta de almacenamiento si hay 
 
 **¿Puedo mover los datos entre distintos niveles de blob (nivel de acceso frecuente, esporádico, poco frecuente) cuando el blob está en estado inmutable?**
 
-Sí, puede usar el comando Set Blob Tier para mover datos entre los niveles de blob manteniendo los datos en estado inmutable. El almacenamiento inmutable se admite en los niveles de blob de acceso frecuente, esporádico y poco frecuente.
+Sí, puede usar el comando Set Blob Tier para mover datos entre los niveles de blob manteniendo los datos en estado inmutable. El almacenamiento inmutable solamente se admite en los niveles de blob de acceso frecuente, de acceso esporádico y de archivo.
 
 **¿Qué ocurre si dejo de pagar y no ha expirado el intervalo de retención?**
 
@@ -209,6 +203,8 @@ Actualmente, el almacenamiento inmutable solo está disponible en las regiones p
 ## <a name="sample-powershell-code"></a>Código de PowerShell de ejemplo
 
 El siguiente script de PowerShell de ejemplo se utiliza como referencia. Dicho script crea una nueva cuenta de almacenamiento y un contenedor. Luego muestra cómo establecer y eliminar suspensiones legales, crear y bloquear una directiva de retención con duración definida (también conocida como directiva de inmutabilidad) y amplíe el intervalo de retención.
+
+Configuración y comprobación de la cuenta de Azure Storage:
 
 ```powershell
 $ResourceGroup = "<Enter your resource group>”
@@ -258,115 +254,128 @@ Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 # Remove a container with a container object
 $containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 Remove-AzureRmStorageContainer -InputObject $containerObject2
+```
 
+Establecimiento y eliminación de retenciones legales:
+
+```powershell
 # Set a legal hold
 Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag1,tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
-# Set a legal hold with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3
+# with an account object
+Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
-# Set a legal hold with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4,tag5
+# with a container object
+Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
 Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
-# Clear a legal hold with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3,tag5
+# with an account object
+Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
-# Clear a legal hold with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4
+# with a container object
+Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+```
 
-# Create or update an immutability policy
-## with an account name or container name
-
+Creación o actualización de directivas de inmutabilidad:
+```powershell
+# with an account name or container name
 Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
-## with an account object
+# with an account object
 Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
-## with an immutability policy object
+# with an immutability policy object
 Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+```
 
+Recuperación de directivas de inmutabilidad:
+```powershell
 # Get an immutability policy
 Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
-# Get an immutability policy with an account object
+# with an account object
 Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
-# Get an immutability policy with a container object
+# with a container object
 Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+```
 
-# Lock an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
-
+Bloqueo de directivas de inmutabilidad (agregue - Force para descartar el mensaje):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
-## with an account name or container name
+# with an account name or container name
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
+```
 
-# Extend an immutability policy
-## with an immutability policy object
+Ampliación de directivas de inmutabilidad:
+```powershell
 
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
-## with an account name or container name
+# with an account name or container name
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
-## with an account object
+# with an account object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
+```
 
-# Remove an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
+Eliminación de una directiva de inmutabilidad (agregue - Force para descartar el mensaje):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
-## with an account name or container name
+# with an account name or container name
 Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
-    
+
 ```

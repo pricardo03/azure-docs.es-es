@@ -1,24 +1,26 @@
 ---
-title: Elección del modo de reconocimiento | Microsoft Docs
-description: Cómo elegir el mejor modo de reconocimiento.
+title: Elección del modo de reconocimiento de Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Cómo elegir el mejor modo de reconocimiento en Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f02b683dde16b537ae5554e6435c068f0fcb808
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a39b357a26823e322d4e902f2d99b67488bbf2df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380539"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950886"
 ---
-# <a name="speech-recognition-modes"></a>Modos de reconocimiento de voz
+# <a name="bing-speech-recognition-modes"></a>Modos de reconocimiento de voz de Bing Speech
 
-Las API *Speech to Text* admiten varios modos de reconocimiento de voz. Elija el modo que produzca los mejores resultados de reconocimiento para su aplicación.
+Las instancias de Bing Speech to Text API admiten varios modos de reconocimiento de voz. Elija el modo que produzca los mejores resultados de reconocimiento para su aplicación.
 
 | Mode | DESCRIPCIÓN |
 |---|---|

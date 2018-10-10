@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715070"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949713"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -49,7 +49,7 @@ Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de má
 
 **P.** ¿Cómo se crea un conjunto de escalado con una imagen personalizada?
 
-**R.** Cree y capture una imagen de máquina virtual y, a continuación, úsela como origen para el conjunto de escalado. Para obtener un tutorial sobre cómo crear y usar una imagen de máquina virtual personalizada, puede usar la [CLI de Azure 2.0](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md).
+**R.** Cree y capture una imagen de máquina virtual y, a continuación, úsela como origen para el conjunto de escalado. Para obtener un tutorial sobre cómo crear y usar una imagen de máquina virtual personalizada, puede usar la [CLI de Azure](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
 **P.** Si reduzco la capacidad de mi conjunto de escalado de 20 a 15, ¿qué máquinas virtuales se quitan?
 
@@ -129,7 +129,7 @@ Puede elegir cualquier contador de rendimiento de máquina virtual como métrica
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>¿Cómo se configura el escalado automático en un conjunto de escalado de máquinas virtuales utilizando PowerShell?
 
-Para configurar el escalado automático en un conjunto de escalado de máquinas virtuales mediante PowerShell, consulte el tutorial de [escalado automático de conjuntos de escalado de máquinas virtuales](tutorial-autoscale-powershell.md). También puede configurar el escalado automático con la [CLI de Azure 2.0](tutorial-autoscale-cli.md) y las [plantillas de Azure](tutorial-autoscale-template.md)
+Para configurar el escalado automático en un conjunto de escalado de máquinas virtuales mediante PowerShell, consulte el tutorial de [escalado automático de conjuntos de escalado de máquinas virtuales](tutorial-autoscale-powershell.md). También puede configurar el escalado automático con la [CLI de Azure](tutorial-autoscale-cli.md) y las [plantillas de Azure](tutorial-autoscale-template.md)
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>¿Si he detenido (desasignado) una máquina virtual, esa máquina virtual se inicia como parte de una operación de escalado automático?

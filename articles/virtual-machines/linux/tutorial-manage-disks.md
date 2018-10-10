@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Administración de discos de Azure con la CLI de Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para crear y administrar discos de Azure para máquinas virtuales.
+description: En este tutorial, aprenderá a usar la CLI de Azure para crear y administrar discos de Azure para máquinas virtuales
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 889facbf9612f2462a10c886a428ac052becefd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704494"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978325"
 ---
-# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Tutorial: Administración de discos de Azure con la CLI de Azure 2.0
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial: Administración de discos de Azure con la CLI de Azure
 
 Las máquinas virtuales (VM) de Azure usan discos para almacenar el sistema operativo, las aplicaciones y los datos. Cuando se crea una máquina virtual es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. En este tutorial se muestra cómo implementar y administrar los discos de una máquina virtual. Aprenderá sobre los siguientes temas:
 
@@ -38,7 +38,7 @@ Las máquinas virtuales (VM) de Azure usan discos para almacenar el sistema oper
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
 
@@ -50,7 +50,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| type | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
+| Escriba | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A, B y D | 1600 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 576 |
@@ -65,7 +65,7 @@ Para instalar aplicaciones y almacenar datos, se pueden agregar más discos de d
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
-| type | Tamaño de VM | Discos de datos máximos por máquina virtual |
+| Escriba | Tamaño de VM | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A, B y D | 64 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 64 |

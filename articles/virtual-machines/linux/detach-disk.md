@@ -1,6 +1,6 @@
 ---
 title: Desconexión de un disco de una máquina virtual Linux en Azure | Microsoft Docs
-description: Obtenga información sobre cómo desconectar un disco de datos de una máquina virtual de Azure creada mediante la CLI 2.0 o Azure Portal.
+description: Información sobre cómo desconectar un disco de datos de una máquina virtual de Azure mediante la CLI de Azure o Azure Portal.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
-ms.openlocfilehash: 0225c6605109489c4b9b599918dc09983ae25ac8
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b087040e5d219941ec0b2ee0f58dfe0058a1ad04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144081"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968362"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Desconexión de un disco de datos de una máquina virtual Linux
 
@@ -99,7 +99,7 @@ sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-cli-20"></a>Desconexión de un disco de datos con la CLI de 2.0
+## <a name="detach-a-data-disk-using-azure-cli"></a>Desconexión de un disco de datos con la CLI de Azure 
 
 En este ejemplo se desconecta el disco *myDataDisk* de la máquina virtual denominada *myVM* en *myResourceGroup*.
 

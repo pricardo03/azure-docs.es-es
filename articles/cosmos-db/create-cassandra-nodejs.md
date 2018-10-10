@@ -1,26 +1,32 @@
 ---
-title: 'Guía de inicio rápido: API de Cassandra con Node.js y Azure Cosmos DB | Microsoft Docs'
+title: 'Guía de inicio rápido: Cassandra API con Node.js (Azure Cosmos DB)'
 description: Esta guía de inicio rápido muestra cómo usar la API de Cassandra de Azure Cosmos DB para crear una aplicación de perfil con Node.js
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: e86b80328c3717220b2771a1bf8f4232f9a51748
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/24/2018
+ms.openlocfilehash: e7b4bc51ab71fa1043afdab019d27fd089d0356c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215871"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980090"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación Cassandra con Node.js y Azure Cosmos DB
 
-Esta guía de inicio rápido muestra cómo se usan Node.js y la [API de Cassandra](cassandra-introduction.md) de Azure Cosmos DB para compilar una aplicación de perfil mediante la clonación de un ejemplo de GitHub. Esta guía de inicio rápido también le guía a través de la creación de una cuenta de Azure Cosmos DB a través de Azure Portal en la web.
+> [!div class="op_single_selector"]
+> * [.NET](create-cassandra-dotnet.md)
+> * [Java](create-cassandra-java.md)
+> * [Node.js](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
+>  
+
+Esta guía de inicio rápido muestra cómo se usan Node.js y la [API de Cassandra](cassandra-introduction.md) de Azure Cosmos DB para compilar una aplicación de perfil mediante la clonación de un ejemplo de GitHub. En esta guía de inicio rápido también se muestra cómo usar Azure Portal basado en web para crear una cuenta de Azure Cosmos DB.
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, tablas, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
@@ -28,9 +34,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
 
-Acceda a la versión preliminar del programa de la API de Cassandra de Azure Cosmos DB. Si no ha solicitado el acceso aún, [regístrese ahora](cassandra-introduction.md#sign-up-now).
-
-Además:
+Además, necesita:
 * [Node.js](https://nodejs.org/en/) versión v0.10.29 o superior
 * [Git](http://git-scm.com/)
 
@@ -44,13 +48,13 @@ Para poder crear una base de datos de documentos, debe crear una cuenta de Cassa
 
 Ahora vamos a clonar una aplicación de la API de Cassandra desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
-1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
+1. Abra el símbolo del sistema. Cree una carpeta nueva denominada `git-samples`. Después cierre el símbolo del sistema.
 
     ```bash
     md "C:\git-samples"
     ```
 
-2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo.
+2. Abra una ventana de terminal de Git, como Git Bash. Use el comando `cd` para cambiar a la nueva carpeta e instalar la aplicación de ejemplo.
 
     ```bash
     cd "C:\git-samples"
@@ -64,9 +68,9 @@ Ahora vamos a clonar una aplicación de la API de Cassandra desde GitHub, establ
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo uprofile.js en la carpeta C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
+Este paso es opcional. Si le interesa aprender cómo el código crea los recursos de base de datos, puede revisar los siguientes fragmentos de código. Los fragmentos de código se toman del archivo `uprofile.js` de la carpeta `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started`. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
 
-* El nombre de usuario y la contraseña se establecen en la página de la cadena de conexión de Azure Portal. "path\to\cert" proporciona una ruta de acceso a un certificado X509. 
+* Se establecieron los valores de nombre de usuario y contraseña utilizando la página de la cadena de conexión en el Azure Portal. El `path\to\cert` proporciona una ruta de acceso a un certificado X509. 
 
    ```nodejs
    var ssl_option = {
@@ -152,11 +156,11 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
-Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada.
+Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. La cadena de conexión permite a la aplicación comunicarse con la base de datos hospedada.
 
-1. En [Azure Portal](http://portal.azure.com/), haga clic en **Cadena de conexión**. 
+1. En [Azure Portal](http://portal.azure.com/) seleccione **Cadena de conexión**. 
 
-    Use el botón ![Botón Copiar](./media/create-cassandra-nodejs/copy.png) del lado derecho de la pantalla para copiar el valor superior, CONTACT POINT (Punto de contacto).
+    Use el ![Botón Copiar](./media/create-cassandra-nodejs/copy.png) del lado derecho de la pantalla para copiar el valor superior, CONTACT POINT (Punto de contacto).
 
     ![Visualización y copia del valor de CONTACT POINT (Punto de contacto), NOMBRE DE USUARIO y CONTRASEÑA de la página de la cadena de conexión de Azure Portal](./media/create-cassandra-nodejs/keys.png)
 
@@ -180,17 +184,19 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
-6. Guarde el archivo config.js.
+6. Guarde el archivo `config.js`.
     
-## <a name="use-the-x509-certificate"></a>Uso del certificado X509 
+## <a name="use-the-x509-certificate"></a>Uso del certificado X509
 
-1. Si necesita agregar Baltimore CyberTrust Root, tiene el número de serie 02:00:00:b9 y la huella digital SHA1 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Se puede descargar desde https://cacert.omniroot.com/bc2025.crt y se puede guardar en un archivo local con la extensión .cer. 
+1. Descargue el certificado Baltimore CyberTrust Root de forma loca desde [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Cambie el nombre del archivo con la extensión de archivo `.cer`.
 
-2. Abra uprofile.js y cambie "path\to\cert" para que apunte al certificado nuevo. 
+   El certificado tiene el número de serie `02:00:00:b9` y la huella digital SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
-3. Guarde uprofile.js. 
+2. Abra `uprofile.js` y cambie el `path\to\cert` para que apunte al nuevo certificado.
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+3. Guarde `uprofile.js`.
+
+## <a name="run-the-nodejs-app"></a>Ejecute la aplicación Node.js
 
 1. En la ventana del terminal de git, ejecute `npm install` para instalar los módulos de npm necesarios.
 
@@ -200,9 +206,9 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     ![Visualización y comprobación del resultado](./media/create-cassandra-nodejs/output.png)
 
-    Presione CTRL + C para detener la ejecución del programa y cerrar la ventana de consola. 
+    Presione CTRL+C para detener la ejecución del programa y cerrar la ventana de la consola. 
 
-    Ahora puede volver al Explorador de datos de Azure Portal para ver, consultar, modificar estos nuevos datos y trabajar con ellos. 
+4. En Azure Portal abra **Explorador de datos** para consultar, modificar y trabajar con estos nuevos datos. 
 
     ![Visualización de los datos en el Explorador de datos](./media/create-cassandra-nodejs/data-explorer.png) 
 

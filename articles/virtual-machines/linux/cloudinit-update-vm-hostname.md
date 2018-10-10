@@ -1,6 +1,6 @@
 ---
 title: Uso de cloud-init para establecer el nombre de host para una máquina virtual Linux en Azure | Microsoft Docs
-description: Procedimiento para usar cloud-init con el fin de personalizar una máquina virtual Linux con la CLI de Azure 2.0
+description: Procedimiento para usar cloud-init con el fin de personalizar una máquina virtual Linux con la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: a858a12ec81db7ae1c0a7b7cfea06fa2abdcdcc6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e985111a28805f861242240a5c2e3d7b6664be4e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124031"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996118"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Uso de cloud-init para establecer el nombre de host para una máquina virtual Linux en Azure
 En este artículo se muestra el uso de [cloud-init](https://cloudinit.readthedocs.io) para configurar un nombre de host específico en una máquina virtual o en conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -69,7 +69,7 @@ La máquina virtual debe informar el nombre de host como el valor establecido en
 myhostname
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para ejemplos de cloud-init de cambios de configuración adicionales, vea lo siguiente:
  
 - [Incorporación de otro usuario de Linux a una máquina virtual](cloudinit-add-user.md)

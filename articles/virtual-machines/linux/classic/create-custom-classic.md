@@ -1,6 +1,6 @@
 ---
-title: Creación de una máquina virtual Linux mediante la CLI de Azure 1.0 | Microsoft Docs
-description: Aprenda a crear una máquina virtual Linux con la CLI de Azure 1.0 mediante el modelo de implementación clásica
+title: Creación de una máquina virtual Linux clásica mediante la CLI de Azure clásica | Microsoft Docs
+description: Aprenda a crear una máquina virtual Linux con la CLI de Azure clásica mediante el modelo de implementación clásica.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 13d0ef93c3828c514e46e37494a66f7003eac827
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931625"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982054"
 ---
-# <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Creación de una máquina virtual Linux con la CLI de Azure 1.0
+# <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Creación de una máquina virtual Linux clásica con la CLI de Azure clásica
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Para la versión de Resource Manager, consulte [aquí](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-En este tema se describe cómo crear una máquina virtual (VM) Linux con la CLI de Azure 1.0 mediante el modelo de implementación clásica. Vamos a usar una imagen de Linux de una de las **IMÁGENES** disponibles en Azure. Los comandos de la CLI de Azure 1.0 ofrecen, entre otras, las siguientes opciones de configuración:
+En este tema se describe cómo crear una máquina virtual (VM) Linux con la CLI de Azure clásica mediante el modelo de implementación clásica. Vamos a usar una imagen de Linux de una de las **IMÁGENES** disponibles en Azure. Los comandos de la CLI de Azure clásica ofrecen, entre otras, las siguientes opciones de configuración:
 
 * Conexión de la VM a una red virtual
 * Adición de la VM a un servicio en la nube existente

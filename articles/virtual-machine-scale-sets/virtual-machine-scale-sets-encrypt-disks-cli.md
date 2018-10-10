@@ -1,6 +1,6 @@
 ---
 title: Cifrado de discos para conjuntos de escalado de Azure con la CLI de Azure | Microsoft Docs
-description: Obtenga información sobre cómo usar la CLI de Azure 2.0 para cifrar las instancias de máquina virtual y los discos conectados en un conjunto de escalado de máquinas virtuales Linux
+description: Aprenda a usar la CLI de Azure para cifrar las instancias de máquina virtual y los discos conectados en un conjunto de escalado de máquinas virtuales Linux
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fecf7e121b1c0404f1ec67d46cc88008250b9d68
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704562"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981066"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>Cifrado de discos de datos conectados y de SO en un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0 (versión preliminar)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Cifrado de discos de datos conectados y de sistema operativo en un conjunto de escalado de máquinas virtuales con la CLI de Azure (versión preliminar)
 
 Para proteger los datos en reposo mediante la tecnología de cifrado estándar del sector, Virtual Machine Scale Sets admite Azure Disk Encryption (ADE). El cifrado se puede habilitar para conjuntos de escalado de máquinas virtuales Windows y Linux. Para obtener más información, vea [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](../security/azure-security-disk-encryption.md).
 
@@ -38,7 +38,7 @@ En la versión preliminar actual no se admiten operaciones de restablecimiento d
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si elige instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.31 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si elige instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.31 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="register-for-disk-encryption-preview"></a>Registro para la versión preliminar de cifrado de discos
 
@@ -180,6 +180,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, se ha usado la CLI de Azure 2.0 para cifrar un conjunto de escalado de máquinas virtuales. También puede usar [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) o plantillas de [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) o [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+En este artículo se ha usado la CLI de Azure para cifrar un conjunto de escalado de máquinas virtuales. También puede usar [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) o plantillas de [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) o [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
 [Aquí](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat) se puede encontrar un ejemplo de archivo por lotes de un extremo a otro para el cifrado de discos de datos de un conjunto de escalado de Linux. En este ejemplo se crea un grupo de recursos y un conjunto de escalado de Linux, se monta un disco de datos de 5 GB y se cifra el conjunto de escalado de máquinas virtuales.

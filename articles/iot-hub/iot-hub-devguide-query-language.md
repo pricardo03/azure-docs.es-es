@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143287"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952484"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
 IoT Hub proporciona un lenguaje eficaz de tipo SQL para recuperar información sobre [dispositivos gemelos][lnk-twins], [trabajos][lnk-jobs] y [enrutamiento de mensajes][lnk-devguide-messaging-routes]. Este artículo presenta:
 
 * una introducción a las características principales del lenguaje de consulta de IoT Hub y
-* una descripción más detallada del lenguaje.
+* una descripción más detallada del lenguaje. Para más información acerca del lenguaje de consulta del enrutamiento de mensajes, consulte [Consultas en el enrutamiento de mensajes](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -305,126 +305,6 @@ Actualmente, las consultas en **devices.jobs** no admiten:
 * condiciones que hagan referencia al dispositivo gemelo, además de a las propiedades de trabajo (vea la sección anterior).
 * realizar agregaciones, como count, avg, group by.
 
-## <a name="device-to-cloud-message-routes-query-expressions"></a>Expresiones de consulta de rutas de mensajes de dispositivo a la nube
-
-Con las [rutas de dispositivo a la nube][lnk-devguide-messaging-routes], puede configurar IoT Hub para enviar mensajes de dispositivo a la nube en diferentes puntos de conexión. El envío se basa en expresiones evaluadas en mensajes individuales.
-
-La [condición][lnk-query-expressions] de ruta usa la sintaxis del lenguaje de consulta de IoT Hub como condiciones en las consultas gemelas y de trabajo, pero solo un subconjunto de las funciones está disponible. Las condiciones de enrutamiento se evalúan en el cuerpo y los encabezados del mensaje. La expresión de consulta de enrutamiento puede implicar solo los encabezados del mensaje, solo el cuerpo del mensaje o tanto los encabezados como el cuerpo del mensaje. IoT Hub da por supuesto un esquema específico para los encabezados y el cuerpo del mensaje con el fin de enrutar mensajes, y las secciones siguientes describen los elementos que se necesitan para que IoT Hub realice correctamente el enrutamiento.
-
-### <a name="routing-on-message-headers"></a>Enrutamiento en los encabezados del mensaje
-
-IoT Hub da por supuesto la siguiente representación JSON de los encabezados del mensaje para el enrutamiento del mensaje:
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-Las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
-Siempre se accede a las propiedades de usuario con su nombre. Si un nombre de propiedad de usuario coincide con el de una propiedad del sistema (como `$contentType`), se recupera la propiedad de usuario con la expresión `$contentType`.
-Siempre puede acceder a la propiedad del sistema mediante corchetes `{}`: por ejemplo, puede usar la expresión `{$contentType}` para acceder a la propiedad del sistema `contentType`. Los nombres de propiedad entre corchetes siempre permiten recuperar la propiedad del sistema correspondiente.
-
-Recuerde que los nombres de propiedad no distinguen mayúsculas de minúsculas.
-
-> [!NOTE]
-> Todas las propiedades de mensaje son cadenas. Las propiedades del sistema, como se describen en la [guía del desarrollador][lnk-devguide-messaging-format], no están disponibles para su uso en las consultas.
->
-
-Por ejemplo, si utiliza una propiedad `messageType`, puede enrutar toda la telemetría a un punto de conexión y todas las alertas a otro punto de conexión. Puede escribir la siguiente expresión para enrutar la telemetría:
-
-```sql
-messageType = 'telemetry'
-```
-
-Y la siguiente expresión para enrutar los mensajes de alerta:
-
-```sql
-messageType = 'alert'
-```
-
-También se admiten las funciones y expresiones booleanas. Esta característica le permite distinguir entre el nivel de gravedad, por ejemplo:
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Consulte la sección [Expresiones y condiciones][lnk-query-expressions] para obtener la lista completa de funciones y operadores compatibles.
-
-### <a name="routing-on-message-bodies"></a>Enrutamiento en los cuerpos del mensaje
-
-IoT Hub solo puede realizar el enrutamiento según el contenido del cuerpo del mensaje si este tiene un formato JSON correcto codificado en UTF-8, UTF-16 o UTF-32. Defina el tipo de contenido del mensaje en `application/json`. Establezca la codificación del contenido en una de las codificaciones UTF compatibles en los encabezados del mensaje. Si no se especifica cualquiera de los encabezados, IoT Hub no intenta evaluar ninguna expresión de consulta que implique el cuerpo con respecto al mensaje. Si el mensaje no es un mensaje JSON o si no especifica el tipo de contenido ni la codificación de contenido, se puede seguir usando el enrutamiento de mensajes para enrutar el mensaje según los encabezados del mensaje.
-
-En el ejemplo siguiente se muestra cómo crear un mensaje con un cuerpo JSON codificado y formado correctamente:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-Puede usar `$body` en la expresión de consulta para enrutar el mensaje. Puede usar una referencia al cuerpo simple, una referencia a la matriz del cuerpo o varias referencias al cuerpo en la expresión de consulta. La expresión de consulta también puede combinar una referencia al cuerpo con una referencia al encabezado del mensaje. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas:
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
-
 ## <a name="basics-of-an-iot-hub-query"></a>Conceptos básicos de una consulta de IoT Hub
 Cada consulta de IoT Hub consta de las cláusulas SELECT y FROM, además de las cláusulas opcionales WHERE y GROUP BY. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FROM indica la colección de documentos en la que se va a iterar (**devices** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. Con agregaciones, los resultados de este paso se agrupan según se especifique en la cláusula GROUP BY. Para cada grupo, se genera una fila de acuerdo con lo especificado en la cláusula SELECT.
 
@@ -614,8 +494,7 @@ Aprenda a ejecutar consultas en sus aplicaciones mediante los [SDK IoT de Azure 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

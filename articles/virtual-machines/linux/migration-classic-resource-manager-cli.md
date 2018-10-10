@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: f986246e74305789eb2978a95fd6a3e51accd25e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0011ee646215c01e84aec71c7b992afca1ca3c2a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30909758"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997172"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure
-En estos pasos se describe cómo utilizar los comandos de la interfaz de la línea de comandos (CLI) de Azure para migrar recursos de infraestructura como servicio (IaaS) del modelo de implementación clásica al modelo de implementación de Azure Resource Manager. El artículo requiere la [CLI de Azure 1.0](../../cli-install-nodejs.md). Dado que la CLI de Azure 2.0 solo es aplicable para los recursos de Azure Resource Manager, no se puede utilizar para esta migración.
+En estos pasos se describe cómo utilizar los comandos de la interfaz de la línea de comandos (CLI) de Azure para migrar recursos de infraestructura como servicio (IaaS) del modelo de implementación clásica al modelo de implementación de Azure Resource Manager. El artículo requiere la [CLI de Azure clásica](../../cli-install-nodejs.md). Dado que la CLI de Azure solo se puede aplicar a los recursos de Azure Resource Manager, no se puede utilizar para esta migración.
 
 > [!NOTE]
 > Todas las operaciones que se describen aquí son idempotentes. Si tiene un problema diferente de una función no admitida o un error de configuración, se recomienda que vuelva a intentar la operación de preparación, anulación o confirmación. De ese modo, la plataforma intentará de nuevo la acción.
@@ -74,7 +74,7 @@ Espere cinco minutos a que finalice el registro. Puede comprobar el estado de la
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Ahora cambie CLI al modo `asm` .
+Ahora cambie CLI al modo `asm`.
 
     azure config mode asm
 
@@ -91,7 +91,7 @@ Puede usar el siguiente comando de CLI para comprobar el número de unidades vCP
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-Una vez comprobado este paso, puede volver a cambiar a modo `asm` .
+Una vez comprobado este paso, puede volver a cambiar a modo `asm`.
 
     azure config mode asm
 
@@ -121,7 +121,7 @@ Si quiere migrar a una red virtual existente en el modelo de implementación de 
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-Una vez finalizada la operación de preparación, puede consultar la salida detallada para obtener el estado de migración de las máquinas virtuales y asegurarse de que están en estado `Prepared` .
+Una vez finalizada la operación de preparación, puede consultar la salida detallada para obtener el estado de migración de las máquinas virtuales y asegurarse de que están en estado `Prepared`.
 
     azure vm show <vmName> -vv
 

@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038681"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986683"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -333,7 +333,7 @@ WAF actualmente admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 **P. ¿Admite también WAF la prevención DDoS?**
 
-No, WAF no ofrece prevención DDoS.
+Sí. Puede habilitar la protección contra DDos en la red virtual donde se implementa la puerta de enlace de aplicaciones. Así se garantiza que la dirección IP virtual de la puerta de enlace de aplicaciones también está protegida con el servicio Azure DDos Protection.
 
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 
@@ -360,6 +360,12 @@ Los registros de auditoría están disponibles para Application Gateway. En el p
 **P. ¿Se pueden establecer alertas con Application Gateway?**
 
 Sí, Application Gateway admite alertas, y estas se configuran a partir de las métricas. Application Gateway tiene actualmente una métrica de "rendimiento", que se puede configurar para que genere una alerta. Para más información sobre las alertas, visite [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**P. ¿Cómo se pueden analizar las estadísticas de tráfico de Application Gateway?**
+
+Puede ver y analizar los registros de acceso mediante una serie de mecanismos, como Azure Log Analytics, Excel, Power BI, etc.
+
+También hemos publicado una plantilla de Resource Manager que instala y ejecuta el conocido analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **P. El estado de back-end devuelve un estado desconocido, ¿que puede haberlo provocado?**
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 07352a5d7c8b465440efab17c654979662a95f8e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702660"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994724"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnóstico de problemas de enrutamiento en una máquina virtual
 
@@ -87,7 +87,7 @@ En la salida anterior, el nombre de la interfaz de red es *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnóstico mediante la CLI de Azure
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI en el equipo. En este artículo se requiere la CLI de Azure versión 2.0.32 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta la CLI de Azure localmente, también debe ejecutar `az login` e iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI en el equipo. En este artículo se requiere la CLI de Azure versión 2.0.32 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta la CLI de Azure localmente, también debe ejecutar `az login` e iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
 Obtenga las rutas eficaces de una interfaz de red con [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
 
@@ -127,7 +127,7 @@ Tenga en cuenta los puntos siguientes cuando tenga que solucionar problemas de c
 - Si ha creado una ruta a 0.0.0.0/0, todo el tráfico saliente de Internet se enruta al próximo salto que especifique, por ejemplo, a una NVA o una puerta de enlace de VPN. La creación de una ruta de este tipo se conoce a veces como tunelización forzada. Puede que las conexiones remotas que usan los protocolos RDP o SSH desde Internet hasta la máquina virtual no funcionen con esta ruta, en función de cómo el próximo salto administre el tráfico. Puede habilitar la tunelización forzada:
     - Cuando se usa VPN de sitio a sitio, mediante la creación de una ruta con un tipo de próximo salto de *Puerta de enlace de VPN*. Aprenda más sobre [cómo configurar la tunelización forzada](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - Si 0.0.0.0/0 (ruta predeterminada) se anuncia sobre BGP mediante una puerta de enlace de red virtual al usar VPN de sitio a sitio o un circuito ExpressRoute. Aprenda más sobre el uso de BGP con una [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ip-addresses-used-for-azure-private-peering).
-- Para que el tráfico de emparejamiento de red virtual funcione correctamente, debe existir una ruta del sistema con un tipo de próximo salto de *Emparejamiento de VNet* para el intervalo de prefijos de la red virtual emparejada. Si no existe una ruta de este tipo, y el vínculo de emparejamiento de red virtual es **Conectado**:
+- Para que el tráfico de emparejamiento de red virtual funcione correctamente, debe existir una ruta del sistema con un tipo de próximo salto de *Emparejamiento de VNet* para el intervalo de prefijos de la red virtual emparejada. Si la ruta no existe y el vínculo de emparejamiento de la red virtual es **Conectado**:
     - Espere unos segundos e inténtelo de nuevo. Si es un vínculo de emparejamiento recién establecido, en ocasiones las rutas tardan más tiempo en propagarse a todas las interfaces de red de una subred. Para más información sobre el emparejamiento de redes virtuales, consulte [Introducción al emparejamiento de redes virtuales](virtual-network-peering-overview.md) y [Administración del emparejamientos de redes virtuales](virtual-network-manage-peering.md).
     - Las reglas del grupo de seguridad podrían estar afectando a la comunicación. Para más información, consulte [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md) (Diagnóstico de problemas de filtro del tráfico de red de la máquina virtual).
 - Aunque Azure asigna rutas predeterminadas a cada interfaz de red de Azure, si tiene varias interfaces de red asociadas a la máquina virtual, solo a la interfaz de red principal se le asigna una ruta predeterminada (0.0.0.0/0), o puerta de enlace, dentro del sistema operativo de la máquina virtual. Aprenda a crear una ruta predeterminada para las interfaces de red secundarias asociadas a una máquina virtual [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) o [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics). Aprenda más sobre las [interfaces de red principales y secundarias](virtual-network-network-interface-vm.md#constraints).

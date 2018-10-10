@@ -1,6 +1,6 @@
 ---
 title: Búsqueda y eliminación de NIC de Azure no asociadas | Microsoft Docs
-description: Cómo buscar y eliminar NIC de Azure no asociadas a máquinas virtuales con la CLI de Azure 2.0
+description: Cómo buscar y eliminar NIC de Azure no asociadas a máquinas virtuales con la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 54315b2b66b9fb11ae904593c285eb7623cccdbb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9d8345aacb603a6411fdc693ac9f808778d27333
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930518"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954337"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Cómo buscar y eliminar tarjetas de interfaz de red (NIC) no asociadas en máquinas virtuales de Azure
 Cuando se elimina una máquina virtual (VM) en Azure, las tarjetas de interfaz de red (NIC) no se eliminan de forma predeterminada. Si crea y elimina varias máquinas virtuales, las NIC no usadas siguen utilizando las concesiones de dirección IP internas. Como resultado, cuando cree otras NIC de máquina virtual, es posible que no puedan obtener una concesión de IP en el espacio de direcciones de la subred. En este artículo se muestra cómo buscar y eliminar NIC no asociadas.

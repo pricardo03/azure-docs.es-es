@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122474"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965541"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
-En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor recopila [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) y [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) para recibir notificaciones cuando una métrica alcance un valor especificado. 
+ 
+En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../monitoring/monitoring-data-collection.md#metrics) y [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para recibir notificaciones cuando una métrica alcance un valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas de Batch
 
@@ -64,7 +65,8 @@ Para configurar una alerta de métrica en el portal:
 2. En **Supervisión**, haga clic en **Reglas de alerta** > **Agregar alerta de métrica**.
 3. Seleccione una métrica, una condición de alerta (por ejemplo, cuando una métrica supere un valor determinado durante un período) y una o más notificaciones.
 
-También puede configurar una alerta casi en tiempo real mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/). Para más información, consulte [Usar las nuevas alertas de métricas para los servicios de Azure en Azure Portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+También puede configurar una alerta casi en tiempo real mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/). Para más información, consulte [Introducción a las alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 ## <a name="batch-diagnostics"></a>Diagnóstico de Batch
 
 Los registros de diagnóstico contienen información que emiten los recursos de Azure que describe el funcionamiento de cada recurso. En Batch, puede recopilar los registros siguientes:

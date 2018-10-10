@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133292"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006535"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -60,6 +60,8 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Tablas de rutas definidas por el usuario |200 |
 | Rutas definidas por el usuario por tabla de ruta |400 |
 | Certificados raíz de punto a sitio por VPN Gateway |20 |
+| TAP de red virtual |100 |
+| Configuraciones de TAP de la interfaz de red por TAP de red virtual |100 |
 
 #### <a name="publicip-address"></a>Límites de dirección IP pública
 
@@ -75,17 +77,17 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Equilibradores de carga | 100 | 1000 |
-| Reglas por recurso, básico | 150 | 250 |
-| Reglas por recurso, estándar | 1250 | 1.500 |
+| Reglas por recurso, básico | 250 | 250 |
+| Reglas por recurso, estándar | 1.500 | 1.500 |
 | Reglas por configuración de dirección IP | 299 |299 |
 | Configuraciones de direcciones IP de front-end, básico | 10 | 200 |
 | Configuraciones de direcciones IP de front-end, estándar | 10 | 600 |
 | Grupo de back-end, básico | 100, conjunto de disponibilidad único | 100, conjunto de disponibilidad único |
 | Grupo de back-end, estándar | 1000, red virtual única | 1000, red virtual única |
-| Recursos de back-end por Load Balancer, Estándar &ast; | 50 | 150 |
+| Recursos de back-end por Load Balancer, Estándar * | 150 | 150 |
 | Puertos de alta disponibilidad, estándar | 1 por front-end interno | 1 por front-end interno |
 
-&ast; hasta 150 recursos, cualquier combinación de máquinas virtuales independientes, conjuntos de disponibilidad y conjuntos de escalado de máquinas virtuales.
+** Hasta 150 recursos, cualquier combinación de máquinas virtuales independientes, conjuntos de disponibilidad y conjuntos de escalado de máquinas virtuales.
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

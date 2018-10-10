@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092774"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966850"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -234,7 +234,7 @@ En el ejemplo siguiente se configuran las reglas siguientes:
 
 El valor de categoría de *host.json* controla el registro de todas las categorías que comienzan con el mismo valor. Por ejemplo, "Host" en *host.json* controla el registro de "Host.General", "Host.Executor", "Host.Results" y así sucesivamente.
 
-Si *host.json* incluye varias categorías que comienzan con la misma cadena, las más largas se asignan primero. Por ejemplo, imagine que quiere todo del tiempo de ejecución, menos que "Host.Aggregator" registre en el nivel `Error`, y que "Host.Aggregator" registre en el nivel `Information`:
+Si *host.json* incluye varias categorías que comienzan con la misma cadena, las más largas se asignan primero. Por ejemplo, imagine que quiere que todo el runtime excepto "Host.Aggregator" inicie sesión en el nivel `Error` y quiere que "Host.Aggregator" inicie sesión en el nivel `Information`:
 
 ```json
 {
@@ -298,7 +298,7 @@ Como se indicó en la sección anterior, el tiempo de ejecución agrega datos ac
 
 ## <a name="configure-sampling"></a>Configurar el muestreo
 
-Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando el número de elementos de telemetría supera una tasa especificada, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en *host.json*.  Este es un ejemplo:
+Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando tasa de datos de telemetría supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en *host.json*.  Este es un ejemplo:
 
 ```json
 {
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```
@@ -547,9 +530,9 @@ Incluso si la pestaña **Supervisar** muestra datos de Application Insights, pue
 
 ### <a name="real-time-monitoring"></a>Supervisión en tiempo real
 
-Puede transmitir archivos de registro a una sesión de línea de comandos en una estación de trabajo local mediante la [interfaz de la línea de comandos (CLI) de Azure 2.0](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).  
+Puede transmitir archivos de registro a una sesión de línea de comandos en una estación de trabajo local mediante la [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).  
 
-Para la CLI de Azure 2.0, use los siguientes comandos para iniciar sesión, elija su suscripción y transmita los archivos de registro:
+Para la CLI de Azure, use los siguientes comandos para iniciar sesión, elija la suscripción y transmita los archivos de registro:
 
 ```
 az login

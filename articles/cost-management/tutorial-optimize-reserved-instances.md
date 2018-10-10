@@ -1,30 +1,30 @@
 ---
-title: 'Tutorial: Optimización de costos de las instancias reservadas con Azure Cost Management | Microsoft Docs'
+title: 'Tutorial: Optimización de costos de las instancias reservadas con Cloudyn en Azure | Microsoft Docs'
 description: En este tutorial, aprenderá a optimizar los costos de las instancias reservadas para Azure y Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177330"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987797"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Tutorial: Optimización de instancias reservadas
 
-En este tutorial, aprenderá cómo Cost Management le ayuda a optimizar los costos y de las instancias reservadas para Azure y Amazon Web Services (AWS) y su uso. Una instancia reservada con cualquier proveedor de servicios en la nube es un contrato a largo plazo de compromiso por adelantado por el uso futuro de la máquina virtual. Además, puede ofrecer ahorros considerables en comparación con el modelo de precios de máquina virtual de pago por uso estándar. Los ahorros solo se aprecian al usar toda la capacidad de las instancias reservadas.
+En este tutorial, aprenderá cómo Cloudyn le ayuda a optimizar los costos de las instancias reservadas para Azure y Amazon Web Services (AWS) y su uso. Una instancia reservada con cualquier proveedor de servicios en la nube es un contrato a largo plazo de compromiso por adelantado por el uso futuro de la máquina virtual. Además, puede ofrecer ahorros considerables en comparación con el modelo de precios de máquina virtual de pago por uso estándar. Los ahorros solo se aprecian al usar toda la capacidad de las instancias reservadas.
 
-Este tutorial explica cómo Cost Management mantiene las instancias reservadas para Azure y AWS. También describe cómo se optimizan los costos de las instancias reservadas. Principalmente, al garantizar que las reservas funcionan a la máxima capacidad. En este tutorial, aprenderá lo siguiente:
+Este tutorial explica cómo Cloudyn mantiene las instancias reservadas para Azure y AWS. También describe cómo se optimizan los costos de las instancias reservadas. Principalmente, al garantizar que las reservas funcionan a la máxima capacidad. En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * Descripción de los costos de las instancias reservadas para Azure
@@ -38,30 +38,30 @@ Este tutorial explica cómo Cost Management mantiene las instancias reservadas p
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener una cuenta de Azure.
-- Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
+- Debe tener un registro de prueba o una suscripción de pago en Cloudyn.
 - Debe haber comprado instancias reservadas en Azure o AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Descripción de los costos de las instancias reservadas para Azure
 
-Al comprar instancias reservadas de máquina virtual de Azure, se paga por adelantado para el uso futuro. El pago por adelantado cubre el costo del uso futuro de las máquinas virtuales:
+Al comprar Azure Reserved VM Instances, se paga por adelantado para el uso futuro. El pago por adelantado cubre el costo del uso futuro de las máquinas virtuales:
 
 - de un tipo específico
 - en una región específica
 - durante un plazo de uno o tres años
 - del máximo de máquinas virtuales compradas
 
-Puede ver las instancias de máquina virtual reservada de Azure adquiridas en Azure Portal, en [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Puede ver las instancias de Azure Reserved VM Instances adquiridas en Azure Portal, en [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-El término _instancia reservada de máquina virtual de Azure_ solo se aplica a un modelo de precios. No cambia las máquinas virtuales en ejecución en absoluto. El término es específico de Azure y se suele denominar _instancia reservada_ o _reserva_. Las instancias reservadas que haya comprado no se aplican a máquinas virtuales específicas, sino a cualquier máquina virtual con características concretas. Por ejemplo, una reserva para un tipo de máquina virtual que se ejecuta en la región que eligió para la reserva que adquirió.
+El término _instancia reservada de máquina virtual de Azure_ solo se aplica a un modelo de precios. No cambia las máquinas virtuales en ejecución en absoluto. El término es específico de Azure y se suele denominar _instancia reservada_ o _reserva_. Las instancias reservadas que haya comprado no se aplican a máquinas virtuales específicas, sino a cualquier máquina virtual que cumplan las condiciones. Por ejemplo, una reserva para un tipo de máquina virtual que se ejecuta en la región que eligió para la reserva que adquirió.
 
-Las instancias reservadas adquiridas solo se aplican al hardware básico. No cubren las licencias de software de las máquinas virtuales. Por ejemplo, puede reservar una instancia y tiene una máquina virtual específica con Windows. La instancia reservada solo cubre el costo base de la máquina virtual. En este ejemplo, usted paga el precio total de las licencias de Windows necesarias. Para obtener un descuento en el sistema operativo u otro software que se ejecute en las máquinas virtuales, debe considerar el uso de [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Ventaja híbrida ofrece un tipo de descuento para las licencias de software similar al de las instancias reservadas para las máquinas virtuales de base.
+Las instancias reservadas adquiridas solo se aplican al hardware básico. No cubren las licencias de software de las máquinas virtuales. Por ejemplo, puede reservar una instancia y tiene una máquina virtual que cumple las condiciones y se ejecuta con Windows. La instancia reservada solo cubre el costo base de la máquina virtual. En este ejemplo, usted paga el precio total de las licencias de Windows necesarias. Para obtener un descuento en el sistema operativo u otro software que se ejecute en las máquinas virtuales, debe considerar el uso de [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Ventaja híbrida ofrece un tipo de descuento para las licencias de software similar al de las instancias reservadas para las máquinas virtuales base.
 
 El uso de las instancias reservadas no afecta al costo directamente. En otras palabras, la ejecución de una máquina virtual al 100 % o al 0 % de capacidad de CPU tiene el mismo efecto: paga previamente la asignación de la máquina virtual, no su uso.
 
-En la siguiente imagen veremos la asociación del uso estándar de máquinas virtuales a demanda con los costos en lo relativo a las instancias reservadas:
+En la siguiente imagen veremos la asociación del uso estándar de máquinas virtuales a petición con los costos en lo relativo a las instancias reservadas:
 
 ![Costos a demanda frente a costos con instancias reservadas](./media/tutorial-optimize-reserved-instances/azure01.png)
 
@@ -71,9 +71,9 @@ Las barras de color rojo muestran el costo acumulado de la compra de instancias 
 
 ## <a name="benefits-of-ris"></a>Ventajas de las instancias reservadas
 
-Cada compra de instancias reservadas se aplica a una máquina virtual de tamaño y ubicación específicos. Por ejemplo, D2s\_v3 que se ejecuta en la ubicación del oeste de Estados Unidos como se muestra en la siguiente imagen:
+Cada compra de instancias reservadas se aplica a una máquina virtual de tamaño y ubicación específicos. Por ejemplo, D2s\_v3, que se ejecuta en la ubicación del oeste de Estados Unidos como se muestra en la siguiente imagen:
 
-![Detalles de las instancias reservadas Azure](./media/tutorial-optimize-reserved-instances/azure02.png)
+![Detalles de las instancias reservadas de Azure](./media/tutorial-optimize-reserved-instances/azure02.png)
 
 La compra de instancias reservadas pasa a ser beneficiosa cuando una máquina virtual se ejecuta durante las horas mínimas para alcanzar el punto de equilibrio de la reserva. La máquina virtual debe coincidir con el tamaño y la ubicación de la instancia reservada. Por ejemplo, en el gráfico anterior, el punto de equilibrio se encuentra aproximadamente a la mitad del séptimo mes. Por lo tanto, la compra es beneficiosa cuando la máquina virtual de la reserva se ejecuta al menos durante 7,5 meses \* 30 días \* 24 horas = 5400 horas. Si la máquina virtual correspondiente se ejecuta menos 5400 horas, la reserva cuesta más que el pago por uso.
 
@@ -81,11 +81,11 @@ El punto de equilibrio puede variar en función del tamaño y la ubicación de l
 
 Otro aspecto que considerar al adquirir la reserva es el ámbito de las instancias reservadas. El ámbito determina si se comparte el beneficio de la reserva o si se aplica a una suscripción específica. Las instancias reservadas compartidas se aplican aleatoriamente en todas las suscripciones a las primeras máquinas virtuales que cumplan las condiciones.
 
-El ámbito de la adquisición compartida es más flexible y se recomienda siempre que sea posible. Las posibilidades de usar todas las instancias reservadas son mucho superiores con el ámbito compartido. Sin embargo, al pagar la instancia reservada, puede que el propietario de la suscripción solo pueda comprarla para una suscripción única.
+El ámbito de la adquisición compartida es más flexible y se recomienda siempre que sea posible. Las posibilidades de usar todas las instancias reservadas son mucho mayores con el ámbito compartido. Sin embargo, al pagar la instancia reservada, puede que el propietario de la suscripción solo pueda comprarla para una suscripción única.
 
 ## <a name="optimize-azure-ri-costs"></a>Optimización de los costos de las instancias reservadas para Azure
 
-Azure Cost Management mantiene las instancias reservadas y Ventaja híbrida al:
+Cloudyn mantiene las instancias reservadas y Ventaja híbrida al:
 
 - Mostrar los costos asociados con los modelos de precios
 - Realizar el seguimiento de las instancias reservadas
@@ -116,7 +116,7 @@ Sin embargo, si se ejecuta solo el 50 % del tiempo, el punto de equilibrio se en
 
 ## <a name="view-ri-costs"></a>Visualización de los costos de las instancias reservadas
 
-Al comprar una reserva, el pago es único. Hay dos maneras de ver el pago en Cost Management:
+Al comprar una reserva, el pago es único. Hay dos maneras de ver el pago en Cloudyn:
 
 - Costo real
 - Costo amortizado

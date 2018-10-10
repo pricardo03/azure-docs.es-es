@@ -1,6 +1,6 @@
 ---
 title: Conversión de una máquina virtual Linux en Azure con discos no administrados a discos administrados - Azure Managed Disks | Microsoft Docs
-description: Conversión de una máquina virtual Linux con discos no administrados en discos administrados mediante la CLI de Azure 2.0 en el modelo de implementación de Resource Manager
+description: Conversión de una máquina virtual Linux con discos no administrados en discos administrados mediante la CLI de Azure en el modelo de implementación de Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
-ms.openlocfilehash: a3a2bbc15dd94ef09755d34a20e69c97854416b3
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 62ac70134c1bdf9d178d59723ff73561049a4bbf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30289267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993087"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de una máquina virtual Linux con discos no administrados en discos administrados
 
 Si ya dispone de máquinas virtuales (VM) con Linux que usan Unmanaged Disks, puede convertirlas para usar [Azure Managed Disks](../linux/managed-disks-overview.md). Este proceso convierte el disco del SO y los discos de datos conectados.
 
-En este artículo se muestra cómo convertir máquinas virtuales con la CLI de Azure. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
+En este artículo se muestra cómo convertir máquinas virtuales con la CLI de Azure. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 * Revise las [preguntas frecuentes sobre la migración a Managed Disks](faq-for-disks.md#migrate-to-managed-disks).

@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339082"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986122"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configuración de una red virtual (clásica) mediante un archivo de configuración de red
 > [!IMPORTANT]
 > Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación de Resource Manager.
 
-Puede crear y configurar una red virtual (clásica) con un archivo de configuración de red mediante la interfaz de línea de comandos (CLI) de Azure 1.0 o Azure PowerShell. No puede crear o modificar una red virtual mediante el modelo de implementación de Azure Resource Manager con un archivo de configuración de red. No puede usar el portal de Azure para crear o modificar una red virtual (clásica) con un archivo de configuración de red. Sin embargo, puede usar el portal de Azure para crear una red virtual (clásica) sin utilizar un archivo de configuración de red.
+Puede crear y configurar una red virtual (clásica) con un archivo de configuración de red mediante la interfaz de línea de comandos (CLI) de Azure clásica o Azure PowerShell. No puede crear o modificar una red virtual mediante el modelo de implementación de Azure Resource Manager con un archivo de configuración de red. No puede usar el portal de Azure para crear o modificar una red virtual (clásica) con un archivo de configuración de red. Sin embargo, puede usar el portal de Azure para crear una red virtual (clásica) sin utilizar un archivo de configuración de red.
 
 La creación y configuración de una red virtual (clásica) con un archivo de configuración de red requiere la exportación, cambio e importación del archivo.
 
 ## <a name="export"></a>Exportación de un archivo de configuración de red
 
-Puede usar PowerShell o la CLI de Azure para exportar un archivo de configuración de red. PowerShell exporta un archivo XML, mientras que la CLI de Azure exporta un archivo json.
+Puede usar PowerShell o la CLI de Azure clásica para exportar un archivo de configuración de red. PowerShell exporta un archivo XML, mientras que la CLI de Azure clásica exporta un archivo JSON.
 
 ### <a name="powershell"></a>PowerShell
  
@@ -44,9 +44,9 @@ Puede usar PowerShell o la CLI de Azure para exportar un archivo de configuraci�
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>CLI de Azure 1.0
+### <a name="azure-classic-cli"></a>CLI de Azure clásica
 
-1. [Instale la CLI de Azure 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete los pasos restantes desde un símbolo del sistema de la CLI de Azure 1.0.
+1. [Instale la CLI de Azure clásica](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Realice el resto de pasos desde el símbolo del sistema de una CLI clásica.
 2. Inicie sesión en Azure especificando el comando `azure login`.
 3. Asegúrese de que está en el modo de asm escribiendo el comando `azure config mode asm`.
 4. Cambie el directorio (y asegúrese de que exista) y el nombre de archivo en el siguiente comando según corresponda. A continuación, ejecute el comando para exportar el archivo de configuración de red:
@@ -57,7 +57,7 @@ Puede usar PowerShell o la CLI de Azure para exportar un archivo de configuraci�
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Creación o modificación mediante el archivo de configuración de red
 
-Un archivo de configuración de red es un archivo XML (cuando se usa PowerShell) o un archivo json (cuando se usa la CLI de Azure). Puede editar el archivo en cualquier editor XML/json o de texto. El artículo [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Configuración del esquema de archivos de configuración de red) incluye los detalles de todas las configuraciones. Para una explicación adicional de la configuración, vea [Visualización de las redes virtuales y su configuración](manage-virtual-network.md#view-virtual-networks-and-settings). Los cambios que realice en el archivo:
+Un archivo de configuración de red es un archivo XML (cuando se usa PowerShell) o un archivo JSON (cuando se usa la CLI de Azure). Puede editar el archivo en cualquier editor XML/json o de texto. El artículo [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Configuración del esquema de archivos de configuración de red) incluye los detalles de todas las configuraciones. Para una explicación adicional de la configuración, vea [Visualización de las redes virtuales y su configuración](manage-virtual-network.md#view-virtual-networks-and-settings). Los cambios que realice en el archivo:
 
 - Debe cumplir con el esquema o se producirá un error en la importación del archivo de configuración de red.
 - Sobrescriben cualquier configuración de red existente para su suscripción, por lo que debe tener mucho cuidado al realizar modificaciones. Por ejemplo, consulte los archivos de configuración de red de ejemplo siguientes. Suponga que el archivo original contenía dos instancias **VirtualNetworkSite** y las ha cambiado, tal como se muestra en los ejemplos. Al importar el archivo, Azure elimina la red virtual para la instancia **VirtualNetworkSite** que ha quitado en el archivo. Este escenario simplificado da por supuesto que no había recursos en la red virtual, ya que si los hubiera, la red virtual no podría eliminarse y se produciría un error en la importación.
@@ -92,7 +92,7 @@ El siguiente archivo de configuración de red de ejemplo crea una red virtual de
 
 Si el archivo de configuración de red exportado no contiene ningún contenido, puede copiar el archivo XML en el ejemplo anterior y pegarlo en un archivo nuevo.
 
-### <a name="example-json-for-use-with-the-azure-cli-10"></a>JSON de ejemplo para su uso con la CLI de Azure 1.0
+### <a name="example-json-for-use-with-the-classic-cli"></a>JSON de ejemplo para usar con la CLI clásica
 
 El siguiente archivo de configuración de red de ejemplo crea una red virtual denominada *myVirtualNetwork* con un espacio de direcciones de *10.0.0.0/16* en la región de Azure del *Este de EE. UU.* La red virtual contiene una subred denominada *mySubnet* con un prefijo de dirección de *10.0.0.0/24*.
 
@@ -121,7 +121,7 @@ Si el archivo de configuración de red exportado no contiene ningún contenido, 
 
 ## <a name="import"></a>Importación de un archivo de configuración de red
 
-Puede usar PowerShell o la CLI de Azure para importar un archivo de configuración de red. PowerShell importa un archivo XML, mientras que la CLI de Azure importa un archivo json. Si se produce un error en la importación, confirme que el archivo cumple con el [esquema de configuración de red](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+Puede usar PowerShell o la CLI clásica para importar un archivo de configuración de red. PowerShell importa un archivo XML, mientras que la CLI clásica importa un archivo JSON. Si se produce un error en la importación, confirme que el archivo cumple con el [esquema de configuración de red](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 ### <a name="powershell"></a>PowerShell
  
@@ -132,9 +132,9 @@ Puede usar PowerShell o la CLI de Azure para importar un archivo de configuraci�
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>CLI de Azure 1.0
+### <a name="azure-classic-cli"></a>CLI de Azure clásica
 
-1. [Instale la CLI de Azure 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete los pasos restantes desde un símbolo del sistema de la CLI de Azure 1.0.
+1. [Instale la CLI de Azure clásica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Realice el resto de pasos desde el símbolo del sistema de una CLI clásica.
 2. Inicie sesión en Azure especificando el comando `azure login`.
 3. Asegúrese de que está en el modo de asm escribiendo el comando `azure config mode asm`.
 4. Cambie el directorio y el nombre de archivo en el siguiente comando según sea necesario. A continuación, ejecute el comando para importar el archivo de configuración de red:

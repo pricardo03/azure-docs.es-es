@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 117e73c35bb66578976ef990e61eea606e2e8e36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9661722c5d35e4336d5e42374a1444cf50734fba
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736888"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998345"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configuración de los puertos de alta disponibilidad para un equilibrador de carga interno
 
@@ -45,7 +45,7 @@ En la ilustración se muestra la configuración del ejemplo de implementación s
 
 Para configurar Puertos de alta disponibilidad, configure un equilibrador de carga interno con aplicaciones virtuales de red en el grupo back-end. Establezca una configuración de sondeo del estado del equilibrador de carga correspondiente para detectar el estado de la aplicación virtual de red y la regla del equilibrador de carga con los puertos de alta disponibilidad. La configuración general del equilibrador de carga se aborda en [Introducción](load-balancer-get-started-ilb-arm-portal.md). En este artículo se resalta la configuración de los puertos de alta disponibilidad.
 
-Básicamente, la configuración implica establecer el valor del puerto de back-end y de front-end en **0**. Establezca el valor del protocolo en **Todos**. En este artículo se describe cómo configurar los puertos de alta disponibilidad mediante Azure Portal, PowerShell y la CLI de Azure 2.0.
+Básicamente, la configuración implica establecer el valor del puerto de back-end y de front-end en **0**. Establezca el valor del protocolo en **Todos**. En este artículo se describe cómo configurar los puertos de alta disponibilidad mediante Azure Portal, PowerShell y la CLI de Azure.
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Configuración de la regla del equilibrador de carga para los puertos de alta disponibilidad mediante Azure Portal
 
@@ -95,7 +95,7 @@ Use el comando siguiente para crear la regla del equilibrador de carga para los 
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>Configuración de la regla del equilibrador de carga para los puertos de alta disponibilidad mediante la CLI de Azure 2.0
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configuración de la regla del equilibrador de carga para los puertos de alta disponibilidad mediante la CLI de Azure
 
 En el paso 4 del artículo sobre la [creación de un conjunto de equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md), use el siguiente comando para crear la regla del equilibrador de carga para los puertos de alta disponibilidad:
 

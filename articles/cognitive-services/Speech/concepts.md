@@ -1,5 +1,6 @@
 ---
-title: Conceptos | Microsoft Docs
+title: Conceptos de Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Conceptos básicos que se usan en el servicio de voz de Microsoft.
 services: cognitive-services
 author: zhouwangzw
@@ -7,14 +8,15 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08790d73dd4fd182d8129c755a291fd99b6136a2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380630"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954116"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -77,10 +79,10 @@ El servicio de reconocimiento de voz de Microsoft ofrece dos métodos para que l
 
 | Casos de uso | [API de REST](GetStarted/GetStartedREST.md) | [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | Sí | Sí |
-| Convertir un audio largo (> 15 s) | Sin  | Sí |
-| Audio de secuencia con resultados provisionales deseados | Sin  | Sí |
-| Comprender el texto convertido desde audio mediante LUIS | Sin  | Sí |
+| Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | SÍ | SÍ |
+| Convertir un audio largo (> 15 s) | Sin  | SÍ |
+| Audio de secuencia con resultados provisionales deseados | Sin  | SÍ |
+| Comprender el texto convertido desde audio mediante LUIS | Sin  | SÍ |
 
  Si el lenguaje o plataforma no tiene todavía un SDK, puede crear su propia implementación en función de la [documentación del protocolo](API-Reference-REST/websocketprotocol.md).
 

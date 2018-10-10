@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 08/02/2018
 ms.author: danlep
-ms.openlocfilehash: 50ed5a6b57c3c994f636db5cc975ad1908e50c7d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493440"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964299"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch
 
@@ -47,7 +47,7 @@ Por ejemplo, [ffmpeg](http://ffmpeg.org/) es una aplicación popular que procesa
 
 ## <a name="installation"></a>Instalación
 
-Para instalar la extensión de la CLI de Azure Batch, primero [instale la CLI de Azure 2.0](/cli/azure/install-azure-cli), o ejecute la CLI de Azure en [Azure Cloud Shell](../cloud-shell/overview.md).
+Para instalar la extensión de la CLI de Azure Batch, primero [instale la CLI de Azure 2.0](/cli/azure/install-azure-cli) o ejecute la CLI de Azure en [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Instale la versión más reciente de la extensión de Batch mediante el siguiente comando de la CLI de Azure:
 

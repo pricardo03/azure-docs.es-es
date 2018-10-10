@@ -1,5 +1,6 @@
 ---
 title: Introducción a Microsoft Speech Recognition API en Java en Android | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use Microsoft Speech API para desarrollar aplicaciones Android que conviertan el audio hablado en texto.
 services: cognitive-services
 author: zhouwangzw
@@ -7,22 +8,23 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a10f7be1c36fb431016a9867f606e26be858069e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b1e82d65a3eafb9e41277a18569270ef02cd8e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380590"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989048"
 ---
-# <a name="get-started-with-speech-recognition-in-java-on-android"></a>Introducción al reconocimiento de voz en Java en Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API en Java en Android
 
-Con Speech Recognition API, puede desarrollar aplicaciones Android que usen el servicio de voz basado en la nube para convertir el audio hablado en texto. La API admite la transmisión en tiempo real, por lo que la aplicación puede recibir simultánea y asincrónicamente resultados parciales del reconocimiento al mismo tiempo que envía audio al servicio.
+Con Bing Speech Recognition API, puede desarrollar aplicaciones Android que usen el servicio Bing Speech basado en la nube para convertir el audio hablado en texto. La API admite el streaming en tiempo real, por lo que la aplicación puede recibir simultánea y asincrónicamente resultados parciales del reconocimiento al mismo tiempo que envía audio al servicio.
 
 En este artículo se usa una aplicación de ejemplo para mostrar cómo utilizar la biblioteca cliente de voz para Android para desarrollar aplicaciones de conversión de voz en texto en Java para dispositivos Android.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 
@@ -34,12 +36,12 @@ La biblioteca cliente de voz y los ejemplos para Android están disponibles en e
 
 #### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Suscribirse a Speech API y obtener una clave de suscripción de prueba gratuita
 
-Speech API forma parte de Cognitive Services (anteriormente proyecto Oxford). Puede obtener claves de suscripción de prueba gratuitas en la página de [suscripción a Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Después de seleccionar Speech API, seleccione **Obtener clave de API** para obtener la clave. Devuelve una clave principal y secundaria. Ambas claves están asociadas a la misma cuota, por lo que puede usar cualquiera de ellas.
+Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Puede obtener las claves de la suscripción de prueba gratuita en la página [Suscripción a Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Después de seleccionar Speech API, seleccione **Obtener clave de API** para obtener la clave. Devuelve una clave principal y una clave secundaria. Las dos claves están asociadas a la misma cuota, por lo que puede usar cualquiera de las claves.
 
-Si desea usar el *reconocimiento con intención*, también debe suscribirse a [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+Si desea usar *reconocimiento con intenciones*, también debe registrarse en [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 > [!IMPORTANT]
->* Obtenga una clave suscripción. Para poder usar las bibliotecas cliente de voz, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
+>* Obtenga una clave suscripción. Para poder usar las bibliotecas cliente de Speech, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
 >
 >* Use la clave de su suscripción. Con la aplicación de ejemplo Android proporcionada, actualice el archivo samples/SpeechRecoExample/res/values/strings.xml con las claves de suscripción. Para más información, vea [Compilar y ejecutar ejemplos](#build-and-run-samples).
 

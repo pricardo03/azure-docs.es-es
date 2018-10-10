@@ -7,19 +7,20 @@ ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 077af8b5d3367dd2188cbd6e5d76aaf52512a1e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 094fd6d8c6c6d647533cf5409d1a85283c71c80e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830806"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953249"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Búsqueda de ejecuciones con la mejor precisión y la menor duración
-Cuando hay varias ejecuciones, un caso de uso es buscar las que tienen la máxima precisión. Un enfoque consiste en usar la interfaz de la línea de comandos (CLI) con una consulta [JMESPath](http://jmespath.org/). Para obtener más información acerca de cómo usar JMESPath en la CLI de Azure, consulte [Uso de consultas JMESPath con CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). En el ejemplo siguiente, se crean cuatro ejecuciones con los siguientes valores de precisión: 0; 0,98; 1 y 1. Las ejecuciones se filtran si están en el intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` donde `Threshold = .03`.
+Cuando hay varias ejecuciones, un caso de uso es buscar las que tienen la máxima precisión. Un enfoque consiste en usar la interfaz de la línea de comandos (CLI) con una consulta [JMESPath](http://jmespath.org/). Para más información acerca de cómo usar JMESPath en la CLI de Azure, consulte [Uso de consultas JMESPath con CLI de Azure](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). En el ejemplo siguiente, se crean cuatro ejecuciones con los siguientes valores de precisión: 0; 0,98; 1 y 1. Las ejecuciones se filtran si están en el intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` donde `Threshold = .03`.
 
 ## <a name="sample-data"></a>Datos de ejemplo
 Si no hay ejecuciones con un valor `Accuracy`, los pasos siguientes generarán ejecuciones para la realización de consultas.

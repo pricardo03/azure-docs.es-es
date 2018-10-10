@@ -1,6 +1,6 @@
 ---
-title: Tutorial de preparación de los datos para la clasificación de Iris en Azure Machine Learning Services (versión preliminar) | Microsoft Docs
-description: A lo largo de este tutorial se muestra cómo puede aprovechar al máximo Azure Machine Learning Services (versión preliminar). Esta es la primera parte y describe la preparación de los datos.
+title: Tutorial de preparación de los datos para la clasificación de Iris en Azure Machine Learning Service (versión preliminar) | Microsoft Docs
+description: A lo largo de este tutorial se muestra cómo aprovechar al máximo Azure Machine Learning Service (versión preliminar). Esta es la primera parte y describe la preparación de los datos.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,18 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 56f1d26d5d687982366b9a8fb20235ff338a9573
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722990"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990168"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Clasificación de Iris: preparación de los datos
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 El servicio Azure Machine Learning (versión preliminar) es una solución integrada de análisis avanzado y ciencia de datos de un extremo a otro para que los científicos de datos profesionales preparen datos, desarrollen experimentos e implementar modelos a escala de la nube.
 
-Este tutorial es la **primera de una serie de tres partes**. En este tutorial, recorrerá los aspectos básicos de Azure Machine Learning Services (versión preliminar) y aprenderá a:
+Este tutorial es la **primera de una serie de tres partes**. En este tutorial, recorrerá los aspectos básicos de Azure Machine Learning Service (versión preliminar) y aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un proyecto en Azure Machine Learning Workbench.
@@ -32,7 +35,9 @@ Este tutorial es la **primera de una serie de tres partes**. En este tutorial, r
 
 Este tutorial usa el [conjunto de datos Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. 
 
-## <a name="prerequisites"></a>requisitos previos
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -40,11 +45,11 @@ Para realizar este tutorial, necesitará lo siguiente:
 - Una cuenta de Experimentación de Azure Machine Learning.
 - Azure Machine Learning Workbench instalado.
 
-Si aún no cumple estos requisitos previos, siga los pasos que se describen en el artículo [Inicio rápido: Instalar los servicios de Machine Learning y empezar a trabajar con ellos](../service/quickstart-installation.md) para configurar sus cuentas e instalar la aplicación Azure Machine Learning Workbench. 
+Si aún no cumple estos requisitos previos, siga los pasos que se describen en el artículo [Inicio rápido: Instalar los servicios de Machine Learning y empezar a trabajar con ellos](quickstart-installation.md) para configurar sus cuentas e instalar la aplicación Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Creación de un proyecto nuevo en Workbench
 
-Si ha seguido los pasos descritos en la [guía de inicio rápido de instalación e inicio](../service/quickstart-installation.md), ya tendrá este proyecto y puede ir a la siguiente sección.
+Si ha seguido los pasos descritos en la [guía de inicio rápido de instalación e inicio](quickstart-installation.md), ya tendrá este proyecto y puede ir a la siguiente sección.
 
 1. Abra la aplicación Azure Machine Learning Workbench e inicie sesión si es necesario. 
    
@@ -62,7 +67,7 @@ Si ha seguido los pasos descritos en la [guía de inicio rápido de instalación
    Nombre de proyecto | myIris |Elija un nombre único que identifique la cuenta. Puede usar su propio nombre o el nombre de departamento o proyecto que mejor identifique el experimento. El nombre debe tener entre 2 y 32 caracteres. Debe incluir solo caracteres alfanuméricos y el carácter de guión (-). 
    Directorio del proyecto | c:\Temp\ | Especifique el directorio en el que se creará el proyecto.
    Descripción del proyecto | _déjelo en blanco_ | Campo opcional útil para describir los proyectos.
-   Dirección URL de repositorio de GIT de VisualStudio.com |_déjelo en blanco_ | Campo opcional. Puede asociar un proyecto con un repositorio de Git en Visual Studio Team Services para el control de código fuente y la colaboración. [Aprenda a configurarlo](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Dirección URL de repositorio de GIT de VisualStudio.com |_déjelo en blanco_ | Campo opcional. Puede asociar un proyecto con un repositorio de Git en Azure DevOps para el control de código fuente y la colaboración. [Aprenda a configurarlo](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Área de trabajo seleccionada | IrisGarden (si existe) | Elija un área de trabajo que ha creado para su cuenta de Experimentación en Azure Portal. <br/>Si ha seguido la guía de inicio rápido, tendrá un área de trabajo con el nombre IrisGarden. Si no es así, seleccione el que creó cuando creó su cuenta de Experimentación o cualquier otro que desee utilizar.
    Plantilla de proyecto | Clasificación de iris | Las plantillas contienen scripts y datos que puede usar para explorar el producto. Esta plantilla contiene los scripts y los datos que necesita para esta guía de inicio rápido y otros tutoriales en este sitio de documentación. 
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial para compilar un modelo para servicios de Azure Machine Learning (versión preliminar) | Microsoft Docs
-description: A lo largo de este tutorial se muestra cómo puede aprovechar al máximo Azure Machine Learning Services (versión preliminar). Esta es la segunda parte y explica la experimentación.
+title: Tutorial para compilar un modelo para Azure Machine Learning Service (versión preliminar) | Microsoft Docs
+description: A lo largo de este tutorial se muestra cómo aprovechar al máximo Azure Machine Learning Service (versión preliminar). Esta es la segunda parte y explica la experimentación.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,17 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920645"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997336"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial 2: Clasificación de Iris - Creación de un modelo
-Los servicios de Azure Machine Learning (versión preliminar) son una solución de análisis avanzado y ciencia de datos integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
 
-Este tutorial es la **segunda de una serie de tres partes**. Aquí se usarán los servicios de Azure Machine Learning para:
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning Service (versión preliminar) es una solución de análisis avanzado y ciencia de datos integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
+
+Este tutorial es la **segunda de una serie de tres partes**. En esta parte, se usa Azure Machine Learning Service para:
 
 > [!div class="checklist"]
 > * Abrir scripts y revisar el código.
@@ -39,7 +43,7 @@ Este tutorial usa el [conjunto de datos Iris](https://en.wikipedia.org/wiki/Iris
 
 Para completar este tutorial, necesita:
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-- Una cuenta de experimentación y Azure Machine Learning Workbench instalado tal como se describe en este [inicio rápido](../service/quickstart-installation.md)
+- Una cuenta de experimentación y Azure Machine Learning Workbench instalado tal como se describe en este [inicio rápido](quickstart-installation.md)
 - El proyecto y los datos de Iris preparados del [Tutorial parte 1](tutorial-classifying-iris-part-1.md).
 - Un motor de Docker instalado y que se ejecute localmente. Docker Community Edition es suficiente. Más información sobre cómo instalar Docker: https://docs.docker.com/engine/installation/.
 
@@ -262,7 +266,7 @@ Si lo desea, puede experimentar con la ejecución de scripts en un contenedor de
 
 5. Ahora, vamos probar Spark. La imagen base de Docker contiene una instancia de Spark preinstalada y configurada que se puede usar para ejecutar un script de PySpark. Con esta imagen base es fácil desarrollar y probar un programa de Spark sin tener que dedicar tiempo a instalar y configurar Spark. 
 
-   Abra el archivo `iris_spark.py` . Este script carga el archivo de datos `iris.csv` y usa el algoritmo de regresión logística de la biblioteca de aprendizaje automático de Spark para clasificar el conjunto de datos Iris. Ahora, cambie el entorno de ejecución a **docker-spark**, el script a **iris_spark.py** y vuelva a ejecutarlo. Este proceso tarda un poco más porque se tiene que crear e iniciar una sesión de Spark en el contenedor de Docker. También puede ver que la propiedad StdOut es diferente que la propiedad StdOut de `iris_spark.py`.
+   Abra el archivo `iris_spark.py`. Este script carga el archivo de datos `iris.csv` y usa el algoritmo de regresión logística de la biblioteca de aprendizaje automático de Spark para clasificar el conjunto de datos Iris. Ahora, cambie el entorno de ejecución a **docker-spark**, el script a **iris_spark.py** y vuelva a ejecutarlo. Este proceso tarda un poco más porque se tiene que crear e iniciar una sesión de Spark en el contenedor de Docker. También puede ver que la propiedad StdOut es diferente que la propiedad StdOut de `iris_spark.py`.
 
 6. Inicie algunas ejecuciones más y experimente con distintos argumentos. 
 

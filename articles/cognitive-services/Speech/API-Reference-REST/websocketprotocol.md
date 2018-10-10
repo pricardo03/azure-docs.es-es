@@ -1,24 +1,26 @@
 ---
-title: Protocolo WebSocket para reconocimiento de voz de Microsoft | Microsoft Docs
-description: Documentación del protocolo para Servicio de voz basado en WebSocket
+title: Protocolo WebSocket de Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Documentación del protocolo de Bing Speech basado en WebSocket
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 17954536e8bdb49c09204c2e522586b79cb1bef5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380635"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962783"
 ---
-# <a name="speech-service-websocket-protocol"></a>Protocolo de WebSocket para Servicio de voz
+# <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de Bing Speech
 
-  Servicio de voz es una plataforma basada en la nube que incorpora los algoritmos más avanzados disponibles para convertir el audio hablado en texto. El protocolo Servicio de voz define la [configuración de conexión](#connection-establishment) entre las aplicaciones cliente y el servicio, y los mensajes de reconocimiento de voz intercambiados entre homólogos ([client-originated Messages](#client-originated-messages) y [service-originated messages](#service-originated-messages)). Además, se describen los [mensajes de telemetría](#telemetry-schema) y el [control de errores](#error-handling).
+Bing Speech es una plataforma basada en la nube que incorpora los algoritmos más avanzados disponibles para convertir audio hablado en texto. El protocolo de Bing Speech define la [configuración de conexión](#connection-establishment) entre las aplicaciones cliente y el servicio, y los mensajes de reconocimiento de voz intercambiados entre homólogos ([mensajes originados en el cliente ](#client-originated-messages) y [mensajes originados en el servicio](#service-originated-messages)). Además, se describen los [mensajes de telemetría](#telemetry-schema) y el [control de errores](#error-handling).
 
 ## <a name="connection-establishment"></a>Establecimiento de la conexión
 

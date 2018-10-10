@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092962"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969434"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -160,7 +160,7 @@ En algunos entornos de desarrollo, debe *registrar* explícitamente el enlace qu
 |Biblioteca de clases de C# con Visual Studio 2017|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2017)|[Uso de herramientas NuGet](#c-class-library-with-visual-studio-2017)|
 |Biblioteca de clases de C# con Visual Studio Code|N/D|[Uso de la CLI de .NET Core](#c-class-library-with-visual-studio-code)|
 
-Los siguientes tipos de enlace son excepciones que no requieren ningún registro explícito porque se registran automáticamente en todos los entornos y versiones: HTTP, el temporizador y Azure Storage (BLOB, colas y tablas). 
+Los siguientes tipos de enlace son excepciones que no requieren ningún registro explícito porque se registran automáticamente en todos los entornos y versiones: HTTP y temporizador.
 
 ### <a name="azure-portal-development"></a>Desarrollo con Azure Portal
 

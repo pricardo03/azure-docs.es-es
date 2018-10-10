@@ -5,11 +5,12 @@ Si no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte
 ## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
-- CLI de Azure 10: la CLI para los modelos de implementación clásico y de administración de recursos (este artículo)
-- [CLI de Azure 2.0](../articles/virtual-machines/linux/cli-manage.md): la CLI de última generación para el modelo de implementación de administración de recursos
+- CLI de Azure clásica: nuestra CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
+- [CLI de Azure](../articles/virtual-machines/linux/cli-manage.md): la CLI de última generación para el modelo de implementación de administración de recursos
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos de Azure Resource Manager en la CLI de Azure
-Este artículo trata los comandos básicos que querrá usar con la CLI de Azure para administrar e interactuar con los recursos (principalmente máquinas virtuales) en la suscripción de Azure.  Para obtener información más detallada acerca de las opciones y los modificadores de línea de comandos específicos, puede utilizar las opciones y la ayuda en línea de comandos, para lo que debe escribir `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-classic-cli"></a>Comandos básicos de Azure Resource Manager en la CLI de Azure clásica
+
+Este artículo trata los comandos básicos que querrá usar con la CLI de Azure clásica para administrar e interactuar con los recursos (principalmente máquinas virtuales) en la suscripción de Azure.  Para obtener información más detallada acerca de las opciones y los modificadores de línea de comandos específicos, puede utilizar las opciones y la ayuda en línea de comandos, para lo que debe escribir `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
 
 > [!NOTE]
 > En estos ejemplos no se incluyen las operaciones basadas en plantillas que se recomiendan generalmente para implementaciones de máquina virtual en el Administrador de recursos. Para obtener información, consulte [Use the Azure CLI to manage Azure resources and resource groups](../articles/xplat-cli-azure-resource-manager.md) (Uso de la CLI de Azure para administrar recursos y grupos de recursos de Azure) e [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

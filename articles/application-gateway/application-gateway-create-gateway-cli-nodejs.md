@@ -1,6 +1,6 @@
 ---
-title: Creación de una instancia de Azure Application Gateway (CLI de Azure 1.0) | Microsoft Docs
-description: Aprenda a crear una puerta de enlace de aplicaciones mediante la CLI de Azure 1.0 en Resource Manager.
+title: 'Creación de una instancia de Azure Application Gateway: CLI de Azure clásica | Microsoft Docs'
+description: Aprenda a crear una instancia de Application Gateway mediante la CLI de Azure clásica en Resource Manager
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640274"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974432"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
 
@@ -29,8 +29,8 @@ ms.locfileid: "35640274"
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [CLI de Azure 1.0](application-gateway-create-gateway-cli.md)
-> * [CLI de Azure 2.0](application-gateway-create-gateway-cli.md)
+> * [CLI de Azure clásica](application-gateway-create-gateway-cli.md)
+> * [CLI de Azure](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona co
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: instalar la CLI de Azure
 
-Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](../xplat-cli-install.md) e [iniciar sesión en Azure](/cli/azure/authenticate-azure-cli). 
+Para seguir los pasos de este artículo, es preciso [instalar la CLI de Azure](../xplat-cli-install.md) y tiene que [iniciar sesión en Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../active-directory/fundamentals/sign-up-organization.md).

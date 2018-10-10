@@ -1,6 +1,6 @@
 ---
-title: Autenticación en Data Lake Store con Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre la autenticación con Data Lake Store mediante Azure Active Directory
+title: Autenticación en Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre la autenticación con Azure Data Lake Storage Gen1 mediante Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,31 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: b74696be433b00a5afb3416295b6317975aa6873
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494184"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967666"
 ---
-# <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación con Data Lake Store mediante Azure Active Directory
+# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticación en Azure Data Lake Storage Gen1 con Azure Active Directory
 
-Azure Data Lake Store usa Azure Active Directory para la autenticación. Antes de crear una aplicación que funcione con Azure Data Lake Store, debe decidir cómo autenticar la aplicación con Azure Active Directory (Azure AD).
+Azure Data Lake Storage Gen1 usa Azure Active Directory para la autenticación. Antes de crear una aplicación que funcione con Azure Data Lake Storage Gen1, debe decidir cómo autenticar la aplicación con Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Opciones de autenticación
 
-* **Autenticación de usuario final**: las credenciales de Azure para usuarios finales se utilizan para la autenticación en Data Lake Store. La aplicación que crea para trabajar con Data Lake Store solicita estas credenciales de usuario. Como resultado, este mecanismo de autenticación es *interactivo* y la aplicación se ejecuta en el contexto del usuario que ha iniciado sesión. Para más información e instrucciones, vea la información sobre la [autenticación de usuarios finales en Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Autenticación de usuario final**: las credenciales de Azure para usuarios finales se utilizan para la autenticación en Data Lake Storage Gen1. La aplicación que crea para trabajar con Data Lake Storage Gen1 solicita estas credenciales de usuario. Como resultado, este mecanismo de autenticación es *interactivo* y la aplicación se ejecuta en el contexto del usuario que ha iniciado sesión. Para más información e instrucciones, consulte [Autenticación de usuario final en Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Autenticación entre servicios**: utilice esta opción si desea que una aplicación se autentique en Data Lake Store. En tales casos, cree una aplicación de Azure Active Directory (AD) y use la clave de la aplicación de Azure AD para la autenticación en Data Lake Store. Como resultado, este mecanismo de autenticación es *no interactivo*. Para más información e instrucciones, vea la información sobre la [autenticación entre servicios en Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Autenticación entre servicios**: utilice esta opción si desea que una aplicación se autentique en Data Lake Storage Gen1. En tales casos, cree una aplicación de Azure Active Directory (AD) y use la clave de la aplicación de Azure AD para la autenticación en Data Lake Storage Gen1. Como resultado, este mecanismo de autenticación es *no interactivo*. Para más información e instrucciones, consulte [Autenticación entre servicios en Data Lake Storage Gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-En la tabla siguiente se indica cómo se admiten los mecanismos de autenticación de usuarios finales y entre servicios en Data Lake Store. Así es como se debe interpretar la tabla.
+En la tabla siguiente se indica cómo se admiten los mecanismos de autenticación de usuario final y entre servicios en Data Lake Storage Gen1. Así es como se debe interpretar la tabla.
 
 * El símbolo ✔* indica que la opción de autenticación es compatible y se vincula a un artículo en el que se muestra cómo usar la opción de autenticación. 
 * El símbolo ✔ indica que se admite la opción de autenticación. 
 * Las celdas vacías significan que la opción de autenticación no es compatible.
 
 
-|Use esta opción de autenticación con…                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST     |
+|Use esta opción de autenticación con…                   |.NET         |Java     |PowerShell |Azure CLI | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
 |Usuario final (sin MFA\*\*)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(en desuso)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Usuario final (con MFA)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |

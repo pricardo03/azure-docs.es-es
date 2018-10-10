@@ -1,22 +1,24 @@
 ---
-title: Solución de problemas | Microsoft Docs
-description: Cómo resolver problemas al usar el servicio de voz de Microsoft.
+title: Solución de problemas de Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Solucione los problemas que aparecen al usar Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04f3da19939d523d201d357b2b0293db1508431d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 532916106f62e0236b8dd53cf7988a648355aef4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380547"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991868"
 ---
-# <a name="troubleshooting"></a>solución de problemas
+# <a name="troubleshooting-bing-speech"></a>Solución de problemas de Bing Speech
 
 ## <a name="error-http-403-forbidden"></a>Error `HTTP 403 Forbidden`
 
@@ -24,7 +26,7 @@ Cuando se utiliza la API de reconocimiento de voz, devuelve un error `HTTP 403 F
 
 ### <a name="cause"></a>Causa
 
-Este error suele causarlo un problema de autenticación. El servicio rechaza las solicitudes de conexión sin un encabezado `Ocp-Apim-Subscription-Key` o `Authorization` válido con una respuesta `HTTP 403 Forbidden`.
+Este error suele deberse a problemas de autenticación. El servicio rechaza las solicitudes de conexión sin un encabezado `Ocp-Apim-Subscription-Key` o `Authorization` válido con una respuesta `HTTP 403 Forbidden`.
 
 Si usa una clave de suscripción para la autenticación, el motivo puede ser uno de los siguientes:
 

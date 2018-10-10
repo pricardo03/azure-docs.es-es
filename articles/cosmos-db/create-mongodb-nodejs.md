@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: 9fcc03721d410d4d7b8cfed0f8fa5b0ae8cf80ae
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 00824dc7a4fa7589fd01568b82351a68e1d44faa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698101"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983572"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: Migrar una aplicación web MongoDB de Node.js 
 
@@ -40,7 +40,7 @@ Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, Angular y
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
@@ -95,7 +95,7 @@ az login
 
 Si va a usar una CLI de Azure instalada, ejecute el comando `az` para comprobar si el componente `cosmosdb` ya está instalado. Si `cosmosdb` está en la lista de comandos de referencia, continúe con el comando siguiente. Puede omitir este paso si usa Azure Cloud Shell.
 
-Si `cosmosdb` no está en la lista de comandos de referencia, vuelva a instalar la [CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si `cosmosdb` no está en la lista de comandos de referencia, vuelva a instalar la [CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -124,7 +124,7 @@ El parámetro `--kind MongoDB` habilita las conexiones de cliente de MongoDB.
 Cuando se crea la cuenta de Azure Cosmos DB, la CLI de Azure muestra información similar a la del ejemplo siguiente. 
 
 > [!NOTE]
-> Este ejemplo usa JSON como el formato de salida de la CLI de Azure, que es el valor predeterminado. Para usar otro formato de salida, consulte [Formatos de salida de los comandos de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> Este ejemplo usa JSON como el formato de salida de la CLI de Azure, que es el valor predeterminado. Para usar otro formato de salida, consulte [Formatos de salida para los comandos de la CLI de Azure](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
 
 ```json
 {

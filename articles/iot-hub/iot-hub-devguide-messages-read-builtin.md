@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055022"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984048"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
@@ -26,7 +26,7 @@ De forma predeterminada, los mensajes se enrutan al punto de conexión orientado
 
 IoT Hub también le permite administrar los grupos de consumidores en el punto de conexión de recepción de dispositivo a nube integrado.
 
-De forma predeterminada, todos los mensajes que no cumplen de forma explícita una regla de enrutamiento de mensajes se escriben en el punto de conexión integrado. Si deshabilita esta ruta de reserva, los mensajes que no cumplen explícitamente ninguna reglas de enrutamiento de mensajes se quitan.
+Si usa el [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) y está habilitada la [ruta de reserva](iot-hub-devguide-messages-d2c.md#fallback-route), todos los mensajes que no coincidan con una consulta en cualquier ruta se escribirán en el punto de conexión integrado. Si deshabilita esta ruta de reserva, los mensajes que no coincidan con ninguna consulta se quitarán.
 
 Puede modificar el tiempo de retención mediante programación con las[API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis] o con [Azure Portal][lnk-management-portal].
 
@@ -39,9 +39,8 @@ Al usar el [SDK de Azure Service Bus para .NET][lnk-servicebus-sdk] o [Event Hub
 Cuando use SDK (o integraciones de productos) que no detecten IoT Hub, tiene que recuperar un punto de conexión compatible con el centro de eventos y un nombre compatible con el centro de eventos:
 
 1. Inicie sesión en [Azure Portal][lnk-management-portal] y vaya a IoT Hub.
-1. Haga clic en **Extremos**.
-1. En la sección **Built-in endpoints** (Puntos de conexión integrados), haga clic en **Eventos**. 
-1. Se abrirá una página de propiedades, que contiene los siguientes valores: **Event Hub-compatible endpoint** (Punto de conexión compatible con el Centro de eventos), **Event Hub-compatible name** (Nombre compatible con el Centro de eventos), **Particiones**, **Tiempo de retención** y **Grupos de consumidores**.
+1. Haga clic en **Puntos de conexión integrados**.
+1. La sección **Events** (Eventos) contiene los siguientes valores: **Event Hub-compatible endpoint** (Punto de conexión compatible con el centro de eventos), **Event Hub-compatible name** (Nombre compatible con el centro de eventos), **Partitions** (Particiones), **Retention time** (Hora de retención) y **Consumer groups** (Grupos de consumidores).
 
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ Los SDK y las integraciones que puede usar con los puntos de conexión compatibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-endpoints].
-
-En los [inicios rápidos][lnk-get-started] se muestra cómo enviar mensajes del dispositivo a la nube desde dispositivos simulados y cómo leer los mensajes desde el punto de conexión integrado. Para obtener más información, vea el tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas][lnk-d2c-tutorial].
-
-Si quiere enrutar los mensajes del dispositivo a la nube a puntos de conexión personalizados, vea [Use message routes and custom endpoints for device-to-cloud messages][lnk-custom] (Usar rutas de mensajes y puntos de conexión personalizados para los mensajes del dispositivo a la nube).
+* Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-endpoints].
+* En los [inicios rápidos][lnk-get-started] se muestra cómo enviar mensajes del dispositivo a la nube desde dispositivos simulados y cómo leer los mensajes desde el punto de conexión integrado. Para obtener más información, vea el tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas][lnk-d2c-tutorial].
+* Si quiere enrutar los mensajes del dispositivo a la nube a puntos de conexión personalizados, vea [Use message routes and custom endpoints for device-to-cloud messages][lnk-custom] (Usar rutas de mensajes y puntos de conexión personalizados para los mensajes del dispositivo a la nube).
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

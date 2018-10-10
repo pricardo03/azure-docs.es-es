@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 9ce0bc425836fffb59e804bdbd19f23cfc26c00e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527176"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955816"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creación de un recurso compartido de archivos en Azure Files
 Puede crear recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/), los cmdlets de PowerShell, las bibliotecas de cliente o la API de REST de Azure Storage. En este tutorial, aprenderá a:
@@ -47,7 +47,7 @@ Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure P
 > [!Note]  
 > Es recomendable descargar e instalar el módulo más reciente de Azure PowerShell o actualizar a dicho módulo.
 
-1. **Creación de un contexto para la cuenta de almacenamiento y la clave** El contexto encapsula la clave de cuenta y el nombre de la cuenta de almacenamiento. Para obtener instrucciones acerca de cómo copiar la clave de una cuenta desde [Azure Portal](https://portal.azure.com/), consulte [Visualización y copia de las claves de acceso de almacenamiento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+1. **Creación de un contexto para la cuenta de almacenamiento y la clave** El contexto encapsula la clave de cuenta y el nombre de la cuenta de almacenamiento. Para obtener instrucciones acerca de la copia de la clave de cuenta desde [Azure Portal](https://portal.azure.com/), consulte la sección [Claves de acceso de almacenamiento](../common/storage-account-manage.md#access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -64,7 +64,7 @@ Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure P
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Creación de un recurso compartido de archivos mediante la interfaz de línea de comandos (CLI)
 1. **Para prepararse para usar la interfaz de línea de comandos (CLI), descargue e instale la CLI de Azure.**  
-    Consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+    Consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introducción a la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Creación de una cadena de conexión a la cuenta de almacenamiento donde desea crear el recurso compartido.**  
     Reemplace ```<storage-account>``` y ```<resource_group>``` por el nombre de la cuenta de almacenamiento y el grupo de recursos en el siguiente ejemplo:

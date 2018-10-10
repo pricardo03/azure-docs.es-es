@@ -10,15 +10,19 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918034"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967904"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: Clasificación de iris mediante la interfaz de línea de comandos
-Los servicios de Azure Machine Learning (versión preliminar) son una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning Service (versión preliminar) es una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
 
 En este tutorial, aprenderá a usar las herramientas de la interfaz de línea de comandos (CLI) en las características de la versión preliminar de Azure Machine Learning para: 
 > [!div class="checklist"]
@@ -34,7 +38,7 @@ Para completar este tutorial, necesita:
   
   Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-- Tener instalada la aplicación Azure Machine Learning Workbench tal y como se describe en [Quickstart: Install and start Azure Machine Learning services](../service/quickstart-installation.md) (Inicio rápido: instalación e inicio de los servicios de Azure Machine Learning). 
+- Tener instalada la aplicación Azure Machine Learning Workbench tal y como se describe en [Guía de inicio rápido: Instalación e inicio de Azure Machine Learning Service](quickstart-installation.md). 
 
   >[!IMPORTANT]
   >No cree cuentas de servicios de Azure Machine Learning, ya que lo hará mediante la CLI en este artículo.
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Creación de un nuevo proyecto asociado a un repositorio de Git de la nube
-Puede crear un nuevo proyecto asociado a un repositorio de Git de VSTS (Visual Studio Team Service). Cada vez que se envía un experimento, se confirma en el repositorio de Git remoto una instantánea de la carpeta de proyecto completa. Consulte [Uso del repositorio de Git con un proyecto de Azure Machine Learning Workbench](using-git-ml-project.md) para más detalles.
+Puede crear un nuevo proyecto asociado a un repositorio de Git de Azure DevOps. Cada vez que se envía un experimento, se confirma en el repositorio de Git remoto una instantánea de la carpeta de proyecto completa. Consulte [Uso del repositorio de Git con un proyecto de Azure Machine Learning Workbench](using-git-ml-project.md) para más detalles.
 
 > [!NOTE]
-> Azure Machine Learning solo admite repositorios de Git vacíos creados en VSTS.
+> Azure Machine Learning solo admite repositorios de Git vacíos creados en Azure DevOps.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> Si recibe un error "La dirección URL del repositorio puede no ser válida o puede que el usuario no tenga acceso", puede crear un token de seguridad en VSTS (en el menú _Seguridad_, _Agregar tokens de acceso personal_) y usar el argumento `--vststoken` al crear el proyecto. 
+> Si recibe un error "La dirección URL del repositorio puede no ser válida o puede que el usuario no tenga acceso", puede crear un token de seguridad en Azure DevOps (en el menú _Seguridad_, _Agregar tokens de acceso personal_) y usar el argumento `--vststoken` al crear el proyecto. 
 
 ### <a name="sample_create"></a>Creación de un nuevo proyecto a partir de un ejemplo
 En este ejemplo, crea un nuevo proyecto con un proyecto de ejemplo como plantilla.

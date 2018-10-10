@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159135"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963602"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma Azure
 
@@ -31,7 +31,7 @@ El glosario de Microsoft Azure es un breve diccionario de terminología de la nu
 
 ## <a name="account"></a>cuenta
 Una cuenta que se usa para acceder y administrar una suscripción de Azure. A menudo se hace referencia a ella como una cuenta de Azure, aunque una cuenta puede ser cualquiera de estas: una cuenta de Microsoft profesional, educativa o personal existente, o un nombre de usuario y una contraseña de Office 365. También puede crear una cuenta para administrar una suscripción de Azure al registrarse para la [evaluación gratuita](https://azure.microsoft.com).  
-Consulte [Registrarse para obtener una suscripción de Azure con su cuenta de Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) y las [cuentas que puede utilizar para iniciar sesión](active-directory/active-directory-how-subscriptions-associated-directory.md).
+Consulte [Registrarse para obtener una suscripción de Azure con su cuenta de Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) y las [cuentas que puede utilizar para iniciar sesión](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicación de API
 Otro nombre para [aplicación de App Service](#app-service-app).
@@ -47,9 +47,9 @@ Consulte [Administración de la disponibilidad de las máquinas virtuales con Wi
 Uno de los dos [modelos de implementación](resource-manager-deployment-model.md) utilizados para implementar recursos en Azure (el nuevo modelo es Azure Resource Manager). Algunos servicios de Azure admiten solo el modelo de implementación Resource Manager, otros son compatibles con el modelo de implementación clásica y otros admiten ambos. La documentación para cada servicio de Azure especifica qué modelos admite.
 
 ## <a name="cli"></a>Interfaz de la línea de comandos (CLI) de Azure
-Una interfaz de la línea de comandos que se puede utilizar para administrar los servicios de Azure desde Windows, OSX y Linux.  Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. Consulte [CLI de Azure 2.0](/cli/azure)
+Una interfaz de la línea de comandos que se puede utilizar para administrar los servicios de Azure desde Windows, OSX y Linux.  Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. Consulte [CLI de Azure](/cli/azure)
 
-## <a name="powershell"></a>Azure PowerShell
+## <a name="powershell"></a>Azure PowerShell.
 Una interfaz de la línea de comandos para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI.
 Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 
@@ -66,7 +66,7 @@ Vea [Regiones de Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="geo-replication"></a>replicación geográfica
 El proceso de replicación automática de contenido como blobs, tablas y colas entre zonas regionales emparejadas.  
-Vea [Replicación geográfica activa para Azure SQL Database](sql-database/sql-database-geo-replication-overview.md)
+Consulte [Replicación geográfica activa para Azure SQL Database](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>imagen
@@ -127,7 +127,7 @@ Consulte [Acerca de las cuentas de Azure Storage](storage/common/storage-create-
 
 ## <a name="subscription"></a>suscripción
 Contrato de un cliente con Microsoft que le permite obtener servicios de Azure. Los precios de la suscripción y los términos relacionados se rigen por la oferta elegida para la suscripción.
-Consulte [Contrato Microsoft Online Subscription](https://azure.microsoft.com/support/legal/subscription-agreement/) y [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+Consulte [Contrato Microsoft Online Subscription](https://azure.microsoft.com/support/legal/subscription-agreement/) y [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## <a name="tag"></a>etiqueta
 Un término de indexación que permite clasificar los recursos según sus requisitos de administración o facturación. Cuando se tiene un conjunto complejo de grupos de recursos, puede usar etiquetas para visualizar estos recursos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento.  

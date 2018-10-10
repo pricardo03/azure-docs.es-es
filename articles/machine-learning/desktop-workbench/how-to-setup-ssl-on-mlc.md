@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 982a6807ccaf393c3aea42f39f7e60bb7e0d3ac3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a7733468ec082c8954f623f3ebe2cea1fbad561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640442"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976243"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Habilitar SSL en un clúster de Azure Machine Learning Compute (MLC) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Estas instrucciones le permitirán configurar SSL para realizar llamadas de puntuación en un clúster de Machine Learning Compute (MLC). 
 
@@ -65,7 +69,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Asignar el valor CNAME y la dirección IP
 
-Cree una asignación entre el valor CNAME que seleccionó en los requisitos previos y la dirección IP del front-end (FE) en tiempo real. Para conocer la dirección IP del FE, ejecute el siguiente comando. La salida muestra un campo denominado "publicIpAddress", que contiene la dirección IP del front-end del clúster en tiempo real. Consulte las instrucciones de su proveedor de DNS para configurar un registro desde el FQDN utilizado en CNAME para la dirección IP pública.
+Cree una asignación entre el valor CNAME que seleccionó en los requisitos previos y la dirección IP del front-end (FE) en tiempo real. Para conocer la dirección IP del FE, ejecute el siguiente comando. La salida muestra un campo denominado "publicIpAddress" que contiene la dirección IP del front-end del clúster en tiempo real. Consulte las instrucciones de su proveedor de DNS para configurar un registro desde el FQDN utilizado en CNAME para la dirección IP pública.
 
 
 

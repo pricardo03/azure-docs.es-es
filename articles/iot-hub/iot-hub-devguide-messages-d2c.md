@@ -1,89 +1,93 @@
 ---
-title: Información sobre la mensajería de dispositivo a nube de Azure IoT Hub | Microsoft Docs
-description: 'Guía del desarrollador: cómo utilizar la mensajería de dispositivo a nube con IoT Hub. Incluye información acerca del envío de datos de telemetría y datos sin telemetría, y del uso del enrutamiento para entregar los mensajes.'
-author: dominicbetts
-manager: timlt
+title: Enrutamiento de mensajes de Azure IoT Hub | Microsoft Docs
+description: 'Guía del desarrollador: cómo usar el enrutamiento de mensajes para enviar mensajes del dispositivo a la nube. Incluye información sobre el envío de datos de telemetría y datos que no son de telemetría.'
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 08/13/2018
+ms.author: asrastog
+ms.openlocfilehash: 7c36ab2f0d4d3e5c772f8ef62c13161a2649362f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126449"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966748"
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>Envío de mensajes de dispositivo a nube a IoT Hub
+# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
-Para enviar alertas y telemetría de series temporales desde los dispositivos a su back-end de soluciones, envíe mensajes de dispositivo a nube desde el dispositivo a su IoT Hub. Para obtener una explicación de otras opciones de dispositivo a nube compatibles con IoT Hub, consulte [Guía de comunicación de dispositivo a nube][lnk-d2c-guidance].
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Los mensajes del dispositivo a la nube se envían a través de un punto de conexión orientado al dispositivo (**/devices/{IdDeDispositivo}/messages/events**). Después, las reglas de enrutamiento enrutan los mensajes a uno de los puntos de conexión orientado al servicio en su IoT Hub. Las reglas de enrutamiento utilizan los encabezados y el cuerpo de los mensajes de dispositivo a nube para determinar dónde enrutarlos. De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (**/messages/events**), que es compatible con [Event Hubs][lnk-event-hubs]. Por lo tanto, puede usar [los SDK e integración de Event Hubs][lnk-compatible-endpoint] estándar para recibir mensajes de dispositivo a nube.
+El enrutamiento de mensajes le permite enviar mensajes desde los dispositivos a los servicios en la nube de forma automatizada, escalable y confiable. El enrutamiento de mensajes se puede usar para: 
 
-IoT Hub implementa mensajería de dispositivo a nube mediante un patrón de mensajería de streaming. Los mensajes de dispositivo a nube de IoT Hub son más parecidos a *eventos* de [Event Hubs][lnk-event-hubs] que a *mensajes* de [Service Bus][lnk-servicebus] en que hay un gran volumen de eventos que se pasan a través del servicio que pueden leer varios lectores.
+* **Enviar mensajes de telemetría del dispositivo y eventos**, es decir, eventos del ciclo de vida del dispositivo y eventos de cambio de dispositivo gemelo al punto de conexión integrado y a los puntos de conexión personalizados. Obtenga información sobre los [puntos de conexión de enrutamiento](##routing-endpoints).
 
-La mensajería de dispositivo a nube con IoT Hub tiene las siguientes características:
+* **Filtrar los datos antes de enrutarlos a los diferentes puntos de conexión** mediante la aplicación de consultas enriquecidas. El enrutamiento de mensajes le permite realizar consultas sobre las propiedades de los mensajes y el cuerpo del mensaje, así como las etiquetas del dispositivo gemelo y las propiedades del dispositivo gemelo. Más información sobre el uso de [consultas en el enrutamiento de mensajes](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-* Los mensajes de dispositivo a nube son duraderos y se conservan en el punto de conexión **messages/events** predeterminado de una instancia de IoT Hub hasta siete días.
-* Los mensajes de dispositivo a nube pueden tener como máximo 256 KB y se pueden agrupar en lotes para optimizar los envíos. Los lotes pueden tener un tamaño máximo de 256 KB.
-* Como se explica en la sección [Control del acceso a IoT Hub][lnk-devguide-security], IoT Hub habilita la autenticación y el control de acceso por dispositivo.
-* IoT Hub le permite crear hasta 10 puntos de conexión personalizados. Los mensajes se entregan a los puntos de conexión según las rutas configuradas en su IoT Hub. Para obtener más información, consulte [Reglas de enrutamiento](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* IoT Hub habilita millones de dispositivos conectados al mismo tiempo (consulte [Cuotas y limitación][lnk-quotas]).
-* IoT Hub no permite el particionamiento arbitrario. Los mensajes de dispositivo a nube se dividen en particiones en función de su valor de **deviceId**de origen.
+IoT Hub necesita acceso de escritura a estos puntos de conexión de servicio para que el enrutamiento de mensajes funcione. Si configura los puntos de conexión a través de Azure Portal, se agregan los permisos necesarios automáticamente. Asegúrese de configurar los servicios para admitir el rendimiento esperado. Al configurar la solución de IoT por primera vez, es posible que deba supervisar los puntos de conexión adicionales y realizar los ajustes necesarios para la carga real.
 
-Para obtener más información acerca de las diferencias entre Azure IoT Hub y Event Hubs, consulte [Comparación entre IoT Hub de Azure y Azure Event Hubs][lnk-comparison].
+IoT Hub define un [formato común](../iot-hub/iot-hub-devguide-messages-construct.md) para todos los mensajes del dispositivo a la nube para la interoperabilidad entre protocolos. Si un mensaje coincide con varias rutas que señalan al mismo punto de conexión, IoT Hub entrega el mensaje a ese punto de conexión solo una vez. Por lo tanto, no es necesario configurar la desduplicación en la cola o el tema de Service Bus. En las colas con particiones, la afinidad de partición garantiza el orden de los mensajes. Use este tutorial para aprender a [configurar el enrutamiento de mensajes] (https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
 
-## <a name="send-non-telemetry-traffic"></a>Envío de tráfico sin telemetría
+## <a name="routing-endpoints"></a>Puntos de conexión de enrutamiento
 
-A menudo, además de telemetría, los dispositivos envían mensajes y solicitudes que requieren la ejecución y el control en el back-end de la solución. Por ejemplo, las alertas críticas que deben desencadenar una acción específica en el back-end. Puede escribir una [regla de enrutamiento][lnk-devguide-custom] para enviar estos tipos de mensajes a un punto de conexión dedicado para su procesamiento según un encabezado en el mensaje o un valor en el cuerpo del mensaje.
+Un centro de IoT tiene un punto de conexión integrado predeterminado (**mensajes y eventos**) que es compatible con Event Hubs. Puede crear [puntos de conexión personalizados](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) a los que enrutar mensajes vinculando otros servicios de la suscripción al centro de IoT. IoT Hub admite actualmente los siguientes servicios como puntos de conexión personalizados:
 
-Para más información sobre la mejor manera de procesar este tipo de mensaje, consulte [Tutorial: procesamiento de mensajes del dispositivo a la nube de IoT Hub][lnk-d2c-tutorial].
+### <a name="built-in-endpoint"></a>Punto de conexión integrado
+Puede usar la [integración y los SDK de Event Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) estándar para recibir mensajes del dispositivo a la nube desde el punto de conexión integrado (**mensajes y eventos**). Tenga en cuenta que una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado a menos que se cree una ruta a ese punto de conexión.
 
-## <a name="route-device-to-cloud-messages"></a>Enrutamiento de mensajes de dispositivo a nube
+### <a name="azure-blob-storage"></a>Azure Blob Storage
+IoT Hub solo admite la escritura de datos en Azure Blob Storage con el formato [Apache Avro](http://avro.apache.org/). IoT Hub agrupa los mensajes por lotes y escribe los datos en un blob cuando el lote llega a cierto tamaño o después de transcurrir cierta cantidad de tiempo.
 
-Tiene dos opciones para enrutar mensajes de dispositivo a nube a las aplicaciones del back-end:
-
-* Use el [punto de conexión compatible con Event Hub][lnk-compatible-endpoint] integrado para permitir que las aplicaciones de back-end lean los mensajes de dispositivo a nube recibidos por el centro. Para obtener información sobre el punto de conexión compatible con Event Hub integrado, consulte [Lectura de mensajes de dispositivo a nube desde el punto de conexión integrado][lnk-devguide-builtin].
-* Utilice reglas de enrutamiento para enviar mensajes a puntos de conexión personalizados en su centro de IoT. Los puntos de conexión personalizados permiten que las aplicaciones back-end lean mensajes de dispositivo a nube con Event Hubs, colas de Service Bus o temas de Service Bus. Para obtener información acerca de los puntos de conexión personalizados y de enrutamientos, consulte [Uso de puntos de conexión y reglas de enrutamiento personalizados para mensajes de dispositivos a la nube][lnk-devguide-custom].
-
-## <a name="anti-spoofing-properties"></a>Propiedades contra la suplantación
-
-Para evitar la suplantación de dispositivos en los mensajes de dispositivo a nube, Azure IoT Hub marca todos los mensajes con las siguientes propiedades:
-
-* **ConnectionDeviceId**
-* **ConnectionDeviceGenerationId**
-* **ConnectionAuthMethod**
-
-Las dos primeras contienen los valores **deviceId** y **generationId** del dispositivo de origen, tal como se indicó en [Propiedades de identidad del dispositivo][lnk-device-properties].
-
-La propiedad **ConnectionAuthMethod** contiene un objeto JSON serializado con las siguientes propiedades:
-
-```json
-{
-  "scope": "{ hub | device }",
-  "type": "{ symkey | sas | x509 }",
-  "issuer": "iothub"
-}
+IoT Hub asume como valor predeterminado la convención de nomenclatura de archivos siguiente:
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
+Puede usar cualquier convención de nomenclatura de archivos, aunque debe usar todos los tokens de la lista. IoT Hub escribirá en un blob vacío si no hay datos que escribir.
+
+### <a name="service-bus-queues-and-service-bus-topics"></a>Colas de Service Bus y temas de Service Bus
+Las colas y los temas de Service Bus usados como puntos de conexión de IoT Hub no deben tener habilitadas las opciones **Sesiones** o **Detección de duplicados**. Si cualquiera de estas opciones está habilitada, el punto de conexión aparece como **Inaccesible** en Azure Portal.
+
+### <a name="event-hubs"></a>Event Hubs
+Aparte del punto de conexión compatible con Event Hubs integrado, también puede enrutar los datos a puntos de conexión personalizados de tipo Event Hubs. 
+
+Cuando utilice el enrutamiento y los puntos de conexión personalizados, los mensajes se entregarán solo al punto de conexión integrado si no coinciden con ninguna regla. Para entregar mensajes al punto de conexión integrado y los puntos de conexión personalizados, agregue una ruta que envíe mensajes al punto de conexión de eventos.
+
+## <a name="reading-data-that-has-been-routed"></a>Lectura de datos que se han enrutado
+Para configurar una ruta, siga este [tutorial](https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
+
+Use los siguientes tutoriales para obtener información sobre cómo leer un mensaje de un punto de conexión.
+
+* Lectura desde el [punto de conexión integrado](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node)
+* Lectura desde [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart)
+* Lectura desde [Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+* Lectura desde [colas de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
+* Lectura desde [temas de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
+## <a name="fallback-route"></a>Ruta de reserva
+La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de Event Hubs integrado (**mensajes y eventos**), que es compatible con [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Tenga en cuenta que una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado a menos que se cree una ruta a ese punto de conexión. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado. 
+
+Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enrutamiento de mensajes. También puede usar Azure Resource Manager para [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar un punto de conexión personalizado para la ruta de reserva.
+
+## <a name="non-telemetry-events"></a>Eventos que no son de telemetría
+Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo y eventos del ciclo de vida del dispositivo. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. 
+[IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo con el fin de admitir integraciones en tiempo real y automatización de flujos de trabajo basados en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
+
+## <a name="testing-routes"></a>Prueba de las rutas
+Al crear una ruta nueva o al modificar una ruta existente, debe probar la consulta de ruta con un mensaje de ejemplo. Puede probar rutas individuales o probar todas las rutas a la vez y no se enruta ningún mensaje a los puntos de conexión durante la prueba. Puede usar Azure Portal, Azure Resource Manager, Azure PowerShell y la CLI de Azure para realizar las pruebas. Los resultados ayudan a identificar si el mensaje de ejemplo coincide con la consulta, el mensaje no coincide con la consulta o no se pudo ejecutar la prueba porque la sintaxis del mensaje de ejemplo o de la consulta son incorrectas. Para más información, consulte [Prueba de una ruta](https://docs.microsoft.com/rest/api/iothub/iothubresource/testroute) y [Prueba de todas las rutas](https://docs.microsoft.com/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="latency"></a>Latencia
+Al enrutar mensajes de telemetría del dispositivo a la nube mediante puntos de conexión integrados, aumenta ligeramente la latencia de un extremo a otro tras las creación de la primera ruta.
+
+En la mayoría de los casos, el aumento medio de la latencia es inferior a 500 ms. Puede supervisar la latencia con **Enrutamiento: latencia de mensaje para mensajes y eventos** o con la métrica de IoT Hub **d2c.endpoints.latency.builtIn.events**. La creación o eliminación de una ruta tras la primera no afecta a la latencia de un extremo a otro.
+
+## <a name="monitoring-and-troubleshooting"></a>Supervisión y solución de problemas
+IoT Hub proporciona varias métricas relacionadas con el enrutamiento y los puntos de conexión para ofrecerle una visión general del mantenimiento del centro y los mensajes enviados. Puede combinar información de varias métricas para identificar la causa principal de los problemas. Por ejemplo, use la métrica **Enrutamiento: mensajes de telemetría eliminados** o **d2c.telemetry.egress.dropped** para identificar el número de mensajes que se eliminaron por no coincidir con las consultas en ninguna de las rutas y la ruta de reserva estaba deshabilitada. [Métricas de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) enumera todas las métricas que están habilitadas de forma predeterminada para el centro de IoT.
+
+Mediante los registros de diagnóstico de **rutas** de la [configuración de diagnóstico](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health) de Azure Monitor, puede realizar un seguimiento de los errores producidos durante la evaluación de una consulta de enrutamiento y del mantenimiento del punto de conexión según lo percibido por IoT Hub, por ejemplo, cuando un punto de conexión está inactivo. Estos registros de diagnóstico se pueden enviar a Log Analytics, Event Hubs o Azure Storage para su procesamiento personalizado.
+
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para obtener información sobre los SDK que puede utilizar para enviar mensajes de dispositivo a nube, consulte [SDK de Azure IoT][lnk-sdks].
-
-Las guías de [inicio rápido][lnk-get-started] muestran cómo enviar mensajes del dispositivo a la nube desde dispositivos simulados. Para obtener más información, vea el tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas][lnk-d2c-tutorial].
-
-[lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
-[lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-comparison]: iot-hub-compare-event-hubs.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: tutorial-routing.md
+* Para aprender a crear rutas de mensajes, consulte el tutorial [Procesamiento de mensajes del dispositivo a la nube de IoT Hub mediante rutas](../iot-hub/tutorial-routing.md).
+* Las [guías de inicio rápido](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node) muestran cómo enviar mensajes del dispositivo a la nube desde dispositivos simulados.
+* Para obtener información sobre los SDK que puede utilizar para enviar mensajes del dispositivo a la nube, consulte [SDK de Azure IoT](../iot-hub/iot-hub-devguide-sdks.md).

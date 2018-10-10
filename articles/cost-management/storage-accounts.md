@@ -1,27 +1,27 @@
 ---
-title: Configuración de cuentas de almacenamiento para Azure Cost Management | Microsoft Docs
-description: En este artículo se describe cómo configurar cuentas de almacenamiento de Azure y cubos de almacenamiento de AWS para Azure Cost Management.
+title: Configuración de cuentas de almacenamiento para Cloudyn en Azure | Microsoft Docs
+description: En este artículo se describe cómo configurar cuentas de almacenamiento de Azure y cubos de almacenamiento de AWS para Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 829995d40a73dc181a28a467e4d16fef0bdeb454
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143436"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990661"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>Configuración de cuentas de almacenamiento para Cost Management
+# <a name="configure-storage-accounts-for-cloudyn"></a>Configuración de cuentas de almacenamiento para Cloudyn
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-Puede guardar los informes de Cost Management en el portal de Cloudyn, en el almacenamiento de Azure o en cubos de almacenamiento de AWS. El almacenamiento de los informes en el portal de Cloudyn es gratuito. Sin embargo, guardar los informes en el almacenamiento del proveedor de servicios en la nube es opcional y puede conllevar costos adicionales. Este artículo le ayuda a configurar cuentas de almacenamiento de Azure y cubos de almacenamiento de Amazon Web Services (AWS) para almacenar los informes.
+Puede guardar los informes de Cloudyn en el portal de Cloudyn, en el almacenamiento de Azure o en cubos de almacenamiento de AWS. El almacenamiento de los informes en el portal de Cloudyn es gratuito. Sin embargo, guardar los informes en el almacenamiento del proveedor de servicios en la nube es opcional y puede conllevar costos adicionales. Este artículo le ayuda a configurar cuentas de almacenamiento de Azure y cubos de almacenamiento de Amazon Web Services (AWS) para almacenar los informes.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -33,7 +33,7 @@ Si no tiene un cubo de servicio de almacenamiento simple (S3) de AWS, debe crear
 
 ## <a name="configure-your-azure-storage-account"></a>Configuración de la cuenta de almacenamiento de Azure
 
-La configuración del almacenamiento de Azure para que lo use Cost Management es sencilla. Recopile detalles sobre la cuenta de almacenamiento y cópielos en el portal de Cloudyn.
+La configuración del almacenamiento de Azure para que lo use Cloudyn es sencilla. Recopile detalles sobre la cuenta de almacenamiento y cópielos en el portal de Cloudyn.
 
 1. Inicie sesión en Azure Portal en http://portal.azure.com.
 2. Haga clic en **Todos los servicios**, seleccione **Cuentas de almacenamiento**, desplácese a la cuenta de almacenamiento que desea usar y selecciónela.
@@ -163,4 +163,4 @@ Ahora puede guardar informes en el almacenamiento de Azure. En cualquier informe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise [Informes de administración de costos](understanding-cost-reports.md) para obtener información sobre la estructura básica y las funciones de informes de administración de costos.
+- Revise [Descripción de los informes de Cloudyn](understanding-cost-reports.md) para más información sobre la estructura básica y las funciones de los informes de Cloudyn.

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445218"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996849"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevación de los privilegios de acceso de un administrador global en Azure Active Directory
 
@@ -37,7 +37,9 @@ Esta elevación debe ser temporal y solo debe realizarse cuando sea necesario.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Elevación de los privilegios de acceso de un administrador global mediante Azure Portal
+## <a name="azure-portal"></a>Azure Portal
+
+Siga estos pasos para elevar los privilegios de acceso de un administrador global mediante Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com).
 
@@ -59,7 +61,9 @@ Esta elevación debe ser temporal y solo debe realizarse cuando sea necesario.
 
 1. Realice las tareas que debe realizar al tener privilegios elevados de acceso. Cuando haya terminado, seleccione **No**.
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Mostrar la asignación de roles en el ámbito raíz (/) mediante PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="list-role-assignment-at-the-root-scope-"></a>Mostrar la asignación de roles en el ámbito raíz (/)
 
 Para mostrar la asignación de roles de administrador de accesos de usuario de un usuario en el ámbito raíz (`/`), use el comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
@@ -79,7 +83,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Quitar la asignación de un rol en el ámbito raíz (/) mediante PowerShell
+### <a name="remove-a-role-assignment-at-the-root-scope-"></a>Eliminación de la asignación de roles en el ámbito raíz (/)
 
 Para quitar la asignación de roles de administrador de acceso de usuario de un usuario en el ámbito raíz (`/`), use el comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
@@ -88,9 +92,11 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Elevación de los privilegios de acceso de un administrador global mediante la API de REST
+## <a name="rest-api"></a>API REST
 
-Utilice los siguientes pasos básicos para elevar los privilegios de acceso de un administrador global mediante la API de REST.
+### <a name="elevate-access-for-a-global-administrator"></a>Elevación de los privilegios de acceso de un administrador global
+
+Utilice los siguientes pasos básicos para elevar los privilegios de acceso de un administrador global mediante la API REST.
 
 1. Mediante REST, llame a `elevateAccess`. Entonces, se le concede el rol de administrador de accesos de usuario en el ámbito raíz (`/`).
 
@@ -117,7 +123,7 @@ Utilice los siguientes pasos básicos para elevar los privilegios de acceso de u
 
 1. Quite los privilegios de administrador de acceso de usuario hasta que los vuelva a necesitar.
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Mostrar las asignaciones de roles en el ámbito raíz (/) mediante la API REST
+### <a name="list-role-assignments-at-the-root-scope-"></a>Enumeración de las asignaciones de roles en el ámbito raíz (/)
 
 Puede enumerar todas las asignaciones de roles para un usuario en el ámbito raíz (`/`).
 
@@ -127,7 +133,17 @@ Puede enumerar todas las asignaciones de roles para un usuario en el ámbito ra�
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>Quitar el acceso con privilegios elevados mediante la API REST
+### <a name="list-deny-assignments-at-the-root-scope-"></a>Enumeración de las asignaciones de denegación en el ámbito raíz (/)
+
+Puede enumerar todas las asignaciones de denegación de un usuario en el ámbito raíz (`/`).
+
+- Llame a GET denyAssignments, donde `{objectIdOfUser}` es el id. de objeto del usuario cuyas asignaciones de denegación desea recuperar.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados
 
 Cuando llama a `elevateAccess`, crea una asignación de roles para sí mismo, por lo que, para revocar esos privilegios, debe quitar la asignación.
 

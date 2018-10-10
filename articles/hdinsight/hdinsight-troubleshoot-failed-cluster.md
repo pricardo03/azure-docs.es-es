@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: f18e667e86c310e4d2950ba195911307aec5426d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047032"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950724"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solución de problemas de un clúster de HDInsight lento o con errores
 
@@ -57,12 +57,13 @@ Azure Portal puede proporcionar esta información:
 
 ![Información de Azure Portal de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-También puede usar la CLI de Azure:
+También puede usar la CLI de Azure clásica:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Otra opción consiste en usar PowerShell. Para más información, consulte [Administración de clústeres de Hadoop en HDInsight con Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -100,7 +101,7 @@ Compare la versión del clúster con la versión más reciente de HDInsight. Cad
 
 #### <a name="restart-your-cluster-services"></a>Reiniciar los servicios de clúster
 
-Si experimenta ralentizaciones en el clúster, considere la posibilidad de reiniciar los servicios a través de la UI de Ambari o la CLI de Azure. Es posible que el clúster esté experimentando errores transitorios y el reinicio es la forma más rápida de estabilizar su entorno y, posiblemente, de mejorar el rendimiento.
+Si experimenta ralentizaciones en el clúster, considere la posibilidad de reiniciar los servicios mediante la UI de Ambari o la CLI de Azure clásica. Es posible que el clúster esté experimentando errores transitorios y el reinicio es la forma más rápida de estabilizar su entorno y, posiblemente, de mejorar el rendimiento.
 
 ## <a name="step-3-view-your-clusters-health"></a>Paso 3: Ver el estado del clúster
 

@@ -7,27 +7,33 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: b587f5dcc9558ec52b85e4b53dae0e31ad475a4e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983725"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Movilidad y colaboración en Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 En este artículo se describe cómo puede usar Azure Machine Learning Workbench para configurar proyectos para la itinerancia entre equipos y colaborar con los miembros del equipo. 
 
 Cuando se crea un proyecto de Azure Machine Learning que tiene un vínculo de repositorio de Git (repo) remoto, los metadatos del proyecto y las instantáneas se almacenan en la nube. Puede utilizar el vínculo en la nube para acceder al proyecto desde otro equipo (itinerancia). También puede colaborar con miembros del equipo proporcionándoles acceso al proyecto. 
 
-## <a name="prerequisites"></a>requisitos previos
-1. Instale la aplicación Azure Machine Learning Workbench. Asegúrese de que tiene acceso a una cuenta de Experimentación de Azure Machine Learning. Para más información, consulte la [guía de instalación](../service/quickstart-installation.md).
+## <a name="prerequisites"></a>Requisitos previos
+1. Instale la aplicación Azure Machine Learning Workbench. Asegúrese de que tiene acceso a una cuenta de Experimentación de Azure Machine Learning. Para más información, consulte la [guía de instalación](quickstart-installation.md).
 
-2. Acceda a [Visual Studio Team Services](https://www.visualstudio.com) (Team Services) y cree un repositorio al que vincular el proyecto. Para más información, consulte [Uso de un repositorio de Git con un proyecto de Azure Machine Learning Workbench](using-git-ml-project.md).
+2. Acceda a [Azure DevOps](https://www.visualstudio.com) y, a continuación, cree un repositorio al que vincular el proyecto. Para más información, consulte [Uso de un repositorio de Git con un proyecto de Azure Machine Learning Workbench](using-git-ml-project.md).
 
 ## <a name="create-a-new-machine-learning-project"></a>Creación de un nuevo proyecto de Machine Learning
-Abra Machine Learning Workbench y cree un nuevo proyecto (por ejemplo, un proyecto denominado iris). En el cuadro **Dirección URL del repositorio de Git de Visualstudio.com**, escriba una dirección URL válida para un repositorio de Git de Team Services. 
+Abra Machine Learning Workbench y cree un nuevo proyecto (por ejemplo, un proyecto denominado iris). En el cuadro de **dirección URL del repositorio de Git de Visualstudio.com**, escriba una dirección URL válida para un repositorio de Git de Azure DevOps. 
 
 > [!IMPORTANT]
 > Si elige la plantilla de proyecto en blanco, el repositorio de Git que elige para usar ya podría tener una rama maestra. Machine Learning simplemente clona la rama maestra localmente. Agrega la carpeta aml_config y otros archivos de metadatos de proyecto a la carpeta del proyecto local. 
@@ -60,7 +66,7 @@ $ git push origin master
 <a name="roaming"></a>
 
 ### <a name="open-machine-learning-workbench-on-a-second-computer"></a>Apertura de Azure Machine Learning Workbench en un segundo equipo
-Después de que el repositorio de Git de Team Services esté vinculado al proyecto, puede acceder al proyecto iris desde cualquier equipo que tenga instalado Machine Learning Workbench. 
+Una vez que el repositorio de Git de Azure DevOps está vinculado al proyecto, puede acceder al proyecto iris desde cualquier equipo que tenga instalado Machine Learning Workbench. 
 
 Para acceder al proyecto iris desde otro equipo, debe iniciar sesión en la aplicación con las mismas credenciales que usó al crear el proyecto. También necesita estar en la misma área de trabajo y cuenta de Experimentación de Azure Machine Learning. El proyecto iris aparece enumerado alfabéticamente con otros proyectos del área de trabajo. 
 
@@ -82,11 +88,11 @@ En una versión futura, tenemos previsto mejorar la funcionalidad para que pueda
 
 
 ### <a name="work-on-the-downloaded-project"></a>Trabajo en el proyecto descargado 
-El proyecto recién descargado refleja el estado del proyecto en la última ejecución del proyecto. Se confirma automáticamente una instantánea del estado del proyecto en la rama del historial de ejecución en el repositorio de Git de Team Services cada vez que se envía una ejecución. La instantánea asociada a la ejecución más reciente se usa para crear una instancia del proyecto en el segundo equipo. 
+El proyecto recién descargado refleja el estado del proyecto en la última ejecución del proyecto. Se confirma automáticamente una instantánea del estado del proyecto en la rama del historial de ejecución en el repositorio de Git de Azure DevOps cada vez que se envía una ejecución. La instantánea asociada a la ejecución más reciente se usa para crear una instancia del proyecto en el segundo equipo. 
  
 
 ## <a name="collaboration"></a>Colaboración
-Pueden colaborar con los miembros del equipo en proyectos que están vinculados a un repositorio de Git de Team Services. Puede asignar permisos a los usuarios en el área de trabajo, el proyecto y la cuenta de Experimentación de Machine Learning. Actualmente, puede ejecutar los comandos de Azure Resource Manager mediante la CLI de Azure. También puede usar [Azure Portal](https://portal.azure.com). Para más información, consulte [Uso de Azure Portal para agregar usuarios](#portal).    
+Puede colaborar con los miembros del equipo en proyectos que estén vinculados a un repositorio de Git de Azure DevOps. Puede asignar permisos a los usuarios en el área de trabajo, el proyecto y la cuenta de Experimentación de Machine Learning. Actualmente, puede ejecutar los comandos de Azure Resource Manager mediante la CLI de Azure. También puede usar [Azure Portal](https://portal.azure.com). Para más información, consulte [Uso de Azure Portal para agregar usuarios](#portal).    
 
 ### <a name="use-the-command-line-to-add-users"></a>Uso de la línea de comandos para agregar usuarios
 Por ejemplo, Alice es la propietaria del proyecto iris. Alice desea compartir el acceso al proyecto con Bob. 
@@ -127,16 +133,16 @@ Encuentre el recurso al que quiere agregar usuarios mediante la vista **Todos lo
 ## <a name="sample-collaboration-workflow"></a>Ejemplo de flujo de trabajo de colaboración
 Para ilustrar el flujo de trabajo de colaboración, veamos un ejemplo. Alice y Bob, empleados de Contoso, quieren colaborar en un proyecto de ciencia de datos mediante Machine Learning Workbench. Sus identidades pertenecen al mismo inquilino de Azure Active Directory (Azure AD) de Contoso. Estos son los pasos que Alicia y Bob llevan a cabo:
 
-1. Alice crea un repositorio de Git vacío en un proyecto de Team Services. El proyecto de Team Services debe estar en una suscripción de Azure creada en el inquilino de Azure AD de Contoso. 
+1. Alice crea un repositorio de Git vacío en un proyecto de Azure DevOps. El proyecto de Azure DevOps debe estar en una suscripción de Azure creada en el inquilino de Azure AD de Contoso. 
 
-2. Alice crea una cuenta de Experimentación de Machine Learning, un área de trabajo y un proyecto de Machine Learning Workbench en su equipo. Cuando crea el proyecto, escribe la dirección URL del repositorio de Git de Team Services.
+2. Alice crea una cuenta de Experimentación de Machine Learning, un área de trabajo y un proyecto de Machine Learning Workbench en su equipo. Cuando crea el proyecto, escribe la dirección URL del repositorio de Git de Azure DevOps.
 
-3. Alice empieza a trabajar en el proyecto. Crea algunos scripts y realiza unas ejecuciones. Para cada ejecución, se inserta una instantánea de toda la carpeta de proyecto automáticamente como una confirmación en una rama de historial de ejecución del repositorio de Git de Team Services que Machine Learning Workbench crea.
+3. Alice empieza a trabajar en el proyecto. Crea algunos scripts y realiza unas ejecuciones. Con cada ejecución, se inserta automáticamente una instantánea de toda la carpeta de proyecto como una confirmación en una rama del historial de ejecución del repositorio de Git de Azure DevOps que crea Machine Learning Workbench.
 
-4. Alice está satisfecha con el trabajo en curso. Ella quiere confirmar sus cambios de la rama maestra local y los inserta en la rama maestra del repositorio de Git de Team Services. Con el proyecto abierto, en Machine Learning Workbench, abre la ventana Símbolo del sistema y luego escribe estos comandos:
+4. Alice está satisfecha con el trabajo en curso. Quiere confirmar sus cambios de la rama maestra local y los inserta en la rama maestra del repositorio de Git de Azure DevOps. Con el proyecto abierto, en Machine Learning Workbench, abre la ventana Símbolo del sistema y luego escribe estos comandos:
     
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
@@ -148,11 +154,11 @@ Para ilustrar el flujo de trabajo de colaboración, veamos un ejemplo. Alice y B
     # Commit changes with a comment.
     $ git commit -m "this is a good milestone"
 
-    # Push the commit to the master branch of the remote Git repo in Team Services.
+    # Push the commit to the master branch of the remote Git repo in Azure DevOps.
     $ git push
     ```
 
-5. Alice agrega a Bob al área de trabajo como colaborador. Ella puede hacer esto en Azure Portal o mediante el comando `az role assignment`, como se mostró anteriormente. Alice también concede a Bob permisos de lectura y escritura en el repositorio de Git de Team Services.
+5. Alice agrega a Bob al área de trabajo como colaborador. Ella puede hacer esto en Azure Portal o mediante el comando `az role assignment`, como se mostró anteriormente. Alice también concede a Bob permisos de lectura y escritura en el repositorio de Git de Azure DevOps.
 
 6. Bob inicia sesión en Machine Learning Workbench en su equipo. Bob puede ver el área de trabajo que Alice compartió con él. Bob puede ver que el proyecto iris aparece en esa área de trabajo. 
 
@@ -165,13 +171,13 @@ Para ilustrar el flujo de trabajo de colaboración, veamos un ejemplo. Alice y B
 9. Bob desea obtener los cambios más recientes que Alicia insertó y luego empezar a trabajar en una rama distinta. En Azure Machine Learning Workbench, Bob abre una ventana Símbolo del sistema y ejecuta los comandos siguientes:
 
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
     $ git branch
 
-    # Get the latest commit in the Team Services Git master branch and overwrite current files.
+    # Get the latest commit in the Azure DevOps Git master branch and overwrite current files.
     $ git pull --force
 
     # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
@@ -192,7 +198,7 @@ Para ilustrar el flujo de trabajo de colaboración, veamos un ejemplo. Alice y B
     # Commit the changes with a comment.
     $ git commit -m "I found a cool new trick."
 
-    # Create a new branch on the remote Team Services Git repo, and then push the changes.
+    # Create a new branch on the remote Azure DevOps Git repo, and then push the changes.
     $ git push origin bob
     ```
 

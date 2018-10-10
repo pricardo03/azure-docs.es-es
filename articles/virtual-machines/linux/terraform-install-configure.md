@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 1af96b686a1502d638b4335e22259b79169d1065
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0943bd1bffb3df7beda97ea0619f1aced4ca3a41
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173254"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946789"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure
  
@@ -65,17 +65,17 @@ Ahora puede crear una entidad de servicio para su uso con Terraform. Utilice[az 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Se devuelven el valor de *appId*, *password*, *sp_name* y *tenant*. Anote el valor de *appId* y *password*.
+Se devuelven su `appId`, `password`, `sp_name` y `tenant`. Anote los valores de `appId` y de `password`.
 
 ## <a name="configure-terraform-environment-variables"></a>Configuración de las variables de entorno de Terraform
 
 Para configurar Terraform para que use la entidad de servicio de Azure AD, establezca las siguientes variables de entorno, que se usan por los [módulos de Terraform de Azure](https://registry.terraform.io/modules/Azure). También puede establecer el entorno si trabaja con una nube de Azure distinta de la pública.
 
-- ARM_SUBSCRIPTION_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
-- ARM_TENANT_ID
-- ARM_ENVIRONMENT
+- `ARM_SUBSCRIPTION_ID`
+- `ARM_CLIENT_ID`
+- `ARM_CLIENT_SECRET`
+- `ARM_TENANT_ID`
+- `ARM_ENVIRONMENT`
 
 Puede usar el siguiente script de shell de ejemplo para establecer esas variables:
 

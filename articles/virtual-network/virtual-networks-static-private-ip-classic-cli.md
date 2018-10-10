@@ -1,6 +1,6 @@
 ---
-title: Configuración de direcciones IP privadas para máquinas virtuales (implementación clásica) en la CLI de Azure 1.0 | Microsoft Docs
-description: Aprenda a configurar direcciones IP privadas para máquinas virtuales (implementación clásica) mediante la interfaz de línea de comandos (CLI) de Azure 1.0.
+title: 'Configuración de direcciones IP privadas para máquinas virtuales (clásicas): CLI de Azure clásica | Microsoft Docs'
+description: Aprenda a configurar direcciones IP privadas para máquinas virtuales (implementación clásica) mediante la interfaz de línea de comandos (CLI) de Azure clásica.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a18877167d04fdb039070d5315390a846925fd29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791814"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971151"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configuración de direcciones IP privadas para una máquina virtual (implementación clásica) mediante la CLI de Azure 1.0
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configuración de direcciones IP privadas para una máquina virtual (implementación clásica) mediante la CLI de Azure clásica
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -33,12 +33,12 @@ ms.locfileid: "31791814"
 
 Este artículo trata sobre el modelo de implementación clásico. También puede [administrar la dirección IP privada estática en el modelo de implementación del Administrador de recursos](virtual-networks-static-private-ip-arm-cli.md).
 
-En los siguientes comandos de la CLI de Azure de ejemplo se presupone que ya se ha creado un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-classic-cli.md).
+En los siguientes comandos de ejemplo de la CLI de Azure clásica se presupone que ya se creó un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-classic-cli.md).
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificación de una dirección IP privada estática al crear una VM
 Para crear una máquina virtual denominada *DNS01* en un nuevo servicio en la nube denominado *TestService* según el escenario anterior, siga estos pasos:
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](/cli/azure/install-cli-version-1.0) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el comando **azure service create** para crear el servicio en la nube.
    
         azure service create TestService --location uscentral
@@ -124,4 +124,3 @@ Se recomienda no asignar estáticamente la dirección IP privada asignada a la m
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
 * Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-

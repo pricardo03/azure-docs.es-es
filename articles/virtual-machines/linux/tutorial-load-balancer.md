@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Equilibrio de carga de máquinas virtuales Linux en Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a utilizar la CLI de Azure 2.0 para crear un equilibrador de carga para una aplicación segura y de alta disponibilidad entre tres máquinas virtuales Linux.
+description: En este tutorial, aprenderá a utilizar la CLI de Azure para crear un equilibrador de carga para una aplicación segura y de alta disponibilidad entre tres máquinas virtuales Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6ca58fb901be416a2640091862724dbc1611390
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 58af3e2e1eab80120bbd97e8c2588b6a0678a4b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931956"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970845"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli-20"></a>Tutorial: Equilibrio de carga de máquinas virtuales Linux en Azure para crear una aplicación de alta disponibilidad con la CLI de Azure 2.0
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Equilibrio de carga de máquinas virtuales Linux en Azure para crear una aplicación de alta disponibilidad con la CLI de Azure
 
 El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:
 
@@ -38,7 +38,7 @@ El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribui
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Información general sobre Azure Load Balancer
 Un equilibrador de carga de Azure es un equilibrador de carga de nivel 4 (TCP, UDP) que proporciona una alta disponibilidad mediante la distribución del tráfico entrante entre máquinas virtuales con un estado correcto. Un sondeo de estado de equilibrador de carga supervisa un puerto determinado en cada máquina virtual y solo distribuye tráfico a una máquina virtual operativa.

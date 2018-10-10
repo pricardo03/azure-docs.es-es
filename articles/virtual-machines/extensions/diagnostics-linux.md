@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: 8ffa9823000efbb101be73397cd0025f9933cecd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652651"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994809"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -51,12 +51,13 @@ Mediante estas instrucciones de instalación y una [configuración de ejemplo de
 
 La configuración que se puede descargar es solo un ejemplo; modifíquela como corresponda para adaptarla a sus necesidades.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para actualizarla.
-* **CLI de Azure** [Instale el entorno de CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
+* **CLI de Azure** [Instale el entorno de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
 * El comando wget, si aún no lo tiene: ejecute `sudo apt-get install wget`.
 * Una suscripción a Azure existente con una cuenta de almacenamiento para almacenar los datos.
+* La lista de distribuciones de Linux compatibles se encuentra en https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>Instalación de ejemplo
 

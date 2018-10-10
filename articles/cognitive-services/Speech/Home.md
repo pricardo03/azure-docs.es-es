@@ -1,5 +1,6 @@
 ---
 title: Servicio Bing Speech de Microsoft | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use Microsoft Speech API para agregar acciones de voz a las aplicaciones, incluida la interacción en tiempo real con usuarios.
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,17 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097402"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975651"
 ---
-# <a name="microsoft-bing-speech-api-overview"></a>Introducción a Microsoft Bing Speech API
+# <a name="what-is-bing-speech"></a>¿Qué es Bing Speech?
 
 Microsoft Bing Speech API es una API basada en la nube que proporciona a los desarrolladores un mecanismo sencillo para crear en las aplicaciones eficaces características con voz habilitada, como el control de comandos por voz, el diálogo con el usuario mediante una conversación en lenguaje natural y la transcripción y el dictado de voz. Microsoft Speech API admite tanto la conversión de *voz en texto* como la conversión de *texto a voz*.
 

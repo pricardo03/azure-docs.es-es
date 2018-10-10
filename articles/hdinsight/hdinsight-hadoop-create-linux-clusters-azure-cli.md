@@ -1,6 +1,6 @@
 ---
-title: Creación de clústeres de Hadoop mediante la línea de comandos en Azure HDInsight
-description: Aprenda a crear clústeres de HDInsight con la CLI multiplataforma de Azure 1.0.
+title: 'Creación de clústeres de Hadoop mediante la CLI de Azure clásica: Azure HDInsight'
+description: Aprenda a crear clústeres de HDInsight con la CLI multiplataforma clásica de Azure.
 services: hdinsight
 author: jasonwhowell
 ms.reviewer: jasonh
@@ -9,23 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 523c2a85929d8474c283055a8ae38d489cbd4b12
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090981"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992820"
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure
+# <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure clásica
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.5 mediante la CLI de Azure 1.0.
+Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.5 mediante la CLI de Azure clásica.
 
-> [!IMPORTANT]
-> En este tema se describe la creación de un clúster de HDInsight con la CLI de Azure 1.0. Esta versión de la CLI está en desuso y no se agregó compatibilidad para crear clústeres de HDInsight a la CLI de Azure 2.0.
->
-> También se pueden crear y administrar clústeres de HDInsight con Azure PowerShell. Para más información, consulte el documento sobre la [creación de clústeres de HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,14 +30,11 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **CLI de Azure** Los pasos de este documento se probaron por última vez en la versión 0.10.14 de la CLI de Azure.
-
-    > [!IMPORTANT]
-    > La CLI de Azure 1.0 está en desuso y no se agregó compatibilidad para crear clústeres de HDInsight a la CLI de Azure 2.0.
+* **CLI de Azure clásica**. Los pasos de este documento se probaron por última vez en la versión 0.10.14 de la CLI de Azure clásica.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
 
-Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](/cli/azure/authenticate-azure-cli) y conéctese a su suscripción con el método **login** .
+Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la Interfaz de la línea de comandos de Azure](/cli/azure/authenticate-azure-cli) y conéctese a su suscripción con el método **login**.
 
 ## <a name="create-a-cluster"></a>Creación de un clúster
 
@@ -50,7 +44,7 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
         azure login
 
-    Se le solicitará que escriba su nombre y contraseña. Si tiene varias suscripciones de Azure, puede usar `azure account set <subscriptionname>` para establecer la suscripción que usarán los comandos de la CLI de Azure.
+    Se le solicitará que escriba su nombre y contraseña. Si tiene varias suscripciones de Azure, puede usar `azure account set <subscriptionname>` para establecer la suscripción que usarán los comandos de la CLI de Azure clásica.
 
 2. Cambie al modo de Administrador de recursos de Azure con el siguiente comando:
 
@@ -124,7 +118,7 @@ Si experimenta problemas con la creación de clústeres de HDInsight, consulte l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez creado correctamente un clúster de HDInsight correctamente mediante la CLI de Azure, use los siguientes vínculos para aprender a trabajar con él:
+Una vez creado correctamente un clúster de HDInsight correctamente mediante la CLI clásica de Azure, use los siguientes vínculos para aprender a trabajar con él:
 
 ### <a name="hadoop-clusters"></a>Clústeres Hadoop
 

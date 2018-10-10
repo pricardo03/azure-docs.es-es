@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 958fbd507efeb161b169c01abf32012883017f18
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0214d6cf09795605bca60774604ecd1fec94fdc6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022346"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989437"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante la CLI de Azure
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido se necesita la versión 2.0.4 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido se necesita la versión 2.0.4 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 Para iniciar sesión en Azure mediante la CLI puede escribir:
 
@@ -37,7 +37,7 @@ Para iniciar sesión en Azure mediante la CLI puede escribir:
 az login
 ```
 
-Para más información sobre las opciones de inicio de sesión mediante la CLI, consulte [Inicio de sesión con la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Para más información sobre las opciones de inicio de sesión mediante la CLI, consulte [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -100,4 +100,4 @@ az group delete --name ContosoResourceGroup
 En esta guía de inicio rápido, ha creado una instancia de Key Vault y almacenado un secreto en ella. Para más información sobre Key Vault y cómo lo puede utilizar con sus aplicaciones, siga con el tutorial sobre aplicaciones web que funcionan con Key Vault.
 
 > [!div class="nextstepaction"]
-> Para obtener más información sobre cómo leer un secreto desde Key Vault mediante una aplicación web con una identidad de servicio administrada, consulte el siguiente tutorial: [Configure an Azure web application to read a secret from Key vault (Configuración de una aplicación web de Azure para que lea un secreto desde Key Vault)](quick-create-net.md)
+> Para más información sobre cómo leer un secreto de Key Vault mediante una aplicación web con identidades administradas de recursos de Azure, consulte el siguiente tutorial: [Tutorial: configuración de una aplicación web de Azure para que lea un secreto desde Key Vault](quick-create-net.md).

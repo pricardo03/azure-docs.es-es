@@ -1,28 +1,30 @@
 ---
-title: Introducción a Microsoft Speech Recognition API en Objective-C en iOS | Microsoft Docs
-description: Use Microsoft Speech Recognition API para desarrollar aplicaciones iOS que conviertan el audio hablado en texto.
+title: Introducción a Bing Speech Recognition API en Objective-C en iOS | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use Bing Speech Recognition API para desarrollar aplicaciones iOS que conviertan el audio hablado en texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a12c9b5325898afe508398f67939c39e591eb1cc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380583"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954507"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>Introducción a Speech Recognition API en Objective-C en iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API en Objective-C en iOS
 
 Con Speech Recognition API, puede desarrollar aplicaciones iOS que usen el servicio Voz basado en la nube para convertir el audio hablado en texto. La API admite el streaming en tiempo real, por lo que la aplicación puede recibir simultánea y asincrónicamente resultados parciales del reconocimiento al mismo tiempo que envía audio al servicio.
 
 En este artículo se usa una aplicación de ejemplo para demostrar los conceptos básicos del trabajo con Speech Recognition API para desarrollar una aplicación iOS. Para obtener una referencia completa de la API, consulte [Referencia de la biblioteca cliente del SDK de Speech](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 
@@ -135,7 +137,7 @@ Puede conectar varios controladores de eventos al cliente que creó:
 * **Eventos de resultados**:
   * En modo `SpeechRecognitionMode_ShortPhrase`, se llama a este evento y devuelve los n resultados mejores cuando termina de hablar.
   * En modo `SpeechRecognitionMode_LongDictation`, se llama al controlador de eventos varias veces, en función de dónde identifica el servicio las pausas en la frase.
-  * **Para cada una de las n opciones mejores**, se devuelve un valor de confianza y unos cuantos formatos diferentes del texto reconocido. Para más información, consulte [Formato de salida](../Concepts.md#output-format).
+  * **Para cada una de las n opciones mejores**, se devuelve un valor de confianza y unos cuantos formatos diferentes del texto reconocido. Para más información, consulte [Output format](../Concepts.md#output-format) (Formato de salida).
 
 ## <a name="related-topics"></a>Temas relacionados
 

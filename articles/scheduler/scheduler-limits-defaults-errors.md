@@ -1,49 +1,40 @@
 ---
-title: Límites del programador y valores predeterminados
-description: Límites del programador y valores predeterminados
+title: Límites, cuotas y umbrales de Azure Scheduler
+description: Obtenga información sobre los límites, cuotas, valores predeterminados y umbrales de limitación de Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c1e704a3bdec239c87d879ae1ef95e6e76d27fc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043170"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966929"
 ---
-# <a name="scheduler-limits-and-defaults"></a>Límites del programador y valores predeterminados
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Aceleradores, valores predeterminados, límites y cuotas de Programador
+# <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Límites, cuotas y umbrales de limitación de Azure Scheduler
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se va a retirar. Para programar trabajos, [pruebe Azure Logic Apps en su lugar](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+## <a name="limits-quotas-and-thresholds"></a>Límites, cuotas y umbrales
+
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>Encabezado x-ms-request-id
-Cada solicitud realizada en el servicio Programador devuelve un encabezado de respuesta denominado**x-ms-request-id**. Este encabezado contiene un valor opaco que identifica de forma única la solicitud.
+## <a name="x-ms-request-id-header"></a>Encabezado x-ms-request-id
 
-Si una solicitud genera error sistemáticamente y se ha comprobado que la solicitud está formulada correctamente, se puede usar este valor para notificar el error a Microsoft. En el informe, incluya el valor de x-ms-request-id, la hora aproximada en que se realizó la solicitud, el identificador de la suscripción, la colección de trabajos o el trabajo, así como el tipo de operación que intenta realizar la solicitud.
+Cada solicitud realizada al servicio Scheduler devuelve un encabezado de respuesta llamado**x-ms-request-id**. Este encabezado contiene un valor opaco que identifica de forma única la solicitud. Por lo tanto, si una solicitud falla constantemente y ha confirmado que la solicitud tiene un formato apropiado, puede notificar el error a Microsoft y proporcionar el valor del encabezado de respuesta **x-ms-request-id** e incluir estos detalles: 
+
+* El valor de **x-ms-request-id**
+* La hora aproximada en la que se realizó la solicitud 
+* Los identificadores de la suscripción de Azure, la colección de trabajos y el trabajo 
+* El tipo de operación que intenta realizar la solicitud
 
 ## <a name="see-also"></a>Otras referencias
- [¿Qué es Programador?](scheduler-intro.md)
 
- [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
-
- [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
-
- [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
-
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
-
- [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
-
- [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
-
- [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
-
+* [¿Qué es Azure Scheduler?](scheduler-intro.md)
+* [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: escalado automático de un conjunto de escalado con la CLI de Azure 2.0 | Microsoft Docs'
-description: Aprenda a escalar automáticamente un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0 a medida que la demanda de la CPU aumenta y disminuye
+title: 'Tutorial: Escalado automático de un conjunto de escalado con la CLI de Azure | Microsoft Docs'
+description: Aprenda a usar la CLI de Azure para escalar automáticamente un conjunto de escalado de máquinas virtuales a medida que la demanda de la CPU aumenta y disminuye
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4dedf4a84d5eaa47018fe0cd1cb6fd9a92d8ef7e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630159"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995399"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si elige instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.32 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si elige instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.32 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
 
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a escalar y reducir horizontalmente un conjunto de escalado de forma automática con la CLI de Azure 2.0:
+En este tutorial, ha aprendido a escalar y reducir horizontalmente un conjunto de escalado de forma automática con la CLI de Azure:
 
 > [!div class="checklist"]
 > * Usar el escalado automático con un conjunto de escalado
@@ -224,7 +224,7 @@ En este tutorial, aprendió a escalar y reducir horizontalmente un conjunto de e
 > * Realizar pruebas de esfuerzo de instancias de máquina virtual y desencadenar reglas de escalado automático
 > * Reducir el escalado automáticamente cuando se reduzca la demanda
 
-Para más ejemplos de conjuntos de escalado de máquinas virtuales en acción, vea los siguientes scripts de ejemplo de la CLI de Azure 2.0:
+Para más ejemplos de conjuntos de escalado de máquinas virtuales en acción, vea los siguientes scripts de ejemplo de la CLI de Azure:
 
 > [!div class="nextstepaction"]
-> [Ejemplos de scripts de conjuntos de escalado para la CLI de Azure 2.0](cli-samples.md)
+> [Ejemplos de scripts de conjunto de escalado para la CLI de Azure](cli-samples.md)

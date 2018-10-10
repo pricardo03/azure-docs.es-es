@@ -1,21 +1,21 @@
 ---
-title: Vista de las métricas clave en los paneles de Azure Cost Management | Microsoft Docs
-description: En este artículo se describe cómo ver las métricas clave desde los paneles de Azure Cost Management.
+title: Visualización de las métricas clave con los paneles de Cloudyn en Azure | Microsoft Docs
+description: En este artículo se describe cómo ver las métricas clave desde los paneles de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1dc2e2eca900ca0ae72329c3c373b2d24f1b2e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303156"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999722"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Vista de las métricas clave de costos con paneles
 
@@ -34,7 +34,7 @@ Las versiones de los paneles difieren para los usuarios de Management (MSP), Ent
 
 La disponibilidad de los paneles depende del tipo de cuenta de proveedor de servicios de nube que se utilice al ver los paneles. El tipo de información disponible y recopilado por Cloudyn afecta a los informes en los paneles. Por ejemplo, si no tiene una cuenta de AWS, no verá el panel S3 Tracker (Seguimiento de S3). De forma similar, si no habilita el acceso de Azure Resource Manager a Cloudyn, no verán ninguna información específica de Azure en los widgets del panel Optimizer (Optimizador).
 
-Puede usar cualquiera de los paneles predefinidos o puede crear su propio panel con informes personalizados. Si no está familiarizado con los informes de Cloudyn, consulte [Uso de los informes de Cost Management](use-reports.md).
+Puede usar cualquiera de los paneles predefinidos o puede crear su propio panel con informes personalizados. Si no está familiarizado con los informes de Cloudyn, consulte [Uso de los informes de Cloudyn](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Creación de un panel personalizado
 
@@ -284,7 +284,7 @@ El panel Cloud Comparison le ayuda a comparar los costos de distintos proveedore
 ![Panel Cloud Comparison (Comparación de la nube)](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Cost in Azure by Instance Type (Costo de EC2 en Azure por tipo de instancia)
-Este widget indica los últimos 30 días de uso en las tasas a petición. Compara el costo actual de Amazon EC2 frente al costo posible en Azure.
+Este widget indica los últimos 30 días de uso en las tasas a petición. Compara el costo actual de Amazon EC2 con al costo posible en Azure.
 - Pase el mouse por las barras para comparar los costos por tipo de instancia.
 - Haga clic en el widget para abrir el informe Porting Your Deployment – Cost Analysis (Traslado del análisis de implementación-costos).
 
@@ -295,3 +295,6 @@ Este widget muestra los costos actuales de Amazon EC2 y los compara con Azure. L
 ### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure Instance Type Mapping (Asignación de tipo de instancia EC2/Azure)
 Este widget indica la mejor asignación de unidades de proceso elásticas entre Amazon EC2 y Azure.
 - Haga clic en el widget para abrir el informe Instances Type Mapping (Asignación de tipo de instancia).
+
+## <a name="next-steps"></a>Pasos siguientes
+- Lea el artículo [Uso de los informes de Cloudyn](use-reports.md) para más información sobre los informes.

@@ -1,25 +1,26 @@
 ---
-title: Método de idiomas de Microsoft Translator Speech API | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Use el método de idiomas de Microsoft Translator Speech API.
+title: Método de idiomas de Translator Speech API
+titleSuffix: Azure Cognitive Services
+description: Use el método de idiomas de Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: 5396e3be17345c3c36197a9b6cbace86e1f574c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382923"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986428"
 ---
-# <a name="speech-api-languages"></a>Speech API: Languages
+# <a name="translator-speech-api-languages"></a>Translator Speech API: Idiomas
 
-Microsoft Translator continuamente amplía la lista de idiomas que admiten sus servicios. Use esta API para detectar el conjunto de idiomas disponibles actualmente para usarlos con el servicio Translator Speech.
+Translator Speech amplía continuamente la lista de idiomas que se admiten en sus servicios. Use esta API para averiguar el conjunto de idiomas disponibles actualmente que se pueden usar con el servicio Translator Speech.
 
 Los ejemplos de código demuestran el uso de la API para obtener los idiomas disponibles del [sitio de Github de Microsoft Translator](https://github.com/MicrosoftTranslator).
 
@@ -135,12 +136,12 @@ X-RequestId|Valor generado por el servidor para identificar la solicitud y que s
 
 ### <a name="parameters"></a>Parámetros
 
-|.|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|
 |api-version    |Versión de la API que el cliente solicitó. Los valores permitidos son: `1.0`.|query|string|
 |ámbito  |Conjuntos de idiomas o voces admitidos que se devolverán al cliente. Este parámetro se especifica como una lista de palabras clave separadas por comas. Las palabras clave siguientes están disponibles:<ul><li>`speech`: proporciona el conjunto de idiomas admitidos para la transcripción de voz.</li><li>`tts`: proporciona el conjunto de voces admitidas para la conversión de texto a voz.</li><li>`text`: proporciona el conjunto de idiomas admitidos para traducir texto.</li></ul>Si no se especifica un valor, el valor `scope` se establece en `text` de manera predeterminada.|query|string|
 |X-ClientTraceId    |GUID generado por el cliente que se utiliza para realizar un seguimiento de una solicitud. Para facilitar la solución de problemas, los clientes deben proporcionar y registrar un nuevo valor con cada solicitud.|encabezado|string|
-|Accept-Language    |Algunos de los campos de la respuesta son nombres de idiomas o regiones. Utilice este parámetro para definir el idioma en que se devuelven los nombres. El idioma se especifica al proporcionar una etiqueta de idioma BCP 47 con formato correcto. Seleccione una etiqueta de la lista de identificadores de idioma que se devuelva con el ámbito `text`. Para los idiomas no admitidos, se proporcionan los nombres en inglés.<br/>Por ejemplo, utilice el valor `fr` para solicitar nombres en francés o utilice el valor `zh-Hant` para solicitar los nombres en chino tradicional.|encabezado|string|
+|Accept-Language    |Algunos de los campos de la respuesta son nombres de idiomas o regiones. Utilice este parámetro para definir el idioma en que se devuelven los nombres. El idioma se especifica al proporcionar una etiqueta de idioma BCP 47 con formato correcto. Seleccione una etiqueta de la lista de identificadores de idioma que se devuelva con el ámbito `text`. Para los idiomas no admitidos, se proporcionan los nombres en inglés.<br/>Por ejemplo, utilice el valor `fr` para solicitar nombres en francés o utilice el valor `zh-Hant` para solicitar nombres en chino tradicional.|encabezado|string|
     
 ### <a name="response-messages"></a>Mensajes de respuesta
 

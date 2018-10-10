@@ -1,6 +1,6 @@
 ---
 title: Creación de una máquina virtual de Azure con Accelerated Networking | Microsoft Docs
-description: Aprenda a crear una máquina virtual Linux con Accelerated Networking.
+description: Aprenda a crear una máquina virtual Linux con redes aceleradas habilitadas.
 services: virtual-network
 documentationcenter: na
 author: gsilva5
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 9ea843df4cf437b97f7fe1d62636a51f8201376e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414579"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990967"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Linux con Accelerated Networking
 
@@ -75,7 +75,7 @@ Aunque en este artículo se explica cómo crear una máquina virtual con redes a
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Instale la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myNic* y *myVM*.
+Instale la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myNic* y *myVM*.
 
 Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *centralus*:
 

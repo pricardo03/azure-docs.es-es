@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561135"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997478"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configuración de direcciones IP privadas para una máquina virtual mediante la CLI de Azure
 
@@ -42,13 +42,13 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de una red virtual denominada *TestVNet* con una dirección IP privada estática de *192.168.1.101*, complete estos pasos:
 
-1. Si todavía no lo ha hecho, instale y configure la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login). 
+1. Si aún no lo ha hecho, instale y configure la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
 
 2. Cree una dirección IP pública para la máquina virtual con el comando [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). En la lista que se muestra en la salida se explican los parámetros utilizados.
 
     > [!NOTE]
     > Puede que quiera o necesite usar valores diferentes para los argumentos de este paso y los siguientes, dependiendo de su entorno.
-   
+
     ```azurecli
     az network public-ip create \
     --name TestPIP \
@@ -58,7 +58,7 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
     ```
 
     Resultado esperado:
-   
+
    ```json
    {
         "publicIp": {

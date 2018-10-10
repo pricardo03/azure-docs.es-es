@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1ac965896dc3356f33e6461cf390e4345663c3d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068634"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982093"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Linux
 
 Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el rendimiento y la seguridad de la infraestructura host de las máquinas virtuales. Las actualizaciones son cambios como la aplicación de revisiones en el entorno de hospedaje o la actualización y la retirada de hardware. La mayoría de estas actualizaciones se realizan sin afectar a las máquinas virtuales hospedadas. Sin embargo, hay casos en los que las actualizaciones tienen un impacto:
 
-- Si el mantenimiento no requiere un reinicio, Azure usa la migración en contexto para pausar la máquina virtual mientras se actualiza el host. Estas operaciones de mantenimiento sin reinicialización se aplican dominio de error por dominio de error, y el progreso se detiene si se recibe alguna señal de estado de advertencia.
+- Si el mantenimiento no requiere un reinicio, Azure usa la migración en contexto para pausar la máquina virtual mientras se actualiza el host. Estas operaciones de mantenimiento sin reinicialización se aplican dominio por dominio, si tienen errores, y el progreso se detiene si se recibe alguna señal de estado de advertencia.
 
 - Si el mantenimiento requiere un reinicio, el usuario recibe un aviso de cuándo está programado el mantenimiento. En estos casos, se le asigna también un período de tiempo donde puede iniciar el mantenimiento a la hora que le sea más conveniente.
 
@@ -67,7 +67,7 @@ El mantenimiento de autoservicio no se recomienda para implementaciones que usen
 Se recomienda usar el mantenimiento de autoservicio en los siguientes casos:
 - Es preciso comunicar una ventana de mantenimiento exacta a la dirección o al cliente final. 
 - Es preciso completar el mantenimiento en una fecha determinada. 
-- Es preciso controlar la secuencia de mantenimiento, por ejemplo, la aplicación en niveles múltiples para garantizar la recuperación segura.
+- Es preciso controlar la secuencia de mantenimiento, por ejemplo, la aplicación de niveles múltiples para garantizar la recuperación segura.
 - Se necesitan más de 30 minutos de recuperación de la máquina virtual entre dos dominios de actualización (UD). Para controlar el tiempo entre los dominios de actualización, no puede desencadenar el mantenimiento en las máquinas virtuales en más de un dominio de actualización (UD) a la vez.
 
 
@@ -108,7 +108,7 @@ az vm perform-maintenance -g rgName -n vmName
 
 ## <a name="classic-deployments"></a>Implementaciones clásicas
 
-Si todavía tiene máquinas virtuales heredadas que se han implementado según el modelo de implementación clásico, puede usar la CLI 1.0 para consultar las máquinas virtuales e iniciar el mantenimiento.
+Si todavía tiene máquinas virtuales heredadas que se implementaron según el modelo de implementación clásica, puede usar la CLI de Azure clásica para consultar las máquinas virtuales e iniciar el mantenimiento.
 
 Asegúrese de que se encuentra en el modo correcto para trabajar con máquinas virtuales clásicas. Para ello, escriba lo siguiente:
 
@@ -146,9 +146,9 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **R:** Una oleada de mantenimiento planeado se inicia mediante el establecimiento de una programación en una o varias regiones de Azure. Poco después, se envía una notificación por correo electrónico a los propietarios de las suscripciones (un correo electrónico por suscripción). Mediante Alertas de registro de actividad se pueden configurar más canales y destinatarios de esta notificación. En caso de que implemente una máquina virtual en una región en la que ya se ha programado un mantenimiento planeado, no recibirá la notificación, sino que tendrá que comprobar el estado de mantenimiento de la máquina virtual.
 
-**P: No veo ninguna indicación de mantenimiento planeado en el portal, Powershell o la CLI. ¿Qué está pasando?**
+**P: No veo ninguna indicación de mantenimiento planeado en el portal, Powershell ni la CLI. ¿Qué está pasando?**
 
-**R:** La información relacionada con el mantenimiento planeado está disponible durante una oleada de mantenimiento planeado solo para las máquinas virtuales que van a verse afectadas por el mismo. En otras palabras, si no ve datos, es posible que la oleada de mantenimiento se haya completado (o que no haya empezado) o que la máquina virtual ya esté alojada en un servidor actualizado.
+**R:** La información relacionada con el mantenimiento planeado está disponible durante una tanda de mantenimiento planeado solo para las máquinas virtuales que van a verse afectadas por el mismo. En otras palabras, si no ve datos, es posible que la oleada de mantenimiento se haya completado (o que no haya empezado) o que la máquina virtual ya esté alojada en un servidor actualizado.
 
 **P: ¿Existe alguna una manera de saber exactamente cuándo se verá afectada mi máquina virtual?**
 
@@ -170,7 +170,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **R:** Hay varios motivos por los que no ve información de mantenimiento en sus máquinas virtuales:
 1.  Utiliza una suscripción marcada como interna de Microsoft.
-2.  Las máquinas virtuales no están programadas para su mantenimiento. Es posible que la oleada de mantenimiento haya finalizado, se haya cancelado o se haya modificado para que las máquinas virtuales dejen de verse afectadas por ella.
+2.  Las máquinas virtuales no están programadas para su mantenimiento. Es posible que la tanda de mantenimiento haya finalizado, se haya cancelado o se haya modificado para que las máquinas virtuales dejen de verse afectadas por ella.
 3.  La columna **Mantenimiento** no se ha agregado a la vista de la lista de máquinas virtuales. Aunque hemos agregado esta columna a la vista predeterminada, los clientes que se han configurado para ver las columnas no predeterminadas deben agregar manualmente la columna de **mantenimiento** a la vista de lista de máquinas virtuales.
 
 **P: Está programado que se realice un segundo mantenimiento programado de mi máquina virtual. ¿Por qué?**

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d2b05c83f77a58e224760d90d111b270d71a6514
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092434"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980311"
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -55,43 +55,35 @@ La propiedad `bindings` es donde configura los enlaces y los desencadenadores. C
 | `name` |string |El nombre que se usa para los datos enlazados en la función. En C# es un nombre de argumento; en JavaScript es la clave en una lista de clave-valor. |
 
 ## <a name="function-app"></a>Aplicación de función
-Una aplicación de función se compone de una o varias funciones individuales que se administran conjuntamente en Azure App Service. Todas las funciones de una aplicación de función comparten el mismo plan de precios, la misma implementación continua y la misma versión en tiempo de ejecución. Las funciones escritas en varios lenguajes pueden compartir la misma aplicación de función. Una aplicación de función es como una forma de organizar y administrar las funciones de manera colectiva. 
+La aplicación de función proporciona un contexto de ejecución en Azure donde ejecutar las funciones. Una aplicación de función se compone de una o varias funciones individuales que se administran conjuntamente en Azure App Service. Todas las funciones de una aplicación de función comparten el mismo plan de precios, la misma implementación continua y la misma versión en tiempo de ejecución. Una aplicación de función es como una forma de organizar y administrar las funciones de manera colectiva. 
 
-## <a name="runtime-script-host-and-web-host"></a>Tiempo de ejecución (host de script y host web)
-El tiempo de ejecución, o host de script, es el host del SDK de WebJobs subyacente que escucha eventos, recopila y envía datos y, finalmente, ejecuta el código. 
+> [!NOTE]
+> A partir de la [versión 2.x](functions-versions.md) del sistema en ejecución de Azure Functions, todas las funciones de una aplicación de función deben crearse en el mismo idioma.
 
-Para facilitar los desencadenadores HTTP, también hay un host web que se ha diseñado para colocarse delante el host de script en escenarios de producción. Tener dos hosts ayuda a aislar el host de script del tráfico front-end administrado por el host web.
+## <a name="runtime"></a>Tiempo de ejecución
+El sistema en ejecución de Azure Functions, o host de script, es el host subyacente que escucha eventos, recopila y envía datos y, finalmente, ejecuta el código. El SDK de WebJobs usa este mismo host.
+
+También hay un host web que controla las solicitudes del desencadenador HTTP para el sistema en ejecución. Tener dos hosts ayuda a aislar el sistema en ejecución del tráfico front-end administrado por el host web.
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Al configurar un proyecto para la implementación de funciones en una aplicación de función en Azure App Service, puede tratar esta estructura de carpetas como el código del sitio. Puede utilizar herramientas existentes como scripts de implementación personalizados o implementación e integración continuas para realizar la transpilación de código o la instalación del paquete de tiempo de implementación.
+Al configurar un proyecto para la implementación de funciones en una aplicación de función en Azure, puede tratar esta estructura de carpetas como código del sitio. Para implementar el proyecto en la aplicación de función en Azure se recomienda usar la [implementación de paquetes](deployment-zip-push.md). También puede usar herramientas existentes como la [integración e implementación continuas](functions-continuous-deployment.md) y Azure DevOps.
 
 > [!NOTE]
-> Asegúrese de implementar su archivo `host.json` y las carpetas de función directamente en la carpeta `wwwroot`. No incluya la carpeta `wwwroot` en sus implementaciones. De lo contrario, acabará con carpetas `wwwroot\wwwroot`. 
-> 
-> 
+> Asegúrese de implementar su archivo `host.json` y las carpetas de función directamente en la carpeta `wwwroot`. No incluya la carpeta `wwwroot` en sus implementaciones. De lo contrario, acabará con carpetas `wwwroot\wwwroot`.
 
 ## <a id="fileupdate"></a> Actualización de los archivos de aplicación de función
 El editor de funciones integrado en el Portal de Azure le permite actualizar el archivo *function.json* y el archivo de código de una función. Para cargar o actualizar otros archivos como *package.json* o *project.json* u otras dependencias, tendrá que usar otros métodos de implementación.
 
 Las aplicaciones de función se integran en App Service, por lo que todas las [opciones de implementación disponibles para aplicaciones web estándar](../app-service/app-service-deploy-local-git.md) están también disponibles para aplicaciones de función. Estos son algunos métodos que puede utilizar para cargar o actualizar los archivos del contenedor de funciones. 
 
-#### <a name="to-use-app-service-editor"></a>Uso del Editor de App Service
-1. En el portal de Azure Functions, haga clic en **Características de la plataforma**.
-2. En la sección **HERRAMIENTAS DE DESARROLLO**, haga clic en **Editor de App Service**.   
-   Después de que se cargue el Editor de App Service, verá el archivo *host.json* y las carpetas de funciones en *wwwroot*. 
-5. Abra los archivos para editarlos, o arrástrelos y colóquelos desde el equipo de desarrollo para cargar los archivos.
-
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>Para usar el punto de conexión de SCM (Kudu) del contenedor de funciones
-1. Vaya a `https://<function_app_name>.scm.azurewebsites.net`.
-2. Haga clic en **Consola de depuración > CMD**.
-3. Vaya a `D:\home\site\wwwroot\` para actualizar *host.json* o `D:\home\site\wwwroot\<function_name>` para actualizar los archivos de la función.
-4. Arrastre y coloque el archivo que desea cargar en la carpeta adecuada en la cuadrícula de archivos. Hay dos áreas en la cuadrícula de archivos donde puede colocar un archivo. Para los archivos *.zip* , aparece un cuadro con la etiqueta "Drag here to upload and unzip" (Arrastre aquí para cargar y descomprimir). Para otros tipos de archivo, colóquelos en la cuadrícula de archivos, pero fuera del cuadro para "descomprimir".
+#### <a name="use-local-tools-and-publishing"></a>Uso de herramientas locales y publicación
+Las aplicaciones de función pueden crearse y publicarse con diversas herramientas, incluidas [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md) y [Azure Functions Core Tools](./functions-develop-local.md). Para más información, consulte [Codificación y comprobación de las funciones de Azure Functions en un entorno local](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-#### <a name="to-use-continuous-deployment"></a>Para usar la implementación continua
+#### <a name="continuous-deployment"></a>Implementación continua
 Siga las instrucciones que se indican en el tema [Continuous deployment for Azure Functions](functions-continuous-deployment.md)(Implementación continua para Funciones de Azure).
 
 ## <a name="parallel-execution"></a>Ejecución en paralelo
@@ -99,7 +91,7 @@ Cuando se producen varios eventos de desencadenado más rápido de lo que un tie
 
 ## <a name="functions-runtime-versioning"></a>Versiones del entorno en tiempo de ejecución de Functions
 
-Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md).
+Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~2" indica que la aplicación de función utilizará 2.x como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repositorios
 El código de Azure Functions es código abierto y está almacenado en repositorios de GitHub:

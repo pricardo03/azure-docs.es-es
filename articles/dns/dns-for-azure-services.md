@@ -16,18 +16,18 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: victorh
-ms.openlocfilehash: 39fe23d7289dc78736dd5a85d4100af82b1d7b4a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5d9886e16aa1921963f3d91d0fbd4da9287f7e54
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398222"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989150"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Funcionamiento de Azure DNS con otros servicios de Azure
 
 Azure DNS es un servicio de resolución de nombres y administración de DNS hospedado. Esto le permite crear nombres DNS públicos para las otras aplicaciones y servicios que tiene implementados en Azure. Crear el nombre para un servicio de Azure en el dominio personalizado es tan simple como agregar un registro del tipo correcto del servicio.
 
-* Para las direcciones IP asignadas dinámicamente, debe crear un registro CNAME de DNS que se asigna al nombre DNS que Azure creó para el servicio. Los estándares DNS evitan que use un registro CNAME para el vértice de la zona.
+* Para las direcciones IP asignadas dinámicamente, puede crear un registro CNAME de DNS que se asigna al nombre DNS que Azure creó para el servicio. Los estándares DNS evitan que use un registro CNAME para el vértice de la zona, pero puede usar un registro de alias en su lugar. Para más información, consulte [Tutorial: Configuración de un registro de alias para hacer referencia a una dirección IP pública de Azure](tutorial-alias-pip.md).
 * Para las direcciones IP asignadas de forma estática, puede crear un registro D de DNS con cualquier nombre, incluido un nombre de *dominio simple* en el vértice de la zona.
 
 En la tabla siguiente se describen los tipos de registro compatibles que se pueden usar para diversos servicios de Azure. Como puede ver en esta tabla, Azure DNS solo admite registros DNS para recursos de red orientados a Internet. Azure DNS no se puede usar para la resolución de nombres de direcciones privadas internas.
@@ -36,8 +36,8 @@ En la tabla siguiente se describen los tipos de registro compatibles que se pued
 | --- | --- | --- |
 | Application Gateway |[Dirección IP pública front-end](dns-custom-domain.md#public-ip-address) |Puede crear un registro D o CNAME de DNS. |
 | Load Balancer |[Dirección IP pública front-end](dns-custom-domain.md#public-ip-address)  |Puede crear un registro D o CNAME de DNS. Load Balancer puede tener una dirección IP pública IPv6 que se asigna dinámicamente. Por lo tanto, debe crear un registro CNAME para una dirección IPv6. |
-| Traffic Manager |Nombre público |Solo puede crear un registro CNAME que se asigne al nombre de trafficmanager.net que está asignado a su perfil de Traffic Manager. Para más información, consulte [Cómo funciona Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md). |
+| Traffic Manager |Nombre público |Puede crear un registro de alias que se asigne al nombre de trafficmanager.net que está asignado a su perfil de Traffic Manager. Para más información, consulte [Tutorial: Configuración de un registro de alias de para admitir nombres de dominio de vértice con Traffic Manager](tutorial-alias-tm.md). |
 | Servicio en la nube |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Para las direcciones IP asignadas de forma estática, puede crear un registro D de DNS. Para las direcciones IP asignadas dinámicamente, debe crear un registro CNAME que se asigne al nombre de *cloudapp.net* .|
 | App Service | [Dirección IP externa](dns-custom-domain.md#app-service-web-apps) |Para las direcciones IP externas, puede crear un registro D de DNS. De lo contrario, deberá crear un registro CNAME que se asigne al nombre de azurewebsites.net. Para más información, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](../app-service/app-service-web-tutorial-custom-domain.md) |
-| Máquinas virtuales de Resource Manager |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Las máquinas virtuales de Resource Manager pueden tener direcciones IP públicas. Una máquina virtual con una dirección IP pública también puede encontrarse detrás de un equilibrador de carga. Puede crear un registro CNAME o D de DNS para la dirección pública. Este nombre personalizado se puede usar para omitir el VIP en el equilibrador de carga. |
+| Máquinas virtuales de Resource Manager |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Las máquinas virtuales de Resource Manager pueden tener direcciones IP públicas. Una máquina virtual con una dirección IP pública también puede encontrarse detrás de un equilibrador de carga. Puede crear un registro A de DNS, CNAME o de alias para la dirección pública. Este nombre personalizado se puede usar para omitir el VIP en el equilibrador de carga. |
 | Máquinas virtuales clásicas |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Las máquinas virtuales clásicas creadas con PowerShell o la CLI se pueden configurar con una dirección virtual dinámica o estática (reservada). Puede crear un registro CNAME o D de DNS, respectivamente. |

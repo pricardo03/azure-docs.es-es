@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para crear y administrar máquinas virtuales Linux en Azure.
+description: En este tutorial, aprenderá a usar la CLI de Azure para crear y administrar máquinas virtuales Linux en Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e7338da637d92520bc5f67de9d3d2bdae3204e35
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930042"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981253"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure 2.0
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: creación y administración de máquinas virtuales Linux con la CLI de Azure
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan elementos básicos de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
@@ -36,7 +36,7 @@ Las máquinas virtuales de Azure proporcionan un entorno informático completame
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
@@ -155,7 +155,7 @@ El tamaño de la máquina virtual determina la cantidad de recursos de proceso, 
 
 En la tabla siguiente se clasifican los tamaños en casos de uso.  
 
-| type                     | Tamaños           |    DESCRIPCIÓN       |
+| Escriba                     | Tamaños           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
 | [Proceso optimizado](sizes-compute.md)   | Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7d37a60ad3ae3bea8490006bdd35dc47d728b88e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bdf4c7527e2c0056b2de2321fbae280e9008cb1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990684"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
@@ -58,7 +58,7 @@ __Requisitos__:
 
 ## <a name="to-use-the-script"></a>Para usar el script
 
-Este script se puede utilizar a través de Azure Portal, Azure PowerShell o la CLI de Azure 1.0. Para más información, consulte el documento [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+Este script se puede utilizar mediante Azure Portal, Azure PowerShell o la CLI de Azure clásica. Para más información, consulte el documento [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 > [!IMPORTANT]
 > Al utilizar los pasos indicados en el documento de personalización, utilice la siguiente información para aplicar este script:
@@ -71,7 +71,7 @@ Este script se puede utilizar a través de Azure Portal, Azure PowerShell o la C
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Cuentas de almacenamiento que no se muestran en Azure Portal o las herramientas
 
-Cuando vea el clúster de HDInsight en Azure Portal, si selecciona la entrada __Cuentas de almacenamiento__ en __Propiedades__, no se mostrarán las cuentas de almacenamiento agregadas mediante esta acción de script. Azure PowerShell y la CLI de Azure tampoco mostrarán la cuenta de almacenamiento adicional.
+Cuando vea el clúster de HDInsight en Azure Portal, si selecciona la entrada __Cuentas de almacenamiento__ en __Propiedades__, no se mostrarán las cuentas de almacenamiento agregadas mediante esta acción de script. Azure PowerShell y la CLI de Azure clásica tampoco mostrarán la cuenta de almacenamiento adicional.
 
 Esto se debe a que el script solo modifica la configuración de core-site.xml del clúster. Esta información no se usa al recuperar la información del clúster mediante las API de administración de Azure.
 

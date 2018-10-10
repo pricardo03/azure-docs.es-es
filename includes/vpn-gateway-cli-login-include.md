@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc7367ca2162dde9a266341f0d7b3dd1e8b0da81
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: e3961878663a26d721478effc01d968e21e34c18
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313700"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47020802"
 ---
-Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones que aparecen en pantalla. Para más información sobre el inicio de sesión, consulte [Introducción a la CLI de Azure 2.0](/cli/azure/get-started-with-azure-cli).
+Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones que aparecen en pantalla. Para más información sobre el inicio de sesión, consulte [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli).
 
 ```azurecli
 az login

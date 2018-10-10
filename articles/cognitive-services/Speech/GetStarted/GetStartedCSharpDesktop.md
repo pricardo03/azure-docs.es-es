@@ -1,22 +1,24 @@
 ---
-title: Introducción a Microsoft Speech Recognition API con la biblioteca de escritorio de C#| Microsoft Docs
-description: Desarrollo de aplicaciones básicas de Windows que usan Microsoft Speech Recognition API para convertir audio hablado en texto.
+title: Introducción a Bing Speech Recognition API con la biblioteca de escritorio de C#| Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Desarrollo de aplicaciones básicas de Windows que usan Bing Speech Recognition API para convertir audio hablado en texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e59b0e25401fb5182edd52f82985ffed9052286d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380587"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996832"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-c35-for-net-on-windows"></a>Introducción a Speech Recognition API en C# para .NET en Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API en C&#35; para .NET en Windows
 
 Esta página muestra cómo desarrollar una aplicación básica de Windows que usa Speech Recognition API para convertir audio hablado en texto. El uso de la biblioteca cliente permite streaming en tiempo real, lo que significa que cuando la aplicación cliente envía el audio al servicio, al mismo tiempo y de forma asincrónica recibe los resultados parciales del reconocimiento.
 
@@ -24,7 +26,7 @@ Los desarrolladores que quieran usar el servicio Voz desde aplicaciones que se e
 
 En las secciones siguientes se describe cómo instalar, compilar y ejecutar la aplicación de ejemplo de C# mediante el uso de la biblioteca de escritorio de C#.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 
@@ -43,7 +45,7 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
 >
 > * Use la clave de su suscripción Con la aplicación de ejemplo de escritorio de C# que se proporciona, pegue la clave de suscripción en el cuadro de texto al ejecutar el ejemplo. Para más información, consulte [Ejecución de la aplicación de ejemplo](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Paso 1: Instalación de la aplicación de ejemplo
+## <a name="step-1-install-the-sample-application"></a>Paso 1: Instalar la aplicación de ejemplo
 
 1. Inicie Visual Studio 2015 y seleccione **Archivo** > **Abrir** > **Proyecto/Solución**.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de la CLI de Azure 2.0: Habilitación del escalado automático basado en el host | Microsoft Docs'
-description: Ejemplos de la CLI de Azure 2.0
+title: 'Ejemplos de la CLI de Azure: Habilitación del escalado automático basado en el host | Microsoft Docs'
+description: Ejemplos de la CLI de Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2f41ca6f85e28f57d6606d85c3a1d58ee390148c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f146f673127d4495c2a2a392e26c1f51cd82a188
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652146"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951277"
 ---
-# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con la CLI de Azure 2.0
+# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu y usa métricas basadas en el host para escalar automáticamente a medida que la carga de la CPU cambia.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -51,6 +51,6 @@ Este script usa los siguientes comandos para crear un grupo de recursos, un conj
 | [az group delete](/cli/azure/ad/group#delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de la CLI de Azure 2.0, consulte la [documentación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/overview).
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Se pueden encontrar otros ejemplos de scripts de la CLI de Azure 2.0 para conjuntos de escalado de máquinas virtuales en la [documentación de Azure Virtual Machine Scale Set](../cli-samples.md).
+Se pueden encontrar otros ejemplos de scripts de la CLI de Azure para conjuntos de escalado de máquinas virtuales en la [documentación de conjuntos de escalado de máquinas virtuales de Azure](../cli-samples.md).

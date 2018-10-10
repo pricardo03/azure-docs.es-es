@@ -1,6 +1,6 @@
 ---
 title: Creación de un conjunto de escalado de máquinas virtuales de Azure | Microsoft Docs
-description: Aprenda a modificar y actualizar un conjunto de escalado de máquinas virtuales de Azure con las API REST, Azure PowerShell y la CLI de Azure 2.0.
+description: Aprenda a modificar y actualizar un conjunto de escalado de máquinas virtuales de Azure con las API REST, Azure PowerShell y la CLI de Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194053"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996662"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
-A lo largo del ciclo de vida de las aplicaciones, puede que tenga la necesidad de modificar o actualizar el conjunto de escalado de máquinas virtuales. Estas actualizaciones pueden incluir cómo actualizar la configuración del conjunto de escalado o cambiar la configuración de la aplicación. En este artículo se describe cómo modificar un conjunto de escalado existente con las API REST, Azure PowerShell o la CLI de Azure 2.0.
+A lo largo del ciclo de vida de las aplicaciones, puede que tenga la necesidad de modificar o actualizar el conjunto de escalado de máquinas virtuales. Estas actualizaciones pueden incluir cómo actualizar la configuración del conjunto de escalado o cambiar la configuración de la aplicación. En este artículo se describe cómo modificar un conjunto de escalado existente con las API REST, Azure PowerShell o la CLI de Azure.
 
 ## <a name="fundamental-concepts"></a>Conceptos básicos
 
@@ -42,7 +42,7 @@ Un conjunto de escalado tiene un "modelo de conjunto de escalado" que captura el
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- CLI de Azure 2.0 con [az vmss show](/cli/azure/vmss#az_vmss_show):
+- CLI de Azure con [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -50,7 +50,7 @@ Un conjunto de escalado tiene un "modelo de conjunto de escalado" que captura el
 
 - También puede usar [resources.azure.com](https://resources.azure.com) o los [SDK de Azure](https://azure.microsoft.com/downloads/) específicos del lenguaje.
 
-La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure 2.0:
+La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -86,7 +86,7 @@ Un conjunto de escalado tiene también una "vista de instancia del conjunto de e
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- CLI de Azure 2.0 con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- CLI de Azure con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -94,7 +94,7 @@ Un conjunto de escalado tiene también una "vista de instancia del conjunto de e
 
 - También puede usar [resources.azure.com](https://resources.azure.com) o los [SDK de Azure](https://azure.microsoft.com/downloads/) específicos del lenguaje.
 
-La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure 2.0:
+La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -140,7 +140,7 @@ Lo mismo que un conjunto de escalado tiene una vista de modelo, cada máquina vi
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- CLI de Azure 2.0 con [az vmss show](/cli/azure/vmss#az_vmss_show):
+- CLI de Azure con [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -148,7 +148,7 @@ Lo mismo que un conjunto de escalado tiene una vista de modelo, cada máquina vi
 
 - También puede usar [resources.azure.com](https://resources.azure.com) o los [SDK de Azure](https://azure.microsoft.com/downloads/).
 
-La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure 2.0:
+La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure:
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -180,7 +180,7 @@ Lo mismo que un conjunto de escalado tiene una vista de instancia, cada máquina
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- CLI de Azure 2.0 con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- CLI de Azure con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -188,7 +188,7 @@ Lo mismo que un conjunto de escalado tiene una vista de instancia, cada máquina
 
 - También puede usar [resources.azure.com](https://resources.azure.com) o los [SDK de Azure](https://azure.microsoft.com/downloads/).
 
-La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure 2.0:
+La presentación exacta de la salida depende de las opciones proporcionadas al comando. En el ejemplo siguiente se muestra una salida de ejemplo condensada de la CLI de Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -259,7 +259,7 @@ Para actualizar una propiedad global del conjunto de escalado, debe actualizar l
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- CLI de Azure 2.0 con [az vmss update](/cli/azure/vmss#az_vmss_update):
+- CLI de Azure con [az vmss update](/cli/azure/vmss#az_vmss_update):
     - Para modificar una propiedad:
 
         ```azurecli
@@ -306,7 +306,7 @@ Para actualizar las máquinas virtuales existentes, debe realizar una "actualiza
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- CLI de Azure 2.0 con [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances):
+- CLI de Azure con [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -331,7 +331,7 @@ Hay un tipo de modificación en las propiedades globales del conjunto de escalad
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- CLI de Azure 2.0 con [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- CLI de Azure con [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -392,7 +392,7 @@ Puede que tenga un conjunto de escalado que ejecuta una versión anterior de Ubu
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- CLI de Azure 2.0 con [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- CLI de Azure con [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -418,7 +418,7 @@ Supongamos que tiene un conjunto de escalado con una instancia de Azure Load Bal
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- CLI de Azure 2.0:
+- CLI de Azure:
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -436,4 +436,4 @@ Supongamos que tiene un conjunto de escalado con una instancia de Azure Load Bal
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-También puede realizar tareas de administración comunes en conjuntos de escalado con la [CLI de Azure 2.0](virtual-machine-scale-sets-manage-cli.md) o [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+También puede realizar tareas de administración comunes en conjuntos de escalado con la [CLI de Azure](virtual-machine-scale-sets-manage-cli.md) o [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

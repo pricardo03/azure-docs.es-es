@@ -1,5 +1,6 @@
 ---
 title: Introducción al servicio Voz de Microsoft | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Uso del servicio Voz de Microsoft.
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,17 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 9f9058706e2504b8c9ee8a7509e7380c415074a3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2752a8f1db82890e738b65a1c4f646d7749bf7dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380531"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961903"
 ---
-# <a name="get-started-with-speech-service"></a>Introducción al servicio Voz
+# <a name="get-started-with-bing-speech"></a>Introducción a Bing Speech
 
 Para usar el servicio de reconocimiento de voz de Microsoft para convertir audio en texto, consulte las [API REST](GetStartedREST.md) de reconocimiento de voz o las [bibliotecas cliente](GetStartedClientLibraries.md).
 

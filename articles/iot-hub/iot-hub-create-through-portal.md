@@ -1,161 +1,159 @@
 ---
 title: Uso de Azure Portal para crear un centro de IoT | Microsoft Docs
 description: Describe sobre cómo crear, administrar y eliminar los centros de IoT Hub de Azure a través de Azure Portal. Incluye información sobre los niveles de precios, el escalado, la seguridad y la configuración de la mensajería.
-author: dominicbetts
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: dobett
-ms.openlocfilehash: 0b03ae434e93dbab45235fe67c499497e1257064
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.date: 09/06/2018
+ms.author: robinsh
+ms.openlocfilehash: 8f08141f5c14a734f89ba91045767e2a36a44fd2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142715"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985612"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-En este artículo se describe:
+En este artículo se describe cómo crear y administrar centros de IoT mediante [Azure Portal](https://portal.azure.com).
 
-* Cómo buscar el servicio IoT Hub en Azure Portal.
-* Cómo crear y administrar instancias de IoT Hub.
-
-## <a name="where-to-find-the-iot-hub-service"></a>Dónde buscar el servicio IoT Hub
-
-Puede buscar el servicio IoT Hub en las siguientes ubicaciones del portal:
-
-* Elija **+ Nuevo** y después **Internet de las cosas**.
-* En Marketplace, elija **Internet de las cosas**.
+Para seguir los pasos de este tutorial, necesita una suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Puede crear un IoT Hub con los métodos siguientes:
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
-* La opción **+ Nuevo** abre la hoja que se muestra en la siguiente captura de pantalla. Los pasos para crear el Centro de IoT con este método y con Marketplace son idénticos.
+2. Elija **+ Crear un recurso** y, a continuación, **Internet de las cosas**.
 
-* En Marketplace, elija **Crear** para abrir la hoja que se muestra en la siguiente captura de pantalla.
+3. Haga clic en **Centro de Iot** en la lista de la derecha. Verá la primera pantalla para crear un centro de IoT.
 
-En las secciones siguientes se describen los distintos pasos para crear una instancia de IoT Hub.
+   ![Captura de pantalla donde se muestra cómo crear un hub en Azure Portal](./media/iot-hub-create-through-portal/iot-hub-create-screen-basics.png)
 
-### <a name="choose-the-name-of-the-iot-hub"></a>Elección del nombre del Centro de IoT
+   Rellene los campos.
 
-Para crear un centro de IoT, debe asignar un nombre al centro. Este nombre debe ser exclusivo para distinguirlo en todas las instancias de IoT Hub.
+   **Subscription** (Suscripción): seleccione la suscripción que se usará con su centro de IoT.
 
-[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   **Resource Group** (Grupo de recursos): puede crear un grupo de recursos o usar uno ya existente. Para crear uno, haga clic en **Create new** (Crear) y escriba el nombre que quiere usar. Para usar un grupo de recursos existente, haga clic en **Use existing** (Usar existente) y seleccione el grupo de recursos de la lista desplegable.
 
-### <a name="choose-the-pricing-tier"></a>Elección del plan de tarifa
+   **Region** (Región): en la lista desplegable, seleccione la región en la que quiere ubicar su centro.
 
-Puede elegir entre varios niveles, en función del número de características que desee y del número de mensajes que envíe a través de su solución al día. El nivel gratis está pensado para la prueba y evaluación. Permite la conexión de 500 dispositivos con el centro de IoT y hasta 8000 mensajes al día. Cada suscripción a Azure puede crear una instancia de IoT Hub en el nivel gratis. 
+   **IoT Hub Name** (Nombre del centro de IoT): escriba el nombre del centro de IoT. Este nombre debe ser único globalmente. 
 
-Para más información sobre las demás opciones del nivel, consulte la sección [Elección del nivel correcto de IoT Hub](iot-hub-scaling.md).
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-### <a name="iot-hub-units"></a>Unidades del Centro de IoT
+4. Haga clic en **Next: Size and scale** (Siguiente: Tamaño y escala) para ir a la pantalla siguiente.
 
-El número de mensajes que se permiten por unidad al día depende del plan de tarifa del centro. Por ejemplo, si desea que el Centro de IoT admita la entrada de 700 000 mensajes, elija dos unidades del nivel de S1.
+   ![Captura de pantalla que muestra la configuración de tamaño y escala de un nuevo centro de IoT mediante Azure Portal](./media/iot-hub-create-through-portal/iot-hub-create-screen-size-scale.png)
 
-### <a name="device-to-cloud-partitions-and-resource-group"></a>Dispositivo para particiones en la nube y grupo de recursos
+   En esta pantalla, puede aceptar los valores predeterminados y hacer clic en **Review + create** (Revisar y crear) en la parte inferior. O bien, puede rellenar los campos según sea necesario.
 
-Puede cambiar el número de particiones para un centro de IoT. El número predeterminado de particiones es 4, pero puede elegir un número diferente de la lista desplegable.
+   **Pricing and scale tier** (Nivel de precios y de escala): puede elegir entre varios niveles, en función del número de características que quiera y el número de mensajes que envíe mediante su solución al día. El nivel gratis está pensado para la prueba y evaluación. Permite la conexión de 500 dispositivos con el centro de IoT y hasta 8000 mensajes al día. Cada suscripción a Azure puede crear una instancia de IoT Hub en el nivel gratis. 
 
-No es necesario crear explícitamente un grupo de recursos vacío. Al crear un recurso, puede elegir entre crear un grupo de recursos o usar uno existente.
+   **IoT Hub units** (Unidades de IoT Hub): el número de mensajes que se permiten por unidad y por día depende del plan de tarifa del centro. Por ejemplo, si desea que el Centro de IoT admita la entrada de 700 000 mensajes, elija dos unidades del nivel de S1.
 
-![Captura de pantalla donde se muestra cómo crear un hub en Azure Portal](./media/iot-hub-create-through-portal/location1.png)
+   Para más información sobre las demás opciones del nivel, consulte la sección [Elección del nivel correcto de IoT Hub](iot-hub-scaling.md).
 
-### <a name="choose-subscription"></a>Elección de la suscripción
+   **Advanced / Device-to-cloud partitions** (Particiones avanzadas/de dispositivo a nube): esta propiedad relaciona los mensajes del dispositivo a la nube con el número de lectores simultáneos de los mensajes. La mayoría de los centros de IoT solo necesitan cuatro particiones. 
 
-Azure IoT Hub muestra automáticamente la lista de suscripciones de Azure a la que está vinculada la cuenta de usuario. Puede elegir la suscripción de Azure a la que desea asociar la instancia de IoT Hub.
+5. Haga clic en **Review + create** (Revisar y crear) para revisar sus selecciones. Verá algo parecido a esta pantalla.
 
-### <a name="choose-the-location"></a>Selección de la ubicación
+   ![Captura de pantalla de revisión de la información para crear el centro de IoT](./media/iot-hub-create-through-portal/iot-hub-create-review.png)
 
-La opción de ubicación proporciona una lista de las regiones en las que se ofrece IoT Hub.
-
-### <a name="create-the-iot-hub"></a>Creación del Centro de IoT
-
-Cuando se completen todos los pasos anteriores, ya se puede crear la instancia de IoT Hub. Haga clic en **Crear** para iniciar el proceso de back-end para crear e implementar la instancia de IoT Hub con las opciones elegidas.
-
-La creación de IoT Hub puede tardar unos minutos, ya que la implementación back-end necesita tiempo para ejecutarse en los servidores de ubicación adecuados.
+5. Haga clic en **Create** (Crear) para crear el centro de IoT. Esta operación tarda unos minutos.
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>Cambio de la configuración del Centro de IoT
-<!--robinsh these screenshots are out of date -->
 
-Puede cambiar la configuración de un centro de IoT después de crearlo desde la hoja IoT Hub.
+Puede cambiar la configuración de un centro de IoT existente después de crearlo desde el panel IoT Hub (Centro de IoT).
 
-![Captura de pantalla que muestra la configuración de IoT Hub](./media/iot-hub-create-through-portal/portal-settings.png)
+![Captura de pantalla que muestra la configuración de IoT Hub](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
 
-**Directivas de acceso compartido**: estas directivas definen los permisos para que los dispositivos y servicios se conecten a IoT Hub. Para acceder a estas directivas, haga clic en **Directivas de acceso compartido** en **General**. En esta hoja puede modificar las directivas existentes o agregar una nueva.
+Estas son algunas de las propiedades que puede establecer para un centro de IoT:
 
-### <a name="create-a-policy"></a>Para crear una directiva
+**Pricing and scale** (Precios y escala): puede usar esta propiedad para migrar a un nivel diferente o establecer el número de unidades de IoT Hub. 
 
-* Haga clic en **Agregar** para abrir una hoja. Aquí puede escribir el nombre de la nueva directiva y los permisos que quiere asociar a esta directiva, tal como se muestra en la siguiente ilustración:
+**Operations monitoring** (Supervisión de operaciones): active o desactive las distintas categorías de supervisión, como el registro de eventos relacionados con los mensajes de dispositivo a la nube o con los mensajes de la nube al dispositivo.
 
-    Hay varios permisos que se pueden asociar a estas directivas compartidas. Las directivas **Lectura del Registro** y **Escritura del Registro** conceden derechos de acceso de lectura y escritura para el registro de identidades. Si selecciona la opción de escritura, se elegirá automáticamente la opción de lectura.
+**IP Filter** (Filtro de IP): especifique un intervalo de direcciones IP que el centro de IoT acepte o rechace.
 
-    La directiva **Conexión del servicio** concede permiso de acceso a los puntos de conexión de servicio como **Recepción del dispositivo a la nube**. La directiva **Conexión del dispositivo** concede permisos para enviar y recibir mensajes con los puntos de conexión del dispositivo de IoT Hub.
+**Properties** (Propiedades): proporciona la lista de propiedades que puede copiar y usar en otra parte, como el identificador de recursos, el grupo de recursos, la ubicación, etc.
 
-* Haga clic en **Crear** para agregar la directiva recién creada a la lista existente.
+### <a name="shared-access-policies"></a>Directivas de acceso compartido
 
-   ![Captura de pantalla muestra la adición de una directiva de acceso compartido](./media/iot-hub-create-through-portal/shared-access-policies.png)
+También puede ver o modificar la lista de directivas de acceso compartido; para ello, haga clic en **Shared access policies** (Directivas de acceso compartido) en la sección **Settings** (Configuración). Estas directivas definen los permisos que tienen los dispositivos y servicios para conectarse a IoT Hub. 
 
-## <a name="endpoints"></a>Puntos de conexión
+Haga clic en **Add** (Agregar) para abrir la hoja **Add a shared access policy** (Agregar una directiva de acceso compartido).  Aquí puede escribir el nombre de la nueva directiva y los permisos que quiere asociar a esta directiva, tal como se muestra en la siguiente ilustración:
 
-Haga clic en **Endpoints** (Puntos de conexión) para mostrar una lista de puntos de conexión para el centro de IoT que está modificando. Hay dos tipos de puntos de conexión: los integrados en el centro de IoT y los que agrega al centro de IoT después de crearlo.
+![Captura de pantalla muestra la adición de una directiva de acceso compartido](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-![Captura de pantalla que muestra la incorporación de un punto de conexión](./media/iot-hub-create-through-portal/messaging-settings.png)
+* Las directivas **Lectura del Registro** y **Escritura del Registro** conceden derechos de acceso de lectura y escritura para el registro de identidades. Si selecciona la opción de escritura, se elegirá automáticamente la opción de lectura.
 
-### <a name="built-in-endpoints"></a>Puntos de conexión integrados
+* La directiva **Conexión del servicio** concede permiso de acceso a los puntos de conexión de servicio como **Recepción del dispositivo a la nube**. 
 
-Hay dos puntos de conexión integrados: **Cloud to device feedback** (Comentarios de la nube al dispositivo) y **Events** (Eventos).
+* La directiva **Conexión del dispositivo** concede permisos para enviar y recibir mensajes con los puntos de conexión del dispositivo de IoT Hub.
 
-* Configuración de **Cloud to device feedback** (Comentarios de la nube al dispositivo): esta configuración tiene dos opciones secundarias: **Cloud to Device TTL** (TTL de nube a dispositivo) (período de vida) y **Retention time** (Tiempo de retención) (en horas) para los mensajes. Al crear por primera vez un centro de IoT, ambas configuraciones tienen el valor predeterminado de una hora. Para ajustar la configuración, use los controles deslizantes o escriba los valores.
+Haga clic en **Crear** para agregar la directiva recién creada a la lista existente.
 
-* Configuración de **Events** (Eventos): esta configuración tiene distintas opciones secundarias, algunas de solo lectura. Estas opciones secundarias se describen en la lista siguiente:
+## <a name="message-routing-for-an-iot-hub"></a>Enrutamiento de mensajes para un centro de IoT
 
-  * **Partitions** (Particiones): se establece un valor predeterminado cuando se crea el centro de IoT. Esta opción permite cambiar el número de particiones.
+Haga clic en **Message Routing** (Enrutamiento de mensajes) en **Messaging** (Mensajería) para ver el panel de enrutamiento de mensajes, donde puede definir rutas y puntos de conexión personalizados para el centro. [Message routing](iot-hub-devguide-messages-d2c.md) (Enrutamiento de mensajes) le permite administrar cómo se envían los datos desde los dispositivos hasta los puntos de conexión. El primer paso es agregar una nueva ruta. Luego, puede agregar un punto de conexión existente a la ruta o crear uno de los tipos admitidos, como almacenamiento de blobs. 
 
-  * **Punto de conexión y nombre compatible del Centro de eventos**: Cuando se crea IoT Hub, se crea internamente un Event Hub al que el usuario podría necesitar acceder en determinadas circunstancias. No se pueden personalizar los valores de nombre y punto de conexión compatibles con el centro de eventos, pero los puede copiar al hacer clic en **Copy** (Copiar).
+![Panel de enrutamiento de mensajes](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
-  * **Retention Time** (Tiempo de retención): se establece en un día de forma predeterminada, pero se puede cambiar gracias a la lista desplegable. Este valor está en días para la configuración del dispositivo a la nube.
+### <a name="routes"></a>Rutas
 
-  * **Grupos de consumidores**: los grupos de consumidores permiten que varios lectores lean mensajes con independencia de la instancia de IoT Hub desde la que lo hagan. Cada Centro de IoT se crea con un grupo de consumidores predeterminado. Sin embargo, con esta configuración puede agregar o eliminar grupos de consumidores en los centros de IoT.
+La pestaña de rutas es la primera pestaña del panel de enrutamiento de mensajes. Para agregar una nueva ruta, haga clic en **+Add** (+Agregar). Verá la siguiente pantalla: 
 
-  > [!NOTE]
-  > El grupo de consumidores predeterminado no se puede modificar ni eliminar.
+![Captura de pantalla que muestra la incorporación de una nueva ruta](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
+
+Escriba un nombre para el centro. El nombre debe ser único dentro de la lista de rutas de ese centro. 
+
+En **Endpoint** (Punto de conexión) puede seleccionar uno de la lista desplegable o agregar uno nuevo. En este ejemplo, ya están disponibles una cuenta de almacenamiento y un contenedor. Para agregarlos como punto de conexión, haga clic en **+Add** (+Agregar) junto a la lista desplegable de puntos de conexión y seleccione **Blob Storage**. En la pantalla siguiente se muestra dónde se especifican la cuenta de almacenamiento y el contenedor.
+
+![Captura de pantalla que muestra la incorporación de un punto de conexión de almacenamiento para la regla de enrutamiento](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
+
+Haga clic en **Pick a container** (Seleccionar un contenedor) para seleccionar la cuenta de almacenamiento y el contenedor. Cuando haya seleccionado esos campos, volverá al panel del punto de conexión. Use los valores predeterminados en el resto de los campos y **Create** (Crear) para crear el punto de conexión de la cuenta de almacenamiento y agregarlo a las reglas de enrutamiento.
+
+En **Data source** (Origen de datos), seleccione Device Telemetry Messages (Mensajes de telemetría de dispositivo). 
+
+A continuación, agregue una consulta de enrutamiento. En este ejemplo, los mensajes que tienen una propiedad de la aplicación denominada `level` con un valor igual a `critical` se enrutan a la cuenta de almacenamiento.
+
+![Captura de pantalla que muestra cómo se guarda una nueva regla de enrutamiento](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
+
+Haga clic en **Save** (Guardar) para guardar la regla de enrutamiento. Volverá al panel de enrutamiento de mensajes y se mostrará la nueva regla de enrutamiento.
 
 ### <a name="custom-endpoints"></a>Puntos de conexión personalizados
 
-Puede agregar puntos de conexión personalizados al centro de IoT a través del portal. En la hoja **Endpoints** (Puntos de conexión), haga clic en **Add** (Agregar) de la parte superior para abrir la hoja **Add endpoint** (Agregar punto de conexión). Escriba la información necesaria y haga clic en **OK** (Aceptar). El punto de conexión personalizado aparecerá ahora en la hoja principal de **Endpoints** (Puntos de conexión).
+Haga clic en la pestaña **Custom endpoints** (Puntos de conexión personalizados). Verá los puntos de conexión personalizados ya creados. Desde aquí, puede agregar nuevos puntos de conexión o eliminar los existentes. 
 
-![Captura de pantalla que muestra la creación de un punto de conexión personalizado](./media/iot-hub-create-through-portal/endpoint-creation.png)
+> [!NOTE]
+> Si elimina una ruta, no elimina los puntos de conexión asignados a ella. Para eliminar un punto de conexión, haga clic en la pestaña de puntos de conexión personalizados, seleccione el punto de conexión que quiere eliminar y haga clic en el botón para eliminar.
+>
 
-Puede leer más sobre los puntos de conexión personalizados en [Referencia: Puntos de conexión de IoT Hub]( iot-hub-devguide-endpoints.md).
+Puede leer más sobre los puntos de conexión personalizados en [Referencia: Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
 
-## <a name="routes"></a>Rutas
+Puede definir hasta 10 puntos de conexión personalizados para un centro de IoT. 
 
-Haga clic en **Routes** (Rutas) para administrar el envío de mensajes del dispositivo a la nube de IoT Hub.
+Para ver un ejemplo completo de cómo usar puntos de conexión personalizados con el enrutamiento, consulte [Enrutamiento de mensajes con IoT Hub](tutorial-routing.md).
 
-![Captura de pantalla que muestra la incorporación de una nueva ruta](./media/iot-hub-create-through-portal/routes-list.png)
+## <a name="find-a-specific-iot-hub"></a>Búsqueda de un centro de IoT específico
 
-Puede agregar rutas adicionales a su IoT Hub; para ello, haga clic en **Agregar** en la parte superior de la hoja **Rutas**, escriba la información necesaria y haga clic en **Aceptar**. La ruta aparecerá en la lista de la hoja principal de **Rutas**. Puede editar una ruta al hacer clic en ella en la lista de rutas. Para habilitar una ruta, haga clic en ella en la lista de rutas y establezca el control de alternancia de **Habilitar** en **Desactivado**. Para guardar los cambios, haga clic en **Aceptar** en la parte inferior de la hoja.
+Existen dos maneras de buscar un centro de IoT específico en su suscripción:
 
-![Captura de pantalla que muestra la edición de una nueva regla de enrutamiento](./media/iot-hub-create-through-portal/route-edit.png)
+1. Si sabe el grupo de recursos al que pertenece, haga clic en **Resource groups** (Grupos de recursos) y seleccione el grupo de recursos de la lista. En la pantalla del grupo de recursos se muestran todos los recursos de ese grupo, incluidos los centros de IoT. Haga clic en el centro que busca.
+
+2. Haga clic en **All resources** (Todos los recursos). En el panel **All resources** (Todos los recursos), hay una lista desplegable que acepta como valor predeterminado `All types`. Haga clic en la lista desplegable y desactive la opción `Select all`. Busque `IoT Hub` y márquelo. Haga clic en el cuadro de lista desplegable para cerrarlo; las entradas se filtran y solo se muestran sus centros de IoT.
 
 ## <a name="delete-the-iot-hub"></a>Eliminación del Centro de IoT
 
-Puede examinar el Centro de IoT que desea eliminar haciendo clic en **Examinar**y, a continuación, seleccionar el centro adecuado que desea eliminar. Para eliminar la instancia de IoT Hub, haga clic en el botón **Eliminar** debajo del nombre de dicha instancia.
+Para eliminar un centro de Iot, busque el que quiere eliminar y luego haga clic en el botón **Delete** (Eliminar) debajo de su nombre.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
-* [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
+* [Enrutamiento de mensajes con IoT Hub](tutorial-routing.md)
 * [Métricas de IoT Hub](iot-hub-metrics.md)
 * [Supervisión de operaciones](iot-hub-operations-monitoring.md)
-
-Para explorar aún más las funcionalidades de IoT Hub, consulte:
-
-* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
-* [Implementación del primer módulo de IoT Edge en un dispositivo Linux x64](../iot-edge/tutorial-simulate-device-linux.md)
-* [Seguridad de Internet de las cosas desde el principio](../iot-fundamentals/iot-security-ground-up.md)

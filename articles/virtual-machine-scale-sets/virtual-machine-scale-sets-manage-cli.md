@@ -1,6 +1,6 @@
 ---
-title: Administración de conjuntos de escalado de máquinas virtuales con la CLI de Azure 2.0 | Microsoft Docs
-description: Comandos comunes de la CLI de Azure 2.0 para administrar conjuntos de escalado de máquinas virtuales, por ejemplo, cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado.
+title: Administración de conjuntos de escalado de máquinas virtuales con la CLI de Azure | Microsoft Docs
+description: Comandos comunes de la CLI de Azure para administrar conjuntos de escalado de máquinas virtuales, por ejemplo, cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 014e6ff2bc769675e47743cfdd4fbf7fc6234974
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146808"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999841"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
-Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure 2.0 que le permiten realizar estas tareas.
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
+Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure que le permiten realizar estas tareas.
 
-Para completar estas tareas de administración, se requiere la CLI de Azure 2.0 más reciente. Para obtener información, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en la CLI de Azure 2.0](quick-create-cli.md).
+Para completar estas tareas de administración, se requiere la CLI de Azure más reciente. Para obtener información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en la CLI de Azure](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visualización de información acerca de un conjunto de escalado

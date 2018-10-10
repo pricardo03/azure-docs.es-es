@@ -2,26 +2,26 @@
 title: Metadatos de OpenAPI en Azure Functions | Microsoft Docs
 description: Introducción a la compatibilidad con OpenAPI en Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950376"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
 La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure Functions es una característica en versión preliminar que puede usar para escribir una definición de OpenAPI 2.0 dentro de una aplicación de función. A continuación, puede hospedar ese archivo mediante la aplicación de función.
+
+> [!IMPORTANT]
+> La característica en versión preliminar de OpenAPI solo está disponible actualmente en el entorno de ejecución 1.x. Puede encontrar información sobre cómo crear una aplicación de función 1.x [aquí](./functions-versions.md#creating-1x-apps).
 
 [Los metadatos de OpenAPI](http://swagger.io/) permiten que una función que hospede una API de REST pueda ser consumida por una gran variedad de software. Este software incluye ofertas de Microsoft como PowerApps y la [característica API Apps de Azure App Service](../app-service/app-service-web-overview.md), herramientas de desarrollo de terceros, como [Postman](https://www.getpostman.com/docs/importing_swagger) y [muchos otros paquetes](http://swagger.io/tools/).
 
@@ -32,6 +32,9 @@ La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure 
 
 ## <a name="enable"></a>Habilitar la compatibilidad con definiciones de OpenAPI
 Puede configurar todas las opciones de OpenAPI en la página **Definición de la API** de **Características de la plataforma** de la aplicación de función.
+
+> [!NOTE]
+> Actualmente, el entorno de ejecución beta no admite la característica de definición de la API de función.
 
 Para habilitar la generación de una definición de OpenAPI hospedada y una definición de inicio rápido, establezca **Origen de definición de API** en **Functions (versión preliminar)**. **Dirección URL externa** permite que su función utilice una definición de OpenAPI hospedada en otro lugar.
 

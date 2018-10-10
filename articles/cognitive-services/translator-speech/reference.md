@@ -1,45 +1,46 @@
 ---
-title: Referencia de Microsoft Translator Speech API | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Documentación de referencia para Microsoft Translator Speech API.
+title: Referencia de Translator Speech API
+titleSuffix: Azure Cognitive Services
+description: Documentación de referencia para Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: be8faddf56158de3399713c41638c0b913b4627e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382863"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978716"
 ---
-# <a name="microsoft-translator-speech-api"></a>Microsoft Translator Speech API
+# <a name="translator-speech-api"></a>Translator Speech API
 
-Este servicio ofrece una API de transmisión por secuencias para transcribir voz conversacional de un idioma en texto de otro idioma. La API también integra las funcionalidades de texto a voz para volver a hablar el texto traducido. Microsoft Translator Speech API permite escenarios como la traducción de conversaciones en tiempo real, tal como se muestra en Skype Translator.
+Este servicio ofrece una API de transmisión por secuencias para transcribir voz conversacional de un idioma en texto de otro idioma. La API también integra las funcionalidades de texto a voz para volver a hablar el texto traducido. Translator Speech API permite escenarios como la traducción de conversaciones en tiempo real, tal como se muestra en Skype Translator.
 
-Con Microsoft Translator Speech API, las aplicaciones cliente transmiten audio de voz al servicio y reciben de vuelta una secuencia de resultados basados en texto, que incluyen el texto reconocido en el idioma de origen y su traducción en el idioma de destino. Los resultados de texto se producen mediante la aplicación del reconocimiento de voz automático (ASR) con tecnología de redes neuronales profundas en la secuencia de audio entrante. La salida de ASR sin formato se mejora aún más mediante una técnica nueva denominada TrueText para reflejar mejor la intención del usuario. Por ejemplo, TrueText quita las faltas de fluidez (murmullos y toses) y restaura correctamente la puntuación y las mayúsculas y minúsculas. También se incluye la capacidad de enmascarar o excluir las palabras soeces. Los motores de reconocimiento y traducción están entrenados específicamente para controlar la voz de la conversación. El servicio de Translator Speech utiliza detección de silencios para determinar el final de una expresión. Después de una pausa en la actividad de voz, el servicio transmitirá un resultado final de la expresión completa. El servicio también puede devolver resultados parciales volver, lo que proporcionará traducciones y reconocimientos intermedios de una expresión en curso. Para obtener resultados finales, el servicio proporciona la capacidad de sintetizar voz (texto a voz) del texto hablado en los idiomas de destino. El audio de texto a voz se crea en el formato especificado por el cliente. Hay formatos WAV y MP3 disponibles.
+Con Translator Speech API, las aplicaciones cliente transmiten audio de voz al servicio y reciben de vuelta una secuencia de resultados de texto que incluyen el texto reconocido en el idioma de origen y su traducción en el idioma de destino. Para producir los resultados, se aplica el reconocimiento de voz automático (ASR) con la tecnología de redes neuronales profundas a la secuencia de audio entrante. La salida de ASR sin formato se mejora aún más mediante una técnica nueva denominada TrueText para reflejar mejor la intención del usuario. Por ejemplo, TrueText quita las faltas de fluidez (murmullos y toses) y restaura correctamente la puntuación y las mayúsculas y minúsculas. También se incluye la capacidad de enmascarar o excluir las palabras soeces. Los motores de reconocimiento y traducción están entrenados específicamente para controlar la voz conversacional. El servicio de traducción de voz utiliza la detección de silencios para determinar el final de una expresión. Después de una pausa en la actividad de voz, el servicio devuelve el resultado final de la expresión completa. El servicio también puede devolver resultados parciales volver, lo que proporcionará traducciones y reconocimientos intermedios de una expresión en curso. Para obtener resultados finales, el servicio proporciona la capacidad de sintetizar voz (texto a voz) del texto hablado en los idiomas de destino. El audio de texto a voz se crea en el formato especificado por el cliente. Están disponibles los formatos WAV y MP3.
 
-Microsoft Translator Speech API aprovecha el protocolo WebSocket para proporcionar un canal de comunicación dúplex completo entre el cliente y el servidor. Una aplicación requerirá estos pasos para usar el servicio:
+Translator Speech API aprovecha el protocolo WebSocket para proporcionar un canal de comunicación dúplex completo entre el cliente y el servidor. Una aplicación requerirá estos pasos para usar el servicio:
 
 ## <a name="1-getting-started"></a>1. Introducción
-Para obtener acceso a Microsoft Translator Text API, debe [suscribirse a Microsoft Azure](translator-speech-how-to-signup.md).
+Para acceder a Translator Text API, debe [suscribirse a Microsoft Azure](translator-speech-how-to-signup.md).
 
 ## <a name="2-authentication"></a>2. Autenticación
 
-Use la clave de suscripción para realizar la autenticación. Microsoft Translator Speech API admite dos modos de autenticación:
+Use la clave de suscripción para realizar la autenticación. Translator Speech API admite dos modos de autenticación:
 
-* **Con un token de acceso:** en la aplicación, obtenga un token de acceso desde el servicio de token. Use la clave de suscripción de Microsoft Translator Speech API para obtener un token de acceso del servicio de autenticación de Cognitive Services. Cada token de acceso tiene una validez de 10 minutos. Obtenga un nuevo token de acceso cada 10 minutos y siga usando el mismo para solicitudes repetidas durante esos 10 minutos.
+* **Con un token de acceso:** en la aplicación, obtenga un token de acceso desde el servicio de token. Use la clave de suscripción de Translator Speech API para obtener un token de acceso del servicio de autenticación de Azure Cognitive Services. Cada token de acceso tiene una validez de 10 minutos. Obtenga un nuevo token de acceso cada 10 minutos y siga usando el mismo para solicitudes repetidas durante esos 10 minutos.
 
 * **Con una clave de suscripción directamente:** en la aplicación, pase la clave de suscripción como un valor del encabezado `Ocp-Apim-Subscription-Key`.
 
 Trate la clave de suscripción y el token de acceso como secretos que deben ocultarse.
 
 ## <a name="3-query-languages"></a>3. Lenguajes de consulta
-**Consulte los recursos de idiomas del conjunto actual de idiomas admitidos.** Los [recursos de idiomas](languages-reference.md) muestran el conjunto de idiomas y voces disponibles para el reconocimiento de voz, la traducción de texto y texto a voz. Cada idioma o voz recibe un identificador que Microsoft Translator Speech API usa para identificarlos.
+**Consulte los recursos de idiomas del conjunto actual de idiomas admitidos.** Los [recursos de idiomas](languages-reference.md) muestran el conjunto de idiomas y voces disponibles para el reconocimiento de voz, la traducción de texto y texto a voz. Cada idioma o voz recibe un identificador que Translator Speech API usa para identificarlos.
 
 ## <a name="4-stream-audio"></a>4. Secuencia de audio
 **Abra una conexión y empiece a transmitir audio al servicio.** La dirección URL de servicio es `wss://dev.microsofttranslator.com/speech/translate`. Los formatos de audio y parámetros esperados por el servicio se describen a continuación, en la operación `/speech/translate`. Uno de los parámetros se utiliza para pasar el token de acceso del paso 2 anterior.
@@ -47,7 +48,7 @@ Trate la clave de suscripción y el token de acceso como secretos que deben ocul
 ## <a name="5-process-the-results"></a>5. Procesamiento de los resultados
 **Procese los resultados transmitidos desde el servicio.** El formato de los segmentos de audio de texto a voz, los resultados parciales y los resultados finales se describen en la documentación de la operación `/speech/translate` que se indica a continuación.
 
-Los ejemplos de código que demuestran el uso de Microsoft Translator Speech API están disponibles en el [sitio de GitHub de Microsoft Translator](https://github.com/MicrosoftTranslator).
+Los ejemplos de código que demuestran el uso de Translator Speech API están disponibles en el [sitio de GitHub de Microsoft Translator](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementación
 
@@ -160,7 +161,7 @@ Cuando una aplicación cliente ha terminado de transmitir el audio y ha recibido
 
 ### <a name="parameters"></a>Parámetros
 
-|.|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:---|:---|:---|:---|:---|
 |api-version|1.0|Versión de la API que el cliente solicitó. Los valores permitidos son: `1.0`.|query   |string|
 |De|(vacío)   |Especifica el idioma de la voz de entrada. El valor es uno de los identificadores de idioma del ámbito `speech` de la respuesta de la API de idiomas.|query|string|

@@ -4,30 +4,41 @@ description: 'Notas de la versión: qué ha cambiado en las versiones más recie
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: bbf3c5930de2ec6c709b6b527ae3eac107382420
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047806"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963090"
 ---
 # <a name="release-notes"></a>Notas de la versión
+
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK 1.0.0 de Voz de Cognitive Services: versión de septiembre de 2018
+
+**Nuevas características:**
+
+* Compatibilidad con Objective-C en iOS. Consulte la [Guía de inicio rápido de Objective-C para iOS](quickstart-objectivec-ios.md).
+* Se admite JavaScript en el explorador. Consulte la [Guía de inicio rápido de JavaScript](quickstart-js-browser.md).
+
+**Cambios importantes**
+
+* Con esta versión se presentan una serie de cambios importantes.
+  Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para más información.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>SDK de Voz de Cognitive Services 0.6.0: versión de agosto de 2018
 
 **Nuevas características:**
 
-* Ahora, las aplicaciones de UWP creadas con el SDK de Voz superan el Kit para la certificación de aplicaciones en Windows (WACK).
-  Consulte nuestro [inicio rápido de UWP](quickstart-csharp-uwp.md).
+* Ahora, las aplicaciones de UWP creadas con SDK de Voz superan el Kit para la certificación de aplicaciones en Windows (WACK).
+  Consulte la [Guía de inicio rápido de UWP](quickstart-csharp-uwp.md).
 * Compatibilidad con .NET Standard 2.0 en Linux (Ubuntu 16.04 x64).
 * Experimental: Compatibilidad con Java 8 en Windows (64 bits) y Linux (Ubuntu 16.04 x 64).
-  Consulte la [guía de inicio rápido del entorno en tiempo de ejecución de Java](quickstart-java-jre.md)
+  Consulte la [Guía de inicio rápido de Java Runtime Environment](quickstart-java-jre.md).
 
 **Cambios funcionales**
 
@@ -40,7 +51,7 @@ ms.locfileid: "43047806"
 
 **Correcciones de errores**
 
-* En Java, se ha implementado la síntesis de audio como resultado del reconocedor de traducción.
+* En Java, se implementa ahora el resultado de la síntesis de audio en el reconocedor de traducción.
 * Se ha corregido un error que podía provocar subprocesos inactivos y un mayor número de sockets abiertos y sin usar.
 * Se ha corregido un problema por el que un proceso de reconocimiento de larga ejecución podía terminar en mitad de la transmisión.
 * Se ha corregido una condición de carrera en el proceso de apagado del reconocedor.
@@ -49,19 +60,17 @@ ms.locfileid: "43047806"
 
 **Nuevas características:**
 
-* Compatibilidad con la plataforma Android (API 23: Android 6.0 Marshmallow o superior).
-  Consulte el [inicio rápido de Android](quickstart-java-android.md).
-* Compatibilidad con .NET Standard 2.0 en Windows.
-  Consulte el [inicio rápido de .NET Core](quickstart-csharp-dotnetcore-windows.md).
-* Experimental: compatibilidad con UWP en Windows (versión 1709 o posterior)
-  * Consulte nuestro [inicio rápido de UWP](quickstart-csharp-uwp.md).
+* Compatibilidad con la plataforma Android (API 23: Android 6.0 Marshmallow o superior). Consulte el [inicio rápido de Android](quickstart-java-android.md).
+* Compatibilidad con .NET Standard 2.0 en Windows. Consulte el [inicio rápido de .NET Core](quickstart-csharp-dotnetcore-windows.md).
+* Experimental: compatibilidad con UWP en Windows (versión 1709 o posterior).
+  * Consulte la [Guía de inicio rápido de UWP](quickstart-csharp-uwp.md).
   * Nota: Las aplicaciones de UWP creadas con el SDK de Voz no pasan aún el Kit para la certificación de aplicaciones en Windows (WACK).
-* Compatibilidad con reconocimiento de ejecución prolongada con reconexión automática.
+* Compatibilidad con el reconocimiento de ejecución prolongada con reconexión automática.
 
 **Cambios funcionales**
 
-* `StartContinuousRecognitionAsync()` admite reconocimiento de ejecución prolongada
-* El resultado del reconocimiento contiene más campos: desplazamiento desde el principio del audio y duración (ambos en tics) del texto reconocido, valores adicionales que representan el estado de reconocimiento, p. ej., `InitialSilenceTimeout`, `InitialBabbleTimeout`, etc.
+* `StartContinuousRecognitionAsync()` admite reconocimiento de ejecución prolongada.
+* El resultado del reconocimiento contiene más campos. Tienen un desplazamiento desde el principio del audio y la duración (ambos en tics) del texto reconocido y valores adicionales que representan el estado de reconocimiento, por ejemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 * Compatibilidad con AuthorizationToken para la creación de instancias de fábrica.
 
 **Cambios importantes**
@@ -72,18 +81,17 @@ ms.locfileid: "43047806"
    * En Java, el método `read` ahora devuelve `long` en lugar de `int`.
    * En C#, el método `Read` ahora devuelve `uint` en lugar de `int`.
    * En C++, los métodos `Read` y `GetFormat` ahora devuelven `size_t` en lugar de `int`.
-* C++: las instancias de flujos de entrada de audio ahora solo se pueden pasar como `shared_ptr`.
+* C++: las instancias de secuencias de entrada de audio ahora solo se pueden pasar como un valor `shared_ptr`.
 
 **Correcciones de errores**
 
 * Se han corregido los valores devueltos incorrectos cuando se agota el tiempo de espera de `RecognizeAsync()`.
-* Se ha quitado la dependencia en las bibliotecas de Media Foundation en Windows. El SDK ahora usa las API de Core Audio.
+* Se ha eliminado la dependencia de las bibliotecas de Media Foundation en Windows. El SDK ahora usa las API de audio básicas.
 * Corrección de documentación: se ha agregado una página de [regiones](regions.md) para describir cuáles son las regiones admitidas.
 
-**Problemas conocidos**
+**Problema conocido**
 
-* El SDK de Voz para Android no informa de los resultados de síntesis de voz para la conversión.
-  Este problema se solucionará en la próxima versión.
+* SDK de Voz para Android no informa de los resultados de la síntesis de voz para la traducción. Este problema se solucionará en la próxima versión.
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de Voz 0.4.0 de Cognitive Services: versión de junio de 2018
 
@@ -91,11 +99,11 @@ ms.locfileid: "43047806"
 
 - AudioInputStream
 
-  Ahora un reconocedor puede usar una secuencia como el origen del audio. Para obtener información detallada, vea la [guía de procedimientos](how-to-use-audio-input-streams.md) relacionada.
+  Un reconocedor ahora puede consumir una secuencia como origen de audio. Para más información, consulte la [guía de procedimientos](how-to-use-audio-input-streams.md) relacionada.
 
 - Formato de salida detallado
 
-  Al crear un `SpeechRecognizer`, puede solicitar el formato de salida `Detailed` o `Simple`. `DetailedSpeechRecognitionResult` contiene una puntuación de confianza, texto reconocido, formato léxico sin formato, formato normalizado y formato normalizado con palabras soeces enmascaradas.
+  Al crear un elemento `SpeechRecognizer`, puede solicitar el formato de salida `Detailed` o `Simple`. `DetailedSpeechRecognitionResult` contiene una puntuación de confianza, texto reconocido, formato léxico sin formato, formato normalizado y formato normalizado con palabras soeces enmascaradas.
 
 **Cambio importante**
 
@@ -103,11 +111,11 @@ ms.locfileid: "43047806"
 
 **Correcciones de errores**
 
-- Se ha corregido un posible problema de devolución de llamada en la capa USP durante el cierre.
+- Se ha corregido un posible problema de devolución de llamada en la capa USP durante el apagado.
 
 - Si un reconocedor usaba un archivo de entrada de audio, mantenía el identificador de archivo más tiempo del necesario.
 
-- Se han quitado varios interbloqueos entre el suministro de mensajes y el reconocedor.
+- Se han eliminado varios interbloqueos entre el suministro de mensajes y el reconocedor.
 
 - Se desencadena un resultado `NoMatch` cuando se agota la respuesta del servicio.
 
@@ -115,12 +123,12 @@ ms.locfileid: "43047806"
 
 - La velocidad de carga de los datos de audio se limita al doble de la velocidad de audio original.
 
-- En Windows, los ensamblados .NET de C# son ahora de nombre seguro.
+- En Windows, los ensamblados .NET de C# ahora son de nombre seguro.
 
 - Corrección de la documentación: `Region` necesita información para crear un reconocedor.
 
-Se han agregado más ejemplos y se actualizan constantemente. Para obtener el conjunto más reciente de ejemplos, vea el [repositorio de GitHub de ejemplos del SDK de Voz](https://aka.ms/csspeech/samples).
+Se han agregado más ejemplos y se actualizan constantemente. Para obtener el conjunto más reciente de ejemplos, consulte el [repositorio de GitHub de ejemplos de SDK de Voz](https://aka.ms/csspeech/samples).
 
 ## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de Voz de Cognitive Services 0.2.12733: versión de mayo de 2018
 
-La primera versión preliminar pública del SDK de Voz de Cognitive Services.
+Esta versión es la primera versión preliminar pública de SDK de Voz de Cognitive Services.

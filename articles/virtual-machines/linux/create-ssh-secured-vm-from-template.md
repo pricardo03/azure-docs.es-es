@@ -16,16 +16,19 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930246"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983895"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager
-En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux con plantillas de Azure Resource Manager y la CLI de Azure. 
 
+En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux con plantillas de Azure Resource Manager y la CLI de Azure. También puede llevar a cabo estos pasos con la [CLI de Azure clásica](create-ssh-secured-vm-from-template-nodejs.md).
+
+
+En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux con plantillas de Azure Resource Manager y la CLI de Azure. 
 
 ## <a name="templates-overview"></a>Introducción a las plantillas
 Las plantillas de Azure Resource Manager son archivos JSON que definen la infraestructura y la configuración de la solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Para obtener más información sobre el formato de la plantilla y cómo se crea, consulte [Creación de la primera plantilla de Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Para ver la sintaxis JSON para los tipos de recursos, consulte [Define resources in Azure Resource Manager templates](/azure/templates/) (Definición de recursos en plantillas de Azure Resource Manager).

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e6a1a1488b7d7222ca9b0353b9eba697dd594ce
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031216"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982348"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL con la CLI de Azure 
 En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para aprender a hacer lo siguiente:
@@ -29,11 +29,11 @@ En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otra
 > * Actualización de datos
 > * Restauración de datos
 
-Puede usar Azure Cloud Shell en el explorador, o bien [instalar la CLI de Azure 2.0]( /cli/azure/install-azure-cli) en su propio equipo para ejecutar los comandos de este tutorial.
+Puede usar Azure Cloud Shell en el explorador, o bien [instalar la CLI de Azure]( /cli/azure/install-azure-cli) en su propio equipo para ejecutar los comandos de este tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 Si tiene varias suscripciones, elija la adecuada donde se encuentre el recurso o para la cual se facture. Seleccione un identificador de suscripción específico en su cuenta mediante el comando [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive

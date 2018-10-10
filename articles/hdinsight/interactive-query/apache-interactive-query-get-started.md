@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: e83d51a18c7ab5861699114e4622bda167dab41d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a90ec3102f3ce821193d58b6d14ca119f6d7e916
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042104"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959689"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Uso de Interactive Query con HDInsight
 Interactive Query (también llamado Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) (Procesamiento analítico de baja latencia) es un nuevo [tipo de clúster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) de Azure HDInsight. Interactive Query admite el almacenamiento en caché en memoria, lo que hace que las consultas de Hive sean más rápidas y mucho más interactivas.
@@ -24,7 +24,7 @@ Interactive Query (también llamado Hive LLAP o [Low Latency Analytical Processi
 Un clúster de Interactive Query no es igual que un clúster de Hadoop. Solo contiene el servicio de Hive. 
 
 > [!NOTE]
-> Solo se puede acceder al servicio Hive en el clúster de Interactive Query mediante la vista Ambari Hive, Beeline y el controlador de conectividad abierta de bases de datos de Microsoft Hive (Hive ODBC). No se puede acceder a él mediante la consola de Hive, Templeton, la herramienta de línea de comando (CLI de Azure) o Azure PowerShell. 
+> Solo se puede acceder al servicio Hive en el clúster de Interactive Query mediante la vista Ambari Hive, Beeline y el controlador de conectividad abierta de bases de datos de Microsoft Hive (Hive ODBC). No se puede acceder a él mediante la consola de Hive, Templeton, la CLI de Azure clásica ni Azure PowerShell. 
 > 
 > 
 

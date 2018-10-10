@@ -1,23 +1,23 @@
 ---
-title: Informes de administración de costos en Azure Cost Management | Microsoft Docs
+title: Descripción de los informes de administración de costos de Cloudyn en Azure | Microsoft Docs
 description: Este artículo le ayuda a entender la estructura y las funciones básicas de los informes de administración de costos de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e4d4c2115ddae592e9ca7bdf119b36d0ccee2da4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064697"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998719"
 ---
-# <a name="understanding-cost-management-reports"></a>Informes de administración de costos
+# <a name="understanding-cloudyn-cost-management-reports"></a>Descripción de los informes de administración de costos de Cloudyn
 
 Este artículo le ayuda a entender la estructura y las funciones básicas de los informes de administración de costos de Cloudyn. La mayoría de los informes de Cloudyn son intuitivos y tienen un aspecto uniforme. Después de leer este artículo, está listo para usar todos los informes de administración de costos. Muchas características estándar están disponibles en los distintos informes, lo que le permite navegar por ellos con facilidad. Los informes son personalizables y puede seleccionar entre varias opciones para calcular y mostrar los resultados.
 
@@ -75,7 +75,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
      - Centro de costos
      - department
      - Application
-     - Environment
+     - Entorno
      - Código de costo
 
     Esta es una lista de los grupos integrados disponibles en los informes:
@@ -203,5 +203,5 @@ Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre los informes que se incluyen en Cloudyn en [Uso de los informes de Cost Management](use-reports.md).
+- Aprenda sobre los informes que se incluyen en Cloudyn en [Uso de los informes de Cloudyn](use-reports.md).
 - Obtenga información sobre cómo utilizar los informes para crear [paneles](dashboards.md).

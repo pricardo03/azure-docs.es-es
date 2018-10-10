@@ -1,6 +1,6 @@
 ---
-title: Identidad de servicio administrada en App Service y Azure Functions | Microsoft Docs
-description: Guía de configuración y referencia conceptual para la compatibilidad de la identidad de servicio administrada en Azure App Service y Azure Functions
+title: Identidades administradas en App Service y Azure Functions | Microsoft Docs
+description: Guía de configuración y referencia conceptual para identidades administradas en Azure App Service y Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -11,22 +11,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: c7a819f987de41ba7705d21bb6de95475cd3f9c8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027193"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983657"
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Uso de Azure Managed Service Identity en App Service y Azure Functions
+# <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
 > [!NOTE] 
-> En la actualidad, App Service en Linux y Web App for Containers no admiten Managed Service Identity.
+> App Service en Linux y Web App for Containers no admiten actualmente identidades administradas.
 
 > [!Important] 
-> Managed Service Identity de App Service y Azure Functions no se comportará según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación necesitará obtener una nueva identidad, lo que se puede hacer deshabitando y volviendo a habilitar la función. Consulte [Eliminación de una identidad](#remove) a continuación. Los recursos de nivel inferior también necesitarán tener directivas de acceso actualizadas para utilizar la nueva identidad.
+> Las identidades administradas de App Service y Azure Functions no se comportarán según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación necesitará obtener una nueva identidad, lo que se puede hacer deshabitando y volviendo a habilitar la función. Consulte [Eliminación de una identidad](#remove) a continuación. Los recursos de nivel inferior también necesitarán tener directivas de acceso actualizadas para utilizar la nueva identidad.
 
-En este tema se muestra cómo crear una identidad de aplicación administrada para las aplicaciones de App Service y Azure Functions y cómo usarla para tener acceso a otros recursos. Una identidad de servicio administrada de Azure Active Directory permite a la aplicación tener acceso fácilmente a otros recursos protegidos de AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para obtener más información acerca de la identidad de servicio administrada, vea [Managed Service Identity (MSI) for Azure resources ](../active-directory/managed-identities-azure-resources/overview.md) (Identidad de servicio administrada para recursos de Azure).
+En este tema se muestra cómo crear una identidad administrada para las aplicaciones App Service y Azure Functions y cómo usarla para acceder a otros recursos. Una identidad administrada de Azure Active Directory permite a la aplicación acceder fácilmente a otros recursos protegidos por AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas en AAD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Creación de una aplicación con una identidad
 
@@ -34,25 +34,25 @@ Para crear una aplicación con una identidad se requiere la configuración de un
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Para configurar una identidad de servicio administrada en el portal, primero tendrá que crear una aplicación como lo hace normalmente y, a continuación, habilitar la característica.
+Para configurar una identidad administrada en el portal, primero creará una aplicación como lo hace normalmente y, a continuación, habilitará la característica.
 
 1. Cree una aplicación en el portal como lo haría normalmente. Navegue hasta el portal.
 
 2. Si utiliza una aplicación de función, vaya a **Características de la plataforma**. Para otros tipos de aplicación, desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
 
-3. Seleccione **Identidad de servicio administrada**.
+3. Seleccione **Identidad administrada**.
 
 4. Cambie **Registrar en Azure Active Directory** a **Activado**. Haga clic en **Save**(Guardar).
 
-![Identidad de servicio administrada en App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Identidad administrada en App Service](media/app-service-managed-service-identity/msi-blade.png)
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
 
-Para configurar una identidad de servicio administrada mediante la CLI de Azure, debe usar el comando `az webapp identity assign` en una aplicación existente. Tiene tres opciones para ejecutar los ejemplos de esta sección:
+Para configurar una identidad administrada mediante la CLI de Azure, deberá usar el comando `az webapp identity assign` en una aplicación existente. Tiene tres opciones para ejecutar los ejemplos de esta sección:
 
 - Usar [Azure Cloud Shell](../cloud-shell/overview.md) desde Azure Portal.
 - Use Azure Cloud Shell integrado mediante el botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-- [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o posterior) si prefiere usar una consola de CLI local. 
+- [Instale la versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o posterior) si prefiere usar una consola de CLI local. 
 
 Los siguientes pasos le guiarán por la creación de una aplicación web y la asignación a la misma de una identidad mediante la CLI:
 
@@ -151,13 +151,13 @@ Donde `<TENANTID>` y `<PRINCIPALID>` se reemplazan por GUID. La propiedad tenant
 Una aplicación puede utilizar su identidad para obtener tokens para otros recursos protegidos por AAD, como Azure Key Vault. Estos tokens representan a la aplicación que accede al recurso, y no a un usuario específico de la aplicación. 
 
 > [!IMPORTANT]
-> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para obtener más información acerca de los recursos que admiten tokens de la identidad de servicio administrada, consulte [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) (Servicios de Azure que admiten la autenticación de Azure AD).
+> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para más información sobre los recursos que admiten tokens de Azure Active Directory, consulte [Servicios de Azure que admiten autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 Hay un protocolo de REST sencillo para obtener un token en App Service y Azure Functions. Para las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local.
 
 ### <a name="asal"></a>Uso de la biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
 
-En el caso de las aplicaciones y las funciones de .NET, la manera más sencilla de trabajar con una identidad de servicio administrada es utilizar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permitirá probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) o la autenticación integrada de Active Directory. Para obtener más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication]. En esta sección se muestra cómo empezar a usar la biblioteca en su código.
+En el caso de aplicaciones y funciones de .NET, la manera más sencilla de trabajar con una identidad administrada es usar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](/cli/azure) o la autenticación integrada de Active Directory. Para obtener más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication]. En esta sección se muestra cómo empezar a usar la biblioteca en su código.
 
 1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) para la aplicación.
 
@@ -168,7 +168,7 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
@@ -177,7 +177,7 @@ Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication 
 
 ### <a name="using-the-rest-protocol"></a>Uso del protocolo de REST
 
-Una aplicación con una identidad de servicio administrada tiene dos variables de entorno definidas:
+Una aplicación con una identidad administrada tiene dos variables de entorno definidas:
 - MSI_ENDPOINT
 - MSI_SECRET
 
@@ -205,7 +205,7 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
-> Las variables de entorno se configuran cuando el proceso se inicia por primera vez, por lo que después de habilitar la funcionalidad Managed Service Identity de la aplicación puede que necesite reiniciar la aplicación, o implementar de nuevo el código, antes de que `MSI_ENDPOINT` y `MSI_SECRET` estén disponibles en el código.
+> Las variables de entorno se configuran cuando el proceso se inicia por primera vez, por lo que después de habilitar una identidad administrada para la aplicación puede que necesite reiniciar la aplicación, o implementar de nuevo su código, antes de que `MSI_ENDPOINT` y `MSI_SECRET` estén disponibles en el código.
 
 ### <a name="rest-protocol-examples"></a>Ejemplos de protocolo de REST
 Una solicitud de ejemplo puede tener el siguiente aspecto:
@@ -276,11 +276,11 @@ Para quitar una identidad, deshabilite la función mediante el portal, PowerShel
 Si se quita la identidad de esta manera, también se eliminará la entidad de seguridad de AAD. Las identidades asignadas por el sistema se quitan automáticamente de AAD cuando se elimina el recurso de la aplicación.
 
 > [!NOTE] 
-> También hay una configuración de aplicación que se puede establecer, WEBSITE_DISABLE_MSI, que simplemente deshabilita el servicio de token local. Sin embargo, deja la identidad en su lugar, y las herramientas seguirán mostrando MSI como "activado" o "habilitado". Como resultado, no se recomienda el uso de esta configuración.
+> También hay una configuración de aplicación que se puede establecer, WEBSITE_DISABLE_MSI, que simplemente deshabilita el servicio de token local. Sin embargo, deja la identidad en su lugar, y las herramientas seguirán mostrando la identidad administrada como "activada" o "habilitada". Como resultado, no se recomienda el uso de esta configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Acceso seguro a SQL Database mediante una identidad de servicio administrada](app-service-web-tutorial-connect-msi.md)
+> [Acceso seguro a SQL Database mediante una identidad administrada](app-service-web-tutorial-connect-msi.md)
 
 [Referencia de Microsoft.Azure.Services.AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452

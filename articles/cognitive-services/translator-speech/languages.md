@@ -1,22 +1,24 @@
 ---
-title: Idiomas admitidos en Microsoft Translator Speech API | Microsoft Docs
-description: Ver los idiomas admitidos en Microsoft Translator Speech API.
+title: Idiomas admitidos - Translator Speech API
+titlesuffix: Azure Cognitive Services
+description: Vea los idiomas admitidos en Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382881"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950189"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Idiomas admitidos en Microsoft Translator Speech API
+# <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas admitidos en Translator Speech API
 La traducción de voz admite los siguientes idiomas. Si ambos idiomas son compatibles con la traducción de voz, estará disponible tanto la función voz a voz como la de voz a texto. Si no se admite el idioma de destino para la traducción de voz, solo estará disponible la función de voz a texto. 
 
 | Idioma de voz    |
@@ -32,7 +34,7 @@ La traducción de voz admite los siguientes idiomas. Si ambos idiomas son compat
 | Ruso      |
 | Español      | 
 
-Microsoft Translator Speech API admite los siguientes idiomas como idioma de destino para la traducción de voz a texto. 
+Translator Speech API admite los siguientes idiomas como idioma de destino para la conversión de voz en texto. 
 
 | Idioma de texto    | Código de idioma |
 |:----------- |:-------------:|
@@ -66,7 +68,7 @@ Microsoft Translator Speech API admite los siguientes idiomas como idioma de des
 | Indonesio      | `id`          |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
-| Suajili      | `sw`          |
+| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
 | Coreano      | `ko`          |
@@ -102,7 +104,7 @@ Microsoft Translator Speech API admite los siguientes idiomas como idioma de des
 
 ## <a name="access-the-list-programmatically"></a>Acceso a la lista mediante programación
 
-Para ver la lista de idiomas admitidos mediante programación, use el recurso Languages. La lista proporciona el código de idioma, así como el nombre del idioma en inglés (o en cualquier otro idioma admitido). El servicio Microsoft Translator actualiza esta lista automáticamente cuando hay nuevos idiomas disponibles.
+Para ver la lista de idiomas admitidos mediante programación, use el recurso Languages. La lista proporciona el código de idioma, así como el nombre del idioma en inglés (o en cualquier otro idioma admitido). El servicio Translator Speech actualiza esta lista automáticamente cuando hay nuevos idiomas disponibles.
 
 El recurso Languages devuelve la lista de idiomas admitidos para la voz, el texto y el texto a voz. El recurso Languages no requiere autenticación.
 

@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944548"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977577"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>requisitos previos
-En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y ya ha aprovisionado una VM en su suscripción de Azure. Asegúrese de que dispone de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente instalada y de que ha iniciado sesión en su suscripción de Azure con [az login](/cli/azure/reference-index#az_login) antes de [crear una VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="prerequisites"></a>Requisitos previos
+En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y ya ha aprovisionado una VM en su suscripción de Azure. Asegúrese de que dispone de la [CLI de Azure](/cli/azure/install-az-cli2) más reciente instalada y de que ha iniciado sesión en su suscripción de Azure con [az login](/cli/azure/reference-index#az_login) antes de [crear una máquina virtual](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco de sistema operativo de Azure
 Al crear la VM Linux en Azure, tiene dos discos asociados a ella. **/dev/sda** es el disco del SO y **/dev/sdb** es el disco temporal.  No utilice el disco del SO principal (**/dev/sda**) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos. 
@@ -42,7 +42,7 @@ Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la c
 * Si utiliza **XFS**, deshabilite las barreras mediante la opción de montaje `nobarrier` (para habilitar las barreras, use la opción `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Consideraciones de la cuenta de almacenamiento no administrada
-La acción predeterminada cuando se crea una VM con la CLI de Azure 2.0 consiste en usar Azure Managed Disks.  Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento.  Los discos no administrados requieren una cuenta de almacenamiento y tienen algunas consideraciones de rendimiento adicionales.  Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Introducción a los discos administrados de Azure).  En la siguiente sección se describen consideraciones de rendimiento solo cuando se usan discos no administrados.  Una vez más, la solución de almacenamiento predeterminada y recomendada consiste en utilizar discos administrados.
+La acción predeterminada al crear una máquina virtual con la CLI de Azure consiste en usar Azure Managed Disks.  Estos discos se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento.  Los discos no administrados requieren una cuenta de almacenamiento y tienen algunas consideraciones de rendimiento adicionales.  Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Introducción a los discos administrados de Azure).  En la siguiente sección se describen consideraciones de rendimiento solo cuando se usan discos no administrados.  Una vez más, la solución de almacenamiento predeterminada y recomendada consiste en utilizar discos administrados.
 
 Si crea una VM con discos no administrados, asegúrese de que conecta los discos desde las cuentas de almacenamiento que residen en la misma región que la VM para garantizar la proximidad y minimizar la latencia de red.  Cada cuenta de almacenamiento estándar tiene un máximo de IOPS de 20 k y una capacidad de tamaño de 500 TB.  Este límite nos da aproximadamente 40 discos muy utilizados, incluido el disco del SO y cualquier disco de datos que haya creado. Para las cuentas de Premium Storage, no hay ningún límite máximo de IOPS, pero hay un límite de tamaño de 32 TB. 
 
@@ -118,7 +118,7 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-Para la familia de distribución Redhat, solo necesita el siguiente comando:   
+Para la familia de distribución Red Hat, solo necesita el siguiente comando:   
 
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local

@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41921077"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948890"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves
 
-En este tutorial se verán los pasos necesarios para conseguir que una aplicación web de Azure lea información del almacén de claves mediante identidades de servicio administradas. Aprenderá a:
+En este tutorial se verán los pasos necesarios para conseguir que una aplicación web de Azure lea información del almacén de claves mediante identidades administradas para recursos de Azure. Aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un almacén de claves.
 > * Almacenar un secreto en el almacén de claves.
 > * Crear una aplicación web de Azure.
-> * Habilitar las identidades de servicio administradas.
+> * Habilitar una identidad administrada para la aplicación web.
 > * Conceder los permisos necesarios para que la aplicación lea los datos del almacén de claves.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 Para iniciar sesión en Azure mediante la CLI puede escribir:
 
@@ -218,9 +218,9 @@ Hay dos paquetes NuGet que la aplicación web debe tener instalados. Para instal
 >[!IMPORTANT]
 > Se abrirá una ventana del explorador y verá un mensaje 502.5 de error de procesamiento. Se espera que esto sea así. Debe conceder derechos de identidad de aplicación para leer los secretos de Key Vault.
 
-## <a name="enable-managed-service-identity"></a>Habilitación de la Identidad de servicio administrada
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Habilitación de una identidad administrada para la aplicación web
 
-Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Para solucionar este problema, Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
+Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. En [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) se facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
 
 1. Vuelva a la CLI de Azure.
 2. Ejecute el comando assign-identity para crear la identidad de esta aplicación:
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->Este comando es el equivalente de ir al portal y cambiar la **Identidad de servicio administrada** a **Activada** en las propiedades de la aplicación web.
+>Este comando equivale a ir al portal y cambiar la configuración de **Identidad o sistema asignados** a **Activada** en las propiedades de la aplicación web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Concesión de derechos a la identidad de aplicación
 

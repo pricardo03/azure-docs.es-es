@@ -1,38 +1,43 @@
 ---
 title: Información sobre el formato de mensaje de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: describe el formato y el contenido esperado de los mensajes de IoT Hub.'
-author: dominicbetts
-manager: timlt
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 7c08848698f07d64bbbff429682c18525659f7bf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.date: 08/13/2018
+ms.author: asrastog
+ms.openlocfilehash: edea20343c2a261902c082dbc5c96b78db6b470d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286524"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973227"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
-Para admitir la interoperabilidad sin problemas entre protocolos, IoT Hub define un formato de mensaje común para todos los protocolos accesibles desde el dispositivo. Este formato de mensaje se usa tanto para mensajes [dispositivo a nube][lnk-d2c] como para [nube a dispositivo][lnk-c2d]. 
+Para admitir la interoperabilidad sin problemas entre protocolos, IoT Hub define un formato de mensaje común para todos los protocolos accesibles desde el dispositivo. Este formato de mensaje se usa tanto para [enrutamiento de dispositivo a nube](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) como [de nube a dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-c2d). 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Un [mensaje IoT Hub][lnk-messaging] consta de:
+IoT Hub implementa mensajería de dispositivo a nube mediante un patrón de mensajería de streaming. Los mensajes de dispositivo a nube de IoT Hub son más parecidos a *eventos* de [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) que a *mensajes* de [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) en que hay un gran volumen de eventos que se pasan mediante el servicio que pueden leer varios lectores.
 
+Un mensaje IoT Hub consta de:
 * Conjunto predeterminado de *propiedades del sistema* como el que se muestra a continuación.
 * Un conjunto de *propiedades de la aplicación*. Diccionario de propiedades de cadena que la aplicación puede definir y a las que puede acceder sin necesidad de deserializar el cuerpo del mensaje. IoT Hub nunca modifica estas propiedades.
 * Un cuerpo binario opaco.
 
-Los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII y ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` cuando realiza las siguientes acciones:  
+Los valores y los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII, y ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` cuando envía mensajes del dispositivo a la nube usando el protocolo HTTPS o envía mensajes de la nube al dispositivo.
 
-* Envío de mensajes de dispositivo a nube mediante el protocolo HTTPS.
-* Envío de mensajes de nube a dispositivo.
+La mensajería de dispositivo a nube con IoT Hub tiene las siguientes características:
 
-Para obtener más información sobre cómo codificar y descodificar el mensaje usando distintos protocolos, consulte [SDK de Azure IoT][lnk-sdks].
+* Los mensajes de dispositivo a nube son duraderos y se conservan en el punto de conexión **messages/events** predeterminado de una instancia de IoT Hub hasta siete días.
+* Los mensajes de dispositivo a nube pueden tener como máximo 256 KB y se pueden agrupar en lotes para optimizar los envíos. Los lotes pueden tener un tamaño máximo de 256 KB.
+* IoT Hub no permite el particionamiento arbitrario. Los mensajes de dispositivo a nube se dividen en particiones en función de su valor de **deviceId**de origen.
+* Como se explica en la sección [Control del acceso a IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security), IoT Hub habilita la autenticación y el control de acceso por dispositivo.
+
+Para más información sobre cómo codificar y descodificar mensajes que se han enviado usando distintos protocolos, consulte [SDK de Azure IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 En la siguiente tabla, aparece el conjunto de propiedades del sistema en los mensajes de IoT Hub.
 
@@ -40,15 +45,15 @@ En la siguiente tabla, aparece el conjunto de propiedades del sistema en los men
 | --- | --- | --- |
 | MessageId |Un identificador configurable por el usuario para el mensaje utilizado para patrones de solicitud y respuesta. Formato: una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | SÍ |
 | Número de secuencia |Un número (exclusivo para cada cola de dispositivo) asignado por IoT Hub a cada mensaje de nube a dispositivo. | No para los mensajes C2D. En caso contrario, sí. |
-| Para |Un destino especificado en los mensajes [de la nube al dispositivo][lnk-c2d]. | No para los mensajes C2D. En caso contrario, sí. |
+| Para |Un destino especificado en los mensajes de [Nube al dispositivo] [lnk-c2d]. | No para los mensajes C2D. En caso contrario, sí. |
 | ExpiryTimeUtc |Fecha y hora de la expiración del mensaje. | SÍ |
-| EnqueuedTime |Fecha y hora en la que IoT Hub recibió el mensaje de [nube a dispositivo][lnk-c2d]. | No para los mensajes C2D. En caso contrario, sí. |
+| EnqueuedTime |Fecha y hora en la que IoT Hub recibió el mensaje de [Nube a dispositivo][lnk-c2d]. | No para los mensajes C2D. En caso contrario, sí. |
 | CorrelationId |Cadena de propiedad en un mensaje de respuesta que normalmente contiene el identificador del mensaje de la solicitud en los patrones de solicitud y respuesta. | SÍ |
 | UserId |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. | Sin  |
-| Ack |Un generador de mensajes de comentarios. Esta propiedad se usa en los mensajes de nube a dispositivo para solicitar a IoT Hub que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje se completó, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o si se alcanzó el número máximo de entregas) sin que se complete en el dispositivo, y **full**: comentarios positivos y negativos. Para más información, consulte [Comentarios de mensajes][lnk-feedback]. | SÍ |
+| Ack |Un generador de mensajes de comentarios. Esta propiedad se usa en los mensajes de nube a dispositivo para solicitar a IoT Hub que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje se completó, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o si se alcanzó el número máximo de entregas) sin que se complete en el dispositivo, y **full**: comentarios positivos y negativos. Para obtener más información, consulte [Comentarios de mensajes][lnk-feedback]. | SÍ |
 | ConnectionDeviceId |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **deviceId** del dispositivo que envió el mensaje. | No para los mensajes D2C. En caso contrario, sí. |
 | ConnectionDeviceGenerationId |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el valor **generationId** (como se indica en [Propiedades de identidad del dispositivo][lnk-device-properties]) del dispositivo que envió el mensaje. | No para los mensajes D2C. En caso contrario, sí. |
-| ConnectionAuthMethod |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje. Para más información, consulte la sección [Propiedades contra la suplantación][lnk-antispoofing]. | No para los mensajes D2C. En caso contrario, sí. |
+| ConnectionAuthMethod |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje. Para obtener más información, consulte [Propiedades contra la suplantación][lnk-antispoofing]. | No para los mensajes D2C. En caso contrario, sí. |
 | CreationTimeUtc | Fecha y hora en la que se creó el mensaje en un dispositivo. Un dispositivo debe establecer explícitamente este valor. | SÍ |
 
 ## <a name="message-size"></a>Tamaño del mensaje
@@ -61,18 +66,27 @@ IoT Hub mide el tamaño de los mensajes de una manera independiente del protocol
 
 Solamente se pueden usar caracteres ASCII para los valores y los nombres de propiedades, por lo que la longitud de las cadenas es igual al tamaño en bytes.
 
+## <a name="anti-spoofing-properties"></a>Propiedades contra la suplantación
+
+Para evitar la suplantación de dispositivos en los mensajes de dispositivo a nube, Azure IoT Hub marca todos los mensajes con las siguientes propiedades:
+
+* **ConnectionDeviceId**
+* **ConnectionDeviceGenerationId**
+* **ConnectionAuthMethod**
+
+Las dos primeras contienen los valores **deviceId** y **generationId** del dispositivo de origen, tal como se indicó en [Propiedades de identidad del dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#device-identity-properties).
+
+La propiedad **ConnectionAuthMethod** contiene un objeto JSON serializado con las siguientes propiedades:
+
+```json
+{
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
+  "issuer": "iothub"
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información acerca de los límites de tamaño de mensaje IoT Hub, consulte [Cuotas y limitación de IoT Hub][lnk-quotas].
-
-Para información sobre cómo crear y leer mensajes de IoT Hub en varios lenguajes de programación, consulte las guías de [inicio rápido][lnk-get-started].
-
-[lnk-messaging]: iot-hub-devguide-messaging.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-c2d]: iot-hub-devguide-messages-c2d.md
-[lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
+* Para información acerca de los límites de tamaño de mensaje en IoT Hub, consulte [Cuotas y limitación de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling).
+* Para información sobre cómo crear y leer mensajes de IoT Hub en varios lenguajes de programación, consulte las [guías de inicio rápido](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node).

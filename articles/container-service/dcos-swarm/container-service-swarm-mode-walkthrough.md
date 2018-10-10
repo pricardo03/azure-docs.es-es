@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c8f9db2674976d2c1efa7686b8b224b48a19a534
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421940"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964452"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Implementación del clúster de Docker CE
 
@@ -24,7 +24,7 @@ Docker CE en Azure Container Service se encuentra en versión preliminar y **no 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -169,7 +169,7 @@ En este tutorial de inicio rápido, se han usado imágenes de un contenedor crea
 
 En este tutorial de inicio rápido, implementará un clúster de Docker Swarm y, en él, una aplicación de varios contenedores.
 
-Para obtener información acerca de la integración de Docker Swarm con Visual Studio Team Services, consulte el artículo sobre CI/CD con Docker Swarm y VSTS.
+Para obtener información acerca de la integración de Docker Swarm con Azure DevOps, consulte el artículo sobre CI/CD con Docker Swarm y Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [Integración y entrega continuas con Docker Swarm y VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [Integración y entrega continuas con Docker Swarm y Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

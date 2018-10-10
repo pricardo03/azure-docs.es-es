@@ -3,20 +3,19 @@ title: Creación de una API sin servidor mediante Azure Functions | Microsoft Do
 description: Cómo crear una API sin servidor mediante Azure Functions
 services: functions
 author: mattchenderson
-manager: cfowler
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24811607"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989913"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creación de una API sin servidor mediante Azure Functions
 
@@ -42,7 +41,7 @@ De forma predeterminada, la función desencadenada por HTTP está configurada pa
 
 1. Use la configuración de desencadenador HTTP como se especifica en la tabla.
 
-    | Campo | Valor de ejemplo | Descripción |
+    | Campo | Valor de ejemplo | DESCRIPCIÓN |
     |---|---|---|
     | Métodos HTTP permitidos | Métodos seleccionados | Determina qué métodos HTTP se pueden usar para invocar esta función. |
     | Métodos HTTP seleccionados | GET | Permite que solo se usen los métodos HTTP seleccionados para invocar esta función. |
@@ -52,9 +51,9 @@ De forma predeterminada, la función desencadenada por HTTP está configurada pa
     > [!NOTE] 
     > Observe que no se incluye el prefijo de ruta de acceso base `/api` en la plantilla de ruta, ya que esto se controla mediante una configuración global.
 
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
-Puede aprender más sobre cómo personalizar funciones HTTP en [Enlaces HTTP y webhook en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Puede aprender más sobre cómo personalizar funciones HTTP en [Enlaces HTTP de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
 
 ### <a name="test-your-api"></a>Prueba de la API
 
@@ -93,7 +92,7 @@ Repita los pasos de [Creación de una aplicación de función](https://docs.micr
     > [!NOTE] 
     > Se recomienda la configuración de la aplicación para que la configuración del host evite una dependencia de entorno codificada de forma rígida para el servidor proxy. Al usarse la configuración de la aplicación, puede mover la configuración del proxy entre entornos, y se aplicará la configuración de la aplicación específica del entorno.
 
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Creación de un proxy en el front-end
 
@@ -102,15 +101,15 @@ Repita los pasos de [Creación de una aplicación de función](https://docs.micr
     ![Creación de un proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Use la configuración de proxy como se especifica en la tabla. 
 
-    | Campo | Valor de ejemplo | Descripción |
+    | Campo | Valor de ejemplo | DESCRIPCIÓN |
     |---|---|---|
-    | Nombre | HelloProxy | Un nombre descriptivo que se usa solo para la administración |
+    | NOMBRE | HelloProxy | Un nombre descriptivo que se usa solo para la administración |
     | Plantilla de ruta | /api/hello | Determina qué ruta se utiliza para invocar este proxy. |
     | Dirección URL de back-end | https://%HELLO_HOST%/api/hello | Especifica el punto de conexión al que la solicitud debe remitir a través del proxy. |
     
 1. Tenga en cuenta que en Servidores proxy no se proporciona el prefijo de ruta de acceso base `/api`, y esto debe incluirse en la plantilla de ruta.
 1. La sintaxis `%HELLO_HOST%` hará referencia a la configuración de la aplicación que creó antes. La dirección URL resuelta apuntará a la función original.
-1. Haga clic en **Crear**.
+1. Haga clic en **Create**(Crear).
 1. Puede probar el nuevo proxy; para ello, copie la dirección URL del proxy y pruébela en el explorador o con su cliente HTTP favorito.
     1. Para una función anónima, utilice:
         1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
@@ -187,7 +186,7 @@ En este tutorial, ha aprendido a compilar y personalizar una API en Azure Functi
 
 Las siguientes referencias pueden serle de ayuda a medida que sigue desarrollando su API:
 
-- [Enlaces HTTP y webhook en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Enlaces HTTP de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
 - [Uso de Azure Functions Proxies]
 - [Documentación de una API de Azure Functions (versión preliminar)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 

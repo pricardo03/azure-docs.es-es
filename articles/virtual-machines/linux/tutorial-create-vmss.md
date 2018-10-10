@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación de un conjunto de escalado de máquinas virtuales para Linux en Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para crear e implementar una aplicación de alta disponibilidad en máquinas virtuales Linux mediante un conjunto de escalado de máquinas virtuales.
+description: En este tutorial, aprenderá a usar la CLI de Azure para crear e implementar una aplicación de alta disponibilidad en máquinas virtuales Linux mediante un conjunto de escalado de máquinas virtuales.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8e25934dfd1bfa9d94d3452044443e7a5002534
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e3354abb400530bc5aa18288408b1052cd3575c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992242"
 ---
-# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux con la CLI de Azure 2.0
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux con la CLI de Azure
 
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
 
@@ -37,7 +37,7 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Las máquinas virtuales de un conjunto de escalado se distribuyen en dominios lógicos de error y de actualización en uno o más *grupos de selección de ubicación*. Se trata de grupos de máquinas virtuales configuradas de manera similar, al igual que los [conjuntos de disponibilidad](tutorial-availability-sets.md).
@@ -156,7 +156,7 @@ Para ver el conjunto de escalado en funcionamiento, realice una actualización f
 
 
 ## <a name="management-tasks"></a>Tareas de administración
-Durante el ciclo de vida del conjunto de escalado, debe ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. La CLI de Azure 2.0 proporciona una forma rápida de realizar esas tareas. A continuación, presentamos algunas tareas comunes.
+Durante el ciclo de vida del conjunto de escalado, debe ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. La CLI de Azure proporciona una forma rápida de realizar esas tareas. A continuación, presentamos algunas tareas comunes.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visualización de máquinas virtuales en un conjunto de escalado
 Para ver una lista de las máquinas virtuales en ejecución en el conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) como se indica a continuación:

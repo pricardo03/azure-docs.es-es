@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Instalación de aplicaciones en un conjunto de escalado con la CLI de Azure 2.0 | Microsoft Docs'
-description: Aprenda a usar la CLI de Azure 2.0 para instalar aplicaciones en conjuntos de escalado de máquinas virtuales con la extensión de script personalizado.
+title: 'Tutorial: Instalación de aplicaciones en un conjunto de escalado con la CLI de Azure | Microsoft Docs'
+description: Aprenda a usar la CLI de Azure para instalar aplicaciones en conjuntos de escalado de máquinas virtuales con la extensión de script personalizado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe1fd957176762c5cc04145f56559b50667c476c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21b85a3afa8e955661b3acbe5c7e4cb463a6d23f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606532"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986190"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con la CLI de Azure 2.0
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -35,13 +35,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure 2.0.29 o versiones posteriores. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure 2.0.29 o versiones posteriores. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>¿Qué es la extensión de script personalizado de Azure?
 La extensión de script personalizado descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage o GitHub, o se pueden proporcionar a Azure Portal en el tiempo de ejecución de la extensión.
 
-La extensión de script personalizado se integra con las plantillas de Azure Resource Manager y también se puede usar con la CLI de Azure 2.0, Azure PowerShell, Azure Portal o la API REST. Para obtener más información, consulte [Información general de la extensión de script personalizado](../virtual-machines/linux/extensions-customscript.md).
+La extensión de script personalizado se integra con las plantillas de Azure Resource Manager y también se puede usar con la CLI de Azure, Azure PowerShell, Azure Portal o la API REST. Para obtener más información, consulte [Información general de la extensión de script personalizado](../virtual-machines/linux/extensions-customscript.md).
 
 Para usar la extensión de script personalizado con la CLI de Azure, puede crear un archivo JSON que defina qué archivos se van a obtener y qué comandos se van a ejecutar. Estas definiciones JSON se pueden volver a usar en implementaciones del conjunto de escalado para aplicar instalaciones de la aplicación coherentes.
 
@@ -167,7 +167,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, aprendió a instalar y actualizar automáticamente aplicaciones en un conjunto de escalado con la CLI de Azure 2.0:
+En este tutorial, aprendió a instalar y actualizar automáticamente aplicaciones en un conjunto de escalado con la CLI de Azure:
 
 > [!div class="checklist"]
 > * Instalar automáticamente aplicaciones en un conjunto de escalado

@@ -8,41 +8,39 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: b0667f820145f16c75a07ebe1849e20d2de36cc7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 1915c4bc6cd611479c7575179d8fe64def8895eb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185516"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956393"
 ---
-# <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Mensajería de dispositivo a nube y de nube a dispositivo con IoT Hub
+# <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Envío de mensajes de dispositivo a nube y de nube a dispositivo con IoT Hub
 
-Use la mensajería de IoT Hub para comunicarse con los dispositivos de los siguientes modos:
+IoT Hub permite la comunicación segura y bidireccional con los dispositivos. Use la mensajería de IoT Hub para comunicar con los dispositivos mediante el envío de mensajes desde los dispositivos a las soluciones back-end y para enviar comandos desde las soluciones back-end de IoT a los dispositivos. Más información acerca del [formato de mensajes de IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-* Enviando mensajes [de dispositivo a nube][lnk-d2c] desde los dispositivos al back-end de su solución.
-* Enviando mensajes [de nube a dispositivo][lnk-c2d] desde la solución de back-end a sus dispositivos.
+## <a name="sending-device-to-cloud-messages-to-iot-hub"></a>Envío de mensajes de dispositivos a la nube para IoT Hub
+
+IoT Hub tiene un punto de conexión de servicio integrado que puede utilizarse en los servicios back-end para leer los mensajes de telemetría de los dispositivos. Este punto de conexión es compatible con [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) y el SDK de IoT Hub estándar se puede usar para [leer desde este punto de conexión integrado]((https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin)).
+
+IoT Hub también admite [puntos de conexión personalizados](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) que los usuarios pueden definir para enviar eventos y datos de telemetría de dispositivo a los servicios de Azure mediante el [enrutamiento de los mensajes](iot-hub-devguide-messages-d2c.md).
+
+## <a name="sending-cloud-to-device-messages-from-iot-hub"></a>Envío de mensajes de nube a dispositivo desde IoT Hub
+
+Puede enviar mensajes [de nube a dispositivo](iot-hub-devguide-messages-c2d.md) desde la solución de back-end a sus dispositivos.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Las propiedades básicas de la funcionalidad de mensajería de IoT Hub son la confiabilidad y durabilidad de los mensajes. Estas propiedades permiten la resistencia a la conectividad intermitente en el dispositivo y a los picos de carga del procesamiento de eventos en la nube. IoT Hub implementa *al menos una vez* garantías de entrega para la mensajería del dispositivo a la nube y de la nube al dispositivo.
 
-Para acceder a una introducción sobre las funcionalidades de IoT Hub, vea el artículo de [información general sobre el servicio Azure IoT Hub][lnk-iot-hub-overview].
-
-## <a name="when-to-use-iot-hub-messaging"></a>Cuándo se debe usar la mensajería de IoT Hub
+## <a name="choosing-the-right-type-of-iot-hub-messaging"></a>Elección del tipo correcto de mensajería de IoT Hub
 
 Los mensajes de dispositivo a nube se utilizan para enviar telemetría y alertas de series temporales desde la aplicación para dispositivo y los mensajes de nube a dispositivo, para las notificaciones unidireccionales a su aplicación para dispositivo.
 
-* Si duda entre el uso de mensajes de dispositivo a nube, propiedades notificadas o carga de archivos, consulte la [Guía de comunicación de dispositivo a nube][lnk-d2c-guidance].
-* Si duda entre el uso de mensajes de nube a dispositivo, propiedades deseadas o métodos directos, consulte la [Guía de comunicación de nube a dispositivo][lnk-c2d-guidance].
+* Para elegir entre los mensajes de dispositivo a nube, las propiedades notificadas o la carga de archivos, consulte la [Guía de comunicación de dispositivo a nube](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance).
+* Para elegir entre los mensajes de nube a dispositivo, las propiedades deseadas o los métodos directos, consulte la [Guía de comunicación de nube a dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información acerca de la [mensajería de dispositivo a nube][lnk-d2c] de IoT Hub.
-* Obtenga más información acerca de la [mensajería de nube a dispositivo][lnk-c2d] de IoT Hub.
-
-[lnk-azure-iot]: ../iot-fundamentals/index.yml
-[lnk-iot-hub-overview]: about-iot-hub.md
-[lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[lnk-c2d]: iot-hub-devguide-messages-c2d.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
+* Información acerca del [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) de IoT Hub.
+* Más información acerca de la [mensajería de nube a dispositivo](iot-hub-devguide-messages-c2d.md) de IoT Hub.

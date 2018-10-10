@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125766"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996458"
 ---
 # <a name="what-is-the-team-data-science-process"></a>¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 
@@ -71,7 +71,7 @@ En el siguiente diagrama se proporciona una vista de cuadrícula de las tareas (
 
 ## <a name="standardized-project-structure"></a>Estructura de proyecto estandarizada
 
-Cuando todos los proyectos comparten una estructura de directorio y usan plantillas para los documentos de proyecto, resulta fácil para los miembros del equipo encontrar información sobre sus proyectos. Todo el código y los documentos se almacenan en un sistema de control de versiones (VCS), como Git, TFS o Subversion para permitir la colaboración en equipo. El seguimiento de las tareas y las características en un sistema de seguimiento de proyectos ágil, como Jira, Rally o Visual Studio Team Services permite seguir más de cerca el código para conocer sus características individuales. Este seguimiento también permite a los equipos obtener mejores estimaciones de los costos. TDSP recomienda crear un repositorio independiente para cada proyecto en el VCS de cara al control de versiones, la seguridad de la información y la colaboración. La estructura estandarizada para todos los proyectos ayuda a crear conocimiento institucional en toda la organización.
+Cuando todos los proyectos comparten una estructura de directorio y usan plantillas para los documentos de proyecto, resulta fácil para los miembros del equipo encontrar información sobre sus proyectos. Todo el código y los documentos se almacenan en un sistema de control de versiones (VCS), como Git, TFS o Subversion para permitir la colaboración en equipo. El seguimiento de las tareas y las características en un sistema de seguimiento de proyectos ágil, como Jira, Rally y Azure DevOps permite seguir más de cerca el código para conocer sus características individuales. Este seguimiento también permite a los equipos obtener mejores estimaciones de los costos. TDSP recomienda crear un repositorio independiente para cada proyecto en el VCS de cara al control de versiones, la seguridad de la información y la colaboración. La estructura estandarizada para todos los proyectos ayuda a crear conocimiento institucional en toda la organización.
 
 Se proporcionan plantillas para la estructura de carpetas y los documentos necesarios en ubicaciones estándar. Esta estructura de carpetas organiza los archivos que contienen código para la exploración de datos y la extracción de características, y los que registran las iteraciones de los modelos. Estas plantillas permiten a los miembros del equipo comprender el trabajo que otros realizan, y agregar nuevos miembros a los equipos de forma fácil. Las plantillas de documento se pueden ver y actualizar fácilmente en formato de marcado. Use plantillas para proporcionar listas de comprobación con preguntas clave en cada proyecto y de esta forma garantizar que el problema esté bien definido y que los resultados entregados satisfagan la calidad esperada. Algunos ejemplos son:
 
@@ -92,7 +92,7 @@ TDSP proporciona recomendaciones para administrar análisis compartido e infraes
 - sistemas de archivos en la nube para almacenar conjuntos de datos 
 - bases de datos
 - clústeres de macrodatos (Hadoop o Spark) 
-- servicios de aprendizaje automático. 
+- servicio de aprendizaje automático 
 
 La infraestructura de análisis y almacenamiento puede estar en la nube o en el entorno local. Aquí es donde se almacenan los conjuntos de datos sin procesar y procesados. Esta infraestructura permite un análisis reproducible. También evita la duplicación, lo que puede llevar a incoherencias y costos de infraestructura innecesarios. Se proporcionan herramientas para aprovisionar los recursos compartidos, realizar un seguimiento de ellos y permitir que cada miembro del equipo se conecte a dichos recursos de forma segura. También es una buena práctica pedir a los miembros del proyecto que creen un entorno de proceso coherente. Luego, diferentes miembros del equipo pueden replicar y validar los experimentos.
 

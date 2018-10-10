@@ -1,26 +1,29 @@
 ---
-title: 'Tutorial: Administración de costos con Azure Cost Management | Microsoft Docs'
+title: 'Tutorial: Administración de costos con Cloudyn en Azure | Microsoft Docs'
 description: En este tutorial, aprenderá a administrar los costos utilizando informes de asignación, visualización y contracargo de costos.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 16f86eace9b5848f263e0d0772db441a123f21ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989642"
 ---
-# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: Administración de costos con Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Administración de costos mediante Cloudyn
 
-Administre los costos y genere informes de visualización de costos con Azure Cost Management mediante la asignación de costos basados en etiquetas. El proceso de asignación de costos asigna los costos a los recursos consumidos en la nube. Los costos se asignan completamente cuando todos los recursos se clasifican con etiquetas. Una vez asignados los costos, puede mostrar o cargar los costos a los usuarios mediante paneles e informes. Pero puede ser que muchos recursos no estén etiquetados o no se puedan etiquetar al empezar a usar Cost Management.
+Administre los costos y genere informes de visualización de costos con Cloudyn mediante la asignación de costos basados en etiquetas. El proceso de asignación de costos asigna los costos a los recursos consumidos en la nube. Los costos se asignan completamente cuando todos los recursos se clasifican con etiquetas. Una vez asignados los costos, puede mostrar o cargar los costos a los usuarios mediante paneles e informes. Pero puede ser que muchos recursos no estén etiquetados o no se puedan etiquetar al empezar a usar Cloudyn.
 
 Por ejemplo, puede ser que quiera obtener el reembolso de los costos de ingeniería. Debe poder demostrar al equipo de ingeniería que necesita un importe concreto, en función de los costos de los recursos. Puede mostrarles un informe de todos los recursos consumidos y etiquetados con el término *ingeniería*.
+
+En este artículo, etiquetas y categorías a veces son sinónimos. Las categorías son colecciones amplias y pueden ser muchas cosas. Pueden incluir unidades de negocio, centros de costos, servicios web o cualquier cosa que esté etiquetada. Las etiquetas son pares nombre-valor que le permiten categorizar los recursos y ver y administrar una información de facturación consolidada mediante la aplicación de la misma etiqueta en varios recursos y grupos de recursos. En versiones anteriores de Azure Portal, se hacía referencia a un *nombre de etiqueta* como *clave*. Las etiquetas se crean para una única suscripción de Azure y se almacenan solo en ella. Las etiquetas de AWS constan de pares clave-valor. Dado que Azure y AWS han usado el término *clave*, Cloudyn también usa ese término. El administrador de categorías usa claves (nombres de etiqueta) para combinar etiquetas.
 
 En este tutorial, aprenderá a:
 
@@ -30,16 +33,25 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener una cuenta de Azure.
-- Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
+- Debe tener un registro de prueba o una suscripción de pago en Cloudyn.
+- [Se deben activar las cuentas no activadas](activate-subs-accounts.md) en el portal de Cloudyn.
+- La [supervisión a nivel de invitado](azure-vm-extended-metrics.md) debe estar habilitada en las máquinas virtuales.
+
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Uso de etiquetas personalizadas para asignar costos
 
+Cloudyn obtiene datos de la etiqueta del grupo de recursos de Azure y propaga automáticamente la información de esta a los recursos. En la asignación de costos, puede ver el costo por etiquetas de recursos.
+
+Mediante el modelo de asignación de costos, puede definir categorías (etiquetas) que se aplican internamente a los recursos no categorizados (no etiquetados) para agrupar los costos y puede definir reglas para administrar los costos no etiquetados. Las reglas de asignación de costos son las instrucciones guardadas en las que los costos de un servicio se distribuyen a otro servicio. Posteriormente, esos recursos muestran las etiquetas y categorías en los informes de *asignación de costos* mediante la selección del modelo que creó.
+
+Tenga en cuenta que la información de etiqueta no aparece para esos recursos en los informes de *análisis de costos*. Además, las etiquetas aplicadas en Cloudyn mediante la asignación de costos no se envían a Azure, por lo que no las verá en Azure Portal.
+
 Al iniciar la asignación de costos, lo primero que hay que hacer es definir el alcance mediante el uso de un modelo de costos. El modelo de costos no cambia los costos, sino que los distribuye. Al crear un modelo de costos, segmenta los datos por la entidad de costo, la cuenta o la suscripción y con varias etiquetas. Algunas de las etiquetas habituales son el código de facturación, el centro de costos o el nombre del grupo. Las etiquetas también permiten ofrecer una visualización o aplicar un contracargo de gastos a otras partes de su organización.
 
-Para crear un modelo de asignación de costos personalizado, en el menú del informe seleccione **Cost** (Costo) &gt; **Cost Management** (Administración de costos) &gt; **Cost Allocation 360°** (Asignación de costos 360°).
+Para crear un modelo de asignación de costos personalizado, en el menú del informe seleccione **Costs** (Costos) &gt; **Cost Management** (Administración de costos) &gt; **Cost Allocation 360°** (Asignación de costos 360°).
 
 ![Selección de Cost Allocation 360° (Asignación de costos 360°)](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -59,7 +71,7 @@ Por ejemplo, puede ser que quiera tomar los costos de almacenamiento de Azure y 
 
 
 
-En otro ejemplo, puede ser que le interese asignar todos los costos de red de Azure a una unidad de negocio específica de su organización. Para ello, seleccione el servicio **Azure/Red** y después seleccione **Explicit Distribution** (Distribución explícita). A continuación, establezca el porcentaje de distribución en 100 y seleccione la unidad de negocio: **G&amp;A** en la siguiente imagen:
+En otro ejemplo, puede ser que le interese asignar todos los costos de red de Azure a una unidad de negocio específica de su organización. Para ello, seleccione el servicio **Azure/Red** y, después, en **Define Allocation Rule** (Definir regla de asignación) seleccione **Explicit Distribution** (Distribución explícita). A continuación, establezca el porcentaje de distribución en 100 y seleccione la unidad de negocio: **G&amp;A** en la siguiente imagen:
 
 ![Ejemplo de regla de asignación de modelos de costos para una unidad de negocio específica](./media/tutorial-manage-costs/cost-model03.png)
 
@@ -97,9 +109,9 @@ Los datos de etiqueta que se ven en los informes de Cloudyn se originan en tres 
     - Etiquetas de entidad de Cloudyn: metadatos definidos por el usuario aplicados a las entidades de Cloudyn
     - Category Manager: una herramienta de limpieza de datos que crea nuevas etiquetas basadas en reglas que se aplican a las etiquetas existentes
 
-Para ver las etiquetas del proveedor en la nube en informes de costos de Cloudyn, debe crear un modelo de asignación de costos personalizado con Cost Allocation 360°. Para ello, vaya a **Cost** (Costo) > **Cost Management** (Administración de costos) > **Cost Allocation 360°**, seleccione las etiquetas deseadas y, a continuación, defina las reglas para controlar los costos no etiquetados. A continuación, cree un nuevo modelo de costos. Luego, podrá ver informes en Cost Allocation Analysis (Análisis de asignación de costos) para ver, filtrar y ordenar las etiquetas de recursos de Azure.
+Para ver las etiquetas del proveedor en la nube en informes de costos de Cloudyn, debe crear un modelo de asignación de costos personalizado con Cost Allocation 360°. Para ello, vaya a **Costs** (Costos) > **Cost Management** (Administración de costos) > **Cost Allocation 360°**, seleccione las etiquetas deseadas y, a continuación, defina las reglas para controlar los costos no etiquetados. A continuación, cree un nuevo modelo de costos. Luego, podrá ver informes en Cost Allocation Analysis (Análisis de asignación de costos) para ver, filtrar y ordenar las etiquetas de recursos de Azure.
 
-Las etiquetas de recursos de Azure solo aparecen en los informes **Cost Allocation Analysis** (Análisis de asignación de costos).
+Las etiquetas de recursos de Azure solo aparecen en los informes de **Costs** (Costos)  > **Cost Allocation Analysis** (Análisis de asignación de costos).
 
 Las etiquetas de facturación del proveedor en la nube aparecen en todos los informes de costos.
 

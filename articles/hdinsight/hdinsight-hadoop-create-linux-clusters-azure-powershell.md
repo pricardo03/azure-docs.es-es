@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: f788660c0652a70cdc1065dfbef1eefd3c8a9022
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ed9c486dfa548e86e558c093113011cabfd3d63c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107555"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997427"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Crear clústeres basados en Linux en HDInsight con Azure PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "43107555"
 Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Microsoft Azure. En este documento se ofrece información sobre cómo crear un clúster de HDInsight basado en Linux mediante Azure PowerShell. También se incluye un script de ejemplo.
 
 > [!NOTE]
-> Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, consulte [Crear clústeres basados en Linux en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para más información sobre el uso de la CLI de Azure para crear un clúster.
+> Azure PowerShell solo está disponible en clientes de Windows. Si usa un cliente de Linux, Unix o Mac OS X, consulte [Creación de clústeres basados en Linux en HDInsight con la CLI de Azure clásica](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para más información acerca del uso de la CLI clásica para crear un clúster.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de iniciar este procedimiento, debe tener lo siguiente:

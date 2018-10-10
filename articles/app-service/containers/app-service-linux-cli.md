@@ -1,5 +1,5 @@
 ---
-title: Administración de Web Apps for Containers mediante la CLI de Azure 2.0 | Microsoft Docs
+title: Administración de Web App for Containers mediante la CLI de Azure | Microsoft Docs
 description: Administración de Web Apps for Containers mediante la CLI de Azure.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 024ca5bcf9c1f82f07656691d6ef5358ca3d5111
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24105396"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998498"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Administración de Web Apps for Containers mediante la CLI de Azure
 
-Con los comandos de este artículo, podrá crear y administrar una instancia de Web Apps for Containers mediante la CLI de Azure 2.0.
+Con los comandos de este artículo, podrá crear y administrar una instancia de Web App for Containers mediante la CLI de Azure.
 Puede empezar a usar la nueva versión de la CLI de dos formas:
 
-* [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) en su equipo.
+* [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su equipo.
 * Uso de [Azure Cloud Shell (versión preliminar)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Creación de un plan de App Service de Linux
@@ -105,7 +105,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Azure App Service en Linux?](app-service-linux-intro.md)
-* [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (versión preliminar)](../../cloud-shell/overview.md)
 * [Configuración de entornos de ensayo en Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implementación continua con Web App for Containers](app-service-linux-ci-cd.md)

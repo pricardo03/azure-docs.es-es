@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714458"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956513"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>¿Qué es el control de acceso basado en rol (RBAC)?
 
@@ -89,7 +89,7 @@ Si otorga acceso a un ámbito primario, esos permisos se heredan en los ámbitos
 - Si asigna el rol [Lector](built-in-roles.md#reader) a un grupo en el ámbito de la suscripción, los miembros de ese grupo pueden ver cada grupo de recursos y cada recurso de la suscripción.
 - Si asigna el rol [Colaborador](built-in-roles.md#contributor) a una aplicación en el ámbito del grupo de recursos, puede administrar recursos de todos los tipos en ese grupo de recursos, pero no otros grupo de recursos de la suscripción.
 
-### <a name="role-assignment"></a>Asignación de roles
+### <a name="role-assignments"></a>Asignaciones de roles
 
 Una *asignación de roles* es el proceso de enlazar una definición de roles a un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de conceder acceso. El acceso se concede mediante la creación de una asignación de roles y se revoca al quitar una asignación de roles.
 
@@ -98,6 +98,32 @@ El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ej
 ![Asignación de roles para controlar el acceso](./media/overview/rbac-overview.png)
 
 Puede crear asignaciones de roles mediante Azure Portal, la CLI de Azure, Azure PowerShell, los SDK de Azure o las API de REST. Puede tener hasta 2000 asignaciones de roles en cada suscripción. Para crear y quitar las asignación de roles, debe tener el permiso `Microsoft.Authorization/roleAssignments/*`. Este permiso se concede a través de los roles [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
+
+## <a name="deny-assignments"></a>Asignaciones de denegación
+
+Anteriormente, RBAC era un modelo solo de permiso sin denegación, pero ahora RBAC admite asignaciones de denegación de manera limitada. Al igual que una asignación de roles, una *asignación de denegación* enlaza un conjunto de acciones de denegación con un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de denegar el acceso. Una asignación de roles define un conjunto de acciones que están *permitidas*, mientras que una asignación de denegación define un conjunto de acciones *no permitidas*. En otras palabras, denegar asignaciones impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Las asignaciones de denegación tienen prioridad sobre las asignaciones de roles.
+
+Actualmente, las asignaciones de denegación son de **solo lectura** y únicamente pueden establecerse mediante Azure. Aunque no se pueden crear asignaciones de denegación propias, se pueden enumerar, ya que pueden afectar a los permisos vigentes. Para obtener información sobre una asignación de denegación, debe tener el permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de los [roles integrados](built-in-roles.md#owner). Para más información, consulte [Descripción de las asignaciones de denegación](deny-assignments.md).
+
+## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Cómo determina RBAC si un usuario tiene acceso a un recurso
+
+Los siguientes son los pasos de alto nivel que RBAC usa para determinar si tiene acceso a un recurso en el plano de administración. Esto resulta útil para saber si está intentando solucionar un problema de acceso.
+
+1. Un usuario (o entidad de servicio) adquiere un token de Azure Resource Manager.
+
+    El token incluye pertenencias de grupo del usuario (incluida la pertenencia a grupos transitivos).
+
+1. El usuario realiza una llamada de API REST a Azure Resource Manager con el token adjunto.
+
+1. Azure Resource Manager recupera todas las asignaciones de roles y de denegación aplicables al recurso en el que se está realizando la acción.
+
+1. Azure Resource Manager limita las asignaciones de roles aplicables a este usuario o su grupo y determina los roles que tiene el usuario para este recurso.
+
+1. Azure Resource Manager determina si la acción en la llamada de API se incluye en los roles que tiene el usuario para este recurso.
+
+1. Si el usuario no tiene un rol con la acción en el ámbito solicitado, no se concede acceso. En caso contrario, Azure Resource Manager comprueba si se aplica una asignación de denegación.
+
+1. Si se aplica una asignación de denegación, el acceso se bloquea. En caso contrario, se concede el acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

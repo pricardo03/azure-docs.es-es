@@ -1,6 +1,6 @@
 ---
 title: Adición de un disco de datos a una máquina virtual de Linux con la CLI de Azure | Microsoft Docs
-description: Aprenda a agregar un disco de datos persistente a una VM de Linux con la CLI de Azure
+description: Aprenda a agregar un disco de datos persistente a una máquina virtual de Linux con la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331230"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949220"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos, incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247789"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983674"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -30,7 +30,7 @@ Considere el caso de que un conjunto de datos al que se accede con frecuencia du
 
 ## <a name="storage-account-support"></a>Compatibilidad con la cuenta de almacenamiento
 
-La directiva de administración del ciclo de vida está disponible con la cuenta de uso general v2 (GPv2) y con la cuenta de Blob Storage. Puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2 con tan solo hacer un clic en Azure Portal. Para más información, consulte [Opciones de la cuenta de Azure Storage](../common/storage-account-options.md).  
+La directiva de administración del ciclo de vida está disponible con la cuenta de uso general v2 (GPv2) y con la cuenta de Blob Storage. Puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2 con tan solo hacer un clic en Azure Portal. Para más información sobre las cuentas de almacenamiento, consulte [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Precios 
 
@@ -54,7 +54,7 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 Si la característica se aprueba y registra correctamente, debe recibir el estado "Registrado".
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Para enviar una solicitud: 
 ```cli
@@ -69,7 +69,7 @@ Si la característica se aprueba y registra correctamente, debe recibir el estad
 
 ## <a name="add-or-remove-policies"></a>Adición o eliminación de directivas 
 
-Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 

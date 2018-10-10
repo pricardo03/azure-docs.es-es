@@ -1,22 +1,22 @@
 ---
-title: Flujos de trabajo de Apache Hadoop Oozie en clústeres de Azure HDInsight unidos a un dominio
-description: Use Oozie de Hadoop en Enterprise Security Package unido a un dominio de HDInsight basado en Linux. Aprenda a definir un flujo de trabajo de Oozie y enviar un trabajo de Oozie.
+title: Flujos de trabajo de Apache Hadoop Oozie en clústeres de Azure HDInsight con Enterprise Security Package
+description: Use Hadoop Oozie en Enterprise Security Package de HDInsight basado en Linux. Aprenda a definir un flujo de trabajo de Oozie y enviar un trabajo de Oozie.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048981"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947508"
 ---
-# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Ejecución de Apache Oozie en clústeres de HDInsight Hadoop unidos a un dominio
+# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Ejecución de Apache Oozie en clústeres HDInsight Hadoop con Enterprise Security Package
 Oozie es un sistema de coordinación y flujos de trabajo que administra trabajos de Hadoop. Oozie se integra con la pila de Hadoop y admite los siguientes trabajos:
 - Apache MapReduce
 - Apache Pig
@@ -26,12 +26,12 @@ Oozie es un sistema de coordinación y flujos de trabajo que administra trabajos
 Oozie también puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
 ## <a name="prerequisite"></a>Requisito previo
-- Un clúster de Azure HDInsight Hadoop unido a un dominio. Consulte [Configuración de un clúster de HDInsight unido a un dominio mediante Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
+- Un clúster Azure HDInsight Hadoop con Enterprise Security Package (ESP). Consulte [Configuración de clústeres de HDInsight con Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
-    > Para instrucciones detalladas sobre el uso de Oozie en clústeres no unidos a un dominio, consulte [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux](../hdinsight-use-oozie-linux-mac.md).
+    > Para instrucciones detalladas sobre el uso de Oozie en clústeres no ESP, consulte [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux](../hdinsight-use-oozie-linux-mac.md).
 
-## <a name="connect-to-a-domain-joined-cluster"></a>Conexión a un clúster unido a un dominio
+## <a name="connect-to-an-esp-cluster"></a>Conexión a un clúster ESP
 
 Para más información, consulte [Conexión a través de SSH con HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -262,7 +262,7 @@ Puede crear los dos scripts de Hive para Hive server 1 y Hive server 2 como se m
     ```
 
 ## <a name="submit-oozie-jobs"></a>Envío de trabajos de Oozie
-El envío de trabajos de Oozie para clústeres unidos a un dominio es como el envío de trabajos de Oozie en los clústeres no unidos a dominio.
+El envío de trabajos de Oozie para clústeres ESP es como el envío de trabajos de Oozie en los clústeres no ESP.
 
 Para más información, vea [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux](../hdinsight-use-oozie-linux-mac.md).
 
@@ -311,7 +311,7 @@ Para más información, consulte [Oozie Installation and Configuration](https://
 Para los componentes como Hive server 1, donde el complemento Ranger no está disponible o no es compatible, solo es posible usar la autorización HDFS general. La autorización más específica solo está disponible mediante los complementos Ranger.
 
 ## <a name="get-the-oozie-web-ui"></a>Obtención de la interfaz de usuario web de Oozie
-La interfaz de usuario web de Oozie ofrece una vista basada en web en el estado de los trabajos de Oozie en el clúster. Para obtener la interfaz de usuario web, lleve a cabo los pasos siguientes en clústeres unidos a dominio:
+La interfaz de usuario web de Oozie ofrece una vista basada en web en el estado de los trabajos de Oozie en el clúster. Para obtener la interfaz de usuario web, lleve a cabo los pasos siguientes en clústeres ESP:
 
 1. Agregue un [nodo perimetral](../hdinsight-apps-use-edge-node.md) y habilite la [autenticación SSH Kerberos](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

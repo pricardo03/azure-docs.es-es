@@ -1,5 +1,6 @@
 ---
-title: Introducción a Microsoft Speech Recognition API con REST | Microsoft Docs
+title: Introducción a Bing Speech Recognition API con REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Uso de REST para tener acceso a Speech Recognition API en Microsoft Cognitive Services para convertir el audio hablado en texto.
 services: cognitive-services
 author: zhouwangzw
@@ -7,20 +8,21 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 53785cdfd75c23910802f2be20e6305817b3b097
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380603"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973956"
 ---
-# <a name="get-started-with-speech-recognition-by-using-the-rest-api"></a>Introducción al reconocimiento de voz con la API REST
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API REST
 
-Con el servicio Voz en la nube, puede desarrollar aplicaciones mediante el uso de la API REST para convertir el audio hablado aparezca en texto.
+Con el servicio basado en la nube Bing Speech, puede desarrollar aplicaciones utilizando la API REST para convertir audio hablado en texto.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Suscripción a Speech API y obtención de una clave de suscripción de prueba gratuita
 

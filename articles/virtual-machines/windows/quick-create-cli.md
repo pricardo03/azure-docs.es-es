@@ -16,22 +16,22 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b09a85686e19ae92c3e437bedff54bff8371784f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ca8d42c1b2eece82fa31283b0df0d450e2f5afc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719046"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978886"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli-20"></a>Guía de inicio rápido: creación de una máquina virtual Windows con la CLI de Azure 2.0
+# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guía de inicio rápido: creación de una máquina virtual Windows con la CLI de Azure
 
-La CLI de Azure 2.0 se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra como usar la CLI de Azure 2.0 para implementar una máquina virtual en Azure que ejecuta Windows Server 2016. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
+La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra como usar la CLI de Azure para implementar una máquina virtual en Azure que ejecute Windows Server 2016. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, en esta guía de inicio rápido es preciso que ejecute la versión 2.0.30 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI en un entorno local, en esta guía de inicio rápido es preciso que ejecute la versión 2.0.30 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
