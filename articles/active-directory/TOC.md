@@ -25,7 +25,7 @@
 # Procedimientos
 ## Planeamiento y diseño
 ### [Descripción de la arquitectura de Azure AD](fundamentals/active-directory-architecture.md)
-### [Asignación de notificaciones en Azure Active Directory](active-directory-claims-mapping.md)
+### [Asignación de notificaciones en Azure Active Directory](develop/active-directory-claims-mapping.md)
 ### [Implementación de una solución de identidad híbrida](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Determinación de requisitos
 ##### [Identidad](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -82,7 +82,7 @@
 #### [Obtención de soporte técnico para B2B](b2b/get-support.md)
 
 ## [Administración de grupos y miembros](fundamentals/active-directory-manage-groups.md)
-### [Administrar grupos](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Administración de grupos](fundamentals/active-directory-groups-create-azure-portal.md)
 ### [Eliminación de un grupo y sus miembros](fundamentals/active-directory-groups-delete-group.md)
 ### [Administración de la configuración de grupo](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Administración de informes](reports-monitoring/overview-reports.md)
@@ -200,7 +200,7 @@
 #### [Restricciones de inquilino](manage-apps/tenant-restrictions.md)
 #### [Uso de usuarios de aprovisionamiento de SCIM](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Descripción de las experiencias de consentimiento de la aplicación de Azure AD](application-consent-experience.md)
+### [Descripción de las experiencias de consentimiento de la aplicación de Azure AD](develop/application-consent-experience.md)
 
 ### Solución de problemas
 
@@ -323,7 +323,7 @@
 
 ### [Integración de identidades locales con Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
+### [Configuración de la vigencia de los tokens](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Protección de las identidades
 
@@ -352,7 +352,7 @@
 ## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [Azure AD para desarrolladores](./develop/active-directory-how-to-integrate.md)
-## [Administración de identidades con privilegios de Azure AD](./privileged-identity-management/pim-configure.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Recursos
 ## [Planes de implementación de Azure AD](./fundamentals/active-directory-deployment-plans.md)
@@ -362,5 +362,5 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory)
-## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
