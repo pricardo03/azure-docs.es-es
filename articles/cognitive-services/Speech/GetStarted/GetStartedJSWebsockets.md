@@ -1,20 +1,22 @@
 ---
-title: Introducción a Microsoft Speech Recognition API en JavaScript | Microsoft Docs
-description: Utilice Microsoft Speech Recognition API en Cognitive Services para desarrollar aplicaciones que conviertan continuamente el audio hablado en texto.
+title: Introducción a Bing Speech Recognition API en JavaScript | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Utilice Bing Speech Recognition API en Cognitive Services para desarrollar aplicaciones que conviertan continuamente el audio hablado en texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040545"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995353"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introducción a Speech Recognition API en JavaScript
 
@@ -38,7 +40,7 @@ En esta sección se le guiará por los pasos necesarios para cargar una página 
 
 ### <a name="open-the-sample-directly"></a>Abrir el ejemplo directamente
 
-Adquiera una clave de suscripción, tal como se describe arriba. Luego abra el [vínculo al ejemplo](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Esto cargará la página en el explorador predeterminado (representado mediante [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Adquiera una clave de suscripción, tal como se describe arriba. Luego abra el [vínculo al ejemplo](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Esto cargará la página en el explorador predeterminado (representado mediante [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Abrir el ejemplo desde una copia local
 
