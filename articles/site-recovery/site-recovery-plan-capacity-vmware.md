@@ -2,17 +2,18 @@
 title: Planeamiento de la capacidad y el escalado para la replicación de VMware en Azure con Azure Site Recovery | Microsoft Docs
 description: Use este artículo para planear la capacidad y escala cuando replique VM de VMware en Azure con Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: nsoneji
+manager: garavd
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: b615ffa3571730ef9607893882f509b2fa490f35
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 833000cb09d315a996ebc9e2d66210c805160f2a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056348"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067561"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planeamiento de la capacidad y el escalado para la replicación de VMware con Azure Site Recovery
 
@@ -34,9 +35,9 @@ Recopile información sobre el entorno de replicación ejecutando [Azure Site Re
 
 **CPU** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
-8 vCPU (2 sockets * 4 núcleos a 2,5 gigahercios [GHz]) | 16 GB | < 300 GB | 500 GB o menos | Replicar menos de 100 máquinas.
-12 vCPU (2 sockets * 6 núcleos a 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 y 150 máquinas.
-16 vCPU (2 sockets * 8 núcleos a 2,5 GHz) | 32 GB | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 200 máquinas.
+8 vCPU (2 sockets * 4 núcleos \@ 2,5 gigahercios [GHz]) | 16 GB | < 300 GB | 500 GB o menos | Replicar menos de 100 máquinas.
+12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 y 150 máquinas.
+16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) | 32 GB | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 200 máquinas.
 Implementar otro servidor de procesos | | | 2 TB | Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB.
 
 Donde:
@@ -60,9 +61,9 @@ La tabla siguiente describe un escenario en el cual:
 
 **Servidor de configuración** | **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
-8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 16 GB de memoria | 4 vCPU (2 sockets * 2 núcleos a 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Replicar 85 máquinas o menos.
-8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 16 GB de memoria | 8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 12 GB de memoria | 600 GB | 250 GB a 1 TB | Replicar entre 85 y 150 máquinas.
-12 vCPU (2 sockets * 6 núcleos a 2,5 GHz), 18 GB de memoria | 12 vCPU (2 sockets * 6 núcleos a 2,5 GHz), 24 GB de memoria | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 225 máquinas.
+8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 16 GB de memoria | 4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Replicar 85 máquinas o menos.
+8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 16 GB de memoria | 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria | 600 GB | 250 GB a 1 TB | Replicar entre 85 y 150 máquinas.
+12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 18 GB de memoria | 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 225 máquinas.
 
 La manera en la que escalará los servidores depende de su preferencia con respecto a un modelo de escalado vertical u horizontal.  Puede escalar verticalmente con la implementación de algunos servidores de procesos y de configuración de alto nivel, mientras que, para escalar horizontalmente, debe implementar más servidores con menos recursos. Por ejemplo, si necesita proteger 220 máquinas, podría elegir una de las siguientes opciones:
 
