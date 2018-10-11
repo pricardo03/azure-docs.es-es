@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: ceab905b2baf87446238d44151146b5066e55335
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079747"
+documentType: LandingData
+title: Documentación sobre personalización de Azure Portal
+metadata:
+  description: Aprenda a personalizar Azure Portal.
+  services: azure portal
+  documentationcenter: ''
+  author: cwatson-cat
+  manager: dougeby
+  editor: ''
+  ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+  ms.service: azure-portal
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 10/08/2018
+  ms.author: cwatson
+abstract:
+  description: Azure Portal es la consola unificada basada en web que le permite compilar, administrar y supervisar todo desde aplicaciones web sencillas a aplicaciones complejas en la nube. Incluye un panel personalizable y opciones de accesibilidad.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/azure-preview-portal-supported-browsers-devices
+      html: <p>Ejecute Azure Portal en todos los escritorios, los dispositivos de tableta y los exploradores modernos.</p>
+      title: Exploradores y dispositivos compatibles
+    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+      html: <p>Cambie el contraste o el esquema de color en Azure Portal.</p>
+      title: Activación del contraste alto
+    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+      html: <p>Información acerca de los métodos abreviados de teclado que funcionan en Azure Portal.</p>
+      title: Métodos abreviados de teclado
+    - href: /azure/azure-portal/azure-portal-dashboards
+      html: <p>Cree varios paneles y compártalos con otras personas que tengan acceso a sus suscripciones de Azure.</p>
+      title: Creación y uso compartido de paneles de Azure
+    - href: /azure/azure-portal/azure-portal-dashboard-share-access
+      html: <p>Publique y comparta un panel con otros usuarios de su organización.</p>
+      title: Uso compartido de paneles mediante el uso de RBAC
+    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+      html: <p>Creación y publicación de paneles para su organización mediante programación</p>
+      title: Creación mediante programación de paneles de Azure

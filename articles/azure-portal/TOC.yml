@@ -1,0 +1,44 @@
+items:
+- name: Documentación sobre personalización de Azure Portal
+  href: index.yml
+- name: Paneles de Azure
+  items:
+  - name: Creación y uso compartido de paneles de Azure
+    href: azure-portal-dashboards.md
+  - name: Uso compartido de paneles con el control de acceso basado en rol
+    href: azure-portal-dashboard-share-access.md
+  - name: Estructura de los paneles de Azure
+    href: azure-portal-dashboards-structure.md
+  - name: Creación mediante programación de paneles de Azure
+    href: azure-portal-dashboards-create-programmatically.md
+- name: Configuración
+  items:
+  - name: Métodos abreviados de teclado
+    href: azure-portal-keyboard-shortcuts.md
+  - name: Exploradores y dispositivos compatibles
+    href: ../azure-preview-portal-supported-browsers-devices.md
+  - name: Activación del contraste alto o cambio de tema
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Exportación o eliminación de la configuración de usuario
+    href: azure-portal-export-delete-settings.md
+  expanded: true
+- name: Recursos
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/updates/
+  - name: Desarrollo de aptitudes con Microsoft Learn
+    href: /learn/browse/?products=azure-portal
+  - name: Calculadora de precios
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-management-portal
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
+ms.openlocfilehash: d2918197e211cc40662d51fa9f6d6131df426ef6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079731"
