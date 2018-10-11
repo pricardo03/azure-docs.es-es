@@ -8,22 +8,16 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 571a005dd3f50690f291a7ffa3c1174ea15cb0ed
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 07ee05128333df963c2d8ff3dd3f6442a3843d07
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046897"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48866897"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Eliminación de datos desde el Explorador de datos de Azure
 
 El Explorador de datos de Azure admite varias soluciones de eliminación masiva, que trataremos en este artículo. No admite la eliminación por registro en tiempo real, porque está optimizado para agilizar el acceso de lectura.
-
-* Si la base de datos ya no se necesita, elimínela mediante el comando de base de datos drop.
-
-    ```Kusto
-    .drop database <DatabaseName>
-    ```
 
 * Si una o varias tablas ya no se necesitan, elimínelas mediante los comandos drop table o drop tables.
 
@@ -44,12 +38,5 @@ El Explorador de datos de Azure admite varias soluciones de eliminación masiva,
     ```
 
     Para más información, consulte [Directiva de retención](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
-
-* Puede eliminar los registros individuales mediante la operación de *purga* basándose en un tipo de predicado `where CustomerName == 'contoso'`. Es decir, una purga es una eliminación masiva que no está diseñada para la eliminación en tiempo real. En el ejemplo siguiente se muestra una purga.
-
-    ```Kusto
-    .purge table Customer records
-    | where CustomerName =='contoso'
-    ```
 
 Si necesita ayuda con problemas relacionados con la eliminación de datos, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com).

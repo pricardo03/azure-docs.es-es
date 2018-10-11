@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 66d375022d200cc916c77c059fa64eb6dbbc17e2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: f82a01f3a2b88e66988717eb008a65c8f2aecf28
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308153"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900332"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
 
@@ -109,4 +109,4 @@ Para ver escenarios de implementación más avanzados, pruebe [Implementación e
 
 ## <a name="more-resources"></a>Más recursos
 
-* [Credenciales de implementación de Azure App Service](app-service-deploy-ftp.md)
+* [Credenciales de implementación de Azure App Service](app-service-deployment-credentials.md)

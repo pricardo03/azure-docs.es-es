@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452520"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886831"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Uso de los perfiles de la versión de la API con Java en Azure Stack
 
@@ -40,7 +40,7 @@ Un perfil de API es una combinación de los proveedores de recursos y las versio
     
       - Esto debe especificarse en el archivo Pom.xml como una dependencia, que carga los módulos automáticamente si elige la clase correcta de la lista desplegable como lo haría con .NET.
         
-          - La parte superior de cada módulo aparece de la siguiente manera:         
+      - La parte superior de cada módulo aparece de la siguiente manera:         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -93,11 +93,11 @@ Para usar el SDK de Azure de Java con Azure Stack, debe proporcionar los siguien
 
 | Valor                     | Variables de entorno | DESCRIPCIÓN                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Id. de inquilino                 | TENANT_ID            | El valor de su [<span class="underline">identificador de inquilino</span>](../azure-stack-identity-overview.md) de Azure Stack.                                                          |
-| Id. de cliente                 | CLIENT_ID             | El identificador de aplicación de la entidad de servicio que guardó al crear esta última en la sección anterior de este documento.                                                                                              |
-| Id. de suscripción           | SUBSCRIPTION_ID      | El [<span class="underline">identificador de suscripción</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) es su forma de acceder a las ofertas de Azure Stack.                |
-| Secreto del cliente             | CLIENT_SECRET        | El secreto de aplicación de la entidad de servicio que guardó al crear esta última.                                                                                                                                   |
-| Punto de conexión de Resource Manager | ENDPOINT              | Consulte el [<span class="underline">punto de conexión de administración de recursos de Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Id. de inquilino                 | AZURE_TENANT_ID            | El valor de su [<span class="underline">identificador de inquilino</span>](../azure-stack-identity-overview.md) de Azure Stack.                                                          |
+| Id. de cliente                 | AZURE_CLIENT_ID             | El identificador de aplicación de la entidad de servicio que guardó al crear esta última en la sección anterior de este documento.                                                                                              |
+| Id. de suscripción           | AZURE_SUBSCRIPTION_ID      | El [<span class="underline">identificador de suscripción</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) es su forma de acceder a las ofertas de Azure Stack.                |
+| Secreto del cliente             | AZURE_CLIENT_SECRET        | El secreto de aplicación de la entidad de servicio que guardó al crear esta última.                                                                                                                                   |
+| Punto de conexión de Resource Manager | ARM_ENDPOINT              | Consulte [<span class="underline">el punto de conexión de administración de recursos de Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Ubicación                  | RESOURCE_LOCATION    | Local para Azure Stack                                                                                                                                                                                                |
 
 Para buscar el identificador de inquilino de Azure Stack, siga las instrucciones que se encuentran [aquí](../azure-stack-csp-ref-operations.md). Para establecer las variables de entorno, haga lo siguiente:
@@ -107,15 +107,15 @@ Para buscar el identificador de inquilino de Azure Stack, siga las instrucciones
 Para establecer las variables de entorno, en el símbolo del sistema de Windows, use el siguiente formato:
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### <a name="macos-linux-and-unix-based-systems"></a>Sistemas basados en macOS, Linux y Unix
+### <a name="macos-linux-and-unix-based-systems"></a>Sistemas basados en MacOS, Linux y Unix
 
 En los sistemas basados en Unix, puede usar el comando siguiente:
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Punto de conexión de Resource Manager de Azure Stack
@@ -162,7 +162,8 @@ El código siguiente autentica la entidad de servicio en Azure Stack. Crea un to
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +183,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +206,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +217,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 Se pueden usar los ejemplos siguientes de GitHub como referencia para crear soluciones con perfiles de API de Azure Stack y .NET.
 
-  - [Administración de grupos de recursos](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Administración de grupos de recursos](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Administración de cuentas de almacenamiento](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Administración de cuentas de almacenamiento](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Administración de una máquina virtual](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Administración de una máquina virtual](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>Proyecto de prueba unitaria de ejemplo 
 
 1.  Clone el repositorio con el siguiente comando:
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Cree una entidad de servicio de Azure y asigne un rol para acceder a la suscripción. Para obtener instrucciones sobre cómo crear una entidad de servicio, consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](../azure-stack-create-service-principals.md).
 
 3.  Recupere los siguientes valores de las variables de entorno necesarios:
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  Establezca las siguientes variables de entorno con la información que recuperó de la entidad de servicio que creó con el símbolo del sistema:
     
-   1. export TENANT_ID={su identificador de inquilino}
-   2. export CLIENT_ID={su identificador de cliente}
-   3. export CLIENT_SECRET={el secreto de cliente}
-   4. export SUBSCRIPTION_ID={el identificador de suscripción}
-   5. export ARM_ENDPOINT={la dirección URL del administrador de recursos de Azure Stack}
-   6. export RESOURCE_LOCATION={ubicación de Azure Stack}
+    - export AZURE_TENANT_ID={your tenant id}
+    - export AZURE_CLIENT_ID={your client id}
+    - export AZURE_CLIENT_SECRET={your client secret}
+    - export AZURE_SUBSCRIPTION_ID={your subscription id}
+    - export ARM_ENDPOINT={la dirección URL del administrador de recursos de Azure Stack}
+    - export RESOURCE_LOCATION={ubicación de Azure Stack}
 
    En Windows, use **set** en lugar de **export**.
 

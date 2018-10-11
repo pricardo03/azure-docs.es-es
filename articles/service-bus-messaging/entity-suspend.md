@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: bd75fd5c34a3518f6da0dbd56eca2ad152d60ba9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b7ea8c14bfc3f2ba3720ad919d6c36ec50c3823e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405723"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854493"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
 
@@ -59,7 +59,6 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 
-* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

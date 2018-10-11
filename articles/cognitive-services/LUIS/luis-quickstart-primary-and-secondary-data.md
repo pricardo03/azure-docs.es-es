@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036071"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867551"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial: 7: Extracción de nombres con la lista de entidades y frases simple
 
@@ -151,7 +151,7 @@ El etiquetado, o _marcado_, de la entidad muestra a LUIS donde se encuentra la e
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obtener intenciones y entidades del punto de conexión 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades del punto de conexión 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -299,7 +299,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de pantalla del elemento emergente del cuadro de diálogo Create new phrase list (Crear lista de frases) con palabras en el cuadro Phrase list values (Valores de lista de frase)")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. Vuelva a [entrenar](#train-the-luis-app) y [publicar](#publish-the-app-to-get-the-endpoint-URL) la aplicación para que use la lista de frases.
+5. Vuelva a [entrenar](#train) y [publicar](#publish) la aplicación para que use la lista de frases.
 
 6. Vuelva a realizar una consulta en el punto de conexión con la misma expresión: `This is the lead welder paperwork.`
 

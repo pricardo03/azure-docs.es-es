@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
-ms.reviewer: brenduns
-ms.openlocfilehash: be09773a1ce3e80547d9e5f0e9de2a2d9e093c60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: sethm
+ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970924"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078807"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notas de la versión de App Service en la actualización 2 de Azure Stack
 
@@ -37,7 +37,7 @@ Estas notas de la versión describen las mejoras y correcciones de la actualizac
 
 El número de compilación de la actualización 2 de App Service en Azure Stack es **72.0.13698.10**
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 > [!IMPORTANT]
 > Las nuevas implementaciones de Azure App Service en Azure Stack requieren ahora un [certificado comodín con tres firmantes](azure-stack-app-service-before-you-get-started.md#get-certificates) debido a las mejoras en la forma en que se trata SSO para Kudu en este momento en Azure App Service. El nuevo firmante es **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**

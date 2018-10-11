@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011663"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857829"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Información general de Azure Cloud Services
 Azure Cloud Services es un ejemplo de [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Al igual que [Azure App Service](../app-service/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. En la misma manera que App Service se hospeda en máquinas virtuales (VM), así ocurre también con Azure Cloud Services. Sin embargo, tiene más control sobre las máquinas virtuales. Puede instalar su propio software en las máquinas virtuales que usan Azure Cloud Services y puede tener acceso a ellas remotamente.
@@ -33,7 +33,7 @@ Hay dos tipos de roles de Azure Cloud Services. La única diferencia entre ambos
 
 * **Rol de trabajo**: no usa IIS y ejecuta la aplicación independiente.
 
-Por ejemplo, una aplicación simple podría utilizar solo un rol web, para dar servicio a un sitio web. Una aplicación más compleja podría utilizar un rol web para tratar las solicitudes entrantes provenientes de los usuarios y luego transmitirlas a un rol de trabajo para su procesamiento. (Esta comunicación podría usar [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o [Azure Queue Storage](../storage/common/storage-introduction.md)).
+Por ejemplo, una aplicación simple podría utilizar solo un rol web, para dar servicio a un sitio web. Una aplicación más compleja podría utilizar un rol web para tratar las solicitudes entrantes provenientes de los usuarios y luego transmitirlas a un rol de trabajo para su procesamiento. (Esta comunicación podría usar [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) o [Azure Queue Storage](../storage/common/storage-introduction.md)).
 
 Como sugiere la ilustración anterior, todas las VM de una sola aplicación se ejecutan en el mismo servicio en la nube. Los usuarios acceden a la aplicación a través de una sola dirección IP pública y el equilibrio de carga de las solicitudes se realiza automáticamente en todas las VM de la aplicación. La plataforma [escala e implementa](cloud-services-how-to-scale-portal.md) las máquinas virtuales en una aplicación de Azure Cloud Services para así evitar un único punto de errores de hardware.
 

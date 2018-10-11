@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 969f8cdf7b8cc406cd98bb5a4f30b5c395b0e8fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d77353b510dbeb18e96e2d8313e9010c04e25a7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989369"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077940"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -117,7 +117,7 @@ Luego, Microsoft prepara y envía el disco a través de un operador regional. Un
 
 ![Pedido de Data Box enviado](media/data-box-overview/data-box-order-status-dispatched.png)
 
-## <a name="cancel-the-order"></a>Cancelación del pedido
+## <a name="cancel-the-order"></a>Cancelar el pedido
 
 Para cancelar el pedido, en Azure Portal, vaya a **Información general** y haga clic en **Cancelar** en la barra de comandos.
 

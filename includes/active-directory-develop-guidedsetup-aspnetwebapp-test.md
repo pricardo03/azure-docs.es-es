@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: bfdc89d9bc5d5a07c04e857c1a46e4b988c125ab
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3a141bcde75872f2384aedf982ffef5cba9666a3
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943562"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843047"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -43,7 +42,7 @@ Una vez en la vista del controlador, verá una tabla que contiene las propiedade
 
 |Propiedad |Valor |DESCRIPCIÓN |
 |---|---|---|
-|**Name** |Nombre completo del usuario | Nombre y apellidos del usuario.
+|**Nombre** |Nombre completo del usuario | Nombre y apellidos del usuario.
 |**Nombre de usuario** |usuario<span>@domain.com</span> | Nombre de usuario que se usa para identificar al usuario.
 |**Asunto** |Asunto |Cadena que identifica al usuario de forma exclusiva en la web.|
 |**Id. de inquilino** |Guid | **Guid** que representa de forma única la organización de Azure AD del usuario.|

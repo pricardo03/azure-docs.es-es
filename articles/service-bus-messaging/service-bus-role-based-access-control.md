@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: spelluru
-ms.openlocfilehash: 5f8c35be2a4d9605fff7c4c0f6d547ad28723b7b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0da4fdf5afc0cbe76e19260b486aa9112d0d74c8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407253"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854327"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Control de acceso basado en rol de Active Directory (versión preliminar)
 
@@ -78,9 +78,8 @@ Al ejecutar la aplicación de consola, deberá seleccionar un escenario. Haga cl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
+Para obtener más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 
-* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

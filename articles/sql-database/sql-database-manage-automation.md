@@ -10,19 +10,21 @@ ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
-manager: craigg
+manager: craigg-database
 ms.date: 04/01/2018
-ms.openlocfilehash: 3360482c77dd262a81bebb885c95f72616c7764a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 20966958ff4a8a642aa4a994d17163ea68856b51
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159540"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867534"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Administración de bases de datos de Azure SQL Database mediante Azure Automation
+
 Esta guía le ofrece el servicio Azure Automation y cómo se puede usar para simplificar la administración de las bases de datos SQL de Azure.
 
 ## <a name="what-is-azure-automation"></a>¿Qué es Azure Automation?
+
 [Azure Automation](https://azure.microsoft.com/services/automation/) es un servicio de Azure para simplificar la administración en la nube mediante la automatización de procesos. Mediante Azure Automation, se pueden automatizar las tareas de ejecución prolongada, manuales, propensas a errores y que se repiten con frecuencia para aumentar la confiabilidad, la eficiencia y el valioso tiempo para su organización.
 
 Azure Automation proporciona un motor de ejecución de flujo de trabajo altamente confiable y de alta disponibilidad que realiza la escalación para satisfacer sus necesidades a medida que crece la organización. En Azure Automation, los sistemas de terceros pueden interrumpir los procesos manualmente o en intervalos programados para que las tareas se realicen justo cuando sea necesario.
@@ -30,22 +32,22 @@ Azure Automation proporciona un motor de ejecución de flujo de trabajo altament
 Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>¿Cómo puede Azure Automation ayudar a administrar bases de datos SQL de Azure?
+
 Azure SQL Database puede administrarse en Azure Automation mediante los [cmdlets de PowerShell de Azure SQL Database](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) que están disponibles en las [herramientas de Azure PowerShell](/powershell/azure/overview). Azure Automation tiene estos cmdlets de PowerShell de Azure SQL Database disponibles directamente para que pueda realizar todas las tareas de administración de SQL Database dentro del servicio. También puede emparejar estos cmdlets en Azure Automation con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 Azure Automation también tiene la capacidad de comunicarse con servidores SQL Server directamente, mediante la emisión de comandos SQL con PowerShell.
 
 La [Galería de runbooks de Azure Automation](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contiene una gran variedad de runbooks de comunidad y equipo de producto para empezar a automatizar la administración de Azure SQL Database, otros servicios de Azure y sistemas de terceros. Los runbooks de la Galería incluyen:
 
-* [Ejecución de consultas SQL en una Base de datos de SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
-* [Escalación vertical (arriba o abajo) de una instancia de Azure SQL Database en una programación](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
-* [Truncamiento de una tabla SQL si su base de datos se aproxima al tamaño máximo](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
-* [Indexación de tablas en Azure SQL Database si están muy fragmentadas](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
+- [Ejecución de consultas SQL en una Base de datos de SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
+- [Escalación vertical (arriba o abajo) de una instancia de Azure SQL Database en una programación](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+- [Truncamiento de una tabla SQL si su base de datos se aproxima al tamaño máximo](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
+- [Indexación de tablas en Azure SQL Database si están muy fragmentadas](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha aprendido los aspectos básicos de Azure Automation y cómo se puede usar para administrar bases de datos SQL de Azure, siga estos vínculos para obtener más información acerca de Azure Automation.
 
-* [Información general sobre Azure Automation](../automation/automation-intro.md)
-* [Mi primer runbook](../automation/automation-first-runbook-graphical.md)
-* [Mapa de aprendizaje de Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)
-* [Azure Automation: el agente SQL en la nube](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
+- [Información general sobre Azure Automation](../automation/automation-intro.md)
+- [Mi primer runbook](../automation/automation-first-runbook-graphical.md)
+- [Azure Automation: el agente SQL en la nube](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 

@@ -5,16 +5,16 @@ description: Aprenda a reconocer voz en Java para Android con el SDK de Voz de C
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432812"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883880"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Android mediante el SDK de Voz
 
@@ -25,11 +25,11 @@ La aplicación se basa en el paquete de Maven del SDK de Voz de Microsoft Cognit
 El SDK de Voz es compatible con dispositivos Android que tienen procesadores ARM de 32 o 64 bits.
 
 > [!NOTE]
-> Para obtener información sobre el SDK de dispositivos de voz y el dispositivo Roobo, visite la página [SDK de dispositivos de voz](speech-devices-sdk.md).
+> Para el SDK de dispositivos de Voz y el dispositivo Roobo, consulte [SDK de dispositivos de voz](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción del servicio de Voz para completar este tutorial de inicio rápido. Puede obtener una gratis. Para ver más detalles, consulte [Pruebe Speech Service gratis](get-started.md).
+Necesita una clave de suscripción del servicio Voz para completar este inicio rápido. Puede obtener una gratis. Para ver más detalles, consulte [Pruebe Speech Service gratis](get-started.md).
 
 ## <a name="create-and-configure-a-project"></a>Creación y configuración de un proyecto
 
@@ -110,9 +110,9 @@ El texto y la representación gráfica de la interfaz de usuario ahora deben ten
 </tr>
 </table>
 
-## <a name="add-sample-code"></a>Adición de un código de ejemplo
+## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Abra el archivo de origen `MainActivity.java`. Reemplace todo el código que sigue a la instrucción `package` con lo siguiente.
+1. Abra el archivo de origen `MainActivity.java`. Reemplace todo el código de este archivo por lo siguiente.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
@@ -122,7 +122,7 @@ El texto y la representación gráfica de la interfaz de usuario ahora deben ten
 
 1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 
-1. Además, reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Además, reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
 ## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296485"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903035"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migración de aplicaciones locales de AD FS a Azure 
 
@@ -151,7 +151,7 @@ Las aplicaciones que se pueden migrar fácilmente en la actualidad incluyen las 
 - Nombre propio.
 - Apellido.
 - Atributo alternativo de **NameID** de SAML, lo que incluye el atributo de correo de Azure AD, el prefijo de correo, el identificador de empleado, los atributos de extensión 1 a 15 o el atributo **SamAccountName** local. Para más información, consulte [Edición de la notificación NameIdentifier](../develop/active-directory-saml-claims-customization.md).
-- Notificaciones personalizadas. Para obtener información acerca de las asignaciones de notificaciones admitidas, consulte [Asignación de notificaciones en Azure Active Directory](../active-directory-claims-mapping.md) y [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+- Notificaciones personalizadas. Para obtener información acerca de las asignaciones de notificaciones admitidas, consulte [Asignación de notificaciones en Azure Active Directory](../develop/active-directory-claims-mapping.md) y [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 Además de las notificaciones y los elementos **NameID** personalizados, las configuraciones que requieren pasos adicionales en Azure AD como parte de la migración son:
 - Autorización personalizada o reglas de autenticación multifactor en AD FS. Se configuran mediante el uso de la característica [Acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md).
@@ -171,7 +171,7 @@ Las aplicaciones que necesitan las siguientes funcionalidades no se pueden migra
 - Funcionalidades de notificaciones en token:
     - Emisión de nombres de grupos locales como notificaciones.
     - Notificaciones de almacenes distintos de Azure AD.
-    - Reglas de transformación de emisión de notificaciones complejas. Para obtener información acerca de las asignaciones de notificaciones admitidas, consulte [Asignación de notificaciones en Azure Active Directory](../active-directory-claims-mapping.md) y [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+    - Reglas de transformación de emisión de notificaciones complejas. Para obtener información acerca de las asignaciones de notificaciones admitidas, consulte [Asignación de notificaciones en Azure Active Directory](../develop/active-directory-claims-mapping.md) y [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Emisión de extensiones de directorio como notificaciones.
     - Especificación personalizada del formato de **NameID**.
     - Emisión de atributos de valores múltiples.

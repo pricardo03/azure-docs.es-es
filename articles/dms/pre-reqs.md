@@ -2,21 +2,21 @@
 title: Información general sobre los requisitos previos para usar Azure Database Migration Service | Microsoft Docs
 description: Obtenga información general sobre los requisitos previos para usar Azure Database Migration Service para realizar migraciones de bases de datos.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 3dc449724e405f83ce976b9f8b01a89c25d693fe
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 10/09/2018
+ms.openlocfilehash: b3c974eaf4e44a80046efc4b1545f29797fcaf0c
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221257"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887673"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Información general sobre los requisitos previos para usar Azure Database Migration Service
 Hay varios requisitos previos necesarios para garantizar que Azure Database Migration Service se ejecute sin problemas al realizar migraciones de bases de datos. Algunos de los requisitos previos se aplican en todos los escenarios (pares origen-destino) compatibles con el servicio, mientras que otros son exclusivos para un escenario específico.
@@ -63,4 +63,4 @@ Cuando se usa Azure Database Migration Service para realizar migraciones de SQL 
    > Para acceder a una lista completa de los requisitos previos necesarios para usar Azure Database Migration Service para realizar migraciones de SQL Server a Azure SQL Database, consulte el tutorial [Migración de SQL Server a la Instancia administrada de Azure SQL Database](https://aka.ms/migratetomiusingdms).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información general sobre Azure Database Migration Service y la disponibilidad regional, consulte el artículo [¿Qué es Azure Database Migration Service?](dms-overview.md) 
+Para información general sobre Azure Database Migration Service y la disponibilidad regional, consulte el artículo [¿Qué es la versión preliminar de Azure Database Migration Service?](dms-overview.md) 

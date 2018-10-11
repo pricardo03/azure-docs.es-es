@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: 698212ce1f4e88cda741a78030023f3acdeee9f0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576090"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816793"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticación de soluciones de administración de Batch con Active Directory
 
@@ -36,7 +36,7 @@ Para más información sobre el uso de la biblioteca Batch Management .NET y el 
 
 La [biblioteca de autenticación de Azure Active Directory][aad_adal] (ADAL) proporciona una interfaz de programación para Azure AD para usarla en sus aplicaciones. Para llamar a ADAL desde la aplicación, debe registrar la aplicación en un inquilino de Azure AD. Al registrar la aplicación, se facilita a Azure AD información acerca de esta, incluido un nombre para ella en el inquilino de Azure AD. Azure AD proporciona un identificador de aplicación que se utiliza para asociar la aplicación con Azure AD en tiempo de ejecución. Para conocer más detalles acerca del identificador de la aplicación, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Siga los pasos que aparecen en la sección [Incorporación de una aplicación](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) en [Integración de aplicaciones con Azure Active Directory][aad_integrate] para registrar la aplicación de ejemplo AccountManagement. Especifique **Aplicación de cliente nativo** como tipo de aplicación. El identificador URI OAuth 2.0 estándar del sector para el **URI de redireccionamiento** es `urn:ietf:wg:oauth:2.0:oob`. Sin embargo, puede especificar un identificador URI válido (como `http://myaccountmanagementsample`) para el **identificador URI de redireccionamiento**, puesto que no necesita ser un punto de conexión real:
+Siga los pasos que aparecen en la sección [Incorporación de una aplicación](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) en [Integración de aplicaciones con Azure Active Directory][aad_integrate] para registrar la aplicación de ejemplo AccountManagement. Especifique **Aplicación de cliente nativo** como tipo de aplicación. El identificador URI OAuth 2.0 estándar del sector para el **URI de redireccionamiento** es `urn:ietf:wg:oauth:2.0:oob`. Sin embargo, puede especificar un identificador URI válido (como `http://myaccountmanagementsample`) para el **identificador URI de redireccionamiento**, puesto que no necesita ser un punto de conexión real:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

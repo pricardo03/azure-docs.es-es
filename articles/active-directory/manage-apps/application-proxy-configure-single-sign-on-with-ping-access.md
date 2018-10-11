@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577193"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902933"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -162,10 +162,10 @@ Este ejemplo utiliza [Azure Portal](https://portal.azure.com) para actualizar el
 >[!NOTE]
 >Para usar una notificación personalizada, también debe tener una directiva personalizada definida y asignada a la aplicación.  Esta directiva debe incluir todos los atributos personalizados necesarios.
 >
->La asignación y definición de directivas se pueden realizar a través de PowerShell, el Explorador de Azure AD Graph o MS Graph.  Si usa PowerShell, primero debe usar `New-AzureADPolicy ` y, a continuación, asignarlo a la aplicación con `Set-AzureADServicePrincipalPolicy`.  Para más información, consulte la [documentación de Azure AD Policy](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>La asignación y definición de directivas se pueden realizar a través de PowerShell, el Explorador de Azure AD Graph o MS Graph.  Si usa PowerShell, primero debe usar `New-AzureADPolicy ` y, a continuación, asignarlo a la aplicación con `Set-AzureADServicePrincipalPolicy`.  Para más información, consulte la [documentación de Azure AD Policy](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Opcional: uso de una notificación personalizada
-Para que la aplicación use una notificación personalizada e incluya campos adicionales, asegúrese de que también ha [creado una directiva de asignación de notificaciones personalizadas y la ha asignado a la aplicación](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Para que la aplicación use una notificación personalizada e incluya campos adicionales, asegúrese de que también ha [creado una directiva de asignación de notificaciones personalizadas y la ha asignado a la aplicación](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Descarga de PingAccess y configuración de la aplicación
 

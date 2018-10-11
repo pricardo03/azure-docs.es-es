@@ -3,7 +3,7 @@ title: Validación del registro de Azure en Azure Stack | Microsoft Docs
 description: Use Azure Stack Readiness Checker para validar el registro de Azure.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 57869de8a99c65810da0c75f81c75d93eac88412
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: d6835f05666d66cc4f6aa937c4b85047ce3c2e93
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090823"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077076"
 ---
 # <a name="validate-azure-registration"></a>Validación del registro de Azure 
 Use la herramienta Azure Stack Readiness Checker (AzsReadinessChecker) para validar que su suscripción de Azure está lista para usarse con Azure Stack. Valide el registro antes de empezar la implementación de Azure Stack. La herramienta Readiness Checker valida:

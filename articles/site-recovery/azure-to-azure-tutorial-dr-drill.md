@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 789e637f3a5806aafe0ca8cad5b6408ef77b32d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919621"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066996"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -28,7 +28,7 @@ En este tutorial se muestra cómo ejecutar una exploración de recuperación ant
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Antes de ejecutar una conmutación por error de prueba, se recomienda que compruebe las propiedades de la máquina virtual para asegurarse de que todo se ajusta a lo esperado.  Acceda a las propiedades de la máquina virtual en **Elementos replicados**. En la hoja **Información esencial** se detalla la configuración y el estado de las máquinas.
 - Se recomienda usar una red de máquina virtual de Azure independiente en la conmutación por error de prueba en lugar de la red predeterminada que se configuró cuando habilitó la replicación.

@@ -3,7 +3,7 @@ title: Validación de la identidad de Azure en Azure Stack | Microsoft Docs
 description: Use Azure Stack Readiness Checker para validar la identidad de Azure.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fe5e7281cbe01ad11f667729df344f91ef1327d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9c7ac89d1f12e8ec033b201f2c2dd845c11486e2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937563"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077824"
 ---
 # <a name="validate-azure-identity"></a>Validación de la identidad de Azure 
 Use la herramienta Azure Stack Readiness Checker (AzsReadinessChecker) para validar que su instancia de Azure Active Directory (Azure AD) está lista para usarse con Azure Stack. Valide la solución de identidad de Azure antes de empezar la implementación de Azure Stack.  
@@ -34,12 +34,12 @@ La validación garantiza que el entorno está listo para que Azure Stack almacen
 ## <a name="get-the-readiness-checker-tool"></a>Obtención de la herramienta Readiness Checker
 Descargue la versión más reciente de Azure Stack Readiness Checker (AzsReadinessChecker) desde [PSGallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Deben cumplirse los siguientes requisitos previos.
 
 **Equipo donde se ejecuta la herramienta:**
  - Windows 10 o Windows Server 2016, con conectividad a internet.
- - PowerShell 5.1 o posterior. Para comprobar la versión, ejecute el siguiente cmd de PowerShell y luego revise la versión *principal* y las versiones *secundarias*:  
+ - Azure PowerShell 5.1 o posterior. Para comprobar la versión, ejecute el siguiente cmd de PowerShell y luego revise la versión *principal* y las versiones *secundarias*:  
 
    > `$PSVersionTable.PSVersion`
  - Configure [PowerShell para Azure Stack](azure-stack-powershell-install.md). 
