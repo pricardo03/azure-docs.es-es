@@ -296,7 +296,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
 
     ![Asistente para nuevo grupo de disponibilidad, seleccionar sincronización de datos iniciales](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era **\\\\\<Primer servidor SQL Server\>\Backup\**. Haga clic en **Next**.
+8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era **\\\\\<Primer servidor SQL Server\>\Backup\\**. Haga clic en **Next**.
 
    >[!NOTE]
    >La sincronización completa realiza una copia de seguridad completa de la base de datos en la primera instancia de SQL Server y la restaura en la segunda instancia. Para bases de datos grandes, no se recomienda la sincronización completa porque puede llevar mucho tiempo. Puede reducir este tiempo realizando manualmente una copia de seguridad de la base de datos y restaurándola con `NO RECOVERY`. Si ya se ha restaurado la base de datos con `NO RECOVERY` en el segundo servidor SQL Server antes de configurar el grupo de disponibilidad, elija **Solo unirse**. Si desea realizar la copia de seguridad después de configurar el grupo de disponibilidad, elija **Omitir la sincronización de datos iniciales**.
