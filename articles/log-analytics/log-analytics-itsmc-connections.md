@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131759"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042851"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](log-analytics-itsmc-overview.md).
@@ -39,7 +39,7 @@ Se admiten los siguientes productos y servicios de ITSM. Seleccione un producto 
 
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de System Center Service Manager con ITSMC en Azure.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
@@ -184,7 +184,7 @@ En la siguiente imagen de ejemplo se muestran los detalles de una conexión corr
 
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de ServiceNow a ITSMC en Azure.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que se cumplen los siguientes requisitos previos:
 - ITSMC instalado Más información: [Agregar la solución IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versiones admitidas de ServiceNow: Kingston, Yakarta, Estambul, Helsinki, Ginebra.
@@ -224,7 +224,7 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
 | **Nombre de la conexión**   | Escriba un nombre para la instancia de ServiceNow que quiere conectar con ITSMC.  Usará este nombre más adelante en OMS cuando configure los elementos de trabajo en el análisis de registros detallados de ITSM o vista. |
 | **Tipo de asociado**   | Seleccione **ServiceNow**. |
 | **Nombre de usuario**   | Escriba el nombre de usuario de integración que ha creado en la aplicación de ServiceNow para que admita la conexión con ITSMC. Más información: [Creación de un rol de usuario de integración de aplicación de ServiceNow](#create-integration-user-role-in-servicenow-app).|
-| **Password**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC.  |
+| **Contraseña**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC.  |
 | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de ServiceNow que quiere conectar con ITSMC. |
 | **Id. de cliente**   | Escriba el identificador de cliente que desea utilizar para la autenticación de OAuth2 y que ha generado anteriormente.  Para más información acerca de cómo generar el identificador y el secreto del cliente, consulte el [programa de instalación de OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Secreto de cliente**   | Escriba el secreto de cliente generado para este identificador.   |
@@ -284,7 +284,7 @@ Cuando el usuario se crea correctamente, el estado de **Check Installation Check
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de Provance a ITSMC en Azure.
 
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
@@ -316,7 +316,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 | **Nombre de la conexión**   | Escriba un nombre para la instancia de Provance que quiere conectar con ITSMC.  Usará este nombre más adelante cuando configure los elementos de trabajo en el análisis de registros detallados de ITSM o vista. |
 | **Tipo de asociado**   | Seleccione **Provance**. |
 | **Nombre de usuario**   | Escriba el nombre de usuario que puede conectarse a ITSMC.    |
-| **Password**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC.|
+| **Contraseña**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC.|
 | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de Provance que quiere conectar con ITSMC. |
 | **Id. de cliente**   | Escriba el identificador de cliente para autenticar esta conexión, que genera en la instancia de Provance.  Para más información sobre el identificador de cliente, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Ámbito de sincronización de datos**   | Seleccione los elementos de trabajo de Provance que quiera sincronizar con Azure Log Analytics mediante ITSMC.  Estos elementos de trabajo se importan en Log Analytics.   **Opciones:** incidentes, solicitudes de cambio.|
@@ -337,7 +337,7 @@ Más información [Creación de elementos de trabajo de ITSM a partir de alertas
 
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de Cherwell a ITSMC en Azure.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
@@ -367,7 +367,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 | **Nombre de la conexión**   | Escriba un nombre para la instancia de Cherwell que quiere conectar con ITSMC.  Usará este nombre más adelante cuando configure los elementos de trabajo en el análisis de registros detallados de ITSM o vista. |
 | **Tipo de asociado**   | Seleccione **Cherwell.** |
 | **Nombre de usuario**   | Escriba el nombre de usuario de Cherwell que puede conectarse a ITSMC. |
-| **Password**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC.|
+| **Contraseña**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC.|
 | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de Cherwell que quiere conectar con ITSMC. |
 | **Id. de cliente**   | Escriba el identificador de cliente para autenticar esta conexión, que genera en la instancia de Cherwell.   |
 | **Ámbito de sincronización de datos**   | Seleccione los elementos de trabajo de Cherwell que quiere sincronizar mediante ITSMC.  Estos elementos de trabajo se importan en Log Analytics.   **Opciones:** incidentes, solicitudes de cambio. |

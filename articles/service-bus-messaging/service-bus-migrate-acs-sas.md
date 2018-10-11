@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 784709f29772f10968cabc3f3763cc7be7c8b383
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7045172fcd3c64cb0d979f5e3e8381c49579f1d2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393356"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855262"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 
@@ -66,5 +66,4 @@ Para más información sobre la autenticación de Service Bus, vea los siguiente
 
 * [Autenticación y autorización de Service Bus](service-bus-authentication-and-authorization.md)
 * [Autenticación en Service Bus con Firmas de acceso compartido](service-bus-sas.md)
-* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 

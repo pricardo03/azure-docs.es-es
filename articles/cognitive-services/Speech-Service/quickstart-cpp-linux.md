@@ -5,16 +5,16 @@ description: Aprenda a reconocer la voz en C++ en Linux con el SDK de Voz de Cog
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f3bcbc7bcbd57e9baa5a01f3a2ef572b09128260
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055924"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886252"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en C++ en Linux mediante el SDK de Voz
 
@@ -24,7 +24,7 @@ En este artículo, va a crear una aplicación de consola de C++ para Ubuntu Linu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción del servicio de Voz para completar este tutorial de inicio rápido. Puede obtener una gratis. Para ver más detalles, consulte [Prueba gratuita del servicio Voz](get-started.md).
+Necesita una clave de suscripción del servicio Voz para completar este inicio rápido. Puede obtener una gratis. Para ver más detalles, consulte [Prueba gratuita del servicio Voz](get-started.md).
 
 ## <a name="install-speech-sdk"></a>Instalación del SDK de Voz
 
@@ -121,7 +121,7 @@ Descargue e instale el SDK de la forma siguiente:
    ./helloworld
    ```
 
-1.  En la ventana de consola, aparece un símbolo del sistema que solicita que se diga algo. Diga una oración o frase en inglés. Lo que diga se transmitirá al servicio Voz y se transcribirá en texto, que aparece en la misma ventana.
+1.  En la ventana de consola, aparece un símbolo del sistema que solicita que se diga algo. Diga una oración o frase en inglés. Lo que diga se transmitirá al servicio de Voz y se transcribirá en texto, que aparece en la misma ventana.
 
    ```text
    Say something...

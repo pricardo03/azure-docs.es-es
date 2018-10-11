@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954031"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868282"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Administración de permisos de base de datos del Explorador de datos de Azure
 
@@ -31,7 +31,6 @@ El Explorador de datos de Azure tiene los siguientes roles:
 |Usuario de base de datos              |Puede leer todos los datos y metadatos de la base de datos. Además, puede crear tablas (y convertirse en el administrador de tablas de esa tabla) y funciones en la base de datos.|
 |Visor de base de datos            |Puede leer todos los datos y metadatos de la base de datos.|
 |Agente de ingesta de base de datos          |Puede ingerir datos de todas las tablas existentes de la base de datos, pero no consultar los datos.|
-|Visor sin restricciones de la base de datos|Puede consultar tablas que tengan habilitada la directiva **RestrictedViewAccess**. No puede consultar otras tablas.|
 |Supervisor de base de datos           |Puede ejecutar comandos ".show ..." en el contexto de la base de datos y sus entidades secundarias.|
 |Administrador de tablas                |Puede hacer cualquier cosa en el ámbito de una tabla determinada. |
 |Agente de ingesta de tablas             |Puede ingerir datos en el ámbito de una determinada tabla, pero no consultar los datos.|

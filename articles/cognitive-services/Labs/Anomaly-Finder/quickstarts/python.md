@@ -9,18 +9,20 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c14916b0644edab613b298d6e71f8bbb9a6bb804
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c9fd96bf4a9bdc9dfe5baf52aa742e19d5436708
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381298"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247358"
 ---
 # <a name="use-the-anomaly-finder-api-with-python"></a>Uso de Anomaly Finder API con Python
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 En este artículo se ofrece información y ejemplos de código para ayudarle a comenzar a usar rápidamente Anomaly Finder API con Python para realizar la tarea de obtener resultados de anomalías en los datos de serie temporal.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -30,7 +32,7 @@ En este artículo se ofrece información y ejemplos de código para ayudarle a c
 
 ### <a name="example-of-time-series-data"></a>Ejemplo de datos de series temporales
 
-El ejemplo de los puntos de datos de serie temporal es el siguiente.
+Este es el ejemplo de los puntos de datos de series temporales.
 
 [!INCLUDE [Request](../includes/request.md)]
 

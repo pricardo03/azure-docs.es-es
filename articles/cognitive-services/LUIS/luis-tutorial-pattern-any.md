@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 90dc7b8bc69c86128b65c16920886b7c4af5c5cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164402"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888312"
 ---
 # <a name="tutorial-5-extract-free-form-data"></a>Tutorial 5: Extracción de datos de forma libre
 
@@ -66,13 +66,13 @@ Continúe con la aplicación creada en el último tutorial, denominada **HumanRe
 
 Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
 
-1.  Descargue y guarde [el archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
 
 2. Importe el archivo JSON en una aplicación nueva.
 
-3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `patt-any`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Como el nombre de la versión se usa como parte de la ruta de la dirección URL, no puede contener ningún carácter que no sea válido en una dirección URL.
+3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `patt-any`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
-## <a name="add-example-utterances"></a>Adición de expresiones de ejemplo 
+## <a name="add-example-utterances"></a>Incorporación de expresiones de ejemplo 
 Quite la entidad keyPhrase precompilada si resulta difícil compilar y etiquetar la entidad FormName. 
 
 1. Seleccione **Build** (Compilación) en el menú de navegación superior y seleccione **Intents** (Intenciones) en el menú de navegación de la izquierda.

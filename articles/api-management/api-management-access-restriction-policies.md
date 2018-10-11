@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865940"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269526"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -58,17 +58,17 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|check-header|Elemento raíz.|Sí|  
+|check-header|Elemento raíz.|SÍ|  
 |value|Valor del encabezado HTTP permitido. Cuando se especifican varios elementos de valor, el resultado de la comprobación se considera positivo en caso de coincidencia con cualquiera de los valores.|Sin |  
   
 ### <a name="attributes"></a>Atributos  
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|Mensaje de error que se devuelve en el cuerpo de la respuesta HTTP si el encabezado no existe o tiene un valor no válido. Los caracteres especiales de este mensaje deben incluir los caracteres de escape correctos.|Sí|N/D|  
-|failed-check-httpcode|Código de estado HTTP que se devuelve si el encabezado no existe o tiene un valor no válido.|Sí|N/D|  
-|header-name|Nombre del encabezado HTTP que hay que comprobar.|Sí|N/D|  
-|ignore-case|Puede establecerse en True o False. Si se establece en True, se omite la presencia de mayúsculas/minúsculas cuando el valor del encabezado se compara con el conjunto de valores aceptables.|Sí|N/D|  
+|failed-check-error-message|Mensaje de error que se devuelve en el cuerpo de la respuesta HTTP si el encabezado no existe o tiene un valor no válido. Los caracteres especiales de este mensaje deben incluir los caracteres de escape correctos.|SÍ|N/D|  
+|failed-check-httpcode|Código de estado HTTP que se devuelve si el encabezado no existe o tiene un valor no válido.|SÍ|N/D|  
+|header-name|Nombre del encabezado HTTP que hay que comprobar.|SÍ|N/D|  
+|ignore-case|Puede establecerse en True o False. Si se establece en True, se omite la presencia de mayúsculas/minúsculas cuando el valor del encabezado se compara con el conjunto de valores aceptables.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -113,7 +113,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|set-limit|Elemento raíz.|Sí|  
+|set-limit|Elemento raíz.|SÍ|  
 |api|Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
 |operación|Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
   
@@ -121,9 +121,9 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|Nombre|Nombre de la API a la que se va a aplicar un límite de tasa.|Sí|N/D|  
-|calls|Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.|Sí|N/D|  
-|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|Sí|N/D|  
+|Nombre|Nombre de la API a la que se va a aplicar un límite de tasa.|SÍ|N/D|  
+|calls|Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.|SÍ|N/D|  
+|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -172,16 +172,16 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|set-limit|Elemento raíz.|Sí|  
+|set-limit|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|calls|Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.|Sí|N/D|  
-|counter-key|Clave que se usa para la directiva de límite de tasa.|Sí|N/D|  
+|calls|Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.|SÍ|N/D|  
+|counter-key|Clave que se usa para la directiva de límite de tasa.|SÍ|N/D|  
 |increment-condition|Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).|Sin |N/D|  
-|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|Sí|N/D|  
+|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -215,7 +215,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|ip-filter|Elemento raíz.|Sí|  
+|ip-filter|Elemento raíz.|SÍ|  
 |address|Especifica la dirección IP única por la que filtrar.|Es necesario al menos un elemento `address` o `address-range`.|  
 |address-range from="address" to="address"|Especifica un intervalo de direcciones IP por el que filtrar.|Es necesario al menos un elemento `address` o `address-range`.|  
   
@@ -224,7 +224,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Un intervalo de direcciones IP a las que permitir o denegar el acceso.|Obligatorio cuando se utiliza el elemento `address-range`.|N/D|  
-|ip-filter action="allow &#124; forbid"|Especifica si se deben permitir o no las llamadas para los intervalos y direcciones IP especificados.|Sí|N/D|  
+|ip-filter action="allow &#124; forbid"|Especifica si se deben permitir o no las llamadas para los intervalos y direcciones IP especificados.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -268,7 +268,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|quota|Elemento raíz.|Sí|  
+|quota|Elemento raíz.|SÍ|  
 |api|Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las API del producto. Las cuotas de llamada de API y de producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
 |operación|Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
   
@@ -276,10 +276,10 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|Nombre|Nombre de la API u operación a la que se aplica la cuota.|Sí|N/D|  
+|Nombre|Nombre de la API u operación a la que se aplica la cuota.|SÍ|N/D|  
 |bandwidth|Número total máximo de kilobytes permitidos durante el intervalo de tiempo especificado en `renewal-period`.|Debe especificarse `calls`, `bandwidth` o ambos.|N/D|  
 |calls|Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.|Debe especificarse `calls`, `bandwidth` o ambos.|N/D|  
-|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|Sí|N/D|  
+|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -288,7 +288,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** producto  
   
 ##  <a name="SetUsageQuotaByKey"></a>Establecer cuota de uso por clave  
- La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota.  
+ La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
   
  Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -329,7 +329,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|quota|Elemento raíz.|Sí|  
+|quota|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -337,9 +337,9 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|-------------|  
 |bandwidth|Número total máximo de kilobytes permitidos durante el intervalo de tiempo especificado en `renewal-period`.|Debe especificarse `calls`, `bandwidth` o ambos.|N/D|  
 |calls|Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.|Debe especificarse `calls`, `bandwidth` o ambos.|N/D|  
-|counter-key|Clave que se usa para la directiva de cuota.|Sí|N/D|  
+|counter-key|Clave que se usa para la directiva de cuota.|SÍ|N/D|  
 |increment-condition|Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).|Sin |N/D|  
-|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|Sí|N/D|  
+|renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -486,7 +486,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |Elemento|DESCRIPCIÓN|Obligatorio|  
 |-------------|-----------------|--------------|  
-|validate-jwt|Elemento raíz.|Sí|  
+|validate-jwt|Elemento raíz.|SÍ|  
 |audiences|Contiene una lista de notificaciones de audiencia aceptables que pueden estar presentes en el token. Si existen varios valores de audiencia, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno. Debe especificarse al menos una audiencia.|Sin |  
 |issuer-signing-keys|Lista de las claves de seguridad con codificación Base64 que se utilizan para validar los tokens firmados. Si existen varias claves de seguridad, se prueban las claves una a una hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta (lo que es útil para la sustitución de tokens). Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.|Sin |  
 |issuers|Lista de entidades de seguridad aceptables que emitieron el token. Si existen varios valores de emisor, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno.|Sin |  
@@ -509,7 +509,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |require-scheme|El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.|Sin |N/D|
 |require-signed-tokens|Booleano. Especifica si un token debe estar firmado.|Sin |true|  
 |separator|String. Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.|Sin |N/D| 
-|URL|Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`.|Sí|N/D|  
+|URL|Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  

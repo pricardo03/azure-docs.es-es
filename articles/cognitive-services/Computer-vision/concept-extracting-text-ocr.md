@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 4cbc8ebcdd19aa65a37ffe0f82019a7681f1c6c5
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cfc654e881c7477e430515e62f8c78cfd0a2b84
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434881"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238595"
 ---
 # <a name="extracting-text-with-ocr"></a>Extracción de texto con OCR
 
@@ -33,7 +33,7 @@ Computer Vision puede extraer texto con OCR de las imágenes que cumplan los req
 
 * La imagen se debe presentar en formato JPEG, PNG, GIF o BMP
 * El tamaño de la imagen de entrada debe estar entre 50 x 50 y 4200 x 4200 píxeles.
-* La imagen no puede ser mayor de 10 megapíxeles.
+
 
 La imagen de entrada se puede girar en cualquier múltiplo de 90 grados, además de un pequeño ángulo de hasta 40 grados.
 

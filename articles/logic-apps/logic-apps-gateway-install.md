@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842454"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855432"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -101,7 +101,7 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 
 ## <a name="install-data-gateway"></a>Instalación de la puerta de enlace de datos
 
-1. [Descargue, guarde y ejecute el instalador de puerta de enlace en un equipo local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Descargue, guarde y ejecute el instalador de puerta de enlace en un equipo local](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Acepte la ruta de instalación predeterminada o especifique la ubicación en el equipo donde quiere instalar la puerta de enlace.
 
@@ -182,7 +182,7 @@ Si tiene que cambiar la ubicación de la puerta de enlace, trasladar la instalac
 
 1. Desde el **Panel de control** de su equipo, vaya a **Programas y características**. En la lista de programas, seleccione **Puerta de enlace de datos local** y luego elija **Desinstalar**.
 
-2. [Reinstale la puerta de enlace de datos local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Reinstale la puerta de enlace de datos local](https://aka.ms/on-premises-data-gateway-installer).
 
 3. Cuando el instalador se abra, inicie sesión con la misma cuenta profesional o educativa que se usó anteriormente para instalar la puerta de enlace.
 
@@ -211,7 +211,7 @@ Para proporcionar información del proxy para la puerta de enlace, consulte [Con
 > [!NOTE]
 > Este comando solo comprueba la conectividad de red y la conectividad a Azure Service Bus. El comando no realiza nada con la puerta de enlace ni con el servicio en la nube de la puerta de enlace que cifra y almacena las credenciales y los detalles de la puerta de enlace. 
 >
-> Además, este comando solo está disponible en Windows Server 2012 R2 o posterior y Windows 8.1 o posterior. En versiones anteriores del sistema operativo, puede usar Telnet para probar la conectividad. Obtenga más información sobre [Azure Service Bus y soluciones híbridas](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Además, este comando solo está disponible en Windows Server 2012 R2 o posterior y Windows 8.1 o posterior. En versiones anteriores del sistema operativo, puede usar Telnet para probar la conectividad. Obtenga más información sobre [Azure Service Bus y soluciones híbridas](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Los resultados deben ser similares a este ejemplo donde **TcpTestSucceeded** está establecido en **True**:
 
@@ -232,7 +232,7 @@ El firewall también podría estar bloqueando las conexiones de Azure Service Bu
 
 ## <a name="configure-ports"></a>Configuración de los puertos
 
-La puerta de enlace crea una conexión de salida a [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) y se comunica en los puertos de salida: TCP 443 (predeterminado), 5671, 5672 y del 9350 al 9354. La puerta de enlace no requiere puertos de entrada. Obtenga más información sobre [Azure Service Bus y soluciones híbridas](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+La puerta de enlace crea una conexión de salida a [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) y se comunica en los puertos de salida: TCP 443 (predeterminado), 5671, 5672 y del 9350 al 9354. La puerta de enlace no requiere puertos de entrada. Obtenga más información sobre [Azure Service Bus y soluciones híbridas](../service-bus-messaging/service-bus-messaging-overview.md).
 
 La puerta de enlace utiliza estos nombres de dominio completo:
 

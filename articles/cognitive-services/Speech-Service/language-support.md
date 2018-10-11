@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435382"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237745"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Idiomas y regiones admitidos para Speech Service API
 
@@ -31,16 +31,16 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
  ca-ES | Catalán (España) | Sin  | No | Sin 
  da-DK | Danés (Dinamarca) | Sin  | No | Sin 
  de-DE | Alemán (Alemania) | SÍ | SÍ | Sin 
- en-AU | Inglés (Australia) | SÍ | Sí | SÍ
- en-CA | Inglés (Canadá) | SÍ | Sí | SÍ
- en-GB | Inglés (Reino Unido) | SÍ | Sí | SÍ
- en-IN | Inglés (India) | Sin  | SÍ | SÍ
- en-NZ | Inglés (Nueva Zelanda) | SÍ | Sí | SÍ  
+ en-AU | Inglés (Australia) | Sin  | SÍ | SÍ
+ en-CA | Inglés (Canadá) | Sin  | SÍ | SÍ
+ en-GB | Inglés (Reino Unido) | Sin  | SÍ | SÍ
+ en-IN | Inglés (India) | SÍ | Sí | SÍ
+ en-NZ | Inglés (Nueva Zelanda) | Sin  | SÍ | SÍ  
  es-ES | Inglés (Estados Unidos) | SÍ | Sí | SÍ
- es-ES | Español (España) | SÍ | SÍ | Sin 
- es-MX | Español (México) | SÍ | SÍ | Sin 
+ es-ES | Español (España) | Sin  | Sí | Sin 
+ es-MX | Español (México) | Sin  | Sí | Sin 
  fi-FI | Finés (Finlandia) | Sin  | No | Sin 
- fr-CA | Francés (Canadá) | SÍ | SÍ | Sin 
+ fr-CA | Francés (Canadá) | Sin  | Sí | Sin 
  fr-FR | Francés (Francia) | SÍ | SÍ | Sin 
  hi-IN | Hindi (India) | Sin  | Sí | Sin 
  it-IT | Italiano (Italia) | SÍ | SÍ | Sin 
@@ -51,7 +51,7 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
  pl-PL | Polaco (Polonia) | Sin  | No | Sin 
  pt-BR | Portugués (Brasil) | Sin  | Sí | Sin 
  pt-PT | Portugués (Portugal) | Sin  | Sí | Sin 
- ru-RU | Ruso (Rusia) | Sin  | Sí | Sin 
+ ru-RU | Ruso (Rusia) | SÍ | SÍ | Sin 
  sv-SE | Sueco (Suecia) | Sin  | No | Sin 
  zh-CN | Chino (mandarín, simplificado) | SÍ | SÍ | Sin 
  zh-HK | Chino (mandarín, tradicional) | Sin  | Sí | Sin 
@@ -161,8 +161,6 @@ La personalización de la voz está disponible para inglés de Estados Unidos (e
 ## <a name="speech-translation"></a>Speech Translation
 
 **Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen siempre debe ser de la tabla de idiomas de Voz siguiente. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto.
-
-Puede obtener la lista de idiomas mediante programación con el punto de conexión de idiomas de la API REST. En la lista se proporcionan todos los códigos de idioma, así como el nombre del idioma en inglés (o en cualquier otro idioma admitido). El servicio Microsoft Translator actualiza esta lista cuando hay nuevos idiomas disponibles.
 
 ### <a name="speech-languages"></a>Idiomas de voz
 

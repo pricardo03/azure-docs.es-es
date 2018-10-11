@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: richrund; bwren
-ms.component: na
-ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: magoedte
+ms.component: ''
+ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127448"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042868"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones
 
@@ -69,7 +69,7 @@ A continuación, se especifican los requisitos para los recursos de Azure utiliz
 
    ![imagen de las directivas de acceso compartido al centro de eventos](media/log-analytics-activity-logs-subscriptions/create-event-hub7.png)
    
-8. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** al Portapapeles. 
+8. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** en el Portapapeles. 
 
    ![imagen de la clave de acceso compartido al centro de eventos](media/log-analytics-activity-logs-subscriptions/create-event-hub8.png)
 

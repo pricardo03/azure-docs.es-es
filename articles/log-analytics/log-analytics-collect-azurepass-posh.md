@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128469"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044355"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configuración de la recopilación de métricas de recursos de PaaS de Azure con Log Analytics
 
@@ -28,7 +28,7 @@ Los recursos de la plataforma como servicio (PaaS) de Azure, así como Azure SQL
 
 En la actualidad, no hay ninguna manera de habilitar el registro de métricas para los recursos PaaS a través de Azure Portal. Por lo tanto, debe usar un script de PowerShell. Esta funcionalidad del registro nativo de métricas, junto con la supervisión de Log Analytics, le permiten supervisar los recursos de Azure a escala. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Compruebe que dispone de los siguientes módulos de Azure Resource Manager instalados en el equipo antes de continuar:
 
 - AzureRM.Insights
@@ -81,7 +81,7 @@ Se le pedirá que responda a la misma información que cuando se ejecutó el scr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos. 
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
 
 * Use [Campos personalizados](log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
 

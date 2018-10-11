@@ -151,7 +151,7 @@ Si ya definió una aplicación web con el grupo de back-end en los pasos anterio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a crear sondeos de estado personalizado, visite [Create a custom probe for Application Gateway by using the portal](application-gateway-create-probe-portal.md)
+Para aprender a crear sondeos de estado personalizado, visite [Cree un sondeo de estado personalizado](application-gateway-create-probe-portal.md)
 
 Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Resource Manager](application-gateway-ssl-arm.md)
 

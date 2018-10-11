@@ -2,17 +2,18 @@
 title: Replicación y conmutación por error de máquinas virtuales de VMware a Azure mediante PowerShell en Azure Site Recovery | Microsoft Docs
 description: Aprenda a configurar la replicación y la conmutación por error a Azure de máquinas virtuales de VMware mediante PowerShell en Azure Site Recovery.
 services: site-recovery
-author: bsiva
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917819"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042809"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replicación y conmutación por error de máquinas virtuales de VMware a Azure con PowerShell
 
@@ -27,7 +28,7 @@ Aprenderá a:
 > - Crear cuentas de almacenamiento para almacenar los datos de replicación y replicar las máquinas virtuales.
 > - Realizar una conmutación por error. Configurar los valores de la conmutación por error para la replicación de máquinas virtuales.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 

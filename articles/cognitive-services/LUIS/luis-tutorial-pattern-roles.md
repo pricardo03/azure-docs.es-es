@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160254"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886167"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extracción de patrones relacionados contextualmente
 
@@ -40,9 +40,9 @@ Si tiene dificultades con la detección de la entidad simple porque se trata de 
 
 > [!div class="checklist"]
 > * Usar la aplicación del tutorial existente
-> * Crear entidades nuevas
-> * Crear una intención nueva
-> * Entrenar
+> * Creación de entidades nuevas
+> * Creación de una intención nueva
+> * Train
 > * Publicar
 > * Obtener intenciones y entidades del punto de conexión
 > * Crear un patrón con roles
@@ -51,16 +51,16 @@ Si tiene dificultades con la detección de la entidad simple porque se trata de 
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Uso de una aplicación existente
+## <a name="use-existing-app"></a>Usar una aplicación existente
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
 Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
 
-1.  Descargue y guarde [el archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Importe el archivo JSON en una aplicación nueva.
 
-3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `roles`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Como el nombre de la versión se usa como parte de la ruta de la dirección URL, no puede contener ningún carácter que no sea válido en una dirección URL.
+3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `roles`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
 ## <a name="create-new-entities"></a>Creación de entidades nuevas
 

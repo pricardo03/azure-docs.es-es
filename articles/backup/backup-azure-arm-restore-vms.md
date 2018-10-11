@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f7561ef4978e19439eafb6ef1a6ca1275c0f2bc7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380172"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804623"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -37,6 +37,7 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
 * Seleccionar el tipo de restauración, cree una nueva máquina virtual o restaure los discos y especifique los parámetros necesarios. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Seleccionar un punto de restauración
+
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
 
 1. En el menú de Azure, seleccione **Examinar**. En la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
@@ -102,7 +103,7 @@ Después de seleccionar el punto de restauración, elija la configuración de re
 El portal proporciona una opción **Creación rápida** para la máquina virtual restaurada. Para personalizar la configuración de la máquina virtual o los nombres de los recursos creados como parte de la creación de una nueva opción de máquina virtual, use PowerShell o el portal para restaurar los discos de copia de seguridad. Use comandos de PowerShell para asociarlos a su elección de configuración de máquina virtual. También puede usar la plantilla que se incluye con los discos restaurados para personalizar la máquina virtual restaurada. Para más información sobre cómo restaurar una máquina virtual que tiene varias NIC o que se encuentra bajo un equilibrador de carga, consulte [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations) (Restauración de una máquina virtual con configuraciones de red especiales). Si su máquina virtual Windows usa [licencia de concentrador](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure los discos y use PowerShell o una plantilla como se ha especificado en este artículo para crear la máquina virtual. Asegúrese de que especifica el **tipo de licencia** como "Windows_Server" al crear la máquina virtual para aprovechar las ventajas de HUB en la máquina virtual restaurada. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Creación de una nueva máquina virtual desde el punto de restauración
-1. Si no aún no lo ha hecho, [seleccione un punto de restauración](#restore-a vm-with-special-network-configurations) antes de comenzar a crear una nueva máquina virtual desde un punto de restauración. Después de seleccionar el punto de restauración, en la hoja **Restaurar configuración**, escriba o seleccione valores en cada uno de los siguientes campos:
+1. Si no aún no lo ha hecho, [seleccione un punto de restauración](#select-a-restore-point-for-restore) antes de comenzar a crear una nueva máquina virtual desde un punto de restauración. Después de seleccionar el punto de restauración, en la hoja **Restaurar configuración**, escriba o seleccione valores en cada uno de los siguientes campos:
 
     a. **Tipo de restauración**. Cree una máquina virtual.
 
@@ -239,9 +240,9 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
    b. Cree una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
-   c. Cree una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
+   c. Cree una máquina virtual con [varias NIC](../virtual-machines/windows/multiple-nics.md).
 
-   d. Cree una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
+   d. Cree una máquina virtual con [varias direcciones IP reservadas](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de solución de problemas para más información sobre los errores comunes con las máquinas virtuales. Asimismo, consulte el artículo sobre la administración de las tareas con las máquinas virtuales.

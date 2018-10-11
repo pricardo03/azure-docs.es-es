@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393934"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041194"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Resolución de conflictos de arquitectura multimaestro en Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ Este procedimiento tiene cuatro parámetros:
 
 * **conflicttingDocuments:** especifica una colección de la versión confirmada de todos los documentos en la base de datos, los cuales están en conflicto con el elemento incomingDocument de la columna de identificador, o con cualquier otro campo de índice único. Estos documentos tendrán un valor "rid" diferente en comparación con el elemento incomingDocument.
 
-El procedimiento definido por el usuario tiene acceso total a la clave de partición de Cosmos DB y puede realizar cualquier operación de almacenamiento para resolver conflictos. Si el procedimiento definido por el usuario no confirma la versión del conflicto, el sistema eliminará el conflicto y el elemento existingDocument permanecerá confirmado. Si se produce un error en el procedimiento definido por el usuario o este no existe, Azure Cosmos DB agregará el conflicto a la fuente de conflictos de solo lectura donde se puede procesar de forma asíncrona, tal como se muestra en el [modo asincrónico de resolución de conflictos](). 
+El procedimiento definido por el usuario tiene acceso total a la clave de partición de Cosmos DB y puede realizar cualquier operación de almacenamiento para resolver conflictos. Si el procedimiento definido por el usuario no confirma la versión del conflicto, el sistema eliminará el conflicto y el elemento existingDocument permanecerá confirmado. Si se produce un error en el procedimiento definido por el usuario o este no existe, Azure Cosmos DB agregará el conflicto a la fuente de conflictos de solo lectura donde se puede procesar de forma asíncrona, tal como se muestra en el [modo asincrónico de resolución de conflictos](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Personalizado: asincrónico  
 

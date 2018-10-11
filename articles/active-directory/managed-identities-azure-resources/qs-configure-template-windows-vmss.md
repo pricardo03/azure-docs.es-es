@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220926"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017523"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales de Azure mediante una plantilla
 
@@ -146,7 +146,7 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
 
    Si apiVersion es `2018-06-01` y la VM tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con los valores del diccionario userAssignedIdentities.
 
-   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01 y anteriores**
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
 
    Si apiVersion es `2017-12-01` y el conjunto de escalado de máquinas virtuales tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con la matriz `identityIds` de las identidades administradas asignadas por el usuario. 
    
@@ -279,7 +279,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines versión de API 2017-12-01 y anteriores**
+   **Microsoft.Compute/virtualMachines versión 2017-12-01 de la API**
 
    ```json
    "resources": [

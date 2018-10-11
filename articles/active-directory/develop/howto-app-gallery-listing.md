@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980277"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815229"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -39,7 +39,7 @@ ms.locfileid: "46980277"
 
 - Para las aplicaciones federadas (Open ID y SAML/WS-Fed), la aplicación debe admitir el modelo SaaS para que se incluya en la galería de Azure AD. Las aplicaciones de la galería empresarial deben admitir varias configuraciones de cliente y no la de un cliente específico.
 
-- Para OpenID Connect, la aplicación debe ser de varios inquilinos y para ella se debe  implementar correctamente el [marco de consentimiento de Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework). El usuario puede enviar la solicitud de inicio de sesión a un punto de conexión común para que los clientes puedas proporcionar su consentimiento a la aplicación. Puede controlar el acceso de usuario en función del identificador del inquilino y el UPN del usuario que se recibieron en el token.
+- Para OpenID Connect, la aplicación debe ser de varios inquilinos y para ella se debe  implementar correctamente el [marco de consentimiento de Azure AD](consent-framework.md). El usuario puede enviar la solicitud de inicio de sesión a un punto de conexión común para que los clientes puedas proporcionar su consentimiento a la aplicación. Puede controlar el acceso de usuario en función del identificador del inquilino y el UPN del usuario que se recibieron en el token.
 
 - Para SAML 2.0 o WS-Fed, la aplicación debe ser capaz de realizar la integración de SSO de SAML o WS-Fed en modo SP o IDP. Asegúrese de que esto funcione correctamente antes de enviar la solicitud.
 

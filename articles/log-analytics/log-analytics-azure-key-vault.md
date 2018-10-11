@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: na
-ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: ''
+ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309346"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043651"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solución de Azure Key Vault Analytics en Log Analytics
 
@@ -105,8 +105,8 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| type |*AzureDiagnostics* |
-| SourceSystem |*Azure* |
+| Escriba |*AzureDiagnostics* |
+| SourceSystem |*Las tablas de Azure* |
 | CallerIpAddress |Dirección IP del cliente que realizó la solicitud. |
 | Categoría | *AuditEvent* |
 | CorrelationId |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |

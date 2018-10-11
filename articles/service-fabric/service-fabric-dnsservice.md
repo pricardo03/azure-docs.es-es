@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397533"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830980"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servicio DNS en Azure Service Fabric
 El servicio DNS es un servicio de sistema opcional que se puede habilitar en el clúster para detectar otros servicios que usan el protocolo DNS. 
@@ -132,7 +132,7 @@ Una vez implementada la aplicación, la instancia de servicio de Service Fabric 
 
 ![puntos de conexión de servicio](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-En el ejemplo siguiente se establece el nombre DNS para un servicio con estado en `statefulsvc.app`. El servicio utiliza un esquema de partición con nombre. Tenga en cuenta que los nombres de particiones están en minúscula. Se trata de un requisito para las particiones de destino en las consultas de DNS; para más información, vea [Realización de consultas de DNS en una partición de servicio con estado](#making-dns-queries-on-a-stateful-service-partition).
+En el ejemplo siguiente se establece el nombre DNS para un servicio con estado en `statefulsvc.app`. El servicio utiliza un esquema de partición con nombre. Tenga en cuenta que los nombres de particiones están en minúscula. Se trata de un requisito para las particiones de destino en las consultas de DNS; para más información, vea [Realización de consultas de DNS en una partición de servicio con estado](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

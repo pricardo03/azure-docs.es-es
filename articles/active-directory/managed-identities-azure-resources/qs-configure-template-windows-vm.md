@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223447"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018492"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurar identidades administradas para recursos de Azure en una VM de Azure mediante plantillas
 
@@ -188,7 +188,7 @@ Si tiene una VM que ya no necesita la identidad administrada asignada por el sis
 
    Si la VM tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y conserve `UserAssigned` junto con los valores de diccionario `userAssignedIdentities`.
 
-   **Microsoft.Compute/virtualMachines versión 2018-06-01 y anteriores de la API**
+   **Microsoft.Compute/virtualMachines versión 2018-06-01 de la API**
    
    Si `apiVersion` es `2017-12-01` y la VM tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y conserve `UserAssigned` junto con la matriz `identityIds` de identidades administradas asignadas por el usuario.  
    
@@ -235,7 +235,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
    }
    ```
    
-   **Microsoft.Compute/virtualMachines versión 2017-12-01 y anteriores de la API**
+   **Microsoft.Compute/virtualMachines versión 2017-12-01 de la API**
     
    Si `apiVersion` es `2017-12-01`, las identidades administradas asignadas por el usuario se almacenan en la matriz `identityIds` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección `variables` de la plantilla.
     
@@ -316,7 +316,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines versión 2017-12-01 y anteriores de la API**
+   **Microsoft.Compute/virtualMachines versión 2017-12-01 de la API**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ Si tiene una VM que ya no necesita la identidad administrada asignada por el usu
     }
    ```
    
-   **Microsoft.Compute/virtualMachines versión 2018-06-01 y anteriores de la API**
+   **Microsoft.Compute/virtualMachines versión 2018-06-01 de la API**
     
    Para quitar una identidad administrada asignada por un usuario único de una VM, elimínela del diccionario `useraAssignedIdentities`.
 

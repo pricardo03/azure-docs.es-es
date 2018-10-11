@@ -2,18 +2,17 @@
 title: Implementación de grupos de varios contenedores en Azure Container Instances con la CLI de Azure y YAML
 description: Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances mediante la CLI de Azure y un archivo YAML.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/17/2018
-ms.author: marsma
-ms.openlocfilehash: 1d1885112b8e7f7b1e187073c86d561eb57fd23f
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: ffc9cf24e686924878a752b5d9df31160328ef0a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114470"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854718"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>Implementación de un grupo de contenedores con varios contenedores mediante YAML
 

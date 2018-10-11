@@ -8,14 +8,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: 1080bb0ad1d901a8b9a5ace4993d4e0d46924a03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2a0715d3becf695600ed84edbae38151acf055a8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381319"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246849"
 ---
 # <a name="what-is-anomaly-finder"></a>¿Qué es Anomaly Finder?
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Anomaly Finder permite supervisar los datos con el tiempo y detectar anomalías con aprendizaje automático, que se adapta a sus datos únicos aplicando automáticamente el modelo estadístico correcto independientemente del sector, el escenario o el volumen de datos. Con una serie temporal como entrada, Anomaly Finder API devuelve si un punto de datos es una anomalía o no, determina el valor esperado y establece los límites superior e inferior de visualización. Como un servicio de AI creado previamente, Anomaly Finder no requiere ninguna experiencia de aprendizaje automático más allá de comprender cómo usar una API de RESTful. Esto hace que el desarrollo sea sencillo y versátil, ya que funciona con cualquier dado de serie temporal y también se puede integrar en sistemas de datos de streaming. Anomaly Finder abarca un intervalo amplio de casos de uso: por ejemplo, herramientas financieras para administrar fraudes, robos, mercados volubles y posibles incidentes de negocios o supervisar el tráfico de dispositivos IoT conservando el anonimato. Esta solución también se puede monetizar como parte de un servicio para que los clientes finales comprendan los cambios de datos, gastos, rentabilidad de la inversión o actividades del usuario.
 Pruebe Anomaly Finder API y adquiera un conocimiento más amplio de los datos. 

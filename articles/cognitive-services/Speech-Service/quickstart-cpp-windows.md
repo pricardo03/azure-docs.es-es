@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo reconocer voz en C++ en el escrito
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: e6f8b8f2a3bcdf78de28bddc73502872e851da12
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 12faf7ae7e45e6f6ede739b24d9ead28ff26313e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434303"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886336"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C++ en Windows mediante el SDK de Voz
 
@@ -24,7 +24,7 @@ En este artículo, creará una aplicación de consola de C++ para Windows. El [S
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción del servicio de Voz para completar este inicio rápido. Puede obtener una gratis. Para más detalles, consulte [Prueba gratuita del servicio Voz](get-started.md).
+Necesita una clave de suscripción del servicio Voz para completar este inicio rápido. Puede obtener una gratis. Para más detalles, consulte [Prueba gratuita del servicio Voz](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
@@ -99,7 +99,7 @@ Busque este ejemplo en la carpeta `quickstart/cpp-windows`.
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Reconocimiento de intenciones a partir de contenido de voz con Speech SDK para C++](how-to-recognize-intents-from-speech-cpp.md)
+> [Reconocimiento de intenciones a partir de contenido de voz con el SDK de Voz para C++](how-to-recognize-intents-from-speech-cpp.md)
 
 ## <a name="see-also"></a>Otras referencias
 

@@ -4,17 +4,16 @@ description: Use AzCopy para migrar datos al contenido de archivos, blobs y tabl
 services: storage
 author: roygara
 ms.service: storage
-ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: bfc87a30250dd98c1b26616f680b5981070623f5
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: b238e0f8059e7b4e5223c72ebed04f7d5178fbf2
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182559"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830963"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutorial: migración de datos locales al almacenamiento en la nube mediante AzCopy
 
@@ -146,10 +145,10 @@ Para más información sobre las formas de mover datos locales a Azure Storage y
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Storage y AzCopy, consulte los recursos siguientes:
 
-* [Introducción a Azure Storage](../storage-introduction.md)
+* [Introducción a Almacenamiento de Azure](../storage-introduction.md)
 * [Transferencia de datos con AzCopy en Windows](storage-use-azcopy.md) 
 * [Transferencia de datos con AzCopy en Linux](storage-use-azcopy-linux.md) 
-* [crear una cuenta de almacenamiento](../storage-create-storage-account.md)
+* [Cree una cuenta de almacenamiento](../storage-create-storage-account.md)
 * [Administración de blobs con el Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)  
 
 

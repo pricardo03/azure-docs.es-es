@@ -1,20 +1,21 @@
 ---
-title: Preguntas más frecuentes de Bing Spell Check API - Azure Cognitive Services | Microsoft Docs
+title: Preguntas más frecuentes sobre Bing Spell Check API
+titlesuffix: Azure Cognitive Services
 description: Obtenga respuestas a preguntas frecuentes sobre Bing Spell Check API en Azure.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 87b1f3ed3e0aaa9f3c3c804dc9eac3ee60b4a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6662ffcbab9ea274a67bc4437ca1600f1625ff1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382390"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801512"
 ---
 # <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Preguntas más frecuentes sobre Bing Spell Check API
 
