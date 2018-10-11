@@ -1,20 +1,21 @@
 ---
-title: 'Información general sobre Project Answer Search: Microsoft Cognitive Services | Microsoft Docs'
+title: ¿Qué es Project Answer Search?
+titlesuffix: Azure Cognitive Services
 description: Introducción a Project Answer Search.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: overview
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: d87cf1390970d2c815b94bcaee7e07c19bc03cce
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381835"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883727"
 ---
 # <a name="what-is-project-answer-search"></a>¿Qué es Project Answer Search?
 Project Answer Search API usa el punto de conexión Bing v7 para obtener respuestas a preguntas. Una pregunta como "What is the circumference of the earth?" (¿Cuál es la circunferencia de la Tierra?) devuelve una respuesta con información objetiva.  Una consulta sobre una persona, un lugar o una cosa devuelve información sobre la entidad identificada por la consulta. Estos escenarios pueden resultar útiles en aplicaciones como bots de conversaciones, aplicaciones de mensajería, lectores, etc.  

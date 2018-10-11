@@ -1,3 +1,26 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
+ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842936"
+---
 ## <a name="test-your-code"></a>Prueba del código
 
 Presione **F5** para ejecutar el proyecto en Visual Studio. La aplicación **MainWindow** se muestra tal como aparece aquí:
@@ -18,7 +41,7 @@ Después de iniciar sesión, verá la información del perfil de usuario que dev
 
 |Propiedad  |Formato  |DESCRIPCIÓN |
 |---------|---------|---------|
-|**Name** |Nombre completo del usuario |Nombre y apellidos del usuario.|
+|**Nombre** |Nombre completo del usuario |Nombre y apellidos del usuario.|
 |**Nombre de usuario** |<span>user@domain.com</span> |Nombre de usuario que se usa para identificar al usuario.|
 |**Expiración del token** |Datetime |Hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 |**Token de acceso** |string |Cadena de token que se envía a las solicitudes HTTP que requieran un *encabezado de autorización*.|

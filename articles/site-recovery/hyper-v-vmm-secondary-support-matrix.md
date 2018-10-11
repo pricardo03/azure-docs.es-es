@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923423"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078853"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la replicación de máquinas virtuales de Hyper-V en un sitio secundario
 
@@ -55,15 +55,15 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 
 **Configuración** | **Compatible**  
 --- | --- 
-Host: formación de equipos NIC | Sí 
-Host: VLAN | Sí 
-Host: IPv4 | Sí 
+Host: formación de equipos NIC | SÍ 
+Host: VLAN | SÍ 
+Host: IPv4 | SÍ 
 Host: IPv6 | Sin  
 VM invitada: formación de equipos NIC | Sin 
-VM invitada: IPv4 | Sí
+VM invitada: IPv4 | SÍ
 VM invitada: IPv6 | Sin 
-VM invitada: Windows/Linux - dirección IP estática | Sí
-VM invitada: múltiples NIC | Sí
+VM invitada: Windows/Linux - dirección IP estática | SÍ
+VM invitada: múltiples NIC | SÍ
 
 
 ## <a name="storage"></a>Storage
@@ -73,9 +73,9 @@ VM invitada: múltiples NIC | Sí
 **Storage (host)** | **Compatible**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Sí
-SAN (ISCSI) | Sí
-Varias rutas (MPIO) | Sí
+SMB 3.0 |  SÍ
+SAN (ISCSI) | SÍ
+Varias rutas (MPIO) | SÍ
 
 ### <a name="guest-or-physical-server-storage"></a>Almacenamiento de servidor físico o invitado
 
@@ -83,19 +83,19 @@ Varias rutas (MPIO) | Sí
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sí (hasta 16 discos)
-VM de 2 generación | Sí
+VM de 2 generación | SÍ
 Disco en clúster compartido | Sin 
 Disco cifrado | Sin 
 UEFI| N/D
 NFS | Sin 
 SMB 3.0 | Sin 
 RDM | N/D
-Disco > 1 TB | Sí
-Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí
-Espacios de almacenamiento | Sí
+Disco > 1 TB | SÍ
+Volumen con disco en bandas > 1 TB<br/><br/> LVM | SÍ
+Espacios de almacenamiento | SÍ
 Agregar/quitar disco en caliente | Sin 
-Excluir el disco | Sí
-Varias rutas (MPIO) | Sí
+Excluir el disco | SÍ
+Varias rutas (MPIO) | SÍ
 
 ## <a name="vaults"></a>Almacenes
 

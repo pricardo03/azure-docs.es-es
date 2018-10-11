@@ -2,21 +2,21 @@
 title: Artículo sobre problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL Database | Microsoft Docs
 description: Información acerca de problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL Database.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/11/2018
-ms.openlocfilehash: e61e975a07dd643652ca4847025499e3e77f42be
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 10/09/2018
+ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377078"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883829"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216281"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867059"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -58,11 +58,11 @@ En cuanto el archivo llega a la ubicación de almacenamiento y se crea el blob c
 
 ### <a name="map-trigger-properties-to-pipeline-parameters"></a>Asignación de propiedades del desencadenador a parámetros de canalización
 
-Cuando se activa un desencadenador de eventos para un blob concreto, el evento captura el nombre de archivo y la ruta de acceso de la carpeta del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline.parameters.parameterName` en toda la canalización.
+Cuando se activa un desencadenador de eventos para un blob concreto, el evento captura el nombre de archivo y la ruta de acceso de la carpeta del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización.
 
 ![Asignación de propiedades a los parámetros de la canalización](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-Por ejemplo, en la captura de pantalla anterior, el desencadenador se configura para activarse cuando una ruta de acceso de blob que termine en `.csv` se crea en la cuenta de almacenamiento. Como resultado, cuando un blob con la extensión `.csv` se crea en algún lugar de la cuenta de almacenamiento, las propiedades `folderPath` y `fileName` capturan la ubicación del nuevo blob. Por ejemplo, `@triggerBody().folderPath` tiene un valor parecido a `/containername/foldername/nestedfoldername` y `@triggerBody().fileName` tiene un valor como `filename.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`. Puede usarlos en toda la canalización como `@pipeline.parameters.sourceFolder` y `@pipeline.parameters.sourceFile` respectivamente.
+Por ejemplo, en la captura de pantalla anterior, el desencadenador se configura para activarse cuando una ruta de acceso de blob que termine en `.csv` se crea en la cuenta de almacenamiento. Como resultado, cuando un blob con la extensión `.csv` se crea en algún lugar de la cuenta de almacenamiento, las propiedades `folderPath` y `fileName` capturan la ubicación del nuevo blob. Por ejemplo, `@triggerBody().folderPath` tiene un valor parecido a `/containername/foldername/nestedfoldername` y `@triggerBody().fileName` tiene un valor como `filename.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`. Puede usarlos en toda la canalización como `@pipeline().parameters.sourceFolder` y `@pipeline().parameters.sourceFile` respectivamente.
 
 ## <a name="json-schema"></a>Esquema JSON
 

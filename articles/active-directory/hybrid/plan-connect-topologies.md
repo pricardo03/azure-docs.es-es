@@ -12,18 +12,19 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bab18c5c36cf4ffbbe6268910bf9121bc351fdca
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305954"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068710"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
+
 
 Esta es la leyenda de las imágenes del artículo:
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966850"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902712"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -317,9 +317,9 @@ Puede escribir registros en el código de función que aparecen como seguimiento
 
 ### <a name="ilogger"></a>ILogger
 
-Use un parámetro [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) en las funciones en lugar de un parámetro `TraceWriter`. Los registros creados mediante el uso de `TraceWriter` se dirigen a Application Insights, pero `ILogger` permite hacer un [registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Use un parámetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) en las funciones en lugar de un parámetro `TraceWriter`. Los registros creados mediante el uso de `TraceWriter` se dirigen a Application Insights, pero `ILogger` permite hacer un [registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Con un objeto `ILogger` llama a [métodos de extensión `Log<level>` en ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) para crear registros. Por ejemplo, el código siguiente escribe registros `Information` con la categoría "Function".
+Con un objeto `ILogger` llama a [métodos de extensión `Log<level>` en ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para crear registros. Por ejemplo, el código siguiente escribe registros `Information` con la categoría "Function".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)

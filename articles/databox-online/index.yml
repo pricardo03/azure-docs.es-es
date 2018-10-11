@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 467d4d982d76f4defe8ed887ebcc3f99100af313
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069002"
+documentType: LandingData
+title: Documentación de Azure Data Box para la transferencia en línea
+metadata:
+  title: Documentación de Azure Data Box para la transferencia en línea
+  description: La familia Azure Data Box le permite transferir cientos de terabytes de datos a Azure de una forma rápida, económica y confiable. Use los dispositivos de Data Box para las transferencias de datos de alto rendimiento a través de la red.
+  services: databox-edge-gateway
+  author: alkohli
+  manager: twooley
+  ms.service: databox-edge-gateway
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/26/2018
+  ms.author: alkohli
+abstract:
+  description: La familia Azure Data Box le permite transferir cientos de terabytes de datos a Azure de una forma rápida, económica y confiable. Use los dispositivos de Data Box para las transferencias de datos de alto rendimiento a través de la red.<p>Elija Data Box Gateway<SUP>Versión preliminar</SUP> para enviar datos para archivado en la nube, recuperación ante desastres o para procesar datos a escala de nube.  Use Data Box Edge<SUP>Versión preliminar</SUP> para filtrar, analizar y transformar los datos cuando se mueven a Azure.</p><p>Obtenga información sobre cómo aprovechar Data Box Gateway y Data Box Edge para la transferencia basada en red con nuestros tutoriales.</p>
+sections:
+- title: Tutoriales
+  items:
+  - type: paragraph
+    text: <b>Para Data Box Gateway<SUP>Versión preliminar</SUP></b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="data-box-gateway-deploy-prep">Prepararse para implementar Data Box Gateway</a>
+    - html: <a href="/azure/databox/data-box-deploy-provision-hyperv">Aprovisionamiento de Azure Data Box Gateway en Hyper-V</a>
+    - html: <a href="data-box-gateway-deploy-provision-vmware">Aprovisionamiento de Azure Data Box Gateway en VMware</a>
+    - html: <a href="data-box-gateway-deploy-connect-setup-activate">Conexión, configuración y activación de Azure Data Box Gateway</a>
+    - html: <a href=data-box-gateway-deploy-add-shares">Transferencia de datos con Azure Data Box Gateway</a>
+  - type: paragraph
+    text: <b>Para Data Box Edge<SUP>versión preliminar</SUP></b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="data-box-edge-overview#sign-up">¡Suscríbase!</a>

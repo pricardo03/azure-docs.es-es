@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 4cc4da130d9253bf40e5d02806088a95b2195e7c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b8bc34d3786293aeae2c184ce5c44f4622ec57f1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531728"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078603"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V en el sitio local secundario
 
@@ -29,7 +29,7 @@ En este artículo se muestra cómo configurar la recuperación ante desastres en
 > * Creación de una directiva de replicación
 > * Habilitación de la replicación para una máquina virtual
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este escenario:
 

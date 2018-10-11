@@ -1,20 +1,21 @@
 ---
-title: ¿Qué es Project URL Preview? - Microsoft Cognitive Services | Microsoft Docs
+title: ¿Qué es Project URL Preview?
+titlesuffix: Azure Cognitive Services
 description: Introducción a Project URL Preview.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6b486e0ab4092bef4fe829a5f166311a572a2900
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381750"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869444"
 ---
 # <a name="what-is-project-url-preview"></a>¿Qué es Project URL Preview?
 El punto de conexión de URL Preview adopta un parámetro de consulta de dirección URL y devuelve una respuesta JSON con el nombre del recurso de destino, una breve descripción y un vínculo a una imagen para mostrarla en una vista previa. La respuesta incluye también la marca [isFamilyFriendly](url-preview-reference.md#query-parameters), que indica si la dirección URL contiene contenido para adultos, pirateado o ilegal. 

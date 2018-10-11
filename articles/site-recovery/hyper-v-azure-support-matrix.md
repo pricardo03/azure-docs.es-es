@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146813"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079215"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de compatibilidad para la replicación de Hyper-V en Azure
 
@@ -59,16 +59,16 @@ Agregar disco en máquina virtual de Hyper-V replicada | No compatible. Deshabil
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | ---
-Red de host: formación de equipos de adaptador de red | SÍ
-Red de host: VLAN | SÍ
-Red de host: IPv4 | SÍ
-Red de host: IPv6 | Sin 
-Red de máquina virtual invitada: formación de equipos NIC | Sin 
-Red de máquina virtual invitada: IPv4 | SÍ
-Red de máquina virtual invitada: IPv6 | Sin 
-Red de máquina virtual invitada: dirección IP estática (Windows) | SÍ
-Red de máquina virtual invitada: dirección IP estática (Linux) | Sin 
-Red de máquina virtual invitada: varios NIC | SÍ
+Red de host: formación de equipos de adaptador de red | SÍ | SÍ
+Red de host: VLAN | SÍ | SÍ
+Red de host: IPv4 | SÍ | SÍ
+Red de host: IPv6 | Sin  | Sin 
+Red de máquina virtual invitada: formación de equipos NIC | Sin  | Sin 
+Red de máquina virtual invitada: IPv4 | SÍ | SÍ
+Red de máquina virtual invitada: IPv6 | Sin  | SÍ
+Red de máquina virtual invitada: dirección IP estática (Windows) | SÍ | SÍ
+Red de máquina virtual invitada: dirección IP estática (Linux) | Sin  | Sin 
+Red de máquina virtual invitada: varios NIC | SÍ | SÍ
 
 
 

@@ -5,16 +5,16 @@ description: Aprenda a reconocer la voz en JavaScript en un explorador mediante 
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997444"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883670"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en JavaScript en un explorador mediante el SDK de Voz de Cognitive Services
 
@@ -36,6 +36,8 @@ La aplicación se basa en el SDK de Voz de Microsoft Cognitive Services ([descar
 Cree una nueva carpeta vacía. En caso de que desee hospedar el ejemplo en un servidor web, asegúrese de que este puede acceder a la carpeta.
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Desempaquete el SDK de Voz para JavaScript en esa carpeta
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Descargue el SDK de Voz en forma de [paquete .zip](https://aka.ms/csspeech/jsbrowserpackage) y desempaquételo en la carpeta recién creada. Se deberían desempaquetar dos archivos, es decir, `microsoft.cognitiveservices.speech.sdk.bundle.js` y `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 El último archivo es opcional y se utiliza para facilitar la depuración en el código del SDK, en caso de que sea necesario.

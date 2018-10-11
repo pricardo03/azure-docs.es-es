@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4989d221ccc21b2dd454339f8d83245f1556c109
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f24f25a4eb4db9e9f3e0b4569874dab94ef11b5
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971355"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900965"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referencia de tokens SAML de Azure AD
 
@@ -156,7 +156,7 @@ Este es un ejemplo de token SAML típico.
 
 ## <a name="related-content"></a>Contenido relacionado
 * Para más información acerca de la administración de la directiva de vigencia de token mediante Graph API de Azure AD, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
-* Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](../active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 
+* Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 
 * Agregue [notificaciones opcionales y personalizadas](active-directory-optional-claims.md) a los tokens de la aplicación.
 * Uso del [inicio de sesión único (SSO) con SAML](single-sign-on-saml-protocol.md).
 * Uso del [Protocolo SAML de cierre de sesión único de Azure](single-sign-out-saml-protocol.md)

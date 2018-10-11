@@ -4,17 +4,17 @@ description: Guía de introducción a las herramientas de desarrollo de almacena
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 07/03/2018
+ms.date: 10/10/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 40f256b7a2be5a5a1d642983fa6ce018ee602ac2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3eefa13a7283febbebd2adc16047b28ffcae55fe
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441719"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078382"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introducción a las herramientas de desarrollo de almacenamiento de Azure Stack
 
@@ -176,9 +176,9 @@ EndpointSuffix=local.azurestack.external
 
 Los siguientes tutoriales de Azure Blob Storage son aplicables a Azure Stack. Tenga en cuenta los requisitos específicos de los sufijos de punto de conexión de Azure Stack que se describen en la sección de [ejemplos](#examples) anterior.
 
-* [Introducción a Azure Blob Storage mediante .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Introducción al Almacenamiento de blobs de Azure mediante .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Uso de Blob Storage en Java](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
-* [Uso de Blob Storage en Node.js](../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Uso de almacenamiento de blobs en Node.js](../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [Uso del almacenamiento de blobs en C++](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Uso del almacenamiento de blobs de PHP](../../storage/blobs/storage-php-how-to-use-blobs.md)
 * [Uso de Azure Blob Storage desde Python](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
@@ -188,25 +188,25 @@ Los siguientes tutoriales de Azure Blob Storage son aplicables a Azure Stack. Te
 
 Los siguientes tutoriales de Azure Queue Storage son aplicables a Azure Stack. Tenga en cuenta los requisitos específicos de los sufijos de punto de conexión de Azure Stack que se describen en la sección de [ejemplos](#examples) anterior.
 
-* [Introducción a Azure Queue Storage mediante .NET](../../storage/queues/storage-dotnet-how-to-use-queues.md)
-* [Uso de Queue Storage en Java](../../storage/queues/storage-java-how-to-use-queue-storage.md)
+* [Introducción al Almacenamiento en cola de Azure mediante .NET](../../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [Uso del almacenamiento de colas de Java](../../storage/queues/storage-java-how-to-use-queue-storage.md)
 * [Uso del almacenamiento de colas de Node.js](../../storage/queues/storage-nodejs-how-to-use-queues.md)
 * [Uso del almacenamiento de colas en C++](../../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Uso del almacenamiento de colas de PHP](../../storage/queues/storage-php-how-to-use-queues.md)
-* [Uso de Queue Storage en Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
+* [Uso del almacenamiento de colas de Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
 * [Uso del almacenamiento de colas de Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
 
 ## <a name="table-storage"></a>Almacenamiento de tablas
 
 Los siguientes tutoriales de Azure Table Storage son aplicables a Azure Stack. Tenga en cuenta los requisitos específicos de los sufijos de punto de conexión de Azure Stack que se describen en la sección de [ejemplos](#examples) anterior.
 
-* [Introducción a Azure Table Storage mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [Introducción al Almacenamiento de tablas de Azure mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Uso de Table Storage en Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Uso de Azure Table Storage en Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
 * [Uso de Table Storage desde C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Uso de Table Storage en PHP](../../cosmos-db/table-storage-how-to-use-php.md)
+* [Uso del almacenamiento de tablas de PHP](../../cosmos-db/table-storage-how-to-use-php.md)
 * [Uso de Table Storage en Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Uso de Table Storage en Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
+* [Uso del almacenamiento de tablas de Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

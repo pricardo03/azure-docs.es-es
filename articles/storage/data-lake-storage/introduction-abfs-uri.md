@@ -9,12 +9,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 27ea73862f834a834b1622d0e51d0076c9afbe71
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 71c3343db592162bcfa7ec46a29e0d680ca83079
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523111"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900713"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Uso del URI de Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ La sintaxis del URI de Data Lake Storage Gen2 depende de si la cuenta de almacen
 
 Si la cuenta compatible con Data Lake Storage Gen2 que quiere dirigir **no está** configurada como el sistema de archivos predeterminado durante la creación de la cuenta, la sintaxis abreviada del URI es la siguiente:
 
-<pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
+<pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
 1. **Identificador de esquema**: el protocolo `abfs` se usa como el identificador de esquema. Tiene la opción de conectarse con o sin una conexión Capa de sockets seguros (SSL). Use `abfss` para conectarse con una conexión Capa de sockets seguros.
 

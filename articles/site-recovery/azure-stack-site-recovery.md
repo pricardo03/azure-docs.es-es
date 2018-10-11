@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697703"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902831"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Replicar máquinas virtuales de Azure Stack en Azure (versión preliminar)
+# <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
 En este artículo se muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack, mediante el [servicio Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -25,10 +25,6 @@ Site Recovery contribuye a su estrategia de continuidad empresarial y recuperaci
 - Cuando se produzca una interrupción en el sitio principal, use Site Recovery para conmutar por error a Azure.
 - En la conmutación por error, se crean máquinas virtuales de Azure a partir de los datos almacenados de la máquina virtual y los usuarios pueden seguir teniendo acceso a las cargas de trabajo que se ejecutan en esas máquinas virtuales de Azure.
 - Cuando todo vuelve a estar activo y en ejecución, puede conmutar por recuperación las máquinas virtuales de Azure a su sitio principal y empezar a replicar de nuevo Azure Storage.
-
-
-> [!NOTE]
-> Site Recovery para Azure Stack está actualmente en versión preliminar pública.
 
 
 En este artículo, aprenderá a:
