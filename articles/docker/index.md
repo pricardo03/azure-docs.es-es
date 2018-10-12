@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 76afc558048f1890e5e2440fd002361172acbea2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c1dab114ddd010daa88222f380ad7a47f1dd1767
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433844"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090712"
 ---
 <div class="content">
    <h1>Docker en Azure</h1>   
@@ -38,7 +38,7 @@ Docker es una conocida plataforma de creación de imágenes y administración de
 </ol>
 <h2>Recursos</h2>
 <p>Consulte los vínculos siguientes para obtener materiales de referencia y herramientas adicionales para trabajar con Docker en Azure.</p>
-<a href="https://www.docker.com/docker-azure">Sitio web de Azure de Docker</a><br/>
+<a href="https://docs.docker.com/docker-for-azure/why/">Sitio web de Azure de Docker</a><br/>
 <a href="https://docs.docker.com/machine/drivers/azure/">Controlador de Azure de Docker</a><br/>
 <a href="https://docker.com">Más información acerca de Docker</a><br/>
 </div>
