@@ -4,6 +4,18 @@ items:
   items:
   - name: ¿Qué es Content Moderator?
     href: overview.md
+- name: Guías de inicio rápido
+  items:
+  - name: Introducción a Content Moderator
+    href: quick-start.md
+  - name: Uso del SDK de .NET
+    items:
+    - name: Comprobar contenido de la imagen
+      href: image-moderation-quickstart-dotnet.md
+    - name: Comprobar contenido del texto
+      href: text-moderation-quickstart-dotnet.md
+    - name: Comprobar contenido del vídeo
+      href: video-moderation-api.md
 - name: Ejemplos
   items:
   - name: Ejemplos de SDK de .NET
@@ -26,30 +38,20 @@ items:
   items:
   - name: Probar Content Moderator
     items:
-    - name: Introducción a Content Moderator
-      href: quick-start.md
     - name: API de moderación
       items:
-      - name: 'Biblioteca auxiliar: .NET'
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: 'Imágenes: consola de API'
         href: try-image-api.md
-      - name: 'Imágenes: .NET'
-        href: image-moderation-quickstart-dotnet.md
+      - name: Comprobar imágenes con listas personalizadas
+        href: image-lists-quickstart-dotnet.md
       - name: 'Imágenes personalizadas: consola de API'
         href: try-image-list-api.md
-      - name: 'Imágenes personalizadas: .NET'
-        href: image-lists-quickstart-dotnet.md
       - name: 'Texto: consola de API'
         href: try-text-api.md
-      - name: 'Texto: .NET'
-        href: text-moderation-quickstart-dotnet.md
+      - name: Comprobar texto con términos personalizados
+        href: term-lists-quickstart-dotnet.md
       - name: 'Términos personalizados: consola de API'
         href: try-terms-list-api.md
-      - name: 'Términos personalizados: .NET'
-        href: term-lists-quickstart-dotnet.md
-      - name: 'Vídeos: .NET'
-        href: video-moderation-api.md
     - name: Revisión de las API
       items:
       - name: 'Trabajos: consola de API'
@@ -132,9 +134,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Seminario web a petición
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: 32f0c64253836d3080cc815753e361d810e1f2e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 68febbe4e4206c774f75e1a07216eddf86dc5888
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433815"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309832"

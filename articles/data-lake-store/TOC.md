@@ -28,27 +28,28 @@
 ### [Control de acceso](data-lake-store-access-control.md)
 ### [Protección de datos almacenados](data-lake-store-secure-data.md)
 ### [Cifrado](data-lake-store-encryption.md)
+### [Integración de red virtual (versión preliminar)](data-lake-store-network-security.md)
 
 ## Autenticación con Data Lake Storage Gen1
 ### [Opciones de autenticación](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [Autenticación de usuario final](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Uso de Java](data-lake-store-end-user-authenticate-java-sdk.md)
-#### [Uso del SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Uso de SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 #### [Uso de la API de REST](data-lake-store-end-user-authenticate-rest-api.md)
 #### [Uso de Python](data-lake-store-end-user-authenticate-python.md)
 ### [Autenticación entre servicios](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 #### [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
-#### [Uso del SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Uso de SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 #### [Uso de la API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Uso de Python](data-lake-store-service-to-service-authenticate-python.md)
 
 ## Trabajo con Data Lake Storage Gen1
 ### Operaciones de administración de cuenta
-#### [Uso de .NET SDK](data-lake-store-get-started-net-sdk.md)
+#### [Uso de SDK de .NET](data-lake-store-get-started-net-sdk.md)
 #### [Uso de la API de REST](data-lake-store-get-started-rest-api.md)
 #### [Uso de Python](data-lake-store-get-started-python.md)
 ### Operaciones del sistema de archivos
-#### [Uso del SDK de .NET](data-lake-store-data-operations-net-sdk.md)
+#### [Uso de SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 #### [Uso de SDK de Java](data-lake-store-get-started-java-sdk.md)
 #### [Uso de la API de REST](data-lake-store-data-operations-rest-api.md)
 #### [Uso de Python](data-lake-store-data-operations-python.md)

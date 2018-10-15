@@ -77,6 +77,7 @@
 #### [Alta disponibilidad en Windows con disco compartido para instancias de (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Alta disponibilidad en Windows con uso compartido de archivos SOFS para instancias de (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [Alta disponibilidad en SUSE Linux para instancias de (A)SCS](high-availability-guide-suse.md)
+#### [Alta disponibilidad en Red Hat Enterprise Linux para una instancia de (A)SCS](high-availability-guide-rhel.md)
 ### Preparación de la infraestructura de Azure
 #### [Windows con disco compartido para instancias de (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows con uso compartido de archivos SOFS para instancias de (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
