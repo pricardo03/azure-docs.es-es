@@ -33,7 +33,6 @@
 ### [Aplicación web de Ruby on Rails](ruby-rails-web-app.md)
 ### [Cliente de Cassandra y Node.js](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [Clústeres de RDMA para ejecutar aplicaciones MPI](rdma-cluster.md)
 ### HPC Pack
 #### [Creación de un clúster para cargas de trabajo de Linux](hpcpack-cluster-powershell-script.md)
 #### [Administración de un clúster con nodos de Linux](hpcpack-cluster.md)
@@ -54,7 +53,7 @@
 ## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates)
 ## [REST de Compute](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST de Network](https://msdn.microsoft.com/library/jj157182.aspx)
-## [API de Almacenamiento](https://msdn.microsoft.com/library/ee460790.aspx)
+## [REST de Storage](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Recursos
