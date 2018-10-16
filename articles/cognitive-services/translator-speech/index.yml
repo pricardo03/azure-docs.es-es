@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 879dd4e9b20a57257dd7b93fddb54168d6bceb33
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ac2b928e73031adb77616161f844f3f7fabdf146
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095072"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339855"
 documentType: LandingData
 title: Documentación de Translator Speech API
 metadata:
@@ -21,8 +21,12 @@ metadata:
   ms.date: 3/5/2018
   ms.author: v-jansko
 abstract:
-  description: Microsoft Translator Speech API, que forma parte de la colección de API de Microsoft Cognitive Services, es un servicio de traducción automática basado en la nube que proporciona conversión de voz en voz o de voz en texto. Basado en la tecnología REST estándar del sector, se puede utilizar para agregar traducción de voz en tiempo real a cualquier aplicación, herramienta o cualquier solución que requiera traducción de voz en varios idiomas, independientemente del sistema operativo de destino o de los lenguajes de desarrollo. Para obtener una lista completa de los idiomas admitidos, consulte la sección de <a href="languages.md">idiomas admitidos</a>.
+  description: Microsoft Translator Speech API, que forma parte de la colección de API de Microsoft Cognitive Services, es un servicio de traducción automática basado en la nube que proporciona conversión de voz en voz o de voz en texto. Basado en la tecnología REST estándar del sector, se puede utilizar para agregar traducción de voz en tiempo real a cualquier aplicación, herramienta o cualquier solución que requiera traducción de voz en varios idiomas, independientemente del sistema operativo de destino o de los lenguajes de desarrollo. Para obtener una lista completa de los idiomas admitidos, consulte el artículo de <a href="languages.md">idiomas admitidos</a>.
 sections:
+- title: 
+  items:
+  - type: paragraph
+    text: '<b>Nota: El nuevo servicio y SDK de Voz va a sustituir a Translator Speech API que dejará de funcionar a partir del 15 de octubre de 2019. Para más información acerca de cómo cambiar al servicio Voz, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api">Migración de Translator Speech API al servicio Voz</a></b>'
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph

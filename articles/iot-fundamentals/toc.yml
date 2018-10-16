@@ -1,42 +1,51 @@
+items:
 - name: Aspectos básicos de Azure IoT
   href: index.yml
 - name: Información general
   items:
-    - name: Introducción
-      href: iot-introduction.md
-    - name: Servicios y tecnologías de Azure IoT
-      href: iot-services-and-technologies.md
+  - name: Introducción
+    href: iot-introduction.md
+  - name: Servicios y tecnologías de Azure IoT
+    href: iot-services-and-technologies.md
 - name: Soluciones
   items:
-    - name: Aceleradores de soluciones de IoT
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: 'https://docs.microsoft.com/microsoft-iot-central/'
+  - name: Aceleradores de soluciones de IoT
+    href: /azure/iot-suite
+  - name: IoT Central
+    href: https://docs.microsoft.com/microsoft-iot-central/
 - name: Servicios de plataforma
   items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: Azure Maps
-      href: /azure/azure-maps
-    - name: SDK de servicio
-      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-    - name: Time Series Insights
-      href: /azure/time-series-insights
+  - name: IoT Hub
+    href: /azure/iot-hub
+  - name: IoT Hub Device Provisioning Service
+    href: /azure/iot-dps
+  - name: Azure Digital Twins
+    href: /azure/digital-twins
+  - name: Azure Maps
+    href: /azure/azure-maps
+  - name: Time Series Insights
+    href: /azure/time-series-insights
+  - name: SDK de servicio
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
 - name: perimetral
   items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDK de dispositivo IoT
-      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+  - name: IoT Edge
+    href: /azure/iot-edge
+  - name: SDK de dispositivo IoT
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Seguridad
   items:
-    - name: Arquitectura de seguridad
-      href: iot-security-architecture.md
-    - name: Prácticas recomendadas de seguridad
-      href: iot-security-best-practices.md
-    - name: Implementación segura
-      href: iot-security-deployment.md
-    - name: Seguridad total
-      href: iot-security-ground-up.md
+  - name: Arquitectura de seguridad
+    href: iot-security-architecture.md
+  - name: Prácticas recomendadas de seguridad
+    href: iot-security-best-practices.md
+  - name: Implementación segura
+    href: iot-security-deployment.md
+  - name: Seguridad total
+    href: iot-security-ground-up.md
+ms.openlocfilehash: df43416b0d1e72e152a2917846ba0407c861421b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321381"
