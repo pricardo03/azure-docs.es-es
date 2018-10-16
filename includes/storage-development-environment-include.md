@@ -1,3 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45738474"
+---
 ## <a name="set-up-your-development-environment"></a>Configuración de su entorno de desarrollo
 A continuación, configure el entorno de desarrollo en Visual Studio para poder probar los ejemplos de código de esta guía.
 
@@ -41,7 +58,7 @@ Tiene dos opciones de entorno para ejecutar los ejemplos de esta guía:
 * Puede ejecutar el código en una cuenta de Azure Storage en la nube. 
 * Puede ejecutar el código en el emulador de almacenamiento de Azure. El emulador de almacenamiento es un entorno local que emula una cuenta de Azure Storage en la nube. El emulador es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../articles/storage/common/storage-use-emulator.md).
 
-Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para más información, consulte [Claves de acceso](../articles/storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Azure Storage. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.

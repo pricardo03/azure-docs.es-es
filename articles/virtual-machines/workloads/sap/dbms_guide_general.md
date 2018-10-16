@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918808"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162315"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -272,6 +272,11 @@ Hay varios procedimientos recomendados, fruto de cientos de implementaciones de 
 - Las máquinas virtuales dentro de la red virtual tienen una asignación estática de la dirección IP privada. Vea el artículo [Tipos de direcciones IP y métodos de asignación en Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) como referencia.
 - Las restricciones de enrutamiento a y desde las máquinas virtuales de DBMS **NO** se establecen con firewalls instalados en las máquinas virtuales de DBMS locales. En su lugar, el enrutamiento del tráfico se define mediante [Grupos de seguridad de red (NSG) de Azure](https://docs.microsoft.com/azure/virtual-network/security-overview)
 - Con el fin de separar y aislar el tráfico a la máquina virtual de DBMS, asigne otros adaptadores de red a la máquina virtual. Donde cada adaptador de red tiene una dirección IP diferente y se asigna a una otra subred de red virtual lo que, de nuevo, tiene otras reglas de NSG. Tenga en cuenta que la separación o el aislamiento del tráfico de red es simplemente una medida para el enrutamiento y no permite establecer cuotas para el rendimiento de la red.
+
+> [!NOTE]
+> Debería asignar direcciones IP estáticas mediante Azure a NIC virtuales individuales. No debería asignar direcciones IP estáticas dentro del sistema operativo invitado a una NIC virtual. Algunos servicios de Azure como el servicio Azure Backup se basan en el hecho de que al menos el vNIC principal está establecido en DHCP y no en direcciones IP estáticas. Consulte también el documento [Solución de problemas de copia de seguridad de máquinas virtuales de Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Si necesita asignar varias direcciones IP estáticas a una máquina virtual, tiene que asignar varias NIC virtuales a una máquina virtual.
+>
+>
 
 Con dos máquinas virtuales para la implementación de DBMS de producción, dentro de un conjunto de disponibilidad de Azure además de un enrutamiento independiente para la capa de aplicación de SAP y el tráfico de administración y operaciones a las dos máquinas virtuales de DBMS, el diagrama aproximado tendría el siguiente aspecto:
 

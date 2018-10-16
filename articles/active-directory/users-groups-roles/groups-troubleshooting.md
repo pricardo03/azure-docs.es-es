@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82a5c57ce874e77a7912945a6fca07acee339197
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444494"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46293986"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solución de problemas relacionados con las pertenencias dinámicas para grupos
 
@@ -42,6 +42,6 @@ ms.locfileid: "39444494"
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
+* [Administración de aplicaciones en Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [¿Qué es Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integración de las identidades locales con Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integración de las identidades locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 50e4b9b8b8f9433ec725aaa982e969cec7afb91c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: ac5be20815b552c08e5cd1054bf24d7a10b56498
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265792"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124276"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Registros de servidor en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema. 
@@ -29,9 +29,9 @@ En Azure Portal, seleccione el servidor de Azure Database for MySQL. En el encab
 Para obtener más información sobre la CLI de Azure, consulte [Configuración y acceso a los registros del servidor con la CLI de Azure](howto-configure-server-logs-in-cli.md).
 
 ## <a name="log-retention"></a>Retención de registros
-Los registros están disponibles hasta siete días después de su creación. Si el tamaño total de los registros disponibles supera los 7,5 GB, se eliminan los archivos más antiguos hasta que haya espacio disponible. 
+Los registros están disponibles hasta siete días después de su creación. Si el tamaño total de los registros disponibles supera los 7 GB, se eliminan los archivos más antiguos hasta que haya espacio disponible. 
 
-Los registros se rotan cada 24 horas o 7,5 GB, o que ocurra primero.
+Los registros se rotan cada 24 horas o 7 GB, lo que ocurra primero.
 
 
 ## <a name="configure-logging"></a>registro 
