@@ -97,6 +97,8 @@ items:
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hiperescala
         href: sql-database-service-tier-hyperscale.md
+      - name: Preguntas más frecuentes sobre el hiperescalado
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: Niveles de servicio de DTU
       href: sql-database-service-tiers-dtu.md
     - name: Pago por adelantado de capacidad reservada
@@ -161,6 +163,8 @@ items:
       href: sql-database-business-continuity.md
     - name: Alta disponibilidad
       href: sql-database-high-availability.md
+    - name: Recuperación de base de datos acelerada
+      href: sql-database-accelerated-database-recovery.md
     - name: Copias de seguridad de bases de datos
       href: sql-database-automated-backups.md
     - name: Retención de copia de seguridad a largo plazo
@@ -179,13 +183,13 @@ items:
         href: sql-database-geo-replication-portal.md
       - name: Configuración de la seguridad de las réplicas
         href: sql-database-geo-replication-security-config.md
-    - name: Recuperación de base de datos
+    - name: Opciones de recuperación de base de datos
       items:
-      - name: Recuperación de base de datos
+      - name: Recuperación mediante copias de seguridad
         href: sql-database-recovery-using-backups.md
-      - name: Recuperación tras una interrupción
+      - name: Guía de recuperación de interrupciones
         href: sql-database-disaster-recovery.md
-      - name: Obtención de detalles de recuperación
+      - name: Maniobras de recuperación
         href: sql-database-disaster-recovery-drills.md
     - name: Diseño de aplicaciones
       items:
@@ -319,7 +323,7 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Comparación de características SQL
     href: sql-database-features.md
-  - name: Rendimiento y optimización
+  - name: Rendimiento y supervisión
     items:
     - name: Rendimiento inteligente
       items:
@@ -630,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Testimonios de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: abafd9d9022b306ce090b618ecc9477cd95c714e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869251"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353517"

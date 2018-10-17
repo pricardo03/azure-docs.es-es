@@ -14,7 +14,7 @@
 ### [Determinar la opción de publicación para la solución](./determine-your-listing-type.md)  
 
 ### Guía de publicación por tipo de oferta 
-#### [Virtual Machines](./marketplace-virtual-machines.md)
+#### [Máquinas virtuales](./marketplace-virtual-machines.md)
 #### [Aplicaciones de Azure: plantillas de solución](./marketplace-solution-templates.md)
 #### [Aplicaciones de Azure: aplicaciones administradas](./marketplace-managed-apps.md)
 #### [Aplicaciones de SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
@@ -22,7 +22,7 @@
 #### [Módulos de IoT Edge](./iot-edge-module.md) 
 #### [Servicio de consultoría](./consulting-services.md)  
 #### [Guía de publicación de Office 365, Dynamics 365 y Power BI](./appsource-offer-publishing-guide.md)
-#### [Habilitar un listado de Microsoft AppSource y Azure Marketplace mediante Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
+#### [Habilitar un listado de AppSource y Marketplace mediante Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Desarrollo del negocio con Marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Soluciones preferidas](./preferred-solutions.md) 
