@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983891"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884312"
 ---
 # <a name="example-upload-and-index-your-videos"></a>Ejemplo: carga e indexación de los vídeos  
 
@@ -36,6 +36,11 @@ En el artículo también se explican algunos de los parámetros que puede establ
 - Al cargar el vídeo según la dirección URL (opción preferida) el punto de conexión debe estar protegido con TLS 1.2 (o una versión posterior).
 - La opción de matriz de bytes está limitada a 2 GB y el tiempo de espera se agota después de 30 minutos.
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
+
+> [!Tip]
+> Es recomendable que use .NET Framework versión 4.6.2 o superior porque las versiones anteriores de .NET Framework no usan de forma predeterminada TLS 1.2.
+>
+> Si debe usar versiones anteriores de .NET Framework, agregue una línea en el código antes de realizar la llamada a la API REST:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="configurations-and-params"></a>Configuración y parámetros
 
@@ -243,8 +248,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## <a name="common-errors"></a>Errores comunes
 
+La operación Upload puede devolver los códigos de estado que aparecen en la siguiente tabla.
 
+|Código de estado|ErrorType (en el cuerpo de la respuesta)|DESCRIPCIÓN|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|El mismo vídeo ya se está procesando en la cuenta especificada.|
+|400|VIDEO_ALREADY_FAILED|El mismo vídeo no se pudo procesar en la cuenta especificada hace menos de 2 horas. Los clientes de API deberán esperar al menos 2 horas antes de volver a cargar un vídeo.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

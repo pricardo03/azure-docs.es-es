@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: af6faa6abcc54ef11e066d3a348dac28b23c7af4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698118"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079096"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Use la herramienta de migración de datos para migrar los datos a Azure Cosmos DB 
 
@@ -42,7 +42,9 @@ Antes de seguir las instrucciones del presente artículo, asegúrese de tener in
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) o superior.
 
-* Aumente el rendimiento: la duración de la migración de datos depende de la cantidad de rendimiento configurado para una sola colección o un conjunto de colecciones. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte Niveles de rendimiento y planes de tarifa de Azure Cosmos DB.
+* **Aumente el rendimiento:** la duración de la migración de datos depende de la cantidad de rendimiento configurado para una sola colección o un conjunto de colecciones. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte Niveles de rendimiento y planes de tarifa de Azure Cosmos DB.
+
+* **Cree recursos de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las colecciones desde Azure Portal. Si va a migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, asegúrese de proporcionar una clave de partición al crear las colecciones de Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Información general
 La herramienta de migración de datos es una solución de código abierto que importa datos a Azure Cosmos DB desde una variedad de orígenes, como:
@@ -171,7 +173,7 @@ Que devuelve los resultados siguientes (parciales):
 
 ![Screenshot of SQL query results](./media/import-data/sqlqueryresults.png)
 
-Tenga en cuenta los alias como Address.AddressType y Address.Location.StateProvinceName. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos Address y Address.Location durante la importación. Este es un ejemplo de un documento resultante en Azure Cosmos DB:
+Tenga en cuenta los alias como Address.AddressType y Address.Location.StateProvinceName. Al especificar el separador de anidamiento ".", la herramienta de importación crea los subdocumentos Address y Address.Location durante la importación. Este es un ejemplo de un documento resultante en Azure Cosmos DB:
 
 *{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
 
@@ -192,7 +194,7 @@ De forma similar a lo que sucede con el origen SQL, la propiedad de separador de
 
 ![Captura de pantalla de registros de ejemplo de CSV: CSV a JSON](./media/import-data/csvsample.png)
 
-Tenga en cuenta los alias como DomainInfo.Domain_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en Azure Cosmos DB:
+Tenga en cuenta los alias como DomainInfo.Domain_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de ".", la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en Azure Cosmos DB:
 
 *{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
@@ -522,6 +524,14 @@ Opcionalmente, puede optar por adornar el JSON resultante, lo que aumentará el 
       }
     ]
     }]
+
+Este es el ejemplo de línea de comandos para importar el archivo JSON en Azure Blob Storage:
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
 En la pantalla Configuración avanzada, especifique la ubicación del archivo de registro en que desee que se escriban los errores. Las siguientes reglas se aplican a esta página:

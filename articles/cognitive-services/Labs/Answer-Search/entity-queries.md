@@ -1,22 +1,23 @@
 ---
-title: 'Consulta de entidad de Project Answer Search: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Guía de inicio rápido: Consulta de entidades con Project Answer Search'
+titlesuffix: Azure Cognitive Services
 description: Consultas de entidades mediante Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381743"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883608"
 ---
-# <a name="query-for-entities"></a>Consulta de entidades
+# <a name="quickstart-query-for-entities"></a>Guía de inicio rápido: Consulta de entidades
 
 Si la consulta solicita información acerca de una persona, un lugar o una cosa, la respuesta puede contener una respuesta `entities`.  Las consultas siempre devuelven páginas web, y los [hechos](fact-queries.md) y/o las [entidades](entity-queries.md) dependen de las consultas.
 

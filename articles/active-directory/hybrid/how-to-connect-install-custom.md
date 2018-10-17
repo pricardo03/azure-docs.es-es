@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452639"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888169"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -156,12 +156,19 @@ En una implementación de producción completa va a ser difícil mantener un gru
 ### <a name="optional-features"></a>Características opcionales
 Esta pantalla le permite seleccionar las características opcionales para situaciones específicas.
 
+>[!WARNING]
+>Las versiones de Azure AD Connect **1.0.8641.0** y las anteriores se basan en Azure Access Control Service para la escritura diferida de contraseñas.  Este servicio se retirará el **7 de noviembre de 2018**.  Si está usando cualquiera de estas versiones de Azure AD Connect y ha habilitado la escritura diferida de contraseñas, puede que los usuarios pierdan la capacidad de cambiar o restablecer sus contraseñas una vez que el servicio se retire. No se admitirá la escritura diferida de contraseñas con estas versiones de Azure AD Connect.
+>
+>Para más información sobre Azure Access Control Service, consulte [Procedimiento para la migración desde Azure Access Control Service](../develop/active-directory-acs-migration.md)
+>
+>Haga clic [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=47594) para descargar la versión más reciente de Azure AD Connect.
+
 ![Características opcionales](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > Si actualmente tiene activo DirSync o Azure AD Synx, no active ninguna de las características de escritura diferida en Azure AD Connect.
->
->
+
+
 
 | Características opcionales | DESCRIPCIÓN |
 | --- | --- |
@@ -190,6 +197,9 @@ En función de los servicios seleccionados en el paso anterior, esta página mos
 
 ### <a name="directory-extension-attribute-sync"></a>Sincronización de atributos de las extensiones de directorios
 En Azure AD, el esquema se puede extender con los atributos personalizados agregados por la organización o con otros atributos de Active Directory. Para utilizar esta característica, seleccione **Sincronización de atributos de las extensiones de directorios** en la página **Características opcionales**. En esta página puede seleccionar más atributos para la sincronización.
+
+>[!NOTE]
+>El cuadro de atributos disponibles distingue mayúsculas de minúsculas.
 
 ![Sincronización de Azure AD Connect: Extensiones de directorio](./media/how-to-connect-install-custom/extension2.png)
 

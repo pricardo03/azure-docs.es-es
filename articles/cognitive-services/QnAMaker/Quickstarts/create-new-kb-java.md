@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8a876d1e5416547d0eead0882b69bdf68818c5d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037616"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886218"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Creación de una base de conocimiento en Java
 
@@ -27,7 +27,7 @@ A continuación se dan dos direcciones URL de preguntas frecuentes de ejemplo (e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesitará [JDK 7 u 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar y ejecutar este código. Puede utilizar un IDE de Java si tiene un favorito, pero un editor de texto también funcionará.
+Necesitará [JDK 7 u 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar y ejecutar este código. Puede utilizar un IDE de Java si tiene un favorito, pero un editor de texto también funcionará.
 
 Tiene que tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **QnA Maker** seleccionado como recurso. Necesita una clave de suscripción de pago de la cuenta de la nueva API en el [panel de Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices). Cualquiera de las dos claves funcionará para esta guía de inicio rápido.
 

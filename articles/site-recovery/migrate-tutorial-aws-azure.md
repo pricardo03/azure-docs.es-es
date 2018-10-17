@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885332"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078943"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -239,10 +239,9 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 Ejecute una conmutación por error real para las instancias de EC2 a fin de migrarlas a máquinas virtuales de Azure:
 
 1. En **Elementos protegidos** > **Elementos replicados**, seleccione las instancias de AWS y, a continuación, seleccione **Conmutación por error**.
-2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Seleccione el punto de recuperación más reciente.
-3. Seleccione **Shut down machine before beginning failover** (Apagar la máquina antes de comenzar la conmutación por error) si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
-4. Asegúrese de que la máquina virtual aparece en **Elementos replicados**.
-5. Haga clic con el botón derecho en cada máquina virtual y, a continuación, seleccione **Completar la migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
+2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Seleccione el punto de recuperación más reciente e inicie la conmutación por error. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
+1. Asegúrese de que la máquina virtual aparece en **Elementos replicados**.
+2. Haga clic con el botón derecho en cada máquina virtual y, a continuación, seleccione **Completar la migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
 
     ![Completar migración](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

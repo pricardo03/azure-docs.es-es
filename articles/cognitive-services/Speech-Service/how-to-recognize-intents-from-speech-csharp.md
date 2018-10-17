@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063037"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884357"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de Voz para C#
 
@@ -123,7 +123,7 @@ Las secciones siguientes incluyen una explicación del código.
 El primer paso para reconocer las intenciones en el habla es crear una configuración de voz a partir de la clave y la región del punto de conexión de LUIS. Las configuraciones de voz se pueden utilizar para crear reconocedores de las distintas funcionalidades del SDK de Voz. La configuración de voz tiene múltiples formas de especificar la suscripción que desea usar; aquí, usamos `FromSubscription`, que toma la clave de suscripción y la región.
 
 > [!NOTE]
-> Utilice la clave y la región de su suscripción a LUIS, no su suscripción a Voz.
+> Utilice la clave y la región de su suscripción a LUIS, no de su suscripción a Voz.
 
 Después, cree un reconocedor de intenciones mediante `new IntentRecognizer(config)`. Dado que la configuración ya sabe qué suscripción utilizar, no es necesario volver a especificar la clave de suscripción y el punto de conexión al crear el reconocedor.
 
@@ -166,7 +166,7 @@ La aplicación del tutorial no analiza el resultado de JSON, solo lo muestra en 
 
 ## <a name="specify-recognition-language"></a>Especificación de un idioma de reconocimiento
 
-De forma predeterminada, LUIS reconoce las intenciones en idioma inglés de Estados Unidos (`en-us`). Al asignar un código de configuración regional a la propiedad `SpeechRecognitionLanguage` de la configuración de voz, puede reconocer las intenciones en otros idiomas. Por ejemplo, agregue `config.SpeechRecognitionLanguage = "de-de";` en la aplicación tutorial antes de crear el reconocedor para reconocer las intenciones en idioma alemán. Consulte [Idiomas admitidos](supported-languages.md#speech-to-text).
+De forma predeterminada, LUIS reconoce las intenciones en idioma inglés de Estados Unidos (`en-us`). Al asignar un código de configuración regional a la propiedad `SpeechRecognitionLanguage` de la configuración de voz, puede reconocer las intenciones en otros idiomas. Por ejemplo, agregue `config.SpeechRecognitionLanguage = "de-de";` en la aplicación tutorial antes de crear el reconocedor para reconocer las intenciones en idioma alemán. Consulte [Idiomas admitidos](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconocimiento continuo desde un archivo
 

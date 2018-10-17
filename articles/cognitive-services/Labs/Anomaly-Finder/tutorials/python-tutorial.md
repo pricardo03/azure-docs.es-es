@@ -1,28 +1,31 @@
 ---
-title: 'Detección de anomalías de aplicaciones en Python: Microsoft Cognitive Services | Microsoft Docs'
-description: Explore un cuaderno de Python que usa Anomaly Detection API en Microsoft Cognitive Services. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
+title: 'Tutorial: Detección de anomalías, Python'
+titlesuffix: Azure Cognitive Services
+description: Explore un cuaderno de Python que usa Anomaly Detection API. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: d35f41ddab21aa155376ad52ff4084298dab8fc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381715"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887758"
 ---
-# <a name="anomaly-detection-python-application"></a>Detección de anomalías de aplicaciones en Python
+# <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Detección de anomalías con una aplicación Python
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 En este tutorial se muestra cómo utilizar Anomaly Detection API en Python y cómo visualizar los resultados mediante bibliotecas populares. Use Jupyter para ejecutar el tutorial y pruebe sus propios datos con su clave de suscripción. Para obtener información sobre cómo empezar a trabajar con cuadernos interactivos de Jupyter Notebook, consulte la [documentación de Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Suscripción a Anomaly Detection y cómo obtener una clave de suscripción 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Suscripción a Anomaly Detection y obtención de una clave de suscripción 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

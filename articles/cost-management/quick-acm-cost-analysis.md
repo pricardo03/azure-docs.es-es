@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041547"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079113"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guía de inicio rápido: Exploración y análisis de costos con el análisis de costos
 
@@ -34,13 +34,21 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
 El análisis de costos está disponible para todos los clientes con [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
 
-- Cuenta de facturación
-- department
-- Cuenta de inscripción
-- Grupo de administración
-- Subscription
-- Grupos de recursos
+- El ámbito de la *cuenta de facturación* se define en https://ea.azure.com y requiere acceso de administrador de organización. No se requiere ninguna configuración de EA como requisito previo. La información de facturación en el análisis de costos se consolida para todas las suscripciones del contrato Enterprise. A menudo, la cuenta de facturación se denomina *contrato Enterprise* o *inscripción*.
 
+- El ámbito de *departamento* ámbito se define en https://ea.azure.com y requiere acceso de administrador de departamento. La opción **DA view charges** (El administrador del departamento ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todas las suscripciones que pertenecen a la cuenta de inscripción vinculadas al departamento.
+
+- El ámbito de *cuenta de inscripción* se define en https://ea.azure.com y requiere acceso de propietario de la cuenta. La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todas las suscripciones que pertenecen a la cuenta de inscripción. La cuenta de inscripción a menudo se denomina el *propietario de la cuenta*.
+
+- El ámbito de *grupo de administración* se define en https://portal.azure.com y requiere acceso de lector de administración de costos (o lector). La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todas las suscripciones debajo del grupo de administración.
+
+- El ámbito de *suscripción* se define en https://portal.azure.com y requiere acceso de lector de administración de costos (o lector). La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todos los recursos y grupos de recursos de la suscripción.
+
+- El ámbito de *grupo de recursos* se define en https://portal.azure.com y requiere acceso de lector de administración de costos (o lector). La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todos los recursos y grupos de recursos.
+
+
+
+Para más información acerca de cómo configurar los valores de **gastos de la vista de AD** y **gastos de la vista de PC**, consulte [Habilitación del acceso a los costos](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -94,6 +102,11 @@ Los gráficos dinámicos bajo la vista Total superior muestran vistas para difer
 ![Todos los datos de la vista actual](./media/quick-acm-cost-analysis/full-data-set.png)
 
 La imagen anterior muestra los nombres de los grupos de recursos. Las etiquetas de visualización de recursos no están disponibles en ninguna de las vistas, filtros o agrupaciones de análisis de costos.
+
+Al agrupar los costos por un atributo concreto, se muestran los diez mayores contribuidores a los costos, de mayor a menor. Si hay más de diez grupos, se muestran los nueve mayores contribuidores a los costos, así como un grupo **Otros**, que abarca todos los grupos restantes juntos.
+
+Las máquinas virtuales, redes y recursos de almacenamiento *clásicos* (Azure Service Management o ASM) no comparten datos de facturación detallados. Al agrupar los costos se combinan como **servicios clásicos**.
+
 
 ## <a name="download-cost-analysis-data"></a>Descargue datos de análisis de costos
 

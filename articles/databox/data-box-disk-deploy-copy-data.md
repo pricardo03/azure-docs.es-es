@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7eb17138f42cdada10edd5ef08873eb2afee91fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452622"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068985"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos
 
@@ -163,7 +163,75 @@ Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Da
 > -  Al copiar los datos, asegúrese de que su tamaño se ajusta a los límites descritos en los [límites de almacenamiento de Azure y Data Box Disk](data-box-disk-limits.md). 
 > - Si los datos que carga Data Box Disk están siendo cargados a la vez por otras aplicaciones fuera de Data Box Disk, podría provocar errores en el trabajo de carga y daños en los datos.
 
-## <a name="verify-data"></a>Comprobación de datos 
+### <a name="split-and-copy-data-to-disks"></a>División y copia de datos en discos
+
+Este procedimiento opcional se puede usar cuando se utilizan varios discos y se tiene un conjunto de datos grande que es necesario dividir y copiar entre todos los discos. La herramienta Data Box Split Copy ayuda a dividir y copia los datos en un equipo Windows.
+
+1. En el equipo Windows, asegúrese de que se ha descargado la herramienta Data Box Split Copy y que se ha extraído en una carpeta local. Esta herramienta se descargó cuando se descargó el conjunto de herramientas de Data Box Disk para Windows.
+2. Abra el Explorador de archivos. Anote la unidad del origen de datos y las letras de unidad asignadas a Data Box Disk. 
+
+     ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+ 
+3. Identificar los datos de origen que se copian. Por ejemplo, en este caso:
+    - Se han identificado los siguientes datos del blob en bloques.
+
+         ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+
+    - Se han identificado los siguientes datos del blob en páginas.
+
+         ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+ 
+4. Vaya a la carpeta en la que se extrae el software. Busque el archivo SampleConfig.json en ella. Se trata de un archivo de solo lectura que puede modificar y guardar.
+
+   ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+ 
+5. Modifique el archivo SampleConfig.json.
+ 
+    - Especifique el nombre de un trabajo. Se crea una carpeta en Data Box Disk y se convierte en el contenedor de la cuenta de Azure Storage asociada con estos discos. El nombre del trabajo debe seguir las convenciones de nomenclatura de contenedores de Azure. 
+    - Especifique una ruta de acceso de origen anotando el formato de la ruta de acceso de SampleConfigFile.json. 
+    - Escriba las letras de unidad correspondiente a los discos de destino. Los datos se toman de la ruta de acceso de origen y se copian en varios discos.
+    - Especifique una ruta de acceso para los archivos de registro. De forma predeterminada, se envía al directorio actual en el que se encuentra el archivo .exe.
+
+     ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+
+6. Para validar el formato de archivo, vaya a JSONlint. Guarde el archivo como ConfigFile.json. 
+
+     ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+ 
+7. Abra una ventana de símbolo del sistema. 
+
+8. Ejecute DataBoxDiskSplitCopy.exe. Escriba
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
+
+     ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+ 
+9. Entre para continuar el script.
+
+    ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+  
+10. Cuando el conjunto de datos se divide y se copia, se presenta el resumen de la herramienta Split Copy para la sesión de copia. A continuación se muestra una salida de ejemplo.
+
+    ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+ 
+11. Compruebe que los datos se dividen entre los discos de destino. 
+ 
+    ![Dividir datos de copia](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+     
+    Si examina más a fondo el contenido de la unidad n:, verá que se crean dos subcarpetas correspondientes a los datos con formato de blob en bloques y blob en páginas.
+    
+     ![Dividir datos de copia ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+
+12. Si se produce un error en la sesión de copia, para recuperar los datos y reanudarla, use el siguiente comando:
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+
+
+Una vez que se completa la copia de los datos, el siguiente paso es validarlos. 
+
+
+## <a name="validate-data"></a>Validación de datos 
 
 Para comprobar los datos, realice los pasos siguientes.
 
@@ -177,7 +245,7 @@ Para comprobar los datos, realice los pasos siguientes.
 
     > [!TIP]
     > - Restablezca la herramienta entre dos ejecuciones.
-    > - Utilice la opción 1 para validar los archivos que solo tratan con conjuntos de datos grandes que contienen archivos pequeños (~KB). En estos casos, la generación de la suma de comprobación puede llevar mucho tiempo y el rendimiento puede ser muy lento.
+    > - Utilice la opción 1 para validar los archivos que solo tratan con conjuntos de datos grandes que contienen archivos pequeños (~ KB). En estos casos, la generación de la suma de comprobación puede llevar mucho tiempo y el rendimiento puede ser muy lento.
 
 3. Si usa varios discos, ejecute el comando para cada disco.
 

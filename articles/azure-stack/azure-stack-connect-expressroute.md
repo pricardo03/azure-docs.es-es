@@ -3,7 +3,7 @@ title: Conexión de Azure Stack a Azure mediante ExpressRoute
 description: Aprenda a conectar redes virtuales de Azure Stack a redes virtuales de Azure mediante ExpressRoute.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050451"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078705"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Conexión de Azure Stack a Azure mediante Azure ExpressRoute
 
@@ -98,7 +98,7 @@ Use los procedimientos siguientes para crear los recursos de red necesarios en A
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Creación de la red virtual y la subred de máquina virtual
 
 1. Inicie sesión en el portal de usuario con una cuenta de usuario (inquilino).
-1. En el portal, seleccione **New** (Nuevo).
+1. En el portal, seleccione **+ Crear un recurso**.
 
 1. En **Azure Marketplace**, seleccione **Networking** (Red).
 
@@ -131,7 +131,7 @@ Use los procedimientos siguientes para crear los recursos de red necesarios en A
 
 #### <a name="create-the-virtual-network-gateway"></a>Creación de la puerta de enlace de red virtual
 
-1. En el portal de usuario de Azure Stack, seleccione **New** (Nuevo).
+1. En el portal de usuario de Azure Stack, seleccione **+ Crear un recurso**.
 1. En **Azure Marketplace**, seleccione **Networking** (Red).
 1. Seleccione **Puerta de enlace de red virtual** en la lista de recursos de red.
 1. En el campo **Name** (Nombre), escriba **GW1**.
@@ -146,7 +146,7 @@ Use los procedimientos siguientes para crear los recursos de red necesarios en A
 
 El recurso de la puerta de enlace de red local identifica la puerta de enlace remota en el otro extremo de la conexión VPN. En este ejemplo, el extremo remoto de la conexión es la subinterfaz LAN del enrutador de ExpressRoute. Para el inquilino 1, que se muestra en la *Figura 2*, la dirección remota es 10.60.3.255.
 
-1. Inicie sesión en el portal de usuario de Azure Stack con su cuenta de usuario y seleccione **New** (Nuevo).
+1. Inicie sesión en el portal de usuario de Azure Stack con su cuenta de usuario y seleccione **+Crear un recurso**.
 1. En **Azure Marketplace**, seleccione **Networking** (Red).
 1. Seleccione **local network gateway** (puerta de enlace de red local) en la lista de recursos de red.
 1. En el campo **Name** (Nombre), escriba **ER-Router-GW**.
@@ -163,7 +163,7 @@ El recurso de la puerta de enlace de red local identifica la puerta de enlace re
 
 #### <a name="create-the-connection"></a>Creación de la conexión
 
-1. En el portal de usuario de Azure Stack, seleccione **New** (Nuevo).
+1. En el portal de usuario de Azure Stack, seleccione **+ Crear un recurso**.
 1. En **Azure Marketplace**, seleccione **Networking** (Red).
 1. Seleccione **Conexión** en la lista de recursos.
 1. En **Basics** (Datos básicos), elija **Site-to-site (IPSec)** (Sitio a sitio [IPSec]) como **tipo de conexión**.
@@ -187,7 +187,7 @@ Después de crear la puerta de enlace de red virtual, puede obtener la direcció
 
 Para comprobar el tráfico de datos a través de la conexión VPN, necesita máquinas virtuales para enviar y recibir datos en la red virtual de Azure Stack. Cree una máquina virtual e impleméntela en la subred de máquina virtual de la red virtual.
 
-1. En el portal de usuario de Azure Stack, seleccione **New** (Nuevo).
+1. En el portal de usuario de Azure Stack, seleccione **+ Crear un recurso**.
 1. En **Azure Marketplace**, seleccione **Compute** (Proceso).
 1. En la lista de imágenes de máquina virtual, seleccione la imagen **Windows Server 2016 Datacenter Eval**.
 

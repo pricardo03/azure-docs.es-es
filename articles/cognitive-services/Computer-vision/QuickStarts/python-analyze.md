@@ -1,63 +1,56 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision para Python: Análisis de imágenes remotas | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, analizará una imagen remota mediante Computer Vision con Python en Cognitive Services.
+title: 'Guía de inicio rápido: Análisis de imágenes remotas en REST y Python con Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, analizará una imagen remota mediante Computer Vision API con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 65f9b0d4fb007a6a9b8ef489ca59f384e047a0dd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772340"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883948"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-python"></a>Guía de inicio rápido: Análisis de imágenes remotas (REST, Python)
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Guía de inicio rápido: Análisis de imágenes remotas mediante API REST y Python en Computer Vision
 
-En esta guía de inicio rápido, analizará una imagen remota con Computer Vision. Para analizar una imagen local, consulte [Análisis de imágenes locales con Python](python-disk.md).
+En esta guía de inicio rápido, analizará una imagen remota almacenada para extraer características visuales con la API REST de Computer Vision. Con el método de [análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
 
 Puede ejecutar esta guía de inicio rápido paso a paso mediante un cuaderno de Jupyter en [MyBinder](https://mybinder.org). Para iniciar Binder, seleccione el botón siguiente:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener [Python](https://www.python.org/downloads/) instalado si desea ejecutar el ejemplo localmente.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-remote-image"></a>Analizar una imagen remota
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-Con el [método de análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen. Puede cargar una imagen o especificar una URL de imagen y elegir qué características se van a devolver, como:
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-* Una lista detallada de las etiquetas relacionadas con el contenido de la imagen.
-* Una descripción del contenido de la imagen en una oración completa.
-* Las coordenadas, el sexo y la edad de las caras de la imagen.
-* El tipo de imagen (imágenes prediseñadas o dibujo lineal).
-* El color dominante, el color de énfasis o si una imagen está en blanco y negro.
-* La categoría definida en esta [taxonomía](../Category-Taxonomy.md).
-* ¿La imagen incluye contenido para adultos o insinuaciones de tipo sexual?
-
-Para ejecutar el ejemplo, siga estos pasos:
-
-1. Copie el siguiente ejemplo de código en un nuevo archivo de script de Python.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `vision_base_url` por la ubicación donde obtuvo las claves de suscripción.
-1. Tiene la opción de cambiar el valor `image_url` por otra imagen.
-1. Ejecute el script.
-
-El código siguiente usa la biblioteca `requests` de Python para llamar a Analyze Image API de Computer Vision. Los resultados se devuelven como un objeto JSON. La clave de API se pasa a través del diccionario `headers`. Los tipos de características que se van a reconocer se pasan mediante el diccionario `params`.
-
-## <a name="analyze-image-request"></a>Solicitud Analyze Image
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscription_key` por la clave de suscripción.
+    1. Reemplace el valor de `vision_base_url` por la dirección URL del punto de conexión del recurso de Computer Vision en la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `image_url` por la dirección URL de una imagen diferente que desee analizar.
+1. Guarde el código como un archivo con la extensión `.py`. Por ejemplo, `analyze-image.py`.
+1. Abra una ventana de símbolo del sistema.
+1. En el símbolo del sistema, utilice el comando `python` para ejecutar el ejemplo. Por ejemplo, `python analyze-image.py`.
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 #%matplotlib inline
 import matplotlib.pyplot as plt
+import json
 from PIL import Image
 from io import BytesIO
 
@@ -89,7 +82,7 @@ response.raise_for_status()
 # The 'analysis' object contains various fields that describe the image. The most
 # relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
-print(analysis)
+print(json.dumps(response.json()))
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
@@ -97,11 +90,12 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
-## <a name="analyze-image-response"></a>Respuesta de Analyze Image
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Se devuelve una respuesta correcta en código JSON, por ejemplo:
+Se devuelve una respuesta correcta en JSON. La página web de ejemplo analiza y muestra una respuesta correcta en la ventana del símbolo del sistema, parecida a la del ejemplo siguiente:
 
 ```json
 {
@@ -175,9 +169,13 @@ Se devuelve una respuesta correcta en código JSON, por ejemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no necesite el archivo, elimínelo.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore una aplicación de Python que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore una aplicación de Python que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de Computer Vision API para Python](../Tutorials/PythonTutorial.md)

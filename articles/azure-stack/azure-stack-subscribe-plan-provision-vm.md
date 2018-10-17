@@ -3,7 +3,7 @@ title: Suscripción a una oferta en Azure Stack | Microsoft Docs
 description: Creación de suscripciones para ofertas en Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
-ms.author: brenduns
-ms.openlocfilehash: 9153649774a67533649fb62da83a3f50abd592da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 09/05/2018
+ms.author: sethm
+ms.openlocfilehash: b6739a194f6374cf90e6508f4a4316892daaf3dd
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295217"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079249"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Creación de suscripciones para ofertas en Azure Stack
 
@@ -46,9 +46,9 @@ Después de crear una suscripción para un usuario, podrá iniciar sesión en el
    - **Nombre para mostrar**: un nombre descriptivo para identificar la suscripción que aparece como *Nombre de suscripción de usuario*.
    - **Usuario** : especifique un usuario de un inquilino de directorio disponible para esta suscripción. El nombre de usuario se muestra como *Propietario*.  El formato del nombre de usuario depende de la solución de identidad. Por ejemplo: 
 
-     - **Azure AD:**  *&lt;user1>@&lt;contoso.onmicrosoft.com>*
+     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:**  *&lt;user1>@&lt;azurestack.local>*
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
    - **Inquilino de directorio** : seleccione el inquilino de directorio al que pertenece la cuenta de usuario. Si no ha habilitado los servicios multiinquilino, solo estará disponible el inquilino de directorio local.
 
@@ -60,7 +60,7 @@ Después de crear una suscripción para un usuario, podrá iniciar sesión en el
 
 Un operador de nube puede añadir un plan complementario a una suscripción creada anteriormente en cualquier momento:
 
-1. En el portal de administración, seleccione **Más servicios** > **Suscripciones de usuario**. Seleccione la suscripción que desea cambiar.
+1. En el portal de administración, seleccione **Todos los servicios** y, después, en la categoría **RECURSOS ADMINISTRATIVOS**, seleccione **Suscripciones de usuario**. Seleccione la suscripción que desea cambiar.
 
 2. Seleccione **Complementos** y, después, seleccione **+Agregar**.  
 
@@ -84,13 +84,13 @@ Como usuario, puede iniciar sesión en el portal de usuarios para buscar y suscr
    ![Creación de una oferta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Después de suscribirse a una oferta, actualice el portal para ver los servicios que forman parte de la nueva suscripción.
-4. Para ver la suscripción que ha creado, seleccione **Más servicios** y, después, seleccione **Suscripciones**. Seleccione la suscripción para ver sus detalles.  
+4. Para ver la suscripción que ha creado, seleccione **Todos los servicios** y, después, en la categoría **GENERAL** seleccione **Suscripciones**. Seleccione la suscripción para ver sus detalles.  
 
 ### <a name="to-subscribe-to-an-add-on-plan"></a>Para suscribirse a un plan complementario
 
 Si la oferta tiene un plan complementario, puede añadirlo a su suscripción en cualquier momento.  
 
-1. En el portal de usuarios, seleccione **Más servicios** > **Suscripciones** y seleccione la suscripción que desea cambiar. Si hay planes complementarios disponibles, la opción **+Agregar plan** estará activa y hay un icono para **Planes complementarios**.
+1. En el portal de usuarios, seleccione **todos los servicios**. A continuación, en la categoría **GENERAL** seleccione **Suscripciones** y, después, seleccione la suscripción que desea cambiar. Si hay planes complementarios disponibles, la opción **+Agregar plan** estará activa y hay un icono para **Planes complementarios**.
 
    >[!NOTE]
    >Si **+Agregar plan** no está activo, no hay ningún plan complementario para la oferta asociado a esa suscripción.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161543"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068815"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempaquetado, conexión y desbloqueo de Azure Data Box Disk
 
@@ -76,12 +76,14 @@ Dependiendo de si está conectado a un cliente de Windows o de Linux, los pasos 
 Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
      
 1. En Azure Portal, vaya a **General > Detalles del dispositivo**. 
-2. Descargue el conjunto de herramientas de Data Box Disk que se corresponde con el cliente de Windows. 
+2. Descargue el conjunto de herramientas de Data Box Disk que se corresponde con el cliente de Windows. Este conjunto de herramientas contiene 3 herramientas: Data Box Disk Unlock, Data Box Disk Validation y Data Box Disk Split Copy. 
+
+    En este procedimiento, solo usará la herramienta Data Box Disk Unlock. Las otras dos herramientas se usarán más adelante.
 
     > [!div class="nextstepaction"]
     > [Descargar conjunto de herramientas de Data Box Disk para Windows](http://aka.ms/databoxdisktoolswin)         
 
-3. Extraiga la herramienta en el mismo equipo que va a utilizar para copiar los datos.
+3. Extraiga el conjunto de herramientas en el mismo equipo que va a utilizar para copiar los datos. 
 4. Abra una ventana del símbolo del sistema o ejecute Windows PowerShell como administrador en el mismo equipo.
 5. (Opcional) Para comprobar que el equipo que va a usar para desbloquear el disco cumple los requisitos del sistema operativo, ejecute el comando de comprobación del sistema. A continuación se muestra una salida de ejemplo. 
 

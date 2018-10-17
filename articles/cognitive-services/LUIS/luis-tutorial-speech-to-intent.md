@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042081"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883931"
 ---
 # <a name="integrate-speech-service"></a>Integración de Speech Service
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, que ya se incluye como referencia. 
@@ -26,7 +26,7 @@ En este artículo, necesita una cuenta de sitio web de [LUIS][LUIS] gratuita par
 En Azure Portal, [cree](luis-how-to-azure-subscription.md#create-luis-endpoint-key) una clave de **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importación de aplicación Human Resources de LUIS
-Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Descargue el archivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json), guárdelo con la extensión *.json e [impórtelo](luis-how-to-start-new-app.md#import-new-app) a LUIS. 
+Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Descargue el archivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), guárdelo con la extensión `.json` e [impórtelo](luis-how-to-start-new-app.md#import-new-app) en LUIS. 
 
 Esta aplicación tiene intenciones, entidades y expresiones relacionadas con el dominio de Human Resources. Las expresiones de ejemplo incluyen:
 
@@ -68,57 +68,29 @@ El SDK de Voz ya está incluido como referencia.
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Captura de pantalla de Visual Studio 2017 que muestra el paquete NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificación del código de C#
-Abra el archivo **LUIS_samples.cs** y cambie las siguientes variables:
+Abra el archivo `Program.cs` y cambie las variables siguientes:
 
 |Nombre de la variable|Propósito|
 |--|--|
-|luisSubscriptionKey|Corresponde al valor de clave de suscripción de la dirección URL del punto de conexión de la página Publicar.|
-|luisRegion|Corresponde al primer subdominio de la dirección URL del punto de conexión.|
-|luisAppId|Corresponde a la ruta de la dirección URL del punto de conexión que aparece después de **apps/**.|
+|LUIS_assigned_endpoint_key|Corresponde al valor de clave de suscripción asignado de la dirección URL del punto de conexión de la página Publicar.|
+|LUIS_endpoint_key_region|Corresponde al primer subdominio de la dirección URL del punto de conexión, por ejemplo `westus`.|
+|LUIS_app_ID|Corresponde a la ruta de la dirección URL del punto de conexión que aparece después de **apps/**.|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "Captura de pantalla de Visual Studio 2017 que muestra variables de LUIS_samples.cs")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-El archivo ya tiene las intenciones de Human Resources asignadas.
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "Captura de pantalla de Visual Studio 2017 que muestra intenciones de LUIS_samples.cs")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+El archivo `Program.cs` ya tiene las intenciones de Human Resources asignadas.
 
 Compile y ejecute la aplicación. 
 
 ## <a name="test-code-with-utterance"></a>Prueba de código con expresión
-Seleccione **1** y diga al micrófono "Quién es el administrador de John Smith".
+Diga por el micrófono "¿Qué dentistas autorizados hay en Redmond?".
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-La intención correcta, **GetEmployeeOrgChart**, se ha conseguido con una confiabilidad del 61 %. Se ha devuelto la entidad keyPhrase. 
+La intención correcta, **GetEmployeeBenefits**, se ha conseguido con una confiabilidad del 85 %. Se ha devuelto la entidad keyPhrase. 
 
 El SDK de Voz devuelve toda la respuesta de LUIS. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no la necesite, elimine la aplicación HumanResources de LUIS. Para ello, seleccione el botón de puntos suspensivos (***...***) situado a la derecha del nombre de la aplicación en la lista de aplicaciones y haga clic en **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+Cuando ya no la necesite, elimine la aplicación HumanResources de LUIS. Para ello, seleccione la aplicación y, a continuación, en la barra de herramientas contextual encima de la lista, seleccione **Eliminar**. En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 Recuerde eliminar el directorio LUIS-Samples cuando termine de utilizar el código de ejemplo.
 

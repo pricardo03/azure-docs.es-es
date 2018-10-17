@@ -1,27 +1,30 @@
 ---
-title: 'Detección de anomalías de aplicaciones en Java: Microsoft Cognitive Services | Microsoft Docs'
-description: Explore una aplicación en Java que usa Anomaly Detection API en Microsoft Cognitive Services. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
+title: 'Tutorial: Detección de anomalías con Java'
+titlesuffix: Azure Cognitive Services
+description: Explore una aplicación Java que usa Anomaly Detection API. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 228d440da358eba1322e2228c54f21e925e36ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597955"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887707"
 ---
-# <a name="anomaly-detection-java-application"></a>Detección de anomalías de aplicaciones en Java
+# <a name="tutorial-anomaly-detection-with-java-application"></a>Tutorial: Detección de anomalías con una aplicación Java
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 En este artículo se explica cómo usar una aplicación de Java sencilla para invocar Anomaly Detection API.  
 El ejemplo envía los datos de serie temporal a Anomaly Detection API con su clave de suscripción y, después, obtiene todos los puntos de anomalías y el valor esperado de cada punto de datos a partir de la API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 

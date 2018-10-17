@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154788"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069104"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -169,6 +169,19 @@ Para invalidar la configuración de directiva de replicación predeterminada, ha
 
 > [!IMPORTANT]
   Si habilita la coherencia entre varias máquinas virtuales, las máquinas del grupo de replicación se comunican entre sí a través del puerto 20004. Asegúrese de que no haya ninguna aplicación de firewall que bloquee la comunicación interna entre las máquinas virtuales en el puerto 20004. Si desea que las máquinas virtuales de Linux formen parte de un grupo de replicación, asegúrese de que el tráfico saliente en el puerto 20004 se abra manualmente según las instrucciones de la versión específica de Linux.
+
+### <a name="configure-encryption-settings"></a>Configuración de los valores del cifrado
+
+Si la máquina virtual de origen tiene Azure Disk Encryption (ADE) habilitado, aparecerá la sección de configuración del cifrado siguiente.
+
+- **Almacenes de claves de cifrado de disco**: de forma predeterminada, Azure Site Recovery crea un almacén de claves en la región de destino cuyo nombre tiene el sufijo "asr" en función de las claves de cifrado de disco de la máquina virtual de origen. Si el almacén de claves que ha creado Azure Site Recovery ya existe, se vuelve a usar.
+- **Almacenes de claves de cifrado de claves**: de forma predeterminada, Azure Site Recovery crea un almacén de claves en la región de destino cuyo nombre tiene el sufijo "asr" en función de las claves de cifrado de claves de la máquina virtual de origen. Si el almacén de claves que ha creado Azure Site Recovery ya existe, se vuelve a usar.
+
+Haga clic en "Personalizar" junto a la configuración de cifrado para reemplazar los valores predeterminados y seleccionar los almacenes de claves personalizados.
+
+>[!NOTE]
+>Actualmente, Azure Site Recovery solo admite máquinas virtuales Azure con el sistema operativo Windows y que estén [habilitadas para el cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app).
+>
 
 ### <a name="track-replication-status"></a>Seguimiento del estado de replicación
 

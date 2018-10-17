@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 10/09/2018
 ms.author: tamram
-ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996135"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902984"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guía de inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos
 
@@ -79,7 +79,7 @@ Para descargar los blobs mediante el **Explorador de Microsoft Azure Storage**, 
 
 ## <a name="manage-snapshots"></a>Administración de instantáneas
 
-El Explorador de Microsoft Azure Storage permite tomar y administrar [instantáneas](storage-blob-snapshots.md) de los blobs. Para tomar una instantánea de un blob, haga clic con el botón derecho en el blob y seleccione **Make Snapshot** (Tomar instantánea). Para ver las instantáneas de un blob, haga clic con el botón derecho en el blob y seleccione **Manage Snapshots** (Administrar instantáneas). Una lista de las instantáneas para el blob se muestran en la pestaña actual.
+El Explorador de Microsoft Azure Storage permite tomar y administrar [instantáneas](storage-blob-snapshots.md) de los blobs. Para tomar una instantánea de un blob, haga clic con el botón derecho en el blob y seleccione **Create Snapshot** (Crear instantánea). Para ver las instantáneas de un blob, haga clic con el botón derecho en el blob y seleccione **Manage Snapshots** (Administrar instantáneas). Una lista de las instantáneas para el blob se muestran en la pestaña actual.
 
 ![Explorador de Microsoft Azure Storage: Enumeración de los blobs de un contenedor](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

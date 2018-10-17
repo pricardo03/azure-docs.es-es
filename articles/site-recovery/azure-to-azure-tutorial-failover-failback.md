@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 61b354dfd6f704eb0677991c02f28de08e49ee37
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917506"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067438"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Conmutación por error y por recuperación de máquinas virtuales de Azure entre regiones de Azure
 
@@ -30,7 +30,7 @@ Este tutorial describe cómo conmutar por error una sola máquina virtual de Azu
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que ha completado una [exploración de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md) para comprobar que todo funciona según lo previsto.
 - Compruebe las propiedades de la máquina virtual antes de ejecutar la conmutación por error de prueba. La máquina virtual debe cumplir los [requisitos de Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
@@ -71,4 +71,4 @@ Después de la conmutación por error de la máquina virtual, debe volver a prot
 
 ## <a name="fail-back-to-the-primary-region"></a>Conmutación por recuperación a la región principal
 
-Tras volver a proteger las máquinas virtuales, puede conmutar por recuperación a la región principal, si es preciso. Para ello, siga las instrucciones de la [conmutación por error](#run-a-failover).
+Tras volver a proteger las máquinas virtuales, puede conmutar por recuperación a la región principal, si es preciso. Para ello, configurar una conmutación por error de la región secundaria a la primaria, como se describe en este artículo.

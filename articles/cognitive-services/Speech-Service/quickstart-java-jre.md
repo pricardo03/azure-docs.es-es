@@ -5,16 +5,16 @@ description: Aprenda cómo utilizar el reconocimiento de voz en Java (Windows o 
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: c0963fa8453dd51dfb05af20a5468e1eed1fc7cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053969"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885228"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Windows o Linux mediante el SDK de Voz
 
@@ -69,11 +69,11 @@ Si usa Ubuntu 16.04, antes de iniciar Eclipse, ejecute los comandos siguientes p
 
 1. Abra el archivo **pom.xml** y edítelo.
 
-   * Al final del archivo, antes cerrar la etiqueta de cierre `</project>`, cree una sección de repositorios con una referencia al repositorio de Maven para el SDK de Voz, tal y como se muestra aquí:
+   * Al final del archivo, antes cerrar la etiqueta de cierre `</project>`, cree un elemento `repositories` con una referencia al repositorio de Maven para el SDK de Voz, tal y como se muestra aquí:
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * También, agregue después una sección de dependencias con la versión 1.0.0 del SDK de Voz como una dependencia:
+  * Agregue también un elemento `dependencies`, con la versión 1.0.0 del SDK de Voz como una dependencia:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

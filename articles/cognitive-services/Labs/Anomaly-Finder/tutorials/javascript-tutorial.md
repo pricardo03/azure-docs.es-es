@@ -1,26 +1,29 @@
 ---
-title: 'Detección de anomalías en aplicaciones Javascript: Microsoft Cognitive Services | Microsoft Docs'
-description: Explore una aplicación web Javascript que usa Anomaly Detection API en Microsoft Cognitive Services. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
+title: 'Tutorial: Detección de anomalías con JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Explore una aplicación web Javascript que usa Anomaly Detection API. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453176"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883710"
 ---
-# <a name="anomaly-detection-javascript-application"></a>Detección de anomalías de aplicaciones en Javascript
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Tutorial: Detección de anomalías con una aplicación JavaScript
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore una aplicación web que usa Anomaly Detection REST API para detectar anomalías. El ejemplo envía los datos de serie temporal a Anomaly Detection API con su clave de suscripción y, después, obtiene de la API todos los puntos de anomalías y el valor esperado de cada punto de datos.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 

@@ -3,7 +3,7 @@ title: En este tutorial, aprenderá a suscribirse a una oferta de Azure Stack | 
 description: En este tutorial se muestra cómo crear una nueva suscripción a los servicios de Azure Stack y probar la oferta mediante la creación de una máquina virtual de prueba.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 96b82ede71e7957105dce25096d7873ee876211f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237008"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076107"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: Creación y prueba de una suscripción
-En este tutorial se muestra cómo crear una suscripción que contiene una oferta y, después, probarla. Para la prueba, inicie sesión en el portal de usuarios de Azure Stack como administrador de la nube, suscríbase a la oferta y, a continuación, cree una máquina virtual.
+En este tutorial se muestra cómo crear una suscripción que contiene una oferta y, después, probarla. Para la prueba, iniciará sesión en el portal de usuarios de Azure Stack como administrador de la nube, se suscribirá a la oferta y, después, creará una máquina virtual.
 
 > [!TIP]
 > Para una experiencia de evaluación más avanzada, puede [crear una suscripción para un usuario en particular](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator) y después iniciar sesión como ese usuario en el portal de usuarios. 
@@ -40,7 +40,7 @@ Lo qué aprenderá:
 ## <a name="subscribe-to-an-offer"></a>Suscripción a una oferta
 Para suscribirse a una oferta como usuario, debe iniciar sesión en el portal de usuarios de Azure Stack para descubrir los servicios que ha ofrecido el operador de Azure Stack.
 
-1. Inicie sesión en el portal de usuarios y haga clic en **Obtener una suscripción**.
+1. Inicie sesión en el portal de usuario y haga clic en **Obtener una suscripción**.
 
    ![Obtener una suscripción](media/azure-stack-subscribe-services/get-subscription.png)
 
@@ -51,7 +51,7 @@ Para suscribirse a una oferta como usuario, debe iniciar sesión en el portal de
    > [!TIP]
    > Debe actualizar ahora el portal de usuarios para empezar a usar la suscripción.
 
-3. Para ver la suscripción que acaba de crear, haga clic en **Más servicios**, en **Suscripciones** y, luego, en la nueva suscripción. Después de suscribirse a una oferta, actualice el portal para ver si se han incluido nuevos servicios como parte de la nueva suscripción. En este ejemplo, se ha agregado **Máquinas virtuales**.
+3. Para ver la suscripción que creó, haga clic en **Todos los servicios**.  Luego, en la categoría **GENERAL** seleccione **Suscripciones** y, después, seleccione la suscripción nueva. Después de suscribirse a una oferta, actualice el portal para ver si se han incluido nuevos servicios como parte de la nueva suscripción. En este ejemplo, se ha agregado **Máquinas virtuales**.
 
    ![Ver suscripción](media/azure-stack-subscribe-services/view-subscription.png)
 
@@ -62,7 +62,7 @@ Al iniciar sesión en el portal de usuarios, puede probar la oferta mediante el 
 > [!NOTE]
 > Esta prueba requiere que una máquina virtual de Windows Server 2016 Datacenter que ya se agregó a Marketplace de Azure Stack. 
 
-1. Inicie sesión en el portal de usuarios.
+1. Inicie sesión en el portal de usuario.
 
 2. En el portal de usuarios, haga clic en **Máquinas virtuales** > **Agregar** > **Windows Server 2016 Datacenter** y, después, haga clic en **Crear**.
 

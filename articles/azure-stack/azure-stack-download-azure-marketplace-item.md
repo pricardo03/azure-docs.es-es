@@ -3,7 +3,7 @@ title: Descarga de elementos de Marketplace desde Azure | Microsoft Docs
 description: El operador en la nube puede descargar elementos de Marketplace desde Azure a una implementación de Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
-ms.author: brenduns
-ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 10/09/2018
+ms.author: sethm
+ms.reviewer: ''
+ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412906"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902015"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Descarga de elementos de Marketplace desde Azure a Azure Stack
 
@@ -66,7 +66,7 @@ La implementación de Azure Stack debe tener conectividad a Internet y estar [re
 
     Una vez finalizada la descarga, el nuevo elemento de Marketplace se puede implementar como usuario u operador de Azure Stack.
 
-5. Para implementar el elemento descargado, seleccione **+Nuevo** y busque entre las categorías el nuevo elemento de Marketplace. Luego, seleccione el elemento para comenzar el proceso de implementación. El proceso no es el mismo para todos los artículos de Marketplace. 
+5. Para implementar el elemento descargado, seleccione **+Crear un recurso** y busque el nuevo elemento de Marketplace entre las distintas categorías. Luego, seleccione el elemento para comenzar el proceso de implementación. El proceso no es el mismo para todos los artículos de Marketplace. 
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Escenario sin conexión o con conexión parcial
 
@@ -121,15 +121,15 @@ Este escenario tiene dos partes:
 
    ```
 
-5. Importe el módulo de redifusión e inicie la herramienta mediante la ejecución del script siguiente. Reemplace la *ruta de acceso de la carpeta de destino* por una ubicación para almacenar los archivos que descargue desde Azure Marketplace.   
+5. Importe el módulo de redifusión e inicie la herramienta mediante la ejecución de los comandos siguientes. Reemplace `Destination folder path` por la ubicación en la que se almacenan los archivos que descargue desde Azure Marketplace.   
 
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem `
-     -destination "Destination folder path" `
-     -AzureTenantID $AzureContext.Tenant.TenantId `
-     -AzureSubscriptionId $AzureContext.Subscription.Id  
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. Cuando la herramienta se ejecuta, se le solicita que escriba las credenciales de la cuenta de Azure. Inicie sesión en la cuenta de Azure que haya usado para registrar Azure Stack. Tras el inicio de sesión, debe ver una pantalla similar a la de la siguiente imagen, con la lista de elementos disponibles en Marketplace.  
@@ -148,10 +148,10 @@ Este escenario tiene dos partes:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importación de la descarga y su publicación en Azure Stack Marketplace
 1. Los archivos de las imágenes de máquina virtual o plantillas de solución que haya [descargado con anterioridad](#use-the-marketplace-syndication-tool-to-download-marketplace-items) deben estar disponibles localmente para su entorno de Azure Stack.  
 
-2. Use el Portal de administración para cargar el paquete de elementos de Marketplace (el archivo .azpkg) en el almacenamiento de blobs de Azure Stack. La carga del paquete hace que esté disponible para Azure Stack, por lo que más adelante el elemento se podrá publicar en Azure Stack Marketplace.
+2. Use el Portal de administración para cargar el paquete de elementos de Marketplace (el archivo .azpkg) y la imagen del disco duro virtual (el archivo .vhd) en el almacenamiento de blobs de Azure Stack. La carga de los archivos del paquete y del disco hace que estén disponible para Azure Stack, con el fin de que más adelante el elemento se pueda publicar en Azure Stack Marketplace.
 
-   Para poder realizar la carga es preciso tener una cuenta de almacenamiento con un contenedor con acceso público (consulte los requisitos previos para este escenario)   
-   1. En el Portal de administración de Azure Stack, vaya a **More services** > **Storage accounts** (Más servicios > Cuentas de almacenamiento).  
+   Para poder realizar la carga es preciso tener una cuenta de almacenamiento con un contenedor con acceso público (consulte los requisitos previos para este escenario).  
+   1. En el Portal de administración de Azure Stack, vaya a **Todos los servicios** y en la categoría **DATOS Y ALMACENAMIENTO**, seleccione **Cuentas de almacenamiento**.  
    
    2. Seleccione una cuenta de almacenamiento en la suscripción y, después, en **BLOB SERVICE**, seleccione **Contenedores**.  
       ![Blob service](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -159,7 +159,7 @@ Este escenario tiene dos partes:
    3. Seleccione el contenedor que desee usar y, después, seleccione **Cargar**, para abrir el panel **Cargar blob**.  
       ![Contenedor](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. En el panel Cargar blob, vaya a los archivos que desee cargar en el almacenamiento y seleccione **Cargar**.  
+   4. En el panel Cargar blob, vaya a los archivos de paquete y de disco que se cargan en el almacenamiento y seleccione **Cargar**.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. Los archivos que se cargan aparecen en el panel del contenedor. Seleccione un archivo y, después, copie la dirección URL del panel **Propiedades del blob**. Esta dirección URL la usará en el paso siguiente, cuando importe el elemento de Marketplace en Azure Stack.  En la siguiente imagen, el contenedor es *blob-test-storage* y el archivo es *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  La dirección URL del archivo es *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
@@ -169,7 +169,7 @@ Este escenario tiene dos partes:
 
    Los valores *publisher*, *offer* y *sku* de la imagen se pueden obtener en el archivo de texto que se descarga junto con el archivo AZPKG. El archivo de texto se almacena en la ubicación de destino. El valor de *versión* es el valor que anotó al descargar el elemento de Azure en el procedimiento anterior. 
  
-   En el siguiente script de ejemplo, se usan los valores de la máquina virtual Windows Server 2016 Datacenter - Server Core. Reemplace *URI_path* por la ruta de acceso a la ubicación de almacenamiento de blob del elemento.
+   En el siguiente script de ejemplo, se usan los valores de la máquina virtual Windows Server 2016 Datacenter - Server Core. El valor de *-Osuri* es una ruta de acceso de ejemplo a la ubicación de almacenamiento de blobs del elemento.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ Este escenario tiene dos partes:
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **Acerca de las plantillas de solución:** algunas plantillas pueden incluir un pequeño archivo .VHD de 3 MB llamado **fixed3.vhd**. Dicho archivo no es preciso que se importe en Azure Stack. Fixed3.vhd.  Este archivo se incluye con algunas plantillas de solución para cumplir requisitos de publicación de Azure Marketplace.
 
@@ -198,7 +198,7 @@ Este escenario tiene dos partes:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Después de publicar un elemento de la galería, puede verlo desde **More services** > **Marketplace** (Más servicios > Marketplace).  Si la descarga es una plantilla de solución, asegúrese de agregar todas las imágenes de discos duros virtuales de dicha plantilla.  
+5. Después de publicar un elemento de la galería está disponible para su uso. Para confirmar que el elemento se ha publicado, vaya a **Todos los servicios** y en la categoría **GENERAL**, seleccione **Marketplace**.  Si la descarga es una plantilla de solución, asegúrese de agregar todas las imágenes de discos duros virtuales de dicha plantilla.  
   ![Ver Marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

@@ -1,20 +1,19 @@
 ---
-title: 'Guía de inicio rápido: creación de un clúster de Azure Kubernetes en el portal'
-description: Aprenda rápidamente cómo puede crear un clúster de Kubernetes para contenedores de Linux en AKS con Azure Portal.
+title: 'Guía de inicio rápido: Creación de un clúster de Azure Kubernetes Service en el portal'
+description: Aprenda a usar Azure Portal para crear rápidamente un clúster de Azure Kubernetes Service (AKS) y, después, implementar y supervisar una aplicación.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aceddc2594065c9c36f8dbf63fce2ad03577a383
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d70f00294b1f08d2cc4cede6575efd3149599dd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443374"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067469"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -40,15 +39,13 @@ Para crear un clúster de AKS, realice los siguientes pasos:
     - *ESCALA*: seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS.
         - Seleccione el número de nodos que se van a implementar en el clúster. En esta guía de inicio rápido, establezca **Número de nodos** en *1*. El número de nodos **puede** ajustarse después de implementar el clúster.
     
-    ![Creación de un clúster de AKS: proporcionar información básica](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+    ![Creación de un clúster de AKS: proporcionar información básica](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Seleccione **Siguiente: autenticación** cuando haya terminado.
 
 1. **Autenticación**. Configure las siguientes opciones:
     - Cree una entidad de servicio o haga clic en *Configurar* para usar una existente. Al usar un SPN existente, debe proporcionar el identificador de cliente SPN y el secreto.
     - Habilite la opción para los controles de acceso basado en roles (RBAC) de Kubernetes. Estos controles proporcionan un control más minucioso sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
-
-    ![Creación de un clúster AKS: configuración de la autenticación](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
     Seleccione **Next: Networking** (Siguiente: redes) cuando haya terminado.
 
@@ -59,7 +56,7 @@ Para crear un clúster de AKS, realice los siguientes pasos:
     
     Seleccione **Next: Monitoring** (Siguiente: supervisión) cuando haya terminado.
 
-1. Al implementar un clúster de AKS, Azure Container Insights puede configurarse para supervisar el estado del clúster de AKS y los pods que se ejecutan en el clúster. Para obtener más información sobre la supervisión del estado de los contenedores, consulte [Monitor Azure Kubernetes Service health][aks-monitor] (Supervisión del estado de Azure Kubernetes Service).
+1. Al implementar un clúster de AKS, Azure Monitor se puede configurar para supervisar el estado del clúster de AKS y los pods que se ejecutan en el clúster. Para obtener más información sobre la supervisión del estado de los contenedores, consulte [Monitor Azure Kubernetes Service health][aks-monitor] (Supervisión del estado de Azure Kubernetes Service).
 
     Seleccione **Sí** para habilitar la supervisión de contenedores y seleccione un área de trabajo de Log Analytics existente o cree una.
     
@@ -93,7 +90,7 @@ La salida del ejemplo siguiente muestra el nodo único creado en los pasos anter
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
+aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
@@ -117,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -145,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,13 +220,20 @@ Abra en un explorador Web la dirección IP externa del servicio para ver la apli
 
 Al crear el clúster, se ha habilitado la información del contenedor. Esta característica de supervisión proporciona métricas de estado para el clúster de AKS y los pods que se ejecutan en el clúster. Para obtener más información sobre la supervisión del estado de los contenedores, consulte [Monitor Azure Kubernetes Service health][aks-monitor] (Supervisión del estado de Azure Kubernetes Service).
 
-Estos datos pueden tardar unos minutos en rellenarse en Azure Portal. Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Voto de Azure, vaya al recurso de AKS en Azure Portal, como *myAKSCluster*. Elija **Estado del contenedor de Monitor** > seleccione el espacio de nombres **predeterminado** >, a continuación, seleccione **Contenedores**.  Se muestran los contenedores *azure-vote-back* y *azure-vote-front*:
+Estos datos pueden tardar unos minutos en rellenarse en Azure Portal. Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Voto de Azure, vaya al recurso de AKS en Azure Portal, como *myAKSCluster*. Luego puede acceder al estado de mantenimiento como se indica a continuación:
+
+1. En la opción **Supervisión** de la izquierda, elija **Insights (versión preliminar)**
+1. En la parte superior, elija **+ Agregar filtro**
+1. Seleccione *Namespace* como propiedad y, después, elija *\<All but kube-system\>*
+1. Elija ver los **contenedores**.
+
+Se muestran los contenedores *azure-vote-back* y *azure-vote-front*, como aparece en el ejemplo siguiente:
 
 ![Visualización del estado de ejecución de contenedores en AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Para ver los registros para el pod `azure-vote-front`, seleccione el vínculo **Ver registros** en el lado derecho de la lista de contenedores. Estos registros incluyen los flujos *stdout* y *stderr* del contenedor.
+Para ver los registros del pod `azure-vote-front`, seleccione el vínculo **View container logs** (Ver registros del contenedor) a la derecha de la lista de contenedores. Estos registros incluyen los flujos *stdout* y *stderr* del contenedor.
 
-![Visualización de los registros de contenedores en AKS](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![Visualización de los registros de contenedores en AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
 
@@ -224,6 +242,9 @@ Cuando el clúster ya no sea necesario, elimine el recurso del clúster, lo que 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
+
+> [!NOTE]
+> Cuando elimina el clúster, la entidad de servicio Azure Active Directory que utiliza el clúster de AKS no se quita. Para conocer los pasos que hay que realizar para quitar la entidad de servicio, consulte [Consideraciones principales y eliminación de AKS][sp-delete].
 
 ## <a name="get-the-code"></a>Obtención del código
 
@@ -258,3 +279,4 @@ Para obtener más información sobre AKS y un ejemplo completo desde el código 
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

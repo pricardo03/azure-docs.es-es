@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: eb03d2dae42d656e62b8f02eeccf1f7312f07732
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a77018d5ee1738f24518742c2386e6e261a7c6a8
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962449"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901455"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Creación de una función en Linux con una imagen personalizada (versión preliminar)
 
-Azure Functions le permite hospedar sus funciones en Linux en su propio contenedor personalizado. También puede [hospedarlas en un contenedor de Azure App Service predeterminado](functions-create-first-azure-function-azure-cli-linux.md). Esta funcionalidad está actualmente en versión preliminar y requiere [el entorno de ejecución Functions 2.0](functions-versions.md), que también está en versión preliminar.
+Azure Functions le permite hospedar sus funciones en Linux en su propio contenedor personalizado. También puede [hospedarlas en un contenedor de Azure App Service predeterminado](functions-create-first-azure-function-azure-cli-linux.md). Esta funcionalidad está actualmente en versión preliminar y requiere [el entorno de ejecución Functions 2.0](functions-versions.md).
 
 En este tutorial, aprenderá a implementar una aplicación de función como una imagen de Docker personalizada. Este patrón es útil cuando debe personalizar la imagen de contenedor integrada de App Service. Es posible que quiera usar una imagen personalizada cuando las funciones necesiten una versión de idioma determinada o requieran una dependencia o configuración específica que no se proporciona en la imagen integrada.
 

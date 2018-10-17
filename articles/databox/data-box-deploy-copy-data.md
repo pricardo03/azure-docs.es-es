@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161937"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078871"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Tutorial: Copia de datos a un dispositivo Azure Data Box 
 
@@ -88,11 +88,11 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
     The command completed successfully.
     ```
 
-4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Haga clic en **OK**. Se abre el Explorador de archivos.
+4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Haga clic en **OK**. Se abre el Explorador de archivos. Ahora podrá ver los recursos compartidos como carpetas.
     
     ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. Ahora podrá ver los recursos compartidos como carpetas. Cree una carpeta para los archivos que se van a copiar (en este caso, plantillas). En algunas ocasiones, las carpetas pueden mostrar una cruz gris. La cruz no indica que haya un error. La aplicación marca las carpetas para realizar un seguimiento del estado.
+5.  **Cree siempre una carpeta para los archivos que se va a copiar en el recurso compartido y, después, copie los archivos en ella**. En algunas ocasiones, las carpetas pueden mostrar una cruz gris. La cruz no indica que haya un error. La aplicación marca las carpetas para realizar un seguimiento del estado.
     
     ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 
  - Instale el paquete **CIFS Utils** o **NFS Utils** según el sistema de archivos que use el cliente Linux.
 
-    `sudo apt-get install cifs-utils``sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  Instale **Rsync** y **Parallel** (varía según la versión de la distribución de Linux).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Cree un punto de montaje.

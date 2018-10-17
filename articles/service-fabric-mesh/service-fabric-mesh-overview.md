@@ -5,20 +5,23 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 65a9b1afcc0e1e6d4fcbb60a38ab0764e6fe2f18
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226451"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888204"
 ---
 # <a name="what-is-service-fabric-mesh"></a>¿Qué es Service Fabric Mesh?
 
-Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin necesidad de administrar máquinas virtuales, almacenamiento o redes. Las aplicaciones hospedadas en Service Fabric Mesh se ejecutan y escalan sin preocuparse por la infraestructura que las sustenta.  Service Fabric Mesh consta de clústeres de miles de máquinas.  Todas las operaciones de clúster están ocultas para el desarrollador. Basta con cargar el código y especificar los recursos necesarios, los requisitos de disponibilidad y los límites de recursos.  Service Fabric Mesh asigna automáticamente la infraestructura solicitada en la implementación de la aplicación y también se ocupa de los errores de dicha infraestructura, lo que garantiza que las aplicaciones presentan una elevada disponibilidad. Solo es necesario preocuparse por el mantenimiento y la capacidad de respuesta de la aplicación, no de la infraestructura.  
+Este vídeo ofrece una introducción rápida sobre Service Fabric Mesh.
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
+
+Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin necesidad de administrar máquinas virtuales, almacenamiento o redes. Las aplicaciones hospedadas en Service Fabric Mesh se ejecutan y escalan sin preocuparse por la infraestructura que las sustenta.  Service Fabric Mesh consta de clústeres de miles de máquinas.  Todas las operaciones de clúster están ocultas para el desarrollador. Basta con cargar el código y especificar los recursos necesarios, los requisitos de disponibilidad y los límites de recursos.  Service Fabric Mesh asigna automáticamente la infraestructura y se ocupa de los errores de dicha infraestructura, lo que garantiza que las aplicaciones presentan una elevada disponibilidad. Solo es necesario preocuparse por el mantenimiento y la capacidad de respuesta de la aplicación, no de la infraestructura.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -30,7 +33,7 @@ Service Fabric Mesh admite todos los lenguajes de programación o plataformas qu
 
 Con Service Fabric Mesh, puede:
 
-- "Levantar y mover" aplicaciones existentes en contenedores para modernizar y ejecutar las aplicaciones actuales a escala. 
+- "Levantar y mover" aplicaciones existentes en contenedores para modernizar y ejecutar las aplicaciones actuales a escala.
 - Compilar e implementar nuevas aplicaciones de microservicios a escala en Azure.  Realizar la integración con otros servicios o aplicaciones existentes de Azure que se ejecutan en contenedores. Cada microservicio forma parte de una aplicación aislada de la red segura que tiene definidas directivas de gobierno de recursos para núcleos de CPU, memoria, espacio en disco y mucho más.
 - Realizar la integración con aplicaciones existentes y ampliarlas sin efectuar cambios en esas aplicaciones. Usar su propia red virtual para conectar las aplicaciones existentes a las nuevas aplicaciones.  
 - Modernizar las aplicaciones existentes de Cloud Services mediante la migración a Service Fabric Mesh.  
@@ -43,13 +46,10 @@ Con Service Fabric Mesh, puede:
 
 - Implementar y administrar aplicaciones sin necesidad de aprovisionar y administrar la infraestructura de forma explícita.  Service Fabric Mesh aprovisiona, actualiza y mantiene la infraestructura subyacente, y le aplica las revisiones necesarias, sin necesidad de que intervenga el usuario.
 - Configurar la integración continua mediante las herramientas integradas para empaquetar e implementar fácilmente las aplicaciones.
-- Aprovechar todas las características de los recursos de Azure Resource Manager (por ejemplo, registro de auditoría y [control de acceso basado en rol (RBAC)](/azure/role-based-access-control/overview)) puesto que todos los recursos (como aplicaciones, servicios, secretos, etc.) que implementa en el servicio SF Mesh en Azure son recursos de Azure Resource Manager. 
+- Aprovechar todas las características de los recursos de Azure Resource Manager (por ejemplo, registro de auditoría y [control de acceso basado en rol](/azure/role-based-access-control/overview)) puesto que todos los recursos como aplicaciones, servicios, secretos, etc. que implementa en el servicio Service Fabric Mesh de Azure son recursos de Azure Resource Manager.
 - Implementar y administrar recursos mediante [Azure Portal](https://portal.azure.com), plantillas de Resource Manager o bibliotecas de la CLI de Azure o PowerShell.
-- Configurar la supervisión y alerta operativas con [Application Insights](/azure/application-insights/) (o la herramienta que prefiera) para capturar los seguimientos de diagnóstico y operativos desde la plataforma. 
+- Configurar la supervisión y alerta operativas con [Application Insights](/azure/application-insights/) (o la herramienta que prefiera) para capturar los seguimientos de diagnóstico y operativos desde la plataforma.
 - Acceder a la información de diagnóstico de las aplicaciones emitida desde el modelo de aplicación mediante [Application Insights](/azure/application-insights/) o la herramienta de su elección.
-- Optimizar el uso de recursos mediante la especificación de reglas de escalado automático para los servicios en la definición de aplicación.  (próximamente)
-- Crear límites de seguridad y aislamiento de red para las aplicaciones, una característica muy eficaz cuando se combina con contenedores de Hyper-V. Aislar el tráfico de red hacia y desde los servicios usando varias direcciones IP por servicio y redes virtuales aisladas por aplicación.  (próximamente) 
-
 
 ## <a name="mission-critical-platform-capabilities"></a>Funcionalidades críticas de la plataforma
 

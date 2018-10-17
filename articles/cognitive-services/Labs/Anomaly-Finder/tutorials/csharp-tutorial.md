@@ -1,22 +1,25 @@
 ---
-title: 'Detección de anomalías de aplicaciones en C#: Microsoft Cognitive Services | Microsoft Docs'
-description: Explore una aplicación en C# que usa Anomaly Detection API en Microsoft Cognitive Services. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
+title: 'Tutorial: Detección de anomalías con C#'
+titlesuffix: Azure Cognitive Services
+description: Explore una aplicación C# que usa Anomaly Detection API. Envíe puntos de datos originales a la API y obtenga el valor esperado y los puntos de anomalías.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41929963"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887656"
 ---
-# <a name="anomaly-detection-c-application"></a>Detección de anomalías de aplicaciones en C#
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Tutorial: Detección de anomalías con una aplicación C#
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore una aplicación básica de Windows que utiliza Anomaly Detection API para detectar anomalías a partir de la entrada. El ejemplo envía los datos de serie temporal a Anomaly Detection API con su clave de suscripción y, después, obtiene todos los puntos de anomalías y el valor esperado de cada punto de datos a partir de la API.
 

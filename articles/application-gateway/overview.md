@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193074"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068102"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -27,7 +27,38 @@ Los equilibradores de carga tradicionales operan en la capa de transporte (OSI c
 
 Este tipo de enrutamiento se conoce como equilibrio de carga de capa de aplicación (OSI capa 7). Azure Application Gateway puede hacer enrutamiento basado en dirección URL y mucho más. 
 
-Las siguientes características se incluyen con Azure Application Gateway: 
+Las siguientes características se incluyen con Azure Application Gateway:
+
+## <a name="autoscaling-public-preview"></a>Versión preliminar pública de escalado automático
+
+Además de las características descritas en este artículo, Application Gateway ofrece también una versión preliminar pública de una SKU nueva [Standard_V2] que ofrece escalado automático y otras mejoras de rendimiento críticas.
+
+- **Escalado automático**: las implementaciones de Application Gateway o WAF en la SKU de escalado automática pueden escalarse o reducirse verticalmente en función de los cambiantes patrones de la carga de tráfico. La escalabilidad automática también elimina el requisito de tener elegir un tamaño de implementación o un número de instancias durante el aprovisionamiento. 
+
+- **Redundancia de zona**: una implementación de Application Gateway o WAF puede abarcar varias zonas de disponibilidad, lo que elimina la necesidad de aprovisionar y anclar instancias de Application Gateway independientes en cada zona con una instancia de Traffic Manager.
+
+- **VIP estática**: la dirección IP virtual de Application Gateway admite ahora exclusivamente el tipo VIP estática. Con esto se garantiza que la VIP asociada a la puerta de enlace de aplicaciones no cambiará tras un reinicio.
+
+- **Implementación más rápida y menor tiempo de actualización** en comparación con la SKU disponible con carácter general. 
+
+- **El rendimiento de la descarga de SSL se quintuplica** en comparación con la SKU disponible con carácter general.
+
+Para más información acerca de las características de la versión preliminar pública de Application Gateway, consulte [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md) [Puerta de enlace de aplicaciones con redundancia de zona y escalabilidad automática (versión preliminar pública)].
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Versión preliminar del controlador de entrada de Azure Kubernetes Service (AKS) 
+
+El controlador de entrada de Application Gateway se ejecuta como un pod en el clúster de AKS y permite a Application Gateway actuar como entrada para un clúster de AKS. 
+
+Para más información, consulte [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controlador de entrada de Azure Application Gateway).
+
+## <a name="connection-draining"></a>Purga de la conexión
+
+La purga de conexión ayuda a lograr la correcta eliminación de miembros del grupo de back-end durante las actualizaciones de servicio planeadas. Esta configuración se habilita a través de la configuración de http de back-end y se puede aplicar a todos los miembros de un grupo de back-end durante la creación de reglas. Una vez habilitado, Application Gateway garantiza que todas las instancias de anulación de registro de un grupo de back-end no reciben solicitudes nuevas y se permite que las solicitudes existentes se completen dentro de un límite de tiempo configurado. Esto se aplica a las dos instancias de back-end que se quitan explícitamente del grupo de back-end mediante una llamada API, así como las instancias de back-end que se notifican como incorrectas según determinan los sondeos de estado.
+
+## <a name="custom-error-pages"></a>Páginas de error personalizadas
+Application Gateway permite crear páginas de error personalizadas, en lugar de mostrar las páginas de error predeterminadas. Mediante una página de error personalizada puede usar su propia marca y diseño.
+
+Para más información, consulte [Create Application Gateway custom error pages](custom-error.md) (Creación de páginas de error personalizadas de Application Gateway).
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>Terminación de la Capa de sockets seguros (SSL)
 

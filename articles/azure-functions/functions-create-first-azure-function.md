@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: d1062b3a873462443e0e91085850658e04d5ab0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a1a593dc037901f6661bc8c7268d835bc5a48c94
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974194"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900630"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
 
-Azure Functions permite ejecutar el código en un entorno [sin servidor](https://azure.microsoft.com/overview/serverless-computing/) sin necesidad de crear una máquina virtual o publicar una aplicación web. En este tema, aprenderá a usar Functions para crear una función "Hola mundo" en Azure Portal.
+Azure Functions permite ejecutar el código en un entorno [sin servidor](https://azure.microsoft.com/solutions/serverless/) sin necesidad de crear una máquina virtual o publicar una aplicación web. En este tema, aprenderá a usar Functions para crear una función "Hola mundo" en Azure Portal.
 
 ![Creación de una aplicación de función en Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -44,13 +44,15 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-function"></a>Crear una función desencadenada por HTTP
 
-1. Expanda la nueva Function App y haga clic en el botón **+** situado junto a **Funciones**.
+1. Expanda la nueva aplicación de función, después, seleccione el botón **+** situado junto a **Functions**, elija **En el portal** y seleccione **Continuar**.
 
-2.  En la página **Get started quickly** (Empiece a trabajar rápidamente), seleccione **Webhook y API**, **Elija un lenguaje** para la función y haga clic en **Crear esta función**. 
-   
+    ![Guía de inicio rápido de Functions para elegir plataforma.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+
+1. Elija **WebHook y API** y, a continuación, seleccione **Crear**.
+
     ![Inicio rápido de funciones en Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Se crea una función en el lenguaje elegido mediante la plantilla para una función desencadenada por HTTP. En este tema se muestra una función de script de C# en el portal, pero puede crear una función en cualquier [lenguaje compatible](supported-languages.md). 
+Se crea una función mediante una plantilla específica del idioma para una función desencadenada por HTTP.
 
 Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
 
@@ -62,13 +64,13 @@ Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP
 
 2. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `&name=<yourname>` de la cadena de consulta al final de esta dirección URL y presione la tecla `Enter` en el teclado para ejecutar la solicitud. Debería ver la respuesta devuelta por la función mostrada en el explorador.  
 
-    El siguiente ejemplo muestra la respuesta en el explorador Edge (otros exploradores pueden incluir el XML mostrado):
+    El ejemplo siguiente muestra la respuesta en el explorador:
 
     ![Respuesta de la función en el explorador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    La dirección URL de la solicitud incluye una clave que, de forma predeterminada, es necesaria para tener acceso a la función a través de HTTP.   
+    La dirección URL de la solicitud incluye una clave que, de forma predeterminada, es necesaria para tener acceso a la función a través de HTTP.
 
-3. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha que encontrará en la parte inferior de la pantalla para expandir **Registros**. 
+3. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha que encontrará en la parte inferior de la pantalla para expandir **Registros**.
 
    ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -83,6 +85,3 @@ Ha creado una Function App con una función simple desencadenada por HTTP.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para más información, consulte [Enlaces HTTP de Azure Functions](functions-bindings-http-webhook.md).
-
-
-

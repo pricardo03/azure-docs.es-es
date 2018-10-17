@@ -2,16 +2,17 @@
 title: Ejecución de una exploración en profundidad de una recuperación ante desastres de máquinas locales en Azure con Azure Site Recovery | Microsoft Docs
 description: Obtenga información sobre la ejecución de la exploración en profundidad de una recuperación ante desastres desde máquinas locales en Azure con Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3be3631d8d917fe9ff85e8471a35ac2ddece80b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918376"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078161"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure
 
@@ -19,7 +20,7 @@ En este artículo se muestra cómo ejecutar una exploración en profundidad de u
 
 Este es el cuarto tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware o máquinas virtuales de Hyper-V.
 
-En este tutorial se da por supuesto que ha completado los tres primeros tutoriales: 
+En este tutorial se da por supuesto que ha completado los tres primeros tutoriales:
     - En el [primer tutorial](tutorial-prepare-azure.md), se configuraron los componentes de Azure necesarios para la recuperación ante desastres de VMware.
     - En el [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), se prepararon los componentes locales para la recuperación ante desastres y se repasaron los requisitos previos.
     - En el [tercer tutorial](vmware-azure-tutorial.md) se configuró y habilitó la replicación de nuestras máquinas virtuales locales de VMware.
@@ -44,6 +45,14 @@ Antes de ejecutar una conmutación por error de prueba, compruebe las propiedade
 4. Puede ver y modificar la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 5. En **Discos** puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 
+## <a name="create-a-network-for-test-failover"></a>Creación de una red para conmutación por error de prueba
+
+Se recomienda que para realizar una conmutación por error de prueba, elija una red que esté aislada de la del sitio de recuperación de producción concreto proporcionada en la configuración de **Proceso y red** de cada máquina virtual. De forma predeterminada, cualquier red virtual que se cree en Azure está aislada de otras redes. La red de prueba debe imitar la de producción:
+
+- La red de prueba debe tener el mismo número de subredes que la de producción. Las subredes deben tener los mismos nombres.
+- La red de prueba debe usar el mismo intervalo de direcciones IP.
+- Actualice el DNS de la red de prueba con la dirección IP especificada para la máquina virtual de DNS en la configuración de **Proceso y red**. Lea [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#test-failover-considerations) para más información.
+
 ## <a name="run-a-test-failover-for-a-single-vm"></a>Ejecutar una conmutación por error de prueba en una sola máquina virtual
 
 Cuando se ejecuta una conmutación por error de prueba, ocurre lo siguiente:
@@ -64,6 +73,12 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 7. Para eliminar máquinas virtuales de Azure que se crearon durante la conmutación por error de prueba, haga clic en **Limpieza de conmutación por error de prueba** en la máquina virtual. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba.
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide, atapi.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
+
+Si desea conectarse a máquinas virtuales de Azure mediante RDP/SSH después de la conmutación por error, siga los requisitos resumidos en [esta](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabla.
+
+Siga los pasos descritos [aquí](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividad tras la conmutación por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
