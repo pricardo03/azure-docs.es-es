@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 283566558584960dc2f3361c539093a4c5ee78aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 380b70ac55bb1f9b447eb07dc475e354956f409e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958244"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267358"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Escalar aplicaciones de ASP.NET Core SignalR con el servicio Azure SignalR
 
@@ -38,7 +38,7 @@ Sigue siendo un enfoque válido implementar su propia aplicación web de Azure q
 
 Una de las principales razones para usar Azure SignalR Service es su sencillez. Con Azure SignalR Service, no es necesario encargarse de problemas como el rendimiento, la escalabilidad y la disponibilidad. Estos problemas quedarán bajo su control con un contrato de nivel de servicio del 99,9 %.
 
-Además, WebSockets suele ser la técnica de preferencia para admitir las actualizaciones de contenido en tiempo real. Sin embargo, el equilibrio de carga de un gran número de conexiones persistentes de WebSocket se convierte en un problema complicado de resolver cuando se escala. Las soluciones comunes hacen uso del equilibrio de carga de DNS, equilibradores de carga de hardware y equilibrio de carga de software. Azure SignalR Service controla este problema automáticamente.
+Además, WebSockets suele ser la técnica preferida para admitir las actualizaciones de contenido en tiempo real. Sin embargo, el equilibrio de carga de un gran número de conexiones persistentes de WebSocket se convierte en un problema complicado de resolver cuando se escala. Las soluciones comunes hacen uso del equilibrio de carga de DNS, equilibradores de carga de hardware y equilibrio de carga de software. Azure SignalR Service controla este problema automáticamente.
 
 Otra razón puede ser que en realidad no deba cumplir con ningún requisito para hospedar una aplicación web. La lógica de la aplicación web puede aprovechar la [informática sin servidor](https://azure.microsoft.com/overview/serverless-computing/). Por ejemplo, quizás el código solo se hospede y ejecuta a petición con desencadenadores de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). Este escenario puede ser engañoso, porque el código solo se ejecuta a petición y no mantiene conexiones prolongadas con los clientes. Azure SignalR Service puede encargarse de esta situación, ya que el servicio ya administra las conexiones por usted. Consulte la [información general sobre cómo usar el servicio SignalR con Azure Functions](signalr-overview-azure-functions.md) para obtener más detalles. 
 

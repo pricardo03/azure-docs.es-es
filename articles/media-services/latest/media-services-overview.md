@@ -4,7 +4,7 @@ description: En este artículo se proporciona información general de alto nivel
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, transmisión, difusión, en vivo, sin conexión
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 07/14/2018
+ms.date: 09/25/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325938"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221944"
 ---
 # <a name="what-is-azure-media-services-v3"></a>¿Qué es Azure Media Services v3?
 
@@ -55,7 +55,7 @@ v3 se basa en una superficie de API unificada que expone la funcionalidad de adm
 Esta versión ofrece las siguientes funcionalidades:  
 
 * **Transformaciones** que le ayudan a definir flujos de trabajo básicos de tareas de análisis o procesamiento multimedia. La transformación es una receta para procesar archivos de audio y vídeo. A continuación, puede aplicarla varias veces para procesar todos los archivos en la biblioteca de contenido si envía trabajos a la transformación.
-* **Trabajos** para procesar (codificar o analizar) vídeos. Se puede especificar contenido de entrada en un trabajo con direcciones URL de HTTP, direcciones URL de SAS o rutas de acceso a archivos ubicados en Azure Blob Storage. 
+* **Trabajos** para procesar (codificar o analizar) vídeos. Se puede especificar contenido de entrada en un trabajo con direcciones URL de HTTPS, direcciones URL de SAS o rutas de acceso a archivos ubicados en Azure Blob Storage. Actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL HTTPS.
 * **Notificaciones** que supervisan el progreso o estado del trabajo y eventos de error, inicio o detención del canal en vivo. Las notificaciones están integradas en el sistema de notificaciones de Azure Event Grid. Puede suscribirse fácilmente a eventos de varios recursos en Azure Media Services. 
 * Las plantillas de **Azure Resource Management** se pueden usar para crear e implementar transformaciones, puntos de conexión de streaming, canales, etc.
 * **El control de acceso basado en rol** se puede establecer en recursos, lo que le permite bloquear el acceso a recursos específicos, como transformaciones, canales, etc.

@@ -1,25 +1,27 @@
 ---
-title: 'Inicio rápido de Python para Project URL Preview: Microsoft Cognitive Services | Microsoft Docs'
-description: Ejemplo de script para empezar a usar rápidamente Project URL Preview de Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Project URL Preview, Python'
+titlesuffix: Azure Cognitive Services
+description: Ejemplo de script para empezar a usar rápidamente Project URL Preview con Python.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 78b2d83b02aa9ea32509029c7456e04e420b8572
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381767"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867279"
 ---
-# <a name="url-preview-python-quickstart"></a>Inicio rápido de Python para URL Preview
+# <a name="quickstart-url-preview-with-python"></a>Guía de inicio rápido: URL Preview con Python
 
 En el ejemplo de Python siguiente se crea una vista previa de la dirección URL del sitio web de SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
 
@@ -37,7 +39,7 @@ Se implementa en los pasos siguientes:
 6. Realice la conexión y envíe la solicitud.
 7. Imprima los resultados JSON.
 
-El código completo de esta demostración es el siguiente:
+Este es el código completo de esta demostración:
 
 ````
 import http.client, urllib.parse

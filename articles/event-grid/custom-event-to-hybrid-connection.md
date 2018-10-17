@@ -5,19 +5,19 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/29/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d56a07bf6fcb368f50e081a1f56b7cfb022c05ca
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434153"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042247"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Enrutar eventos personalizados a Conexiones híbridas de Azure Relay con la CLI de Azure y Event Grid
 
-Azure Event Grid es un servicio de eventos para la nube. La solución Conexiones híbridas de Azure Relay es uno de los controladores de eventos compatibles. Las conexiones híbridas se usan como el controlador de eventos cuando es necesario procesar los eventos de las aplicaciones que no tienen un punto de conexión público. Estas aplicaciones pueden estar dentro de la red empresarial corporativa. En este artículo, se usa la CLI de Azure para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Los eventos se envían a la conexión híbrida.
+Azure Event Grid es un servicio de eventos para la nube. La solución Conexiones híbridas de Azure Relay es uno de los controladores de eventos compatibles. Las conexiones híbridas se usan como el controlador de eventos cuando es necesario procesar los eventos de las aplicaciones que no tienen un punto de conexión público. Estas aplicaciones pueden estar dentro de la red empresarial corporativa. En este artículo, se usará la CLI de Azure para crear un tema personalizado, suscribirse a él y desencadenar el evento para ver el resultado. Los eventos se envían a la conexión híbrida.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,7 +39,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Creación de un tema personalizado
 
-Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<topic_name>` por un nombre único para el tema. El nombre del tema debe ser único porque se representa mediante una entrada DNS.
+Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<topic_name>` por un nombre único para el tema personalizado. El nombre del tema de cuadrícula de eventos debe ser único porque se representa mediante una entrada DNS.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -49,9 +49,9 @@ az extension add --name eventgrid
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
-## <a name="subscribe-to-a-topic"></a>Suscripción a un tema
+## <a name="subscribe-to-a-custom-topic"></a>Suscripción a un tema personalizado
 
-Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se suscribirá al tema que creó y pasará el id. de recurso de la conexión híbrida para el punto de conexión. El identificador de conexión híbrida tiene el formato siguiente:
+Suscríbase a un tema de cuadrícula de eventos para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se suscribirá al tema personalizado que creó y pasará el identificador de recurso de la conexión híbrida al punto de conexión. El identificador de conexión híbrida tiene el formato siguiente:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
@@ -91,18 +91,18 @@ Necesita una aplicación que puede recuperar eventos desde la conexión híbrida
 
 Vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión. En este artículo se muestra cómo usar la CLI de Azure para desencadenar el evento. De manera alternativa, puede usar la [aplicación de publicador de Event Grid](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).
 
-En primer lugar, vamos a obtener la dirección URL y la clave del tema personalizado. De nuevo, use el nombre de su tema en `<topic_name>`.
+En primer lugar, vamos a obtener la dirección URL y la clave del tema personalizado. De nuevo, use su nombre de tema personalizado para `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Para simplificar este artículo, va a utilizar datos de evento de ejemplo para enviar al tema. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento. CURL es una utilidad que envía solicitudes HTTP. En este artículo, use CURL para enviar el evento al tema.  En el ejemplo siguiente se envían tres eventos al tema de Event Grid:
+Para simplificar este artículo, usará datos de evento de ejemplo para enviar al tema personalizado. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento. CURL es una utilidad que envía solicitudes HTTP. En este artículo, usará CURL para enviar el evento al tema personalizado.
 
 ```azurecli-interactive
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 La aplicación de agente de escucha debe recibir el mensaje de evento.

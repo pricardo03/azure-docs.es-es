@@ -14,20 +14,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: e7b9b87a7727b75588759d408292419d1fdccb83
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 864c80fe0ab8b061439b5a80a111edbd1b2004b6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022574"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027034"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
-Azure Key Vault es un servicio en la nube que funciona como un almacén de secretos seguro. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Para más información sobre Key Vault, puede consultar esta [introducción](key-vault-overview.md). Las instancias de Azure Key Vault se pueden crear y administrar a través de Azure Portal. En esta guía de inicio rápido, va a crear un almacén de claves. Una vez que haya terminado, almacenará un secreto.
+Azure Key Vault es un servicio de almacenamiento seguro de secretos en la nube. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Las instancias de Azure Key Vault se pueden crear y administrar a través de Azure Portal. En esta guía de inicio rápido se crea un almacén de claves y se usa para almacenar un secreto. Para más información sobre Key Vault, consulte esta [introducción](key-vault-overview.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-into-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en http://portal.azure.com.
 
@@ -40,10 +40,10 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 3. En la lista de resultados, elija **Key Vault**.
 4. En la sección Key Vault, elija **Crear**.
 5. En la sección **Crear Key Vault**, proporcione la siguiente información:
-    - **Nombre**: en esta guía de inicio rápido se usará **Contoso-vault2**. Debe proporcionar un nombre exclusivo en las pruebas.
-    - **Suscripción**: elija la suscripción que va a usar para esta guía de inicio rápido.
+    - **Nombre**: se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
+    - **Suscripción**: elija una suscripción.
     - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
-    - En el menú desplegable **Ubicación** elija una ubicación.
+    - En el menú desplegable **Ubicación**, elija una ubicación.
     - Seleccione la casilla **Anclar al panel**.
     - Deje las restantes opciones con sus valores predeterminados.
 6. Después de proporcionar la información descrita anteriormente, seleccione **Crear**.
@@ -59,24 +59,24 @@ En este momento, su cuenta de Azure es la única autorizada para realizar operac
 
 ## <a name="add-a-secret-to-key-vault"></a>Incorporación de un secreto a Key Vault
 
-Para agregar un secreto al almacén, simplemente debe realizar un par de pasos adicionales. En este caso, se ha agregado una contraseña que una aplicación podría usar. La contraseña se denomina **ExamplePassword** y se almacena el valor de **Pa$$w0rd** en ella.
+Para agregar un secreto al almacén, simplemente debe realizar un par de pasos adicionales. En este caso se ha agregado una contraseña que una aplicación podría usar. La contraseña se denomina **ExamplePassword** y se almacena el valor de **Pa$$w0rd** en ella.
 
-1. En la página de propiedades de Key Vault seleccione **Secretos**.
+1. En las páginas de propiedades de Key Vault, seleccione **Secretos**.
 2. Haga clic en **Generar o Importar**.
-3. En la pantalla **Crear un secreto** elija lo siguiente:
+3. En la pantalla **Crear un secreto**, elija los siguientes valores:
     - **Opciones de carga**: Manual.
     - **Nombre**: ExamplePassword.
     - **Valor**: Pa$$w0rd.
     - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Create**(Crear).
 
-Una vez que reciba el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. A continuación, puede ver algunas de las propiedades. Si hace clic en la versión actual puede ver el valor especificado en el paso anterior.
+Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. A continuación, puede ver algunas de las propiedades. Si hace clic en la versión actual puede ver el valor especificado en el paso anterior.
 
 ![Propiedades del secreto](./media/quick-create-portal/version.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Otras guías de inicio rápido y tutoriales de Key Vault se basan en esta. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
-Cuando ya no lo necesite, elimine el grupo de recursos y con esto eliminará Key Vault y los recursos relacionados. Para eliminar el grupo de recursos mediante el portal:
+Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminarán también Key Vault y los recursos relacionados. Para eliminar el grupo de recursos mediante el portal:
 
 1. Escriba el nombre del grupo de recursos en el cuadro de búsqueda de la parte superior del portal. Cuando vea el grupo de recursos que se utiliza en esta guía de inicio rápido en los resultados de búsqueda, selecciónelo.
 2. Seleccione **Eliminar grupo de recursos**.
@@ -88,4 +88,4 @@ Cuando ya no lo necesite, elimine el grupo de recursos y con esto eliminará Key
 En esta guía de inicio rápido, ha creado una instancia de Key Vault y almacenado un secreto. Para más información sobre Key Vault y cómo lo puede utilizar con sus aplicaciones, siga con el tutorial sobre aplicaciones web que funcionan con Key Vault.
 
 > [!div class="nextstepaction"]
-> Para obtener más información sobre cómo leer un secreto desde Key Vault mediante una aplicación web con una identidad de servicio administrada, consulte el siguiente tutorial: [Configure an Azure web application to read a secret from Key vault](quick-create-net.md) (Configurar una aplicación web de Azure para que lea un secreto desde el almacén de claves).
+> Para más información sobre cómo leer un secreto de Key Vault mediante una aplicación web con identidades administradas de recursos de Azure, consulte el siguiente tutorial sobre [Configuración de una aplicación web de Azure para leer un secreto de Key Vault](quick-create-net.md).

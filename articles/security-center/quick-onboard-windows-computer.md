@@ -3,7 +3,7 @@ title: 'Guía de inicio rápido de Azure Security Center: incorporación de equi
 description: En esta guía de inicio rápido se explica cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38702664"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023007"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.
 
 En esta guía de inicio rápido se explica cómo instalar Microsoft Monitoring Agent en un equipo Windows.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar esta guía de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho plan se puede probar de forma gratuita los primeros sesenta días.
@@ -39,14 +39,14 @@ Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar
 
  ![Introducción a Security Center][2]
 
-3. En el menú principal de Security Center, seleccione **Incorporación a la seguridad avanzada**.
-4. Seleccione **¿Quiere agregar equipos que no forman parte de Azure?**
+3. En el menú principal de Security Center, seleccione **Introducción**.
+4. Seleccione la pestaña **Introducción**.
 
-   ![Incorporación a la seguridad avanzada][3]
+   ![Introducción][3]
 
-5. En **Agregar nuevos equipos que no son de Azure**, se muestra una lista de las áreas de trabajo de Log Analytics. La lista incluye, si procede, el área de trabajo predeterminada que Security Center crea automáticamente si el aprovisionamiento automático está habilitado. Seleccione esta área de trabajo u otra que desee usar.
+5. Haga clic en **Configurar** en **Agregar nuevos equipos que no son de Azure**. Aparecerá una lista de las áreas de trabajo de Log Analytics. La lista incluye, si procede, el área de trabajo predeterminada que Security Center crea automáticamente si el aprovisionamiento automático está habilitado. Seleccione esta área de trabajo u otra que desee usar.
 
-    ![Agregar un equipo que no es de Azure][4]
+    ![Agregar un equipo que no es de Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
   Se abre la hoja **Agente directo** con un vínculo para descargar un agente de Windows y las claves de su identificador de área de trabajo que usará para configurar el agente.
 
@@ -104,7 +104,7 @@ En esta guía de inicio rápido se ha explicado cómo aprovisionar Microsoft Mon
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

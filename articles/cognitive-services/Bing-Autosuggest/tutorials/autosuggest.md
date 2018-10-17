@@ -1,23 +1,23 @@
 ---
-title: Obtención de resultados de Autosuggest mediante Bing Autosuggest API (Azure Cognitive Services) | Microsoft Docs
+title: 'Tutorial: Obtención de resultados de sugerencias automáticas con Bing Autosuggest API'
+titlesuffix: Azure Cognitive Services
 description: Muestra cómo usar Bing Autosuggest.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: f66af61ed06f4c6a7fe36cd44aa7781b71bb18ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b93ab8ebb4bb50723ec6ebae617fe9d95c6c7a47
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382147"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831451"
 ---
-# <a name="build-a-web-page-autosuggest-client"></a>Crear un cliente de Autosuggest de página web
+# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Tutorial: Creación de un cliente de Autosuggest de página web
 
 En este tutorial, crearemos una página web que permita a los usuarios consultar Bing Autosuggest API.
 
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > - Realizar una consulta simple en Bing Autosuggest API
 > - Visualización de resultados de la consulta
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir con el tutorial, necesita una clave de suscripción para Bing Autosuggest API. Si no tiene ninguna, [suscríbase para obtener una evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
@@ -76,7 +76,7 @@ getSubscriptionKey = function() {
     var COOKIE = "bing-autosuggest-api-key";   // name used to store API key in key/value storage
 ```
 
-La función auxiliar findCookie devuelve el valor de la cookie especificada. Si no se encuentra la cookie, devuelve una cadena vacía.
+La función auxiliar findCookie devuelve el valor de la cookie especificada; si no se encuentra la cookie, devuelve una cadena vacía.
 
 ```html
     function findCookie(name) {
@@ -138,7 +138,7 @@ La función auxiliar getSubscriptionKey toma un parámetro, **invalidate**. Si *
     }
 ```
 
-Devuelva la función auxiliar getSubscriptionKey como resultado de la función getSubscriptionKey externa. Cierre la definición de la función getSubscriptionKey externa.
+Devuelve la función auxiliar getSubscriptionKey como resultado de la función getSubscriptionKey externa. Cierre la definición de la función getSubscriptionKey externa.
 
 ```html
     return getSubscriptionKey;

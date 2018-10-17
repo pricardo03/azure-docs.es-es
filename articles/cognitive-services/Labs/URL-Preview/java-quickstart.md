@@ -1,25 +1,27 @@
 ---
-title: 'Inicio rápido de Java para Project URL Preview: Microsoft Cognitive Services | Microsoft Docs'
-description: Ejemplo de script para empezar a usar Project URL Preview de Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Project URL Preview, Java'
+titlesuffix: Azure Cognitive Services
+description: Ejemplo de script para empezar a usar Project URL Preview con Java.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381778"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867126"
 ---
-# <a name="url-preview-java-quickstart"></a>Inicio rápido de Java para URL Preview
+# <a name="quickstart-url-preview-with-java"></a>Guía de inicio rápido: URL Preview con Java
 
 En el ejemplo de Java siguiente se crea una vista previa de la dirección URL del sitio web de SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
 

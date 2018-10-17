@@ -1,25 +1,26 @@
 ---
-title: Inicio rápido de Node para Project Answer Search de Microsoft Cognitive Services | Microsoft Docs
-description: Empiece a usar Project Answer Search de Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Project Answer Search con Node'
+description: Introducción al uso de Project Answer Search con Node.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 36b2709d39230aae7929164ba4c9306f57043b43
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 99dba482c9dec4448110301201c7c9e79a7a6380
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381739"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867432"
 ---
-# <a name="project-answer-search-node-quickstart"></a>Guía de inicio rápido de Project Answer Search para Node
+# <a name="quickstart-project-answer-search-with-node"></a>Guía de inicio rápido de Project Answer Search con Node
 
 En el siguiente ejemplo de Node se crea una consulta para obtener información sobre Yosemite National Park.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
 
@@ -33,9 +34,9 @@ Se implementa en los pasos siguientes:
 2. Especifique la dirección URL de la que desea obtener una vista previa y agregue el parámetro de consulta.  
 3. Cree una función de controlador para la respuesta.
 4. Defina la función de búsqueda que crea la solicitud y agrega el encabezado *Ocp-Apim-Subscription-Key*.
-5. Ejecute la función de búsqueda. 
+5. Ejecute la función Search. 
 
-El código completo de esta demostración es el siguiente:
+Este es el código completo de esta demostración:
 
 ````
 'use strict';

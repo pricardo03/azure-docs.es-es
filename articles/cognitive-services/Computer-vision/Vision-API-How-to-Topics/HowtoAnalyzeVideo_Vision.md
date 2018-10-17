@@ -1,23 +1,25 @@
 ---
-title: Análisis de vídeo en tiempo real con Computer Vision API | Microsoft Docs
-description: Obtenga información sobre cómo realizar análisis casi en tiempo real de fotogramas procedentes de una secuencia de vídeo en directo a través de Computer Vision API en Cognitive Services.
+title: 'Ejemplo: Análisis de vídeo en tiempo real con Computer Vision API'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo realizar análisis casi en tiempo real de fotogramas procedentes de una secuencia de vídeo en directo a través de Computer Vision API.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: d75b1a887e5e4557d5464d8062e1bde628e7adab
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 058f2ad58665a88d2d3cf3ce20b43ac0fad30000
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380727"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983202"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Análisis de vídeos en tiempo real
 En esta guía se demostrará cómo realizar el análisis casi en tiempo real de fotogramas procedentes de una secuencia de vídeo en directo. Los componentes básicos en un sistema de este tipo son:
+
 - Adquirir fotogramas desde un origen de vídeo
 - Seleccionar los fotogramas que se van a analizar
 - Enviar estos fotogramas a la API
@@ -41,7 +43,7 @@ while (true)
     }
 }
 ```
-Si el análisis consistiese en un algoritmo de cliente ligero, este enfoque sería adecuado. Sin embargo, cuando el análisis tiene lugar en la nube, la latencia que conlleva significa que una llamada API puede tardar varios segundos, durante los cuales no se capturan imágenes y el subproceso básicamente no hace nada. La velocidad de fotogramas máxima está limitada por la latencia de las llamadas API.
+Si nuestro análisis consistió en un algoritmo de cliente ligero, este enfoque sería adecuado. Sin embargo, cuando el análisis tiene lugar en la nube, la latencia que conlleva significa que una llamada API puede tardar varios segundos, durante los cuales no se capturan imágenes y el subproceso básicamente no hace nada. La velocidad de fotogramas máxima está limitada por la latencia de las llamadas API.
 
 ### <a name="parallelizing-api-calls"></a>Paralelización de llamadas API
 Si bien un bucle simple de un único subproceso tiene sentido para un algoritmo de cliente ligero, no se ajusta bien a la latencia involucrada en las llamadas API de la nube. La solución a este problema es permitir que las llamadas API de larga ejecución se ejecuten en paralelo con la captura de fotogramas. En C#, se podría lograr esto usando paralelismo basado en tareas, por ejemplo:
@@ -59,10 +61,10 @@ while (true)
     }
 }
 ```
-Esto inicia cada análisis en una tarea independiente, que se puede ejecutar en segundo plano mientras se siguen capturando fotogramas nuevos. Esto evita que bloquear el subproceso principal mientras se espera que se devuelva una llamada API; sin embargo, se han perdido algunas de las garantías que proporcionaba la versión sencilla: pueden producirse varias llamadas API en paralelo y los resultados podrían devolverse en el orden equivocado. Además, esto podría provocar que varios subprocesos ingresaran en la función ConsumeResult() al mismo tiempo, lo que podría ser peligroso si la función no es segura para subprocesos. Por último, este código simple no realiza un seguimiento de las tareas que se crean, por lo que las excepciones desaparecerán de manera silenciosa. Por lo tanto, el ingrediente final que se debe agregar es un subproceso de "consumidor" que realice un seguimiento de las tareas de análisis, produzca excepciones, elimine tareas de larga duración y asegure que los resultados se consuman en el orden correcto, uno a la vez.
+Este método inicia cada análisis en una tarea independiente, que se puede ejecutar en segundo plano mientras se siguen capturando fotogramas nuevos. Esto evita bloquear el subproceso principal mientras se espera que se devuelva una llamada API; sin embargo, se han perdido algunas de las garantías que proporcionaba la versión sencilla: pueden producirse varias llamadas API en paralelo y los resultados podrían devolverse en el orden equivocado. Además, este método podría provocar que varios subprocesos ingresaran en la función ConsumeResult() al mismo tiempo, lo que podría ser peligroso si la función no es segura para subprocesos. Por último, este código simple no realiza un seguimiento de las tareas que se crean, por lo que las excepciones desaparecerán de manera silenciosa. Por lo tanto, el ingrediente final que se debe agregar es un subproceso de "consumidor" que realice un seguimiento de las tareas de análisis, produzca excepciones, elimine tareas de larga duración y asegure que los resultados se consuman en el orden correcto, uno a la vez.
 
 ### <a name="a-producer-consumer-design"></a>Un diseño de productor-consumidor
-En el sistema final de "productor-consumidor", se cuenta con un subproceso productor que es muy similar al bucle infinito anterior. No obstante, en lugar de consumir los resultados del análisis en cuanto están disponibles, el productor simplemente coloca las tareas en una cola para realizarles un seguimiento.
+En el sistema final de "productor-consumidor", se cuenta con un subproceso productor que es similar al bucle infinito anterior. No obstante, en lugar de consumir los resultados del análisis en cuanto están disponibles, el productor simplemente coloca las tareas en una cola para realizarles un seguimiento.
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
@@ -126,7 +128,7 @@ Para que la aplicación esté en funcionamiento lo más rápido posible, se ha i
 
 La biblioteca contiene la clase FrameGrabber, que implementa el sistema productor-consumidor descrito anteriormente para procesar fotogramas de vídeo desde una cámara web. El usuario puede especificar la forma exacta de la llamada API, y la clase utiliza eventos para comunicar al código de llamada cuándo se adquiere un nuevo fotograma, o cuándo hay disponible un resultado del análisis.
 
-Para ilustrar algunas de las posibilidades, hay dos aplicaciones de ejemplo que utiliza la biblioteca. La primera es una aplicación de consola simple; una versión simplificada de esta se reproduce a continuación. Toma fotogramas de la cámara web predeterminada y los envía a Face API para la detección de caras.
+Para ilustrar algunas de las posibilidades, hay dos aplicaciones de ejemplo que utilizan la biblioteca. La primera es una aplicación de consola simple; una versión simplificada de esta se reproduce a continuación. Toma fotogramas de la cámara web predeterminada y los envía a Face API para la detección de caras.
 ```CSharp
 using System;
 using VideoFrameAnalyzer;
@@ -171,7 +173,7 @@ namespace VideoFrameConsoleApplication
     }
 }
 ```
-La segunda aplicación de ejemplo es un poco más interesante y le permite elegir a qué API llamar en los fotogramas de vídeo. En el lado izquierdo, la aplicación muestra una vista previa del vídeo en directo; en el lado derecho, muestra el resultado más reciente de la API superpuesto en el fotograma correspondiente.
+La segunda aplicación de ejemplo es un poco más interesante y le permite elegir a qué API llamar en los fotogramas de vídeo. En el lado izquierdo, la aplicación muestra una vista previa del vídeo en directo; en el lado derecho, muestra el resultado más reciente de la API superpuesto con el fotograma correspondiente.
 
 En la mayoría de los modos, habrá un retraso visible entre el vídeo en directo a la izquierda y el análisis visualizado a la derecha. Este retraso es el tiempo necesario para realizar la llamada API. La excepción a esto es el modo "EmotionsWithClientFaceDetect", que realiza la detección de caras localmente en el equipo cliente utilizando OpenCV, antes de enviar las imágenes a Cognitive Services. Al hacerlo, se posible visualizar la cara detectada inmediatamente y, a continuación, actualizar las emociones posteriormente una vez que se devuelve la llamada API. Esto demuestra la posibilidad de un enfoque "híbrido", donde se puede realizar un procesamiento simple en el cliente y, a continuación, puede usarse Cognitive Services APIs para intensificar esto con un análisis más avanzado, cuando sea necesario.
 
@@ -199,7 +201,7 @@ Cuando esté listo para la integración, **simplemente haga referencia a la bibl
 Como con todos los servicios de Cognitive Services, los desarrolladores que programen con nuestras API y ejemplos deben cumplir con el "[Código de conducta de desarrolladores para Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)". 
 
 
-Las funcionalidades de comprensión de imágenes, voces, vídeos o texto de VideoFrameAnalyzer utilizan Microsoft Cognitive Services. Microsoft recibirá las imágenes, el audio, el vídeo y otros datos que usted cargue (a través de esta aplicación) y podrá usarlos para fines de mejora del servicio. Pedimos su ayuda para proteger a las personas cuyos datos la aplicación envíe a Microsoft Cognitive Services. 
+Las funcionalidades de comprensión de imágenes, voces, vídeos o texto de VideoFrameAnalyzer emplean Microsoft Cognitive Services. Microsoft recibirá las imágenes, el audio, el vídeo y otros datos que usted cargue (a través de esta aplicación) y podrá usarlos para fines de mejora del servicio. Pedimos su ayuda para proteger a las personas cuyos datos envíe la aplicación a Azure Cognitive Services. 
 
 
 ## <a name="summary"></a>Resumen

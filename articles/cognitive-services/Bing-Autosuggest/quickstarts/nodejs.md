@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido de Bing Autosuggest API con Node.js | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Autosuggest API en Azure Cognitive Services.
+title: 'Guía de inicio rápido: Bing Autosuggest API con Node.js'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Autosuggest API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: d327f3da493259793c2a4adfd6e87d756610f920
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 498953625907aad85d8ea5999905cad21bf245da
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382259"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829994"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-nodejs"></a>Guía de inicio rápido de Bing Autosuggest API con Node.js
-<a name="HOLTop"></a>
 
 En este artículo se muestra cómo utilizar [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Node.js. Bing Autosuggest API devuelve una lista de consultas sugeridas basadas en la cadena de consulta parcial que el usuario escribe en el cuadro de búsqueda. Por lo general, habría que llamar a esta API cada vez que el usuario escribe un carácter nuevo en el cuadro de búsqueda y, después, mostrar las sugerencias en la lista desplegable del cuadro de búsqueda. En este artículo se muestra cómo enviar una solicitud que devuelve las cadenas de consulta sugeridas para *navegar*.
 
@@ -25,7 +25,7 @@ En este artículo se muestra cómo utilizar [Bing Autosuggest API](https://azure
 
 Necesita [Node.js 6](https://nodejs.org/en/download/) para ejecutar este código.
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Autosuggest API v7**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/#search) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
+Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Autosuggest API v7**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/#search) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita. También puede usar una clave de suscripción de pago desde su panel de Azure.
 
 ## <a name="get-autosuggest-results"></a>Obtención de resultados de Autosuggest
 

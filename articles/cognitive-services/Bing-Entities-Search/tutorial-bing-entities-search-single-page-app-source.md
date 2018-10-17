@@ -1,24 +1,25 @@
 ---
-title: Aplicación web de página única de Bing Image Search (código fuente) | Microsoft Docs
-description: Código fuente del tutorial que muestra cómo utilizar Bing Image Search API en una aplicación web de página única.
+title: 'Tutorial: Aplicación web de página única de Bing Entity Search (código fuente)'
+titlesuffix: Azure Cognitive Services
+description: Código fuente del tutorial que muestra cómo usar Bing Entity Search API en una aplicación web de página única.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380158"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815059"
 ---
 # <a name="tutorial-single-page-web-app-source"></a>Tutorial: Código fuente de aplicación web de página única
 
-Este es el código fuente completo que se describe en el [tutorial de la aplicación de página única](tutorial-bing-entities-search-single-page-app.md) de Bing Image Search. Para ejecutar la aplicación, copie el código fuente en el Bloc de notas o en otro editor de texto y guárdelo como `bing.html`. A continuación, abra el archivo guardado en Microsoft Edge u otro explorador conocido.
+Este es el código fuente completo que se describe en el [tutorial de la aplicación de página única](tutorial-bing-entities-search-single-page-app.md) de Bing Entity Search. Para ejecutar la aplicación, copie el código fuente en el Bloc de notas o en otro editor de texto y guárdelo como `bing.html`. A continuación, abra el archivo guardado en Microsoft Edge u otro explorador conocido.
 
 ```html
 <!DOCTYPE html>

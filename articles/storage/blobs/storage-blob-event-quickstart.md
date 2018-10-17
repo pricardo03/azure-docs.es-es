@@ -8,12 +8,12 @@ ms.date: 08/23/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6910386fbc98a2a951fa78ccd99204d19046d637
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 78ee6f198bf4e16e3b2b0deb8fdb0b68c0fe9b73
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744145"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735101"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con la CLI de Azure
 
@@ -48,7 +48,7 @@ az group create --name <resource_group_name> --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Para utilizar eventos de Blob Storage, necesita una [cuenta de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o una [cuenta de almacenamiento de uso general v2](../common/storage-account-options.md#general-purpose-v2-accounts). Las cuentas de **uso general v2 (GPv2)**  son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento, como Blob, Files, Queue y Table. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs. 
+Los eventos de Blob Storage están disponibles en las cuentas de almacenamiento de uso general v2 y en las cuentas de Blob Storage. Las cuentas de almacenamiento de **uso general v2** admiten todas las características de todos los servicios de almacenamiento, como blobs, archivos, colas y tablas. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para más información, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
 Reemplace `<storage_account_name>` por el nombre único de la cuenta de almacenamiento y `<resource_group_name>` por el grupo de recursos que creó anteriormente.
 

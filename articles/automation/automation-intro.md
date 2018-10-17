@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e09a1b1c1a849e9957c2969da2b8e4c1d00347ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053783"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297707"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introducción a Azure Automation
 
@@ -65,7 +65,7 @@ Examine la [Galería de Automation](automation-runbook-gallery.md) de runbooks y
 
 Azure Automation se administra en el ciclo de vida de la infraestructura y las aplicaciones. Transfiera conocimientos al sistema sobre cómo la organización entrega y mantiene las cargas de trabajo. Cree en lenguajes comunes como PowerShell, Desired State Configuration, Python y runbooks gráficos. Obtenga un inventario completo de los recursos implementados con fines de compatibilidad, creación de informes y cumplimiento. Identifique los cambios que pueden provocar una configuración incorrecta y mejore el cumplimiento operativo.
 
-* **Compilación o implementación de recursos**: implemente máquinas virtuales en un entorno híbrido mediante runbooks y plantillas de Azure Resource Manager. Intégrese en las herramientas de desarrollo como Jenkins y Visual Studio Team Services.
+* **Compilación o implementación de recursos**: implemente máquinas virtuales en un entorno híbrido mediante runbooks y plantillas de Azure Resource Manager. Integre en las herramientas de desarrollo como Jenkins y Azure DevOps.
 * **Configuración de máquinas virtuales**: evalúe y configure máquinas Windows y Linux con la configuración deseada para la infraestructura y la aplicación.
 * **Supervisión**: identifique los cambios en las máquinas que están ocasionando problemas y corríjalos o remítalos a una instancia superior de los sistemas de administración.
 * **Protección**: ponga en cuarentena una VM si se genera una alerta de seguridad. Establezca los requisitos de invitado.

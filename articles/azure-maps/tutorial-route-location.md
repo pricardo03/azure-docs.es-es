@@ -3,18 +3,18 @@ title: Búsqueda de una ruta con Azure Maps | Microsoft Docs
 description: Ruta a un punto de interés mediante Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578944"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816725"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ruta a un punto de interés mediante Azure Maps
 
@@ -126,14 +126,16 @@ En este tutorial, establezca como punto de inicio Microsoft y como punto de dest
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    **map.setCameraBounds** ajusta la ventana de mapa de acuerdo con las coordenadas de los puntos de inicio y fin. La API **map.addPins** agrega los puntos al Control de mapa como componentes visuales.
+    **map.setCameraBounds** ajusta la ventana de mapa de acuerdo con las coordenadas de los puntos de inicio y fin. **map.addEventListener** garantiza que todas las funciones de mapas agregadas al mapa se cargan después de que el mapa se ha cargado completamente. La API **map.addPins** dentro de los agentes de escucha de eventos agrega los puntos al control de mapa como componentes visuales.
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle, y puede ver como la chincheta azul redonda marca el punto de inicio y otra chincheta azul el punto de fin.
 
@@ -143,7 +145,7 @@ En este tutorial, establezca como punto de inicio Microsoft y como punto de dest
 
 ## <a name="get-directions"></a>Obtención de las direcciones
 
-En esta sección se muestra cómo usar la API del servicio de ruta de Maps para buscar la ruta desde un punto de inicio hasta un destino. El servicio de ruta proporciona las API para planear la ruta *más rápida*, *más corta*, *ecológica* o *emocionante* entre dos ubicaciones. También permite a los usuarios planear rutas futuras mediante el uso de bases de datos que contienen un historial amplio del tráfico y la predicción de duraciones de una ruta en cualquier día y a cualquier hora. Para más información, consulte [Obtención de direcciones de ruta](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+En esta sección se muestra cómo usar la API del servicio de ruta de Maps para buscar la ruta desde un punto de inicio hasta un destino. El servicio de ruta proporciona las API para planear la ruta *más rápida*, *más corta*, *ecológica* o *emocionante* entre dos ubicaciones. También permite a los usuarios planear rutas futuras mediante el uso de bases de datos que contienen un historial amplio del tráfico y la predicción de duraciones de una ruta en cualquier día y a cualquier hora. Para más información, consulte [Obtención de direcciones de ruta](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Todas las funcionalidades siguientes deben agregarse **dentro del elemento eventListener de carga de mapas** para asegurarse de que se cargan después de que el mapa se ha cargado completamente.
 
 1. En primer lugar, agregue una nueva capa en el mapa para mostrar el recorrido de la ruta, o *linestring*. Agregue el siguiente código JavaScript al bloque *script*.
 
@@ -204,6 +206,10 @@ En este tutorial aprendió lo siguiente:
 > * Crear una nueva página web con Map Control API
 > * Establecer las coordenadas de dirección
 > * Consultar en el servicio de ruta las direcciones a un punto de interés
+
+Puede acceder al ejemplo de código de este tutorial, aquí:
+
+> [Búsqueda de rutas con Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 En el siguiente tutorial se muestra cómo crear una consulta de ruta con restricciones, como el modo de desplazamiento o el tipo de carga y, después, visualizar varias rutas en el mismo mapa.
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 50448691fb136278cf7fdf3687ffb3b13fbb54ca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f3ea500c8e48f4a509782657ad2fe750bf3a7ed6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122270"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025662"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
@@ -105,4 +105,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 En esta guía de inicio rápido, ha creado una instancia de Key Vault y almacenado un secreto de software en ella. Para más información sobre Key Vault y cómo lo puede utilizar con sus aplicaciones, siga con el tutorial sobre aplicaciones web que funcionan con Key Vault.
 
 > [!div class="nextstepaction"]
-> Para obtener más información sobre cómo leer un secreto desde Key Vault mediante una aplicación web con una identidad de servicio administrada, consulte el siguiente tutorial: [Configure an Azure web application to read a secret from Key vault](quick-create-net.md) (Configurar una aplicación web de Azure para que lea un secreto desde el almacén de claves).
+> Para más información sobre cómo leer un secreto de Key Vault mediante una aplicación web con identidades administradas de recursos de Azure, consulte el siguiente tutorial sobre [Configuración de una aplicación web de Azure para leer un secreto de Key Vault](quick-create-net.md).

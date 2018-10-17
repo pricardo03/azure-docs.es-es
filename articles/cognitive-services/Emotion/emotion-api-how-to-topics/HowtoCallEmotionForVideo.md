@@ -1,32 +1,34 @@
 ---
-title: Llamada a Emotion API para vídeo | Microsoft Docs
+title: 'Ejemplo: Llamada a Emotion API para vídeo'
+titlesuffix: Azure Cognitive Services
 description: Obtenga información acerca de cómo llamar a Emotion API para vídeo en Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380722"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238614"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>Llamada a Emotion API para vídeo
+# <a name="example-call-emotion-api-for-video"></a>Ejemplo: Llamada a Emotion API para vídeo
 
 > [!IMPORTANT]
-> La versión preliminar de Video API terminará el 30 de octubre de 2017. Pruebe la versión preliminar de la nueva [Video Indexer API con una extracción sencilla de detalles en](https://azure.microsoft.com/services/cognitive-services/video-indexer/) vídeos y mejore las experiencias de detección de contenido, como los resultados de la búsqueda, gracias al reconocimiento de texto oral, caras, caracteres y emociones. [Más información](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API dejará de usarse el 15 de febrero de 2019. La funcionalidad de reconocimiento de emociones está ahora disponible con carácter general como parte de [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 En esta guía se muestra cómo llamar a Emotion API para vídeo. Los ejemplos están escritos en C# con la biblioteca cliente de Emotion API para vídeo.
 
-### <a name="Prep">Preparación</a> 
+### <a name="Prep">Preparación</a>
 Para poder usar Emotion API para vídeo, necesitará un vídeo que incluya personas; de preferencia, un vídeo donde las personas miren a la cámara.
 
-### <a name="Step1">Paso 1: Autorizar la llamada de API</a> 
+### <a name="Step1">Paso 1: Autorizar la llamada de API</a>
 Cada llamada a Emotion API para vídeo requiere una clave de suscripción. Esta clave se debe pasar a través de un parámetro de cadena de consulta o se debe especificar en el encabezado de la solicitud. Para pasar la clave de suscripción a través de una cadena de consulta, haga referencia a la dirección URL de la solicitud a continuación para Emotion API para vídeo, por ejemplo:
 
 ```
@@ -44,7 +46,7 @@ Al usar una biblioteca cliente, la clave de suscripción se pasa a través del c
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Para obtener una clave de suscripción, consulte [Suscripciones] (https://azure.microsoft.com/try/cognitive-services/). 
+Para obtener una clave de suscripción, consulte [Suscripciones] (https://azure.microsoft.com/try/cognitive-services/).
 
 ### <a name="Step2">Paso 2: Cargar un vídeo en el servicio y comprobar el estado</a>
 La manera más sencilla de realizar cualquiera de las llamadas a Emotion API para vídeo es cargar un vídeo directamente. Para esto, se envía una solicitud "POST" con el tipo de contenido application/octet-stream junto con los datos leídos de un archivo de vídeo. El tamaño máximo del vídeo es de 100 MB.
@@ -71,7 +73,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-Este método de carga será el mismo para todas las lamadas de Emotion API para vídeo. 
+Este método de carga será el mismo para todas las lamadas de Emotion API para vídeo.
 
 Una vez que ha cargado un vídeo, la siguiente operación que querrá realizar es comprobar el estado. Dado que los archivos de vídeo suelen ser más grandes y más diversos que otros archivos, los usuarios pueden prever que el tiempo de procesamiento en este paso será prolongado. El tiempo depende del tamaño y la longitud del archivo.
 

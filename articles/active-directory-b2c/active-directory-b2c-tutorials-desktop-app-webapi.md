@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594787"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603205"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio mediante Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
     
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | My sample Node.js web API | Escriba un **Nombre** que describa su API web para los desarrolladores. |
+    | **Nombre** | My sample Node.js web API | Escriba un **Nombre** que describa su API web para los desarrolladores. |
     | **Incluir aplicación web o API web** | SÍ | Seleccione **Sí** para una API web. |
     | **Permitir flujo implícito** | SÍ | Seleccione **Sí**, ya que la API utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `http://localhost:5000` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su API solicite. En este tutorial, la API web de ejemplo se ejecuta localmente (localhost) y escucha en el puerto 5000. |

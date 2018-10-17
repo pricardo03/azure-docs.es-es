@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917057"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391375"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure
 
@@ -67,7 +67,7 @@ Compruebe las propiedades de la máquina virtual y asegúrese de que la máquina
 1. En **Configuración** > **Elementos replicados**, haga clic en VM > **Conmutación por error**.
 
 2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
-   - **Último** (valor predeterminado): esta opción procesa primero todos los datos enviados a Site Recovery. Ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
+   - **Último**: esta opción procesa primero todos los datos enviados a Site Recovery. Ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
    - **Procesado más recientemente**: con esta opción se realiza una conmutación por error de la máquina virtual al último punto de recuperación procesado por Site Recovery. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
    - **Más reciente coherente con la aplicación**: esta opción conmuta por error la máquina virtual al punto de recuperación más reciente coherente con la aplicación que haya procesado Site Recovery.
    - **Personalizado**: especifique un punto de recuperación.
@@ -82,11 +82,14 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Conexión con una máquina virtual con conmutación por error en Azure
 
-1. Después de la conmutación por error, vaya a la máquina virtual y [conéctese](../virtual-machines/windows/connect-logon.md) a ella para realizar la validación.
-2. Después de la validación, haga clic en **Confirmar** para finalizar el punto de recuperación de la máquina virtual después de la conmutación por error. Tras la confirmación, todos los demás puntos de recuperación disponibles se eliminarán. De esta forma se completa la actividad de conmutación por error.
+1. Si desea conectarse a máquinas virtuales de Azure mediante RDP/SSH después de la conmutación por error, siga los requisitos resumidos en [esta](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabla.
+2. Después de la conmutación por error, vaya a la máquina virtual y [conéctese](../virtual-machines/windows/connect-logon.md) a ella para realizar la validación.
+3. Después de la validación, haga clic en **Confirmar** para finalizar el punto de recuperación de la máquina virtual después de la conmutación por error. Tras la confirmación, todos los demás puntos de recuperación disponibles se eliminarán. De esta forma se completa la actividad de conmutación por error.
 
 >[!TIP]
 > **Cambiar el punto de recuperación** le ayuda a elegir un punto de recuperación diferente después de la conmutación por error, si no está satisfecho con la máquina virtual de conmutación por error. Después de la **confirmación**, esta opción ya no estará disponible.
+
+Siga los pasos descritos [aquí](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividad tras la conmutación por error.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparación para volver a proteger la máquina virtual Azure
 

@@ -1,49 +1,53 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision para Python: Creación de miniaturas | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision con Python en Cognitive Services.
+title: 'Guía de inicio rápido: Generación de una miniatura - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: bc1d01cd4b8f15ba627d917825ee5205c34f5cdf
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c5809b3dd62d87e2a1f3bde762d17bef6d5732ae
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772116"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632932"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-python"></a>Guía de inicio rápido: Generación de una miniatura (REST, Python)
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y Python en Computer Vision
 
-En esta guía de inicio rápido, generará una miniatura de una imagen con Computer Vision.
+En esta guía de inicio rápido, generará una miniatura de una imagen mediante la API de REST de Computer Vision. Con el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
 
 Puede ejecutar esta guía de inicio rápido paso a paso mediante un cuaderno de Jupyter en [MyBinder](https://mybinder.org). Para iniciar Binder, seleccione el botón siguiente:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="intelligently-generate-a-thumbnail"></a>Generación inteligente de una miniatura
+## <a name="prerequisites"></a>Requisitos previos
 
-Con el método [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+- Debe tener [Python](https://www.python.org/downloads/) instalado si desea ejecutar el ejemplo localmente.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-Para ejecutar el ejemplo, siga estos pasos:
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-1. Copie el siguiente ejemplo de código en un nuevo archivo de script de Python.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `vision_base_url` por la ubicación donde obtuvo las claves de suscripción.
-1. Tiene la opción de cambiar el valor `image_url` por otra imagen.
-1. Ejecute el script.
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-El código siguiente usa la biblioteca `requests` de Python para llamar a Analyze Image API de Computer Vision. La clave de API se pasa a través del diccionario `headers`. El tamaño de la miniatura se pasa mediante el diccionario `params`. La miniatura se devuelve como una matriz de bytes en la respuesta.
-
-## <a name="get-thumbnail-request"></a>Solicitud Get Thumbnail
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscription_key` por la clave de suscripción.
+    1. Reemplace el valor de `vision_base_url` por la dirección URL del punto de conexión del recurso de Computer Vision en la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `image_url` por la dirección URL de una imagen diferente para la que desea generar una miniatura.
+1. Guarde el código como un archivo con la extensión `.py`. Por ejemplo, `get-thumbnail.py`.
+1. Abra una ventana de símbolo del sistema.
+1. En el símbolo del sistema, utilice el comando `python` para ejecutar el ejemplo. Por ejemplo, `python get-thumbnail.py`.
 
 ```python
 import requests
@@ -87,9 +91,13 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+## <a name="examine-the-response"></a>Examen de la respuesta
+
+Se devuelve una respuesta correcta como datos binarios, que representan los datos de imagen para la miniatura. Si la solicitud se realiza correctamente, la miniatura se genera a partir de los datos binarios de la respuesta y se muestra en el ejemplo. Si se produce un error en la solicitud, la respuesta se muestra en la ventana del símbolo del sistema. La respuesta de la solicitud con error contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore una aplicación de Python que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore una aplicación de Python que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de Computer Vision API para Python](../Tutorials/PythonTutorial.md)

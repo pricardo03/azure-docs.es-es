@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143430"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378353"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Inicio rápido: Implementación de Azure Data Box Disk mediante Azure Portal (versión preliminar)
 
@@ -68,12 +68,12 @@ Data Box Disk se envía por correo en una caja de UPS Express. Abra la caja y co
 
 Este paso tarda aproximadamente 5 minutos.
 
-1. Utilice el cable incluido para conectar el disco a un equipo Windows que ejecute un sistema operativo compatible. Para más información sobre las versiones de sistemas operativos compatibles, vaya a [Requisitos del sistema de Azure Data Box Disk](data-box-disk-system-requirements.md). 
+1. Utilice el cable incluido para conectar el disco a una máquina Windows/Linux que ejecute un sistema operativo compatible. Para más información sobre las versiones de sistemas operativos compatibles, vaya a [Requisitos del sistema de Azure Data Box Disk](data-box-disk-system-requirements.md). 
 2. Para desbloquear el disco:
 
     1. En Azure Portal, vaya a **General > Detalles del dispositivo** y obtenga la clave de paso.
-    2. Descargue y extraiga la herramienta de desbloqueo de Data Box Disk en el equipo que se usa para copiar los datos en discos. 
-    3. Ejecute *DataBoxDiskUnlock.exe* y proporcione la clave de paso. Si desea reinsertar algún disco, vuelva a ejecutar la herramienta de desbloqueo y escriba la clave de paso. **No utilice el cuadro de diálogo de BitLocker ni la clave de BitLocker para desbloquear el disco.** 
+    2. Descargue y extraiga la herramienta de desbloqueo de Data Box Disk específica del sistema operativo en el equipo que se usa para copiar los datos en discos. 
+    3. Ejecute la herramienta de desbloqueo de Data Box Disk y proporcione la clave de paso. Si desea reinsertar algún disco, vuelva a ejecutar la herramienta de desbloqueo y escriba la clave de paso. **No utilice el cuadro de diálogo de BitLocker ni la clave de BitLocker para desbloquear el disco.** Para más información sobre el desbloqueo de discos, vaya a la sección de [desbloqueo de discos en un cliente de Windows]() o de [desbloqueo de discos en un cliente de Linux]().
     4. La herramienta muestra la letra de unidad asignada al disco. Tome nota de la letra de unidad del disco. Se usa en los pasos siguientes.
 
 ## <a name="copy-data-and-verify"></a>Copia de los datos y verificación
@@ -86,9 +86,9 @@ El tiempo en completar esta operación depende del tamaño de los datos.
 
     > [!NOTE] 
     > - Todos los contenedores y blobs deben adecuarse a las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Si no se siguen estas reglas, se producirá un error en la carga de datos en Azure.
-    > - Asegúrese de que los archivos no superen ~4.7 TiB para blobs en bloques y ~8 TiB para blobs en páginas.
+    > - Asegúrese de que los archivos no superen ~4,75 TiB para blobs en bloques y ~8 TiB para blobs en páginas.
 
-2. (Opcional) Una vez completada la copia, le recomendamos que ejecute el script `AzureExpressDiskService.cmd` proporcionado en la carpeta *AzureImportExport* para generar sumas de comprobación para la validación. Según el tamaño de los datos, este paso puede tardar un rato. 
+2. (Opcional) Una vez completada la copia, le recomendamos que ejecute el script `DataBoxDiskValidation.cmd` proporcionado en la carpeta *AzureImportExport* para generar sumas de comprobación para la validación. Según el tamaño de los datos, este paso puede tardar un rato. 
 3. Desconecte la unidad. 
 
 

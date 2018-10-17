@@ -1,24 +1,22 @@
 ---
-title: 'Guía de inicio rápido: envío de un flujo de trabajo con entradas de archivo FASTQ | Microsoft Docs'
+title: 'Inicio rápido: Envío de un flujo de trabajo con entradas de archivo FASTQ - Microsoft Genomics'
 titleSuffix: Azure
 description: En la guía de inicio rápido se da por supuesto que tiene instalado el cliente de msgen y que ha ejecutado correctamente los datos de ejemplo mediante el servicio.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: f093397803f21c023a2c32e42709ecfcd0e3aec7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684490"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735856"
 ---
-# <a name="submit-a-workflow-using-fastq-file-inputs"></a>Envío de un flujo de trabajo con entradas de archivo FASTQ
+# <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Inicio rápido: Envío de un flujo de trabajo con entradas de archivo FASTQ en Microsoft Genomics
 
 Esta guía de inicio rápido demuestra cómo enviar un flujo de trabajo al servicio de Microsoft Genomics, si los archivos de entrada son un par sencillo de archivos FASTQ. En este tema se da por supuesto que ya ha instalado y ejecutado el cliente `msgen` y está familiarizado con el uso de Azure Storage. Si ha enviado correctamente un flujo de trabajo usando los datos de ejemplo proporcionados, puede continuar con esta guía de inicio rápido. 
 

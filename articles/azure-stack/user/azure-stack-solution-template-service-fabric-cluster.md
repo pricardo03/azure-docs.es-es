@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/08/2018
+ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440358"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804436"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementación de un clúster de Service Fabric en Azure Stack
 
 Use el elemento **Clúster de Service Fabric** en Azure Marketplace para implementar un clúster protegido de Service Fabric en Azure Stack. 
 
-Para más información acerca del trabajo con Service Fabric, consulte [Información general de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) y [Escenarios de seguridad de los clústeres de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) de la documentación de Azure.
+Para más información sobre el uso de Service Fabric, consulte [Información general de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) y [Escenarios de seguridad de los clústeres de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) en la documentación de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -120,7 +120,7 @@ Para más información, consulte [Administración de Key Vault en Azure Stack me
 
 ## <a name="deploy-the-marketplace-item"></a>Implementación de un elemento de Marketplace
 
-1. En el portal de usuarios, vaya a **Nuevo** > **Compute** > **Clúster de Service Fabric**. 
+1. En el portal de usuarios, vaya a **+ Crear un recurso** > **Proceso** > **Clúster de Service Fabric**. 
 
    ![Seleccione el clúster de Service Fabric](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 

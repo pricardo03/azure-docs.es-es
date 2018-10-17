@@ -1,22 +1,24 @@
 ---
-title: 'Compilar un proyecto de detección de objetos en C#: Custom Vision Service - Azure Cognitive Services | Microsoft Docs'
-description: Explore una aplicación Windows básica que usa Custom Vision API en Microsoft Cognitive Services. Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción mediante el punto de conexión predeterminado.
+title: 'Tutorial: Crear un proyecto de detección de objetos en C# - Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción mediante el punto de conexión predeterminado.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301087"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366920"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Uso de Custom Vision API para compilar un proyecto de detección de objetos en C&#35. 
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Tutorial: Uso de Custom Vision API para crear un proyecto de detección de objetos en C#
+
 Aprenda a usar una aplicación Windows básica que usa Computer Vision API para crear un proyecto de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación para Windows con Custom Vision API.
 
 ## <a name="prerequisites"></a>Requisitos previos

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978835"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237915"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de análisis de datos almacenados provisionalmente con Azure y Azure Stack 
 
@@ -43,7 +43,7 @@ En este tutorial, creará un entorno de ejemplo para:
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack es una extensión de Azure. Azure Stack aporta la agilidad y la innovación de la informática en la nube a su entorno local y hace posible la única nube híbrida que le permite crear e implementar aplicaciones híbridas en cualquier parte.  
 > 
-> En las notas del producto [Consideraciones de diseño para aplicaciones híbridas](https://aka.ms/hybrid-cloud-applications-pillars) se revisan los pilares de la calidad de software (selección de ubicación, escalabilidad, disponibilidad, resistencia, manejabilidad y seguridad) para diseñar, implementar y usar aplicaciones híbridas. Las consideraciones de diseño ayudan a optimizar el diseño de aplicaciones híbridas y reducen los desafíos en entornos de producción.
+> En las notas del producto [Consideraciones de diseño para aplicaciones híbridas](https://aka.ms/hybrid-cloud-applications-pillars) se revisan los pilares de la calidad de software (selección de ubicación, escalabilidad, disponibilidad, resistencia, manejabilidad y seguridad) para diseñar, implementar y usar aplicaciones híbridas. Las consideraciones de diseño ayudan a optimizar el diseño de aplicaciones híbridas y reducen los desafíos en los entornos de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,7 +55,7 @@ Se requiere cierta preparación para crear esta solución:
 
 -   Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
 
--   No se proporcionan los datos procesados por estas funciones. Los datos se deben generar y estar disponibles para cargarlos en el contenedor de blobs de almacenamiento de Azure Stack.
+-   Deberá proporcionar sus propios datos para que los procesen las funciones. Los datos se deben generar y estar disponibles para cargarlos en el contenedor de blobs de almacenamiento de Azure Stack.
 
 ## <a name="issues-and-considerations"></a>Problemas y consideraciones
 
@@ -123,17 +123,11 @@ La cuenta de almacenamiento y el contenedor de blobs contienen todos los datos o
 
 Cree una función de Azure Stack para mover los datos limpios de Azure Stack a Azure.
 
-1.  Para crear una función, haga clic en **Funciones** y, luego, en el botón **+ Nueva función**.
+### <a name="create-the-azure-stack-function-app"></a>Creación de la aplicación de función de Azure Stack
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  Seleccione **Desencadenador de temporizador**.
-
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  Seleccione **C\#** como lenguaje y llame `upload-to-azure` a la función. Establezca la programación en `0 0 * * * *` que, en notación de CRON, es una vez cada hora.
-
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. Inicie sesión en el [portal de Azure Stack](https://portal.local.azurestack.external).
+2. Seleccione **Todos los servicios**.
+3. Seleccione **Function Apps** en el grupo **Web + Mobile** (Web y móvil).
 
 4.  Cree la aplicación de función mediante la configuración especificada en la tabla debajo de la imagen.
 
@@ -148,7 +142,7 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
     | Plan de consumo | Plan de hospedaje que define cómo se asignan los recursos a la Function App. En el Plan de consumo predeterminado, los recursos se agregan dinámicamente según lo requieran sus funciones. En este hospedaje sin servidor, solo paga por el tiempo durante el cual se ejecutan las funciones. |  |
     | Ubicación | La región más cercana | Elija una región cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
     | **Cuenta de almacenamiento** |  |  |
-    | \<cuenta de almacenamiento que creó anteriormente> | Nombre de la nueva cuenta de almacenamiento usada por Function App. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente. |  |
+    | \<cuenta de almacenamiento que creó anteriormente> | Nombre de la nueva cuenta de almacenamiento usada por Function App. Los nombres de cuenta de almacenamiento deben tener una longitud de entre 3 y 24 caracteres. El nombre solo puede contener números y letras minúsculas. También puede usar una cuenta existente. |  |
 
     **Ejemplo:**
 
@@ -164,13 +158,25 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
 
 ![Function App creada correctamente.](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>Incorporación de una función a la aplicación de función de Azure Stack
+
+1.  Para crear una función, haga clic en **Funciones** y, luego, en el botón **+ Nueva función**.
+
+    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  Seleccione **Desencadenador de temporizador**.
+
+    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  Seleccione **C\#** como lenguaje y llame `upload-to-azure` a la función. Establezca la programación en `0 0 * * * *` que, en notación de CRON, es una vez cada hora.
+
+    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>Creación de una función desencadenada por Blob Storage
 
-1.  Expanda la aplicación de función y seleccione el botón **+**, que se encuentra junto a **Funciones**. Si se trata de la primera función de Function App, seleccione **Función personalizada**. Se muestra el conjunto completo de plantillas de funciones.
+1.  Expanda la aplicación de función y seleccione el botón **+**, que se encuentra junto a **Funciones**.
 
-  ![Página de inicio rápido de Functions en Azure Portal](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  En el campo de búsqueda, escriba blob y seleccione el lenguaje que desee para la plantilla del desencadenador de Blob Storage.
+2.  En el campo de búsqueda, escriba `blob` y seleccione el lenguaje que desee para la plantilla **Desencadenador de blobs**.
 
   ![Elija la plantilla de desencadenador de Blob Storage.](media\azure-stack-solution-staged-data-analytics\image10.png)
 

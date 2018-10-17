@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido del SDK de Entity Search para Python | Microsoft Docs
-description: Configuración de la aplicación de consola del SDK de Entity Search.
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: 'Guía de inicio rápido: SDK de Bing Entity Search con Python'
+titlesuffix: Azure Cognitive Services
+description: Configuración de la aplicación de consola del SDK de Bing Entity Search.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382591"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814243"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>Guía de inicio rápido del SDK de Entity Search para Python
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Guía de inicio rápido: SDK de Bing Entity Search con Python
 
 El SDK de Entity Search contiene la funcionalidad de la API REST para consultas de vídeo y análisis de resultados.
 

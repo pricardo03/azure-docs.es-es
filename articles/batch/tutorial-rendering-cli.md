@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 09/25/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f721af16e894ec24e85cdb1ff100d83d58ffadd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954609"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392812"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
-Azure Batch proporciona funcionalidades de representación para la nube según una modalidad de pago por uso. Admite aplicaciones de representación entre las que se incluyen Autodesk Maya, 3DS Max, Arnold y V-Ray. Este tutorial muestra los pasos necesarios para representar una escena pequeña con Batch mediante la interfaz de la línea de comandos de Azure. Aprenderá a:
+Azure Batch proporciona funcionalidades de representación para la nube según una modalidad de pago por uso. Azure Batch admite aplicaciones de representación entre las que se incluyen Autodesk Maya, 3ds Max, Arnold y V-Ray. Este tutorial muestra los pasos necesarios para representar una escena pequeña con Batch mediante la interfaz de la línea de comandos de Azure. Aprenderá a:
 
 > [!div class="checklist"]
 > * Cargar una escena en Azure Storage
@@ -27,11 +27,11 @@ Azure Batch proporciona funcionalidades de representación para la nube según u
 > * Escalar el grupo y representar una escena de varios fotogramas
 > * Descargar la salida representada
 
-En este tutorial se representa una escena 3DS Max con Batch mediante el representador de seguimiento de rayo [Arnold](https://www.autodesk.com/products/arnold/overview). 
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+En este tutorial se representa una escena 3DS Max con Batch mediante el representador de seguimiento de rayo [Arnold](https://www.autodesk.com/products/arnold/overview). El grupo de Batch usa una imagen de Azure Marketplace con gráficos preinstalados y las aplicaciones de representación que proporcionan las licencias de pago por uso.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+Necesita una suscripción de pago por uso u otra opción de compra de Azure para usar aplicaciones de representación en Batch sobre una base de pago por uso. Las licencias de pago por uso no se admiten si usa una oferta gratuita de Azure que proporciona un crédito monetario.
 
 La escena de 3DS Max de este tutorial se encuentra en [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto con un script de ejemplo de Bash y archivos de configuración JSON. La escena 3DS Max procede de los [archivos de ejemplo de Autodesk 3DS Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Los archivos de ejemplo de Autodesk 3DS Max están disponibles con licencias tipo Creative Commons Attribution-NonCommercial-Share. Copyright © Autodesk, Inc.).
 

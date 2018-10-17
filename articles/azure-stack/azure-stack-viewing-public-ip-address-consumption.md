@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 0f77be49-eafe-4886-8c58-a17061e8120f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 50bf01d6de6105d3041c6bb88e803f3d110f751d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6207a77555d0d4656c0728dddec769e483f4d762
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29742465"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378251"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Visualización del consumo de direcciones IP públicas en Azure Stack
 
@@ -39,9 +38,8 @@ El elemento de menú **Direcciones IP públicas** de **Recursos de inquilinos** 
 ## <a name="view-the-public-ip-address-usage-information"></a>Visualización de la información de uso de direcciones IP públicas
 Para ver el número total de direcciones IP públicas que se han consumido en una región:
 
-1. En el portal del administrador de Azure Stack, seleccione **Más servicios** y en **Recursos administrativos**, seleccione **Proveedores de recursos**.
-2. En la lista de **proveedores de recursos**, seleccione **Red**.
-3. El panel **Red** muestra el icono **Uso de grupos de IP públicas** en la sección **Información general**.
+1. En el portal de administración de Azure Stack, seleccione **Todos los servicios**. Después, en la categoría **ADMINISTRACIÓN**, seleccione **Red**.
+1. El panel **Red** muestra el icono **Uso de grupos de IP públicas** en la sección **Información general**.
 
 ![Panel Proveedor de recursos de red](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
@@ -61,11 +59,11 @@ En varios casos, se asignan direcciones IP públicas que determinan si la direcc
 
 | **Caso de asignación de dirección IP pública** | **Aparece en resumen de uso** | **Aparece en lista de direcciones IP públicas de inquilinos** |
 | --- | --- | --- |
-| La dirección IP pública dinámica aún no está asignada a un NIC o equilibrador de carga (temporal). |Sin  |Sí |
-| La dirección IP pública dinámica está asignada a un NIC o equilibrador de carga. |Sí |Sí |
-| La dirección IP pública estática está asignada a un NIC o equilibrador de carga del inquilino. |Sí |Sí |
-| La dirección IP pública estática está asignada a un punto de conexión del servicio de la infraestructura del tejido. |Sí |Sin  |
-| Dirección IP pública creada de manera implícita para instancias de VM de IaaS y usada para NAT saliente en la red virtual. Se crean en segundo plano cada vez que un inquilino crea una instancia de máquina virtual para que las máquinas virtuales pueden enviar información a Internet. |Sí |Sin  |
+| La dirección IP pública dinámica aún no está asignada a un NIC o equilibrador de carga (temporal). |Sin  |SÍ |
+| La dirección IP pública dinámica está asignada a un NIC o equilibrador de carga. |SÍ |SÍ |
+| La dirección IP pública estática está asignada a un NIC o equilibrador de carga del inquilino. |SÍ |SÍ |
+| La dirección IP pública estática está asignada a un punto de conexión del servicio de la infraestructura del tejido. |SÍ |Sin  |
+| Dirección IP pública creada de manera implícita para instancias de VM de IaaS y usada para NAT saliente en la red virtual. Se crean en segundo plano cada vez que un inquilino crea una instancia de máquina virtual para que las máquinas virtuales pueden enviar información a Internet. |SÍ |Sin  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de cuentas de almacenamiento en Azure Stack](azure-stack-manage-storage-accounts.md)

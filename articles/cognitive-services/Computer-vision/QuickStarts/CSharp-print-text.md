@@ -1,44 +1,45 @@
 ---
-title: 'Guía de inicio de rápido de Computer Vision API para C#: OCR | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, extraerá el texto impreso de una imagen con Computer Vision con C# en Cognitive Services.
+title: 'Guía de inicio rápido: Extracción de texto impreso (OCR) - REST, C# - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, extraerá texto impreso de una imagen mediante Computer Vision API con C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 46193e7aa27285a887005a67bb662449e18d7b36
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d3074b9c5b62ea41aa0ee4c577a18b9f582dc80a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772335"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631538"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-c35"></a>Guía de inicio rápido: Extracción de texto impreso (OCR) (REST, C#)
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>Guía de inicio rápido: Extracción de texto impreso (OCR) mediante la API de REST y C# en Computer Vision
 
-En esta guía de inicio rápido, extraerá texto impreso, también conocido como reconocimiento óptico de caracteres (OCR), de una imagen con Computer Vision.
+En esta guía de inicio rápido, extraerá texto impreso con el reconocimiento óptico de caracteres (OCR) de una imagen con la API de REST de Computer Vision. Con el método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), puede detectar texto impreso en cualquier imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o posterior.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Solicitud OCR
+## <a name="create-and-run-the-sample-application"></a>Creación y ejecución de la aplicación de ejemplo
 
-Con el método [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), puede detectar texto impreso en cualquier imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
+Para crear el ejemplo en Visual Studio, siga estos pasos:
 
-Para ejecutar el ejemplo, siga estos pasos:
-
-1. Cree una aplicación de consola de Visual C# en Visual Studio.
+1. Cree una solución de Visual Studio en Visual Studio, mediante la plantilla de aplicación de consola de Visual C#.
 1. Instale el paquete NuGet Newtonsoft.Json.
     1. En el menú, haga clic en **Herramientas**, seleccione **Administrador de paquetes NuGet** y, luego, **Manage NuGet Packages for Solution** (Administrar paquetes NuGet para la solución).
     1. Haga clic en la pestaña **Examinar** y, en el cuadro **Buscar**, escriba "Newtonsoft.Json".
     1. Seleccione **Newtonsoft.Json** cuando se muestre, marque la casilla junto al nombre del proyecto y haga clic en **Instalar**.
-1. Reemplace `Program.cs` por el código siguiente.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `uriBase` por la ubicación donde obtuvo las claves de suscripción.
+1. Reemplace el código de `Program.cs` por el código siguiente y, a continuación, realice los cambios siguientes en el código cuando sea necesario:
+    1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
+    1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
 1. Ejecute el programa.
 1. En el símbolo del sistema, escriba la ruta de acceso a una imagen local.
 
@@ -57,12 +58,12 @@ namespace CSHttpClientSample
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to
-        // get your subscription keys. For example, if you got your
-        // subscription keys from westus, replace "westcentralus" in the URL
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -77,7 +78,7 @@ namespace CSHttpClientSample
 
             if (File.Exists(imageFilePath))
             {
-                // Make the REST API call.
+                // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
                 MakeOCRRequest(imageFilePath).Wait();
             }
@@ -104,30 +105,36 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Request parameters.
+                // Request parameters. 
+                // The language parameter doesn't specify a language, so the 
+                // method detects it automatically.
+                // The detectOrientation parameter is set to true, so the method detects and
+                // and corrects text orientation before detecting text.
                 string requestParameters = "language=unk&detectOrientation=true";
 
-                // Assemble the URI for the REST API Call.
+                // Assemble the URI for the REST API method.
                 string uri = uriBase + "?" + requestParameters;
 
                 HttpResponseMessage response;
 
-                // Request body. Posts a locally stored JPEG image.
+                // Read the contents of the specified local image
+                // into a byte array.
                 byte[] byteData = GetImageAsByteArray(imageFilePath);
 
+                // Add the byte array as an octet stream to the request body.
                 using (ByteArrayContent content = new ByteArrayContent(byteData))
                 {
-                    // This example uses content type "application/octet-stream".
+                    // This example uses the "application/octet-stream" content type.
                     // The other content types you can use are "application/json"
                     // and "multipart/form-data".
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // Make the REST API call.
+                    // Asynchronously call the REST API method.
                     response = await client.PostAsync(uri, content);
                 }
 
-                // Get the JSON response.
+                // Asynchronously get the JSON response.
                 string contentString = await response.Content.ReadAsStringAsync();
 
                 // Display the JSON response.
@@ -147,9 +154,11 @@ namespace CSHttpClientSample
         /// <returns>The byte array of the image data.</returns>
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
+            // Open a read-only file stream for the specified file.
             using (FileStream fileStream =
                 new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
             {
+                // Read the file's contents into a byte array.
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
@@ -158,85 +167,89 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="ocr-response"></a>Respuesta de OCR
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Si la respuesta es correcta, los resultados de OCR devueltos incluyen texto y un rectángulo de selección de regiones, líneas y palabras, por ejemplo:
+Se devuelve una respuesta correcta en JSON. La aplicación de ejemplo analiza y muestra una respuesta correcta en la ventana de la consola, parecida a la del ejemplo siguiente:
 
 ```json
 {
-   "language": "en",
-   "textAngle": -1.5000000000000335,
-   "orientation": "Up",
-   "regions": [
-      {
-         "boundingBox": "154,49,351,575",
-         "lines": [
-            {
-               "boundingBox": "165,49,340,117",
-               "words": [
-                  {
-                     "boundingBox": "165,49,63,109",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "261,50,244,116",
-                     "text": "GOAL"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "165,169,339,93",
-               "words": [
-                  {
-                     "boundingBox": "165,169,339,93",
-                     "text": "WITHOUT"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "159,264,342,117",
-               "words": [
-                  {
-                     "boundingBox": "159,264,64,110",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "255,266,246,115",
-                     "text": "PLAN"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "161,384,338,119",
-               "words": [
-                  {
-                     "boundingBox": "161,384,86,113",
-                     "text": "IS"
-                  },
-                  {
-                     "boundingBox": "274,387,225,116",
-                     "text": "JUST"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "154,506,341,118",
-               "words": [
-                  {
-                     "boundingBox": "154,506,62,111",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "248,508,247,116",
-                     "text": "WISH"
-                  }
-               ]
-            }
-         ]
-      }
-   ]
+    "language": "en",
+    "textAngle": -1.5000000000000335,
+    "orientation": "Up",
+    "regions": [
+        {
+            "boundingBox": "154,49,351,575",
+            "lines": [
+                {
+                    "boundingBox": "165,49,340,117",
+                    "words": [
+                        {
+                            "boundingBox": "165,49,63,109",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "261,50,244,116",
+                            "text": "GOAL"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "165,169,339,93",
+                    "words": [
+                        {
+                            "boundingBox": "165,169,339,93",
+                            "text": "WITHOUT"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "159,264,342,117",
+                    "words": [
+                        {
+                            "boundingBox": "159,264,64,110",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "255,266,246,115",
+                            "text": "PLAN"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "161,384,338,119",
+                    "words": [
+                        {
+                            "boundingBox": "161,384,86,113",
+                            "text": "IS"
+                        },
+                        {
+                            "boundingBox": "274,387,225,116",
+                            "text": "JUST"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "154,506,341,118",
+                    "words": [
+                        {
+                            "boundingBox": "154,506,62,111",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "248,508,247,116",
+                            "text": "WISH"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
 ```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no la necesite, elimine la solución de Visual Studio. Para ello, abra el Explorador de archivos, vaya a la carpeta en la que creó la solución de Visual Studio y elimine la carpeta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

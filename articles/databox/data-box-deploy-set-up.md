@@ -1,6 +1,6 @@
 ---
 title: Configuración de Azure Data Box | Microsoft Docs
-description: Obtenga más información sobre los requisitos de software y red de su dispositivo Azure Data Box
+description: Aprenda a cablear y conectar Azure Data Box.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952314"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785643"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box
 
@@ -36,12 +36,12 @@ En este tutorial, aprenderá a:
 Antes de comenzar, asegúrese de que:
 
 1. Ha completado el [Tutorial: Pedido de Azure Data Box](data-box-deploy-ordered.md).
-2. Ha recibido su dispositivo Data Box y el estado del pedido en el portal se actualiza a **Delivered** (Entregado). 
+2. Ha recibido su dispositivo Data Box y el estado del pedido en el portal se actualiza a **Delivered** (Entregado). Hay una etiqueta de envío en el bolsillo transparente adherida al dispositivo bajo la etiqueta actual. Manténgala en un lugar seguro, ya que la usará para el envío de devolución.
 3. Ha revisado la [directrices de seguridad de Data Box](data-box-safety.md).
 4. Ha recibido un cable con toma de tierra para usar con el dispositivo de almacenamiento de 100 TB.
 5. Tiene un equipo host con los datos que desea copiar en su dispositivo Data Box. El equipo host debe:
     - Ejecutar un [sistema operativo admitido](data-box-system-requirements.md).
-    - Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero las velocidades de copia se verán afectadas. 
+    - Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión de 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero las velocidades de copia resultarán afectadas. 
 6. Debe tener acceso a una superficie plana en la que puede colocar su dispositivo Data Box. Si quiere colocar el dispositivo en un bastidor estándar, necesitará una ranura de 7U en el bastidor del centro de datos. Puede colocar el dispositivo en posición horizontal o vertical en el bastidor.
 7. Cuenta con los cables siguientes para conectar su dispositivo Data Box al equipo host.
     - Dos cables de cobre 10 GbE SFP+ Twinax (se usa con las interfaces de red DATA 1, DATA 2)

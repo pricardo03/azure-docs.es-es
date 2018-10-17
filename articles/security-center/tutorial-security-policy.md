@@ -3,7 +3,7 @@ title: 'Tutorial de Azure Security Center: Definición y evaluación de las dire
 description: 'Tutorial de Azure Security Center: Definición y evaluación de las directivas de seguridad'
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358615"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027068"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: Definición y evaluación de las directivas de seguridad
 Security Center ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa mediante el uso de directivas de seguridad para definir la configuración deseada de las cargas de trabajo. Después de definir las directivas de las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o al nivel de confidencialidad de los datos, Security Center puede proporcionar recomendaciones de seguridad para sus recursos de proceso, aplicaciones, redes, datos y almacenamiento e identidad y recursos de acceso. En este tutorial, aprenderá a:
@@ -42,8 +42,7 @@ Security Center crea automáticamente una directiva de seguridad predeterminada 
 
   ![Directiva de seguridad](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. En **COMPONENTES DE LA DIRECTIVA**, seleccione **Directiva de seguridad**
-4. Para cada configuración de seguridad que desee supervisar, seleccione **Activado**. Security Center evaluará continuamente la configuración del entorno y cuando exista una vulnerabilidad generará una recomendación de seguridad. Seleccione **Desactivado** si la configuración de seguridad no es recomendable o no es pertinente. Por ejemplo, en un entorno de desarrollo y pruebas seguramente no necesite el mismo nivel de seguridad que en un entorno de producción. Después de seleccionar las directivas que son aplicables al entorno, haga clic en **Guardar**.
+3. En **Procesos y aplicaciones**, **Red** y **Datos**, establezca la configuración de seguridad que desee supervisar en **Activado**. Security Center evaluará continuamente la configuración del entorno y cuando exista una vulnerabilidad generará una recomendación de seguridad. Seleccione **Desactivado** si la configuración de seguridad no es recomendable o no es pertinente. Por ejemplo, en un entorno de desarrollo y pruebas seguramente no necesite el mismo nivel de seguridad que en un entorno de producción. Después de seleccionar las directivas que son aplicables al entorno, haga clic en **Guardar**.
 
   ![Configuración de seguridad](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

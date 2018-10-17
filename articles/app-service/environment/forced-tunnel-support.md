@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114980"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024052"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
@@ -105,7 +105,7 @@ Para enrutar a través del túnel todo el tráfico saliente desde el ASE, except
 
 3. Obtenga las direcciones que se usarán para todo el tráfico saliente desde App Service Environment a Internet. Si va a enrutar el tráfico de forma local, estas direcciones son las direcciones IP de la puerta de enlace o los dispositivos NAT. Si quiere enrutar el tráfico de salida de App Service Environment a través de una NVA, la dirección de salida sería la dirección IP pública de la NVA.
 
-4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment:_ Vaya a resource.azure.com y a Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
+4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment:_ Vaya a resource.azure.com y a /\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 

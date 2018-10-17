@@ -1,22 +1,23 @@
 ---
-title: Introducción a Entity Linking API | Microsoft Docs
-description: Analice texto y vincule entidades con nombre a las entradas correspondientes de Knowledge Base mediante Entity Linking API en Cognition Services.
+title: 'Tutorial: Crear una aplicación de vinculación de entidad - C#'
+titlesuffix: Azure Cognitive Services
+description: Analice texto y vincule entidades con nombre a las entradas correspondientes de Knowledge Base mediante Entity Linking API.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380271"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365645"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>Introducción a Entity Linking API en C&#35;
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutorial: Crear una aplicación de vinculación de entidad con C#
 
 Entity Linking de Microsoft es una herramienta de procesamiento de lenguaje natural que sirve para analizar texto y vincular entidades con nombre a las entradas correspondientes de Knowledge Base. 
 

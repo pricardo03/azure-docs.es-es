@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: b9ba2bb89bb0d7e16a28a165cf14530a7a10f71b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 35f4d2adfe3ca64496139cdd708fb5f52f8721ee
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234757"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023484"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: poner bases de datos SQL a disposición de los usuarios de Azure Stack
 
@@ -59,7 +59,7 @@ Ahora que ha implementado el proveedor de recursos de SQL Server y ha creado una
 1. Inicie sesión en el portal de Azure Stack (https://portal.local.azurestack.external)) como inquilino.
 2. Seleccione **Obtener una suscripción** y, después, escriba **TestSQLServerSubscription** en **Nombre para mostrar**.
 3. Seleccione **Seleccionar una oferta** > **TestSQLServerOffer** > **Crear**.
-4. Seleccione **Más servicios** > **Suscripciones** > **TestSQLServerSubscription** > **Proveedores de recursos**.
+4. Seleccione **Todos los servicios** > **Suscripciones** > **TestSQLServerSubscription** > **Proveedores de recursos**.
 5. Seleccione **Registrar** junto al proveedor **Microsoft.SQLAdapter**.
 
 ### <a name="create-a-sql-database"></a>Creación de una base de datos SQL
@@ -70,7 +70,7 @@ Ahora que ha implementado el proveedor de recursos de SQL Server y ha creado una
     - **Tamaño máximo en MB**: 100
     - **Suscripción**: OfertaDePruebaSQL
     - **Grupo de recursos**: SQL-RG
-3. Seleccione **Login Settings** (Configuración de inicio de sesión), escriba las credenciales de la base de datos y seleccione **Aceptar**.
+3. Seleccione **Login Settings** (Configuración de inicio de sesión), escriba las credenciales de la base de datos y, a continuación, seleccione **Aceptar**.
 4. Seleccione **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > y, después, seleccione **Aceptar**.
 5. Seleccione **Crear**.
 

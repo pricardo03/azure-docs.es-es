@@ -4,22 +4,28 @@ description: ¿Cuál es la diferencia entre la colaboración B2B de Azure Active
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b59dba541394c105370cfd3af0768a8477ddb4e6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 42fbb8b08a2dc24ced436c4a6104f03ae3bca1e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348082"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982817"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparación de la colaboración B2B y B2C de Azure Active Directory
 
 La colaboración B2B de Azure Active Directory (Azure AD) y Azure AD B2C permiten trabajar con usuarios externos en Azure AD. Pero, ¿cómo se comparan?
+
+**Azure AD B2B** está pensado para empresas que desean compartir archivos y recursos de forma segura con usuarios externos para que estos puedan colaborar. Un administrador de Azure configura B2B en Azure Portal y Azure AD se encarga de la federación entre la empresa y su asociado externo. Los usuarios inician sesión en los recursos compartidos con un proceso sencillo de invitación y canje con su cuenta profesional o educativa o con cualquier cuenta de correo electrónico.
+ 
+**Azure AD B2C** está indicado principalmente para empresas y desarrolladores que crean aplicaciones orientadas al cliente. Con Azure AD B2C, los desarrolladores pueden usar Azure AD como el sistema de identidad completo para su aplicación, permitiendo a los clientes que inicien sesión con una identidad que ya han establecido (como Facebook o Gmail).
+
+En la siguiente tabla se ofrece una comparación detallada.
 
 
 Funcionalidades de la colaboración B2B |     Oferta independiente de Azure AD B2C

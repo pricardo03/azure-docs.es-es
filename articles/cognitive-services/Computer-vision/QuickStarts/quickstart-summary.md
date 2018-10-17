@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision: Resumen | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En estas guías de inicio rápido, analizará una imagen, creará una miniatura y extraerá texto impreso y escrito a mano mediante Computer Vision en Cognitive Services.
+title: Resumen de la guía de inicio rápido de Computer Vision
+titleSuffix: Azure Cognitive Services
+description: En estas guías de inicio rápido, analizará una imagen, creará una miniatura y extraerá texto impreso y manuscrito mediante Computer Vision API.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 94424de3f175e82cf8490bad98f4a775761979e4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89502fe49f5eb4b9692d7ee4233c7c46d645b3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772284"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576891"
 ---
 # <a name="quickstart-summary"></a>Guía de inicio rápido: Resumen
 

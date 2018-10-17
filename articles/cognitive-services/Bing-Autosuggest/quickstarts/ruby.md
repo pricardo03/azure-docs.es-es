@@ -1,31 +1,31 @@
 ---
-title: Inicio rápido para Bing Autosuggest API con Ruby | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Autosuggest API en Azure Cognitive Services.
+title: 'Guía de inicio rápido: Bing Autosuggest API con Ruby'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Autosuggest API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 30bb2986b90bc20efa96dba6f490948dce3e4ade
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 643b9173b57b9f8e8596fe6a8b49358d34297b97
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382262"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831184"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Inicio rápido para Bing Autosuggest API con Ruby 
-<a name="HOLTop"></a>
 
-En este artículo se muestra cómo usar [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Ruby. Bing Autosuggest API devuelve una lista de consultas sugeridas basadas en la cadena de consulta parcial que el usuario escribe en el cuadro de búsqueda. Normalmente, llamaría a esta API cada vez que el usuario escribe un carácter nuevo en el cuadro de búsqueda y, a continuación, mostraría las sugerencias en la lista desplegable del cuadro de búsqueda. En este artículo se muestra cómo enviar una solicitud que devuelva las cadenas de consulta sugeridas para *sail*.
+En este artículo se muestra cómo usar [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Ruby. Bing Autosuggest API devuelve una lista de consultas sugeridas basadas en la cadena de consulta parcial que el usuario escribe en el cuadro de búsqueda. Por lo general, habría que llamar a esta API cada vez que el usuario escribe un carácter nuevo en el cuadro de búsqueda y, después, mostrar las sugerencias en la lista desplegable del cuadro de búsqueda. En este artículo se muestra cómo enviar una solicitud que devuelve las cadenas de consulta sugeridas para *navegar*.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-Necesitará [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o una versión posterior para ejecutar este código.
+Necesitará [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o una versión posterior para ejecutar el código.
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Autosuggest API v7**. La [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/#search) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita. También puede usar una clave de suscripción de pago desde su panel de Azure.
+Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Autosuggest API v7**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/#search) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita. También puede usar una clave de suscripción de pago desde su panel de Azure.
 
 ## <a name="get-autosuggest-results"></a>Obtener resultados de Autosuggest
 
@@ -67,7 +67,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 ### <a name="response"></a>Response
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo:
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo:
 
 ```json
 {

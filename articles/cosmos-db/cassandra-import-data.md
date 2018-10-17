@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976183"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247857"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migración de los datos a una cuenta de Cassandra API de Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Después de identificar los requisitos de carga de trabajo existentes, debe crea
 
 ## <a name="prerequisites-for-migration"></a>Requisitos previos para la migración
 
-* **Crear tablas en la cuenta de Cassandra API de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las tablas de Azure Portal o cqlsh.
+* **Crear tablas en la cuenta de Cassandra API de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las tablas de Azure Portal o cqlsh. Si va a migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, asegúrese de proporcionar una clave de partición al crear los contenedores de Azure Cosmos DB.
 
 * **Aumentar el rendimiento:** la duración de la migración de datos depende de la cantidad de rendimiento aprovisionado para las tablas de Azure Cosmos DB. Aumente el rendimiento de la duración de la migración. Gracias al mayor rendimiento, puede evitar la limitación de velocidad y realizar la migración en menos tiempo. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para obtener más información sobre cómo aumentar el rendimiento, vea [configurar rendimiento](set-throughput.md) para contenedores de Azure Cosmos DB. También se recomienda tener la cuenta de Azure Cosmos DB en la misma región que la base de datos de origen. 
 

@@ -1,30 +1,31 @@
 ---
-title: Tutorial de Computer Vision API para JavaScript | Microsoft Docs
-description: Explore una aplicación básica de JavaScript que usa Computer Vision API en Microsoft Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
+title: 'Tutorial: Computer Vision API para JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Explore una aplicación básica de JavaScript que usa Computer Vision API en Azure Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380366"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984932"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Tutorial de Computer Vision API para JavaScript
+# <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: Computer Vision API para JavaScript
 
-En este tutorial se muestran las características de la API REST Computer Vision API de Microsoft Cognitive Services.
+En este tutorial se muestran las características de la API de REST Computer Vision de Azure Cognitive Services.
 
 Explore una aplicación de JavaScript que usa la API REST Computer Vision API para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Este ejemplo le permite enviar la dirección URL de una imagen para su análisis o procesamiento. Puede usar este ejemplo de código abierto como plantilla para crear su propia aplicación de JavaScript para que use la Computer Vision REST API.
 
 La aplicación de JavaScript ya se ha escrito, pero no tiene ninguna funcionalidad de Computer Vision. En este tutorial, agregará el código específico de la API REST Computer Vision API para completar la funcionalidad de la aplicación.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 
@@ -32,7 +33,7 @@ Este tutorial se ha desarrollado con un editor de texto simple.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Suscripción a Computer Vision API y obtención de una clave de suscripción 
 
-Antes de crear el ejemplo, debe suscribirse a Computer Vision API, que forma parte de Microsoft Cognitive Services. Para más información sobre la administración de claves y suscripciones, consulte [Suscripciones](https://azure.microsoft.com/try/cognitive-services/). En este tutorial son válidas las claves principal y secundaria. 
+Antes de crear el ejemplo, debe suscribirse a Computer Vision API, que forma parte de Azure Cognitive Services. Para más información sobre la administración de claves y suscripciones, consulte [Suscripciones](https://azure.microsoft.com/try/cognitive-services/). En este tutorial son válidas las claves principal y secundaria. 
 
 ## <a name="download-the-tutorial-project"></a>Descarga del proyecto del tutorial
 

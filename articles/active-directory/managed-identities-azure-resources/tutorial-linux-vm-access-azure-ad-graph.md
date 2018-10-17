@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 548111a6c2b9e0cf8c5b20eee5cc8fa45fe02da8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d1e0d8f5a030daadb8dab1233dee52d5485c8fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47453122"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237490"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure AD Graph API
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial, se explica cómo se utiliza una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure AD Graph API para recuperar su pertenencia al grupo. Azure administra automáticamente Managed Identities for Azure Resources, que le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código.  
+En este tutorial, se explica cómo se usar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure AD Graph API para recuperar su pertenencia al grupo. Azure administra automáticamente Managed Identities for Azure Resources, que le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código.  
 
 Para este tutorial, deberá consultar la pertenencia de su identidad de máquina virtual a los grupos de Azure AD. La información de grupo se usa a menudo en las decisiones de autorización. En segundo plano, la identidad administrada de la máquina virtual se representa mediante una **entidad de servicio** en Azure AD. 
 
@@ -65,7 +65,7 @@ Cuando habilitó la identidad administrada asignada por el sistema en la máquin
 
 - [Adición de miembros del grupo](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)
 
-## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Conceder el acceso a la máquina virtual a Azure AD Graph API
+## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Concesión de acceso a la máquina virtual a Azure AD Graph API
 
 Mediante Managed Identities for Azure Resources, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure AD. Microsoft Azure AD Graph API admite la autenticación de Azure AD. En este paso, concederá la entidad de servicio de la identidad de máquina virtual acceso a Azure AD Graph para que pueda consultar la pertenencia al grupo. A las entidades de servicio se les concede acceso a Microsoft o Azure AD Graph mediante los **permisos de aplicación**. El tipo de permiso de aplicación que necesita conceder depende de la entidad a la que desea acceder en Microsoft o Azure AD Graph.
 
@@ -137,7 +137,7 @@ Azure AD Graph:
    curl "https://graph.windows.net/myorganization/servicePrincipals/<VM Object ID>/appRoleAssignments?api-version=1.6" -X POST -d '{"id":"5778995a-e1bf-45b8-affa-663a9f3f4d04","principalId":"<VM Object ID>","resourceId":"81789304-ff96-402b-ae73-07ec0db26721"}'-H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ``` 
  
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-ad-graph"></a>Obtención de un token de acceso mediante la identidad de la máquina virtual y úselo para llamar a Azure AD Graph 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obtención de un token de acceso mediante la identidad de la máquina virtual para llamar a Azure AD Graph 
 
 Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 

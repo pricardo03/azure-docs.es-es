@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: dc255a36e2347aac204f7bd32fe3e9cf25d54b19
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8a5a6ff2eab8a9ef5fb631ef81818a30db00078b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023254"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784962"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (Node.js)
 
@@ -49,44 +49,59 @@ Descargue el proyecto de muestra de Node.js desde https://github.com/Azure-Sampl
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
-Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, va a usar la CLI de Azure para registrar un dispositivo simulado.
+Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, usará Azure Cloud Shell para registrar un dispositivo simulado.
 
-1. Agregue la extensión de la CLI de IoT Hub y cree la identidad del dispositivo. Reemplace `{YourIoTHubName}` por el nombre que ha elegido para IoT Hub:
+1. Ejecute los siguientes comandos en Azure Cloud Shell para agregar la extensión de la CLI de IoT Hub y para crear la identidad del dispositivo. 
+
+   **YourIoTHubName**: reemplace este marcador de posición por el nombre que eligió para su centro de IoT.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
     Si elige otro nombre para el dispositivo, actualícelo en las aplicaciones de ejemplo antes de ejecutarlas.
 
-1. Ejecute el siguiente comando para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
+1. Ejecute los siguientes comandos en Azure Cloud Shell para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
+
+   **YourIoTHubName**: reemplace este marcador de posición por el nombre que eligió para su centro de IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
+    
+    Anote la cadena de conexión del dispositivo, que se parecerá a esta:
 
-    Anote la cadena de conexión del dispositivo, que será parecida a `Hostname=...=`. Usará este valor más adelante en este inicio rápido.
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-1. También necesita una _cadena de conexión de servicio_ para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
+    Usará este valor más adelante en este inicio rápido.
+
+1. También necesitará una _cadena de conexión del servicio_ para permitir que la aplicación back-end se conecte al centro de IoT y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
+   
+   **YourIoTHubName**: reemplace este marcador de posición por el nombre que eligió para su centro de IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
+    az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
+     
+    Anote la cadena de conexión del servicio, que se parecerá a esta:
 
-    Anote la cadena de conexión del servicio, que será parecida a `Hostname=...=`. Usará este valor más adelante en este inicio rápido. La cadena de conexión de servicio es diferente de la cadena de conexión de dispositivo.
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+
+    Usará este valor más adelante en este inicio rápido. La cadena de conexión de servicio es diferente de la cadena de conexión de dispositivo.
+
 
 ## <a name="send-simulated-telemetry"></a>Envío de datos de telemetría simulados
 
 La aplicación de dispositivo simulado se conecta a un punto de conexión específico del dispositivo en IoT Hub y envía datos de telemetría simulados sobre temperatura y humedad.
 
-1. En una ventana de terminal, vaya a la carpeta raíz del proyecto de Node.js de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device**.
+1. Abra la ventana de terminal local y vaya a la carpeta raíz del proyecto de Node.js de ejemplo. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device**.
 
 1. Abra el archivo **SimulatedDevice.js** en el editor de texto de su elección.
 
     Reemplace el valor de la variable `connectionString` por la cadena de conexión de dispositivo que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **SimulatedDevice.js**.
 
-1. En la ventana de terminal, ejecute los comandos siguientes para instalar las bibliotecas necesarias y ejecute la aplicación de dispositivo simulado:
+1. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias y ejecute la aplicación de dispositivo simulado:
 
     ```cmd/sh
     npm install
@@ -101,13 +116,13 @@ La aplicación de dispositivo simulado se conecta a un punto de conexión espec�
 
 La aplicación back-end se conecta a un punto de conexión de **Eventos** de servicio en IoT Hub. La aplicación recibe los mensajes del dispositivo a la nube enviados desde el dispositivo simulado. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube para recibir y procesar los mensajes del dispositivo a la nube.
 
-1. En otra ventana de terminal, vaya a la carpeta raíz del proyecto de Node.js de muestra. A continuación, vaya a la carpeta **read-d2c-messages**.
+1. En otra ventana de terminal local, vaya a la carpeta raíz del proyecto de Node.js de ejemplo. A continuación, vaya a la carpeta **iot-hub\Quickstarts\read-d2c-messages**.
 
-1. Abra el archivo **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** en el editor de texto de su elección.
+1. Abra el archivo **ReadDeviceToCloudMessages.cs** en el editor de texto de su elección.
 
     Reemplace el valor de la variable `connectionString` por la cadena de conexión de servicio que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **ReadDeviceToCloudMessages.js**.
 
-1. En la ventana de terminal, ejecute los comandos siguientes para instalar las bibliotecas necesarias y ejecute la aplicación back-end:
+1. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias y ejecute la aplicación back-end:
 
     ```cmd/sh
     npm install

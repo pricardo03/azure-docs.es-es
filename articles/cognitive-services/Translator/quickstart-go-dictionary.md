@@ -1,21 +1,21 @@
 ---
-title: Búsqueda de traducciones alternativas mediante Translator Text con Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido buscará traducciones alternativas y ejemplos de términos en contexto mediante Translator Text API con Go en Cognitive Services.
+title: 'Guía de inicio rápido: Búsqueda de traducciones alternativas - Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido buscará traducciones alternativas y ejemplos de términos en contexto mediante Translator Text API con Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: a076418dbf969a61107c28f191457fc336a8b907
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771293"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128883"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Guía de inicio rápido: búsqueda de traducciones alternativas y usos con Go
 

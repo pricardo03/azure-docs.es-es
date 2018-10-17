@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 7d951a959da28187a5971ee218f2bd921d331727
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301805"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466037"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 (versión preliminar) con Azure Databricks mediante Spark
 
@@ -22,7 +22,6 @@ En este tutorial, aprenderá a ejecutar consultas Spark en un clúster de Azure 
 > [!div class="checklist"]
 > * Creación de un clúster de Databricks
 > * Ingesta de datos no estructurados en una cuenta de almacenamiento
-> * Desencadenamiento de una instancia de Azure Function para procesar datos
 > * Ejecución de análisis en los datos de almacenamiento de blobs
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -36,11 +35,8 @@ En este tutorial se muestra cómo consumir y consultar los datos de los vuelos d
 
 Para comenzar, cree una nueva [cuenta de Azure Data Lake Storage Gen2](quickstart-create-account.md) y asígnele un nombre único. A continuación, vaya a la cuenta de almacenamiento para recuperar los ajustes de configuración.
 
-> [!IMPORTANT]
-> Durante la versión preliminar, Azure Functions solo funciona con las cuentas de Azure Data Lake Storage Gen2 creadas con un espacio de nombres plano.
-
 1. En **Configuración**, haga clic en **Claves de acceso**.
-3. Haga clic en el botón **Copiar** junto a **key1** para copiar el valor de la clave.
+2. Haga clic en el botón **Copiar** junto a **key1** para copiar el valor de la clave.
 
 El nombre de cuenta y la clave se necesitan en los pasos posteriores de este tutorial. Abra un editor de texto y reserve el nombre de cuenta y la clave para futuras referencias.
 
@@ -74,7 +70,7 @@ El paso siguiente consiste en crear un [clúster de Databricks](https://docs.azu
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copia de los datos de origen en la cuenta de almacenamiento
 
-La siguiente tarea consiste en utilizar AzCopy para copiar datos desde el archivo *.csv* en el almacenamiento de Azure. Abra una ventana del símbolo del sistema y escriba los siguientes comandos. Asegúrese de reemplazar los marcadores de posición `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` y `<ACCOUNT_KEY>` por los valores correspondientes que se reservaron en un paso anterior.
+La siguiente tarea consiste en utilizar AzCopy para copiar datos desde el archivo *.csv* en el almacenamiento de Azure. Abra una ventana del símbolo del sistema y escriba los siguientes comandos. Asegúrese de reemplazar los marcadores de posición `<DOWNLOAD_FILE_PATH>` y `<ACCOUNT_KEY>` por los valores correspondientes que se reservaron en un paso anterior.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -159,7 +155,7 @@ Para crear tramas de datos para los orígenes de datos, ejecute el script siguie
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

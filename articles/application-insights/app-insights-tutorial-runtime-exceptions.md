@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815120"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299015"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Búsqueda y diagnóstico de excepciones en tiempo de ejecución con Azure Application Insights
 
@@ -101,6 +101,15 @@ Todos los datos que recopila Application Insights se almacenan en Azure Log Anal
     ![Código](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Haga clic en **Analizar impacto** para abrir Application Insights Analytics.  Contiene varias consultas que proporcionan detalles acerca de las solicitudes con errores, como los usuarios afectados, los exploradores usados y las regiones.<br><br>![Analytics](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## <a name="add-work-item"></a>Incorporación de elemento de trabajo
+Si conecta Application Insights a un sistema de seguimiento, como GitHub y Azure DevOps, puede crear un elemento de trabajo directamente desde Application Insights.
+
+1. Vuelva al panel **Exception Properties** (Propiedades de la excepción) de Application Insights.
+2. Haga clic en **Nuevo elemento de trabajo**.
+3. Se abre el panel **Nuevo elemento de trabajo** con detalles acerca la excepción ya rellenados.  Además, antes de guardarlo puede agregar toda la información adicional que desee.
+
+    ![Nuevo elemento de trabajo](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a identificar las excepciones en tiempo de ejecución, pase al siguiente tutorial, donde aprenderá a identificar y diagnosticar problemas de rendimiento.

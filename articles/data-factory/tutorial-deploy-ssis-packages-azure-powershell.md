@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d57e350bc63a8acf7c4719572d43b4e703de019e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b630fb9ed9bccc50948ca6bc938c78e22169c528
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990933"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248846"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Aprovisionamiento del entorno de ejecución de integración de SSIS para Azure en Azure Data Factory con PowerShell
 En este tutorial, se describen los pasos necesarios para aprovisionar un entorno de ejecución de integración (IR) de SSIS para Azure en Azure Data Factory. Posteriormente, podrá usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar y ejecutar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de Azure. En este tutorial, realizará los siguientes pasos:
@@ -39,7 +39,7 @@ En este tutorial, se describen los pasos necesarios para aprovisionar un entorno
     - En función del servidor de bases de datos seleccionado, la SSISDB puede crearse en su nombre como base de datos única, como parte de un grupo elástico o en una instancia administrada y estar accesible desde la red pública o mediante la unión a una red virtual. Para obtener directrices sobre cómo elegir el tipo de servidor de base de datos para hospedar la SSISDB, consulte [Comparación entre servidor lógico de SQL Database e instancia administrada](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Si usa Azure SQL Database con puntos de conexión de servicio de red virtual o con Instancia administrada para hospedar SSISDB o si necesita tener acceso a datos locales, deberá unir el entorno de ejecución de integración de SSIS para Azure a una red virtual. Para ello, consulte [Creación de un entorno de ejecución de integración de SSIS para Azure en una red virtual](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Confirme que el valor "**Permitir el acceso a servicios de Azure**" está en la posición **ON** (Activado) en el servidor de bases de datos. Este valor no es aplicable si se usa Azure SQL Database con puntos de conexión de servicio de red virtual o con Instancia administrada para hospedar SSISDB. Para más información, consulte [Protección de Azure SQL Database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Para habilitar este valor mediante PowerShell, consulte [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
     - Agregue la dirección IP del equipo cliente o un intervalo de direcciones IP que incluya la dirección IP del equipo cliente a la lista de direcciones IP de cliente en la configuración del firewall del servidor de bases de datos. Para más información, consulte [Reglas de firewall de nivel de base de datos y de nivel de servidor de Azure SQL Database](../sql-database/sql-database-firewall-configure.md). 
-    - Puede conectarse al servidor de bases de datos mediante la autenticación de SQL con sus credenciales de administrador del servidor, o la autenticación de Azure Active Directory (AAD) con Managed Service Identity (MSI) de Azure Data Factory.  En este último caso, debe agregar MSI de Data Factory a un grupo de AAD con permisos de acceso al servidor de bases de datos. Para ello, consulte [Crear una instancia de Integration Runtime de Azure SSIS con autenticación de AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
+    - Puede conectarse al servidor de bases de datos mediante la autenticación de SQL con sus credenciales de administrador del servidor, o por medio de la autenticación de Azure Active Directory (AAD) con la identidad administrada de Azure Data Factory para los recursos de Azure.  En este último caso, debe agregar MSI de Data Factory a un grupo de AAD con permisos de acceso al servidor de bases de datos. Para ello, consulte [Crear una instancia de Integration Runtime de Azure SSIS con autenticación de AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Confirme que el servidor de Azure SQL Database no tiene un catálogo de SSIS (base de datos SSIDB). El aprovisionamiento de entornos de ejecución de SSIS en Azure no admite el uso de un catálogo de SSIS existente. 
 - **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps). Usa PowerShell para ejecutar un script para aprovisionar una instancia de Integration Runtime de SSIS de Azure que ejecuta paquetes de SSIS en la nube. 
 

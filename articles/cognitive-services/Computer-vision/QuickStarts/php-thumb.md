@@ -1,44 +1,56 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision API para PHP: Creación de miniaturas | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision con PHP en Cognitive Services.
+title: 'Guía de inicio rápido: Generación de una miniatura - REST, PHP - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 7170e469d042c4406a555fddaa25bff53236f365
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5cc432a2f6a471ec1d5dfd4acae8733df7065e4f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772265"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631671"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-php"></a>Guía de inicio rápido: Generación de una miniatura (REST, PHP)
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y PHP en Computer Vision
 
-En esta guía de inicio rápido, generará una miniatura de una imagen con Computer Vision.
+En esta guía de inicio rápido, generará una miniatura de una imagen mediante la API de REST de Computer Vision. Con el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener [PHP](https://secure.php.net/downloads.php) instalado.
+- Debe tener [Pear](https://pear.php.net) instalado.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Solicitud Get Thumbnail
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-Con el método [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-Para ejecutar el ejemplo, siga estos pasos:
+1. Instalación del paquete [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) de PHP5.
+   1. Abra una ventana del símbolo del sistema como administrador.
+   1. Ejecute el siguiente comando:
 
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie `uriBase` para usar la ubicación donde obtuvo las claves de suscripción.
-1. También puede establecer `imageUrl` en la imagen que quiere analizar.
-1. Guarde el archivo con la extensión `.php`.
-1. Abra el archivo en una ventana del explorador con compatibilidad con PHP.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-En este ejemplo se usa el paquete [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) de PHP5.
+   1. Una vez que el paquete se haya instalado correctamente, cierre la ventana del símbolo del sistema.
+
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
+    1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `imageUrl` por la dirección URL de una imagen diferente para la que desea generar una miniatura.
+1. Guarde el código como un archivo con una extensión `.php`. Por ejemplo, `get-thumbnail.php`.
+1. Abra una ventana del explorador con compatibilidad con PHP.
+1. Arrastre y coloque el archivo en la ventana del explorador.
 
 ```php
 <html>
@@ -101,13 +113,26 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="get-thumbnail-response"></a>Respuesta de Get Thumbnail
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Una respuesta correcta contiene el binario de la imagen en miniatura. Si se produce un error en la solicitud, la respuesta contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
+Se devuelve una respuesta correcta como datos binarios, que representan los datos de imagen para la miniatura. Si se produce un error en la solicitud, la respuesta se muestra en la ventana del explorador. La respuesta de la solicitud con error contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no sea necesario, elimine el archivo y después desinstale el paquete `HTTP_Request2` de PHP5. Para desinstalar el paquete, realice los siguientes pasos:
+
+1. Abra una ventana del símbolo del sistema como administrador.
+2. Ejecute el siguiente comando:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Una vez que el paquete se haya desinstalado correctamente, cierre la ventana del símbolo del sistema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar personajes y sitios emblemáticos, crear una miniatura y extraer texto impreso y escrito a mano. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar celebridades y sitios emblemáticos, crear una miniatura y extraer texto impreso y manuscrito. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Exploración de las versiones de Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

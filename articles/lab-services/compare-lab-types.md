@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cf779f203850ca03942ba2395baf07412712610
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637880"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092976"
 ---
 # <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Comparación entre los laboratorios administrados en Azure Lab Services y DevTest Labs
 Puede crear dos tipos de laboratorio, **laboratorios administrados** con Azure Lab Services y **laboratorios personalizados** con Azure DevTest Labs. Si solo quiere entrar lo que necesita en un laboratorio y permitir que el servicio configure y administre la infraestructura necesaria para el laboratorio, elija un **laboratorio administrado**. Actualmente, **laboratorio educativo** es el único tipo de laboratorio administrado que se puede crear con Azure Lab Services. Si quiere administrar su propia infraestructura, cree un laboratorio con Azure DevTest Labs.
 
 En las siguientes secciones, se proporcionan más detalles de estos laboratorios. 
 
-## <a name="managed-labs"></a>Laboratorios administrados
-Los laboratorios administrados ofrecen diferentes tipos de laboratorio que se ajusten a sus necesidades. Actualmente, Azure Lab Services solo admite **laboratorios educativos** como laboratorios administrados. Los laboratorios administrados le permiten comenzar inmediatamente, con una configuración mínima. El servicio controla toda la administración de la infraestructura para el laboratorio, desde la sincronización de máquinas virtuales al control de errores y el escalado de infraestructuras. Para crear un laboratorio administrado, debe crear antes una cuenta de laboratorio para la organización. La cuenta de laboratorio actúa como cuenta central en la que se administran todos los laboratorios de la organización. 
+## <a name="managed-lab-types"></a>Tipos de laboratorio administrado
+Azure Lab Services permite crear laboratorios cuya infraestructura la administra Azure. Este artículo se refiere a ellos como laboratorios administrados. Los laboratorios administrados ofrecen diferentes tipos de laboratorio que se ajusten a sus necesidades. Actualmente, el único tipo de laboratorio administrado que se admite es el **laboratorio educativo**. 
+
+Los laboratorios administrados le permiten comenzar inmediatamente, con una configuración mínima. El servicio controla toda la administración de la infraestructura para el laboratorio, desde la sincronización de máquinas virtuales al control de errores y el escalado de infraestructuras. Para crear un laboratorio administrado, como puede ser un laboratorio educativo, debe crear antes una cuenta de laboratorio para la organización. La cuenta de laboratorio actúa como cuenta central en la que se administran todos los laboratorios de la organización. 
 
 Al crear y usar recursos de Azure en estos laboratorios administrados, el servicio crea y administra los recursos en las suscripciones internas de Microsoft. No se crean en su propia suscripción de Azure. El servicio realiza un seguimiento del uso de estos recursos en las suscripciones internas de Microsoft. Este uso se factura a la suscripción de Azure que contiene la cuenta de laboratorio.   
 
@@ -51,11 +53,11 @@ A continuación, se indican algunos **casos de uso para DevTest Labs**:
 - Ofrezca sesiones de aprendizaje para los clientes con un laboratorio configurado con la versión más reciente del producto. Ofrezca a cada cliente un número limitado de horas de uso en el laboratorio. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Laboratorios administrados frente a DevTest Labs
+## <a name="managed-lab-types-vs-devtest-labs"></a>Tipos de laboratorio administrado frente a DevTest Labs
 En la tabla siguiente se comparan dos tipos de laboratorios compatibles con Azure Lab Services: 
 
 | Características | Laboratorios administrados | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | Administración de infraestructura de Azure en el laboratorio. |  Administrado automáticamente por el servicio | Administrado por cuenta propia  |
 | Resistencia integrada a problemas de infraestructura | Controlado automáticamente por el servicio | Administrado por cuenta propia  |
 | Administración de suscripciones | El servicio controla la asignación de recursos en las suscripciones de Microsoft compatibles con el servicio. El servicio controla automáticamente el escalado. | Administre por cuenta propia en la suscripción de Azure. Sin escalado automático de suscripciones. |

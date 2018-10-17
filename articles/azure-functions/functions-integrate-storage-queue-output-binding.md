@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84783472adda9a4a74670f0579790aac69feb23d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095001"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854531"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
 
@@ -25,7 +25,7 @@ En Azure Functions, los enlaces de entrada y salida proporcionan una forma decla
 
 ![Mensaje de la cola que se muestra en el Explorador de Storage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido:
 
@@ -39,15 +39,19 @@ En esta sección, se va a utilizar la interfaz de usuario del portal para agrega
 
 1. En Azure Portal, abra la página correspondiente a la aplicación de función que ha creado en [Creación de su primera función desde Azure Portal](functions-create-first-azure-function.md). Para ello, seleccione **Todos los servicios > Instancias de Function App** y, después, seleccione la aplicación de función.
 
-2. Seleccione la función que creó en la guía de inicio rápido anterior.
+1. Seleccione la función que creó en la guía de inicio rápido anterior.
 
 1. Seleccione **Integrar > Nueva salida > Azure Queue Storage**.
 
 1. Haga clic en **Seleccionar**.
-    
+
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. En la **salida de Azure Queue Storage**, use la configuración como se especifica en la tabla que sigue a esta captura de pantalla: 
+1. Si recibe un mensaje de **extensiones no instaladas**, elija **Instalar** para instalar la extensión de enlaces de Azure Storage en la aplicación de función. Esto puede tardar un par de minutos.
+
+    ![Instalación de la extensión de enlaces de Storage](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. En la **salida de Azure Queue Storage**, use la configuración como se especifica en la tabla que sigue a esta captura de pantalla: 
 
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,52 +61,58 @@ En esta sección, se va a utilizar la interfaz de usuario del portal para agrega
     | **Conexión de la cuenta de almacenamiento** | AzureWebJobsStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |
     | **Nombre de la cola**   | outqueue    | El nombre de la cola a la que se va a conectar en la cuenta de almacenamiento. |
 
-4. Haga clic en **Guardar** para agregar el enlace.
- 
+1. Haga clic en **Guardar** para agregar el enlace.
+
 Ahora que tiene definido un enlace de salida, necesita actualizar el código que va a usar el enlace para agregar mensajes a una cola.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adición de código que utilice el enlace de salida
 
 En esta sección, va a agregar código que escribe un mensaje en la cola de salida. El mensaje incluye el valor que se pasa al desencadenador HTTP en la cadena de consulta. Por ejemplo, si la cadena de consulta incluye `name=Azure`, el mensaje de cola será *Name passed to the function: Azure* (Nombre pasado a la función: Azure).
 
-1. Seleccione la función para mostrar su código en el editor. 
+1. Seleccione la función para mostrar su código en el editor.
 
-2. Para una función de C#, agregue un parámetro de método al enlace y escriba el código para usarlo:
+1. Actualice el código de función dependiendo del lenguaje de la función:
 
-   Agregue un parámetro **outputQueueItem** para la firma del método, tal como se muestra en el ejemplo siguiente. El nombre del parámetro es el mismo que introdujo para **Nombre de parámetro de mensaje** cuando creó el enlace.
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Agregue un parámetro **outputQueueItem** para la firma del método, tal como se muestra en el ejemplo siguiente.
 
-   En el cuerpo de la función de C#, justo antes de la instrucción `return`, agregue código que utilice el parámetro para crear un mensaje de cola.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    En el cuerpo de la función, justo antes de la instrucción `return`, agregue código que utilice el parámetro para crear un mensaje de cola.
 
-3. Para una función de JavaScript, agregue código que utilice el enlace de salida en el objeto `context.bindings` para crear un mensaje de la cola. Agregue este código antes de la instrucción `context.done`.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. Seleccione **Guardar** para guardar los cambios.
- 
-## <a name="test-the-function"></a>Prueba de la función 
+    Agregue código que utilice el enlace de salida en el objeto `context.bindings` para crear un mensaje de la cola. Agregue este código antes de la instrucción `context.done`.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Seleccione **Guardar** para guardar los cambios.
+
+## <a name="test-the-function"></a>Prueba de la función
 
 1. Después de que se guarden los cambios del código, seleccione **Ejecutar**. 
 
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Tenga en cuenta que el **cuerpo de la solicitud** contiene el valor de `name` *Azure*. Este valor aparece en el mensaje de la cola que se crea cuando se invoca la función.
-
-   Como alternativa a la selección de **Ejecutar** aquí, puede llamar a la función mediante la introducción de una dirección URL en un navegador y de la especificación del valor `name` en la cadena de consulta. El método de explorador se muestra en la [guía de inicio rápido anterior](functions-create-first-azure-function.md#test-the-function).
+    Tenga en cuenta que el **cuerpo de la solicitud** contiene el valor de `name` *Azure*. Este valor aparece en el mensaje de la cola que se crea cuando se invoca la función.
+    
+    Como alternativa a la selección de **Ejecutar** aquí, puede llamar a la función mediante la introducción de una dirección URL en un navegador y de la especificación del valor `name` en la cadena de consulta. El método de explorador se muestra en la [guía de inicio rápido anterior](functions-create-first-azure-function.md#test-the-function).
 
 2. Compruebe los registros para asegurarse de que la función se ha realizado correctamente. 
 

@@ -1,22 +1,23 @@
 ---
-title: Tutorial de Computer Vision API para Python | Microsoft Docs
-description: Obtenga información acerca de cómo usar Computer Vision API con Python utilizando Jupyter Notebook en Microsoft Cognitive Services. Visualice los resultados mediante bibliotecas populares.
+title: 'Tutorial: Computer Vision API para Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo usar Computer Vision API con Python utilizando Jupyter Notebook. Visualice los resultados mediante bibliotecas populares.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: a093c2d066e70a8daf1fe1cd33ccf794ecb196af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380675"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981718"
 ---
-# <a name="computer-vision-api-python-tutorial"></a>Tutorial de Computer Vision API para Python
+# <a name="tutorial-computer-vision-api-python"></a>Tutorial: Computer Vision API para Python
 
 En este tutorial se muestra cómo utilizar Computer Vision API en Python y cómo visualizar los resultados mediante algunas bibliotecas populares. Utilice Jupyter para ejecutar el tutorial. Para obtener información sobre cómo empezar a trabajar con cuadernos interactivos de Jupyter Notebook, consulte la [documentación de Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 

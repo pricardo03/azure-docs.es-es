@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630728"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365583"
 ---
 # <a name="what-is-azure-time-series-insights"></a>¿Qué es Azure Time Series Insights?
 
@@ -33,6 +33,12 @@ Time Series Insights tiene cuatro trabajos clave:
 Si va a compilar una aplicación, para consumo interno o para que la usen clientes externos, Time Series Insights puede utilizarse como back-end para la indexación, el almacenamiento y la agregación de datos de series temporales. A partir de aquí, puede compilar una experiencia de visualización y usuario personalizada.  Time Series Insights expone varias API de consulta para permitir este escenario.  
 
 Si no está seguro de si los datos pertenecen a una serie temporal, esto es lo que debe saber.  Los datos de serie temporal representan cómo cambia un recurso o un proceso con el tiempo.  Son únicos por la marca de tiempo y el tiempo y son más significativos como eje.  Normalmente, los datos de serie temporal llegan en orden cronológico y suelen tratarse como inserción en lugar de actualización de la base de datos.  Dado que Time Series Insights captura y almacena los eventos nuevos como registros, el cambio se mide a lo largo del tiempo, lo cual permite buscar hacia atrás y predecir cambios.  En grandes volúmenes, almacenar, indexar, consultar, analizar y visualizar datos de series temporales pueden suponer un desafío.  
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>En este vídeo, se proporciona información general de Time Series Insights, una plataforma de análisis de IoT basada en la nube.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>Escenarios principales
 

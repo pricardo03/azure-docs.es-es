@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c21236026af960af0697978e49a0075fc9cf77ef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960301"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393595"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Tutorial: Supervisión y ajuste en Azure Database for PostgreSQL
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL tiene características que le ayudarán a comprend
 Necesita un servidor de Azure Database for PostgreSQL con PostgreSQL versión 9.6 o 10. Puede seguir los pasos del [tutorial de creación](tutorial-design-database-using-azure-portal.md) para crear un servidor.
 
 > [!IMPORTANT]
-> **Almacén de consultas**, **Información de rendimiento de consultas** y **Recomendaciones de rendimiento** están en la versión preliminar pública.
+> **Almacén de consultas**, **Información de rendimiento de consultas** y **Recomendaciones de rendimiento** están en la versión preliminar pública en un número limitado de regiones.
 
 ## <a name="enabling-data-collection"></a>Habilitación de la recopilación de datos
 El [Almacén de consultas](concepts-query-store.md) captura un historial de las consultas y las estadísticas de espera en el servidor y lo almacena en la base de datos **azure_sys** en el servidor. Es una característica opcional. Para habilitarla:
@@ -72,7 +72,7 @@ Los permisos **Propietario** o **Colaborador** necesarios para ver el texto de l
 
 
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
-La característica de [Recomendaciones de rendimiento](concepts-performance-recommendations.md) analiza las cargas de trabajo en el servidor para identificar los índices con el potencial de mejorar el rendimiento.
+La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) analiza las cargas de trabajo en el servidor para identificar los índices con el potencial de mejorar el rendimiento.
 
 1. Abra **Recomendaciones de rendimiento** desde la sección **Soporte técnico y solución de problemas** de la barra de menús en la página de Azure Portal para el servidor PostgreSQL.
    

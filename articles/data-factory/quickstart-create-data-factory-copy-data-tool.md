@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107595"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017814"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Uso de la herramienta Copy Data para copiar datos 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 1. En **Versión**, seleccione **V2**.
 1. En **Ubicación**, seleccione la ubicación de la factoría de datos. 
 
-   La lista muestra únicamente las ubicaciones admitidas. Los almacenes de datos (como Azure Storage y Azure SQL Database) y los procesos (como Azure HDInsight) que usa Data Factory pueden encontrarse en otras ubicaciones o regiones.
+   En la lista solo se muestran las ubicaciones que admite Data Factory y dónde se almacenarán los metadatos de Azure Data Factory. Tenga en cuenta que los almacenes de datos asociados (como Azure Storage y Azure SQL Database) y los procesos (como Azure HDInsight) que usa Data Factory se pueden ejecutar en otras regiones.
 
-1. Seleccione **Anclar al panel**.     
 1. Seleccione **Crear**.
-1. En el panel, verá el icono siguiente con el estado **Deploying Data Factory** (Implementando Data Factory): 
-
-    ![Icono "Deploying Data Factory" (Implementando Data Factory)](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. Una vez completada la creación, verá la página **Data Factory**. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
    
    ![Página principal de la factoría de datos, con el icono Author & Monitor (Creación y supervisión)](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

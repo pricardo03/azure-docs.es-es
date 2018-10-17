@@ -1,22 +1,23 @@
 ---
-title: Llamada a un punto de conexión con Java - Bing Custom Search - Microsoft Cognitive Services
+title: 'Guía de inicio rápido: Llamada al punto de conexión mediante Java con Bing Custom Search'
+titlesuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando Java para llamar al punto de conexión de Bing Custom Search.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951821"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814124"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Llamada a un punto de conexión de Bing Custom Search (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Guía de inicio rápido: Llamada al punto de conexión de Bing Custom Search (Java)
 
 En esta guía de inicio rápido se muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando Java, para llamar al punto de conexión de Bing Custom Search. 
 
@@ -26,7 +27,7 @@ Para completar este inicio rápido necesita instalar:
 
 - Una instancia de Custom Search lista para usar. Consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
 - [Java](https://www.java.com) instalado.
-- Una clave de suscripción. Puede obtener una clave de suscripción al activar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), o bien puede usar una clave de suscripción de pago en el panel de Azure (consulte [Cuenta de la API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Una clave de suscripción. Puede obtener una clave de suscripción cuando active su [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) o puede utilizar una clave de suscripción de pago desde el panel de Azure (consulte [Cuenta de la API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Ejecución del código
 

@@ -1,22 +1,23 @@
 ---
-title: Cómo extraer frases clave en la API de REST Text Analytics (Microsoft Cognitive Services en Azure) | Microsoft Docs
-description: Cómo extraer frases clave mediante la API de REST Text Analytics en Microsoft Cognitive Services en Azure en este tutorial de la guía detallada.
+title: 'Ejemplo: Extracción de frases clave en Text Analytics'
+titleSuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo extraer frases clave con la API de REST Text Analytics.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380579"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605494"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Cómo extraer frases clave en Text Analytics
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Ejemplo: Extracción de frases clave en Text Analytics
 
 [Key Phrase Extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evalúa el texto no estructurado y, en cada documento JSON, devuelve una lista de frases clave. 
 
@@ -30,7 +31,7 @@ La extracción de frases clave funciona mejor cuando se proporcionan fragmentos 
 
 Debe tener documentos JSON en este formato: identificador, texto, idioma
 
-El tamaño del documento debe ser inferior a 5000 caracteres por documento y puede tener hasta 1000 elementos (ID) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar a la extracción de frases clave.
+El tamaño del documento debe ser inferior a 5000 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar a la extracción de frases clave.
 
 ```
     {
@@ -66,7 +67,7 @@ El tamaño del documento debe ser inferior a 5000 caracteres por documento y pue
     
 ## <a name="step-1-structure-the-request"></a>Paso 1: Estructurar la solicitud
 
-Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Los siguientes puntos se replantean para su comodidad:
+Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Recapitulamos los siguientes puntos para su comodidad:
 
 + Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
 

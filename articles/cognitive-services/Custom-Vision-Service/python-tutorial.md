@@ -1,28 +1,29 @@
 ---
-title: 'Creación de un tutorial de Python de Custom Vision Service: Azure Cognitive Services | Microsoft Docs'
-description: Explore una aplicación básica de Python que usa Custom Vision API en Microsoft Cognitive Services. Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción con el punto de conexión predeterminado.
+title: 'Tutorial: Creación de un proyecto de clasificación de imágenes - Custom Vision Service, Python'
+titlesuffix: Azure Cognitive Services
+description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción con el punto de conexión predeterminado.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 0359935bf266d4f2a5cf845dd0d23183f4f77b72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381282"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363384"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Tutorial de Custom Vision API para Python
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Tutorial: Creación de un proyecto de clasificación de imágenes mediante Custom Vision Service con Python
 
 Obtenga información sobre cómo crear un proyecto de clasificación de imágenes con Custom Vision Service y un script básico de Python. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación mediante Custom Vision API.
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Python 2.7+ o Python 3.5+.
 - La herramienta de PIP.
@@ -35,7 +36,7 @@ Para obtener las claves que se utilizan en este ejemplo, visite la [página web 
 
 ## <a name="install-the-custom-vision-service-sdk"></a>Instalación del SDK de Custom Vision Service
 
-Para instalar el SDK de Custom VIsion Service, use el comando siguiente:
+Para instalar el SDK de Custom Vision Service, use el comando siguiente:
 
 ```
 pip install azure-cognitiveservices-vision-customvision

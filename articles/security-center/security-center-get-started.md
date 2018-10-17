@@ -3,7 +3,7 @@ title: 'Guía de inicio rápido de Azure Security Center: incorporación de su s
 description: Esta guía de inicio rápido muestra cómo actualizarse al plan de tarifa Estándar de Security Center para incrementar la seguridad.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
-ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: dc4c07b54085dfea6d97f2ca43a8cdddfcb9e57c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059861"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025471"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guía de inicio rápido: incorporación de su suscripción de Azure al nivel Estándar de Security Center
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. El nivel Estándar de Security Center se puede probar de forma gratuita los primeros 60 días.
 
 En este artículo, actualizará al nivel Estándar para una mayor seguridad e instalará Microsoft Monitoring Agent en las máquinas virtuales para supervisar las amenazas y vulnerabilidades de seguridad.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Para actualizar una suscripción al nivel Estándar, debe tener asignado el rol de propietario de la suscripción, colaborador de la suscripción o administrador de seguridad.
@@ -53,20 +53,18 @@ Para aprovechar al máximo Security Center, debe completar los pasos siguientes 
 ## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
 Para conseguir las guías de inicio rápido y los tutoriales de Security Center, debe actualizar al nivel Estándar. Los primeros sesenta días son gratis y puede regresar al nivel Gratis en cualquier momento.
 
-1. En el menú principal de Security Center, seleccione **Incorporación a la seguridad avanzada**.
+1. En el menú principal de Security Center, seleccione **Introducción**.
+ 
+  ![Introducción][4]
 
-2. En **Incorporación a la seguridad avanzada**, Security Center muestra las suscripciones y áreas de trabajo aptas para la incorporación. Seleccione una suscripción en la lista.
+2. En **Actualizar**, Security Center muestra las suscripciones y áreas de trabajo aptas para la incorporación. 
+   - Puede hacer clic en el expandible **Apply your trial** (Aplicar prueba) para ver una lista de todas las suscripciones y áreas de trabajo con el estado de elegibilidad de prueba.
+   -    Puede actualizar las suscripciones y áreas de trabajo que no sean aptas para la versión de prueba.
+   -    Puede seleccionar las áreas de trabajo y las suscripciones aptas para iniciar la versión de prueba.
+3.  Haga clic en **Iniciar período de prueba** para iniciar la evaluación de las suscripciones seleccionadas.
 
-  ![Selección de una suscripción][4]
 
-3. **Directiva de seguridad** proporciona información sobre los grupos de recursos incluidos en la suscripción. **Precios** también se abre.
-4. En **Precios**, seleccione **Estándar** para actualizar del nivel Gratis al nivel Estándar y haga clic en **Guardar**.
-
-  ![Selección de Estándar][5]
-
-Ahora que ha actualizado al nivel Estándar, tiene acceso a características adicionales de Security Center, incluidos los **controles de aplicación adaptables**, **acceso a VM Just-In-Time**, **alertas de seguridad**, **inteligencia sobre amenazas**, **playbook de automatización** y mucho más. Tenga en cuenta que las alertas de seguridad solo aparecerán cuando Security Center detecte actividad malintencionada.
-
-  ![Alertas de seguridad][7]
+  ![Alertas de seguridad][9]
 
 ## <a name="automate-data-collection"></a>Recopilación automática de datos
 Security Center recopila datos de VM de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. De forma predeterminada, Azure Security Center creará automáticamente una nueva área de trabajo.
@@ -76,11 +74,10 @@ Si el aprovisionamiento automático está habilitado, Security Center instala Mi
 Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 
 1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción.
-3. En **Directiva de seguridad**, seleccione **Recopilación de datos**.
-4. En **Recopilación de datos**, seleccione **Activado** para habilitar el aprovisionamiento automático.
-5. Seleccione **Guardar**.
-
+2. En la fila de la suscripción, seleccione **Editar configuración>**.
+3. En la pestaña **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Activado**.
+4. Seleccione **Guardar**.
+****
   ![Habilitar el aprovisionamiento automático][6]
 
 Con esta nueva información sobre VM de Azure, Security Center puede proporcionar recomendaciones adicionales relacionados con el estado de actualización del sistema, las configuraciones de seguridad del SO, la protección de puntos de conexión, así como generar alertas de seguridad adicionales.
@@ -91,16 +88,15 @@ Con esta nueva información sobre VM de Azure, Security Center puede proporciona
 Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con las guías rápidas y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
 
 1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.
-3. En **COMPONENTES DE LA DIRECTIVAS**, seleccione **Plan de tarifa**.
-4. Seleccione **Gratis** para cambiar la suscripción de Estándar a Gratis.
+2. En la fila de la suscripción que desea que vuelva al nivel Gratis, seleccione **Editar configuración >**.
+3. Seleccione **Plan de tarifa** y **Gratis** para cambiar la suscripción del nivel Estándar a Gratis.
 5. Seleccione **Guardar**.
 
 Si desea deshabilitar el aprovisionamiento automático:
 
 1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción en la que quiere deshabilitar el aprovisionamiento automático.
-3. En **Directiva de seguridad: Colección de datos**, en **Incorporación**, seleccione **Desactivado** para deshabilitar el aprovisionamiento automático.
+2. En la fila de la suscripción en que desee deshabilitar el aprovisionamiento automático, seleccione **Editar configuración>**.
+3. En la pestaña **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Desactivado**.
 4. Seleccione **Guardar**.
 
 >[!NOTE]
@@ -115,8 +111,9 @@ En esta guía de inicio rápido ha actualizado al nivel Standard y ha aprovision
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
-[4]: ./media/security-center-get-started/onboarding.png
+[4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978359"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784644"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Inicio rápido: Implementación de Azure Data Box mediante Azure Portal
 
@@ -32,20 +32,21 @@ Para obtener las instrucciones para realizar una implementación paso a paso y e
 Antes de empezar:
 
 - Asegúrese de que la suscripción que utilice para el servicio Data Box sea de uno de los siguientes tipos:
-    - Contrato Enterprise (EA) de Microsoft. Más información sobre [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Proveedor de soluciones en la nube (CSP). Más información sobre el [programa Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consumo: pago por uso. Más información sobre las [suscripciones de pago por uso de Azure](https://azure.microsoft.com/offers/ms-azr-0003p/).
+    - Contrato Enterprise (EA) de Microsoft. Más información acerca de [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Proveedor de soluciones en la nube (CSP). Más información acerca del [programa Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+    - Consumo: pago por uso. Más información acerca de las [suscripciones de pago por uso de Azure](https://azure.microsoft.com/offers/ms-azr-0003p/).
+    - Patrocinio de Microsoft Azure Obtenga más información sobre el [programa de patrocinio de Azure](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
 
 - Asegúrese de que tiene acceso de propietario o colaborador a la suscripción para crear un pedido de Data Box.
 - Revise las [directrices de seguridad para su Data Box](data-box-safety.md).
-- Tiene un equipo host que incluye los datos que quiere copiar en Data Box. El equipo host debe:
+- Tiene un equipo host con los datos que desea copiar en su dispositivo Data Box. El equipo host debe:
     - Ejecutar un [sistema operativo admitido](data-box-system-requirements.md).
-    - Estar conectado a una red de alta velocidad. Se recomienda tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero se ven afectadas las velocidades de copia. 
-- Debe tener acceso a una superficie plana en la puede colocar su Data Box. Si quiere colocar el dispositivo en un bastidor estándar, necesitará una ranura de 7U en el bastidor del centro de datos. Puede colocar el dispositivo en posición horizontal o vertical en el bastidor.
-- Cuenta con los cables siguientes para conectar su Data Box al equipo host.
-    - Dos cables de cobre 10 GbE SFP+ Twinax (uso con las interfaces de red DATA 1, DATA 2)
-    - Un cable de red RJ-45 cat. 6 (se usa con la interfaz de red MGMT)
-    - Un cable de red RJ-45 cat. 6A o RJ-45 cat. 6 (uso con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
+    - Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero las velocidades de copia se verán afectadas. 
+- Debe tener acceso a una superficie plana en la que puede colocar su dispositivo Data Box. Si quiere colocar el dispositivo en un bastidor estándar, necesitará una ranura de 7U en el bastidor del centro de datos. Puede colocar el dispositivo en posición horizontal o vertical en el bastidor.
+- Cuenta con los cables siguientes para conectar su dispositivo Data Box al equipo host.
+    - Dos cables de cobre 10 GbE SFP+ Twinax (se usa con las interfaces de red DATA 1, DATA 2)
+    - Un cable de red RJ-45 CAT 6 (se usa con la interfaz de red MGMT)
+    - Un cable de red RJ-45 CAT 6A o RJ-45 CAT 6 (se usa con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

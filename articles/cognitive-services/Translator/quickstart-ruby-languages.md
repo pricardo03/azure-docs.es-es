@@ -1,21 +1,21 @@
 ---
-title: Obtención de los idiomas admitidos mediante Translator Text con Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con Ruby en Cognitive Services.
+title: 'Guía de inicio rápido: Obtención de los idiomas admitidos - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 1080d79f6dddfd57816989b7d1c4f95348493ad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f000d2c4c1519f26b4d82a36803b86f016716c5e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771050"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121845"
 ---
 # <a name="quickstart-get-supported-languages-with-ruby"></a>Guía de inicio rápido: obtención de los idiomas admitidos con Ruby
 

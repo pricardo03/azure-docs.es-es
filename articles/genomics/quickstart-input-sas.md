@@ -1,24 +1,22 @@
 ---
-title: Envío de un flujo de trabajo mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento | Microsoft Docs
+title: Envío de un flujo de trabajo mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento - Microsoft Genomics
 titleSuffix: Azure
 description: En la guía de inicio rápido se da por supuesto que tiene instalado el cliente de msgen y que ha ejecutado correctamente los datos de ejemplo mediante el servicio.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177221"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733504"
 ---
-# <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento
+# <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
 
 Esta guía de inicio rápido muestra cómo enviar un flujo de trabajo al servicio Microsoft Genomics mediante un archivo config.txt que contiene [firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) en lugar de claves de cuenta de almacenamiento. Esta característica puede resultar útil si hay problemas de seguridad relacionados con el hecho de tener la clave de cuenta de almacenamiento visible en el archivo config.txt. En este artículo se da por supuesto que ya ha instalado y ejecutado el cliente `msgen` y está familiarizado con el uso de Azure Storage. Si ha enviado correctamente un flujo de trabajo usando los datos de ejemplo proporcionados, puede continuar con esta guía de inicio rápido. 
 

@@ -1,22 +1,23 @@
 ---
-title: Uso de Custom Vision Service desde una aplicación de C# en Azure Cognitive Services | Microsoft Docs
-description: Explore una aplicación básica de C# que usa Custom Vision API en Microsoft Cognitive Services. Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción mediante el punto de conexión predeterminado.
+title: 'Tutorial: Compilar una aplicación de Windows para Custom Vision Service con C#'
+titlesuffix: Azure Cognitive Services
+description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción mediante el punto de conexión predeterminado.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617441"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366648"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>Uso de Custom Vision Service en una aplicación de C&#35
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Tutorial: Usar Custom Vision Service en una aplicación de C#
 
 Aprenda a usar el servicio Custom Vision Service en una aplicación de C#. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación para Windows con la API de Custom Vision Service.
 

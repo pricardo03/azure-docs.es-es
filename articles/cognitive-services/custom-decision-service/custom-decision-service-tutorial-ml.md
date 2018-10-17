@@ -1,21 +1,23 @@
 ---
-title: Machine Learning - Azure Cognitive Services | Microsoft Docs
-description: Un tutorial de aprendizaje automático en Azure Custom Decision Service, una API basada en la nube para la toma de decisiones contextual.
+title: 'Tutorial: Caracterización y especificación de características: Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: Un tutorial para la caracterización del aprendizaje automático y la especificación de características en Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382155"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869605"
 ---
-# <a name="machine-learning"></a>Machine Learning
+# <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: Caracterización y especificación de características
 
 Este tutorial aborda la funcionalidad de aprendizaje automático avanzado en Custom Decision Service. El tutorial consta de dos partes: [caracterización](#featurization-concepts-and-implementation) y [especificación de características](#feature-specification-format-and-apis). Caracterización hace referencia a la representación de datos como "características" para el aprendizaje automático. La especificación de característica cubre el formato JSON y las API complementarias para especificar características.
 

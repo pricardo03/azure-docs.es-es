@@ -1,44 +1,56 @@
 ---
 title: 'Guía de inicio rápido: Generación de una miniatura - REST, Node.js - Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision con Node.js en Cognitive Services.
+description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: ebc9c89969641ace679b3d6677efd67138424712
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9029806119f6ee308ba9f0a5c2d45bfce38b5b54
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842615"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633295"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-nodejs---computer-vision"></a>Guía de inicio rápido: Generación de una miniatura - REST, Node.js - Computer Vision
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-nodejs-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y Node.js en Computer Vision
 
-En esta guía de inicio rápido, generará una miniatura de una imagen con Computer Vision.
+En esta guía de inicio rápido, generará una miniatura de una imagen mediante la API de REST de Computer Vision. Con el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener instalado [Node.js](https://nodejs.org) 4.x o una versión posterior.
+- Debe tener [npm](https://www.npmjs.com/) instalado.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Solicitud Get Thumbnail
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-Con el método [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-Para ejecutar el ejemplo, siga estos pasos:
+1. Instale el paquete [`request`](https://www.npmjs.com/package/request) de npm.
+   1. Abra una ventana del símbolo del sistema como administrador.
+   1. Ejecute el siguiente comando:
 
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `uriBase` por la ubicación donde obtuvo las claves de suscripción.
-1. También puede cambiar el valor `imageUrl` por la imagen que quiera analizar.
-1. Guarde el archivo con la extensión `.js`.
-1. Abra el símbolo del sistema de Node.js y ejecute el archivo, por ejemplo: `node myfile.js`.
+      ```console
+      npm install request
+      ```
 
-En este ejemplo se usa el paquete npm [request](https://www.npmjs.com/package/request).
+   1. Una vez que el paquete se haya instalado correctamente, cierre la ventana del símbolo del sistema.
+
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
+    1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `imageUrl` por la dirección URL de una imagen diferente que desee analizar.
+1. Guarde el código como un archivo con una extensión `.js`. Por ejemplo, `get-thumbnail.js`.
+1. Abra una ventana de símbolo del sistema.
+1. En el símbolo del sistema, utilice el comando `node` para ejecutar el archivo. Por ejemplo, `node get-thumbnail.js`.
 
 ```nodejs
 'use strict';
@@ -82,13 +94,13 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="get-thumbnail-response"></a>Respuesta de Get Thumbnail
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Una respuesta correcta contiene el binario de la imagen en miniatura. Si se produce un error en la solicitud, la respuesta contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
+Se devuelve una respuesta correcta como datos binarios, que representan los datos de imagen para la miniatura. Si se produce un error en la solicitud, la respuesta se muestra en la ventana de consola. La respuesta de la solicitud con error contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar personajes y sitios emblemáticos, crear una miniatura y extraer texto impreso y escrito a mano. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar celebridades y sitios emblemáticos, crear una miniatura y extraer texto impreso y manuscrito. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Exploración de las versiones de Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

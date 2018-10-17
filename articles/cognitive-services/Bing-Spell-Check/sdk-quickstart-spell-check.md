@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido de SDK de Spell Check en C#: Azure Cognitive Services | Microsoft Docs'
+title: 'Guía de inicio rápido: SDK de Bing Spell Check con C#'
+titlesuffix: Azure Cognitive Services
 description: Configuración de la aplicación de consola del SDK de Spell Check
-titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: b64c1be49a26e1fadb504bed3ff8eb78d791539f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3a6f7511407ba29b8fc6d8d3a41369bcd8cf18bc
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "43771260"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803111"
 ---
-# <a name="spell-check-sdk-c-quickstart"></a>Guía de inicio rápido de SDK de Spell Check en C#
+# <a name="quickstart-bing-spell-check-sdk-with-c"></a>Guía de inicio rápido: SDK de Bing Spell Check con C#
 
 El SDK de Bing Spell Check contiene la funcionalidad de API REST para comprobar la ortografía.
 

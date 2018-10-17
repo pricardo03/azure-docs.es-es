@@ -9,18 +9,19 @@ ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c12cd754d9979683fac4b819739d53e78ab9259c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b014144dd819aa354596175068bfb2c5905a4377
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990202"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857999"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
-Speech Service agrupa las funciones de voz de Azure que estaban disponibles a través de [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) y los servicios de [Custom Voice](http://customvoice.ai/). Ahora, una sola suscripción proporciona acceso a todas estas funcionalidades.
 
-Al igual que otros servicios de voz de Azure, el servicio Voz funciona con las tecnologías de voz usadas en productos como Cortana y Microsoft Office. Puede confiar en la calidad de los resultados y la confiabilidad de la plataforma en la nube.
+Al igual que otros servicios de voz de Azure, el servicio Voz funciona con las tecnologías de voz usadas en productos como Cortana y Microsoft Office.
+
+Speech Service agrupa las funciones de voz de Azure que estaban disponibles a través de [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) y los servicios de [Custom Voice](http://customvoice.ai/). Ahora, una sola suscripción proporciona acceso a todas estas funcionalidades.
 
 ## <a name="main-speech-service-functions"></a>Principales funciones de Speech Service
 
@@ -28,7 +29,7 @@ Las principales funciones de Speech Service son la conversión de voz en texto (
 
 |Función|Características|
 |-|-|
-|[Conversión de voz en texto](speech-to-text.md)| <ul><li>Permite transcribir en tiempo real voz en texto.<li>Puede transcribir por lotes voz a partir de grabaciones de audio. <li>Ofrece modos de reconocimiento para casos de uso interactivos, de conversación y dictado.<li>Admite resultados intermedios, detección de fin de voz, formato de texto automático y enmascaramiento de palabras soeces. <li>Puede llamar al servicio [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para extraer la intención del usuario de la transcripción de voz.\*|
+|[Conversión de voz en texto](speech-to-text.md)| <ul><li>Permite transcribir en tiempo real voz en texto.<li>Puede transcribir por lotes voz a partir de grabaciones de audio. <li>Admite resultados intermedios, detección de fin de voz, formato de texto automático y enmascaramiento de palabras soeces. <li>Puede llamar al servicio [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para extraer la intención del usuario de la transcripción de voz.\*|
 |[Texto a voz](text-to-speech.md)| <ul><li>Convierte el texto a una voz que parece natural. <li>Ofrece varios géneros y dialectos para muchos idiomas compatibles. <li>Admite la entrada de texto sin formato o el lenguaje de marcado de síntesis de voz (SSML). |
 |[Traducción de voz](speech-translation.md)| <ul><li>Traduce el audio en streaming casi en tiempo real.<li> También puede procesar voz grabada.<li>Puede proporcionar resultados como texto o como voz sintetizada. |
 
@@ -49,7 +50,7 @@ Puede usar modelos personalizados en cualquier lugar en el que usaría los model
 
 ## <a name="use-the-speech-service"></a>Uso del servicio Voz
 
-Para simplificar el desarrollo de aplicaciones habilitadas para voz, Microsoft proporciona [Speech SDK](speech-sdk.md) para su uso con el nuevo Speech Service. SDK de Voz proporciona API coherentes nativas de conversión de voz en texto y de traducción de voz para C#, C++ y Java. Si desarrolla en alguno de estos lenguajes, SDK de Voz facilita el desarrollo controlando la información de red en su lugar.
+Para simplificar el desarrollo de aplicaciones habilitadas para voz, Microsoft proporciona el [SDK de Voz](speech-sdk.md) para su uso con el servicio Voz. SDK de Voz proporciona API coherentes nativas de conversión de voz en texto y de traducción de voz para C#, C++ y Java. Si desarrolla en alguno de estos lenguajes, SDK de Voz facilita el desarrollo controlando la información de red en su lugar.
 
 Speech Service también tiene una [API REST](rest-apis.md) que funciona con cualquier lenguaje de programación que pueda realizar solicitudes HTTP. La interfaz de REST no ofrece la funcionalidad de streaming en tiempo real del SDK.
 
@@ -67,6 +68,42 @@ Si ya tiene código que utiliza Bing Speech o Translator Speech a través de Web
 ### <a name="speech-devices-sdk"></a>SDK de dispositivos de voz
 
 [Speech Devices SDK](speech-devices-sdk.md) es una plataforma integrada de hardware y software para desarrolladores de dispositivos habilitados para voz. Nuestros asociados de hardware proporcionan diseños de referencia y unidades de desarrollo. Microsoft ofrece un SDK optimizado para dispositivos que aprovecha plenamente las funcionalidades del hardware.
+
+## <a name="why-move-to-the-speech-service"></a>Motivos para cambiar al servicio Voz
+
+El servicio Voz proporciona toda la funcionalidad, y muchas otras cosas más, de Bing Speech API y otros tres servicios de voz de Azure: Custom Speech, Custom Voice y Translator Speech. Animamos a los usuarios de estos servicios a que migren al servicio Voz.
+
+El servicio Voz incorpora muchas de las actualizaciones de estos otros servicios, como:
+
+* Mayor precisión en el reconocimiento de voz. Mejora de los modelos del servicio con regularidad.
+
+* Mayor escalabilidad. El servicio puede controlar más fácilmente varias solicitudes simultáneas, lo que reduce la latencia.
+
+* El servicio Voz usa un modelo de precios basado en tiempo. Consulte los [precios del servicio Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para más información.
+
+* El servicio Voz está disponible en [varias regiones](regions.md) para satisfacer las necesidades de clientes de todo el mundo. Necesita una [suscripción a Azure](https://docs.microsoft.com/azure/cognitive-services/welcome) para cada región que use la aplicación.
+
+* Una única clave de suscripción al servicio Voz concede acceso a las siguientes características. Cada una se mide por separado, por lo que se le cobrará solo por las características que use.
+
+    * [Voz a texto](speech-to-text.md)
+    * [Conversión de voz a texto personalizada](https://cris.ai/CustomSpeech)
+    * [Texto a voz](text-to-speech.md)
+    * [Conversión de texto a voz personalizada](https://cris.ai/CustomVoice)
+    * [Traducción de voz](speech-translation.md) (no incluye [traducción de texto](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
+
+* La función de voz a texto del servicio Voz se integra con [Language Understanding Intelligent Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para reconocer la intención del hablante. También se puede utilizar una clave de punto de conexión de LUIS con el servicio Voz. Consulte el [tutorial de reconocimiento de intenciones](how-to-recognize-intents-from-speech-csharp.md) para más información.
+
+* La conversión de voz a texto ya no requiere que especifique un modo de reconocimiento.
+
+* El servicio Voz es compatible con voces de 24-KHz para la conversión de texto a voz, lo cual mejora la calidad del audio. En el momento de escribir este artículo, hay dos de estas voces (solo para inglés de Estados Unidos): `Jessa24kRUS` y `Guy24kRUS`.
+
+* La [transcripción por lotes](batch-transcription.md) del servicio Voz permite que grandes volúmenes de voz grabada como, por ejemplo, las grabaciones de un centro de llamadas, se transcriban a texto eficazmente para que se puedan analizar fácilmente y realizar búsquedas.
+
+* Al usar el SDK de Voz, no hay ningún límite de tiempo a la hora de realizar el streaming de una transcripción de voz a texto.
+
+* El [SDK de Voz](speech-sdk.md) proporciona una API coherente al servicio Voz en varios lenguajes de programación y entornos de ejecución (incluido Windows 10, UWP y .NET Core), lo cual facilita el desarrollo, especialmente en varias plataformas.
+
+* El servicio Voz es compatible con las API REST y el protocolo WebSockets que emplean otros servicios de voz de Azure, lo cual hace que sea fácil migrar las aplicaciones cliente existentes al servicio Voz.
 
 ## <a name="speech-scenarios"></a>Escenarios de voz
 
@@ -95,7 +132,7 @@ Normalmente, las grabaciones de los centros de llamadas solo se consultan si se 
 
 Si las grabaciones del centro de llamadas contienen terminología especializada (como nombres de producto o jerga de TI), puede crear un [modelo de lenguaje](how-to-customize-language-model.md) para enseñar al servicio Voz ese vocabulario. Los [modelos acústicos](how-to-customize-acoustic-models.md) personalizados pueden ayudar al servicio Voz a comprender las llamadas telefónicas que no tienen buena calidad.
 
-Para más información acerca de este escenario, consulte documentación sobre [batch transcription](batch-transcription.md) (Transcripción en bloque) con el servicio Voz.
+Para más información acerca de este escenario, consulte documentación sobre [batch transcription](batch-transcription.md) (Transcripción en bloque) con el servicio Voz.///
 
 ### <a name="voice-bots"></a>Bots de voz
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433419"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238531"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>¿Qué es el servicio Azure Machine Learning (versión preliminar)?
 
@@ -48,7 +48,7 @@ Puede administrar los modelos implementados y realizar un seguimiento de varias 
 El servicio Azure Machine Learning puede generar automáticamente un modelo y ajustarlo automáticamente.
 Para ver un ejemplo, consulte [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: Entrenamiento automático de un modelo de clasificación con Azure Machine Learning).
 
-O ben, mediante el <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> de Azure Machine Learning para Python, junto con los paquetes Python de código abierto, se pueden crear y entrenar modelos de aprendizaje profundo y de aprendizaje automático sumamente precisos en un área de trabajo de Azure Machine Learning.
+O ben, mediante el <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> de Azure Machine Learning para Python, junto con los paquetes Python de código abierto, se pueden crear y entrenar modelos de aprendizaje profundo y de aprendizaje automático sumamente precisos en un área de trabajo del servicio Azure Machine Learning.
 Puede elegir entre muchos componentes de aprendizaje automático disponibles en los paquetes de Python de código abierto, como los siguientes:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -80,7 +80,7 @@ Si no es un suscriptor, puede [abrir una cuenta de Azure de forma gratuita](http
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Cree un área de trabajo de aprendizaje automático mediante el artículo [Uso de Azure Portal como introducción](quickstart-get-started.md).
+- Cree un área de trabajo del servicio de aprendizaje automático mediante el artículo [Introducción al uso de Azure Portal](quickstart-get-started.md).
  
 - Siga el tutorial completo, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning), para obtener información sobre cómo entrenar e implementar modelos con el servicio Azure Machine Learning.
 

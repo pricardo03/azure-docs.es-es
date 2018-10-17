@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036638"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392564"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Representación de una escena de Blender con Batch Explorer
 
@@ -24,11 +24,11 @@ En este tutorial, aprenderá a:
 > * Representar varios fotogramas
 > * Ver y descargar los archivos de fotogramas representados
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-Una cuenta de Azure Batch con una cuenta de almacenamiento asociada.  Consulte cualquiera de las guías de inicio rápido de Batch como el [artículo sobre la CLI](https://docs.microsoft.com/azure/batch/quick-create-cli) para crear una cuenta de Batch.
+Necesita una suscripción de pago por uso u otra opción de compra de Azure para usar aplicaciones de representación en Batch sobre una base de pago por uso. Las licencias de pago por uso no se admiten si usa una oferta gratuita de Azure que proporciona un crédito monetario.
+
+Necesita una cuenta de Azure Batch con una cuenta de almacenamiento asociada.  Consulte cualquiera de las guías de inicio rápido de Batch como el [artículo sobre la CLI](https://docs.microsoft.com/azure/batch/quick-create-cli) para crear una cuenta de Batch.
 
 Se requiere una cuota de núcleos de baja prioridad de al menos 50 núcleos para el tamaño de máquina virtual y el número de máquinas virtuales especificado en este tutorial. Se puede usar la cuota predeterminada, pero tendrá que usar un tamaño de máquina virtual más pequeño, lo cual hará que se tarde más tiempo en representar las imágenes. El proceso para solicitar una mayor cuota de núcleos se detalla en [este artículo](https://docs.microsoft.com/azure/batch/batch-quota-limit).
 

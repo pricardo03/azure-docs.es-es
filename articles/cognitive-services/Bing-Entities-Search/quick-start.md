@@ -1,25 +1,24 @@
 ---
-title: Inicio rápido de Entities Search API | Microsoft Docs
-description: Se muestra cómo empezar a usar Bing Entities Search API.
+title: 'Guía de inicio rápido: Bing Entity Search API'
+description: Se muestra cómo empezar a usar Bing Entity Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380107"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813964"
 ---
-# <a name="making-your-first-entities-request"></a>Realización de la primera solicitud de entidades
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Guía de inicio rápido: Realización de la primera solicitud de Bing Entity Search
 
-Entity Search API envía una consulta de búsqueda a Bing y obtiene resultados que incluyen entidades y lugares. Los resultados de lugares incluyen restaurantes, hoteles u otros negocios locales. En el caso de los lugares, la consulta puede especificar el nombre del negocio local o puede solicitar una lista (por ejemplo, restaurantes próximos a mi ubicación). Los resultados de entidad incluyen personas, lugares o cosas. A este contexto pertenecen atracciones turísticas, provincias, regiones, etc. 
+Bing Entity Search API envía una consulta de búsqueda a Bing y obtiene resultados que incluyen entidades y lugares. Los resultados de lugares incluyen restaurantes, hoteles u otros negocios locales. En el caso de los lugares, la consulta puede especificar el nombre del negocio local o puede solicitar una lista (por ejemplo, restaurantes próximos a mi ubicación). Los resultados de entidad incluyen personas, lugares o cosas. A este contexto pertenecen atracciones turísticas, provincias, regiones, etc. 
 
 ## <a name="first-steps"></a>Primeros pasos
 

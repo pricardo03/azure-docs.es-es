@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido: Creación de un área de trabajo de Machine Learning | Azure'
-description: Use Azure Portal para crear un área de trabajo de Azure Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental para experimentar, entrenar e implementar modelos de aprendizaje automático con el servicio Azure Machine Learning.
+title: 'Guía de inicio rápido: Creación de un servicio de aprendizaje automático en Azure Portal: Azure Machine Learning'
+description: Use Azure Portal para crear un área de trabajo para el servicio Azure Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental para experimentar, entrenar e implementar modelos de aprendizaje automático con el servicio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959995"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831337"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>Guía de inicio rápido: Introducción al servicio Azure Machine Learning
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Guía de inicio rápido: Uso de Azure Portal para empezar a trabajar con el servicio Azure Machine Learning
 
-En esta guía de inicio rápido aprenderá a usar Azure Portal para crear un área de trabajo de Azure Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental para experimentar, entrenar e implementar modelos de aprendizaje automático con el servicio Azure Machine Learning. 
+En esta guía de inicio rápido aprenderá a usar Azure Portal para crear un área de trabajo para el servicio Azure Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental para experimentar, entrenar e implementar modelos de aprendizaje automático con el servicio Azure Machine Learning. 
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -26,9 +26,9 @@ En este tutorial, aprenderá lo siguiente:
 * Probarla con Python en una instancia de Azure Notebooks y registrar los valores de varias iteraciones
 * Ver los valores registrados en el área de trabajo
 
-Para su comodidad, los siguientes recursos de Azure se agregan automáticamente al área de trabajo cuando estén disponibles de forma regional: [Container Registry](https://azure.microsoft.com/services/container-registry/), [Storage](https://azure.microsoft.com/services/storage/), [Application Insights](https://azure.microsoft.com/services/application-insights/) y [Key Vault](https://azure.microsoft.com/services/key-vault/).
+Para su comodidad, los siguientes recursos de Azure se agregarán automáticamente al área de trabajo cuando estén disponibles de forma regional: [Container Registry](https://azure.microsoft.com/services/container-registry/), [Storage](https://azure.microsoft.com/services/storage/), [Application Insights](https://azure.microsoft.com/services/application-insights/) y [Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-Los recursos creados pueden usarse como requisitos previos para otros tutoriales y artículos de procedimientos de Azure Machine Learning. Al igual que en otros servicios de Azure, existen límites en determinados recursos; por ejemplo, el tamaño del clúster de BatchAI) asociados con el servicio Azure Machine Learning. Lea [este](how-to-manage-quotas.md) artículo sobre los límites predeterminados y cómo solicitar una cuota mayor.
+Los recursos que cree se pueden usar como requisitos previos para otros tutoriales y artículos de procedimientos de Azure Machine Learning. Al igual que en otros servicios de Azure, existen límites en determinados recursos; por ejemplo, el tamaño del clúster de BatchAI) asociados con el servicio Azure Machine Learning. Lea [este](how-to-manage-quotas.md) artículo sobre los límites predeterminados y cómo solicitar una cuota mayor.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-En la página del área de trabajo, haga clic en `Explore your Azure Machine Learning Workspace`.
+En la página del área de trabajo, haga clic en `Explore your Azure Machine Learning service workspace`.
 
  ![Exploración del área de trabajo](./media/quickstart-get-started/explore_aml.png)
 
@@ -69,9 +69,9 @@ Además de los dos cuadernos, verá un archivo `config.json`.  Este archivo de c
 
 Haga clic en `01.run-experiment.ipynb` para abrir el cuaderno.
 
-Puede ejecutar las celdas de una en una mediante `Shift`+`Enter`.  También puede usar el menú `Cells` > `Run All` para ejecutar todo el cuaderno.
+Puede ejecutar las celdas de una en una mediante `Shift`+`Enter`.  También puede usar el menú `Cells` > `Run All` para ejecutar todo el cuaderno.  Cuando vea un [*] junto a una celda, significa que se está ejecutando.  Cuando se complete el código de esa celda, aparecerá un número.
 
-Se le pedirá que inicie sesión.  Copie el código en el mensaje y, a continuación, haga clic en el vínculo y pegue el código en la nueva ventana.  Asegúrese de no copiar un espacio antes o después del código.
+Es posible que se le pida que inicie sesión.  Copie el código en el mensaje y, a continuación, haga clic en el vínculo y pegue el código en la nueva ventana.  Asegúrese de no copiar un espacio antes o después del código.  Inicie sesión con la misma cuenta que usó en Azure Portal.
 
  ![inicio de sesión](./media/quickstart-get-started/login.png)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 67e95ea4b816e1c21b5a43233360c7fa89f43a7a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 94c36316f201abb7b86d56547551c4baefbcc031
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929311"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867840"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial: Administración de discos de Azure con Azure PowerShell
 
@@ -48,7 +48,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| type | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
+| Escriba | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A, B y D | 1600 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 576 |
@@ -63,7 +63,7 @@ Se pueden agregar discos de datos adicionales para instalar aplicaciones y almac
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
-| type | Tamaños comunes | Discos de datos máximos por máquina virtual |
+| Escriba | Tamaños comunes | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A, B y D | 64 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 64 |

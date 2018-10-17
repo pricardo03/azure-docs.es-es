@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160457"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802107"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -24,7 +24,7 @@ Azure Container Instances es una excelente solución para cualquier escenario qu
 
 ## <a name="fast-startup-times"></a>Tiempos de inicio rápido
 
-Los contenedores ofrecen importantes ventajas de inicio sobre las máquinas virtuales. Azure Container Instances puede iniciar un contenedor en Azure en segundos sin que sea necesario aprovisionar y administrar máquinas virtuales.
+Los contenedores ofrecen importantes ventajas de inicio sobre las máquinas virtuales (VM). Azure Container Instances puede iniciar un contenedor en Azure en segundos sin que sea necesario aprovisionar y administrar máquinas virtuales.
 
 ## <a name="public-ip-connectivity-and-dns-name"></a>Conectividad IP pública y nombre DNS
 
@@ -54,9 +54,19 @@ Azure Container Instances admite imágenes de Windows basadas en versiones del c
 
 Azure Container Instances admite la programación de [grupos con varios contenedores](container-instances-container-groups.md) que comparten una máquina host, la red local, el almacenamiento y el ciclo de vida. Esto le permite combinar el contenedor de la aplicación principal con otros contenedores que actúan en una función auxiliar, como los patrones sidecar de registro.
 
+## <a name="virtual-network-deployment-preview"></a>Implementación de red virtual (versión preliminar)
+
+Actualmente en versión preliminar, esta característica de Azure Container Instances permite la [implementación de instancias de contenedor en una red virtual de Azure](container-instances-vnet.md). Al implementar instancias de contenedor en una subred dentro de la red virtual, pueden comunicarse de forma segura con otros recursos de la red virtual, incluidos los que están en el entorno local (mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+
+> [!IMPORTANT]
+> La implementación de grupos de contenedores en una red virtual está actualmente en versión preliminar y se aplican algunas [limitaciones](container-instances-vnet.md#preview-limitations). Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe a implementar un contenedor en Azure con un único comando mediante nuestra Guía de inicio rápido:
 
 > [!div class="nextstepaction"]
 > [Guía de inicio rápido de Azure Container Instances](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

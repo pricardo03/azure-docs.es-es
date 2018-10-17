@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7196cd6c18680583494a485c136081d90960464d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991290"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831507"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guía de inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -33,19 +33,19 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 > [!div renderon="docs"]
 > ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registro de una aplicación y descarga de la aplicación de la guía de inicio rápido
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registro y descarga de la aplicación y código de ejemplo
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registro y configuración de una aplicación y el código de ejemplo
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registro de la aplicación
 > 
 > 1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Escriba un nombre para la aplicación, asegúrese de que la opción **Configuración guiada** está desactivada y haga clic en **Crear**.
-> 1. Haga clic en `Add Platform` y luego en `Web`.
+> 1. Escriba un nombre de aplicación, asegúrese de que la opción de **Guided Setup** (Configuración guiada) no está activada y haga clic en **Create** (Crear).
+> 1. Haga clic en `Add Platform` y, después, seleccione `Web`.
 > 1. Asegúrese de que la casilla **Permitir flujo implícito** está *seleccionada*.
-> 1. Escriba `https://localhost:44368/` en **Direcciones URL de redireccionamiento**.
-> 1. Desplácese a la parte inferior de la página y haga clic en **Guardar**.
+> 1. En **Direcciones URL de redireccionamiento**, escriba `https://localhost:44368/`.
+> 1. Desplácese hasta la parte inferior de la página y haga clic en **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> Para que el código de ejemplo de esta guía de inicio rápido funcione, debe agregar una dirección URL de respuesta como `https://localhost:44368/`.
+> Para que el código de ejemplo de esta guía de inicio rápido funcione, es preciso agregar una dirección URL de respuesta como `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >
@@ -58,7 +58,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio
 
-1. Extraiga el archivo ZIP en una carpeta local (por ejemplo, **C:\Azure-Samples**)
+1. Extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**).
 1. Abra la solución en Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Edite **Web.config** y reemplace `Enter_the_Application_Id_here` por el identificador de aplicación de la aplicación que acaba de registrar:
 
@@ -68,11 +68,11 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
     
 > [!div class="sxs-lookup" renderon="portal"]
 > [!IMPORTANT]
-> Si la aplicación es una *aplicación de inquilino único* (que tiene como destino solo las cuentas en este directorio), busque el valor de `Tenant` en el archivo **Web.config** y reemplace `common` por su **Id. de inquilino** o **nombre de inquilino** (por ejemplo, contoso.microsoft.com). Puede obtener el nombre del inquilino en la **página de Información general**.
+> Si la aplicación es una *aplicación de inquilino único* (que tiene como destino solo las cuentas en este directorio), busque el valor de `Tenant` en el archivo **Web.config** y reemplace `common` por su **Id. de inquilino** o **nombre de inquilino** (por ejemplo, contoso.microsoft.com). El nombre del inquilino se puede obtener en la **página Información general**.
 
 ## <a name="more-information"></a>Más información
 
-Esta sección proporciona información general sobre el código necesario para el inicio de sesión de usuarios. Esto puede ser útil para comprender cómo funciona el código, los argumentos principales y también si desea agregar el inicio de sesión a una aplicación ASP.NET existente.
+En esta sección se proporciona información general acerca del código necesario para el inicio de sesión de usuarios. Esto puede ser útil para comprender cómo funciona el código, los argumentos principales y también si desea agregar el inicio de sesión a una aplicación ASP.NET existente.
 
 ### <a name="owin-middleware-nuget-packages"></a>Paquetes NuGet del middleware OWIN
 

@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a9772ae9ac346daa205c146263a4632a641ee038
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722820"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815518"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
 
@@ -35,9 +35,9 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS o Windows.
 
 * Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
@@ -46,7 +46,6 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-
 
 ## <a name="add-an-application-package"></a>Incorporación de un paquete de aplicación
 
@@ -85,13 +84,18 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 Además, asegúrese de que la referencia del paquete de aplicación de ffmpeg de la solución coincide con el identificador y la versión del paquete de ffmpeg que cargara en la cuenta de Batch.
 
 ```csharp
 const string appPackageId = "ffmpeg";
 const string appPackageVersion = "3.4";
 ```
+
 ### <a name="build-and-run-the-sample-project"></a>Compilación y ejecución del proyecto de ejemplo
+
+Compile y ejecute la aplicación en Visual Studio o en la línea de comandos con los comandos `dotnet build` y `dotnet run`. Después de ejecutar la aplicación, examine el código para ver qué es lo que hace cada parte de la aplicación. Por ejemplo, en Visual Studio:
 
 * Haga clic con el botón derecho en la solución en el Explorador de soluciones y en **Compilar solución**. 
 
@@ -134,7 +138,7 @@ El tiempo de ejecución típico es de aproximadamente **10 minutos** al ejecutar
 
 ## <a name="review-the-code"></a>Revisión del código
 
-En las secciones siguientes se desglosan los pasos que lleva a cabo la aplicación de ejemplo para procesar una carga de trabajo en el servicio Batch. Consulte la solución abierta en Visual Studio a medida que lee este artículo, ya que no se tratan todas las líneas de código del ejemplo.
+En las secciones siguientes se desglosan los pasos que lleva a cabo la aplicación de ejemplo para procesar una carga de trabajo en el servicio Batch. Consulte el archivo `Program.cs` en la solución mientras lee el resto de este artículo, ya que no se explican todas las líneas de código del ejemplo.
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autenticación de los clientes de Blob y Batch
 
@@ -143,7 +147,7 @@ Para interactuar con la cuenta de almacenamiento vinculada, la aplicación utili
 ```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-StorageAccountName, StorageAccountKey);
+                                StorageAccountName, StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -162,41 +166,43 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 
 ### <a name="upload-input-files"></a>Carga de archivos de entrada
 
-La aplicación pasa el objeto `blobClient` al método `CreateContainerIfNotExist` para crear un contenedor de almacenamiento para los archivos de entrada (formato MP4) y uno para la salida de la tarea.
+La aplicación pasa el objeto `blobClient` al método `CreateContainerIfNotExistAsync` para crear un contenedor de almacenamiento para los archivos de entrada (formato MP4) y uno para la salida de la tarea.
 
 ```csharp
-  CreateContainerIfNotExist(blobClient, inputContainerName;
-  CreateContainerIfNotExist(blobClient, outputContainerName);
+CreateContainerIfNotExistAsync(blobClient, inputContainerName;
+CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 A continuación, los archivos se cargan al contenedor de entrada desde la carpeta `InputFiles` local. Los archivos de almacenamiento se definen como objetos [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) de Batch para que el servicio los descargue después en nodos de proceso. 
 
 En la carga de los archivos participan dos métodos de `Program.cs`:
 
-* `UploadResourceFilesToContainer`: devuelve una colección de objetos ResourceFile y llama internamente a `UploadResourceFileToContainer` para cargar todos los archivos que se pasan en el parámetro `filePaths`.
-* `UploadResourceFileToContainer`: carga los archivos como blobs en el contenedor de entrada. Después de cargar el archivo, obtiene una firma de acceso compartido (SAS) para el blob y devuelve un objeto ResourceFile que lo representa. 
+* `UploadResourceFilesToContainerAsync`: devuelve una colección de objetos ResourceFile y llama internamente a `UploadResourceFileToContainerAsync` para cargar todos los archivos que se pasan en el parámetro `inputFilePaths`.
+* `UploadResourceFileToContainerAsync`: carga los archivos como blobs en el contenedor de entrada. Después de cargar el archivo, obtiene una firma de acceso compartido (SAS) para el blob y devuelve un objeto ResourceFile que lo representa. 
 
 ```csharp
-  List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(@"..\..\InputFiles", "*.mp4",
-      SearchOption.TopDirectoryOnly));
+string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 
-  List<ResourceFile> inputFiles = UploadResourceFilesToContainer(
-    blobClient,
-    inputContainerName,
-    inputFilePaths);
+List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
+    SearchOption.TopDirectoryOnly));
+
+List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+  blobClient,
+  inputContainerName,
+  inputFilePaths);
 ```
 
-Para más información acerca de la carga de archivos como blobs en una cuenta de Storage con. NET, consulte [Introducción a Azure Blob Storage con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Para más información sobre cómo cargar archivos como blobs en una cuenta de almacenamiento con. NET, consulte [Carga, descarga y enumeración de blobs mediante .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Creación de un grupo de nodos de proceso
 
-Después, en el ejemplo se crea un grupo de nodos de proceso en la cuenta de Batch con una llamada a `CreatePoolIfNotExist`. Este método definido usa el método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para establecer el número de nodos, el tamaño de la máquina virtual y la configuración del grupo. En este caso, un objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica un valor de [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) en una imagen de Windows Server publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de máquina virtual de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
+Después, en el ejemplo se crea un grupo de nodos de proceso en la cuenta de Batch con una llamada a `CreatePoolIfNotExistAsync`. Este método definido usa el método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para establecer el número de nodos, el tamaño de la máquina virtual y la configuración del grupo. En este caso, un objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica un valor de [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) en una imagen de Windows Server publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de máquina virtual de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
 
 El número de nodos y el tamaño de la máquina virtual se establecen mediante constantes definidas. Batch admite nodos especializados y [nodos de prioridad baja](batch-low-pri-vms.md), y en los grupos puede utilizar ambos. Los nodos dedicados están reservados para el grupo. Los nodos de prioridad baja se ofrecen a precio reducido por la capacidad sobrante de las máquinas virtuales de Azure. Los nodos de prioridad baja dejan de estar disponibles si Azure no tiene capacidad suficiente. En el ejemplo, de forma predeterminada se crea un grupo que contiene solo 5 nodos de baja prioridad con el tamaño *Standard_A1_v2*. 
 
 La aplicación ffmpeg se implementa en los nodos de proceso mediante la incorporación de un valor [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) a la configuración del grupo. 
 
-El método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) envía el grupo al servicio Batch.
+El método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) envía el grupo al servicio Batch.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -223,30 +229,30 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
     ApplicationId = appPackageId,
     Version = appPackageVersion}};
 
-pool.Commit();  
+await pool.CommitAsync();  
 ```
 
 ### <a name="create-a-job"></a>Creación de un trabajo
 
-Un trabajo de Batch especifica un grupo en el que ejecutar tareas y valores de configuración opcionales, como la prioridad y la programación del trabajo. En el ejemplo se crea un trabajo con una llamada a `CreateJobIfNotExist`. Este método definido usa el método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para crear un trabajo en el grupo. 
+Un trabajo de Batch especifica un grupo en el que ejecutar tareas y valores de configuración opcionales, como la prioridad y la programación del trabajo. En el ejemplo se crea un trabajo con una llamada a `CreateJobAsync`. Este método definido usa el método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para crear un trabajo en el grupo. 
 
-El método [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) envía el trabajo al servicio Batch. Inicialmente, el trabajo no tiene tareas.
+El método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) envía el trabajo al servicio Batch. Inicialmente, el trabajo no tiene tareas.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
-    job.Id = JobId;
-    job.PoolInformation = new PoolInformation { PoolId = PoolId };
+job.Id = JobId;
+job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-job.Commit();        
+await job.CommitAsync();
 ```
 
 ### <a name="create-tasks"></a>Creación de tareas
 
-En el ejemplo se crean tareas en el trabajo con una llamada al método `AddTasks`, que crea una lista de objetos [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Los objetos `CloudTask` ejecutan ffmpeg para procesar un objeto `ResourceFile` de entrada con una propiedad [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Al crear el grupo, ffmpeg se instaló previamente en todos los nodos. En este caso, la línea de comandos ejecuta ffmpeg para convertir los archivos MP4 de entrada (vídeo) en archivos MP3 (audio).
+En el ejemplo se crean tareas en el trabajo con una llamada al método `AddTasksAsync`, que crea una lista de objetos [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Los objetos `CloudTask` ejecutan ffmpeg para procesar un objeto `ResourceFile` de entrada con una propiedad [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Al crear el grupo, ffmpeg se instaló previamente en todos los nodos. En este caso, la línea de comandos ejecuta ffmpeg para convertir los archivos MP4 de entrada (vídeo) en archivos MP3 (audio).
 
 En el ejemplo se crea un objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para el archivo MP3 después de ejecutar la línea de comandos. Los archivos de salida de la tarea (en este caso, uno) se cargan en un contenedor en la cuenta de Storage vinculada mediante la propiedad [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) de la tarea.
 
-A continuación, el ejemplo agrega tareas al trabajo con el método [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), que las pone en cola para que se ejecuten en los nodos de proceso. 
+A continuación, en el ejemplo se agregan tareas al trabajo con el método [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), que las pone en cola para que se ejecuten en los nodos de proceso. 
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -264,7 +270,6 @@ for (int i = 0; i < inputFiles.Count; i++)
     // Create a cloud task (with the task ID and command line) 
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
-   
 
     // Task output file
     List<OutputFile> outputFileList = new List<OutputFile>();
@@ -278,7 +283,8 @@ for (int i = 0; i < inputFiles.Count; i++)
 }
 
 // Add tasks as a collection
-batchClient.JobOperations.AddTask(jobId, tasks);
+await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
+return tasks
 ```
 
 ### <a name="monitor-tasks"></a>Supervisión de las tareas
@@ -291,21 +297,23 @@ Existen varios enfoques para supervisar la ejecución de tareas. En este ejemplo
 TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
 try
 {
-    batchClient.Utilities.CreateTaskStateMonitor().WaitAll(addedTasks, TaskState.Completed, timeout);
+    await taskStateMonitor.WhenAll(addedTasks, TaskState.Completed, timeout);
 }
 catch (TimeoutException)
 {
-    batchClient.JobOperations.TerminateJob(jobId, failureMessage);
-    Console.WriteLine(failureMessage);
+    batchClient.JobOperations.TerminateJob(jobId);
+    Console.WriteLine(incompleteMessage);
+    return false;
 }
-batchClient.JobOperations.TerminateJob(jobId, successMessage);
+batchClient.JobOperations.TerminateJob(jobId);
+ Console.WriteLine(completeMessage);
 ...
 
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Después de ejecutar las tareas, la aplicación elimina automáticamente el contenedor de almacenamiento de entrada que creó y ofrece la opción de eliminar el grupo y el trabajo de Batch. Las clases [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) y [Pool Operations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) tienen sus métodos de eliminación correspondientes, a los que se llama si el usuario confirma la eliminación. Aunque no se cobran los trabajos y las tareas, sí se cobran los nodos de proceso. Por consiguiente, se recomienda asignar solo los grupos necesarios. Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. Sin embargo, los archivos de entrada y salida permanecen en la cuenta de Storage.
+Después de ejecutar las tareas, la aplicación elimina automáticamente el contenedor de almacenamiento de entrada que creó y ofrece la opción de eliminar el grupo y el trabajo de Batch. Las clases [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) y [Pool Operations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) tienen sus métodos de eliminación correspondientes, a los que se llama si el usuario confirma la eliminación. Aunque no se cobran los trabajos y las tareas, sí se cobran los nodos de proceso. Por consiguiente, se recomienda asignar solo los grupos necesarios. Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. Sin embargo, los archivos de salida permanecen en la cuenta de almacenamiento.
 
 Cuando ya no los necesite, elimine el grupo de recursos, la cuenta de Batch y la de Storage. Para hacerlo desde Azure Portal, seleccione el grupo de recursos de la cuenta de Batch y haga clic en **Eliminar grupo de recursos**.
 
@@ -325,4 +333,4 @@ En este tutorial, ha aprendido a:
 Para más ejemplos de uso de la API de .NET para programar y procesar cargas de trabajo de Batch, consulte los ejemplos de GitHub.
 
 > [!div class="nextstepaction"]
-> [Ejemplos de C# de Batch](https://github.com/Azure/azure-batch-samples/tree/master/CSharp)
+> [Ejemplos de C# de Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

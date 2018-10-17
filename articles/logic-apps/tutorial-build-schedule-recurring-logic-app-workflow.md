@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124025"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042298"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Comprobación del tráfico con una aplicación lógica basada en una programación
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Comprobación del tráfico según una programación con Azure Logic Apps
 
 Azure Logic Apps le ayuda a automatizar los flujos de trabajo que se ejecutan mediante un programador. Este tutorial muestra cómo puede crear una [aplicación lógica](../logic-apps/logic-apps-overview.md) con un desencadenador de programador que se ejecuta por las mañanas los días de entre semana y comprueba el tiempo de desplazamiento, incluido el tráfico, entre dos lugares. Si el tiempo supera un límite específico, la aplicación lógica envía un correo electrónico con el tiempo de desplazamiento y el tiempo adicional necesario para el destino.
 

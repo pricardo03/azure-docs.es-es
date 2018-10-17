@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918093"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391477"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para implementar sus aplicaciones en Azure. En este artículo se muestra cómo implementar una aplicación Java en un conjunto de escalado de máquinas virtuales (VMSS) de Azure.  
@@ -31,7 +31,7 @@ Ansible permite automatizar la implementación y la configuración de recursos e
 
 ## <a name="get-host-information"></a>Obtención de información sobre host
 
-En esta sección se muestra cómo usar Ansible para recuperar información sobre host para un grupo de máquinas virtuales de Azure. A continuación se muestra un cuaderno de estrategias de Ansible de ejemplo. El código obtiene las direcciones IP públicas y el equilibrador de carga en el grupo de recursos especificado, y crea un grupo host llamado **saclesethosts** en el inventario. 
+En esta sección se muestra cómo usar Ansible para recuperar información sobre host para un grupo de máquinas virtuales de Azure. A continuación se muestra un cuaderno de estrategias de Ansible de ejemplo. El código obtiene las direcciones IP públicas y el equilibrador de carga del grupo de recursos especificado y crea un grupo host denominado **scalesethosts** en el inventario. 
 
 Guarde el siguiente cuaderno de estrategias de ejemplo como `get-hosts-tasks.yml`: 
 

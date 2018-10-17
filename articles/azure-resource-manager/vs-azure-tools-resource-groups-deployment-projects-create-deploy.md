@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62e376a345be837e910ea615f8648e6b8d196ae1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c5f1c5add069be99f7a6f467f6e3e2bd9c2b3535
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006254"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543095"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 Con Visual Studio, puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes. En este artículo se implementa una aplicación web y SQL Database.  
@@ -305,5 +305,8 @@ No está limitado únicamente a los recursos que están disponibles a través de
 Puede administrar el acceso al panel con los grupos de RBAC. También puede personalizar la apariencia del panel después de implementarlo. Sin embargo, si vuelve a implementar el grupo de recursos, el panel se restablece a su estado predeterminado en la plantilla. Para más información sobre cómo crear paneles, consulte [Creación mediante programación de paneles de Azure](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre las plantillas, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 
+En esta guía de inicio rápido, aprendió a crear e implementar plantillas con Visual Studio. En el siguiente tutorial se indica cómo encontrar la información en la referencia sobre plantillas para que pueda crear una cuenta de Azure Storage cifrada.
+
+> [!div class="nextstepaction"]
+> [Creación de una cuenta de almacenamiento cifrada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

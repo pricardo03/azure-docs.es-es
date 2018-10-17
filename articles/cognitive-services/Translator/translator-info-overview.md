@@ -1,26 +1,27 @@
 ---
-title: 'Introducción a Microsoft Translator Text API: Azure Cognitive Services | Microsoft Docs'
-description: Integre Microsoft Translator Text API en aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario en varios idiomas.
+title: ¿Qué es Translator Text API?
+titlesuffix: Azure Cognitive Services
+description: Integre Translator Text API en aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario en varios idiomas.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: bfbb316ac41045add7f424b5d478581aa226fc19
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42889291"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124667"
 ---
-# <a name="what-is-microsoft-translator"></a>¿Qué es Microsoft Translator?
+# <a name="what-is-translator-text-api"></a>¿Qué es Translator Text API?
 
-Microsoft Translator Text API puede integrarse perfectamente en aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario en [más de 60 idiomas](languages.md). Se puede usar en cualquier plataforma de hardware y con cualquier sistema operativo para realizar la traducción de un idioma de texto a texto.
+Translator Text API puede integrarse perfectamente en aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario en [más de 60 idiomas](languages.md). Se puede usar en cualquier plataforma de hardware y con cualquier sistema operativo para realizar la traducción de un idioma de texto a texto.
 
-Microsoft Translator Text API es parte de las [API de Microsoft Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai), una colección de algoritmos de aprendizaje automático e inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
+Translator Text API forma parte de la colección de [API de Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
 
 ## <a name="about-microsoft-translator"></a>Acerca de Microsoft Translator
 

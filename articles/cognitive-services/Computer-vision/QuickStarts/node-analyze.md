@@ -1,53 +1,57 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision API para Node.js: Análisis de imágenes | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision con Node.js en Cognitive Services.
+title: 'Guía de inicio rápido: Análisis de imágenes remotas - REST, Node.js - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision API con Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: dab6547e08b1b01a9090a817d728c86359c680f2
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 76174a14720502a444fb86a337445caf1910ff78
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772167"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631590"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-nodejs"></a>Guía de inicio rápido: Análisis de imágenes remotas (REST, Node.js)
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Guía de inicio rápido: Análisis de imágenes remotas mediante la API de REST y Node.js en Computer Vision
 
-En esta guía de inicio rápido, analizará una imagen para extraer características visuales con Computer Vision.
+En esta guía de inicio rápido, analizará una imagen remota almacenada para extraer características visuales con la API de REST Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener instalado [Node.js](https://nodejs.org) 4.x o una versión posterior.
+- Debe tener [npm](https://www.npmjs.com/) instalado.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Solicitud Analyze Image
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-Con el [método de análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen. Puede cargar una imagen o especificar una URL de imagen y elegir qué características se van a devolver, como:
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-* Una lista detallada de las etiquetas relacionadas con el contenido de la imagen.
-* Una descripción del contenido de la imagen en una oración completa.
-* Las coordenadas, el sexo y la edad de las caras de la imagen.
-* El tipo de imagen (imágenes prediseñadas o dibujo lineal).
-* El color dominante, el color de énfasis o si una imagen está en blanco y negro.
-* La categoría definida en esta [taxonomía](../Category-Taxonomy.md).
-* ¿La imagen incluye contenido para adultos o insinuaciones de tipo sexual?
+1. Instale el paquete [`request`](https://www.npmjs.com/package/request) de npm.
+   1. Abra una ventana del símbolo del sistema como administrador.
+   1. Ejecute el siguiente comando:
 
-Para ejecutar el ejemplo, siga estos pasos:
+      ```console
+      npm install request
+      ```
 
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `uriBase` por la ubicación donde obtuvo las claves de suscripción.
-1. También puede cambiar el valor `imageUrl` por la imagen que quiera analizar.
-1. También tiene la opción de cambiar el idioma de la respuesta (`'language': 'en'`).
-1. Guarde el archivo con la extensión `.js`.
-1. Abra el símbolo del sistema de Node.js y ejecute el archivo, por ejemplo: `node myfile.js`.
+   1. Una vez que el paquete se haya instalado correctamente, cierre la ventana del símbolo del sistema.
 
-En este ejemplo se usa el paquete npm [request](https://www.npmjs.com/package/request).
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
+    1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Analizar imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `imageUrl` por la dirección URL de una imagen diferente que desee analizar.
+    1. Si lo desea, reemplace el valor del parámetro de la solicitud `language` por un idioma diferente.
+1. Guarde el código como un archivo con una extensión `.js`. Por ejemplo, `analyze-image.js`.
+1. Abra una ventana de símbolo del sistema.
+1. En el símbolo del sistema, utilice el comando `node` para ejecutar el archivo. Por ejemplo, `node analyze-image.js`.
 
 ```nodejs
 'use strict';
@@ -94,9 +98,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="analyze-image-response"></a>Respuesta de Analyze Image
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Se devuelve una respuesta correcta en código JSON, por ejemplo:
+Se devuelve una respuesta correcta en JSON. El ejemplo analiza y muestra una respuesta correcta en la ventana del símbolo del sistema, parecida a la del ejemplo siguiente:
 
 ```json
 {
@@ -164,9 +168,22 @@ Se devuelve una respuesta correcta en código JSON, por ejemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no sea necesario, elimine el archivo y después desinstale el paquete `request` de npm. Para desinstalar el paquete, realice los siguientes pasos:
+
+1. Abra una ventana del símbolo del sistema como administrador.
+2. Ejecute el siguiente comando:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Una vez que el paquete se haya desinstalado correctamente, cierre la ventana del símbolo del sistema.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar personajes y sitios emblemáticos, crear una miniatura y extraer texto impreso y escrito a mano. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar personajes y sitios emblemáticos, crear una miniatura y extraer texto impreso y escrito a mano. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Exploración de las versiones de Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

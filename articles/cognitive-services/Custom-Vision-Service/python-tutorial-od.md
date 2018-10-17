@@ -1,22 +1,23 @@
 ---
-title: Detección de objetos con Python y Custom Vision API - Azure Cognitive Services | Microsoft Docs
-description: Explore una aplicación básica de Windows que usa Custom Vision API en Microsoft Cognitive Services. Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción con el punto de conexión predeterminado.
+title: 'Tutorial: Crear un proyecto de detección de objetos - Custom Vision API, Python'
+titlesuffix: Azure Cognitive Services
+description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción con el punto de conexión predeterminado.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213588"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363707"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Uso de Custom Vision API para compilar un proyecto de detección de objetos con Python
+# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutorial: Crear un proyecto de detección de objetos con Python
 
 Explore un script de Python básico que usa Computer Vision API para crear un proyecto de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación mediante Custom Vision API.
 

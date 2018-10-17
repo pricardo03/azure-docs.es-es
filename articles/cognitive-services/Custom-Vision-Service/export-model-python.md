@@ -1,28 +1,29 @@
 ---
-title: 'Ejecución del modelo de TensorFlow en Python: Custom Vision Service en Azure Cognitive Services | Microsoft Docs'
-description: Ejecución del modelo de TensorFlow en Python
+title: 'Tutorial: Ejecución del modelo de TensorFlow en Python con Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Ejecución de un modelo de TensorFlow en Python
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: d31036404604104ca28328b6c8bc5d3ca74d83ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382715"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247319"
 ---
-# <a name="run-tensorflow-model-in-python"></a>Ejecución del modelo de TensorFlow en Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Ejecución del modelo de TensorFlow en Python
 
 Tras la [exportación del modelo de TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) desde Custom Vision Service, esta guía de inicio rápido le mostrará cómo usar este modelo localmente para clasificar imágenes.
 
 ## <a name="install-required-components"></a>Instalación de los componentes necesarios
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para usar el tutorial, debe realizar los siguientes pasos:
 
@@ -189,8 +190,8 @@ Los resultados de la ejecución del tensor de la imagen a través del modelo ten
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```

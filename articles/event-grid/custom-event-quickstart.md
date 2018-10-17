@@ -5,19 +5,19 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/23/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5d980e480c6a730ad66dfaee56459c8bb36605e8
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: fe48125da881cd30b8a2645b5406840e2eef7e96
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744192"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041573"
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con la CLI de Azure y Event Grid
 
-Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa la CLI de Azure para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
+Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usará la CLI de Azure para crear un tema personalizado, suscribirse a él y desencadenar el evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
 Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
 
@@ -47,7 +47,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Creación de un tema personalizado
 
-Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<your-topic-name>` por un nombre único para el tema. El nombre del tema debe ser único, ya que es parte de la entrada DNS.
+Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<your-topic-name>` por un nombre único para el tema. El nombre del tema personalizado debe ser único, ya que es parte de la entrada DNS.
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -57,7 +57,7 @@ az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 
-Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. Normalmente, el punto de conexión realiza acciones en función de los datos del evento. Para simplificar esta guía de inicio rápido, se implementa una [aplicación web pregenerada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestra los mensajes de los eventos. La solución implementada incluye un plan de App Service, una aplicación web de App Service y el código fuente desde GitHub.
+Antes de suscribirse al tema personalizado, vamos a crear el punto de conexión para el mensaje de evento. Normalmente, el punto de conexión realiza acciones en función de los datos del evento. Para simplificar esta guía de inicio rápido, se implementa una [aplicación web pregenerada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestra los mensajes de los eventos. La solución implementada incluye un plan de App Service, una aplicación web de App Service y el código fuente desde GitHub.
 
 Reemplace `<your-site-name>` por un nombre único para la aplicación web. El nombre de la aplicación web debe ser único, ya que es parte de la entrada DNS.
 
@@ -74,9 +74,9 @@ La implementación puede tardar unos minutos en completarse. Después de que la 
 
 Debería ver el sitio, que no muestra ningún mensaje actualmente.
 
-## <a name="subscribe-to-a-topic"></a>Suscripción a un tema
+## <a name="subscribe-to-a-custom-topic"></a>Suscripción a un tema personalizado
 
-Suscríbase a un tema que indique a Event Grid los eventos cuyo seguimiento desea realizar y el lugar al que deben enviarse dichos eventos. En el ejemplo siguiente se suscribirá al tema que ha creado y pasará la dirección URL de la aplicación web como punto de conexión para la notificación de eventos.
+Suscríbase a un tema de cuadrícula de eventos personalizado para indicar a Event Grid los eventos cuyo seguimiento desea realizar y el lugar al que deben enviarse dichos eventos. En el ejemplo siguiente se suscribirá al tema personalizado que ha creado y pasará la dirección URL de la aplicación web como el punto de conexión de la notificación de eventos.
 
 El punto de conexión de la aplicación web debe incluir el sufijo `/api/updates/`.
 
@@ -94,7 +94,7 @@ Vuelva a la aplicación web y observe que se ha enviado un evento de validación
 
 ![Visualización del evento de suscripción](./media/custom-event-quickstart/view-subscription-event.png)
 
-## <a name="send-an-event-to-your-topic"></a>Envío de un evento al tema
+## <a name="send-an-event-to-your-custom-topic"></a>Envío de un evento al tema personalizado
 
 Vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión. En primer lugar, vamos a obtener la dirección URL y la clave del tema personalizado.
 
@@ -103,18 +103,18 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Para simplificar este artículo, va a utilizar datos de evento de ejemplo para enviar al tema. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento. En el ejemplo siguiente se obtienen los datos del evento:
+Para simplificar este artículo, usará datos de evento de ejemplo para enviar al tema personalizado. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento. En el ejemplo siguiente se crean datos de evento de ejemplo:
 
 ```azurecli-interactive
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 ```
 
-Para ver el evento completo, use `echo "$body"`. El elemento `data` del archivo JSON es la carga del evento. En este campo, puede usar cualquier archivo JSON bien formado. También puede usar el campo de asunto para realizar enrutamiento y filtrado avanzados.
+El elemento `data` del archivo JSON es la carga del evento. En este campo, puede usar cualquier archivo JSON bien formado. También puede usar el campo de asunto para realizar enrutamiento y filtrado avanzados.
 
 CURL es una utilidad que envía solicitudes HTTP. En este artículo, use CURL para enviar el evento al tema. 
 
 ```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexión que configuró al realizar la suscripción. Vaya a la aplicación web para ver el evento que acaba de enviar.

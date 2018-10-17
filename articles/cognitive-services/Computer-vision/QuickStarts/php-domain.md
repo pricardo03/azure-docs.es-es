@@ -1,47 +1,57 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision API para PHP: Modelo de dominio | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, usará un modelo de dominio para identificar sitios emblemáticos en una imagen mediante Computer Vision con PHP en Cognitive Services.
+title: 'Guía de inicio rápido: Uso de un modelo de dominio - REST, PHP - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, usará un modelo de dominio para identificar puntos de referencia en una imagen mediante Computer Vision API con PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 335065b45781dd2712f5416fb03a2f8726182472
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 40a4fa90442a5771f6b221a25ddca46d3ebc4f5c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772256"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629498"
 ---
-# <a name="quickstart-use-a-domain-model---rest-php"></a>Guía de inicio rápido: Uso de un modelo de dominio (REST, PHP)
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>Inicio rápido: Uso de un modelo de dominio mediante la API de REST y PHP en Computer Vision
 
-En esta guía de inicio rápido, usará un modelo de dominio para identificar sitios emblemáticos o personales en una imagen con Computer Vision.
+En esta guía de inicio rápido, usará un modelo de dominio para identificar puntos de referencia o, si lo desea, celebridades en una imagen almacenada de forma remota mediante la API de REST Computer Vision. Con el método [Reconocer contenido específico de dominio](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), puede aplicar un modelo específico de dominio para reconocer contenido en una imagen.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener [PHP](https://secure.php.net/downloads.php) instalado.
+- Debe tener [Pear](https://pear.php.net) instalado.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="recognize-landmark-request"></a>Solicitud Recognize Landmark
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-Con el método [Recognize Domain Specific Content](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), puede identificar un conjunto específico de objetos en una imagen. Los dos modelos específicos del dominio que están actualmente disponibles son _personajes_ y _sitios emblemáticos_.
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-Para ejecutar el ejemplo, siga estos pasos:
+1. Instalación del paquete [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) de PHP5.
+   1. Abra una ventana del símbolo del sistema como administrador.
+   1. Ejecute el siguiente comando:
 
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie `uriBase` para usar la ubicación donde obtuvo las claves de suscripción.
-1. También puede establecer `imageUrl` en la imagen que quiere analizar.
-1. También tiene la opción de establecer `domain` en `celebrities` para usar el modelo de personajes.
-1. Guarde el archivo con la extensión `.php`.
-1. Abra el archivo en una ventana del explorador con compatibilidad con PHP.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-En el ejemplo siguiente se identifica un punto de referencia en una imagen.
+   1. Una vez que el paquete se haya instalado correctamente, cierre la ventana del símbolo del sistema.
 
-En este ejemplo se usa el paquete [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) de PHP5.
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
+    1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Reconocer contenido específico de dominio](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `imageUrl` por la dirección URL de una imagen diferente que desee analizar.
+    1. También puede reemplazar el valor del parámetro de solicitud `domain` por `celebrites` si desea usar el modelo de dominio `celebrities` en lugar del modelo de dominio `landmarks`.
+1. Guarde el código como un archivo con una extensión `.php`. Por ejemplo, `use-domain-model.php`.
+1. Abra una ventana del explorador con compatibilidad con PHP.
+1. Arrastre y coloque el archivo en la ventana del explorador.
 
 ```php
 <html>
@@ -105,9 +115,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="recognize-landmark-response"></a>Respuesta de Recognize Landmark
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Se devuelve una respuesta correcta en código JSON, por ejemplo:
+Se devuelve una respuesta correcta en JSON. El sitio web de ejemplo analiza y muestra una respuesta correcta en la ventana del explorador, parecida a la del ejemplo siguiente:
 
 ```json
 {
@@ -128,9 +138,22 @@ Se devuelve una respuesta correcta en código JSON, por ejemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no sea necesario, elimine el archivo y después desinstale el paquete `HTTP_Request2` de PHP5. Para desinstalar el paquete, realice los siguientes pasos:
+
+1. Abra una ventana del símbolo del sistema como administrador.
+2. Ejecute el siguiente comando:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Una vez que el paquete se haya desinstalado correctamente, cierre la ventana del símbolo del sistema.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar personajes y sitios emblemáticos, crear una miniatura y extraer texto impreso y escrito a mano. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar celebridades y sitios emblemáticos, crear una miniatura y extraer texto impreso y manuscrito. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Exploración de las versiones de Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

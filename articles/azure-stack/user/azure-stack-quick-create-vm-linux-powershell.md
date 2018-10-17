@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9d3c063dab11f31b10762e8399a1f11f2c28c3cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227003"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377511"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guía de inicio rápido: crear una máquina virtual para un servidor Linux usando PowerShell en Azure Stack
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guía de inicio rápido: creación de una máquina virtual para un servidor Linux con PowerShell en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
@@ -32,13 +31,15 @@ Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante PowerShell par
 * Instalar el servidor web NGINX y ver la página principal predeterminada.
 * Borrar los recursos que no use.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una imagen de Linux en el marketplace de Azure Stack**
 
    El marketplace de Azure Stack no contiene la imagen de Linux de forma predeterminada. Solicite al operador de Azure Stack que le proporcione la imagen de **Ubuntu Server 16.04 LTS** que necesita. El operador puede usar los pasos descritos en el artículo [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) (Descarga de productos de Marketplace de Azure a Azure Stack).
 
-* Azure Stack necesita una versión específica de Azure PowerShell para crear y administrar los recursos. Si no tiene PowerShell configurado para Azure Stack, inicie sesión en el [kit de desarrollo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o en un cliente externo basado en Windows si está [conectado a través de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn), y siga los pasos para [instalar](azure-stack-powershell-install.md) y [configurar](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack necesita una versión específica de Azure PowerShell para crear y administrar los recursos. Si no tiene PowerShell configurado para Azure Stack, siga estos pasos para [instalar](azure-stack-powershell-install.md) PowerShell.
+
+* Con Azure Stack PowerShell configurado, deberá conectarse al entorno de Azure Stack. Para instrucciones, consulte [Configuración del entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md).
 
 * Se guardó una clave SSH pública denominada id_rsa.pub en el directorio .ssh del perfil de usuario de Windows. Para obtener más información sobre la creación de claves SSH, consulte [Crear claves SSH en Windows](../../virtual-machines/linux/ssh-from-windows.md).
 

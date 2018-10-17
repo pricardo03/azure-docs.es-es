@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 7e556d3900d257410050e37b714d2005675e185d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 96c52beadb9424bda31726b2fa6da8b4c5b94fbf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967717"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830147"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure
 
@@ -89,7 +89,7 @@ Un sondeo de estado comprueba todas las instancias de máquina virtual para aseg
 
 ### <a name="create-the-load-balancer-rule"></a>Creación de la regla de equilibrador de carga
 
-Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myLoadBalancerRuleWeb* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEndPool* y enviar tráfico de red con equilibrio de carga al grupo de direcciones de back-end *myBackEndPool*, que también usan el puerto 80. 
+Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myHTTPRule* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEnd* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end *myBackEndPool*, que también usan el puerto 80. 
 
 ```azurecli-interactive
   az network lb rule create \

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434745"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249373"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procedimiento para administrar los dispositivos obsoletos en Azure AD
 
@@ -101,7 +101,7 @@ Defina un período que sea el indicador de un dispositivo obsoleto. Cuando defin
 
 ### <a name="disable-devices"></a>Deshabilitar dispositivos
 
-No es aconsejable eliminar inmediatamente un dispositivo que parezca obsoleto porque no se puede deshacer una eliminación en el caso de falsos positivos. Como procedimiento recomendado, deshabilite un dispositivo durante un período de gracia antes de eliminarlo. En la directiva, defina un período para desactivar una directiva antes de eliminarla.
+No es aconsejable eliminar inmediatamente un dispositivo que parezca obsoleto porque no se puede deshacer una eliminación en el caso de falsos positivos. Como procedimiento recomendado, deshabilite un dispositivo durante un período de gracia antes de eliminarlo. En la directiva, defina un período para deshabilitar una directiva antes de eliminarla.
 
 
 ### <a name="mdm-controlled-devices"></a>Dispositivos controlados por MDM
@@ -111,7 +111,7 @@ Si su dispositivo está bajo control de Intune o de cualquier otra solución MDM
 
 ### <a name="system-managed-devices"></a>Dispositivos administrados por el sistema
 
-No elimine los dispositivos administrados por el sistema. Por lo general, se trata de dispositivos como el piloto automático. Una vez eliminados, estos dispositivos no se pueden volver a aprovisionar. De forma predeterminada, el nuevo cmdlet Get-MmsolDevice excluye los dispositivos administrados por el sistema. 
+No elimine los dispositivos administrados por el sistema. Por lo general, se trata de dispositivos como el piloto automático. Una vez eliminados, estos dispositivos no se pueden volver a aprovisionar. De forma predeterminada, el nuevo cmdlet `get-msoldevice` excluye los dispositivos administrados por el sistema. 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos unidos a Azure AD
@@ -137,7 +137,7 @@ Deshabilite o elimine los dispositivos registrados de Azure AD en Azure AD.
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Limpieza de dispositivos obsoletos en Azure Portal  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpieza de dispositivos obsoletos en Azure Portal  
 
 Aunque puede limpiar los dispositivos obsoletos en Azure Portal, es más eficiente tratar este proceso mediante un script de PowerShell. Utilice el último módulo PowerShell V1 para usar el filtro de marca de tiempo y para filtrar los dispositivos administrados por el sistema, como el piloto automático. En este momento, no se recomienda el uso de PowerShell V2.
 
@@ -150,7 +150,9 @@ Una rutina típica consta de los pasos siguientes:
 
 3. Deshabilite el dispositivo mediante el cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 
-4. Quite el dispositivo mediante el cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+4. Espere el número de días que haya elegido del período de gracia antes de eliminar el dispositivo.
+
+5. Quite el dispositivo mediante el cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Obtención de la lista de dominios
 

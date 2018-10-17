@@ -6,22 +6,26 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: efe6213e5c0261fb26ac40e74c2b0f6e0c9252dd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43775061"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713752"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Windows Server con el portal de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Puede crear una máquina virtual Windows Server 2016 mediante el portal de Azure Stack. Siga los pasos descritos en este artículo para crear y usar una máquina virtual.
+
+> [!NOTE]  
+> Las imágenes de pantalla de este artículo se han actualizado para que coincidan con la interfaz de usuario introducida con la versión de Azure Stack 1808. 1808 agrega compatibilidad para usar los *discos administrados* además de los no administrados. Si usa una versión anterior, algunas imágenes como la selección de disco diferirá de la que se muestra en este artículo.  
+
 
 ## <a name="sign-in-to-the-azure-stack-portal"></a>Inicio de sesión en el portal de Azure Stack
 
@@ -32,18 +36,23 @@ Inicie sesión en el portal de Azure Stack. La dirección del portal de Azure St
 
 ## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-1. Haga clic en **Nuevo** > **Proceso** > **Windows Server 2016 Datacenter Eval** > **Crear**. Si no se muestra la entrada **Windows Server 2016 Datacenter Eval**, póngase en contacto con el operador de Azure Stack. Pídale que la agregue a Marketplace como se explica en el artículo [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) (Adición de la imagen de máquina virtual Windows Server 2016 a Azure Stack Marketplace).
+1. Haga clic en **+ Crear un recurso** > **Proceso** > **Windows Server 2016 Datacenter – Pago por uso** > **Crear**. Si no se muestra la entrada **Windows Server 2016 Datacenter – Pago por uso**, póngase en contacto con el operador de Azure Stack. Pídale que la agregue a Marketplace como se explica en el artículo [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) (Adición de la imagen de máquina virtual Windows Server 2016 a Azure Stack Marketplace).
 
     ![Pasos para crear una máquina virtual Windows en el portal](media/azure-stack-quick-windows-portal/image01.png)
 2. En **Aspectos básicos**, escriba un **nombre**, un **nombre de usuario** y una **contraseña**. Elija una **suscripción**. Cree un **grupo de recursos**, o seleccione uno ya existente, seleccione una **ubicación** y luego haga clic en **Aceptar**.
 
     ![Configuración básica](media/azure-stack-quick-windows-portal/image02.png)
-3. En **Elegir un tamaño**, haga clic en **D1 Standard** > **Seleccionar**.
+3. En **Tamaño** seleccione **D1 Estándar** y después haga clic en **Seleccionar**.  
     ![Elección del tamaño de máquina virtual](media/azure-stack-quick-windows-portal/image03.png)
-4. En **Configuración**, aceote los valores predeterminados y haga clic en **Aceptar**.
-    ![Configuración de la máquina virtual](media/azure-stack-quick-windows-portal/image04.png)
+
+4. En la página **Configuración**, realice los cambios necesarios en los valores predeterminados.
+   - A partir de la versión de Azure Stack 1808, puede configurar **Almacenamiento**, donde podrá elegir los *discos administrados*. Antes de la versión 1808 solo se pueden usar discos no administrados.  
+   ![Configuración de la máquina virtual](media/azure-stack-quick-windows-portal/image04.png)  
+   Cuando las configuraciones estén preparadas, seleccione **Aceptar** para continuar.
+
 5. En **Resumen**, haga clic en **Aceptar** para crear la máquina virtual.
     ![Visualización del resumen y creación de máquina virtual](media/azure-stack-quick-windows-portal/image05.png)
+
 6. Para ver la nueva máquina virtual, haga clic en **Todos los recursos**, busque el nombre de la máquina virtual y, a continuación, haga clic en su nombre en los resultados de la búsqueda.
     ![Visualización de la máquina virtual](media/azure-stack-quick-windows-portal/image06.png)
 

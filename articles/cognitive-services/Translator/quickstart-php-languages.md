@@ -1,21 +1,21 @@
 ---
-title: Obtención de los idiomas admitidos mediante Translator Text con PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con PHP en Cognitive Services.
+title: 'Guía de inicio rápido: Obtención de los idiomas admitidos - Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 95b48f15ffe8cea14f9ffb7612193b819e03f5f3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2924a61a31037fcf52986d250007b906ffb40b98
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771078"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128714"
 ---
 # <a name="quickstart-get-supported-languages-with-php"></a>Guía de inicio rápido: obtención de los idiomas admitidos con PHP
 

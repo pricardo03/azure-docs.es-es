@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246822"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129767"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -71,9 +71,11 @@ Siga estos pasos para crear una API desde una instancia de Azure Function App.
     > [!NOTE]
     > Solo se pueden importar funciones que se basen en desencadenador HTTP y que tengan la configuración del nivel de autorización establecida en *Anónimo* o *Función*.
 
-7. Edite los campos que se rellenan automáticamente si fuera necesario. Haga clic en **Create**(Crear).
+7. Cambie a la vista **Completa** y asigne el **Producto** a la nueva API. Si es necesario, edite otros campos que se rellenan automáticamente.
 
     ![Agregar desde Function App](./media/import-function-app-as-api/add-06.png)
+
+8. Haga clic en **Create**(Crear).
 
 ## <a name="append-azure-function-app-to-api"></a>Anexión de una instancia de Azure Function App a una API existente
 

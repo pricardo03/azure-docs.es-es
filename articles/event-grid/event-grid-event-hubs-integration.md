@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616522"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163233"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Transmitir macrodatos a un almacenamiento de datos
 
@@ -184,6 +184,7 @@ Ya ha terminado de configurar el centro de eventos, SQL Data Warehouse, la aplic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Para información sobre las diferencias en los servicios de mensajería de Azure, consulte [Elija entre los servicios de Azure de entrega de mensajes](compare-messaging-services.md).
 * Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).
 * Para obtener una introducción a la función de captura de Event Hubs, vea [Habilitación de la funcionalidad de captura de Event Hubs mediante Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md).
 * Para más información sobre cómo configurar y ejecutar el ejemplo, vea el [ejemplo de la función de captura de Event Hubs y Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).

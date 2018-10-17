@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 5026a7a753ec744d281266b2fb30a70a66a7f9db
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0b3ba5c3a091cf673d8b3dbc413d36cb5fb75de5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050453"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713415"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: creación de una máquina virtual mediante una plantilla de comunidad
 Como operador o usuario de Azure Stack, puede crear una máquina virtual mediante [plantillas de inicio rápido personalizadas de GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates) en lugar de implementar una manualmente desde Marketplace de Azure Stack.
@@ -43,14 +43,15 @@ Con el tiempo, muchos usuarios de GitHub han contribuido al repositorio, dando c
 
 Si desea contribuir con sus plantillas de Azure Resource Manager a GitHub, debe hacer su contribución en el repositorio [azure-quickstart-templates](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-Para más información sobre el repositorio de GitHub y cómo realizar contribuciones, consulte [el archivo Léame del repositorio](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md). 
+Para más información sobre el repositorio de GitHub y cómo realizar contribuciones, consulte el [archivo Léame](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md). 
 
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Crear una máquina virtual con una plantilla personalizada de GitHub
-En este tutorial de ejemplo, la plantilla de inicio rápido [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) de Azure Stack se utiliza para implementar una máquina virtual Ubuntu 16.04 en AzureStack mediante la ejecución de Minikube para administrar un cluster de Kubernetes.
+En este tutorial de ejemplo, la plantilla de inicio rápido [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) de Azure Stack se utiliza para implementar una máquina virtual Ubuntu 16.04 en Azure Stack mediante la ejecución de Minikube para administrar un clúster de Kubernetes.
 
-Minikube es una herramienta que facilita la ejecución local de Kubernetes. Minikube ejecuta un clúster de Kubernetes de un solo nodo dentro de una máquina virtual para que los usuarios puedan probar Kubernetes o desarrollar con él día a día. Admite un clúster de Kubernetes simple, de un nodo, que se ejecuta en una máquina virtual Linux. Es la forma más rápida y directa de poner en marcha un clúster de Kubernetes totalmente funcional. Permite a los desarrolladores desarrollar y probar sus implementaciones de aplicaciones basadas en Kubernetes en sus máquinas locales. Arquitectónicamente, la máquina virtual de Minikube ejecuta los componentes del nodo principal y agente de manera local:
-- Los componentes del nodo principal como el servidor de API, Scheduler y servidor etcd se ejecutan en un único proceso de Linux denominado LocalKube.
+Minikube es una herramienta que facilita la ejecución local de Kubernetes. Minikube ejecuta un clúster de Kubernetes de un solo nodo dentro de una máquina virtual para que los usuarios puedan probar Kubernetes o desarrollar con él día a día. Admite un clúster de Kubernetes simple, de un nodo, que se ejecuta en una máquina virtual Linux. Minikube es la forma más rápida y directa de poner en marcha un clúster de Kubernetes totalmente funcional. Permite a los desarrolladores desarrollar y probar sus implementaciones de aplicaciones basadas en Kubernetes en sus máquinas locales. Arquitectónicamente, la máquina virtual de Minikube ejecuta los componentes del nodo principal y agente de manera local:
+
+- Los componentes del nodo principal como el servidor de API, Scheduler y el [servidor etcd](https://coreos.com/etcd/) se ejecutan en un único proceso de Linux denominado LocalKube.
 - Los componentes del nodo de agente se ejecutan dentro de contenedores de docker exactamente como llevarían a cabo en un nodo de agente normal. Desde el punto de vista de la implementación de aplicaciones, no hay diferencia cuando la aplicación se implementa en un clúster de Minikube o Kubernetes normal.
 
 Esta plantilla instala los componentes siguientes:
@@ -65,65 +66,65 @@ Esta plantilla instala los componentes siguientes:
 > [!IMPORTANT]
 > La imagen de máquina virtual Ubuntu (Ubuntu Server 16.04 LTS en este ejemplo) ya se debe haber agregado en Marketplace de Azure Stack antes de comenzar estos pasos.
 
-1.  Haga clic en **+ Nuevo** > **Personalizado** > **Implementación de plantillas**.
+1.  Haga clic en **+ Crear un recurso** > **Personalizar** > **Implementación de plantilla**.
 
     ![](media/azure-stack-create-vm-template/1.PNG) 
 
 2. Haga clic en **Editar plantilla**.
 
-   ![](media/azure-stack-create-vm-template/2.PNG) 
+    ![](media/azure-stack-create-vm-template/2.PNG) 
 
 3.  Haga clic en **Plantilla de inicio rápido**.
 
-       ![](media/azure-stack-create-vm-template/3.PNG)
+    ![](media/azure-stack-create-vm-template/3.PNG)
 
 4. Seleccione **101-vm-linux-minikube** en las plantillas disponibles mediante la lista desplegable **Seleccionar una plantilla** y, después, haga clic en **Aceptar**.  
 
-   ![](media/azure-stack-create-vm-template/4.PNG)
+    ![](media/azure-stack-create-vm-template/4.PNG)
 
 5. Si desea realizar modificaciones en la plantilla JSON, puede hacerlo ahora y, cuando esté completo, haga clic en **Guardar** para cerrar el cuadro de diálogo de edición de plantillas.
 
-   ![](media/azure-stack-create-vm-template/5.PNG) 
+    ![](media/azure-stack-create-vm-template/5.PNG) 
 
 6.  Haga clic en **Parámetros**, complete o modifique los campos disponibles según sea necesario y, después, haga clic en **Aceptar**. Seleccione la suscripción que desea utilizar, crear o elegir un nombre de grupo de recursos existente y, después, haga clic en **Crear** para iniciar la implementación de la plantilla.
 
-       ![](media/azure-stack-create-vm-template/6.PNG)
+    ![](media/azure-stack-create-vm-template/6.PNG)
 
 7. Seleccione la suscripción que desea utilizar, crear o elegir un nombre de grupo de recursos existente y, después, haga clic en **Crear** para iniciar la implementación de la plantilla.
 
-   ![](media/azure-stack-create-vm-template/7.PNG)
+    ![](media/azure-stack-create-vm-template/7.PNG)
 
 8. La implementación del grupo de recursos tarda varios minutos en crear una máquina virtual basada en la plantilla personalizada. Puede supervisar el estado de la instalación a través de notificaciones y de las propiedades del grupo de recursos. 
 
-   ![](media/azure-stack-create-vm-template/8.PNG)
+    ![](media/azure-stack-create-vm-template/8.PNG)
 
-   >[!NOTE]
-   > La máquina virtual se ejecutará cuando se complete la implementación. 
+    >[!NOTE]
+    > La máquina virtual se ejecutará cuando se complete la implementación. 
 
 ## <a name="start-minikube-and-install-an-application"></a>Iniciar minikube e instalar una aplicación
 Ahora que se ha creado correctamente la máquina virtual Linux, puede iniciar sesión para iniciar minikube e instalar una aplicación. 
 
 1. Una vez finalizada la implementación, haga clic en **Conectar** para ver la dirección IP pública que se usará para conectarse a la máquina virtual Linux. 
 
-   ![](media/azure-stack-create-vm-template/9.PNG)
+    ![](media/azure-stack-create-vm-template/9.PNG)
 
 2. Desde un símbolo del sistema con privilegios elevados, ejecute **mstsc.exe** para abrir Conexión a Escritorio remoto y conéctese a la dirección IP pública de la máquina virtual Linux detectada en el paso anterior. Cuando se le solicite iniciar sesión en xRDP, utilice las credenciales que especificó al crear la máquina virtual.
 
-   ![](media/azure-stack-create-vm-template/10.PNG)
+    ![](media/azure-stack-create-vm-template/10.PNG)
 
 3. Abra el emulador del terminal y escriba los siguientes comandos para iniciar minikube:
 
-    >    `sudo minikube start --vm-driver=none`
-    >   
-    >    `sudo minikube addons enable dashboard`
-    >    
-    >    `sudo minikube dashboard --url`
+    ```shell
+    sudo minikube start --vm-driver=none
+    sudo minikube addons enable dashboard
+    sudo minikube dashboard --url
+    ```
 
-   ![](media/azure-stack-create-vm-template/11.PNG)
+    ![](media/azure-stack-create-vm-template/11.PNG)
 
-4. Abra el explorador web y visite la dirección del panel de Kubernetes. Enhorabuena, ahora tiene una instalación de Kubernetes completamente funcional con minikube.
+4. Abra el explorador web y visite la dirección del panel de Kubernetes. Enhorabuena, ahora tiene una instalación de Kubernetes completamente funcional con Minikube.
 
-   ![](media/azure-stack-create-vm-template/12.PNG)
+    ![](media/azure-stack-create-vm-template/12.PNG)
 
 5. Si quiere implementar una aplicación de ejemplo, visite la página oficial de documentación de Kubernetes, omita la sección "Create Minikube Cluster" (Creación de un clúster de minikube) ya que ya ha creado uno anteriormente. Simplemente vaya a la sección "Create your Node.js application" (Creación de la aplicación Node.js) en https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
 

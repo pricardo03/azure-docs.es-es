@@ -3,18 +3,18 @@ title: Rutas múltiples con Azure Maps | Microsoft Docs
 description: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 83ca46ecb8f0cce2ff8c749016eb3ad1ac7df7cf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988976"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815314"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -28,13 +28,13 @@ En este tutorial se muestra cómo usar la cuenta de Azure Maps y servicio de rut
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de continuar, siga los pasos del primer tutorial para la [Creación de una cuenta de Azure Maps](./tutorial-search-location.md#createaccount) y la [Obtención de la clave de suscripción de la cuenta](./tutorial-search-location.md#getkey). 
+Antes de continuar, siga los pasos del primer tutorial para la [Creación de una cuenta de Azure Maps](./tutorial-search-location.md#createaccount) y la [Obtención de la clave de suscripción de la cuenta](./tutorial-search-location.md#getkey).
 
+## <a name="create-a-new-map"></a>Creación de un nuevo mapa
 
-## <a name="create-a-new-map"></a>Creación de un nuevo mapa 
-En los pasos siguientes se muestra cómo crear una página HTML estática insertada con Map Control API. 
+En los pasos siguientes se muestra cómo crear una página HTML estática insertada con Map Control API.
 
-1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapTruckRoute.html**. 
+1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapTruckRoute.html**.
 2. Agregue los siguientes componentes HTML al archivo:
 
     ```HTML
@@ -45,8 +45,9 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Truck Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
         <style>
             html,
             body {
@@ -62,7 +63,7 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
             }
         </style>
     </head>
-    
+
     <body>
         <div id="map"></div>
         <script>
@@ -73,13 +74,15 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
     </html>
     ```
     El encabezado HTML inserta las ubicaciones de recursos de los archivos CSS y JavaScript de la biblioteca de Azure Maps. El segmento del *script* del cuerpo del archivo HTML contendrá el código JavaScript insertado para el mapa.
-3. Agregue el siguiente código JavaScript al bloque *script* del archivo HTML. Reemplace la cadena **\<su clave de cuenta\>** por la clave principal que copió de la cuenta de Maps.
+3. Agregue el siguiente código JavaScript al bloque *script* del archivo HTML. Reemplace la cadena **\<su clave de cuenta\>** por la clave principal que copió de la cuenta de Maps. Si no indica al mapa dónde debe centrarse, verá la vista del mundo entero. Este código establece el punto central del mapa y declara un nivel de zoom para que pueda centrarse en un área determinada de forma predeterminada.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
     var MapsAccountKey = "<your account key>";
     var map = new atlas.Map("map", {
         "subscription-key": MapsAccountKey
+         center: [-118.2437, 34.0522],
+         zoom: 12
     });
     ```
     **atlas.Map** proporciona el control para un mapa web visual e interactivo, y es un componente de la API de Control de mapa de Azure.
@@ -90,27 +93,17 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
 
 ## <a name="visualize-traffic-flow"></a>Visualizar el flujo de tráfico
 
-1. Si no indica al mapa dónde debe centrarse, verá la vista del mundo entero. Para poder ver los datos de tráfico, establecer un punto central y un nivel de zoom en el mapa. Reemplace el código que declara un `new atlas.Map` por el código JavaScript siguiente: 
-    
-    ```JavaScript
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey,
-        center: [-118.2437,34.0522],
-        zoom: 12
-    });
-    ```
-
-    Este código establece el punto central del mapa y declara un nivel de zoom para que pueda centrarse en un área determinada de forma predeterminada. 
-
-1. Agregue la visualización del flujo de tráfico al mapa:
+1. Agregue la visualización del flujo de tráfico al mapa.  **map.addEventListener** garantiza que todas las funciones de mapas agregadas al mapa se cargan después de que el mapa se ha cargado completamente.
 
     ```JavaScript
-    // Add Traffic Flow to the Map
-    map.setTraffic({
-        flow: "relative"
+    map.addEventListener("load", function() {
+        // Add Traffic Flow to the Map
+        map.setTraffic({
+            flow: "relative"
+        });
     });
     ```
-    Este código establece la circulación del tráfico en `relative`, que es la velocidad de la carretera relativa a la libre circulación. También podría establecerlo en velocidad `absolute` de la carretera o `relative-delay`, que muestra la velocidad relativa en el punto en que varía con respecto a la libre circulación. 
+    Este código establece la circulación del tráfico en `relative`, que es la velocidad de la carretera relativa a la libre circulación. También podría establecerlo en velocidad `absolute` de la carretera o `relative-delay`, que muestra la velocidad relativa en el punto en que varía con respecto a la libre circulación.
 
 2. Guarde el archivo **MapTruckRoute.html** y actualice la página en el explorador. Debería ver las calles de Los Ángeles con sus datos de tráfico actuales.
 
@@ -120,7 +113,7 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
 
 ## <a name="set-start-and-end-points"></a>Establecimiento de los puntos de inicio y fin
 
-Para este tutorial, establezca el punto inicial como una compañía ficticia en Seattle llamada Fabrikam y el punto de destino como una oficina de Microsoft. 
+Para este tutorial, establezca el punto inicial como una compañía ficticia en Seattle llamada Fabrikam y el punto de destino como una oficina de Microsoft.
 
 1. Agregue el siguiente código JavaScript para crear los marcadores de los puntos inicial y final de la ruta:
 
@@ -138,7 +131,7 @@ Para este tutorial, establezca el punto inicial como una compañía ficticia en 
         icon: "pin-blue"
     });
     ```
-    Este código crea dos [objetos GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar los puntos inicial y final de la ruta. 
+    Este código crea dos [objetos GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar los puntos inicial y final de la ruta.
 
 2. Agregue el siguiente código JavaScript para agregar los puntos inicial y final al mapa:
 
@@ -152,27 +145,27 @@ Para este tutorial, establezca el punto inicial como una compañía ficticia en 
         bounds: [swLon, swLat, neLon, neLat],
         padding: 100
     });
-
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    
+    map.addEventListener("load", function() { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
-    ``` 
-    La llamada a **map.setCameraBounds** ajusta la ventana del mapa de acuerdo con las coordenadas de los puntos de inicio y fin. La API **map.addPins** agrega los puntos al Control de mapa como componentes visuales.
+    ```
+    La llamada a **map.setCameraBounds** ajusta la ventana del mapa de acuerdo con las coordenadas de los puntos de inicio y fin. **map.addEventListener** garantiza que todas las funciones de mapas agregadas al mapa se cargan después de que el mapa se ha cargado completamente. La API **map.addPins** agrega los puntos al Control de mapa como componentes visuales.
 
-3. Guarde el archivo y actualice el explorador para ver los anclajes en el mapa. Incluso si ha declarado el mapa con un punto central en Los Ángeles, **map.setCameraBounds** mueve la vista para mostrar los puntos inicial y final. 
+3. Guarde el archivo y actualice el explorador para ver los anclajes en el mapa. Incluso si ha declarado el mapa con un punto central en Los Ángeles, **map.setCameraBounds** mueve la vista para mostrar los puntos inicial y final.
 
    ![Visualización del mapa con los puntos de inicio y fin](./media/tutorial-prioritized-routes/pins-map.png)
-
 
 <a id="multipleroutes"></a>
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>Representar las rutas con una prioridad establecida según el modo de desplazamiento
 
-En esta sección se muestra cómo usar la API del servicio de rutas de Maps para buscar varias rutas desde un punto inicial dado hasta un destino, según el modo de transporte. El servicio de rutas proporciona varias API para planear la ruta *más rápida*, *más corta*, *más económica* o *más emocionante* entre dos ubicaciones, teniendo en cuenta las condiciones del tráfico en tiempo real. También permite a los usuarios planear rutas futuras mediante el uso de bases de datos que contienen un historial amplio del tráfico y la predicción de duraciones de una ruta en cualquier día y a cualquier hora. Para más información, consulte [Obtención de direcciones de ruta](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
-
+En esta sección se muestra cómo usar la API del servicio de rutas de Maps para buscar varias rutas desde un punto inicial dado hasta un destino, según el modo de transporte. El servicio de rutas proporciona varias API para planear la ruta *más rápida*, *más corta*, *más económica* o *más emocionante* entre dos ubicaciones, teniendo en cuenta las condiciones del tráfico en tiempo real. También permite a los usuarios planear rutas futuras mediante el uso de bases de datos que contienen un historial amplio del tráfico y la predicción de duraciones de una ruta en cualquier día y a cualquier hora. Para más información, consulte [Obtención de direcciones de ruta](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).  Todos los bloques de código siguientes se deben agregar **dentro del elemento eventListener de carga de mapas** para asegurarse de que se cargan después de que el mapa se carga completamente.
 
 1. En primer lugar, agregue una nueva capa en el mapa para mostrar el recorrido de la ruta, o *linestring*. En este tutorial existen dos rutas diferentes, **ruta para automóvil** y **ruta para camión**, cada una con su propia aplicación de estilos. Agregue el siguiente código JavaScript al bloque *script*:
 
@@ -202,87 +195,63 @@ En esta sección se muestra cómo usar la API del servicio de rutas de Maps para
 2. Agregue el siguiente código JavaScript al bloque *script* para solicitar la ruta para camión y mostrar los resultados en el mapa:
 
     ```JavaScript
-    // Perform a request to the route service and draw the resulting truck route on the map
-    var xhttpTruck = new XMLHttpRequest();
-    xhttpTruck.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
+    // Instantiate the service client  
+    var client = new atlas.service.Client(MapsAccountKey);
 
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
+    // Construct the route query string
+    var routeQuery = startPoint.coordinates[1] +
+        "," +
+        startPoint.coordinates[0] +
+        ":" +
+        destinationPoint.coordinates[1] +
+        "," +
+        destinationPoint.coordinates[0];
 
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                name: truckRouteLayerName
-            });
-        }
-    };
+    // Execute the truck route query then add the route to the map once a response is received  
+    client.route.getRouteDirections(routeQuery, {
+        travelMode: "truck",
+        vehicleWidth: 2,
+        vehicleHeight: 2,
+        vehicleLength: 5,
+        vehicleLoadType: "USHazmatClass2"
+    }).then(response => {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new atlas.service.geojson
+            .GeoJsonRouteDirectionsResponse(response);
 
-    var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-    truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + MapsAccountKey;
-    truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-    truckRouteUrl += "&travelMode=truck";
-    truckRouteUrl += "&vehicleWidth=2";
-    truckRouteUrl += "&vehicleHeight=2";
-    truckRouteUrl += "&vehicleLength=5";
-    truckRouteUrl += "&vehicleLoadType=USHazmatClass2";
-
-    xhttpTruck.open("GET", truckRouteUrl, true);
-    xhttpTruck.send();
+        // Get the first in the array of routes and add it to the map
+        map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+            name: truckRouteLayerName
+        });
+    });
     ```
-    Este fragmento de código crea un elemento [XMLHttpRequest](https://xhr.spec.whatwg.org/) y agrega un controlador de eventos para analizar la respuesta de entrada. Para obtener una respuesta correcta, crea una matriz de coordenadas para la ruta devuelta y agrega la capa `truckRouteLayerName` del mapa. 
-    
-    Este fragmento de código también crea la consulta para el servicio de rutas de Maps mediante la clave de cuenta. La consulta incluye las coordenadas del punto inicial, las coordenadas del punto final y parámetros opcionales para indicar que la ruta es para un camión pesado.
+    Este fragmento de código anterior crea una instancia de un cliente de servicios y construye una cadena de consulta de ruta. Luego consulta el servicio de enrutamiento de Azure Maps mediante el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) y, después, analiza la respuesta en formato GeoJSON mediante [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Luego, crea una matriz de coordenadas para la ruta devuelta y la agrega a la capa `truckRouteLayerName` del mapa.
 
-2. Agregue el siguiente código JavaScript para solicitar la ruta para automóvil y mostrar los resultados:
+3. Agregue el siguiente código JavaScript para solicitar la ruta para automóvil y mostrar los resultados:
 
     ```JavaScript
-    // Perform a request to the route service and draw the resulting car route on the map
-    var xhttpCar = new XMLHttpRequest();
-    xhttpCar.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
+    // Execute the car route query then add the route to the map once a response is received  
+    client.route.getRouteDirections(routeQuery).then(response => {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new tlas.service.geojson
+            .GeoJsonRouteDiraectionsResponse(response);
 
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
-
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                name: carRouteLayerName
-            });
-        }
-    };
-
-    var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-    carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + MapsAccountKey;
-    carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-
-    xhttpCar.open("GET", carRouteUrl, true);
-    xhttpCar.send();
+        // Get the first in the array of routes and add it to the map 
+        map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+            name: carRouteLayerName
+        });
+    });
     ```
-    Este fragmento de código crea otro elemento [XMLHttpRequest](https://xhr.spec.whatwg.org/) y agrega un controlador de eventos para analizar la respuesta de entrada. Para una respuesta correcta, crea una matriz de coordenadas para la ruta devuelta y la agrega a la capa `carRouteLayerName` del mapa. 
-    
-    Este fragmento de código también crea la consulta para el servicio de rutas de Maps mediante la clave de cuenta. La consulta incluye las coordenadas del punto inicial y las coordenadas del punto final. Puesto que no se proporciona ningún parámetro adicional, el servicio de rutas usa como valor predeterminado *automóvil* para el modo de desplazamiento. 
+    Este fragmento de código usa la misma consulta de ruta de camión para un automóvil. Consulta el servicio de enrutamiento de Azure Maps mediante el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) y, después, analiza la respuesta en formato GeoJSON mediante [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Luego, crea una matriz de coordenadas para la ruta devuelta y la agrega a la capa `carRouteLayerName` del mapa.
 
-3. Guarde el archivo **MapTruckRoute.html** y actualice el explorador para observar el resultado. Para una conexión correcta con las API de Maps, debe ver un mapa similar al siguiente. 
+4. Guarde el archivo **MapTruckRoute.html** y actualice el explorador para observar el resultado. Para una conexión correcta con las API de Maps, debe ver un mapa similar al siguiente.
 
     ![Rutas con prioridad establecida con Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    La ruta para camión es azul y más gruesa, mientras que la ruta para automóvil es púrpura y más estrecha. La ruta para automóvil transcurre a través de Lake Washington por la I-90, que pasa por túneles en áreas residenciales y por lo que se restringe la carga de residuos peligrosos. La ruta para camión, que especifica un tipo de carga USHazmatClass2, se dirige correctamente para usar una autopista diferente. 
+    La ruta para camión es azul y más gruesa, mientras que la ruta para automóvil es púrpura y más estrecha. La ruta para automóvil transcurre a través de Lake Washington por la I-90, que pasa por túneles en áreas residenciales y por lo que se restringe la carga de residuos peligrosos. La ruta para camión, que especifica un tipo de carga USHazmatClass2, se dirige correctamente para usar una autopista diferente.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
@@ -291,6 +260,16 @@ En este tutorial aprendió lo siguiente:
 > * Crear consultas de ruta que declaran el modo de desplazamiento
 > * Mostrar varias rutas en el mapa
 
-Para más información sobre la cobertura y funcionalidades de Azure Maps, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md) y los demás artículos de conceptos. 
+Puede acceder al ejemplo de código de este tutorial, aquí:
 
-Para más ejemplos de código y una experiencia de programación interactiva, consulte [Cómo usar el control de mapa](how-to-use-map-control.md) y otras guías de procedimientos. 
+> [Varias rutas con Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/truckRoute.html)
+
+Para más información sobre la cobertura y las funcionalidades de Azure Maps:
+
+> [!div class="nextstepaction"]
+> [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md)
+
+Para ver más ejemplos de código y una experiencia interactiva de codificación:
+
+> [!div class="nextstepaction"]
+> [Uso del control de mapa](how-to-use-map-control.md)

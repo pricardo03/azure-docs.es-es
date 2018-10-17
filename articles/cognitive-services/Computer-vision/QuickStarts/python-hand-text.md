@@ -1,49 +1,52 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision para Python: Texto escrito a mano | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, extraerá texto escrito a mano de una imagen mediante Computer Vision con Python en Cognitive Services.
+title: 'Guía de inicio rápido: Extracción de texto escrito a mano - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, extraerá texto manuscrito de una imagen mediante Computer Vision API con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 43b541daf8632af7fb8111886b53981c4c646772
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 91cff6205af70968b6397af9756a5385ddb0c989
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771962"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631368"
 ---
-# <a name="quickstart-extract-handwritten-text---rest-python"></a>Guía de inicio rápido: Extracción de texto escrito a mano (REST, Python)
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Guía de inicio rápido: Extracción de texto manuscrito mediante la API de REST y Python en Computer Vision
 
-En esta guía de inicio rápido, extraerá texto escrito a mano de una imagen mediante Computer Vision.
+En esta guía de inicio rápido, extraerá texto manuscrito de una imagen mediante la API de REST Computer Vision. Con los métodos [Reconocer texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) y [Obtener resultado de la operación de reconocimiento de texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), puede detectar texto escrito a mano en una imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
+
+> [!IMPORTANT]
+> A diferencia del método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), el método [Reconocer texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Reconocer texto devuelve un URI en el valor del campo del encabezado de respuesta `Operation-Content`. A continuación, puede llamar a este URI, que representa el método [Obtener resultado de la operación de reconocimiento de texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), para comprobar el estado y la devolución de los resultados de la llamada al método Reconocer texto.
 
 Puede ejecutar esta guía de inicio rápido paso a paso mediante un cuaderno de Jupyter en [MyBinder](https://mybinder.org). Para iniciar Binder, seleccione el botón siguiente:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener [Python](https://www.python.org/downloads/) instalado si desea ejecutar el ejemplo localmente.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="extract-handwritten-text"></a>Extraer texto manuscrito
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-Con los métodos [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) y [Get Recognize Text Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), puede detectar texto escrito a mano en una imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-Para ejecutar el ejemplo, siga estos pasos:
-
-1. Copie el siguiente ejemplo de código en un nuevo archivo de script de Python.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `vision_base_url` por la ubicación donde obtuvo las claves de suscripción.
-1. Tiene la opción de cambiar el valor `image_url` por otra imagen.
-1. Ejecute el script.
-
-El código siguiente usa la biblioteca `requests` de Python para llamar a Analyze Image API de Computer Vision. Los resultados se devuelven como un objeto JSON. La clave de API se pasa a través del diccionario `headers`.
-
-## <a name="recognize-text-request"></a>Solicitud Recognize Text
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscription_key` por la clave de suscripción.
+    1. Reemplace el valor de `vision_base_url` por la dirección URL del punto de conexión del recurso de Computer Vision en la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `image_url` por la dirección URL de una imagen diferente desde la que desea extraer el texto manuscrito.
+1. Guarde el código como un archivo con la extensión `.py`. Por ejemplo, `get-handwritten-text.py`.
+1. Abra una ventana de símbolo del sistema.
+1. En el símbolo del sistema, utilice el comando `python` para ejecutar el ejemplo. Por ejemplo, `python get-handwritten-text.py`.
 
 ```python
 import requests
@@ -122,9 +125,9 @@ for polygon in polygons:
 _ = plt.axis("off")
 ```
 
-## <a name="recognize-text-response"></a>Respuesta de Recognize Text
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Se devuelve una respuesta correcta en código JSON, por ejemplo:
+Se devuelve una respuesta correcta en JSON. La página web de ejemplo analiza y muestra una respuesta correcta en la ventana del símbolo del sistema, parecida a la del ejemplo siguiente:
 
 ```json
 {
@@ -402,9 +405,13 @@ Se devuelve una respuesta correcta en código JSON, por ejemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no necesite el archivo, elimínelo.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore una aplicación de Python que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore una aplicación de Python que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de Computer Vision API para Python](../Tutorials/PythonTutorial.md)

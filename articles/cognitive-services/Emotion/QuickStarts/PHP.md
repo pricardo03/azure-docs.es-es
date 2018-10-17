@@ -1,27 +1,29 @@
 ---
-title: Inicio rápido en Emotion API en PHP | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Emotion API con PHP en Cognitive Services.
+title: 'Guía de inicio rápido: Reconocimiento de emociones en las caras de una imagen con Emotion API en PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Emotion API con PHP.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 987d5a3eedaa17f1127be34e5f90ec2456fab99b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c3dffa3c42df4a30b634417b551dd0e8af04145b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019404"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239513"
 ---
-# <a name="emotion-api-php-quick-start"></a>Inicio rápido en Emotion API en PHP
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guía de inicio rápido: Creación de una aplicación para reconocer emociones en las caras de una imagen
 
 > [!IMPORTANT]
-> La versión preliminar de Video API terminará el 30 de octubre de 2017. Pruebe la versión preliminar de la nueva [Video Indexer API con una extracción sencilla de detalles en](https://azure.microsoft.com/services/cognitive-services/video-indexer/) vídeos y mejore las experiencias de detección de contenido, como los resultados de la búsqueda, gracias al reconocimiento de texto oral, caras, caracteres y emociones. [Más información](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API dejará de usarse el 15 de febrero de 2019. La funcionalidad de reconocimiento de emociones está ahora disponible con carácter general como parte de [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Este artículo proporciona información y ejemplos de código para ayudarle a empezar a usar rápidamente PHP y el [método de reconocimiento de Emotion API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) para reconocer las emociones expresadas por una o varias personas en una imagen. 
+Este artículo proporciona información y ejemplos de código para ayudarle a empezar a usar rápidamente PHP y el [método de reconocimiento de Emotion API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) para reconocer las emociones expresadas por una o varias personas en una imagen.
 
 ## <a name="prerequisite"></a>Requisito previo
 * Obtenga su clave de suscripción gratuita [aquí](https://azure.microsoft.com/try/cognitive-services/).
@@ -36,7 +38,7 @@ Cambie la URL REST para usar la ubicación donde obtuvo sus claves de suscripci�
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
 //   URL below with "westcentralus".
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize');
 $url = $request->getUrl();
@@ -78,10 +80,10 @@ catch (HttpException $ex)
 ## <a name="recognize-emotions-sample-response"></a>Respuesta de ejemplo de reconocimiento de emociones
 Una llamada correcta devuelve una matriz de entradas de cara y sus puntuaciones de emoción asociadas, clasificadas por tamaño del rectángulo de la cara en orden descendente. Una respuesta vacía indica que no se ha detectado ninguna cara. Una entrada de emoción contiene los siguientes campos:
 * faceRectangle: ubicación del rectángulo de la cara en la imagen.
-* scores: puntuaciones de emociones para cada cara de la imagen. 
+* scores: puntuaciones de emociones para cada cara de la imagen.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -102,4 +104,3 @@ application/json
     }
   }
 ]
-

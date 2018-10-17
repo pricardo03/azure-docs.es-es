@@ -6,26 +6,26 @@ author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a9ae1fb3243c31eb92231320c5ced93d80301a0d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917441"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604185"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET
 
-En esta guía de inicio rápido, siga los pasos necesarios para conseguir que una aplicación web de Azure lea información de Azure Key Vault mediante identidades de servicio administradas. Aprenderá a:
+En esta guía de inicio rápido, siga los pasos necesarios para conseguir que una aplicación web de Azure lea información de Azure Key Vault mediante identidades administradas para recursos de Azure. Aprenderá a:
 
 > [!div class="checklist"]
 > * Cree un almacén de claves.
 > * Almacenar un secreto en el almacén de claves.
 > * Recuperar un secreto del almacén de claves.
 > * Crear una aplicación web de Azure.
-> * [Habilitar identidades de servicio administradas](../active-directory/managed-service-identity/overview.md).
+> * Habilite una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para la aplicación web.
 > * Conceder los permisos necesarios para que la aplicación web lea datos del almacén de claves.
 
 Antes de que sigamos avanzando, conozca los [conceptos básicos](key-vault-whatis.md#basic-concepts).
@@ -33,7 +33,7 @@ Antes de que sigamos avanzando, conozca los [conceptos básicos](key-vault-whati
 >[!NOTE]
 >Key Vault es un repositorio central para almacenar secretos mediante programación. Pero para poder hacer esto, las aplicaciones y los usuarios tienen primero que autenticarse en Key Vault, es decir, presentar un secreto. Para seguir los procedimientos recomendados de seguridad debe cambiar este secreto periódicamente. 
 >
->Con [Managed Service Identity](../active-directory/managed-service-identity/overview.md), a las aplicaciones que se ejecutan en Azure se les da una identidad que Azure administra automáticamente. Esto ayuda a solucionar el *problema de introducción de secretos* por el que los usuarios o aplicaciones pueden seguir procedimientos recomendados y no tener que preocuparse por el cambio del primer secreto.
+>Con [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md), a las aplicaciones que se ejecutan en Azure se les asigna una identidad que Azure administra automáticamente. Esto ayuda a solucionar el *problema de introducción de secretos* por el que los usuarios o aplicaciones pueden seguir procedimientos recomendados y no tener que preocuparse por el cambio del primer secreto.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -139,9 +139,9 @@ Publique esta aplicación en Azure para verla en vivo como una aplicación web y
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
 
-## <a name="enable-managed-service-identities"></a>Habilitar las identidades de servicio administradas.
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Habilitación de una identidad administrada para la aplicación web
 
-Azure Key Vault proporciona una forma de almacenar de forma segura credenciales y otras claves y secretos, pero el código tiene que autenticarse en Azure Key Vault para recuperarlos. Managed Service Identity facilita esta labor, ya que proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
+Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. En [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) se facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
 
 1. Vuelva a la CLI de Azure.
 2. Ejecute el comando assign-identity para crear la identidad de esta aplicación:
@@ -151,7 +151,7 @@ Azure Key Vault proporciona una forma de almacenar de forma segura credenciales 
    ```
 
 >[!NOTE]
->Este comando es el equivalente de ir al portal y cambiar la **Identidad de servicio administrada** a **Activada** en las propiedades de la aplicación web.
+>El comando de este procedimiento equivale a ir al portal y cambiar la configuración de **Identidad o sistema asignados** a **Activada** en las propiedades de la aplicación web.
 
 ## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Asignación de permisos a una aplicación para leer secretos de Key Vault
 
@@ -167,11 +167,11 @@ Luego, ejecute este comando con el nombre del almacén de claves y el valor de *
 
 ```azurecli
 
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
 
-Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperado.
+Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperado. En el comando anterior, otorga a la identidad (MSI) de App Service permisos para realizar operaciones **get** y **list** en Key Vault.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

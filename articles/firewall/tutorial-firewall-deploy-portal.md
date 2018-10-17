@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221671"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801886"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -186,6 +186,10 @@ En la subred **Workload-SN**, puede configurar la ruta predeterminada de salida 
 10. Haga clic en **Subredes** y en **Asociar**.
 11. Haga clic en **Red virtual**y, a continuación, seleccione **Test-FW-VN**.
 12. En **Subred**, haga clic en **Workload-SN**.
+
+    > [!IMPORTANT]
+    > Asegúrese de seleccionar únicamente la subred **Workload-SN** para esta ruta, o el firewall no funcionará correctamente.
+
 13. Haga clic en **OK**.
 14. Haga clic en **Rutas** y, después, en **Agregar**.
 15. En **Nombre de ruta**, escriba **FW-DG**.
@@ -193,8 +197,8 @@ En la subred **Workload-SN**, puede configurar la ruta predeterminada de salida 
 17. En **Tipo del próximo salto**, seleccione **Aplicación virtual**.
 
     Azure Firewall es realmente un servicio administrado, pero una aplicación virtual funciona en esta situación.
-1. En **Dirección del próximo salto**, escriba la dirección IP privada del firewall que anotó anteriormente.
-2. Haga clic en **OK**.
+18. En **Dirección del próximo salto**, escriba la dirección IP privada del firewall que anotó anteriormente.
+19. Haga clic en **OK**.
 
 
 ## <a name="configure-application-rules"></a>Configurar reglas aplicación

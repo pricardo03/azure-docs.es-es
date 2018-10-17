@@ -1,27 +1,27 @@
 ---
-title: Inicio rápido de Ruby para Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing Entity Search API con Ruby'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 0b47430886e70421e51438b56decc9b86d88d0fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7e2b3fa520c17bb85fa04ca12bb762ce8f370371
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382315"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814464"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-ruby"></a>Inicio rápido para Microsoft Bing Entity Search API con Ruby 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Guía de inicio rápido de Bing Entity Search API con Ruby
 
 En este artículo se muestra cómo utilizar [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API con Ruby.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesitará [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o una versión posterior para ejecutar el código.
 
@@ -69,7 +69,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Respuesta**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {

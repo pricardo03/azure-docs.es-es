@@ -2,116 +2,43 @@
 title: Administración de aplicaciones con Azure Active Directory | Microsoft Docs
 description: En este artículo se describen las ventajas de la integración de Azure Active Directory con las aplicaciones locales, SaaS y de nube.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: overview
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 09/11/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.openlocfilehash: bf53829a2d2578132f9a3595c0bac5e8eb588916
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: arvinh
+ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366778"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716200"
 ---
-# <a name="managing-applications-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
-Además del flujo de trabajo o contenido real, para las empresas las aplicaciones deben cumplir dos requisitos básicos:
+# <a name="application-management-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
 
-1. Para aumentar la productividad, debe ser fácil detectar y tener acceso a las aplicaciones.
-2. Para permitir la seguridad y el gobierno, las organizaciones deben controlar y supervisar quién puede tener acceso y quién accede realmente a cada aplicación.
+Azure Active Directory (Azure AD) proporciona un acceso seguro y sin problemas a aplicaciones locales y en la nube. Los usuarios pueden iniciar sesión una vez para tener acceso a Office 365 y a otras aplicaciones empresariales de Microsoft, miles de aplicaciones de software como servicio (SaaS), aplicaciones locales y aplicaciones de línea de negocio (LOB). Reduzca los costos administrativos gracias a la automatización del aprovisionamiento de usuarios. Utilice la autenticación multifactor y las directivas de acceso condicional para proporcionar un acceso seguro a las aplicaciones.
 
-En el mundo de las aplicaciones en la nube, esto se consigue mejor usando la identidad para controlar “*A QUIÉN se le permite hacer QUÉ*”.
+![Aplicaciones federadas a través de Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-En la terminología informática:
+## <a name="why-manage-applications-with-a-cloud-solution"></a>¿Por qué administrar aplicaciones con una solución en la nube?
 
-* *Quién* se conoce como *identidad*: la administración de usuarios y grupos
-* *Qué* se conoce como *administración de acceso*: la administración del acceso a los recursos protegidos
+Las organizaciones suelen tener cientos de aplicaciones de las que los usuarios dependen para poder realizar su trabajo. Los usuarios acceden a estas aplicaciones desde muchos dispositivos y ubicaciones. Cada día se agregan, desarrollan y retiran nuevas aplicaciones. Con tantas aplicaciones y puntos de acceso, es más importante que nunca usar una solución basada en la nube para administrar el acceso de los usuarios a todas las aplicaciones.
 
-Ambos componentes juntos se conocen como *Administración de identidad y acceso (IAM)*, que, según define el grupo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam), es "*la disciplina de seguridad que permite a las personas adecuadas tener acceso a los recursos adecuados en los momentos adecuados y por los motivos adecuados*".
+## <a name="manage-risk-with-conditional-access-policies"></a>Administración de riesgos con directivas de acceso condicional
+El acoplamiento del inicio de sesión único (SSO) de Azure AD con directivas de acceso condicional ofrece niveles altos de seguridad para acceder a las aplicaciones. Las funcionalidades de seguridad incluyen la protección de identidad en la nube, el control de acceso basado en riesgos, la autenticación multifactor nativa y las directivas de acceso condicional. Estas funcionalidades admiten directivas de control granular basadas en aplicaciones o en grupos que necesitan niveles más altos de seguridad.
 
-Entonces, ¿cuál es el problema? Si IAM *no se administra* en un solo lugar con una solución integrada:
+## <a name="improve-productivity-with-single-sign-on"></a>Mejora de la seguridad con el inicio de sesión único
+Habilitar el inicio de sesión único (SSO) en las aplicaciones y Office 365 ofrece una experiencia de inicio de sesión superior para los usuarios existentes con la reducción o eliminación de mensajes de inicio de sesión. El entorno del usuario será más coherente y menos confuso sin tantos mensajes o sin la necesidad de administrar varias contraseñas. El grupo de negocios puede administrar y aprobar el acceso mediante una pertenencia dinámica y de autoservicio. Permitir que las personas correctas de la empresa administren el acceso a una aplicación mejora la seguridad del sistema de identidades.
 
-* Los administradores de identidades tienen que crear y actualizar individualmente las cuentas de usuario de todas las aplicaciones por separado, una actividad repetitiva y laboriosa.
-* Los usuarios tienen que memorizar varias credenciales para tener acceso a las aplicaciones con las que necesitan trabajar. Como resultado, los usuarios tienden a anotar las contraseñas o usar otras soluciones de administración de contraseñas. Estas alternativas presentan otros riesgos para la seguridad de los datos.
-* Las actividades repetitivas y laboriosas reducen la cantidad de tiempo que los usuarios y los administradores trabajan en actividades que aumentan el balance final del negocio.
+El inicio de sesión único mejora la seguridad. *Sin el inicio de sesión único*, los administradores necesitan crear y actualizar cuentas de usuario para cada aplicación individual, lo que requiere tiempo. Además, los usuarios deben realizar un seguimiento de varias credenciales para acceder a sus aplicaciones. Como resultado, los usuarios tienden a anotar las contraseñas o usar otras soluciones de administración de contraseñas que presentan riesgos para la seguridad de los datos. 
 
-De modo que, ¿qué impide normalmente a las organizaciones adoptar soluciones IAM integradas?
+## <a name="address-governance-and-compliance"></a>Abordar el gobierno y el cumplimiento
+Con Azure AD, puede supervisar los inicios de sesión en la aplicación mediante informes que usan herramientas de supervisión de eventos e incidentes de seguridad (SIEM). Puede acceder a los informes desde el portal o con las API. Audite mediante programación quién accede a sus aplicaciones y retire el acceso a usuarios inactivos mediante revisiones de acceso.
 
-* La mayoría de las soluciones técnicas se basan en plataformas de software que cada organización debe implementar y adaptar para sus propias aplicaciones.
-* Las aplicaciones de nube a menudo se adoptan a un ritmo más rápido del que las organizaciones de TI pueden integrarse con las soluciones IAM existentes.
-* Las herramientas de seguridad y supervisión requieren personalización e integración adicionales para conseguir escenarios E2E integrales.
-
-## <a name="azure-active-directory-integrated-with-applications"></a>Azure Active Directory integrado con las aplicaciones
-Azure Active Directory es la solución completa de identidad como servicio (IDaaS) de Microsoft que:
-
-* Habilita la IAM como un servicio en la nube. 
-* Proporciona administración de acceso central, inicio de sesión único (SSO) y creación de informes. 
-* Admite la administración de acceso integrado para [miles de aplicaciones](https://azure.microsoft.com/marketplace/active-directory/) de la Galería de aplicaciones, incluidas Salesforce, Google Apps, Box, Concur, etc. 
-
-Con todas las aplicaciones de Azure Active Directory que publica para sus asociados y clientes (empresa o consumidor) tendrá las mismas funcionalidades de administración de identidad y acceso.<br> Esto permite reducir significativamente los costos operativos.
-
-¿Y si necesita implementar una aplicación que aún no aparece en la galería de aplicaciones? Aunque es un proceso un poco más lento que configurar el inicio de sesión único para las aplicaciones desde la galería de aplicaciones, Azure AD proporciona un asistente que le ayudará con la configuración.
-
-El valor de Azure AD no solo se limita a las aplicaciones en la nube. También puede utilizarlo con aplicaciones locales al proporcionar acceso remoto seguro. Con el acceso remoto seguro, puede eliminar la necesidad de VPN o de otras implementaciones tradicionales de administración de acceso remoto.
-
-Al proporcionar administración de acceso centralizada e inicio de sesión único (SSO) para todas las aplicaciones, Azure AD es la solución a los principales problemas de seguridad y productividad de los datos.
-
-* Los usuarios pueden acceder a varias aplicaciones con un solo inicio de sesión, lo que se traduce en más tiempo para generar ingresos o para realizar actividades de operaciones empresariales.
-* Los administradores de identidades pueden administrar el acceso a las aplicaciones en un solo lugar.
-
-La ventaja para el usuario y la empresa es obvia. Examinemos más de cerca las ventajas para un administrador de identidades y para la organización.
-
-## <a name="integrated-application-benefits"></a>Ventajas de aplicaciones integradas
-El proceso SSO consta de dos pasos:
-
-* Autenticación, el proceso de validar la identidad del usuario.
-* Autorización, la decisión de habilitar o bloquear el acceso a un recurso con una directiva de acceso.
-
-Al usar Azure AD para administrar las aplicaciones y habilitar el SSO:
-
-* La autenticación se realiza en la cuenta local del usuario (por ejemplo, AD) o en la cuenta de Azure AD.
-* La autorización se ejecuta en la directiva de asignación y protección de Azure AD, lo que garantiza una experiencia coherente para el usuario final y permite agregar asignaciones, ubicaciones y condiciones MFA en cualquier aplicación, independientemente de sus capacidades internas.
-
-Es importante comprender que la forma en que la autorización se aplica en la aplicación de destino varía en función de cómo se integra la aplicación en Azure AD.
-
-* **Aplicaciones integradas previamente por el proveedor de servicios**, como Office 365 y Azure. Se trata de aplicaciones integradas directamente en Azure AD y que dependen de él para sus funcionalidades completas de administración de identidades y acceso. El acceso a estas aplicaciones se habilita a través de la información de directorio y la emisión de tokens.
-* **Aplicaciones integradas previamente por Microsoft y aplicaciones personalizadas**. Son aplicaciones de nube independientes que dependen de un directorio de aplicaciones interno y pueden funcionar con independencia de Azure AD. El acceso a estas aplicaciones se habilita mediante la emisión de una credencial específica de la aplicación asignada a una cuenta de aplicación. Dependiendo de las funcionalidades de la aplicación, la credencial puede ser un token de federación o un nombre de usuario y una contraseña para una cuenta que se aprovisionó anteriormente en la aplicación.
-* **Aplicaciones locales**. Son aplicaciones publicadas principalmente a través del proxy de la aplicación, que permiten el acceso a aplicaciones locales. Estas aplicaciones se basan en un directorio local central, como Windows Server Active Directory. El acceso a estas aplicaciones se habilita mediante el desencadenamiento del proxy para entregar el contenido de la aplicación al usuario final, al tiempo que se respeta el requisito de inicio de sesión local.
-
-Por ejemplo, si un usuario se une a su organización, deberá crear una cuenta para él en Azure AD para las operaciones de inicio de sesión principales. Si este usuario requiere acceso a una aplicación administrada, como Salesforce, también deberá crearle una cuenta en Salesforce y vincularla a la cuenta de Azure para que SSO funcione. Cuando el usuario deja la organización, es aconsejable eliminar la cuenta de Azure AD y todas las cuentas homólogas de los almacenes de IAM de las aplicaciones a las que el usuario tuvo acceso.
-
-## <a name="access-detection"></a>Detección de acceso
-En las empresas modernas, los departamentos de TI no son a menudo conscientes de todas las aplicaciones en la nube que se usan. Junto con Cloud App Discovery, Azure AD proporciona una solución para detectar estas aplicaciones.
-
-## <a name="account-management"></a>Administración de cuentas
-Tradicionalmente, la administración de cuentas de las distintas aplicaciones es un proceso manual que realiza el personal de TI o de soporte técnico de la organización. Azure AD automatiza completamente la administración de cuentas en todas las aplicaciones integradas de los proveedores de servicios y en esas aplicaciones previamente integradas por Microsoft que admiten el aprovisionamiento automático de usuarios o Just-In-Time de SAML.
-
-## <a name="automated-user-provisioning"></a>Aprovisionamiento automático de usuarios
-Algunas aplicaciones proporcionan interfaces de automatización para la creación y eliminación (o desactivación) de cuentas. Si un proveedor ofrece esta interfaz, Azure Active Directory hace uso de ella. De esta manera, se reducen los costos operativos porque las tareas administrativas se producen automáticamente y se mejora la seguridad del entorno dado que disminuye la probabilidad de acceso no autorizado.
-
-## <a name="access-management"></a>administración de acceso
-Con Azure AD, puede administrar el acceso a las aplicaciones mediante asignaciones individuales o basadas en reglas. También puede delegar la administración del acceso en las personas adecuadas de la organización, lo que garantiza una mejor supervisión y reduce la carga sobre el departamento de soporte técnico.
-
-## <a name="on-premises-applications"></a>Aplicaciones locales
-El proxy de la aplicación integrado permite publicar las aplicaciones locales en los usuarios, lo que da lugar a una experiencia de usuario coherente con las aplicaciones modernas de nube, junto con las ventajas de las funcionalidades de supervisión, creación de informes y seguridad de Azure AD.
-
-## <a name="reporting-and-monitoring"></a>Creación de informes y supervisión
-Azure AD proporciona funcionalidades previamente integradas de supervisión y creación de informes que le permiten saber quién tiene acceso a las aplicaciones y cuándo se usan realmente.
-
-## <a name="related-capabilities"></a>Funcionalidades relacionadas
-Con Azure AD puede proteger las aplicaciones con directivas de acceso granular y MFA previamente integrada. Para obtener más información sobre Azure MFA, consulte [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/).
-
-## <a name="getting-started"></a>Introducción
-Para comenzar a integrar las aplicaciones con Azure AD, eche un vistazo a la [Guía de introducción a la integración de Azure Active Directory con las aplicaciones](plan-an-application-integration.md).
-
-## <a name="see-also"></a>Otras referencias
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
-* [Plan de implementación paso a paso para SSO en una aplicación SaaS](http://aka.ms/ssodeploymentplan)
+## <a name="manage-costs"></a>Administrar costos
+Al migrar a Azure AD, puede ahorrar costos y las molestias de administrar la infraestructura local. Azure AD también proporciona acceso de autoservicio a las aplicaciones, lo que ahorra tiempo para los administradores y usuarios. El inicio de sesión único elimina las contraseñas específicas de la aplicación, lo que ahorra costos relacionados con el restablecimiento de contraseña para las aplicaciones y la pérdida de productividad al recuperar las contraseñas.
 

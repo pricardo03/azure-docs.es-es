@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: abc4fa4129a596c3f3304dc37af3a9b659f45473
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a3b039b1ea492c44505c427ec171cf7a4a5fad01
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595508"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062442"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Creación de una aplicación Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,7 +33,7 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Apps para aplicaciones Xamarin.Android.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -64,6 +64,11 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
    > Puede revisar el código de acceso al back-end de aplicación móvil para consultar e insertar datos; este se encuentra en el archivo de C# ToDoActivity.cs.
    >
    >
+
+## <a name="troubleshooting"></a>solución de problemas
+Si tiene problemas al compilar la solución, ejecute el administrador de paquetes NuGet y actualice los paquetes de compatibilidad de `Xamarin.Android`. Puede que los proyectos de inicio rápido no incluyan las versiones más recientes.
+
+Tenga en cuenta que todos los paquetes de soporte a los que se hace referencia en el proyecto deben tener la misma versión. El [paquete NuGet para Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tiene una dependencia `Xamarin.Android.Support.CustomTabs` para la plataforma Android, por lo que si el proyecto usa paquetes de compatibilidad más recientes, debe instalar este paquete con la versión requerida directamente para evitar conflictos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md) (Incorporación de sincronización sin conexión a la aplicación)

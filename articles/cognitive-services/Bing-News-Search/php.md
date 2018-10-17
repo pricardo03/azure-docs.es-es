@@ -1,20 +1,21 @@
 ---
-title: Inicio rápido de PHP para Azure Cognitive Services, Bing News Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayudarán a empezar a usar Bing News Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing News Search API con PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing News Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: a1e62a63ec926b77bca290767ee453cde83de3df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8f70352a8f9f07b94b53fae0aac286bc65e3f0dc
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382322"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801751"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-php"></a>Inicio rápido para Bing News Search API con PHP
 
@@ -24,7 +25,7 @@ El ejemplo de código se escribió para ejecutarse en PHP 5.6.
 
 Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) para obtener detalles técnicos acerca de las API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesitará la clave de acceso que se le proporcionó al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
 
@@ -100,7 +101,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **Respuesta**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {

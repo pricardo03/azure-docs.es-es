@@ -1,23 +1,23 @@
 ---
-title: Obtención de resultados de revisión ortográfica con Bing Spell Check API (Microsoft Cognitive Services en Azure) | Microsoft Docs
+title: 'Tutorial: Introducción a los resultados de revisión ortográfica mediante Bing Spell Check API'
+titlesuffix: Azure Cognitive Services
 description: Muestra cómo usar Bing Spell Check.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 4e4cdbb8a3d6ab01888d8f273083155c33eb06c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7afcd18e00e820ad63b8b12bbc352faaca24c84
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380667"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803603"
 ---
-# <a name="build-a-web-page-spell-check-client"></a>Compilación de un cliente de revisión ortográfica de página web
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de páginas web
 
 En este tutorial, vamos a compilar una página web que permita a los usuarios consultar Bing Spell Check API.
 
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > - Consulta simple a Bing Spell Check API
 > - Visualización de resultados de la consulta
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir con el tutorial, necesita una clave de suscripción para Bing Spell Check API. Si no tiene una, [suscríbase para una prueba gratuita](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
@@ -206,7 +206,7 @@ Establezca el encabezado **Ocp-Apim-Subscription-Key** en el valor de la clave d
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
 ```
 
-Controle la respuesta del punto de conexión. Si el estado es 200 (correcto), muestra los resultados; en caso contrario, muestra la información de error.
+Controle la respuesta del punto de conexión. Si el estado es 200 (correcto), muestra los resultados. En caso contrario, muestra la información de error.
 
 ```html
     request.addEventListener("load", function() {

@@ -1,27 +1,27 @@
 ---
-title: Inicio rápido de Python para Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing Entity Search API con Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 88e954af0254b158ea59a88ed4523e3b141a135e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80265c883214812acbd0af3bd186a0fbd3703132
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382307"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814345"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-python"></a>Inicio rápido para Microsoft Bing Entity Search API con Python 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-python"></a>Guía de inicio rápido para Bing Entity Search API con Python
 
 En este artículo se muestra cómo utilizar [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API con Python.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener [Python.js 3.x](https://www.python.org/downloads/) para ejecutar este código.
 
@@ -70,7 +70,7 @@ print (json.dumps(json.loads(result), indent=4))
 
 **Respuesta**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {

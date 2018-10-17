@@ -1,24 +1,25 @@
 ---
-title: Entity Linking Intelligence Service API | Microsoft Docs
-description: Aprenda a usar Entity Linking Intelligence Service API para tareas de vinculación de entidad en Cognitive Services.
+title: ¿Qué es Entity Linking Intelligence Service API?
+titlesuffix: Azure Cognitive Services
+description: Aprenda a usar Entity Linking Intelligence Service API para tareas de vinculación de entidad.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 662295c42a421fe76892e6e5aac7b7e7178d6155
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380146"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366189"
 ---
-# <a name="entity-linking-intelligence-service-api"></a>Entity Linking Intelligence Service API
+# <a name="what-is-the-entity-linking-intelligence-service-api"></a>¿Qué es Entity Linking Intelligence Service API?
 
-Esto es Microsoft Entity Linking Intelligence Service, un servicio web creado para ayudar a los desarrolladores en las tareas relacionadas con la vinculación de entidades.
+Esto es Entity Linking Intelligence Service, un servicio web creado para ayudar a los desarrolladores en las tareas relacionadas con la vinculación de entidades.
 
 ## <a name="entity-linking"></a>Entity Linking
 

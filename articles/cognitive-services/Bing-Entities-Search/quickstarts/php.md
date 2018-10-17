@@ -1,27 +1,27 @@
 ---
-title: Inicio rápido de PHP para Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing Entity Search API con PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 448064de764775c497de467b235837d66ef7093b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 30cfa98fc38f92d834e908b6d77306bed1d2b5cb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382319"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815535"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-php"></a>Inicio rápido para Microsoft Bing Entity Search API con PHP 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Guía de inicio rápido para Bing Entity Search API con PHP
 
 En este artículo se muestra cómo utilizar [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API con PHP.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesitará tener [PHP 5.6.x](http://php.net/downloads.php) para ejecutar este código.
 
@@ -82,7 +82,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **Respuesta**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {

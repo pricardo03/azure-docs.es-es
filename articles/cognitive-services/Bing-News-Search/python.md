@@ -1,19 +1,21 @@
 ---
-title: Inicio rápido de Python para Azure Cognitive Services, Bing News Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing News Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing News Search API con Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing News Search API.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0fde478b650513aa1527c1d47f5b453ba094506c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 583b304a742d9abfd799442c9aa2999ad6783a34
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380659"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803552"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-python"></a>Inicio rápido para Bing News Search API con Python
 Este tutorial muestra un ejemplo sencillo de llamada a Bing News Search API y procesamiento posterior del objeto JSON resultante. Para obtener más información, consulte la [documentación de Bing News Search](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
@@ -22,7 +24,7 @@ Para ejecutar este ejemplo como Jupyter Notebook en [MyBinder](https://mybinder.
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 1d0a660845052f51af84b78584787760e01f16a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 624c5e78287fac57b06f6b5112d2523e31256ae0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542653"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049775"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Configuración de la distribución global de Azure Cosmos DB con SQL API
 
@@ -155,7 +155,7 @@ Respuesta de ejemplo
 
 Las solicitudes de escritura a regiones de solo lectura producirán un error con el código de error HTTP 403 ("Prohibido").
 
-Si la región de escritura cambia después de la fase de descubrimiento inicial del cliente, se producirá un error en las escrituras posteriores a la región de escritura anterior con el código de error HTTP 403 ("Prohibido"). A continuación, el cliente debería de nuevo conseguir con GET la lista de regiones para obtener la región de escritura actualizada.
+Si la región de escritura cambia después de la fase de descubrimiento inicial del cliente, se producirá un error en las escrituras posteriores en la región de escritura anterior con el código de error HTTP 403 ("Prohibido"). A continuación, el cliente debería de nuevo conseguir con GET la lista de regiones para obtener la región de escritura actualizada.
 
 De este modo finaliza este tutorial. Para información sobre cómo administrar la coherencia de la cuenta replicada globalmente, lea [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md). Para más información sobre cómo funciona la replicación global de bases de datos en Azure Cosmos DB, consulte [Distribución global de datos con Azure Cosmos DB](distribute-data-globally.md).
 

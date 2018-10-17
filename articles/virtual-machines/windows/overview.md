@@ -1,5 +1,5 @@
 ---
-title: Información general sobre las máquinas virtuales Windows | Microsoft Docs
+title: Introducción a Windows Virtual Machines de Azure | Microsoft Docs
 description: Aprenda a crear y administrar máquinas virtuales Windows en Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919425"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816844"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
 
@@ -83,9 +83,9 @@ En esta tabla se muestran algunas maneras de encontrar la información sobre una
 | Método | DESCRIPCIÓN |
 | --- | --- |
 | Azure Portal |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "ubicación"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "ubicación" -Publisher "nombreDePublicador"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "ubicación" -Publisher "nombreDePublicador" -Offer "nombreDeOferta" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *location*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | API de REST |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location *ubicación*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location *location* --publisher *publisherName* --offer *offerName*|
 
 Puede elegir [cargar y usar su propia imagen](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) y, cuando lo haga, no se usan el nombre del publicador, la oferta ni la SKU.
 
@@ -124,7 +124,7 @@ En esta tabla se proporciona información para comenzar a crear la máquina virt
 | API de REST |[Create or update a VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) (Creación o actualización de una máquina virtual) |
 | Azure CLI |[Creación de una máquina virtual con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
-Aunque se espera que nunca suceda, en ocasiones algo sale mal. Si se ve en esta situación, consulte la información en [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual Windows en Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aunque se espera que nunca suceda, en ocasiones algo sale mal. Si se ve en esta situación, consulte la información en [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual Windows en Azure](../troubleshooting/troubleshoot-deployment-new-vm-windows.md).
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>¿Cómo administro la máquina virtual que he creado?
 Las máquinas virtuales pueden administrarse mediante un portal basado en el explorador, herramientas de línea de comandos con compatibilidad para scripts o directamente a través de API. Algunas tareas de administración habituales que puede realizar es obtener información sobre una máquina virtual, iniciar sesión en una máquina virtual, administrar la disponibilidad y realizar copias de seguridad.
@@ -141,10 +141,10 @@ En esta tabla se muestran algunas maneras en que puede obtener información sobr
 | Azure CLI |Para información acerca del uso de la CLI de Azure para administrar las máquinas virtuales, consulte la [referencia de la CLI de Azure](https://docs.microsoft.com/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>Inicio de sesión en la máquina virtual
-Use el botón Conectar en Azure Portal para [iniciar una sesión de Escritorio remoto (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En ocasiones, algo sale mal cuando se intenta usar una conexión remota. Si se ve en esta situación, consulte la información de ayuda en [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Use el botón Conectar en Azure Portal para [iniciar una sesión de Escritorio remoto (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En ocasiones, algo sale mal cuando se intenta usar una conexión remota. Si se ve en esta situación, consulte la información de ayuda en [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../troubleshooting/troubleshoot-rdp-connection.md).
 
 ### <a name="manage-availability"></a>Administración de la disponibilidad
-Es importante que comprenda cómo [garantizar una alta disponibilidad](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para la aplicación. Esta configuración supone crear varias máquinas virtuales para asegurarse de que haya al menos una ejecutándose.
+Es importante que comprenda cómo [garantizar una alta disponibilidad](manage-availability.md) para la aplicación. Esta configuración supone crear varias máquinas virtuales para asegurarse de que haya al menos una ejecutándose.
 
 Para que su implementación pueda optar a nuestro SLA de máquina virtual 99,95, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un [conjunto de disponibilidad](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta configuración garantiza que las máquinas virtuales estén distribuidas entre varios dominios de error e implementadas en hosts con diferentes períodos de mantenimiento. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
@@ -152,5 +152,5 @@ Para que su implementación pueda optar a nuestro SLA de máquina virtual 99,95,
 Un [almacén de Recovery Services](../../backup/backup-introduction-to-azure-backup.md) se usa para proteger datos y recursos en los servicios Azure Backup y Azure Site Recovery. Puede usar un almacén de Recovery Services para [implementar y administrar copias de seguridad para máquinas virtuales implementadas con Resource Manager mediante PowerShell](../../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Si tiene intención de trabajar con máquinas virtuales Linux, consulte [Azure y Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Conozca las directrices para configurar la infraestructura en el [Tutorial de la infraestructura de Azure de ejemplo](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Si tiene intención de trabajar con máquinas virtuales Linux, consulte [Azure y Linux](../linux/overview.md).
+* Conozca las directrices para configurar la infraestructura en el [Tutorial de la infraestructura de Azure de ejemplo](infrastructure-example.md).

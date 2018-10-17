@@ -1,20 +1,21 @@
 ---
-title: Computer Vision API para Microsoft Cognitive Services | Microsoft Docs
-description: Los algoritmos avanzados de Computer Vision API ayudan a procesar imágenes y devolver información en Microsoft Cognitive Services.
+title: ¿Qué es Computer Vision API?
+titlesuffix: Azure Cognitive Services
+description: Computer Vision API proporciona a los desarrolladores acceso a algoritmos avanzados para procesar imágenes y devolver información.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 86e0441c600162e479c678d3cb1dbeaad423ddb5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382254"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982122"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>¿Qué es Computer Vision API versión 1.0?
 
@@ -48,7 +49,7 @@ Computer Vision API devuelve etiquetas basándose en más de 2000 objetos, seres
 Después de cargar una imagen o especificar la URL de una imagen, los algoritmos de Computer Vision API devuelven como salida etiquetas basadas en los objetos, seres vivos, paisajes y acciones identificados en la imagen. El etiquetado no se limita al sujeto principal, como una persona en primer plano, sino que también incluye el entorno (interior o exterior), muebles, herramientas, plantas, animales, accesorios, gadgets, etc.
 
 ### <a name="example"></a>Ejemplo
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -95,15 +96,15 @@ Además de etiquetas y descripciones, Computer Vision API devuelve categorías b
 ### <a name="the-86-category-concept"></a>El concepto de las 86 categorías
 Las características visuales que se encuentran en una imagen se pueden categorizar de lo más amplio a lo más específico mediante la lista de 86 conceptos que vemos en el siguiente diagrama. Consulte la taxonomía completa en formato de texto en [Taxonomía de las categorías](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 
-![Análisis de categorías](./Images/analyze_categories.jpg)
+![Análisis de categorías](./Images/analyze_categories.png)
 
 Imagen                                                  | Response
 ------------------------------------------------------ | ----------------
-![Woman Roof](./Images/woman_roof.jpg)                 | people
-![Family Photo](./Images/family_photo.jpg)             | people_crowd
-![Cute Dog](./Images/cute_dog.jpg)                     | animal_dog
-![Outdoor Mountain](./Images/mountain_vista.jpg)       | outdoor_mountain
-![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
+![Woman Roof](./Images/woman_roof.png)                 | people
+![Family Photo](./Images/family_photo.png)             | people_crowd
+![Cute Dog](./Images/cute_dog.png)                     | animal_dog
+![Outdoor Mountain](./Images/mountain_vista.png)       | outdoor_mountain
+![Vision Analyze Food Bread](./Images/bread.png)       | food_bread
 
 ## <a name="identifying-image-types"></a>Identificación de los tipos de imagen
 Hay varias maneras de categorizar las imágenes. Computer Vision API puede establecer una marca booleana para indicar si una imagen está en blanco y negro o en color. También puede establecer una marca booleana para indicar si una imagen es un dibujo lineal o no. También puede indicar si es una imagen prediseñada o no, y mostrar su calidad como tal en una escala del 0 al 3.
@@ -120,16 +121,16 @@ Valor | Significado
 
 Imagen|Response
 ----|----
-![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.jpg)|3 Imagen prediseñada buena
-![Vision Analyze House Yard](./Images/house_yard.jpg)|0 No es imagen prediseñada
+![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.png)|3 Imagen prediseñada buena
+![Vision Analyze House Yard](./Images/house_yard.png)|0 No es imagen prediseñada
 
 ### <a name="line-drawing-type"></a>Tipo de dibujo lineal
 Detecta si una imagen es un dibujo lineal o no.
 
 Imagen|Response
 ----|----
-![Vision Analyze Lion Drawing](./Images/lion_drawing.jpg)|True
-![Vision Analyze Flower](./Images/flower.jpg)|False
+![Vision Analyze Lion Drawing](./Images/lion_drawing.png)|True
+![Vision Analyze Flower](./Images/flower.png)|False
 
 ### <a name="faces"></a>Caras
 Detecta las caras humanas dentro de una imagen y genera las coordenadas faciales, el rectángulo de la cara, el sexo y la edad. Estas características visuales son un subconjunto de los metadatos generados para la cara. Para metadatos más amplios de las caras (identificación facial, detección de posición y más), se usa Face API.  
@@ -159,7 +160,7 @@ Análisis que proporciona detalles adicionales relacionados con las categorías 
 Los algoritmos de Computer Vision API analizan el contenido de una imagen. Este análisis forma la base de una «descripción» que se presenta en lenguaje natural, en oraciones completas. La descripción resume lo que se encuentra en la imagen. Los algoritmos de Computer Vision API generan varias descripciones según los objetos identificados en la imagen. Cada una de estas descripciones se evalúa y se genera una puntuación de confianza. Después, se devuelve una lista de puntuaciones de confianza ordenadas de más alta a más baja. Un ejemplo de un bot que usa esta tecnología para generar leyendas de imagen se puede ver [aquí](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### <a name="example-description-generation"></a>Ejemplo de generación de descripción
-![B&W Buildings](./Images/bw_buildings.jpg) '
+![B&W Buildings](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -202,18 +203,18 @@ El algoritmo de Computer Vision extrae los colores de una imagen. Los colores se
 
 Imagen                                                       | Primer plano |Fondo| Colores
 ----------------------------------------------------------- | --------- | ------- | ------
-![Outdoor Mountain](./Images/mountain_vista.jpg)            | Negro     | Negro   | Blanco
-![Vision Analyze Flower](./Images/flower.jpg)               | Negro     | Blanco   | Blanco, negro, verde
-![Vision Analyze Train Station](./Images/train_station.jpg) | Negro     | Negro   | Negro
+![Outdoor Mountain](./Images/mountain_vista.png)            | Negro     | Negro   | Blanco
+![Vision Analyze Flower](./Images/flower.png)               | Negro     | Blanco   | Blanco, negro, verde
+![Vision Analyze Train Station](./Images/train_station.png) | Negro     | Negro   | Negro
 
 ### <a name="accent-color"></a>Color de énfasis
 Color que se extrae de una imagen y que está designado a representar el color más atractivo para los usuarios a través de una combinación de colores dominantes y saturación.
 
 Imagen                                                       | Response
 ----------------------------------------------------------- | ----
-![Outdoor Mountain](./Images/mountain_vista.jpg)            | #BC6F0F
-![Vision Analyze Flower](./Images/flower.jpg)               | #CAA501
-![Vision Analyze Train Station](./Images/train_station.jpg) | #484B83
+![Outdoor Mountain](./Images/mountain_vista.png)            | #BC6F0F
+![Vision Analyze Flower](./Images/flower.png)               | #CAA501
+![Vision Analyze Train Station](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>Blanco y negro
@@ -221,8 +222,8 @@ Marca booleana que indica si una imagen está en blanco y negro o no.
 
 Imagen                                                      | Response
 ---------------------------------------------------------- | ----
-![Vision Analyze Building](./Images/bw_buildings.jpg)      | True
-![Vision Analyze House Yard](./Images/house_yard.jpg)      | False
+![Vision Analyze Building](./Images/bw_buildings.png)      | True
+![Vision Analyze House Yard](./Images/house_yard.png)      | False
 
 ## <a name="flagging-adult-content"></a>Marcado de contenido solo para adultos
 Entre las diferentes categorías visuales, se encuentra el grupo de contenido para adultos y subido de tono, que permite detectar el material destinado a adultos y limita la presentación de imágenes de contenido sexual. El filtro para detección de contenido para adultos y subido de tono se puede establecer en una escala gradual, para ajustarlo a la preferencia del usuario.

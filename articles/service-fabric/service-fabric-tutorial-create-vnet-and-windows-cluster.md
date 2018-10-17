@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410024"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831576"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster Windows de Service Fabric en una red virtual de Azure
 
@@ -88,7 +88,7 @@ Esta plantilla implementa un clúster seguro de cinco máquinas virtuales, un ti
 
 ### <a name="service-fabric-cluster"></a>Clúster de Service Fabric
 
-Se implementa un clúster de Windows con las siguientes características:
+En el recurso **Microsoft.ServiceFabric/clusters**, un clúster de Windows está configurado con las siguientes características:
 
 * un tipo de nodo único
 * cinco nodos en el tipo de nodo principal (configurable en los parámetros de la plantilla)
@@ -103,7 +103,7 @@ Se implementa un clúster de Windows con las siguientes características:
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Se implementa un equilibrador de carga, y se configuran sondeos y reglas para los siguientes puertos:
+En el recurso **Microsoft.Network/loadBalancers** se han configurado un equilibrador de carga y sondeos y reglas para los siguientes puertos:
 
 * punto de conexión de la conexión de cliente: 19000
 * punto de conexión de la puerta de enlace HTTP: 19080
@@ -111,16 +111,16 @@ Se implementa un equilibrador de carga, y se configuran sondeos y reglas para lo
 * puerto de la aplicación: 443
 * Proxy inverso de Service Fabric: 19081
 
-Si se necesitan otros puertos de aplicación, debe ajustar el recurso Microsoft.Network/loadBalancers y el recurso Microsoft.Network/networkSecurityGroups para permitir el tráfico de entrada.
+Si se necesitan otros puertos de aplicación, debe ajustar el recurso **Microsoft.Network/loadBalancers** y el recurso **Microsoft.Network/networkSecurityGroups** para permitir el tráfico de entrada.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Red virtual, subred y grupo de seguridad de red
 
-Los nombres de la red virtual, la subred y el grupo de seguridad de red se declaran en los parámetros de la plantilla.  Los espacios de direcciones de la red virtual y de la subred también se declaran en los parámetros de la plantilla:
+Los nombres de la red virtual, la subred y el grupo de seguridad de red se declaran en los parámetros de la plantilla.  Los espacios de direcciones de la red virtual y de la subred se declaran también en los parámetros de plantilla y se configuran en el recurso **Microsoft.Network/virtualNetworks**:
 
 * espacio de direcciones de red virtual: 172.16.0.0/20
 * espacio de direcciones de subred de Service Fabric: 172.16.2.0/23
 
-Se habilitan las siguientes reglas de tráfico de entrada en el grupo de seguridad de red. Puede cambiar los valores de puerto cambiando las variables de la plantilla.
+Las siguientes reglas de tráfico de entrada están habilitadas en el recurso **Microsoft.Network/networksecuritygroups**. Puede cambiar los valores de puerto cambiando las variables de la plantilla.
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
@@ -131,7 +131,7 @@ Se habilitan las siguientes reglas de tráfico de entrada en el grupo de segurid
 * Intervalo de puertos de la aplicación: 49152 a 65534 (se usa para la comunicación de servicio a servicio y, a diferencia de otros, no se abre en Load Balancer)
 * Bloqueo de todos los puertos restantes
 
-Si se necesitan otros puertos de aplicación, debe ajustar el recurso Microsoft.Network/loadBalancers y el recurso Microsoft.Network/networkSecurityGroups para permitir el tráfico de entrada.
+Si se necesitan otros puertos de aplicación, debe ajustar el recurso **Microsoft.Network/loadBalancers** y el recurso **Microsoft.Network/networkSecurityGroups** para permitir el tráfico de entrada.
 
 ## <a name="set-template-parameters"></a>Configuración de los parámetros de plantilla
 

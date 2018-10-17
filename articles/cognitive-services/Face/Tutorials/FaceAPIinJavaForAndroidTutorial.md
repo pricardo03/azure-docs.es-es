@@ -1,21 +1,21 @@
 ---
-title: Tutorial de la API de Face API Java para Android | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En este tutorial, va a crear una aplicación Android sencilla que usa el servicio Face de Cognitive Services para detectar y enmarcar caras en una imagen.
+title: 'Tutorial: Detección y enmarcado de caras de una imagen - Face API, Java para Android'
+titleSuffix: Azure Cognitive Services
+description: En este tutorial, va a crear una aplicación Android sencilla que use Face API para detectar y enmarcar caras en una imagen.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: nolachar
-ms.openlocfilehash: ad7b85b378db9e9687b5f8081bc9832e91e9ee5e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 50185588b77f01bced9462d5fd1ad67bb5de6e08
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125643"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129733"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Creación de una aplicación Android para detectar y enmarcar caras en una imagen
 

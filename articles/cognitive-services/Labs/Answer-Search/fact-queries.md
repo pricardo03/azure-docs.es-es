@@ -1,22 +1,23 @@
 ---
-title: 'Consulta de datos de Project Answer Search: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Guía de inicio rápido: Consulta de datos con Project Answer Search'
+titlesuffix: Azure Cognitive Services
 description: Consulta datos mediante Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381730"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868361"
 ---
-# <a name="query-for-facts"></a>Consulta de datos
+# <a name="quickstart-query-for-facts"></a>Guía de inicio rápido: Consulta de datos
 
 Si la consulta es para un dato como una fecha o una información identificable, la respuesta puede contener `facts` respuestas. Las respuestas de datos contienen resultados apropiados extraídos de párrafos de documentos web.  Estas consultas siempre devuelven páginas web y tanto los [datos](fact-queries.md) como las [entidades](entity-queries.md), o cualquiera de ellos, dependen de las consultas.
 

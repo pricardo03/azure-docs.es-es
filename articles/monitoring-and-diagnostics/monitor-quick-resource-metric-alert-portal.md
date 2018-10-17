@@ -9,12 +9,12 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263055"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982868"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recibir una notificación cuando el valor de una métrica cumple una condición
 
@@ -24,7 +24,7 @@ Para obtener más información sobre las métricas y las alertas de métricas, c
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
@@ -32,7 +32,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 
-2. Busque y seleccione **Aplicación lógica**. Haga clic en el botón **Crear** .
+2. Busque y seleccione **Aplicación lógica**. Haga clic en el botón **Crear**.
 
 3. Escriba el nombre myLogicApp y el grupo de recursos myResourceGroup. Use su suscripción.  Use la ubicación predeterminada. Seleccione la opción **Anclar al panel**.  Cuando haya terminado, haga clic en **Cerrar**. 
 
@@ -47,7 +47,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 6. Configure los valores tal como se muestra en el diagrama siguiente.
 
-    ![Configuración del desencadenador de la aplicación lógica en el panel del portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configuración del desencadenador de la aplicación lógica en el panel del portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. En el diseñador, seleccione el desencadenador **Periodicidad**.
 

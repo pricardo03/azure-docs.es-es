@@ -3,21 +3,22 @@ title: Información general de Azure Maps | Microsoft Docs
 description: Introducción a Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 07/12/2018
+ms.date: 09/12/2018
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: e68050e4902183b899bf3fee31bef088b1a0faf2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745297"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576075"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
-Azure Maps es una colección de servicios geoespaciales respaldado por los nuevos datos de asignación para que pueda proporcionar contexto geográfico preciso a las aplicaciones web y móviles. Contiene API REST para representar mapas, buscar puntos de interés, rutas a los puntos de interés, condiciones del tráfico, zonas horarias e IP de servicios de ubicación. Puede usar estas API con herramientas conocidas para desarrollar y escalar rápidamente las soluciones de Azure con información de ubicación integrada. Junto con las API REST, ofrece control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios. 
+
+Azure Maps es una colección de servicios geoespaciales respaldado por los nuevos datos de asignación para que pueda proporcionar contexto geográfico preciso a las aplicaciones web y móviles. Contiene las API de REST para representar mapas y buscar puntos de interés. Las API también pueden encontrar las rutas a los puntos de interés, las condiciones del tráfico, las zonas horarias y una ubicación a partir de una dirección IP. Las API funcionan con herramientas conocidas para desarrollar y escalar rápidamente las soluciones de Azure con información de ubicación integrada. Además de las API de REST, se ofrece el [control de mapa de JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios.
 
 En el siguiente vídeo se explica Azure Maps en profundidad:
 
@@ -25,7 +26,7 @@ En el siguiente vídeo se explica Azure Maps en profundidad:
 
 ## <a name="services-in-azure-maps"></a>Servicios de Azure Maps
 
-Azure Maps consta de los siguientes seis servicios que pueden proporcionar contexto geográfico a las aplicaciones de Azure. 
+Azure Maps consta de los siguientes seis servicios que pueden proporcionar contexto geográfico a las aplicaciones de Azure.
 
 ### <a name="render-service"></a>Render Service
 
@@ -35,8 +36,7 @@ Diseñado para que los desarrolladores creen aplicaciones web y móviles basadas
 
 Render Service ahora ofrece varias API en versión preliminar que permiten a los desarrolladores trabajar con imágenes de satélite. Para más información, lea el artículos sobre las [Render API de Azure Maps](https://docs.microsoft.com/rest/api/maps/render).
 
-
-### <a name="route-service"></a>Route Service 
+### <a name="route-service"></a>Route Service
 
 Contiene sólidos cálculos de geometría de infraestructuras del mundo real y direcciones para varios modos de transporte. El servicio permite a los desarrolladores calcular direcciones entre distintos modos de viaje, como automóvil, camión, bicicleta o a pie. El servicio también puede tener en cuenta entradas como las condiciones del tráfico, las restricciones de peso o el transporte materiales peligrosos.
 
@@ -44,15 +44,13 @@ Contiene sólidos cálculos de geometría de infraestructuras del mundo real y d
 
 Route Service ahora ofrece una versión preliminar de las características avanzadas, como el procesamiento por lotes de varias solicitudes de ruta, matrices de tiempo de desplazamiento y distancia entre un conjunto de orígenes y destinos, y búsqueda de rutas o distancias posibles de desplazamiento en función del tiempo o el combustible. Para más información sobre las funcionalidades de las rutas, lea el artículo sobre las [Route API de Azure Maps](https://docs.microsoft.com/rest/api/maps/route).
 
-
 ### <a name="search-service"></a>Servicio de búsqueda
 
-Diseñado para que los desarrolladores puedan buscar direcciones, lugares, listados de empresas por nombre o categoría y otra información geográfica. Search Service puede asimismo realizar la [codificación inversa](https://en.wikipedia.org/wiki/Reverse_geocoding) de direcciones y cruces de calles en función de la longitud y la latitud. 
+Diseñado para que los desarrolladores puedan buscar direcciones, lugares, listados de empresas por nombre o categoría y otra información geográfica. Search Service puede asimismo realizar la [codificación inversa](https://en.wikipedia.org/wiki/Reverse_geocoding) de direcciones y cruces de calles en función de la longitud y la latitud.
 
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
 Search Service también proporciona características avanzadas como la búsqueda en una ruta, la búsqueda en una zona más amplia, agrupación de solicitudes de búsqueda, y búsqueda de una zona mayor en lugar de una ubicación concreta. Las API de búsqueda en grupo y por zona son actualmente versiones preliminares. Para más detalles sobre las funcionalidades de búsqueda, lea la página sobre las [Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search).
-
 
 ### <a name="time-zone-service"></a>Time Zone Service
 
@@ -81,8 +79,9 @@ Para más información sobre este servicio, visite la página de las [Timezone A
 ### <a name="traffic-service"></a>Traffic Service
 
 Traffic Service es un conjunto de servicios web diseñados para los desarrolladores, para la creación de aplicaciones web y móviles que requieren tráfico. El servicio proporciona dos tipos de datos:
-    * Traffic Flow: velocidades observadas en tiempo real y tiempos de desplazamiento de todas las principales carreteras de la red. 
-    * Traffic Incidents: una vista exacta sobre los atascos y las incidencias de tráfico de toda la red de carreteras.
+
+* Traffic Flow: velocidades observadas en tiempo real y tiempos de desplazamiento de todas las principales carreteras de la red.
+* Traffic Incidents: una vista exacta sobre los atascos y las incidencias de tráfico de toda la red de carreteras.
 
 ![Tráfico de Azure Maps](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -90,25 +89,25 @@ Visite la página de las [Traffic API de Azure Maps](https://docs.microsoft.com/
 
 ### <a name="ip-to-location"></a>IP to Location
 
-IP to Location es un servicio en versión preliminar que permite recuperar el código de país de dos letras de una dirección IP determinada. Este servicio ayuda a adaptar la aplicación a límites geopolíticos especiales, así como a mejorar la experiencia del usuario al cambiar el contenido de la aplicación en función de la ubicación geográfica. 
+El servicio IP to Location permite obtener una vista previa del código de país de dos letras recuperado de una dirección IP determinada. Este servicio puede ayudarle a personalizar y mejorar la experiencia del usuario al potenciar el contenido de la aplicación personalizado según la ubicación geográfica.
 
 Para más información sobre las API REST para el servicio IP to Location, visite la página sobre las [API de geolocalización de Azure Maps](https://docs.microsoft.com/rest/api/maps/geolocation).
 
 ## <a name="programming-model"></a>Modelo de programación
 
-Azure Maps se ha diseñado pensando en la movilidad y potencia las aplicaciones multiplataforma. Usa un modelo de programación independiente del idioma y admite salidas JSON mediante [API REST](https://docs.microsoft.com/rest/api/maps/). 
+Azure Maps se ha diseñado pensando en la movilidad y potencia las aplicaciones multiplataforma. Usa un modelo de programación independiente del idioma y admite salidas JSON mediante [API REST](https://docs.microsoft.com/rest/api/maps/).
 
-Además, Azure Maps ofrece un práctico [control de mapas de JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) con un modelo sencillo de programación para el desarrollo fácil y rápido de aplicaciones web y móviles. 
-
+Además, Azure Maps ofrece un práctico [control de mapas de JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) con un modelo sencillo de programación para el desarrollo fácil y rápido de aplicaciones web y móviles.
 
 ## <a name="usage"></a>Uso
 
-A los servicios de Maps se accede simplemente con ir a [Azure Portal](http://portal.azure.com) y crear una cuenta de Azure Maps. 
+A los servicios de Maps se accede simplemente con ir a [Azure Portal](http://portal.azure.com) y crear una cuenta de Azure Maps.
 
-Azure Maps usa un esquema de autenticación basado en claves. Su cuenta incluye dos claves que se generan previamente de manera automática. Comience a integrar estas funcionalidades de ubicación directamente en sus aplicaciones mediante el uso de una de sus claves en las solicitudes al servicio Azure Maps.
+Azure Maps usa un esquema de autenticación basado en claves. Su cuenta incluye dos claves que se generan previamente de manera automática. Comience a integrar estas funcionalidades de ubicación en su aplicación mediante el uso de la clave y la realización de una solicitud al servicio Azure Maps.
 
 ## <a name="supported-regions"></a>Regiones admitidas
-La API de Azure Maps está actualmente disponible en todos los países, excepto en: 
+
+La API de Azure Maps está actualmente disponible en todos los países, excepto en:
 
 * Argentina
 * China
@@ -117,11 +116,16 @@ La API de Azure Maps está actualmente disponible en todos los países, excepto 
 * Pakistán
 * Corea del Sur
 
-Compruebe la dirección IP actual y verifique que la ubicación de la dirección IP no esté en uno de los países no admitidos enumerados anteriormente.
+Verifique que la ubicación de la dirección IP actual no esté en uno de los países no admitidos enumerados anteriormente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre las nuevas características de Azure Maps: 
-    - [Enrutamiento de matrices, isocronas, búsqueda de IP, etc.](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/) 
-- Pruebe una aplicación de ejemplo que demuestra el servicio para continuar
-    - [Iniciar un mapa de búsqueda interactiva de demostración](quick-demo-map-app.md)
+Para más información sobre las nuevas características de Azure Maps:
+
+> [!div class="nextstepaction"]
+> [Enrutamiento de matrices, isocronas, búsqueda de IP, etc.](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+
+Pruebe una aplicación de ejemplo que demuestra el servicio para continuar:
+
+> [!div class="nextstepaction"]
+> [Iniciar un mapa de búsqueda interactiva de demostración](quick-demo-map-app.md)

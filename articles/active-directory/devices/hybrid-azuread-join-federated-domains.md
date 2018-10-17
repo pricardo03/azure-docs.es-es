@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391819"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855192"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios federados
 
@@ -78,7 +78,9 @@ La unión a Azure AD híbrido requiere que los dispositivos tengan acceso a los 
 - STS de su organización (dominios federados)
 - https://autologon.microsoftazuread-sso.com (Si está utilizando o planeando usar SSO de conexión directa)
 
-Si su organización requiere acceso a Internet a través de un proxy de salida, a partir de Windows 10 1709, puede configurar los valores del proxy en el equipo utilizando un objeto de directiva de grupo (GPO). Si el equipo está ejecutando versiones anteriores a Windows 10 1709, tiene que implementar la detección automática de proxy web (WPAD) para permitir que los equipos de Windows 10 realicen el registro de dispositivos con Azure AD. 
+A partir de Windows 10 1803, si se produce un error en la unión a Azure AD híbrido para un dominio federado como AD FS, contamos con Azure AD Connect para sincronizar el objeto de equipo en Azure AD que se usa posteriormente para completar el registro del dispositivo para la unión a Azure AD híbrido.
+
+Si su organización requiere acceso a Internet a través de un proxy de salida, a partir de Windows 10 1709, puede [configurar los valores del proxy en el equipo utilizando un objeto de directiva de grupo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Si el equipo está ejecutando versiones anteriores a Windows 10 1709, tiene que implementar la detección automática de proxy web (WPAD) para permitir que los equipos de Windows 10 realicen el registro de dispositivos con Azure AD. 
 
 Si su organización requiere acceso a Internet a través de un servidor proxy saliente autenticado, tiene que asegurarse de que los equipos de Windows 10 pueden autenticarse correctamente en el proxy de salida. Debido a que los equipos de Windows 10 ejecutan el registro de dispositivos utilizando el contexto del equipo, es necesario configurar la autenticación de proxy de salida utilizando el contexto del equipo. Realice un seguimiento con su proveedor de proxy de salida en relación a los requisitos de configuración. 
 

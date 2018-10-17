@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247375"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498528"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
@@ -158,6 +158,8 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 * **Sistema operativo**: seleccione el sistema operativo que es el destino de la implementación de actualizaciones.
 
+* **Grupos para actualizar (versión preliminar)**: defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure para incluir en la implementación. Para más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
+
 * **Equipos que se actualizan**: seleccione una búsqueda guardada, un grupo importado o elija Máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Para este tutorial, seleccione todos los tipos.
@@ -171,10 +173,13 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
    Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-update-management.md#update-classifications).
 
+* **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para obtener más información sobre cómo se controla la inclusión, consulte [inclusion behavior](automation-update-management.md#inclusion-behavior) (comportamiento de la inclusión).
+
 * **Configuración de la programación**: abre la página **Configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 
    También puede especificar si la implementación se produce una vez o configurar una programación periódica. Seleccione **Una vez** en **Periodicidad**. Deje el valor predeterminado de 1 día y seleccione **Aceptar**. Esta acción configura una programación periódica.
 
+* **Scripts previos y posteriores**: seleccione los scripts que se ejecutarán antes y después de la implementación. Para obtener más información, consulte [Administración de scripts previos y posteriores](pre-post-scripts.md).
 * **Ventana de mantenimiento (minutos)**: deje este campo con el valor predeterminado. Puede establecer la ventana de tiempo en la que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
 
 * **Opciones de reinicio**: este valor determina cómo deben controlarse los reinicios. Las opciones disponibles son la siguientes:

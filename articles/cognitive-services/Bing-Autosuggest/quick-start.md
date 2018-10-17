@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido de Autosuggest API | Microsoft Docs
+title: 'Guía de inicio rápido: Bing Autosuggest API'
+titlesuffix: Azure Cognitive Services
 description: Se muestra cómo empezar a usar Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: a7b54a1fb0b7c76eb72097357a6b51aa02e6e2fd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382143"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830760"
 ---
-# <a name="making-your-first-autosuggest-query"></a>Realización de la primera consulta con Autosuggest
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Guía de inicio rápido: Realización de la primera consulta con Autosuggest
 
 Para poder realizar la primera llamada, debe obtener una clave de suscripción de Cognitive Services. Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

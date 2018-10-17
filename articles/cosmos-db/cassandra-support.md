@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 636b0d9ef42ad1e87d891329be7b7c11c4efcb4a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06f2f81f5be496e2e55874c07a31fdf1c0a5d0f2
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220149"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868701"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 
@@ -106,11 +106,13 @@ Cassandra API de Azure Cosmos DB es una plataforma de servicio administrada. No 
 
 La utilidad de línea de comandos CQLSH viene con Apache Cassandra 3.1.1, con las siguientes variables de entorno habilitadas:
 
+Antes de ejecutar los comandos siguientes, [agregue un certificado de raíz de Baltimore al almacén de certificados CA](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store). 
+
 **Windows:** 
 
 ```bash
 set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+SSL_CERTIFICATE=<path to Baltimore root ca cert>
 set CQLSH_PORT=10350 
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
@@ -118,7 +120,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 ```bash
 export SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+SSL_CERTIFICATE=<path to Baltimore root ca cert>
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 
@@ -127,24 +129,17 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 Azure Cosmos DB admite los siguientes comandos de base de datos en las cuentas de Cassandra API.
 
 * CREATE KEYSPACE 
-
 * CREATE TABLE 
-
 * ALTER TABLE 
-
 * USE 
-
 * INSERT 
-
 * SELECT 
-
 * UPDATE 
-
 * BATCH (solo se admiten los comandos no registrados) 
-
 * DELETE
 
 Cuando se ejecutan mediante SDK compatibles con CQLV4, todas las operaciones crud devolverán información adicional sobre el error, las unidades de solicitud consumidas o el identificador de actividad. A la hora de utilizar los comandos de eliminación y actualización se tendrá en cuenta el gobierno de recursos para evitar el uso de recursos aprovisionados. 
+* Tenga en cuenta que el valor gc_grace_seconds debe ser cero si se especifica.
 
 ```csharp
 var tableInsertStatement = table.Insert(sampleEntity); 
@@ -165,6 +160,14 @@ Cassandra API de Azure Cosmos DB ofrece opciones de coherencia para las operacio
 ## <a name="permission-and-role-management"></a>Administración de permisos y roles
 
 Azure Cosmos DB admite el control de acceso basado en roles (RBAC) y claves o contraseñas de solo lectura y de lectura y escritura, que pueden obtenerse en [Azure Portal] (https://portal.azure.com. Azure Cosmos DB no admite aún usuarios y roles para las actividades en el plano de datos. 
+
+## <a name="planned-support"></a>Soporte planeado 
+* Uso conjunto de marca de tiempo y TTL  
+* El nombre de la región en el comando para crear un espacio de claves se ignora de momento. La distribución de datos se implementa en la plataforma de Cosmos DB subyacente y se expone a través del portal o de PowerShell para la cuenta. 
+
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

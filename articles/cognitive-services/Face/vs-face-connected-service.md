@@ -1,21 +1,21 @@
 ---
-title: Tutorial de Face API en C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Tutorial: Face API en C#'
+titleSuffix: Azure Cognitive Services
 description: Cree una aplicación de Windows simple que use Face API de Cognitive Services para detectar características de caras en una imagen.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: b51760f889db27aa25e54582070ee7d3adcf66f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663893"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129529"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conexión a Face API de Cognitive Services mediante Servicios conectados en Visual Studio
 
@@ -23,7 +23,7 @@ Mediante el uso de Face API de Cognitive Services, puede detectar, analizar, org
 
 En este artículo y sus artículos complementarios se proporcionan detalles sobre el uso de la característica Servicio conectado de Visual Studio para Face API de Cognitive Services. La funcionalidad está disponible en Visual Studio 2017 15.7 o posterior, con la extensión Cognitive Services instalada.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Una suscripción de Azure**. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 15.7** con la carga de trabajo de **Desarrollo web** instalado. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

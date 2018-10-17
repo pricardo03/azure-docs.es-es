@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido de Node.js para Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing Entity Search API con Node.js'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 7396976453c240d5ea9a767f8c26ac96d10d1e1f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b14bcece77b17e79ec9e39bbb6bb64ae34abd3a0
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382323"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815161"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-nodejs"></a>Guía de inicio rápido de Microsoft Bing Entity Search API con Node.JS 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-nodejs"></a>Guía de inicio rápido para Bing Entity Search API con Node.js
 
 En este artículo se muestra cómo utilizar [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API con Node.JS.
 

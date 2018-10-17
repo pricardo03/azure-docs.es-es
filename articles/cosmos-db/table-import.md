@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186837"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247516"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migración de los datos a una cuenta de Table API de Azure Cosmos DB
 
@@ -30,7 +30,9 @@ En este tutorial se describen las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Aumente el rendimiento: la duración de la migración de datos depende de la cantidad de rendimiento configurado para un solo contenedor o un conjunto de contenedores. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte Niveles de rendimiento y planes de tarifa de Azure Cosmos DB.
+* **Aumente el rendimiento**: la duración de la migración de datos depende de la cantidad de rendimiento configurado para un solo contenedor o un conjunto de contenedores. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte Niveles de rendimiento y planes de tarifa de Azure Cosmos DB.
+
+* **Cree recursos de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las tablas desde Azure Portal. Si va a migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, asegúrese de proporcionar una clave de partición al crear las tablas de Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Herramienta de migración de datos
 

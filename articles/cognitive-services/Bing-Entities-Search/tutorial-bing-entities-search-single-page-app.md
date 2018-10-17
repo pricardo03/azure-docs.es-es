@@ -1,20 +1,21 @@
 ---
-title: Aplicación web de una sola página de Bing Entity Search | Microsoft Docs
+title: 'Tutorial: Aplicación web de página única de Bing Entity Search'
+titlesuffix: Azure Cognitive Services
 description: Aquí podrá ver cómo utilizar Bing Entity Search API en una aplicación web de una sola página.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382371"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815552"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: aplicación web de una sola página
 
@@ -48,7 +49,7 @@ En la aplicación del tutorial se muestra cómo:
 > * Administrar el id. de cliente de Bing y las claves de suscripción de la API
 > * Controlar los errores que se puedan producir
 
-La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript totalmente compatibles y funciona con las versiones actuales de los principales exploradores web.
+La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript ampliamente compatibles y funciona con las versiones actuales de los principales exploradores web.
 
 En este tutorial, solo se describen determinadas partes del código fuente. El código fuente completo está disponible [en otra página](tutorial-bing-entities-search-single-page-app-source.md). Copie y pegue este código en un editor de texto y guárdelo como `bing.html`.
 
@@ -64,7 +65,7 @@ Al igual que cualquier aplicación web de una sola página, la aplicación del t
 > * CSS: define el aspecto de la página
 > * JavaScript: define el comportamiento de la página
 
-Este tutorial no profundiza en la mayor parte del código HTML o CSS, así que es sencillo.
+Este tutorial no profundiza en la mayor parte de HTML o CSS, ya que es sencillo.
 
 El código HTML contiene el formulario de búsqueda en que el usuario escribe una consulta y elige las opciones de búsqueda. El formulario está conectado al código JavaScript que realmente realiza la búsqueda mediante el atributo `onsubmit` de la etiqueta `<form>`:
 
@@ -72,7 +73,7 @@ El código HTML contiene el formulario de búsqueda en que el usuario escribe un
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
 ```
 
-El controlador `onsubmit` devuelve `false`, que impide que el formulario que se envíe a un servidor. El código JavaScript hace el trabajo de recopilar la información necesaria del formulario y realizar la búsqueda.
+El controlador `onsubmit` devuelve `false`, lo que impide que el formulario que se envíe a un servidor. El código JavaScript hace el trabajo de recopilar la información necesaria del formulario y realizar la búsqueda.
 
 La búsqueda se realiza en dos fases. En primer lugar, si el usuario ha escrito una restricción de ubicación, se realiza una consulta de Mapas de Bing para convertirla en coordenadas. A continuación, la devolución de llamada de esta consulta inicia la consulta de Bing Entity Search.
 
@@ -156,13 +157,13 @@ function bingSearchOptions(form) {
 }
 ```
 
-Por ejemplo, la característica Búsqueda segura puede tener el valor `strict`, `moderate` u `off`. El valor predeterminado es `moderate`. Sin embargo, nuestro formulario utiliza una casilla que solo tiene dos estados. El código JavaScript convierte este valor en `strict` u `off` (no usamos `moderate`).
+Por ejemplo, la característica Búsqueda segura puede tener el valor `strict`, `moderate` u `off`. El valor predeterminado es `moderate`. Sin embargo, nuestro formulario usa una casilla que solo tiene dos estados. El código JavaScript convierte este valor en `strict` u `off` (no usamos `moderate`).
 
 El campo `mapquery` no se maneja en `bingSearchOptions()` porque se usa en la consulta de ubicación de Mapas de Bing, no para Bing Entity Search.
 
 ## <a name="obtaining-a-location"></a>Obtener una ubicación
 
-La API de Mapas de Bing ofrece un método](//msdn.microsoft.com/library/ff701711.aspx) [`locationQuery`, que usamos para encontrar la latitud y la longitud de la ubicación que especifica el usuario. Estas coordenadas se pasan a Bing Entity Search API junto con la solicitud del usuario. Los resultados de búsqueda clasifican las entidades y los lugares que están cerca de la ubicación especificada.
+La API de Mapas de Bing ofrece un [`locationQuery`método](//msdn.microsoft.com/library/ff701711.aspx), que usamos para encontrar la latitud y la longitud de la ubicación que especifica el usuario. Estas coordenadas se pasan a Bing Entity Search API junto con la solicitud del usuario. Los resultados de búsqueda clasifican las entidades y los lugares que están cerca de la ubicación especificada.
 
 No podemos acceder a la API de Mapas de Bing si usamos una consulta ordinaria `XMLHttpRequest` en una aplicación web, porque el servicio no admite consultas de origen cruzado. Afortunadamente, es compatible con JSONP (la "P" se refiere a "padded" o acolchado). Una respuesta JSONP es una respuesta JSON ordinaria encapsulada en una llamada a la función. La solicitud se realiza insertándola con una etiqueta `<script>` en el documento. (La carga de scripts no está sujeta a las directivas de seguridad del explorador).
 
@@ -381,11 +382,11 @@ Gran parte del código de las dos funciones anteriores está dedicado al control
 
 |Fase|Errores posibles|Controlado por|
 |-|-|-|
-|Crear un objeto de solicitud de JavaScript|Dirección URL no válida|bloqueo `try`/`catch`|
-|Hacer la solicitud|Errores de red, conexiones anuladas|controladores de eventos `error` y `abort`|
-|Realizar la búsqueda|Solicitud no válida, JSON no válido, límites de frecuencia|pruebas en el controlador de eventos `load`|
+|Crear un objeto de solicitud de JavaScript|Dirección URL no válida|Bloqueo `try`/`catch`|
+|Hacer la solicitud|Errores de red, conexiones anuladas|Controladores de eventos `error` y `abort`|
+|Realizar la búsqueda|Solicitud no válida, JSON no válido, límites de frecuencia|Pruebas en el controlador de eventos `load`|
 
-Los errores se controlan mediante una llamada a `renderErrorMessage()` con los detalles que se conoce sobre el error. Si la respuesta pasa todas las pruebas de error, llamamos a `renderSearchResults()` para mostrar los resultados de búsqueda en la página.
+Los errores se controlan mediante una llamada a `renderErrorMessage()` con los detalles que se conocen sobre el error. Si la respuesta pasa todas las pruebas de error, llamamos a `renderSearchResults()` para mostrar los resultados de la búsqueda en la página.
 
 ## <a name="displaying-search-results"></a>Mostrar los resultados de búsqueda
 
@@ -395,7 +396,7 @@ En su lugar, usamos la colección `rankingResponse` en los resultados de la bús
 
 `rankingResponse` puede contener hasta tres colecciones designadas de resultados de búsqueda; esto es, `pole`, `mainline` y `sidebar`. 
 
-`pole`, si está presente, es el resultado de búsqueda más relevante y debe mostrarse de manera destacada. `mainline` se refiere a la mayor parte de los resultados de búsqueda. Los resultados principales se deben mostrar inmediatamente después de `pole` (o primero, si `pole` no está presente). 
+`pole`, si está presente, es el resultado de búsqueda más apropiado y debe mostrarse de manera destacada. `mainline` se refiere a la mayor parte de los resultados de la búsqueda. Los resultados principales se deben mostrar inmediatamente después de `pole` (o antes, si `pole` no está presente). 
 
 Por último. `sidebar` hace referencia a los resultados de búsqueda auxiliares. Se pueden mostrar en una barra lateral o simplemente después de los resultados principales. Hemos elegido este último para nuestra aplicación tutorial.
 
@@ -403,15 +404,15 @@ Cada elemento en una colección `rankingResponse` hace referencia a los resultad
 
 | | |
 |-|-|
-|`id`|`id` es similar a una dirección URL, pero no debe usarse para los vínculos. El tipo `id` de un resultado de clasificación coincide con el `id` de un elemento del resultado de búsqueda en una colección de respuestas, *o* una colección de respuestas completa (como, por ejemplo, `Entities`).
-|`answerType`<br>`resultIndex`|`answerType` se refiere a la colección de respuestas de nivel superior que contiene el resultado (por ejemplo, `Entities`). `resultIndex` se refiere al índice del resultado dentro de esa colección. Si se omite `resultIndex`, el resultado de la clasificación se refiere a toda la colección.
+|`id`|`id` parece una dirección URL, pero no debe usarse para los vínculos. El tipo `id` de un resultado de clasificación coincide con el `id` de un elemento del resultado de búsqueda en una colección de respuestas, *o*  una colección de respuestas completa (como, por ejemplo, `Entities`).
+|`answerType`<br>`resultIndex`|`answerType` se refiere a la colección de respuestas de nivel superior que contiene el resultado (por ejemplo, `Entities`). `resultIndex` se refiere al índice del resultado dentro de la colección. Si se omite `resultIndex`, el resultado de la clasificación se refiere a toda la colección.
 
 > [!NOTE]
-> Para obtener más información sobre esta parte de la respuesta de búsqueda, consulte [Rank Results](rank-results.md) (Clasificar resultados).
+> Para más información acerca de esta parte de la respuesta de búsqueda, consulte [Clasificación de resultados](rank-results.md).
 
-Puede usar el método que sea más conveniente para su aplicación para ubicar el resultado de búsqueda referenciado. En nuestro código de tutorial, usamos `answerType` y `resultIndex` para ubicar cada resultado de búsqueda.
+Puede usar el método que sea más conveniente para su aplicación para ubicar el elemento resultado de la búsqueda al que se hace referencia. En el código del tutorial, usamos `answerType` y `resultIndex` para ubicar cada resultado de búsqueda.
 
-A continuación, debemos echar un vistazo a nuestra función `renderSearchResults()`. Esta función itera sobre las tres colecciones `rankingResponse` que representan las tres secciones de los resultados de búsqueda. En cada sección, llamamos a `renderResultsItems()` para que represente los resultados de esa sección.
+Por último, ha llegado el momento de echar un vistazo a nuestra función `renderSearchResults()`. Esta función se itera en las tres colecciones `rankingResponse` que representan las tres secciones de los resultados de la búsqueda. En cada sección, llamamos a `renderResultsItems()` para que represente los resultados de esa sección.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -431,7 +432,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>Renderizar elementos de resultado
 
-Nuestro código de JavaScript es un objeto (`searchItemRenderers`) que contiene *representadores;* es decir, funciones que generan código HTML para cada tipo de resultado de búsqueda.
+En nuestro código JavaScript es un objeto, `searchItemRenderers`, que contiene *representadores:* funciones que generan código HTML para cada tipo de resultado de búsqueda.
 
 ```javascript
 searchItemRenderers = { 
@@ -448,7 +449,7 @@ Una función de representador puede aceptar los parámetros siguientes:
 |`index`|El índice del elemento de resultado dentro de su colección.|
 |`count`|El número de elementos de la colección del elemento de resultado de la búsqueda.|
 
-Los parámetros `index` y `count` se pueden usar para numerar los resultados, para generar HTML especial para el principio o el final de una colección, para insertar saltos de línea después de cierto número de elementos, etc. Si un representador no necesita esta funcionalidad, no es necesario aceptar estos dos parámetros. De hecho, no los usamos en los representadores de nuestra aplicación del tutorial.
+Los parámetros `index` y `count` pueden usarse para numerar los resultados, para generar un código HTML especial para el principio o el final de una colección, para insertar saltos de línea después de cierto número de elementos, etc. Si un representador no necesita esta funcionalidad, no es necesario aceptar estos dos parámetros. De hecho, no los usamos en los representadores de nuestra aplicación del tutorial.
 
 Observemos más de cerca el representador `entities`:
 
@@ -513,22 +514,22 @@ La función del representador de imágenes:
 
 ## <a name="persisting-client-id"></a>Id. de cliente persistente
 
-Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se utilizan varias instancias de Bing Search API, se debe usar el mismo id. de cliente con todas ellas, si es posible.
+Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se utilizan varias instancias de Bing Search API, se debe usar el mismo identificador de cliente con todas ellas, si es posible.
 
-Proporcionar el encabezado `X-MSEdge-ClientID` permite a las API de Bing asociar todas las búsquedas de un usuario, lo que tiene dos ventajas importantes.
+Especificar el encabezado `X-MSEdge-ClientID` permite a las API de Bing asociar todas las búsquedas de un usuario, lo que tiene dos ventajas importantes.
 
 En primer lugar, permite al motor de búsqueda de Bing aplicar un contexto pasado a las búsquedas, para así buscar resultados que satisfagan mejor al usuario. Si un usuario ha buscado previamente términos relacionados con la navegación, por ejemplo, una búsqueda posterior de "muelles" podría devolver información acerca de los muelles que se usan para dejar un velero.
 
-En segundo lugar, Bing puede seleccionar aleatoriamente usuarios para disfrutar de nuevas características antes de que estén disponibles para el público. Proporcionar el mismo id. de cliente con cada solicitud garantiza que los usuarios elegidos para ver una característica la vean siempre. Sin el id. de cliente, el usuario puede ver aparecer y desaparecer de forma aparentemente aleatoria una característica en los resultados de búsqueda.
+En segundo lugar, Bing puede seleccionar aleatoriamente usuarios para disfrutar de nuevas características antes de que estén disponibles para el público. Proporcionar el mismo identificador de cliente con cada solicitud garantiza que los usuarios elegidos para ver una característica la vean siempre. Sin el identificador de cliente, el usuario puede ver una característica aparecer y desaparecer, de forma aparentemente aleatoria, en los resultados de búsqueda.
 
-Las directivas de seguridad del explorador (CORS) pueden impedir que el encabezado `X-MSEdge-ClientID` esté disponible para JavaScript. Esta limitación tiene lugar cuando la respuesta a la búsqueda tiene un origen distinto del de la página que la solicitó. En un entorno de producción, debería tratar esta directiva mediante el hospedaje de un script de lado servidor que realice la llamada de API en el mismo dominio que la página web. Puesto que el script tiene el mismo origen que la página web, el encabezado `X-MSEdge-ClientID` está disponible para JavaScript.
+Las directivas de seguridad del explorador (CORS) pueden impedir que el encabezado `X-MSEdge-ClientID` esté disponible para JavaScript. Esta limitación tiene lugar cuando la respuesta a la búsqueda tiene un origen distinto al de la página que la solicitó. En un entorno de producción, debería abordar esta directiva mediante el hospedaje de un script de lado servidor que realice la llamada API en el mismo dominio que la página web. Como el script tiene el mismo origen que la página web, el encabezado `X-MSEdge-ClientID` está disponible para JavaScript.
 
 > [!NOTE]
-> En una aplicación web de producción, debe realizar la solicitud del lado servidor de todos modos. En caso contrario, es necesario incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará por todo el uso bajo su clave de suscripción a API, incluso por las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
+> En una aplicación web de producción, debe realizar la solicitud del lado servidor de todos modos. En caso contrario, es preciso incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
 
-Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas, y hace que estén disponibles para JavaScript.
+Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
 
-Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial obtenga acceso al encabezado del id. de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos.
+Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial acceda al encabezado de identificador de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos:
 
     npm install -g cors-proxy-server
 
@@ -540,7 +541,7 @@ Por último, inicie el proxy CORS con el siguiente comando:
 
     cors-proxy-server
 
-Deje abierta la ventana de comandos mientras usa la aplicación del tutorial. Al cerrar la ventana, se detiene el proxy. En la sección de encabezados HTTP expandibles situada bajo los resultados de búsqueda, puede ver el encabezado `X-MSEdge-ClientID` (entre otras cosas) y comprobar que es el mismo para cada solicitud.
+Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya que si la cierra, se detendrá el proxy. En la sección de encabezados HTTP expandibles situada bajo los resultados de la búsqueda, puede ver el encabezado `X-MSEdge-ClientID` (entre otras cosas) y comprobar que es el mismo en todas las solicitudes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

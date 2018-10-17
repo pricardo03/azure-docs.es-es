@@ -1,52 +1,46 @@
 ---
-title: 'Guía de inicio rápido de Computer Vision API para Go: Análisis de imágenes | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision con Go en Cognitive Services.
+title: 'Guía de inicio rápido: Análisis de imágenes remotas - REST, Go - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision API con Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: ef7d6ac818f517615fc98f40ac073e6bfc9a65fd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ccdd8922993fb1ea3e723a68f28f95f7b6ffe93b
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772293"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632235"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-go"></a>Guía de inicio rápido: Análisis de imágenes remotas (REST, Go)
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Guía de inicio rápido: Análisis de imágenes remotas mediante la API de REST y Go en Computer Vision
 
-En esta guía de inicio rápido, analizará una imagen para extraer características visuales con Computer Vision.
+En esta guía de inicio rápido, analizará una imagen remota almacenada para extraer características visuales con la API de REST Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener [Go](https://golang.org/dl/) instalado.
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Solicitud Analyze Image
+## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 
-Con el [método de análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen. Puede cargar una imagen o especificar una URL de imagen y elegir qué características se van a devolver, como:
+Para crear y ejecutar el ejemplo, siga estos pasos:
 
-* Una lista detallada de las etiquetas relacionadas con el contenido de la imagen.
-* Una descripción del contenido de la imagen en una oración completa.
-* Las coordenadas, el sexo y la edad de las caras de la imagen.
-* El tipo de imagen (imágenes prediseñadas o dibujo lineal).
-* El color dominante, el color de énfasis o si una imagen está en blanco y negro.
-* La categoría definida en esta [taxonomía](../Category-Taxonomy.md).
-* ¿La imagen incluye contenido para adultos o insinuaciones de tipo sexual?
-
-Para ejecutar el ejemplo, siga estos pasos:
-
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `uriBase` por la ubicación donde obtuvo las claves de suscripción.
-1. También puede cambiar el valor `imageUrl` por la imagen que quiera analizar.
-1. Guarde el archivo con la extensión `.go`.
-1. Abra un símbolo del sistema en un equipo que tenga instalado Go.
-1. Compile el archivo, por ejemplo: `go build analyze-image.go`.
-1. Ejecute el archivo, por ejemplo: `analyze-image`.
+1. Copie el código siguiente en un editor de texto.
+1. Realice los siguientes cambios en el código donde sea necesario:
+    1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
+    1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Analizar imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. También puede reemplazar el valor de `imageUrl` por la dirección URL de una imagen diferente que desee analizar.
+1. Guarde el código como un archivo con una extensión `.go`. Por ejemplo, `analyze-image.go`.
+1. Abra una ventana de símbolo del sistema.
+1. En el símbolo del sistema, ejecute el comando `go build` para compilar el paquete desde el archivo. Por ejemplo, `go build analyze-image.go`.
+1. En el símbolo del sistema, ejecute el paquete compilado. Por ejemplo, `analyze-image`.
 
 ```go
 package main
@@ -61,12 +55,17 @@ import (
 )
 
 func main() {
-    // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+    // Replace <Subscription Key> with your valid subscription key.
     const subscriptionKey = "<Subscription Key>"
 
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
+    //
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze"
     const imageUrl =
@@ -78,18 +77,18 @@ func main() {
 
     reader := strings.NewReader(imageUrlEnc)
 
-    // Create the Http client
+    // Create the HTTP client
     client := &http.Client{
         Timeout: time.Second * 2,
     }
 
-    // Create the Post request, passing the image URL in the request body
+    // Create the POST request, passing the image URL in the request body
     req, err := http.NewRequest("POST", uri, reader)
     if err != nil {
         panic(err)
     }
 
-    // Add headers
+    // Add request headers
     req.Header.Add("Content-Type", "application/json")
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 
@@ -101,26 +100,26 @@ func main() {
 
     defer resp.Body.Close()
 
-    // Read the response body.
+    // Read the response body
     // Note, data is a byte array
     data, err := ioutil.ReadAll(resp.Body)
     if err != nil {
         panic(err)
     }
 
-    // Parse the Json data
+    // Parse the JSON data from the byte array
     var f interface{}
     json.Unmarshal(data, &f)
 
-    // Format and display the Json result
+    // Format and display the JSON result
     jsonFormatted, _ := json.MarshalIndent(f, "", "  ")
     fmt.Println(string(jsonFormatted))
 }
 ```
 
-## <a name="analyze-image-response"></a>Respuesta de Analyze Image
+## <a name="examine-the-response"></a>Examen de la respuesta
 
-Se devuelve una respuesta correcta en código JSON, por ejemplo:
+Se devuelve una respuesta correcta en JSON. La aplicación de ejemplo analiza y muestra una respuesta correcta en la ventana del símbolo del sistema, parecida a la del ejemplo siguiente:
 
 ```json
 {
@@ -178,9 +177,13 @@ Se devuelve una respuesta correcta en código JSON, por ejemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no los necesites, elimine el paquete compilado y el archivo desde el que se compiló el paquete y luego cierre la ventana del símbolo del sistema y el editor de texto.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar personajes y sitios emblemáticos, crear una miniatura y extraer texto impreso y escrito a mano. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar celebridades y sitios emblemáticos, crear una miniatura y extraer texto impreso y manuscrito. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Exploración de las versiones de Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido del SDK de Custom Search para C# | Microsoft Docs
-titleSuffix: Cognitive Services
+title: 'Guía de inicio rápido: SDK de Custom Search con C#'
+titleSuffix: Azure Cognitive Services
 description: Configuración de la aplicación de consola del SDK de Custom Search para C#.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6c9917e3a63515f36b386e444edcc53de07799fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949934"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816776"
 ---
-# <a name="c-sdk-quickstart"></a>Guía de inicio rápido de SDK para C#
+# <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Guía de inicio rápido: Uso del SDK de Bing Custom Search con C#
 
 Bing Custom Search SDK proporciona un modelo de programación más fácil que Bing Custom Search REST API. Esta sección le indicará cómo realizar las primeras llamadas a Custom Search con el SDK para C#.
 

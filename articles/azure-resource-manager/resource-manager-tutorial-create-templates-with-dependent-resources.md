@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: fe6313c059a1dd1050240ead5f7ca8e3e1512aa6
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160517"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584520"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes
 
 Aprenda a crear una plantilla de Azure Resource Manager para implementar varios recursos.  Después de crear la plantilla, puede implementarla mediante Cloud Shell en Azure Portal.
 
-Algunos de los recursos no se pueden implementar hasta que existe otro recurso. Por ejemplo, no se puede crear la máquina virtual hasta que existe su cuenta de almacenamiento y la interfaz de red. Esta relación se define al marcar un recurso como dependiente de los otros. Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](./resource-group-define-dependencies.md).
+En este tutorial, creará una cuenta de almacenamiento, una máquina virtual, una red virtual y algunos otros recursos dependientes. Algunos de los recursos no se pueden implementar hasta que existe otro recurso. Por ejemplo, no se puede crear la máquina virtual hasta que existe su cuenta de almacenamiento y la interfaz de red. Esta relación se define al marcar un recurso como dependiente de los otros. Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](./resource-group-define-dependencies.md).
 
 En este tutorial se describen las tareas siguientes:
 
@@ -33,7 +33,7 @@ En este tutorial se describen las tareas siguientes:
 > * Exploración de la plantilla
 > * Implementación de la plantilla
 
-Las instrucciones de este tutorial permiten crear una máquina virtual, una red virtual y algunos otros recursos dependientes. 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -176,4 +176,9 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha desarrollado e implementado una plantilla para crear una máquina virtual, una red virtual y los recursos dependientes. Para más información sobre las plantillas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
+En este tutorial, ha desarrollado e implementado una plantilla para crear una máquina virtual, una red virtual y los recursos dependientes. Para aprender a implementar recursos de Azure según condiciones, consulte:
+
+
+> [!div class="nextstepaction"]
+> [Condiciones de uso](./resource-manager-tutorial-use-conditions.md)
+

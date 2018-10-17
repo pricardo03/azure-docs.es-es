@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Entrenar un modelo de clasificación de imágenes con Azure Machine Learning'
+title: 'Tutorial: Entrenamiento de un modelo de clasificación de imágenes con el servicio Azure Machine Learning'
 description: En este tutorial se muestra cómo usar el servicio Azure Machine Learning para entrenar un modelo de clasificación de imágenes con Scikit Learn en un cuaderno de Jupyter en Python. Este tutorial es la primera de una serie de dos partes.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181405"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785145"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Tutorial n.º 1: Entrenar un modelo de clasificación de imágenes con Azure Machine Learning
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial 1: Entrenamiento de un modelo de clasificación de imágenes con el servicio Azure Machine Learning
 
 En este tutorial, entrenará un modelo de aprendizaje automático tanto localmente como en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación para el servicio Azure Machine Learning (versión preliminar) en un cuaderno de Jupyter en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
 
-En este tutorial se entrena una regresión logística simple usando el conjunto de datos de [MNIST](http://yann.lecun.com/exdb/mnist/) y [scikit-aprender](http://scikit-learn.org) con Azure Machine Learning.  MNIST es un conjunto de datos popular que consta de 70 000 imágenes en escala de grises. Cada imagen es un dígito escrito a mano de 28×28 píxeles, que representa un número de 0 a 9. El objetivo es crear un clasificador multiclase para identificar el dígito que representa una imagen determinada. 
+En este tutorial se entrena una regresión logística simple mediante el conjunto de datos [MNIST](http://yann.lecun.com/exdb/mnist/) y [scikit-learn](http://scikit-learn.org) con el servicio Azure Machine Learning.  MNIST es un conjunto de datos popular que consta de 70 000 imágenes en escala de grises. Cada imagen es un dígito escrito a mano de 28×28 píxeles, que representa un número de 0 a 9. El objetivo es crear un clasificador multiclase para identificar el dígito que representa una imagen determinada. 
 
 Obtenga información sobre cómo:
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="get-the-notebook"></a>Obtención del cuaderno
 
-Para su comodidad, este tutorial está disponible como un cuaderno de Jupyter. Use cualquiera de los dos métodos siguientes para clonar el [repositorio de GitHub de cuadernos de ejemplo de Machine Learning](https://github.com/Azure/MachineLearningNotebooks) y ejecute el cuaderno `tutorials/01.train-models.ipynb`:
+Para su comodidad, este tutorial está disponible como un [cuaderno de Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Ejecute el cuaderno `01.train-models.ipynb` en Azure Notebooks o en su propio servidor de cuadernos de Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial de Azure Machine Learning ha usado Python para:
+En este tutorial del servicio Azure Machine Learning, ha usado Python para:
 
 > [!div class="checklist"]
 > * Configuración de su entorno de desarrollo

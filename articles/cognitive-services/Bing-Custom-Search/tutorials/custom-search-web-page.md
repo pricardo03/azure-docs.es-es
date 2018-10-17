@@ -1,22 +1,23 @@
 ---
-title: 'Bing Custom Search: creación de una página web de búsqueda personalizada | Microsoft Docs'
+title: 'Tutorial: Creación de una página web de búsqueda personalizada con Bing Custom Search'
+titlesuffix: Azure Cognitive Services
 description: Se describe cómo configurar una instancia de búsqueda personalizada e integrarla en una página web.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8bc1520325afc256ac62cc1f1dfaf24c53da4b83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980005"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815382"
 ---
-# <a name="build-a-custom-search-web-page"></a>Creación de una página web de Custom Search
+# <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
 Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Por ejemplo, si tiene un sitio web de artes marciales que proporciona una experiencia de búsqueda, puede especificar los dominios, subsitios y páginas web en las que busque Bing. Los usuarios ven los resultados de búsqueda adaptados al contenido que les interesa en lugar de recorrer las páginas de resultados de búsqueda generales que pueden contener contenido carente de interés. 
 

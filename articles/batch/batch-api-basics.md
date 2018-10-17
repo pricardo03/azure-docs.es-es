@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746025"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735586"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -79,11 +79,13 @@ Se pueden ejecutar varias cargas de trabajo de Batch en una sola cuenta de Batch
 
 La mayoría de las soluciones de Batch usan Azure Storage para almacenar los archivos de recursos y los archivos de salida. Por ejemplo, las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) especifican normalmente archivos de recursos que residen en cuentas de almacenamiento.
 
-Batch admite las siguientes [opciones de cuenta](../storage/common/storage-account-options.md) de Azure Storage:
+Batch admite los siguientes tipos de cuentas de almacenamiento de Azure:
 
 * Cuentas de uso general v2 (GPv2) 
 * Cuentas de uso general v1 (GPv1)
 * Cuentas de Blob Storage (actualmente admitidas para grupos en la configuración de máquina virtual)
+
+Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
 
 Puede asociar una cuenta de almacenamiento con su cuenta de Batch cuando crea la cuenta de Batch o en otro momento. Al elegir una cuenta de almacenamiento, tenga en cuenta los requisitos de costo y rendimiento. Por ejemplo, las opciones de cuenta GPv2 y de Blob Storage admiten mayores [límites de capacidad y escalabilidad](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) si se compara con GPv1. (Póngase en contacto con el servicio de soporte técnico de Azure para solicitar un aumento en el límite de almacenamiento). Estas opciones de cuenta pueden mejorar el rendimiento de las soluciones de Batch que contienen un gran número de tareas en paralelo que se leen o escriben en la cuenta de almacenamiento.
 
@@ -540,7 +542,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

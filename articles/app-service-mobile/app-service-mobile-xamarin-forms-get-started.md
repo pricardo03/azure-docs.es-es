@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/25/2018
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: b2dafbcf0e41e7387157590e145f74430686321c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ef371447e851fece207d77fe656283abe3dc4164
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307126"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063870"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creación de una aplicación Xamarin.Forms con Azure
 
@@ -28,7 +28,7 @@ En este tutorial se muestra cómo agregar un servicio de back-end basado en la n
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Apps para aplicaciones Xamarin.Forms.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -181,7 +181,9 @@ Esta acción envía una solicitud POST al nuevo back-end Mobile Apps hospedado e
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Si tiene problemas para compilar la solución, ejecute el Administrador de paquetes NuGet y actualice a la versión más reciente de Xamarin.Forms y, en el proyecto de Android, actualice los paquetes de compatibilidad de Xamarin.Android. Puede que los proyectos de inicio rápido no incluyan las versiones más recientes.
+Si tiene problemas para compilar la solución, ejecute el administrador de paquetes NuGet y actualice a la versión más reciente de `Xamarin.Forms` y, en el proyecto de Android, actualice los paquetes de compatibilidad de `Xamarin.Android`. Puede que los proyectos de inicio rápido no incluyan las versiones más recientes.
+
+Tenga en cuenta que todos los paquetes de soporte a los que se hace referencia en el proyecto Android deben tener la misma versión. El [paquete NuGet para Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tiene una dependencia `Xamarin.Android.Support.CustomTabs` para la plataforma Android, por lo que si el proyecto usa paquetes de compatibilidad más recientes, debe instalar este paquete con la versión requerida directamente para evitar conflictos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

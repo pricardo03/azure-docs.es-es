@@ -3,7 +3,7 @@ title: 'Guía de inicio rápido de Azure Security Center: incorporación de equi
 description: En esta guía de inicio rápido se explica cómo incorporar equipos Linux a Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630104"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025400"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Linux a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento del agente de Linux.
 
 En esta guía de inicio rápido se explica cómo instalar el agente de Linux en un equipo Linux.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar esta guía de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho plan se puede probar de forma gratuita los primeros sesenta días.
@@ -39,13 +39,12 @@ Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar
 
  ![Introducción a Security Center][2]
 
-3. En el menú principal de Security Center, seleccione **Incorporación a la seguridad avanzada**.
-4. Seleccione **¿Quiere agregar equipos que no forman parte de Azure?**
-   ![Incorporación a la seguridad avanzada][3]
+3. En el menú principal de Security Center, seleccione **Introducción**.
+4. Seleccione la pestaña **Introducción**. ![Primeros pasos][3]
 
-5. En **Agregar nuevos equipos que no son de Azure**, se muestra una lista de las áreas de trabajo de Log Analytics. La lista incluye, si procede, el área de trabajo predeterminada que Security Center crea automáticamente si el aprovisionamiento automático está habilitado. Seleccione esta área de trabajo u otra que desee usar.
+5. Haga clic en **Configurar**, en **Agregar nuevos equipos que no son de Azure** y se mostrará una lista de las áreas de trabajo de Log Analytics. La lista incluye, si procede, el área de trabajo predeterminada que Security Center crea automáticamente si el aprovisionamiento automático está habilitado. Seleccione esta área de trabajo u otra que desee usar.
 
-    ![Agregar un equipo que no es de Azure][4]
+    ![Agregar un equipo que no es de Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
 6.  En la página **Agente directo**, en **DESCARGAR E INCORPORAR AGENTE PARA LINUX**, seleccione el botón **Copiar** para copiar el comando *wget*.
 
@@ -91,7 +90,7 @@ En esta guía de inicio rápido, se va a aprovisionar el agente en un equipo Lin
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png
 [2]: ./media/quick-onboard-linux-computer/overview.png
-[3]: ./media/quick-onboard-linux-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-linux-computer/get-started.png
 [4]: ./media/quick-onboard-linux-computer/add-computer.png
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png

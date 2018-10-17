@@ -1,5 +1,5 @@
 ---
-title: Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante .NET | Microsoft Docs
+title: Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante .NET
 description: Almacene datos estructurados en la nube mediante Azure Table Storage o Table API de Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918543"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042587"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,7 @@ En este ejemplo se muestra cómo usar la [biblioteca de tablas de Microsoft Azur
 Necesitará lo siguiente para completar este ejemplo correctamente:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Biblioteca común de Azure Storage para .NET (versión preliminar)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): un paquete obligatorio en su versión preliminar que se admite en entornos de producción. 
+* [Biblioteca común de Azure Storage para .NET (versión preliminar)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). un paquete obligatorio en su versión preliminar que se admite en entornos de producción. 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table): esta biblioteca solo está disponible actualmente para .NET Standard, aún no lo está para .NET Core.
 * [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Cuenta de Almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md)
@@ -105,7 +105,7 @@ Tiene tres opciones de entorno para ejecutar los ejemplos de esta guía:
 * Puede ejecutar el código en una cuenta de Azure Cosmos DB en la nube.
 * Puede ejecutar el código en el emulador de almacenamiento de Azure. El emulador de almacenamiento es un entorno local que emula una cuenta de Azure Storage en la nube. El emulador es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../storage/common/storage-use-emulator.md).
 
-Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para más información, consulte [Claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Azure Storage. Sin embargo, si selecciona que el destino sea una cuenta de Azure Storage en la nube, los costos derivados de la realización de este ejemplo serán insignificantes.
@@ -121,7 +121,6 @@ Para más información acerca de las cadenas de conexión, consulte [Configuraci
 
 > [!NOTE]
 > La clave de la cuenta es similar a la contraseña raíz de la cuenta de almacenamiento. Siempre debe proteger la clave de la cuenta de almacenamiento. Evite distribuirla a otros usuarios, codificarla de forma rígida o guardarla en un archivo de texto que sea accesible a otros usuarios. Vuelva a generar la clave mediante Azure Portal si cree que puede verse comprometida.
-> 
 > 
 
 Para configurar la cadena de conexión, abra el archivo `app.config` en el Explorador de soluciones de Visual Studio. Agregue el contenido del elemento `<appSettings>` , que se muestra a continuación. Reemplace `account-name` por el nombre de su cuenta y `account-key` por la clave de acceso:

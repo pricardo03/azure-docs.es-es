@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038296"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalización de la vista del operador en Azure IoT Central
 
@@ -50,9 +50,9 @@ Como generador, puede definir qué información se muestra en el panel del dispo
 
     ![Selección del dispositivo de aire acondicionado conectado](media/tutorial-customize-operator/selectdevice.png)
 
-    Al realizar un cambio en un dispositivo, como **Connected Air Conditioner-1**, se realiza un cambio en la plantilla subyacente. Para más información, consulte [Create a new device template version](howto-version-devicetemplate.md) (Creación de una versión de plantilla nueva del dispositivo).
+    Cuando se encuentra dentro de un dispositivo, como **Connected Air Conditioner-1**, puede seleccionar **Editar plantilla** para realizar un cambio en la plantilla subyacente. Para más información, consulte [Create a new device template version](howto-version-devicetemplate.md) (Creación de una versión de plantilla nueva del dispositivo).
 
-3. Para modificar un panel, elija **Dashboard** (Panel):
+3. Para editar un panel, elija **Panel** y seleccione **Editar plantilla**:
 
     ![Página del panel de la plantilla de dispositivo](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ Como generador, puede definir qué información se muestra en el panel del dispo
 
     ![Edición del diseño del panel](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Haga clic en **Listo** cuando haya terminado de realizar cambios.
+
 ## <a name="configure-your-settings-layout"></a>Configuración del diseño de los valores de configuración
 
 Como generador, también puede configurar la vista de los valores de configuración del dispositivo para el operador. El operador utiliza la página de los valores de configuración del dispositivo para configurarlo. Por ejemplo, el para establecer el objetivo de temperatura para el frigorífico.
 
-1. Para editar el diseño de los valores de configuración del aire acondicionado conectado, seleccione **Settings** (Configuración):
+1. Para editar el diseño de los valores de configuración del aire acondicionado conectado, elija **Configuración** y seleccione **Editar plantilla**:
 
     ![Página Configuración](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ Como generador, también puede configurar la vista de los valores de configuraci
 
     ![Edición del diseño de configuración](media/tutorial-customize-operator/settingslayout.png)
 
+3. Haga clic en **Listo** cuando haya terminado de realizar cambios.
+
 > [!NOTE]
-> En **Design Mode** (Modo de diseño), no se pueden editar los valores de configuración.
+> En el modo **Editar plantilla**, no se pueden editar los valores de configuración.
 
 ## <a name="configure-your-properties-layout"></a>Configuración del diseño de las propiedades
 
 Además del panel y la configuración, también puede configurar la vista de las propiedades del dispositivo para el operador. El operador utiliza la página de propiedades de dispositivo para administrar los metadatos de este. Por ejemplo, para ver el número de serie de un dispositivo o actualizar los datos de contacto del fabricante.
 
-1. Para editar el diseño de las propiedades del aire acondicionado conectado, seleccione **Properties** (Propiedades):
+1. Para editar el diseño de propiedades de su aire acondicionado conectado, elija **Propiedades** y seleccione **Editar plantilla**:
 
     ![Página de propiedades](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ Además del panel y la configuración, también puede configurar la vista de las
 
     ![Edición del diseño de las propiedades](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Haga clic en **Listo** cuando haya terminado de realizar cambios.
+
 > [!NOTE]
-> En **Design Mode** (Modo de diseño), no se pueden editar los valores de las propiedades.
+> En el modo **Editar plantilla**, no se pueden editar los valores de las propiedades.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Vista previa del dispositivo de aire acondicionado conectado como operador
 
-En **Design Mode** (Modo de diseño), puede personalizar el panel, la configuración y las páginas de propiedades para el operador. Al desactivar **Design Mode** (Modo de diseño), puede ver la aplicación como un operador.
+En **Modo de diseño**, puede personalizar el panel, la configuración y las páginas de propiedades para el operador. Si no está en el modo **Editar plantilla**, puede ver la aplicación como un operador.
 
-1. Para ver el dispositivo de aire acondicionado conectado como operador, desactive **Design Mode** (Modo de diseño). Para ello, desactive **Design Mode** (Modo de diseño) en la parte superior derecha de la página.
+1. Para ver el dispositivo de aire acondicionado conectado como operador, debe hacer clic en **Listo** para detener la edición de la plantilla. Esto le devolverá a una vista de operador del dispositivo.
 
-2. Para actualizar el número de serie de este dispositivo, edite el valor en el icono de número de serie y elija **Save** (Guardar):
+2. Para actualizar la ubicación de este dispositivo, edite el valor en el icono Ubicación y elija **Guardar**:
 
     ![Edición de un valor de propiedad](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ En **Design Mode** (Modo de diseño), puede personalizar el panel, la configurac
 
 Al iniciar sesión en una aplicación de Azure IoT Central, el generador o el operador ve una página principal. Como generador, puede configurar el contenido de esta página principal para que incluya el contenido más útil y pertinente para el operador.
 
-1. Para personalizar la página principal predeterminada, vaya a la página **principal** y active **Design Mode** (Modo de diseño) en la parte superior derecha de la página. Tras activar **Design Mode** (Modo de diseño), un panel se deslizará hacia fuera desde la derecha con una lista de los objetos que puede agregar a la página principal.
+1. Para personalizar la página principal predeterminada, vaya a la página **principal** y seleccione **Editar** en la parte superior derecha de la página. Al seleccionar **Editar**, un panel se deslizará hacia fuera desde la derecha con una lista de objetos que puede agregar a la página principal.
 
     ![Página Application Builder](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ Al iniciar sesión en una aplicación de Azure IoT Central, el generador o el op
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>Vista previa de la página principal predeterminada como operador
 
-Para una vista previa de la página principal como operador, desactive **Design Mode** (Modo de diseño) en la parte superior derecha de la página:
+Para obtener una vista previa de la página principal como operador y no editar más, seleccione **Listo** en la parte superior derecha de la página.
 
 ![Activación y desactivación del modo de diseño](media/tutorial-customize-operator/operatorviewhome.png)
 

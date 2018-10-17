@@ -6,27 +6,26 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4795de2126a34907ecdec69e87a059dbadd0c3d0
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152126"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380393"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guía de inicio rápido: Creación de una máquina virtual Windows Server con PowerShell en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Puede crear una máquina virtual Windows Server 2016 mediante el uso de PowerShell de Azure Stack. Siga los pasos descritos en este artículo para crear y usar una máquina virtual. Este artículo también proporciona los pasos para:
+Puede crear una máquina virtual Windows Server 2016 mediante el uso de PowerShell de Azure Stack. Siga los pasos descritos en este artículo para crear y usar una máquina virtual. En este artículo también se proporcionan los pasos para:
 
 * Conectarse a la máquina virtual con un cliente remoto.
 * Instalar al servidor web IIS y ver la página principal predeterminada.
@@ -35,11 +34,13 @@ Puede crear una máquina virtual Windows Server 2016 mediante el uso de PowerShe
 >[!NOTE]
  Puede seguir los pasos descritos en este artículo desde el Kit de desarrollo de Azure Stack o desde un cliente externo basado en Windows, si se conecta a través de VPN.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Asegúrese de que el operador de Azure Stack haya agregado la imagen "Windows Server 2016" a Marketplace de Azure Stack.
+* Asegúrese de que el operador de Azure Stack haya agregado la imagen **Windows Server 2016** a Marketplace de Azure Stack.
 
-* Azure Stack necesita una versión específica de Azure PowerShell para crear y administrar los recursos. Si no tiene PowerShell configurado para Azure Stack, siga estos pasos para [instalar](azure-stack-powershell-install.md) y [configurar](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack necesita una versión específica de Azure PowerShell para crear y administrar los recursos. Si no tiene PowerShell configurado para Azure Stack, siga estos pasos para [instalar](azure-stack-powershell-install.md) PowerShell.
+
+* Con Azure Stack PowerShell configurado, deberá conectarse al entorno de Azure Stack. Para instrucciones, consulte [Configuración del entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

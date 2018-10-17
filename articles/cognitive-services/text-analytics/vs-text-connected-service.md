@@ -1,23 +1,23 @@
 ---
-title: Tutorial de Text Analytics en C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Tutorial: Text Analytics con C#'
+titleSuffix: Azure Cognitive Services
 description: Conéctese a Text Analytics desde una aplicación web ASP.NET Core.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: conceptual
-ms.date: 06/01/2018
+ms.topic: tutorial
+ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068495"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605239"
 ---
-# <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>Conexión al servicio Text Analytics con Servicios conectados en Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Tutorial: Conexión a Text Analytics en Cognitive Services con Servicios conectados en Visual Studio
 
 Al usar el servicio Text Analytics, puede extraer información muy completa para clasificar y procesar datos visuales y llevar a cabo una moderación automática de las imágenes con el fin de facilitar el mantenimiento de los servicios.
 
@@ -26,7 +26,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versión 15.7 con la carga de trabajo de Desarrollo web instalado. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2017 15.7 con la carga de trabajo de Desarrollo web instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -259,7 +259,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
    
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite el grupo de recursos, elimínelo. De esta forma, se elimina el servicio cognitivo y los recursos relacionados. Para eliminar el grupo de recursos mediante el portal:
+Cuando ya no necesite el grupo de recursos, elimínelo. De esta forma, se eliminan la instancia de Cognitive Services y los recursos relacionados. Para eliminar el grupo de recursos mediante el portal:
 
 1. Escriba el nombre del grupo de recursos en el cuadro de búsqueda de la parte superior del portal. Cuando vea el grupo de recursos que se utiliza en este tutorial en los resultados de búsqueda, selecciónelo.
 2. Seleccione **Eliminar grupo de recursos**.

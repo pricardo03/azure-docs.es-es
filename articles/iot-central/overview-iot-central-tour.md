@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629378"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498273"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Un paseo por la interfaz de usuario de Azure IoT Central
 
@@ -39,7 +39,7 @@ Use el menú de navegación izquierdo para acceder a las diferentes áreas de la
 
 | Menú | DESCRIPCIÓN |
 | ---- | ----------- |
-| ![Menú de navegación izquierdo](media/overview-iot-central-tour/navigationbar.png) | <ul><li>El botón **Home** (Inicio) muestra la página principal de la aplicación. Como compilador, puede personalizar esta página de inicio para los operadores.</li><li>El botón **Device Explorer** (Explorador de dispositivos) muestra tanto las plantillas de dispositivo definidas en la aplicación como los dispositivos simulados y reales asociados a cada plantilla de dispositivo. Como operador, usará **Device Explorer** (Explorador de dispositivos) para administrar los dispositivos conectados.</li><li>El botón **Device Sets** (Conjuntos de dispositivos) permite ver y crear conjuntos de dispositivos. Como operador, puede crear conjuntos de dispositivos como una colección lógica de los dispositivos especificados por una consulta.</li><li>El botón **Analytics** (Análisis) muestra los análisis derivados de los datos de telemetría de los dispositivos y conjuntos de dispositivos. Como operador, puede crear vistas personalizadas a partir de los datos de los dispositivos para obtener información detallada de la aplicación.</li><li>El botón **Application Builder** (Compilador de aplicaciones) muestra las herramientas que un compilador utiliza, como la herramienta **Create Device Template** (Crear plantilla de dispositivo).</li><li>El botón **Administration** (Administración) muestra las páginas de administración de aplicaciones donde un administrador puede administrar la configuración de la aplicación, los usuarios y los roles.</li></ul> |
+| ![Menú de navegación izquierdo](media/overview-iot-central-tour/navigationbar.png) | <ul><li>El botón **Home** (Inicio) muestra la página principal de la aplicación. Como compilador, puede personalizar esta página de inicio para los operadores.</li><li>El botón **Device Explorer** (Explorador de dispositivos) muestra tanto las plantillas de dispositivo definidas en la aplicación como los dispositivos simulados y reales asociados a cada plantilla de dispositivo. Como operador, usará **Device Explorer** (Explorador de dispositivos) para administrar los dispositivos conectados.</li><li>El botón **Device Sets** (Conjuntos de dispositivos) permite ver y crear conjuntos de dispositivos. Como operador, puede crear conjuntos de dispositivos como una colección lógica de los dispositivos especificados por una consulta.</li><li>El botón **Analytics** (Análisis) muestra los análisis derivados de los datos de telemetría de los dispositivos y conjuntos de dispositivos. Como operador, puede crear vistas personalizadas a partir de los datos de los dispositivos para obtener información detallada de la aplicación.</li><li>El botón **Trabajos** habilita la administración masiva de dispositivos al tener que crear y ejecutar trabajos para llevar a cabo actualizaciones a escala.</li><li>El botón **Application Builder** (Compilador de aplicaciones) muestra las herramientas que un compilador utiliza, como la herramienta **Create Device Template** (Crear plantilla de dispositivo).</li><li>El botón **Administration** (Administración) muestra las páginas de administración de aplicaciones donde un administrador puede administrar la configuración de la aplicación, los usuarios y los roles.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Búsqueda, ayuda y soporte técnico
 
@@ -82,7 +82,13 @@ La página _Device Sets_ (Conjuntos de dispositivos) muestra los conjuntos de di
 
 La página de análisis muestra gráficos que le ayudarán a entender cómo se comportan los dispositivos conectados a la aplicación. Un operador usará esta página para supervisar e investigar los problemas de los dispositivos conectados. El compilador puede definir los gráficos que se muestran en esta página. Para más información, consulte el artículo [Create custom analytics for your Azure IoT Central application](howto-create-analytics.md) (Creación de análisis personalizados para la aplicación de Azure IoT Central).
 
-## <a name="application-builder"></a>Compilador de aplicaciones
+## <a name="jobs"></a>Trabajos
+
+![Página de trabajos](media/overview-iot-central-tour/jobs.png)
+
+La página de trabajos le permite realizar operaciones de administración en los dispositivos de forma masiva. El compilador usa esta página para actualizar los comandos, la configuración y las propiedades del dispositivo. Para obtener más información, consulte el artículo [Run a job](howto-run-a-job.md) (Ejecución de un trabajo).
+
+## <a name="application-builder"></a>Generador de aplicaciones
 
 ![Página Application Builder](media/overview-iot-central-tour/applicationbuilder.png)
 

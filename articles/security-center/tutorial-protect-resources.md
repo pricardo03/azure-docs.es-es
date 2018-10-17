@@ -3,7 +3,7 @@ title: 'Tutorial de Azure Security Center: protección de los recursos con Azure
 description: En este tutorial se muestra cómo configurar una directiva de acceso a VM Just-In-Time y una directiva de control de aplicaciones.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1d3d775a13f83ada6ca702eb984262668507f7e9
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363761"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025453"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a máquinas virtuales (VM) Just-In-Time reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a VM. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.

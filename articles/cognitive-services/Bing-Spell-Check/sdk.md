@@ -1,22 +1,21 @@
 ---
-title: 'Ejemplos de SDK de Bing Spell Check: Azure Cognitive Services | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
+title: 'Ejemplo: SDK de Bing Spell Check'
+titleSuffix: Azure Cognitive Services
 description: Ejemplos del SDK de Bing Spell Check para aplicaciones que realizan la revisión ortográfica y gramatical contextual.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: sample
 ms.date: 1/24/2018
 ms.author: v-gedod
-ms.openlocfilehash: 47326538146b328096dd4bb107057f97a36f70a3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 23edee53eb0f247c36f61878148877b40748a8b1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35380662"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802583"
 ---
 # <a name="bing-spell-check-sdk-samples"></a>Ejemplos de SDK de Bing Spell Check
 Los ejemplos de Bing Spell Check incluyen los escenarios que:

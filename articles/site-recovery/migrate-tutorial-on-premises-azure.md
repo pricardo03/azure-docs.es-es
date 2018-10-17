@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070684"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714996"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -40,10 +40,7 @@ Antes de empezar, le recomendamos que revise las arquitecturas del escenario de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
- 
-> [!WARNING]
-> Las máquinas virtuales se pueden migrar a otras plataformas de virtualización (distintas de VMware e Hyper-V) como XenServer; para este fin, se consideran servidores físicos. Sin embargo, este enfoque no ha sido probado ni validado por Microsoft y puede que no funcione. Por ejemplo, las máquinas virtuales que se ejecutan en la plataforma XenServer pueden no ejecutarse en Azure a menos que se desinstalen las herramientas de XenServer y los controladores de red y almacenamiento paravirtualizados de ellas antes de empezar la migración.
+No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
@@ -124,10 +121,43 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en los servidores físicos, las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide y atapi.
 
+## <a name="after-migration"></a>Después de la migración
+
+Una vez migradas las máquinas a Azure, hay una serie de pasos que debe completar.
+
+Algunos pasos se pueden automatizar como parte del proceso de migración con la funcionalidad de scripts de automatización integrada de los [planes de recuperación]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation).   
+
+
+### <a name="post-migration-steps-in-azure"></a>Pasos posteriores a la migración a Azure
+
+- Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web. 
+- Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
+- El [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) administra la interacción de una máquina virtual con el controlador de tejido de Azure. Se requiere para algunos servicios de Azure, como Azure Backup, Site Recovery y Azure Security.
+    - Si va a migrar servidores físicos y máquinas de VMware, el instalador de Mobility Service instala el agente de máquina virtual de Azure disponible en máquinas Windows. En máquinas virtuales Linux, se recomienda que instale al agente después de la conmutación por error. a
+    - Si va a migrar máquinas virtuales de Azure en una región secundaria, se debe aprovisionar el agente de máquina virtual de Azure en la máquina virtual antes de la migración.
+    - Si va a migrar máquinas virtuales de Hyper-V a Azure, instale al agente de máquina virtual de Azure en la máquina virtual de Azure después de la migración.
+- Quite manualmente cualquier proveedor/agente de Site Recovery de la máquina virtual. Si migra servidores físicos o máquinas virtuales de VMware, [desinstale el servicio Mobility][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] de la máquina virtual de Azure.
+- Para aumentar la resistencia:
+    - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el servicio Azure Backup. [Más información]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con Site Recovery. [Más información](azure-to-azure-quickstart.md).
+- Para aumentar la seguridad:
+    - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) de Azure Security Center.
+    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview).
+    - Implemente [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
+    - Obtenga más información sobre la [protección de recursos IaaS]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/ ).
+- Para supervisión y administración:
+    - Considere la posibilidad de implementar [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para supervisar el gasto y el uso de recursos.
+
+### <a name="post-migration-steps-on-premises"></a>Pasos posteriores a la migración local
+
+- Mueva el tráfico de la aplicación hasta la aplicación que se ejecuta en la instancia de máquina virtual de Azure migrada.
+- Quite las máquinas virtuales locales del inventario de máquinas virtuales local.
+- Quite las máquinas virtuales locales de las copias de seguridad locales.
+- Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Ahora que ha migrado correctamente las máquinas virtuales:
-- [Configuración de la recuperación ante desastres](azure-to-azure-replicate-after-migration.md) en las máquinas virtuales migradas.
-- Aprovechamiento de las funcionalidades de [Nube segura y bien administrada](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) de Azure para administrar las máquinas virtuales en Azure.
+En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Ahora, puede [configurar la recuperación ante desastres](azure-to-azure-replicate-after-migration.md) para las máquinas virtuales de Azure en una región secundaria de Azure.
+
   

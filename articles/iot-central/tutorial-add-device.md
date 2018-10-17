@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: dd68b65825c9c22453e0191d42a0fcce3b65ca64
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2e01f61ff915a8fe4327aa78c8867d666dc36fda
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236093"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983236"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adición de un dispositivo real a una aplicación de Azure IoT Central
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Comprender cómo se asigna código de cliente a la aplicación
 > * Configurar el código de cliente para el dispositivo real
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, el desarrollador debería realizar al menos el primer tutorial para desarrolladores para crear la aplicación de Azure IoT Central:
 
@@ -56,7 +56,7 @@ Para agregar un dispositivo real a la aplicación, usará la plantilla de dispos
 
    ![Primeros pasos para agregar un dispositivo de acondicionador de aire conectado real](media/tutorial-add-device/newreal.png)
 
-3. Si lo desea, puede cambiar el nombre de su nuevo dispositivo, para lo que debe seleccionar el nombre del dispositivo y editar el valor:
+3. Escriba el identificador de dispositivo (**debe estar en minúsculas**) o use el identificador de dispositivo sugerido. También puede escribir el nombre del nuevo dispositivo.  
 
    ![Cambio de nombre del dispositivo](media/tutorial-add-device/rename.png)
 
@@ -68,23 +68,36 @@ El dispositivo real se crea a partir de la plantilla de dispositivo **Connected 
 
     ![Configuración que muestra la sincronización](media/tutorial-add-device/settingssyncing.png)
 
-2. En la página **Properties** (Propiedades) del dispositivo de acondicionador de aire conectado real nuevo, establezca **Serial Number** (Número de serie) en **rcac0010** y **Firmware version** (Versión de firmware) en 9.75. Después, elija **Save** (Guardar):
+2. En la página **Properties** (Propiedades) del dispositivo de acondicionador de aire conectado real nuevo, establezca **Serial Number** (Número de serie) en **10001** y **Firmware version** (Versión de firmware) en 9.75. Después, elija **Save** (Guardar):
 
     ![Definición de propiedades del dispositivo real](media/tutorial-add-device/setproperties.png)
 
 3. Como desarrollador, puede ver las páginas **Measurements** (Medidas), **Rules** (Reglas) y **Dashboard** (Panel) del dispositivo real.
 
-## <a name="get-connection-string-for-real-device-from-application"></a>Obtener la cadena de conexión para el dispositivo real de la aplicación
+## <a name="get-connection-details-for-real-device-from-application"></a>Obtener los detalles de conexión para el dispositivo real de la aplicación
 
-Un desarrollador de dispositivos debe insertar la *cadena de conexión* del dispositivo real en el código que se ejecuta en el dispositivo. La cadena de conexión permite al dispositivo conectarse de forma segura a la aplicación de Azure IoT Central. Cada instancia de dispositivo tiene una cadena de conexión única. Los pasos siguientes muestran cómo buscar la cadena de conexión para una instancia de dispositivo en la aplicación:
+Un desarrollador de dispositivos debe insertar los *detalles de conexión del dispositivo* del dispositivo real en el código que se ejecuta en el dispositivo. La cadena de conexión permite al dispositivo conectarse de forma segura a la aplicación de Azure IoT Central. Los pasos siguientes muestran cómo buscar la cadena de conexión para una instancia de dispositivo en la aplicación:
 
 1. En la pantalla **Device** (Dispositivo) del dispositivo de acondicionador de aire conectado real, seleccione **Connect this device** (Conectar este dispositivo):
 
     ![Página del dispositivo con un vínculo de información de conexión](media/tutorial-add-device/connectionlink.png)
 
-2. En la página **Connect** (Conectar), copie **Primary connection string** (Cadena de conexión principal) y guárdela. Este valor se usará en la segunda parte de este tutorial. Un desarrollador de dispositivos usa este valor en la aplicación cliente que se ejecuta en el dispositivo:
+2. En la página **Conectar**, copie el **id. de ámbito, el id. de dispositivo y la clave principal** y guárdelos.
 
-    ![Valores de cadena de conexión](media/tutorial-add-device/connectionstring.png)
+   ![Detalles de conexión](media/tutorial-add-device/device-connect.PNG)
+
+   Use la herramienta de la línea de comandos siguiente para obtener la cadena de conexión del dispositivo.  
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+    **Uso**
+    
+    Para crear una cadena de conexión, busque el elemento binario en la carpeta bin/.
+    ```cmd/sh
+    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
+    ```
+    Obtenga más información sobre la [herramienta de la línea de comandos aquí](https://www.npmjs.com/package/dps-keygen).
 
 ## <a name="prepare-the-client-code"></a>Preparación del código de cliente
 
@@ -130,14 +143,17 @@ Los pasos siguientes muestran cómo preparar el código de ejemplo de [Node.js](
 
 8. Agregue las siguientes declaraciones de variable al archivo:
 
+ 
+
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
+   
 
    > [!NOTE]
-   > Actualizará el marcador de posición `{your device connection string}` en un paso posterior.
+   > Actualizará el marcador de posición `{your device connection string}` en un paso posterior. 
 
 9. Guarde los cambios que ha realizado hasta ahora, pero mantenga abierto el archivo.
 
@@ -248,8 +264,7 @@ En la sección anterior, creó un esquema de proyecto de Node.js para una aplica
 
 ## <a name="configure-client-code-for-the-real-device"></a>Configurar el código de cliente para el dispositivo real
 
-<!-- Add the connection string to the sample code, build, and run -->
-Para configurar el código de cliente para que se conecte a la aplicación de Azure IoT Central, debe agregar la cadena de conexión para el dispositivo real que anotó anteriormente en este tutorial.
+<!-- Add the connection string to the sample code, build, and run --> Para configurar el código de cliente para que se conecte a la aplicación de Azure IoT Central, debe agregar la cadena de conexión para el dispositivo real que anotó anteriormente en este tutorial.
 
 1. En el archivo **ConnectedAirConditioner.js**, busque la siguiente línea de código:
 

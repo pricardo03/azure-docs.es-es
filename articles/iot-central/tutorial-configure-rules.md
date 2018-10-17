@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236338"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731907"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configuración de reglas y acciones para el dispositivo en Azure IoT Central
 
-Este tutorial muestra cómo configurar las reglas basadas en la telemetría y acciones en la aplicación Microsoft Azure IoT Central como generador.
+*Este artículo se aplica a los administradores, operadores y compiladores.*
 
 En este tutorial se crea una regla que envía un correo electrónico cuando la temperatura de un dispositivo de aire acondicionado conectado supera los 90&deg; F.
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Crear una regla basada en la telemetría
 > * Agregar una acción
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, debe completar el tutorial [Definición de un nuevo tipo de dispositivo en la aplicación](tutorial-define-device-type.md) para crear la plantilla de dispositivo **Connected Aire Conditioner** con la que trabajar.
 
@@ -36,44 +36,48 @@ Antes de comenzar, debe completar el tutorial [Definición de un nuevo tipo de d
 
 1. Para agregar a la aplicación una nueva regla basada en la telemetría, en el menú de navegación izquierdo, elija **Device Explorer** (Explorador de dispositivos):
 
-    ![Página Device Explorer (Explorador de dispositivos)](media/tutorial-configure-rules/explorerpage.png)
+    ![Página Device Explorer (Explorador de dispositivos)](media/tutorial-configure-rules/explorerpage1.png)
 
     Verá la plantilla de dispositivo **Connected Aire Conditioner (1.0.0)** y el dispositivo **Connected Aire Conditioner-1** creado en el tutorial anterior.
 
 2. Para empezar a personalizar el dispositivo de aire acondicionado conectado, elija el dispositivo que creó en el tutorial anterior:
 
-    ![Página del aire acondicionado conectado](media/tutorial-configure-rules/builderdevicelist.png)
+    ![Página del aire acondicionado conectado](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. Para empezar a agregar una regla en la vista **Rules** (Reglas), elija **Rules** (Reglas):
+3. Para empezar a agregar una regla en la vista **Rules** (Reglas), elija **Rules** (Reglas) y luego haga clic en **Edit Template** (Editar plantilla):
 
-    ![Vista Rules (Reglas)](media/tutorial-configure-rules/builderrulesview.png)
+    ![Vista Rules (Reglas)](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. Para empezar a crear una regla de telemetría basada en umbrales, elija **New Rule** (Nueva regla) y **Telemetry** (Telemetría).
+4. Para crear una regla de telemetría basada en el umbral, haga clic en **New Rule** (Nueva regla) y luego en **Telemetry** (Telemetría).
+
+    ![Editar plantilla](media/tutorial-configure-rules/buildernewrule.png)
 
 5. Para definir la regla, use la información de la tabla siguiente:
 
-    | Configuración     | Valor                          |
-    | ----------- | ------------------------------ |
-    | NOMBRE        | Temperatura del aire acondicionado    |
-    | Habilitar regla | Por                             |
-    | Condición   | La temperatura supera los 90° |
+    | Configuración                                      | Valor                             |
+    | -------------------------------------------- | ------------------------------    |
+    | NOMBRE                                         | Alerta de temperatura de aire acondicionado |
+    | Habilitación de reglas para todos los dispositivos de esta plantilla | Por                                |
+    | Habilitar regla en este dispositivo                   | Por                                |
+    | Condición                                    | La temperatura supera los 90°    |
+    | Agregación                                  | None                              |
 
-    ![Condición de regla de temperatura](media/tutorial-configure-rules/buildertemperaturerule.png)
+    ![Condición de regla de temperatura](media/tutorial-configure-rules/buildertemperaturerule1.png)
 
 ## <a name="add-an-action"></a>Agregar una acción
 
 Al definir una regla, también se defina una acción que se ejecuta cuando se cumplen las condiciones de la regla. En este tutorial se agrega una acción para enviar una notificación de que se desencadenó la regla por correo electrónico.
 
-1. Para agregar una **acción**, desplácese hacia abajo en el panel **Configure Telemetry Rule** (Configurar regla de telemetría) y elija el símbolo **+** junto a **Actions** (Acciones) y **Email** (Correo electrónico):
+1. Para agregar una **acción**, primero **guarde** la regla y luego desplácese hacia abajo en el panel **Configure Telemetry Rule** (Configurar regla de telemetría) y seleccione el signo **+** junto a **Actions** (Acciones) y luego seleccione **Email** (Correo electrónico):
 
-    ![Acción de regla de temperatura](media/tutorial-configure-rules/builderaddaction.png)
+    ![Acción de regla de temperatura](media/tutorial-configure-rules/builderaddaction1.png)
 
 2. Para definir la acción, use la información de la tabla siguiente:
 
     | Configuración   | Valor                          |
     | --------- | ------------------------------ |
     | Para        | La dirección de correo electrónico propia             |
-    | Notas     | La temperatura del aire acondicionado ha superado el umbral. |
+    | Notas     | La temperatura del aire acondicionado excedió el umbral. |
 
     > [!NOTE]
     > Para recibir una notificación por correo electrónico, la dirección debe ser un [identificador de usuario de la aplicación](howto-administer.md) y ese usuario debe haber iniciado sesión en la aplicación al menos una vez.
@@ -82,7 +86,10 @@ Al definir una regla, también se defina una acción que se ejecuta cuando se cu
 
 3. Elija **Guardar**. La regla se muestra en la página **Rules** (Reglas):
 
-    ![Reglas del generador de aplicaciones](media/tutorial-configure-rules/builderrules.png)
+    ![Reglas del generador de aplicaciones](media/tutorial-configure-rules/builderrules1.png)
+
+4. Seleccione **Listo** para salir del modo **Editar plantilla**.
+ 
 
 ## <a name="test-the-rule"></a>Prueba de la regla
 

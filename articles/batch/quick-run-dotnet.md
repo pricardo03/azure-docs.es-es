@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 09/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513833"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814838"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Inicio rápido: ejecute su primer trabajo de Azure Batch con la API de .NET
 
@@ -25,9 +25,9 @@ En esta guía de inicio rápido se ejecuta un trabajo de Azure Batch desde una a
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* [IDE de Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 o una versión más reciente). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS o Windows. 
 
 * Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md). 
 
@@ -60,9 +60,11 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 ## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
 
-Para ver el flujo de trabajo de Batch en acción, compile y ejecute la aplicación. Después de ejecutar la aplicación, examine el código para ver qué es lo que hace cada parte de la aplicación. 
+Para ver el flujo de trabajo de Batch en acción, compile y ejecute la aplicación en Visual Studio o en la línea de comandos con los comandos `dotnet build` y `dotnet run`. Después de ejecutar la aplicación, examine el código para ver qué es lo que hace cada parte de la aplicación. Por ejemplo, en Visual Studio:
 
 * Haga clic con el botón derecho en la solución en el Explorador de soluciones y en **Compilar solución**. 
 
@@ -122,9 +124,9 @@ La aplicación usa la referencia `blobClient` para crear un contenedor en la cue
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
+    "taskdata0.txt",
+    "taskdata1.txt",
+    "taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();
@@ -192,7 +194,7 @@ try
 
     job.Commit(); 
 }
-...       
+...
 ```
 
 ### <a name="create-tasks"></a>Creación de tareas

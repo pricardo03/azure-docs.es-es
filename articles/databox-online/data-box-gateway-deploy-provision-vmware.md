@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419549"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017455"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en VMware (versión preliminar)
 
@@ -96,7 +96,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
 1. Copie la imagen del dispositivo virtual en el sistema. Esta imagen virtual (dos archivos) la ha descargado a través de Azure Portal. Anote la ubicación en la que copió la imagen, ya que la va a utilizar más adelante en el procedimiento.
 
-2. Inicie sesión en el servidor de ESXi mediante el cliente de vSphere. Para crear una máquina virtual es preciso tener privilegios de administrador.
+2. Inicie sesión en el servidor de ESXi mediante el cliente web de vSphere. Para crear una máquina virtual es preciso tener privilegios de administrador.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. En el panel derecho, bajo **Datastores**(Almacenes de datos), seleccione el almacén de datos donde quiere cargar el VMDK. El almacén de datos debe ser del tipo VMFS 5. También debe tener suficiente espacio disponible para los discos del sistema operativo y de datos.
+4. En el panel derecho, bajo **Datastores**(Almacenes de datos), seleccione el almacén de datos donde quiere cargar el VMDK. 
+
+    - El almacén de datos debe ser de tipo VMFS5. 
+    - También debe tener suficiente espacio disponible para los discos del sistema operativo y de datos.
    
 5. Haga clic con el botón derecho y seleccione **Browse Datastore**(Examinar almacén de datos).
 
@@ -145,11 +148,11 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 15. En la página **Select storage** (Seleccionar almacenamiento), seleccione el almacén de datos que desee utilizar para aprovisionar la máquina virtual. Haga clic en **Next**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. En la página **Customize settings** (Personalizar configuración), en **CPU** seleccione 4, en **Memory** (Memoria) seleccione 8192 MB (o más) y en **Hard disk 1** (Disco duro 1), seleccione 2 TB (o más). Elija el tipo de **disco duro SCSI** que va a agregar. En este caso, era LSI Logic SAS. **Los discos IDE estáticos no son compatibles.** El **disco duro 1** es el disco de datos virtual. Tenga en cuenta que una vez que el disco se aprovisiona su tamaño no se puede reducir.
+16. En la página **Customize settings** (Personalizar configuración), en **CPU** seleccione 4, en **Memory** (Memoria) seleccione 8192 MB (o más) y en **Hard disk 1** (Disco duro 1), seleccione 2 TB (o más). Elija el **disco duro SCSI** que se agregará. En este caso, era LSI Logic SAS. **Los discos IDE estáticos no son compatibles.** El **disco duro 1** es el disco de datos virtual. Tenga en cuenta que una vez que el disco se aprovisiona su tamaño no se puede reducir.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    En la misma página, haga clic en **Add hard disk** (Agregar disco duro) y, después, seleccione **Existing hard disk** (Disco duro existente). Así se agrega un disco de sistema operativo. 
+    En la misma página, haga clic en **Add hard disk** (Agregar disco duro) y, después, seleccione **Existing hard disk** (Disco duro existente). Seleccione el archivo VMDK en el almacén de datos. Esta acción agrega un disco del sistema operativo. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

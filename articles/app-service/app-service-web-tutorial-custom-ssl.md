@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887513"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857931"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps
 
@@ -66,7 +66,7 @@ Para usar un certificado en App Service, el certificado debe cumplir los siguien
 
 ## <a name="prepare-your-web-app"></a>Preparar la aplicación web
 
-Para enlazar un certificado SSL personalizado a la aplicación web, su [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe estar en el nivel **Básico**, **Estándar** o **Premium**. En este paso, asegúrese de que la aplicación web se encuentra en el plan de tarifa compatible.
+Para enlazar un certificado SSL personalizado a la aplicación web, su [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe estar en el nivel **Básico**, **Estándar**, **Premium** o **Aislado**. En este paso, asegúrese de que la aplicación web se encuentra en el plan de tarifa compatible.
 
 ### <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 

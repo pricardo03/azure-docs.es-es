@@ -1,25 +1,27 @@
 ---
-title: Translator Text identifica el idioma del texto con C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido se identifica el idioma del texto de origen mediante Translator Text API con C# en Cognitive Services.
+title: 'Guía de inicio rápido: Identificación del idioma del texto - Translator Text, C#'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido se identifica el idioma del texto de origen mediante Translator Text API con C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 381478f3125371fbcb5f6466af68f63e4e04bb3f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43770635"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368059"
 ---
 # <a name="quickstart-identify-language-from-text-with-c35"></a>Guía de inicio rápido: identificación del idioma del texto con C&#35;
 
 En esta guía de inicio rápido se identifica el idioma del texto de origen mediante Translator Text API.
+
+El código fuente del ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

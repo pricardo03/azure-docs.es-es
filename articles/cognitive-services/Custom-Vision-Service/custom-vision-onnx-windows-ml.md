@@ -1,20 +1,21 @@
 ---
-title: 'Uso del modelo ONNX de Custom Vision con Windows ML: Cognitive Services | Microsoft Docs'
-description: Obtenga información acerca de cómo crear una aplicación para UWP de Windows que utilice un modelo ONNX exportado desde Cognitive Services.
+title: 'Tutorial: Uso de un modelo ONNX con Windows ML - Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información acerca de cómo crear una aplicación para UWP de Windows que utilice un modelo ONNX exportado desde Azure Cognitive Services.
 services: cognitive-services
 author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 0b128ba1800e74c20c09a9c5711c8473f1dd00d0
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3a9e9bc92ce38c4bb8d6d83c8017fa223342e7d2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939443"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365611"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: uso de un modelo ONNX de Custom Vision con Windows ML (versión preliminar)
 
@@ -28,7 +29,7 @@ La información de este documento muestra cómo usar un archivo ONNX exportado d
 > * Ejecutar el ejemplo
 > * Uso de su propio modelo
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un dispositivo Windows 10 con:
 

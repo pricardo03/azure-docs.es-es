@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/07/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e35a63a36a84316815d609afa178f9a896415c2b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068987"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584123"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Creación de una máquina virtual mediante una contraseña segura almacenada en Key Vault de Azure Stack
 
@@ -34,11 +33,11 @@ Puede almacenar valores, por ejemplo, una contraseña como un secreto, en un alm
 * No tiene que escribir manualmente el secreto cada vez que implemente un recurso.
 * Puede especificar qué usuarios o entidades de servicio pueden acceder a un secreto.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Debe suscribirse a una oferta que incluya el servicio Key Vault.
 * [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)
-* [Configuración del entorno de PowerShell del usuario de Azure Stack.](azure-stack-powershell-configure-user.md)
+* [Configure el entorno de PowerShell.](azure-stack-powershell-configure-user.md)
 
 Los pasos siguientes describen el proceso necesario para crear una máquina virtual mediante la recuperación de la contraseña almacenada en un almacén de claves:
 
@@ -46,13 +45,14 @@ Los pasos siguientes describen el proceso necesario para crear una máquina virt
 2. Actualice el archivo azuredeploy.parameters.json.
 3. Implemente la plantilla.
 
->[NOTA] Puede seguir estos pasos ya sea desde el Kit de desarrollo de Azure Stack o desde un cliente externo, si se conecta a través de VPN.
+> ![NOTE]  
+> Puede seguir estos pasos desde el Kit de desarrollo de Azure Stack o desde un cliente externo, si se conecta a través de VPN.
 
 ## <a name="create-a-key-vault-secret"></a>Creación de un secreto de almacén de claves
 
 El script siguiente crea un almacén de claves y almacena en él una contraseña como un secreto. Use el parámetro `-EnabledForDeployment` al crear el almacén de claves. Este parámetro se asegura de que se puede hacer referencia al almacén de claves desde las plantillas de Azure Resource Manager.
 
-```powershell
+```PowerShell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -117,7 +117,7 @@ Actualice el archivo azuredeploy.parameters.json con los valores de KeyVault URI
 
 Ahora implemente la plantilla con el siguiente script de PowerShell:
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

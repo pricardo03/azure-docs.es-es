@@ -1,25 +1,25 @@
 ---
-title: 'Guía de inicio rápido: ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics | Microsoft Docs'
+title: 'Guía de inicio rápido: Ejecución de un flujo de trabajo mediante Microsoft Genomics'
 description: La guía de inicio rápido muestra cómo cargar datos de entrada en Azure Blob Storage y cómo ejecutar un flujo de trabajo mediante el servicio Microsoft Genomics.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023251"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731094"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guía de inicio rápido: ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics
 
-Microsoft Genomics es un servicio escalable y seguro para el análisis secundario que puede procesar rápidamente un genoma; este proceso empieza por lecturas de datos sin formato y produce lecturas alineadas y llamadas a variantes. Empiece a trabajar en unos pocos pasos: 
+Esta guía de inicio rápido muestra cómo cargar datos de entrada en Azure Blob Storage y cómo ejecutar un flujo de trabajo mediante el servicio Microsoft Genomics. Microsoft Genomics es un servicio escalable y seguro para el análisis secundario que puede procesar rápidamente un genoma; este proceso empieza por lecturas de datos sin formato y produce lecturas alineadas y llamadas a variantes. 
+
+Empiece a trabajar en unos pocos pasos: 
 1.  Configuración: cree una cuenta de Microsoft Genomics mediante Azure Portal e instale el cliente de Python de Microsoft Genomics en su entorno local. 
 2.  Carga de datos de entrada: cree una cuenta de Microsoft Azure Storage mediante Azure Portal y cargue los archivos de entrada. Los archivos de entrada deben ser lecturas de extremos emparejados (archivos fastq o bam).
 3.  Ejecución: use la interfaz de la línea de comandos de Microsoft Genomics para ejecutar flujos de trabajo mediante el servicio Microsoft Genomics. 

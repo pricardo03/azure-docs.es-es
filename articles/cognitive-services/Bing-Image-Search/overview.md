@@ -1,6 +1,7 @@
 ---
-title: ¿Qué es Bing Image Search? | Microsoft Docs
-description: Obtenga información acerca de cómo usar Bing Images Search API para buscar imágenes en la Web.
+title: ¿Qué es Bing Image Search?
+titleSuffix: Azure Cognitive Services
+description: Bing Image Search API le permite usar funcionalidades cognitivas de búsqueda de imágenes de Bing en la aplicación. Envíe consultas de búsqueda de usuarios con la API para obtener y mostrar imágenes relacionadas y de alta calidad similares a Bing Images.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: ebf8c28b843768a9081a0086b10e4adf04572ea1
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42889274"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295366"
 ---
 # <a name="what-is-bing-image-search"></a>¿Qué es Bing Image Search?
 
@@ -40,9 +41,9 @@ Aunque Bing Image Search encuentra y devuelve principalmente imágenes relevante
 
 Bing Image Search API es un servicio web RESTful, lo que significa que es fácil llamar desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar código JSON. Puede usar el servicio con la [API REST](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp?) o el [SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
-1. Cree una [cuenta de API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Bing Search APIs. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita. 
+1. Cree una [cuenta de API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Bing Search APIs. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
 2. Envíe una solicitud a la API con una [consulta de búsqueda](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) válida.
-3. Analice el mensaje JSON devuelto para procesar la respuesta de API. 
+3. Analice el mensaje JSON devuelto para procesar la respuesta de API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -64,4 +65,4 @@ Para empezar rápidamente con la primera solicitud de API, puede conocer cómo:
 
 * En el tema [Obtención de imágenes desde la web con Bing Image Search API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) se describe cómo buscar y obtener imágenes de la Web.
 
-* En el tema [Envío y trabajo con consultas de búsqueda](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) se describe cómo realizar, personalizar y dinamizar consultas de búsqueda. 
+* En el tema [Envío y trabajo con consultas de búsqueda](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) se describe cómo realizar, personalizar y dinamizar consultas de búsqueda.

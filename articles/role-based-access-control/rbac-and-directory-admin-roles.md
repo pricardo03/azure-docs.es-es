@@ -1,5 +1,5 @@
 ---
-title: Roles de administrador de suscripciones clásicas frente a roles de RBAC de Azure frente a roles de administrador de Azure AD | Microsoft Docs
+title: Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD | Microsoft Docs
 description: 'Describe los diferentes roles en Azure: roles de administrador de suscripciones clásicas, roles de control de acceso basado en rol de Azure (RBAC) y roles de administrador de Azure Active Directory (Azure AD).'
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 401c9a3df4cb132769e05cb0487a763f4080dd23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714101"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304094"
 ---
-# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásicas frente a roles de RBAC de Azure frente a Roles de administrador de Azure AD
+# <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD
 
 Si no está familiarizado con Azure, le resultará un poco difícil de entender todos los distintos roles en Azure. En este artículo se explican los siguientes roles y cuándo se usa cada uno:
 - Roles de administrador de suscripciones clásicas
@@ -44,15 +44,15 @@ Administrador de cuenta, administrador de servicios y coadministrador son las tr
 
 | Administrador de suscripciones clásicas | Límite | Permisos | Notas |
 | --- | --- | --- | --- |
-| Administrador de cuenta | 1 por cuenta de Azure | <ul><li>Acceder al [Centro de cuentas de Azure](https://account.azure.com/Subscriptions)</li><li>Administrar todas las suscripciones en una cuenta</li><li>Crear nuevas suscripciones</li><li>Cancelar suscripciones</li><li>Cambiar la facturación de una suscripción</li><li>Cambiar el administrador de servicios</li></ul> | Desde un punto de vista conceptual, el propietario de la facturación de la suscripción.|
-| Administrador de servicios | 1 por cada suscripción de Azure | <ul><li>Administrar servicios en [Azure Portal](https://portal.azure.com)</li><li>Asignar a usuarios al rol de coadministrador</li></ul> | De forma predeterminada, en una nueva suscripción, el administrador de cuenta es también el administrador de servicios.<br>El administrador de servicios tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción. |
+| Administrador de cuenta | 1 por cuenta de Azure | <ul><li>Acceder al [Centro de cuentas de Azure](https://account.azure.com/Subscriptions)</li><li>Administrar todas las suscripciones en una cuenta</li><li>Crear nuevas suscripciones</li><li>Cancelar suscripciones</li><li>Cambiar la facturación de una suscripción</li><li>Cambiar el administrador de servicios</li></ul> | Desde un punto de vista conceptual, el propietario de la facturación de la suscripción.<br>El administrador de cuenta no tiene acceso a Azure Portal. |
+| Administrador de servicios | 1 por cada suscripción de Azure | <ul><li>Administrar servicios en [Azure Portal](https://portal.azure.com)</li><li>Asignar a usuarios al rol de coadministrador</li></ul> | De forma predeterminada, en una nueva suscripción, el administrador de cuenta es también el administrador de servicios.<br>El administrador de servicios tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción.<br>El administrador de servicios tiene permiso total de acceso a Azure Portal. |
 | Coadministrador | 200 por suscripción | <ul><li>Mismos privilegios de acceso que el administrador de servicios, pero no puede cambiar la asociación de suscripciones a directorios de Azure</li><li>Asignar usuarios al rol de coadministrador, pero no puede cambiar el administrador de servicios</li></ul> | El coadministrador tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción. |
 
 En Azure Portal, puede ver quién está asignado al administrador de cuenta y al administrador de servicios viendo las propiedades de su suscripción.
 
 ![Administrador de cuenta y administrador de servicios en Azure Portal](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
-Para obtener información sobre cómo agregar o cambiar administradores de suscripción, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md) en la documentación de facturación de Azure.
+Para información sobre cómo agregar o cambiar administradores de la suscripción clásica, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md) en la documentación de facturación de Azure.
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Cuenta de Azure y suscripciones de Azure
 

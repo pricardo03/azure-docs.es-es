@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918926"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578383"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Informe de seguridad de usuarios marcados en riesgo en el portal de Azure Active Directory
 
@@ -29,9 +29,9 @@ Azure Active Directory detecta acciones sospechosas relacionadas con las cuentas
 
 Los eventos de riesgo detectados se utilizan para calcular:
 
-- **Inicios de sesión peligrosos**: un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. Para más información, consulte [Inicios de sesión no seguros](../identity-protection/overview.md#risky-sign-ins). 
+- **Inicios de sesión peligrosos**: un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. Para más información, consulte [Configuración de la directiva de riesgo de inicio de sesión](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. Para más información, consulte [Usuarios marcados en riesgo](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. Para más información, consulte [Procedimiento de configuración de la directiva de riesgo del usuario](../identity-protection/howto-user-risk-policy.md).  
 
 En Azure Portal, puede encontrar los informes de seguridad en la hoja **Azure Active Directory** de la sección **Seguridad**.  
 
@@ -78,13 +78,13 @@ Este cuadro de diálogo proporciona una opción para:
 
 El informe de usuarios marcados en riesgo de las ediciones Azure Active Directory Premium proporciona lo siguiente:
 
-- Una [lista de cuentas de usuario](../identity-protection/overview.md#users-flagged-for-risk) que podrían estar en peligro 
+- Una lista de cuentas de usuario que podrían estar en peligro 
 
 - Información agregada sobre los [tipos de eventos de riesgo](concept-risk-events.md) que se han detectado
 
 - Una opción para descargar el informe
 
-- Una opción para configurar una [directiva de corrección de riesgos de usuario](../identity-protection/overview.md#user-risk-security-policy)  
+- Una opción para configurar una [directiva de corrección de riesgos de usuario](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![Inicios de sesión no seguros](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Cuando selecciona un usuario, obtiene una vista detallada del informe para este 
 ![Inicios de sesión no seguros](./media/concept-user-at-risk/324.png)
 
 
-Para investigar un evento de riesgo, seleccione uno de la lista para abrir la hoja **Detalles** de este evento de riesgo. En la hoja **Detalles**, tiene la opción de [cerrar manualmente un evento de riesgo](../identity-protection/overview.md#closing-risk-events-manually) o de volver a activar un evento de riesgo cerrado manualmente. 
+Para investigar un evento de riesgo, seleccione uno de la lista para abrir la hoja **Detalles** de este evento de riesgo. En la hoja **Detalles**, tiene la opción de cerrar manualmente un evento de riesgo o de volver a activar un evento de riesgo cerrado manualmente. 
 
 
 ![Inicios de sesión no seguros](./media/concept-user-at-risk/325.png)

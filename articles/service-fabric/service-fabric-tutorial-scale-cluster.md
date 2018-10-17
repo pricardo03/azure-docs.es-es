@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408517"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238772"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escala de un clúster de Service Fabric
 
@@ -121,7 +121,7 @@ La reducción horizontal funciona de la misma forma que la escalabilidad horizon
 > [!NOTE]
 > Esta parte solo se aplica al nivel de durabilidad *Bronce*. Para obtener más información sobre la durabilidad, consulte [planeamiento de capacidad del clúster de Service Fabric][durability].
 
-Al reducir horizontalmente un conjunto de escalado de máquinas virtuales, dicho conjunto, en la mayoría de los casos, elimina la última instancia de máquina virtual que se creó. Por tanto, debe buscar el último nodo creado, el nodo de coincidencia y el nodo de Service Fabric. Puede encontrar el último nodo si consulta la propiedad `NodeInstanceId` con el valor más alto en los nodos de Service Fabric. Los ejemplos de código siguientes se ordenan por la instancia del nodo y devuelven los detalles sobre la instancia con el valor de identificador más alto.
+Para mantener los nodos del clúster distribuidos uniformemente entre los dominios de actualización y error y, por lo tanto, permitir su uso homogéneo, primero se debe quitar el nodo creado más recientemente. En otras palabras, los nodos se deben quitar en orden inverso al que se crearon. El nodo creado más recientemente es aquel con el valor de propiedad `virtual machine scale set InstanceId` más grande. Los ejemplos de código siguientes devuelven el nodo creado más recientemente.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -137,7 +137,7 @@ El clúster de Service Fabric debe saber que este nodo se va a quitar. Debe real
 PowerShell: `Disable-ServiceFabricNode`  
 sfctl: `sfctl node disable`
 
-2. Detenga el nodo para que el tiempo de ejecución de Service Fabric se cierre sin problemas y para que la aplicación obtenga una solicitud de finalización.  
+2. Detenga el nodo para que el entorno de ejecución de Service Fabric se cierre sin problemas y para que la aplicación obtenga una solicitud de finalización.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
 sfctl: `sfctl node transition --node-transition-type Stop`
 

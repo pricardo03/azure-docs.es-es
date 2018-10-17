@@ -1,29 +1,30 @@
 ---
-title: Inicio rápido de Emotion API en Java para Android | Microsoft Docs
-description: Obtenga información y un ejemplo de código que le ayuden a empezar a usar rápidamente Emotion API con Java para Android en Cognitive Services.
+title: 'Guía de inicio rápido: Reconocimiento de emociones en las caras de una imagen con Emotion API en Java'
+description: Obtenga información y un ejemplo de código que le ayuden a empezar a usar rápidamente Emotion API con Java para Android.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018033"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237627"
 ---
-# <a name="emotion-api-java-for-android-quick-start"></a>Inicio rápido de Emotion API en Java para Android
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guía de inicio rápido: Creación de una aplicación para reconocer emociones en las caras de una imagen
 
 > [!IMPORTANT]
-> La versión preliminar de Video API terminará el 30 de octubre de 2017. Pruebe la versión preliminar de la nueva [Video Indexer API con una extracción sencilla de detalles en](https://azure.microsoft.com/services/cognitive-services/video-indexer/) vídeos y mejore las experiencias de detección de contenido, como los resultados de la búsqueda, gracias al reconocimiento de texto oral, caras, caracteres y emociones. [Más información](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API dejará de usarse el 15 de febrero de 2019. La funcionalidad de reconocimiento de emociones está ahora disponible con carácter general como parte de [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Este artículo proporciona información y un ejemplo de código que le ayuda a empezar a usar rápidamente el [método de reconocimiento de Emotion API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) en la biblioteca cliente de Android de Emotion API. El ejemplo muestra cómo puede usar Java para reconocer las emociones expresadas por personas. 
+Este artículo proporciona información y un ejemplo de código que le ayuda a empezar a usar rápidamente el [método de reconocimiento de Emotion API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) en la biblioteca cliente de Android de Emotion API. El ejemplo muestra cómo puede usar Java para reconocer las emociones expresadas por personas.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Obtenga el SDK de Emotion API en Java para Android [aquí](https://github.com/Microsoft/Cognitive-emotion-android).
 * Obtenga su clave de suscripción gratuita [aquí](https://azure.microsoft.com/try/cognitive-services/).
 
@@ -50,7 +51,7 @@ public class Main
         try
         {
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize");
 
@@ -84,10 +85,10 @@ public class Main
 ## <a name="recognize-emotions-sample-response"></a>Respuesta de ejemplo de reconocimiento de emociones
 Una llamada correcta devuelve una matriz de entradas de cara y sus puntuaciones de emoción asociadas, clasificadas por tamaño del rectángulo de la cara en orden descendente. Una respuesta vacía indica que no se ha detectado ninguna cara. Una entrada de emoción contiene los siguientes campos:
 * faceRectangle: ubicación del rectángulo de la cara en la imagen.
-* scores: puntuaciones de emociones para cada cara de la imagen. 
+* scores: puntuaciones de emociones para cada cara de la imagen.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

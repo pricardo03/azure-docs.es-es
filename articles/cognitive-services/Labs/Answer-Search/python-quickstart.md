@@ -1,25 +1,27 @@
 ---
-title: Inicio rápido de Python para Project Answer Search de Microsoft Cognitive Services | Microsoft Docs
-description: Ejemplo de Python para empezar a usar Project Answer Search de Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Project Answer Search con Python'
+titlesuffix: Azure Cognitive Services
+description: Ejemplo de Python para empezar a usar Project Answer Search.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381711"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869836"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Guía de inicio rápido de Project Answer Search para Python
+# <a name="quickstart-project-answer-search-with-python"></a>Guía de inicio rápido de Project Answer Search con Python
 
 El siguiente ejemplo de Python crea y envía una solicitud de información sobre el "Peñón de Gibraltar".
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
 
@@ -37,7 +39,7 @@ Se implementa en los pasos siguientes:
 6. Realice la conexión y envíe la solicitud.
 7. Imprima los resultados JSON.
 
-El código completo de esta demostración es el siguiente:
+Este es el código completo de esta demostración:
 
 ````
 import http.client, urllib.parse

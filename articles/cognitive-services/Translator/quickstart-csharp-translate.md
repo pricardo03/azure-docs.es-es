@@ -1,25 +1,27 @@
 ---
-title: Traducción de texto con C# mediante Translator Text | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido se traduce texto de un idioma a otro mediante Translator Text API con C# en Cognitive Services.
+title: 'Inicio rápido: Traducir texto - Translator Text, C#'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido se traduce texto de un idioma a otro mediante Translator Text API con C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 7923cf3249beaf713b91ba0e5ea4f70f34841b3c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e60b2a9ea7c56352a1b4dfb65537ba6dc57fcb68
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43770630"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365968"
 ---
 # <a name="quickstart-translate-text-with-c35"></a>Guía de inicio rápido: traducción de texto con C&#35;
 
 En esta guía de inicio rápido se traduce texto de un idioma a otro mediante Translator Text API.
+
+El código fuente del ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

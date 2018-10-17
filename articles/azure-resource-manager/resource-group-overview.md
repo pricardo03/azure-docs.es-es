@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969298"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220896"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. Azure Resource Manager permite trabajar con los recursos de la solución como un grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación. 
@@ -155,6 +155,12 @@ Después de definir la plantilla, está listo para implementar los recursos en A
 * [Implementación de recursos con las plantillas de Resource Manager y Azure Portal](resource-group-template-deploy-portal.md)
 * [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>Procedimientos de implementación seguros
+
+Al implementar un servicio complejo en Azure, es posible que necesite implementar el servicio en varias regiones y comprobar su estado antes de continuar con el paso siguiente. Use [Azure Deployment Manager](deployment-manager-overview.md) para coordinar un lanzamiento por fases del servicio. Mediante el establecimiento de fases en el lanzamiento del servicio, puede encontrar posibles problemas antes de que se haya implementado en todas las regiones. Si no necesita estas precauciones, las operaciones de implementación de la sección anterior son la mejor opción.
+
+Deployment Manager se encuentra actualmente en versión preliminar pública.
+
 ## <a name="tags"></a>Etiquetas
 Administrador de recursos proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Use etiquetas cuando tenga una colección compleja de grupos de recursos y recursos, y necesite visualizar dichos activos de la manera que le resulte más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento. Sin etiquetas, los usuarios de su organización pueden crear varios recursos que son difíciles de identificar y administrar posteriormente. Por ejemplo, puede desear eliminar todos los recursos de un proyecto concreto. Si dichos recursos no se etiquetan para el proyecto, tiene que buscarlos manualmente. El etiquetado puede ser un aspecto importante para reducir costos innecesarios en la suscripción. 
 
@@ -176,20 +182,6 @@ En el ejemplo siguiente se muestra una etiqueta aplicada a una máquina virtual.
   }
 ]
 ```
-
-Para recuperar todos los recursos con un valor de etiqueta, utilice el siguiente cmdlet de PowerShell:
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-O bien, el siguiente comando de la CLI de Azure:
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-También puede ver recursos etiquetados mediante Azure Portal.
 
 El [informe de uso](../billing/billing-understand-your-bill.md) de la suscripción incluye los nombres y los valores de las etiquetas, lo que permite desglosar los costos por etiquetas. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
@@ -228,29 +220,8 @@ En algunos casos, desea ejecutar el código o script que accede a los recursos, 
 
 También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Registros de actividad
-Resource Manager registra todas las operaciones que crean, modifican o eliminan un recurso. Puede usar los registros de actividad para encontrar un error al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso. Puede filtrar los registros por muchos valores diferentes, incluido el usuario que inició la operación. Para más información sobre el uso de los registros de actividad, consulte [View activity logs to audit actions on resources](resource-group-audit.md) (Ver registros de actividad para administrar los recursos de Azure).
-
 ## <a name="customized-policies"></a>Directivas personalizadas
 El Administrador de recursos permite crear directivas personalizadas para administrar los recursos. Los tipos de directivas que cree pueden incluir diversos escenarios. Puede exigir que los recursos sigan una convención de nomenclatura, limitar los tipos e instancias de recursos que se pueden implementar o limitar las regiones que pueden hospedar un tipo de recurso. Puede requerir un valor de etiqueta en los recursos para organizar la facturación por departamentos. Puede crear directivas para ayudar a reducir costos y mantener la coherencia en la suscripción. 
-
-Puede definir directivas con JSON y, a continuación, aplicarlas mediante su suscripción o en un grupo de recursos. Las directivas son diferentes del control de acceso basado en rol porque se aplican a los tipos de recursos.
-
-En el ejemplo siguiente se muestra una directiva que garantiza la coherencia de etiquetas al especificar que todos los recursos incluyan una etiqueta costCenter.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 Hay muchos más tipos de directivas que puede crear. Para obtener más información, consulte [¿Qué es Azure Policy?](../azure-policy/azure-policy-introduction.md)
 

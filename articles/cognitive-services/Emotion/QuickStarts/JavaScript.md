@@ -1,25 +1,27 @@
 ---
-title: Inicio rápido en Emotion API en JavaScript | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Emotion API con JavaScript en Cognitive Services.
+title: 'Guía de inicio rápido: Reconocimiento de emociones en las caras de una imagen con Emotion API en JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Emotion API con JavaScript.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ROBOTS: NOINDEX
+ms.openlocfilehash: eeaf2ea080d8c0b604b9831532028e31b8306169
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072099"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239496"
 ---
-# <a name="emotion-api-javascript-quick-start"></a>Inicio rápido en Emotion API en JavaScript
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guía de inicio rápido: Creación de una aplicación para reconocer emociones en las caras de una imagen
 
 > [!IMPORTANT]
-> La versión preliminar de Video API terminará el 30 de octubre de 2017. Pruebe la versión preliminar de la nueva [Video Indexer API con una extracción sencilla de detalles en](https://azure.microsoft.com/services/cognitive-services/video-indexer/) vídeos y mejore las experiencias de detección de contenido, como los resultados de la búsqueda, gracias al reconocimiento de texto oral, caras, caracteres y emociones. [Más información](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API dejará de usarse el 15 de febrero de 2019. La funcionalidad de reconocimiento de emociones está ahora disponible con carácter general como parte de [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 Este artículo proporciona información y ejemplos de código para ayudarle a empezar a usar rápidamente el [método de reconocimiento de Emotion API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) con JavaScript para reconocer las emociones expresadas por una o varias personas en una imagen.
 
@@ -30,7 +32,7 @@ Este artículo proporciona información y ejemplos de código para ayudarle a em
 
 ## <a name="recognize-emotions-javascript-example-request"></a>Ejemplo de solicitud de reconocimiento de emociones en JavaScript
 
-Copie lo siguiente y guárdelo en un archivo como `test.html`. Cambie la solicitud `url` para usar la ubicación donde obtuvo las claves de suscripción y reemplace el valor "Ocp-Apim-Subscription-Key" por una clave de suscripción válida. Se pueden encontrar en Azure Portal, en las secciones de información general y de claves del recurso de Emotion API, respectivamente. 
+Copie lo siguiente y guárdelo en un archivo como `test.html`. Cambie la solicitud `url` para usar la ubicación donde obtuvo las claves de suscripción y reemplace el valor "Ocp-Apim-Subscription-Key" por una clave de suscripción válida. Se pueden encontrar en Azure Portal, en las secciones de información general y de claves del recurso de Emotion API, respectivamente.
 
 ![Punto de conexión de API](../Images/api-url.png)
 
@@ -62,10 +64,10 @@ Cambie el cuerpo de la solicitud a la ubicación de una imagen que desee usar. P
     $(function() {
         // No query string parameters for this API call.
         var params = { };
-      
+
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             url: "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?" + $.param(params),
             beforeSend: function(xhrObj){
@@ -87,7 +89,7 @@ Cambie el cuerpo de la solicitud a la ubicación de una imagen que desee usar. P
             for (var prop in faceRectangle) {
                 faceRectangleList.append("<li> " + prop + ": " + faceRectangle[prop] + "</li>");
             }
-            
+
             // Get emotion confidence scores
             var scores = data[0].scores;
             var scoresList = $('#scores');
@@ -108,10 +110,10 @@ Cambie el cuerpo de la solicitud a la ubicación de una imagen que desee usar. P
 ## <a name="recognize-emotions-sample-response"></a>Respuesta de ejemplo de reconocimiento de emociones
 Una llamada correcta devuelve una matriz de entradas de cara y sus puntuaciones de emoción asociadas, clasificadas por tamaño del rectángulo de la cara en orden descendente. Una respuesta vacía indica que no se ha detectado ninguna cara. Una entrada de emoción contiene los siguientes campos:
 * faceRectangle: ubicación del rectángulo de la cara en la imagen.
-* scores: puntuaciones de emociones para cada cara de la imagen. 
+* scores: puntuaciones de emociones para cada cara de la imagen.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

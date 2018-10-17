@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: be80c637a250e8a86727ce34f86832fef10426b7
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616402"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380053"
 ---
 # <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Creación y administración de una instancia de Standard Load Balancer mediante Azure Portal
 
@@ -137,7 +137,7 @@ En esta sección, va a crear una regla de grupo de seguridad de red para permiti
 
 ## <a name="create-load-balancer-resources"></a>Creación de recursos del equilibrador de carga
 
-En esta sección, va a configurar el equilibrador de carga para un grupo de direcciones de back-end y un sondeo de mantenimiento, y a especificar una regla del equilibrador de carga.
+En esta sección se configura el equilibrador de carga para un grupo de direcciones de back-end y un sondeo de mantenimiento, y se especifica una regla del equilibrador de carga.
 
 ### <a name="create-a-backend-address-pool"></a>Creación de un grupo de direcciones de back-end
 
@@ -204,11 +204,11 @@ Para agregar *myVM1* de nuevo en el grupo de back-end, siga el procedimiento des
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando no los necesite, elimine el grupo de recursos, el equilibrador de carga y todos los recursos relacionados. Para ello, seleccione el grupo de recursos que contiene el equilibrador de carga y haga clic en **Eliminar**.
+Cuando ya no los necesite, elimine el grupo de recursos, el equilibrador de carga y todos los recursos relacionados. Para ello, seleccione el grupo de recursos que contiene el equilibrador de carga y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado un equilibrador de carga estándar, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga y el sondeo de mantenimiento y, después, ha probado el equilibrador de carga. Además, quitó una máquina virtual del conjunto de carga equilibrada y la agregó de vuelta al grupo de direcciones back-end. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales correspondientes.
+En este tutorial, ha creado un equilibrador de carga estándar, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga y el sondeo de mantenimiento y, después, ha probado el equilibrador de carga. Además, ha quitado una máquina virtual del conjunto de carga equilibrada y la ha agregado de vuelta al grupo de direcciones back-end. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales correspondientes.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

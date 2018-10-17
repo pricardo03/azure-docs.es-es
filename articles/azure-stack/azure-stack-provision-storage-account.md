@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: a599d809ba3da8487a6c5d115bf04922a546e6ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733730"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713500"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Cuentas de almacenamiento en Azure Stack
 Las cuentas de almacenamiento incluyen Blob service y Table service y el espacio de nombres único para los objetos de datos de almacenamiento. De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta de almacenamiento.
 
-1. En el equipo de la prueba de concepto de Azure Stack, inicie sesión en `https://adminportal.local.azurestack.external` como [un administrador](azure-stack-connect-azure-stack.md) y, a continuación, haga clic en **Nuevo** > **Datos y almacenamiento**  >  **Cuenta de almacenamiento**.
+1. En el equipo de la prueba de concepto de Azure Stack, inicie sesión en `https://adminportal.local.azurestack.external` como [un administrador](azure-stack-connect-azure-stack.md) y, a continuación, haga clic en **+ Crear un recurso** > **Datos y almacenamiento**  >  **Cuenta de almacenamiento**.
 
    ![](media/azure-stack-provision-storage-account/image01.png)
 2. En la hoja **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento. Cree un nuevo **grupo de recursos**, o seleccione uno existente y, a continuación, haga clic en **Crear** para crear la cuenta de almacenamiento.

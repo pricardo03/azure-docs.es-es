@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2b9997fb1fe86d8ffdb67e74fc053773997fb113
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219726"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816487"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Windows en Azure Portal
 
@@ -72,7 +72,7 @@ Cree una conexión a Escritorio remoto en la máquina virtual. Estas instruccion
 
 2. Abra el archivo RDP que descargó y haga clic en **Conectar** cuando se le solicite. 
 
-3. En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario con el formato *nombreDeMV*\\*nombreDeUsuario*, escriba la contraseña que creó para la máquina virtual y luego haga clic en **Aceptar**.
+3. En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario como **localhost**\\*username*, escriba la contraseña que creó para la máquina virtual y luego haga clic en **Aceptar**.
 
 4. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Haga clic en **Sí** o en **Continuar** para crear la conexión.
 

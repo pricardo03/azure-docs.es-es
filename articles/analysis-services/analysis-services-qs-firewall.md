@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c16a189e72edd94cf6fc60580d89dd4cfd1742e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9af0c0a32706c6745412401c9136e032e2e3f9ff
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443450"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268925"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Guía de inicio rápido: Configuración del firewall del servidor: Portal
 
 Esta guía de inicio rápido le ayudará a configurar un firewall para el servidor de Azure Analysis Services. La habilitación de un firewall y la configuración de los intervalos de direcciones IP solo para los equipos que tienen acceso al servidor son una parte importante de la protección del servidor y los datos.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un servidor de Analysis Services en la suscripción. Para más información, consulte [Guía de inicio rápido: Creación de un servidor: Portal](analysis-services-create-server.md) o [Guía de inicio rápido: Creación de un servidor: PowerShell](analysis-services-create-powershell.md)
 - Uno o más intervalos de direcciones IP para los equipos cliente (si es necesario).
@@ -32,7 +32,7 @@ Esta guía de inicio rápido le ayudará a configurar un firewall para el servid
 
 1. Haga clic en el servidor para abrir la página Información general. 
 2. En **Configuración** > **Firewall** > **Habilitar firewall**, haga clic en **Activar**.
-3. Para permitir el acceso de DirectQuery desde el servicio Power BI, en **Permitir acceso desde Power BI**, haga clic en **Activar**.  
+3. Para permitir el acceso de DirectQuery desde el servicio Power BI, en **Permitir el acceso desde Power BI**, haga clic en **Activar**.  
 4. (Opcional) Especifique uno o más intervalos de direcciones IP. Escriba un nombre y una dirección IP inicial y final para cada intervalo. 
 5. Haga clic en **Save**(Guardar).
 

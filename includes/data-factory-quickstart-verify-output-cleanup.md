@@ -17,6 +17,8 @@ Al eliminar un grupo de recursos, se eliminan todos los recursos incluidas las f
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
+Nota: Es posible que la eliminación de un grupo de recursos tarde algún tiempo. Tenga paciencia con el proceso.
+
 Si desea eliminar solo la factoría de datos, no el grupo de recursos completo, ejecute el siguiente comando: 
 
 ```powershell

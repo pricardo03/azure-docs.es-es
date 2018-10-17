@@ -1,5 +1,5 @@
 ---
-title: Introducción al servicio Azure Batch AI | Microsoft Docs
+title: 'Servicio Azure Batch AI: entrenamiento de la AI | Microsoft Docs'
 description: Obtenga más información sobre el uso del servicio Azure Batch AI para entrenar la inteligencia artificial (AI) y otros modelos de aprendizaje automático en clústeres de GPU y CPU.
 services: batch-ai
 documentationcenter: ''
@@ -12,86 +12,63 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/13/2017
-ms.author: asutton
-ms.custom: ''
-ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 08/01/2018
+ms.author: danlep
+ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627209"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052706"
 ---
-# <a name="what-is-batch-ai-in-azure"></a>¿En qué consiste Batch AI en Azure?
-Batch AI es un servicio administrado que permite a los científicos de datos y a los investigadores de la AI entrenar la inteligencia artificial y otros modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, incluidas máquinas virtuales con compatibilidad con GPU. Puede describir los requisitos de su trabajo, dónde encontrar las entradas y almacenar las salidas, y Batch AI se encarga del resto.  
- 
-## <a name="why-batch-ai"></a>¿Por qué Batch AI? 
-El desarrollo de eficaces algoritmos de inteligencia artificial es un proceso iterativo e intensivo. Los científicos de datos y los investigadores de AI trabajan con conjuntos de datos cada vez mayores. Están desarrollando modelos con más capas y lo hacen con más experimentación en el diseño de la red en la optimización de hiperparámetros. Para hacerlo de forma eficiente, se necesitan varias CPU o GPU por modelo, ejecutar experimentos en paralelo y disponer de almacenamiento compartido para los datos de aprendizaje, los registros y las salidas del modelo.   
- 
-![Proceso de Batch AI](media/overview/batchai-context.png)
+# <a name="what-is-azure-batch-ai"></a>¿Qué es Azure Batch AI?
 
-Los científicos de datos y los investigadores de la IA son expertos en su campo, sin embargo, la administración de la infraestructura a gran escala puede ser un obstáculo. Desarrollar la inteligencia artificial a escala requiere muchas tareas de infraestructura: aprovisionamiento de clústeres de máquinas virtuales, instalación de software y contenedores, puesta en cola de trabajo, establecimiento de prioridades y programación de trabajos, tratamiento de errores, distribución de datos, uso compartido de resultados, escalado de recursos para administrar costos e integración con herramientas y flujos de trabajo. Batch AI controla estas tareas. 
- 
-## <a name="what-is-batch-ai"></a>¿Qué es Batch AI? 
+Azure Batch AI es un servicio administrado creado para ayudar a los científicos de datos y a los investigadores de inteligencia artificial a entrenar y probar el aprendizaje automático y los modelos de inteligencia artificial a escala de Azure. Todo ello sin tener que administrar una infraestructura compleja. Describa los recursos de proceso, los trabajos que desea ejecutar, dónde desea almacenar las entradas y las salidas del modelo, y Batch AI se encarga del resto.
 
-Batch AI proporciona administración de recursos y programación de trabajos especializados para el aprendizaje y pruebas de AI. Entre las funcionalidades clave se incluyen: 
+Puede usar Batch AI tanto de forma independiente o para realizar el entrenamiento del modelo como parte de un flujo de trabajo de desarrollo mayor:
 
-* Ejecución de trabajos por lotes de larga duración, experimentación iterativa y entrenamiento interactivo 
-* Escalado automático o manual de clústeres de máquinas virtuales mediante GPU o CPU 
-* Configuración de la comunicación SSH entre máquinas virtuales y para el acceso remoto 
-* Compatibilidad con cualquier plataforma de aprendizaje profundo o de aprendizaje automático, con configuración optimizada para conjuntos de herramientas populares como [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/) y [Chainer](https://chainer.org/) 
-* Cola de trabajo basada en prioridades para compartir clústeres y aprovechar las ventajas de las máquinas virtuales de prioridad baja y de las reservas de Azure  
-* Opciones de almacenamiento flexibles, entre ellas Azure Files y un servidor NFS administrado 
-* Montaje de recursos compartidos de archivos remotos en la máquina virtual y el contenedor opcional 
-* Aportación del estado del trabajo y reinicio en caso de errores de la máquina virtual 
-* Acceso a registros de salida, stdout, stderr y modelos, incluido streaming desde Azure Storage 
-* [Interfaz de la línea de comandos](/cli/azure) (CLI) de Azure, SDK para [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview), y Java, supervisión en Azure Portal e integración con herramientas de inteligencia artificial de Microsoft 
+* Use Batch AI independientemente para entrenar, probar y puntuar modelos de inteligencia artificial y aprendizaje automático en lote en clústeres de [GPU](../virtual-machines/linux/sizes-gpu.md) o CPU. 
 
-El SDK de Batch AI es compatible con la escritura de scripts o aplicaciones para administrar las canalizaciones de aprendizaje e integrarse con las herramientas. El SDK proporciona actualmente API de Python, C#, Java y REST.  
- 
+* Elija un clúster de Batch AI como destino en un flujo de trabajo con [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) u otras [herramientas de la plataforma Azure AI](https://azure.microsoft.com/overview/ai-platform/). Azure Machine Learning proporciona una experiencia enriquecida para la preparación de datos, la experimentación y el historial de trabajos. También puede empaquetar un modelo entrenado en un contenedor e implementar un modelo para la inferencia o para dispositivos IoT.  
 
-Batch AI utiliza Azure Resource Manager para las operaciones de plano de control (crear, enumerar, obtener, eliminar). Azure Active Directory se utiliza para la autenticación y el control de acceso basado en rol.  
- 
-## <a name="how-to-use-batch-ai"></a>Cómo usar Batch AI 
+## <a name="train-machine-learning-and-ai-models"></a>Entrenamiento de modelos de inteligencia artificial y aprendizaje automático
 
-Para usar Batch AI, hay que definir y administrar *clústeres* y *trabajos*. 
+Use Batch AI para entrenar modelos de aprendizaje automático, redes neuronales profundas (aprendizaje profundo) y otros enfoques de inteligencia artificial. Batch AI tiene compatibilidad integrada para las plataformas y las bibliotecas de inteligencia artificial populares de código abierto, como [TensorFlow](https://github.com/tensorflow/tensorflow), [PyTorch](https://github.com/pytorch/pytorch), [Chainer](https://github.com/chainer/chainer) y [Microsoft Cognitive Toolkit (CNTK)](https://github.com/Microsoft/CNTK).
 
- 
-Los **clústeres** describen los requisitos de proceso: 
-* Región de Azure en la que se desea realizar la ejecución 
-* La familia y el tamaño de máquina virtual que se va usar, por ejemplo, una máquina virtual NC24, que contiene 4 GPU NVIDIA K80 
-* El número de máquinas virtuales o el número mínimo y máximo para el escalado automático 
-* La imagen de la máquina virtual, por ejemplo, Ubuntu 16.04 LTS o [Microsoft Deep Learning Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
-* Cualquier volumen de recursos compartidos de archivos remotos para montar, por ejemplo, desde Azure Files o un servidor NFS administrado por Batch AI 
-* Nombre de usuario y clave SSH o la contraseña para configurar en las máquinas virtuales para habilitar el inicio de sesión interactivo para la depuración  
- 
+Una vez identificada la zona problemática y preparados los datos, trabaje interactivamente con Batch AI para probar las ideas de modelo. A continuación, cuando esté listo para experimentar a escala, inicie trabajos en varias GPU con MPI u otras bibliotecas de comunicación y ejecute más experimentos en paralelo.
 
-Los **trabajos** describen: 
-* El clúster y la región que se va a utilizar 
-* El número de máquinas virtuales que se necesitan para el trabajo 
-* Los directorios de entrada y salida que se pasan al trabajo al iniciarse. Normalmente utiliza el sistema de archivos compartidos montado durante la configuración del clúster 
-* Un contenedor opcional para ejecutar el software o el script de instalación 
-* La configuración específica de la plataforma de AI o la línea de comandos, así como los parámetros para iniciar el trabajo 
- 
+Batch AI le ayuda a entrenar modelos a escala de varias maneras. Por ejemplo:  
 
-Comience a usar Batch AI con la [CLI de Azure](/cli/azure) y los archivos de configuración para los clústeres y trabajos. Utilice este enfoque para crear rápidamente el clúster cuando sea necesario y ejecute trabajos para experimentar con el diseño de red o los hiperparámetros.  
- 
+|  |  |
+|---------|---------|
+| **Distribuir el entrenamiento**<br/>![Entrenamiento distribuido](./media/overview/distributed-training.png)  | Escale verticalmente un trabajo en distintas GPU conectadas en red para entrenar redes mayores con grandes volúmenes de datos.|
+| **Experimentar**<br/>![Experimentación](./media/overview/experimentation.png) | Escale horizontalmente el entrenamiento con varios trabajos. Ejecute barridos de parámetros para probar nuevas ideas o ajustar los hiperparámetros y optimizar el rendimiento y la precisión. |
+| **Ejecutar en paralelo**![Ejecución en paralelo](./media/overview/parallel-execution.png) | Entrene o puntúe muchos modelos simultáneamente, al ejecutarlos en paralelo en una flota de servidores para que los trabajos se realicen más rápidamente.|
 
-Batch AI facilita el trabajo en paralelo con varias GPU. Cuando los trabajos deben escalarse en varias GPU, Batch AI establece una conectividad de red segura entre las máquinas virtuales. Cuando se utiliza InfiniBand, Batch AI configura los controladores e inicia MPI en los nodos de un trabajo.  
+Cuando haya entrenado un modelo, puede usar Batch AI para probarlo si esto no formaba parte del script de entrenamiento, o también puede realizar una puntuación por lotes.
 
-## <a name="data-management"></a>Administración de datos
-Batch AI proporciona opciones flexibles para los scripts, los datos y las salidas del aprendizaje:
-  
-* Utilice el **disco local** para la experimentación temprana y conjuntos de datos más pequeños. Para este escenario, es posible que desee conectarse a la máquina virtual a través de SSH para editar scripts y leer registros. 
+## <a name="how-it-works"></a>Cómo funciona
 
-* Use **Azure Files** para compartir datos de aprendizaje a través de varios trabajos y almacenar los modelos y registros de salida en una sola ubicación 
+Use los SDK de Batch AI, los scripts de línea de comandos o Azure Portal para administrar recursos de proceso y programar trabajos para entrenar y probar la inteligencia artificial: 
 
-* Configure un **servidor NFS** para admitir una escala de datos mayor y máquinas virtuales para el aprendizaje. Batch AI puede configurar un servidor NFS automáticamente como un tipo especial de clúster con discos de seguridad en Azure Storage. 
- 
-* Un **sistema de archivos paralelo** ofrece más escalabilidad para los datos y el aprendizaje paralelo. Aunque Batch AI no administra sistemas de archivos paralelos, están disponibles plantillas de implementación de ejemplo para Lustre, Gluster y BeeGFS.  
+* **Aprovisionamiento y escalado de los clústeres de máquinas virtuales**: elija el número de nodos (máquinas virtuales) y seleccione una máquina virtual con GPU activado o de otro tamaño que responda a sus necesidades de entrenamiento. Escale o reduzca verticalmente el número de nodos de forma automática o manual para usar los recursos solo cuando sea necesario. 
+
+* **Administración de las dependencias y los contenedores**: de forma predeterminada, los clústeres de Batch AI ejecutan imágenes de máquina virtual Linux con dependencias preinstaladas para ejecutar las plataformas de aprendizaje basadas en contenedores, ya sea en GPU o en CPU. Para configuración adicional, elija imágenes personalizadas o ejecute scripts de inicio.
+
+* **Distribución de datos**: elija una o varias opciones de almacenamiento para administrar los datos de entrada y los scripts, así como la salida de trabajo: Azure Files, Azure Blob Storage o un servidor NFS administrado. Batch AI también admite soluciones de almacenamiento personalizadas, como los sistemas de archivos paralelos de alto rendimiento. Monte los sistemas de archivos de almacenamiento en los nodos del clúster y los contenedores de trabajo mediante archivos de configuración sencillos.
+
+* **Programación de trabajos**: envíe trabajaos a una cola de trabajo basado en prioridades para compartir recursos de clúster y aprovechar las ventajas de las instancias reservadas y de las máquinas virtuales de prioridad baja.
+
+* **Control de los errores**: supervise el estado del trabajo y reinicie los trabajos en el caso de error en la máquina virtual durante los trabajos de larga duración.
+
+* **Recopilación de resultados**: acceda fácilmente a los registros de salida, Stdout, Stderr y a los modelos entrenados. Configure los trabajos de Batch AI para insertar la salida directamente en el almacenamiento montado.
+
+Como servicio de Azure, Batch AI admite las herramientas comunes como el control de acceso basado en rol (RBAC) y las redes virtuales de Azure para la seguridad.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Empiece a crear su primer trabajo de aprendizaje de Batch AI mediante la [CLI de Azure](quickstart-cli.md) o [Python](quickstart-python.md).
-* Consulte el ejemplo de [recetas de aprendizaje](https://github.com/Azure/BatchAI) para diferentes plataformas.
+* Más información sobre los [recursos de Batch AI](resource-concepts.md) para entrenar un modelo de inteligencia artificial o aprendizaje automático.
 
+* Introducción al [entrenamiento de un modelo de aprendizaje profundo de ejemplo](quickstart-tensorflow-training-cli.md) con Batch AI.
+
+* Extraiga del repositorio [instrucciones de entrenamiento](https://github.com/Azure/BatchAI/blob/master/recipes) de ejemplo para diferentes plataformas de inteligencia artificial.

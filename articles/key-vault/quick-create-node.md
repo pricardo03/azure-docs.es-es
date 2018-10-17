@@ -8,32 +8,32 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023991"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714401"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node 
 
-En esta guía de inicio rápido se muestra cómo almacenar un secreto en Key Vault y cómo recuperarlo mediante una aplicación web. Para ver el valor del secreto tendría que ejecutar esto en Azure. La guía de inicio rápido usa Node.js e identidades de Managed Service Identity (MSI)
+En esta guía de inicio rápido se muestra cómo almacenar un secreto en Key Vault y cómo recuperarlo mediante una aplicación web. Para ver el valor del secreto tendría que ejecutar esto en Azure. La guía de inicio rápido usa Node.js e identidades administradas para recursos de Azure.
 
 > [!div class="checklist"]
 > * Crear un almacén de claves.
 > * Almacenar un secreto en el almacén de claves.
 > * Recuperar un secreto del almacén de claves.
 > * Crear una aplicación web de Azure.
-> * [Habilitar identidades de servicio administradas](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview).
+> * Habilite una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) para la aplicación web.
 > * Conceder los permisos necesarios para que la aplicación web lea datos del almacén de claves.
 
 Antes de continuar, asegúrese de que está familiarizado con los [conceptos básicos](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
-Para entender por qué el siguiente tutorial es un procedimiento recomendado, es necesario comprender varios conceptos. Key Vault es un repositorio central para almacenar secretos mediante programación. Pero para poder hacer esto, las aplicaciones y los usuarios tienen primero que autenticarse en Key Vault, es decir, presentar un secreto. Para seguir los procedimientos recomendados de seguridad debe cambiar este secreto periódicamente. Pero con [Managed Service Identity](../active-directory/managed-service-identity/overview.md) a las aplicaciones que se ejecutan en Azure se les da una identidad que Azure administra automáticamente. Esto ayuda a solucionar el **problema de introducción de secretos** por el que los usuarios o aplicaciones pueden seguir procedimientos recomendados y no tener que preocuparse por el cambio del primer secreto
+Para entender por qué el siguiente tutorial es un procedimiento recomendado, es necesario comprender varios conceptos. Key Vault es un repositorio central para almacenar secretos mediante programación. Pero para poder hacer esto, las aplicaciones y los usuarios tienen primero que autenticarse en Key Vault, es decir, presentar un secreto. Para seguir los procedimientos recomendados de seguridad debe cambiar este secreto periódicamente. Pero con [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md), a las aplicaciones que se ejecutan en Azure se les asigna una identidad que Azure administra automáticamente. Esto ayuda a solucionar el **problema de introducción de secretos** por el que los usuarios o aplicaciones pueden seguir procedimientos recomendados y no tener que preocuparse por el cambio del primer secreto
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -156,9 +156,9 @@ A continuación se muestran los pasos que deberá hacer
     git remote add azure <url>
     ```
 
-## <a name="enable-managed-service-identity"></a>Habilitación de la Identidad de servicio administrada
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Habilitación de una identidad administrada para la aplicación web
 
-Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Para solucionar este problema, Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
+Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. En [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) se facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
 
 Ejecute el comando assign-identity para crear la identidad de esta aplicación:
 
@@ -166,7 +166,7 @@ Ejecute el comando assign-identity para crear la identidad de esta aplicación:
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-Este comando es el equivalente de ir al portal y cambiar la **Identidad de servicio administrada** a **Activada** en las propiedades de la aplicación web.
+Este comando equivale a ir al portal y cambiar la configuración de **Identidad o sistema asignados** a **Activada** en las propiedades de la aplicación web.
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Asignación de permisos a una aplicación para leer secretos de Key Vault
 

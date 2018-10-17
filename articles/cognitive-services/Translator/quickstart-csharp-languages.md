@@ -1,25 +1,27 @@
 ---
-title: Obtención de los idiomas admitidos mediante Translator Text con C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con C# en Cognitive Services.
+title: 'Guía de inicio rápido: Obtención de los idiomas admitidos - Translator Text API, C#'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 001f4bc67170d28dd56d6f8a773586c5e6968503
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 967e978518debb5aef071807b1482d6f225c062f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43770607"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367719"
 ---
 # <a name="quickstart-get-supported-languages-with-c35"></a>Guía de inicio rápido: obtención de los idiomas admitidos con C&#35;
 
 En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API.
+
+El código fuente del ejemplo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

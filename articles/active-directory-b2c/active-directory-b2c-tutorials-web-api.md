@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609096"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604348"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acceso a una API web de ASP.NET desde una aplicación web mediante Azure Active Directory B2C
 
@@ -40,19 +40,13 @@ En este tutorial, aprenderá a:
 
 Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a [solicitudes de recursos protegidos](../active-directory/develop/developer-glossary.md#resource-server) por [aplicaciones cliente](../active-directory/develop/developer-glossary.md#client-application) que presenten un [token de acceso](../active-directory/develop/developer-glossary.md#access-token) de Azure Active Directory. El registro establece el [objeto de aplicación y de entidad de servicio](../active-directory/develop/developer-glossary.md#application-object) en el inquilino. 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
+Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
 
-2. Asegúrese de que está usando el directorio que contiene su inquilino de Azure AD B2C cambiando a él en la esquina superior derecha de Azure Portal. Seleccione la información de la suscripción y, después, seleccione **Cambiar directorio**.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-    ![Cambio de directorios](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. Ahora debería estar utilizando el inquilino que ha creado en el tutorial anterior.
 
-3. Elija el directorio que contiene el inquilino.
-
-    ![Selección de directorio](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
-
-4. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. Ahora debería estar utilizando el inquilino que ha creado en el tutorial anterior.
-
-5. Seleccione **Aplicaciones** y, a continuación, **Agregar**.
+2. Seleccione **Aplicaciones** y, a continuación, **Agregar**.
 
     Para registrar la API web de ejemplo en el inquilino, utilice la siguiente configuración.
     
@@ -60,14 +54,14 @@ Los recursos de API web tienen que registrarse en el inquilino antes de que pued
     
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | Mi API web de ejemplo | Escriba un **Nombre** que describa su API web para los desarrolladores. |
+    | **Nombre** | Mi API web de ejemplo | Escriba un **Nombre** que describa su API web para los desarrolladores. |
     | **Incluir aplicación web o API web** | SÍ | Seleccione **Sí** para una API web. |
     | **Permitir flujo implícito** | SÍ | Seleccione **Sí**, ya que la API utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `https://localhost:44332` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su API solicite. En este tutorial, la API web de ejemplo se ejecuta localmente (localhost) y escucha en el puerto 44332. |
     | **URI de id. de aplicación** | myAPISample | El URI identifica de forma única la API en el inquilino. Esto le permite registrar varias API por inquilino. Los [ámbitos](../active-directory/develop/developer-glossary.md#scopes) controlan el acceso al recurso de API protegido y se definen por cada URI de identificador de aplicación. |
     | **Cliente nativo** | Sin  | Como es una API web y no un cliente nativo, seleccione No. |
     
-6. Haga clic en **Crear** para registrar la API.
+3. Haga clic en **Crear** para registrar la API.
 
 Las API registradas aparecen en la lista de aplicaciones del inquilino de Azure AD B2C. Seleccione la API web de la lista. Se muestra el panel de propiedades de la API web.
 

@@ -1,27 +1,27 @@
 ---
-title: Tutorial sobre Face API en Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Aprenda a usar Face API con el SDK de Python para detectar caras humanas en una imagen en Cognitive Services.
+title: 'Tutorial: Detección y enmarcado de caras de una imagen - Face API, Python'
+titleSuffix: Azure Cognitive Services
+description: Aprenda a usar Face API con el SDK de Python para detectar caras humanas en una imagen.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049118"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127744"
 ---
-# <a name="getting-started-with-face-api-in-python-tutorial"></a>Tutorial de introducción a Face API en Python
+# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Tutorial: Detección y enmarcado de caras con Face API y Python 
 
 En este tutorial, aprenderá a invocar Face API con el SDK de Python para detectar caras humanas en una imagen.
 
-## <a name="prerequisites"></a> Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar el tutorial, deberá realizar estos pasos:
 
@@ -35,7 +35,7 @@ pip install cognitive_face
 
 - Obtenga una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/) para Microsoft Cognitive Services. Puede utilizar la clave principal o la secundaria en este tutorial. (Tenga en cuenta que, para usar Face API, necesita disponer de una clave de suscripción válida).
 
-## <a name="sdk-example"></a> Detección de una cara en una imagen
+## <a name="detect-a-face-in-an-image"></a>Detección de una cara en una imagen
 
 ```python
 import cognitive_face as CF
@@ -93,7 +93,7 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> Exploración adicional
+## <a name="further-exploration"></a>Exploración adicional
 
 Para ayudarlo a explorar más Face API, en este tutorial se ofrece un ejemplo de GUI. Para ejecutarlo, primero instale [wxPython](https://wxpython.org/pages/downloads/) y luego ejecute los comandos siguientes.
 
@@ -103,11 +103,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> Resumen
+## <a name="summary"></a>Resumen
 
 En este tutorial, se ha explicado el proceso básico para usar Face API mediante la invocación del SDK de Python. Para más información detallada sobre la API, vea los procedimientos y la [referencia de la API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="related"></a> Temas relacionados
+## <a name="related-topics"></a>Temas relacionados
 
 - [Introducción a Face API en CSharp](FaceAPIinCSharpTutorial.md)
 - [Introducción a Face API en Java para Android](FaceAPIinJavaForAndroidTutorial.md)

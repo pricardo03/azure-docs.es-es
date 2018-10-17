@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626779"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365696"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 
@@ -26,11 +26,17 @@ Este tutorial le guiará a través del proceso de creación de un entorno de Tim
 > * Ejecución de una simulación de dispositivo para transmitir datos al entorno de TSI
 > * Comprobar los datos de telemetría simulados
 
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>En este vídeo, mostramos cómo usar un acelerador de soluciones de IoT de Azure para generar datos que se puedan usar para comenzar a trabajar con Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-La cuenta de inicio de sesión de Azure también debe ser miembro del rol "Propietario" de la suscripción. Para más información, consulte [Agregar o cambiar los administradores de la suscripción de Azure](/azure/billing/billing-add-change-azure-subscription-administrator).
+La cuenta de inicio de sesión de Azure también debe ser miembro del rol Propietario de la suscripción. Para obtener detalles, vea [Administración del acceso mediante RBAC y Azure Portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="overview"></a>Información general
 

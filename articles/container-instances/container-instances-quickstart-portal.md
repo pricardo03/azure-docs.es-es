@@ -1,26 +1,25 @@
 ---
-title: 'Guía de inicio rápido: Creación del primer contenedor de Azure Container Instances con Azure Portal'
-description: En esta guía de inicio rápido, se usa Azure Portal para implementar un contenedor en Azure Container Instances.
+title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances'
+description: En esta guía de inicio rápido, va a usar Azure Portal para implementar una aplicación que se ejecuta en un contenedor de Docker en Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076245"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857727"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guía de inicio rápido: Creación del primer contenedor en Azure Container Instances
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances
 
-Con Azure Container Instances es muy fácil crear y administrar contenedores de Docker en Azure sin tener que aprovisionar máquinas virtuales ni recurrir a un servicio de nivel superior. En esta guía de inicio rápido, use Azure Portal para crear un contenedor en Azure y exponerlo en Internet con un nombre de dominio completo (FQDN). Después de configurar algunas opciones de configuración, podrá verlas en el explorador:
+Use Azure Container Instances para ejecutar contenedores de Docker en Azure con sencillez y velocidad. No es necesario implementar máquinas virtuales ni usar una plataforma de orquestación de contenedores completa como Kubernetes. En esta guía de inicio rápido, va a usar Azure Portal para crear un contenedor en Azure y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Después de configurar algunos valores e implementar el contenedor, puede ir a la aplicación en ejecución:
 
-![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-portal-07]
+![Aplicación implementada en Azure Container Instances vista en el explorador][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -38,7 +37,7 @@ Escriba los valores siguientes en los cuadros de texto **Nombre de contenedor**,
 
 * Nombre de contenedor: `mycontainer`
 * Imagen de contenedor: `microsoft/aci-helloworld`
-* Grupos de recursos: `myResourceGroup`
+* Grupo de recursos: **Crear nuevo** > `myResourceGroup`.
 
 ![Configuración básica de una instancia de contenedor nueva en Azure Portal][aci-portal-03]
 
@@ -54,11 +53,11 @@ Cuando se complete la validación, verá un resumen de la configuración del con
 
 ![Resumen de la configuración de una instancia de contenedor nueva en Azure Portal][aci-portal-05]
 
-Cuando se inicia una implementación, en el panel del portal aparece un icono que indica el progreso de la implementación. Una vez finalizada la implementación, el icono muestra la nueva instancia de contenedor.
+Cuando se inicia una implementación, aparece una notificación que indica que la implementación está en curso. Aparecerá otra notificación cuando se haya implementado el grupo de contenedores.
 
 ![Progreso de la creación de una instancia de contenedor nueva en Azure Portal][aci-portal-08]
 
-Seleccione la instancia de contenedor **mycontainer** para mostrar sus propiedades. Tome nota del **FQDN** (el nombre de dominio completo) de la instancia de contenedor y también de su **estado**.
+Para abrir la información general del grupo de contenedores, vaya a **Grupos de recursos** > **myResourceGroup** > **mycontainer**. Tome nota del **FQDN** (el nombre de dominio completo) de la instancia de contenedor y también de su **estado**.
 
 ![Información general del grupo de contenedores en Azure Portal][aci-portal-06]
 
@@ -70,7 +69,7 @@ Felicidades. Con tan solo implementar algunos valores, ha implementado una aplic
 
 ## <a name="view-container-logs"></a>Visualización de registros de contenedores
 
-Ver los registros de una instancia de contenedor es útil para solucionar problemas con el contenedor o la aplicación que se ejecuta.
+Ver los registros de una instancia de contenedor resulta de utilidad al solucionar problemas con el contenedor o la aplicación en la que se ejecuta.
 
 Para ver los registros del contenedor, en **Configuración**, seleccione **Contenedores** y luego **Registros**. Debería ver la solicitud GET HTTP que se genera cuando se ve la aplicación en el explorador.
 
@@ -88,7 +87,7 @@ Seleccione **Sí** cuando aparezca el cuadro de diálogo de confirmación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una instancia de contenedor de Azure a partir de una imagen en un repositorio público de Docker Hub. Si quiere compilar una imagen de contenedor por su cuenta e implementarla en Azure Container Instances desde un registro de contenedor privado de Azure, vaya al tutorial de Azure Container Instances.
+En esta guía de inicio rápido, ha creado una instancia de contenedor de Azure a partir de una imagen en un repositorio público de Docker Hub. Si quiere compilar una imagen de contenedor e implementarla desde un registro de contenedor privado de Azure, vaya al tutorial de Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial de Azure Container Instances](./container-instances-tutorial-prepare-app.md)

@@ -9,20 +9,25 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: dfde11c509ef25b0c0bae314c937fc43fa78aef4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ece66c176241b53e333071ccfb1882e7018df4c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47020785"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874106"
 ---
-* **Azure Notebooks**: cuadernos gratuitos basados en Jupyter en la nube de Azure
-    1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-    [Importar cuadernos de ejemplo en Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks).
-    1.  Cree un área de trabajo y su archivo de configuración (**config.json**) mediante las instrucciones de [Configuración de un entorno de desarrollo para el servicio Azure Machine Learning](https://aka.ms/aml-how-to-configure-environment).
-    1. Seleccione `+New` en la barra de herramientas de Azure Notebooks para agregar el archivo **config.json** a la misma carpeta que el cuaderno.
-    1. Abra el cuaderno.
+### <a name="azure-notebooks---free-jupyter-based-notebooks-in-the-azure-cloud"></a>**Azure Notebooks**: cuadernos gratuitos basados en Jupyter en la nube de Azure
+El SDK ya está instalado y configurado para el usuario en Azure Notebooks.
+  
+1. Complete la [guía de inicio rápido de introducción](../articles/machine-learning/service/quickstart-get-started.md) para crear un área de trabajo e iniciar Azure Notebooks.
+1. Vaya a [Azure Notebooks](https://notebooks.azure.com/).
+1. En la biblioteca `Getting Started` que creó en la guía de inicio rápido, vaya a la carpeta `tutorials`.
+1. Abra el cuaderno.
 
-* **Su propio servidor de Jupyter Notebook**
-
-    Clone [el repositorio de GitHub](https://aka.ms/aml-notebooks) y siga las instrucciones del archivo **Léame** para instalar el software para el servidor.
+### <a name="your-own-jupyter-notebook-server"></a>**Su propio servidor de Jupyter Notebook**
+1. Complete la [guía de inicio rápido de introducción al SDK de Python](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) para instalar el SDK y crear un área de trabajo.
+1. Clone [el repositorio de GitHub](https://aka.ms/aml-notebooks).
+1. Copie el directorio `aml_config` que creó en la guía de inicio rápido en el directorio clonado.
+1. Inicie el servidor del cuaderno desde el directorio clonado.
+1. Vaya a la carpeta `tutorials`.
+1. Abra el cuaderno.

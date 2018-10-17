@@ -3,20 +3,20 @@ title: Uso de Azure Database Migration Service para realizar una migración en l
 description: Aprenda a realizar una migración en línea de MySQL local a Azure Database for MySQL mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/31/2018
-ms.openlocfilehash: c36a771266f595f6d8dc8575d100fa5bb9496584
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.date: 10/06/2018
+ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714947"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829858"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de MySQL local a [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) con un tiempo de inactividad mínimo. En otras palabras, se puede lograr la migración con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **Employees** de una instancia local de MySQL 5.7 a Azure Database for MySQL mediante una actividad de migración en línea de Azure Database Migration Service.
@@ -50,13 +50,23 @@ Para completar este tutorial, necesita:
 - Azure Database for MySQL solo es compatible con tablas de InnoDB. Para convertir tablas de MyISAM a InnoDB, consulte el artículo [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) (Cómo convertir tablas de MyISAM a InnoDB) 
 
 - Habilite el registro binario en el archivo my.ini (Windows) o en el archivo my.cnf (Unix) en la base de datos de origen con la configuración siguiente:
+
+    - **server_id** = 1 o mayor (pertinente solo para MySQL 5.6)
+    - **log-bin** =<path> (pertinente solo para MySQL 5.6)
+
+        Por ejemplo: log-bin = E:\MySQL_logs\BinLog
+    - **binlog_format** = row
+    - **Expire_logs_days** = 5 (se recomienda no usar cero; pertinente solo para MySQL 5.6)
+    - **Binlog_row_image** = full (pertinente solo para MySQL 5.6)
+    - **log_slave_updates** = 1
+ 
 - El usuario debe tener el rol ReplicationAdmin con los siguientes privilegios:
     - **REPLICATION CLIENT** (CLIENTE DE REPLICACIÓN): necesario solo para tareas de procesamiento de cambios. En otras palabras, las tareas solo de carga completa no requieren este privilegio.
     - **REPLICATION REPLICA** (RÉPLICA DE REPLICACIÓN): necesario solo para tareas de procesamiento de cambios. En otras palabras, las tareas solo de carga completa no requieren este privilegio.
     - **SUPER** (SÚPER): solo se requiere en las versiones anteriores a MySQL 5.6.6.
 
 ## <a name="migrate-the-sample-schema"></a>Migración del esquema de ejemplo
-Para completar todos los objetos de base de datos como esquemas de tabla, índices y procedimientos almacenados, se debe extraer el esquema de la base de datos de origen y aplicarlo a la base de datos. Para extraer el esquema, puede usar mysqldump con el parámetro - - no-data.
+Para completar todos los objetos de base de datos como esquemas de tabla, índices y procedimientos almacenados, se debe extraer el esquema de la base de datos de origen y aplicarlo a la base de datos. Para extraer el esquema, puede usar mysqldump con el parámetro `--no-data`.
  
 Suponiendo que tiene la base de datos de ejemplo de empleados de MySQL en el sistema local, el comando para realizar la migración del esquema mediante mysqldump es:
 ```

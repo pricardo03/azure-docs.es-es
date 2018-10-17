@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410228"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239190"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -37,7 +37,7 @@ Esta característica está disponible en los siguientes servicios y regiones de 
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible con carácter general en todas las regiones de nube pública de Azure.
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: disponible con carácter general en todas las regiones de nube pública de Azure.
 
-**Vista previa**
+**Versión preliminar**
 
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar en todas las regiones de nube pública de Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
@@ -49,7 +49,7 @@ Para conocer las notificaciones más actualizadas sobre, consulte la página [Ac
 
 Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
-- **Seguridad mejorada para los recursos de servicio de Azure**: con los puntos de conexión de servicio, se pueden proteger los recursos del servicio de Azure en la red virtual. Proteger los recursos del servicio en una red virtual mejora la seguridad al quitar totalmente el acceso a través de Internet a estos recursos y al permitir el tráfico solo desde la red virtual.
+- **Seguridad mejorada para los recursos de servicio de Azure**: el espacio de direcciones privadas de red virtual se puede estar solapando y, por tanto, no se puede usar para identificar de forma única el tráfico que se origina en la red virtual. Los puntos de conexión de servicio ofrecen la posibilidad de proteger los recursos de servicio de Azure en la red virtual, mediante la extensión de la identidad de red virtual al servicio. Una vez que los puntos de conexión de servicio se habilitan en la red virtual, puede proteger los recursos de servicio de Azure en la red virtual mediante la incorporación de una regla de red virtual a los recursos. Esta regla proporciona una mayor seguridad dado que se elimina totalmente el acceso público a Internet a los recursos y solo se permite el tráfico que procede de la red virtual.
 - **Enrutamiento óptimo para el tráfico del servicio de Azure desde la red virtual**: en la actualidad, las rutas de la red virtual que fuerzan el tráfico de Internet a las aplicaciones virtuales o locales, un proceso conocido como tunelización forzada, también fuerzan el tráfico del servicio de Azure para realizar la misma ruta que el tráfico de Internet. Los puntos de conexión de servicio proporcionan un enrutamiento óptimo al tráfico de Azure. 
 
   Los puntos de conexión siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Microsoft Azure. Mantener el tráfico en la red troncal de Azure permite seguir auditando y supervisando el tráfico saliente de Internet desde las redes virtuales, a través de la tunelización forzada, sin que afecte al tráfico del servicio. Obtenga más información sobre las [rutas definidas por el usuario y la tunelización forzada](virtual-networks-udr-overview.md).

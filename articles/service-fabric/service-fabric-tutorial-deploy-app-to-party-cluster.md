@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: dc105c02354e0e83c4f9a1bad7c94a98643effd0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 68ff8ae6a055ee609e3b4f87c4847c6f2a55a9da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918778"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300705"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementación de una aplicación de Service Fabric en un clúster en Azure
 
@@ -36,7 +36,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Crear una aplicación .NET de Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 > * Implementar la aplicación en un clúster remoto.
 > * [Agregar un punto de conexión HTTPS a un servicio de front-end de ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md).
-> * [Configurar CI/CD mediante Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+> * [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Configurar la supervisión y el diagnóstico de la aplicación](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -65,7 +65,7 @@ En este tutorial, tiene dos opciones para implementar la aplicación de votació
 * Publicar en un clúster existente en su suscripción. Los clústeres de Service Fabric se pueden crear desde [Azure Portal](https://portal.azure.com) mediante los scripts de [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) o de la [CLI de Azure](./scripts/cli-create-cluster.md), o desde una [plantilla de Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Muchos servicios usan el proxy inverso para comunicarse entre ellos. Tanto los clústeres creados desde Visual Studio como los clústeres de entidad tienen el proxy inverso habilitado de forma predeterminada. Si va a usar un clúster existente, debe [habilitar el proxy inverso en el clúster](service-fabric-reverseproxy-setup.md#).
+> Muchos servicios usan el proxy inverso para comunicarse entre ellos. Tanto los clústeres creados desde Visual Studio como los clústeres de entidad tienen el proxy inverso habilitado de forma predeterminada. Si va a usar un clúster existente, debe [habilitar el proxy inverso en el clúster](service-fabric-reverseproxy-setup.md).
 
 
 ### <a name="find-the-voting-web-service-endpoint-for-your-azure-subscription"></a>Búsqueda del punto de conexión del servicio web de votación para la suscripción de Azure

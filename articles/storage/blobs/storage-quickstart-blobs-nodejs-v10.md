@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987584"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857897"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Guía de inicio rápido: Carga, descarga, enumeración y eliminación de blobs mediante la versión v10 del SDK de Azure Storage para JavaScript (versión preliminar)
 
@@ -128,7 +128,7 @@ El siguiente conjunto de constantes ayuda a revelar la intención de los cálcul
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-Se puede establecer que el tiempo de espera de las solicitudes que realice la API se agote después de un intervalo dado. La clase *Aborter* es responsable de administrar el tiempo de espera de las solicitudes y, en este ejemplo, se usa la constante siguiente para definir los tiempos de espera.
+Se puede establecer que el tiempo de espera de las solicitudes que realice la API se agote después de un intervalo dado. La clase [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) es responsable de administrar el tiempo de espera de las solicitudes y, en este ejemplo, se usa la constante siguiente para definir los tiempos de espera.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 Las siguientes clases se utilizan en este bloque de código:
 
-- La clase *SharedKeyCredential* es la encargada de encapsular las credenciales de la cuenta de almacenamiento para proporcionárselas a una canalización de solicitudes.
+- La clase [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) es la encargada de encapsular las credenciales de la cuenta de almacenamiento para proporcionárselas a una canalización de solicitudes.
 
-- La clase *StorageURL* es la que se ocupa de crear una nueva canalización.
+- La clase [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) es la que se ocupa de crear una nueva canalización.
 
-- La clase *ServiceURL* modela una dirección URL que se utiliza en la API REST. Las instancias de esta clase le permiten realizar acciones como, por ejemplo, mostrar los contenedores y proporcionar información de contexto para generar las direcciones URL de estos.
+- La clase [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) modela una dirección URL que se utiliza en la API REST. Las instancias de esta clase le permiten realizar acciones como, por ejemplo, mostrar los contenedores y proporcionar información de contexto para generar las direcciones URL de estos.
 
-La instancia de *ServiceURL* se usa con instancias de *ContainerURL* y *BlockBlobURL* para administrar contenedores y blobs en su cuenta de almacenamiento.
+La instancia de *ServiceURL* se usa con instancias de [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) y [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) para administrar contenedores y blobs en su cuenta de almacenamiento.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ La clase Aborter le proporciona control sobre las solicitudes permitiéndole:
 - designar la cantidad de tiempo que se le proporciona a un lote de solicitudes
 - designar cuánto tiempo tiene una solicitud individual para ejecutarse en el lote
 - cancelar solicitudes
-- usar el miembro estático *Aborter.None* para impedir que todas las solicitudes agoten el tiempo de espera a la vez
+- usar el miembro estático *Aborter.none* para impedir que todas las solicitudes agoten el tiempo de espera a la vez
 
 ### <a name="show-container-names"></a>Mostrar nombres de contenedor
 Las cuentas pueden almacenar un gran número de contenedores. El código siguiente muestra cómo mostrar los contenedores de forma segmentada, lo que permite recorrer de un vistazo un gran número de contenedores. La función *showContainerNames* pasa instancias de *ServiceURL* y *Aborter*.

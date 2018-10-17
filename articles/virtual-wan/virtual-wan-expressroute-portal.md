@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 0b8de4d04d9cca47423634164e458e8699154f30
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10b73843e2ca2e0ee0af766ef1ad7ee9cbf61f94
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405315"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854627"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN (versión preliminar)
 
@@ -41,28 +41,12 @@ En este tutorial, aprenderá a:
 
 ## <a name="register"></a>Registro de esta característica
 
-Haga clic en **Probar** para registrar esta característica fácilmente mediante Azure Cloud Shell.
+Para poder configurar una instancia de Virtual WAN, primero hay que inscribir una suscripción en la versión preliminar. En caso contrario, no podrá trabajar con Virtual WAN en el portal. Para inscribirse, envíe un correo electrónico a **azurevirtualwan@microsoft.com** con su identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción.
 
->[!NOTE]
->Si no la registra, no podrá usarla ni verla en el portal.
->
->
+**Consideraciones de la versión preliminar**
 
-Después de hacer clic en **Probar** para abrir Azure Cloud Shell, copie y pegue los siguientes comandos:
-
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
- 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
-
-Una vez que la característica se muestre como registrada, vuelva a registrar la suscripción en el espacio de nombres Microsoft.Network.
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+* Disponibilidad por región: Centro-oeste de EE. UU.
+* El circuito ExpressRoute debe estar habilitado en un país que admita [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Creación de una red virtual
 

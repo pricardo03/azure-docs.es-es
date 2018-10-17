@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: eef71aabaab71f908f950a4467da918dca1787fa
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 39dffad597b8382dea4df6fa1b0726d9582d67d1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492556"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293633"
 ---
 # <a name="overview-of-azure-devops-project"></a>Introducción a Azure DevOps Projects
 
@@ -30,18 +30,18 @@ El panel de DevOps Projects le permite supervisar confirmaciones de código, com
 
 Azure DevOps Projects automatiza la configuración de toda una canalización de integración continua (CI) y de entrega continua (CD) en Azure.  Puede comenzar con el código existente o usar uno de las aplicaciones de ejemplo proporcionadas y, a continuación, implementar rápidamente la aplicación en varios servicios de Azure, como Virtual Machines, App Service, Azure Container Service, Azure SQL Database y Azure Service Fabric.  
 
-Azure DevOps Projects hace todo el trabajo para la configuración inicial de una canalización de DevOps, como configurar el repositorio Git inicial, configurar la canalización de CI/CD, crear un recurso de Application Insights para supervisarlo o proporcionar una sola vista de toda la creación con un panel de Azure DevOps Projects en Azure Portal.
+Azure DevOps Projects hace todo el trabajo de configuración inicial de una canalización de DevOps, como configurar el repositorio Git inicial y la canalización de CI/CD, crear un recurso de Application Insights para supervisarlo o proporcionar una sola vista de toda la solución al crear un panel de Azure DevOps Projects en Azure Portal.
 
 Puede usar Azure DevOps Projects para:
 
 * Implementar rápidamente la aplicación en Azure
-* Automatizar la configuración de una canalización de CI/CD de VSTS
-* Usar DevOps Projects como plantilla para ver y comprender cómo configurar correctamente CI/CD en Azure con VSTS
+* Automatizar la configuración de una canalización de CI/CD de Azure
+* Usar DevOps Projects como plantilla para ver y comprender cómo configurar correctamente CI/CD en Azure con Azure DevOps
 * Introducción a la canalización de CI/CD en Azure y, a continuación, más personalización de la canalización de versión en función de escenarios específicos
 
 ## <a name="how-do-i-use-the-azure-devops-project"></a>¿Cómo uso Azure DevOps Projects?
 
-Azure DevOps Projects está disponible desde Azure Portal.  Un recurso de Azure DevOps Projects se crea del mismo modo que cualquier otro recurso de Azure desde el portal.  Azure DevOps Projects proporciona una experiencia de asistente paso a paso para las distintas opciones de configuración.  
+Azure DevOps Projects está disponible desde Azure Portal.  Un recurso de Azure DevOps Projects se crea del mismo modo que cualquier otro recurso de Azure desde el portal.  DevOps Projects proporciona una experiencia de asistente paso a paso para las distintas opciones de configuración.  
 
 Elija varias opciones de configuración como parte de la instalación inicial.  Entre estas opciones se incluyen:
 
@@ -49,16 +49,16 @@ Elija varias opciones de configuración como parte de la instalación inicial.  
 * Seleccionar un lenguaje de aplicación
 * Elegir un marco de aplicación basado en lenguaje
 * Seleccionar un servicio de Azure (destino de implementación)
-* Cuenta de VSTS (nueva o existente)
+* Organización de Azure DevOps (nueva o existente)
 * Elegir la suscripción de Azure
 * Seleccionar la ubicación de los servicios de Azure
 * Elegir entre varios planes de tarifa de servicios de Azure
 
 Después de usar Azure DevOps Projects, también puede eliminar todos los recursos de un solo lugar desde el panel de Azure DevOps Projects en Azure Portal.
 
-## <a name="azure-devops-project-and-vsts-integration"></a>Integración de Azure DevOps Projects y VSTS
+## <a name="azure-devops-project-and-azure-devops-integration"></a>Integración de Azure DevOps Projects y Azure DevOps
 
-DevOps Projects cuenta con tecnología de VSTS.  DevOps Projects automatiza todo el trabajo necesario en VSTS para configurar elementos de CI/CD en Azure.  Se crea un repositorio Git en una cuenta de VSTS nueva o existente.  DevOps Projects confirma una aplicación de ejemplo o el código existente en un nuevo repositorio Git.  La automatización también establece un desencadenador de CI para la compilación, de modo que cada código de confirmación iniciará una compilación.  DevOps Projects también creará un desencadenador de CD e implementará cada nueva compilación correcta en el servicio de Azure de su elección.  Las definiciones de compilación y versión se pueden personalizar para otros escenarios.  También puede clonar las definiciones de compilación y versión para usarlas en otros proyectos.
+DevOps Projects cuenta con tecnología de Azure DevOps.  DevOps Projects automatiza todo el trabajo necesario en Azure DevOps para configurar elementos de CI/CD en Azure.  Se crea un repositorio Git en una organización de Azure DevOps nueva o existente.  DevOps Projects confirma una aplicación de ejemplo o el código existente en un nuevo repositorio Git.  La automatización también establece un desencadenador de CI para la compilación, de modo que cada código de confirmación iniciará una compilación.  DevOps Projects también crea un desencadenador de CD e implementa cada nueva compilación correcta en el servicio de Azure de su elección.  Las canalizaciones de compilación y versión se pueden personalizar para otros escenarios.  También puede clonar las canalizaciones de compilación y versión para usarlas en otros proyectos.
 
 Después de crear la instancia de DevOps Projects, también puede:
 

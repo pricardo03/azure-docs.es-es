@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido del SDK de Entity Search para Node | Microsoft Docs
-description: Configuración de la aplicación de consola del SDK de Entity Search.
-titleSuffix: Azure cognitive services
+title: 'Guía de inicio rápido: SDK de Bing Entity Search con Node'
+titleSuffix: Azure Cognitive Services
+description: Configuración de la aplicación de consola del SDK de Entity Search con Node.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2904ecfed33334458f9b6a9ca2500cd0bfef13bc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382959"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814889"
 ---
-# <a name="entity-search-sdk-node-quickstart"></a>Guía de inicio rápido del SDK de Entity Search para Node
+# <a name="quickstart-bing-entity-search-sdk-with-node"></a>Guía de inicio rápido: SDK de Bing Entity Search con Node
 
 El SDK de Bing Entity Search contiene la funcionalidad de la API REST para consultas de entidad y análisis de resultados. 
 
@@ -49,7 +49,7 @@ entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
 ```
 El código imprime `result.value` elementos en la consola sin analizar ningún texto.  Los resultados, si hubiera por categoría, incluyen:
 - _type: 'Thing'
-- _type: 'ImageObject'
+- _type: "ImageObject"
 
 <!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
@@ -57,4 +57,4 @@ El código imprime `result.value` elementos en la consola sin analizar ningún t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Ejemplos del SDK de Cognitive services para Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Ejemplos del SDK de Cognitive Services para Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: c6817fa20d4177efd3e38f1454f3142f6d40a07d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108625"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017591"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante una actividad de Spark en Azure Data Factory
 En este tutorial, usará Azure Portal para crear una canalización de Azure Data Factory. Esta canalización permite transformar datos mediante una actividad de Spark y un servicio vinculado de Azure HDInsight a petición. 
@@ -34,6 +34,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Cuenta de Azure Storage**. Debe crear un script de Python y un archivo de entrada y cargarlos en Azure Storage. La salida del programa Spark se almacena en esta cuenta de almacenamiento. El clúster de Spark a petición usa la misma cuenta de almacenamiento que el almacenamiento principal.  
+
+> [!NOTE]
+> HdInsight admite solo cuentas de almacenamiento de uso general con nivel estándar. Asegúrese de que la cuenta no sea una cuenta de almacenamiento solo Premium o de blobs.
+
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
@@ -99,11 +103,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. En **Ubicación**, seleccione la ubicación de la factoría de datos. 
 
    Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (como Azure Storage y Azure SQL Database) y los procesos (como HDInsight) que usan Data Factory pueden encontrarse en otras regiones.
-1. Seleccione **Anclar al panel**.     
-1. Seleccione **Crear**.
-1. En el panel, verá el icono siguiente con el estado **Deploying Data Factory** (Implementando Data Factory): 
 
-   ![Icono "Deploying Data Factory" (Implementando Data Factory)](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
+1. Seleccione **Crear**.
+
 1. Una vez completada la creación, verá la página **Data Factory**. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
 
     ![Página principal de la factoría de datos, con el icono Author & Monitor (Creación y supervisión)](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
@@ -157,11 +159,11 @@ En esta sección, deberá crear dos servicios vinculados:
    
    h. Expanda **OS type** (Tipo de SO).
    
-   i. Escriba un nombre para el usuario del clúster. 
+   i. Escriba un nombre para **Cluster user name** (Nombre de usuario del clúster). 
    
-   j. Escriba la contraseña del usuario. 
+   j. Escriba el valor de **Cluster password** (Contraseña del clúster) para el usuario. 
    
-   k. Seleccione **Guardar**. 
+   k. Seleccione **Finalizar**. 
 
    ![Configuración del servicio vinculado de HDInsight](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 

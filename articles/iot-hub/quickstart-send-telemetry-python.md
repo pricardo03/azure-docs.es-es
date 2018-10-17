@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 09/07/2018
 ms.author: dobett
-ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d851bc8d5af7f824512cc9f14e6b1120026dd07
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339283"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785162"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub y leer datos de telemetría procedentes de este con una aplicación back-end (Python)
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Python. Necesita Python 2.7.x o 3.5.x en el equipo de desarrollo.
 
-Puede descargar Python para varias plataformas desde [Python.org](https://www.python.org/downloads/).
+Puede descargar Python para varias plataformas desde [Python.org](https://www.python.org/downloads/). El instalador de Python que elija debe basarse en la arquitectura del sistema con el que trabaja. Si la arquitectura de la CPU del sistema es de 32 bits, descargue x86, que es el instalador predeterminado en Python.org; si es de 64 bits, debe descargar el instalador x86-64.
 
 Puede verificar la versión actual de Python en el equipo de desarrollo con uno de los comandos siguientes:
 
@@ -46,20 +46,6 @@ python3 --version
 ```
 
 Descargue el proyecto de muestra de Python desde https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip y extraiga el archivo ZIP.
-
-Para instalar la utilidad CLI que lee datos de telemetría de IoT Hub, antes debe instalar Node.js v4.x.x o una versión posterior en el equipo de desarrollo. Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
-
-Puede verificar la versión actual de Node.js en el equipo de desarrollo con el comando siguiente:
-
-```cmd/sh
-node --version
-```
-
-Para instalar la utilidad CLI `iothub-explorer`, ejecute el comando siguiente:
-
-```cmd/sh
-npm install -g iothub-explorer
-```
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -85,14 +71,6 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     ```
 
     Anote la cadena de conexión del dispositivo, que será parecida a `Hostname=...=`. Usará este valor más adelante en este inicio rápido.
-
-1. También necesita una _cadena de conexión de servicio_ para permitir que la utilidad CLI `iothub-explorer` se conecte a IoT Hub y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-    Anote la cadena de conexión del servicio, que será parecida a `Hostname=...=`. Usará este valor más adelante en este inicio rápido. La cadena de conexión de servicio es diferente de la cadena de conexión de dispositivo.
 
 ## <a name="send-simulated-telemetry"></a>Envío de datos de telemetría simulados
 
@@ -122,15 +100,15 @@ La aplicación de dispositivo simulado se conecta a un punto de conexión espec�
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
-La utilidad de la CLI `iothub-explorer` se conecta al punto de conexión **Eventos** en el lado del servicio IoT Hub. La utilidad recibe los mensajes del dispositivo a la nube enviados desde el dispositivo simulado. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube para recibir y procesar los mensajes del dispositivo a la nube.
+La extensión de la CLI de IoT Hub se puede conectar al punto de conexión **Eventos** del lado servicio en su instancia de IoT Hub. La extensión recibe los mensajes del dispositivo a la nube enviados desde el dispositivo simulado. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube para recibir y procesar los mensajes del dispositivo a la nube.
 
-En otra ventana de terminal, ejecute los siguientes comandos que reemplazan `{your hub service connection string}` por la cadena de conexión de servicio que anotó anteriormente:
+Ejecute los siguientes comandos de la CLI de Azure y reemplace `{YourIoTHubName}` por el nombre del centro de IoT:
 
-```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
 ```
 
-La siguiente captura de pantalla muestra la salida en la que la utilidad recibe los datos de telemetría que el dispositivo simulado ha enviado al centro:
+En la siguiente captura de pantalla se muestra la salida en la que la extensión recibe los datos de telemetría que el dispositivo simulado ha enviado al centro:
 
 ![Ejecutar la aplicación back-end](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

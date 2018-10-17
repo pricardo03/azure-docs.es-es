@@ -1,21 +1,21 @@
 ---
-title: Obtención de los idiomas admitidos mediante Translator Text con Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con Node.js en Cognitive Services.
+title: 'Guía de inicio rápido: Obtención de los idiomas admitidos - Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: dd37aab3707c6f06b8cc2e942366e19746694252
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a3b9dde8983b87a63858b3eb1381f7c74545cb1a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770869"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122865"
 ---
 # <a name="quickstart-get-supported-languages-with-nodejs"></a>Guía de inicio rápido: obtención de los idiomas admitidos con Node.js
 

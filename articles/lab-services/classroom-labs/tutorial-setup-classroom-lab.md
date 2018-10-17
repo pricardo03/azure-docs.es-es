@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 10/05/2018
 ms.author: spelluru
-ms.openlocfilehash: fe41728b6f08ba767dbcb40d0595b9f7cdc79615
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420206"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856647"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio de clase 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -40,76 +40,66 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). 
 2. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
 3. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
-    1. Escriba un **nombre** para el laboratorio de clase. 
-    2. Seleccione el **tamaño** de la máquina virtual que se va a usar en la clase.
-    3. Seleccione la **imagen** utilizada para crear la máquina virtual.
-    4. Especifique las **credenciales predeterminadas** para el registro en máquinas virtuales en el laboratorio. 
-    7. Seleccione **Guardar**.
+    1. Especifique un **nombre** para el laboratorio. 
+    2. Especifique el máximo **número de usuarios** permitidos en el laboratorio. 
+    6. Seleccione **Guardar**.
 
         ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-1. Una vez creado el laboratorio, seleccione **Go to my lab** (Ir a mi laboratorio). 
+4. En la página **Seleccionar especificaciones de máquina virtual**, realice los pasos siguientes:
+    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. 
+    2. Seleccione la **región** en la que quiere que se creen las máquinas virtuales. 
+    3. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. 
+    4. Seleccione **Next** (Siguiente).
 
-    ![Go to my lab (Ir a mi laboratorio)](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
+        ![Especificaciones de máquina virtual](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
+5. En la página **Establecer credenciales**, especifique las credenciales predeterminadas de todas las máquinas virtuales del laboratorio. 
+    1. Especifique el **nombre del usuario** para todas las máquinas virtuales del laboratorio.
+    2. Especifique la **contraseña** del usuario. 
+
+        > [!IMPORTANT]
+        > Tome nota de ambos. No se volverán a mostrar.
+    3. Seleccione **Crear**. 
+
+        ![Establecer credenciales](../media/tutorial-setup-classroom-lab/set-credentials.png)
+6. En la página **Configurar plantilla**, puede ver el estado del proceso de creación del laboratorio. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
+
+    ![Configurar plantilla](../media/tutorial-setup-classroom-lab/configure-template.png)
+7. Una vez completada la configuración de la plantilla, verá la siguiente página: 
+
+    ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
+8. Los pasos siguientes son opcionales para este tutorial: 
+    1. Seleccione **Iniciar** para iniciar la plantilla de máquina virtual.
+    2. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. 
+    3. Instale y configure el software en la plantilla de máquina virtual. 
+    4. **Pare** la máquina virtual.  
+    5. Escriba una **descripción** para la plantilla.
+
+        ![Siguiente en la página Configurar plantilla](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+9. Seleccione **Siguiente** en la página de plantilla. 
+10. En la página **Publicar la plantilla**, realice las acciones siguientes. 
+    1. Para publicar la plantilla inmediatamente, seleccione la casilla *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour* (Comprendo que no puedo modificar la plantilla después de la publicación. Este proceso solo se puede realizar una vez y puede tardar hasta una hora), y seleccione **Publicar**.  
+
+        > [!WARNING]
+        > Una vez que publique, no se puede cancelar la publicación. 
+    2. Para publicar más adelante, seleccione **Guardar para más adelante**. Puede publicar la plantilla de máquina virtual una vez finalizado el asistente. Para más información sobre cómo configurar y publicar una vez finalizado el asistente, consulte la sección [Publicación de la plantilla](how-to-manage-classroom-labs.md#publish-the-template) del artículo [Administración de laboratorios educativos](how-to-manage-classroom-labs.md).
+
+        ![Publicar plantilla](../media/tutorial-setup-classroom-lab/publish-template.png)
+11. Puede ver el **progreso de la publicación** de la plantilla. Este proceso puede tardar hasta una hora. 
+
+    ![Publicar plantilla: progreso](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+12. Podrá ver la página siguiente cuando la plantilla se haya publicado correctamente. Seleccione **Listo**.
+
+    ![Publicar plantilla: correctamente](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. Verá el **panel** del laboratorio. 
     
     ![Panel del laboratorio de clase](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-
-## <a name="configure-usage-policy"></a>Configuración de la política de uso
-
-1. Seleccione **Política de uso**. 
-2. En **Política de uso**, Configuración, escriba el **número de usuarios** con permiso para usar el laboratorio.
-3. Seleccione **Guardar**. 
-
-    ![Política de uso](../media/tutorial-setup-classroom-lab/usage-policy-settings.png)
-
-
-## <a name="set-up-the-template"></a>Configuración de la plantilla 
-En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Publique la plantilla si desea que las instancias de la máquina virtual de la plantilla estén disponibles para los usuarios del laboratorio. 
-
-### <a name="set-title-and-description"></a>Establecimiento del título y descripción
-1. En la sección **Plantilla**, seleccione **Editar** (icono de lápiz) para la plantilla. 
-2. En la ventana **Vista de usuario**, escriba un **título** para la plantilla.
-3. Escriba la **descripción** para la plantilla.
-4. Seleccione **Guardar**.
-
-    ![Descripción del laboratorio de clase](../media/tutorial-setup-classroom-lab/lab-description.png)
-
-### <a name="set-up-the-template-vm"></a>Configuración de la plantilla de máquina virtual
- Puede conectarse a la plantilla de máquina virtual e instalar todo el software necesario en la misma antes de hacerla disponible para los alumnos. 
-
-1. Espere hasta que la plantilla de máquina virtual esté lista. Una vez que esté lista, el botón **Iniciar** debe estar habilitado. Para iniciar la máquina virtual, seleccione **Iniciar**.
-
-    ![Inicio de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. Para conectarse a la máquina virtual, seleccione **Conectar** y siga las instrucciones. 
-
-    ![Conexión a la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Instale el software necesario para que los estudiantes puedan realizar el laboratorio (por ejemplo, Visual Studio, Explorador de Azure Storage, etc). 
-2. Desconéctese (cierre la sesión de escritorio remoto) de la plantilla de máquina virtual. 
-3. **Detenga** la plantilla de máquina virtual seleccionando **Detener**. 
-
-    ![Detención de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
-
-### <a name="publish-the-template"></a>Publicación de la plantilla 
-Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla. 
-
-1. Seleccione **Publicar** en la sección **Plantilla**. 
-
-    ![Publicación de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/public-access.png)
-1. En la ventana **Publicar**, seleccione la opción **Publicada**. 
-2. A continuación, seleccione el botón **Publicar**. Este proceso puede tardar algún tiempo en función del número de máquinas virtuales que se crean, que es el mismo que el número de usuarios permitidos en el laboratorio.
-    
-    > [!IMPORTANT]
-    > Las plantillas publicadas no pueden dejar de publicarse. 
-4. Cambie a la página **Máquinas virtuales** y confirme que ve las máquinas virtuales que tienen el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. 
-
-    ![Máquinas virtuales](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Espere hasta que se creen las máquinas virtuales. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 
+4. Cambie a la página **Máquinas virtuales** y confirme que ve las máquinas virtuales que tienen el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 
 
     ![Máquinas virtuales en estado detenido](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="send-registration-link-to-students"></a>Envío del vínculo de registro a los estudiantes
 
-1. Cambie a la vista **Panel**. 
+1. Cambie a la vista **Panel** seleccionando **Panel** en el menú de la izquierda. 
 2. Seleccione el icono **Registro de usuario**.
 
     ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
@@ -117,6 +107,7 @@ Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en
 
     ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. En el cuadro de diálogo **Registro de usuario**, seleccione **Cerrar**. 
+3. Comparta el vínculo de registro con un alumno para que este se pueda registrar para la clase. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

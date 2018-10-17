@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042132"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831031"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extracción de datos relacionados contextualmente
 En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, las ubicaciones de origen y destino para un traslado físico de un edificio y oficina a otro edificio y oficina están relacionadas. Para generar un pedido de trabajo, ambos datos pueden ser necesarios y están relacionados entre sí.  
@@ -61,7 +61,7 @@ Para ver la expresión completa y marcar los elementos secundarios jerárquicos,
 
 2. Seleccione **Entities** (Entidades) en el menú izquierdo.
 
-3. Seleccione el botón de puntos suspensivos (***...***) a la derecha de la entidad numérica de la lista. Seleccione **Eliminar**. 
+3. Active la casilla a la izquierda de la entidad numérica de la lista. Seleccione **Eliminar**. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Adición de expresiones en la intención MoveEmployee
 

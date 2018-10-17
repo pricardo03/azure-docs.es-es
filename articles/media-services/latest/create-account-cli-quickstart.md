@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767109"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736009"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Inicio rápido: creación de una cuenta de Azure Media Services
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 Al crear una cuenta de Media Services, debe proporcionar el identificador de un recurso de cuenta de Azure Storage. La cuenta de almacenamiento especificada está asociada a su cuenta de Media Services. 
 
-Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier número de cuentas de almacenamiento **Secundarias** asociadas a su cuenta de Media Services. Media Services admite cuentas de **Uso general v2** (GPv2) o **Uso general v1** (GPv1). No se permiten cuentas de solo BLOB como **Principal**. Si quiere obtener más información sobre las cuentas de almacenamiento, consulte [Opciones de la cuenta de Azure Storage](../../storage/common/storage-account-options.md). 
+Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier número de cuentas de almacenamiento **Secundarias** asociadas a su cuenta de Media Services. Media Services admite cuentas de **Uso general v2** o **Uso general v1**. No se admiten las cuentas de Blob Storage como **Principales**. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../../storage/common/storage-account-overview.md). 
 
 El siguiente comando crea la cuenta de Storage que se asociará a la cuenta de Media Services (principal). En el siguiente script, reemplace el marcador de posición *storageaccountforams*. El valor de "account_name" debe tener una longitud inferior a 24.
 

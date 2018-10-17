@@ -1,5 +1,5 @@
 ---
-title: Informes de Azure Active Directory | Microsoft Docs
+title: ¿Qué son los informes de Azure Active Directory? | Microsoft Docs
 description: Proporciona una visión general sobre los informes de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 96faeaefc6c58f03328a85b626528267396121a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 220f27ccf2d3eaefd8347e1d52824be2d601d9c9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42144977"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364416"
 ---
-# <a name="azure-active-directory-reporting"></a>Informes de Azure Active Directory
+# <a name="what-are-azure-active-directory-reports"></a>¿Qué son los informes de Azure Active Directory?
 
 Con los informes de Azure Active Directory, puede obtener información sobre el funcionamiento de su entorno.  
 Los datos proporcionados le permiten:
@@ -50,6 +50,7 @@ Hay dos tipos de informes de seguridad en Azure Active Directory:
 - **Inicios de sesión de riesgo**: en el [informe de seguridad de inicios de sesión de riesgo](concept-risky-sign-ins.md) puede obtener un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
 
 **¿Qué licencia de Azure AD se necesita para acceder a un informe de seguridad?**  
+
 Todas las ediciones de Azure Active Directory le proporcionan estos informes sobre usuarios marcados en riesgo e inicios de sesión de riesgo.  
 Sin embargo, el nivel de granularidad del informe varía según la edición: 
 
@@ -69,9 +70,7 @@ Hay dos tipos de informes de actividad en Azure Active Directory:
 - **Inicios de sesión**: con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
 
 
-
-Los **informes de registros de auditoría** le proporcionan registros de las actividades del sistema en relación con el cumplimiento normativo.
-Entre otras cosas, los datos proporcionados le permiten abordar cuestiones comunes como:
+Los **informes de registros de auditoría** le proporcionan registros de las actividades del sistema en relación con el cumplimiento normativo. Estos datos le permiten abordar cuestiones comunes como:
 
 - Algún usuario de mi inquilino obtuvo acceso a un grupo de administración. ¿Quién les dio acceso? 
 
@@ -81,10 +80,10 @@ Entre otras cosas, los datos proporcionados le permiten abordar cuestiones comun
 
 
 **¿Qué licencia de Azure AD se necesita para acceder al informe de registros de auditoría?**  
+
 El informe de registros de auditoría está disponible para aquellas características para las que dispone de licencia. Si tiene una licencia para una característica determinada, también tiene acceso a la información del registro de auditoría de dicha característica.
 
 Para más información, consulte la **comparación de características disponibles con carácter general de las ediciones Free, Basic y Premium** en [Características y funcionalidad de Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
-
 
 
 El **informe de actividad de inicios de sesión** le permite encontrar respuestas a preguntas como:
@@ -95,8 +94,8 @@ El **informe de actividad de inicios de sesión** le permite encontrar respuesta
 
 
 **¿Qué licencia de Azure AD se necesita para acceder a los informes de actividades de inicio de sesión?**  
-El inquilino debe tener una licencia de Azure AD Premium asociada para acceder al informe de actividades de inicio de sesión.
 
+El inquilino debe tener una licencia de Azure AD Premium asociada para acceder al informe de actividades de inicio de sesión.
 
 ## <a name="programmatic-access"></a>Acceso mediante programación
 
@@ -105,17 +104,6 @@ Además de a través de la interfaz de usuario, los informes de Azure Active Dir
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea obtener más información sobre los distintos tipos de informes en Azure Active Directory, consulte:
-
-- [Informe de usuarios marcados en riesgo](concept-user-at-risk.md)
 - [Informe de inicios de sesión de riesgo](concept-risky-sign-ins.md)
 - [Informe de registros de auditoría](concept-audit-logs.md)
 - [Informe de registros de inicios de sesión](concept-sign-ins.md)
-
-Si quiere obtener más información sobre el acceso a los datos de los informes mediante la API de generación de informes, vea: 
-
-- [Introducción a la API de generación de informes de Azure Active Directory](concept-reporting-api.md)
-
-
-<!--Image references-->
-[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

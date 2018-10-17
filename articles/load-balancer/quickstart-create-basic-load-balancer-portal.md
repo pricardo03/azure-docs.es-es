@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304885"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378438"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia pública de Load Balancer Básico mediante Azure Portal
 
@@ -30,13 +30,13 @@ El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Para todas las tareas de esta guía de inicio rápido, inicie sesión en [Azure Portal](http://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Creación de una instancia de Load Balancer Básico
 
-En esta sección, se crea una instancia pública de Load Balancer Básico mediante el portal. La dirección IP pública se configura automáticamente como front-end de la instancia de Load Balancer cuando se crean la dirección IP pública y el recurso del equilibrador de carga mediante el portal. El nombre del front-end es **LoadBalancerFrontend**.
+En esta sección, se crea una instancia pública de Load Balancer Básico mediante el portal. La dirección IP pública se configura automáticamente como front-end de la instancia de Load Balancer cuando se crean la dirección IP pública y el recurso del equilibrador de carga mediante el portal. El nombre del front-end es **myLoadBalancer**.
 
 1. En el lado superior izquierdo del portal, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
 2. En el panel **Crear equilibrador de carga**, escriba estos valores:
@@ -46,21 +46,21 @@ En esta sección, se crea una instancia pública de Load Balancer Básico median
    - **myResourceGroupLB** como nombre del nuevo grupo de recursos
 3. Seleccione **Crear**.
    
-![Crear un equilibrador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+![Creación de un equilibrador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 
 ## <a name="create-back-end-servers"></a>Creación de los servidores de back-end
 
 En esta sección, se crean una red virtual y dos máquinas virtuales para el grupo de back-end del equilibrador de carga Básico. A continuación, se instala Internet Information Services (IIS) en las máquinas virtuales para ayudar a probar el equilibrador de carga.
 
-### <a name="create-a-virtual-network"></a>Crear una red virtual
+### <a name="create-a-virtual-network"></a>Creación de una red virtual
 1. En el lado superior izquierdo del portal, seleccione **Nuevo** > **Redes** > **Red virtual**.
 2. En el panel **Crear red virtual**, escriba estos valores y seleccione **Crear**:
    - **myVNet** como nombre de la red virtual
    - **myResourceGroupLB** como nombre del grupo de recursos existente
    - **myBackendSubnet** como nombre de la subred
 
-   ![Crear una red virtual](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
+   ![Creación de una red virtual](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
 
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
@@ -123,7 +123,7 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
    ![Adición de rol desde Administrador del servidor](./media/load-balancer-get-started-internet-portal/servermanager.png)
 6. En el Asistente para agregar roles y características, use los siguientes valores:
    - En la página **Seleccionar tipo de instalación**, seleccione **Instalación basada en características o en roles**.
-   - En la página **Seleccionar servidor de destino**, seleccione **myVM1**.
+   - En la página **Seleccionar servidor de destino **, seleccione** myVM1**.
    - En la página **Seleccionar rol de servidor**, seleccione **Servidor web (IIS)**.
    - Siga las instrucciones para completar el resto del asistente. 
 7. Repita los pasos 1 a 6 para la máquina virtual **myVM2**.

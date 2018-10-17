@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 8b3956860a38057771770b965006606ffb3e24f8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963788"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831218"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -288,8 +288,10 @@ El ejemplo siguiente es un perfil de red del conjunto de escalado que muestra va
 }
 ```
 
-## <a name="nsg-per-scale-set"></a>NSG por conjunto de escalado
+## <a name="nsg--asgs-per-scale-set"></a>NSG y ASG por conjunto de escalado
 Los grupos de seguridad de red se pueden aplicar directamente a un conjunto de escalado agregando una referencia a la sección de configuración de la interfaz de red de las propiedades de máquinas virtuales del conjunto de escalado.
+
+Los grupos de seguridad de red también se pueden especificar directamente para un conjunto de escalado agregando una referencia a la sección de configuración IP de la interfaz de red de las propiedades de máquinas virtuales del conjunto de escalado.
 
 Por ejemplo:  
 ```
@@ -305,7 +307,12 @@ Por ejemplo:
                         "properties": {
                             "subnet": {
                                 "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
-                            }
+                            },
+                            "applicationSecurityGroups": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/applicationSecurityGroups/', variables('asgName'))]"
+                                }
+                            ],
                 "loadBalancerInboundNatPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
