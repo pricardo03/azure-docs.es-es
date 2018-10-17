@@ -1,22 +1,24 @@
 ---
-title: Expresiones de consulta estructuradas de Knowledge Exploration Service API | Microsoft Docs
-description: Aprenda a utilizar expresiones de consulta estructuradas en Knowledge Exploration Service (KES) API en Cognitive Services.
+title: Expresiones de consulta estructuradas de Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Aprenda a utilizar expresiones de consulta estructuradas en Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 070ee311a1153bc9fb59870dce68f385a43b15f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380231"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129176"
 ---
 # <a name="structured-query-expression"></a>Expresiones de consulta estructuradas
+
 Una expresión de consulta estructurada especifica un conjunto de operaciones para evaluar en el índice de datos.  Se compone de expresiones de consulta de atributos y funciones de nivel superior.  Use el método [*evaluate*](evaluateMethod.md) para procesar los objetos que coinciden con la expresión.  El siguiente es un ejemplo del dominio de publicaciones académicas que devuelve las publicaciones creadas por Jaime Teevan desde el año 2013.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
@@ -24,6 +26,7 @@ Una expresión de consulta estructurada especifica un conjunto de operaciones pa
 Las expresiones de consulta estructuradas se pueden obtener a partir de solicitudes [*interpret*](interpretMethod.md), en las que la salida semántica de cada interpretación es una expresión de consulta estructurada que devuelve objetos de índice que coinciden con la consulta de entrada en lenguaje natural.  Como alternativa, también se pueden crear manualmente mediante la sintaxis descrita en esta sección.
 
 ## <a name="attribute-query-expression"></a>Expresión de consulta de atributo
+
 Una expresión de consulta de atributo identifica un conjunto de objetos basados en la coincidencia con un atributo determinado.  Se admiten diferentes operaciones de establecimiento de coincidencias dependiendo del tipo de atributo y de la operación indexada que se especificó en el [esquema](SchemaFormat.md):
 
 | Escriba | Operación | Ejemplos |
@@ -45,9 +48,11 @@ Para los atributos con sinónimos asociados, una expresión de consulta puede es
 
 
 ## <a name="functions"></a>Functions
+
 Hay un conjunto integrado de funciones que permiten la construcción de expresiones de consulta más sofisticadas a partir de consultas de atributos básicas.
 
 ### <a name="and-function"></a>Función And
+
 `And(expr1, expr2)`
 
 Devuelve la intersección de las dos expresiones de consulta de entrada.
@@ -57,6 +62,7 @@ El ejemplo siguiente devuelve publicaciones académicas publicadas en el año 20
 `And(Year=2000, Keyword=='information retrieval')`
 
 ### <a name="or-function"></a>Función Or
+
 `Or(expr1, expr2)`
 
 Devuelve la unión de las dos expresiones de consulta de entrada.
@@ -66,6 +72,7 @@ El ejemplo siguiente devuelve publicaciones académicas publicadas en el año 20
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### <a name="composite-function"></a>Función Composite
+
 `Composite(expr)`
 
 Devuelve una expresión que encapsula una expresión interna compuesta de consultas en atributos secundarios de un atributo común compuesto.  La encapsulación requiere que el atributo compuesto de cualquier objeto de datos coincidente disponga al menos de un valor que satisface individualmente la expresión interna.  Tenga en cuenta que una expresión de consulta sobre atributos secundarios de un atributo compuesto tiene que estar encapsulada mediante la función Composite() antes de poderse combinar con otras expresiones de consulta.

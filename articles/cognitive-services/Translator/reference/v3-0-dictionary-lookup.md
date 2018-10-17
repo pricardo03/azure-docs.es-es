@@ -1,22 +1,23 @@
 ---
-title: Método de búsqueda de diccionario de Microsoft Translator Text API | Microsoft Docs
-description: Use el método de búsqueda de diccionario de Microsoft Translator Text API.
+title: Método de búsqueda de diccionario de Translator Text API
+titlesuffix: Azure Cognitive Services
+description: Use el método de búsqueda de diccionario de Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868092"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127852"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>Text API 3.0: búsqueda de diccionario
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Búsqueda de diccionario
 
 Proporciona traducciones alternativas para una palabra y un pequeño número de frases hechas. Cada traducción tiene funciones de sintaxis y una lista de traducciones inversas. Las traducciones inversas permiten al usuario comprender la traducción en contexto. La operación [Ejemplo de diccionario](.\v3-0-dictionary-examples.md) le permite profundizar más para ver ejemplos de usos de cada par de traducción.
 
@@ -68,13 +69,13 @@ Los encabezados de solicitud incluyen lo siguiente:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Un GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Cuerpo de la solicitud
 
-El cuerpo de solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`, que representa el término que se va a buscar.
+El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`, que representa el término que se va a buscar.
 
 ```json
 [
@@ -89,7 +90,7 @@ Se aplican las siguientes limitaciones:
 
 ## <a name="response-body"></a>Response body
 
-Una respuesta correcta, es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
+Una respuesta correcta es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
   * `normalizedSource`: es una cadena que proporciona el formato normalizado del término de origen. Por ejemplo, si la solicitud es "JOHN", la forma normalizada será "john". El contenido de este campo se convierte en la entrada de los [ejemplos de búsqueda](.\v3-0-dictionary-examples.md).
     

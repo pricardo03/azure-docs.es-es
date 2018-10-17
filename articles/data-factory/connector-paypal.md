@@ -1,5 +1,5 @@
 ---
-title: Copiar datos de PayPal con Azure Data Factory | Microsoft Docs
+title: Copiar datos de PayPal con Azure Data Factory (versión preliminar) | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde PayPal a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 844b9979ed3bb61850ff9448d065bc1300fe23d0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6d752eb5d638171aa510bbbf17a197eddd2b6f60
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054405"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127217"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory"></a>Copiar datos de PayPal con Azure Data Factory
+# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar datos de PayPal con Azure Data Factory (versión preliminar)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de PayPal. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -45,10 +45,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de PayPal:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **PayPal**. | Sí |
-| host | Dirección URL de la instancia de PayPal (es decir, api.sandbox.paypal.com).  | Sí |
-| clientId | Id. de cliente asociado a la aplicación PayPal.  | Sí |
-| clientSecret | Secreto de cliente asociado a la aplicación PayPal. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| Tipo | La propiedad type debe establecerse en: **PayPal**. | SÍ |
+| host | Dirección URL de la instancia de PayPal (es decir, api.sandbox.paypal.com).  | SÍ |
+| clientId | Id. de cliente asociado a la aplicación PayPal.  | SÍ |
+| clientSecret | Secreto de cliente asociado a la aplicación PayPal. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -103,8 +103,8 @@ Para copiar datos desde PayPal, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **PayPalSource**. | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Payment_Experience"`. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **PayPalSource**. | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Payment_Experience"`. | SÍ |
 
 **Ejemplo:**
 

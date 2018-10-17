@@ -1,23 +1,23 @@
 ---
-title: Método de traducción de Microsoft Translator Text API | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Uso del método de traducción de Microsoft Translator Text API.
+title: Método de traducción de Translator Text API
+titleSuffix: Azure Cognitive Services
+description: Use el método de traducción de Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: d8d5e1e2fac747fa733f1d92c08008b7eac2a1bc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1841730a39d29c5fe1f3451b7614818e924b339f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382851"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128764"
 ---
-# <a name="text-api-30-translate"></a>Text API 3.0: traducción
+# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Traducción
 
 Traduce el texto.
 
@@ -92,7 +92,7 @@ Los encabezados de solicitud incluyen lo siguiente:
   <th width="20%">encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
-    <td>_Un encabezado_<br/>_de autorización_</td>
+    <td>_Un encabezado de_<br/>_autorización_</td>
     <td>*Encabezado de solicitud obligatorio*.<br/>Consulte las [opciones disponibles para la autenticación](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@ En la sección de [ejemplos](#examples) se proporcionan ejemplos de respuestas J
 
 ## <a name="response-status-codes"></a>Códigos de estado de respuesta
 
-A continuación, se indican los posibles códigos de estado HTTP que devuelve una solicitud. 
+A continuación se indican los códigos de estado HTTP posibles que devuelve una solicitud. 
 
 <table width="100%">
   <th width="20%">Código de estado</th>
@@ -181,11 +181,11 @@ A continuación, se indican los posibles códigos de estado HTTP que devuelve un
   </tr>
   <tr>
     <td>401</td>
-    <td>No pudo autenticarse la solicitud. Compruebe que las credenciales que se especificaron sean válidas.</td>
+    <td>No pudo autenticarse la solicitud. Compruebe que las credenciales que se especificaron sean correctas.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>La solicitud no está autorizada. Compruebe los detalles del mensaje de error. Esto a menudo indica que todas las traducciones gratuitas que proporciona la suscripción de prueba se han agotado.</td>
+    <td>La solicitud no está autenticada. Compruebe los detalles del mensaje de error. Esto a menudo indica que todas las traducciones gratuitas que proporciona la suscripción de prueba se han agotado.</td>
   </tr>
   <tr>
     <td>429</td>

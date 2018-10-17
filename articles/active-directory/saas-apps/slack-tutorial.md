@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 09/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5b1099e46cf1aa2fd4b948fee8407cfd859390ce
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421270"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integración de Azure Active Directory con Slack
 
@@ -114,11 +114,8 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.slack.com`.
 
-    b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://slack.com`
+    b. En el cuadro de texto **Identificador**, actualice el valor con la URL de inicio de sesión único. Este es su dominio de área de trabajo. Por ejemplo: `https://contoso.slack.com`
 
-    > [!NOTE] 
-    > Este valor no es real. Tiene que actualizar este valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact) para obtener el valor.
-     
 1. La aplicación Slack espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
     
     ![Configurar inicio de sesión único](./media/slack-tutorial/tutorial_slack_attribute.png)
@@ -220,6 +217,9 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 > [!NOTE]
 > Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact).
+
+> [!NOTE]
+> Azure AD Connect es la herramienta de sincronización que permite sincronizar usuarios locales de Active Directory Identity con Azure AD. A continuación, estos usuarios sincronizados también podrán usar las aplicaciones como otros usuarios en la nube.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

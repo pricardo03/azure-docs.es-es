@@ -1,23 +1,24 @@
 ---
-title: Actualizar Bing Web Search API v5 a v7 | Microsoft Docs
-description: Identifica las partes de la aplicación que se deben actualizar para usar la versión 7.
+title: Actualizar Bing Web Search API v5 a v7
+titleSuffix: Azure Cognitive Services
+description: Determinar qué partes de la aplicación es necesario actualizar para usar Bing Web Search v7 API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 155297f230c0ee02d6fa49d6d35eb24d9941f29b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eb84c961d13c5abac7a0c9f426f099d21f034f20
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382111"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129750"
 ---
-# <a name="web-search-api-upgrade-guide"></a>Guía de actualización de Web Search API
+# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Actualizar Bing Web Search API v5 a v7
 
 Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Web Search API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
 
@@ -34,9 +35,9 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 - Se han agregado los campos siguientes al objeto `Error`.  
   - `subCode`&mdash;Divide el código de error en cubos discretos, si es posible.
   - `moreDetails`&mdash;Información adicional sobre el error descrito en el campo `message`.
-   
 
-- Se han reemplazado los códigos de error de v5 por los posibles valores de `code` y `subCode` siguientes.
+
+- Se han reemplazado los códigos de error v5 por los posibles valores de `code` y `subCode` siguientes.
 
 |Código|Subcódigo|DESCRIPCIÓN
 |-|-|-
@@ -79,10 +80,9 @@ Bloqueado|InvalidRequest.Blocked
 ### <a name="query-parameters"></a>Parámetros de consulta
 
 - Se ha agregado el parámetro de consulta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount). Utilice este parámetro para especificar el número de respuestas que quiere que incluya la respuesta. Las respuestas se eligen en función de la clasificación. Por ejemplo, si establece este parámetro en tres (3), la respuesta incluye las tres primeras respuestas clasificadas.  
-  
+
 - Se ha agregado el parámetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote). Utilice este parámetro junto con `answerCount` incluir explícitamente uno o más tipos de respuesta, independientemente de su clasificación. Por ejemplo, para promover vídeos e imágenes en la respuesta, debe establecer promote en *videos,images*. La lista de respuestas que quiere promover no se tiene en cuenta para el límite de `answerCount`. Por ejemplo, si `answerCount` es 2 y `promote` está establecido en *videos,images*, la respuesta puede incluir páginas web, noticias, vídeos e imágenes.
 
 ### <a name="object-changes"></a>Cambios en objetos
 
 - Se ha agregado el campo `someResultsRemoved` al objeto [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer). El campo contiene un valor booleano que indica si la respuesta excluyó algunos resultados de la respuesta web.  
-

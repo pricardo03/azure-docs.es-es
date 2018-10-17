@@ -1,41 +1,40 @@
 ---
-title: 'SDK de Java: operaciones de sistema de archivos en Azure Data Lake Store | Microsoft Docs'
-description: Use el SDK de Java de Azure Data Lake Store para realizar operaciones de sistema de archivos en Data Lake Store, como, por ejemplo, crear carpetas.
+title: 'SDK de Java: operaciones de sistema de archivos en Azure Data Lake Storage Gen1 | Microsoft Docs'
+description: Use el SDK de Java de Azure Data Lake Storage Gen1 para realizar operaciones de sistema de archivos en Data Lake Storage Gen1, como, por ejemplo, crear carpetas.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129209"
 ---
-# <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Operaciones de sistema de archivos en Azure Data Lake Store con el SDK de Java
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operaciones de sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso del SDK de Java
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API de REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
-Aprenda a utilizar el SDK de Java de Azure Data Lake Store para realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, etc. Para más información sobre Data Lake, consulte [Azure Data Lake Store](data-lake-store-overview.md).
+Aprenda a utilizar el SDK de Java de Azure Data Lake Storage Gen1 para realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, etc. Para más información sobre Data Lake Storage Gen1, consulte [Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-Puede acceder a los documentos de la API del SDK de Java para Azure Data Lake Store en los [documentos de la API de Java de Azure Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/).
+Puede acceder a los documentos de la API del SDK de Java para Data Lake Storage Gen1 en los [documentos de la API de Java de Azure Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Kit de desarrollo de Java (JDK 7 o superior, con Java versión 1.7 o posterior).
-* Cuenta de Azure Data Lake Store. Siga las instrucciones de [Introducción al uso de Azure Portal por parte de Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* Cuenta de Data Lake Storage Gen1. Siga las instrucciones de [Introducción a Azure Data Lake Storage Gen1 con Azure Portal](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Este tutorial usa Maven para crear las dependencias de un proyecto. Aunque es posible generarlas sin utilizar un sistema como Maven o Gradle, estos sistemas facilitan mucho la administración de las dependencias.
 * (Opcional) Y un IDE como [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) o similar.
 
@@ -59,7 +58,7 @@ El ejemplo de código disponible [en GitHub](https://azure.microsoft.com/documen
           </dependency>
         </dependencies>
    
-    La primera dependencia es el uso del SDK de Data Lake Store (`azure-data-lake-store-sdk`) desde el repositorio de maven. La segunda dependencia consiste en especificar qué plataforma de registro (`slf4j-nop`) se usará para esta aplicación. El SDK de Data Lake Store usa la fachada de registro [slf4j](http://www.slf4j.org/), que permite elegir entre una serie de plataformas de registro populares, como log4j, registro de Java, logback, etc., o no registrarse. En este ejemplo, se deshabilita el registro; por tanto, se usa el enlace **slf4j-nop**. Para usar otras opciones de registro en su aplicación, consulte [este artículo](http://www.slf4j.org/manual.html#projectDep).
+    La primera dependencia es el uso del SDK de Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) desde el repositorio de maven. La segunda dependencia consiste en especificar qué plataforma de registro (`slf4j-nop`) se usará para esta aplicación. El SDK de Data Lake Storage Gen1 usa la fachada de registro [slf4j](http://www.slf4j.org/), que permite elegir entre una serie de plataformas de registro populares, como slf4j, registro de Java, logback, etc., o no registrarse. En este ejemplo, se deshabilita el registro; por tanto, se usa el enlace **slf4j-nop**. Para usar otras opciones de registro en su aplicación, consulte [este artículo](http://www.slf4j.org/manual.html#projectDep).
 
 3. Agregue las siguientes instrucciones de importación a la aplicación.
 
@@ -76,20 +75,20 @@ El ejemplo de código disponible [en GitHub](https://azure.microsoft.com/documen
 
 ## <a name="authentication"></a>Autenticación
 
-* Para la autenticación del usuario final para la aplicación, consulte [End-user authentication with Data Lake Store using Java](data-lake-store-end-user-authenticate-java-sdk.md) (Autenticación del usuario final con Data Lake Store mediante Java).
-* Para la autenticación entre servicios para la aplicación, consulte [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md) (Autenticación entre servicios con Data Lake Store mediante Java).
+* Para la autenticación del usuario final para la aplicación, consulte [End-user authentication with Data Lake Store using Java](data-lake-store-end-user-authenticate-java-sdk.md) (Autenticación del usuario final con Data Lake Storage Gen1 mediante Java).
+* Para la autenticación entre servicios para la aplicación, consulte [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante Java).
 
-## <a name="create-an-azure-data-lake-store-client"></a>Creación de un cliente de Azure Data Lake Store
-La creación de un objeto [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) requiere la especificación del nombre de la cuenta de Data Lake Store y del proveedor de tokens que se generó con la autenticación en Data Lake Store (consulte la sección [Autenticación](#authentication)). El nombre de la cuenta de Data Lake Store debe ser un nombre de dominio completo. Por ejemplo, reemplace **FILL-IN-HERE** por algo similar a **mydatalakestore.azuredatalakestore.net**.
+## <a name="create-a-data-lake-storage-gen1-client"></a>Creación de un cliente de Data Lake Storage Gen1
+La creación de un objeto [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) requiere la especificación del nombre de la cuenta de Data Lake Storage Gen1 y del proveedor de tokens que se generó con la autenticación en Data Lake Storage Gen1 (consulte la sección [Autenticación](#authentication)). El nombre de la cuenta de Data Lake Storage Gen1 debe ser un nombre de dominio completo. Por ejemplo, reemplace **FILL-IN-HERE** por algo similar a **mydatalakestoragegen1.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-Los fragmentos de código de las secciones siguientes contienen ejemplos de operaciones de sistema de archivos comunes. Puede buscar en todos los [documentos de la API de SDK de Java de Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/) del objeto **ADLStoreClient** para ver otras operaciones.
+Los fragmentos de código de las secciones siguientes contienen ejemplos de operaciones de sistema de archivos comunes. Puede buscar en todos los [documentos de la API de SDK de Java de Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/) del objeto **ADLStoreClient** para ver otras operaciones.
 
 ## <a name="create-a-directory"></a>Creación de directorios
 
-El fragmento de código siguiente crea una estructura de directorios en la raíz de la cuenta de Data Lake Store especificada.
+El fragmento de código siguiente crea una estructura de directorios en la raíz de la cuenta de Data Lake Storage Gen1 especificada.
 
     // create directory
     client.createDirectory("/a/b/w");
@@ -135,7 +134,7 @@ La definición de la función `getSampleContent` utilizada en el fragmento de c�
 
 ## <a name="read-a-file"></a>Lectura de un archivo
 
-El fragmento de código siguiente lee el contenido de un archivo de cuenta de Data Lake Store.
+El fragmento de código siguiente lee el contenido de un archivo de cuenta de Data Lake Storage Gen1.
 
     // Read File
     InputStream in = client.getReadStream(filename);
@@ -150,7 +149,7 @@ El fragmento de código siguiente lee el contenido de un archivo de cuenta de Da
 
 ## <a name="concatenate-files"></a>Concatenación de archivos
 
-El fragmento de código siguiente concatena dos archivos en la cuenta de Data Lake Store. Si se realiza correctamente, el archivo concatenado reemplaza los dos existentes.
+El fragmento de código siguiente concatena dos archivos en una cuenta de Data Lake Storage Gen1. Si se realiza correctamente, el archivo concatenado reemplaza los dos existentes.
 
     // concatenate the two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
@@ -159,7 +158,7 @@ El fragmento de código siguiente concatena dos archivos en la cuenta de Data La
 
 ## <a name="rename-a-file"></a>Cambio del nombre de un archivo
 
-El fragmento de código siguiente cambia el nombre de un archivo de cuenta de Data Lake Store.
+El fragmento de código cambia el nombre de un archivo en una cuenta de Data Lake Storage Gen1.
 
     //rename the file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
@@ -167,7 +166,7 @@ El fragmento de código siguiente cambia el nombre de un archivo de cuenta de Da
 
 ## <a name="get-metadata-for-a-file"></a>Obtención de los metadatos para un archivo
 
-El fragmento de código siguiente recupera los metadatos para un archivo de cuenta de Data Lake Store.
+El fragmento de código siguiente recupera los metadatos de un archivo en una cuenta de Data Lake Storage Gen1.
 
     // get file metadata
     DirectoryEntry ent = client.getDirectoryEntry(filename);
@@ -198,7 +197,7 @@ La definición de la función `printDirectoryInfo` utilizada en el fragmento de 
 
 ## <a name="delete-files-and-folders"></a>Eliminación de archivos y carpetas
 
-El fragmento de código siguiente elimina los archivos y las carpetas especificados de una cuenta de Data Lake Store, repetidamente.
+El fragmento de código siguiente elimina los archivos y las carpetas especificados de una cuenta de Data Lake Storage Gen1, repetidamente.
 
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
@@ -211,6 +210,6 @@ El fragmento de código siguiente elimina los archivos y las carpetas especifica
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Explorar JavaDoc para el SDK de Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
+* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 
 

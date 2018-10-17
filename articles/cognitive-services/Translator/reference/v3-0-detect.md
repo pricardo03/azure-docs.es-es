@@ -1,22 +1,23 @@
 ---
-title: Método Detect de Microsoft Translator Text API | Microsoft Docs
-description: Use el método Detect de Microsoft Translator Text API.
+title: Método Detect de Translator Text API
+titlesuffix: Azure Cognitive Services
+description: Use el método Detect de Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382406"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126129"
 ---
-# <a name="text-api-30-detect"></a>Texto API 3.0: Detect
+# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detección
 
 Identifica el idioma de un fragmento de texto.
 
@@ -60,13 +61,13 @@ Los encabezados de solicitud incluyen lo siguiente:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Un GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Cuerpo de la solicitud
 
-El cuerpo de solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`. La detección de idioma se aplica al valor de la propiedad `Text`. Un cuerpo de solicitud de muestra tiene el siguiente aspecto:
+El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`. La detección de idioma se aplica al valor de la propiedad `Text`. Un cuerpo de solicitud de muestra tiene el siguiente aspecto:
 
 ```json
 [
@@ -82,7 +83,7 @@ Se aplican las siguientes limitaciones:
 
 ## <a name="response-body"></a>Response body
 
-Una respuesta correcta, es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
+Una respuesta correcta es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
   * `language`: código del idioma detectado.
 
@@ -161,11 +162,11 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>500</td>
-    <td>Se ha producido un error inesperado. Si el error persiste, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId`e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
+    <td>Se ha producido un error inesperado. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId` e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error persiste, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId`e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
+    <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId` e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

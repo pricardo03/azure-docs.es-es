@@ -2,19 +2,19 @@
 title: Copia de seguridad y restauración en Azure Database for PostgreSQL
 description: Obtenga información acerca de cómo realizar copias de seguridad y restaurar automáticamente su servidor de Azure Database for PostgreSQL.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0f7ec38d2c271ebaa15e681a71eb32be7151921f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 707803e1f69a3146772e71ff711a48b510d8c9fc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29693053"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127574"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL
 
@@ -41,7 +41,7 @@ Azure Database for PostgreSQL proporciona hasta un 100 % del almacenamiento del 
 
 Por ejemplo, si ha aprovisionado un servidor con 250 GB, tendrá 250 GB para almacenar copias de seguridad sin costos adicionales. El almacenamiento que supere los 250 GB se cobrará.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restauración
 
 En Azure Database for PostgreSQL, al realizar una restauración se crea un nuevo servidor a partir de las copias de seguridad del servidor original.
 
@@ -53,7 +53,7 @@ Hay dos tipos de restauración disponibles:
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la bases de datos, el tamaño del registro de transacciones, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación es inferior a 12 horas.
 
 > [!IMPORTANT]
-> Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
+> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar.
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 
@@ -67,6 +67,8 @@ Quizás deba esperar a que se realice la siguiente copia de seguridad del regist
 
 Puede restaurar un servidor en otra región de Azure donde el servicio esté disponible, si ha configurado el servidor para copias de seguridad con redundancia geográfica. La restauración geográfica es la opción de recuperación predeterminada cuando el servidor no está disponible debido a una incidencia en la región en la que se hospeda el servidor. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar un servidor a partir de las copias de seguridad con redundancia geográfica en un servidor de cualquier otra región. Hay un retraso entre momento en que se realiza una copia de seguridad y el momento en que se replica en una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora.
 
+Durante la restauración geográfica, las configuraciones de servidor que se pueden cambiar incluyen la generación de procesos, núcleos virtuales, período de retención de copia de seguridad y opciones de redundancia de copia de seguridad. No se permite cambiar el plan de tarifa (Básico, Uso general o Memoria optimizada) ni el tamaño de almacenamiento.
+
 ### <a name="perform-post-restore-tasks"></a>Tareas posteriores a la restauración
 
 Cuando efectúe la restauración con cualquiera de los mecanismos de recuperación, deberá realizar las siguientes tareas para que los usuarios y las aplicaciones vuelvan a conectarse:
@@ -76,7 +78,7 @@ Cuando efectúe la restauración con cualquiera de los mecanismos de recuperaci�
 - No se olvide de emplear los permisos de nivel de base de datos y los inicios de sesión apropiados.
 - Configure las alertas según corresponda.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de la continuidad del negocio, consulte la  [introducción a la continuidad de negocio](concepts-business-continuity.md).
 - Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).

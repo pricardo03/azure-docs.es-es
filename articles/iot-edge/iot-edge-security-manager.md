@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359538"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126350"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
@@ -109,7 +109,7 @@ El entorno de ejecución de IoT Edge hace el seguimiento de la versión del demo
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Capa de abstracción de plataforma del módulo de seguridad de hardware (HSM PAL)
 
-HSM PAL abstrae todo el hardware de raíz de confianza para aislar al desarrollador o usuario de IoT Edge de sus complejidades.  Se compone de una combinación de la interfaz de programador de aplicaciones (API) y procedimientos de comunicaciones entre dominios, por ejemplo, la comunicación entre un entorno de ejecución estándar y un enclave seguro.  La implementación real de HSM PAL depende del hardware seguro específico que esté en uso.  Su existencia permite el uso de prácticamente cualquier hardware de silicio seguro en todo el ecosistema de IoT.
+HSM PAL abstrae todo el hardware de raíz de confianza para aislar al desarrollador o usuario de IoT Edge de sus complejidades.  Se compone de una combinación de la interfaz de programación de aplicaciones (API) y procedimientos de comunicaciones entre dominios, por ejemplo, la comunicación entre un entorno de ejecución estándar y un enclave seguro.  La implementación real de HSM PAL depende del hardware seguro específico que esté en uso.  Su existencia permite el uso de prácticamente cualquier hardware de silicio seguro en todo el ecosistema de IoT.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Hardware de raíz de confianza de silicio seguro
 

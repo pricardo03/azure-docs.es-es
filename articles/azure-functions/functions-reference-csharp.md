@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3bdb5bc2aa47a51cc95a4274fbf20ba5d0515130
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094288"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129682"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
@@ -35,6 +35,29 @@ La experiencia de scripts de C# para Azure Functions se basa en el [SDK de Azure
 El formato *.csx* permite escribir menos "texto reutilizable" y centrarse en escribir solo una función de C#. En lugar de encapsular todo en un espacio de nombres y una clase, defina solamente un método `Run`. Incluya las referencias a ensamblados y los espacios de nombres al principio del archivo como de costumbre.
 
 Los archivos *.csx* de una aplicación de función se compilan cuando se inicializa una instancia. Este paso de compilación puede conllevar, por ejemplo, que un arranque en frío pueda tardar más para las funciones de script de C# en comparación con las bibliotecas de clases de C#. En este paso de compilación también se plantea la pregunta de por qué las funciones de script de C# se pueden editar en Azure Portal y las bibliotecas de clases de C# no.
+
+## <a name="folder-structure"></a>Estructura de carpetas
+
+La estructura de carpetas para un proyecto de script de C# tiene el siguiente aspecto:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Hay un archivo [host.json] (functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.csx) y archivo de configuración de enlace (function.json).
+
+Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
 
@@ -336,8 +359,10 @@ Se puede hacer referencia a los ensamblados siguientes con nombre simple (por ej
 ## <a name="referencing-custom-assemblies"></a>Hacer referencia a ensamblados personalizados
 
 Para hacer referencia a un ensamblado personalizado, puede usar un ensamblado *compartido* o un ensamblado *privado*:
-- Los ensamblados compartidos se comparten en todas las funciones dentro de una aplicación de función. Para hacer referencia a un ensamblado personalizado, cargue el ensamblado en una carpeta denominada `bin` en su [carpeta raíz de aplicaciones de función](functions-reference.md#folder-structure) (wwwroot). 
-- Los ensamblados privados forman parte del contexto de una función determinada y admiten la instalación de prueba de versiones diferentes. Los ensamblados privados se deben cargar en una carpeta `bin` en el directorio de la función. Haga referencia a ellos con el nombre de archivo, como `#r "MyAssembly.dll"`. 
+
+* Los ensamblados compartidos se comparten en todas las funciones dentro de una aplicación de función. Para hacer referencia a un ensamblado personalizado, cargue el ensamblado en una carpeta denominada `bin` en su [carpeta raíz de aplicaciones de función](functions-reference.md#folder-structure) (wwwroot).
+
+* Los ensamblados privados forman parte del contexto de una función determinada y admiten la instalación de prueba de versiones diferentes. Los ensamblados privados se deben cargar en una carpeta `bin` en el directorio de la función. Haga referencia a ellos con el nombre de archivo, como `#r "MyAssembly.dll"`.
 
 Para más información sobre cómo cargar archivos en su carpeta de función, consulte la sección sobre [administración de paquetes](#using-nuget-packages).
 

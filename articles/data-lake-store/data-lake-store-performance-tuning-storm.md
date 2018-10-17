@@ -1,6 +1,6 @@
 ---
-title: Guía para la optimización del rendimiento de Azure Data Lake Store | Microsoft Docs
-description: Guía para la optimización del rendimiento de Azure Data Lake Store
+title: Directrices para la optimización del rendimiento de Storm en Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Directrices para la optimización del rendimiento de Storm en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198867"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129240"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Guía para la optimización del rendimiento de Storm en HDInsight y Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Storm en HDInsight y Azure Data Lake Storage Gen1
 
 Esta guía le ayuda a comprender los factores que se deben tener en cuenta al optimizar el rendimiento de una topología de Azure Storm. Por ejemplo, es importante comprender las características del trabajo realizado por los spouts y los bolts (si el trabajo hace un uso intensivo de memoria o E/S). En este artículo se describen varias directrices de optimización del rendimiento y se incluyen soluciones a problemas comunes.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Store](data-lake-store-get-started-portal.md).
-* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Store. Consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
-* **Ejecución de un clúster de Storm en Data Lake Store**. Para más información, consulte [Storm en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Guía para la optimización del rendimiento en Data Lake Store**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* **Ejecución de un clúster de Storm en Data Lake Storage Gen1**. Para más información, consulte [Storm en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Guía para la optimización del rendimiento en Data Lake Storage Gen1**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ajuste del paralelismo de la topología
 
-Es posible que pueda mejorar el rendimiento si aumenta la simultaneidad de E/S hacia y desde Data Lake Store. Una topología de Storm tiene un conjunto de configuraciones que determinan el paralelismo:
+Es posible que pueda mejorar el rendimiento si aumenta la simultaneidad de E/S hacia y desde Data Lake Storage Gen1. Una topología de Storm tiene un conjunto de configuraciones que determinan el paralelismo:
 * Número de procesos de trabajo: los trabajos se distribuyen uniformemente entre las máquinas virtuales
 * Número de instancias de ejecutor de spout
 * Número de instancias de ejecutor de bolt
@@ -51,9 +51,9 @@ En Storm, estos son los diversos componentes implicados y así es cómo afectan 
 * Instancias de ejecutor de bolt y spout. Cada instancia de ejecutor corresponde a un subproceso que se ejecuta dentro de los trabajos (máquinas virtuales Java).
 * Tareas de Storm. Son tareas lógicas que ejecuta cada uno de estos subprocesos. Esto no cambia el nivel de paralelismo, por lo que se debe evaluar si necesita o no varias tareas por ejecutor.
 
-### <a name="get-the-best-performance-from-data-lake-store"></a>Obtener el mejor rendimiento de Data Lake Store
+### <a name="get-the-best-performance-from-data-lake-storage-gen1"></a>Obtener el mejor rendimiento de Data Lake Storage Gen1
 
-Cuando trabaje con Data Lake Store, obtendrá el mejor rendimiento con estas sugerencias:
+Cuando trabaje con Data Lake Storage Gen1, obtendrá el mejor rendimiento con estas sugerencias:
 * Fusione sus anexos más pequeños en tamaños más grandes (lo ideal son 4 MB).
 * Realice tantas solicitudes simultáneas como pueda. Como cada subproceso de bolt realiza lecturas de bloqueo, querrá tener entre 8 y 12 subprocesos por núcleo. De esta manera el nivel de utilización de la NIC y la CPU es adecuado. Una máquina virtual más grande permite más solicitudes simultáneas.  
 
@@ -66,7 +66,7 @@ Digamos que hacemos 8 subprocesos de bolt por núcleo. Como hay 64 núcleos, sig
 ## <a name="tune-additional-parameters"></a>Ajuste de parámetros adicionales
 Una vez que tenga la topología básica, puede valorar si desea modificar alguno de los parámetros:
 * **Number of JVMs per worker node** (Número total de JVM por nodo de trabajo). Si tiene una estructura de datos de gran tamaño (por ejemplo, una tabla de búsqueda) que se hospeda en memoria, cada JVM requiere una copia independiente. Como alternativa, puede usar la estructura de datos en muchos subprocesos si tiene menos JVM. Para la E/S del bolt, el número de JVM no supone una gran diferencia con respecto al número de subprocesos agregados en esas JVM. Para simplificar, es una buena idea tener una JVM por trabajo. No obstante, dependiendo de lo que haga el bolt o del procesamiento de aplicaciones que requiera, puede que necesite cambiar este número.
-* **Number of spout executors** (Número de ejecutores de spout) Como en el ejemplo anterior se usan bolts para escribir en Data Lake Store, el número de spouts no está relacionado directamente con el rendimiento del bolt. Sin embargo, según la cantidad de procesamiento o E/S que se realice en el spout, es una buena idea ajustar los spouts para mejorar el rendimiento. Asegúrese de tener spouts suficientes para que los bolts se mantengan ocupados. Las velocidades de salida de los spouts deben coincidir con el rendimiento de los bolts. La configuración real depende del spout.
+* **Number of spout executors** (Número de ejecutores de spout) Como en el ejemplo anterior se usan bolts para escribir en Data Lake Storage Gen1, el número de spouts no está relacionado directamente con el rendimiento del bolt. Sin embargo, según la cantidad de procesamiento o E/S que se realice en el spout, es una buena idea ajustar los spouts para mejorar el rendimiento. Asegúrese de tener spouts suficientes para que los bolts se mantengan ocupados. Las velocidades de salida de los spouts deben coincidir con el rendimiento de los bolts. La configuración real depende del spout.
 * **Number of tasks** (Número de tareas) Cada bolt se ejecuta como un único subproceso. Las tareas adicionales por bolt no proporcionan ninguna simultaneidad adicional. La única vez que resultan útiles es cuando el proceso de confirmación de la tupla usa una gran proporción del tiempo de ejecución de los bolts. Es una buena idea agrupar muchas tuplas en un anexo más grande antes de enviar una confirmación del bolt. Por lo tanto, en la mayoría de los casos, varias tareas no proporcionan ninguna ventaja adicional.
 * **Local or shuffle grouping** (Agrupación local o aleatoria) Cuando esta opción está habilitada, las tuplas se envían a bolts dentro del mismo proceso de trabajo. Esta opción reduce las llamadas de red y la comunicación entre procesos. Se recomienda su uso para la mayoría de las topologías.
 
@@ -85,17 +85,17 @@ Puede modificar los valores de configuración siguientes para optimizar el spout
  Un buen cálculo sería estimar el tamaño de cada una de sus tuplas. Después, averigüe cuánta memoria tiene un subproceso de spout. La memoria total asignada a un subproceso dividida por este valor debe proporcionarle el límite superior para el parámetro de spouts máximos pendientes.
 
 ## <a name="tune-the-bolt"></a>Optimización del bolt
-Al escribir en Data Lake Store, establezca una directiva de sincronización de tamaño (el búfer en el lado cliente) en 4 MB. Así, se realizará un vaciado o hsync() solamente cuando el tamaño del búfer sea el valor anterior. El controlador de Data Lake Store en la máquina virtual de trabajo realiza automáticamente este almacenamiento en búfer, a menos que ejecute explícitamente hsync().
+Al escribir en Data Lake Storage Gen1, establezca una directiva de sincronización de tamaño (el búfer en el lado cliente) en 4 MB. Así, se realizará un vaciado o hsync() solamente cuando el tamaño del búfer sea el valor anterior. El controlador de Data Lake Storage Gen1 en la máquina virtual de trabajo realiza automáticamente este almacenamiento en búfer, a menos que ejecute explícitamente hsync().
 
-El bolt predeterminado de Storm de Data Lake Store tiene un parámetro de directiva de sincronización de tamaño (fileBufferSize) que puede usarse para optimizar este parámetro.
+El bolt predeterminado de Storm de Data Lake Storage Gen1 tiene un parámetro de directiva de sincronización de tamaño (fileBufferSize) que puede usarse para optimizar este parámetro.
 
 En topologías con uso intensivo de E/S, se recomienda que cada subproceso de bolt escriba en su propio archivo y que establezca una directiva de rotación de archivos (fileRotationSize). Cuando el archivo alcanza un determinado tamaño, la transmisión se vacía automáticamente y se escribe en un nuevo archivo. El tamaño de archivo recomendado por rotación es de 1 GB.
 
 ### <a name="handle-tuple-data"></a>Administración de los datos de la tupla
 
-En Storm, un spout se mantiene en una tupla hasta que el bolt lo confirma de forma explícita. Si el bolt ha leído una tupla pero no la ha confirmado aún, es posible que el spout no se haya guardado en el back-end de Data Lake Store. Cuando se confirma una tupla, el bolt garantiza la persistencia del spout, por lo que puede eliminar los datos de origen de cualquier origen que esté leyendo.  
+En Storm, un spout se mantiene en una tupla hasta que el bolt lo confirma de forma explícita. Si el bolt ha leído una tupla pero no la ha confirmado aún, es posible que el spout no se haya guardado en el back-end de Data Lake Storage Gen1. Cuando se confirma una tupla, el bolt garantiza la persistencia del spout, por lo que puede eliminar los datos de origen de cualquier origen que esté leyendo.  
 
-Para obtener el mejor rendimiento en Data Lake Store, el búfer del bolt debe tener 4 MB de datos de tupla. Luego, escriba en el back-end de Data Lake Store como una escritura de 4 MB. Cuando los datos se hayan escrito correctamente en el almacén (mediante la llamada a hflush()), el bolt puede confirmar los datos al spout. Esto es lo que hace el bolt de ejemplo aquí indicado. También es aceptable conservar un mayor número de tuplas antes de realizar la llamada hflush() y de que se confirmen las tuplas. Sin embargo, esto aumenta el número de tuplas en vuelo que el spout debe conservar y, por lo tanto, aumenta la cantidad de memoria necesaria por cada JVM.
+Para obtener el mejor rendimiento en Data Lake Storage Gen1, el búfer del bolt debe tener 4 MB de datos de tupla. Luego, escriba en el back-end de Data Lake Storage Gen1 como una escritura de 4 MB. Cuando los datos se hayan escrito correctamente en el almacén (mediante la llamada a hflush()), el bolt puede confirmar los datos al spout. Esto es lo que hace el bolt de ejemplo aquí indicado. También es aceptable conservar un mayor número de tuplas antes de realizar la llamada hflush() y de que se confirmen las tuplas. Sin embargo, esto aumenta el número de tuplas en vuelo que el spout debe conservar y, por lo tanto, aumenta la cantidad de memoria necesaria por cada JVM.
 
 > [!NOTE]
 Puede que las aplicaciones tengan la necesidad de confirmar tuplas más a menudo (con tamaños de datos inferiores a 4 MB) por otros motivos no relacionados con el rendimiento. Sin embargo, eso podría afectar al rendimiento de E/S en el back-end de almacenamiento. Por lo tanto, sopese con cuidado este inconveniente con el rendimiento de E/S del bolt.
@@ -127,13 +127,13 @@ Estos son algunos escenarios comunes de solución de problemas.
 
 * **Existe una latencia alta en la ejecución de bolts.** Esto significa que el método execute() de su bolt está tardando demasiado. Optimice el código o examine el comportamiento de vaciado y los tamaños de escritura.
 
-### <a name="data-lake-store-throttling"></a>Limitación de Data Lake Store
-Si se alcanzan los límites de ancho de banda proporcionados por Data Lake Store, podría experimentar errores en las tareas. Compruebe los registros de la tarea para ver los errores de limitación. Puede reducir el paralelismo mediante un aumento del tamaño del contenedor.    
+### <a name="data-lake-storage-gen1-throttling"></a>Límite de Data Lake Storage Gen1
+Si se alcanzan los límites de ancho de banda proporcionados por Data Lake Storage Gen1, podría experimentar errores en las tareas. Compruebe los registros de la tarea para ver los errores de limitación. Puede reducir el paralelismo mediante un aumento del tamaño del contenedor.    
 
 Para comprobar si le están aplicando limitaciones, habilite el registro de depuración en el lado cliente:
 
 1. En **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, cambie **&lt;nivel de raíz="info"&gt;** por **&lt;nivel de raíz=”debug”&gt;**. Reinicie todos los nodos/servicios para que la configuración surta efecto.
-2. Supervise los registros de topología de Storm en los nodos de trabajo (en /var/log/storm/worker-artifacts/&lt;NombreTopología&gt;/&lt;puerto&gt;/worker.log) para controlar las excepciones de limitación de Data Lake Store.
+2. Supervise los registros de topología de Storm en los nodos de trabajo (en /var/log/storm/worker-artifacts/&lt;NombreTopología&gt;/&lt;puerto&gt;/worker.log) para controlar las excepciones de limitación de Data Lake Storage Gen1.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede consultar este [blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/) para saber más sobre la optimización del rendimiento adicional de Storm.

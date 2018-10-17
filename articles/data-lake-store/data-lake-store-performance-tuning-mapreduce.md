@@ -1,6 +1,6 @@
 ---
-title: Directrices para la optimización del rendimiento de MapReduce de Azure Data Lake Store | Microsoft Docs
-description: Directrices para la optimización del rendimiento de MapReduce en Azure Data Lake Store
+title: Directrices para la optimización del rendimiento de MapReduce de Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Directrices para la optimización del rendimiento de MapReduce de Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: f5586e7706d4dad7e3c943b2a661fa296b4d30bf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198640"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128798"
 ---
-# <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>Guía para optimizar el rendimiento de MapReduce en HDInsight y Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de MapReduce en HDInsight y Azure Data Lake Storage Gen1
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
-* **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
 * **Uso de MapReduce en HDInsight**.  Para más información, consulte [Uso de MapReduce en Hadoop en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce).
-* **Directrices para la optimización del rendimiento en ADLS**.  Para conocer los conceptos generales de rendimiento, consulte [Guía para la optimización del rendimiento de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
+* **Guía para la optimización del rendimiento en Data Lake Storage Gen1**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
 
 ## <a name="parameters"></a>Parámetros
 
-Al ejecutar trabajos de MapReduce, estos son los parámetros más importantes que se pueden configurar para aumentar el rendimiento en ADLS:
+Al ejecutar trabajos de MapReduce, estos son los parámetros más importantes que se pueden configurar para aumentar el rendimiento en Data Lake Storage Gen1:
 
 * **Mapreduce.map.memory.mb**: la cantidad de memoria que se asignará a cada asignador.
 * **MapReduce.job.maps**: el número de tareas de asignación por trabajo.
@@ -83,9 +83,9 @@ Supongamos que tiene actualmente un clúster compuesto de 8 nodos D14 y quiere e
 
 ## <a name="limitations"></a>Limitaciones
 
-**Limitación de ADLS**
+**Límite de Data Lake Storage Gen1**
 
-Como servicio multiinquilino, ADLS establece los límites de ancho de banda de nivel de cuenta.  Si se alcanzan estos límites, comenzará a ver errores de tarea. Para identificar esta situación, observe los errores de limitación en los registros de tareas.  Si necesita más ancho de banda para su trabajo, póngase en contacto con nosotros.   
+Como servicio multiinquilino, Data Lake Storage Gen1 establece los límites de ancho de banda de nivel de cuenta.  Si se alcanzan estos límites, comenzará a ver errores de tarea. Para identificar esta situación, observe los errores de limitación en los registros de tareas.  Si necesita más ancho de banda para su trabajo, póngase en contacto con nosotros.   
 
 Para comprobar si le están aplicando limitaciones, debe habilitar el registro de depuración en el lado del cliente. Así es cómo debe hacerlo:
 
@@ -97,7 +97,7 @@ Para comprobar si le están aplicando limitaciones, debe habilitar el registro d
 
 ## <a name="examples-to-run"></a>Ejemplos de ejecución
 
-Para demostrar cómo MapReduce se ejecuta en Azure Data Lake Store, a continuación se muestra código de ejemplo que se ejecutó en un clúster con la siguiente configuración:
+Para demostrar cómo MapReduce se ejecuta en Data Lake Storage Gen1, a continuación se muestra código de ejemplo que se ejecutó en un clúster con la siguiente configuración:
 
 * 16 nodos D14v2
 * Clúster de Hadoop con HDI 3.6

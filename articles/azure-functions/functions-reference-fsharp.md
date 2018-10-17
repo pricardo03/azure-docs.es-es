@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090751"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125262"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referencia para desarrolladores de F# de Azure Functions
 
@@ -29,6 +29,29 @@ En este artículo se supone que ya ha leído [Referencia para desarrolladores de
 Un archivo `.fsx` es un script de F#. Se puede considerar como un proyecto de F# que se encuentra en un único archivo. El archivo contiene el código de programa (en este caso, Azure Function) y las directivas para la administración de dependencias.
 
 Cuando se usa un `.fsx` para Azure Function, normalmente se incluyen automáticamente los ensamblados necesarios, esto le permite a usted centrarse en la función en lugar de en códigos "reutilizables".
+
+## <a name="folder-structure"></a>Estructura de carpetas
+
+La estructura de carpetas para un proyecto de script F# tiene el siguiente aspecto:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Hay un archivo [host.json] (functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.fsx) y archivo de configuración de enlace (function.json).
+
+Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
 Cada enlace admite un conjunto de argumentos, como se detalla en [Referencias para desarrolladores de desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md). Por ejemplo, uno de los enlaces de argumento que un desencadenador de blob admite es un POCO, que se puede expresar utilizando un registro de F#. Por ejemplo: 

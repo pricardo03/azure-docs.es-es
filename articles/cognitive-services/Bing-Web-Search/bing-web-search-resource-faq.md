@@ -1,23 +1,24 @@
 ---
-title: Preguntas frecuentes (P+F) sobre Bing Web Search API en Azure | Microsoft Docs
-description: Obtenga respuestas a preguntas habituales sobre Bing Web Search API de Microsoft Cognitive Services en Azure.
+title: Preguntas más frecuentes (P+F) de Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Obtenga respuestas a preguntas frecuentes sobre Bing Web Search API.
 services: cognitive-services
 author: v-jerkin
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 321f571c48f2231d1ced43848cdefd17adaa1a08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b0b8fd3eb80d7418546788565402042de20ab3e7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380206"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129325"
 ---
-# <a name="frequently-asked-questions-faq-about-bing-web-search-api-cognitive-services"></a>Preguntas frecuentes (P+F) sobre Bing Web Search API (Cognitive Services)
- 
+# <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
+
  Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Bing Web Search API de Microsoft Cognitive Services en Azure.
 
 ## <a name="response-headers-in-javascript"></a>Encabezados de respuesta en JavaScript
@@ -52,9 +53,9 @@ Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya
 
 ## <a name="response-headers-in-production"></a>Encabezados de respuesta en producción
 
-El enfoque de proxy CORS que se describe en la respuesta anterior es adecuado para desarrollo, pruebas y aprendizaje. 
+El enfoque de proxy CORS que se describe en la respuesta anterior es adecuado para desarrollo, pruebas y aprendizaje.
 
-Sin embargo, en un entorno de producción, debe hospedar un script del lado servidor en el mismo dominio que la página web que usa Bing Web Search API. Este script debería realizar en realidad las llamadas API tras la solicitud del código de JavaScript de la página web y pasar nuevamente al cliente todos los resultados, incluidos los encabezados. Dado que los dos recursos (página y script) comparten un origen, CORS no se aplica y los encabezados especiales son accesibles para el código de JavaScript en la página web. 
+Sin embargo, en un entorno de producción, debe hospedar un script del lado servidor en el mismo dominio que la página web que usa Bing Web Search API. Este script debería realizar en realidad las llamadas API tras la solicitud del código de JavaScript de la página web y pasar nuevamente al cliente todos los resultados, incluidos los encabezados. Dado que los dos recursos (página y script) comparten un origen, CORS no se aplica y los encabezados especiales son accesibles para el código de JavaScript en la página web.
 
 Este enfoque también protege la clave de API de una exposición pública, ya que solo la necesita el script del lado servidor. El script puede usar otro método para asegurarse de que la solicitud está autorizada.
 

@@ -1,22 +1,24 @@
 ---
-title: Interpretación semántica en Knowledge Exploration Service API | Microsoft Docs
-description: Aprenda a usar la interpretación semántica en Knowledge Exploration Service (KES) API en Cognitive Services.
+title: Interpretación semántica de Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Aprenda a usar la interpretación semántica en Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 022188464eb7269b69f96a058b444167b587387c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380298"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129359"
 ---
 # <a name="semantic-interpretation"></a>Interpretación semántica
+
 La interpretación semántica asocia una salida semántica con cada ruta de acceso interpretada mediante la gramática.  En concreto, el servicio evalúa la secuencia de instrucciones de los elementos `tag` que recorre la interpretación para procesar la salida final.  
 
 Una instrucción puede ser una asignación de un literal o una variable a otra variable.  También puede asignar la salida de una función con 0 o más parámetros a una variable.  Se puede especificar cada parámetro de la función mediante un literal o una variable.  Si la función no devuelve ninguna salida, se omite la asignación.
@@ -41,21 +43,24 @@ A continuación se muestra una lista de los tipos de datos que se admiten actual
 |Guid|Identificador único global|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |Consultar|Expresión de consulta que especifica un subconjunto de objetos de datos del índice|All()<br/>And(*q1*, *q2*)|
 
-<a name="semantic-functions"></a>
 ## <a name="semantic-functions"></a>Funciones semánticas
+
 Hay un conjunto integrado de funciones semánticas.  Permiten la construcción de consultas sofisticadas y proporcionan un control sensible al contexto sobre las interpretaciones de gramática.
 
 ### <a name="and-function"></a>Función And
+
 `query = And(query1, query2);`
 
 Devuelve una consulta compuesta de la intersección de dos consultas de entrada.
 
 ### <a name="or-function"></a>Función Or
+
 `query = Or(query1, query2);`
 
 Devuelve una consulta compuesta de la unión de dos consultas de entrada.
 
 ### <a name="all-function"></a>Función All
+
 `query = All();`
 
 Devuelve una consulta que incluye todos los objetos de datos.
@@ -71,6 +76,7 @@ En el siguiente ejemplo, usamos la función All() para compilar de forma iterati
 ```
 
 ### <a name="none-function"></a>Función None
+
 `query = None();`
 
 Devuelve una consulta que no incluye ningún objeto de datos.
@@ -86,6 +92,7 @@ En el siguiente ejemplo, usamos la función None() para compilar de forma iterat
 ```
 
 ### <a name="query-function"></a>Función Query
+
 ```
 query = Query(attrName, value)
 query = Query(attrName, value, op)
@@ -104,8 +111,8 @@ written in the 90s
 </tag>
 ```
 
-<a name="composite-function"/>
 ### <a name="composite-function"></a>Función Composite
+
 `query = Composite(innerQuery);`
 
 Devuelve una consulta que encapsula un *innerQuery* compuesto de coincidencias con atributos secundarios de un atributo común compuesto *attr*.  La encapsulación requiere que el atributo compuesto *attr* de cualquier objeto de datos coincidente disponga al menos de un valor que satisface individualmente la consulta *innerQuery*.  Tenga en cuenta que una consulta sobre atributos secundarios de un atributo compuesto tiene que estar encapsulada mediante la función Composite() antes de poderse combinar con otras consultas.
@@ -123,6 +130,7 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 ```
 
 ### <a name="getvariable-function"></a>Función GetVariable
+
 `value = GetVariable(name, scope);`
 
 Devuelve el valor de variable *name* que se definió en el *ámbito* especificado.  *name* es un identificador que comienza por una letra y consta únicamente de letras (A-Z), números (0-9) y guión bajo (_).  El *ámbito* se puede establecer en "solicitud" o "sistema".  Tenga en cuenta que las variables definidas en distintos ámbitos son diferentes entre sí, incluidas las que se definen a través de la salida de funciones semánticas.
@@ -137,6 +145,7 @@ Las variables del sistema están predefinidas por el servicio y se pueden usar p
 |IsBeyondEndOfQuery|Booleano|True si la interpretación actual le sugiere finalizaciones más allá del texto de la consulta de entrada|
 
 ### <a name="setvariable-function"></a>Función SetVariable
+
 `SetVariable(name, value, scope);`
 
 Asigna un *valor* a la variable *name* en el *ámbito* especificado.  *name* es un identificador que comienza por una letra y consta únicamente de letras (A-Z), números (0-9) y guión bajo (_).  Actualmente, el único valor válido de *ámbito* es "solicitud".  No hay ninguna variable del sistema configurable.
@@ -144,11 +153,13 @@ Asigna un *valor* a la variable *name* en el *ámbito* especificado.  *name* es 
 Las variables del ámbito de solicitud se comparten entre todas las interpretaciones de la solicitud de interpretación actual.  Se pueden usar para controlar la búsqueda de interpretaciones sobre la gramática.
 
 ### <a name="assertequals-function"></a>Función AssertEquals
+
 `AssertEquals(value1, value2);`
 
 Si *value1* y *value2* son equivalentes, la función se realiza correctamente y no tiene efectos secundarios.  En caso contrario, la función produce un error y rechaza la interpretación.
 
 ### <a name="assertnotequals-function"></a>Función AssertNotEquals
+
 `AssertNotEquals(value1, value2);`
 
 Si *value1* y *value2* no son equivalentes, la función se realiza correctamente y no tiene efectos secundarios.  En caso contrario, la función produce un error y rechaza la interpretación.

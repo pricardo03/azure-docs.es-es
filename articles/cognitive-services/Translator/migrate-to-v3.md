@@ -1,37 +1,38 @@
 ---
-title: Microsoft Translator Text API - Migrar a V3 | Microsoft Docs
+title: Migración a V3 Translator Text API
+titlesuffix: Azure Cognitive Services
 description: Aprenda a migrar de la versión V2 a la versión V3 de Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 16fec351af5b5b3875657ee244c18f305311d965
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382414"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128186"
 ---
-# <a name="microsoft-translator-text-api-v2-to-v3-migration"></a>Migrar Microsoft Translator Text API V2 a V3
+# <a name="translator-text-api-v2-to-v3-migration"></a>Migrar Translator Text API V2 a V3
 
-El equipo de Microsoft Translator ha lanzado la versión 3 (V3) de Text Translation API. En esta versión se incluyen nuevas características, métodos en desuso y un nuevo formato para enviar y recibir datos del servicio Microsoft Translator. Este documento proporciona información para cambiar las aplicaciones para que usen V3. V2 quedará en desuso el 30 de abril de 2018 y se suspenderá el 30 de abril de 2019.
+El equipo de Microsoft Translator ha lanzado la versión 3 (V3) de Translator Text API. En esta versión se incluyen nuevas características, métodos en desuso y un nuevo formato para enviar y recibir datos del servicio Microsoft Translator. Este documento proporciona información para cambiar las aplicaciones para que usen V3. V2 quedará en desuso el 30 de abril de 2018 y se suspenderá el 30 de abril de 2019.
 
 El final de este documento contiene vínculos útiles para que pueda obtener más información.
 
 ## <a name="summary-of-features"></a>Resumen de características
 
-* Sin seguimiento: en V3 se aplica la función Sin seguimiento a todos los niveles de precios en Azure Portal. Esto significa que Microsoft no guardará ningún texto enviado a la API V3.
+* Sin seguimiento: en V3 se aplica la función Sin seguimiento a todos los niveles de precios en Azure Portal. Esta característica significa que Microsoft no guardará ningún texto enviado a la API V3.
 * JSON: XML se reemplaza con JSON. Todos los datos enviados al servicio y recibidos desde el mismo están en formato JSON.
 * Varios idiomas de destino en una única solicitud: el método de traducción acepta varios idiomas de destino ("a") para la traducción en una única solicitud. Por ejemplo, una sola solicitud puede traducirse "desde" el inglés "al" alemán, español y japonés, o a cualquier otro grupo de idiomas.
 * Diccionario bilingüe: se ha agregado un método de diccionario bilingüe a la API. Este método incluye las opciones "búsqueda" y "ejemplos".
 * Transliterar: se ha agregado un método de transliteración a la API. Este método convertirá las palabras y oraciones de un script (por ejemplo, en árabe) en otro script (por ejemplo, en latín).
 * Idiomas: un nuevo método denominado "idiomas" ofrece información sobre el idioma en formato JSON, y se puede usar con los métodos "traducir", "diccionario" y "transliterar".
 * Novedades en Traducir: se han agregado nuevas capacidades al método "traducir" para admitir algunas de las características que se encontraban en la API V2 como métodos separados. Un ejemplo es TranslateArray.
-* Método leer: la funcionalidad de conversión de texto a voz ya no se admite en la API de Microsoft Translator. La funcionalidad de texto a voz está disponible en Bing Speech API de los servicios de Microsoft Azure Cognitive.
+* Método leer: la funcionalidad de conversión de texto a voz ya no se admite en la API de Microsoft Translator. La funcionalidad de texto a voz está disponible en Bing Speech API de los servicios de Azure Cognitive.
 
 La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que proporcionarán la funcionalidad de V2.
 
@@ -39,8 +40,8 @@ La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que 
 |:----------- |:-------------|
 | Traducir     | Traducir          |
 | TranslateArray      | Traducir          |
-| GetLanguageNames      | Idiomas          |
-| GetLanguagesForTranslate     | Idiomas        |
+| GetLanguageNames      | Lenguajes          |
+| GetLanguagesForTranslate     | Lenguajes        |
 | GetLanguagesForSpeak      | Speech API de Cognitive Services         |
 | Leer     | Speech API de Cognitive Services          |
 | Detección     | Detección         |
@@ -71,7 +72,7 @@ Microsoft Translator V3 tiene el mismo precio que V2; esto es, por carácter e i
 
 | Método V3   | Caracteres que se cuentan para la facturación |
 |:----------- |:-------------|
-| Idiomas     | Si no se envían caracteres, no se cuenta ninguno y no hay cargo.          |
+| Lenguajes     | Si no se envían caracteres, no se cuenta ninguno y no hay cargo.          |
 | Traducir     | El recuento se basa en la cantidad de caracteres que se envían para la traducción, y en el número de idiomas a los que se traducen los caracteres. 50 caracteres enviados más 5 idiomas solicitados, serán 50x5.           |
 | Transliterar     | Se cuenta el número de caracteres que se piden para la transliteración.         |
 | Búsqueda en diccionario y ejemplo     | Se cuentan el número de caracteres enviados para la búsqueda de diccionario y los ejemplos.         |
@@ -103,9 +104,9 @@ Global
 
 ## <a name="customization"></a>Personalización
 
-Microsoft Translator V3 usa la traducción automática neuronal por defecto. Como tal, no se puede usar con Microsoft Translator Hub, ya que este solo es compatible con la traducción automática estadística heredada. La personalización de la traducción neuronal está disponible si usa el Traductor personalizado. [Obtenga más información sobre cómo personalizar la traducción automática neuronal](customization.md)
+Microsoft Translator V3 usa la traducción automática neuronal por defecto. Por lo tanto, no puede utilizarse con Microsoft Translator Hub. Translator Hub solo admite traducción automática estadística heredada. La personalización de la traducción neuronal está disponible si usa el Traductor personalizado. [Obtenga más información sobre cómo personalizar la traducción automática neuronal](customization.md)
 
-La traducción neuronal con Text API V3 no admite el uso de categorías estándar (smt, voz, texto, generalnn).
+La traducción neuronal con Text API V3 no admite el uso de categorías estándar (SMT, voz, texto, generalnn).
 
 
 ## <a name="links"></a>Vínculos

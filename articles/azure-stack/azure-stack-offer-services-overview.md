@@ -3,7 +3,7 @@ title: Ofertas de servicios en Azure Stack | Microsoft Docs
 description: Como operador de nube, puede ofrecer servicios a los usuarios.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,23 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 042e65cfe350cb61124ed8920ae3616502e6553d
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248850"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127489"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Introducción a la oferta de servicios en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-[Microsoft Azure Stack](azure-stack-poc.md) es una nueva plataforma en la nube híbrida que le permite proporcionar servicios desde el centro de datos. Como proveedor de servicios, puede ofrecer servicios a los inquilinos. Dentro de una empresa u organismo gubernamental, puede ofrecer servicios locales a los empleados. Los servicios que puede entregar incluyen, entre otros:
+[Microsoft Azure Stack](azure-stack-poc.md) es una nueva plataforma en la nube híbrida que le permite proporcionar servicios desde el centro de datos. Como proveedor de servicios, puede ofrecer servicios a los inquilinos. Dentro de una empresa u organismo gubernamental, puede ofrecer servicios locales a los empleados. 
 
-- Servicios de plataforma como servicio (PaaS), como App Services, API Apps, API Functions, SQL y MySQL.
+Puede ofrecer servicios de [Infraestructura como servicio](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) que permiten a los usuarios crear una infraestructura informática a petición, aprovisionada y administrada desde el portal de usuarios de Azure Stack.
+
+También puede implementar servicios de [Plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) para Azure Stack de Microsoft y otros proveedores. Los servicios que puede entregar incluyen, entre otros:
+
+- [Incorporación de un proveedor de recursos de App Service a Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
+
+- [Incorporación de un proveedor de recursos de SQL Server a Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+
+- [Incorporación de un proveedor de recursos de MySQL Server a Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
+
 
 Incluso puede combinar los servicios para integrar y compilar soluciones complejas para distintos usuarios.
 

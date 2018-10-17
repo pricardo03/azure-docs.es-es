@@ -1,23 +1,26 @@
 ---
-title: Interfaz de la línea de comandos de Knowledge Exploration Service | Microsoft Docs
-description: Use la interfaz de la línea de comandos de KES para compilar archivos de índice y de gramática a partir de datos estructurados y, a continuación, impleméntelos como servicios web en Microsoft Cognitive Services.
+title: Interfaz de la línea de comandos de Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Use la interfaz de la línea de comandos para compilar archivos de índice y de gramática a partir de datos estructurados y, después, impleméntelos como servicios web.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136362"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127172"
 ---
 # <a name="command-line-interface"></a>Interfaz de línea de comandos
-La interfaz de la línea de comandos de KES proporciona la capacidad de compilar archivos de índice y de gramática a partir de datos estructurados e implementarlos como servicios web.  Usa la sintaxis general: `kes.exe <command> <required_args> [<optional_args>]`.  Puede ejecutar `kes.exe` sin argumentos para que se muestre una lista de comandos o `kes.exe <command>` para mostrar una lista de los argumentos disponibles para el comando especificado.  A continuación se muestra una lista de los comandos disponibles:
+
+La interfaz de la línea de comandos de Knowledge Exploration Service (KES) proporciona la capacidad de compilar archivos de índice y de gramática a partir de datos estructurados e implementarlos como servicios web.  Usa la sintaxis general: `kes.exe <command> <required_args> [<optional_args>]`.  Puede ejecutar `kes.exe` sin argumentos para que se muestre una lista de comandos o `kes.exe <command>` para mostrar una lista de los argumentos disponibles para el comando especificado.  A continuación se muestra una lista de los comandos disponibles:
+
 * build_index
 * build_grammar
 * host_service
@@ -33,7 +36,7 @@ El comando **build_index** compila un archivo de índice binario a partir de un 
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
 
-| .      | DESCRIPCIÓN               |
+| Parámetro      | DESCRIPCIÓN               |
 |----------------|---------------------------|
 | `<schemaFile>` | Ruta de acceso de esquema de entrada |
 | `<dataFile>`   | Ruta de acceso de datos de entrada   |
@@ -58,7 +61,7 @@ El comando **build_grammar** compila una gramática especificada en XML en un ar
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
 
-| .       | DESCRIPCIÓN               |
+| Parámetro       | DESCRIPCIÓN               |
 |-----------------|---------------------------|
 | `<xmlFile>`     | Ruta de acceso de especificación de gramática XML de entrada |
 | `<grammarFile>` | Ruta de acceso de gramática compilada de salida         |
@@ -73,7 +76,7 @@ El comando **host_service** hospeda una instancia del servicio Knowledge Explora
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
 
-| .       | DESCRIPCIÓN                |
+| Parámetro       | DESCRIPCIÓN                |
 |-----------------|----------------------------|
 | `<grammarFile>` | Ruta de acceso de gramática binaria de entrada         |
 | `<indexFile>`   | Ruta de acceso de índice binario de entrada           |
@@ -91,7 +94,7 @@ El comando **deploy_service** implementa una instancia del servicio Knowledge Ex
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
-| .       | DESCRIPCIÓN                  |
+| Parámetro       | DESCRIPCIÓN                  |
 |-----------------|------------------------------|
 | `<grammarFile>` | Ruta de acceso de gramática binaria de entrada           |
 | `<indexFile>`   | Ruta de acceso de índice binario de entrada             |
@@ -111,7 +114,7 @@ El comando **describe_index** genera información sobre un archivo de índice, i
 
 `kes.exe describe_index <indexFile>`
 
-| .     | DESCRIPCIÓN      |
+| Parámetro     | DESCRIPCIÓN      |
 |---------------|------------------|
 | `<indexFile>` | Ruta de acceso de índice de entrada |
 
@@ -125,7 +128,7 @@ El comando **describe_grammar** genera la especificación de gramática original
 
 `kes.exe describe_grammar <grammarFile>`
 
-| .       | DESCRIPCIÓN      |
+| Parámetro       | DESCRIPCIÓN      |
 |-----------------|------------------|
 | `<grammarFile>` | Ruta de acceso de gramática de entrada |
 

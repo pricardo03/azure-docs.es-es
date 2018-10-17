@@ -1,6 +1,6 @@
 ---
-title: Directrices para la optimización del rendimiento de Spark en Azure Data Lake Store | Microsoft Docs
-description: Directrices para la optimización del rendimiento de Spark en Azure Data Lake Store
+title: Directrices para la optimización del rendimiento de Spark en Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Directrices para la optimización del rendimiento de Spark en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: a807bea13063d2a0b3c1c71ddb6c98aa2d2568d3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197076"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127676"
 ---
-# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>Guía para la optimización del rendimiento de Spark en HDInsight y Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Spark en HDInsight y Azure Data Lake Storage Gen1
 
 Cuando ajuste el rendimiento de Spark, necesitará tener en cuenta el número de aplicaciones que se ejecutarán en su clúster.  De forma predeterminada, puede ejecutar 4 aplicaciones simultáneamente en su clúster HDI. (Nota: la configuración predeterminada está sujeta a cambios).  Puede decidir usar menos aplicaciones, por lo que puede sustituir la configuración predeterminada y utilizar más del clúster para esas aplicaciones.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
-* **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
-* **Ejecutar el clúster de Spark en Azure Data Lake Store**.  Para obtener más información, consulte [Use HDInsight Spark cluster to analyze data in Data Lake Store](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store) (Uso de clúster Spark en HDInsight para analizar datos en Data Lake Store).
-* **Directrices para la optimización del rendimiento en ADLS**.  Para conocer los conceptos generales de rendimiento, consulte [Guía para la optimización del rendimiento de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance). 
+* **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* **Ejecutar el clúster de Spark en Data Lake Storage Gen1**.  Para más información, consulte [Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Guía para la optimización del rendimiento en Data Lake Storage Gen1**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance). 
 
 ## <a name="parameters"></a>Parámetros
 
-Estos son los valores más importantes que se pueden optimizar para aumentar el rendimiento en ADLS cuando ejecute trabajos de Spark:
+Estos son los valores más importantes que se pueden optimizar para aumentar el rendimiento en Data Lake Storage Gen1 cuando ejecute trabajos de Spark:
 
 * **num-executors**: número de tareas simultáneas que se pueden ejecutar.
 
@@ -51,9 +51,9 @@ De forma predeterminada, se definen dos núcleos YARN virtuales para cada núcle
 
 ## <a name="guidance"></a>Guía
 
-Si va a ejecute cargas de trabajo de análisis de Spark para trabajar con datos de Data Lake Store, se recomienda usar la versión más reciente de HDInsight para conseguir el mejor rendimiento con Data Lake Store. Si el trabajo tiene un uso intensivo de E/S, hay determinados parámetros que puede configurar para mejorar el rendimiento.  Azure Data Lake Store es una plataforma de almacenamiento altamente escalable que puede controlar un alto rendimiento.  Si el trabajo está compuesto principalmente por lecturas o escrituras, aumentar la simultaneidad de E/S hacia y desde Azure Data Lake Store podría aumentar el rendimiento.
+Si va a ejecute cargas de trabajo de análisis de Spark para trabajar con datos de Data Lake Storage Gen1, se recomienda usar la versión más reciente de HDInsight para conseguir el mejor rendimiento con Data Lake Storage Gen1. Si el trabajo tiene un uso intensivo de E/S, hay determinados parámetros que puede configurar para mejorar el rendimiento.  Data Lake Storage Gen1 es una plataforma de almacenamiento altamente escalable que puede controlar un alto rendimiento.  Si el trabajo está compuesto principalmente por lecturas o escrituras, aumentar la simultaneidad de E/S hacia y desde Data Lake Storage Gen1 podría aumentar el rendimiento.
 
-Hay varias formas de aumentar la simultaneidad de trabajos con uso intensivo de E/S.
+Para aumentar la simultaneidad de trabajos de uso intensivo de E/S, existen algunos métodos generales:
 
 **Paso 1: determine cuántas aplicaciones se ejecutan en el clúster**. Debe conocer cuántas aplicaciones se están ejecutando en el clúster, incluida la actual.  Los valores predeterminados para cada ajuste de Spark asume que hay 4 aplicaciones ejecutándose simultáneamente.  Por lo tanto, solo habrá un 25 % del clúster disponible para cada aplicación.  Para obtener un mejor rendimiento, puede sustituir los valores predeterminados cambiando el número de ejecutores.  
 
@@ -64,8 +64,8 @@ Hay varias formas de aumentar la simultaneidad de trabajos con uso intensivo de 
     executor-cores = 4
 Si aumenta el número de núcleos de ejecutor podrá tener mayor paralelismo, con lo que puede experimentar con diferentes valores para executor-cores.  Para los trabajos que tengan operaciones más complejas, reduzca el número de núcleos por ejecutor.  Si executor-cores se ha establecido en un número mayor que 4, puede que la recolección de elementos no utilizados sea ineficaz y el rendimiento se vea degradado.
 
-**Paso 4: determine la cantidad de memoria YARN en el clúster**. Esta información está disponible en Ambari.  Vaya a YARN y vea la pestaña Configs (Configuraciones).  La memoria YARN se muestra en esta ventana.  
-Nota: mientras está en la ventana puede ver también el tamaño predeterminado del contenedor YARN.  El tamaño del contenedor YARN es igual que la memoria por cada parámetro de ejecutor.
+**Paso 4: determine la cantidad de memoria YARN en el clúster**. Esta información está disponible en Ambari.  Vaya a YARN y vea la pestaña Configs (Configuraciones).  En esta ventana se muestra el tamaño de la memoria de YARN.  
+Tenga en cuenta que mientras está en la ventana puede ver también el tamaño predeterminado del contenedor YARN.  El tamaño del contenedor YARN es igual que la memoria por cada parámetro de ejecutor.
 
     Total YARN memory = nodes * YARN memory per node
 **Paso 5: calcule num-executors**

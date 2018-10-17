@@ -1,24 +1,25 @@
 ---
-title: Método de idiomas de Microsoft Translator Text API | Microsoft Docs
-description: Use el método de idiomas de Microsoft Translator Text API.
+title: Método de idiomas de Translator Text API
+titlesuffix: Azure Cognitive Services
+description: Use el método de idiomas de Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 93c06218a560faf439f05903438d021b372ce257
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381862"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129648"
 ---
-# <a name="text-api-30-languages"></a>Text API 3.0: idiomas
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Idiomas
 
-Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Text API. 
+Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Translator Text API. 
 
 ## <a name="request-url"></a>URL de la solicitud
 
@@ -266,11 +267,11 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>500</td>
-    <td>Se ha producido un error inesperado. Si el error persiste, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId`e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
+    <td>Se ha producido un error inesperado. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId` e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error persiste, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId`e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
+    <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId` e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

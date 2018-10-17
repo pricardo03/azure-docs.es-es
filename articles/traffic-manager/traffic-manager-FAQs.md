@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038513"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129546"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -72,7 +72,7 @@ Para solucionar este problema, se recomienda utilizar una redirección HTTP para
 En nuestra cola de trabajos pendientes de características realizamos un seguimiento de los dominios vacíos que son totalmente compatibles con el Administrador de tráfico. Puede dar su apoyo a esta solicitud de característica [votando por ella en nuestro sitio de comentarios de la comunidad](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>¿Traffic Manager considera la dirección de subred de cliente cuando controla las consultas de DNS? 
-Sí. Además de la dirección IP de origen de la consulta DNS que recibe (que generalmente es la dirección IP de la resolución DNS), al realizar búsquedas con los métodos de enrutamiento geográfico y de rendimiento, Traffic Manager también tiene en cuenta la dirección de subred del cliente si la resolución que realiza la consulta en nombre del usuario final la incluye en la consulta.  
+Sí. Además de la dirección IP de origen de la consulta de DNS que recibe (que generalmente es la dirección IP de la resolución DNS), al realizar búsquedas con los métodos de enrutamiento geográfico, de rendimiento y de subred, Traffic Manager también tiene en cuenta la dirección de subred del cliente si la resolución que realiza la consulta en nombre del usuario final la incluye en la consulta.  
 En concreto, [RFC 7871: subred de cliente en consultas de DNS](https://tools.ietf.org/html/rfc7871) que proporciona un [mecanismo de extensión para DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) que puede pasar la dirección de subred de cliente desde las resoluciones que la admiten.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>¿Qué es el TTL de DNS y cómo afecta a mis usuarios?
@@ -133,6 +133,39 @@ Una región puede asignarse a un único punto de conexión dentro de un perfil s
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>¿Existen restricciones en la versión de API que admite este tipo de enrutamiento?
 
 Sí, solo la API versión 2017-03-01 y más recientes admiten el tipo de enrutamiento geográfico. Las versiones anteriores de la API no se pueden usar para crear perfiles de tipo de enrutamiento geográfico ni para asignar regiones geográficas a puntos de conexión. Si se usa una versión anterior de la API para recuperar perfiles desde una suscripción de Azure, no se devuelve ningún perfil de tipo de enrutamiento geográfico. Además, al usar las versiones anteriores de la API, cualquier perfil devuelto que tenga puntos de conexión con una asignación de región geográfica no muestra su asignación de región geográfica.
+
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Métodos de enrutamiento del tráfico de subredes de Traffic Manager
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>¿En qué casos de uso el enrutamiento de subredes resulta útil?
+El enrutamiento de subredes le permite diferenciar la experiencia que proporciona a grupos específicos de usuarios que se identifican mediante la dirección IP de origen de sus solicitudes de DNS. Un ejemplo sería mostrar contenido diferente si los usuarios se están conectando a un sitio web desde su sede corporativa. Otro sería restringir a los usuarios de ciertos ISP para tener acceso solo a los puntos de conexión que admiten solo conexiones IPv4 si esos ISP tienen un rendimiento inferior al esperado cuando se usa IPv6.
+Otra razón para utilizar el método de enrutamiento de subredes es en conjunción con otros perfiles en un conjunto de perfiles anidados. Por ejemplo, si quiere usar el método de enrutamiento geográfico para establecer una geovalla alrededor de sus usuarios, pero para un ISP específico quiere usar un método de enrutamiento diferente, puede tener un perfil con el método de enrutamiento de subredes como perfil primario y reemplazar ese ISP para utilizar un perfil secundario específico y tener el perfil geográfico estándar para todos los demás.
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>¿Cómo sabe Traffic Manager la dirección IP del usuario final?
+Los dispositivos de usuario final suelen utilizar una resolución DNS para realizar la búsqueda de DNS en su nombre. La dirección IP saliente de estas resoluciones es lo que Traffic Manager ve como la dirección IP de origen. Además, el método de enrutamiento de subredes también buscar ver si se ha pasado información de Subred de Cliente Ampliada EDNS0 (ECS) con la solicitud. Si hay información de ECS, esa es la dirección que se usará para determinar el enrutamiento. Si dicha información no existe, la dirección IP de origen de la consulta se usa para fines de enrutamiento.
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>¿Cómo se pueden especificar direcciones IP al usar el enrutamiento de subredes?
+Las direcciones IP para asociar a un punto de conexión se pueden especificar de dos maneras. En primer lugar, puede utilizar la notación octeto decimal de cuatro puntos con direcciones de inicio y final para especificar el intervalo (por ejemplo, 1.2.3.4-5.6.7.8 o 3.4.5.6-3.4.5.6). En segundo lugar, puede usar la notación CIDR para especificar el intervalo (por ejemplo, 1.2.3.0/24). Puede especificar varios intervalos y puede usar ambos tipos de notación en un conjunto de intervalos. Sin embargo, se aplican algunas restricciones.
+-   No puede haber superposición de intervalos de direcciones, ya que cada IP solo puede mapearse a un único punto de conexión.
+-   La dirección de inicio no puede superar la dirección final
+-   En el caso de la notación CIDR, la dirección IP antes de "/" debe ser la dirección de inicio de ese intervalo (por ejemplo, 1.2.3.0/24 es válido, pero 1.2.3.4.4/24 no es válido)
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>¿Cómo se puede especificar un punto de conexión de reserva al usar el enrutamiento de subredes?
+En un perfil con el enrutamiento de subredes, si tiene un punto de conexión sin ninguna subred asignada, cualquier solicitud que no coincida con otros puntos de conexión se dirigirá aquí. Se recomienda encarecidamente tener este punto de conexión de reserva en el perfil, ya que Traffic Manager devolverá una respuesta NXDOMAIN si llega una solicitud y no está asignado a ningún punto de conexión o si se asigna a un punto de conexión dañado.
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>¿Qué ocurre si se deshabilita un punto de conexión en un perfil de tipo de enrutamiento de subredes?
+En un perfil con enrutamiento de subredes, si tiene un punto de conexión deshabilitado, Traffic Manager se comportará como si no existieran ese punto de conexión ni las asignaciones de subredes. Si se recibe una consulta que hubiera coincidido con su asignación de direcciones IP y el punto de conexión está deshabilitado, Traffic Manager devolverá un punto de conexión de reserva (uno sin asignaciones); o bien, si dicho punto de conexión no está presente, devolverá una respuesta NXDOMAIN.
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Método de enrutamiento del tráfico de varios valores de Traffic Manager
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>¿En qué casos de uso el enrutamiento multivalor resulta útil?
+El enrutamiento de varios valores devuelve múltiples puntos de conexión válidos en una sola respuesta de consulta. La principal ventaja de esto es que, si un punto de conexión está dañado, el cliente tiene más opciones para volver a intentarlo sin hacer otra llamada DNS (lo que podría devolver el mismo valor desde una caché ascendente). Esto es aplicable para aplicaciones sensibles a la disponibilidad que desean minimizar el tiempo de inactividad.
+Otro uso del método de enrutamiento de varios valores es si un punto de conexión tiene doble conexión a direcciones IPv4 e IPv6 y desea dar al llamador ambas opciones para que elija cuando iniciar una conexión con el punto de conexión.
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>¿Cuántos puntos de conexión se devuelven cuando se usa el enrutamiento de varios valores?
+Puede especificar el número máximo de puntos de conexión que se devolverán y Varios valores devolverá no más que esos puntos de conexión en buen estado cuando se reciba una consulta. El valor máximo posible para esta configuración es 10.
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>¿Obtendré el mismo conjunto de puntos de conexión cuando se use el enrutamiento de varios valores?
+No podemos garantizar la devolución del mismo conjunto de puntos de conexión en cada consulta. Esto también se ve afectado por el hecho de que algunos de los puntos de conexión podrían estar dañados y no se incluirían en la respuesta
 
 ## <a name="real-user-measurements"></a>Real User Measurements
 
@@ -257,7 +290,7 @@ Sí. Los espacios de ensayo de servicio en la nube se pueden configurar en Traff
 
 Traffic Manager no proporciona actualmente servidores de nombres que admitan direcciones IPv6. Sin embargo, aún se puede usar Traffic Manager con clientes IPv6 que se conecten a puntos de conexión IPv6. Un cliente no envía solicitudes de DNS directamente a Traffic Manager. En su lugar, el cliente usa un servicio DNS recursivo. Un cliente solo IPv6 envía solicitudes al servicio DNS recursivo por medio de IPv6. Después, el servicio recursivo debería poder entrar en contacto con los servidores de nombres de Traffic Manager mediante IPv4.
 
-Traffic Manager responde con el nombre DNS del punto de conexión. Para admitir un punto de conexión IPv6, debe existir un registro AAAA de DNS que apunte el nombre DNS del punto de conexión a la dirección IPv6. Las comprobaciones de estado de Traffic Manager solo admiten direcciones IPv4. El servicio debe exponer un punto de conexión IPv4 en el mismo nombre DNS.
+Traffic Manager responde con el nombre DNS o la dirección IP del punto de conexión. Para admitir un punto de conexión IPv6, hay dos opciones. Puede agregar el punto de conexión como un nombre de DNA que tenga asociado un registro AAAA y Traffic Manager comprobará su estado y lo devolverá como un tipo de registro CNAME en la respuesta de la consulta. También puede agregar ese punto de conexión directamente con la dirección IPv6 y Traffic Manager devolverá un registro de tipo AAAA en la respuesta de la consulta. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>¿Puedo usar el Administrador de tráfico con más de una aplicación web en la misma región?
 
@@ -300,6 +333,46 @@ Traffic Manager no puede proporcionar ninguna validación de certificado, inclui
 * No se admiten certificados del servidor de SNI
 * No se admiten certificados de cliente
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>¿Uso una dirección IP o un nombre DNS al agregar un punto de conexión?
+Traffic Manager admite la adición de puntos de conexión mediante tres formas de referencia: como nombre DNS, como una dirección IPv4 y como una dirección IPv6. Si el punto de conexión se agrega como una dirección IPv4 o IPv6, la respuesta de la consulta será, respectivamente, de tipo de registro A o AAAA. Si el punto de conexión se agregó como un nombre DNS, la respuesta de la consulta será de tipo de registro CNAME. Tenga en cuenta que solo está permitido agregar puntos de conexión como direcciones IPv4 o IPv6 si el punto de conexión es de tipo "Externo".
+Todos los métodos de enrutamiento y la configuración de supervisión son compatibles con los tres tipos de direcciones de punto de conexión.
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>¿Qué tipos de direcciones IP puedo usar al agregar un punto de conexión?
+Traffic Manager permite usar direcciones IPv4 o IPv6 para especificar los puntos de conexión. Hay algunas restricciones que se enumeran a continuación:
+- No se permiten direcciones que correspondan a espacios de direcciones IP privadas reservadas. Estas direcciones incluyen las indicadas en RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 y RFC 5771
+- La dirección no puede contener números de puerto (puede especificar los puertos que se usarán en las opciones de configuración del perfil) 
+- Dos puntos de conexión en el mismo perfil no pueden tener la misma dirección IP de destino
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>¿Puedo usar tipos de direccionamiento de punto de conexión diferentes con un único punto de conexión?
+No, Traffic Manager no permite combinar tipos de direccionamiento de punto de conexión dentro de un perfil, excepto en el caso de un perfil con el tipo de enrutamiento de varios valores donde puede mezclar tipos de direccionamiento IPv4 y IPv6
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>¿Qué ocurre cuando el tipo de registro de consulta entrante es diferente del tipo de registro asociado con el tipo de direccionamiento de los puntos de conexión?
+Cuando se recibe una consulta con un perfil, Traffic Manager busca primero el punto de conexión que debe devolverse según el método de enrutamiento especificado y el estado de mantenimiento de los puntos de conexión. A continuación, examina el tipo de registro solicitado en la consulta entrante y el tipo de registro asociado con el punto de conexión antes de devolver una respuesta basada en la tabla siguiente.
+
+En el caso de perfiles con cualquier método de enrutamiento que no sea de varios valores:
+|Solicitud de consulta entrante|    Tipo de punto de conexión|  Respuesta proporcionada|
+|--|--|--|
+|ANY |  A / AAAA / CNAME |  Punto de conexión de destino| 
+|Una  |    A / CNAME | Punto de conexión de destino|
+|Una  |    AAAA |  NODATA |
+|AAAA | AAAA / CNAME |  Punto de conexión de destino|
+|AAAA | Una  | NODATA |
+|CNAME |    CNAME | Punto de conexión de destino|
+|CNAME  |A / AAAA | NODATA |
+|
+En el caso de los perfiles con el método de enrutamiento establecido en varios valores:
+
+|Solicitud de consulta entrante|    Tipo de punto de conexión | Respuesta proporcionada|
+|--|--|--|
+|ANY |  Combinación de A y AAAA | Extremos de destino|
+|Una  |    Combinación de A y AAAA | Solo puntos de conexión de destino de tipo A|
+|AAAA   |Combinación de A y AAAA|     Solo puntos de conexión de destino de tipo AAAA|
+|CNAME |    Combinación de A y AAAA | NODATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>¿Puedo usar un perfil con puntos de conexión con direcciones IPv4 / IPv6 en un perfil anidado?
+Sí, con la excepción de que un perfil de tipo varios valores no puede ser un perfil primario en un conjunto de perfiles anidados.
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Detuve un punto de conexión de una aplicación web o un servicio en la nube de Azure en mi perfil de Traffic Manager, pero no recibo tráfico incluso después de haberlo reiniciado. ¿Cómo lo puedo corregir?
 
 Cuando se detiene un punto de conexión de una aplicación web o un servicio en la nube de Azure, Traffic Manager deja de comprobar su mantenimiento y reinicia las comprobaciones de estado solo una vez que detecta que se reinició el punto de conexión. Para evitar este retraso, deshabilite y vuelva a habilitar ese punto de conexión en el perfil de Traffic Manager después de reiniciar el punto de conexión.   
@@ -326,9 +399,13 @@ Con estas opciones, Traffic Manager puede proporcionar conmutaciones por error e
 
 La configuración de supervisión de Traffic Manager se encuentra en el nivel de perfil. Si necesita usar una configuración de supervisión diferente solo para un punto de conexión, puede realizarse teniendo ese punto de conexión como un [perfil anidado](traffic-manager-nested-profiles.md) cuya configuración de supervisión sea diferente de la del perfil principal.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>¿Qué encabezado host se utiliza en las comprobaciones de estado de punto de conexión?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>¿Cómo puedo asignar encabezados HTTP para las comprobaciones de estado de Traffic Manager a mis puntos de conexión?
+Traffic Manager permite especificar encabezados personalizados en las comprobaciones de estado de HTTP(S) que inicia en sus puntos de conexión. Si desea especificar un encabezado personalizado, puede hacerlo en el nivel de perfil (se aplica a todos los puntos de conexión) o especificarlo en el nivel del punto de conexión. Si un encabezado se define en ambos niveles, el especificado en el nivel de punto de conexión reemplazará el del perfil del nivel uno.
+Un caso de uso común para esto es la especificación de encabezados para que las solicitudes de Traffic Manager se enruten correctamente a un punto de conexión hospedado en un entorno de varios inquilinos. Otro caso de uso de esto es identificar solicitudes de Traffic Manager desde registros de solicitudes HTTP(S) de un punto de conexión
 
-Traffic Manager usa encabezados de host en las comprobaciones de estado HTTP y HTTPS. El encabezado de host que usa Traffic Manager es el nombre del destino del punto de conexión configurado en el perfil. El valor utilizado en el encabezado host no se puede especificar por separado de la propiedad 'target'.
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>¿Qué encabezado host se utiliza en las comprobaciones de estado de punto de conexión?
+Si no se proporciona ningún valor de encabezado de host personalizado, el encabezado de host utilizado por Traffic Manager es el nombre DNS del destino del punto de conexión configurado en el perfil, si está disponible. 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>¿Cuáles son las direcciones IP desde las que proceden las comprobaciones de estado?
 

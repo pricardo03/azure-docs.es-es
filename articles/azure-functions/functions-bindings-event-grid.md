@@ -9,14 +9,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/23/2018
+ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094559"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128390"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -308,23 +308,40 @@ Para obtener más información sobre cómo crear suscripciones mediante el Azure
 
 Para crear una suscripción mediante el uso de la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilice el comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
-El comando requiere la dirección URL del punto de conexión que invoca la función. En el siguiente ejemplo se muestra el patrón de la dirección URL:
+El comando requiere la dirección URL del punto de conexión que invoca la función. En el siguiente ejemplo se muestra el patrón de la dirección URL específico de la versión:
 
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
+#### <a name="version-2x-runtime"></a>Entorno en tiempo de ejecución versión 2.x
+
+    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+
+#### <a name="version-1x-runtime"></a>Entorno en tiempo de ejecución versión 1.x
+
+    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
 La clave de sistema es una clave de autorización que debe incluirse en la dirección URL del punto de conexión para desencadenador de Event Grid. En la siguiente sección se explica cómo obtener la clave del sistema.
 
 En este ejemplo se suscribe a una cuenta de almacenamiento de blobs (con un marcador de posición para la clave del sistema):
 
+#### <a name="version-2x-runtime"></a>Entorno en tiempo de ejecución versión 2.x
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
 --provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
+--resource-name myblobstorage12345 --name myFuncSub  \
 --included-event-types Microsoft.Storage.BlobCreated \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+#### <a name="version-1x-runtime"></a>Entorno en tiempo de ejecución versión 1.x
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name myblobstorage12345 --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
 Para más información sobre cómo crear una suscripción, consulte [la guía de inicio rápido sobre el almacenamiento de blobs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) o cualquiera de las demás guías de inicio rápido de Event Grid.
@@ -334,10 +351,10 @@ Para más información sobre cómo crear una suscripción, consulte [la guía de
 Puede obtener la clave del sistema mediante la siguiente API (HTTP GET):
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Es una API de administración, por lo que requiere la [clave maestra](functions-bindings-http-webhook.md#authorization-keys) de la aplicación de función. No confunda la clave del sistema (para invocar una función de desencadenador de Event Grid) con la clave maestra (para realizar tareas administrativas en la aplicación de función). Cuando se suscriba a un tema de Event Grid, asegúrese de usar la clave del sistema. 
+Es una API de administración, por lo que requiere la [clave maestra](functions-bindings-http-webhook.md#authorization-keys) de la aplicación de función. No confunda la clave del sistema (para invocar una función de desencadenador de Event Grid) con la clave maestra (para realizar tareas administrativas en la aplicación de función). Cuando se suscriba a un tema de Event Grid, asegúrese de usar la clave del sistema.
 
 Este es un ejemplo de la respuesta que proporciona la clave del sistema:
 
@@ -354,7 +371,12 @@ Este es un ejemplo de la respuesta que proporciona la clave del sistema:
 }
 ```
 
-Para más información, consulte [Claves de autorización](functions-bindings-http-webhook.md#authorization-keys) en el artículo de referencia del desencadenador HTTP. 
+Puede obtener la clave maestra de la aplicación de función en la pestaña **Configuración de Function App** del portal.
+
+> [!IMPORTANT]
+> La clave maestra proporciona acceso de administrador a la aplicación de función. Esta clave no debe compartirse con terceros ni distribuirse en aplicaciones cliente nativas.
+
+Para más información, consulte [Claves de autorización](functions-bindings-http-webhook.md#authorization-keys) en el artículo de referencia del desencadenador HTTP.
 
 También puede enviar un HTTP PUT para especificar el mismo valor de la clave.
 
@@ -475,7 +497,7 @@ https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionN
 ``` 
 Use este patrón de punto de conexión para las funciones 2.x:
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ``` 
 El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.
 

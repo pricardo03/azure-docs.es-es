@@ -1,22 +1,24 @@
 ---
-title: Formato de esquema en Knowledge Exploration Service API | Microsoft Docs
-description: Más información sobre el formato de esquema en Knowledge Exploration Service (KES) API en Cognitive Services.
+title: Formato de esquema de Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Más información sobre el formato de esquema en Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 3009392a5acb12a8f4df3d30a2cbe5e74f2172fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380242"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129257"
 ---
 # <a name="schema-format"></a>Formato de esquema
+
 El esquema se especifica en un archivo JSON que describe la estructura de atributos de los objetos del archivo de datos utilizado para crear el índice.  Para cada atributo, el esquema especifica el nombre, el tipo de datos, las operaciones opcionales y la lista de sinónimos opcional.  Un objeto puede tener 0 o más valores para cada atributo.  A continuación se muestra un ejemplo simplificado de un dominio de publicación académico:
 
 ``` json
@@ -36,6 +38,7 @@ El esquema se especifica en un archivo JSON que describe la estructura de atribu
 Los nombres de atributo son identificadores que distinguen entre mayúsculas y minúsculas que empiezan por una letra y constan únicamente de letras (A-Z), números (0-9) y guiones bajos (\_).  El atributo reservado "logprob" se utiliza para especificar las probabilidades de registro natural relativas entre objetos.
 
 ## <a name="attribute-type"></a>Tipo de atributo
+
 A continuación se muestra una lista de los tipos de datos de atributos admitidos:
 
 | Escriba | DESCRIPCIÓN | Operaciones | Ejemplo |
@@ -60,11 +63,13 @@ Los atributos de GUID se usan para representar eficazmente valores GUID con comp
 Los atributos de blobs se usan para codificar eficazmente blobs de datos potencialmente grandes para la búsqueda en tiempo de ejecución del objeto correspondiente, sin compatibilidad con ninguna operación de indexación basada en el contenido de los valores del blob.
 
 ### <a name="composite-attributes"></a>Atributos compuestos
+
 Los atributos compuestos se utilizan para representar una agrupación de valores de atributo.  El nombre de cada atributo secundario empieza por el nombre del atributo compuesto seguido de ".".  Los valores de los atributos compuestos se especifican como un objeto JSON que contiene los valores de los atributos anidados.  Los atributos compuestos pueden tener varios valores de objeto.  Sin embargo, los atributos compuestos no pueden tener atributos secundarios que sean, a su vez, atributos compuestos.
 
 En el ejemplo anterior de publicación académica, esto permite al servicio consultar los documentos por "harry shum" mientras este está en "microsoft".  Sin los atributos compuestos, el servicio solo puede consultar los documentos en los que uno de los autores es "harry shum" y otro de los autores es "microsoft".  Para más información, consulte la información sobre [consultas de composición](SemanticInterpretation.md#composite-function).
 
 ## <a name="attribute-operations"></a>Operaciones de atributo
+
 De forma predeterminada, cada atributo está indexado para admitir todas las operaciones disponibles para el tipo de datos de atributo.  Si no se requiere una operación determinada, se puede especificar explícitamente el conjunto de operaciones indexadas para reducir el tamaño del índice.  En el siguiente fragmento de código del esquema de ejemplo anterior, el atributo Author.Id está indexado para que admita solo la operación *equals*, pero no las operaciones adicionales *starts_with* y *is_between* para los atributos Int32.
 ```json
 {"name":"Author.Id", "type":"Int32", "operations":["equals"]}
@@ -73,6 +78,7 @@ De forma predeterminada, cada atributo está indexado para admitir todas las ope
 Cuando se hace referencia a un atributo dentro de una gramática, la operación *starts_with* se debe especificar en el esquema para que el servicio genere finalizaciones a partir de consultas parciales.  
 
 ## <a name="attribute-synonyms"></a>Sinónimos de atributo
+
 A menudo, es conveniente hacer referencia a un valor de atributo de cadena determinado mediante un sinónimo.  Por ejemplo, los usuarios pueden referirse a "Microsoft" como "MSFT" o "MS".  En estos casos, la definición del atributo puede especificar el nombre de un archivo de esquema que se encuentra en el mismo directorio que este.  Cada línea del archivo de sinónimos representa una entrada de sinónimo en el siguiente formato JSON: `["<canonical>", "<synonym>"]`.  En el esquema de ejemplo, "AuthorName.syn" es un archivo JSON que contiene los valores de sinónimos para el atributo Author.Name.
 
 `{"name":"Author.Name", "type":"String", "synonyms":"AuthorName.syn"}`

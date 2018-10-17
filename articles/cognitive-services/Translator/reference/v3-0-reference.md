@@ -1,26 +1,27 @@
 ---
-title: Referencia de Microsoft Translator Text API v3.0 | Microsoft Docs
-description: Documentación de referencia para Microsoft Translator Text API v3.0.
+title: Referencia de Translator Text API V3.0
+titlesuffix: Azure Cognitive Services
+description: Documentación de referencia para Translator Text API V3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: cfaa9584e833b137b417d9074fbfcf606eb21388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380891"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129393"
 ---
-#<a name="translator-text-api-v30"></a>Translator Text API v3.0
+# <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
 ## <a name="whats-new"></a>Novedades
 
-La versión 3 de Microsoft Translator Text API proporciona una API web moderna basada en JSON. Mejora la facilidad de uso y rendimiento mediante la consolidación de las características existentes en menos operaciones y proporciona nuevas características.
+La versión 3 de Translator Text API proporciona una API web moderna basada en JSON. Mejora la facilidad de uso y rendimiento mediante la consolidación de las características existentes en menos operaciones y proporciona nuevas características.
 
  * Transliteración para convertir texto en un idioma de un script a otro.
  * Traducción a varios idiomas en una sola solicitud.
@@ -45,7 +46,7 @@ La manera más sencilla es pasar la clave secreta de Azure al servicio Translato
 
 Una alternativa es usar la clave secreta para obtener un token de autorización del servicio de token. A continuación, debe pasar el token de autorización al servicio Translator mediante el encabezado de solicitud `Authorization`. Para obtener un token de autorización, realice una solicitud `POST` a la dirección URL siguiente:
 
-| Environment     | URL del servicio de autenticación                                |
+| Entorno     | URL del servicio de autenticación                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
