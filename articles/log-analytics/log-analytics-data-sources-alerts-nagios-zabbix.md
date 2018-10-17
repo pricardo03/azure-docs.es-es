@@ -83,7 +83,7 @@ Puede recuperar registros de alertas de Nagios y Zabbix con [búsquedas de regis
 
 ### <a name="nagios-alert-records"></a>Registros de alertas de Nagios
 
-Los registros de alertas recopilados por Nagios tienen como **tipo** una **alerta** y como **SourceSystem****Nagios**.  Tienen las propiedades de la tabla siguiente.
+Los registros de alertas recopilados por Nagios tienen como **tipo** una **alerta** y como **SourceSystem** **Nagios**.  Tienen las propiedades de la tabla siguiente.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
@@ -99,7 +99,7 @@ Los registros de alertas recopilados por Nagios tienen como **tipo** una **alert
 
 
 ### <a name="zabbix-alert-records"></a>Registros de alertas de Zabbix
-Los registros de alertas recopilados por Zabbix tienen como **tipo** una **alerta** y como **SourceSystem****Zabbix**.  Tienen las propiedades de la tabla siguiente.
+Los registros de alertas recopilados por Zabbix tienen como **tipo** una **alerta** y como **SourceSystem** **Zabbix**.  Tienen las propiedades de la tabla siguiente.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |

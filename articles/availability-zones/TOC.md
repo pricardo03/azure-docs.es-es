@@ -23,7 +23,7 @@
 #### [Creación de un conjunto de escalado en una zona de disponibilidad](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Load Balancer
-#### [¿Qué es Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
+#### [¿Qué es el equilibrador de carga?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md)
 
 #### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas](../load-balancer/load-balancer-get-started-internet-az-portal.md)
@@ -38,7 +38,7 @@
 ### [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
-#### [Zonas de disponibilidad con SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [Zonas de disponibilidad con SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Storage
 #### [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md)
