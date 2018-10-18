@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607115"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393990"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Azure AD Terms of Use.
@@ -242,4 +242,4 @@ R: Puede [revisar los Términos de uso aceptados previamente](#how-users-can-rev
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Procedimientos recomendados para el acceso condicional en Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Procedimientos recomendados para el acceso condicional en Azure Active Directory](../../active-directory/conditional-access/best-practices.md)

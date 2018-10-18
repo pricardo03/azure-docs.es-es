@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc3bd6258d2da331c83d0aaa9c6c0e57b44f2930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d7862ef96b5a237c4c9e553f3bea5d39684468e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950087"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388551"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell
 
@@ -54,7 +54,7 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 Al crear una máquina virtual, hay varias opciones disponibles, como la imagen de sistema operativo,la configuración de red y las credenciales administrativas. En este ejemplo se crea una máquina virtual con el nombre *myVM* que ejecuta la versión predeterminada más reciente de Windows Server 2016 Datacenter.
 
-Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
+Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

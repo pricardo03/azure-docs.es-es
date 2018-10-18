@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2a90e70a9e7951b298be408992ee5e5fc6332131
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d13eb22bd58dc7e680a27738549665bc2b691898
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729338"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392217"
 ---
 # <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>Integración de registros de Azure AD con SumoLogic mediante Azure Monitor (versión preliminar)
 
@@ -45,4 +45,4 @@ Para usar esta característica, necesita:
 
 * [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Preguntas frecuentes y problemas conocidos](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Preguntas frecuentes y problemas conocidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

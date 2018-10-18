@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2d6ee894a80267247b927b7575c8aed2f2bdfdc3
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 77707525533079630807f472e2106dc3fbadbc75
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184882"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386491"
 documentType: LandingData
 title: Documentación de Azure HDInsight
 metadata:
@@ -84,10 +84,10 @@ sections:
     className: cardsD
     items:
     - title: Herramientas
-      html: <p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">Herramienta HDInsight IntelliJ</a></p><p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">Herramienta HDInsight Eclipse</a></p><p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode">Herramienta HDInsight VSCode</a></p><p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">Herramienta HDInsight Visual Studio</a></p>
+      html: <p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">Herramienta HDInsight IntelliJ</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">Herramienta HDInsight Eclipse</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">Herramienta HDInsight VSCode</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">Herramienta HDInsight Visual Studio</a></p>
     - title: Línea de comandos
       html: <p><a href="/powershell/module/azurerm.hdinsight">Azure PowerShell</a></p>
     - title: Lenguajes
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p><p><a href="https://archive.codeplex.com/?p=hadoopsdk">.NET (Avro)</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/hdinsight/">API de REST</a></p><p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">API de REST (Spark)</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/hdinsight/">API DE REST</a></p><p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">API de REST (Spark)</a></p>

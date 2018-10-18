@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 87bcd23983c1d973f7e90caf806092c909b7b9e4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032553"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389724"
 ---
 # <a name="create-a-qna-maker-service"></a>Creación de un servicio QnA Maker
 
@@ -41,10 +41,10 @@ Esta configuración implementa algunos recursos de Azure. Juntos, estos recursos
     * Elija la **Suscripción** en que se implementará el recurso QnA Maker.
     * Seleccione el **Plan de tarifa de administración** para los servicios de administración de QnA Maker (API de portal y administración). Haga clic [aquí](https://aka.ms/qnamaker-pricing) para obtener más información sobre los precios de las SKU.
     * Cree un **Grupo de recursos** (recomendado) o use uno existente en el que implementar este recurso QnA Maker.
-    * Elija el **Plan de tarifa de búsqueda** del servicio Azure Search. Si ve la opción de nivel Gratis atenuada, significa que ya dispone del un nivel Gratis de Azure Search implementado en la suscripción. En ese caso, necesitará comenzar con el nivel Básico de Azure Search. Vea los detalles de los precios de Azure Search [aquí](https://azure.microsoft.com/en-us/pricing/details/search/).
+    * Elija el **Plan de tarifa de búsqueda** del servicio Azure Search. Si ve la opción de nivel Gratis atenuada, significa que ya dispone del un nivel Gratis de Azure Search implementado en la suscripción. En ese caso, necesitará comenzar con el nivel Básico de Azure Search. Vea los detalles de los precios de Azure Search [aquí](https://azure.microsoft.com/pricing/details/search/).
     * Elija la **Ubicación de la búsqueda** donde desea que se implementen los datos de Azure Search. Las restricciones sobre dónde deben almacenarse los datos del cliente comunicarán la ubicación elegida para Azure Search.
     * Asigne un nombre al servicio de aplicación en **Nombre de aplicación**.
-    * De forma predeterminada, el nivel predeterminado de App Service es Estándar (S1). Puede cambiar el plan después de la creación. Consulte más información sobre los precios de App Service [aquí](https://azure.microsoft.com/en-in/pricing/details/app-service/).
+    * De forma predeterminada, el nivel predeterminado de App Service es Estándar (S1). Puede cambiar el plan después de la creación. Consulte más información sobre los precios de App Service [aquí](https://azure.microsoft.com/pricing/details/app-service/).
     * Elija la **Ubicación de sitio web** donde se implementará App Service.
 
         > [!NOTE]

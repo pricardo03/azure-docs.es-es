@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142935"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365261"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
 ## <a name="overview"></a>Información general
@@ -82,7 +82,7 @@ Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos
 Si bien las tres ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **table storage** y **blob storage** registran información adicional como el identificador de instancia, el identificador de subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que el registro en **file system**.
 
 > [!NOTE]
-> Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de Storage que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso a Azure Storage mediante algunos de los [SDK de Azure](https://azure.microsoft.com/en-us/downloads/).
+> Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de Storage que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso a Azure Storage mediante algunos de los [SDK de Azure](https://azure.microsoft.com/downloads/).
 >
 > [!NOTE]
 > Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite** . Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
@@ -211,7 +211,7 @@ Por ejemplo, un evento de error presentaría un formato similar al siguiente:
 
 El registro en el sistema de archivos ofrece la información más básica de los tres métodos disponibles, ya que ofrece solo la hora, el identificador del proceso, el nivel de evento y el mensaje.
 
-**Almacenamiento de tablas**
+**Table storage**
 
 Al realizar registros en el almacenamiento de tabla, se usan propiedades adicionales para facilitar la búsqueda de los datos almacenados en la tabla, así como información más pormenorizada sobre el evento. Las siguientes propiedades (columnas) se usan para cada entidad (fila) almacenada en la tabla.
 

@@ -17,7 +17,7 @@
 ##  Conceptos
 ### [Redes virtuales](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Equilibrio de carga de red](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Equilibrio de carga de la aplicación](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Equilibrio de carga de la aplicación](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribución de tráfico basado en DNS](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conexión local: VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -71,6 +71,6 @@
 ## [Precios](https://azure.microsoft.com/pricing)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services/)
-## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
 

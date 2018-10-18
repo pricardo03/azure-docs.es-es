@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f045000791ff2e760cdd69aa524d5222fd76d06
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967859"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389486"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -60,7 +60,7 @@ A la hora de usar una cuenta de Azure Storage con clústeres de HDInsight, es ne
 * **Los contenedores o blobs públicos de las cuentas de almacenamiento que NO están conectados a un clúster:** tiene permiso de solo lectura a los blobs de los contenedores.
   
   > [!NOTE]
-  > Los contenedores públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para más información, consulte el artículo sobre la <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">Administración del acceso a los contenedores y los blobs</a>.
+  > Los contenedores públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para más información, consulte el artículo sobre la <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">Administración del acceso a los contenedores y los blobs</a>.
   > 
   > 
 * **Contenedores privados de las cuentas de almacenamiento que no están conectados a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat. Esto se explica posteriormente en este artículo.
@@ -133,7 +133,7 @@ Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="use-azure-classic-cli"></a>Usar la CLI clásica de Azure
+### <a name="use-azure-classic-cli"></a>Uso de la CLI de Azure clásica
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -264,7 +264,7 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### <a name="use-azure-classic-cli"></a>Usar la CLI clásica de Azure
+### <a name="use-azure-classic-cli"></a>Uso de la CLI de Azure clásica
 Use el siguiente comando para mostrar los cmdlets relacionados con blobs:
 
     azure storage blob

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: efad7353a477577e5b5ac862b418ce78b1c4c304
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e9ed9d3500b112f98492e6a85d02a1f1843c7c3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697259"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365584"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -43,7 +43,7 @@ En este tutorial realizará lo siguiente:
 > * Conexión de la aplicación al Centro de notificaciones
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 - [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
@@ -232,7 +232,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
                     regID = hub.register(token).getRegistrationId();
 
                     // If you want to use tags...
-                    // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                    // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                     // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
                     resultString = "Registered Successfully - RegId : " + regID;
@@ -653,7 +653,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
 
                         // Include any tags
                         // Example below targets 3 specific tags
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
                         //        "tag1 || tag2 || tag3");
 

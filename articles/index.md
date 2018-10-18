@@ -6,12 +6,12 @@ description: Aprenda a compilar y administrar aplicaciones eficaces mediante Mic
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b6204867e46ce289d8da2d3bc65f05f448c06e5b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 65430c4bb1f03816bad25bf93f5dba3c95cb9f0c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345380"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389101"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -169,7 +169,7 @@ Node.js</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
 Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -3298,7 +3298,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_azure.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -5863,7 +5863,7 @@ Azure para desarrolladores de Java </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">

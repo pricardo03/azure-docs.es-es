@@ -71,7 +71,7 @@
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
@@ -83,6 +83,6 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

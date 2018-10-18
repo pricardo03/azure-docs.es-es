@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886589"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389673"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Guía de inicio rápido: Creación, entrenamiento y publicación de la base de conocimiento
 
@@ -41,7 +41,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
 
 5. En el paso 3, asigne el nombre **Mi KB de QnA de ejemplo** a la base de conocimiento.
 
-6. Para agregar contenido a la KB, seleccione tres tipos de orígenes de datos. En el paso 4, en **Populate your KB** (Rellenar la base de conocimiento), agregue la dirección URL de [Preguntas más frecuentes sobre recuperación de BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) en el cuadro **URL**.
+6. Para agregar contenido a la KB, seleccione tres tipos de orígenes de datos. En el paso 4, en **Populate your KB** (Rellenar la base de conocimiento), agregue la dirección URL de [Preguntas más frecuentes sobre recuperación de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) en el cuadro **URL**.
 
    ![Selección de una base de conocimiento de servicio QnA](../media/qnamaker-quickstart-kb/add-datasources.png)
 

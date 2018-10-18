@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: ce5b704a7ac251621698352608ea3eefa4629aea
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3ccec4fbd0fd69539e29e2f15f71115444bf0a48
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886592"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389299"
 ---
 # <a name="tutorial-luis-bot-in-c"></a>Tutorial: Bot de LUIS en C#
 Con C#, puede crear un bot de chat que se integre con Language Understanding (LUIS). Este bot usa la aplicación HomeAutomation para implementar una solución de bot. El bot se compila con el [bot de aplicación web](https://docs.microsoft.com/azure/bot-service/) de Azure y con la [versión 4 de Bot Framework](https://github.com/Microsoft/botbuilder-js).
@@ -291,9 +291,9 @@ En el archivo `BasicBot.cs`, agregue código para controlar las intenciones nuev
 ## <a name="learn-more-about-bot-framework"></a>Más información sobre Bot Framework
 Azure Bot Service usa el SDK de Bot Framework. Más información sobre el SDK y bot framework:
 
-* Documentación sobre [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* Documentación sobre [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
 * [Ejemplos de Bot Builder](https://github.com/Microsoft/botbuilder-samples)
-* [SDK de Bot Builder](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [SDK de Bot Builder](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Herramientas de Bot Builder](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Pasos siguientes

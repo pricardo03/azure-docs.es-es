@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452265"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386667"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 
@@ -65,7 +65,7 @@ Los paquetes de extensiones se descargan del repositorio de extensiones de Azure
 > [!IMPORTANT]
 > Si bloqueó el acceso a *168.63.129.1* con el firewall invitado, las extensiones generarán un error independientemente de lo mencionado.
 
-Los agentes solo se pueden usar para descargar los paquetes de extensiones e informar el estado. Por ejemplo, si la instalación de una extensión requiere descargar un script de GitHub (script personalizado) o necesita acceso a Azure Storage (Azure Backup), se deben abrir puertos adicionales del firewall o del grupo de seguridad de red. Distintas extensiones tienen distintos requisitos, porque son aplicaciones por sí mismas. En el caso de las extensiones que requieren acceso a Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Los agentes solo se pueden usar para descargar los paquetes de extensiones e informar el estado. Por ejemplo, si la instalación de una extensión requiere descargar un script de GitHub (script personalizado) o necesita acceso a Azure Storage (Azure Backup), se deben abrir puertos adicionales del firewall o del grupo de seguridad de red. Distintas extensiones tienen distintos requisitos, porque son aplicaciones por sí mismas. En el caso de las extensiones que requieren acceso a Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Para redirigir las solicitudes de tráfico del agente, el agente Linux es compatible con el servidor proxy. Sin embargo, esta compatibilidad con el servidor proxy no se aplica a las extensiones. Debe configurar cada extensión individual para que funcione con un servidor proxy.
 
@@ -259,7 +259,7 @@ En la salida del ejemplo anterior, el proceso primario o la "versión implementa
 
 "Goal state agent" es la versión de actualización automática.
 
-Se recomienda que siempre tenga activada la actualización automática del agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Si no tiene habilitada esta opción, debe seguir actualizando de manera manual el agente y así no recibirá las correcciones de errores y de seguridad.
+Se recomienda que siempre tenga activada la actualización automática del agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Si no tiene habilitada esta opción, debe seguir actualizando de manera manual el agente y así no recibirá las correcciones de errores y de seguridad.
 
 #### <a name="extension-updates"></a>Actualizaciones de extensiones
 
@@ -408,7 +408,7 @@ También puede quitar una extensión en Azure Portal como se indica a continuaci
 | Extensión de script personalizado para Linux |Ejecución de scripts en una máquina virtual de Azure |[Extensión de script personalizado para Linux](custom-script-linux.md) |
 | Extensión de acceso a máquina virtual |Repetición de obtención de acceso a una máquina virtual de Azure |[Extensión de acceso a máquina virtual](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Extensión de Diagnósticos de Azure |Administración de Diagnósticos de Azure |[Extensión de Diagnósticos de Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extensión de acceso a máquina virtual de Azure |Administración de usuarios y credenciales |[Extensión de acceso a máquina virtual para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extensión de acceso a máquina virtual de Azure |Administración de usuarios y credenciales |[Extensión de acceso a máquina virtual para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
