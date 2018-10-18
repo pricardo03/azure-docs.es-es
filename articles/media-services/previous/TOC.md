@@ -64,6 +64,7 @@
 ##### [Personalización de valores preestablecidos de Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
 ##### [Generación de vistas en miniatura mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Recorte de vídeos con Media Encoder Standard](media-services-crop-video.md)
+##### [Generación de un sprite de miniaturas](generate-thumbnail-sprite.md)
 #### Esquemas de MES
 ##### [Esquema de Media Encoder Standard](media-services-mes-schema.md)
 ##### [Metadatos de entrada](media-services-input-metadata-schema.md)

@@ -5,20 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 17212c076ef296a24021213b0aa887de930a44ac
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783362"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042489"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migración de Contoso: Recompilar una aplicación local en Azure
 
-En este artículo se muestra cómo Contoso migra y recompila su aplicación SmartHotel360 en Azure. Migra la máquina virtual de front-end de la aplicación a las aplicaciones web de Azure App Services. El back-end de la aplicación se compila con microservicios implementados en contenedores administrados por Azure Kubernetes Service (AKS). El sitio interactúa con Azure Functions y proporciona la funcionalidad de fotos de mascotas. 
+En este artículo se muestra cómo Contoso migra y recompila su aplicación SmartHotel360 en Azure. Contoso migra la máquina virtual de front-end de la aplicación a las aplicaciones web de Azure App Services. El back-end de la aplicación se compila con microservicios implementados en contenedores administrados por Azure Kubernetes Service (AKS). El sitio interactúa con Azure Functions para ofrecer la funcionalidad de fotos de mascotas. 
 
-Este documento es el primero de una serie de artículos que muestran cómo la compañía ficticia Contoso migra sus recursos locales a la nube de Microsoft Azure. En la serie se incluye información de fondo y escenarios en los que se muestra la configuración de una infraestructura de migración, la valoración de los recursos locales para la migración y la ejecución de distintos tipos de migraciones. La complejidad de los escenarios aumenta e iremos agregando otros artículos con el tiempo.
+Este documento es el primero de una serie de artículos que muestran cómo la compañía ficticia Contoso migra recursos locales a la nube de Microsoft Azure. En la serie se incluye información de fondo y escenarios en los que se muestra la configuración de una infraestructura de migración, la valoración de los recursos locales para la migración y la ejecución de distintos tipos de migraciones. La complejidad de los escenarios va en aumento. Se agregarán más artículos con el tiempo.
+
 
 **Artículo** | **Detalles** | **Estado**
 --- | --- | ---
@@ -32,19 +33,19 @@ Este documento es el primero de una serie de artículos que muestran cómo la co
 [Artículo 8: Rehospedaje de una aplicación de Linux en VM de Azure y en Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Se muestra cómo Contoso migra la aplicación osTicket de Linux a VM de Azure mediante Site Recovery y cómo migra la base de datos de aplicaciones a una instancia de Azure MySQL Server mediante MySQL Workbench. | Disponible
 [Artículo 9: Refactorizar una aplicación en Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Muestra cómo Contoso migra la aplicación SmartHotel360 a una aplicación web de Azure y migra la base de datos de la aplicación a la instancia de Azure SQL Server | Disponible
 [Artículo 10: Refactorizar una aplicación Linux a Azure Web Apps y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Muestra cómo Contoso migra la aplicación Linux osTicket a Azure Web Apps en varios sitios integrados con GitHub para ofrecer una entrega continua. Se migra la base de datos de la aplicación a una instancia de Azure MySQL. | Disponible
-[Artículo 11: Refactorizar TFS en VSTS](contoso-migration-tfs-vsts.md) | Muestra cómo Contoso migra la implementación de Team Foundation Server (TFS) local mediante la migración a Visual Studio Team Services (VSTS) en Azure. | Disponible
-[Artículo 12: Rediseñar la arquitectura de una aplicación en contenedores de Azure y SQL Database](contoso-migration-rearchitect-container-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel360 a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Disponible
-Artículo 13: Volver a compilar una aplicación en Azure | Se muestra cómo Contoso vuelve a compilar su aplicación SmartHotel360 con una variedad de funcionalidades y servicios de Azure, como App Services, Azure Kubernetes, Azure Functions, Cognitive Services y Cosmos DB. | Este artículo.
+[Artículo 11: Refactorización de TFS en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Muestra cómo Contoso migra la implementación de Team Foundation Server (TFS) local a Azure DevOps Services en Azure. | Disponible
+[Artículo 12: Rediseñar la arquitectura de una aplicación en contenedores de Azure y SQL Database](contoso-migration-rearchitect-container-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Disponible
+Artículo 13: Volver a compilar una aplicación en Azure | Muestra cómo Contoso vuelve a compilar su aplicación de SmartHotel con una gama de funcionalidades y servicios de Azure, como App Services, Azure Kubernetes, Azure Functions, Cognitive Services y Cosmos DB. | Este artículo.
 
 En este artículo, Contoso migra el sistema operativo Windows de dos niveles. la aplicación SmartHotel360 .NET de Windows de dos niveles que se ejecuta en las VM de VMware a Azure. Esta aplicación está disponible en código abierto y, si quiere usarla, puede descargarla en [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Impulsores del negocio
 
-El equipo directivo de TI ha trabajado estrechamente con sus asociados comerciales para comprender lo que quieren lograr con esta migración:
+El equipo directivo de TI ha trabajado estrechamente con sus socios comerciales para comprender lo quieren lograr con esta migración:
 
-- **Abordar el crecimiento del negocio**: Contoso está creciendo. Quiere ofrecer experiencias diferenciadas a sus clientes en sus sitios web.
+- **Abordar el crecimiento del negocio**: Contoso está creciendo y quiere ofrecer experiencias diferenciadas para los clientes en sitios web de Contoso.
 - **Agilidad**: Contoso debe poder reaccionar con más rapidez que los cambios del mercado para lograr el éxito en una economía global. 
-- **Escalar**: a medida que el negocio crece satisfactoriamente, el equipo de TI de Contoso debe proporcionar sistemas que puedan crecer al mismo ritmo.
+- **Escala**: a medida que el negocio crece satisfactoriamente, el equipo de TI de Contoso debe facilitar sistemas que puedan crecer al mismo ritmo.
 - **Costos**: Contoso quiere minimizar los costos de licencia.
 
 ## <a name="migration-goals"></a>Objetivos de la migración
@@ -54,10 +55,15 @@ El equipo de la nube de Contoso ha establecido los requisitos de la aplicación 
  - La aplicación no debe usar componentes de IaaS. Debe compilarse todo para usar servicios PaaS o sin servidor.
  - Las compilaciones de la aplicación deben ejecutarse en servicios en la nube y los contenedores deben residir en un registro de contenedor de nivel empresarial y privado en la nube.
  - El servicio de API utilizado para las fotos de mascotas debe ser preciso y fiable en el mundo real, ya que las decisiones que toma la aplicación deben cumplirse en los hoteles. Cualquier mascota con acceso autorizado podrá permanecer en los hoteles.
+ - Para cumplir los requisitos de una canalización de DevOps, Contoso usará Azure DevOps para la administración de código fuente (SCM), con repositorios de Git.  Se usarán compilaciones y versiones automatizadas para compilar el código e implementarlo en Azure Web Apps, Azure Functions y AKS.
+ - Se requieren distintas canalizaciones de CI/CD para los microservicios en el back-end y para el sitio web en el front-end.
+ - Los servicios de back-end tienen un ciclo de lanzamiento diferente al de la aplicación web de front-end.  Para satisfacer este requisito, se implementarán dos canalizaciones distintas de DevOps.
+ - Contoso necesita la aprobación de administración en todas las implementaciones de sitio web de front-end y la canalización de CI/CD debe facilitarlo.
+
 
 ## <a name="solution-design"></a>Diseño de la solución
 
-Después de fijar sus objetivos y requisitos, Contoso diseña y revisa una solución de implementación e identifica el proceso de migración, incluidos los servicios de Azure que utilizará para la migración.
+Después de fijar los objetivos y requisitos, Contoso diseña y revisa una solución de implementación e identifica el proceso de migración, incluidos los servicios de Azure que usará para la migración.
 
 ### <a name="current-app"></a>Aplicación actual
 
@@ -70,11 +76,11 @@ Después de fijar sus objetivos y requisitos, Contoso diseña y revisa una soluc
 
 ### <a name="proposed-architecture"></a>Arquitectura propuesta
 
-- El front-end de la aplicación se implementará como una aplicación web de Azure App Services, en su región primaria.
-- Una función de Azure proporcionará las cargas de las fotos de las mascotas y el sitio interactuará con esta funcionalidad.
+- El front-end de la aplicación se implementa como aplicación web de Azure App Services, en su región primaria.
+- Una función de Azure proporciona las cargas de las fotos de mascotas y el sitio interactúa con esta funcionalidad.
 - La función de fotos de mascotas aprovecha Cognitive Services Vision API y CosmosDB.
 - El back-end del sitio se ha compilado con microservicios. Estos se implementarán en contenedores administrados en Azure Kubernetes Service (AKS).
-- Los contenedores se compilarán con VSTS y se insertarán en Azure Container Registry (ACR).
+- Los contenedores se compilarán con Azure DevOps y se insertarán en Azure Container Registry (ACR).
 - Por ahora, Contoso implementará manualmente el código de función y la aplicación web con Visual Studio.
 - Los microservicios se implementarán mediante un script de PowerShell que llama a las herramientas de línea de comandos de Kubernetes.
 
@@ -82,12 +88,13 @@ Después de fijar sus objetivos y requisitos, Contoso diseña y revisa una soluc
 
   
 ### <a name="solution-review"></a>Revisión de la solución
-Contoso evalúa el diseño propuesto creando una lista de ventajas y desventajas.
+
+Contoso evalúa el diseño propuesto y crea una lista de ventajas y desventajas.
 
 **Consideración** | **Detalles**
 --- | ---
 **Ventajas** | El uso de PaaS y soluciones sin servidor para la implementación de un extremo a otro reduce significativamente el tiempo de administración que Contoso debe proporcionar.<br/><br/> Cambiar a una arquitectura de microservicios permite que Contoso amplíe fácilmente su solución con el tiempo.<br/><br/> La nueva funcionalidad se puede poner en línea sin interrumpir ninguna de las bases de código de las soluciones existentes.<br/><br/> La aplicación web se configurará con varias instancias y sin ningún único punto de error.<br/><br/> El escalado automático se habilitará para que la aplicación pueda controlar volúmenes de tráfico diferentes.<br/><br/> Con el cambio a los servicios de PaaS, Contoso puede retirar soluciones obsoletas que se ejecutan en el sistema operativo Windows Server 2008 R2.<br/><br/> CosmosDB tiene tolerancia a errores integrada, que no requiere ninguna configuración por parte de Contoso. Esto significa que la capa de datos ya no es un único punto de conmutación por error.
-**Desventajas** | Los contenedores son más complejos que otras opciones de migración. La curva de aprendizaje podría ser un problema para Contoso.  Contoso introduce un nuevo nivel de complejidad que proporciona un gran valor a pesar de la curva.<br/><br/> El equipo de operaciones de Contoso deberá esforzarse para comprender y ofrecer soporte técnico de Azure, los contenedores y los microservicios de la aplicación.<br/><br/> Contoso no ha implementado completamente DevOps para toda la solución. Debe pensar en eso para la implementación de servicios en AKS, funciones y App Services.
+**Desventajas** | Los contenedores son más complejos que otras opciones de migración. La curva de aprendizaje podría ser un problema para Contoso.  Contoso introduce un nuevo nivel de complejidad que proporciona un gran valor a pesar de la curva.<br/><br/> El equipo de operaciones de Contoso debe esforzarse en comprender y ofrecer soporte técnico de Azure, los contenedores y los microservicios de la aplicación.<br/><br/> Contoso no ha implementado completamente DevOps para toda la solución. Tiene que pensar en ello para la implementación de servicios en AKS, Azure Functions y App Services.
 
 
 
@@ -95,7 +102,7 @@ Contoso evalúa el diseño propuesto creando una lista de ventajas y desventajas
 
 1. Contoso aprovisiona ACR, AKS y CosmosDB.
 2. Aprovisiona la infraestructura para la implementación, incluida la API, la función, la cuenta de almacenamiento y la aplicación web de Azure. 
-3. Una vez instalada la infraestructura, compilará las imágenes del contenedor de microservicios con VSTS, que las inserta en ACR.
+3. Una vez instalada la infraestructura, compilará las imágenes del contenedor de microservicios con Azure DevOps, que las inserta en ACR.
 4. Contoso implementará estos microservicios en ASK mediante un script de PowerShell.
 5. Por último, implementará la función de Azure y la aplicación web.
 
@@ -112,11 +119,11 @@ Contoso evalúa el diseño propuesto creando una lista de ventajas y desventajas
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Esto es lo que usted (y Contoso) necesita para ejecutar este escenario.
+Esto es lo que Contoso requiere en este escenario:
 
 **Requisitos** | **Detalles**
 --- | ---
-**Suscripción de Azure** | Ya debería haber creado una suscripción cuando realizó la evaluación en el primer artículo de esta serie. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Si crea una cuenta gratuita, será el administrador de su suscripción y podrá realizar todas las acciones.<br/><br/> Si usa una suscripción existente y no es el administrador, tendrá que solicitar al administrador que le asigne permisos de propietario o colaborador.
+**Suscripción de Azure** | En un artículo anterior, Contoso creó suscripciones. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Si crea una cuenta gratuita, será el administrador de su suscripción y podrá realizar todas las acciones.<br/><br/> Si usa una suscripción existente y no es el administrador, tendrá que solicitar al administrador que le asigne permisos de propietario o colaborador.
 **Infraestructura de Azure** | [Vea](contoso-migration-infrastructure.md) cómo Contoso configuró una infraestructura de Azure.
 **Requisitos previos para desarrolladores** | Contoso necesita las siguientes herramientas en una estación de trabajo de desarrollador:<br/><br/> - [Visual Studio 2017 Community Edition: versión 15.5](https://www.visualstudio.com/)<br/><br/> Carga de trabajo. NET habilitada.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Azure PowerShell](https://azure.microsoft.com/downloads/)<br/><br/> [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)<br/><br/> [Docker CE (Windows 10) o Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) configurado para usar contenedores de Windows.
 
@@ -128,7 +135,7 @@ Contoso ejecutará la migración de la forma siguiente:
 
 > [!div class="checklist"]
 > * **Paso 1: Aprovisionar AKS y ACR**: Contoso aprovisiona el clúster de AKS administrado y el registro de contenedores de Azure mediante PowerShell
-> * **Paso 2: Compilar contenedores de Docker**: configura la integración continua para contenedores de Docker mediante VSTS y los inserta a ACR.
+> * **Paso 2: Compilar contenedores de Docker**: configura la integración continua para contenedores de Docker mediante Azure DevOps y los inserta en ACR.
 > * **Paso 3: Implementar microservicios de back-end**: implementa el resto de la infraestructura que aprovecharán los microservicios de back-end.
 > * **Paso 4: Implementar la infraestructura de front-end**: implementa la infraestructura de front-end, incluidos el almacenamiento de blobs para los teléfonos de mascota, Cosmos DB y Vision API.
 > * **Paso 5: Migrar el back-end**: implementa los microservicios y se ejecuta en AKS, para migrar el back-end.
@@ -136,166 +143,233 @@ Contoso ejecutará la migración de la forma siguiente:
 
 
 
-## <a name="step-1-provision-an-aks-cluster-and-acr"></a>Paso 1: Aprovisionar un clúster de AKS y ACR
+## <a name="step-1-provision-back-end-resources"></a>Paso 1: Aprovisionar recursos de back-end
 
-Contoso ejecuta un script de implementación para crear el clúster de Kubernetes administrado con AKS y Azure Container Registry.
+Contoso ejecuta un script de implementación para crear el clúster de Kubernetes administrado con AKS y Azure Container Registry (ACR).
 
 - Las instrucciones de esta sección usan el repositorio **SmartHotel360-Azure-backend**.
 - El repositorio **SmartHotel360-Azure-backend** de GitHub contiene todo el software para esta parte de la implementación.
 
-El aprovisionamiento será de la manera siguiente:
+### <a name="prerequisites"></a>Requisitos previos
 
-1. Antes de empezar, Contoso garantiza que todo el software necesario está instalado en la máquina de desarrollo que se está usando. 
-2. Clona el repositorio localmente en la máquina de desarrollo mediante GIT.
+1. Antes de empezar, los administradores de Contoso se aseguran de que todo el software necesario está instalado en la máquina de desarrollo que se utiliza para la implementación.
+2. Clona el repositorio localmente en la máquina de desarrollo con Git: **Git Clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
-    **clonación de GIT https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
-3.  Contoso abre la carpeta con Visual Studio Code y se desplaza al directorio **/deploy/k8s**, que contiene el script **gen-aks-env.ps1**.
-4. Ejecuta el script para crear el clúster de Kubernetes administrado con AKS y Container Registry.
+### <a name="provision-aks-and-acr"></a>Aprovisionar AKS y ACR
+
+Los administradores de Contoso aprovisionan de la manera siguiente:
+
+1.  Abren la carpeta con Visual Studio Code y se desplazan al directorio **/deploy/k8s**, que contiene el script **gen-aks-env.ps1**.
+2. Ejecutan el script para crear el clúster de Kubernetes administrado, con AKS y ACR.
 
     ![AKS](./media/contoso-migration-rebuild/aks1.png)
  
-5.  Con el archivo abierto, actualiza el parámetro $location a **eastus2** y guarda el archivo.
+3.  Con el archivo abierto, actualiza el parámetro $location a **eastus2** y guarda el archivo.
 
     ![AKS](./media/contoso-migration-rebuild/aks2.png)
 
-6. Hace clic en **Ver** > **Terminal integrado** para abrir el terminal integrado en el código.
+4. Hace clic en **Ver** > **Terminal integrado** para abrir el terminal integrado en el código.
 
     ![AKS](./media/contoso-migration-rebuild/aks3.png)
 
-7. En el terminal integrado de PowerShell, inicia sesión en Azure mediante el comando Connect-AzureRmAccount. [Obtenga más información](https://docs.microsoft.com/powershell/azure/get-started-azureps) sobre cómo empezar a usar PowerShell.
+5. En el terminal integrado de PowerShell, inicia sesión en Azure mediante el comando Connect-AzureRmAccount. [Obtenga más información](https://docs.microsoft.com/powershell/azure/get-started-azureps) sobre cómo empezar a usar PowerShell.
 
     ![AKS](./media/contoso-migration-rebuild/aks4.png)
 
-8. Autentica la CLI de Azure mediante la ejecución del comando **az login** y sigue las instrucciones para autenticarse con su explorador web. [Obtenga más información](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) acerca del inicio de sesión con la CLI de Azure.
+6. Autentica la CLI de Azure mediante la ejecución del comando **az login** y sigue las instrucciones para autenticarse con su explorador web. [Obtenga más información](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) acerca del inicio de sesión con la CLI de Azure.
 
     ![AKS](./media/contoso-migration-rebuild/aks5.png)
 
-9. Ejecuta el siguiente comando, pasando el nombre del grupo de recursos de ContosoRG, el nombre del clúster de AKS smarthotel-aks-eus2 y el nuevo nombre del registro.
+7. Ejecuta el siguiente comando, pasando el nombre del grupo de recursos de ContosoRG, el nombre del clúster de AKS smarthotel-aks-eus2 y el nuevo nombre del registro.
 
     ```
     .\gen-aks-env.ps1  -resourceGroupName ContosoRg -orchestratorName smarthotelakseus2 -registryName smarthotelacreus2
     ```
-
     ![AKS](./media/contoso-migration-rebuild/aks6.png)
 
-10. Azure crea otro grupo de recursos, que contiene los recursos del clúster de AKS.
+8. Azure crea otro grupo de recursos, que contiene los recursos del clúster de AKS.
 
     ![AKS](./media/contoso-migration-rebuild/aks7.png)
 
-11. Una vez finalizada la implementación, Contoso instala la herramienta de línea de comandos **kubectl**. La herramienta ya está instalada en Azure CloudShell.
+9. Una vez finalizada la implementación, se instala la herramienta de línea de comandos **kubectl**. La herramienta ya está instalada en Azure CloudShell.
 
     **az aks install-cli**
 
-12. Verifica la conexión al clúster ejecutando el comando **kubectl get nodes**. El nodo tiene el mismo nombre que la máquina virtual en el grupo de recursos creado automáticamente.
+10. Verifica la conexión al clúster ejecutando el comando **kubectl get nodes**. El nodo tiene el mismo nombre que la máquina virtual en el grupo de recursos creado automáticamente.
 
     ![AKS](./media/contoso-migration-rebuild/aks8.png)
 
-13. Ejecuta el comando siguiente para iniciar el panel de Kubernetes: 
+11. Ejecuta el comando siguiente para iniciar el panel de Kubernetes: 
 
     **az aks browse --resource-group ContosoRG --name smarthotelakseus2**
 
-14. Se abre una pestaña del explorador en el panel. Se trata de una conexión de túnel mediante la CLI de Azure. 
+12. Se abre una pestaña del explorador en el panel. Se trata de una conexión de túnel mediante la CLI de Azure. 
 
     ![AKS](./media/contoso-migration-rebuild/aks9.png)
 
 
 
 
-## <a name="step-2-build-a-docker-container"></a>Paso 2: Compilar un contenedor de Docker
+## <a name="step-2-configure-the-back-end-pipeline"></a>Paso 2: Configurar la canalización de back-end
 
-### <a name="create-a-vsts-and-build"></a>Crear una instancia de VSTS y compilar
+### <a name="create-an-azure-devops-project-and-build"></a>Crear un proyecto de Azure DevOps y compilarlo
 
-Contoso crea un proyecto de VSTS y configura una compilación de CI para crear el contenedor y, después, lo inserta en ACR. Las instrucciones de esta sección usan el repositorio [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend).
+Contoso crea un proyecto de Azure DevOps y configura una compilación de CI para crear el contenedor que, luego, inserta en ACR. Las instrucciones de esta sección usan el repositorio [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend).
 
-1. Desde visualstudio.com, se crea una nueva cuenta (**contosodevops360.visualstudio.com**) y se configura para usar GIT.
+1. En visualstudio.com, se crea una cuenta (**contosodevops360.visualstudio.com**) y se configura para usar Git.
 
-2. Crea un nuevo proyecto (**smarthotelrefactor**) con GIT para el control de versiones y Agile para el flujo de trabajo.
+2. Crean un proyecto (**SmartHotelBackend**) con Git como control de versiones y Agile como flujo de trabajo.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts1.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. Importa el repositorio de GitHub.
+3. Importan el [repositorio de GitHub](https://github.com/Microsoft/SmartHotel360-Azure-backend.git).
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts2.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. En **Compilación y versión**, crea una nueva definición mediante GIT de VSTS como origen, desde el repositorio importado. 
+4. En **Canalizaciones**, hacen clic en **Compilar** y crean una canalización con el repositorio GIT de Azure Repos como origen en el repositorio. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts3.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
-6. Selecciona la opción para empezar con una canalización vacía.
+6. Selecciona la opción para empezar con una fase vacía.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts4.png)  
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
-7. Selecciona **Hosted Linux Preview** (Versión preliminar hospedada de Linux) para la definición de compilación.
+7. Selecciona **Hosted Linux Preview** (Versión preliminar hospedada de Linux) como canalización de la compilación.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts5.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts5.png) 
  
 8. En **Fase 1**, agrega una tarea de **Docker Compose**. Esta tarea compila Docker Compose.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts6.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts6.png) 
 
 9. Repite la acción y agrega otra tarea de **Docker Compose**. Esta inserta los contenedores en ACR.
 
-     ![VSTS](./media/contoso-migration-rebuild/vsts7.png) 
+     ![Azure DevOps](./media/contoso-migration-rebuild/vsts7.png) 
 
 8. Selecciona la primera tarea (para compilar) y configura la compilación con la suscripción a Azure, la autorización y ACR. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts8.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-9. Especifica la ruta de acceso del archivo **docket-compose.yaml**, en la carpeta **src** del repositorio. Selecciona compilar imágenes de servicio e incluye la última etiqueta. Cuando la acción cambia a **Build service images** (Compilar imágenes del servicio), el nombre de la tarea de VSTS cambia a **Build services automatically** (Compilar servicios automáticamente).
+9. Especifica la ruta de acceso del archivo **docker-compose.yaml**, en la carpeta **src** del repositorio. Selecciona compilar imágenes de servicio y se incluye la etiqueta más reciente. Cuando la acción cambia a **Build service images** (Compilar imágenes del servicio), el nombre de la tarea de Azure DevOps cambia a **Build services automatically** (Compilar servicios automáticamente).
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts9.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 
-10. Ahora, Contoso configura la segunda tarea de Docker (para insertar). Selecciona la suscripción y la instancia de ACR **smarthotelacreus2**. 
+10. Ahora, configura la segunda tarea de Docker (para insertar). Selecciona la suscripción y la instancia de ACR **smarthotelacreus2**. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts10.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts10.png)
 
-11. De nuevo, introduce el archivo en docker-compose.yaml y selecciona **Push service images**  (Insertar imágenes del servicio) e incluye la última etiqueta. Cuando la acción cambia a **Push service images** (Insertar imágenes de servicio), el nombre de la tarea de VSTS cambia a **Push services automatically** (Insertar servicios automáticamente).
+11. De nuevo, introduce el archivo en docker-compose.yaml y selecciona **Push service images**  (Insertar imágenes del servicio) e incluye la última etiqueta. Cuando la acción cambia a **Push service images** (Insertar imágenes de servicio), el nombre de la tarea de Azure DevOps cambia a **Push services automatically** (Insertar servicios automáticamente).
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts11.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts11.png)
 
-12. Con las tareas de VSTS configuradas, Contoso guarda la definición de compilación e inicia el proceso de compilación.
+12. Con las tareas de Azure DevOps configuradas, Contoso guarda la canalización de compilación e inicia el proceso de compilación.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts12.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts12.png)
 
 13. Hace clic en el trabajo de compilación para comprobar el progreso.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts13.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts13.png)
 
 14. Una vez finalizada la compilación, ACR muestra los nuevos repositorios, que se rellenan con los contenedores que usan los microservicios.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts14.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts14.png)
 
 
-## <a name="step-3-deploy-back-end-microservices"></a>Paso 3: Implementación de microservicios de back-end
+### <a name="deploy-the-back-end-infrastructure"></a>Implementar la infraestructura de back-end
 
-Con el clúster de AKS creado y las imágenes de Docker compiladas, Contoso implementa ahora el resto de la infraestructura que aprovecharán los microservicios de back-end.
+Con el clúster de AKS creado y las imágenes de Docker compiladas, los administradores de Contoso implementan ahora el resto de la infraestructura que aprovecharán los microservicios de back-end.
 
 - En las instrucciones de esta sección se usa el repositorio [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend).
 - En la carpeta **/deploy/k8s/arm**, hay un único script que permite crear todos los elementos. 
 
 La implementación se realiza de la manera siguiente:
 
-1. Contoso usa el archivo deploy.cmd para implementar los recursos de Azure en el grupo de recursos ContosoRG y la región EUS2, escribiendo el comando siguiente:
+1. Los administradores abren un símbolo del sistema para desarrolladores y utilizan el comando az login con la suscripción de Azure.
+2. Usan el archivo deploy.cmd para implementar los recursos de Azure en el grupo de recursos ContosoRG y la región EUS2, escribiendo el comando siguiente:
 
-    **.\deploy azuredeploy ContosoRG -c eastus2**
+    **.\deploy.cmd azuredeploy ContosoRG -c eastus2**
 
     ![Implementar el back-end](./media/contoso-migration-rebuild/backend1.png)
 
-2. Captura la cadena de conexión de cada base de datos, para usarla más adelante.
+2. En Azure Portal, capturan la cadena de conexión de cada base de datos, para usarla más adelante.
 
     ![Implementar el back-end](./media/contoso-migration-rebuild/backend2.png)
 
-## <a name="step-4-deploy-front-end-infrastructure"></a>Paso 4: Implementar la infraestructura de front-end
+### <a name="create-the-back-end-release-pipeline"></a>Crear la canalización de versión de back-end
 
-Contoso necesita implementar la infraestructura que se usará en las aplicaciones de front-end. Crea un contenedor de almacenamiento de blobs para almacenar las imágenes de mascotas; la base de datos de Cosmos, para almacenar documentos con la información de las mascotas; y la instancia de Vision API para el sitio web. 
+Ahora, los administradores de Contoso hacen lo siguiente:
 
-Las instrucciones de esta sección usan el repositorio [SmartHotel-public-web](https://github.com/Microsoft/SmartHotel360-public-web).
+- Implementan el controlador de entrada NGINX que permite el tráfico entrante a los servicios.
+- Implementan los microservicios en el clúster de AKS.
+- Como primer paso, actualizan las cadenas de conexión a los microservicios con Azure DevOps. Luego configuran una nueva canalización de versión de Azure DevOps para implementar los microservicios.
+- Las instrucciones de esta sección usan el repositorio [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend).
+- Tenga en cuenta que en este artículo no se tratan algunas de las opciones de configuración (por ejemplo, Active Directory B2C). Hay más información sobre estas opciones en el repositorio.
 
-### <a name="create-storage-containers"></a>Crear contenedores de almacenamiento
+Se crea la canalización:
 
-1.  En Azure Portal, Contoso abre la cuenta de almacenamiento que se creó y hace clic en **Blobs**.
+1. Mediante Visual Studio, actualizan el archivo **/deploy/k8s/config_local.yml** con la información de conexión de base de datos que apuntaron anteriormente.
+
+    ![Conexiones de base de datos](./media/contoso-migration-rebuild/back-pipe1.png)
+
+2. Abren Azure DevOps y, en el proyecto SmartHotel360, en **Versiones**, hacen clic en **+New Pipeline** (+Nueva canalización).
+
+    ![Nueva canalización](./media/contoso-migration-rebuild/back-pipe2.png)
+
+3. Hacen clic en **Fase vacía** para iniciar la canalización sin una plantilla.
+4. Especifican los nombres de fase y de canalización.
+
+      ![Nombre de fase](./media/contoso-migration-rebuild/back-pipe4.png)
+
+      ![Nombre de la canalización](./media/contoso-migration-rebuild/back-pipe5.png)
+
+5. Agregan un artefacto.
+
+     ![Agregar artefacto](./media/contoso-migration-rebuild/back-pipe6.png)
+
+6. Seleccionan **Git** como tipo de origen y especifican el proyecto, el origen y la rama principal de la aplicación de SmartHotel360.
+
+    ![Configuración del artefacto](./media/contoso-migration-rebuild/back-pipe7.png)
+
+7. Hacen clic en el vínculo de tarea.
+
+    ![Vínculo de tarea](./media/contoso-migration-rebuild/back-pipe8.png)
+
+8. Agregan una nueva tarea de Azure PowerShell para poder ejecutar un script de PowerShell en un entorno de Azure.
+
+    ![PowerShell en Azure](./media/contoso-migration-rebuild/back-pipe9.png)
+
+9. Seleccionan la suscripción de Azure para la tarea y eligen el script **deploy.ps1** en el repositorio de Git.
+
+    ![Ejecución de script](./media/contoso-migration-rebuild/back-pipe10.png)
+
+
+10. Agregan los argumentos al script. El script elimina todo el contenido del clúster (excepto la **entrada** y el **controlador de entrada**) e implementa los microservicios.
+
+    ![Argumentos de script](./media/contoso-migration-rebuild/back-pipe11.png)
+
+11. Establecen la versión de Azure PowerShell preferida en la más reciente y guardan la canalización.
+12. Vuelven a la página **Versiones** y crean manualmente una nueva versión.
+
+    ![Nueva versión](./media/contoso-migration-rebuild/back-pipe12.png)
+
+13. Hacen clic en la versión después de crearla y, en **Acciones**, hacen clic en **Implementar**.
+
+      ![Implementar la versión](./media/contoso-migration-rebuild/back-pipe13.png)  
+
+14. Una vez completada la implementación, ejecutan el siguiente comando para comprobar el estado de los servicios con Azure Cloud Shell: **kubectl get services**.
+
+
+## <a name="step-3-provision-front-end-services"></a>Paso 3: Aprovisionar servicios front-end
+
+Los administradores de Contoso tienen que implementar la infraestructura que se usará en las aplicaciones de front-end. Crean un contenedor de almacenamiento de blobs para almacenar las imágenes de mascotas; la base de datos de Cosmos para almacenar documentos con la información de las mascotas; y la instancia de Vision API para el sitio web. 
+
+Las instrucciones de esta sección usan el repositorio [SmartHotel360-public-web](https://github.com/Microsoft/SmartHotel360-public-web).
+
+### <a name="create-blob-storage-containers"></a>Creación de contenedores de almacenamiento de blobs
+
+1.  En Azure Portal, abren la cuenta de almacenamiento que se creó y hacen clic en **Blobs**.
 2.  Creará un nuevo contenedor (**Mascotas**) con el nivel de acceso público establecido en el contenedor. Los usuarios cargarán las fotos de sus mascotas en este contenedor.
 
     ![Blob de almacenamiento](./media/contoso-migration-rebuild/blob1.png)
@@ -308,9 +382,9 @@ Las instrucciones de esta sección usan el repositorio [SmartHotel-public-web](h
 
     ![Blob de almacenamiento](./media/contoso-migration-rebuild/blob2.png)
 
-## <a name="provision-a-cosmos-database"></a>Aprovisionar una base de datos de Cosmos
+### <a name="provision-a-cosmos-database"></a>Aprovisionar una base de datos de Cosmos
 
-Contoso aprovisiona una base de datos de Cosmos que se usará para la información de las mascotas.
+Los administradores de Contoso aprovisionan una base de datos de Cosmos que se usará para la información de las mascotas.
 
 1. Crea una instancia de **Azure Cosmos DB** en Azure Marketplace.
 
@@ -330,9 +404,9 @@ Contoso aprovisiona una base de datos de Cosmos que se usará para la informaci�
     ![Cosmos DB](./media/contoso-migration-rebuild/cosmos4.png)
 
 
-## <a name="provision-computer-vision"></a>Aprovisionar Computer Vision
+### <a name="provision-computer-vision"></a>Aprovisionar Computer Vision
 
-Contoso aprovisiona Computer Vision API. La función llamará a la API para evaluar las imágenes cargadas por los usuarios.
+Los administradores de Contoso aprovisionan la instancia de Computer Vision API. La función llamará a la API para evaluar las imágenes cargadas por los usuarios.
 
 1. Crea una instancia de **Computer Vision** en Azure Marketplace.
 
@@ -346,126 +420,190 @@ Contoso aprovisiona Computer Vision API. La función llamará a la API para eval
 
      ![Computer Vision](./media/contoso-migration-rebuild/vision3.png)
 
-## <a name="step-5-deploy-the-back-end-services-in-azure"></a>Paso 5: Implementar los servicios de back-end de Azure
 
-Ahora, Contoso debe implementar el controlador de entrada NGINX para permitir el tráfico entrante en los servicios y, después, implementar los microservicios en el clúster de AKS.
+### <a name="provision-the-azure-web-app"></a>Aprovisionar la aplicación web de Azure
 
-Las instrucciones de esta sección usan el repositorio [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend).
-
+Los administradores de Contoso aprovisionan la aplicación web con Azure Portal.
 
 
-1. Usa Visual Studio Code para actualizar el archivo **/deploy/k8s/config_loal.yml**. Actualiza varias conexiones de la base de datos con la información que se anotó anteriormente.
+1. Selecciona **Aplicación web** en el portal.
 
-     ![Implementar microservicios](./media/contoso-migration-rebuild/deploy-micro.png)
+    ![Aplicación web](media/contoso-migration-rebuild/web-app1.png)
 
-    > [!NOTE]
-    > Algunas de las opciones de configuración (por ejemplo, Active Directory B2C) no se tratan en este artículo. Hay más información acerca de estas opciones en el repositorio.
+2. Especifican un nombre de aplicación (**smarthotelcontoso**), la ejecutan en Windows y la colocan en el grupo de recursos de producción **ContosoRG**. Crean una instancia de Application Insights para la supervisión de la aplicación.
 
-2. El archivo deploy.ps1 elimina todo el contenido del clúster (excepto la entrada y el controlador de entrada) e implementa microservicios. Lo ejecuta de la siguiente forma:
+    ![Nombre de aplicación web](media/contoso-migration-rebuild/web-app2.png)
 
-  ```
-  .\deploy.ps1 -configFile .\conf_local.yml -dockerUser smarthotelacreus2  -dockerPassword [passwordhere] -registry smarthotelacreus2.azurecr.io -imageTag latest -deployInfrastructure $false -buildImages $false -pushImages $false
-  ```
+3. Cuando terminan, van a la dirección de la aplicación para comprobar que se creó correctamente.
 
-3. Ejecuta el siguiente comando para comprobar el estado de los servicios:
+4. Ahora, en Azure Portal, crean un espacio de ensayo para el código. La canalización se implementará en este espacio. Así se garantiza que el código no se inserta en producción hasta que los administradores ejecutan una versión.
 
-    ```
-    kubectl get services
-    ```
-4. Abre el panel de Kubernetes para revisar la implementación:
-
-    ```
-    az aks browse --resource-group ContosoRG --name smarthotelakseus2
-    ```
+    ![Espacio de ensayo de la aplicación web](media/contoso-migration-rebuild/web-app3.png)
 
 
-## <a name="step-6-publish-the-frontend"></a>Paso 6: Publicar el front-end
 
-Como último paso, Contoso publica la aplicación SmartHotel360, que se denomina Pet Service, en Azure App Service y en Function App.
+### <a name="provision-the-azure-function-app"></a>Aprovisionar la instancia de Azure Function App
 
-Las instrucciones de esta sección usan el repositorio [SmartHotel-public-web](https://github.com/Microsoft/SmartHotel360-public-web). .
+En Azure Portal, los administradores de Contoso aprovisionan la instancia de Function App.
 
-### <a name="set-up-web-app-to-use-contoso-resources"></a>Configuración de Web App para el uso de los recursos de Contoso
+1. Seleccionan **Function App**.
 
-1. Contoso clona el repositorio localmente en la máquina de desarrollo mediante GIT:
+    ![Crear instancia de Function App](./media/contoso-migration-rebuild/function-app1.png)
 
-    **Clonación de GIT https://github.com/Microsoft/SmartHotel360-public-web.git**
+2. Especifican un nombre de aplicación (**smarthotelpetchecker**). Insertan la aplicación en el grupo de recursos de producción **ContosoRG**. Establecen el contexto de hospedaje en **Plan de consumo** e insertan la aplicación en la región Este de EE. UU. 2. Se crea una cuenta de almacenamiento, junto con una instancia de Application Insights para la supervisión.
 
+    ![Configuración de Function App](./media/contoso-migration-rebuild/function-app2.png)
+
+
+3. Una vez implementada la aplicación, van a la dirección de la aplicación para comprobar que se creó correctamente.
+
+
+## <a name="step-4-set-up-the-front-end-pipeline"></a>Paso 4: Configurar la canalización de front-end
+
+Los administradores de Contoso crean dos proyectos distintos en el sitio de front-end. 
+
+1. En Azure DevOps, crean un proyecto **SmartHotelFrontend**.
+
+    ![Proyecto de front-end](./media/contoso-migration-rebuild/function-app1.png)
+
+2. Importan el repositorio de Git del [front-end de SmartHotel360](https://github.com/Microsoft/SmartHotel360-public-web.git) al nuevo proyecto.
+3. En Function App, crean otro proyecto de Azure DevOps (SmartHotelPetChecker) e importan el repositorio de Git de [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) a este proyecto.
+
+### <a name="configure-the-web-app"></a>Configurar la aplicación web
+
+Ahora los administradores de Contoso configuran la aplicación web para usar los recursos de Contoso.
+
+1. Se conectan al proyecto de Azure DevOps y clonan el repositorio localmente en la máquina de desarrollo.
 2. En Visual Studio, abre la carpeta para mostrar todos los archivos del repositorio.
 
-    ![Publicar el front-end](./media/contoso-migration-rebuild/front-publish1.png)
+    ![Archivos del repositorio](./media/contoso-migration-rebuild/configure-webapp1.png)
 
-3. Realiza los cambios de configuración necesarios para la configuración predeterminada.
+3. Actualizan los cambios de configuración según sea necesario.
 
     - Cuando la aplicación web se inicia, busca la configuración de la aplicación **SettingsUrl**.
-    - Esta variable debe contener una dirección URL a un archivo de configuración.
+    - Esta variable debe contener una dirección URL que apunta un archivo de configuración.
     - De forma predeterminada, esta opción de configuración se usa como un punto de conexión público.
 
-4. Se actualiza el archivo **/config-sample.json/sample.json**. Este es el archivo de configuración para la web cuando se usa el punto de conexión público.
+4.  Actualizan el archivo /config-sample.json/sample.json.
 
-    - Edita las secciones **ursl** y **pets_config** con los valores para los puntos de conexión de la API de AKS, las cuentas de almacenamiento y la base de datos de Cosmos. 
+    - Este es el archivo de configuración para la web cuando se usa el punto de conexión público.
+    - Editan las secciones **urls** y **pets_config** con los valores correspondientes a los puntos de conexión de la API de AKS, las cuentas de almacenamiento y la base de datos de Cosmos.
     - Las direcciones URL deben coincidir con el nombre DNS de la nueva aplicación web que Contoso va a crear.
     - Para Contoso, se trata de **smarthotelcontoso.eastus2.cloudapp.azure.com**.
 
-    ![Publicar el front-end](./media/contoso-migration-rebuild/front-publish2.png)
+    ![Configuración de Json](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. Una vez actualizado el archivo, cambia su nombre a **smarthotelsettingsurl** y lo carga en el blob de almacenamiento que creó anteriormente.
+5. Una vez actualizado el archivo, le cambian el nombre a **smarthotelsettingsurl** y lo cargan en el blob de almacenamiento que crearon anteriormente.
 
-     ![Publicar el front-end](./media/contoso-migration-rebuild/front-publish3.png)
+    ![Cambiar nombre y cargar](./media/contoso-migration-rebuild/configure-webapp3.png)
 
-6. Hace clic en el archivo para obtener la dirección URL. La aplicación usa esta dirección URL cuando comienza a extraer el archivo de configuración.
+6. Hace clic en el archivo para obtener la dirección URL. La aplicación usa esta dirección URL cuando extrae los archivos de configuración.
 
-    ![Publicar el front-end](./media/contoso-migration-rebuild/front-publish4.png)
+    ![Dirección URL de la aplicación](./media/contoso-migration-rebuild/configure-webapp4.png)
 
-7. Actualiza **SettingsUrl** en los archivos **appsettings.Production.JSON** a la dirección URL del nuevo archivo.
+7. En el archivo **appsettings.Production.json**, actualizan **SettingsURL** con la dirección URL del nuevo archivo.
 
-    ![Publicar el front-end](./media/contoso-migration-rebuild/front-publish5.png)
-
+    ![Actualizar dirección URL](./media/contoso-migration-rebuild/configure-webapp5.png)
 
 ### <a name="deploy-the-website-to-the-azure-app-service"></a>Implementar el sitio web en Azure App Service
 
-Ahora, Contoso puede publicar su sitio web.
+Los administradores de Contoso ahora pueden publicar el sitio web.
 
 
-1. Habilita la supervisión de Application Insights en Visual Studio 2017. Para ello, selecciona el proyecto **PublicWeb** en el Explorador de soluciones y busca **Agregar Application Insights**. Registra la aplicación con la instancia de Application Insights que se creó cuando se implementó la infraestructura.
+1. Abren Azure DevOps y, en el proyecto **SmartHotelFrontend**, en **Builds and Releases** (Compilaciones y versiones), hacen clic en **+New Pipeline** (+Nueva canalización).
+2. Seleccionan **Git de Azure DevOps** como origen.
+3. Seleccionan la plantilla **ASP.NET Core**.
+4. Revisan la canalización y comprueban que **Publicar proyectos web** y **Comprimir proyectos publicados** están seleccionadas.
 
-    ![Publicación del sitio web](./media/contoso-migration-rebuild/deploy-website1.png)
+    ![Configuración de la canalización](./media/contoso-migration-rebuild/vsts-publishfront2.png)
 
-2. En Visual Studio, conecta el proyecto PublicWeb a App Insights y lo actualiza para mostrar que está configurado.
- 
-    ![Publicación del sitio web](./media/contoso-migration-rebuild/deploy-website2.png)
+5. En **Desencadenadores**, habilitan la integración continua y agregan la rama maestra. Así se garantiza que, cada vez que la solución tiene código nuevo confirmado en la rama maestra, se inicia la canalización de compilación.
 
-3. En Visual Studio, crea y publica su aplicación web.
+    ![Integración continua](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
-    ![Publicación del sitio web](./media/contoso-migration-rebuild/deploy-website3.png)
+6. Hacen clic en **Guardar y poner en cola** para iniciar una compilación.
+7. Una vez finalizada la compilación, configuran una canalización de versión con **Implementación de Azure App Service**.
+8. Especifican un nombre de fase, **Almacenamiento provisional**.
 
-5. Contoso especifica un nombre de aplicación y la coloca en el grupo de recursos de producción **ContosoRG**, en la región Este de EE. UU. 2 principal.
+    ![Nombre del entorno](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
-    ![Publicación del sitio web](./media/contoso-migration-rebuild/deploy-website4.png)
+9. Agregan un artefacto y seleccionan la compilación que acaban de configurar.
 
-### <a name="deploy-the-function-to-azure"></a>Implementación de la función en Azure
+     ![Agregar artefacto](./media/contoso-migration-rebuild/vsts-publishfront5.png)
 
-1. Usa Visual Studio para crear y publicar la función. Para ello, hace clic en el botón derecho en **PetCheckerFunction** > **Publicar**. A continuación, crea una nueva función de App Service.
+10. Hacen clic en el icono de rayo en el artefacto y habilitan la implementación continua.
 
-     ![Implementación de la función](./media/contoso-migration-rebuild/function1.png)
+    ![Implementación continua](./media/contoso-migration-rebuild/vsts-publishfront6.png)
+11. En **Entorno**, hacen clic en **1 job, 1 task** (1 trabajo, 1 tarea) en **Almacenamiento provisional**.
+12. Después de seleccionar la suscripción y el nombre de la aplicación, abren la tarea **Implementar Azure App Service**. La implementación está configurada para usar la ranura de implementación de **ensayo**. Así se genera automáticamente código para su revisión y aprobación en esta ranura.
 
-2. Especifica el nombre **smarthotelpetchecker** y lo coloca en el grupo de recursos ContosoRG, y un nuevo plan de App Service.
+     ![Slot](./media/contoso-migration-rebuild/vsts-publishfront7.png)
 
-     ![Implementación de la función](./media/contoso-migration-rebuild/function2.png)
+13. En **Canalización**, agregan una nueva fase.
 
-3. A continuación, selecciona la cuenta de almacenamiento y crea la función.
+    ![Nuevo entorno](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-    ![Implementación de la función](./media/contoso-migration-rebuild/function3.png)
+14. Seleccionan **Implementación de Azure App Service con espacio** y asignan el nombre **Producción** al entorno.
+15. Hacen clic en **1 job, 2 tasks** (1 trabajo, 2 tareas) y seleccionan la suscripción, el nombre de App Service y el espacio de **ensayo**.
 
-4. La implementación se inicia con el aprovisionamiento de la aplicación de función en Azure. En **Publicar**, Contoso agrega la configuración de la aplicación para el almacenamiento, la base de datos de Cosmos y Computer Vision API.
+    ![Nombre del entorno](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
-    ![Implementación de la función](./media/contoso-migration-rebuild/function4.png)
+16. Quitan **Deploy Azure App Service to Slot** (Implementar Azure App Service con espacio) de la canalización. Se había colocado allí en los pasos anteriores.
 
-5. Para ejecutar primero la función localmente, se actualiza la configuración de **PetCheckerFunction/local.settings.json**.
+    ![Quitar de la canalización](./media/contoso-migration-rebuild/vsts-publishfront11.png)
+
+13. Guardan la canalización. En la canalización, hacen clic en **Condiciones posteriores a la implementación**.
+
+    ![Posterior a la implementación](./media/contoso-migration-rebuild/vsts-publishfront12.png)
+
+14. Habilitan **Aprobaciones posteriores a la implementación** y agregan un responsable de desarrollo como aprobador.
+
+    ![Aprobación posterior a la implementación](./media/contoso-migration-rebuild/vsts-publishfront13.png)
+
+15. En la canalización de compilación, inician manualmente una compilación. Así se desencadena la nueva canalización de versión, que implementa el sitio en el espacio de ensayo. En el caso de Contoso, la dirección URL del espacio es **https://smarthotelcontoso-staging.azurewebsites.net/**.
+16. Una vez finalizada la compilación e implementada la versión en el espacio, Azure DevOps solicita su aprobación por correo electrónico al responsable de desarrollo.
+17. El responsable de desarrollo hace clic en **Ver aprobación** en el portal de Azure DevOps, donde puede aprobar o rechazar la solicitud.
+
+    ![Correo electrónico de aprobación](./media/contoso-migration-rebuild/vsts-publishfront14.png)
+
+16. El responsable realiza un comentario y aprueba. Así se inicia el intercambio entre el espacio de **ensayo** y de **producción** y se traslada la compilación a producción.
+
+    ![Aprobar e intercambiar](./media/contoso-migration-rebuild/vsts-publishfront15.png)
+
+17. La canalización finaliza el intercambio.
+
+    ![Intercambio completo](./media/contoso-migration-rebuild/vsts-publishfront16.png)
+
+18. El equipo comprueba el espacio de **producción** en **https://smarthotelcontoso.azurewebsites.net/** para asegurarse de que la aplicación web se encuentra en producción.
+
+
+### <a name="deploy-the-petchecker-function-app"></a>Implementar la PetChecker Function App
+
+Los administradores de Contoso implementan la aplicación de la manera siguiente.
+
+1. Clonan el repositorio localmente en la máquina de desarrollo conectándose al proyecto de Azure DevOps.
+2. En Visual Studio, abre la carpeta para mostrar todos los archivos del repositorio.
+3. Abren el archivo **src/PetCheckerFunction/local.settings.json** y agregan la configuración de almacenamiento de la aplicación, la base de datos de Cosmos y Computer Vision API.
 
     ![Implementación de la función](./media/contoso-migration-rebuild/function5.png)
 
-6. Una vez implementada la función, aparece en Azure Portal, con el estado **En ejecución**.
+4. Confirman el código y lo sincronizan con Azure DevOps, lo que inserta los cambios.
+5. Agregan una nueva canalización de compilación y seleccionan **Git de Azure DevOps** como origen.
+6. Seleccionan la plantilla **ASP.NET Core (.NET Framework)**.
+7. Aceptan los valores predeterminados de la plantilla.
+8. En **Desencadenadores**, seleccionan **Habilitar la integración continua** y hacen clic en **Guardar y poner en cola** para iniciar una compilación.
+9. Una vez iniciada la compilación, compilan una canalización de versión, lo que agrega **Implementación de Azure App Service con espacio**.
+10. Asignan el nombre **Producción** al entorno y seleccionan la suscripción. Establecen el **Tipo de aplicación** en **Function App** y el nombre del servicio como **smarthotelpetchecker**.
+
+    ![Aplicación de función](./media/contoso-migration-rebuild/petchecker2.png)
+
+11. Agregan un artefacto de **compilación**.
+
+    ![Artefacto](./media/contoso-migration-rebuild/petchecker3.png)
+
+12. Habilitan la opción **Desencadenador de implementación continua** y hacen clic en **Guardar**.
+13. Hacen clic en **Poner nueva compilación en cola** para ejecutar la canalización de CI/CD completa.
+14. Una vez implementada la función, aparece en Azure Portal, con el estado **En ejecución**.
 
     ![Implementación de la función](./media/contoso-migration-rebuild/function6.png)
 
@@ -486,21 +624,24 @@ Ahora, Contoso puede publicar su sitio web.
 
 
 
+
+
 ## <a name="review-the-deployment"></a>Revisión de la implementación
 
-Con los recursos migrados de Azure, Contoso debe proteger la infraestructura nueva y ponerla totalmente en marcha.
+Con los recursos migrados de Azure, Contoso debe ahora poner completamente en marcha la nueva infraestructura y protegerla.
 
 ### <a name="security"></a>Seguridad
 
-- Contoso necesita asegurarse de que sus nuevas bases de datos son seguras. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview).
+- Contoso tiene que asegurarse de que sus nuevas bases de datos son seguras. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview).
 - La aplicación necesita actualizarse para usar SSL con certificados. La instancia del contenedor debe reimplementarse para responder en 443.
-- Debería considerarse el uso de KeyVault para proteger los secretos de las aplicaciones de Service Fabric. [Más información](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).
+- Contoso debería plantearse el uso de KeyVault para proteger los secretos de las aplicaciones de Service Fabric. [Más información](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).
 
 ### <a name="backups-and-disaster-recovery"></a>Copia de seguridad y recuperación ante desastres
 
 - Contoso necesita revisar los requisitos de copia de seguridad para la instancia de Azure SQL Database. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
-- Debe considerar la implementación de grupos de conmutación por error de SQL para proporcionar conmutación por error regional para la base de datos. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
-- Puede aprovechar la replicación geográfica para el SKU premium de ACR. [Más información](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)
+- Contoso debería plantearse la implementación grupos de conmutación por error de SQL para proporcionar conmutación por error regional a la base de datos. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
+- Contoso puede aprovechar la replicación geográfica para el SKU premium de ACR. [Más información](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+- Cosmos DB realiza la copia de seguridad automáticamente. Contoso puede [obtener más información](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) sobre este proceso.
 
 ### <a name="licensing-and-cost-optimization"></a>Optimización de los costos y licencias
 
@@ -510,7 +651,7 @@ Con los recursos migrados de Azure, Contoso debe proteger la infraestructura nue
 
 ## <a name="conclusion"></a>Conclusión
 
-En este artículo, Contoso recompila la aplicación SmartHotel360 en Azure. Recompila la VM de front-end de la aplicación local a las aplicaciones web de Azure App Services. El back-end de la aplicación se compila con microservicios implementados en contenedores administrados por Azure Kubernetes Service (AKS). Así mismo, mejora la funcionalidad de la aplicación con una aplicación de fotos de mascotas.
+En este artículo, Contoso recompila la aplicación SmartHotel360 en Azure. Se recompila la VM de front-end de la aplicación local para las aplicaciones web de Azure App Services. El back-end de la aplicación se compila con microservicios implementados en contenedores administrados por Azure Kubernetes Service (AKS). Contoso mejora la funcionalidad de la aplicación con una aplicación de fotos de mascotas.
 
 
 

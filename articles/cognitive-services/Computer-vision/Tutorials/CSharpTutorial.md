@@ -3,19 +3,19 @@ title: 'Tutorial: Compilación de una aplicación de procesamiento de imágenes 
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explore una aplicación básica de Windows que usa Computer Vision API de Microsoft Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: pafarley
+ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295859"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342660"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Compilación de una aplicación de procesamiento de imágenes (C&#35;)
 

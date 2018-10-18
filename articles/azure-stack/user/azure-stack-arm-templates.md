@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41946541"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161772"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Uso de plantillas de Administrador de recursos de Azure en Azure Stack
 
@@ -30,11 +30,11 @@ Puede utilizar las plantillas de Azure Resource Manager para implementar y aprov
 
 Estas plantillas se pueden implementar con el portal de Microsoft Azure Stack, PowerShell, con la línea de comandos y Visual Studio.
 
-Las plantillas de inicio rápido siguientes están disponibles en [GitHub](http://aka.ms/azurestackgithub).
+Las plantillas de inicio rápido siguientes están disponibles en [GitHub](http://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implementación de SharePoint Server(sin implementación de alta disponibilidad)
 
-Use la extensión DSC de PowerShell para crear una granja de SharePoint Server 2013 que incluya los siguientes recursos:
+Use la extensión DSC de PowerShell para [crear una granja de SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) que incluya los recursos siguientes:
 
 * Una red virtual
 * Tres cuentas de almacenamiento
@@ -45,7 +45,7 @@ Use la extensión DSC de PowerShell para crear una granja de SharePoint Server 
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Implementación de AD (sin alta disponibilidad)
 
-Use la extensión DSC de PowerShell para crear un servidor de controlador de dominio AD que incluya los siguientes recursos:
+Use la extensión DSC de PowerShell para [crear un servidor de controlador de dominio de AD](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) que incluya los recursos siguientes:
 
 * Una red virtual
 * Una cuenta de almacenamiento
@@ -54,7 +54,7 @@ Use la extensión DSC de PowerShell para crear un servidor de controlador de dom
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Implementación de AD/SQL (sin alta disponibilidad)
 
-Use la extensión DSC de PowerShell para crear un servidor independiente de SQL Server 2014 que incluya los siguientes recursos:
+Use la extensión DSC de PowerShell para [crear un servidor independiente de SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) que incluya los recursos siguientes:
 
 * Una red virtual
 * Dos cuentas de almacenamiento
@@ -68,15 +68,15 @@ Utilice la extensión de DSC de PowerShell para configurar Administrador de conf
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Creación de una máquina virtual desde una imagen de usuario
 
-Cree una máquina virtual desde una imagen de usuario personalizada. Esta plantilla también implementa una red virtual (con DNS), una dirección IP pública y una interfaz de red.
+[Cree una máquina virtual desde una imagen de usuario personalizada](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Esta plantilla también implementa una red virtual (con DNS), una dirección IP pública y una interfaz de red.
 
 ## <a name="basic-virtual-machine"></a>Máquina virtual básica
 
-Implemente una máquina virtual de Windows que incluya una red virtual (con DNS), una dirección IP pública y una interfaz de red.
+[Implemente una máquina virtual Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) que incluya una red virtual (con DNS), una dirección IP pública y una interfaz de red.
 
 ## <a name="cancel-a-running-template-deployment"></a>Cancelación de una implementación de la plantilla en ejecución
 
-Para cancelar la implementación de una plantilla en ejecución, use el cmdlet `Stop-AzureRmResourceGroupDeployment` de PowerShell.
+Para cancelar la implementación de una plantilla en ejecución, use el cmdlet [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

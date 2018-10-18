@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035340"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091907"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicación de actualizaciones en Azure Stack
 
@@ -42,7 +42,7 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 > [!IMPORTANT]
 > Se recomienda firmemente notificar a los usuarios cualquier operación de mantenimiento, así como programar ventanas de mantenimiento normal durante el horario no laborable tanto como sea posible. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
 
-1. En el portal de administración, seleccione **Más servicios**. Luego, en la categoría **Datos y almacenamiento**, seleccione **Cuentas de almacenamiento** (o bien, en el cuadro de filtro, empiece a escribir **storage accounts** y selecciónelo).
+1. En el portal de administración, haga clic en **Todos los servicios**. Luego, en la categoría **DATOS Y ALMACENAMIENTO**, haga clic en **Cuentas de almacenamiento**. (o bien, en el cuadro de filtro, empiece a escribir **storage accounts** y selecciónelo).
 
     ![Muestra dónde se encuentran las cuentas de almacenamiento en el portal](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
@@ -65,7 +65,7 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 6. En **Cargar blob**, haga clic en el icono de la carpeta, vaya al archivo .exe del paquete de actualización y haga clic en **Abrir** en la ventana del explorador de archivos.
   
 7. En **Cargar blob**, haga clic en **Cargar**. 
- 
+  
     ![Muestra dónde se carga cada archivo de paquete](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Repita los pasos 6 y 7 para los archivos *PackageName*.bin y Metadata.xml. No importe el archivo Supplemental Notice.txt si está incluido.
@@ -74,6 +74,8 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 11. Para instalar la actualización, seleccione el paquete que está marcado como **Listo** y haga clic con el botón derecho en él y seleccione **Actualizar ahora**, o bien haga clic en la acción **Actualizar ahora** cerca de la parte superior.
 12. Al hacer clic en el paquete de actualización de instalación, puede ver el estado en el área **Update run details** (Detalles de ejecución de actualización). Aquí también puede hacer clic en **Download full logs** (Descargar registros completos) para descargar los archivos de registro.
 13. Cuando la actualización finaliza, el icono de actualización muestra la versión actualizada de Azure Stack.
+
+Puede eliminar manualmente las actualizaciones de la cuenta de almacenamiento después de haberlas instalado en Azure Stack. Azure Stack busca periódicamente los paquetes de actualización más antiguos y los elimina del almacenamiento. Azure Stack puede tardar dos semanas en quitar los paquetes antiguos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

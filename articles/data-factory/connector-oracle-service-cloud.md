@@ -1,0 +1,147 @@
+---
+title: Copia de datos de Oracle Service Cloud con Azure Data Factory (versión preliminar) | Microsoft Docs
+description: Obtenga información sobre cómo copiar datos de Oracle Service Cloud en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: craigg
+ms.reviewer: douglasl
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 09/07/2018
+ms.author: jingwang
+ms.openlocfilehash: a576b94881e114a97e58bf93515e372221da3346
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44096154"
+---
+# <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copia de datos de Oracle Service Cloud con Azure Data Factory (versión preliminar)
+
+En este artículo se describe el uso de la actividad de copia de Azure Data Factory para copiar datos de Oracle Service Cloud. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+
+> [!IMPORTANT]
+> Este conector está actualmente en versión preliminar. Puede probarlo y enviarnos sus comentarios. Si desea depender de los conectores de versión preliminar en la solución, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/).
+
+## <a name="supported-capabilities"></a>Funcionalidades admitidas
+
+Puede copiar datos de Oracle Service Cloud en cualquier almacén de datos de receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+
+Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+
+## <a name="getting-started"></a>Introducción
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Oracle Service Cloud.
+
+## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
+
+Las propiedades siguientes son compatibles con el servicio vinculado de Oracle Service Cloud:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type se debe establecer en: **OracleServiceCloud** | SÍ |
+| host | Dirección URL de la instancia de Oracle Service Cloud.  | SÍ |
+| nombre de usuario | Nombre de usuario que se usa para acceder al servidor de Oracle Service Cloud.  | SÍ |
+| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en la clave de nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF, o almacenar la contraseña en Azure Key Vault y permitir que ADF copie la extracción de la actividad desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
+| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
+
+**Ejemplo:**
+
+```json
+{
+    "name": "OracleServiceCloudLinkedService",
+    "properties": {
+        "type": "OracleServiceCloud",
+        "typeProperties": {
+            "host" : "<host>",
+            "username" : "<username>",
+            "password": {
+                 "type": "SecureString",
+                 "value": "<password>"
+            },
+            "useEncryptedEndpoints" : true,
+            "useHostVerification" : true,
+            "usePeerVerification" : true,
+        }
+    }
+}
+
+```
+
+## <a name="dataset-properties"></a>Propiedades del conjunto de datos
+
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades compatibles con el conjunto de datos de Oracle Service Cloud.
+
+Para copiar datos de Oracle Service Cloud, establezca la propiedad type del conjunto de datos en **OracleServiceCloudObject**. No hay ninguna propiedad específica de tipo adicional en este tipo de conjunto de datos.
+
+**Ejemplo**
+
+```json
+{
+    "name": "OracleServiceCloudDataset",
+    "properties": {
+        "type": "OracleServiceCloudObject",
+        "linkedServiceName": {
+            "referenceName": "<OracleServiceCloud linked service name>",
+            "type": "LinkedServiceReference"
+        }
+    }
+}
+
+```
+
+## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
+
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades compatibles con el origen de Oracle Service Cloud.
+
+### <a name="oracle-service-cloud-as-source"></a>Oracle Service Cloud como origen
+
+Para copiar datos desde Oracle Service Cloud, establezca el tipo de origen de la actividad de copia en **OracleServiceCloudSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type del origen de la actividad de copia se debe establecer en: **OracleServiceCloudSource**. | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | SÍ |
+
+**Ejemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromOracleServiceCloud",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<OracleServiceCloud input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "OracleServiceCloudSource",
+                "query": "SELECT * FROM MyTable"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

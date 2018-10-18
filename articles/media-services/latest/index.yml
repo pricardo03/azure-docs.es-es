@@ -1,27 +1,27 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c07e07dfff42d50432d831b57349c2bdf869656
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 409a5008aa4d25b0fe868956d3da12b47e225acd
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345228"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377853"
 documentType: LandingData
-title: Documentación de Azure Media Services v3 (versión preliminar)
+title: Documentación de Azure Media Services v3
 metadata:
   document_id: 
   title: 'Documentación de Azure Media Services v3: tutoriales y referencia de API | Microsoft Docs'
   meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
   services: media-services
   author: Juliako
-  manager: cfowler
+  manager: femila
   ms.service: media-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07-27-2018
+  ms.date: 10-15-2018
   ms.author: juliako
 abstract:
-  description: Aprenda a hacer streaming de vídeos a petición, a realizar difusión en directo y a analizar los vídeos con Media Services. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
+  description: Aprenda a hacer streaming de vídeos a petición, a realizar difusión en directo y a analizar vídeos con Media Services v3. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios. <br/> Los SDK se basan en la <a href="https://aka.ms/ams-v3-rest-sdk">especificación OpenAPI (Swagger) de Media Services v3</a>.
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
@@ -78,7 +78,7 @@ sections:
       href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
     - image:
         src: media/index/logo_nodejs.svg
-      text: Node.js
+      text: Node .js
       href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
 - title: Referencia
   items:
@@ -86,11 +86,11 @@ sections:
     text: ''
   - type: list
     style: unordered
+    className: spaced noBullet
     items:
-    - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview">Especificación OpenAPI (Swagger)</a>
     - html: <a href="https://aka.ms/ams-v3-cli-ref">CLI de Azure</a>
     - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
     - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
     - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
     - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
-    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node .js</a>
+    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>

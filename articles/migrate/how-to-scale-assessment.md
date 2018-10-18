@@ -4,14 +4,14 @@ description: Se describe cómo evaluar un número elevado de máquinas locales m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 1f049b3e05ac17e416379762a0bced8340ae25d5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666550"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325029"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -22,8 +22,7 @@ Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo
 - **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server, versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador.
 - **Cuenta de vCenter**: necesita una cuenta de solo lectura para acceder a vCenter Server. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
 - **Permisos**: en vCenter Server, necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato OVA.
-- **Configuración de estadísticas**: la configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. El nivel estadístico se establecerá en 3 para cada uno de los intervalos de colección de día, semana y mes. Si el nivel es inferior a 3 en cualquiera de los tres intervalos de colección, la valoración funcionará, pero los datos de rendimiento de almacenamiento y red no se recopilarán. Las recomendaciones de tamaño se basarán entonces en los datos de rendimiento de CPU y memoria y en los datos de configuración de discos y adaptadores de red.
-
+- **Configuración de estadísticas**: este requisito solo es aplicable al [modelo de detección de un solo uso](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods). Para el modelo de detección de un solo uso, la configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. El nivel estadístico se establecerá en 3 para cada uno de los intervalos de colección de día, semana y mes. Si el nivel es inferior a 3 en cualquiera de los tres intervalos de colección, la valoración funcionará, pero los datos de rendimiento de almacenamiento y red no se recopilarán. Las recomendaciones de tamaño se basarán entonces en los datos de rendimiento de CPU y memoria y en los datos de configuración de discos y adaptadores de red.
 
 ### <a name="set-up-permissions"></a>Configuración de permisos
 
@@ -32,26 +31,28 @@ Azure Migrate necesita acceso a los servidores de VMware para detectar automáti
 - Tipo de usuario: al menos un usuario de solo lectura.
 - Permisos: Data Center -> Propagate to Child Object, role=Read-only (Centro de datos -> Propagar a objeto secundario, rol = Solo lectura).
 - Detalles: el usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.
-- Para restringir el acceso, asigne el rol No access (Sin acceso) con Propagate to child object (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
+- Para restringir el acceso, asigne el rol Sin acceso con Propagar al objeto secundario, a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
 
 Si va a implementar en un entorno de inquilinos, esta es una manera de configurar esta opción:
 
 1.  Cree un usuario por inquilino y use [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para asignar permisos de solo lectura a todas las máquinas virtuales que pertenezcan a un inquilino determinado. A continuación, use esas credenciales para la detección. RBAC garantiza que el usuario correspondiente de vCenter solo tendrá acceso a las máquinas virtuales específicas del inquilino.
-2. Configure RBAC para los usuarios de inquilinos diferentes como se describe en el ejemplo siguiente para el usuario n º 1 y el usuario n º 2:
+2. Configure RBAC para los usuarios de otros inquilinos, como se describe en el ejemplo siguiente para el usuario n.º 1 y el usuario n.º 2:
 
     - En **Nombre de usuario** y **Contraseña**, especifique las credenciales de la cuenta de solo lectura que el recopilador utilizará para detectar las máquinas virtuales.
-    - Centrodedatos1: asigne permisos de solo lectura al usuario n º 1 y al usuario n º 2. No propague esos permisos a todos los objetos secundarios, porque establecerá los permisos en las máquinas virtuales individuales.
+    - Centrodedatos1: asigne permisos de solo lectura al usuario n.º 1 y al usuario n.º 2. No propague esos permisos a todos los objetos secundarios, porque establecerá los permisos en las máquinas virtuales individuales.
 
-      - VM1 (inquilino n º 1) (permiso de solo de lectura al usuario n º 1)
-      - VM2 (inquilino n º 1) (permiso de solo de lectura al usuario n º 1)
-      - VM3 (inquilino n º 2) (permiso de solo de lectura al usuario n º 2)
-      - VM4 (inquilino n º 2) (permiso de solo de lectura al usuario n º 2)
+      - VM1 (inquilino n.º 1) (permiso de solo lectura al usuario n.º 1)
+      - VM2 (inquilino n.º 1) (permiso de solo lectura al usuario n.º 1)
+      - VM3 (inquilino n.º 2) (permiso de solo lectura al usuario n.º 2)
+      - VM4 (inquilino n.º 2) (permiso de solo lectura al usuario n.º 2)
 
-   - Si realiza la detección con las credenciales del usuario n º 1, solo se detectarán VM1 y VM2.
+   - Si realiza la detección con las credenciales del usuario n.º 1, solo se detectarán VM1 y VM2.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planificación de los proyectos de migración y las detecciones
 
-Un único recopilador de Azure Migrate admite la detección desde varias instancias de vCenter Server (una detrás de otra) y también admite la detección a varios proyectos de migración (uno detrás de otro). El recopilador funciona en un modelo de disparo y olvido; una vez que se realiza una detección, puede usar el mismo recopilador para recopilar datos de una instancia de vCenter Server diferente o enviarlos a un proyecto de migración distinto.
+Un único recopilador de Azure Migrate admite la detección desde varias instancias de vCenter Server (una detrás de otra) y también admite la detección a varios proyectos de migración (uno detrás de otro).
+
+El recopilador, en el caso de una detección de una sola vez, funciona en un modelo de disparo y olvido; una vez que se realiza una detección, puede usar el mismo recopilador para recopilar datos de otro servidor vCenter o enviarlos a otro proyecto de migración. En el caso de la detección continua, un dispositivo solo se conecta a un proyecto, por lo que no se puede usar el mismo recopilador para desencadenar una segunda detección.
 
 Planee las detecciones y evaluaciones en función de los límites siguientes:
 
@@ -70,20 +71,31 @@ Tenga en cuenta estas consideraciones de planeación:
 Dependiendo del escenario, puede dividir las detecciones como se indica a continuación:
 
 ### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Varias instancias de vCenter Server con menos de 1500 máquinas virtuales
+Si tiene varios servidores de vCenter en el entorno y el número total de máquinas virtuales es inferior a 1500, puede usar el enfoque siguiente en función del escenario:
 
-Si tiene varias instancias de vCenter Server en su entorno y el número total de máquinas virtuales es inferior a 1500, puede usar un único recopilador y un solo proyecto de migración para detectar todas las máquinas virtuales en todas las instancias de vCenter Server. Puesto que el recopilador detecta las instancias de vCenter de una en una, puede ejecutar el mismo recopilador en todas las instancias de vCenter Server, una detrás de otra, y apuntar dicho recopilador al mismo proyecto de migración. Después de completar todas las detecciones, puede crear las evaluaciones de las máquinas.
+**Detección de una sola vez:** puede usar un único recopilador y un único proyecto de migración para detectar todas las máquinas virtuales en todos los servidores vCenter. Como el recopilador de detección de una sola vez detecta los servidores vCenter de uno en uno, puede ejecutar el mismo recopilador en todos los servidores vCenter, uno detrás de otro, y apuntar el recopilador al mismo proyecto de migración. Después de completar todas las detecciones, puede crear las evaluaciones de las máquinas.
+
+**Detección continua:** en el caso de la detección continua, un dispositivo solo puede estar conectado a un único proyecto. Por tanto, tendrá que implementar un dispositivo para cada uno de los servidores vCenter y, después, crear un proyecto para cada dispositivo y desencadenar las detecciones en consecuencia.
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Varias instancias de vCenter Server con más de 1500 máquinas virtuales
 
-Si tiene varias instancias de vCenter Server con menos de 1500 máquinas virtuales por vCenter Server, pero más de 1500 máquinas virtuales entre todas las instancias de vCenter Server, debe crear varios proyectos de migración (un proyecto de migración solamente puede contener 1500 máquinas virtuales). Puede conseguirlo creando un proyecto de migración por instancia de vCenter Server y dividir las detecciones. Puede usar un único recopilador para detectar cada instancia de vCenter Server (una detrás de otra). Si desea que las detecciones se inicien al mismo tiempo, también puede implementar varios dispositivos y ejecutar las detecciones en paralelo.
+Si tiene varias instancias de vCenter Server con menos de 1500 máquinas virtuales por vCenter Server, pero más de 1500 máquinas virtuales entre todas las instancias de vCenter Server, debe crear varios proyectos de migración (un proyecto de migración solamente puede contener 1500 máquinas virtuales). Puede conseguirlo creando un proyecto de migración por instancia de vCenter Server y dividir las detecciones.
+
+**Detección de una sola vez:** puede usar un único recopilador para detectar cada servidor vCenter (uno detrás de otro). Si desea que las detecciones se inicien al mismo tiempo, también puede implementar varios dispositivos y ejecutar las detecciones en paralelo.
+
+**Detección continua:** tendrá que crear varios dispositivos de recopilador (uno para cada servidor vCenter) y conectar cada dispositivo a un proyecto y una detección de desencadenador en consecuencia.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Más de 1500 máquinas en una sola instancia de vCenter Server
 
-Si tiene más de 1500 máquinas virtuales en una sola instancia de vCenter Server, debe dividir la detección en varios proyectos de migración. Para dividir las detecciones, puede aprovechar el campo Ámbito en el dispositivo y especificar el host, el clúster, la carpeta o el centro de datos que desea detectar. Por ejemplo, si tiene dos carpetas en vCenter Server, una con 1000 máquinas virtuales (Carpeta1) y otra con 800 máquinas virtuales (Carpeta2), puede usar un único recopilador y realizar dos detecciones. En la primera detección, puede especificar Carpeta1 como el ámbito y apuntarla al primer proyecto de migración; una vez completada la primera detección, puede usar el mismo recopilador, cambiar su ámbito a Carpeta2 y los detalles del proyecto de migración al segundo proyecto de migración y realizar la segunda detección.
+Si tiene más de 1500 máquinas virtuales en una sola instancia de vCenter Server, debe dividir la detección en varios proyectos de migración. Para dividir las detecciones, puede aprovechar el campo Ámbito en el dispositivo y especificar el host, el clúster, la carpeta o el centro de datos que quiere detectar. Por ejemplo, si tiene dos carpetas en vCenter Server, una con 1000 máquinas virtuales (Carpeta1) y otra con 800 (Carpeta2), puede usar el campo de ámbito para dividir las detecciones entre esas carpetas.
+
+**Detección de una sola vez:** puede usar el mismo recopilador para desencadenar ambas detecciones. En la primera detección, puede especificar Carpeta1 como el ámbito y apuntarla al primer proyecto de migración; una vez completada la primera detección, puede usar el mismo recopilador, cambiar su ámbito a Carpeta2 y los detalles del proyecto de migración al segundo proyecto de migración y realizar la segunda detección.
+
+**Detección continua:** en este caso, tendrá que crear dos dispositivos de recopilador, para el primer recopilador, especificar el ámbito como Carpeta1 y conectarlo al primer proyecto de migración. Puede iniciar en paralelo la detección de Carpeta2 mediante el segundo dispositivo de recopilador y conectarlo al segundo proyecto de migración.
 
 ### <a name="multi-tenant-environment"></a>Entorno multiinquilino
 
-Si tiene un entorno que se comparte entre los inquilinos y no desea detectar las máquinas virtuales de un inquilino en la suscripción de otro inquilino, puede usar el campo Ámbito en el dispositivo recopilador para definir el ámbito de la detección. Si los inquilinos comparten hosts, cree una credencial que tenga acceso de solo lectura solamente a las máquinas virtuales que pertenecen al inquilino específico y, luego, use esta credencial en el dispositivo recopilador y especifique el ámbito como el host para realizar la detección. Como alternativa, también puede crear carpetas en vCenter Server (por ejemplo, carpeta1 para inquilino1 y carpeta2 para inquilino2), en el host compartido, mover las máquinas virtuales de inquilino1 a carpeta1 y las de inquilino2 a carpeta2 y, por último, definir el ámbito de las detecciones en el recopilador en consecuencia especificando la carpeta apropiada.
+Si tiene un entorno que se comparte entre los inquilinos y no desea detectar las máquinas virtuales de un inquilino en la suscripción de otro inquilino, puede usar el campo Ámbito en el dispositivo recopilador para definir el ámbito de la detección. Si los inquilinos comparten hosts, cree una credencial que tenga acceso de solo lectura solamente a las máquinas virtuales que pertenecen al inquilino específico y, luego, use esta credencial en el dispositivo recopilador y especifique el ámbito como el host para realizar la detección.
 
 ## <a name="discover-on-premises-environment"></a>Detectar el entorno local
 
@@ -107,8 +119,16 @@ Azure Migrate crea una VM local conocida como el dispositivo de recopilador. Est
 
 Si tiene varios proyectos, tiene que descargar la aplicación del recopilador solo una vez en vCenter Server. Después de descargar y configurar la aplicación, ejecútela en cada proyecto y especifique el identificador de proyecto exclusivo y la clave.
 
-1. En el proyecto de Azure Migrate, seleccione **Introducción** > **Detectar y evaluar** > **Detectar máquinas**.
-2. En **Detectar máquinas**, seleccione **Descargar** para descargar el archivo OVA.
+1. En el proyecto de Azure Migrate, haga clic en **Introducción** > **Detectar y evaluar** > **Detectar máquinas**.
+2. En **Detectar máquinas**, hay dos opciones disponibles para el dispositivo, haga clic en **Descargar** para descargar el dispositivo adecuado según sus preferencias.
+
+    a. **Detección de una sola vez:** el dispositivo para este modelo se comunica con el servidor vCenter para recopilar metadatos sobre las máquinas virtuales. Para la recopilación de datos de rendimiento de las máquinas virtuales, se basa en los datos de rendimiento históricos almacenados en el servidor vCenter y recopila el historial de rendimiento del último mes. En este modelo, Azure Migrate recopila el valor promedio de contador (a diferencia del valor máximo) para cada métrica, [Más información] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como se trata de una detección de una sola vez, no se reflejan los cambios en el entorno local una vez completada la detección. Si quiere que los cambios se reflejen, tendrá que realizar una nueva detección del mismo entorno para el mismo proyecto.
+
+    b. **Detección continua:** el dispositivo para este modelo genera perfiles continuamente del entorno local con el fin de recopilar datos de uso en tiempo real para cada máquina virtual. En este modelo, se recopilan contadores de número máximo de cada métrica (uso de la CPU, uso de memoria etc.). Este modelo no depende de la configuración de las estadísticas de vCenter Server para la recopilación de datos de rendimiento. Puede detener la generación de perfiles continua en cualquier momento desde el dispositivo.
+
+    > [!NOTE]
+    > La función de detección continua está en versión preliminar.
+
 3. En **Copiar las credenciales del proyecto**, copie la clave y el identificador del proyecto. Los necesitará cuando configure el recopilador.
 
 
@@ -126,53 +146,49 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo:
 
 3. Asegúrese de que el código hash generado coincida con la configuración siguiente.
 
-    Para OVA versión 1.0.9.14
+#### <a name="one-time-discovery"></a>Detección de una sola vez
 
-    **Algoritmo** | **Valor del código hash**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
-    
-    Para la versión 1.0.9.12 de OVA
+Para la versión 1.0.9.14 de OVA
 
-    **Algoritmo** | **Valor del código hash**
-    --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
-    Para la versión 1.0.9.8 de OVA
+Para la versión 1.0.9.12 de OVA
 
-    **Algoritmo** | **Valor del código hash**
-    --- | ---
-    MD5 | b5d9f0caf15ca357ac0563468c2e6251
-    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | d0363e5d1b377a8eb08843cf034ac28a
+SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
-    Para la versión 1.0.9.7 de OVA
+Para la versión 1.0.9.8 de OVA
 
-    **Algoritmo** | **Valor del código hash**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | b5d9f0caf15ca357ac0563468c2e6251
+SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-    Para la versión 1.0.9.5 de OVA
+Para la versión 1.0.9.7 de OVA
 
-    **Algoritmo** | **Valor del código hash**
-    --- | ---
-    MD5 | fb11ca234ed1f779a61fbb8439d82969
-    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
-    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | d5b6a03701203ff556fa78694d6d7c35
+SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-    Para la versión 1.0.9.2 de OVA
+#### <a name="continuous-discovery"></a>Detección continua
 
-    **Algoritmo** | **Valor del código hash**
-    --- | ---
-    MD5 | 7326020e3b83f225b794920b7cb421fc
-    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
-    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+Para la versión 1.0.10.4 de OVA
+
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ### <a name="create-the-collector-vm"></a>Creación de la VM de recopilador
 
@@ -199,25 +215,35 @@ Si tiene varios proyectos, asegúrese de identificar el identificador y la clave
     ![Copia de las credenciales del proyecto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ### <a name="set-the-vcenter-statistics-level"></a>Configuración del nivel de estadísticas de vCenter
-A continuación, se muestra la lista de contadores de rendimiento recopilados durante la detección. Los contadores están disponibles de forma predeterminada en distintos niveles de vCenter Server.
 
-Se recomienda establecer el nivel común más alto (3) para el nivel de estadísticas, para que todos los contadores se recopilen correctamente. Si tiene vCenter establecido en un nivel inferior, solo algunos contadores pueden recopilarse por completo y los demás estarán establecidos en 0. Por lo tanto, puede que la evaluación muestre datos incompletos.
+El dispositivo de recopilación detecta los siguientes metadatos estáticos sobre las máquinas virtuales seleccionadas.
 
-En la tabla siguiente también se muestran los resultados de la evaluación que resultarán afectados si no se recopila un contador determinado.
+1. Nombre para mostrar de la máquina virtual (en vCenter)
+2. Ruta de acceso de inventario de la máquina virtual (host o carpeta en vCenter)
+3. Dirección IP
+4. Dirección MAC
+5. Sistema operativo
+5. Número de núcleos, discos, NIC
+6. Tamaño de memoria, tamaños de disco
+7. Y los contadores de rendimiento de la máquina virtual, el disco y la red se muestran en la tabla siguiente.
 
-| Contador                                 | Nivel | Nivel por dispositivo | Impacto en la evaluación                    |
-| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
-| cpu.usage.average                       | 1     | N/D               | Costo y tamaño de VM recomendados         |
-| mem.usage.average                       | 1     | N/D               | Costo y tamaño de VM recomendados         |
-| virtualDisk.read.average                | 2     | 2                | Tamaño del disco, costo de almacenamiento y tamaño de VM |
-| virtualDisk.write.average               | 2     | 2                | Tamaño del disco, costo de almacenamiento y tamaño de VM |
-| virtualDisk.numberReadAveraged.average  | 1     | 3                | Tamaño del disco, costo de almacenamiento y tamaño de VM |
-| virtualDisk.numberWriteAveraged.average | 1     | 3                | Tamaño del disco, costo de almacenamiento y tamaño de VM |
-| net.received.average                    | 2     | 3                | Tamaño de VM y costo de la red             |
-| net.transmitted.average                 | 2     | 3                | Tamaño de VM y costo de la red             |
+Para la detección de una sola vez, en la tabla siguiente se enumeran los contadores de rendimiento exactos que se recopilan, y también los resultados de la valoración que se ven afectados si no se recopila un contador determinado.
+
+Para la detección continua, se recopilan los mismos contadores en tiempo real (con un intervalo de 20 segundos), por lo que no hay ninguna dependencia en el nivel de estadísticas de vCenter. Después, el dispositivo acumula los ejemplos de 20 segundos para crear un único punto de datos para cada 15 minutos mediante la selección del valor máximo de los ejemplos de 20 segundos y lo envía a Azure.
+
+|Contador                                  |Nivel    |Nivel por dispositivo  |Impacto en la evaluación                               |
+|-----------------------------------------|---------|------------------|------------------------------------------------|
+|cpu.usage.average                        | 1       |N/D                |Costo y tamaño de VM recomendados                    |
+|mem.usage.average                        | 1       |N/D                |Costo y tamaño de VM recomendados                    |
+|virtualDisk.read.average                 | 2       |2                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
+|virtualDisk.write.average                | 2       |2                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
+|virtualDisk.numberReadAveraged.average   | 1       |3                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
+|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
+|net.received.average                     | 2       |3                 |Tamaño de VM y costo de la red                        |
+|net.transmitted.average                  | 2       |3                 |Tamaño de VM y costo de la red                        |
 
 > [!WARNING]
-> Si configuró un nivel de estadística más alto, los contadores de rendimiento pueden tardar hasta un día en generarse. Por lo tanto, se recomienda ejecutar la detección después de un día.
+> Para la detección de una sola vez, si ha configurado un nivel de estadística más alto, los contadores de rendimiento pueden tardar hasta un día en generarse. Por lo tanto, se recomienda ejecutar la detección después de un día. Para el modelo de detección continua, espere al menos un día después de iniciar la detección para que el dispositivo genere el perfil del entorno y, después, cree las evaluaciones.
 
 ### <a name="run-the-collector-to-discover-vms"></a>Ejecución del recopilador para detectar VM
 
@@ -249,9 +275,11 @@ Para cada detección que necesite realizar, ejecute el recopilador para detectar
 
 #### <a name="verify-vms-in-the-portal"></a>Comprobación de VM en el portal
 
-El tiempo de detección depende de cuántas VM se están detectando. Normalmente, para 100 máquinas virtuales, la detección tarda alrededor de una hora en completarse después de que el recopilador finaliza la ejecución.
+Para la detección de una sola vez, el tiempo de detección depende de cuántas máquinas virtuales se están detectando. Normalmente, para 100 máquinas virtuales, cuando el recopilador finaliza la ejecución, se necesita aproximadamente una hora para completar la recopilación de los datos de configuración y rendimiento. Puede crear las evaluaciones (tanto las basadas en rendimiento como las locales) inmediatamente después de que finalice la detección.
 
-1. En el proyecto de Migration Planner, seleccione **Administrar** > **Máquinas**.
+Para la detección continua (en versión preliminar), el recopilador generará perfiles del entorno local de forma continuada y seguirá enviando los datos de rendimiento en intervalos de una hora. Puede revisar las máquinas en el portal una hora después de que se inicie la detección. Se recomienda encarecidamente esperar al menos un día antes de crear evaluaciones basadas en el rendimiento para las máquinas virtuales.
+
+1. En el proyecto de migración, haga clic en **Administrar** > **Máquinas**.
 2. Compruebe que las VM que desea detectar aparecen en el portal.
 
 

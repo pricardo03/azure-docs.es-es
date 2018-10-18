@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666439"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025283"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
 Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la recuperación ante desastres de servidores físicos y máquinas virtuales de VMware en Azure, se implementa un servidor de configuración local. El servidor de configuración coordina la comunicación entre Azure y VMware local. También administra la replicación de datos. Este artículo lo guiará por los pasos necesarios para implementar el servidor de configuración a la hora de replicar máquinas virtuales VMware en Azure. [Siga este artículo](physical-azure-set-up-source.md) si necesita configurar un servidor de configuración para la replicación del servidor físico.
 
 >[!TIP]
-Puede obtener información acerca del papel del servidor de configuración como parte de la arquitectura de Azure Site Recovery [aquí](vmware-azure-architecture.md).
+Puede obtener información sobre el papel del servidor de configuración como parte de la arquitectura de Azure Site Recovery [aquí](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>Implementación del servidor de configuración a través de una plantilla de OVA
 
@@ -42,7 +42,7 @@ Los requisitos de tamaño para el servidor de configuración dependen de la tasa
 | 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar 100-150 máquinas. |
 | 16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Replicar 150-200 máquinas. |
 
-Si replica más de una máquina virtual de VMware, consulte las [consideraciones de planeación de capacidad](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Ejecute la [herramienta Deployment Planner](site-recovery-deployment-planner.md) para la replicación de VMware.
+Si replica más de una máquina virtual de VMware, consulte las [consideraciones de planeación de capacidad](site-recovery-plan-capacity-vmware.md). Ejecute la [herramienta Deployment Planner](site-recovery-deployment-planner.md) para la replicación de VMware.
 
 ## <a name="download-the-template"></a>Descarga de la plantilla
 
@@ -121,19 +121,19 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 1. ¿Puedo usar la máquina virtual, donde está instalado el servidor de configuración, para otros fines?
 
-    **No**, se recomienda usar la máquina únicamente para el servidor de configuración. Asegúrese de seguir todas las especificaciones mencionadas en la [sección anterior](vmware-azure-deploy-configuration-server.md#Prerequisites) para una administración eficaz de la recuperación ante desastres.
+    **No**, se recomienda usar la máquina únicamente para el servidor de configuración. Asegúrese de seguir todas las especificaciones mencionadas en [Requisitos previos](#prerequisites) para una administración eficaz de la recuperación ante desastres.
 2. ¿Puedo cambiar el almacén ya registrado en el servidor de configuración por un almacén recién creado?
 
     **No**, una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar.
 3. ¿Puedo usar el mismo servidor de configuración para proteger las máquinas físicas y virtuales?
 
-    **Sí**, puede usarse el mismo servidor de configuración para la replicación de máquinas físicas y virtuales. Pero solo se puede realizar la conmutación por recuperación de una máquina física a una máquina virtual de VMware.
+    **Sí**, se puede usar el mismo servidor de configuración para la replicación de máquinas físicas y virtuales. Pero solo se puede realizar la conmutación por recuperación de una máquina física a una máquina virtual de VMware.
 4. ¿Cuál es el propósito de un servidor de configuración y dónde se usa?
 
-    Consulte la arquitectura de Azure Site Recovery [aquí](vmware-azure-architecture.md) para obtener más información acerca del servidor de configuración y sus funcionalidades.
+    Consulte la [arquitectura de replicación de VMware a Azure](vmware-azure-architecture.md) para obtener más información sobre el servidor de configuración y sus funciones.
 5. ¿Dónde puedo encontrar la versión más reciente del servidor de configuración?
 
-    Consulte el artículo que incluye los pasos para actualizar el servidor de configuración [a través del portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). También puede descargarlo directamente del [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
+    Para obtener los pasos de actualización del servidor de configuración a través del portal, vea [Actualización del servidor de configuración](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). También puede descargarlo directamente del [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
 6. ¿Dónde puedo descargar la frase de contraseña para el servidor de configuración?
 
     Consulte [este artículo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para descargar la frase de contraseña.
@@ -143,11 +143,11 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 
-Para actualizar el servidor de configuración a la versión más reciente, consulte los pasos indicados [aquí](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+Para actualizar el servidor de configuración a la versión más reciente, siga estos [pasos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## <a name="manage-the-configuration-server"></a>Administración del servidor de configuración
 
-Para evitar interrupciones en la replicación en curso, asegúrese de que la dirección IP del servidor de configuración no cambie cuando el servidor de configuración se haya en un almacén. Puede obtener más información sobre las tareas comunes de administración de servidor de configuración [aquí](vmware-azure-manage-configuration-server.md).
+Para evitar interrupciones en la replicación en curso, asegúrese de que la dirección IP del servidor de configuración no cambie cuando el servidor de configuración se haya en un almacén. Puede obtener más información sobre las tareas comunes de administración del servidor de configuración [aquí](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
 

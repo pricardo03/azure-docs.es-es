@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f79b1d4c1afc4d5a516a46a9bf6cb1790034b279
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987236"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116718"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizar la hora en las máquinas virtuales de Linux en Azure
 
@@ -44,7 +44,7 @@ Las interacciones de la máquina virtual con el host también pueden afectar al 
 
 Por supuesto, si la sincronización de la hora no funciona, el reloj de la máquina virtual solo acumularía errores. Cuando solo hay una máquina virtual, este efecto puede no ser significativo a menos que la carga de trabajo requiera un cronometraje altamente preciso. Aún así, en la mayoría de los casos hay varias máquinas virtuales conectadas entre sí que usan la hora para realizar el seguimiento de las transacciones, por lo que esta hora debe ser consistente en toda la implementación. Cuando la hora de las máquinas virtuales es diferente, puede ver los siguientes efectos:
 
-- Los protocolos de seguridad como Kerberos o la tecnología dependiente de los certificados confían en que la hora sea consistente en todos los sistemas. 
+- Se produce un error en la autenticación. Los protocolos de seguridad como Kerberos o la tecnología dependiente de los certificados confían en que la hora sea consistente en todos los sistemas.
 - Es muy difícil averiguar qué ha ocurrido en un sistema si los registros (u otros datos) tienen horas diferentes. Parecería que el mismo evento ocurrió en diferentes momentos, lo que dificulta la correlación.
 - Si el reloj está atrasado, es posible que la facturación no se calcule correctamente.
 

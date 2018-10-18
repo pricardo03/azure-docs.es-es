@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: f7233d6a27b9ec3d58f33f7032bbec7a646d24f7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42366126"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092551"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Proporcionar a las aplicaciones acceso a Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Cuando una aplicación necesite acceso para implementar o configurar recursos a través de Azure Resource Manager en Azure Stack, cree una entidad de servicio, que es una credencial para la aplicación.  A continuación, puede delegar únicamente los permisos necesarios para esa entidad de servicio.  
+Cuando una aplicación necesite acceso para implementar o configurar recursos a través de Azure Resource Manager en Azure Stack, cree una entidad de servicio, que es una credencial para la aplicación. A continuación, puede delegar únicamente los permisos necesarios para esa entidad de servicio.  
 
-Por ejemplo, puede tener una herramienta de administración de configuración que use Azure Resource Manager para hacer un inventario de los recursos de Azure.  En este escenario, puede crear una entidad de servicio, concederle el rol de lector y limitar la herramienta de administración de configuración al acceso de solo lectura. 
+Por ejemplo, puede tener una herramienta de administración de configuración que use Azure Resource Manager para hacer un inventario de los recursos de Azure. En este escenario, puede crear una entidad de servicio, concederle el rol de lector y limitar la herramienta de administración de configuración al acceso de solo lectura. 
 
 Es preferible que las entidades de servicio ejecuten la aplicación con sus propias credenciales por los siguientes motivos:
 
@@ -36,17 +36,17 @@ Es preferible que las entidades de servicio ejecuten la aplicación con sus prop
 
 ## <a name="getting-started"></a>Introducción
 
-Dependiendo de cómo ha implementado Azure Stack, primero debe crear una entidad de servicio.  Este documento le guía a través del proceso de creación de una entidad de servicio para [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) y [Servicios de federación de Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Una vez que haya creado la entidad de servicio, se usarán un conjunto de pasos comunes para AD FS y Azure Active Directory a fin de [delegar permisos](azure-stack-create-service-principals.md#assign-role-to-service-principal) al rol.     
+Dependiendo de cómo ha implementado Azure Stack, primero debe crear una entidad de servicio. En este documento se describe la creación de una entidad de servicio para [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad) y [Servicios de federación de Active Directory (AD FS)](#create-service-principal-for-ad-fs). Una vez que haya creado la entidad de servicio, se usarán un conjunto de pasos comunes para AD FS y Azure Active Directory a fin de [delegar permisos](#assign-role-to-service-principal) al rol.     
 
 ## <a name="create-service-principal-for-azure-ad"></a>Crear una entidad de servicio para Azure AD
 
-Si ha implementado Azure Stack con Azure AD como el almacén de identidades, puede crear entidades de servicio igual que hace para Azure.  En este tema se muestra cómo realizar estos pasos a través del portal.  Compruebe que tiene los [permisos de Azure AD necesarios](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de comenzar.
+Si ha implementado Azure Stack con Azure AD como el almacén de identidades, puede crear entidades de servicio igual que hace para Azure. En este tema se muestra cómo realizar estos pasos a través del portal. Compruebe que tiene los [permisos de Azure AD necesarios](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de comenzar.
 
 ### <a name="create-service-principal"></a>Creación de una entidad de servicio
 En esta sección, creará una aplicación (entidad de servicio) en Azure AD que representará su aplicación.
 
 1. Inicie sesión en su cuenta de Azure mediante [Azure Portal](https://portal.azure.com).
-2. Seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Agregar**.   
+2. Haga clic en **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro de aplicación**.   
 3. Proporcione un nombre y una dirección URL para la aplicación. Seleccione either **Web app / API** (Aplicación web/API) o **Nativa** para el tipo de aplicación que quiere crear. Después de configurar los valores, seleccione **Crear**.
 
 Creó una entidad de servicio para la aplicación.
@@ -63,23 +63,21 @@ Al iniciar sesión mediante programación, deberá usar el identificador de la a
 
 4. Proporcione una descripción de la clave y una duración. Cuando haya terminado, seleccione **Guardar**.
 
-Después de guardar la clave, se muestra el valor de la clave. Copie este valor porque no podrá recuperarlo más adelante. Proporcione el valor de clave junto con el identificador de la aplicación para firmar en nombre de la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
+Después de guardar la clave, se muestra el valor de la clave. Copie este valor en el Bloc de notas o en cualquier otra ubicación temporal, ya que no se podrá recuperar la clave más adelante. Proporcione el valor de clave junto con el identificador de la aplicación para firmar en nombre de la aplicación. Guarde el valor de clave en un lugar donde la aplicación pueda recuperarlo.
 
 ![clave guardada](./media/azure-stack-create-service-principal/image15.png)
 
-
-Una vez que haya finalizado, [asigne un rol a la aplicación](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Una vez que haya finalizado, [asigne un rol a la aplicación](#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Crear una entidad de servicio para AD FS
 Si ha implementado Azure Stack con AD FS, puede usar PowerShell para crear una entidad de servicio, asignar un rol para el acceso e iniciar sesión en Powershell con dicha identidad.
 
 El script se ejecuta desde el punto de conexión con privilegios de una máquina virtual ERCS.
 
-
 Requisitos:
 - Se requiere un certificado.
 
-**Parámetros**
+#### <a name="parameters"></a>Parámetros
 
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
@@ -88,36 +86,36 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 |---------|---------|---------|
 |NOMBRE|Nombre de la cuenta SPN|MyAPP|
 |ClientCertificates|Matriz de objetos de certificado|Certificado X509|
-|ClientRedirectUris<br>(Opcional)|URI de redireccionamiento de aplicación|         |
+|ClientRedirectUris<br>(Opcional)|URI de redireccionamiento de aplicación|-|
 
-**Ejemplo**
+#### <a name="example"></a>Ejemplo
 
 1. Abra una sesión de Windows PowerShell con privilegios elevados y ejecute los siguientes comandos:
 
    > [!NOTE]
-   > En este ejemplo se crea un certificado autofirmado. Al ejecutar estos comandos en una implementación de producción, use Get-Certificate para recuperar el objeto de certificado del certificado que desee usar.
+   > En este ejemplo se crea un certificado autofirmado. Al ejecutar estos comandos en una implementación de producción, use [Get-Certificate](/powershell/module/pkiclient/get-certificate) para recuperar el objeto de certificado del certificado que quiera usar.
 
    ```PowerShell  
-    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
 
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
 
-    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
     # Register an AzureRM environment that targets your Azure Stack instance
@@ -146,7 +144,7 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 
    Por ejemplo: 
 
-   ```
+   ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
@@ -156,7 +154,7 @@ Se requiere la siguiente información como entrada para los parámetros de autom
    ```
 
 ### <a name="assign-a-role"></a>Asignar un rol
-Una vez que se crea la entidad de servicio, debe [asignarla a un rol](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Una vez que se crea la entidad de servicio, debe [asignarla a un rol](#assign-role-to-service-principal).
 
 ### <a name="sign-in-through-powershell"></a>Iniciar sesión a través de PowerShell
 Una vez que haya asignado un rol, puede iniciar sesión en Azure Stack a través de la entidad de servicio con el comando siguiente:

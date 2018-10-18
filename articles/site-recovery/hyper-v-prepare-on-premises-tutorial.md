@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923493"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720776"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparación de servidores de Hyper-V locales para la recuperación ante desastres en Azure
 
@@ -60,13 +60,15 @@ Para preparar VMM para la asignación de red, siga estos pasos:
 ## <a name="verify-internet-access"></a>Comprobación del acceso a Internet
 
 1. En este tutorial, la configuración más sencilla es para que los hosts de Hyper-V y el servidor VMM tengan acceso directo a Internet sin proxys. 
-2. Asegúrese de que los hosts de Hyper-V, y el servidor VMM si procede, puedan acceder a estas direcciones URL: 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Asegúrese de que los hosts de Hyper-V, y el servidor VMM si procede, puedan acceder las direcciones URL necesarias siguientes.   
 3. Si controla el acceso por la dirección IP, asegúrese de que:
     - Las reglas de firewall basadas en la dirección IP se puedan conectar a [intervalos IP de centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y al puerto HTTPS (443).
     - Permite los intervalos de direcciones IP correspondientes a la región de Azure de la suscripción.
+    
+### <a name="required-urls"></a>Direcciones URL necesarias
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error

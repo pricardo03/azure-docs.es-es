@@ -8,17 +8,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 52f34361d7c1f3dff47f2571a714b8be7764cc6f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259724"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378659"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalación del cliente Chef desde Azure Portal
 Al crear o modificar una máquina virtual Linux o Windows desde Azure Portal, puede agregar la extensión de Chef a la máquina virtual. Este artículo le guiará a través de ese proceso con una nueva máquina virtual Linux.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 - **Suscripción de Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
 - **Chef**: si no tiene una cuenta de Chef activa, regístrese para obtener una [evaluación gratuita de Hosted Chef](https://manage.chef.io/signup). Para seguir las instrucciones de este artículo, necesitará los siguientes valores de la cuenta de Chef: 
@@ -81,25 +81,25 @@ En esta sección, primero usará Azure Portal para crear una máquina Linux. Dur
 
 1. En la pestaña **Instalar extensión**, especifique los valores siguientes y luego seleccione **Aceptar**.
 
-    - **Dirección URL del servidor de Chef**: escriba la dirección URL del servidor de Chef que incluye el nombre de la organización. He usado *https://api.chef.io/organization/hessco* para la demostración.
+    - **Dirección URL del servidor de Chef**: escriba la dirección URL del servidor de Chef que incluye el nombre de la organización, por ejemplo *https://api.chef.io/organization/hessco*.
     - **Nombre de nodo de Chef**: escriba el nombre del nodo de Chef. Puede ser cualquier valor.
-    - **Lista de ejecuciones**: escriba la lista de ejecuciones de Chef que se agrega a la máquina. Puede dejarse en blanco.
-    - **Nombre del cliente de validación**: escriba el nombre del cliente de validación de Chef. He usado *tarcher-validator* para la demostración.
+    - **Lista de ejecuciones**: escriba la lista de ejecuciones de Chef que se agrega a la máquina. Esto se puede dejar en blanco.
+    - **Nombre del cliente de validación**: escriba el nombre del cliente de validación de Chef. Por ejemplo, *tarcher-validator*.
     - **Clave de validación**: seleccione un archivo que contenga la clave de validación utilizada al arrancar las máquinas. 
-    - **Archivo de configuración de cliente**: seleccione un archivo de configuración para chef-client. Puede dejarse en blanco.
-    - **Versión de cliente de Chef**: escriba la versión del cliente de Chef que desea instalar. Si el valor está en blanco, se instalará la última versión. Puede dejarse en blanco.
-    - **Modo de comprobación SSL**: seleccione **ninguno** o **punto**. He seleccionado *Ninguno* para la demostración.
-    - **Entorno de Chef**: escriba el entorno de Chef del que este nodo debe ser miembro. Puede dejarse en blanco.
-    - **Secreto de contenedor de datos cifrado**: seleccione un archivo que contenga el secreto del contenedor de datos cifrado al que esta máquina debe tener acceso. Puede dejarse en blanco.
-    - **Certificado SSL del servidor de Chef**: seleccione el certificado SSL asignado al servidor de Chef. Puede dejarse en blanco.
+    - **Archivo de configuración de cliente**: seleccione un archivo de configuración para chef-client. Esto se puede dejar en blanco.
+    - **Versión de cliente de Chef**: escriba la versión del cliente de Chef que desea instalar. Esto se puede dejar en blanco. Si el valor está en blanco, se instalará la última versión. 
+    - **Modo de comprobación SSL**: seleccione **ninguno** o **punto**. Para la demostración se ha seleccionado *Ninguno*.
+    - **Entorno de Chef**: escriba el entorno de Chef del que este nodo debe ser miembro. Esto se puede dejar en blanco.
+    - **Secreto de contenedor de datos cifrado**: seleccione un archivo que contenga el secreto del contenedor de datos cifrado al que esta máquina debe tener acceso. Esto se puede dejar en blanco.
+    - **Certificado SSL del servidor de Chef**: seleccione el certificado SSL asignado al servidor de Chef. Esto se puede dejar en blanco.
 
     ![Instalación del servidor de Chef en una máquina virtual Linux](./media/chef-extension-portal/install-extension.png)
 
-1. Al volver a la pestaña **Extensiones**, seleccione **Aceptar**.
+1. Al volver a la pestaña **Extensiones**, haga clic en **Aceptar**.
 
-1. Al volver a la pestaña **Configuración**, seleccione **Aceptar**.
+1. Al volver a la pestaña **Configuración**, haga clic en **Aceptar**.
 
-1. Al volver a la pestaña **Crear** (que representa un resumen de las opciones seleccionadas y especificadas), compruebe la información y los **Términos de uso** y seleccione **Crear**.
+1. Al volver a la pestaña **Crear** (que representa un resumen de las opciones seleccionadas y especificadas), compruebe la información y los **Términos de uso** y haga clic en **Crear**.
 
 Una vez completado el proceso de creación e implementación de la máquina virtual con la extensión de Chef, una notificación indica si la operación se ha realizado correctamente o con errores. Además, la página de recursos de la nueva máquina virtual se abre automáticamente en Azure Portal una vez creada.
 

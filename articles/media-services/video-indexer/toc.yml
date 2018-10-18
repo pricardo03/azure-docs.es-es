@@ -1,0 +1,61 @@
+items:
+- name: Documentación de Video Indexer
+  href: ./index.yml
+- name: Información general
+  items:
+  - name: ¿Qué es Video Indexer?
+    href: ../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+- name: Guías de inicio rápido
+  items:
+  - name: Introducción
+    href: ../../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  expanded: true
+- name: Tutoriales
+  items:
+  - name: Uso de Video Indexer API
+    href: ../../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+- name: Conceptos
+  href: ../../cognitive-services/video-indexer/video-indexer-concepts.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  items:
+  - name: Comparación de los valores preestablecidos de AMS y VI
+    href: compare-video-indexer-with-media-services-presets.md
+- name: Guías de procedimientos
+  items:
+  - name: Migración de v1 a v2
+    href: ../../cognitive-services/video-indexer/migrate-from-v1-to-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Conexión a Azure
+    href: ../../cognitive-services/video-indexer/connect-to-azure.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Administración de una cuenta conectada a Azure
+    href: ../../cognitive-services/video-indexer/manage-account-connected-to-azure.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Uso de la API para cargar e indexar vídeos
+    href: ../../cognitive-services/video-indexer/upload-index-videos.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Análisis de la salida de Video Indexer
+    href: ../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Búsqueda de momentos exactos dentro de vídeos
+    href: ../../cognitive-services/video-indexer/video-indexer-search.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Visualización y edición de la información detallada de Video Indexer
+    href: ../../cognitive-services/video-indexer/video-indexer-view-edit.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Creación de información detallada de vídeo a partir de vídeos existentes
+    href: ../../cognitive-services/video-indexer/video-indexer-create-new.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - name: Inserción de widgets en la aplicación
+    href: ../../cognitive-services/video-indexer/video-indexer-embed-widgets.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+- name: Referencia
+  items:
+  - name: Video Indexer API
+    href: https://api-portal.videoindexer.ai/
+- name: Recursos
+  items:
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598144-video-indexer
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+ms.openlocfilehash: c12301abac85fd4faf8a393c9f7a6bf8ff7276b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49380317"

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782396"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053302"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introducción al escalado automático
 El escalado automático es una funcionalidad adicional de Service Fabric para escalar servicios de manera dinámica en función de la carga que notifican los servicios o del uso de recursos. El escalado automático proporciona una gran elasticidad y permite el aprovisionamiento de instancias o particiones adicionales del servicio a petición. Todo el proceso de escalado es automático y transparente. Además, una vez configuradas las directivas en un servicio, no es necesario realizar ninguna operación de escalado manual a nivel de servicio. El escalado automático se puede activar al crear el servicio o al actualizarlo en cualquier momento.
@@ -117,7 +117,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 El segundo desencadenador se basa en la carga de todas las particiones de un servicio. En primer lugar, se suavizan las cargas de métricas para obtener la carga de cada réplica o instancia de una partición. Para los servicios con estado, la carga de la partición es la carga de la réplica principal, mientras que para los servicios sin estado, la carga de la partición es la carga media de todas las instancias de la partición. Se realiza la media de estos valores entre todas las particiones del servicio y este valor se usa para desencadenar el escalado automático. Igual que en el mecanismo anterior, hay tres factores que determinan cuándo se escalará el servicio:
 
 * El _umbral inferior de carga_ es un valor que determina si el servicio se **reducirá horizontalmente**. Si la carga media de todas las particiones del servicio es inferior a este valor, el servicio se reducirá horizontalmente.
-* El _umbral superior de carga_ es un valor que determina si el servicio se **escalará horizontalmente**. Si la carga media de todas las particiones del servicio es inferior a este valor, el servicio se escalará horizontalmente.
+* El _umbral superior de carga_ es un valor que determina si el servicio se **escalará horizontalmente**. Si la carga media de todas las particiones del servicio es superior a este valor, el servicio se escalará horizontalmente.
 * El _intervalo de escalado_ determina la frecuencia con la que se comprobará el desencadenador. Una vez comprobado el desencadenador, se aplicará el mecanismo si es necesario escalar. Si no es necesario escalar, no se realizará ninguna acción. En ambos casos, no se volverá a comprobar el desencadenador antes de que vuelva a expirar el intervalo de escalado.
 
 Este desencadenador se puede usar con servicios con y sin estado. El único mecanismo que se puede usar con este desencadenador es AddRemoveIncrementalNamedParitionScalingMechanism. Cuando el servicio se escala horizontalmente, se agrega una partición nueva, mientras que, cuando el servicio se reduce horizontalmente, se quita una de las particiones existentes. Hay restricciones que se comprobarán al crear o actualizar el servicio y no se podrá crear o actualizar el servicio si no se cumplen estas condiciones:

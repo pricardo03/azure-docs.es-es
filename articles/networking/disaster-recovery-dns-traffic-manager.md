@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112993"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391358"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
 
-La recuperación ante desastres se ocupa de recuperarse tras una pérdida severa de funcionalidad de la aplicación. Para elegir una solución de recuperación ante desastres, los propietarios del negocio y la tecnología deben, en primer lugar, determinar el nivel de funcionalidad que se necesita durante un desastre, por ejemplo: disponible, parcialmente disponible con funcionalidad reducida, disponibilidad diferida o totalmente disponible.
+La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Para elegir una solución de recuperación ante desastres, los propietarios del negocio y la tecnología deben, en primer lugar, determinar el nivel de funcionalidad que se necesita durante un desastre, por ejemplo: disponible, parcialmente disponible con funcionalidad reducida, disponibilidad diferida o totalmente disponible.
 La mayoría de los clientes de empresa eligen una arquitectura de varias regiones para lograr resistencia frente a una conmutación por error en el nivel de aplicación o en el de infraestructura. Los clientes pueden elegir varios métodos para lograr alta disponibilidad y conmutación por error mediante una arquitectura con redundancia. Estos son algunos de los enfoques frecuentes:
 
-- **Activo/pasivo con espera pasiva**: en esta solución de conmutación por error, las máquinas virtuales y otros dispositivos que se ejecutan en la región en espera no están activas hasta que haya una necesidad de conmutación por error. Sin embargo, el entorno de producción se ha replicado en forma de copias de seguridad, imágenes de máquinas virtuales o plantillas de Resource Manager en una región diferente. Este mecanismo de conmutación por error es rentable pero tarda más tiempo en llevar a cabo una conmutación por error completa.
+- **Activo/pasivo con espera pasiva**: en esta solución de conmutación por error, las máquinas virtuales y otros dispositivos que se ejecutan en la región en espera no están activos hasta que se necesite la conmutación por error. Sin embargo, el entorno de producción se ha replicado en forma de copias de seguridad, imágenes de máquinas virtuales o plantillas de Resource Manager en otra región. Este mecanismo de conmutación por error es rentable pero tarda más tiempo en llevar a cabo una conmutación por error completa.
  
     ![Activo/pasivo con espera pasiva.](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
     *Figura: configuración de recuperación ante desastres activo/pasivo con espera pasiva*
 
-- **Activo/pasivo con luz piloto**: en esta solución de conmutación por error, el entorno en espera se configura con una configuración mínima. La configuración tiene únicamente en ejecución los servicios necesarios para admitir un conjunto mínimo y crítico de aplicaciones. En su formato nativo, este escenario solo puede ejecutar una funcionalidad mínima, pero puede escalar verticalmente y generar servicios adicionales para realizar la mayor parte de la carga de producción si se produce una conmutación por error.
+- **Activo/pasivo con luz piloto**: en esta solución de conmutación por error, el entorno en espera se establece con una configuración mínima. La configuración tiene únicamente en ejecución los servicios necesarios para admitir un conjunto mínimo y crítico de aplicaciones. En su formato nativo, este escenario solo puede ejecutar una funcionalidad mínima, pero puede escalar verticalmente y generar servicios adicionales para realizar la mayor parte de la carga de producción si se produce una conmutación por error.
     
     ![Activo/pasivo con luz piloto](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
@@ -48,14 +48,14 @@ La mayoría de los clientes de empresa eligen una arquitectura de varias regione
 Para más información sobre la conmutación por error y la alta disponibilidad, consulte [Recuperación ante desastres para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
-## <a name="planning-your-disaster-recovery-architecture"></a>Planeación de la arquitectura de recuperación ante desastres
+## <a name="planning-your-disaster-recovery-architecture"></a>Planeamiento de la arquitectura de recuperación ante desastres
 
 Hay dos aspectos técnicos en la configuración de la arquitectura de recuperación ante desastres:
--  Mediante un mecanismo de implementación para replicar instancias, datos y configuraciones entre entornos principales y en espera. Este tipo de recuperación ante desastres se puede realizar de forma nativa con Azure Site Recovery y mediante dispositivos o servicios de asociados de Microsoft Azure como Veritas o NetApp. 
-- Mediante el desarrollo de una solución para desviar el tráfico de red y el tráfico web desde el sitio principal al sitio en espera. Este tipo de recuperación ante desastres se puede lograr con Azure DNS, Azure Traffic Manager (DNS) o equilibradores de carga globales de otros fabricantes.
+-  El uso de un mecanismo de implementación para replicar instancias, datos y configuraciones entre entornos principales y en espera. Este tipo de recuperación ante desastres se puede realizar de forma nativa con Azure Site Recovery y mediante dispositivos o servicios de asociados de Microsoft Azure como Veritas o NetApp. 
+- El desarrollo de una solución para desviar el tráfico de red y el tráfico web desde el sitio principal al sitio en espera. Este tipo de recuperación ante desastres se puede lograr con Azure DNS, Azure Traffic Manager (DNS) o equilibradores de carga globales de otros fabricantes.
 
 Este artículo se limita a los enfoques de redireccionamiento del tráfico de red y del tráfico web. Para instrucciones sobre la configuración de Azure Site Recovery, consulte la [Documentación de Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-DNS es uno de los mecanismos más eficaces para desviar el tráfico de red porque DNS es a menudo global y externo al centro de datos y está aislado de los errores del nivel de zona de disponibilidad (AZ) o región. Se puede usar un mecanismo de conmutación por error basado en DNS y en Azure dos servicios DNS pueden lograr lo mismo de algún modo: Azure DNS (DNS autoritativo) y Azure Traffic Manager (enrutamiento de tráfico inteligente basado en DNS). 
+DNS es uno de los mecanismos más eficaces para desviar el tráfico de red porque a menudo es global y externo al centro de datos y está aislado de los errores del nivel de zona de disponibilidad (AZ) o región. Se puede usar un mecanismo de conmutación por error basado en DNS y en Azure dos servicios DNS pueden lograr lo mismo de algún modo: Azure DNS (DNS autoritativo) y Azure Traffic Manager (enrutamiento de tráfico inteligente basado en DNS). 
 
 Es importante entender algunos conceptos sobre DNS que se utilizan ampliamente para explicar las soluciones proporcionadas en este artículo:
 - **Registro D de DNS**: los registros D son punteros que apuntan un dominio a una dirección IPv4. 
@@ -68,7 +68,7 @@ La solución de conmutación por error manual de Azure DNS para la recuperación
 
 ![Conmutación por error manual con Azure DNS](./media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
 
-*Figura: conmutación por error manual con Azure DNS*
+*Figura: Conmutación por error manual con Azure DNS*
 
 Los supuestos realizados para la solución son:
 -   Los puntos de conexión principal y secundario tienen direcciones IP estáticas que no cambian con frecuencia. Supongamos que la dirección IP del sitio principal es 100.168.124.44 y la dirección IP del sitio secundario es 100.168.124.43.
@@ -78,7 +78,7 @@ Los supuestos realizados para la solución son:
 2. Creación de registros de zona DNS
 3. Actualización del registro CNAME
 
-### <a name="step-1-create-a-dns"></a>Paso 1: creación de una zona DNS
+### <a name="step-1-create-a-dns"></a>Paso 1: Creación de una zona DNS
 Cree una zona DNS (por ejemplo, www.contoso.com) como se muestra a continuación:
 
 ![Creación de una zona DNS en Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
@@ -93,7 +93,7 @@ Dentro de esta zona debe crear tres registros (por ejemplo: www.contoso.com, pro
 
 *Figura: creación de registros de zona DNS en Azure*
 
-En este escenario, el sitio www.contoso.com tiene un valor de TTL de 30 minutos, que es sobradamente inferior al RTO indicado y apunta al sitio de producción prod.contoso.com. Esta es la configuración durante las operaciones normales del negocio. El TTL de prod.contoso.com y dr.contoso.com se ha establecido en 300 segundos o 5 minutos. Puede usar un servicio de supervisión de Azure como Azure Monitor o Azure App Insights o bien cualquier solución de supervisión de los asociados, como Dynatrace. También puede usar soluciones desarrolladas internamente que pueden supervisar o detectar errores en el nivel de infraestructura virtual o de aplicación.
+En este escenario, el sitio www.contoso.com tiene un valor de TTL de 30 minutos, que es muy inferior al RTO indicado y apunta al sitio de producción prod.contoso.com. Esta es la configuración durante las operaciones normales del negocio. El TTL de prod.contoso.com y dr.contoso.com se ha establecido en 300 segundos o 5 minutos. Puede usar un servicio de supervisión de Azure como Azure Monitor o Azure App Insights o bien cualquier solución de supervisión de los asociados, como Dynatrace. También puede usar soluciones desarrolladas internamente que pueden supervisar o detectar errores en el nivel de infraestructura virtual o de aplicación.
 
 ### <a name="step-3-update-the-cname-record"></a>Paso 3: actualización del registro CNAME
 
@@ -115,7 +115,7 @@ También puede ejecutar el siguiente comando de la CLI de Azure para cambiar el 
 Este paso se puede ejecutar manualmente o mediante automatización. Se puede realizar manualmente mediante la consola o mediante la CLI de Azure. La API y el SDK de Azure se pueden utilizar para automatizar la actualización de CNAME para que no sea necesaria ninguna intervención manual. La automatización se puede crear mediante Azure Functions, en una aplicación de supervisión de terceros o incluso desde el entorno local.
 
 ### <a name="how-manual-failover-works-using-azure-dns"></a>Funcionamiento de la conmutación por error manual con Azure DNS
-Puesto que el servidor DNS está fuera de la zona de conmutación por error o zona de desastre, está aislado frente a los tiempos de inactividad. Esto permite al usuario diseñar un escenario de conmutación por error simple que es rentable y funcionará ininterrumpidamente suponiendo que el operador tenga conectividad de red durante el desastre y pueda realizar el cambio. Si la solución está consiste en un script, es preciso asegurarse de que el servidor o el servicio que ejecuta el script está aislado del problema que afecta al entorno de producción. Además, tenga en cuenta que se estableció un valor de TTL bajo en la zona para que ningún sistema de resolución en todo el mundo mantenga el punto de conexión almacenado en memoria caché durante mucho tiempo y los clientes puedan acceder al sitio dentro del RTO. En los casos de espera pasiva y de luz piloto, dado que pueden ser necesarias algunas actividades de puesta en actividad y otras actividades administrativas, se debe dar tiempo suficiente antes de realizar el cambio.
+Puesto que el servidor DNS está fuera de la zona de conmutación por error o zona de desastre, está aislado frente a los tiempos de inactividad. Esto permite al usuario diseñar un escenario de conmutación por error simple que es rentable y funcionará ininterrumpidamente suponiendo que el operador tenga conectividad de red durante el desastre y pueda realizar el cambio. Si la solución consiste en un script, es preciso asegurarse de que el servidor o el servicio que ejecuta el script está aislado del problema que afecta al entorno de producción. Además, tenga en cuenta que se estableció un valor de TTL bajo en la zona para que ningún sistema de resolución en todo el mundo mantenga el punto de conexión almacenado en memoria caché durante mucho tiempo y los clientes puedan acceder al sitio dentro del RTO. En los casos de espera pasiva y de luz piloto, dado que pueden ser necesarias algunas actividades de puesta en actividad y otras actividades administrativas, se debe dar tiempo suficiente antes de realizar el cambio.
 
 ## <a name="automatic-failover-using-azure-traffic-manager"></a>Conmutación por error automática con Azure Traffic Manager
 Cuando hay arquitecturas complejas y varios conjuntos de recursos capaces de realizar la misma función, puede configurar Azure Traffic Manager (basado en DNS) para comprobar el mantenimiento de los recursos y enrutar el tráfico desde el recurso que no es correcto hacia el recurso correcto. En el ejemplo siguiente, la región primaria y la región secundaria tienen una implementación completa. Esta implementación incluye los servicios en la nube y una base de datos sincronizada. 

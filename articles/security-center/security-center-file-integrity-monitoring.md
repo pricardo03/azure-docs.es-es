@@ -1,27 +1,27 @@
 ---
-title: Supervisión de la integridad de los archivos en Azure Security Center (versión preliminar) | Microsoft Docs
+title: Supervisar la integridad de los archivos en Azure Security Center | Microsoft Docs
 description: " Aprenda a habilitar la supervisión de la integridad de los archivos en Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
-ms.author: terrylan
-ms.openlocfilehash: 722a4fd11f35f04ed22d73638f07d15c49ea3c26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161838"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124123"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Supervisión de la integridad de los archivos en Azure Security Center (versión preliminar)
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
 
 ## <a name="what-is-fim-in-security-center"></a>¿Qué la supervisión de la integridad de los archivos (FIM) Security Center?
@@ -134,7 +134,7 @@ Se abre la hoja **Cambiar detalles** al escribir un cambio en el campo de búsqu
 
 1. Vuelva al panel **Supervisión de la integridad de los archivo** y seleccione **Configuración**.
 
-  ![Settings][11]
+  ![Configuración][11]
 
   Se abre la hoja **Configuración del área de trabajo** que muestra tres pestañas: **Registro de Windows**, **Archivos de Windows** y **Archivos de Linux**. En cada pestaña se muestran las entidades que se pueden editar de esa categoría. En cada entidad de la lista, Security Center identifica si FIM está habilitado (true) o deshabilitado (false).  Al editar la entidad, puede habilitar o deshabilitar FIM.
 
@@ -182,6 +182,14 @@ En **Edit for Change Tracking** (Editar para Change Tracking), puede:
   ![Establecer Habilitado en False][19]
 
 6. Seleccione **Guardar**.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Supervisión de carpetas y rutas de acceso mediante caracteres comodín.
+
+Utilice caracteres comodín para simplificar el seguimiento a través de directorios. Las siguientes reglas se aplican cuando configura la supervisión de carpetas mediante caracteres comodín:
+-   Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
+-   Los caracteres comodín solo se pueden usar en el último segmento de una ruta de acceso, como C:\folder\file o /etc/*.conf.
+-   Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta, pero se producirá un error en dicha ruta cuando se ejecute el inventario.
+-   Al establecer la ruta de acceso, evite las rutas de acceso generales como c:\*.*, ya que daría lugar a que se recorrieran demasiadas carpetas.
 
 ## <a name="disable-fim"></a>Deshabilitación de FIM
 Puede deshabilitar FIM. FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Al deshabilitar FIM, quita la solución Change Tracking del área de trabajo seleccionada.
