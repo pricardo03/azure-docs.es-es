@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048340"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542319"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Agregar un usuario en Azure Portal
 
@@ -31,12 +31,12 @@ ms.locfileid: "43048340"
 Conceda "R-X" o "RWX", según sea necesario, a las carpetas con datos de entrada y salida.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>Opcionalmente, puede agregar el usuario al rol **Lector** de Azure Data Lake Store.
-1.  Localice su cuenta de Azure Data Lake Store.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Opcionalmente, puede agregar el usuario al rol **Lector** de Azure Data Lake Storage Gen1.
+1.  Busque la cuenta de Azure Data Lake Storage Gen1.
 2.  Haga clic en **Usuarios**.
 3. Haga clic en **Agregar**.
 4.  Seleccione un rol RBAC de Azure para asignarlo a este grupo.
-5.  Asigne el rol Lector. Este rol tiene el conjunto mínimo de permisos necesarios para examinar y administrar datos almacenados en ADLS. Asigne este rol si el grupo no está pensado para administrar servicios de Azure.
+5.  Asigne el rol Lector. Este rol tiene el conjunto mínimo de permisos necesarios para examinar y administrar datos almacenados en ADLSGen1. Asigne este rol si el grupo no está pensado para administrar servicios de Azure.
 6.  Escriba el nombre del grupo.
 7.  Haga clic en **OK**.
 

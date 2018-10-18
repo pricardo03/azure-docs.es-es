@@ -8,21 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5b8703c218790549a0cf5a319345132a0eca66ce
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45890b4bd474c010b2b086be0405b79d340aeebd
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025196"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603166"
 ---
-# <a name="how-to-use-the-azure-maps-map-control"></a>Cómo usar el Control de mapa de Azure Maps
-La biblioteca de Javascript del lado cliente del Control de mapa le permite representar mapas y la funcionalidad insertada de Azure Maps en su aplicación web o móvil. 
+# <a name="use-the-azure-maps-map-control"></a>Uso del Control de mapa de Azure Maps
+
+La biblioteca de Javascript del lado cliente del Control de mapa le permite representar mapas y la funcionalidad insertada de Azure Maps en su aplicación web o móvil.
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Creación de un nuevo mapa en una página web
 
 Puede insertar un mapa en una página web mediante la biblioteca de Javascript del lado cliente de Control de mapa.
 
-1. Cree un nuevo archivo y asígnele el nombre MapSearch.html.
+1. Cree un nuevo archivo y asígnele el nombre **MapSearch.html**.
 
 2. Agregue las referencias de hoja de estilos y origen de script de Azure Maps al elemento `<head>` del archivo:
 
@@ -30,17 +31,19 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
-    
-3. Para representar un nuevo mapa en el explorador, agregue una referencia **#map** en el elemento `<style>`.
+
+3. Para representar un nuevo mapa en el explorador, agregue una referencia **#map** en el elemento `<style>`:
 
     ```html
-    #map {
-                width: 100%;
-                height: 100%;
-            }
-    ``` 
-    
-4. Para inicializar el control de mapa, defina una nueva sección en el cuerpo HTML y cree un script. Utilice su propia clave de la cuenta de Azure Maps en el script. Si necesita crear una cuenta o buscar la clave, consulte [Cómo administrar su cuenta y claves de Azure Maps](how-to-manage-account-keys.md)
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    ```
+
+4. Para inicializar el control de mapa, defina una nueva sección en el cuerpo HTML y cree un script. Utilice su propia clave de la cuenta de Azure Maps en el script. Si necesita crear una cuenta o buscar la clave, consulte [Cómo administrar su cuenta y claves de Azure Maps](how-to-manage-account-keys.md).
 
     ```html
     <div id="map">
@@ -54,12 +57,17 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
         </script>
     </div>
     ```
-    
+
 5. Abra el archivo en el explorador web y vea el mapa representado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se ha explicado cómo crear un mapa básico con su clave de Azure Maps. Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos: 
+Obtenga información sobre cómo crear un mapa con un ejemplo completo:
 
-* [Creación de un mapa](map-create.md)
-* [Elección de un estilo de mapa](choose-map-style.md)
+> [!div class="nextstepaction"]
+> [Creación de un mapa](map-create.md)
+
+Obtenga información sobre cómo aplicar estilos en un mapa:
+
+> [!div class="nextstepaction"]
+> [Elección de un estilo de mapa](choose-map-style.md)

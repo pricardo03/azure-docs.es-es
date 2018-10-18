@@ -1,25 +1,25 @@
 ---
-title: Notas de la versión del servicio Face API | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Notas de la versión: servicio Face API'
+titleSuffix: Azure Cognitive Services
 description: Las notas de la versión del servicio Face API incluyen un historial de cambios de versión para varias versiones.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 918b3ea5dbaaa44e4eee1a679354c7becffd4686
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382478"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121998"
 ---
 # <a name="face-api-release-notes"></a>Notas de versión de Face API
 
-Este artículo pertenece a la versión 1.0 del servicio Face API de Microsoft.
+Este artículo pertenece a la versión 1.0 del servicio Face API.
 
 ### <a name="release-changes-in-may-2018"></a>Cambios de la versión de mayo de 2018
 

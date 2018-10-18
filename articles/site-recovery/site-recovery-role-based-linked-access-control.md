@@ -5,16 +5,16 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/06/2018
-author: mayanknayar
+ms.date: 10/16/2018
+author: mayurigupta13
 ms.topic: conceptual
-ms.author: manayar
-ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: mayg
+ms.openlocfilehash: 9ec9acab4ad83af22504058c21b102df94b8692d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919733"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353244"
 ---
 # <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Uso del control de acceso basado en roles para administrar el acceso a Site Recovery
 
@@ -76,5 +76,5 @@ Considere el uso de los [roles integrados](../role-based-access-control/built-in
 * Aprenda a administrar el acceso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI de Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API de REST](../role-based-access-control/role-assignments-rest.md)
+  * [API DE REST](../role-based-access-control/role-assignments-rest.md)
 * [Solución de problemas del control de acceso basado en roles](../role-based-access-control/troubleshooting.md): sugerencias para resolver problemas frecuentes.

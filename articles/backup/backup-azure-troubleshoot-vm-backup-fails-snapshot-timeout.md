@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ce4a889cae852d333ea9862138f4d44471677c26
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754330"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544020"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -111,6 +111,8 @@ Para entender el procedimiento paso a paso para configurar etiquetas de servicio
 > Las etiquetas de servicio de almacenamiento se encuentran en versión preliminar. Solo están disponibles en determinadas regiones. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio para almacenamiento](../virtual-network/security-overview.md#service-tags).
 
 Si usa Azure Managed Disks, necesitará abrir otro puerto (8443) en los firewalls.
+
+Además, si la subred no tiene una ruta para el tráfico saliente de Internet, deberá agregar un punto de conexión de servicio con la etiqueta de servicio "Microsoft.Storage" a la subred. 
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)
 

@@ -3,19 +3,19 @@ title: 'Guía de inicio rápido: Análisis de imágenes remotas - REST, Go - Com
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision API con Go.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: ccdd8922993fb1ea3e723a68f28f95f7b6ffe93b
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 57c8309af47e71226f41df8cce255e73f33b27c5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632235"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341045"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Guía de inicio rápido: Análisis de imágenes remotas mediante la API de REST y Go en Computer Vision
 

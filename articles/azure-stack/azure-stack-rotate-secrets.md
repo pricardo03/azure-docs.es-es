@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029023"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722017"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -42,7 +42,7 @@ Certificados de servicio de infraestructura para servicios de uso externo que pr
     - ADFS<sup>*</sup>
     - Graph<sup>*</sup>
 
-    > <sup>*</sup> Solo es aplicable si el proveedor de identidades del entorno son los Servicios de federación de Active Directory (AD FS).
+   <sup>*</sup> Solo es aplicable si el proveedor de identidades del entorno son los Servicios de federación de Active Directory (AD FS).
 
 > [!NOTE]
 > Todas las demás claves y cadenas seguras, incluyendo BMC, las contraseñas de cambio y las contraseñas de cuentas de usuario y administrador aún las actualiza manualmente el administrador. 
@@ -54,7 +54,7 @@ Para mantener la integridad de la infraestructura de Azure Stack, los operadores
 Azure Stack admite el cambio de secretos con certificados externos desde una nueva entidad de certificación (CA) en los contextos siguientes:
 
 |CA del certificado instalado|CA a la que cambiar|Compatible|Versiones compatibles de Azure Stack|
-|-----|-----|-----|-----|-----|
+|-----|-----|-----|-----|
 |De autofirmado|A empresarial|No compatible||
 |De autofirmado|A autofirmado|No compatible||
 |De autofirmado|A pública<sup>*</sup>|Compatible|1803 y posterior|
@@ -79,12 +79,11 @@ Si ejecuta el cambio de secretos mediante las instrucciones que aparecen a conti
 
 ## <a name="pre-steps-for-secret-rotation"></a>Pasos previos para el cambio de secretos
 
+   > [!IMPORTANT]  
+   > Asegúrese de que la rotación de secretos no se haya ejecutado correctamente en el entorno. Si ya se ha realizado la rotación de secretos, actualice Azure Stack a la versión 1807 o posterior antes de ejecutar la rotación de secretos. 
 1.  Avise a los usuarios de cualquier operación de mantenimiento. Programe ventanas de mantenimiento normales, en la medida de lo posible, durante horas no laborables. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
-
     > [!note]  
     > Los pasos siguientes solo se aplican al cambiar secretos externos de Azure Stack.
-
-2. Asegúrese de que la rotación de secretos no se ejecutó correctamente en el entorno durante el mes anterior. En este momento, Azure Stack solo permite realizar la rotación de secretos una vez al mes. 
 3. Prepare un nuevo conjunto de certificados externos de reemplazo. El nuevo conjunto coincide con las especificaciones de certificado que se describen en [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 4.  Guarde una copia de seguridad de los certificados usados para el cambio en una ubicación segura. Si se ejecuta el cambio y, después, se produce un error, reemplace los certificados del recurso compartido de archivos por las copias de seguridad antes de volver a ejecutar el cambio. Conserve las copias de seguridad en la ubicación segura.
 5.  Cree un recurso compartido de archivos al que pueda acceder desde las máquinas virtuales de ERCS. El recurso compartido de archivos debe ser de lectura y escritura para la identidad **CloudAdmin**.
@@ -111,6 +110,8 @@ Para cambiar los secretos externos e internos:
     Una cadena segura de la contraseña usada para todos los archivos de certificados pfx creados.
 4. Espere mientras cambian los secretos.  
 Cuando se complete correctamente el cambio de secretos, la consola mostrará el mensaje **Overall action status: Success** (Estado global de la acción: correcto). 
+    > [!note]  
+    > Si se produce un error en la rotación de secretos, siga las instrucciones del mensaje de error y vuelva a ejecutar Start-SecretRotation con el parámetro **-Rerun**. Póngase en contacto con soporte técnico si la rotación de secretos falla en reiteradas ocasiones. 
 5. Después de la finalización correcta del cambio de secretos, quite los certificados del recurso compartido creado en el paso anterior y almacénelos en la ubicación segura de copia de seguridad. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>Guía detallada sobre cambio de secretos
@@ -137,6 +138,10 @@ Para cambiar solo los secretos internos de Azure Stack:
 
 1. Cree una sesión de PowerShell con el [punto de conexión con privilegios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. En la sesión del punto de conexión con privilegios, ejecute **Start-SecretRotation** sin argumentos.
+3. Espere mientras cambian los secretos.  
+Cuando se complete correctamente el cambio de secretos, la consola mostrará el mensaje **Overall action status: Success** (Estado global de la acción: correcto). 
+    > [!note]  
+    > Si se produce un error en la rotación de secretos, siga las instrucciones del mensaje de error y vuelva a ejecutar Start-SecretRotation con el parámetro **-Rerun**. Póngase en contacto con soporte técnico si la rotación de secretos falla en reiteradas ocasiones. 
 
 ## <a name="start-secretrotation-reference"></a>Referencia de Start-SecretRotation
 
@@ -156,11 +161,12 @@ El cmdlet Start-SecretRotation permite cambiar los secretos de la infraestructur
  
 ### <a name="parameters"></a>Parámetros
 
-| . | Escriba | Obligatorio | Posición | Valor predeterminado | DESCRIPCIÓN |
+| Parámetro | Escriba | Obligatorio | Posición | Valor predeterminado | DESCRIPCIÓN |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | string  | False  | con nombre  | None  | La ruta de acceso del recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al cambiar secretos internos y externos. El directorio final debe ser **\Certificates**. |
+| PfxFilesPath | string  | False  | con nombre  | None  | La ruta de acceso del recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos o todos los secretos. El directorio final debe ser **\Certificates**. |
 | CertificatePassword | SecureString | False  | con nombre  | None  | La contraseña de todos los certificados que se proporcionan en -PfXFilesPath. Valor obligatorio si se proporciona PfxFilesPath al cambiar secretos internos y externos. |
-|
+| PathAccessCredential | PSCredential | False  | con nombre  | None  | La credencial de PowerShell para el recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos o todos los secretos.  |
+| Rerun | SwitchParameter | False  | con nombre  | None  | Rerun se debe usar en cualquier momento en que se vuelva a intentar la rotación de secretos después de un intento fallido. |
 
 ### <a name="examples"></a>Ejemplos
  

@@ -1,26 +1,19 @@
 ---
 title: Tutorial acerca del aprovisionamiento de Azure Data Box Gateway en VMware | Microsoft Docs
 description: El segundo tutorial para implementar Azure Data Box Gateway implica el aprovisionamiento de un dispositivo virtual en VMware.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/01/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017455"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167161"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en VMware (versión preliminar)
 

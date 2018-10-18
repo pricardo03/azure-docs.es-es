@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841988"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719450"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Consideraciones de planeación de la implementación de Azure Stack
 Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de que el equipo host del kit de desarrollo cumple los requisitos que se describen en este artículo.
@@ -93,6 +93,8 @@ Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una 
    | Cuenta de Microsoft con una suscripción de Azure pública válida |SÍ |
    | Cuenta profesional o educativa con una suscripción de Azure China válida |SÍ |
    | Cuenta profesional o educativa con una suscripción de Azure Gobierno de Estados Unidos válida |SÍ |
+
+Después de al implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
 
 ## <a name="network"></a>Red
 ### <a name="switch"></a>Switch

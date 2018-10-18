@@ -4,19 +4,19 @@ description: Use Azure Event Grid para suscribirse a los eventos de Media Servic
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/19/2018
 ms.author: juliako
-ms.openlocfilehash: 969957d53824bd70440e5529b83bc830bb5d9cc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782694"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465544"
 ---
 # <a name="reacting-to-media-services-events"></a>Reacción ante eventos de Media Services
 
@@ -26,11 +26,20 @@ La disponibilidad de los eventos de Media Services está asociada a la [disponib
 
 ## <a name="available-media-services-events"></a>Eventos disponibles de Media Services
 
-Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores.  Actualmente, las suscripciones a eventos de Media Services pueden incluir el tipo de evento siguiente:  
+Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores.  Actualmente, las suscripciones a eventos de Media Services pueden incluir los eventos siguientes:  
 
 |Nombre del evento|DESCRIPCIÓN|
 |----------|-----------|
 | Microsoft.Media.JobStateChange| Se produce cuando cambia un estado del trabajo. |
+| Microsoft.Media.LiveEventConnectionRejected | Se rechazó el intento de conexión del codificador. |
+| Microsoft.Media.LiveEventEncoderConnected | El codificador se conectó al evento en directo. |
+| Microsoft.Media.LiveEventEncoderDisconnected | El codificador se desconecta. |
+| Microsoft.Media.LiveEventIncomingDataChunkDropped | El servidor multimedia elimina el fragmento de datos porque es demasiado tarde o porque tiene una marca de tiempo superpuesta (la marca de tiempo del nuevo fragmento de datos es menor que el tiempo de finalización del fragmento de datos anterior). |
+| Microsoft.Media.LiveEventIncomingStreamReceived | El servidor multimedia recibe el primer fragmento de datos de cada pista en la transmisión o la conexión. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | El servidor multimedia detecta que las transmisiones de audio y vídeo no están sincronizadas. Se usa como advertencia porque la experiencia del usuario no se verá afectada. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | El servidor multimedia detecta que cualquiera de las dos transmisiones de vídeo provenientes del codificador externo no está sincronizada. Se usa como advertencia porque la experiencia del usuario no se verá afectada. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Se publica cada 20 segundos para cada pista cuando se está ejecutando el evento en directo. Proporciona resumen de mantenimiento de la ingesta. |
+| Microsoft.Media.LiveEventTrackDiscontinuityDetected | El servidor multimedia detecta una discontinuidad en la pista entrante. |
 
 ## <a name="event-schema"></a>Esquema de eventos
 

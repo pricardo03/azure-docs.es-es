@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494132"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720130"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
 Inicio de sesión único significa poder tener acceso a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando iniciar sesión una sola vez usando una única cuenta de usuario. Una vez que ha iniciado sesión, puede tener acceso a todas las aplicaciones que necesite sin tener que autenticarse (por ejemplo, escribiendo una contraseña) una segunda vez.
@@ -46,7 +46,7 @@ Azure AD ofrece tres métodos diferentes para iniciar sesión en aplicaciones:
 
 * **Inicio de sesión único federado**, que permite a las aplicaciones redirigir a Azure AD las solicitudes de autenticación de usuario en lugar de solicitar su propia contraseña. El inicio de sesión único federado se admite para las aplicaciones compatibles con protocolos como SAML 2.0, WS-Federation u OpenID Connect, y es el modo más completo de inicio de sesión único.
 * **Inicio de sesión único con contraseña**, que permite el almacenamiento seguro de contraseñas de las aplicaciones y reproducirlo usando una extensión de explorador web o aplicación móvil. El inicio de sesión único basado en contraseña aprovecha el proceso existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas y no requiere que los usuarios las conozcan.
-* **Inicio de sesión único existente**, que permite a Azure AD aprovechar cualquier inicio de sesión único existente que se haya configurado para la aplicación, pero también permite que estas aplicaciones se vinculen a los portales de panel de acceso a Office 365 o Azure AD, además de preparar informes en Azure AD cuando se lanzan desde allí las aplicaciones.
+* **Inicio de sesión único vinculado**, que permite a Azure AD aprovechar cualquier inicio de sesión único existente que se haya configurado para la aplicación, pero también permite que estas aplicaciones se vinculen a los portales de panel de acceso a Office 365 o Azure AD, además de preparar informes en Azure AD cuando se lanzan desde allí las aplicaciones.
 
 Una vez que un usuario se ha autenticado en una aplicación, también debe tener aprovisionado un registro de cuenta en la aplicación que le diga dónde están los permisos y el nivel de acceso dentro de la aplicación. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador para que el usuario disponga de acceso de inicio de sesión único.
 
@@ -79,17 +79,17 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 * Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 * Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
 
-### <a name="existing-single-sign-on"></a>Inicio de sesión único existente
-Al configurar un inicio de sesión único para una aplicación, Azure Portal proporciona una tercera opción, el "Inicio de sesión único existente". Esta opción permite al administrador crear un vínculo a una aplicación y colocarlo en el panel de acceso de los usuarios seleccionados.
+### <a name="linked-single-sign-on"></a>Inicio de sesión único vinculado
+Al configurar un inicio de sesión único para una aplicación, Azure Portal proporciona una tercera opción, el "inicio de sesión único vinculado". Esta opción permite al administrador crear un vínculo a una aplicación y colocarlo en el panel de acceso de los usuarios seleccionados.
 
-Por ejemplo, si hay una aplicación que está configurada para autenticar a los usuarios mediante Servicios de federación de Active Directory 2.0, el administrador puede utilizar la opción "Inicio de sesión único existente" para crear un vínculo a éste en el panel de acceso. Cuando los usuarios tienen acceso al vínculo, se autentican mediante Servicios de federación de Active Directory 2.0 o cualquier solución de inicio de sesión único existente que proporcione la aplicación.
+Por ejemplo, si hay una aplicación que está configurada para autenticar a usuarios mediante Servicios de federación de Active Directory 2.0, el administrador puede usar la opción "inicio de sesión único vinculado" para crear un vínculo a ella en el panel de acceso. Cuando los usuarios tienen acceso al vínculo, se autentican mediante Servicios de federación de Active Directory 2.0 o cualquier solución de inicio de sesión único existente que proporcione la aplicación.
 
 ### <a name="user-provisioning"></a>Aprovisionamiento de usuarios
 Para determinadas aplicaciones, Azure AD permite el aprovisionamiento automático de usuarios y el desaprovisionamiento de cuentas en aplicaciones de SaaS de terceros desde Azure Portal, utilizando la información de identidad de Windows Server Active Directory o Azure AD. Cuando un usuario tiene permisos en Azure AD para una de estas aplicaciones, se puede crear (aprovisionar) automáticamente una cuenta en la aplicación SaaS de destino.
 
 Cuando se elimina un usuario o cambia su información en Azure AD, estos cambios también se reflejan en la aplicación SaaS. Esto significa configurar la administración automatizada del ciclo de vida de identidades, lo que permite a los administradores controlar y proporcionar aprovisionamiento y desaprovisionamiento automatizados del aprovisionamiento de aplicaciones SaaS. En Azure AD, esta automatización de la administración del ciclo de vida de identidad está habilitada por el aprovisionamiento de usuarios.
 
-Para obtener más información, consulte [Aprovisionamiento y desaprovisionamiento automático de usuarios para aplicaciones SaaS](../active-directory-saas-app-provisioning.md)
+Para obtener más información, consulte [Aprovisionamiento y desaprovisionamiento automático de usuarios para aplicaciones SaaS](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>Introducción a la Galería de aplicaciones de Azure AD
 ¿Ya está listo para comenzar? Para implementar el inicio de sesión único entre Azure AD y las aplicaciones de SaaS que usa la organización, siga estas instrucciones.
@@ -109,7 +109,7 @@ Una vez que haya encontrado la aplicación, puede comenzar por seguir las instru
 ### <a name="application-not-in-the-gallery"></a>¿La aplicación no está en la Galería?
 Si la aplicación no se encuentra en la Galería de aplicaciones de Azure AD, tienes estas opciones:
 
-* **Agregar una aplicación que no aparezca en la lista** : use la categoría Personalizada de la Galería de aplicaciones de Azure Portal para conectar una aplicación que se use en su organización pero que no esté incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo en [Agregar su propia aplicación](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Agregar una aplicación que no aparezca en la lista** : use la categoría Personalizada de la Galería de aplicaciones de Azure Portal para conectar una aplicación que se use en su organización pero que no esté incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo en [Agregar su propia aplicación](configure-federated-single-sign-on-non-gallery-applications.md).
 * **Agregar una aplicación propia que está desarrollando**: si ha desarrollado la aplicación usted mismo, siga las instrucciones de la documentación para desarrolladores de Azure AD para implementar un inicio de sesión único federado o el aprovisionamiento mediante Graph API de Azure AD. Para obtener más información, vea estos recursos:
   
   * [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md)
@@ -172,7 +172,7 @@ La mayoría de las aplicaciones federadas que admiten SAML 2.0, WS-Federation u 
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Vínculos de inicio de sesión directos para aplicaciones federadas, con contraseña o existentes
-Azure AD también admite vínculos directos de inicio de sesión único a las aplicaciones individuales que admiten el inicio de sesión con contraseña, existente y cualquier forma de inicio de sesión único federado.
+Azure AD también admite vínculos directos de inicio de sesión único a las aplicaciones individuales que admiten el inicio de sesión con contraseña, el inicio de sesión único vinculado y cualquier forma de inicio de sesión único federado.
 
 Estos vínculos son direcciones URL especialmente diseñadas que envían a los usuarios al proceso de inicio de sesión de Azure AD para una aplicación específica sin necesidad de que el usuario la inicie desde el panel de acceso de Azure AD o de Office 365. Estas direcciones URL de inicio de sesión único se pueden encontrar en la ficha Panel de cualquier aplicación previamente integrada en la sección Active Directory de Azure Portal, como se puede ver en la captura de pantalla siguiente.
 
@@ -191,7 +191,6 @@ Cuando un usuario autorizado hace clic en uno de estos vínculos específicos de
 Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel de acceso y Office 365, y solo los usuarios o grupos que se han asignado a la aplicación en Azure Portal podrán autenticarse correctamente. Sin embargo, cualquier usuario que no tenga autorización, verá un mensaje que explica que no se le ha concedido acceso y se proporcionan un vínculo para cargar el panel de acceso y ver las aplicaciones disponibles a las que tienen acceso.
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Configuración de Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)

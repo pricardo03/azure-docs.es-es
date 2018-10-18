@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d3a615e3b92a62709a787d0463dfa3148f14d07e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cd0195796189158650c9c2655062950b71130ad7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088373"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578487"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Eliminación del proveedor de recursos de MySQL
 
@@ -53,6 +53,7 @@ El administrador es responsable de las siguientes tareas de limpieza:
 5. Ejecute el script DeployMySqlProvider.ps1 con los siguientes parámetros:
     - **Desinstalación**. Quita el proveedor de recursos y todos los recursos asociados.
     - **PrivilegedEndpoint**. Dirección IP o nombre DNS del punto de conexión con privilegios.
+    - **AzureEnvironment**. El entorno de Azure usado para implementar Azure Stack. Requerido solo para implementaciones de Azure AD.
     - **CloudAdminCredential**. Credencial del administrador de la nube, necesaria para el acceso al punto de conexión con privilegios.
     - **DirectoryTenantID**
     - **AzCredential**. Credencial de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack.

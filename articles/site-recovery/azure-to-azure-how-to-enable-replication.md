@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7002e8a63ca0223a38ba099b17955a86034fa057
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916289"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295468"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "37916289"
 
 En este artículo se describe cómo habilitar la replicación de máquinas virtuales de Azure de una región de Azure a otra.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se supone que ya configuró Site Recovery para este escenario como se describe en [Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)](azure-to-azure-tutorial-enable-replication.md). Asegúrese de haber preparado los requisitos previos y de haber creado el almacén de Recovery Services.
 
@@ -36,6 +36,7 @@ Habilite la replicación. En este procedimiento se supone que la región princip
     - **Origen**: el punto de origen de las máquinas virtuales, que en este caso es **Azure**.
     - **Ubicación de origen**: la región de Azure desde la que se quieren proteger las máquinas virtuales. En este ejemplo, la ubicación de origen es "Asia Oriental".
     - **Modelo de implementación**: el modelo de implementación de Azure de las máquinas de origen.
+    - **Subscripción de origen**: suscripción a la que pertenecen sus máquinas virtuales de origen. Puede tratarse de cualquier suscripción dentro del mismo inquilino de Azure Active Directory donde exista el almacén de Recovery Services.
     - **Grupo de recursos**: el grupo de recursos al que pertenecen las máquinas virtuales de origen. Todas las máquinas virtuales del grupo de recursos seleccionado se enumeran para su protección en el paso siguiente.
 
     ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ Habilite la replicación. En este procedimiento se supone que la región princip
 4. En **Configuración**, tiene la opción de configurar el sitio de destino:
 
     - **Ubicación de destino**: ubicación donde se replicarán los datos de la máquina virtual de origen. Según la ubicación de las máquinas seleccionadas, Site Recovery proporcionará la lista de regiones de destino adecuadas. Se recomienda mantener como la ubicación de destino la misma ubicación del almacén de Recovery Services.
+    - **Suscripción de destino**: la suscripción de destino utilizada para la recuperación ante desastres. De forma predeterminada, la suscripción de destino será la misma que la suscripción de origen.
     - **Grupo de recursos de destino**: el grupo de recursos al que pertenecen todas las máquinas virtuales replicadas. De forma predeterminada, Azure Site Recovery crea un nuevo grupo de recursos en la región de destino con un nombre con el sufijo "asr". En caso de que el grupo de recursos que cree Azure Site Recovery ya exista, se vuelve a usar. También puede elegir personalizarlo tal como se muestra en la sección siguiente. La ubicación del grupo de recursos de destino puede ser cualquier región de Azure excepto la región en la que se hospedan las máquinas virtuales de origen.
     - **Red virtual de destino**: de forma predeterminada, Site Recovery crea una nueva red virtual en la región de destino con un nombre con el sufijo "asr". Esta se asigna a la red de origen y se usa para todas las protecciones futuras. [más información](site-recovery-network-mapping-azure-to-azure.md) sobre la asignación de red.
     - **Cuentas de almacenamiento de destino (si la VM de origen no utiliza discos administrados)**: de forma predeterminada, Site Recovery crea la cuenta de almacenamiento de destino mediante la imitación de la configuración de almacenamiento de la VM de origen. En caso de que ya exista una cuenta de almacenamiento, esta se vuelve a usar.
@@ -60,7 +62,9 @@ Habilite la replicación. En este procedimiento se supone que la región princip
 
 Puede modificar la configuración de destino predeterminada utilizada por Site Recovery.
 
-1. Haga clic en **Personalizar:** para modificar la configuración predeterminada:
+1. Haga clic en la opción **Personalizar:** que se encuentra al lado de "Suscripción de destino" para modificar la suscripción de destino predeterminada. Seleccione la suscripción en la lista de todas las suscripciones disponibles en el mismo inquilino de Azure Active Directory (AAD).
+
+2. Haga clic en **Personalizar:** para modificar la configuración predeterminada:
     - En **Grupo de recursos de destino**, seleccione el grupo de recursos en la lista de todos los grupos de recursos que existen en la ubicación de destino de la suscripción.
     - En **Red virtual de destino**, seleccione la red en una lista de todas las redes virtuales en la ubicación de destino.
     - En **Conjunto de disponibilidad**, puede agregar la configuración del conjunto de disponibilidad a la máquina virtual en caso de que forme parte de un conjunto de disponibilidad de la región de origen.

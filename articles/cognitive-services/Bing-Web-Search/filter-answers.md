@@ -1,21 +1,22 @@
 ---
-title: Filtrado de los resultados web que Bing devuelve | Microsoft Docs
-description: Muestra cómo usar responseFilter para filtrar los resultados que Bing Web Search API devuelve.
+title: 'Cómo filtrar los resultados de búsqueda: Bing Web Search API'
+titleSuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo filtrar y mostrar los resultados de búsqueda de Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 64095089e4c0841aa1f77165969221836c747738
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700fae4e206e547037406d4f15f32cb167fbe6b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888580"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123596"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrado de los resultados incluidos en la respuesta de búsqueda  
 
@@ -81,25 +82,25 @@ A continuación se muestra la respuesta de la consulta anterior. Como puede ver,
 }
 ```
 
-Si desea excluir determinados tipos de contenido (por ejemplo, imágenes) de la respuesta, puede excluirlos agregando un prefijo con un guion (signo menos) al valor responseFilter. Separe los tipos excluidos con comas: 
+Si desea excluir determinados tipos de contenido (por ejemplo, imágenes) de la respuesta, puede excluirlos agregando un prefijo con un guion (signo menos) al valor responseFilter. Separe los tipos excluidos con comas:
 
 ```
 &responseFilter=-images,-videos
 ```
 
-Aunque Bing no devolvió resultados de vídeo y de noticias en la respuesta anterior, no significa que no exista contenido de vídeo y de noticias. Solo quiere decir que la página no los incluyó. Sin embargo, si [página](./paging-webpages.md) más resultados, probablemente las páginas siguientes los incluyan. Además, si se llama directamente a los puntos de conexión de [Video Search API](../bing-video-search/search-the-web.md) y [News Search API](../bing-news-search/search-the-web.md), es probable que la respuesta contenga resultados. 
+Aunque Bing no devolvió resultados de vídeo y de noticias en la respuesta anterior, no significa que no exista contenido de vídeo y de noticias. Solo quiere decir que la página no los incluyó. Sin embargo, si [página](./paging-webpages.md) más resultados, probablemente las páginas siguientes los incluyan. Además, si se llama directamente a los puntos de conexión de [Video Search API](../bing-video-search/search-the-web.md) y [News Search API](../bing-news-search/search-the-web.md), es probable que la respuesta contenga resultados.
 
 No recomienda no utilizar `responseFilter` para obtener los resultados de una sola API. Si desea contenido de una sola API de Bing, llame directamente a dicha API. Por ejemplo, para recibir solo las imágenes, envíe una solicitud al punto de conexión de Image Search API, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` u otros de los puntos de conexión de [imágenes](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints). Llamar a una sola API es importante no solo por motivos de rendimiento, también porque las API específicas de contenido ofrecen mejores resultados. Por ejemplo, puede utilizar filtros que no están disponibles en Web Search API para filtrar los resultados.  
-  
+
 Para obtener resultados de búsqueda de un dominio específico, incluya el operador de consulta `site:` en la cadena de consulta.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
 ```
 
-> [!NOTE] 
-> En función de la consulta, si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta incluya contenido para adultos sin tener en cuenta la configuración de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) (búsqueda segura). Debería usar `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos. 
-  
+> [!NOTE]
+> En función de la consulta, si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta incluya contenido para adultos sin tener en cuenta la configuración de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) (búsqueda segura). Debería usar `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos.
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitación del número de resultados en la respuesta
 
 Bing incluye resultados en la respuesta en función de la clasificación. Por ejemplo, si consulta *navegar + barco*, Bing devuelve `webpages`, `images`, `videos`, y `relatedSearches`.
@@ -118,7 +119,7 @@ Bing incluye resultados en la respuesta en función de la clasificación. Por ej
 }
 ```
 
-Para limitar el número de resultados que Bing devuelve a los dos primeros resultados (páginas web e imágenes), establezca el parámetro de consulta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) en 2. 
+Para limitar el número de resultados que Bing devuelve a los dos primeros resultados (páginas web e imágenes), establezca el parámetro de consulta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) en 2.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -159,7 +160,7 @@ Si agrega el parámetro de consulta `responseFilter` a la consulta anterior y lo
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>Promoción de resultados no clasificados
 
-Si los principales resultados que Bing devuelve para una consulta son páginas web, imágenes, vídeos y búsquedas relacionadas, la respuesta incluirá dichos resultados. Si establece [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) en dos (2), Bing devuelve los dos primeros resultados clasificados: páginas web e imágenes. Si desea que Bing incluya imágenes y vídeos en la respuesta, especifique el parámetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) y establézcalo en images y videos. 
+Si los principales resultados que Bing devuelve para una consulta son páginas web, imágenes, vídeos y búsquedas relacionadas, la respuesta incluirá dichos resultados. Si establece [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) en dos (2), Bing devuelve los dos primeros resultados clasificados: páginas web e imágenes. Si desea que Bing incluya imágenes y vídeos en la respuesta, especifique el parámetro de consulta [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) y establézcalo en images y videos.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

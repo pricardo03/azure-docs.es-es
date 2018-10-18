@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173091"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540940"
 ---
 # <a name="wait-and-non-wait-actions"></a>Acciones de espera y acciones de no espera
 
@@ -54,14 +54,14 @@ Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 1. Haga clic en New Action (Acción nueva)
 2. En Response, escriba "Cows say moo" (La vaca hace mú).
 3. Desactive la casilla Wait for Response (Esperar respuesta).
-4. Click Create
+4. Haga clic en Crear.
 
 ### <a name="create-a-second-non-wait-action"></a>Creación de una segunda acción no espera
 
 1. Haga clic en New Action (Acción nueva)
 2. En respuesta, escriba "Ducks say quack" (El pato dice cuac).
 3. Desactive la casilla Wait for Response (Esperar respuesta).
-4. Click Create
+4. Haga clic en Crear.
 
 ![](../media/tutorial2_actions.PNG)
 

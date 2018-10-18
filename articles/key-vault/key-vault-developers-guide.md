@@ -5,16 +5,16 @@ services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42143158"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603998"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -53,11 +53,9 @@ Recursos mencionados en el vídeo anterior:
 
 ## <a name="creating-and-managing-key-vaults"></a>Creación y administración de almacenes de claves
 
-Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Para solucionar este problema, Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código. 
+Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Las identidades administradas par recursos de Azure facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código. 
 
-Para más información sobre MSI, consulte [Managed Service Identity (MSI) para recursos de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
-
-Para más información sobre cómo trabajar con AAD, consulte [Integración de aplicaciones con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+Para más información sobre las identidades administradas para recursos de Azure, consulte la [introducción a las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md). Para más información sobre cómo trabajar con AAD, consulte [Integración de aplicaciones con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Antes de trabajar con claves, secretos o certificados en el almacén de claves, podrá crear y administrar su almacén de claves a través de la CLI, PowerShell, plantillas de Resource Manager o REST, tal y como se describe en los siguientes artículos:
 
@@ -110,14 +108,14 @@ En Node.js, la API de administración y la API de objetos de Key Vault son indep
 ### <a name="quick-start-guides"></a>Guías de inicio rápido
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Introducción a Key Vault en Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Introducción a Key Vault en Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>Ejemplos de código
 
 Para obtener ejemplos completos de cómo usar Key Vault con las aplicaciones, vea:
 
-- [Ejemplos de código de Azure Key Vault](http://www.microsoft.com/download/details.aspx?id=45343) - Aplicación .NET de ejemplo *HelloKeyVault* y un ejemplo de servicio web de Azure. 
-- [Uso de Azure Key Vault desde una aplicación web](key-vault-use-from-web-application.md) - Tutorial de ayuda para aprender a usar Azure Key Vault desde una aplicación web en Azure. 
+- [Ejemplos de código de Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault). Ejemplos de código para Azure Key Vault. 
+- [Uso de Azure Key Vault desde una aplicación web](quick-create-net.md) - Tutorial de ayuda para aprender a usar Azure Key Vault desde una aplicación web en Azure. 
 
 ## <a name="how-tos"></a>Procedimientos
 
@@ -131,7 +129,7 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 - [Implementación de certificados en máquinas virtuales desde Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/): una aplicación de nube que se ejecute en una máquina virtual de Azure necesita un certificado. Sepa cómo añadirlo a la máquina virtual hoy mismo.
 - [Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro](key-vault-key-rotation-log-monitoring.md): este es un tutorial sobre la rotación y auditoría de claves con Azure Key Vault.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Implementación de certificado Azure Web App a través de Key Vault) proporciona instrucciones paso a paso para implementar certificados almacenados en Key Vault como parte de la oferta de [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
-- [Concesión de permisos para que muchas aplicaciones tengan acceso a almacén de claves](key-vault-group-permissions-for-apps.md) La directiva de control de acceso de Key Vault solo admite 16 entradas. Sin embargo, puede crear un grupo de seguridad de Azure Active Directory. Agregue todas las entidades de servicio asociadas a este grupo de seguridad y, luego, conceda acceso a este grupo de seguridad a Key Vault.
+- [Concesión de permisos para que muchas aplicaciones tengan acceso a almacén de claves](key-vault-group-permissions-for-apps.md) La directiva de control de acceso de Key Vault admite hasta 1024 entradas. Sin embargo, puede crear un grupo de seguridad de Azure Active Directory. Agregue todas las entidades de servicio asociadas a este grupo de seguridad y, luego, conceda acceso a este grupo de seguridad a Key Vault.
 - Para obtener más instrucciones específicas sobre las tareas de integración y el uso de los almacenes de claves con Azure, consulte los [ejemplos de plantillas de Azure Resource Manager de Ryan Jones para Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Uso de la eliminación temporal de Key Vault con la CLI](key-vault-soft-delete-cli.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.
 - [Uso de la eliminación temporal de Key Vault con PowerShell](key-vault-soft-delete-powershell.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.

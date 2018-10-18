@@ -1,6 +1,6 @@
 ---
-title: Directrices para la optimización del rendimiento de Hive en Azure Data Lake Store | Microsoft Docs
-description: Directrices para la optimización del rendimiento de Hive en Azure Data Lake Store
+title: Directrices para la optimización del rendimiento de Hive en Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Directrices para la optimización del rendimiento de Hive en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9d0ad0398dfc238d48060247cdb6f29b0f34a60
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198976"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123341"
 ---
-# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Guía para la optimización del rendimiento de Hive en HDInsight y Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Hive en HDInsight y Azure Data Lake Storage Gen1
 
-La configuración predeterminada se ha establecido para proporcionar un buen rendimiento en muchos casos de uso diferentes.  Para las consultas de uso intensivo de E/S, Hive se puede optimizar para obtener un mejor rendimiento con ADLS.  
+La configuración predeterminada se ha establecido para proporcionar un buen rendimiento en muchos casos de uso diferentes.  Para las consultas de uso intensivo de E/S, Hive se puede optimizar para obtener un mejor rendimiento con Azure Data Lake Storage Gen1.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
-* **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* **Cuenta de Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
 * **Ejecución de Hive en HDInsight**.  Para obtener información acerca de cómo ejecutar trabajos de Hive en HDInsight, consulte [Uso de Hive en HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Directrices para la optimización del rendimiento en ADLS**.  Para conocer los conceptos generales de rendimiento, consulte [Guía para la optimización del rendimiento de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
+* **Guía para la optimización del rendimiento en Data Lake Storage Gen1**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
 
 ## <a name="parameters"></a>Parámetros
 
-Estos son los parámetros de configuración más importantes que se deben ajustar para mejorar el rendimiento de ADLS:
+Estos son los parámetros de configuración más importantes que se deben ajustar para mejorar el rendimiento de Data Lake Storage Gen1:
 
 * **hive.tez.container.size**: la cantidad de memoria usada en cada tarea.
 
@@ -63,7 +63,7 @@ El número de tareas simultáneas en ejecución o con paralelismo estará enlaza
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-La clave para mejorar el rendimiento mediante ADLS es aumentar la simultaneidad tanto como sea posible.  Tez calcula automáticamente el número de tareas que se deben crear por lo que no es necesario establecerlo.   
+La clave para mejorar el rendimiento mediante Data Lake Storage Gen1 es aumentar la simultaneidad tanto como sea posible.  Tez calcula automáticamente el número de tareas que se deben crear por lo que no es necesario establecerlo.   
 
 ## <a name="example-calculation"></a>Cálculo de ejemplo
 
@@ -75,9 +75,9 @@ Supongamos que tiene un clúster D14 de 8 nodos.
 
 ## <a name="limitations"></a>Limitaciones
 
-**Limitación de ADLS** 
+**Límite de Data Lake Storage Gen1** 
 
-Si alcanza los límites de ancho de banda impuestos por ADLS, empezará a ver errores de tareas. Esto puede identificarse observando los errores de limitación en los registros de tarea.  Puede reducir el paralelismo mediante un aumento del tamaño del contenedor de Tez.  Si necesita una mayor simultaneidad para su trabajo, póngase en contacto con nosotros.
+Si se alcanzan los límites de ancho de banda proporcionados por Data Lake Storage Gen1, es posible que experimente errores en las tareas. Esto puede identificarse observando los errores de limitación en los registros de tarea.  Puede reducir el paralelismo mediante un aumento del tamaño del contenedor de Tez.  Si necesita una mayor simultaneidad para su trabajo, póngase en contacto con nosotros.
 
 Para comprobar si le están aplicando limitaciones, debe habilitar el registro de depuración en el lado del cliente. Así es cómo debe hacerlo:
 

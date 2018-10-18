@@ -1,5 +1,5 @@
 ---
-title: Copiar datos de Shopify mediante Azure Data Factory | Microsoft Docs
+title: Copiar datos de Shopify mediante Azure Data Factory (versión preliminar) | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde Shopify en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 21065950a886248dcf3cdbc795d0b77f74eaf808
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8d2550d6a1f99adaec7423997365412eb61ffbdf
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045191"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124702"
 ---
-# <a name="copy-data-from-shopify-using-azure-data-factory"></a>Copiar datos de Shopify con Azure Data Factory
+# <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar datos de Shopify mediante Azure Data Factory (versión preliminar)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Shopify. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -45,9 +45,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado Shopify:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Shopify**. | Sí |
-| host | Punto de conexión del servidor de Shopify (es decir, mystore.myshopify.com).  | Sí |
-| accessToken | Token de acceso de API que puede utilizarse para tener acceso a los datos del Shopify. El token no expira si está en modo sin conexión. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| Tipo | La propiedad type debe establecerse en: **Shopify**. | SÍ |
+| host | Punto de conexión del servidor de Shopify (es decir, mystore.myshopify.com).  | SÍ |
+| accessToken | Token de acceso de API que puede utilizarse para tener acceso a los datos del Shopify. El token no expira si está en modo sin conexión. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -101,8 +101,8 @@ Para copiar datos desde Shopify, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ShopifySource** | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ShopifySource** | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | SÍ |
 
 **Ejemplo:**
 

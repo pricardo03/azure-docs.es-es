@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097892"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419532"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Tutorial: Creación de una plantilla de Azure Resource Manager para la implementación de una cuenta de almacenamiento cifrada
 
@@ -112,9 +112,14 @@ Para usar la variable definida en la plantilla:
 El objetivo de este tutorial es definir una plantilla para crear una cuenta de almacenamiento cifrada.  La plantilla de ejemplo solo crea una cuenta de almacenamiento sin cifrar básica. Para buscar la configuración relacionada con el cifrado, puede usar la referencia de plantilla de la cuenta de Azure Storage.
 
 1. Vaya a [Plantillas de Azure](https://docs.microsoft.com/azure/templates/).
-2. En el índice de la izquierda, seleccione **Reference (Referencia)**->**Storage**->**Storage Accounts (Cuentas de Storage)**. También puede escribir **storage** en el campo **Filtrar por título**.  La página contiene el esquema para definir la información de una cuenta de Storage.
-3. Explore la información relacionada con el cifrado.  
-4. Dentro del elemento de propiedades de la definición de recursos de la cuenta de almacenamiento, agregue el siguiente json:
+2. En **Filtrar por título**, escriba **cuentas de almacenamiento**.
+3. Seleccione **Reference/Template reference/Storage/Storage Accounts** como se muestra en la siguiente captura de pantalla:
+
+    ![Cuenta de almacenamiento de referencia de plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Explore la información relacionada con el cifrado.  
+1. Dentro del elemento de propiedades de la definición de recursos de la cuenta de almacenamiento, agregue el siguiente json:
 
     ```json
     "encryption": {
@@ -151,7 +156,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a usar la referencia de plantilla para personalizar una plantilla existente. La plantilla usada en este tutorial solo contiene un recurso de Azure.  En el siguiente tutorial, va a desarrollar una plantilla con varios recursos. Algunos de los recursos tienen recursos dependientes.
+En este tutorial, aprendió a usar la referencia de plantilla para personalizar una plantilla existente. Para información sobre cómo crear varias instancias de cuenta de almacenamiento, consulte:
 
 > [!div class="nextstepaction"]
-> [Creación de varios recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Creación de varias instancias](./resource-manager-tutorial-create-multiple-instances.md)

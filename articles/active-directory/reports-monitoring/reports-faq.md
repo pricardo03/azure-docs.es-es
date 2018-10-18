@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143606"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294227"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Preguntas más frecuentes sobre informes de Azure Active Directory
 
@@ -169,3 +169,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 **P: El nombre de la directiva del informe de todos los inicios de sesión no coincide con el nombre de la directiva de acceso condicional. ¿Por qué?**
 
 **R:** El nombre de la directiva del informe de todos los inicios de sesión se basa en el nombre de la directiva de acceso condicional en el momento en que se inicia sesión. Puede ser incoherente con el nombre de la directiva de acceso condicional si actualizó el nombre de la directiva más tarde, es decir, después de iniciar sesión.
+
+**P: Mi inicio de sesión se ha bloqueado debido a una directiva de acceso condicional, pero en el informe de actividad de inicio de sesión se muestra que el inicio de sesión se realizó correctamente. ¿Por qué?**
+
+**R:** Actualmente, en el informe de inicio de sesión no se pueden mostrar resultados precisos para escenarios de Exchange ActiveSync cuando se aplica el acceso condicional. Puede haber casos en los que el resultado de inicio de sesión del informe muestra un inicio de sesión correcto, pero en realidad el inicio de sesión generó un error debido a una directiva de acceso condicional. 

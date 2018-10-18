@@ -1,6 +1,6 @@
 ---
-title: 'Autenticación de usuario final: API de REST con Data Lake Store en Azure Active Directory | Microsoft Docs'
-description: Obtenga información sobre cómo realizar la autenticación de usuario final con Data Lake Store en Azure Active Directory mediante la API de REST
+title: 'Autenticación del usuario final: API REST con Azure Data Lake Storage Gen1 mediante en Azure Active Directory | Microsoft Docs'
+description: Aprenda a lograr la autenticación del usuario final con Azure Data Lake Storage Gen1 mediante Azure Active Directory con API REST
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b339c989a21abff34b885a8cba219aba701ca79
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ea550c0959f5de13f013f135926251bf9f8b450f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624257"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124446"
 ---
-# <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Autenticación de usuario final con Data Lake Store mediante la API de REST
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticación del usuario final con Azure Data Lake Storage Gen1 mediante API REST
 > [!div class="op_single_selector"]
 > * [Uso de Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Uso del SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,20 +27,20 @@ ms.locfileid: "34624257"
 > 
 >  
 
-En este artículo, obtendrá información sobre cómo usar la API de REST para realizar la autenticación de usuario final con Azure Data Lake Store. Para la autenticación entre servicios con Data Lake Store mediante la API de REST, vea [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md) (Autenticación entre servicios con Data Lake Store mediante la API de REST).
+En este artículo, obtendrá información sobre cómo usar la API REST para realizar la autenticación del usuario final con Azure Data Lake Storage Gen1. Para la autenticación entre servicios con Data Lake Storage Gen1. mediante API REST, consulte [Service-to-service authentication with Data Lake Storage Gen1 using REST API](data-lake-store-service-to-service-authenticate-rest-api.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante API REST).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Cree una aplicación "nativa" de Azure Active Directory**. Debe completar los pasos descritos en [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Cree una aplicación "nativa" de Azure Active Directory**. Debe completar los pasos descritos en [Autenticación de usuario final con Data Lake Storage Gen1 mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](http://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Almacén de Data Lake.
+* **[cURL](http://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API REST en una cuenta de Data Lake Storage Gen1.
 
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
 La autenticación de usuario final es el enfoque recomendado si quiere que un usuario inicie sesión en la aplicación a través de Azure AD. La aplicación puede acceder a los recursos de Azure con el mismo nivel de acceso que el usuario que ha iniciado sesión. El usuario tiene que proporcionar sus credenciales periódicamente para que la aplicación conserve el acceso.
 
-El resultado del inicio de sesión por parte del usuario final es que la aplicación recibe un token de acceso y un token de actualización. El token de acceso se adjunta a cada solicitud hecha a Data Lake Store o Data Lake Analytics y es válido, de manera predeterminada, durante 1 hora. El token de actualización se puede usar para obtener un nuevo token de acceso y es válido, de manera predeterminada, hasta por dos semanas, si se usa de manera habitual. Puede usar dos enfoques distintos para el inicio de sesión del usuario final.
+El resultado del inicio de sesión por parte del usuario final es que la aplicación recibe un token de acceso y un token de actualización. El token de acceso se adjunta a cada solicitud hecha a Data Lake Storage Gen1 o Data Lake Analytics y es válido, de manera predeterminada, durante 1 hora. El token de actualización se puede usar para obtener un nuevo token de acceso y es válido, de manera predeterminada, hasta por dos semanas, si se usa de manera habitual. Puede usar dos enfoques distintos para el inicio de sesión del usuario final.
 
 En este escenario, la aplicación pide al usuario que inicie sesión y todas las operaciones se realizan en el contexto del usuario. Lleve a cabo los siguiente pasos:
 
@@ -71,7 +71,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
    > 
    > 
 
-3. La respuesta es un objeto JSON que contiene un token de acceso (por ejemplo, `"access_token": "<ACCESS_TOKEN>"`) y uno de actualización (por ejemplo, `"refresh_token": "<REFRESH_TOKEN>"`). La aplicación usa el token de acceso al acceder al Almacén de Azure Data Lake y el token de actualización para obtener otro token de acceso cuando expira un token de acceso.
+3. La respuesta es un objeto JSON que contiene un token de acceso (por ejemplo, `"access_token": "<ACCESS_TOKEN>"`) y uno de actualización (por ejemplo, `"refresh_token": "<REFRESH_TOKEN>"`). La aplicación usa el token de acceso al acceder a Azure Data Lake Storage Gen1 y el token de actualización para obtener otro token de acceso cuando expira un token de acceso previo.
    
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 
@@ -86,8 +86,8 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
 Para más información sobre la autenticación interactiva de usuarios, consulte el [flujo de concesión de un código de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha aprendido a usar la autenticación entre servicios con Azure Data Lake Store mediante la API de REST. Ahora puede consultar los siguientes artículos, que tratan acerca de cómo usar la API de REST con Azure Data Lake Store.
+En este artículo aprendió a usar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante la API REST. Ahora puede consultar los siguientes artículos, que tratan acerca de cómo usar la API REST con Azure Data Lake Storage Gen1.
 
-* [Operaciones de administración de cuentas en Data Lake Store mediante la API de REST](data-lake-store-get-started-rest-api.md)
-* [Operaciones de datos en Data Lake Store mediante la API de REST](data-lake-store-data-operations-rest-api.md)
+* [Account management operations on Data Lake Storage Gen1 using REST API](data-lake-store-get-started-rest-api.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante API REST)
+* [Data operations on Data Lake Storage Gen1 using REST API](data-lake-store-data-operations-rest-api.md) (Operaciones de datos en Data Lake Storage Gen1 mediante API REST)
 

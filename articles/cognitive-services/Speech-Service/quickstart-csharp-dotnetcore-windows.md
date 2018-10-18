@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 04cdfd487036e79eccbb4fb879902a12e077d104
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434779"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341657"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C# en .NET Core en Windows mediante el SDK de Voz
 
@@ -25,7 +25,7 @@ En este artículo, creará una aplicación de consola de C# para .NET Core en Wi
 > [!NOTE]
 > .NET Core es una plataforma de .NET multiplataforma de código abierto que implementa la especificación [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
 
-Necesita una clave de suscripción del servicio de Voz para completar este inicio rápido. Puede obtener una gratis. Para ver más detalles, consulte [Pruebe Speech Service gratis](get-started.md).
+Necesita una clave de suscripción del servicio de Voz para completar este inicio rápido. Puede obtener una gratis. Para más detalles, consulte [Prueba gratuita del servicio Voz](get-started.md).
 
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
@@ -46,7 +46,7 @@ Necesita una clave de suscripción del servicio de Voz para completar este inici
 
     ![Captura de pantalla del Explorador de soluciones, con la opción Administrar paquetes NuGet para la solución resaltada](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "Administrar paquetes NuGet para la solución resaltada")
 
-1. En la esquina superior derecha, en el campo **Origen del paquete**, elija **Nuget.org**. Busque el paquete `Microsoft.CognitiveServices.Speech` e instálelo en el proyecto **helloworld**.
+1. En la esquina superior derecha, en el campo **Origen del paquete**, seleccione **nuget.org**. Busque el paquete `Microsoft.CognitiveServices.Speech` e instálelo en el proyecto **helloworld**.
 
     ![Captura de pantalla del cuadro de diálogo de administrar paquetes para la solución](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Instalación de paquete de NuGet")
 
@@ -61,11 +61,11 @@ Después de instalar el paquete, aparecerá una confirmación en la consola del 
 
 1. Abra `Program.cs` y reemplace todo el código que contiene por lo siguiente.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 
-1. Además, reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Además, reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
 1. Guarde los cambios en el proyecto.
 
@@ -79,7 +79,7 @@ Después de instalar el paquete, aparecerá una confirmación en la consola del 
 
     ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Iniciar la aplicación en depuración")
 
-1. Aparece una ventana de consola que le pide decir algo. Diga una oración o frase en inglés. Lo que diga se transmitirá al servicio de Voz y se transcribe en texto, que aparece en la misma ventana.
+1. Aparece una ventana de consola que le pide decir algo. Diga una oración o frase en inglés. Lo que diga se transmitirá al servicio de Voz y se transcribirá en texto, que aparece en la misma ventana.
 
     ![Captura de pantalla de la salida de la consola después de un reconocimiento correcto](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Salida de la consola después de un reconocimiento correcto")
 

@@ -3,19 +3,19 @@ title: 'Guía de inicio rápido: Extracción de texto impreso (OCR) - REST, Java
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, extraerá texto impreso de una imagen mediante Computer Vision API con Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: a0b5967e8796f494e14dde3728c785191c2882d5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 83675a146d6d43ce5bc25b24809924d7be1331dd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632507"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339974"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Guía de inicio rápido: Extracción de texto impreso (OCR) mediante la API de REST y Java en Computer Vision
 

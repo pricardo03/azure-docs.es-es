@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391172"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319360"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
@@ -36,8 +36,10 @@ Si aún no tiene un servidor maestro de Jenkins, comience con la [plantilla de l
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service), versión 0.1
 
 Puede usar el complemento de Jenkins para implementar una aplicación web en cualquier lenguaje que sea compatible con Web Apps, como C#, PHP, Java y Node.js. En este tutorial, usamos una [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Para bifurcar el repositorio en su propia cuenta de GitHub, seleccione el botón **Bifurcar** de la esquina superior derecha de la interfaz de GitHub.  
+
 > [!NOTE]
 > Son necesarios Java JDK y Maven para compilar el proyecto de Java. Instale estos componentes en el servidor maestro de Jenkins o en el agente de la máquina virtual si usa el agente para la integración continua. Si va a implementar una aplicación de Java SE, también se necesita el archivo ZIP en el servidor de compilación.
+>
 
 Para instalar los componentes, inicie sesión en la instancia de Jenkins con SSH y ejecute los siguientes comandos:
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Para implementar en Web App for Containers, instale Docker en el servidor maestro de Jenkins o en el agente de VM que se usa para la compilación. Para obtener las instrucciones de instalación, consulte [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/) (Instalación de Docker en Ubuntu).
 
-##<a name="service-principal"></a> Adición de una entidad de servicio de Azure a las credenciales de Jenkins
+## <a name="service-principal"></a> Adición de una entidad de servicio de Azure a las credenciales de Jenkins
 
 Se necesita una entidad de servicio de Azure para implementar en Azure. 
 

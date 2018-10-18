@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cae7253a4bfcb4f83baf003a4d9d3c367d8f014
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 6c8dc240172451118fd75b042ba267740999882d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064478"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321774"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solución de problemas de Hybrid Runbook Worker
 
@@ -24,7 +24,7 @@ En este artículo se proporciona información sobre cómo solucionar problemas c
 
 Hybrid Runbook Worker depende de un agente para comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. En el caso de Windows, este agente es Microsoft Monitoring Agent. En el caso de Linux, es el Agente de OMS para Linux.
 
-###<a name="runbook-execution-fails"></a>Escenario: Error en la ejecución de un runbook
+### <a name="runbook-execution-fails"></a>Escenario: Error en la ejecución de un runbook
 
 #### <a name="issue"></a>Problema
 
@@ -62,7 +62,7 @@ Compruebe el registro de eventos **Microsoft SMA** para un evento correspondient
 
 Hybrid Runbook Worker de Linux depende del agente de OMS para Linux a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
 
-###<a name="oms-agent-not-running"></a>Escenario: El Agente de OMS para Linux no se está ejecutando
+### <a name="oms-agent-not-running"></a>Escenario: El Agente de OMS para Linux no se está ejecutando
 
 Si el agente de OMS para Linux no se está ejecutando, esto impide que Hybrid Runbook Worker de Linux se comunique con Azure Automation. Escriba el siguiente comando para comprobar si el agente se está ejecutando: `ps -ef | grep python`. Debería ver un resultado similar al siguiente, los procesos de Python con la cuenta de usuario **nxautomation**. Si no están habilitadas las soluciones Update Management o Azure Automation, no se ejecutará ninguno de los siguientes procesos.
 
@@ -82,7 +82,7 @@ En la siguiente lista, se muestran los procesos que se inician para un Hybrid Ru
 
 Si el agente de OMS para Linux no se está ejecutando, ejecute el siguiente comando para iniciar el servicio: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-###<a name="class-does-not-exist"></a>Escenario: La clase especificada no existe
+### <a name="class-does-not-exist"></a>Escenario: La clase especificada no existe
 
 Si ve el error **La clase especificada no existe...** en `/var/opt/microsoft/omsconfig/omsconfig.log`, el agente de OMS para Linux debe actualizarse. Ejecute el siguiente comando para volver a instalar el agente de OMS:
 
@@ -94,7 +94,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Hybrid Runbook Worker depende de Microsoft Monitoring Agent para comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
 
-###<a name="mma-not-running"></a>Escenario: No se está ejecutando Microsoft Monitoring Agent
+### <a name="mma-not-running"></a>Escenario: No se está ejecutando Microsoft Monitoring Agent
 
 #### <a name="issue"></a>Problema
 
@@ -108,7 +108,7 @@ El servicio de Windows Microsoft Monitoring Agent no se está ejecutando, lo que
 
 Compruebe el agente se está ejecutando escribiendo el comando siguiente en PowerShell: `Get-Service healthservice`. Si se detiene el servicio, escriba el siguiente comando de PowerShell para iniciar el servicio: `Start-Service healthservice`.
 
-###<a name="event-4502"></a>Evento 4502 del registro de Operations Manager
+### <a name="event-4502"></a>Evento 4502 del registro de Operations Manager
 
 #### <a name="issue"></a>Problema
 

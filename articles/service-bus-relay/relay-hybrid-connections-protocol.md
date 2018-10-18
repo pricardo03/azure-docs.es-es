@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 306a21add76261dce99c954a2ba373e4b5047a75
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 913e702cc72472e81937bfe3b0939695daadc011
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895429"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543543"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
 
@@ -144,10 +144,10 @@ El canal de control se abre al crearse una conexión de WebSocket en:
 
 Las opciones de los parámetros de cadena de consulta son las siguientes:
 
-| .        | Obligatorio | DESCRIPCIÓN
+| Parámetro        | Obligatorio | DESCRIPCIÓN
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Sí      | Con el rol de agente de escucha, el parámetro debe ser **sb-hc-action=listen**.
-| `{path}`         | Sí      | La ruta de acceso del espacio de nombres codificada con la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
+| `sb-hc-action`   | SÍ      | Con el rol de agente de escucha, el parámetro debe ser **sb-hc-action=listen**.
+| `{path}`         | SÍ      | La ruta de acceso del espacio de nombres codificada con la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
 | `sb-hc-token`    | Sí\*    | El agente de escucha debe proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **escucha**.
 | `sb-hc-id`       | Sin        | Este id. opcional especificado por el cliente permite realizar un seguimiento de diagnósticos completo.
 
@@ -204,10 +204,10 @@ Lo mismo sucede con el encabezado `Sec-WebSocket-Extensions`. Si el marco admite
 
 La URL debe utilizarse tal cual para establecer el socket de aceptación, pero debe contener los parámetros siguientes:
 
-| .      | Obligatorio | DESCRIPCIÓN
+| Parámetro      | Obligatorio | DESCRIPCIÓN
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Sí      | Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=accept`
-| `{path}`       | Sí      | (vea el párrafo siguiente)
+| `sb-hc-action` | SÍ      | Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=accept`
+| `{path}`       | SÍ      | (vea el párrafo siguiente)
 | `sb-hc-id`     | Sin        | Consulte la descripción anterior del **identificador**.
 
 `{path}` es la ruta de acceso del espacio de nombres con codificación URL de la conexión híbrida preconfigurada en la que se registra este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
@@ -243,8 +243,8 @@ Si hay un error, el servicio puede responder como se indica a continuación:
 
 | Parámetro                   | Obligatorio | DESCRIPCIÓN                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| sb-hc-statusCode        | Sí      | Código de estado HTTP numérico.                |
-| sb-hc-statusDescription | Sí      | Motivo del rechazo en lenguaje natural. |
+| sb-hc-statusCode        | SÍ      | Código de estado HTTP numérico.                |
+| sb-hc-statusDescription | SÍ      | Motivo del rechazo en lenguaje natural. |
 
 El URI resultante se utiliza luego para establecer una conexión WebSocket.
 
@@ -316,7 +316,7 @@ El contenido JSON de `request` es este:
 
 * **requestTarget**: cadena. Esta propiedad contiene el ["Destino de solicitud" (RFC7230, sección 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) de la solicitud. Esto incluye la parte de la cadena de consulta que se ha quitado de TODOS los parámetros con el prefijo `sb-hc-`.
 * **method**: cadena. Este es el método de la solicitud, según [RFC7231, sección 4](https://tools.ietf.org/html/rfc7231#section-4). El método `CONNECT` NO DEBE usarse.
-* **body**: booleano. Indica si le sigue uno o varios marcos de cuerpo binarios.
+* **body**: booleano. Indica si le siguen uno o varios marcos de cuerpo binarios.
 
 ``` JSON
 {
@@ -376,9 +376,9 @@ Las respuestas que superen los 64 kB se deben entregar mediante un socket de enc
 
 La URL `address` del objeto `request` debe usarse tal cual para establecer el socket de encuentro, pero es necesario que contenga los parámetros siguientes:
 
-| .      | Obligatorio | DESCRIPCIÓN
+| Parámetro      | Obligatorio | DESCRIPCIÓN
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Sí      | Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=request`
+| `sb-hc-action` | SÍ      | Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=request`
 
 Si hay un error, el servicio puede responder como se indica a continuación:
 
@@ -436,8 +436,8 @@ Estas son las opciones de los parámetros de cadena de consulta:
 
 | Parámetro          | ¿Necesario? | DESCRIPCIÓN
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | Sí       | En el caso del rol de remitente, el parámetro debe ser `sb-hc-action=connect`.
-| `{path}`       | Sí       | (vea el párrafo siguiente)
+| `sb-hc-action` | SÍ       | En el caso del rol de remitente, el parámetro debe ser `sb-hc-action=connect`.
+| `{path}`       | SÍ       | (vea el párrafo siguiente)
 | `sb-hc-token`  | Sí\*     | El agente de escucha necesita proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **envío**.
 | `sb-hc-id`     | Sin         | Un id. opcional que permite realizar el seguimiento de diagnóstico completo y que puede usarlo el agente de escucha durante el protocolo de enlace de aceptación.
 

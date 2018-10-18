@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188975"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465238"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>Ver quién tiene roles de recursos de Azure en PIM
 
@@ -38,11 +38,11 @@ Con Privileged Identity Management (PIM) de Azure Active Directory, puede admini
 
 ## <a name="view-activation-and-azure-resource-activity"></a>Visualización de la activación y la actividad de los recursos de Azure
 
-Si necesita ver las acciones que realizó un usuario específico en varios recursos, puede revisar la actividad de los recursos de Azure asociada a un período de activación específico (para usuarios aptos). Primero, seleccione el usuario de la vista Miembros o de la lista de miembros de un rol específico. Como resultado se muestra una gráfica de las acciones del usuario en los recursos de Azure por fecha y las activaciones de rol recientes durante ese período.
+Si necesita ver las acciones que realizó un usuario específico en varios recursos, puede revisar la actividad de los recursos de Azure asociada a un período de activación específico (para usuarios aptos). Primero, seleccione el usuario de la vista Miembros o de la lista de miembros de un rol específico. Como resultado, se muestra una gráfica de las acciones del usuario en los recursos de Azure por fecha y las activaciones de rol recientes durante ese período.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-Al seleccionar la activación de un rol específico se muestran los detalles de la activación del rol y la actividad de los recursos de Azure correspondiente al tiempo de actividad de ese usuario.
+Al seleccionar la activación de un rol específico, se muestran los detalles de la activación del rol y la actividad de los recursos de Azure correspondiente al tiempo de actividad de ese usuario.
 
 ![](media/azure-pim-resource-rbac/audits.png)
 

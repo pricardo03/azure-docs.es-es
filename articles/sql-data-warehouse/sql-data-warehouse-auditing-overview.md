@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288261"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318544"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Azure SQL Data Warehouse
 
@@ -112,7 +112,7 @@ Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferi
 
 ## <a id="subheading-3"></a>Análisis de registros e informes de auditoría
 
-###<a name="server-level-policy-audit-logs"></a>Registros de auditoría de la directiva de nivel de servidor
+### <a name="server-level-policy-audit-logs"></a>Registros de auditoría de la directiva de nivel de servidor
 Los registros de auditoría de nivel de servidor se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure. Se guardan como una colección de archivos de blob dentro de un contenedor llamado **sqldbauditlogs**.
 
 Para obtener más información sobre la jerarquía de la carpeta de almacenamiento, las convenciones de nomenclatura y el formato del registro, vea la [referencia del formato de registro de auditoría de blobs](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>Registros de auditoría de la directiva de nivel de base de datos
+### <a name="database-level-policy-audit-logs"></a>Registros de auditoría de la directiva de nivel de base de datos
 Los registros de auditoría de nivel de servidor se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver archivos de registro usando una herramienta como el [Explorador de Azure Storage](http://azurestorageexplorer.codeplex.com).
 
 Hay una plantilla de informe de panel preconfigurada disponible como [hoja de cálculo de Excel descargable](http://go.microsoft.com/fwlink/?LinkId=403540) para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede [descargar aquí](http://www.microsoft.com/download/details.aspx?id=39379).

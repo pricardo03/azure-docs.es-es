@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 74a81901c8ad38a84357a9f3c2e1d948aa81e8bc
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084338"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718240"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalación del Kit de desarrollo de Azure Stack (ASDK)
 Después de [preparar el equipo host del Kit de desarrollo de Azure Stack](asdk-prepare-host.md), este se puede implementar en la imagen de CloudBuilder.vhdx mediante los siguientes pasos de este artículo.
@@ -38,7 +38,7 @@ Los pasos de este artículo muestran cómo implementar ASDK mediante una interfa
     ![](media/asdk-install/1.PNG) 
 
 3. En el cuadro desplegable **Type** (Tipo) del proveedor de identidades, seleccione **Azure Cloud** o **AD FS**. En **Local Administrator Password** (Contraseña del administrador local), en el cuadro **Password** (Contraseña), escriba la contraseña del administrador local (que debe coincidir con la configurada en la actualidad) y haga clic en **Next** (Siguiente).
-    - **Azure Cloud**: permite configurar Azure Active Directory (Azure AD) como proveedor de identidades. Para usar esta opción, se necesitan una conexión a Internet, el nombre completo de un inquilino del directorio de Azure AD con la forma *nombreDeDominio*.onmicrosoft.com, o un nombre de dominio personalizado comprobado, y las credenciales de administrador global del directorio especificado. 
+    - **Azure Cloud**: permite configurar Azure Active Directory (Azure AD) como proveedor de identidades. Para usar esta opción, se necesitan una conexión a Internet, el nombre completo de un inquilino del directorio de Azure AD con la forma *nombreDeDominio*.onmicrosoft.com, o un nombre de dominio personalizado comprobado, y las credenciales de administrador global del directorio especificado. Después de al implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
     - **AD FS**: el servicio de directorio con la marca predeterminado se usa como proveedor de identidades. La cuenta predeterminada con la que se inicia sesión es azurestackadmin@azurestack.local y la contraseña que se usa es la que especificó en la configuración.
 
     ![](media/asdk-install/2.PNG) 

@@ -1,26 +1,19 @@
 ---
 title: Introducción a Microsoft Azure Data Box Edge | Microsoft Docs
 description: Describe Azure Data Box Edge, una solución de almacenamiento que usa un dispositivo físico para las transferencias basadas en red a Azure.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b64489912725872db971c19965ac58c84cb2fc2e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6422482a31ad8022b795cb357c37ad8560781767
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993534"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166600"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>¿Qué es Azure Data Box Edge (versión preliminar)? 
 
@@ -117,7 +110,7 @@ La solución Data Box Edge consta de un recurso Data Box Edge, un dispositivo f�
 El dispositivo físico Data Box Edge, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
 - **Disponibilidad del recurso**: para esta versión, el recurso Data Box Edge está disponible en las siguientes regiones:
-    - **Estados Unidos**: Oeste de EE. UU.2 y Este de EE. UU.
+    - **Estados Unidos**: Oeste de EE. UU. 2 y Este de EE. UU.
     - **Unión Europea**: Europa Occidental
     - **Asia Pacífico**: Sudeste de Asia
 

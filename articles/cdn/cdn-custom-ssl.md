@@ -3,8 +3,8 @@ title: 'Tutorial: Configuración de HTTPS en un dominio personalizado de Azure C
 description: En este tutorial, aprenderá a habilitar y deshabilitar HTTPS en su dominio personalizado de punto de conexión de Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342232"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092090"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Azure CDN
 
@@ -302,7 +302,7 @@ En la tabla siguiente se muestra el progreso de la operación que se produce cua
     
     Los certificados SAN siguen los mismos estándares de cifrado y seguridad que los certificados dedicados. Todos los certificados SSL emitidos usan SHA-256 para mejorar la seguridad del servidor.
 
-5. *¿Puedo usar HTTPS de dominio personalizado con la red CDN de Azure de Akamai?*
+5. *¿Puedo usar HTTPS de dominio personalizado con Azure CDN de Akamai?*
 
     Actualmente, esta característica no está disponible con los perfiles **Azure CDN Estándar de Akamai**. Microsoft está trabajando para proporcionar compatibilidad con esta característica en los próximos meses.
 

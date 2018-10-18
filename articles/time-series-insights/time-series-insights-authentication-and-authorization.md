@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: b8d298938d9b3ed0089eb52aed47c7086983a9ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: d219e6f020b02a46084f1862cf468227bcd8d74c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422939"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49317983"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -83,11 +83,11 @@ Estos son los pasos detallados:
     Si está usando C#, puede emplear el siguiente código para conseguir el token en nombre de la aplicación. Para obtener un ejemplo completo, vea [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md).
 
     ```csharp
+    // Enter your Active Directory tenant domain name
     var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
-
     var authenticationContext = new AuthenticationContext(
-    $"https://login.microsoftonline.com/{tenant}",
-    TokenCache.DefaultShared);
+        $"https://login.microsoftonline.com/{tenant}",
+        TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
         // Set the resource URI to the Azure Time Series Insights API

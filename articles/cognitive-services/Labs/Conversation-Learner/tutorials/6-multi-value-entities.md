@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173108"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321434"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Uso de entidades de varios valores con un modelo de Conversation Learner
 Este tutorial muestra la propiedad "Multi-Value" (Varios valores) de las entidades.
@@ -24,7 +24,7 @@ Este tutorial muestra la propiedad "Multi-Value" (Varios valores) de las entidad
 
 [![Vista previa del tutorial 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requisitos
 Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
@@ -58,13 +58,13 @@ En concreto, si una entidad está marcada como "Multi-Value" (Varios valores), c
 1. Haga clic en Actions (Acciones) y, a continuación, en New Action (Nueva acción).
 2. En respuesta, escriba "What toppings do you want" (¿Qué ingredientes quiere?).
 3. En Disqualifying Entities (Entidades descalificadas), escriba Toppings (Ingredientes).
-3. Click Create
+3. Haga clic en Crear.
 
 A continuación, cree la segunda acción.
 
 1. Haga clic en Actions (Acciones) y en New Action (Nueva acción) para crear una segunda acción.
 3. En Response (Respuesta), escriba "Here are your toppings: $Toppings" (Estos son sus ingredientes: $Toppings).
-4. Click Create
+4. Haga clic en Crear.
 
 Ahora tiene dos acciones.
 

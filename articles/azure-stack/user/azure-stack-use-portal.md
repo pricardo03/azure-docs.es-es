@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ca29ee359349f69c3d5ff21bd9db3f93358206a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724319"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713753"
 ---
 # <a name="use-the-azure-stack-portal"></a>Uso del portal de Azure Stack
 
@@ -37,7 +37,7 @@ El operador de Azure Stack (un proveedor de servicios o un administrador de su o
 
 ## <a name="customize-the-dashboard"></a>Personalización del panel
 
-El panel contiene un conjunto predeterminado de iconos. Puede seleccionar **Edit dashboard** (Editar panel) para modificar el panel predeterminado o **New dashboard** (Nuevo panel) para crear un panel personalizado. Puede personalizar fácilmente un panel agregando o quitando iconos. Por ejemplo, para agregar un icono de Compute, seleccione **New** (Nuevo). Haga clic con el botón derecho en **Compute** y, luego, seleccione **Pin to dashboard** (Anclar al panel).
+El panel contiene un conjunto predeterminado de iconos. Puede seleccionar **Edit dashboard** (Editar panel) para modificar el panel predeterminado o **New dashboard** (Nuevo panel) para crear un panel personalizado. Puede personalizar fácilmente un panel agregando o quitando iconos. Por ejemplo, para agregar un icono de Compute, seleccione **+ Crear un recurso**. Haga clic con el botón derecho en **Compute** y, luego, seleccione **Pin to dashboard** (Anclar al panel).
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Creación de una suscripción y examen de los recursos disponibles
 
@@ -45,7 +45,7 @@ Si todavía no tiene una suscripción, lo primero que debe hacer es suscribirse 
 
 - Seleccione el icono **Marketplace** del panel.
 - En el icono **Todos los recursos**, seleccione **Crear recursos**.
-- En el panel de navegación izquierdo, seleccione **Nuevo**.
+- En el panel de navegación izquierdo, seleccione **+ Crear un recurso**.
 
 ## <a name="learn-how-to-use-available-services"></a>Aprender a usar los servicios disponibles
 

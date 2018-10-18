@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: fcc3fd39f9ea4de64faa3a53af98ff9909dc32f3
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247960"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718311"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Procedimientos recomendados para utilizar la consultas elásticas en Azure SQL Database para acceder a los datos de Azure SQL Data Warehouse
 Aprenda los procedimientos recomendados para utilizar la consulta elástica para acceder a los datos de Azure SQL Data Warehouse desde Azure SQL Database. 
@@ -127,7 +127,7 @@ Use Azure SQL Database:
 
 P: ¿Puedo usar bases de datos en un grupo elástico con una consulta elástica?
 
-R: Sí. Las bases de datos SQL de un grupo elástico pueden usar consultas elásticas. 
+R: Sí. Las instancias de SQL Database de un grupo elástico pueden usar consultas elásticas. 
 
 P: ¿Existe un límite en cuanto al número de bases de datos que pueden utilizarse para la consulta elástica?
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003307"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580504"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 
@@ -115,7 +115,7 @@ En esta sección se proporcionan los pasos necesarios para probar el riesgo de u
 
 ### <a name="user-risk-security-policy"></a>Directiva de seguridad de riesgo del usuario
 
-Para obtener más información, consulte [Directiva de seguridad de riesgo del usuario](overview.md#user-risk-security-policy).
+Para más información, consulte [Procedimiento de configuración de la directiva de riesgo del usuario](howto-user-risk-policy.md).
 
 ![Guía de](./media/playbook/02.png "riesgo del usuario")
 
@@ -140,7 +140,7 @@ Para obtener más información, consulte [Directiva de seguridad de riesgo del u
 
 ### <a name="sign-in-risk-security-policy"></a>Directiva de seguridad de riesgo de inicio de sesión
 
-Para obtener más información, consulte [Directiva de seguridad de riesgo del usuario](overview.md#user-risk-security-policy).
+Para más información, consulte [Configuración de la directiva de riesgo de inicio de sesión](howto-sign-in-risk-policy.md).
 
 ![Guía de](./media/playbook/01.png "riesgo de inicio de sesión")
 

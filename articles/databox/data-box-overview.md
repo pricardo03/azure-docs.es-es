@@ -4,23 +4,17 @@ description: Describe Azure Data Box, una solución en la nube que permite trans
 services: databox
 documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 9c27efa133ab093c6aaae85d976d08cf16147233
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967513"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090813"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -34,12 +28,12 @@ Puede pedir el dispositivo Data Box en Azure Portal. Una vez recibido el disposi
 Data Box es ideal para transferir tamaños de datos con más de 40 TB en escenarios sin conectividad de red limitada. El movimiento de datos puede ser único, periódico o una transferencia de datos masiva inicial seguida de transferencias periódicas. Estos son los distintos escenarios donde se puede usar Data Box para la transferencia de datos.
 
  - **Migración única**: cuando se mueve gran cantidad de datos locales a Azure. 
-     - Traslado de una biblioteca multimedia de cintas sin conexión a Azure para crear una biblioteca multimedia en línea.
-     - Migración de la granja de máquinas virtuales, SQL server y aplicaciones a Azure.
+     - Traslade una biblioteca multimedia de cintas sin conexión a Azure para crear una biblioteca multimedia en línea.
+     - Migre la granja de máquinas virtuales, SQL Server y las aplicaciones a Azure.
      - Traslado de los datos históricos a Azure para un análisis exhaustivo y generación de informes con HDInsight.
 
  - **Transferencia masiva inicial**: cuando se realiza una transferencia masiva inicial con Data Box (inicialización) seguida de transferencias incrementales a través de la red. 
-     - Por ejemplo, los asociados de soluciones de copia de seguridad, como Commvault y Data Box, se usan para mover la copia de seguridad histórica de gran tamaño inicial a Azure. Una vez completado, los datos incrementales se transfieren a través de la red a Azure Storage.
+     - Por ejemplo, los asociados de soluciones de copia de seguridad, como Commvault y Data Box, se usan para mover la copia de seguridad histórica de gran tamaño inicial a Azure. Una vez completado el proceso, los datos incrementales se transfieren a través de la red a Azure Storage.
 
 - **Cargas periódicas**: cuando se genera periódicamente una gran cantidad de datos y es necesario moverlos a Azure. Por ejemplo, en la exploración de energía, donde el contenido de vídeo se genera en plataformas petrolíferas y parques eólicos.      
 
@@ -56,7 +50,7 @@ Data Box está pensado para mover grandes cantidades de datos a Azure sin que af
     - El servicio está protegido por las características de seguridad de Azure.
     - Cuando los datos se cargan en Azure, los discos se limpian en el dispositivo, según las normas NIST 800-88r1.
     
-    Para más información, vaya a [Azure Data Box security and data protection](data-box-security.md) (Protección de datos y seguridad de Azure Data Box).
+    Para obtener más información, vaya a [Azure Data Box security and data protection](data-box-security.md) (Protección de datos y seguridad de Azure Data Box).
 
 ## <a name="features-and-specifications"></a>Características y especificaciones
 

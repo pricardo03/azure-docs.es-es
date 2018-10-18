@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 09/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3635e8bf1d9ba4061da5b8f416a3b755f7064000
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bdbf0b74b6e851e0dd84ff5d9aafb84d878d8ea2
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045643"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542081"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,10 @@ Concretamente, este conector de Amazon S3 admite la copia de archivos tal cual, 
 Para copiar datos de Amazon S3, asegúrese de que se han concedido los siguientes permisos:
 
 - `s3:GetObject` y `s3:GetObjectVersion` para operaciones de objeto de Amazon S3.
-- `s3:ListBucket` o `s3:GetBucketLocation` para Amazon S3 Bucket Operations. Si usa el Asistente para copia de Data Factory, `s3:ListAllMyBuckets` también es necesario.
+- `s3:ListBucket` o `s3:GetBucketLocation` para Amazon S3 Bucket Operations. 
+
+>[!NOTE]
+>Al usar la GUI de Data Factory para la creación, también se requiere el permiso `s3:ListAllMyBuckets` para las operaciones como probar la conexión y examinar y navegar las rutas de acceso de archivos. Si no desea conceder este permiso, omita la conexión de prueba en la página de creación de servicios vinculados y especifique la ruta de acceso directamente en la configuración de conjunto de datos.
 
 Para más información sobre la lista completa de los permisos de Amazon S3, consulte [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva).
 
@@ -51,9 +54,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon S3:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AmazonS3**. | Sí |
-| accessKeyId | Id. de la clave de acceso secreta. |Sí |
-| secretAccessKey | La propia clave de acceso secreta. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| Tipo | La propiedad type debe establecerse en: **AmazonS3**. | SÍ |
+| accessKeyId | Id. de la clave de acceso secreta. |SÍ |
+| secretAccessKey | La propia clave de acceso secreta. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!NOTE]
@@ -90,8 +93,8 @@ Para copiar datos desde Amazon S3, establezca la propiedad type del conjunto de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AmazonS3Object**. |Sí |
-| bucketName | Nombre del depósito de S3. No se admiten filtros con caracteres comodín. |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AmazonS3Object**. |SÍ |
+| bucketName | Nombre del depósito de S3. No se admiten filtros con caracteres comodín. |SÍ |
 | key | El **filtro de nombre o de comodín** de la clave del objeto S3 del cubo especificado. Solo se aplica cuando no se especifica la propiedad "prefix". <br/><br/>Solo se admite el filtro de comodín para el elemento del nombre de archivo, pero no para el elemento de carpeta. Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Ejemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape. |Sin  |
 | prefix | Prefijo de la clave del objeto S3. Se seleccionan objetos cuyas claves comienzan por este prefijo. Solo se aplica cuando no se especifica la propiedad "key". |Sin  |
 | version | La versión del objeto S3 si está habilitado el control de versiones de S3. |Sin  |
@@ -168,7 +171,7 @@ Para copiar datos desde Amazon S3, establezca el tipo de origen de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |SÍ |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
 
 **Ejemplo:**

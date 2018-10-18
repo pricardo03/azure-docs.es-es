@@ -1,5 +1,5 @@
 ---
-title: Copiar datos de Jira con Azure Data Factory | Microsoft Docs
+title: Copiar datos de Jira con Azure Data Factory (versión preliminar) | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos de Jira en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 743c0322152b555137b2bc37641377c3cfb3d0b2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f0bd0a57aff9767c78be63fc918b8689f7b06514
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054626"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122712"
 ---
-# <a name="copy-data-from-jira-using-azure-data-factory"></a>Copiar datos de Jira con Azure Data Factory
+# <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiar datos de Jira con Azure Data Factory (versión preliminar)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Jira. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -45,11 +45,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Jira:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Jira** | Sí |
-| host | Dirección IP o nombre de host del servicio de Jira. (por ejemplo, jira.example.com)  | Sí |
+| Tipo | La propiedad type debe establecerse en: **Jira** | SÍ |
+| host | Dirección IP o nombre de host del servicio de Jira. (por ejemplo, jira.example.com)  | SÍ |
 | puerto | Puerto TCP que el servidor de Jira utiliza para escuchar las conexiones del cliente. El valor predeterminado es 443 si se conecta a través de HTTPS o 8080 si se conecta a través de HTTP.  | Sin  |
-| nombre de usuario | Nombre de usuario que utiliza para acceder al servicio de Jira.  | Sí |
-| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| nombre de usuario | Nombre de usuario que utiliza para acceder al servicio de Jira.  | SÍ |
+| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -105,8 +105,8 @@ Para copiar datos de Jira, establezca el tipo de origen de la actividad de copia
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **JiraSource** | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **JiraSource** | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | SÍ |
 
 **Ejemplo:**
 

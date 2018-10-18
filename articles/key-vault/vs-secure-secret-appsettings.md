@@ -11,15 +11,15 @@ ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 61cb9fadd60ba35f11e2f3ade94bc647fac9ed72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1635d0fa51fb56f30dc7cf5864e49000d30cc25d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235930"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719790"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
 
@@ -40,7 +40,7 @@ Si está realizando un prototipo rápido o no tiene acceso a Internet, comience 
 Si está ejecutando la aplicación de consola .NET Core, use Key Vault para guardar el secreto de forma segura.
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>Guardar la configuración del secreto en Azure Key Vault
-Si está desarrollando un proyecto de equipo y tiene que compartir código fuente de forma segura, utilice [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Si está desarrollando un proyecto y tiene que compartir código fuente de forma segura, utilice [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 1. Cree una instancia de Key Vault en la suscripción de Azure. Rellene todos los campos necesarios en la interfaz de usuario y haga clic en *Crear* en la parte inferior de la hoja.
 
@@ -106,14 +106,13 @@ Si está escribiendo un prototipo rápido y no quiere aprovisionar recursos de A
 2. Cree un archivo similar al siguiente. Guárdelo en una ubicación fuera de la carpeta del proyecto.
 
     ```xml
-
-       <root>
-              <secrets ver="1.0">
-                     <secret name="secret1" value="foo_one" />
-                        <secret name="secret2" value="foo_two" />
-                       </secrets>
-      </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. Defina el archivo del secreto para que sea un generador de configuración en el archivo Web.config. Coloque esta sección antes de la sección *appSettings*.
 

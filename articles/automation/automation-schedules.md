@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382202"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294771"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Azure Automation
 
@@ -50,7 +50,10 @@ Puede crear una programación para runbooks en Azure Portal o con Windows PowerS
 1. En Azure Portal, desde su cuenta de Automation, seleccione **programaciones** en la sección **Recursos compartidos** de la izquierda.
 1. Haga clic en **Agregar una programación** en la parte superior de la página.
 1. En el panel **Nueva programación**, escriba un valor en **Nombre** y, opcionalmente, en **Descripción**, para la nueva programación.
-1. Seleccione si la programación se ejecuta una vez o de forma periódica seleccionando **Una vez** o **Periodicidad**. Si selecciona **Una vez**, especifique una hora en **Hora de inicio** y haga clic en **Crear**. Si selecciona **Periodicidad**, especifique un valor en **Hora de inicio** y la frecuencia con que quiere que se repita el Runbook: cada **hora**, **día**, **semana** o **mes**. Si selecciona **semana** o **mes** en la lista desplegable, la opción **Periodicidad** aparece en el panel y, tras la selección, aparecerá el panel de la opción **Periodicidad**, donde se selecciona el día de la semana (si seleccionó **semana**). Si seleccionó **mes**, puede elegir **días de la semana** o días específicos del mes en el calendario y, por último, si desea ejecutarlo el último día del mes o no. Después, haga clic en **Aceptar**.
+1. Seleccione si la programación se ejecuta una vez o de forma periódica seleccionando **Una vez** o **Periódico**. Si selecciona **Una vez**, especifique una hora en **Hora de inicio** y haga clic en **Crear**. Si selecciona **Periódico**, especifique un valor en **Hora de inicio** y, en **Repetir cada**, seleccione la frecuencia con la que quiere que se repita el runbook: cada **hora**, **día**, **semana** o **mes**.
+    1. Si selecciona **semana**, se le proporcionará una lista de los días de la semana entre los que puede elegir. Seleccione tantos días como quiera. La primera ejecución de la programación se realizará en el primer día seleccionado después de la hora de inicio.
+    2. Si selecciona **mes**, se le proporcionarán opciones diferentes. Para la opción **Repetición mensual**, seleccione **Días del mes** o **Días de la semana**. Si elige **Días del mes**, se muestra un calendario que le permite elegir tantos días como quiera. Si elige una fecha como el día 31 que no existe en el mes actual, no se ejecutará la programación. Si quiere que la programación se ejecute en el último día, elija **Sí** en **Ejecutar en el último día del mes**. Si elige **Días de la semana**, se mostrará la opción **Repetir cada**. Elija **Primero**, **Segundo**, **Tercero**, **Cuarto** o **Último**. Por último, elija un día en el que realizar la repetición.
+1. Cuando termine, haga clic en **Crear**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Para crear una nueva programación con Windows PowerShell
 
@@ -73,9 +76,9 @@ Un runbook puede vincularse a varias programaciones y una programación puede te
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Para vincular una programación a un runbook con el Portal de Azure
 
 1. En Azure Portal, desde su cuenta de Automation, seleccione **Runbooks** en la sección **Automatización de procesos** de la izquierda.
-1. Haga clic en el nombre del runbook que se va a programar.
-1. Si el runbook no está vinculado actualmente a una programación, se le ofrecerá la opción de crear una o de vincularlo a una existente.
-1. Si el runbook tiene parámetros, puede seleccionar la opción **Modificar la configuración de ejecución (Predeterminada: Azure)**; aparece el panel **Parámetros**, donde puede especificar la información según corresponda.
+2. Haga clic en el nombre del runbook que se va a programar.
+3. Si el runbook no está vinculado actualmente a una programación, se le ofrecerá la opción de crear una o de vincularlo a una existente.
+4. Si el runbook tiene parámetros, puede seleccionar la opción **Modificar la configuración de ejecución (Predeterminada: Azure)**; aparece el panel **Parámetros**, donde puede especificar la información según corresponda.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Para vincular una programación a un runbook con Windows PowerShell
 

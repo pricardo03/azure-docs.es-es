@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d32fb6e1a85865d89a2f8ee1483eb8fd599b4bb6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050234"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408919"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL mediante Azure Portal
 
@@ -50,7 +50,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguient
     Inicio de sesión de administrador de servidor |*myadmin*| Su propia cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión del administrador no puede ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** ni **public**. No puede empezar por **pg_**.
     Contraseña |La contraseña| Una contraseña nueva para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: letras en mayúsculas del alfabeto inglés, letras en minúscula del alfabeto inglés, números (de cero a nueve) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Ubicación|Región más cercana a los usuarios| La ubicación más cercana a los usuarios.
-    Versión|La versión más reciente| La versión más reciente de PostgreSQL, a menos que tenga requisitos específicos.
+    Versión|La versión principal más reciente| La versión principal más reciente de PostgreSQL, a menos que tenga requisitos específicos.
     Plan de tarifa | **Uso general**, **Gen 4**, **2 núcleos virtuales**, **5 GB**, **7 días**, **Redundancia geográfica** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Plan de tarifa**. A continuación, seleccione la pestaña **Uso general**. *Gen 4*, *2 núcleos virtuales*, *5 GB* y *7 días* son los valores predeterminados de **Generación de procesos**, **Núcleos virtuales**, **Almacenamiento** y **Período de retención de copia de seguridad**. Puede dejar los controles deslizantes tal y como están. Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
 
     > [!IMPORTANT]
@@ -78,17 +78,10 @@ Azure Database for PostgreSQL crea un firewall en el nivel de servidor. Evita qu
 
 3. En **Reglas de firewall**, en la columna **Nombre de regla**, seleccione el cuadro de texto en blanco para empezar a crear la regla de firewall. 
 
-    Para esta guía de inicio rápido, permitamos todas las direcciones IP en el servidor. Rellene el cuadro de texto de cada columna con los valores siguientes:
+   Rellene los cuadros de texto con un nombre y el intervalo IP inicial y final de los clientes que accederán al servidor. Si se trata de una sola dirección IP, use el mismo valor para la dirección IP inicial y la dirección IP final.
 
-    Nombre de la regla | Dirección IP inicial | Dirección IP final 
-    ---|---|---
-    AllowAllIps (permitir todas las direcciones IP) | 0.0.0.0 | 255.255.255.255
-
-     ![Establecimiento de reglas de firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Establecimiento de reglas de firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > Para las instancias de producción solo se deben establecer las reglas de firewall para aceptar las solicitudes entrantes de direcciones IP conocidas.  Esta configuración es solo para los fines de este ejemplo.
-      >
 
 4. En la barra de herramientas superior de la página **Seguridad de la conexión**, seleccione **Guardar**. Antes de continuar espere hasta que aparezca la notificación que indica que la actualización de seguridad de la conexión ha finalizado correctamente.
 

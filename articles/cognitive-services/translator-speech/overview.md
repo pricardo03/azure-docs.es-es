@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948781"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341147"
 ---
 # <a name="what-is-translator-speech-api"></a>¿Qué es Translator Speech API?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Translator Speech API se puede utilizar para agregar conversión de voz en tiempo real a las aplicaciones, herramientas o cualquier solución que requiera conversión de voz en varios idiomas, independientemente del sistema operativo de destino o de los lenguajes de desarrollo. La API puede usarse tanto para traducción de voz a voz como de voz a texto.
 
 Translator Text API es un servicio de Azure que forma parte de [la colección de API Microsoft Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.

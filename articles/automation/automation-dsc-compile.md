@@ -4,17 +4,17 @@ description: En este artículo se describe cómo compilar configuraciones de con
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/08/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: fae415d158a9fced0c63078cd09c0cc070c88372
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443822"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630008"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
@@ -156,7 +156,7 @@ A continuación, puede llamar al **recurso compuesto** en su configuración de e
 ```powershell
 Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 {
-    JoinDomain DomainJoin
+    DomainConfig myCompositeConfig
     {
         DomainName = $DomainName
         Admincreds = $Admincreds
@@ -164,7 +164,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
     PSWAWebServer InstallPSWAWebServer
     {
-        DependsOn = '[JoinDomain]DomainJoin'
+        DependsOn = '[DomainConfig]myCompositeConfig'
     }
 }
 ```
@@ -235,7 +235,7 @@ Las referencias de recursos son las mismas en Azure Automation State Configurati
 
 ### <a name="credential-assets"></a>Recursos de credenciales
 
-Las configuraciones de DSC en Azure Automation pueden hacer referencia a los activos de credenciales de Automation mediante el uso de `Get-AzureRmAutomationCredential`. Si una configuración tiene un parámetro con el tipo **PSCredential**, puede usar el cmdlet `Get-AutomationRmAutomationCredential` pasando el nombre de cadena de un activo de credencial de Azure Automation al cmdlet para recuperar la credencial. Luego puede usar ese objeto para el parámetro que requiere el objeto **PSCredential**. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración. El ejemplo siguiente muestra esto en acción.
+Las configuraciones de DSC en Azure Automation pueden hacer referencia a los activos de credenciales de Automation mediante el uso del cmdlet `Get-AutomationPSCredential`. Si una configuración tiene un parámetro con el tipo **PSCredential**, puede usar el cmdlet `Get-AutomationPSCredential` pasando el nombre de cadena de un activo de credencial de Azure Automation al cmdlet para recuperar la credencial. Luego puede usar ese objeto para el parámetro que requiere el objeto **PSCredential**. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración. El ejemplo siguiente muestra esto en acción.
 
 Mantener las credenciales seguras en configuraciones de nodo (documentos de configuración MOF) exige el cifrado de las credenciales en el archivo MOF de configuración de nodo. Sin embargo, actualmente tiene que indicar a DSC de PowerShell que no importa que las credenciales tengan salida como texto sin formato durante la generación del MOF de configuración de nodo, porque PowerShell DSC desconoce que Azure Automation cifrará todo el archivo MOF después de su generación a través de un trabajo de compilación.
 

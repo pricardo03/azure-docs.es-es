@@ -2,19 +2,19 @@
 title: Introducción a la continuidad empresarial con Azure Database for PostgreSQL
 description: Introducción a la continuidad empresarial con Azure Database for PostgreSQL.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1b981b650d75556f4521aaf0f089443bb88d064a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29693123"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717070"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL
 
@@ -32,7 +32,7 @@ La tabla siguiente compara los valores de ERT y RPO para las características di
 | Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | ERT < 12 horas<br/>RPO < 1 hora | ERT < 12 horas<br/>RPO < 1 hora |
 
 > [!IMPORTANT]
-> Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
+> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperación de un servidor tras un error del usuario o la aplicación
 
@@ -49,9 +49,9 @@ Una opción consiste en esperar a que el servidor vuelva a estar en línea cuand
 La otra opción es usar la característica de replicación geográfica de Azure Database for PostgreSQL que permite restaurar el servidor mediante copias de seguridad con redundancia geográfica. Se puede acceder a estas copias de seguridad incluso cuando la región en la que se hospeda el servidor está sin conexión. Puede realizar la restauración a partir de estas copias de seguridad en cualquier otra región y volver a poner en línea el servidor.
 
 > [!IMPORTANT]
-> La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica.
+> La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica. Si desea cambiar de copias de seguridad con redundancia local a copias de seguridad con redundancia geográfica para un servidor existente, debe realizar un volcado mediante mysqldump del servidor existente y restaurarlo en un servidor recién creado, configurado con copias de seguridad con redundancia geográfica.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para más información acerca de las copias de seguridad automatizadas, consulte [Copia de seguridad en Azure Database for PostgreSQL](concepts-backup.md). 
 - Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).
 - Para restaurar a un momento dado mediante la CLI de Azure, consulte cómo  [restaurar una base de datos a un momento dado con la CLI](howto-restore-server-cli.md).

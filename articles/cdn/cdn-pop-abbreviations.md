@@ -1,10 +1,10 @@
 ---
-title: Ubicaciones POP de CDN de Azure por abreviatura | Microsoft Docs
+title: Ubicaciones POP de Azure CDN por abreviatura | Microsoft Docs
 description: En este artículo se enumeran las ubicaciones POP actuales, ordenadas por abreviatura POP, para Azure CDN de Verizon.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
-ms.author: mazha
-ms.openlocfilehash: 373095d1783a8e6e52d43e80377c01b448706fbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: magattus
+ms.openlocfilehash: cc866691aac884def72030345bb4dfcbe87ea689
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057111"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092276"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Ubicaciones POP para Azure CDN por abreviatura
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ BTH | Batam, Indonesia | Asia
 BUE | Buenos Aires, Argentina | América Latina
 BUR | Los Ángeles, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
 CDG | París, Francia | Europa
-CGH | São Paulo, Brasil | América Latina
+CGH | San Pablo, Brasil | América Latina
 CGK | Yakarta, Indonesia | Asia
 CHA | Chicago, Illinois, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 CHB | Chicago, Illinois, EE. UU. | Norteamérica: Costa Este de los EE. UU.
@@ -75,7 +75,7 @@ FRF | Fráncfort, Alemania | Europa
 FTW | Dallas, Texas, EE. UU. | Norteamérica: Costa Central de EE. UU.
 FTY | Atlanta, Georgia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 GIG | Río de Janeiro, Brasil | América Latina
-GRU | São Paulo, Brasil | América Latina
+GRU | San Pablo, Brasil | América Latina
 HEL | Helsinki, Finlandia | Europa
 HHP | Hong Kong | Asia
 HKC | Hong Kong | Asia

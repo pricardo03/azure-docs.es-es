@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b521c66581b4b77e5c49c963530b0c81f842f6f0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907505"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573848"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Traslado de una máquina virtual Linux a otra suscripción o grupo de recursos
-Este artículo le guiará en el procedimiento para mover una máquina virtual Linux entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
+Este artículo le guiará en el procedimiento para mover una máquina virtual (VM) Linux entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
 
 > [!IMPORTANT]
->No se puede mover discos administrados en este momento. 
+>No se puede mover Azure Managed Disks en este momento. 
 >
->Como parte de esta operación, se crean nuevos identificadores de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos identificadores de recursos. 
+>Como parte de esta operación, se crean nuevos identificadores de recurso. Después de haber movido la VM, debe actualizar sus herramientas y scripts para usar los nuevos id. de recursos. 
 > 
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Usar la CLI de Azure para mover una máquina virtual
 
 
-Antes de poder mover la máquina virtual mediante la CLI, debe asegurarse de que las suscripciones de origen y de destino existen en el mismo inquilino. Para comprobar que ambas suscripciones tienen el mismo identificador de inquilino, use [az account show](/cli/azure/account#az_account_show).
+Antes de poder mover la VM mediante la CLI de Azure, debe asegurarse de que las suscripciones de origen y de destino existen en el mismo inquilino. Para comprobar que ambas suscripciones tienen el mismo identificador de inquilino, use [az account show](/cli/azure/account#az_account_show).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -67,7 +67,7 @@ az resource move \
 
 Si quiere mover la máquina virtual y sus recursos a una suscripción diferente, agregue el parámetro **--destination-subscriptionId** para especificar la suscripción de destino.
 
-Se le pedirá que confirme que quiere mover el recurso especificado. Escriba **Y** para confirmar que quiere mover los recursos.
+Cuando se le pida que confirme que quiere mover los recursos especificados, escriba **Y** para confirmar.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

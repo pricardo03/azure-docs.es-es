@@ -8,15 +8,15 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172751"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432230"
 ---
 # <a name="app-service-documentation"></a>Documentación de App Service
-Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación de su elección sin tener que administrar la infraestructura, el lenguaje o el entorno de ejecución del marco web. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Visual Studio Team Services o cualquier repositorio Git. Aprenda a usar Azure App Service con nuestras guías de inicio rápido, tutoriales y ejemplos.
+Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación de su elección sin tener que administrar la infraestructura, el lenguaje o el entorno de ejecución del marco web. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Azure DevOps Services o cualquier repositorio Git. Aprenda a usar Azure App Service con nuestras guías de inicio rápido, tutoriales y ejemplos.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux y Docker
 [Web Apps](/app-service/app-service-web-overview) es la oferta principal de App Service para la creación y el hospedaje de aplicaciones web mediante entornos de Windows. Los programadores que prefieran un entorno de Linux pueden elegir [App Service para Linux](/app-service/containers/app-service-linux-intro). Los desarrolladores también pueden implementar imágenes de Docker directamente en App Service para Linux para implementar entornos de tiempo de ejecución o marcos personalizados.
@@ -40,7 +40,7 @@ Aprenda a implementar, administrar y supervisar aplicaciones web seguras en Azur
   - [.NET con Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js con MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java con MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python con PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
+  - [Python con PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Asignación de un dominio personalizado existente a una aplicación ](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Enlace de un certificado SSL existente a la aplicación](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

@@ -1,26 +1,25 @@
 ---
-title: Introducción al uso de un directorio de inquilino de Azure AD | Microsoft Docs
-description: Se explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory
+title: Administración de un inquilino de Azure Active Directory | Microsoft Docs
+description: Averigüe qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+custom: it-pro
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767533"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297935"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Administración del directorio de Azure AD
+# <a name="manage-your-azure-active-directory-tenant"></a>Administración del inquilino de Azure Active Directory
 
 ## <a name="what-is-an-azure-ad-tenant"></a>¿Qué es un inquilino de Azure AD?
 En Azure Active Directory (Azure AD), un inquilino es una instancia dedicada de un directorio de Azure AD que su organización recibe cuando se suscribe a un servicio en la nube de Microsoft, como Azure u Office 365. Cada directorio de Azure AD es distinto e independiente de otros directorios de Azure AD. Del mismo modo que un edificio de oficinas para empresas es un activo seguro dedicado específicamente a su organización, un directorio de Azure AD se ha diseñado también para ser un activo seguro para el uso exclusivo de su organización. La arquitectura de Azure AD aísla los datos del cliente y la información de identidad para que los usuarios y los administradores de un directorio de Azure AD no tengan acceso a los datos de otro directorio, ya sea de manera involuntaria o malintencionada.
@@ -43,7 +42,7 @@ Recomendamos que utilice la cuenta de administrador que usó para su primer serv
 
 Por ejemplo, si se registra para una suscripción de Microsoft Intune y, después, sincroniza su Active Directory local con su directorio de Azure AD, puede suscribirse a otro servicio de Microsoft como Office 365 y lograr fácilmente las mismas ventajas de integración de directorio que tenga con Microsoft Intune.
 
-Para más información acerca de cómo integrar su directorio local con Azure AD, consulte [Integración de directorios con Azure AD Connect](../connect/active-directory-aadconnect.md).
+Para más información acerca de cómo integrar su directorio local con Azure AD, consulte [Integración de directorios con Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Asociación de un directorio existente de Azure AD con una nueva suscripción de Azure
 Puede asociar una nueva suscripción de Azure con el mismo directorio que autentica el inicio de sesión para una suscripción de Office 365 o Microsoft Intune existente. Para más información sobre ese escenario, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../../billing/billing-subscription-transfer.md)

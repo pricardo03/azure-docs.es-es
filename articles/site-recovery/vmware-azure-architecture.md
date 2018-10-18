@@ -3,14 +3,14 @@ title: VMware para la replicación de la arquitectura en Azure con Azure Site Re
 description: Este artículo proporciona información general sobre los componentes y la arquitectura que se utilizan para replicar máquinas virtuales locales de VMware en Azure con Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 08/29/2018
+ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288148"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715761"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitectura de replicación de VMware a Azure
 
@@ -36,16 +36,23 @@ En la siguiente tabla y gráfico se proporciona una visión general de los compo
 
 ## <a name="replication-process"></a>Proceso de replicación
 
-1. Cuando habilita la replicación para una máquina virtual, esta comienza a replicarse de acuerdo con la directiva de replicación. 
+1. Al habilitar la replicación para una VM, comienza la replicación inicial en el almacenamiento de Azure mediante la directiva de replicación especificada. Tenga en cuenta lo siguiente:
+    - Para las VM de VMware, la replicación es de nivel de bloque, casi continua, mediante el agente del servicio de movilidad que se ejecuta en la VM.
+    - Se aplica la configuración de directivas de replicación:
+        - **Umbral de RPO**. Esta configuración no afecta a la replicación. Ayuda con la supervisión. Se genera un evento y, opcionalmente, se envía un correo electrónico, si el RPO actual supera el límite del umbral que especifique.
+        - **Retención de punto de recuperación**. Esta configuración especifica cuánto tiempo atrás quiere ir cuando se produce una interrupción. La retención máxima en almacenamiento premium es de 24 horas. En el almacenamiento estándar es de 72 horas. 
+        - **Instantáneas coherentes con la aplicación**. Las instantáneas coherentes con la aplicación pueden tomarse cada 1 a 12 horas, según las necesidades de su aplicación. Son instantáneas de blob de Azure estándar. El agente de movilidad que se ejecuta en una VM solicita una instantánea de VSS de acuerdo con esta configuración, y marca ese momento como punto coherente con la aplicación en el flujo de replicación.
+
 2. El tráfico se replica en los puntos de conexión públicos de Azure Storage a través de Internet. Como alternativa, puede usar Azure ExpressRoute con [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). No se admite la replicación del tráfico entre un sitio local y Azure a través de una red privada virtual (VPN) de sitio a sitio.
-3. Una copia inicial de los datos de la máquina virtual se replica en el almacenamiento de Azure.
-4. Una vez terminada la replicación inicial, comienza la de los cambios incrementales en Azure. Las marcas de revisión de una máquina se conservan en un archivo .hrl.
-5. Comunicación se realiza como se indica a continuación:
+3. Una vez terminada la replicación inicial, comienza la de los cambios incrementales en Azure. Los cambios marcados para una máquina se envían al servidor de procesos.
+4. Comunicación se realiza como se indica a continuación:
 
     - Las máquinas virtuales se comunican con el servidor de configuración local en el puerto HTTPS 443 entrante para la administración de la replicación.
     - El servidor de configuración organiza la replicación con Azure a través del puerto HTTPS 443 saliente.
     - Las máquinas virtuales envían datos de replicación al servidor de procesos (que se ejecuta en la máquina del servidor de configuración) en el puerto HTTPS 9443 entrante. Este puerto se puede modificar.
     - El servidor de procesos recibe datos de replicación, los optimiza y los cifra para enviarlos después a Azure Storage a través del puerto 443 de salida.
+
+
 
 
 **Proceso de replicación de VMware a Azure**
@@ -65,7 +72,7 @@ Una vez que la replicación está configurada y tras ejecutar una exploración d
     * **Servidor de procesos temporal de Azure**: para realizar una conmutación por recuperación desde Azure, debe configurar una máquina virtual de Azure para que actúe como servidor de procesos y controle la replicación desde Azure. Dicha máquina virtual se puede eliminar cuando finalice la conmutación por recuperación.
     * **Conexión VPN**: para realizar una conmutación por recuperación, necesita una conexión VPN (o ExpressRoute) entre la red de Azure y el sitio local.
     * **Servidor de destino maestro independiente**: de manera predeterminada, el servidor de destino maestro que se instaló con el servidor de configuración en la máquina virtual local de VMware controla la conmutación por recuperación. Si necesita realizar la conmutación por recuperación en grandes volúmenes de tráfico, debe configurar un servidor de destino maestro local diferente para este propósito.
-    * **Directiva de conmutación por recuperación**: para replicar de nuevo en el sitio local, necesita una directiva de conmutación por recuperación. Esta directiva se creó automáticamente junto con la directiva de replicación entre el entorno local y Azure.
+    * **Directiva de conmutación por recuperación**: para replicar de nuevo en el sitio local, necesita una directiva de conmutación por recuperación. Esta directiva se crea automáticamente cuando crea una directiva de replicación entre el entorno local y Azure.
 4. Una vez instalados los componentes, la conmutación por recuperación se produce en tres acciones:
 
     - Fase 1: Vuelva a proteger las máquinas virtuales de modo que realicen la replicación desde Azure de vuelta a las máquinas virtuales VMware locales.

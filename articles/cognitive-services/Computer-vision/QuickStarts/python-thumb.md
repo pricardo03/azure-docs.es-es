@@ -3,19 +3,19 @@ title: 'Guía de inicio rápido: Generación de una miniatura - REST, Python - C
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: c5809b3dd62d87e2a1f3bde762d17bef6d5732ae
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b98c78e0845d6390fee66dd6518acd7b8eb91f37
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632932"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342269"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y Python en Computer Vision
 

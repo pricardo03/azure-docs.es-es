@@ -1,6 +1,7 @@
 ---
-title: Preguntas más frecuentes sobre el servicio Speech to Text en Azure
-description: Estas son las respuestas a las preguntas más habituales sobre la conversión de voz en texto.
+title: Preguntas más frecuentes sobre el servicio de Text to Speech en Azure
+description: Obtenga respuestas a las preguntas más habituales sobre el servicio Text to Speech.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,48 +9,56 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 8d70c4a359c713d6c5f46423193e9c9e7e1f3baf
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 2068bcb796b660847d0ea9b1126e64a9003ca871
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282864"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576857"
 ---
-# <a name="text-to-speech-frequently-asked-questions"></a>Preguntas más frecuentes sobre Texto a voz
+# <a name="text-to-speech-frequently-asked-questions"></a>Preguntas más frecuentes sobre Text to Speech
 
-Si no encuentra respuestas a sus preguntas en estas preguntas más frecuentes, consulte otras opciones de soporte técnico [aquí](support.md).
+Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opciones de soporte técnico](support.md).
 
 ## <a name="general"></a>General
 
-**Pregunta**: ¿Cuál es la diferencia entre los modelos de voz estándar y los modelos de voz personalizados?
+**P: ¿Cuál es la diferencia entre un modelo de voz estándar y un modelo de voz personalizado?**
 
-**Respuesta**: Los modelos de voz estándar (también conocidos como fuentes de voz) se han entrenado con datos propiedad de Microsoft y ya están implementados en la nube. Los modelos de voz personalizados permiten que el usuario adapte un modelo promedio y transfiera la forma de expresión y el timbre de acuerdo con el estilo de voz del orador, o bien o entrene un modelo completo nuevo en función de los datos de entrenamiento que preparó el usuario. Actualmente son cada vez más los clientes que quieren una voz única y distintiva para sus bots. La plataforma de compilación de voz personalizada es la opción correcta para eso.
+**R**: El modelo de voz estándar (también denominado una *fuente de voz*) se ha entrenado con datos de Microsoft y ya está implementado en la nube. Puede usar un modelo de voz personalizado para adaptar un modelo promedio y transferir la expresión y el timbre de acuerdo con el estilo de voz del orador, o bien entrenar un nuevo modelo completo en función de los datos de entrenamiento que preparó el usuario. Actualmente son cada vez más los clientes que quieren una voz única y distintiva para sus bots. La plataforma de compilación de voz personalizada es la opción correcta para eso.
 
-**Pregunta**: ¿Dónde empiezo si quiero usar un modelo de voz estándar?
+**P**: ¿Dónde empiezo si quiero usar un modelo de voz estándar?
 
-**Respuesta**: Hay más de 80 modelos de voz estándar en más de 45 idiomas disponibles a través de solicitudes HTTP. En primer lugar, es necesario obtener una [clave de suscripción](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Para realizar llamadas CALL a los modelos de voz implementados previamente, consulte [los detalles aquí](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**R**: Hay más de 80 modelos de voz estándar en más de 45 idiomas disponibles a través de solicitudes HTTP. Primero, obtenga una [clave suscripción](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Para realizar llamadas REST a los modelos de voz ya implementados, consulte la [API de REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**Pregunta**: Si quiero usar un modelo de voz personalizado, ¿es la misma API que para las voces estándar?
+**P**: Si quiero usar un modelo de voz personalizado, ¿es la misma API que la usada para las voces estándar?
 
-**Respuesta**: Cuando se crea e implementa el modelo de voz personalizado, recibirá un punto de conexión único para el modelo. Deberá especificar el punto de conexión en las solicitudes HTTP con el fin de usar la voz para hablar en las aplicaciones. La misma funcionalidad disponible a través de la API de REST para el servicio Texto a voz también está disponible para el punto de conexión personalizado. Vea cómo [crear y usar el punto de conexión personalizado](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**R**: Cuando se crea e implementa un modelo de voz personalizado, obtiene un punto de conexión único para el modelo. Para usar la voz para hablar en las aplicaciones, deberá especificar el punto de conexión en las solicitudes HTTP. La misma funcionalidad que está disponible a través de la API de REST para el servicio Text to Speech está disponible para el punto de conexión personalizado. Aprenda a [crear y usar el punto de conexión personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**Pregunta**: ¿Es necesario preparar los datos de entrenamiento para crear modelos de voz personalizados por mi cuenta?
+**P: ¿Es necesario preparar los datos de entrenamiento para crear modelos de voz personalizados por mi cuenta?**
 
-**Respuesta**: Deberá preparar los datos de entrenamiento por su cuenta. Se requiere una colección de datos de voz para crear un modelo de voz personalizado. Esta colección se compone de un conjunto de archivos de audio de las grabaciones de voz y un archivo de texto de la transcripción de cada uno de los archivos de audio. El resultado de su voz digital se basa principalmente en la calidad de los datos de entrenamiento. Para generar una buena voz para Texto a voz, es importante que las grabaciones se realicen en una sala silenciosa con un micrófono de pedestal de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar e incluso la coherencia en las particularidades expresivas del habla son esenciales para compilar una gran voz digital. Se recomienda grabar las voces en un estudio de grabación.
-Por el momento, no proporcionamos compatibilidad con la grabación en línea ni tenemos ninguna recomendación sobre estudios de grabación. Si quiere conocer el requisito de formato, consulte [cómo preparar las grabaciones y transcripciones](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
- 
-**Pregunta**: ¿Qué guiones debo usar para grabar los datos de voz para el entrenamiento de voz personalizado? 
+**R**: Sí, debe preparar los datos de entrenamiento por sí mismo para un modelo de voz personalizado.
 
-**Respuesta**: No ponemos límite a los guiones para las grabaciones de voz. Puede usar sus propios guiones para grabar el discurso. Solo debe asegurarse de tener la cobertura fonética suficiente en los datos de voz. Para entrenar una voz personalizada, puede empezar con un volumen pequeño de datos de voz, que podrían ser 50 frases distintas (unos 3 a 5 minutos de habla). Cuantos más datos proporcione, más natural será su voz. Para empezar a entrenar una fuente de voz completa, puede proporcionar grabaciones de más de 2000 frases (unas 3 a 4 horas de habla). Para obtener una voz completa de alta calidad, deberá preparar grabaciones de más de 6000 frases (unas 8 a 10 horas de habla).  
+Se requiere una colección de datos de voz para crear un modelo de voz personalizado. Esta colección se compone de un conjunto de archivos de audio de las grabaciones de voz y un archivo de texto de la transcripción de cada uno de los archivos de audio. El resultado de su voz digital se basa principalmente en la calidad de los datos de entrenamiento. Para generar una buena voz de texto a voz, es importante que las grabaciones se realicen en una sala silenciosa con un micrófono de pedestal de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar e incluso la coherencia en las particularidades expresivas del habla son esenciales para compilar una gran voz digital. Se recomienda encarecidamente grabar las voces en un estudio de grabación.
+
+Actualmente, no proporcionamos compatibilidad con la grabación en línea ni tenemos ninguna recomendación sobre estudios de grabación. Si quiere conocer el requisito de formato, consulte [cómo preparar las grabaciones y transcripciones](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+
+**P: ¿Qué guiones debo usar para grabar los datos de voz para el entrenamiento de voz personalizado?**
+
+**R**: No ponemos límite a los guiones para las grabaciones de voz. Puede usar sus propios guiones para grabar el discurso. Solo debe asegurarse de tener la cobertura fonética suficiente en los datos de voz. Para entrenar una voz personalizada, puede empezar con un volumen pequeño de datos de voz, que podrían ser 50 frases distintas (unos 3 a 5 minutos de habla). Cuantos más datos proporcione, más natural será su voz. Para empezar a entrenar una fuente de voz completa, puede proporcionar grabaciones de más de 2000 frases (unas 3 a 4 horas de habla). Para obtener una voz completa de alta calidad, deberá preparar grabaciones de más de 6000 frases (unas 8 a 10 horas de habla).
+
 Proporcionamos servicios adicionales para ayudarlo a preparar guiones para la grabación. Póngase en contacto con la [asistencia al cliente de Voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) en caso de consultas.
 
-**Pregunta**: ¿Qué pasa si necesito más simultaneidad que el valor predeterminado o la que se ofrece en el portal?
+**P: ¿Qué pasa si necesito más simultaneidad que el valor predeterminado o la que se ofrece en el portal?**
 
-**Respuesta**: Se puede ampliar el modelo en incrementos de 20 solicitudes simultáneas. Póngase en contacto con la [asistencia al cliente de Voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) en caso de consultas sobre un mayor escalamiento.
+**R**: Se puede escalar verticalmente el modelo en incrementos de 20 solicitudes simultáneas. Póngase en contacto con la [asistencia al cliente de Voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) en caso de consultas sobre un mayor escalamiento.
 
-**Pregunta**: ¿Puedo descargar mi modelo y ejecutarlo localmente?
+**P: ¿Puedo descargar mi modelo y ejecutarlo localmente?**
 
-**Respuesta**: Los modelos no se pueden descargar y ejecutar localmente.
+**R**: Los modelos no se pueden descargar y ejecutar localmente.
+
+**P: ¿Están limitadas mis solicitudes?**
+
+**R**: La API de REST limita las solicitudes a 25 cada 5 segundos. Encontrará los detalles en nuestras páginas para [Text to Speech](text-to-speech.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 496ffdcb5cc2e7b208a53dc8c1d8ba4c0818945f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838357"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719977"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -65,7 +65,7 @@ Si tiene git instalado en su equipo, puede usar pip para instalar directamente d
 ## <a name="datasetAccess"></a>Utilizar fragmentos de código del Estudio para tener acceso a los conjuntos de datos
 La biblioteca de cliente de Python proporciona acceso mediante programación a los conjuntos de datos existentes de los experimentos que se han ejecutado.
 
-Desde la interfaz de web del Estudio, puede generar fragmentos de código que incluyen toda la información necesaria para descargar y deserializar los conjuntos de datos como objetos Pandas DataFrame en el equipo de la ubicación.
+Desde la interfaz de web del Estudio, puede generar fragmentos de código que incluyen toda la información necesaria para descargar y deserializar los conjuntos de datos como objetos pandas DataFrame en el equipo de la ubicación.
 
 ### <a name="security"></a>Seguridad de acceso a datos
 Los fragmentos de código proporcionados por el Estudio para su uso con la biblioteca de cliente de Python incluyen el identificador de área de trabajo y el token de autorización. Estos proporcionan acceso completo a su área de trabajo y se deben proteger, como una contraseña.
@@ -197,7 +197,7 @@ Los demás son valores asignados por el Aprendizaje automático de Azure:
 Vea la clase `SourceDataset` para obtener más información sobre los metadatos disponibles.
 
 ### <a name="read-contents"></a>Leer contenido
-Los fragmentos de código que proporciona Machine Learning Studio descargan y deserializan automáticamente el conjunto de datos a un objeto Pandas DataFrame. Esto se hace en el método `to_dataframe` :
+Los fragmentos de código que proporciona Machine Learning Studio descargan y deserializan automáticamente el conjunto de datos a un objeto pandas DataFrame. Esto se hace en el método `to_dataframe` :
 
     frame = ds.to_dataframe()
 
@@ -220,7 +220,7 @@ También puede abrir una secuencia para el contenido:
 ### <a name="create-a-new-dataset"></a>Crear un conjunto de datos nuevo
 La biblioteca cliente de Python permite cargar conjuntos de datos desde el programa de Python. Estos conjuntos de datos estarán disponibles para utilizarse en el área de trabajo.
 
-Si tiene sus datos en un Pandas DataFrame, utilice el siguiente código:
+Si tiene sus datos en un pandas DataFrame, utilice el siguiente código:
 
     from azureml import DataTypeIds
 
@@ -242,7 +242,7 @@ Si sus datos ya están serializados, puede utilizar:
         description='my description'
     )
 
-La biblioteca cliente de Python puede serializar una trama de datos de Pandas en los siguientes formatos (sus constantes se encuentran en la clase `azureml.DataTypeIds` ):
+La biblioteca cliente de Python puede serializar un pandas DataFrame en los siguientes formatos (sus constantes se encuentran en la clase `azureml.DataTypeIds` ):
 
 * PlainText
 * GenericCSV

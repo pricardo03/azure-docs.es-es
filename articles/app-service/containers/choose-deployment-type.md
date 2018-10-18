@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: 012f78fc07f237e8ed532246c81a3c86bb6ab4ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764349"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319445"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>¿Imagen personalizada, varios contenedores o imagen de plataforma integrada?
 
@@ -30,7 +30,7 @@ ms.locfileid: "33764349"
 - **Implementación de varios contenedores**: incluye la aplicación en varios contenedores Docker utilizando un archivo de configuración de Kubernetes o Docker Compose. Para más información, consulte la sección sobre [aplicaciones de varios contenedores](#multi-container-apps-supportability).
 - **Implementación de aplicaciones con una imagen de plataforma integrada**: nuestras imágenes de plataforma integrada contienen entornos en tiempo de ejecución y dependencias de aplicaciones web comunes, como Node y PHP. Use cualquiera de los [métodos de implementación de Azure App Service](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implementar la aplicación en el almacenamiento de la aplicación web y, luego, use una imagen de plataforma integrada para ejecutarla.
 
-##<a name="which-method-is-right-for-your-app"></a>¿Qué método es adecuado para su aplicación? 
+## <a name="which-method-is-right-for-your-app"></a>¿Qué método es adecuado para su aplicación? 
 
 Los factores principales a tener en cuenta son:
 

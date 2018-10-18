@@ -1,26 +1,18 @@
 ---
 title: Introducción a Microsoft Azure Data Box Gateway | Microsoft Docs
 description: Describe Azure Data Box Gateway, una solución de almacenamiento de aplicaciones virtuales que permite transferir datos en Azure
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 9c12674a66582ede04b4cf9d311238d61816afec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969553"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165324"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>¿Qué es Azure Data Box Gateway (versión preliminar)? 
 
@@ -29,7 +21,7 @@ Azure Data Box Gateway es una solución de almacenamiento que permite enviar fá
 Data Box Gateway es un dispositivo virtual basado en una máquina virtual aprovisionada en un entorno virtualizado o hipervisor. El dispositivo virtual reside en su entorno local y se pueden escribir datos en él mediante los protocolos SMB y NFS. El dispositivo, a continuación, transfiere los datos a blob en bloques de Azure, blob en páginas o Azure Files. 
 
 > [!IMPORTANT]
-> Data Box Gateway está en la versión preliminar. Revise los [términos de uso para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solución.
+> Data Box Gateway está en versión preliminar. Revise los [términos de uso para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solución.
 
 ## <a name="use-cases"></a>Casos de uso
 

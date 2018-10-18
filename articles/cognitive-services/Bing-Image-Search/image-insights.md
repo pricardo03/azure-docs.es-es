@@ -1,32 +1,32 @@
 ---
-title: Obtener conclusiones de imágenes | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Muestra cómo usar Bing Image Search API para obtener más información sobre una imagen.
+title: 'Obtener conclusiones acerca de una imagen: Bing Image Search API'
+titleSuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo usar Bing Image Search API para obtener más información acerca de una imagen.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 0BCD936E-D4C0-472D-AE40-F4B2AB6912D5
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f651d9f773f475e633aed698e134aa6a7c07393b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280c646a3265ff7ab9a3d32412a2be2e3989e22e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382151"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297476"
 ---
-# <a name="get-insights-about-an-image"></a>Obtener conclusiones acerca de una imagen
+# <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtener conclusiones acerca de una imagen con Bing Image Search API
 
 > [!IMPORTANT]
 > En lugar de usar el punto de conexión /images/details para obtener conclusiones de imágenes, use [Visual Search](../bing-visual-search/overview.md), ya que proporciona conclusiones más completas.
 
 
 Cada imagen incluye un token de conclusión que puede usar para obtener información acerca de la imagen. Por ejemplo, puede obtener una colección de imágenes relacionadas, páginas web que incluyen la imagen o una lista de los comercios donde puede adquirir el producto que se muestra en la imagen.  
-  
-Para obtener conclusiones sobre una imagen, capture el token [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken) en la respuesta. 
+
+Para obtener conclusiones sobre una imagen, capture el token [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken) en la respuesta.
 
 ```json
 "value" : [{
@@ -55,12 +55,12 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com
-``` 
+```
 
 ## <a name="getting-insights-of-a-known-image"></a>Obtener conclusiones de una imagen conocida
 
 Si tiene la dirección URL de una imagen para la que quiere obtener conclusiones, use el parámetro de consulta [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl) en lugar del parámetro [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) para especificar la imagen. O bien, si tiene el archivo de imagen, puede enviar el archivo binario de la imagen en el cuerpo de una solicitud POST. Si usa una solicitud POST, el encabezado `Content-Type` debe establecerse en `multipart/data-form`. Con cualquiera de estas opciones, el tamaño de la imagen no puede superar 1 MB.  
-  
+
 Si tiene una dirección URL a la imagen, en el ejemplo siguiente se muestra cómo solicitar conclusiones de una imagen.
 
 ```
@@ -71,12 +71,12 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com
-``` 
-  
+```
+
 ## <a name="getting-all-image-insights"></a>Obtener todas las conclusiones de una imagen  
 
 Para solicitar todas las conclusiones de una imagen, defina el parámetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) como `All`. Para obtener búsquedas relacionadas, la solicitud debe incluir la cadena de consulta del usuario. En este ejemplo se muestra cómo usar [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) para especificar la imagen.  
-  
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&insightsToken=mid_68364D764J...&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -88,7 +88,7 @@ Host: api.cognitive.microsoft.com
 ```
 
 El objeto de nivel superior es un objeto [ImageInsightsResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse), en lugar de un objeto [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images).  
-  
+
 ```json
 {
     "_type" : "ImageInsights",
@@ -178,9 +178,9 @@ La característica de reconocimiento de entidades identifica las entidades de un
 
 > [!NOTE]
 > Este módulo no se puede especificar con ningún otro módulo. Si especifica este módulo con otros módulos, la respuesta no incluye entidades reconocidas.  
-  
+
 A continuación se indica cómo especificar la imagen mediante el parámetro [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl). Recuerde codificar como dirección URL los parámetros de consulta.  
-  
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=faith+hill&insightsToken=mid_68364D764J...&modules=RecognizedEntities&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -190,9 +190,9 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com
 ```  
-  
+
 A continuación se muestra la respuesta a la solicitud anterior. Dado que la imagen contiene dos personas, la respuesta identifica una región para cada persona. En este caso, las personas se reconocieron en los grupos CelebrityAnnotations y CelebRecognitionAnnotations. Bing enumera las personas de cada grupo en función de la probabilidad de que coincidan con la persona de la imagen original. La lista está en orden descendente de confianza. El grupo CelebRecognitionAnnotations proporciona el mayor nivel de confianza en que la coincidencia es correcta.  
-  
+
 ```json
 {
     "_type" : "ImageInsights",
@@ -211,18 +211,18 @@ A continuación se muestra la respuesta a la solicitud anterior. Dado que la ima
     }
 }
 ```
-  
+
 El campo `region` identifica el área de la imagen donde Bing reconoció la entidad. Para las personas, la región representa su cara.  
-  
+
 Los valores del rectángulo están relacionadas con el ancho y alto de la imagen original, y se encuentran dentro de un intervalo entre 0.0 y 1.0. Por ejemplo, si la imagen es de 300 x 200 y la esquina superior izquierda está en el punto (10, 20) y la esquina inferior derecha, en el punto (290, 150), el rectángulo normalizado es:  
-  
+
 -   Left: 10 / 300 = 0.03333...  
 -   Top:  20 / 200 = 0.1  
 -   Right: 290 / 300 = 0.9667...  
 -   Bottom: 150 / 200 = 0.75  
-  
+
 Puede usar la región que devuelve Bing en las llamadas subsiguientes a la conclusión. Por ejemplo, para obtener imágenes visualmente similares de la entidad reconocida. Para obtener más información, consulte [Recortar imágenes para usarlas con imágenes visualmente similares o módulos de reconocimiento de entidades](#croppingimages). A continuación se muestra la asignación entre los campos de región y los parámetros de consulta que usaría para recortar las imágenes.  
-  
+
 -   La izquierda se asigna a [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   La parte superior se asigna a [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  
 -   La derecha se asigna a [car](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
@@ -231,9 +231,9 @@ Puede usar la región que devuelve Bing en las llamadas subsiguientes a la concl
 ## <a name="finding-visually-similar-images"></a>Buscar imágenes visualmente similares  
 
 Para buscar imágenes visualmente similares a la imagen original, defina el parámetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) como SimilarImages.  
-  
+
 La solicitud siguiente muestra cómo obtener imágenes visualmente similares. La solicitud usa el parámetro de consulta [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) para identificar la imagen original. Para mejorar la relevancia, debe incluir la cadena de consulta del usuario.  
-  
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?insightsToken=mid_68364D764J...&modules=SimilarImages&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -244,9 +244,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-  
+
 A continuación se muestra la respuesta a la solicitud anterior.  
-  
+
 ```json
 {
     "_type" : "ImageInsights",
@@ -262,15 +262,15 @@ A continuación se muestra la respuesta a la solicitud anterior.
         ]
     }
 ```
-  
+
 ## <a name="cropping-images-to-use-with-visually-similar-and-entity-recognition-modules"></a>Recortar imágenes para usarlas con imágenes visualmente similares o módulos de reconocimiento de entidades  
 
 Para especificar la región de la imagen que Bing usa para determinar si las imágenes son visualmente similares o para realizar el reconocimiento de entidades, use los parámetros de consulta [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal), [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat), [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)y [car](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car). De forma predeterminada, Bing usa toda la imagen.  
-  
+
 Los parámetros especifican la esquina superior izquierda y la esquina inferior derecha de la región que usa Bing para la comparación. Especifique los valores como fracciones de ancho y alto de la imagen original. Los valores fraccionarios comienzan con (0.0, 0.0) en la esquina superior izquierda y acaban con (1.0, 1.0) en la esquina inferior derecha. Por ejemplo, para especificar que la esquina superior izquierda empieza a un cuarto de la distancia vertical desde la parte superior y a un cuarto de la distancia horizontal desde el lateral izquierdo, defina `cal` como 0.25 y `cat` como 0.25.  
-  
+
 La siguiente secuencia de llamadas muestra el efecto de especificar la región de recorte. La primera llamada no incluye ningún recorte y Bing reconoce dos personas juntas en el centro de la imagen.  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=RecognizedEntities&imgurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0cbee6fadb43f35b2344e53da7a23ec1o0%26pid%3DApi&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -282,8 +282,8 @@ Host: api.cognitive.microsoft.com
 ```  
 
 La respuesta muestra dos entidades reconocidas.  
-  
-```json 
+
+```json
 {  
     "_type" : "ImageInsights",  
     "recognizedEntityGroups" : {
@@ -327,9 +327,9 @@ La respuesta muestra dos entidades reconocidas.
     }  
 }  
 ```  
-  
+
 La segunda llamada recorta la imagen verticalmente por la mitad y Bing reconoce a una sola persona en el lado derecho de la imagen.  
-  
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?cal=0.5&cat=0.0&car=1.0&cab=1.0&modules=RecognizedEntities&imgurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0cbee6fadb43f35b2344e53da7a23ec1o0%26pid%3DApi&mkt=en-us HTTP/1.1    
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -341,7 +341,7 @@ Host: api.cognitive.microsoft.com
 ```
 
 La respuesta muestra una entidad reconocida.  
-  
+
 ```json  
 {  
     "_type" : "ImageInsights",  
@@ -371,13 +371,13 @@ La respuesta muestra una entidad reconocida.
     }
 }  
 ```  
-  
+
 ## <a name="finding-visually-similar-products"></a>Buscar productos visualmente similares  
 
 Para buscar imágenes que contengan productos visualmente similares a los productos que aparecen en la imagen original, defina el parámetro de consulta [modueles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) como SimilarProducts.  
-  
+
 La solicitud siguiente muestra cómo obtener imágenes de productos visualmente similares. La solicitud utiliza el parámetro de consulta [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) para identificar la imagen original que se devolvió en una solicitud anterior. Para mejorar la relevancia, debe incluir la cadena de consulta del usuario.  
-  
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=anne+klein+dresses&modules=SimilarProducts&insightsToken=ccid_WOeyfoSp*mid_4B0A357&mkt=en-us HTTP/1.1    
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -387,9 +387,9 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com
 ```
-  
+
 A continuación se muestra la respuesta a la solicitud anterior. La respuesta contiene una imagen de un producto similar e indica cuántos comerciantes ofrecen el producto en línea, si existen clasificaciones de producto y el precio más bajo encontrado (consulte el campo `aggregateOffer`).  
-  
+
 ```json
 {
     "_type" : "ImageInsights",
@@ -407,9 +407,9 @@ A continuación se muestra la respuesta a la solicitud anterior. La respuesta co
     }
 }
 ```
-  
+
 Para obtener una lista de los comerciantes que ofrecen el producto en línea (vea el campo [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount)), llame a la API de nuevo y defina `modules` como ShoppingSources. A continuación, defina el parámetro de consulta `insightsToken` con el token encontrado en la imagen de resumen de producto.  
-  
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -421,7 +421,7 @@ Host: api.cognitive.microsoft.com
 ```
 
 A continuación se muestra la respuesta a la solicitud anterior.  
-  
+
 ```json  
 {  
     "_type" : "ImageInsights",  

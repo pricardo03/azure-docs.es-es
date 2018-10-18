@@ -13,20 +13,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849964"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716033"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Implementación del Kit de desarrollo de Azure Stack desde la línea de comandos
 El Kit de desarrollo de Azure Stack es un entorno de desarrollo y pruebas que se puede implementar para evaluar y probar las características y servicios de Azure Stack. Para ponerlo en ejecución, debe preparar el hardware del entorno y ejecutar algunos scripts (esta operación tardará varias horas). Una vez finalizado, puede iniciar sesión en los portales del administrador y de usuarios para comenzar a usar Azure Stack.
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 Prepare el equipo host del kit de desarrollo. Planee el hardware, software y red. El equipo que hospeda el kit de desarrollo (el host del kit de desarrollo) debe cumplir requisitos de hardware, software y red. También debe elegir entre el uso de Azure Active Directory (Azure AD) o de Servicios de federación de Active Directory (AD FS). Asegúrese de cumplir estos requisitos previos antes de comenzar la implementación para que el proceso de instalación se ejecute sin problemas. 
 
 Antes de implementar el Kit de desarrollo de Azure Stack, asegúrese de que las configuraciones de hardware, sistema operativo, cuenta y red del equipo host del kit de desarrollo planeado cumplen los requisitos mínimos para su instalación.
@@ -92,6 +92,8 @@ Ejecute los siguientes comandos de PowerShell para implementar el kit de desarro
 
 Unos minutos después de empezar la instalación de ASDK se le pedirán las credenciales de Azure AD. Debe proporcionar credenciales de administrador global para el inquilino de Azure AD. 
 
+Después de al implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
+
 ### <a name="deploy-azure-stack-using-ad-fs"></a>Implementación de Azure Stack con AD FS 
 Para implementar el kit de desarrollo **mediante AD FS como proveedor de identidades**, ejecute los siguientes comandos de PowerShell (solo necesita agregar el parámetro -UseADFS): 
 
@@ -135,7 +137,7 @@ Si su entorno no tiene DHCP habilitado, debe incluir los siguientes parámetros 
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parámetros opcionales InstallAzureStackPOC.ps1 de ASDK
-|.|Obligatorio/opcional|DESCRIPCIÓN|
+|Parámetro|Obligatorio/opcional|DESCRIPCIÓN|
 |-----|-----|-----|
 |AdminPassword|Obligatorio|Establece la cuenta de administrador local y el resto de cuentas de usuario en todas las máquinas virtuales que se crean como parte de la implementación del kit de desarrollo. Esta contraseña debe coincidir con la contraseña de administrador local actual del host.|
 |InfraAzureDirectoryTenantName|Obligatorio|Establece el directorio del inquilino. Utilice este parámetro para especificar un directorio concreto en el que la cuenta de AAD tenga permisos para administrar varios directorios. Nombre completo de un inquilino de Azure Active Directory con el formato .onmicrosoft.com, o bien un nombre de dominio personalizado de Azure AD.|

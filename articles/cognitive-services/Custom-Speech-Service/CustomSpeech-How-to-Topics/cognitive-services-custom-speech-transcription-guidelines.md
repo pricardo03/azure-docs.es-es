@@ -1,24 +1,25 @@
 ---
-title: 'Directrices para la transcripción: Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: Aprenda a preparar los datos para Custom Speech Service.
+title: Directrices para la transcripción en Custom Speech Service en Azure | Microsoft Docs
+description: Aprenda a preparar los datos para Custom Speech Service en Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: a5daca2dbb3fc792850264bca7d8b0c59e7c8faa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220625"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342473"
 ---
 # <a name="transcription-guidelines"></a>Directrices de transcripción
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Para garantizar el mejor uso de los datos de texto para la personalización de los modelos acústico y de lenguaje, deben seguirse las siguientes directrices de transcripción. Estas directrices son específicas del idioma.
 
 ## <a name="text-normalization"></a>Normalización de texto

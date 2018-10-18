@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036295"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319853"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell (clásico)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager: Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Clásico: PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 Este artículo le ayuda a eliminar una puerta de enlace de VPN en el modelo de implementación clásica mediante PowerShell. Una vez que elimina la puerta de enlace de red virtual, modifique el archivo de configuración de red para quitar los elementos que ya no usa.
 
-##<a name="connect"></a>Paso 1: Conexión con Azure
+## <a name="connect"></a>Paso 1: Conexión con Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale los cmdlets más recientes de PowerShell.
 
@@ -101,7 +101,7 @@ Ejemplo:
  </Gateway>
 ```
 
-###<a name="lns"></a>Sitios de red local
+### <a name="lns"></a>Sitios de red local
 
 Quite los sitios locales que ya no usa. Según la configuración que haya creado, es posible que no aparezca el elemento **LocalNetworkSite** en la lista.
 

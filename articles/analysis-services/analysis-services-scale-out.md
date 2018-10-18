@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840996"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121948"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -27,9 +27,11 @@ Con la escalabilidad horizontal, puede crear un grupo de consultas con hasta sie
 
 Independientemente del número de réplicas de consultas que tenga en un grupo de consultas, las cargas de trabajo de procesamiento no se distribuyen entre las réplicas de consulta. Un único servidor actúa como el servidor de procesamiento. Las réplicas de consulta realizan solo las consultas en los modelos sincronizados entre cada réplica de consulta en el grupo de consultas. 
 
-Durante el escalado horizontal, se agregan nuevas réplicas de consulta al grupo de consultas de manera incremental. Los nuevos recursos de réplica de consulta pueden tardar hasta cinco minutos en incluirse en el grupo de consultas; listos para recibir las consultas y las conexiones de cliente. Cuando todas las nuevas réplicas de consulta estén en funcionamiento, se equilibrará la carga de las nuevas conexiones de cliente en todos los recursos del grupo de consultas. Las conexiones de cliente existentes no cambian del recurso al que están conectadas actualmente.  En la reducción horizontal, se terminan las conexiones de cliente existentes a un recurso de grupo de consultas que se va a quitar del grupo de consultas. Se volverán a conectar a un recurso de grupo de consultas restante cuando se haya completado la operación de reducción horizontal.
+Durante el escalado horizontal, se agregan nuevas réplicas de consulta al grupo de consultas de manera incremental. Los nuevos recursos de réplica de consulta pueden tardar hasta cinco minutos en incluirse en el grupo de consultas. Cuando todas las nuevas réplicas de consulta estén en funcionamiento, se equilibrará la carga de las nuevas conexiones de cliente en todos los recursos del grupo de consultas. Las conexiones de cliente existentes no cambian del recurso al que están conectadas actualmente.  En la reducción horizontal, se terminan las conexiones de cliente existentes a un recurso de grupo de consultas que se va a quitar del grupo de consultas. Se volverán a conectar a un recurso de grupo de consultas restante cuando se haya completado la operación de reducción horizontal, lo que puede llevar unos cinco minutos.
 
 Al procesar los modelos, una vez completadas las operaciones de procesamiento, debe realizarse una sincronización entre el servidor de procesamiento y las réplicas de consultas. Para automatizar las operaciones de procesamiento, es importante configurar una operación de sincronización tras la realización satisfactoria de tales operaciones. La sincronización puede realizarse manualmente en el portal o mediante la API de REST o PowerShell. 
+
+### <a name="separate-processing-from-query-pool"></a>Separar el procesamiento del grupo de consultas
 
 Para obtener un rendimiento máximo para las operaciones de procesamiento y consulta, puede elegir separar el servidor de procesamiento del grupo de consultas. Cuando están separados, las conexiones de cliente nuevas y existentes se asignan a réplicas de consultas en el grupo de consultas únicamente. Si las operaciones de procesamiento solo ocupan un breve período de tiempo, puede elegir separar el servidor de procesamiento del grupo de consultas solo durante el tiempo que se tarda en realizar las operaciones de procesamiento y sincronización y, a continuación, volver a incluirlo en el grupo de consultas. 
 
@@ -53,14 +55,13 @@ El número de réplicas de consultas que puede configurar está limitado por la 
 
 1. En Azure Portal, haga clic en **Escalabilidad horizontal**. Utilice el control deslizante para seleccionar el número de servidores de réplica de consulta. El número de réplicas elegido se suma al servidor existente.
 
-2. En **Separar el servidor de procesamiento del grupo de consultas**, seleccione Sí para excluir el servidor de procesamiento de los servidores de consulta.
+2. En **Separar el servidor de procesamiento del grupo de consultas**, seleccione Sí para excluir el servidor de procesamiento de los servidores de consulta. Las conexiones de cliente mediante la cadena de conexión predeterminada (sin: rw) se redirigen a las réplicas en el grupo de consulta. 
 
    ![Control deslizante de escalabilidad horizontal](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. Haga clic en **Guardar** para aprovisionar los nuevos servidores de réplica de consulta. 
 
 Los modelos tabulares del servidor principal se sincronizan con los servidores de réplica. Una vez completada la sincronización, el grupo de consultas empieza a distribuir las consultas entrantes entre los servidores de réplica. 
-
 
 ## <a name="synchronization"></a>Sincronización 
 
@@ -88,8 +89,6 @@ Para establecer el número de réplicas de la consulta, use [Set-AzureRmAnalysis
 
 Para ejecutar la sincronización, use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-
-
 ## <a name="connections"></a>Conexiones
 
 En la página de información general del servidor, hay dos nombres de servidor. Si aún no ha configurado la escalabilidad horizontal de un servidor, los dos nombres de servidor funcionan igual. Una vez configurada la escalabilidad horizontal de un servidor, debe especificar el nombre de servidor adecuado según el tipo de conexión. 
@@ -99,6 +98,12 @@ Para las conexiones de cliente para el usuario final como Power BI Desktop, Exce
 Para SSMS, SSDT y cadenas de conexión en PowerShell, las aplicaciones de Azure Functions y AMO usan el **nombre del servidor de administración**. El nombre del servidor de administración incluye un calificador especial `:rw` (lectura y escritura). Todas las operaciones de procesamiento se producen en el servidor de administración.
 
 ![Nombres de servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+**Problema:** los usuarios ven la instancia de error **No se puede encontrar el servidor "\<Nombre del servidor >" en el modo de conexión "ReadOnly".**
+
+**Solución:** al seleccionar la opción **Separar el servidor de procesamiento del grupo de consultas**, las conexiones del cliente que usan la cadena de conexión predeterminada (sin: rw) se redirigen a las réplicas del grupo de consultas. Si las réplicas en el grupo de consultas no están en línea porque la sincronización aún no se ha completado, es posible que se produzca un error en las conexiones de cliente redirigidas. Para evitar errores en las conexiones, no separe el servidor de procesamiento del grupo de consultas hasta que se completen las operaciones de escalabilidad horizontal y de sincronización. Puede usar las métricas de memoria y QPU para supervisar el estado de sincronización.
 
 ## <a name="related-information"></a>Información relacionada
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922753"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574410"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility Service en Azure para la replicación de Azure
 
@@ -33,7 +33,7 @@ Una vez que permite que Site Recovery administre las actualizaciones, se impleme
 > [!NOTE]
 > La facturación de trabajos usados por cuenta de Automation se basa en el número de minutos de tiempo de ejecución de trabajo que se usan al mes y, de forma predeterminada, se incluyen 500 minutos como unidades gratuitas para una cuenta de Automation. La ejecución del trabajo oscila diariamente de **unos segundos a aproximadamente un minuto** y se **cubrirá en los créditos gratuitos**.
 
-UNIDADES GRATUITAS INCLUIDAS (AL MES)**   PRECIO Tiempo de ejecución de trabajo    500 minutos 0,14/minuto
+UNIDADES GRATUITAS INCLUIDAS (AL MES)**   PRECIO Tiempo de ejecución de trabajo    500 minutos ₹0,14/minuto
 
 ## <a name="enable-automatic-updates"></a>Habilitar las actualizaciones automáticas
 
@@ -79,8 +79,8 @@ En caso de que el botón de reparación no esté disponible, consulte el mensaje
 
  - **Error**: la cuenta de ejecución no tiene permiso para obtener acceso al recurso de Recovery Services.
 
-    **Acción recomendada**: elimine y [vuelva a crear la cuenta de ejecución](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) o asegúrese de que la aplicación Azure Active Directory de la cuenta de ejecución de Automation obtenga acceso al recurso de Recovery Services.
+    **Acción recomendada**: elimine y [vuelva a crear la cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account) o asegúrese de que la aplicación Azure Active Directory de la cuenta de ejecución de Automation obtenga acceso al recurso de Recovery Services.
 
 - **Error**: no se encuentra la cuenta de ejecución. Es posible que la huella digital del certificado y la conexión no sea idéntica, o que alguno de los elementos siguientes se haya eliminado o no se haya creado: la aplicación Azure Active Directory, la entidad de servicio, el rol, el recurso de certificado de Automation o el recurso de conexión de Automation. 
 
-    **Acción recomendada**: elimine y [vuelva a crear la cuenta de ejecución](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Acción recomendada**: elimine y [vuelva a crear la cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

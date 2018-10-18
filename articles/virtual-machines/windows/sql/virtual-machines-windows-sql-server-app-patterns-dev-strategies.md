@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 6bfb3092d6b4776499f957183613c951174b1a50
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754324"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722136"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Estrategias de desarrollo y patrones de aplicación de SQL Server en Azure Virtual Machines
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -58,7 +58,7 @@ Este artículo describe varios patrones de aplicación que pueden ser apropiados
 * Necesite compatibilidad total con SQL Server local y desee mover las aplicaciones existentes a Azure tal cual.
 * Desee aprovechar las funcionalidades del entorno de Azure, pero Azure SQL Database no admite todas las características que requiere la aplicación. Esto puede incluir las siguientes áreas:
   
-  * **Tamaño de base de datos**: en el momento en que se actualizó este artículo, SQL Database admite bases de datos de hasta 1 TB de datos. Si la aplicación requiere más de 1 TB de datos y no desea implementar soluciones de particionamiento personalizadas, se recomienda usar SQL Server en una máquina virtual de Azure. Para ver la información más reciente, consulte [Scaling Out Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn495641.aspx) (Escalado horizontales de bases de datos de Azure SQL Database), este artículo sobre el [modelo de compra basado en DTU](../../../sql-database/sql-database-service-tiers-dtu.md) y este artículo sobre el [modelo de compra basado en núcleos virtuales](../../../sql-database/sql-database-service-tiers-vcore.md) (versión preliminar).
+  * **Tamaño de base de datos**: en el momento en que se actualizó este artículo, SQL Database admite bases de datos de hasta 1 TB de datos. Si la aplicación requiere más de 1 TB de datos y no desea implementar soluciones de particionamiento personalizadas, se recomienda usar SQL Server en una máquina virtual de Azure. Para ver la información más reciente, consulte [Scaling Out Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx) (Escalado horizontal de bases de datos de Azure SQL Database), este artículo sobre el [modelo de compra basado en DTU](../../../sql-database/sql-database-service-tiers-dtu.md) y este artículo sobre el [modelo de compra basado en núcleos virtuales](../../../sql-database/sql-database-service-tiers-vcore.md) (versión preliminar).
   * **Cumplimiento de normas HIPAA**: Los clientes de atención de la salud y fabricantes de software independientes (ISV) pueden elegir [SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md), en lugar de [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md), porque el contrato de asociación comercial (BAA) según las normas HIPAA cubre SQL Server en una máquina virtual de Azure. Para obtener información sobre el cumplimiento, consulte [Centro de confianza de Microsoft Azure: conformidad](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Características de nivel de instancia**: actualmente, SQL Database no admite las características que se encuentran fuera de la base de datos (por ejemplo, servidores vinculados, trabajos de agente, FileStream, Service Broker, etc.). Para obtener más información, consulte [Instrucciones y limitaciones de Azure SQL Database](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 

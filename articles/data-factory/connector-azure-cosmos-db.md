@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600343"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543452"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copia de datos con Azure Cosmos DB como origen o destino mediante Azure Data Factory
 
@@ -34,10 +34,14 @@ Puede copiar datos desde Azure Cosmos DB a cualquier almacén de datos de recept
 
 En concreto, este conector de Azure Cosmos DB admite las siguientes funcionalidades:
 
-- [API de SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) de Cosmos DB.
+- Copia de datos desde y hacia la [API de SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) de Cosmos DB.
+- Escritura en Cosmos DB como INSERT o UPSERT.
 - Importación o exportación de documentos JSON tal cual, o copia de datos con un conjunto de datos tabular como origen o destino, por ejemplo, base de datos SQL, archivos CSV, etc. Para copiar datos tal cual con archivos JSON u otra colección de Cosmos DB como origen o destino, consulte [Import/Export JSON documents](#importexport-json-documents) (Importación o exportación de documentos JSON).
 
 Data Factory se integra con la [biblioteca BulkExecutor en Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para proporcionar el mejor rendimiento de escritura en Cosmos DB.
+
+>[!TIP]
+>Vea [este vídeo](https://youtu.be/5-SRNiC_qOU) que le guía por la copia de datos desde Azure Blob Storage a Cosmos DB, y describe las consideraciones de optimización del rendimiento para ingerir datos en Cosmos DB en general.
 
 ## <a name="getting-started"></a>Introducción
 

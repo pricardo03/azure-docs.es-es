@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fefc508679a309262d07a582fc8f5bdf9f67cfe5
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34350872"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310126"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory 
 
@@ -53,19 +53,19 @@ Además de agregar aplicaciones previamente integradas de la galería, todas las
 **Para empezar a agregar su propia aplicación**:
 
 1. Haga clic en el **vínculo para agregar su propia aplicación** en la parte superior de la galería de aplicaciones. 
-2. Se le presentarán dos opciones: **implementar una aplicación existente** o **desarrollar una nueva aplicación**. Siga leyendo para conocer las diferencias entre las dos opciones y cómo utilizarlas.
+1. Se le presentarán dos opciones: **implementar una aplicación existente** o **desarrollar una nueva aplicación**. Siga leyendo para conocer las diferencias entre las dos opciones y cómo utilizarlas.
 
 ### <a name="deploying-existing-applications"></a>Implementación de aplicaciones existentes
 
 1. Si tiene una aplicación ya en ejecución y solo desea integrarla en Azure AD para el inicio de sesión único o el aprovisionamiento, elija la opción de **implementar una aplicación existente**. Elija un nombre para la aplicación y haga clic en **Agregar**.
-2. Eso es todo. En lugar de tener que conocer todos los detalles acerca de la aplicación por adelantado, ahora puede configurar cómo funciona la nueva aplicación navegando por el menú izquierdo y configurando la aplicación a su gusto en cualquier momento.
+1. Eso es todo. En lugar de tener que conocer todos los detalles acerca de la aplicación por adelantado, ahora puede configurar cómo funciona la nueva aplicación navegando por el menú izquierdo y configurando la aplicación a su gusto en cualquier momento.
 
   ![Incorporación de una aplicación existente con un solo clic](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
  
 ### <a name="developing-new-applications"></a>Desarrollo de nuevas aplicaciones
 
 1. Si está desarrollando una nueva aplicación, hay una manera sencilla de llegar al registro de aplicaciones directamente desde la galería:
-2. Haga clic en la opción para **agregar sus propias aplicaciones** desde la galería de aplicaciones, seleccione la opción para **desarrollar una aplicación existente** y aparecerá un vínculo rápido que le llevará directamente a la experiencia de incorporación de la aplicación.
+1. Haga clic en la opción para **agregar sus propias aplicaciones** desde la galería de aplicaciones, seleccione la opción para **desarrollar una aplicación existente** y aparecerá un vínculo rápido que le llevará directamente a la experiencia de incorporación de la aplicación.
 
   ![Incorporación de una aplicación recién desarrollada con unos pocos clics](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -86,20 +86,20 @@ Una vez agregada una aplicación, tanto si esta ya estaba previamente integrada 
 
 
 ## <a name="updated-application-proxy-configuration"></a>Configuración de proxy para aplicaciones actualizadas
+
 Supongamos ahora que una de las nuevas aplicaciones que agregó se está ejecutando en su entorno local y desea integrarla con Azure AD.  Una de las estupendas novedades de la nueva experiencia de configuración de la aplicación en el portal de Azure AD es que mediante la separación entre el modo de inicio de sesión de la aplicación y la configuración de proxy de su aplicación, puede ahora fácilmente exponer el inicio de sesión único con contraseña, o las aplicaciones federadas que se ejecutan en la red corporativa, directamente en la nube, sin tener que crear varias instancias de la aplicación.
 
 Además, también puede configurar todas las aplicaciones que se hayan agregado para su uso mediante Azure AD Application Proxy directamente desde el nuevo portal, incluidas aquellas aplicaciones que son compatibles con experiencias de autenticación de Windows nativo.
 
   ![Configuración de una aplicación para que use la opción de inicio de sesión con autenticación integrada de Windows](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
-
 Para empezar a configurar una aplicación de autenticación de Windows nativo con el proxy de aplicación:
 1. Haga clic en el elemento de navegación de inicio de sesión único y elija **Autenticación integrada de Windows** en la configuración de inicio de sesión y configure las opciones como desee.
-2. Además de la compatibilidad con estos nuevos modos de autenticación, ahora también puede cargar certificados de dominios personalizados para que se admitan aplicaciones que se ejecutan en puntos de conexión seguros dentro de la organización.  
+1. Además de la compatibilidad con estos nuevos modos de autenticación, ahora también puede cargar certificados de dominios personalizados para que se admitan aplicaciones que se ejecutan en puntos de conexión seguros dentro de la organización.  
  
    ![Cargar un certificado para su uso con el proxy de aplicación](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
 
-3. Para cargar un certificado nuevo para su aplicación local preferida, haga clic en la opción **Proxy de aplicación** del menú de navegación izquierdo, haga clic en el selector **Certificado** y cargue un archivo de certificado que se pueda utilizar para cifrar las solicitudes del punto de conexión en la nube en la aplicación.
+1. Para cargar un certificado nuevo para su aplicación local preferida, haga clic en la opción **Proxy de aplicación** del menú de navegación izquierdo, haga clic en el selector **Certificado** y cargue un archivo de certificado que se pueda utilizar para cifrar las solicitudes del punto de conexión en la nube en la aplicación.
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Configuración del inicio de sesión único federado avanzado
 
@@ -107,10 +107,9 @@ Para todos aquellos que usan aplicaciones federadas actualmente, hay muchas cara
  
   ![Personalización de los atributos de usuario de tokens SAML pasados a una aplicación federada](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
-
 Para comprobar la nueva configuración de inicio de sesión único federado:
 1. Abra el panel **Inicio de sesión único** de una aplicación federada desde el menú de navegación izquierdo y asegúrese de que el modo *Inicio de sesión basado en SAML** esté seleccionado. 
-2. Una vez allí, habilite la casilla del encabezado **Atributos de usuario** para modificar todos los atributos que se incluyen en el token SAML pasado a esa aplicación.
+1. Una vez allí, habilite la casilla del encabezado **Atributos de usuario** para modificar todos los atributos que se incluyen en el token SAML pasado a esa aplicación.
 
 Puede también crear, sustituir y administrar certificados usados para un inicio de sesión único federado, así como editar quién recibe notificaciones cuando el certificado está a punto de expirar. Verá estas nuevas opciones en el encabezado **Certificados** del mismo panel Inicio de sesión único.
  
@@ -124,7 +123,7 @@ Por último, hemos ampliado también el conjunto de parámetros de dirección UR
 **Para establecer el parámetro de estado de la retransmisión**:
 
 1. Active la casilla **Mostrar configuración avanzada de URL** del encabezado **Dominio y direcciones URL** en el panel de configuración del inicio de sesión único. 
-2. Aparece un conjunto de nuevos cuadros de entrada de direcciones URL que le permitirá configurar este parámetro y otras opciones de la dirección URL de SAML.
+1. Aparece un conjunto de nuevos cuadros de entrada de direcciones URL que le permitirá configurar este parámetro y otras opciones de la dirección URL de SAML.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Cómo traer sus propias aplicaciones de inicio de sesión único con contraseña
 
@@ -135,8 +134,8 @@ Somos conscientes de que no todas las aplicaciones admiten la federación direct
 **Para comprobar la característica "Bring your own applications" (Traiga sus propias aplicaciones)**:
 
 1. Después de establecer el modo de inicio de sesión único para una nueva aplicación personalizada que ha agregado al **Inicio de sesión basado en contraseña**, escriba la dirección URL en la que la aplicación muestra su pantalla de inicio de sesión y 
-2. Haga clic en **Save**(Guardar).  
-2. Una vez hecho esto, se cargará automáticamente esa dirección URL con un cuadro de entrada de un nombre de usuario y una contraseña y se le permitirá usar Azure AD para transmitir de forma segura las contraseñas de esa aplicación mediante la extensión de explorador del panel de acceso.
+1. Haga clic en **Save**(Guardar).  
+1. Una vez hecho esto, se cargará automáticamente esa dirección URL con un cuadro de entrada de un nombre de usuario y una contraseña y se le permitirá usar Azure AD para transmitir de forma segura las contraseñas de esa aplicación mediante la extensión de explorador del panel de acceso.
 
 ## <a name="configure-self-service-application-access"></a>Configuración del acceso a aplicaciones en modo autoservicio
 
@@ -147,7 +146,7 @@ Después de agregar una gran cantidad de nuevas aplicaciones, quizá desee permi
 **Para configurar y administrar el acceso a aplicaciones en modo autoservicio**:
 
 1. Para empezar, seleccione la opción **Autoservicio** del menú de navegación izquierdo de la aplicación y establezca la opción **Allow users to request access to this application?** (¿Desea permitir a los usuarios solicitar acceso a esta aplicación?) en "**Sí**". 
-2. Esto le permitirá configurar a quién se le permite aprobar el acceso a esta aplicación y qué grupo de usuarios del modo autoservicio se agregará. Además, si la aplicación está configurada para el inicio de sesión único con contraseña, también verá otra opción que, opcionalmente, le dejará conceder permiso a esos aprobadores para administrar las contraseñas asignadas a la aplicación.
+1. Esto le permitirá configurar a quién se le permite aprobar el acceso a esta aplicación y qué grupo de usuarios del modo autoservicio se agregará. Además, si la aplicación está configurada para el inicio de sesión único con contraseña, también verá otra opción que, opcionalmente, le dejará conceder permiso a esos aprobadores para administrar las contraseñas asignadas a la aplicación.
 
 ## <a name="feedback"></a>Comentarios
 

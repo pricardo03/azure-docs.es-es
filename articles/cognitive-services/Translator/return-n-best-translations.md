@@ -1,20 +1,21 @@
 ---
-title: Devolución de las N mejores traducciones con Microsoft Translator Text API | Microsoft Docs
+title: 'Devuelva las N mejores traducciones: Translator Text API'
+titlesuffix: Azure Cognitive Services
 description: Devuelva las N mejores traducciones con Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 3eafe50f69ae1a6748342e64a414ecee4467d0d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e1d310cecb41de00c1d3e3986fe715d1519ceeff
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380823"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123460"
 ---
 # <a name="how-to-return-n-best-translations"></a>Devolución de las N mejores traducciones
 
@@ -34,7 +35,7 @@ La firma es:
 
 **Parámetros**
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | text | **Obligatorio** Una cadena que representa el texto que se va a traducir. El tamaño del texto no debe superarlos 10 000 caracteres.|

@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de Salesforce Marketing Cloud con Azure Data Factory | Microsoft Docs
+title: Copiar datos desde Salesforce Marketing Cloud con Azure Data Factory (versión preliminar) | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde Salesforce Marketing Cloud en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: a68090ea32c7ba4155aa5474067c5cce6f1ee30b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 07c58ea964d6af1ffe1a447d8b52879753f1951c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055505"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123358"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copia de datos de Salesforce Marketing Cloud con Azure Data Factory
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copiar datos desde Salesforce Marketing Cloud con Azure Data Factory (versión preliminar)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos Salesforce Marketing Cloud. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -45,9 +45,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **SalesforceMarketingCloud**. | Sí |
-| clientId | El identificador de cliente asociado a la aplicación Salesforce Marketing Cloud.  | Sí |
-| clientSecret | El secreto de cliente asociado a la aplicación Salesforce Marketing Cloud. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF, o almacenar la contraseña en Azure Key Vault y permitir que ADF copie la extracción de la actividad desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| Tipo | La propiedad type debe establecerse en: **SalesforceMarketingCloud**. | SÍ |
+| clientId | El identificador de cliente asociado a la aplicación Salesforce Marketing Cloud.  | SÍ |
+| clientSecret | El secreto de cliente asociado a la aplicación Salesforce Marketing Cloud. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF, o almacenar la contraseña en Azure Key Vault y permitir que ADF copie la extracción de la actividad desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -105,8 +105,8 @@ Para copiar datos desde y hacia Salesforce Marketing Cloud, establezca el tipo d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceMarketingCloudSource** | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceMarketingCloudSource** | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | SÍ |
 
 **Ejemplo:**
 

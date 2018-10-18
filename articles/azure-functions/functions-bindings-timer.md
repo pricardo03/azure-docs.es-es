@@ -5,24 +5,20 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 270228e73243e6b2670e7ccb30765526a5db6463
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: d1e73af69d3220c0719bd05e3f160e20f8c02858
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142969"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715608"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -136,7 +132,7 @@ Estos son los datos de enlace del archivo *function.json*:
 }
 ```
 
-Este es el código del script de JavaScript:
+Este es el código de JavaScript:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -144,9 +140,9 @@ module.exports = function (context, myTimer) {
 
     if(myTimer.isPastDue)
     {
-        context.log('Node.js is running late!');
+        context.log('Node is running late!');
     }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node timer trigger function ran!', timeStamp);   
 
     context.done();
 };
@@ -195,10 +191,13 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el objeto de temporizador en el código de la función. | 
 |**schedule**|**ScheduleExpression**|Una [expresión CRON](#cron-expressions) o un valor [TimeSpan](#timespan). `TimeSpan` solamente se puede usar para una aplicación de función que se ejecuta en un plan de App Service. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en el nombre de dicha configuración encapsulado en signos **%**, como en este ejemplo: "%ScheduleAppSetting%". |
-|**runOnStartup**|**RunOnStartup**|Si `true`, la función se invoca cuando se inicia el entorno de ejecución. Por ejemplo, el entorno de ejecución se inicia cuando la aplicación de función se reactiva después de estar inactiva por inactividad, cuando la aplicación de función se reinicia debido a cambios de función y cuando la aplicación de función se escala horizontalmente. Por lo tanto, **runOnStartup** rara vez se debe establecer en `true`, ya que hará que el código se ejecute en momentos altamente impredecibles.|
+|**runOnStartup**|**RunOnStartup**|Si `true`, la función se invoca cuando se inicia el entorno de ejecución. Por ejemplo, el entorno de ejecución se inicia cuando la aplicación de función se reactiva después de estar inactiva por inactividad, cuando la aplicación de función se reinicia debido a cambios de función y cuando la aplicación de función se escala horizontalmente. Por lo tanto, **runOnStartup** muy pocas veces, si acaso, se debe establecer en `true`, especialmente en producción. |
 |**useMonitor**|**useMonitor**|Establezca esta propiedad en `true` o `false` para indicar si la programación se debe supervisar. La supervisión de la programación conserva las apariciones de programación para ayudar a garantizar que la programación se mantiene correctamente aunque las instancias de aplicación de función se reinicien. Si no se establece explícitamente, el valor predeterminado es `true` para las programaciones que tienen un intervalo de periodicidad suprior a 1 minuto. Para las programaciones que se desencadenan más de una vez por minuto, el valor predeterminado es `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> No se recomienda establecer **runOnStartup** en `true` en producción. Con esta configuración, el código se ejecuta en momentos altamente impredecibles. En ciertas configuraciones de producción, estas ejecuciones adicionales pueden dar lugar a costos considerablemente mayores para las aplicaciones hospedadas en los planes de consumo. Por ejemplo, con **runOnStartup** habilitado, se invoca al desencadenador cada vez que se escala la aplicación de función. Asegúrese de comprender perfectamente el comportamiento de producción de las funciones antes de habilitar **runOnStartup** en producción.   
 
 ## <a name="usage"></a>Uso
 

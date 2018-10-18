@@ -1,5 +1,5 @@
 ---
-title: Copiar datos de Impala mediante Azure Data Factory | Microsoft Docs
+title: Copiar datos de Impala mediante Azure Data Factory (versión preliminar) | Microsoft Docs
 description: Aprenda a copiar datos de Impala en almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de factoría de datos.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 366d0945bfac8546aa757648b6f797c2605a43ea
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ed29fb99025dbc69b9dae6a996f444954a7d88d1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045874"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123426"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar datos de Impala mediante Azure Data Factory
+# <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar datos de Impala con Azure Data Factory (versión preliminar)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Impala. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que presenta información general de la actividad de copia.
 
@@ -45,10 +45,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Impala:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe estar establecida en **Impala**. | Sí |
-| host | La dirección IP o el nombre de host del servidor de Impala (es decir, 192.168.222.160).  | Sí |
+| Tipo | La propiedad type debe estar establecida en **Impala**. | SÍ |
+| host | La dirección IP o el nombre de host del servidor de Impala (es decir, 192.168.222.160).  | SÍ |
 | puerto | Puerto TCP que el servidor de Impala usa para escuchar las conexiones del cliente. El valor predeterminado es 21050.  | Sin  |
-| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Anonymous**, **SASLUsername** y **UsernameAndPassword**. | Sí |
+| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Anonymous**, **SASLUsername** y **UsernameAndPassword**. | SÍ |
 | nombre de usuario | Nombre de usuario que se usa para acceder al servidor de Impala. El valor predeterminado es anonymous cuando se usa SASLUsername.  | Sin  |
 | contraseña | La contraseña que se corresponde con el nombre de usuario cuando se usa UsernameAndPassword. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es **false**.  | Sin  |
@@ -114,8 +114,8 @@ Para copiar datos de Impala, establezca el tipo de origen de la actividad de cop
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **ImpalaSource**. | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **ImpalaSource**. | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | SÍ |
 
 **Ejemplo:**
 

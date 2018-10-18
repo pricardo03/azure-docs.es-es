@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e5cfbc7ddc10edf9b21afce73e3b7f8795fcdac9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382052"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121964"
 ---
 # <a name="add-custom-html-to-the-map"></a>Adición de HTML personalizado al mapa
 
-Este artículo muestra cómo agregar código HTML personalizado, como un archivo de imagen, al mapa. 
+Este artículo muestra cómo agregar código HTML personalizado, como un archivo de imagen, al mapa.
 
 ## <a name="understand-the-code"></a>Comprensión del código
 
 <iframe height='466' scrolling='no' title='Adición de HTML personalizado a un mapa: png' src='//codepen.io/azuremaps/embed/MVoeVw/?height=466&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Adición de HTML personalizado a un mapa: png</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-En el código anterior, el primer bloque de código construye un objeto mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
+En el código anterior, el primer bloque de código construye un objeto de mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
 
 El segundo bloque de código crea un elemento HTML a partir de una imagen.
 
@@ -33,11 +33,15 @@ El último bloque de código usa la función [addHtml](https://docs.microsoft.co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las clases y los métodos utilizados en este artículo: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
-    
-Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos: 
-* [Presentación de los resultados de la búsqueda](./map-search-location.md)
-* [Obtención de información de una coordenada](./map-get-information-from-coordinate.md)
+Más información sobre las clases y los métodos utilizados en este artículo:
 
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos:
+
+> [!div class="nextstepaction"]
+> [Presentación de los resultados de la búsqueda](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [Obtención de información de una coordenada](./map-get-information-from-coordinate.md)

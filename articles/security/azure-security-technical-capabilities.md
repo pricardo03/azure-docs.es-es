@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972203"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721337"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 
@@ -43,7 +43,7 @@ Con Microsoft Azure, puede:
 
 ## <a name="scope"></a>Ámbito
 
-Estas notas del producto se centran en las características y funcionalidades de seguridad que dan soporte a los componentes principales de Microsoft Azure, es decir, a [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/), [el modelo de máquinas virtuales de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/), y a las herramientas e infraestructura encargados de la administración de todos ellos. Este documento se centra en las funcionalidades técnicas de Microsoft Azure que están disponibles para cumplir su función a la hora de proteger la seguridad y privacidad de sus datos.
+Estas notas del producto se centran en las características y funcionalidades de seguridad que dan soporte a los componentes principales de Microsoft Azure, es decir, a [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [el modelo de máquinas virtuales de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) y las herramientas e infraestructura encargadas de la administración de todos ellos. Este documento se centra en las funcionalidades técnicas de Microsoft Azure que están disponibles para cumplir su función a la hora de proteger la seguridad y privacidad de sus datos.
 
 La importancia de la comprensión de este modelo de responsabilidad compartida es esencial para los clientes que se van a pasar a la nube. Los proveedores de servicios en la nube ofrecen considerables ventajas en seguridad y cumplimiento de normas, pero tales ventajas no eximen al cliente de proteger a sus usuarios, aplicaciones y ofertas de servicio.
 

@@ -1,22 +1,23 @@
 ---
-title: Registro en Text Analytics API (Microsoft Cognitive Services en Azure) | Microsoft Docs
+title: Registro en Text Analytics API
+titleSuffix: Azure Cognitive Services
 description: Instrucciones para la suscripción para usar análisis de texto y trabajar dentro de los límites.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623256"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605542"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>Cómo registrarse en Text Analytics API
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>Procedimiento para registrarse en Text Analytics API
 
 Los recursos de Text Analytics están disponibles ininterrumpidamente en la nube. Para poder cargar el contenido para su análisis, tiene que registrarse y obtener una clave de acceso. Cada llamada a la API requiere una clave de acceso en la solicitud.
 

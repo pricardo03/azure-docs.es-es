@@ -3,17 +3,17 @@ title: Procedimientos de administración de la cuenta y las claves de Azure Maps
 description: Puede usar Azure Portal para administrar su cuenta y sus claves de acceso de Azure Maps.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146809"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541626"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Procedimientos de administración de la cuenta y las claves de Azure Maps
 
@@ -25,29 +25,31 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
 
-1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
+2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. Busque y seleccione **Maps** y, a continuación, haga clic en **Crear**.
+3. Busque y seleccione **Maps** y, a continuación, haga clic en **Crear**.
 
-3. Escriba la información de la nueva cuenta. 
+4. Escriba la información de la nueva cuenta.
 
 ![Escribir la información de la cuenta en el portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## <a name="manage-keys-on-the-account-page"></a>Administración de las claves en la página de la cuenta
 
-Una vez que cree una cuenta, obtendrá dos claves generadas aleatoriamente. Use las claves para autenticarse en las API de Maps cuando desee recuperar datos de mapas o crear una nueva instancia de un mapa de JavaScript. 
+Una vez que cree una cuenta, obtendrá dos claves generadas aleatoriamente. Use las claves para autenticarse en las API de Maps cuando desee recuperar datos de mapas o crear una nueva instancia de un mapa de JavaScript.
 
 Puede encontrar las claves en Azure Portal. Vaya a su cuenta y, a continuación, seleccione **Claves** en el menú.
 
 ![Administración de las claves de la cuenta en el portal](./media/how-to-manage-account-keys/account-keys-portal.png)
 
-Desde esta página puede copiar las claves o generar otras nuevas. 
+Desde esta página puede copiar las claves o generar otras nuevas.
 
 ## <a name="delete-an-account"></a>Eliminación de una cuenta
 
 Puede eliminar una cuenta desde Azure Portal. Vaya a la página de información general de la cuenta y seleccione **Eliminar**.
 
 ![Eliminación de la cuenta en el portal](./media/how-to-manage-account-keys/account-delete-portal.png)
+
+Aparecerá una página de confirmación. Puede escribir el nombre de la cuenta para confirmar la eliminación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

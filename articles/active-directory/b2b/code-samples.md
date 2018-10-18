@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985452"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165766"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Ejemplos de código y PowerShell para la colaboración B2B de Azure Active Directory
 
@@ -34,14 +34,14 @@ Puede invitar de forma masiva a usuarios externos a una organización desde dire
 
 3. Inicie sesión en el espacio.
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Ejecución del cmdlet de PowerShell
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ Este cmdlet enviará una invitación a la dirección de correo electrónico de i
 ## <a name="code-sample"></a>Código de ejemplo
 En este ejemplo se muestra cómo llamar a la API de invitación, en el modo de solo de aplicación, para obtener la URL de pago del recurso al que va a invitar al usuario B2B. El objetivo consiste en enviar un correo electrónico de invitación personalizado. Podrá ver cómo se puede redactar el correo electrónico con un cliente HTTP para que pueda personalizar su aspecto y enviarlo a través de Graph API.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;
@@ -229,5 +229,5 @@ namespace SampleInviteApp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 

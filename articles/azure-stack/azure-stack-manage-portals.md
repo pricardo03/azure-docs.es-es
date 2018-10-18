@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024173"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985301"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Uso del portal de administración de Azure Stack
 
@@ -70,7 +70,9 @@ Los portales de administración y de usuarios se apoyan en instancias independie
 
 ### <a name="customize-the-dashboard"></a>Personalización del panel
 
-El panel contiene un conjunto de iconos predeterminados. Puede seleccionar **Edit dashboard** (Editar panel) para modificar el panel predeterminado o **New dashboard** (Nuevo panel) para agregar un panel personalizado. Es muy fácil agregar iconos a un panel. Por ejemplo, puede seleccionar **Nuevo**, hacer clic con el botón derecho en **Ofertas y planes** y luego seleccionar **Anclar al panel**.
+El panel contiene un conjunto de iconos predeterminados. Puede seleccionar **Edit dashboard** (Editar panel) para modificar el panel predeterminado o **New dashboard** (Nuevo panel) para agregar un panel personalizado. Es muy fácil agregar iconos a un panel. Por ejemplo, puede seleccionar **+ Create a resource** (+ Crear un recurso), hacer clic con el botón derecho en **Offers + Plans** (Ofertas y planes) y luego seleccionar **Pin to dashboard** (Anclar al panel).
+
+En ocasiones, puede que vea un panel en blanco en el portal. Para recuperar el panel, haga clic en **Edit Dashboard** (Editar panel) y, a continuación, haga clic con el botón derecho y seleccione **Reset to default state** (Restaurar al estado predeterminado).
 
 ### <a name="quick-access-to-online-documentation"></a>Acceso rápido a la documentación en línea
 

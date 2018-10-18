@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41947920"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718736"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 
@@ -226,7 +226,7 @@ Se *debe* tener una suscripción de inquilino para crear aplicaciones que usen A
 >
 A partir de la tercera versión preliminar técnica, para crear aplicaciones web, de API y Azure Functions, se debe usar el portal de inquilino y tener una suscripción de inquilino.
 
-1. En el portal de inquilino de Azure Stack, haga clic en **Nuevo** > **Web y móvil** > **Aplicación web**.
+1. En el portal de inquilinos de Azure Stack, haga clic en **+ Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
 2. En la hoja **Aplicación web**, escriba un nombre en el cuadro **Aplicación web**.
 

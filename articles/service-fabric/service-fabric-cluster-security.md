@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143077"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541911"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 Un clúster de Azure Service Fabric es un recurso que usted posee. Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos. Los clústeres sin protección no se admiten para cargas de trabajo de producción. 
@@ -92,6 +92,7 @@ Algunos puntos importantes que hay que tener en cuenta:
 * Para crear certificados para clústeres que ejecutan cargas de trabajo de producción, use un servicio de certificados de Windows Server correctamente configurado o uno de una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) autorizada.
 * Absténgase de usar certificados temporales o de prueba que se crean con herramientas como MakeCert.exe en un entorno de producción.
 * Puede usar un certificado autofirmado, pero solo en un clúster de prueba. No utilice un certificado autofirmado en un entorno de producción.
+* Al generar la huella digital del certificado, asegúrese de generar una huella digital SHA1. SHA1 es lo que se usa al configurar las huellas digitales del certificado del cliente y del clúster.
 
 ### <a name="cluster-and-server-certificate-required"></a>Certificado de clúster y servidor (obligatorio)
 Estos certificados (uno principal y, opcionalmente, uno secundario) son necesarios para proteger un clúster e impedir que se acceda a él sin autorización. Estos certificados permiten la autenticación del servidor y del clúster.

@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/24/2018
+ms.date: 09/07/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 540aabc9164e43776d2166926430f4512dd23f49
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106056"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419124"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Guía de inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
+# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
 
 Obtenga información sobre cómo crear plantillas de Azure Resource Manager mediante el uso de Visual Studio Code y la extensión Herramientas de Azure Resource Manager. Puede crear plantillas de Resource Manager en Visual Studio Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).
 
@@ -96,22 +96,38 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
 
     ![Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-    Cloud Shell se abre en la parte inferior de la pantalla.
+    Cloud Shell se abre en la parte inferior de la ventana.
 
-3. Seleccione **PowerShell** o **Bash** en la esquina superior izquierda de Cloud Shell. Para usar la CLI, deberá abrir una sesión de Bash. Para ejecutar PowerShell, deberá abrir una sesión de PowerShell. Para cambiar, seleccione la flecha hacia abajo y, a continuación, seleccione el intérprete. La siguiente imagen muestra el cambio de PowerShell a Bash.
+3. Seleccione **PowerShell** o **Bash** en la esquina superior izquierda de Cloud Shell. Para usar la CLI, deberá abrir una sesión de Bash. Para ejecutar PowerShell, deberá abrir una sesión de PowerShell. Seleccione la flecha abajo para alternar entre Bash y PowerShell. La siguiente imagen muestra el cambio de PowerShell a Bash.
 
     ![CLI de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
 
     Es necesario reiniciar el shell cuando realiza el cambio.
 4. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ![Archivo de carga de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
+    
+    ---
 
     Debe cargar el archivo de plantilla antes de poder implementarla desde el shell.
 5. Seleccione el archivo que guardó anteriormente en la guía de inicio rápido. El nombre predeterminado es **azuredeploy.json**.
 6. En Cloud Shell, ejecute el comando **ls** para comprobar que el archivo se ha cargado correctamente. También puede usar el comando **cat** para comprobar el contenido de la plantilla. La siguiente imagen muestra la ejecución del comando desde Bash.  Puede utilizar los mismos comandos desde una sesión de PowerShell.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Archivo de lista de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ![Archivo de lista de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
+    
+    ---
 7. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -131,9 +147,17 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
     
     ---
 
-    En la captura de pantalla siguiente se muestra una implementación de CLI de ejemplo:
+    En la captura de pantalla siguiente se muestra una implementación de ejemplo:
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
     ![Plantilla de implementación de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ![Plantilla de implementación de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
+    
+    ---
 
     En la captura de pantalla, se utilizan estos valores:
 
@@ -170,7 +194,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El objetivo principal de este tutorial consiste en utilizar Visual Studio Code para editar una plantilla de inicio rápido de Azure que ya existe. También ha aprendido a implementar la plantilla mediante la CLI o mediante PowerShell desde Azure Cloud Shell. Es posible que las plantillas de inicio rápido de Azure no le proporcionen todo lo que necesita. En el siguiente tutorial se indica cómo encontrar la información en la referencia sobre plantillas para que pueda crear una cuenta de Azure Storage cifrada.
+El objetivo principal de este tutorial consiste en utilizar Visual Studio Code para editar una plantilla existente de las plantillas de inicio rápido de Azure. También ha aprendido a implementar la plantilla mediante la CLI o mediante PowerShell desde Azure Cloud Shell. Es posible que las plantillas de inicio rápido de Azure no le proporcionen todo lo que necesita. En el siguiente tutorial se indica cómo encontrar la información en la referencia sobre plantillas para que pueda crear una cuenta de Azure Storage cifrada.
 
 > [!div class="nextstepaction"]
 > [Creación de una cuenta de almacenamiento cifrada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
