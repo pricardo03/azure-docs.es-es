@@ -1,24 +1,25 @@
 ---
-title: 'Migración de los planes de tarifa de los puntos de conexión: Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: Aprenda a migrar las implementaciones de planes S0 y S1 a S2 de los puntos de conexión de Custom Speech Service.
+title: Migración de los planes de tarifa de puntos de Custom Speech Service en Azure | Microsoft Docs
+description: Obtenga información sobe cómo migrar las implementaciones de planes S0 y S1 a S2 de puntos de conexión de Custom Speech Service en Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224858"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340467"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migración de implementaciones al nuevo modelo de precios
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 A partir de julio de 2017, Custom Speech Service ofrece un [nuevo modelo de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). El nuevo modelo es *más fácil de entender*, *más sencillo para calcular los costos* y *más flexible* en cuanto al escalado. Para ajustar la escala, Microsoft ha introducido el concepto de unidad de escalado. Cada unidad de escalado puede controlar cinco solicitudes simultáneas. El escalado de solicitudes simultáneas en el modelo anterior estaba establecido en 5 solicitudes simultáneas para el plan S0, y estaba establecido en 12 solicitudes simultáneas para el plan S1. Hemos ampliado estos límites para ofrecer una mayor flexibilidad a sus requisitos de casos de uso.
 
 Si ejecuta un plan S0 o S1 anterior, se recomienda migrar las implementaciones existentes al nuevo plan S2. El nuevo plan S2 cubre los planes S0 y S1. Puede ver las opciones disponibles en la ilustración siguiente:

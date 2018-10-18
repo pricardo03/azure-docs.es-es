@@ -1,10 +1,10 @@
 ---
 title: Uso de la red Azure CDN con SAS | Microsoft Docs
-description: La Red CDN de Azure admite el uso de firma de acceso compartido (SAS) para conceder acceso limitado a los contenedores de almacenamiento privado.
+description: Azure CDN admite el uso de firma de acceso compartido (SAS) para conceder acceso limitado a los contenedores de almacenamiento privado.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: v-deasim
-ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: magattus
+ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316575"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093296"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
 
@@ -48,9 +48,9 @@ Para más información sobre cómo establecer los parámetros, consulte [Conside
 
 ![Configuración de SAS de la red CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opción 1: Uso de SAS con paso a través a Blob Storage desde la red CDN de Azure
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opción 1: Uso de SAS con paso a través a Blob Storage desde Azure CDN
 
-Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde la red CDN de Azure al servidor de origen. Es compatible con los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Estándar de Akamai**. 
+Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde Azure CDN al servidor de origen. Es compatible con los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Estándar de Akamai**. 
  
 1. Elija un punto de conexión, seleccione **Reglas de caché** y luego, en la lista **Almacenamiento en caché de cadenas de consulta**, elija **Almacenar en caché todas las URL únicas**.
 
@@ -65,11 +65,11 @@ Esta opción es la más simple y solo usa un único token de SAS, que se pasa de
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
-3. Ajuste la duración de la caché mediante las reglas de caché o al agregar los encabezados `Cache-Control` en el servidor de origen. Debido a que la red CDN de Azure trata el token de SAS como cadena de consulta sin formato, el procedimiento recomendado que debe seguirse es configurar una duración de la caché con la misma hora de expiración que la SAS o una anterior. De lo contrario, si un archivo se almacena en caché más tiempo que el que está activa la SAS, es posible acceder al archivo desde el servidor de origen de la red CDN de Azure una vez que haya transcurrido la hora de expiración de la SAS. Si esto ocurre y quiere que el archivo en caché no sea accesible, debe realizar una operación de purga en el archivo para eliminarlo de la memoria caché. Para obtener información sobre cómo establecer la duración de la caché en la red CDN de Azure, vea [Control del comportamiento del almacenamiento en caché de la red CDN de Azure con reglas de caché](cdn-caching-rules.md).
+3. Ajuste la duración de la caché mediante las reglas de caché o al agregar los encabezados `Cache-Control` en el servidor de origen. Debido a que Azure CDN trata el token de SAS como cadena de consulta sin formato, el procedimiento recomendado que debe seguirse es configurar una duración de la caché con la misma hora de expiración que la SAS o una anterior. De lo contrario, si un archivo se almacena en caché más tiempo que el que está activa la SAS, es posible acceder al archivo desde el servidor de origen de Azure CDN una vez que haya transcurrido la hora de expiración de la SAS. Si esto ocurre y quiere que el archivo en caché no sea accesible, debe realizar una operación de purga en el archivo para eliminarlo de la memoria caché. Para obtener información sobre cómo establecer la duración de la caché en Azure CDN, vea [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché](cdn-caching-rules.md).
 
 ### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opción 2: Token de SAS de CDN oculto mediante una regla de reescritura
  
-Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon**. Con esta opción, puede proteger el almacenamiento de blobs en el servidor de origen. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de la red CDN de Azure. Cualquiera que acceda a los archivos en el contenedor especificado del servidor de origen requiere el token de SAS, que es desconocido para el usuario. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN.
+Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon**. Con esta opción, puede proteger el almacenamiento de blobs en el servidor de origen. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de Azure CDN. Cualquiera que acceda a los archivos en el contenedor especificado del servidor de origen requiere el token de SAS, que es desconocido para el usuario. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN.
  
 1. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL. Las reglas nuevas tardan unos 10 minutos en propagarse.
 
@@ -95,13 +95,13 @@ Esta opción solo está disponible para los perfiles de **Azure CDN Premium de V
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
 
-3. Ajuste la duración de la caché mediante las reglas de caché o al agregar los encabezados `Cache-Control` en el servidor de origen. Debido a que la red CDN de Azure trata el token de SAS como cadena de consulta sin formato, el procedimiento recomendado que debe seguirse es configurar una duración de la caché con la misma hora de expiración que la SAS o una anterior. De lo contrario, si un archivo se almacena en caché más tiempo que el que está activa la SAS, es posible acceder al archivo desde el servidor de origen de la red CDN de Azure una vez que haya transcurrido la hora de expiración de la SAS. Si esto ocurre y quiere que el archivo en caché no sea accesible, debe realizar una operación de purga en el archivo para eliminarlo de la memoria caché. Para obtener información sobre cómo establecer la duración de la caché en la red CDN de Azure, vea [Control del comportamiento del almacenamiento en caché de la red CDN de Azure con reglas de caché](cdn-caching-rules.md).
+3. Ajuste la duración de la caché mediante las reglas de caché o al agregar los encabezados `Cache-Control` en el servidor de origen. Debido a que Azure CDN trata el token de SAS como cadena de consulta sin formato, el procedimiento recomendado que debe seguirse es configurar una duración de la caché con la misma hora de expiración que la SAS o una anterior. De lo contrario, si un archivo se almacena en caché más tiempo que el que está activa la SAS, es posible acceder al archivo desde el servidor de origen de Azure CDN una vez que haya transcurrido la hora de expiración de la SAS. Si esto ocurre y quiere que el archivo en caché no sea accesible, debe realizar una operación de purga en el archivo para eliminarlo de la memoria caché. Para obtener información sobre cómo establecer la duración de la caché en Azure CDN, vea [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opción 3: Uso de la autenticación de token de seguridad de red CDN con una regla de reescritura
 
-Para usar la autenticación de token de seguridad de la red CDN de Azure, debe tener un perfil de **red CDN premium de Azure de Verizon**. Esta opción es la más segura y personalizable. El acceso de cliente se basa en los parámetros de seguridad que se establezcan en el token de seguridad. Una vez que ha creado y configurado el token de seguridad, se requerirá en todas las direcciones URL de punto de conexión de CDN. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN. Si posteriormente el token de SAS deja de ser válido, Azure CDN ya no podrá revalidar el contenido del servidor de origen.
+Para usar la autenticación de token de seguridad de Azure CDN, debe tener un perfil de **Azure CDN premium de Verizon**. Esta opción es la más segura y personalizable. El acceso de cliente se basa en los parámetros de seguridad que se establezcan en el token de seguridad. Una vez que ha creado y configurado el token de seguridad, se requerirá en todas las direcciones URL de punto de conexión de CDN. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN. Si posteriormente el token de SAS deja de ser válido, Azure CDN ya no podrá revalidar el contenido del servidor de origen.
 
-1. [Cree un token de seguridad de red CDN de Azure](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) y actívelo mediante el motor de reglas para el punto de conexión de red CDN y la ruta de acceso donde los usuarios pueden acceder al archivo.
+1. [Cree un token de seguridad de Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) y actívelo mediante el motor de reglas para el punto de conexión de red CDN y la ruta de acceso donde los usuarios pueden acceder al archivo.
 
    Una dirección URL de punto de conexión de token de seguridad tiene el formato siguiente:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
@@ -131,13 +131,13 @@ Para usar la autenticación de token de seguridad de la red CDN de Azure, debe t
 
 ## <a name="sas-parameter-considerations"></a>Consideraciones sobre los parámetros de SAS
 
-Como los parámetros de SAS no son visibles para la red CDN de Azure, esta no puede cambiar su comportamiento de entrega en función de dichos parámetros. Las restricciones de parámetro definidas solo se aplican en las solicitudes que la red CDN de Azure hace en el servidor de origen y no en las solicitudes del cliente a la red CDN de Azure. Resulta importante tener en cuenta esta distinción cuando se establecen parámetros de SAS. Si se requieren estas funcionalidades avanzadas y se usa la [opción 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), establezca las restricciones adecuadas en el token de seguridad de la red CDN de Azure.
+Como los parámetros de SAS no son visibles para Azure CDN, esta no puede cambiar su comportamiento de entrega en función de dichos parámetros. Las restricciones de parámetro definidas solo se aplican en las solicitudes que Azure CDN hace en el servidor de origen y no en las solicitudes del cliente a Azure CDN. Resulta importante tener en cuenta esta distinción cuando se establecen parámetros de SAS. Si se requieren estas funcionalidades avanzadas y se usa la [opción 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), establezca las restricciones adecuadas en el token de seguridad de Azure CDN.
 
 | Nombre de parámetro de SAS | DESCRIPCIÓN |
 | --- | --- |
-| Iniciar | Hora en que la red CDN de Azure puede comenzar a acceder al archivo de blob. Debido al desplazamiento del reloj (es decir, cuando la señal de un reloj llega a distintas horas para componentes diferentes), elija una hora 15 minutos antes si quiere que el recurso esté disponible de inmediato. |
-| End | Hora tras la cual la red CDN de Azure ya no tiene acceso al archivo de blob. Los archivos almacenados previamente en caché en la red CDN de Azure siguen siendo accesibles. Para controlar la hora de expiración de los archivos, establezca la hora de expiración correspondiente en el token de seguridad de la red CDN de Azure o purgue el recurso. |
-| Direcciones IP permitidas | Opcional. Si usa la **red Azure CDN de Verizon**, puede establecer este parámetro en los intervalos que aparecen definidos en [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx) (Azure CDN de intervalos IP del servidor perimetral de Verizon). Si usa la **red Azure CDN de Akamai**, no puede establecer el parámetro de intervalos IP porque las direcciones IP no son estáticas.|
+| Iniciar | Hora en que Azure CDN puede comenzar a acceder al archivo de blob. Debido al desplazamiento del reloj (es decir, cuando la señal de un reloj llega a distintas horas para componentes diferentes), elija una hora 15 minutos antes si quiere que el recurso esté disponible de inmediato. |
+| End | Hora tras la cual Azure CDN ya no tiene acceso al archivo de blob. Los archivos almacenados previamente en caché en Azure CDN siguen siendo accesibles. Para controlar la hora de expiración de los archivos, establezca la hora de expiración correspondiente en el token de seguridad de Azure CDN o purgue el recurso. |
+| Direcciones IP permitidas | Opcional. Si usa la **red Azure CDN de Verizon**, puede establecer este parámetro en los intervalos que aparecen definidos en [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx) (Azure CDN de intervalos IP del servidor perimetral de Verizon). Si usa **Azure CDN de Akamai**, no puede establecer el parámetro de intervalos IP porque las direcciones IP no son estáticas.|
 | Protocolos admitidos | Protocolos que se permiten para una solicitud realizada con la SAS de cuenta. Se recomienda la configuración HTTPS.|
 
 ## <a name="next-steps"></a>Pasos siguientes

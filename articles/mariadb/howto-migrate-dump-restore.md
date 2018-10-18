@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998753"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309542"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migración de la base de datos MariaDB a Azure Database for MariaDB mediante el volcado y la restauración
 En este artículo se explican dos formas habituales de hacer una copia de seguridad y restaurar bases de datos en Azure Database for MariaDB
@@ -30,7 +30,9 @@ Para seguir esta guía de procedimientos, necesita lo siguiente:
 Use herramientas y utilidades comunes como MySQL Workbench, mysqldump, Toad o Navicat para conectarse a Azure Database for MariaDB de manera remota y restaurar ahí los datos. Use estas herramientas en el equipo cliente con una conexión a Internet para conectarse a Azure Database for MariaDB. Use una conexión cifrada SSL para aprovechar los procedimientos recomendados de seguridad; vea también la información sobre [conectividad SSL en Azure Database for MariaDB](concepts-ssl-connection-security.md). No es necesario mover los archivos de volcado a ninguna ubicación en la nube especial al migrar a Azure Database for MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Usos habituales de volcado y restauración
-Puede emplear utilidades de MySQL, como mysqldump y mysqlpump para realizar un volcado de las bases de datos y cargarlas en un servidor Azure Database for MariaDB en varios escenarios comunes. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+Puede emplear utilidades de MySQL, como mysqldump y mysqlpump para realizar un volcado de las bases de datos y cargarlas en un servidor Azure Database for MariaDB en varios escenarios comunes. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Use volcados de base de datos cuando vaya a migrar la base de datos entera. Esta recomendación es adecuada si va a mover una gran cantidad de datos o si quiere reducir la interrupción del servicio en sitios o aplicaciones dinámicos. 
 -  Asegúrese de que todas las tablas de la base de datos usen el motor de almacenamiento InnoDB al cargar datos en Azure Database for MariaDB. Azure Database for MariaDB solo admite el motor de almacenamiento InnoDB y, por tanto, no es compatible con otros alternativos. Si las tablas están configuradas con otros motores de almacenamiento, conviértalos al formato del motor InnoDB antes de realizar la migración a Azure Database for MariaDB.

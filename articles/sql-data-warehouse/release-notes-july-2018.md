@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288011"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318850"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Julio de 2018
 Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo se describen las nuevas características y los cambios que se han incluido en julio de 2018.
@@ -30,7 +30,7 @@ Aparte del rendimiento en tiempo de ejecución, el informe de [Gigaom Research](
 ![Azure SQL Data Warehouse es más rápido y más barato que Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>Fuente: [Informe de análisis de Gigaom Research: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> (Marca de Data Warehouse en la nube).
 
-###<a name="query-concurrency"></a>Simultaneidad de consultas
+### <a name="query-concurrency"></a>Simultaneidad de consultas
 SQL Data Warehouse también garantiza que los datos son accesibles entre las organizaciones. Microsoft ha mejorado el servicio para admitir 128 consultas simultáneas, así que más usuarios pueden consultar la misma base de datos sin que otras solicitudes los bloqueen. En comparación, Amazon Redshift restringe el número máximo de consultas simultáneas a 50, lo que limita el acceso a los datos dentro de la organización.
 
 SQL Data Warehouse ofrece estas mejoras de simultaneidad y rendimiento de consultas sin ningún aumento de precio y basa su arquitectura única en almacenamiento y proceso desacoplados.

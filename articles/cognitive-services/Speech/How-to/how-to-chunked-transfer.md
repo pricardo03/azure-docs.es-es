@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979233"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343170"
 ---
 # <a name="chunked-transfer-encoding"></a>Codificación de la transferencia fragmentada
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Para transcribir la conversión de voz a texto, Microsoft Speech Recognition API permite enviar el audio como un fragmento completo o dividirlo en pequeños fragmentos. Para la transmisión en secuencias de audio de manera eficaz y la reducción de la latencia de la transcripción, se recomienda utilizar la [codificación de la transferencia fragmentada](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) para transmitir en secuencias el audio al servicio. Otras implementaciones pueden dar lugar a que el usuario perciba una mayor latencia. Para más información, consulte la página [Audio Streams](../concepts.md#audio-streams) (Secuencias de audio).
 

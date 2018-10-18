@@ -2,34 +2,28 @@
 title: Devolución de Microsoft Azure Data Box Disk | Microsoft Docs
 description: Use este tutorial para saber cómo enviar Azure Data Box Disk a Microsoft
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 783c837bbb9ce22e7354252523e6725753776836
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f971a1bed0391e809e19ff5bb0508d153319faf4
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011065"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094010"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box Disk y comprobación de la carga de datos en Azure
 
 Este es el último tutorial de la serie: implementación de Azure Data Box Disk. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Enviar Data Box Disk a Microsoft
-> * Comprobar la carga de datos en Azure
-> * Eliminar los datos de Data Box Disk
+> * Envío de Data Box Disk a Microsoft
+> * Comprobación de la carga de datos en Azure
+> * Eliminación de los datos de Data Box Disk
 
 ## <a name="prerequisites"></a>Requisitos previos
 

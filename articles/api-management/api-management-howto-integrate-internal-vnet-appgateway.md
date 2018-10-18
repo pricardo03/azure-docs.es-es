@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038400"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319870"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
-##<a name="overview"></a> Información general
+## <a name="overview"></a> Información general
 
 El servicio API Management se puede configurar en una red virtual en modo interno, para que sea accesible únicamente desde dentro de la red virtual. Azure Application Gateway es un servicio PAAS que proporciona un equilibrador de carga de nivel 7. Actúa como un servicio de proxy inverso y proporciona entre su oferta un firewall de aplicaciones web (WAF).
 
@@ -43,7 +43,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 * Certificados pfx y cer para el nombre de host de API y pfx para el nombre de host del portal para desarrolladores.
 
-##<a name="scenario"></a> Escenario
+## <a name="scenario"></a> Escenario
 
 En este artículo se explica cómo usar un único servicio de API Management para los consumidores tanto internos como externos y hacer que actúe como un único servidor de front-end para las API locales y en la nube. También verá cómo exponer solamente un subconjunto de las API (resaltado en verde en el ejemplo) para permitir su uso externo, usando para ello la funcionalidad de enrutamiento disponible en Application Gateway.
 
@@ -349,7 +349,7 @@ El nombre DNS de Application Gateway se debe utilizar para crear un registro CNA
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"></a>Resumen
+## <a name="summary"></a>Resumen
 El servicio Azure API Management configurado en una red virtual proporciona una interfaz de puerta de enlace única para todas las API configuradas, independientemente de si están hospedadas en local o en la nube. La integración de Application Gateway con API Management proporciona la flexibilidad de habilitar de manera selectiva API determinadas para que estén accesibles en Internet, así como la provisión de un firewall de aplicación web como front-end para la instancia de API Management.
 
 ##<a name="next-steps"> </a> Pasos siguientes

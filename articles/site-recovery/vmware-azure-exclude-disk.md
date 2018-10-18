@@ -4,21 +4,21 @@ description: Describe por qué y cómo excluir discos de máquina virtual de la 
 author: nsoneji
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ea0e9f3572287139612256863ee28b72c83cd4ef
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921287"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092430"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Exclusión de discos de replicación en el escenario de VMware a Azure
 
 En este artículo se describe cómo excluir discos al replicar máquinas virtuales de VMware a Azure. Esta exclusión puede optimizar el ancho de banda consumido con la replicación u optimizar los recursos del lado del destino que utilizan estos discos. Si necesita información acerca de cómo excluir discos para Hyper-V, lea [este artículo](hyper-v-exclude-disk.md).
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 De manera predeterminada, se replican todos los discos de una máquina. Si se va a replicar de VMware a Azure, para excluir un disco, la instancia de Mobility Service debe instalarse manualmente en la máquina antes de habilitar la replicación.
 

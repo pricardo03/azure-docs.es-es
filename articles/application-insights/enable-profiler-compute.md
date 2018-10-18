@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424031"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091987"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Habilitación de Application Insights Profiler en máquinas virtuales de Azure, Service Fabric y Azure Cloud Services
 
@@ -48,7 +48,7 @@ Para habilitar completamente Profiler, debe cambiar la configuración en tres ub
 
    ![Ubicación de la clave de instrumentación](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. Para finalizar la configuración de la instancia de Application Insights para Profiler, realice el procedimiento que se describe en Habilitación de Profiler. No es necesario vincular las aplicaciones web, porque los pasos son específicos del recurso de servicios de aplicación. Asegúrese de que Profiler esté habilitado en el panel **Configure Profiler** (Configurar Profiler).
+1. Para finalizar la configuración de la instancia de Application Insights para Profiler, realice el procedimiento que se describe en [Habilitación de Profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler). No es necesario vincular las aplicaciones web, porque los pasos son específicos del recurso de servicios de aplicación. Asegúrese de que Profiler esté habilitado en el panel **Configure Profiler** (Configurar Profiler).
 
 
 ## <a name="set-up-the-application-source-code"></a>Configuración del código fuente de la aplicación

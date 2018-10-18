@@ -3,19 +3,19 @@ title: 'Guía de inicio rápido: Generación de una miniatura - REST, JavaScript
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con JavaScript.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: ef0cdad796623b4453f71e8b593ba4304a41ee0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: e221e2f65182092123ba3a61cf8d8844d9b6ee96
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629464"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343085"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y JavaScript en Computer Vision
 
@@ -36,7 +36,7 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
     1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
     1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
     1. También puede reemplazar el valor del atributo `value` para el control `inputImage` por la dirección URL de una imagen diferente que desee analizar.
-1. Guarde el código como un archivo con una extensión `.html`. Por ejemplo, `get-thumbnail.html`.
+1. Guarde el código como un archivo con la extensión `.html`. Por ejemplo, `get-thumbnail.html`.
 1. Abra una ventana del explorador.
 1. En el explorador, arrastre y coloque el archivo en la ventana del explorador.
 1. Cuando la página web se muestra en el explorador, seleccione el botón **Generar miniatura**.

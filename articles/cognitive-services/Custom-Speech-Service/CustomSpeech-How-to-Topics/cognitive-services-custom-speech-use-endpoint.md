@@ -1,24 +1,25 @@
 ---
-title: 'Uso de un punto de conexión de voz personalizado: Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: Aprenda a usar un punto de conexión personalizado de voz a texto con Custom Speech Service.
+title: Uso de un punto de conexión personalizado de voz con Custom Speech Service en Azure | Microsoft Docs
+description: Aprenda a usar un punto de conexión personalizado de voz a texto con Custom Speech Service en Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223379"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341812"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Uso de un punto de conexión personalizado de voz a texto
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Puede enviar solicitudes a un punto de conexión de voz a texto de Azure Custom Speech Service de forma similar a la que se envían al punto de conexión de voz predeterminado de Cognitive Services. Estos puntos de conexión son funcionalmente idénticos a los puntos de conexión predeterminados de Speech API. Por lo tanto, la misma funcionalidad disponible a través de la biblioteca cliente o la API REST para Speech API también está disponible para el punto de conexión personalizado.
 
 Los puntos de conexión que cree mediante el uso de este servicio pueden procesar un número diferente de solicitudes simultáneas. El volumen depende del plan de tarifa asociado a la suscripción. Si se reciben demasiadas solicitudes, se produce un error. El plan gratuito tiene un límite mensual de solicitudes.

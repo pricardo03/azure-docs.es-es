@@ -1,24 +1,25 @@
 ---
-title: 'Creación de un punto de conexión de voz personalizado: Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: Aprenda a crear un punto de conexión personalizado de voz a texto con Custom Speech Service.
+title: Crear un punto de conexión personalizado de voz con Custom Speech Service en Azure | Microsoft Docs
+description: Obtenga información acerca de cómo crear un punto de conexión personalizado de voz a texto con Custom Speech Service en Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 958e97f708e7c6920bcb0d65d91656fcf00cd71a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219030"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340808"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Creación de un punto de conexión personalizado de voz a texto
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Una vez creados los modelos acústicos o modelos de lenguaje personalizados, puede implementarlos en un punto de conexión personalizado de voz a texto. 
 
 ## <a name="create-an-endpoint"></a>Creación de un extremo

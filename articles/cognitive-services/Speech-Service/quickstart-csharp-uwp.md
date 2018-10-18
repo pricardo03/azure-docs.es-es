@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 2eb6bda7066a01e5532fe7c0e20b0ee13f4289b6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d9a90869e060d2f8f1a1c522a4528e74841caada
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432994"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339621"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en una aplicación para UWP mediante el SDK de Voz
 
@@ -27,7 +27,7 @@ En este artículo, creará una aplicación para Plataforma universal de Windows 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción del servicio de Voz para completar este inicio rápido. Puede obtener una gratis. Para ver más detalles, consulte [Pruebe Speech Service gratis](get-started.md).
+Necesita una clave de suscripción del servicio Voz para completar este inicio rápido. Puede obtener una gratis. Para más detalles, consulte [Prueba gratuita del servicio Voz](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
@@ -58,7 +58,7 @@ Necesita una clave de suscripción del servicio de Voz para completar este inici
 
     ![Captura de pantalla del Explorador de soluciones, con la opción Administrar paquetes NuGet para la solución resaltada](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
 
-1. En la esquina superior derecha, en el campo **Origen del paquete**, elija **Nuget.org**. Busque el paquete `Microsoft.CognitiveServices.Speech` e instálelo en el proyecto **helloworld**.
+1. En la esquina superior derecha, en el campo **Origen del paquete**, seleccione **nuget.org**. Busque el paquete `Microsoft.CognitiveServices.Speech` e instálelo en el proyecto **helloworld**.
 
     ![Captura de pantalla del cuadro de diálogo de administrar paquetes para la solución](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "Instalación de paquete de NuGet")
 
@@ -69,7 +69,7 @@ Necesita una clave de suscripción del servicio de Voz para completar este inici
 1. La línea de salida siguiente aparece en la consola del Administrador de paquetes.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
    ```
 
 1. Dado que la aplicación usa el micrófono para entrada de voz, agregue la funcionalidad de **micrófono** al proyecto. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** para editar el manifiesto de aplicación. Después, seleccione la pestaña **Capabilities** (Funcionalidades), active la casilla de verificación de la funcionalidad **Microphone** (Micrófono) y guarde los cambios.

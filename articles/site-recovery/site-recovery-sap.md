@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922743"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318697"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Protección de la implementación de una aplicación SAP NetWeaver de niveles múltiples mediante Site Recovery
 
@@ -33,7 +33,7 @@ Con Site Recovery, puede:
 
 En este artículo se explica cómo proteger las implementaciones de aplicaciones SAP NetWeaver mediante [Azure Site Recovery](site-recovery-overview.md). En este artículo se describen los procedimientos recomendados para proteger una implementación de SAP NetWeaver de tres niveles en Azure mediante la replicación en otro centro de datos de Azure a través de Site Recovery. Describe los escenarios y las configuraciones compatibles y cómo realizar conmutaciones por error de prueba (maniobras de recuperación ante desastres) y conmutaciones ante desastres reales.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, asegúrese de que sabe cómo realizar las tareas siguientes:
 
 * [Replicar una máquina virtual en Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -71,10 +71,10 @@ Para la recuperación ante desastres (DR), debe ser capaz de realizar la conmuta
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Máquinas virtuales que ejecutan el grupo de SAP Web Dispatcher 
 El componente Web Dispatcher se usa como equilibrador de carga para el tráfico SAP que circula entre los servidores de aplicaciones de SAP. Para lograr una alta disponibilidad para el componente de Web Dispatcher, se usa Azure Load Balancer para implementar la configuración paralela de Web Dispatcher en una configuración round-robin para la distribución del tráfico HTTP(S) entre las instancias disponibles de Web Dispatcher del grupo de equilibradores de carga. Esto se replicará mediante Azure Site Recovery (ASR) y los scripts de automatización se usarán para configurar el equilibrador de carga en la región de recuperación ante desastres. 
 
-####<a name="vms-running-application-servers-pool"></a>Máquinas virtuales que ejecutan el grupo de servidores de aplicaciones
+#### <a name="vms-running-application-servers-pool"></a>Máquinas virtuales que ejecutan el grupo de servidores de aplicaciones
 Para administrar grupos de inicio de sesión para servidores de aplicaciones de ABAP, se utiliza la transacción SMLG. Usa la función de equilibrio de carga en el servidor de mensajes de Central Services para distribuir la carga de trabajo entre el grupo de servidores de aplicaciones de SAP para SAPGUI y el tráfico de RFC. Esto se replicará mediante Azure Site Recovery 
 
-####<a name="vms-running-sap-central-services-cluster"></a>Máquinas virtuales que ejecutan el clúster de SAP Central Services
+#### <a name="vms-running-sap-central-services-cluster"></a>Máquinas virtuales que ejecutan el clúster de SAP Central Services
 Esta arquitectura de referencia ejecuta Central Services en máquinas virtuales en la capa de aplicación. Central Services es un posible único punto de error (SPOF) cuando se implementa en una sola máquina virtual (que es la implementación más habitual cuando la alta disponibilidad no es un requisito).<br>
 
 Para implementar una solución de alta disponibilidad, se puede utilizar un clúster de disco compartido o un clúster de recurso compartido de archivos. Para configurar las máquinas virtuales en un clúster de disco compartido, use el clúster de conmutación por error de Windows Server. Cloud Witness se recomienda como testigo de cuórum. 
@@ -110,7 +110,7 @@ A continuación, se muestra la recomendación para la recuperación ante desastr
 **Máquinas virtuales de Active Directory** |  Replicación de Active Directory 
 **Servidores de SQL Database** |  SQL siempre en replicación
 
-##<a name="replicate-virtual-machines"></a>Replicación de máquinas virtuales
+## <a name="replicate-virtual-machines"></a>Replicación de máquinas virtuales
 
 Para comenzar a replicar todas las máquinas virtuales de la aplicación SAP en el centro de datos de recuperación ante desastres de Azure, siga las instrucciones que aparecen en el artículo sobre la [replicación de una máquina virtual en Azure](azure-to-azure-walkthrough-enable-replication.md).
 

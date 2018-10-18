@@ -19,7 +19,7 @@ Los valores válidos para el proveedor son "aad", "facebook", "google", "microso
 
 En este caso, Azure App Service administra el flujo de autenticación de OAuth 2.0.  Muestra la página de inicio de sesión del proveedor seleccionado y genera un token de autenticación de App Service después de iniciar sesión correctamente con el proveedor de identidades. La función login, cuando se completa, devuelve un objeto JSON que expone el identificador de usuario y el token de autenticación de App Service en los campos userId y authenticationToken, respectivamente. El token puede almacenarse en caché y volver a usarse hasta que expire.
 
-###<a name="client-auth"></a>Autenticación con un proveedor (flujo de cliente)
+### <a name="client-auth"></a>Autenticación con un proveedor (flujo de cliente)
 
 La aplicación también puede ponerse en contacto de manera independiente con el proveedor de identidades y proporcionar el token devuelto a App Service para la autenticación. Este flujo de cliente le permite proporcionar una experiencia de inicio de sesión único para los usuarios o recuperar datos de usuario adicionales del proveedor de identidades.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 En este ejemplo simplificado se obtiene un token de Live Connect, que se suministra a App Service mediante la llamada a la función login.
 
-###<a name="auth-getinfo"></a>Obtención de información sobre el usuario autenticado
+### <a name="auth-getinfo"></a>Obtención de información sobre el usuario autenticado
 
 Se puede recuperar la información de autenticación desde el punto de conexión `/.auth/me` mediante una llamada HTTP con cualquier biblioteca de AJAX.  Asegúrese de establecer el encabezado `X-ZUMO-AUTH` en el token de autenticación.  El token de autenticación se almacena en `client.currentUser.mobileServiceAuthenticationToken`.  Por ejemplo, para usar la API de captura:
 

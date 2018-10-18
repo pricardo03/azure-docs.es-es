@@ -1,26 +1,19 @@
 ---
 title: Recursos compartidos de administración de Azure Data Box Gateway | Microsoft Docs
 description: Describe cómo usar Azure Portal para administrar recursos compartidos en Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: gateway
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 71e47e271d802503ecf72e7f63f1e2e5f294b5f7
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070747"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165681"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Data Box Gateway 
 
@@ -39,7 +32,7 @@ En este artículo, aprenderá a:
 > [!div class="checklist"]
 > * Agregar un recurso compartido
 > * Eliminación de un recurso compartido
-> * Actualizar recursos compartidos
+> * Actualización de recursos compartidos
 > * Sincronizar clave de almacenamiento
 
 

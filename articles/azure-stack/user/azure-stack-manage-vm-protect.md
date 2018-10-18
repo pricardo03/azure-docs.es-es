@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 734ee0e6ffb0dab660a2b63b431780208e0e0484
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165271"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341844"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protección de máquinas virtuales implementadas en Azure Stack
 
@@ -98,7 +98,7 @@ Consideraciones importantes sobre la copia de seguridad de máquinas virtuales e
     - Considere la posibilidad de realizar copias de seguridad escalonadas si incorpora un gran número de máquinas virtuales nuevas (si es necesaria la copia de seguridad).
     - Evalúe productos de copia de seguridad que puedan capturar y transmitir eficazmente los datos de copia de seguridad para minimizar el contenido de los recursos de la solución.
     - Evalúe productos de seguridad que almacenen eficazmente los datos de copia seguridad mediante copias de seguridad incrementales o diferenciales para minimizar la necesidad de extraer copias de seguridad completas de todas las máquinas virtuales del entorno.
- - **Restore**
+ - **Restauración**
     - Los productos de copia de seguridad pueden restaurar discos virtuales, datos de aplicaciones dentro de una máquina virtual existente, o todos los recursos de la máquina virtual y los discos virtuales asociados. El esquema de restauración que necesita depende de cómo va a restaurar la aplicación y cómo afectará al tiempo de recuperación de la aplicación. Por ejemplo, puede ser más fácil volver a implementar una instancia de SQL Server desde una plantilla y, a continuación, restaurar las bases de datos en lugar de restaurar la máquina virtual completa o un conjunto de máquinas virtuales.
 
 ### <a name="replicationmanual-failover"></a>Replicación o conmutación por error manual
