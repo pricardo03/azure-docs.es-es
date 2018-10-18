@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505118"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388330"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Guía de conexiones a Internet de confianza
 
@@ -223,7 +223,7 @@ Las siguientes directivas de ejemplo se pueden utilizar para escenarios de cumpl
 
 ### <a name="network-watcher-traffic-analytics"></a>Análisis de tráfico de Network Watcher
 
-El [análisis de tráfico](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) de Network Watcher consume datos del registro de flujo y otros registros para proporcionar información general de alto nivel del tráfico de red. Estos datos pueden ser útiles para auditar el cumplimiento de TIC y para identificar aspectos problemáticos. Puede usar el panel de alto nivel para detectar rápidamente qué máquinas virtuales se comunican con Internet y obtener una lista focalizada para el enrutamiento de TIC.
+El [análisis de tráfico](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) de Network Watcher consume datos del registro de flujo y otros registros para proporcionar información general de alto nivel del tráfico de red. Estos datos pueden ser útiles para auditar el cumplimiento de TIC y para identificar aspectos problemáticos. Puede usar el panel de alto nivel para detectar rápidamente qué máquinas virtuales se comunican con Internet y obtener una lista focalizada para el enrutamiento de TIC.
 
 ![Análisis del tráfico](media/tic-traffic-analytics-1.png)
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: cwatson
+ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204129"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392097"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Administrar el acceso a la información de facturación de Azure mediante el control de acceso basado en roles
 
@@ -71,7 +71,7 @@ El rol Lector de facturación tiene acceso de solo lectura a información de fac
 
 ## <a name="adding-users-to-other-roles"></a>Agregar usuarios a los demás roles
 
-Los usuarios de otros roles, como Propietario o Colaborador, pueden tener acceso no solo a la información de facturación, sino también a los servicios de Azure. Para administrar estos roles, vea [Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios](billing-add-change-azure-subscription-administrator.md).
+Los usuarios de otros roles, como Propietario o Colaborador, pueden tener acceso no solo a la información de facturación, sino también a los servicios de Azure. Para administrar estos roles, vea [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>¿Quién puede tener acceso al [Centro de cuentas](https://account.windowsazure.com)?
 

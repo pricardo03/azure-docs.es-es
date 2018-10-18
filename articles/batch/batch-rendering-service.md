@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036818"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393560"
 ---
 # <a name="rendering-using-azure"></a>Representación mediante Azure
 
@@ -69,7 +69,7 @@ Azure Batch se utiliza para muchas cargas de trabajo, pero las siguientes funcio
   * Hay imágenes de máquina virtual de Azure Marketplace disponibles que contienen aplicaciones de gráficos y representación populares, lo que evita la necesidad de instalar las aplicaciones por sí mismo o crear sus propias imágenes personalizadas con las aplicaciones instaladas. 
 * Licencias de pago por uso para aplicaciones de representación:
   * Puede optar por pagar por las aplicaciones por minuto, además de pagar por las máquinas virtuales de proceso, lo que evita tener que comprar licencias y la posible configuración de un servidor de licencias para las aplicaciones.  Pagar por el uso también significa que es posible atender cargas variables e inesperadas, ya que no hay un número fijo de licencias.
-  * También es posible usar las aplicaciones preinstaladas con sus propias licencias y no usar las licencias de pago por uso.
+  * También es posible usar las aplicaciones preinstaladas con sus propias licencias y no usar las licencias de pago por uso. Para ello, normalmente se instala un servidor de licencias local o basado en Azure y se usa una red virtual de Azure para conectar el grupo de representación al servidor de licencias.
 * Complementos para aplicaciones de modelado y diseño de cliente:
   * Los complementos permiten a los usuarios finales usar Azure Batch directamente desde la aplicación cliente, como Autodesk Maya, lo que les permite crear grupos, enviar trabajos y hacer uso de más capacidad de proceso a realizar representaciones más rápido.
 * Integración del administrador de representación:

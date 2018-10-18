@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 03c4a36330ca17eea4233e928d6b728e94e15292
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 18b7b1b3d2a74b6e3aeb671154de48bd7b7f1e00
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299207"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218061"
 ---
 # <a name="alert-confidence-score"></a>Puntuación de confianza de la alerta 
 
@@ -29,7 +29,7 @@ La puntuación de confianza de Security Center puede ayudar a su equipo a evalua
 
 ## <a name="how-the-confidence-score-is-triggered"></a>¿Cómo se desencadena la puntuación de confianza?
 
-Se generan alertas cuando se detectan procesos sospechosos que se ejecutan en las máquinas virtuales. Security Center revisa y analiza estas alertas en las máquinas virtuales Windows que se ejecutan en Azure. Realiza comprobaciones automatizadas y correlaciones mediante algoritmos avanzados en varias entidades y orígenes de datos de la organización, y en todos los recursos de Azure, y presenta una puntuación de confianza que es una medida del grado de confianza que tiene Security Center en que una alerta es auténtica y que debe investigarse.
+Se generan alertas cuando se detectan procesos sospechosos que se ejecutan en las máquinas virtuales. Security Center revisa y analiza estas alertas en las máquinas virtuales Windows que se ejecutan en Azure. Realiza comprobaciones automatizadas y correlaciones con algoritmos avanzados en varios orígenes de datos y entidades a través de la organización y los recursos de Azure, y se presenta con una puntuación de confianza que permite valorar que Security Center proporciona tal confianza que la alerta es genuina y debe investigarse.
 
 ## <a name="understanding-the-confidence-score"></a>Descripción de la puntuación de confianza
 

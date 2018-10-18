@@ -1,6 +1,6 @@
 ---
 title: Protección de aplicaciones PaaS con Azure Storage | Microsoft Docs
-description: " Obtenga información sobre los procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. "
+description: Obtenga información sobre los procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,52 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2018
+ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295302"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451874"
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Protección de aplicaciones web y móviles PaaS con Azure Storage
-
-En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
-
-La [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) es una excelente fuente para obtener información detallada sobre Azure Storage y la seguridad.  Este artículo aborda de forma resumida algunos de los conceptos de la Guía de seguridad. Además, se ofrecen vínculos a dicha guía y otras fuentes de información.
-
-## <a name="azure-storage"></a>Azure Storage
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedimientos recomendados para proteger aplicaciones web y móviles PaaS con Azure Storage
+En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger las aplicaciones web y móviles PaaS (plataforma como servicio). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
 
 Azure permite implementar y usar el almacenamiento de formas inauditas con un entorno local. Gracias a Azure Storage, se pueden alcanzar altos niveles de escalabilidad y disponibilidad con relativamente poco esfuerzo. Azure Storage no solo constituye la base de Azure Virtual Machines con Windows y Linux, sino que también puede admitir aplicaciones distribuidas de gran tamaño.
 
 Azure Storage proporciona los cuatro servicios siguientes: Blob Storage, Table Storage, Queue Storage y File Storage. Para obtener más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md).
 
-## <a name="best-practices"></a>Procedimientos recomendados
+La [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) es una excelente fuente para obtener información detallada sobre Azure Storage y la seguridad. Este artículo de procedimientos recomendados aborda de forma resumida algunos de los conceptos de la guía de seguridad. Además, se ofrecen vínculos a dicha guía y otras fuentes de información.
 
 En este artículo se explican los siguientes procedimientos recomendados:
 
-- Protección de acceso:
-   - Firmas de acceso compartido (SAS)
-   - Control de acceso basado en rol (RBAC)
+- Firmas de acceso compartido (SAS)
+- Control de acceso basado en roles (RBAC)
+- Cifrado del lado cliente para datos de gran valor
+- Cifrado del servicio Storage
 
-- Cifrado de almacenamiento:
-   - Cifrado del lado cliente para datos de gran valor
-   - Cifrado del servicio Storage
 
-## <a name="access-protection"></a>Protección de acceso
+## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>Usar una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento
+El control de acceso es fundamental. Para ayudar a controlar el acceso a Azure Storage, Azure genera dos claves de cuenta de almacenamiento (SAK) de 512 bits al crear una cuenta de almacenamiento. El nivel de redundancia de claves permite evitar interrupciones del servicio durante la rotación de claves rutinaria. 
 
-### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Uso de la firma de acceso compartido en lugar de una clave de cuenta de almacenamiento
+Las claves de acceso de almacenamiento son secretos de prioridad alta y solo deben estar accesibles a los responsables del control de acceso de almacenamiento. Si los usuarios equivocados consiguen acceder a estas claves, controlarían por completo el almacenamiento y podrían reemplazar, eliminar o agregar archivos en él. Por ejemplo, software malintencionado y otro tipo de contenido que puede poner en peligro a sus clientes u organización.
 
-En una solución de IaaS, normalmente máquinas virtuales Linux o Windows en ejecución, los archivos están protegidos contra la divulgación y las amenazas de alteración a través de mecanismos de control de acceso. En Windows se usaría las [listas de control de acceso (ACL)](../virtual-network/virtual-networks-acl.md) y, en Linux, probablemente [chmod](https://en.wikipedia.org/wiki/Chmod). Básicamente, esto es exactamente lo que haría actualmente si estuviese protegiendo archivos de un servidor de su propio centro de datos.
-
-Pero con PaaS es diferente. Una de las formas más habituales de almacenar archivos en Microsoft Azure es utilizando [Azure Blob Storage](../storage/storage-dotnet-how-to-use-blobs.md). Una de las diferencias entre Blob Storage y otro sistema de almacenamiento de archivos es la E/S de archivos y los métodos de protección que se proporcionan con dicha E/S de archivos.
-
-El control de acceso es fundamental. Para ayudarlo a controlar el acceso a Azure Storage, el sistema generará dos claves de cuenta de almacenamiento de 512 bits (SAK) al [crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md). El nivel de redundancia clave permite evitar la interrupción del servicio durante la rotación de clave rutinaria.
-
-Las claves de acceso de almacenamiento son secretos de prioridad alta y solo deben estar accesibles a los responsables del control de acceso de almacenamiento. Si los usuarios equivocados consiguen acceder a estas claves, podrían controlar por completo el almacenamiento y reemplazar, eliminar o agregar archivos en él. Por ejemplo, software malintencionado y otro tipo de contenido que puede poner en peligro a sus clientes u organización.
-
-Seguirá necesitando una forma de proporcionar acceso a los objetos del almacenamiento. Para proporcionar un acceso más detallado, puede aprovechar las ventajas de la [firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). La SAS permite compartir objetos específicos en el almacenamiento durante intervalo de tiempo predefinido y con permisos concretos. Una firma de acceso compartido permite definir lo siguiente:
+Seguirá necesitando una forma de proporcionar acceso a los objetos del almacenamiento. Para proporcionar un acceso más detallado, puede aprovechar la firma de acceso compartido (SAS). La SAS permite compartir objetos específicos en el almacenamiento durante intervalo de tiempo predefinido y con permisos concretos. Una firma de acceso compartido permite definir lo siguiente:
 
 - El intervalo durante el que la SAS es válida, incluida la hora de inicio y la hora de caducidad.
 - Los permisos concedidos por la SAS. Por ejemplo, una SAS de un blob podría conceder a un usuario permisos de lectura y escritura para el blob, pero no permisos de eliminación.
@@ -66,36 +52,29 @@ Seguirá necesitando una forma de proporcionar acceso a los objetos del almacena
 
 SAS permite compartir contenido de la forma que se quiera sin tener que proporcionar las claves de cuenta de almacenamiento. Utilizar siempre SAS en la aplicación es una forma segura de compartir los recursos de almacenamiento sin poner en peligro las claves de cuenta de almacenamiento.
 
-Para obtener más información, consulte [Uso de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Para obtener más información sobre los posibles riesgos y las recomendaciones para mitigarlos, consulte [Procedimientos recomendados al usar SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para obtener más información sobre la firma de acceso compartido, vea [Uso de firmas de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). 
 
-### <a name="use-role-based-access-control"></a>Uso del control de acceso basado en rol
+## <a name="use-role-based-access-control"></a>Uso del control de acceso basado en rol
+Otra forma administrar el acceso es usar el [control de acceso basado en rol](../role-based-access-control/overview.md) (RBAC). Gracias a RBAC, podrá centrarse en proporcionar a los empleados los permisos exactos que necesiten, según la necesidad de información y los principios de seguridad de privilegios mínimos. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. RBAC ayuda a abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure. Esto es fundamental para las organizaciones que deseen aplicar directivas de seguridad para el acceso a los datos.
 
-Antes, explicamos cómo utilizar la firma de acceso compartido (SAS) para conceder acceso limitado a los objetos de la cuenta de almacenamiento a otros clientes sin poner en riesgo la clave de cuenta de almacenamiento. En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan a las ventajas del uso de la SAS. A veces, es más sencillo administrar el acceso de otras formas.
+Puede usar los roles de RBAC integrados en Azure para asignar privilegios a los usuarios. Por ejemplo, use Colaborador de la cuenta de almacenamiento para los operadores en la nube que necesiten administrar cuentas de almacenamiento, y el rol Colaborador de la cuenta de almacenamiento clásica para administrar cuentas de almacenamiento clásicas. En el caso de los operadores en la nube que necesitan administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas, puede agregarlos al rol Colaborador de la máquina virtual.
 
-Otra forma administrar el acceso es usando la funcionalidad [Control de acceso basado en rol de Azure](../role-based-access-control/overview.md) (RBAC). Gracias a RBAC, podrá centrarse en proporcionar a los empleados los permisos exactos que necesiten, según la necesidad de información y los principios de seguridad de privilegios mínimos. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. RBAC ayuda a abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure. Esto es fundamental para las organizaciones que deseen aplicar directivas de seguridad para el acceso a los datos.
-
-Puede aprovechar los roles de RBAC integrados en Azure para asignar privilegios a los usuarios. Plantéese usar Colaborador de la cuenta de almacenamiento para los operadores en la nube que necesiten administrar cuentas de almacenamiento, y el rol Colaborador de la cuenta de almacenamiento clásica para administrar cuentas de almacenamiento clásicas. En lo que respecta a los operadores en la nube que necesitan administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas, plantéese agregarlos al rol Colaborador de la máquina virtual.
-
-Es posible que las organizaciones que no apliquen el control de acceso a los datos mediante funcionalidades como RBAC estén concediendo más privilegios de los necesarios a sus usuarios. Esto puede poner en peligro los datos si algunos usuarios acceden a datos que no les conciernen.
+Puede que las organizaciones que no aplican el control de acceso de datos mediante funcionalidades como RBAC estén concediendo más privilegios de los necesarios a sus usuarios. Esto puede poner en peligro los datos si algunos usuarios acceden a datos que no les conciernen.
 
 Para obtener más información sobre RBAC, consulte los siguientes artículos:
 
-- [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md)
-- [Roles integrados para el control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
-- [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) (para obtener información detallada sobre cómo proteger una cuenta de almacenamiento con RBAC)
+- [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md)
+- [Roles integrados en los recursos de Azure](../role-based-access-control/built-in-roles.md)
+- [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) 
 
-## <a name="storage-encryption"></a>Cifrado de almacenamiento
+## <a name="use-client-side-encryption-for-high-value-data"></a>Uso del cifrado del lado cliente para datos de gran valor
+El cifrado del lado cliente permite cifrar datos en tránsito mediante programación antes de cargarlos en Azure Storage y descifrarlos de la misma manera al recuperarlos. De este modo, se cifran tanto los datos en tránsito como los que están en reposo. El cifrado del lado cliente el método más seguro para cifrar los datos, pero hay que realizar cambios mediante programación en la aplicación e implementar procesos de administración de claves.
 
-### <a name="use-client-side-encryption-for-high-value-data"></a>Uso del cifrado del lado cliente para datos de gran valor
+El cifrado del lado cliente también permite controlar de forma exclusiva las claves de cifrado. Puede generar y administrar sus propias claves de cifrado. Usa una técnica de sobre que consiste en que la biblioteca cliente de Azure Storage genera una clave de cifrado de contenido (CEK) que se encapsula (se cifra) mediante la clave de cifrado de claves (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-El cifrado del lado cliente permite cifrar datos en tránsito mediante programación antes de cargarse en Azure Storage y descifrarlos de la misma manera cuando se recuperan del almacenamiento.  De este modo, se cifran tanto los datos en tránsito como los que están en reposo.  El cifrado del lado cliente el método más seguro para cifrar los datos, pero hay que realizar cambios mediante programación en la aplicación e implementar procesos de administración de claves.
+El cifrado del lado cliente se integra en las bibliotecas de cliente de almacenamiento. de Java y .NET. Vea [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../storage/storage-client-side-encryption.md) para obtener información sobre cómo cifrar los datos en las aplicaciones cliente y cómo generar y administrar claves de cifrado propias.
 
-El cifrado del lado cliente también permite controlar de forma exclusiva las claves de cifrado.  Puede generar y administrar sus propias claves de cifrado.  El cifrado del lado cliente utiliza una técnica de sobres en la que la biblioteca de cliente de Azure Storage genera una clave de cifrado de contenido (CEK) que, posteriormente, se encapsula (se cifra) con la clave de cifrado de claves (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en [Azure Key Vault](../key-vault/key-vault-whatis.md).
-
-El cifrado del lado cliente se integra en las bibliotecas de cliente de almacenamiento. de Java y .NET.  Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../storage/storage-client-side-encryption.md) para obtener información sobre cómo cifrar los datos en las aplicaciones cliente, y generar y administrar claves de cifrado.
-
-### <a name="storage-service-encryption"></a>Cifrado del servicio Storage
-
+## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Habilitar Storage Service Encryption para datos en reposo
 Cuando el [cifrado del servicio Storage](../storage/storage-service-encryption.md) está habilitado en File Storage, los datos se cifran automáticamente con el cifrado AES-256. Microsoft controla todo el proceso de cifrado, descifrado y administración de claves. Esta característica está disponible en los tipos de redundancia LRS y GRS.
 
 ## <a name="next-steps"></a>Pasos siguientes

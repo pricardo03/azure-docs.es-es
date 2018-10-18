@@ -1,6 +1,6 @@
 ---
-title: Uso de la CLI 2.0 para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services | Microsoft Docs
-description: En este tema se explica cómo usar la CLI 2.0 para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services.
+title: Uso de la CLI de Azure para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services | Microsoft Docs
+description: En este tema se explica cómo usar la CLI de Azure para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 7685be97213f0b298499d474c0a6a772ca608fb2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fcd0ea10bd39f9e7252e114e8d6401a4fe0ecadb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782734"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096555"
 ---
-# <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Uso de la CLI 2.0 para crear una aplicación de AAD y configurarla para acceder a la API de Azure Media Services
+# <a name="use-azure-cli-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Uso de la CLI de Azure para crear una aplicación de AAD y configurarla para acceder a la API de Azure Media Services
 
-En este tema se muestra cómo utilizar la CLI 2.0 para crear una aplicación de Azure Active Directory (Azure AD) y la entidad de servicio para acceder a recursos de Azure Media Services. 
+En este tema se muestra cómo usar la CLI de Azure para crear una aplicación de Azure Active Directory (Azure AD) y la entidad de servicio para acceder a recursos de Azure Media Services. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Una cuenta de Media Services. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
@@ -38,7 +38,7 @@ En este tema se muestra cómo utilizar la CLI 2.0 para crear una aplicación de 
 
 Para más información, vea [Introducción a Azure Cloud Shell](../../cloud-shell/overview.md).
 
-## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-cli-20"></a>Creación de una aplicación de Azure AD y configuración del acceso a la cuenta multimedia con la CLI 2.0
+## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-azure-cli"></a>Creación de una aplicación de Azure AD y configuración del acceso a la cuenta multimedia con la CLI de Azure
  
 ```azurecli
 az login
@@ -60,7 +60,7 @@ Por ejemplo, podría ser uno de los siguientes niveles:
 * El nivel de **grupo de recursos**.
 * El nivel de **recurso** (por ejemplo, una cuenta multimedia).
 
-Para más información, vea [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+Para más información, vea [Creación de una entidad de servicio de Azure con la CLI de Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Vea también [Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure](../../role-based-access-control/role-assignments-cli.md). 
 

@@ -1,218 +1,160 @@
 ---
-title: Aplicación del recopilador de Azure Migrate | Microsoft Docs
-description: Proporciona información general sobre la aplicación del recopilador y cómo configurarlo.
-author: ruturaj
+title: Dispositivo del recopilador de Azure Migrate | Microsoft Docs
+description: Proporciona información sobre el dispositivo del recopilador de Azure Migrate.
+author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
-ms.author: ruturajd
+ms.date: 09/28/2018
+ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665587"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434439"
 ---
-# <a name="collector-appliance"></a>Aplicación del recopilador
+# <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
-[Azure Migrate](migrate-overview.md) evalúa las cargas de trabajo locales para su migración a Azure. En este artículo se proporciona información sobre cómo usar la aplicación del recopilador.
+ En este artículo se proporciona información sobre Azure Migrate Collector.
+
+Azure Migrate Collector es un dispositivo ligero que sirve para detectar un entorno de vCenter local a efectos de evaluación con el servicio [Azure Migrate](migrate-overview.md) antes de realizar la migración a Azure.  
+
+
+## <a name="deploying-the-collector"></a>Implementar el recopilador
+
+Para implementar el dispositivo del recopilador mediante una plantilla OVF:
+
+- Descargue la plantilla OVF desde un proyecto de Azure Migrate en Azure Portal. Importe el archivo descargado en vCenter Server para configurar la máquina virtual del dispositivo del recopilador.
+- Desde OVF, VMware configura una máquina virtual con 4 núcleos, 8 GB de RAM y un disco de 80 GB. El sistema operativo es Windows Server 2012 R2 (64 bits).
+- Cuando ejecute el recopilador, se ejecuta un número de comprobaciones de requisitos previos para asegurarse de que el recopilador puede conectarse a Azure Migrate.
+
+- [Más información](tutorial-assessment-vmware.md#create-the-collector-vm) sobre el recopilador.
+
+
+## <a name="collector-prerequisites"></a>Requisitos previos del recopilador
+
+El recopilador debe pasar algunas comprobaciones de requisitos previos para asegurarse de que puede conectarse al servicio Azure Migrate a través de Internet y cargar los datos detectados.
+
+- **Compruebe la conexión a Internet**: el recopilador puede conectarse a Internet directamente o a través de un proxy.
+    - La comprobación de requisitos previos comprueba la conectividad a las [direcciones URL obligatorias y opcionales](#connect-to-urls).
+    - Si tiene una conexión directa a Internet, no es necesario realizar ninguna acción específica, salvo asegurarse de que el recolector puede llegar a las direcciones URL necesarias.
+    - Si se conecta a través de un proxy, tenga en cuenta los [requisitos](#connect-via-a-proxy) que se indican más abajo.
+- **Comprobar sincronización temporal**: el recopilador debe estar sincronizado con el servidor horario de Internet para asegurarse de que se autentiquen las solicitudes al servicio.
+    - La dirección URL portal.azure.com debe ser accesible desde el recopilador para que se pueda validar la hora.
+    - Si la máquina no está sincronizada, debe cambiar la hora del reloj de la máquina virtual del recopilador para que coincida con la hora actual. Para hacerlo, abra un símbolo del sistema de administración en la máquina virtual y ejecute **w32tm /tz** para comprobar la zona horaria. Ejecute **w32tm /resync** para sincronizar la hora.
+- **Comprobar que el servicio del recopilador se está ejecutando**: el servicio Azure Migrate Collector debe estar ejecutándose en la máquina virtual del recopilador.
+    - Este servicio se inicia automáticamente cuando se inicia la máquina.
+    - Si el servicio no se está ejecutando, inícielo desde el Panel de control.
+    - El servicio del recopilador se conecta a vCenter Server, recopila los metadatos y los datos de rendimiento de la máquina virtual, y los envía al servicio Azure Migrate.
+- **Comprobar si está instalado VMware PowerCLI 6.5**: el módulo de VMware PowerCLI 6.5 de PowerShell debe estar instalado en la máquina virtual del recopilador para que pueda comunicarse con vCenter Server.
+    - Si el recopilador puede tener acceso a las direcciones URL necesarias para instalar el módulo, se instala automáticamente durante la implementación del recopilador.
+    - Si el recopilador no puede instalar el módulo durante la implementación, deberá [instalarlo manualmente](#install-vwware-powercli-module-manually).
+- **Comprobar la conexión a vCenter Server**: el recopilador debe ser capaz de conectarse a vCenter Server y consultar las máquinas virtuales, sus metadatos y los contadores de rendimiento. [Comprobar los requisitos previos](#connect-to-vcenter-server) para la conexión.
+
+
+### <a name="connect-to-the-internet-via-a-proxy"></a>Conectarse a Internet a través de un servidor proxy
+
+- Si el servidor proxy necesita autenticación, puede especificar el nombre de usuario y la contraseña al configurar el recopilador.
+- La dirección IP o el FQDN del servidor proxy deben especificarse como *http://IPaddress* o *http://FQDN*.
+- Solo se admite un proxy HTTP. El recopilador no admite servidores proxy basados en HTTPS.
+- Si el servidor proxy es un proxy de interceptación, debe importar el certificado de proxy en la máquina virtual del recopilador.
+    1. En la máquina virtual del recopilador, vaya a **Menú Inicio** > **Administrar certificados de equipo**.
+    2. En la herramienta Certificados, en **Certificados - Equipo local**, busque **Editores de confianza** > **Certificados**.
+
+        ![Herramienta Certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+    3. Copie el certificado de proxy en la máquina virtual del recopilador. Es posible que deba obtenerlo desde el administrador de red.
+    4. Haga doble clic en el certificado para abrirlo y haga clic en **Instalar certificado**.
+    5. En el Asistente para importación de certificados > Ubicación del almacén, elija **Máquina Local**.
+
+    ![Ubicación del almacén de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+    6. Seleccione **Colocar todos los certificados en el siguiente almacén** > **Examinar** > **Editores de confianza**. Haga clic en **Finalizar** para importar el certificado.
+
+    ![Almacén de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
+
+    7. Compruebe que el certificado se importa según lo previsto y que las comprobaciones de requisitos previos de conectividad de Internet funcionan según lo esperado.
 
 
 
-## <a name="overview"></a>Información general
 
-Azure Migrate Collector es una aplicación ligera que se puede utilizar para detectar el entorno de vCenter local. Esta aplicación detecta máquinas de VMware locales y envía los metadatos sobre ellas al servicio Azure Migrate.
+### <a name="connect-to-urls"></a>Conectarse a direcciones URL
 
-La aplicación del recopilador es un OVF que se puede descargar desde el proyecto de Azure Migrate. Crea una instancia de una máquina virtual de VMware con 4 núcleos, 8 GB de RAM y un disco de 80 GB. El sistema operativo de la aplicación es Windows Server 2012 R2 (64 bits).
+La comprobación de conectividad se valida mediante la conexión a una lista de direcciones URL.
 
-Puede crear el recopilador siguiendo los pasos descritos aquí: [Creación de la VM de recopilador](tutorial-assessment-vmware.md#create-the-collector-vm).
+**URL** | **Detalles**  | **Comprobación de requisitos previos**
+--- | --- | ---
+*.portal.azure.com | Comprueba la conectividad con el servicio de Azure y la sincronización horaria. | Se necesita acceso a URL.<br/><br/> Se produce un error de comprobación de requisitos previos si no hay conectividad.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Sirve para descargar el módulo vCenter PowerCLI de PowerShell. | El acceso a direcciones URL es opcional.<br/><br/> No se producirá un error en la comprobación de requisitos previos.<br/><br/> Se producirá un error en la instalación automática del módulo en la máquina virtual del recopilador. Es necesario instalar manualmente el módulo.
 
-## <a name="collector-communication-diagram"></a>Diagrama de comunicación de recopilador
+
+### <a name="install-vmware-powercli-module-manually"></a>Instalar manualmente el módulo de VMware PowerCLI
+
+1. Instale el módulo siguiendo [estos pasos](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html). Estos pasos describen la instalación tanto con conexión como sin ella.
+2. Si la máquina virtual del recopilador está sin conexión y se instala en el módulo en una máquina diferente con acceso a Internet, deberá copiar los archivos VMware.* desde esa máquina a la máquina virtual de recopilador.
+3. Después de la instalación, puede reiniciar las comprobaciones de requisitos previos para confirmar que PowerCLI está instalado.
+
+### <a name="connect-to-vcenter-server"></a>Conectar a vCenter Server
+
+El recopilador se conecta a vCenter Server y consulta los metadatos de la máquina virtual y los contadores de rendimiento. Esto es lo que necesita para la conexión.
+
+- Solo se admiten las versiones 5.5, 6.0 y 6.5 de vCenter Server.
+- Necesita una cuenta de solo lectura con los permisos para detección que se resumen más abajo. Para la detección, solo es posible acceder a los centros de datos accesibles con la cuenta.
+- De forma predeterminada, se conecta a vCenter Server con una dirección IP o un FQDN. Si vCenter Server escucha en un puerto diferente, conéctese a él con el formato *IPAddress:Port_Number* o *FQDN:Port_Number*.
+- Para recopilar datos de rendimiento para el almacenamiento y la conexión a red, la configuración de estadísticas de vCenter Server debe establecerse en el nivel tres.
+- Si el nivel es menor que tres, la detección funciona pero no se recopilarán los datos de rendimiento. Es posible que se recopilen algunos contadores, pero otros se establecerán en cero.
+- Si no se recopilan datos de rendimiento para el almacenamiento y la conexión a red, las recomendaciones de tamaño para la valoración se basarán en los datos de rendimiento para CPU y memoria, y en los datos de configuración para los adaptadores de red y de disco.
+- El recopilador debe tener una línea de visión de la red con el servidor vCenter.
+
+#### <a name="account-permissions"></a>Permisos de la cuenta
+
+**Cuenta** | **permisos**
+--- | ---
+Al menos una cuenta de usuario de solo lectura | Objeto de centro de datos  –> Propagar al objeto secundario, rol = solo lectura   
+
+
+## <a name="collector-communications"></a>Comunicaciones del recopilador
+
+El recopilador se comunica como se resume en el diagrama y la tabla siguientes.
 
 ![Diagrama de comunicación de recopilador](./media/tutorial-assessment-vmware/portdiagram.PNG)
 
 
-| Componente      | Para comunicarse con   | Puerto requerido                            | Motivo                                   |
-| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
-| Recopilador      | Servicio Azure Migrate | TCP 443                                  | El recopilador debe ser capaz de comunicarse con el servicio a través del puerto SSL 443 |
-| Recopilador      | vCenter Server        | 443 predeterminado                             | El recopilador debe ser capaz de comunicarse con el servidor vCenter. Se conecta a vCenter en el puerto 443, de forma predeterminada. Si vCenter escucha en otro puerto, debe estar disponible como puerto de salida en el recopilador. |
-| Recopilador      | RDP|   | TCP 3389 | Para que pueda ejecutar RDP en la máquina del recopilador |
-
-
-
-
-
-## <a name="collector-pre-requisites"></a>Requisitos previos del recopilador
-
-El recopilador debe pasar algunas comprobaciones de requisitos previos para asegurarse de que puede conectarse con el servicio Azure Migrate y cargar los datos detectados. En este artículo se examinan los requisitos previos y se explica por qué son necesarios.
-
-### <a name="internet-connectivity"></a>Conectividad de Internet
-
-La aplicación del recopilador debe estar conectada a Internet para enviar la información de máquinas detectadas. Puede conectar la máquina a Internet de una de estas dos maneras.
-
-1. Puede configurar el recopilador para tener conectividad directa a Internet.
-2. Puede configurar el recopilador para que se conecte a través de un servidor proxy.
-    * Si el servidor proxy requiere autenticación, puede especificar el nombre de usuario y la contraseña en la configuración de conexión.
-    * La dirección IP o el FQDN del servidor proxy deben tener el formato http://IPaddress o http://FQDN. Solo se admiten servidores proxy http.
-
-> [!NOTE]
-> El recopilador no admite servidores proxy basados en https.
-
-#### <a name="internet-connectivity-with-intercepting-proxy"></a>Conectividad a Internet con proxy de interceptación
-
-Si el servidor proxy que utiliza para conectarse a Internet es un proxy de interceptación, deberá importar el certificado proxy a la máquina virtual del recopilador. Estos son los pasos para importar el certificado a la máquina virtual del recopilador.
-
-1. En la máquina virtual del recopilador, vaya al **menú Inicio** y busque y abra **Administrar certificados de equipo**.
-2. En el panel izquierdo de la herramienta Certificados, en **Certificados - Equipo local**, busque **Editores de confianza**. En **editores de confianza**, haga clic en **certificados** para ver la lista de certificados en el panel de la derecha.
-
-    ![Herramienta Certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
-
-3. Copie el certificado de proxy en la máquina virtual del recopilador. Es posible que tenga que póngase en contacto con el equipo del administrador de red de su organización para obtener este certificado.
-4. Haga doble clic en el certificado para abrirlo. Haga clic en **Instalar certificado**. Se iniciará al Asistente para importación de certificados.
-5. En el Asistente para importación de certificados, elija **Máquina Local** como Ubicación del almacén. Haga clic en **Siguiente**.
-
-    ![Ubicación del almacén de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
-
-6. Elija la opción **Colocar todos los certificados en el siguiente almacén**. Haga clic en **Examinar** y seleccione **Editores de confianza** en la lista de certificados que aparece. Haga clic en **Next**.
-
-    ![Almacén de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
-    
-7. Haga clic en **Finalizar** El certificado se importará. 
-8. También puede comprobar que el certificado se importa abriendo la herramienta Certificados como en los pasos 1 y 2 anteriores.
-9. En la aplicación Azure Migrate Collector, asegúrese de que la comprobación de requisitos previos de conectividad de internet es correcta.
-
-
-#### <a name="whitelisting-urls-for-internet-connection"></a>Lista de direcciones URL permitidas para conexión a Internet
-
-La comprobación de requisitos previos es correcta si el recopilador puede conectarse a Internet a través de la configuración proporcionada. La comprobación de conectividad se valida mediante la conexión a una lista de direcciones URL tal como se indica en la tabla siguiente. Si va a usar un proxy de firewall basado en direcciones URL para controlar la conectividad saliente, asegúrese de incluir en la lista de permitidos estas direcciones URL necesarias:
-
-**URL** | **Propósito**  
---- | ---
-*.portal.azure.com | Se requiere comprobar la conectividad con el servicio de Azure y validar los problemas de sincronización horaria.
-
-Además, la comprobación también intenta validar la conectividad con las siguientes direcciones URL pero la comprobación se supera aunque no estén accesibles. La configuración de la lista de permitidos para las siguientes direcciones URL es opcional pero debe seguir unos pasos manuales para mitigar la comprobación de requisitos previos.
-
-**URL** | **Propósito**  | **Qué ocurre si no se crean listas de permitidos**
+**El recopilador se comunica con** | **Puerto** | **Detalles**
 --- | --- | ---
-*.oneget.org:443 | Se requiere para descargar el módulo PowerCLI de vCenter basado en PowerShell. | Error en la instalación de PowerCLI. Instalar manualmente el módulo.
-*.windows.net:443 | Se requiere para descargar el módulo PowerCLI de vCenter basado en PowerShell. | Error en la instalación de PowerCLI. Instalar manualmente el módulo.
-*.windowsazure.com:443 | Se requiere para descargar el módulo PowerCLI de vCenter basado en PowerShell. | Error en la instalación de PowerCLI. Instalar manualmente el módulo.
-*.powershellgallery.com:443 | Se requiere para descargar el módulo PowerCLI de vCenter basado en PowerShell. | Error en la instalación de PowerCLI. Instalar manualmente el módulo.
-*.msecnd.net:443 | Se requiere para descargar el módulo PowerCLI de vCenter basado en PowerShell. | Error en la instalación de PowerCLI. Instalar manualmente el módulo.
-*.visualstudio.com:443 | Se requiere para descargar el módulo PowerCLI de vCenter basado en PowerShell. | Error en la instalación de PowerCLI. Instalar manualmente el módulo.
+Servicio Azure Migrate | TCP 443 | El recopilador se comunica con el servicio Azure Migrate a través de SSL 443.
+vCenter Server | TCP 443 | El recopilador debe ser capaz de comunicarse con vCenter Server.<br/><br/> De manera predeterminada, se conecta a vCenter en el puerto 443.<br/><br/> Si vCenter Server escucha en otro puerto, debe estar disponible como puerto de salida en el recopilador.
+RDP | TCP 3389 |
 
-### <a name="time-is-in-sync-with-the-internet-server"></a>Hora sincronizada con la del servidor de Internet
 
-El recopilador debe estar sincronizado con el servidor horario de Internet para asegurarse de que se autentiquen las solicitudes al servicio. La dirección URL portal.azure.com debe ser accesible desde el recopilador para que se pueda validar la hora. Si la máquina no está sincronizada, debe cambiar la hora del reloj de la máquina virtual del recopilador para que coincida con la hora actual, del modo siguiente:
+## <a name="securing-the-collector-appliance"></a>Protección del dispositivo del recopilador
 
-1. Abra un símbolo del sistema de administrador en la máquina virtual.
-1. Para comprobar la zona horaria, ejecute w32tm /tz.
-1. Para sincronizar la hora, ejecute w32tm /resync.
+Recomendamos seguir estos pasos para proteger el dispositivo del recopilador:
 
-### <a name="collector-service-should-be-running"></a>Servicio de recopilador en ejecución
+- No pierda las contraseñas de administrador ni las comparta con otras personas no autorizadas.
+- Apagar la aplicación cuando no se esté usando.
+- Colocar la aplicación en una red protegida.
+- Una vez finalizada la migración, elimine la instancia del dispositivo.
+- Tras la migración, asegúrese también de eliminar los archivos de copia de seguridad del disco (VMDK), ya que es posible que dichos discos tengan credenciales de vCenter almacenadas en caché.
 
-El servicio Azure Migrate Collector debe estar ejecutándose en la máquina. Este servicio se inicia automáticamente cuando se inicia la máquina. Si el servicio no se está ejecutando, puede iniciar el servicio *Azure Migrate Collector* mediante el panel de control. El servicio de recopilador es responsable de conectarse al servidor vCenter, recopilar los metadatos y los datos de rendimiento de la máquina, y enviarlos al servicio.
+## <a name="os-license-in-the-collector-vm"></a>Licencia de sistema operativo en la máquina virtual del recopilador
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
+El recopilador viene con una licencia de evaluación de Windows Server 2012 R2 que es válida durante 180 días. Si va a expirar el período de evaluación para la máquina virtual del recopilador, se recomienda descargar un nuevo archivo OVA y crear un nuevo dispositivo.
 
-El módulo de Powershell VMware PowerCLI debe estar instalado para que el recopilador pueda comunicarse con el servidor vCenter, y consultar los detalles de la máquina y sus datos de rendimiento. El módulo de Powershell se descarga y se instala automáticamente como parte de la comprobación de requisitos previos. La descarga automática requiere que algunas direcciones URL estén en la lista de permitidos; si no lo están, debe proporcionar acceso incluyéndolas en la lista de permitidos o instalando manualmente el módulo.
+## <a name="updating-the-os-of-the-collector-vm"></a>Actualizar el sistema operativo de la máquina virtual del recopilador
 
-Instale el módulo manualmente siguiendo estos pasos:
+Aunque el dispositivo del recopilador tiene una licencia de evaluación de 180 días, deberá actualizar continuamente el sistema operativo del dispositivo para evitar que el dispositivo se apague automáticamente.
 
-1. Para instalar el recopilador de PowerCli sin conexión a Internet, siga los pasos indicados en [este vínculo](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html).
-2. Una vez instalado el módulo de PowerShell en un equipo diferente, que tenga acceso a Internet, copie los archivos VMware.* desde esa máquina a la del recopilador.
-3. Reinicie las comprobaciones de requisitos previos y confirme que está instalado PowerCLI.
+- Si el recopilador no se actualiza durante 60 días, se inicia el apagado de la máquina automáticamente.
+- Si se está ejecutando una detección, la máquina no se desactivará, aunque hayan pasado 60 días. La máquina se apagará cuando se complete el trabajo de detección.
+- Si ha usado el recopilador durante más de 60 días, recomendamos que mantenga la máquina actualizada en todo momento mediante la ejecución de Windows Update.
 
-## <a name="connecting-to-vcenter-server"></a>Conexión a vCenter Server
+## <a name="upgrading-the-collector-appliance-version"></a>Actualizar la versión del dispositivo del recopilador
 
-El recopilador debe conectarse a vCenter Server y poder consultar sobre las máquinas virtuales, sus metadados y contadores de rendimiento. El proyecto utiliza estos datos para calcular una valoración.
+Puede actualizar el recopilador a la versión más reciente sin tener que descargar un archivo OVA de nuevo.
 
-1. Para conectarse a vCenter Server, se puede usar una cuenta de solo lectura con permisos tal como se indica en la tabla siguiente para ejecutar la detección.
-
-    |Task  |Rol/cuenta necesarios  |Permisos  |
-    |---------|---------|---------|
-    |Detección basada en la aplicación del recopilador    | Necesita al menos un usuario de solo lectura.        |Objeto de centro de datos  –> Propagar al objeto secundario, rol = solo lectura         |
-
-2. Solo se puede acceder a los centros de datos que sean accesibles para la cuenta de vCenter especificada para la detección.
-3. Debe especificar la dirección IP/FQDN de vCenter para conectarse al servidor vCenter. De forma predeterminada, se conectará a través del puerto 443. Si ha configurado vCenter para que escuche en un número de puerto diferente, puede especificarlo como parte de la dirección del servidor con el formato IPAddress:Número_de_puerto o FQDN:Número_de_puerto.
-4. La configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. Si el nivel es inferior al 3, la detección se completará pero no se recopilarán los datos de rendimiento del almacenamiento y la red. Las recomendaciones de tamaño para la valoración en este caso se basarán en los datos de rendimiento de los datos de la CPU y memoria, y solo los datos de configuración de los adaptadores de red y disco. [Más información](./concepts-collector.md) sobre qué datos se recopilan y cómo influyen en la valoración.
-5. El recopilador debe tener una línea de visión de la red con el servidor vCenter.
-
-> [!NOTE]
-> Solo se admiten oficialmente las versiones 5.5, 6.0 y 6.5 de vCenter Server.
-
-> [!IMPORTANT]
-> Se recomienda establecer el nivel común más alto (3) para el nivel de estadísticas, para que todos los contadores se recopilen correctamente. Si tiene vCenter establecido en un nivel inferior, solo algunos contadores pueden recopilarse por completo y los demás estarán establecidos en 0. Por lo tanto, puede que la evaluación muestre datos incompletos.
-
-### <a name="selecting-the-scope-for-discovery"></a>Selección del ámbito de detección
-
-Una vez conectado a vCenter, puede seleccionar un ámbito de detección. Al seleccionar un ámbito, se detectan todas las máquinas virtuales de la ruta de acceso de inventario de vCenter especificada.
-
-1. El ámbito puede ser un centro de datos, una carpeta o un host ESXi.
-2. Solo se puede seleccionar un ámbito a la vez. Para seleccionar más máquinas virtuales, puede completar una detección y reiniciar el proceso de detección con un nuevo ámbito.
-3. Solo puede seleccionar un ámbito que tenga *menos de 1500 máquinas virtuales*.
-
-## <a name="specify-migration-project"></a>Especificación del proyecto de migración
-
-Una vez que esté conectado al servidor vCenter local y haya especificado un ámbito, ya puede especificar los detalles del proyecto de migración que se tienen que usar para la detección y la valoración. Especifique el identificador y la clave del proyecto, y conéctese.
-
-## <a name="start-discovery-and-view-collection-progress"></a>Inicio de la detección y visualización del progreso de la recopilación
-
-Una vez iniciada la detección, se detectan las máquinas virtuales de vCenter, y sus metadatos y datos de rendimiento se envían al servidor. El estado del progreso también le informa de los identificadores siguientes:
-
-1. Identificador de recopilador: identificador único que se asigna a la máquina del recopilador. Este identificador no cambia para una máquina determinada en las distintas detecciones. Puede usar este identificador en caso de error al notificar el problema al Soporte técnico de Microsoft.
-2. Identificador de sesión: identificador único para el trabajo de recopilación en ejecución. Puede hacer referencia al mismo identificador de sesión del portal cuando finaliza el trabajo de detección. Este identificador cambia para cada trabajo de la recopilación. En caso de error, puede mostrar este identificador al Soporte técnico de Microsoft.
-
-### <a name="what-data-is-collected"></a>¿Qué datos se recopilan?
-
-El trabajo de recopilación detecta los siguientes metadatos estáticos sobre las máquinas virtuales seleccionadas.
-
-1. Nombre para mostrar de la máquina virtual (en vCenter)
-2. Ruta de acceso de inventario de la máquina virtual (host o carpeta en vCenter)
-3. Dirección IP
-4. Dirección MAC
-5. Sistema operativo
-5. Número de núcleos, discos, NIC
-6. Tamaño de memoria, tamaños de disco
-7. Y los contadores de rendimiento de la máquina virtual, el disco y la red se muestran en la tabla siguiente.
-
-En la tabla siguiente se enumeran los contadores de rendimiento que se recopilan y también se muestran los resultados de la valoración que se ven afectados si no se recopila un contador determinado.
-
-|Contador                                  |Nivel    |Nivel por dispositivo  |Impacto en la evaluación                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |N/D                |Costo y tamaño de VM recomendados                    |
-|mem.usage.average                        | 1       |N/D                |Costo y tamaño de VM recomendados                    |
-|virtualDisk.read.average                 | 2       |2                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
-|virtualDisk.write.average                | 2       |2                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Tamaño del disco, costo de almacenamiento y tamaño de VM         |
-|net.received.average                     | 2       |3                 |Tamaño de VM y costo de la red                        |
-|net.transmitted.average                  | 2       |3                 |Tamaño de VM y costo de la red                        |
-
-> [!WARNING]
-> Si configuró un nivel de estadística más alto, los contadores de rendimiento pueden tardar hasta un día en generarse. Por lo tanto, se recomienda ejecutar la detección después de un día.
-
-### <a name="time-required-to-complete-the-collection"></a>Tiempo necesario para completar la recopilación
-
-El recopilador solo detecta los datos de la máquina y los envía al proyecto. El proyecto puede tardar más tiempo antes de que se muestren los datos detectados en el portal y pueda empezar a crear una valoración.
-
-En función del número de máquinas virtuales en el ámbito seleccionado, se tarda hasta 15 minutos en enviar los metadatos estáticos al proyecto. Una vez que los metadatos estáticos estén disponibles en el portal, podrá ver la lista de máquinas en el portal y comenzar a crear grupos. No se puede crear una valoración hasta que finalice el trabajo de recopilación y el proyecto haya procesado los datos. Una vez completado el trabajo de recopilación en el recopilador, puede tardar hasta una hora para que los datos de rendimiento estén disponibles en el portal, en función del número de máquinas virtuales en el ámbito seleccionado.
-
-## <a name="locking-down-the-collector-appliance"></a>Bloqueo de la aplicación del recopilador
-Se recomienda ejecutar actualizaciones continuas de Windows en la aplicación del recopilador. Si no se actualiza un recopilador durante 60 días, el recopilador se iniciará apagando automáticamente la máquina. Si se está ejecutando una detección, la máquina no se desactivará, incluso si ya transcurrió su plazo de 60 días. Cuando el trabajo de detección se haya completado, se desactivará la máquina. Si usa el recopilador durante más de 45 días, se recomienda mantener la máquina actualizada en todo momento mediante la ejecución de Windows Update.
-
-También se recomienda realizar los siguientes pasos para proteger su aplicación:
-1. No pierda ni comparta las contraseñas del administrador con partes no autorizadas.
-2. Apagar la aplicación cuando no se esté usando.
-3. Colocar la aplicación en una red protegida.
-4. Una vez completado el trabajo de migración, elimine la instancia de la aplicación. Asegúrese de eliminar también los archivos de copia de seguridad del disco (VMDK), ya que es posible que dichos discos tenga las credenciales de vCenter en caché.
-
-## <a name="how-to-upgrade-collector"></a>Procedimiento para actualizar el recopilador
-
-Puede actualizar el recopilador con la versión más reciente sin tener que descargar OVA una vez más.
-
-1. Descargue el [paquete de actualización ](https://aka.ms/migrate/col/upgrade_9_14) más reciente (versión 1.0.9.14).
+1. Descargue el [paquete de actualización más reciente que se muestre](concepts-collector-upgrade.md).
 2. Para asegurarse de que la revisión descargada es segura, abra la ventana de comandos del administrador y ejecute el siguiente comando para generar el valor hash para el archivo ZIP. El código hash generado debe coincidir con el hash que se ha mencionado en la versión específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -222,47 +164,85 @@ Puede actualizar el recopilador con la versión más reciente sin tener que desc
 4. Haga clic con el botón derecho en el archivo ZIP y seleccione Extraer todo.
 5. Haga clic con el botón derecho en Setup.ps1, seleccione Ejecutar con PowerShell y siga las instrucciones en pantalla para instalar la actualización.
 
-### <a name="list-of-updates"></a>Lista de actualizaciones
 
-#### <a name="upgrade-to-version-10914"></a>Actualizar a la versión 1.0.9.14
+## <a name="discovery-methods"></a>Métodos de detección
 
-Valores de código hash el [paquete 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14) de actualización
+El dispositivo del recopilador puede usar dos métodos para la detección: detección de una sola vez o detección continua.
 
-**Algoritmo** | **Valor del código hash**
---- | ---
-MD5 | c5bf029e9fac682c6b85078a61c5c79c
-SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
-SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
-#### <a name="upgrade-to-version-10913"></a>Actualización a la versión 1.0.9.13
+### <a name="one-time-discovery"></a>Detección de una sola vez
 
-Valores de código hash para actualizar el [paquete 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+El recopilador se comunica una sola vez con vCenter Server para recopilar metadatos sobre las máquinas virtuales. Con este método:
 
-**Algoritmo** | **Valor del código hash**
---- | ---
-MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
-SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
-SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
+- El dispositivo no está conectado continuamente al proyecto de Azure Migrate.
+- Los cambios en el entorno local no se reflejan Azure Migrate una vez terminada la detección. Para reflejar los cambios, deberá detectar el mismo entorno en el mismo proyecto de nuevo.
+- Para este método de detección, deberá establecer la configuración de estadísticas en vCenter Server en el nivel tres.
+- Después de establecer el nivel a tres, se tarda hasta un día en generar los contadores de rendimiento. Por tanto, se recomienda ejecutar la detección después de un día.
+- Cuando se recopilan datos de rendimiento para una máquina virtual, el dispositivo se basa en los datos de rendimiento históricos almacenados en vCenter Server. Recopila el historial de rendimiento del mes pasado.
+- Azure Migrate recopila el valor promedio de contador (en lugar de un valor máximo) para cada métrica.
 
-#### <a name="upgrade-to-version-10911"></a>Actualización a la versión 1.0.9.11
+### <a name="continuous-discovery"></a>Detección continua
 
-Hash de valores para actualizar el [paquete 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
+El dispositivo del recopilador no está conectado continuamente al proyecto de Azure Migrate.
 
-**Algoritmo** | **Valor del código hash**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+- El recopilador realiza un perfil del entorno local continuamente para recopilar datos de uso en tiempo real cada 20 segundos.
+- Este modelo no depende de la configuración de estadísticas de vCenter Server para la recopilación de datos de rendimiento.
+- El dispositivo acumula ejemplos de 20 segundos y crea un único punto de datos cada 15 minutos.
+- Para crear el punto de datos, el dispositivo selecciona el valor máximo de los ejemplos de 20 segundos y lo envía a Azure.
+- Puede detener la generación de perfiles continua en cualquier momento desde el recopilador.
 
-#### <a name="upgrade-to-version-1097"></a>Actualización a la versión 1.0.9.7
+> [!NOTE]
+> La función de detección continua está en versión preliminar. Si la configuración de estadísticas de vCenter Server no está establecida en el nivel 3, se recomienda que use este método.
 
-Hash de valores para actualizar el [paquete 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
-**Algoritmo** | **Valor del código hash**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
+## <a name="discovery-process"></a>Proceso de detección
+
+Una vez configurado el dispositivo, puede ejecutar la detección. Así es como funciona:
+
+- La detección se ejecuta por ámbito. Se detectarán todas las máquinas virtuales en la ruta de acceso de inventario de vCenter especificada.
+    - Se establece un ámbito cada vez.
+    - El ámbito puede incluir 1500 máquinas virtuales o menos.
+    - El ámbito puede ser un centro de datos, una carpeta o un host ESXi.
+- Después de conectarse a vCenter Server, debe conectarse especificando un proyecto de migración para la colección.
+- Se detectan las máquinas virtuales y sus metadatos y datos de rendimiento se envían a Azure. Estas acciones forman parte de un trabajo de recopilación.
+    - El dispositivo del recopilador tiene un identificador específico del recopilador que se conserva para una determinada máquina en las distintas detecciones.
+    - A cada trabajo de recopilación en ejecución se le asigna un identificador de sesión específico. El identificador cambia para cada trabajo de recopilación y se puede usar para solucionar problemas.
+
+### <a name="collected-metadata"></a>Metadatos recopilados
+
+El dispositivo de recopilación detecta estos metadatos estáticos para las máquinas virtuales:
+
+- Nombre para mostrar de la máquina virtual (en vCenter Server)
+- Ruta de acceso de inventario de la máquina virtual (el host o la carpeta en vCenter Server)
+- Dirección IP
+- Dirección MAC
+- Sistema operativo
+- Número de núcleos, discos, NIC
+- Tamaño de memoria, tamaños de disco
+- Contadores de rendimiento de la máquina virtual, el disco y la red.
+
+#### <a name="performance-counters"></a>contadores de rendimiento
+
+- **Detección de un solo uso**: cuando se recopilan contadores para una detección de un solo uso, tenga en cuenta lo siguiente:
+
+    - Puede tardar hasta 15 minutos en recopilar y enviar metadatos de configuración al proyecto.
+    - Después de recopilar datos de configuración, los datos de rendimiento pueden tardar hasta una hora en estar disponibles en el portal.
+    - Una vez que los metadatos están disponibles en el portal, aparece la lista de máquinas virtuales y puede empezar a crear grupos para su evaluación.
+- **Detección continua**: para la detección continua, tenga en cuenta lo siguiente:
+    - Los datos de configuración de la máquina virtual están disponibles una hora después de iniciar la detección.
+    - Los datos de rendimiento empiezan a estar disponibles después de 2 horas.
+    - Después de iniciar la detección, espere al menos un día para que el dispositivo genere el perfil del entorno, antes de crear las evaluaciones.
+
+**Contador** | **Level** | **Nivel por dispositivo** | **Impacto en la evaluación**
+--- | --- | --- | ---
+cpu.usage.average | 1 | N/D | Costo y tamaño de VM recomendados  
+mem.usage.average | 1 | N/D | Costo y tamaño de VM recomendados  
+virtualDisk.read.average | 2 | 2 | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.write.average | 2 | 2  | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+net.received.average | 2 | 3 |  Calcula el tamaño de máquina virtual y el costo de la red                        |
+net.transmitted.average | 2 | 3 | Calcula el tamaño de máquina virtual y el costo de la red    
 
 ## <a name="next-steps"></a>Pasos siguientes
 

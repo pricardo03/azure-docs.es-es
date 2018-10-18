@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146569"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319260"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Procedimientos de uso de diferentes mecanismos de atestación con el SDK de cliente del servicio Device Provisioning para C
 
@@ -143,6 +143,7 @@ Compile el SDK antes de crear la inscripción del dispositivo.
 Si utiliza TPM, siga las instrucciones de ["Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos C para el servicio Azure IoT Hub Device Provisioning"](./quick-create-simulated-device.md) para crear una entrada de inscripción de dispositivo en su servicio Device Provisioning y simular el primer arranque.
 
 ### <a name="x509"></a>X **.** 509
+
 1. Para inscribir un dispositivo en el servicio de aprovisionamiento, necesitará tomar nota de la clave de aprobación y del identificador de registro de cada dispositivo, que se muestran en la Herramienta de aprovisionamiento proporcionada por el SDK de cliente. Ejecute el siguiente comando para imprimir el certificado de CA raíz (para la inscripción de grupos) y el certificado de hoja (para la inscripción individual):
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
@@ -185,4 +186,3 @@ Una vez que el dispositivo se haya aprovisionado con el servicio de aprovisionam
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

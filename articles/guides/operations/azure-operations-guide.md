@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190432"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423500"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -149,7 +149,7 @@ Una de las ventajas del uso de Azure es que puede implementar aplicaciones en di
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Azure Portal es una aplicación basada en web que puede usarse para crear, administrar y eliminar los servicios y recursos de Azure. Azure Portal se encuentra en [Shell.Azure.com](https://portal.azure.com). Incluye un panel personalizable y herramientas para administrar los recursos de Azure. También proporciona información de suscripciones y facturación. Para más información, consulte [Información general sobre Microsoft Azure Portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) y [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Azure Portal es una aplicación basada en web que puede usarse para crear, administrar y eliminar los servicios y recursos de Azure. Azure Portal se encuentra en [portal.azure.com](https://portal.azure.com). Incluye un panel personalizable y herramientas para administrar los recursos de Azure. También proporciona información de suscripciones y facturación. Para más información, consulte [Información general sobre Microsoft Azure Portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) y [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Recursos
 
@@ -185,7 +185,7 @@ Los administradores pueden acceder a Azure PowerShell y la CLI de Azure mediante
 
 ## <a name="azure-subscriptions"></a>Suscripciones de Azure
 
-Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Además de a los administradores, se puede conceder control detallado de los recursos de Azure con control de acceso basado en rol (RBAC) a cuentas individuales.
+Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Seleccionar y habilitar una suscripción de Azure
 
@@ -205,13 +205,9 @@ Si se supera la cantidad de crédito, los servicios se deshabilitan hasta que se
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Concesión acceso administrativo a una suscripción de Azure
 
-Hay disponibles varios roles de administrador de cuenta y se pueden cambiar en cualquier momento. Los dos roles clave son:
+RBAC tiene varios roles integrados que puede usar para asignar permisos. Para que un usuario sea administrador de una suscripción de Azure, asígnele el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) en el ámbito de la suscripción. El rol Propietario da al usuario acceso completo a todos los recursos de la suscripción, incluido el derecho a delegar este acceso a otros.
 
-- **Administrador de servicios**: este rol está autorizado para administrar los servicios de Azure. De forma predeterminada, se le concede acceso a la misma cuenta que el administrador de cuenta.
-
-- **Coadministrador**: este rol tiene el mismo acceso que el administrador de servicios. Sin embargo, este rol no puede cambiar la asociación de una suscripción a directorios de Azure.
-
-Para más información, consulte [Incorporación o cambio de roles de administrador de Azure](../../billing/billing-add-change-azure-subscription-administrator.md).
+Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visualización de la información de facturación en Azure Portal
 
@@ -232,10 +228,6 @@ Para más información, consulte [Obtención de información sobre el consumo de
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Previsión del costo con la calculadora de precios
 
 El precio de cada servicio en Azure es diferente. Muchos servicios de Azure proporcionan niveles Basic, Standard y Premium. Normalmente, cada nivel tiene varios niveles de precio y rendimiento. Mediante el uso de la [Calculadora de precios en línea](http://azure.microsoft.com/pricing/calculator), puede crear estimaciones de precios. La calculadora incluye flexibilidad para calcular el costo en un único recurso o un grupo de recursos.
-
-### <a name="set-up-billing-alerts"></a>Configurar alertas de facturación para las suscripciones de Microsoft Azure
-
-Después de haber implementado la aplicación o la solución en Azure, puede crear alertas que le envíen correos electrónicos al aproximarse a los límites de gastos definidos en la alerta. Para obtener más información, consulte [Configurar alertas de facturación para las suscripciones de Microsoft Azure](../../billing/billing-set-up-alerts.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -307,7 +299,7 @@ Puede conceder acceso operativo a cuentas de usuario en un ámbito especificado:
 
 Para conceder acceso, asigne un rol para el usuario o grupo de usuarios. Existen muchos roles predefinidos. También puede definir sus propios roles personalizados.
 
-Estos son algunos ejemplos de roles integrados en Azure:
+Estos son algunos ejemplos de [roles integrados en Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Propietario**: un usuario con este rol puede administrarlo todo, incluido el acceso.
 
@@ -321,7 +313,7 @@ Estos son algunos ejemplos de roles integrados en Azure:
 
 - **Colaborador de la cuenta de almacenamiento**: un usuario con este rol puede administrar las cuentas de almacenamiento pero no puede administrar el acceso a las cuentas de almacenamiento.
 
-Para más información, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
+Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

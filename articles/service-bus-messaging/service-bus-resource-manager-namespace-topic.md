@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: b5512186913eb59be2b89ce8b8bb9fb881f59cd8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08b4ef6ea59123524500188428eb0bc03d85138b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699828"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409990"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager
 
@@ -41,7 +41,7 @@ Para ver la plantilla completa, consulte la plantilla de [espacio de nombres de 
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
+## <a name="what-do-you-deploy"></a>¿Qué puede implementar?
 
 Con esta plantilla, implementa un espacio de nombres de Service Bus con un tema y una suscripción.
 
@@ -53,9 +53,9 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 ## <a name="parameters"></a>Parámetros
 
-Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para esos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
+Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Defina un parámetro para esos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
-La plantilla define los parámetros siguientes.
+La plantilla define los parámetros siguientes:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 El nombre del espacio de nombres de Service Bus que crear.

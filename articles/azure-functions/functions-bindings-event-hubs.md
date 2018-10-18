@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 2c78e1d39227153dd65f145512fab4769b09e5c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c99ad77bba60a4573faae1c857b3e6dc0203c4ab
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966578"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434694"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -63,7 +63,7 @@ Cuando se habilita la función por primera vez, solo hay una instancia de la fun
 
 * **Se agregan N instancias de función más**: la lógica de escalado de Azure Functions determina que `Function_0` y `Function_1` tienen más mensajes de los que pueden procesar. Se crean instancias de aplicación de función `Function_2`...`Functions_N`, donde `N` es mayor que el número de particiones del centro de eventos. En nuestro ejemplo, Event Hubs vuelve a equilibrar la carga de las particiones, en este caso, entre las instancias `Function_0`...`Functions_9`. 
 
-Tenga en cuenta cuando Azure Functions escala a `N`, que es un número mayor que el número de particiones del centro de eventos. Esto se hace para asegurarse de que siempre haya instancias de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) disponibles para obtener bloqueos de las particiones a medida que estén disponibles en otras instancias. Solo se le cobra por los recursos usados cuando se ejecuta la instancia de la función, y no por este aprovisionamiento en exceso.
+Téngalo en cuenta cuando Functions escale a `N` instancias, que es un número mayor que el número de particiones del centro de eventos. Esto se hace para asegurarse de que siempre haya instancias de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) disponibles para obtener bloqueos de las particiones a medida que estén disponibles en otras instancias. Solo se le cobra por los recursos usados cuando se ejecuta la instancia de la función, y no por este aprovisionamiento en exceso.
 
 Cuando se completa la ejecución de todas las funciones con o sin errores, se agregan puntos de comprobación a la cuenta de almacenamiento asociada. Cuando estos puntos de conexión se agregan correctamente, los 1000 mensajes ya no se vuelven a recuperar.
 
@@ -342,7 +342,7 @@ public void eventHubProcessor(
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
-En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs).
 
 El constructor del atributo toma el nombre del centro de eventos, el nombre del grupo de consumidores y el nombre de una configuración de aplicación que contenga la cadena de conexión. Para obtener más información sobre estas configuraciones, vea la sección [Configuración de desencadenador](#trigger---configuration). Este es un ejemplo de atributo `EventHubTriggerAttribute`:
 

@@ -1,10 +1,10 @@
 ---
 title: Carga previa de recursos en un punto de conexión de Azure CDN | Microsoft Docs
-description: Aprenda a precargar el contenido almacenado en caché en un punto de conexión de la red CDN de Azure.
+description: Aprenda a precargar el contenido almacenado en caché en un punto de conexión de Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: mazha
-ms.openlocfilehash: bf3161d756759e4b278e48ad7a49615e4a73d17f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: magattus
+ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150141"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091324"
 ---
-# <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Carga previa de activos en un punto de conexión de CDN de Azure
+# <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Carga previa de activos en un punto de conexión de Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 De forma predeterminada, los recursos se almacenan en caché solo al solicitarse. Dado que los servidores perimetrales aún no tienen el contenido almacenado en caché y deben reenviar la solicitud al servidor de origen, la primera solicitud de cada región puede tardar más tiempo que las solicitudes posteriores. Para evitar la latencia de primera visita, cargue sus recursos previamente. Además de proporcionar una mejor experiencia de cliente, la precarga de los recursos almacenados en caché puede reducir el tráfico de red en el servidor de origen.
@@ -31,7 +31,7 @@ De forma predeterminada, los recursos se almacenan en caché solo al solicitarse
 > 
 > 
 
-Este tutorial le guiará a través de la precarga de contenido almacenado en la caché en todos los nodos perimetrales de CDN de Azure.
+Este tutorial le guiará a través de la precarga de contenido almacenado en la caché en todos los nodos perimetrales de Azure CDN.
 
 ## <a name="to-pre-load-assets"></a>Para cargar recursos previamente
 1. En [Azure Portal](https://portal.azure.com), examine el perfil de CDN que contiene el punto de conexión que quiere precargar. Se abre el panel del perfil.
@@ -67,7 +67,7 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 > 
 
 ## <a name="see-also"></a>Otras referencias
-* [Purgar un punto de conexión de red CDN de Azure](cdn-purge-endpoint.md)
-* [Referencia de API de REST de CDN de Azure: cargar previamente contenido en un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referencia de API de REST de CDN de Azure: purgar contenido desde un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Purgar un punto de conexión de Azure CDN](cdn-purge-endpoint.md)
+* [Referencia de API REST de Azure CDN: cargar previamente contenido en un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Referencia de API REST de Azure CDN: purgar contenido desde un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo desarrollar y depurar de manera it
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 610f0c8691714bf30415347dd2775b6fa3625c11
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865172"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391107"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desarrollo y depuración iterativos con Azure Data Factory
 
@@ -40,13 +40,22 @@ Después de realizar correctamente una serie de pruebas, agregue más actividade
 
 ![Cancelación de una serie de pruebas](media/iterative-development-debugging/iterative-development-image3.png)
 
-Cuando realiza las series de pruebas, no es necesario que publique los cambios que se realizaron en la factoría de datos antes de seleccionar **Depurar**. Esto resulta útil en escenarios en los que se desea garantizar que los cambios funcionen según lo esperado antes de actualizar el flujo de trabajo de la factoría de datos.
+Cuando realiza las series de pruebas, no es necesario que publique los cambios que se realizaron en la factoría de datos antes de seleccionar **Depurar**. Esta característica resulta útil en escenarios en los que se quiere garantizar que los cambios funcionen según lo esperado antes de actualizar el flujo de trabajo de la factoría de datos.
 
-## <a name="more-info-about-debugging"></a>Más información sobre la depuración
+> [!IMPORTANT]
+> Al seleccionar **Depurar**, se ejecuta la canalización. Así, por ejemplo, si la canalización contiene actividad de copia, la serie de pruebas copia datos del origen al destino. Como resultado, se recomienda usar las carpetas de prueba en las actividades de copia y otras actividades cuando se realice la depuración. Una vez que se depure la canalización, cambie a las carpetas reales que desea usar en las operaciones normales.
 
-1. Las series de pruebas iniciadas con la funcionalidad **Depurar** no están disponibles en la lista de la pestaña **Supervisar**. Solo puede ver las series que se desencadenan con los desencadenadores **Trigger Now** (Desencadenar ahora), **Schedule** (Programar) o **Tumbling Window** (Ventana de saltos de tamaño constante) de la pestaña **Supervisar**. Puede ver la última serie de pruebas iniciada con la funcionalidad **Depurar** en la ventana **Salida** del lienzo de la canalización.
+## <a name="visualizing-debug-runs"></a>Visualizar ejecuciones de depuración
 
-2. Al seleccionar **Depurar**, se ejecuta la canalización. Así, por ejemplo, si la canalización contiene actividad de copia, la serie de pruebas copia datos del origen al destino. Como resultado, se recomienda usar las carpetas de prueba en las actividades de copia y otras actividades cuando se realice la depuración. Una vez que se depure la canalización, cambie a las carpetas reales que desea usar en las operaciones normales.
+Puede visualizar todas las ejecuciones de depuración que están en curso para la factoría de datos desde un solo lugar. Seleccione **View debug runs** (Ver ejecuciones de depuración) en la esquina superior derecha de la página. Esta característica es útil en escenarios donde tiene canalizaciones maestras que inician ejecuciones de depuración para canalizaciones secundarias y quiere tener una sola vista para ver que las ejecuciones de depuración activas.
+
+![Seleccione el icono de vista de ejecuciones de depuraciones activas](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![Lista de ejemplos de ejecuciones de depuraciones activas](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## <a name="monitoring-debug-runs"></a>Supervisión de ejecuciones de depuración
+
+Las series de pruebas iniciadas con la funcionalidad **Depurar** no están disponibles en la lista de la pestaña **Supervisar**. Solo puede ver las series que se desencadenan con los desencadenadores **Trigger Now** (Desencadenar ahora), **Schedule** (Programar) o **Tumbling Window** (Ventana de saltos de tamaño constante) de la pestaña **Supervisar**. Puede ver la última serie de pruebas iniciada con la funcionalidad **Depurar** en la ventana **Salida** del lienzo de la canalización.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Establecimiento de puntos de interrupción para la depuración
 

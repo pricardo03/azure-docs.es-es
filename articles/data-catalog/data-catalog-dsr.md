@@ -2,18 +2,18 @@
 title: Orígenes de datos compatibles en Azure Data Catalog
 description: En este artículo se enumeran las especificaciones de los orígenes de datos compatibles actualmente.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0f7ee285e77b9e54e2ff720f10f0d24c5b764014
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042946"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410194"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Orígenes de datos compatibles en Azure Data Catalog
 
@@ -369,7 +369,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Solo son compatibles las colecciones heredadas de Azure DocumentDB y las colecciones de SQL API de Azure Cosmos DB. Aún no se admiten las API de Cosmos DB más recientes. Elija Azure DocumentDB en la lista Origen de datos.</td>
     </tr>
     <tr>
       <td>Tabla ODBC genérica</td>
@@ -534,32 +534,6 @@ Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique q
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

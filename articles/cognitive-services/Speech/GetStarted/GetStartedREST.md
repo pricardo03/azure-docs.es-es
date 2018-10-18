@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973956"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345363"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API REST
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Con el servicio basado en la nube Bing Speech, puede desarrollar aplicaciones utilizando la API REST para convertir audio hablado en texto.
 

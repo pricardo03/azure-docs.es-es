@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 124653f95dedbb1606e85cbfcd8229c026cf7341
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960658"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385522"
 ---
 # <a name="check-resource-usage-against-limits"></a>Comparación del uso de recursos con los límites
 
@@ -49,7 +49,7 @@ En este artículo, aprenderá a ver el número de cada tipo de recurso de red qu
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.0.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure.
 
-Para ver el uso con respecto a los límites, ejecute [Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). En el ejemplo siguiente se obtiene el uso de recursos donde al menos un recurso está implementado en la ubicación Este de EE. UU.:
+Para ver el uso con respecto a los límites, ejecute [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). En el ejemplo siguiente se obtiene el uso de recursos donde al menos un recurso está implementado en la ubicación Este de EE. UU.:
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

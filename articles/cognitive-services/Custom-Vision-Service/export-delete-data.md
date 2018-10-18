@@ -1,20 +1,21 @@
 ---
-title: Exportación o eliminación de los datos en Custom Vision, Azure Cognitive Services | Microsoft Docs
-description: Obtenga información acerca de cómo exportar o eliminar los datos en Custom Vision.
+title: 'Exportación y eliminación de los datos: Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información acerca de cómo exportar o eliminar los datos en Custom Vision Service.
 services: cognitive-services
 author: v-jaswel
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 49fc49b3181f56c23167cfbae18911e7db441f8c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c98c72101d893f107d4a6c3185836a75bfe41007
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382678"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367498"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportación o eliminación de los datos del usuario en Custom Vision
 
@@ -26,7 +27,7 @@ Para obtener más información acerca de cómo exportar y eliminar datos del usu
 
 | Datos | Operación de exportación | Elimina una operación |
 | ---- | ---------------- | ---------------- |
-| Información de la cuenta (claves de suscripción) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminación mediante Azure Portal (suscripciones de Azure). O bien, mediante el botón "Eliminar cuenta" en la página de configuración de CustomVision.ai (suscripciones de la cuenta de Microsoft). |
+| Información de cuenta (claves de suscripción) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminación mediante Azure Portal (suscripciones de Azure). O bien, mediante el botón "Eliminar cuenta" en la página de configuración de CustomVision.ai (suscripciones de la cuenta de Microsoft). |
 | Detalles de la iteración | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
 | Detalles de rendimiento de la iteración | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
 | Lista de iteraciones | [GetIterations](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

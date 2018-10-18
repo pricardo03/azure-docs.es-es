@@ -1,6 +1,6 @@
 ---
-title: Integración de las directivas de seguridad de Azure Security Center con Azure Policy | Microsoft Docs
-description: Este documento le ayuda a configurar la integración de directivas de seguridad en Azure Security Center con Azure Policy.
+title: Directivas de seguridad de Azure Security Center configuradas individualmente o como parte de Azure Policy | Microsoft Docs
+description: Con este documento aprenderá a configurar las directivas en Azure Security Center o en Azure Policy.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,20 +9,27 @@ editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3c198ea44953c0b2e72a544cd0e83b6592d9a81f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018570"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032091"
 ---
-# <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integración de las directivas de seguridad de Security Center con Azure Policy
-Este artículo le ayuda a configurar las directivas de seguridad de Azure Security Center, que se basan en [Azure Policy](../azure-policy/azure-policy-introduction.md).
+# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Configurar directivas de seguridad en Security Center o en Azure Policy
+
+En este artículo se explica cómo configurar directivas de seguridad de Azure Security Center. Las directivas de Azure Security Center se integran con las directivas de Azure Policy, de modo que puede configurarlas en Security Center en una suscripción específica, o en [Azure Policy](../azure-policy/azure-policy-introduction.md), lo que permite establecer directivas en varios grupos de administración y varias suscripciones.
+
+## <a name="what-are-security-policies"></a>¿Qué son las directivas de seguridad?
+Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Security Center, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo. Para establecer una directiva en varias suscripciones o grupos de administración, debe configurarla en [Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+> [!NOTE]
+> Si ya ha configurado directivas de seguridad en una suscripción que forma parte de un grupo de administración o tiene varias asignaciones de directiva, esas directivas aparecen atenuadas en Security Center para que pueda administrar la directiva en el nivel de grupo de administración a través de la página Azure Policy. 
 
 ## <a name="how-security-policies-work"></a>¿Cómo funcionan las directivas de seguridad?
 Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. Puede modificar las directivas de Security Center o usar Azure Policy para realizar lo siguiente:
@@ -40,8 +47,17 @@ Una directiva de Azure consta de los siguientes componentes:
 
 Un recurso se evalúa con las directivas que están asignadas a él y recibe una proporción de cumplimiento en función del número de directivas con las que guarda conformidad el recurso.
 
+## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
+Security Center usa el control de acceso basado en rol (RBAC), que proporciona roles integrados que se pueden asignar a usuarios, grupos y servicios en Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que tiene acceso. Esto significa que a los usuarios se les asigna el rol de propietario, colaborador o lector para la suscripción o el grupo de recursos a los que pertenece un recurso. Además de estos roles, hay dos roles específicos de Security Center:
+
+- Lector de seguridad: el usuario tiene derecho a visualizar el contenido de Security Center (recomendaciones, alertas, directivas y estados) pero no puede realizar cambios.
+- Administrador de seguridad: tiene los mismos derechos que el lector de seguridad, pero también puede actualizar la directiva de seguridad o descartar recomendaciones y alertas.
+
 ## <a name="edit-security-policies"></a>Edición de directivas de seguridad
 Puede editar la directiva de seguridad predeterminada de cada una de las suscripciones y grupos de administración de Azure en Security Center. Para modificar una directiva de seguridad, debe ser propietario, colaborador o administrador de seguridad de la suscripción o del grupo de administración que la contiene. Para ver las directivas de seguridad de Security Center:
+
+> [!NOTE]
+> Las directivas establecidas en una suscripción que forma parte de un grupo de administración o tiene varias asignaciones de directiva, aparecerán atenuadas en Security Center. Puede editar estas directivas en [Azure Policy](../azure-policy/azure-policy-introduction.md). 
 
 1. En el panel **Security Center**, en **POLICY & COMPLIANCE** (DIRECTIVA Y CUMPLIMIENTO), seleccione **Security policy** (Directiva de seguridad). Se abre el panel **Policy Management** (Administración de directivas).
 
@@ -95,7 +111,7 @@ Para comprender las definiciones de directiva que están disponibles en la direc
 Si su organización tiene varias suscripciones, puede que necesite una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los grupos de administración de Azure proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en contenedores llamados "grupos de administración" y aplican sus condiciones de gobierno a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las directivas que se aplican al grupo de administración. Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz". Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol (RBAC) se apliquen en el nivel de directorio. Para configurar grupos de administración para usarlos con Azure Security Center, siga las instrucciones que se describen en el artículo [Visibilidad de todos los inquilinos en Azure Security Center](security-center-management-groups.md). 
 
 > [!NOTE]
-> Es importante que comprenda la jerarquía de grupos de administración y suscripciones. Para más información sobre los grupos de administración, la administración raíz y el acceso a grupos de administración, consulte [Organización de recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory).
+> Es importante que comprenda la jerarquía de grupos de administración y suscripciones. Para más información sobre los grupos de administración, la administración raíz y el acceso a grupos de administración, consulte [Organización de recursos con grupos de administración de Azure](../governance/management-groups/index.md#root-management-group-for-each-directory).
 >
 >
 

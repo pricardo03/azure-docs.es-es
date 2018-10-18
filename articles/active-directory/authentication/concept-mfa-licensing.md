@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669053"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320669"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Cómo conseguir Azure Multi-Factor Authentication
 
@@ -23,6 +23,7 @@ En lo referente a la protección de las cuentas, la comprobación en dos pasos d
 
 > [!IMPORTANT]
 > Este artículo pretende ser una guía para ayudarle a entender las diferentes maneras de comprar Azure Multi-Factor Authentication. Para información específica sobre precios y facturación, consulte siempre la [página de precios de Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+>
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Versiones disponibles de Azure Multi-Factor Authentication
 
@@ -43,6 +44,7 @@ En la tabla siguiente se proporciona una lista de las características que está
 
 > [!NOTE]
 > En esta tabla comparativa, se describen las características incluidas en cada versión de Multi-Factor Authentication. En caso de que tenga el servicio completo de Azure Multi-Factor Authentication, es posible que algunas características no estén disponibles en función de si usa [MFA en la nube o MFA en local](concept-mfa-whichversion.md).
+>
 
 | Característica | Multi-Factor Authentication para Office 365 | Multi-Factor Authentication para administradores de Azure AD | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
@@ -93,11 +95,13 @@ Si se utiliza un proveedor de Azure Multi-Factor Authentication, hay dos modelos
   > Ejemplo de facturación 1: hoy tiene 5000 usuarios habilitados para MFA. El sistema MFA divide ese número entre 31 y notifica 161,29 usuarios ese día. Mañana habilita 15 usuarios más, así que el sistema MFA notifica 161,77 usuarios ese día. Al final del ciclo de facturación, el número total de usuarios que se facturan con su suscripción de Azure asciende aproximadamente a 5000.
   >
   > Ejemplo de facturación 2: tiene una mezcla de usuarios con licencia y sin licencia, por lo que tiene un proveedor de Azure MFA por usuario para compensar la diferencia. Hay 4500 licencias de Enterprise Mobility + Security en el inquilino, pero 5000 usuarios habilitados para MFA. En su suscripción de Azure se facturan 500 usuarios, y se prorratean y notifican diariamente como 16,13 usuarios.
+  >
 
-2. **Por autenticación**: para empresas que quieren habilitar la comprobación en dos pasos para un número mayor de usuarios que no suelen necesitar frecuentemente autenticación. La facturación se basa en el número de solicitudes de verificación en dos pasos recibidas, con independencia de si esas verificaciones se han aceptado o denegado. Esta facturación aparece en el extracto de uso de Azure en paquetes de diez autenticaciones y se notifica diariamente.
+1. **Por autenticación**: para empresas que quieren habilitar la comprobación en dos pasos para un número mayor de usuarios que no suelen necesitar frecuentemente autenticación. La facturación se basa en el número de solicitudes de verificación en dos pasos recibidas, con independencia de si esas verificaciones se han aceptado o denegado. Esta facturación aparece en el extracto de uso de Azure en paquetes de diez autenticaciones y se notifica diariamente.
 
   > [!NOTE]
   > Ejemplo de facturación 3: hoy, el servicio Azure MFA recibió 3105 comprobaciones en dos pasos. En su suscripción de Azure se facturan 310,5 paquetes autenticación.
+  >
 
 Es importante tener en cuenta que aunque tenga licencias, se le puede seguir facturando según la configuración basada en el consumo. Si configura un proveedor de Azure MFA por autenticación, se le factura cada solicitud de comprobación en dos pasos, aunque las hayan realizado usuarios con licencia. Si ha configurado un proveedor de Azure MFA por usuario en un dominio que no está vinculado a su inquilino de Azure AD, se le facturará por usuario habilitado, incluso si los usuarios tienen licencias en Azure AD.
 

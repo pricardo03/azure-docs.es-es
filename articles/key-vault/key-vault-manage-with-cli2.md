@@ -1,6 +1,6 @@
 ---
 title: Administración de Azure Key Vault mediante CLI | Microsoft Docs
-description: Use este artículo para automatizar tareas comunes en Key Vault mediante el uso de la CLI 2.0.
+description: Use este artículo para automatizar tareas comunes de Key Vault mediante la CLI de Azure
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295181"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220574"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>Administración de Key Vault mediante CLI 2.0
+# <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
 
-En este artículo se describe cómo empezar a trabajar con Azure Key Vault mediante la CLI de Azure 2.0. Puede ver información sobre:
+En este artículo se explica cómo empezar a trabajar con Azure Key Vault mediante la CLI de Azure.  Puede ver información sobre:
 
-- Requisitos previos
 - Procedimiento para crear un contenedor protegido (un almacén) en Azure.
 - Agregar una clave, un secreto o un certificado al almacén de claves
 - Registrar una aplicación con Azure Active Directory
@@ -50,7 +49,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para usar los comandos de la CLI de Azure, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Versión 2.0 de la interfaz de la línea de comandos o posterior. Para instalar la última versión, consulte el artículo sobre la [instalación y configuración de la interfaz de la línea de comandos 2.0 entre plataformas de Azure](/cli/azure/install-azure-cli).
+* Versión 2.0 o posterior de la Interfaz de la línea de comandos de Azure. Para instalar la versión más reciente, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 * Aplicación que se configurará para utilizar la clave o contraseña creada en este artículo. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame incluido.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtención de ayuda con la interfaz de la línea de comandos entre plataformas de Azure
@@ -67,7 +66,7 @@ az account set -h
 También puede leer los artículos siguientes para familiarizarse con Azure Resource Manager en la interfaz de la línea de comandos entre plataformas de Azure:
 
 * [Instalación de la CLI de Azure](/cli/azure/install-azure-cli)
-* [Introducción a la CLI de Azure 2.0](/cli/azure/get-started-with-azure-cli)
+* [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Procedimiento para crear un contenedor protegido (un almacén) en Azure.
 
@@ -200,7 +199,7 @@ Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizand
 
 Para obtener un token, la aplicación debe presentar estos dos valores a Azure Active Directory. La configuración de una aplicación para obtener un token dependerá de la aplicación. Para la [aplicación de ejemplo de Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), el propietario de la aplicación establece estos valores en el archivo app.config.
 
-Para obtener los pasos detallados sobre cómo registrar una aplicación con Azure Active Directory, debería revisar los artículos titulados [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) y [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
+Para obtener los pasos detallados para registrar una aplicación en Azure Active Directory, debería revisar los artículos titulados [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) y [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Para registrar una aplicación en Azure Active Directory:
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433573"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434252"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Copia de seguridad de bases de datos de SQL Server en Azure
 
@@ -823,6 +823,10 @@ Desencadene una copia de seguridad completa. Las copias de seguridad de registro
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>¿Puedo proteger los grupos de disponibilidad Always On de SQL en los casos en los que la réplica principal está en una ubicación local?
 
 No. Azure Backup protege los servidores de SQL Server que se ejecutan en Azure. Si se distribuye un grupo de disponibilidad entre máquinas locales y de Azure, se podrá proteger este solo si la réplica principal se ejecuta en Azure. Además, Azure Backup solo protege los nodos que se ejecutan en la misma región de Azure que el almacén de Recovery Services.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>¿Puedo proteger grupos de disponibilidad SQL AlwaysOn que se distribuyen entre las regiones de Azure?
+El almacén de Azure Backup Recovery Services puede detectar y proteger todos los nodos que se encuentran en la misma región que el almacén de Recovery Services. Si tiene un grupo de disponibilidad SQL AlwaysON que abarca varias regiones de Azure, deberá configurar la copia de seguridad desde la región que tiene el nodo principal. Azure Backup será capaz de detectar y proteger todas las bases de datos del grupo de disponibilidad según la preferencia de copia de seguridad. Si no se cumple la preferencia de copia de seguridad, se producirá un error en las copias de seguridad y se emitirá la alerta de error.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

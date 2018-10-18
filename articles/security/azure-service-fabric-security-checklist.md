@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895881"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385876"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Lista de comprobación de seguridad de Azure Service Fabric
 En este artículo se proporciona una sencilla lista de comprobación que le ayudará a proteger el entorno de Azure Service Fabric.
@@ -43,7 +43,7 @@ Utilice la siguiente lista de comprobación como ayuda para asegurarse de que no
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>Este certificado se presenta al cliente cuando intenta conectarse a este clúster. Puede utilizar dos certificados de servidor diferentes, uno principal y otro secundario para la actualización.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>Se trata de un conjunto de certificados que desea instalar en los clientes autenticados. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Establezca el nombre común del primer certificado de cliente para CertificateCommonName. CertificateIssuerThumbprint es la huella digital del emisor de este certificado. </li></ul>|
-|ReverseProxyCertificate| <ul><li>Se trata de un certificado opcional que se puede especificar si desea proteger el [proxy inverso](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
+|ReverseProxyCertificate| <ul><li>Se trata de un certificado opcional que se puede especificar si desea proteger el [proxy inverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
 |Key Vault| <ul><li>Se usa para administrar certificados para clústeres de Service Fabric en Azure.  </li></ul>|
 
 

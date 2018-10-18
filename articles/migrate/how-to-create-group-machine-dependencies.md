@@ -4,24 +4,39 @@ description: En este artículo se describe cómo crear una evaluación con depen
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621086"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163433"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupación de máquinas con asignación de dependencias de máquina
 
 En este artículo se describe cómo crear un grupo de máquinas para la evaluación de [Azure Migrate](migrate-overview.md) mediante la visualización de dependencias de máquina. Este método se utiliza normalmente cuando se quiere evaluar grupos de máquinas virtuales con mayores niveles de confianza mediante la comprobación cruzada de dependencias de máquina antes de ejecutar una evaluación. La visualización de dependencia puede ayudarle a planear la migración a Azure de forma eficaz. Le ayuda a asegurarse de que no se deja nada atrás y de que no se produzcan interrupciones inesperadas al realizar una migración a Azure. Puede detectar todos los sistemas interdependientes que tienen que migrarse juntos e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>Preparación de las máquinas para la asignación de dependencias
-Para ver dependencias de máquinas, debe descargar e instalar agentes en cada máquina local que vaya a evaluar. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de OMS](../log-analytics/log-analytics-oms-gateway.md).
+## <a name="prepare-for-dependency-visualization"></a>Preparar la visualización de dependencias
+Azure Migrate aprovecha la solución Service Map en Log Analytics para habilitar la visualización de dependencias de máquinas.
+
+### <a name="associate-a-log-analytics-workspace"></a>Asociar un área de trabajo de Log Analytics
+Si quiere aprovechar la visualización de dependencias, necesita asociar un área de trabajo de Log Analytics, actual o nueva, con un proyecto de Azure Migrate. Solo se puede crear o vincular un área de trabajo en la misma suscripción donde se crea el proyecto de migración.
+
+- Para asociar un área de trabajo de Log Analytics a un proyecto, en **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en **Requiere configuración**.
+
+    ![Asociar un área de trabajo de Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en la misma suscripción que el proyecto de migración y en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
+- La opción **Usar existente** enumera solo esas áreas de trabajo que se crean en las regiones donde está disponible Service Map. Si tiene un área de trabajo en una región donde Service Map no está disponible, no aparecerá en la lista desplegable.
+
+> [!NOTE]
+> No se puede cambiar el área de trabajo asociada a un proyecto de migración.
 
 ### <a name="download-and-install-the-vm-agents"></a>Descarga e instalación de los agentes en máquinas virtuales
+Después de configurar un área de trabajo, tiene que descargar e instalar agentes en cada máquina local que vaya a evaluar. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de OMS](../log-analytics/log-analytics-oms-gateway.md).
+
 1. En **Introducción**, haga clic en **Administrar** > **Máquinas**y seleccione la máquina requerida.
 2. En la columna **Dependencias**, haga clic en **Instalar agentes**.
 3. En la página **Dependencias**, descargue e instale el agente de Microsoft Monitoring Agent (MMA), así como el agente de dependencia en cada máquina virtual que vaya a evaluar.
@@ -40,6 +55,7 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
 5. Haga clic en **Agregar** para agregar un área de trabajo nueva de Log Analytics. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
 
+[Más información](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) sobre la lista de compatibilidad de MMA con sistemas operativos Windows.
 
 Para instalar al agente en una máquina Linux, siga estos pasos:
 
@@ -48,6 +64,7 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Más información](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sobre la lista de compatibilidad de MMA con sistemas operativos Linux.
 
 ### <a name="install-the-dependency-agent"></a>Instalación del agente de dependencia
 1. Para instalar al agente de dependencia en una máquina Windows, haga doble clic en el archivo de instalación y siga los pasos del asistente.
@@ -87,5 +104,6 @@ Una vez creado el grupo, se recomienda instalar los agentes en todas las máquin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga información sobre cómo](how-to-create-group-dependencies.md) restringir el grupo mediante la visualización de las dependencias del grupo.
+- [Más información](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sobre las preguntas más frecuentes sobre visualización de dependencias.
+- [Más información](how-to-create-group-dependencies.md) sobre cómo restringir el grupo mediante la visualización de las dependencias del grupo.
 - [Obtenga más información](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones.

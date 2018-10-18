@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/19/2018
-ms.openlocfilehash: 94d196ceecc0b63b9f0b0fe94f71363dc2086c30
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/22/2018
+ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213657"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409616"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migración de una base de datos de PostgreSQL mediante volcado y restauración
 Puede usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extraer una base de datos de PostgreSQL a un archivo de volcado y [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar la base de datos de PostgreSQL desde un archivo de almacenamiento creado por pg_dump.
@@ -36,9 +36,6 @@ Por ejemplo, si tiene un servidor local y una base de datos llamada **testdb** e
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-> [!IMPORTANT]
-> Copie los archivos de copia de seguridad en un blob o almacén de Azure y realice la restauración desde allí, lo que debería ser mucho más rápido que realizar la restauración a través de Internet.
-> 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restauración de los datos a la instancia de Azure Database for PostrgeSQL con pg_restore
 Después de crear la base de datos de destino, puede usar el comando pg_restore y el parámetro -d, --dbname para restaurar los datos en la base de datos de destino desde el archivo de volcado.
@@ -57,6 +54,34 @@ En este ejemplo, restaure los datos del archivo de volcado **testdb.dump** en la
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
+
+## <a name="optimizing-the-migration-process"></a>Optimización del proceso de migración
+
+Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure Database for PostgreSQL es realizar una copia de seguridad de la base de datos en el origen y restaurarla en Azure. Para minimizar el tiempo necesario para completar la migración, considere el uso de los parámetros siguientes con los comandos de copia de seguridad y restauración.
+
+> [!NOTE]
+> Para obtener información de sintaxis detallada, vea los artículos [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+>
+
+### <a name="for-the-backup"></a>Para la copia de seguridad
+- Realice la copia de seguridad con el modificador -Fc para poder realizar la restauración en paralelo a fin de acelerar. Por ejemplo: 
+
+    ```
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+### <a name="for-the-restore"></a>Para la restauración
+- Se sugiere mover el archivo de copia de seguridad a una máquina virtual de Azure de la misma región que el servidor de Azure Database for PostgreSQL al que se está migrando y ejecutar pg_restore desde esa máquina virtual para reducir la latencia de red. También se recomienda crear la máquina virtual con [redes aceleradas](..\virtual-network\create-vm-accelerated-networking-powershell.md) habilitadas.
+- Ya debería estar así de forma predeterminada, pero abra el archivo de volcado para comprobar que las instrucciones de creación de índice están después de la inserción de los datos. Si no es así, mueva las instrucciones de creación de índice una vez insertados los datos.
+- Restaure con los modificadores -Fc y -j *#* a fin de ejecutar la restauración en paralelo. *#* es el número de núcleos en el servidor de destino. También puede probar con *#* establecido en dos veces el número de núcleos del servidor de destino para ver el impacto. Por ejemplo: 
+
+    ```
+    pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+- También puede editar el archivo de volcado si agrega el comando *set synchronous_commit = off;* al principio y el comando *set synchronous_commit = on;* al final. No activarlo al final, antes de que las aplicaciones cambien los datos, podría provocar la consiguiente pérdida de datos.
+
+No olvide probar y validar estos comandos en un entorno de prueba antes de usarlos en producción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para migrar una base de datos de PostgreSQL mediante exportación e importación, vea [Migración de una base de datos de PostgreSQL mediante exportación e importación](howto-migrate-using-export-and-import.md).

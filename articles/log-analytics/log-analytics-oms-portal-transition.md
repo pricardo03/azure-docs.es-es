@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c7ccfd53b52416c8216b90f93f8d08f382c859d8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042111"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389118"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Traslado del portal de OMS a Azure
 
@@ -98,7 +98,7 @@ Con el soporte de [consultas entre recursos](log-analytics-cross-workspace-searc
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
-La [solución de Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) se reemplazará con la solución [Análisis de tráfico](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) lanzada recientemente, que ofrece visibilidad de la actividad de usuario y de la aplicación en redes en la nube. Análisis de tráfico le ayuda a auditar la actividad de red de la organización, a proteger las aplicaciones y los datos, a optimizar el rendimiento de la carga de trabajo y a satisfacer los requisitos de cumplimiento. 
+La [solución de Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) se reemplazará con la solución [Análisis de tráfico](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) lanzada recientemente, que ofrece visibilidad de la actividad de usuario y de la aplicación en redes en la nube. Análisis de tráfico le ayuda a auditar la actividad de red de la organización, a proteger las aplicaciones y los datos, a optimizar el rendimiento de la carga de trabajo y a satisfacer los requisitos de cumplimiento. 
 
 Esta solución analiza los registros de flujo de NSG y ofrece información sobre lo siguiente.
 

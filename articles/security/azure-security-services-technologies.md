@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093433"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384894"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -48,7 +48,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento.  |
 |[Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md)| Método de control de acceso para Azure Storage que se utiliza para la autenticación cuando se accede a la cuenta de almacenamiento. |
 |[Introducción a Almacenamiento de archivos de Azure en Windows](../storage/files/storage-files-introduction.md)|Tecnología de seguridad de red que habilita el cifrado de red automático para el protocolo de uso compartido de archivos Bloque de mensajes del servidor (SMB). |
-|[Análisis de Azure Storage](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| Tecnología de generación y registro de métricas para los datos de la cuenta de almacenamiento. |
+|[Análisis de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| Tecnología de generación y registro de métricas para los datos de la cuenta de almacenamiento. |
 
 <!------>
 
@@ -58,8 +58,8 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Azure&nbsp;SQL&nbsp;Firewall](../sql-database/sql-database-firewall-configure.md)|Característica de control de acceso de red que protege frente a ataques basados en red a una base de datos. |
 |[Cifrado de&nbsp;nivel de celda de&nbsp;Azure&nbsp;SQL](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Tecnología de seguridad de base de datos que proporciona cifrado en un nivel más pormenorizado.  |
 | [Cifrado de conexión de&nbsp;Azure&nbsp;SQL](../sql-database/sql-database-control-access.md)|Para proporcionar seguridad, SQL Database controla el acceso con reglas de firewall que limitan la conectividad por dirección IP, con mecanismos de autenticación que requieren a los usuarios que demuestren su identidad y con mecanismos de autorización que limitan a los usuarios el acceso a datos y acciones específicos. |
-| [Always Encrypted (Database Engine)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege la información confidencial, como números de tarjetas de crédito o números de identificación nacionales (por ejemplo, números de la seguridad social de EE. UU.), almacenados en bases de datos de Azure SQL Database o SQL Server.  |
-| [Cifrado de datos transparente de&nbsp;Azure&nbsp;SQL](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Característica de seguridad de base de datos que cifra el almacenamiento de una base de datos completa. |
+| [Always Encrypted (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege la información confidencial, como números de tarjetas de crédito o números de identificación nacionales (por ejemplo, números de la seguridad social de EE. UU.), almacenados en bases de datos de Azure SQL Database o SQL Server.  |
+| [Cifrado de datos transparente de&nbsp;Azure&nbsp;SQL](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Característica de seguridad de base de datos que cifra el almacenamiento de una base de datos completa. |
 | [Introducción a la auditoría de SQL Database](../sql-database/sql-database-auditing.md)|Característica de auditoría de bases de datos que realiza un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage.  |
 
 

@@ -4,19 +4,19 @@ description: Use Azure Event Grid para suscribirse al evento de cambio de estado
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/20/2018
 ms.author: juliako
-ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e7268a066acf41c454de0c66aa21603199d85a60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723747"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034848"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Enrutamiento de eventos de Azure Media Services a un punto de conexión web personalizado
 
@@ -26,17 +26,14 @@ Por lo general, los eventos se envían a un punto de conexión que responde ante
 
 Al completar los pasos descritos en este artículo, verá que los datos del evento se han enviado a un punto de conexión.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="prerequisites"></a>Requisitos previos
 
-Inicie sesión en [Azure Portal](http://portal.azure.com) e inicie **CloudShell** para ejecutar comandos de la CLI, como se muestra en los siguientes pasos.
+- Tener una suscripción de Azure activa.
+- [Cree una cuenta de Media Services](create-account-cli-how-to.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+    Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
-
-Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services, el nombre del almacenamiento y el nombre del recurso.
+- Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). En este artículo se necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. También puede usar [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="enable-event-grid-resource-provider"></a>Habilitación del proveedor de recursos de Event Grid
 
@@ -132,7 +129,7 @@ Presione **Guardar y ejecutar** en la parte superior de la ventana.
 
 Suscríbase a un artículo para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se realiza la suscripción a la cuenta de Media Services que creó y se pasa la dirección URL desde el webhook de Azure Functions que creó como el punto de conexión para la notificación de eventos. 
 
-Reemplace `<event_subscription_name>` por un nombre único para la suscripción de eventos. En `<resource_group_name>` y `<ams_account_name>`, use los valores que creó anteriormente.  Para `<endpoint_URL>`, pegue la dirección URL del punto de conexión. Quite *&clientID=default* de la dirección URL. Al especificar un punto de conexión cuando se suscribe, Event Grid controla el enrutamiento de los eventos a ese punto de conexión. 
+Reemplace `<event_subscription_name>` por un nombre único para la suscripción de eventos. Para `<resource_group_name>` y `<ams_account_name>`, use los valores que usó al crear la cuenta de Media Services. Para `<endpoint_URL>`, pegue la dirección URL del punto de conexión. Quite *&clientID=default* de la dirección URL. Al especificar un punto de conexión cuando se suscribe, Event Grid controla el enrutamiento de los eventos a ese punto de conexión. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -145,7 +142,9 @@ az eventgrid event-subscription create \
 
 El valor del identificador de recurso de la cuenta de Media Services es similar a este:
 
+```
 /subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```
 
 ## <a name="test-the-events"></a>Prueba de los ejemplos
 
@@ -153,7 +152,7 @@ Ejecute un trabajo de codificación. Por ejemplo, como se describe en el inicio 
 
 Ha desencadenado el evento y Event Grid envió el mensaje al punto de conexión configurado durante la suscripción. Vaya al webhook que creó anteriormente. Haga clic en **Supervisar** y en **Actualizar**. Puede ver los eventos de cambios de estado del trabajo: "Queued", "Scheduled", "Processing", "Finished", "Error", "Canceled", "Canceling".  Para más información, consulte el artículo sobre los [esquemas de eventos de Media Services](media-services-event-schemas.md).
 
-Por ejemplo: 
+En este ejemplo se muestra el esquema del evento JobStateChange:
 
 ```json
 [{
@@ -172,16 +171,6 @@ Por ejemplo:
 ```
 
 ![Prueba de los eventos](./media/job-state-events-cli-how-to/test_events.png)
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Si planea seguir trabajando con esta cuenta de almacenamiento y suscripción de eventos, no elimine los recursos creados en este artículo. Si no va a continuar, use el siguiente comando para eliminar los recursos creados en este artículo.
-
-Sustituya `<resource_group_name>` por el nombre del grupo de recursos que ha creado.
-
-```azurecli-interactive
-az group delete --name <resource_group_name>
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

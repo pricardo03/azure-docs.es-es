@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969666"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320244"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) emite registros de auditoría que cont
 > [!IMPORTANT]
 > Los registros de auditoría solo se conservan durante siete días. Si necesita un periodo de retención mayor, planee la descarga y el almacenamiento de los registros mediante alguno de los métodos que se muestran a continuación. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Información general sobre las actividades disponibles en la categoría B2C de los registros de auditoría
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Información general sobre las actividades disponibles en la categoría B2C de los registros de auditoría
 La categoría **B2C** de los registros de auditoría contiene los siguientes tipos de actividades:
 |Tipo de actividad |DESCRIPCIÓN  |
 |---------|---------|
@@ -38,10 +38,10 @@ La categoría **B2C** de los registros de auditoría contiene los siguientes tip
 > [!NOTE]
 > Para las actividades CRUD de objeto de usuario, vea la categoría **Core Directory**.
 
-##<a name="example-activity"></a>Actividad de ejemplo
+## <a name="example-activity"></a>Actividad de ejemplo
 El ejemplo siguiente muestra los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo: ![Registros de auditoría - Ejemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Acceso a los registros de auditoría a través de Azure Portal
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acceso a los registros de auditoría a través de Azure Portal
 1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el directorio B2C.
 2. Abra **Azure Active Directory** en la barra de favoritos del lado izquierdo 
     
@@ -62,18 +62,18 @@ Se ve una lista de actividades registradas durante los últimos siete días.
 - Si hace clic en una fila determinada de la lista, un cuadro contextual a la derecha muestra los atributos adicionales asociados a la actividad
 - Haga clic en **Descargar** para descargar las actividades como un archivo csv
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acceso a los registros de auditoría a través de la API de informes de Azure AD
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acceso a los registros de auditoría a través de la API de informes de Azure AD
 Los registros de auditoría se publican en la misma canalización que otras actividades de Azure Active Directory, por lo que son accesibles a través de la [API de informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###<a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 Para autenticarse en la API de informes de Azure AD, debe registrar una aplicación. Asegúrese de seguir los pasos de [Requisitos previos para acceder a la API de informes de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###<a name="accesing-the-api"></a>Acceso a la API
+### <a name="accesing-the-api"></a>Acceso a la API
 Para descargar los registros de auditoría de Azure AD B2C a través de la API, se recomienda filtrar los registros en la categoría **B2C**. Para filtrar por categoría, use el parámetro de cadena de consulta al llamar al punto de conexión de la API de informes de Azure AD, como se muestra a continuación:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>Script de PowerShell
+### <a name="powershell-script"></a>Script de PowerShell
 El script siguiente proporciona un ejemplo de uso de PowerShell para consultar la API de informes de Azure AD y almacenar los resultados como un archivo JSON:
 
 ```powershell

@@ -1,20 +1,21 @@
 ---
-title: 'Llamadas a la API desde una aplicación: Azure Cognitive Services | Microsoft Docs'
-description: Introducción a Azure Custom Decision Service si llama a las API desde una aplicación de smartphone.
+title: 'Llamada a la API desde una aplicación: Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: Cómo llamar a las API de Custom Decision Service desde una aplicación de smartphone.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 2d02b0deaaa701dd0b4818638827c04e2c946558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7df982c178bff19dcad8df1ba42a5a97904cd4c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382916"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365032"
 ---
 # <a name="call-api-from-an-app"></a>Llamada a la API desde una aplicación
 

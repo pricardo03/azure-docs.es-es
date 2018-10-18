@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886317"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364302"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configuración de controles de acceso basado en rol en el acelerador de soluciones de supervisión remota
 
@@ -134,11 +134,11 @@ En los pasos siguientes se describe cómo agregar un rol a una aplicación en Az
 
 ### <a name="define-a-policy-for-the-new-role"></a>Definición de una directiva para el nuevo rol
 
-Después de agregar el rol a la aplicación en Azure Portal, debe definir una directiva en [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) para el rol que asigne los permisos necesarios para administrar dispositivos.
+Después de agregar el rol a la aplicación en Azure Portal, debe definir una directiva en [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) para el rol que asigne los permisos necesarios para administrar dispositivos.
 
-1. Clone el repositorio de [microservicio Autenticación y autorización](https://github.com/Azure/pcs-auth-dotnet) de GitHub en la máquina local.
+1. Clone el repositorio de [microservicios de supervisión remota](https://github.com/Azure/remote-monitoring-services-dotnet) de GitHub en el equipo local.
 
-1. Edite el archivo **Services/data/policies/roles.json** para agregar la directiva del rol **ManageDevices**, tal y como se muestra en el siguiente fragmento de código. Los valores **Id.** y **Rol** deben coincidir con la definición de rol del manifiesto de aplicación de la sección anterior. La lista de acciones permitidas permite que alguien con el rol **ManageDevices** pueda crear, actualizar y eliminar dispositivos conectados a la solución:
+1. Edite el archivo **auth/Services/data/policies/roles.json** para agregar la directiva del rol **ManageDevices**, tal y como se muestra en el siguiente fragmento de código. Los valores **Id.** y **Rol** deben coincidir con la definición de rol del manifiesto de aplicación de la sección anterior. La lista de acciones permitidas permite que alguien con el rol **ManageDevices** pueda crear, actualizar y eliminar dispositivos conectados a la solución:
 
     ```json
     {
@@ -184,7 +184,7 @@ Después de agregar el rol a la aplicación en Azure Portal, debe definir una di
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Cómo la interfaz de usuario web exige permisos
 
-La interfaz de usuario web usa el [microservicio Autenticación y autorización](https://github.com/Azure/pcs-auth-dotnet) para determinar qué acciones se permiten a un usuario y qué controles están visibles en la interfaz de usuario. Por ejemplo, si la solución se llama **contoso-rm4**, la interfaz de usuario web recopila una lista de acciones permitidas para el usuario actual mediante el envío de la solicitud siguiente:
+La interfaz de usuario web usa el [microservicio Autenticación y autorización](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) para determinar qué acciones se permiten a un usuario y qué controles están visibles en la interfaz de usuario. Por ejemplo, si la solución se llama **contoso-rm4**, la interfaz de usuario web recopila una lista de acciones permitidas para el usuario actual mediante el envío de la solicitud siguiente:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +226,7 @@ Para más información, consulte [Protected Components](https://github.com/Azure
 
 Los microservicios también comprueban los permisos para protegerse frente a solicitudes de API no autorizadas. Cuando un microservicio recibe una solicitud de API, descodifica y valida el token JWT para obtener el identificador de usuario y los permisos asociados con el rol del usuario.
 
-El siguiente fragmento de código del archivo [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) en el [microservicio Administrador de IoTHub](https://github.com/Azure/iothub-manager-dotnet), muestra cómo se exigen los permisos:
+El siguiente fragmento de código del archivo [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) en el [microservicio Administrador de IoTHub](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), muestra cómo se exigen los permisos:
 
 ```csharp
 [HttpDelete("{id}")]
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo se implementan los controles de acceso basado en rol en el acelerador de soluciones de supervisión remota.
+
+Para obtener información acerca de cómo administrar el acceso al explorador de Time Series Insights en el acelerador de la solución de supervisión remota, consulte [Configure access controls for the Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) (Configuración de los controles de acceso del explorador de Time Series Insights).
 
 Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
 

@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962783"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341827"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de Bing Speech
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing Speech es una plataforma basada en la nube que incorpora los algoritmos más avanzados disponibles para convertir audio hablado en texto. El protocolo de Bing Speech define la [configuración de conexión](#connection-establishment) entre las aplicaciones cliente y el servicio, y los mensajes de reconocimiento de voz intercambiados entre homólogos ([mensajes originados en el cliente ](#client-originated-messages) y [mensajes originados en el servicio](#service-originated-messages)). Además, se describen los [mensajes de telemetría](#telemetry-schema) y el [control de errores](#error-handling).
 

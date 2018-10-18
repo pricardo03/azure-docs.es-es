@@ -4,14 +4,14 @@ description: En este artículo se proporciona una introducción a los cálculos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286280"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165694"
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -39,8 +39,8 @@ Azure Migrate Azure revisa las siguientes propiedades de la máquina virtual loc
 **Propiedad** | **Detalles** | **Estado de la preparación para Azure**
 --- | --- | ---
 **Tipo de arranque** | Azure admite máquinas virtuales con el tipo de arranque de BIOS y no UEFI. | Condicionalmente preparada si el tipo de arranque es UEFI.
-**Núcleos** | El número de núcleos de las máquinas debe ser igual o menor que el número máximo de núcleos (32) admitidos en una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos utilizados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si es menor o igual a los límites.
-**Memoria** | La memoria de la máquina debe tener un tamaño igual o menor que la memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) permitida en una máquina virtual de Azure. [Más información](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria utilizada para la comparación. Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se utiliza la memoria asignada sin aplicar el factor de confort.<br/><br/> | Preparada si está dentro de los límites.
+**Núcleos** | El número de núcleos de las máquinas debe ser igual o menor que el número máximo de núcleos (128) admitidos en una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos utilizados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si es menor o igual a los límites.
+**Memoria** | La memoria de la máquina debe tener un tamaño igual o menor que la memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) permitida en una máquina virtual de Azure. [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria utilizada para la comparación. Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se utiliza la memoria asignada sin aplicar el factor de confort.<br/><br/> | Preparada si está dentro de los límites.
 **Disco de almacenamiento** | El tamaño asignado de un disco debe ser de 4 TB (4096 GB) o menos.<br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco de sistema operativo. | Preparada si está dentro de los límites.
 **Redes** | Una máquina debe tener 32 NIC o menos conectadas. | Preparada si está dentro de los límites.
 
@@ -61,7 +61,8 @@ Windows Server 2008 R2 con todos los Service Pack | Azure proporciona compatibil
 Windows Server 2008 (32 bits y 64 bits) | Azure proporciona compatibilidad completa. | Preparado para Azure
 Windows Server 2003 y 2003 R2 | El sistema operativo alcanzó la fecha de finalización del soporte técnico y necesita un [contrato de soporte técnico personalizado (CSA)](https://aka.ms/WSosstatement) para obtener soporte técnico en Azure. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo antes de migrar a Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Estos sistemas operativos han alcanzado la fecha de finalización del soporte técnico, la máquina pude arrancar en Azure, pero Azure no proporciona ningún soporte técnico para el sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
-Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la suscripción de Visual Studio. | Condicionalmente preparada para Azure
+Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la [suscripción de Visual Studio](https://docs.microsoft.com/azure/virtual-machines/windows/client-images). | Condicionalmente preparada para Azure
+Windows 10 Pro Desktop | Azure proporciona compatibilidad con [derechos de hospedaje multiinquilino.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente preparada para Azure
 Windows Vista, XP Professional | Estos sistemas operativos han alcanzado la fecha de finalización del soporte técnico, la máquina pude arrancar en Azure, pero Azure no proporciona ningún soporte técnico para el sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
 Linux | Azure aprueba estos [sistemas operativos Linux](../virtual-machines/linux/endorsed-distros.md). Otros sistemas operativos Linux pueden arrancar en Azure, pero se recomienda actualizar el sistema operativo a una versión aprobada antes de migrar a Azure. | Preparada para Azure si la versión está aprobada.<br/><br/>Condicionalmente preparada si la versión no se ha aprobado.
 Otros sistemas operativos<br/><br/> Por ejemplo,  Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | Azure no aprueba estos sistemas operativos. La máquina puede arrancar en Azure, pero Azure no proporciona ningún sistema operativo. | Condicionalmente preparada para Azure, se recomienda instalar un sistema operativo compatible antes de migrar a Azure.  
@@ -71,9 +72,6 @@ Sistemas operativos de 32 bits | La máquina puede arrancar en Azure, pero Azure
 ## <a name="sizing"></a>Ajuste de tamaño
 
 Después de que una máquina se marca como preparada para Azure, Azure Migrate cambia el tamaño de la máquina virtual y sus discos para Azure. Si el criterio de ajuste de tamaño especificado en las propiedades de valoración es realizar el ajuste de tamaño según el rendimiento, Azure Migrate tiene en cuenta el historial de rendimiento de la máquina para identificar el tamaño y el tipo de disco de la máquina virtual en Azure. Este método es útil en escenarios donde ha asignado en exceso la máquina virtual local, pero el uso es bajo, y le gustaría ajustar correctamente el tamaño de las máquinas virtuales en Azure para ahorrar costos.
-
-> [!NOTE]
-> Azure Migrate recopila el historial de rendimiento de las máquinas virtuales locales desde vCenter Server. Para garantizar la precisión en el ajuste de tamaño, asegúrese de que la configuración de estadísticas en vCenter Server está establecida en el nivel 3 y espere al menos un día antes de empezar la detección de las máquinas virtuales locales. Si la configuración de estadísticas en vCenter Server está por debajo del nivel 3, no se recopilan datos de rendimiento de disco y red.
 
 Si no desea tener en cuenta el historial de rendimiento para el ajuste de tamaño de la máquina virtual y quiere usarla en Azure tal y como está, puede especificar el criterio de ajuste de tamaño *como local* y Azure Migrate ajustará entonces el tamaño de las máquinas virtuales en función de la configuración local sin tener en cuenta los datos de uso. En este caso, el ajuste del tamaño de disco se hará según el tipo de almacenamiento que especifique en las propiedades de valoración (disco estándar o premium)
 
@@ -119,14 +117,24 @@ Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los dat
    61 % - 80 % | 4 estrellas
    81 % - 100 % | 5 estrellas
 
-Debido a uno de los siguientes motivos, puede que las valoraciones no tengan todos los puntos de datos disponibles:
-- La configuración de estadísticas en vCenter Server no se establece en el nivel 3. Si la configuración de estadísticas en vCenter Server es inferior al nivel 3, no se recopilan los datos de rendimiento de disco y de red de vCenter Server. En este caso, la recomendación que proporciona Azure Migrate de disco y de red no se basa en el uso. Sin tener en cuenta el valor de IOPS o del rendimiento del disco, Azure Migrate no puede saber si el disco necesitará un disco premium en Azure; por lo tanto, en este caso, Azure Migrate recomienda usar discos estándar para todos los discos.
-- La configuración de estadísticas en vCenter Server se estableció en el nivel 3 durante un período más corto, antes de iniciar la detección. Por ejemplo, veamos un escenario en el que hoy cambia el nivel de configuración de estadísticas a 3 y mañana inicia la detección mediante el dispositivo recopilador (una vez pasadas 24 horas). Si va a crear una valoración durante un día, tiene todos los puntos de datos y la clasificación de confianza de la valoración sería 5 estrellas. Pero, si cambia la duración del rendimiento a un mes en las propiedades de la valoración, la clasificación de confianza descenderá dado que los datos de disco y rendimiento de la red durante el último mes no estarían disponibles. Si quisiera considerar los datos de rendimiento del último mes, se recomienda que mantenga la configuración de las estadísticas de vCenter Server en el nivel 3 durante un mes antes de iniciar la detección.
-- Se apagaron algunas máquinas virtuales en el período durante el que se calcula la valoración. Si se han apagado todas las máquinas virtuales durante un tiempo, vCenter Server no tendrá los datos de rendimiento de ese período.
-- Algunas máquinas virtuales se crearon en algún momento del período durante el cual se calcula la valoración. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En tales casos, el historial de rendimiento de las nuevas máquinas virtuales no permanecerá durante toda la duración.
+   Estos son los motivos por los que una evaluación puede obtener una clasificación de confianza baja:
 
-> [!NOTE]
-> Si la clasificación de confianza de cualquier valoración es inferior a 4 estrellas, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que desee considerar para la valoración (un día, una semana o un mes) y, a continuación, realice la detección y la valoración. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
+   **Detección de una sola vez**
+
+   - La configuración de estadísticas en vCenter Server no se establece en el nivel 3. Dado que el modelo de detección de una sola vez depende de la configuración de estadísticas de vCenter Server, si la configuración de estadísticas en vCenter Server es inferior al nivel 3, no se recopilan los datos de rendimiento de disco y de red de vCenter Server. En este caso, la recomendación que proporciona Azure Migrate de disco y de red no se basa en el uso. Sin tener en cuenta el valor de IOPS o del rendimiento del disco, Azure Migrate no puede saber si el disco necesitará un disco premium en Azure; por lo tanto, en este caso, Azure Migrate recomienda usar discos estándar para todos los discos.
+   - La configuración de estadísticas en vCenter Server se estableció en el nivel 3 durante un período más corto antes de iniciar la detección. Por ejemplo, veamos un escenario en el que hoy cambia el nivel de configuración de estadísticas a 3 y mañana inicia la detección mediante el dispositivo recopilador (una vez pasadas 24 horas). Si va a crear una valoración durante un día, tiene todos los puntos de datos y la clasificación de confianza de la valoración sería 5 estrellas. Pero, si cambia la duración del rendimiento a un mes en las propiedades de la valoración, la clasificación de confianza descenderá dado que los datos de disco y rendimiento de la red durante el último mes no estarían disponibles. Si quisiera considerar los datos de rendimiento del último mes, se recomienda que mantenga la configuración de las estadísticas de vCenter Server en el nivel 3 durante un mes antes de iniciar la detección.
+
+   **Detección continua**
+
+   - No generó un perfil de su entorno durante el tiempo que está creando la evaluación. Por ejemplo, si está creando la evaluación con la duración de rendimiento establecida en 1 día, debe esperar al menos un día después de empezar la detección para que se recopilen todos los puntos de datos.
+
+   **Motivos comunes**  
+
+   - Se apagaron algunas máquinas virtuales en el período durante el que se calcula la valoración. Si alguna máquina virtual se apagó por algún tiempo, no podremos recopilar los datos de rendimiento durante ese período.
+   - Algunas máquinas virtuales se crearon en algún momento del período durante el cual se calcula la valoración. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En tales casos, el historial de rendimiento de las nuevas máquinas virtuales no permanecerá durante toda la duración.
+
+   > [!NOTE]
+   > Si la clasificación de confianza de cualquier valoración es inferior a 4 estrellas, para el modelo de detección de una sola vez, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que quiera considerar para la valoración (un día, una semana o un mes) y, después, realice la detección y la valoración. Para el modelo de detección continua, espere al menos un día para que el dispositivo genere el perfil del entorno y luego *recalcule* las evaluaciones. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
 
 ## <a name="monthly-cost-estimation"></a>Estimación del costo mensual
 

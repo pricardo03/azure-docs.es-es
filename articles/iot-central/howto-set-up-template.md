@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f71d4c7dc94fedfd598ab87c51366ba9fb1f184a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063042"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034287"
 ---
 # <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
 
@@ -63,7 +63,7 @@ Las medidas son los datos que proceden del dispositivo. Puede agregar varias med
 - Las medidas de tipo **Estado** representan el estado del dispositivo o sus componentes durante un período de tiempo. Por ejemplo, se puede definir que el modo de ventilador tenga dos posibles estados: **Operating** (En funcionamiento) y **Stopped** (Detenido).
 
 ### <a name="create-a-telemetry-measurement"></a>Creación de una medida de tipo Telemetría
-Para agregar una nueva medida de tipo Telemetría, seleccione el botón **+ New Measurement** (Nueva medida). Seleccione **Telemetry** (Telemetría) como tipo de telemetría y escriba los detalles en el formulario **Create Telemetry** (Crear telemetría).
+Para agregar una nueva medida de telemetría, seleccione **Editar plantilla** y haga clic en el botón **+ New Measurement** (Nueva medida). Seleccione **Telemetry** (Telemetría) como tipo de telemetría y escriba los detalles en el formulario **Create Telemetry** (Crear telemetría).
 
 > [!NOTE]
 > Cuando se conecte un dispositivo real, preste atención al nombre de la medida que el dispositivo notifica. Dicho nombre debe coincidir exactamente con la entrada de **Nombre de campo** de una medida.
@@ -72,12 +72,13 @@ Por ejemplo, puede agregar una nueva medida de telemetría de temperatura:
 
 ![Formulario "Create Telemetry" (Crear telemetría) con detalles de la medida de temperatura](./media/howto-set-up-template/measurementsform.png)
 
-Después de seleccionar **Save** (Guardar), le medida **Temperature** aparece en la lista de medidas. Un operador puede ver los datos de temperatura que recopila el dispositivo.
+Después de seleccionar **Listo**, aparece la medida **Temperatura** en la lista de medidas. Un operador puede ver los datos de temperatura que recopila el dispositivo.
 
-![Gráfico de medidas](./media/howto-set-up-template/measurementsgraph.png)
+> [!NOTE]
+  El tipo de datos de la medida de telemetría es doble.
 
 ### <a name="create-an-event-measurement"></a>Creación de una medida de tipo Evento
-Para agregar una nueva medida de tipo Evento, seleccione el botón **+ New Measurement** (Nueva medida). Seleccione **Event** (Evento) como tipo de medida y escriba los detalles en el formulario **Create Event** (Crear evento).
+Para agregar una nueva medida de evento, seleccione **Editar plantilla** y haga clic en el botón **+ New Measurement** (Nueva medida). Seleccione **Event** (Evento) como tipo de medida y escriba los detalles en el formulario **Create Event** (Crear evento).
 
 Rellene los siguientes campos con los datos del evento: **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y **Severity** (Gravedad). Puede elegir entre los tres niveles disponibles de gravedad: **Error**, **Warning** (Advertencia) e **Information** (Información).  
 
@@ -85,17 +86,19 @@ Por ejemplo, puede agregar un nuevo evento denominado **Fan Motor Error**.
 
 ![Formulario "Create Evento" (Crear evento) formulario con detalles de un evento del motor del ventilador](./media/howto-set-up-template/eventmeasurementsform.png)
 
-Después de seleccionar **Save** (Guardar), le medida **Fan Motor Error** aparece en la lista de medidas. Un operador puede ver los datos de evento que envía el dispositivo.
+Después de seleccionar **Listo**, la medida **Fan Motor Error** aparece en la lista de medidas. Un operador puede ver los datos de evento que envía el dispositivo.
 
 ![Gráfico de medidas de evento](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Para ver más detalles acerca del evento, seleccione el icono de evento en el gráfico:
+Para ver más detalles sobre el evento, seleccione el icono de evento en el gráfico.
 
 ![Detalles del evento "Fan Motor Error"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  El tipo de datos de la medida de eventos es cadena.
 
 ### <a name="create-a-state-measurement"></a>Creación de una medida de tipo Estado
-Para agregar una nueva medida de tipo Estado, seleccione el botón **+ New Measurement** (Nueva medida). Seleccione **State** (Estado) como tipo de medida y escriba los detalles en el formulario **Create State** (Crear estado).
+Para agregar una nueva medida de estado, seleccione **Editar plantilla** y haga clic en el botón **+ New Measurement** (Nueva medida). Seleccione **State** (Estado) como tipo de medida y escriba los detalles en el formulario **Create State** (Crear estado).
 
 Rellene los siguientes campos con los datos del estado: **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y **Values** (Valores). Cada valor también puede tener un nombre para mostrar que se usará cuando el valor aparezca en gráficos y tablas.
 
@@ -103,16 +106,16 @@ Por ejemplo, puede agregar un nuevo estado denominado **Fan Mode** que tenga dos
 
 ![Formulario de "Edit State" con los detalles del modo de ventilador](./media/howto-set-up-template/statemeasurementsform.png)
 
-Después de seleccionar **Save** (Guardar), le medida del estado **Fan Mode** aparece en la lista de medidas. El operador puede ver los datos de estado que envía el dispositivo.
+Después de seleccionar **Listo**, la medida **Fan Mode** aparece en la lista de medidas. El operador puede ver los datos de estado que envía el dispositivo.
 
 ![Gráfico de medidas de estado](./media/howto-set-up-template/statemeasurementschart.png)
 
 Si el dispositivo envía demasiados puntos de datos en un intervalo pequeño, la medida de estado aparece se muestra con otro objeto visual diferente, como se muestra en la siguiente captura de pantalla. Si hace clic en el gráfico, se muestran todos los puntos de datos dentro de ese período de tiempo en orden cronológico. También puede reducir el intervalo de tiempo para ver la medida trazada en el gráfico.
 
-![Detalles de la medida del estado "Static Fan Mode"](./media/howto-set-up-template/statemeasurementsdetail.png)
+> [!NOTE]
+  El tipo de datos de la medida de estado es cadena.
 
-
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 
 La configuración controla un dispositivo. Permite a los operadores de la aplicación proporcionar entradas al dispositivo. Puede agregar varias configuraciones a la plantilla de dispositivo que aparecen como iconos en la pestaña **Configuración** para que los operadores los utilicen. Puede agregar seis tipos de valores: número, texto, fecha, alternar, lista de selección y etiqueta de sección.
 
@@ -127,13 +130,13 @@ La configuración puede tener uno de estos tres estados. El dispositivo notifica
 
 - **Error**: el dispositivo ha devuelto un error.
 
-Por ejemplo, puede agregar una nueva configuración de velocidad del ventilador:
+Por ejemplo, para agregar una nueva configuración de velocidad de ventilador puede seleccionar **Editar plantilla** y acceder a la nueva configuración:
 
 ![Formulario "Configure Number" con detalles de los valores de velocidad](./media/howto-set-up-template/settingsform.png)
 
 Después de seleccionar **Guardar**, la configuración **Fan speed** (Velocidad del ventilador) aparece como un icono y está lista para usarse para cambiar la velocidad del ventilador del dispositivo.
 
-Después de crear un icono, puede probar la nueva configuración. En primer lugar, desactive el modo de diseño en la parte superior derecha de la pantalla.
+Después de crear un icono, puede probar la nueva configuración. Primero, seleccione **Listo** en la parte superior derecha de la pantalla.
 
 ![Pestaña "Settings" (Configuración) con el conmutador "Design Mode" (Modo de diseño) del icono](./media/howto-set-up-template/settingstile.png)
 
@@ -149,7 +152,7 @@ Existen dos categorías de propiedades:
 > [!NOTE]
 > En lo que a las propiedades de dispositivo se refiere, cuando haya conectado un dispositivo real, preste atención al nombre de la propiedad que el dispositivo notifica. El nombre debe coincidir exactamente con la entrada de **Field Name** (Nombre de campo) de la propiedad. En lo que a las propiedades de aplicación se refiere, el nombre del campo puede ser cualquier cosa que desee, siempre que el nombre sea único en la plantilla de dispositivo.
 
-Por ejemplo, puede agregar la ubicación del dispositivo como una nueva propiedad:
+Por ejemplo, puede agregar la ubicación de dispositivos como una nueva propiedad si selecciona **Editar plantilla** y escribe la nueva propiedad:
 
 ![Formulario "Configure Texto" (Configurar texto) de la pestaña "Properties" (Propiedades)](./media/howto-set-up-template/propertiesform.png)
 
@@ -157,7 +160,7 @@ Después de seleccionar **Save** (Guardar), la ubicación del dispositivo aparec
 
 ![Icono de ubicación](./media/howto-set-up-template/propertiestile.png)
 
-Después de crear un icono, puede cambiar el valor de propiedad. En primer lugar, desactive el modo de diseño en la parte superior derecha de la pantalla.
+Después de crear un icono, puede cambiar el valor de propiedad. Primero, seleccione **Listo** en la parte superior derecha de la pantalla.
 
 ### <a name="create-a-location-property-through-azure-maps"></a>Creación de una propiedad de ubicación con Azure Maps
 Puede dar contexto geográfico a los datos de ubicación en Azure IoT Central y asignar cualquier coordenada de latitud y de longitud de una dirección. O bien simplemente puede asignar las coordenadas de latitud y longitud. Azure Maps habilita esta funcionalidad en IoT Central.
@@ -169,7 +172,7 @@ Puede agregar dos tipos de propiedades de ubicación:
 #### <a name="add-location-as-an-application-property"></a>Agregar ubicación como una propiedad de la aplicación 
 Puede crear una propiedad de ubicación como una propiedad de la aplicación mediante Azure Maps en la aplicación IoT Central. Por ejemplo, puede agregar la dirección de la instalación de dispositivos. 
 
-1. En la pestaña **Properties** (Propiedades), asegúrese de que **Design Mode** (Modo de diseño) está en **On** (Activado).
+1. En la pestaña **Propiedades**, seleccione **Editar plantilla**.
 
    ![Pestaña "Properties" (Propiedades) con Design mode (Modo de diseño) activado](./media/howto-set-up-template/locationcloudproperty1.png)
 
@@ -182,17 +185,13 @@ Puede crear una propiedad de ubicación como una propiedad de la aplicación med
    - **Ubicación como una dirección**
    - **Ubicación como coordenadas** 
 
-4. Seleccione **Guardar**. 
-
-   ![Propiedad de ubicación con la dirección de instalación agregada](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Ahora, un operador puede actualizar el valor de ubicación en el formulario de campo de ubicación. 
+4. Seleccione **Guardar** y **Listo**. Ahora, un operador puede actualizar el valor de ubicación en el formulario de campo de ubicación. 
 
 #### <a name="add-location-as-a-device-property"></a>Agregar la ubicación como una propiedad del dispositivo 
 
 Puede crear una propiedad de ubicación como una propiedad de dispositivo que el dispositivo notifica. Por ejemplo, si desea realizar un seguimiento de la ubicación del dispositivo:
 
-1. En la pestaña **Properties** (Propiedades), asegúrese de que **Design Mode** (Modo de diseño) está en **On** (Activado).
+1. En la pestaña **Propiedades**, seleccione **Editar plantilla**.
 
    ![Pestaña "Properties" (Propiedades) con Design mode (Modo de diseño) activado](./media/howto-set-up-template/locationdeviceproperty1.png)
 
@@ -216,13 +215,13 @@ Los comandos se usan para administrar un dispositivo de forma remota. Permiten a
 
 * **Comando**: los comandos se usan para ejecutar al instante un comando en el dispositivo de forma remota desde IoT Central. Si un dispositivo no está conectado, se agota el tiempo de espera del comando y se produce un error. Por ejemplo, desea reiniciar un dispositivo.  
 
-Cuando se ejecuta un comando, puede estar en uno de los tres estados, en función de si el dispositivo ha recibido el comando. 
+Cuando se ejecuta un comando, puede estar en uno de los tres estados, en función de si el dispositivo ha recibido el comando.
 
-Por ejemplo, puede agregar una nuevo comando **Echo**:
+Por ejemplo, puede agregar un nuevo comando **Eco** si selecciona **Editar plantilla**, hace clic en **+ Nuevo comando** y escribe el nuevo comando:
 
 ![Formulario "Configure Command" (Configurar comando) con detalles del eco](./media/howto-set-up-template/commandsecho.png)
 
-Después de seleccionar **Save** (Guardar), el comando **Echo** (Eco) aparece como un icono y está listo para usarse para mostrar el dispositivo.
+Después de seleccionar **Guardar** y **Listo**, el comando **Eco** aparece como un icono y está listo para usarse para mostrar el dispositivo.
 
 Después de crear un icono, puede probar el nuevo comando.
 
@@ -232,11 +231,11 @@ Las reglas permiten a los operadores supervisar los dispositivos prácticamente 
 
 - **Regla de telemetría**, que se desencadena cuando la telemetría del dispositivo seleccionado supera un umbral especificado. [Más información acerca de las reglas de telemetría](howto-create-telemetry-rules.md).
 
-## <a name="dashboard"></a>Panel
+## <a name="dashboard"></a>panel
 
 El panel es donde puede ir un operador para ver información sobre un dispositivo. Como generador, puede agregar iconos a esta página que ayuden a los operadores a saber cómo se comporta el dispositivo. Puede agregar varios iconos de panel a la plantilla de dispositivo. Puede agregar seis tipos de iconos de panel: imagen, gráfico de líneas, gráfico de barras, KPI, configuración y propiedades, y etiqueta.
 
-Por ejemplo, puede agregar un icono **Settings and Properties** (Configuración y propiedades) para mostrar una selección de los valores actuales de la configuración y las propiedades:
+Por ejemplo, puede agregar un icono **Settings and Properties** (Configuración y propiedades) para mostrar una selección de los valores actuales de la configuración y las propiedades. Para ello, seleccione **Editar plantilla** y elija el icono de la biblioteca:
 
 ![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
 
@@ -248,12 +247,12 @@ Ahora, cuando un operador vea el panel, podrá ver este icono que muestra las pr
 
 Si ha configurado una propiedad de la ubicación anteriormente en [Creación de una propiedad de ubicación con Azure Maps](#create-a-location-property-through-azure-maps), puede visualizar la ubicación mediante un mapa en el panel del dispositivo.
 
-1. En la pestaña **Dashboard** (Panel), asegúrese de que **Design Mode** (Modo de diseño) está en **On** (Activado).
+1. En la pestaña **Panel**, seleccione **Editar plantilla**.
 
    ![Pestaña "Dashboard" (Panel) con Design mode (Modo de diseño) activado](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 2. En el panel del dispositivo, seleccione **Mapa** en la Biblioteca. 
-3. Asigne un título y elija la propiedad de ubicación que se ha configurado anteriormente como parte de las propiedades del dispositivo.
+3. Asígnele un título y elija la propiedad de ubicación que se ha configurado anteriormente como parte de las propiedades del dispositivo.
 
    ![Formulario "Configure Map" (Configurar mapa) con detalles del título y las propiedades](./media/howto-set-up-template/locationcloudproperty5map.png)
 
@@ -261,11 +260,7 @@ Si ha configurado una propiedad de la ubicación anteriormente en [Creación de 
 
    ![Mosaico con ubicación seleccionada](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Puede cambiar el tamaño del mapa hasta obtener el tamaño deseado.
-
-Cuando un operador vea el panel, puede ver todos los iconos del panel que ha configurado, incluido un mapa de ubicación.
-
-![Iconos en el panel](./media/howto-set-up-template/locationcloudproperty7map.png) 
+Puede cambiar el tamaño del mapa hasta obtener el tamaño deseado. Cuando un operador vea el panel, puede ver todos los iconos del panel que ha configurado, incluido un mapa de ubicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

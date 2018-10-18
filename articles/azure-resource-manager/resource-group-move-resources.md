@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783345"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452163"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -163,7 +163,7 @@ Mientras todavía se esté ejecutando la operación, continuará recibiendo el c
 
 ## <a name="services-that-can-be-moved"></a>Servicios que se pueden mover
 
-Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
+En la lista siguiente se proporciona un resumen general de servicios de Azure que se pueden mover a un grupo de recursos y una suscripción nuevos. Para obtener más detalles, vea [Traslado del soporte técnico por tipo de recurso](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -173,6 +173,9 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure DevOps: las organizaciones de Azure DevOps con compras de extensiones que no son de Microsoft deben [cancelar las compras](https://go.microsoft.com/fwlink/?linkid=871160) para poder mover la cuenta entre suscripciones.
 * Azure Maps
 * Azure Relay
 * Azure Stack: registros
@@ -193,6 +196,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * DNS
 * Event Grid
 * Event Hubs
+* Front Door
 * Clústeres de HDInsight: consulte [Limitaciones de HDInsight](#hdinsight-limitations).
 * Iot Central
 * IoT Hubs
@@ -201,44 +205,41 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Log Analytics
 * Logic Apps
 * Machine Learning: los servicios de Machine Learning Studio se pueden mover a un grupo de recursos en la misma suscripción, pero no una suscripción diferente. Otros recursos de Machine Learning se pueden mover entre suscripciones.
+* Managed Disks: vea [Limitaciones de Virtual Machines en cuanto a restricciones](#virtual-machines-limitations)
 * Identidad administrada: asignada por el usuario
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management
 * Paneles del portal
 * Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
-* Redis Cache
+* Redis Cache: si la instancia de Redis Cache está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Scheduler
 * Search
 * Azure Service Bus
 * Service Fabric
 * Service Fabric Mesh
 * Servicio SignalR
-* Storage
+* Storage: las cuentas de almacenamiento de regiones diferentes no se pueden mover en la misma operación. En su lugar, use operaciones independientes para cada región.
 * Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Stream Analytics: los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
 * Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure SQL Data Warehouse.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines: no se pueden mover las máquinas virtuales con discos administrados. Vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
+* Virtual Machines: en el caso de máquinas virtuales con discos administrados, vea [Limitaciones de Virtual Machines](#virtual-machines-limitations)
 * Virtual Machines (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Conjuntos de escalado de máquinas virtuales; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Redes virtuales; vea [Limitaciones de las redes virtuales](#virtual-networks-limitations).
-* Visual Studio Team Services: las cuentas de VSTS con compras de extensiones que no son de Microsoft deben [cancelar las compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder mover la cuenta a través de suscripciones.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Recursos que no se pueden mover
 
-Los servicios que actualmente no permiten trasladar un recurso son:
+En la lista siguiente se proporciona un resumen general de servicios de Azure que no se pueden mover a un grupo de recursos y una suscripción nuevos. Para obtener más detalles, vea [Traslado del soporte técnico por tipo de recurso](move-support-resources.md).
 
 * Servicios de dominio de AD
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
-* Azure Database for MySQL
-* Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
@@ -254,7 +255,6 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Lab Services: el traslado al nuevo grupo de recursos de la misma suscripción está habilitado pero no el traslado entre suscripciones.
 * Equilibradores de carga (consulte las [limitaciones del equilibrador de carga](#lb-limitations)).
 * Aplicaciones administradas
-* Managed Disks; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Microsoft Genomics
 * NetApp
 * IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
@@ -267,22 +267,62 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 ## <a name="virtual-machines-limitations"></a>Limitaciones de Virtual Machines
 
-Los discos administrados no admiten el traslado. Esta restricción indica que tampoco se pueden mover varios recursos relacionados. No puede mover:
+A partir del 24 de septiembre de 2018 se permite mover discos administrados. 
 
-* Discos administrados
+1. Para habilitar esta característica es necesario registrarse.
+
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. Inicialmente, la solicitud de registro devuelve un estado de `Registering`. Puede comprobar el estado actual con:
+
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. Espere unos minutos para que el estado cambie a `Registered`.
+
+1. Una vez registrada la característica, registre el proveedor de recursos `Microsoft.Compute`. Realice este paso aunque el proveedor de recursos se haya registrado anteriormente.
+
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
+
+Esta compatibilidad significa que también puede mover:
+
 * Virtual Machines con Managed Disks
-* Imágenes creadas a partir de Managed Disks
-* Instantáneas creadas a partir de Managed Disks
+* Imágenes administradas
+* Instantáneas administradas
 * Conjuntos de disponibilidad con Virtual Machines con Managed Disks
 
-Aunque los discos administrados no se pueden mover, se puede crear una copia y, después, crear una nueva máquina a partir del disco administrado existente. Para más información, consulte:
+Estas son las restricciones que aún no se admiten:
 
-* Copia de discos administrados en la misma suscripción o en otra con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) o la [CLI de Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Creación de una máquina virtual mediante un disco del SO administrado con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) o la [CLI de Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+* Los recursos de Virtual Machines con certificado almacenados en Key Vault se pueden trasladar al nuevo grupo de recursos en la misma suscripción, pero no entre suscripciones.
+* Máquinas de virtuales configuradas con Azure Backup. Use la siguiente solución alternativa para mover estas máquinas virtuales
+  * Busque la ubicación de la máquina virtual.
+  * Busque un grupo de recursos con el patrón de nombres siguiente: `AzureBackupRG_<location of your VM>_1`, por ejemplo, AzureBackupRG_westus2_1
+  * Si está en Azure Portal, active "Mostrar tipos ocultos"
+  * Si se encuentra en PowerShell, use el cmdlet `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+  * Si está en la CLI, use `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Ahora busque el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nombres `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Elimine este recurso
+  * Una vez completada la eliminación, puede mover la máquina virtual
+* No es posible mover Virtual Machine Scale Sets con equilibrador de carga o IP pública de SKU estándar
+* Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
 
-Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
-
-Los recursos de Virtual Machines con certificado almacenados en Key Vault se pueden trasladar al nuevo grupo de recursos en la misma suscripción, pero no entre suscripciones.
 
 ## <a name="virtual-networks-limitations"></a>Limitaciones de las redes virtuales
 

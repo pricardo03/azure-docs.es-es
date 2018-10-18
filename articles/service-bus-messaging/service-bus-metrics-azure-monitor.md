@@ -7,18 +7,18 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: b4865c1ba7532910ef0b4a41a5a19d2880e37d6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698968"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166340"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de Azure Service Bus en Azure Monitor (versión preliminar)
 
-Las métricas de Service Bus le permiten conocer el estado de los recursos de su suscripción de Azure. Con un amplio conjunto de datos de métricas, puede evaluar el estado general de los recursos de Service Bus, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Estas estadísticas pueden ser importantes, ya que le ayudan a supervisar el estado de Service Bus. Las métricas también pueden ayudarle a solucionar problemas de causa principal sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+Las métricas de Service Bus le permiten conocer el estado de los recursos de la suscripción de Azure. Con un amplio conjunto de datos de métricas, puede evaluar el estado general de los recursos de Service Bus, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Estas estadísticas pueden ser importantes, ya que le ayudan a supervisar el estado de Service Bus. Las métricas también pueden ayudarle a solucionar problemas de causa principal sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 Azure Monitor proporciona interfaces de usuario unificadas para la supervisión de distintos servicios de Azure. Para obtener más información, vea [Supervisión de Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) y el ejemplo [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) (Recuperación de métricas de Azure Monitor con .NET) en GitHub.
 
@@ -27,7 +27,7 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 ## <a name="access-metrics"></a>Acceso a la métrica
 
-Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Log Analytics y Event Hubs. Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Log Analytics y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../monitoring/monitoring-data-collection.md).
 
 De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Esto se configura en la [configuración de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de Azure Monitor.
 
@@ -37,7 +37,7 @@ Una vez transcurrido un tiempo, las métricas se pueden supervisar en [Azure Por
 
 ![][1]
 
-También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, haga clic en **Metrics (Preview)** (Métricas [Versión preliminar]). Para mostrar las métricas filtradas al ámbito de la entidad, seleccione la entidad y haga clic en **Metrics (Peview)** (Métricas [Previsualización]).
+También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y haga clic en **Métrica (vista previa)**. Para mostrar las métricas filtradas al ámbito de la entidad, seleccione la entidad y haga clic en **Metrics (Peview)** (Métricas [Previsualización]).
 
 ![][2]
 
@@ -70,7 +70,7 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
-1. Errores en el cliente (en HTTP, eso serían errores 400).
+1. Errores en el cliente (en HTTP, serían errores 400).
 2. Errores que se producen al procesar los mensajes, como [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
@@ -90,6 +90,9 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 |Conexiones cerradas (versión preliminar)|Número de conexiones cerradas.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métricas de uso de recursos
+
+> [!NOTE] 
+> Estas métricas están disponibles solo con el nivel **Premium**. 
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |

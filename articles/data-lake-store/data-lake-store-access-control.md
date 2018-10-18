@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ca1ea5fb95ba1c49b5c1e3660c598e8f1443b43c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666274"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432630"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implementa un modelo de control de acceso que se deriva de HDFS y que, a su vez, se deriva del modelo de control de acceso POSIX. Este artículo resume los datos básicos del modelo de control de acceso de Data Lake Storage Gen1. Para más información sobre el modelo de control de acceso HDFS, consulte [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(Guía de permisos de HDFS).
+Azure Data Lake Storage Gen1 implementa un modelo de control de acceso que se deriva de HDFS y que, a su vez, se deriva del modelo de control de acceso POSIX. Este artículo resume los datos básicos del modelo de control de acceso de Data Lake Storage Gen1. 
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Listas de control de acceso en archivos y carpetas
 
@@ -31,11 +31,8 @@ Hay dos tipos de listas de control de acceso (ACL): **ACL de acceso** y **ACL pr
 
 * **ACL predeterminadas**: una "plantilla" de las ACL asociadas a una carpeta que determinan las ACL de acceso de todos los elementos secundarios que se crean en dicha carpeta. Los archivos no tienen ACL predeterminadas.
 
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 Tanto las ACL de acceso como las ACL predeterminadas tienen la misma estructura.
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
@@ -43,18 +40,6 @@ Tanto las ACL de acceso como las ACL predeterminadas tienen la misma estructura.
 > El cambio de la ACL predeterminada en un elemento primario no afecta a la ACL de acceso o a la ACL predeterminada de los elementos secundarios que ya existen.
 >
 >
-
-## <a name="users-and-identities"></a>Usuarios e identidades
-
-Todos los archivos y carpetas tienen permisos distintos para estas identidades:
-
-* El usuario propietario del archivo
-* El grupo propietario
-* Usuarios designados
-* Grupos designados
-* Los restantes usuarios
-
-Las identidades de usuarios y grupos son las identidades de Azure Active Directory (Azure AD). Por tanto, a menos que se indique lo contrario, un "usuario", en el contexto de Data Lake Storage Gen1, puede referirse a un usuario o a un grupo de seguridad de Azure AD.
 
 ## <a name="permissions"></a>Permisos
 
@@ -72,10 +57,10 @@ Los permisos de un objeto del sistema de archivos son de **lectura**, **escritur
 
 | Formato numérico | Formato abreviado |      Qué significa     |
 |--------------|------------|------------------------|
-| 7            | RWX        | Lectura + Escritura + Ejecución |
-| 5            | R-X        | Lectura + ejecución         |
-| 4            | R--        | Lectura                   |
-| 0            | ---        | Sin permisos         |
+| 7            | `RWX`        | Lectura + Escritura + Ejecución |
+| 5            | `R-X`        | Lectura + ejecución         |
+| 4            | `R--`        | Lectura                   |
+| 0            | `---`        | Sin permisos         |
 
 
 ### <a name="permissions-do-not-inherit"></a>Los permisos no se heredan
@@ -86,27 +71,15 @@ En el modelo de estilo de POSIX usado por Data Lake Storage Gen1, los permisos d
 
 A continuación, hay algunos escenarios comunes para ayudarle a entender qué permisos se necesitan para realizar ciertas operaciones en una cuenta de Data Lake Storage Gen1.
 
-### <a name="permissions-needed-to-read-a-file"></a>Permisos necesitados para leer un archivo
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
-
-* Para el archivo que se va a leer: el autor de la llamada necesita permisos de **lectura**.
-* Para todas las carpetas de la estructura de carpetas que contienen el archivo: el autor de la llamada necesita permisos de **ejecución**.
-
-### <a name="permissions-needed-to-append-to-a-file"></a>Permisos necesarios para anexar a un archivo
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
-
-* Para el archivo al que se va a anexar: el autor de la llamada necesita permisos de **escritura**.
-* Para todas las carpetas que contienen el archivo: el autor de la llamada necesita permisos de **ejecución**.
-
-### <a name="permissions-needed-to-delete-a-file"></a>Permisos necesitados para eliminar un archivo
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
-
-* Para la carpeta primaria: el autor de la llamada necesita permisos de **escritura y ejecución**.
-* Para todas las demás carpetas en la ruta de acceso del archivo: el autor de la llamada necesita permisos de **ejecución**.
-
+|    Operación             |    /    | Seattle/ | Portland/ | Data.txt     |
+|--------------------------|---------|----------|-----------|--------------|
+| Leer Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Anexar a Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Eliminar Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Crear Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Enumerar /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Enumerar /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Enumerar /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -114,48 +87,30 @@ A continuación, hay algunos escenarios comunes para ayudarle a entender qué pe
 >
 >
 
-### <a name="permissions-needed-to-enumerate-a-folder"></a>Permisos necesarios para enumerar una carpeta
 
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
+## <a name="users-and-identities"></a>Usuarios e identidades
 
-* Para la carpeta que se enumera: el autor de la llamada necesita permisos de **lectura y ejecución**.
-* Para todas las carpetas antecesoras: el autor de la llamada necesita permisos de **ejecución**.
+Todos los archivos y carpetas tienen permisos distintos para estas identidades:
 
-## <a name="viewing-permissions-in-the-azure-portal"></a>Visualización de permisos en el portal de Azure
+* El usuario propietario
+* El grupo propietario
+* Usuarios designados
+* Grupos designados
+* Los restantes usuarios
 
-En la hoja **Explorador de datos** de la cuenta de Data Lake Storage Gen1, haga clic en **Access** (Acceso) para ver las ACL del archivo o la carpeta que se van a ver en el explorador de datos. Haga clic en **Access** (Acceso) para ver las ACL de la carpeta **catalog** de la cuenta **mydatastore**.
+Las identidades de usuarios y grupos son las identidades de Azure Active Directory (Azure AD). Por tanto, a menos que se indique lo contrario, un "usuario", en el contexto de Data Lake Storage Gen1, puede referirse a un usuario o a un grupo de seguridad de Azure AD.
 
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+### <a name="the-super-user"></a>El superusuario
 
-En esta hoja, la sección superior muestra los permisos de propietario. (En la captura de pantalla, el usuario propietario es Bob). A continuación, se muestran las ACL de acceso asignadas. 
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Haga clic en **Advanced View** (Vista avanzada) para ver la vista más avanzada, donde se muestran las ACL predeterminadas, la máscara y una descripción de los superusuarios.  Esta hoja también proporciona una manera de establecer de forma recursiva listas ACL de acceso y predeterminadas para los archivos y carpetas secundarios en función de los permisos de la carpeta actual.
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
-
-## <a name="the-super-user"></a>El superusuario
-
-Un superusuario es el usuario con más derechos en Data Lake Store. Un superusuario:
+Un superusuario es el usuario con más derechos en la cuenta de Data Lake Storage Gen1. Un superusuario:
 
 * Tiene permisos de lectura, escritura y ejecución (RWX) en **todos** los archivos y carpetas.
 * Puede cambiar los permisos de cualquier archivo o carpeta.
 * Puede cambiar el usuario propietario o el grupo propietario de cualquier archivo o carpeta.
 
-En Azure, una cuenta de Data Lake Storage Gen1 tiene varios roles de Azure, incluidos:
+Todos los usuarios que forman parte del rol **Propietarios** de una cuenta de Data Lake Storage Gen1 son automáticamente superusuarios.
 
-* Propietarios
-* Colaboradores
-* Lectores
-
-Todos los miembros del rol **Propietarios** de una cuenta de Data Lake Storage Gen1 son automáticamente superusuarios de dicha cuenta. Para más información, consulte el artículo sobre el [control de acceso basado en roles](../role-based-access-control/role-assignments-portal.md).
-Si desea crear un rol de control de acceso basado en roles (RBAC) personalizado que tenga permisos de superusuario, debe tener los permisos siguientes:
-- Microsoft.DataLakeStore/accounts/Superuser/action
-- Microsoft.Authorization/roleAssignments/write
-
-
-## <a name="the-owning-user"></a>El usuario propietario
+### <a name="the-owning-user"></a>El usuario propietario
 
 El usuario que creó el elemento es automáticamente el usuario propietario del elemento. Un usuario propietario puede:
 
@@ -167,16 +122,18 @@ El usuario que creó el elemento es automáticamente el usuario propietario del 
 >
 >
 
-## <a name="the-owning-group"></a>El grupo propietario
+### <a name="the-owning-group"></a>El grupo propietario
 
-En las ACL de POSIX, todos los usuarios están asociados a un "grupo principal". Por ejemplo, el usuario "alice" puede pertenecer al grupo "finance". Alice puede pertenecer a varios grupos, pero uno de ellos siempre se designa como su grupo principal. En POSIX, cuando Alice crea un archivo, el grupo propietario de dicho archivo se establece como su grupo principal, que en este caso es "finance".
+**Información preliminar**
 
-Cuando se crea un nuevo elemento del sistema de archivos, Data Lake Storage Gen1 asigna un valor al grupo propietario.
+En las ACL de POSIX, todos los usuarios están asociados a un "grupo principal". Por ejemplo, el usuario "alice" puede pertenecer al grupo "finance". Alice puede pertenecer a varios grupos, pero uno de ellos siempre se designa como su grupo principal. En POSIX, cuando Alice crea un archivo, el grupo propietario de dicho archivo se establece como su grupo principal, que en este caso es "finance". De lo contrario, el grupo propietario se comporta de forma similar a los permisos asignados para otros usuarios o grupos.
+
+**Asignar el grupo propietario de un nuevo archivo o carpeta**
 
 * **Caso 1**: la carpeta raíz "/". Esta carpeta se crea cuando se crea una cuenta de Data Lake Storage Gen1. En este caso, el grupo propietario se establece en el usuario que creó la cuenta.
 * **Caso 2** (cada dos casos): cuando se crea un elemento, se copia el grupo propietario de la carpeta primaria.
 
-De lo contrario, el grupo propietario se comporta de forma similar a los permisos asignados para otros usuarios o grupos.
+**Cambiar el grupo propietario**
 
 El grupo propietario se puede cambiar por:
 * Cualquier superusuario.
@@ -184,6 +141,7 @@ El grupo propietario se puede cambiar por:
 
 > [!NOTE]
 > El grupo propietario *no puede* cambiar las ACL de un archivo o carpeta.  Aunque el grupo propietario se establece en el usuario que creó la cuenta en el caso de la carpeta raíz, **Caso 1** anterior, una única cuenta de usuario no es válida para proporcionar los permisos mediante el grupo propietario.  Puede asignar este permiso a un grupo de usuarios válidos si es aplicable.
+
 
 ## <a name="access-check-algorithm"></a>Algoritmo de comprobación de acceso
 
@@ -197,119 +155,94 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
-  # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  # Handle named groups and owning group
+  member_count = 0
+  perms = 0
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
+      member_count += 1
+      perms | =  entry.permissions
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## <a name="the-mask-and-effective-permissions"></a>La propiedad mask y los "permisos efectivos"
+### <a name="the-mask"></a>La máscara
 
-**mask** es un valor de RWX que se usa para limitar el acceso a los **usuarios designados**, al **grupo propietario** y a los **grupos designados** al aplicar el algoritmo de comprobación de acceso. Estos son los conceptos clave de la máscara.
-
-* La propiedad mask crea "permisos efectivos". Es decir, modifica los permisos en el momento de la comprobación de acceso.
-* El propietario del archivo y todos los superusuarios pueden editar directamente la propiedad mask.
-* La propiedad mask puede quitar permisos para crear el permiso efectivo. La propiedad mask *no puede* agregar permisos al permiso efectivo.
-
-Veamos algunos ejemplos. En el siguiente ejemplo, la propiedad mask se establece como **RWX**, lo que significa que mask no quita ningún permiso. Los permisos efectivos para el usuario designado, el grupo propietario y el grupo designado no se modifican durante la comprobación de acceso.
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
-
-En el ejemplo siguiente, mask se establece en **R-X**. Esto significa que **desactiva el permiso de escritura** para el **usuario designado**, el **grupo propietario** y el **grupo designado** en el momento de la comprobación de acceso.
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-Como referencia, aquí es donde la propiedad mask de un archivo o carpeta aparece en Azure Portal.
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+Como se muestra en el algoritmo de comprobación de acceso, la máscara limita el acceso a **usuarios con nombre**, el **grupo propietario** y **grupos con nombre**.  
 
 > [!NOTE]
 > En una nueva cuenta de Data Lake Storage Gen1, la máscara de la ACL de acceso de la carpeta raíz ("/") adopta como predeterminado el valor RWX.
 >
 >
 
-## <a name="permissions-on-new-files-and-folders"></a>Permisos en los archivos y carpetas nuevos
+### <a name="the-sticky-bit"></a>El bit persistente
+
+El bit persistente es una característica más avanzada de un sistema de archivos POSIX. En el contexto de Data Lake Storage Gen1, es improbable que se necesite el bit persistente. En resumen, si el bit persistente está habilitado en una carpeta, solo el usuario propietario del elemento secundario puede eliminarlo o cambiarle el nombre.
+
+El bit persistente no se muestra en Azure Portal.
+
+## <a name="default-permissions-on-new-files-and-folders"></a>Permisos predeterminados en archivos y carpetas nuevos
 
 Cuando se crea un nuevo archivo o carpeta en una carpeta existente, la ACL predeterminada de la carpeta primaria determina:
 
 - La ACL predeterminada y la ACL de acceso de una carpeta secundaria.
 - La ACL de acceso de un archivo secundario (los archivos no tienen ninguna ACL predeterminada).
 
-### <a name="the-access-acl-of-a-child-file-or-folder"></a>La ACL de acceso de un archivo o carpeta secundarios.
+### <a name="umask"></a>umask
 
-Cuando se crea un archivo o una carpeta secundarios, la ACL predeterminada de la carpeta primaria se copia como ACL de acceso del archivo o la carpeta secundarios. Además, si **otro** usuario tiene permisos de RWX en la ACL predeterminada del elemento primario, se quita de la ACL de acceso del elemento secundario.
+Al crear un archivo o carpeta, se usa umask para modificar cómo se establecen las ACL predeterminadas en el elemento secundario. umask es un valor de 9 bits en las carpetas principales que contiene un valor RWX para **usuario propietario**, **grupo propietario** y **otro**.
 
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
+El valor de umask para Azure Data Lake Storage Gen1 es una constante establecida en 007. Este valor se convierte en
 
-En la mayoría de los escenarios, la información anterior es todo lo que necesita saber acerca de cómo se determina la ACL de acceso de un elemento secundario. Sin embargo, si conoce los sistemas POSIX y desea conocer en profundidad cómo se logra esta transformación, consulte la sección [Rol de Umask en la creación de la ACL de acceso para archivos y carpetas nuevos](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) de este mismo artículo.
+| componente umask     | Formato numérico | Formato abreviado | Significado |
+|---------------------|--------------|------------|---------|
+| umask.owning_user   |    0         |   `---`      | En el caso del usuario propietario, copie la ACL predeterminada del elemento principal en la ACL de acceso del elemento secundario | 
+| umask.owning_group  |    0         |   `---`      | En el caso del grupo propietario, copie la ACL predeterminada del elemento principal en la ACL de acceso del elemento secundario | 
+| umask.other         |    7         |   `RWX`      | En el caso de otro, quite todos los permisos en la ACL de acceso del elemento secundario |
 
+El valor de umask usado por Azure Data Lake Storage Gen1 significa realmente que el valor de otro nunca se transmite de forma predeterminada en los nuevos objetos secundarios, independientemente de lo que indique la ACL predeterminada. 
 
-### <a name="a-child-folders-default-acl"></a>ACL predeterminada de una carpeta secundaria.
+El siguiente pseudocódigo muestra cómo se aplica umask al crear las ACL de un elemento secundario.
 
-Cuando se crea una carpeta secundaria en una carpeta primaria, la ACL predeterminada de la carpeta primaria se copia tal cual en la ACL predeterminada de la carpeta secundaria.
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
-
-## <a name="advanced-topics-for-understanding-acls-in-data-lake-storage-gen1"></a>Temas avanzados para entender las ACL en Data Lake Storage Gen1
-
-A continuación encontrará algunos temas avanzados que le ayudarán a conocer cómo se determinan las ACL para los archivos o carpetas de Data Lake Storage Gen1.
-
-### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Rol de Umask en la creación de la ACL de acceso para archivos y carpetas nuevos
-
-En un sistema compatible con POSIX, el concepto general es que umask es un valor de 9 bits en la carpeta primaria que se utiliza para transformar el permiso del **usuario propietario**, el **grupo propietario** y **otros** en la ACL de acceso de un archivo o carpeta secundarios nuevos. Los bits de umask identifican qué bits se desactivan en la ACL de acceso del elemento secundario. Por consiguiente, se usa para evitar selectivamente la propagación de permisos para el **usuario propietario**, el **grupo propietario** y **otros**.
-
-En un sistema HDFS, umask suele ser una opción de configuración de todo el sitio que controlan los administradores. Data Lake Storage Gen1 usa una **umask para toda la cuenta** que no se puede cambiar. En la tabla siguiente se muestra la propiedad umask de Data Lake Storage Gen1.
-
-| Grupo de usuarios  | Configuración | Efecto en la ACL de acceso de un nuevo elemento secundario |
-|------------ |---------|---------------------------------------|
-| usuario propietario | ---     | Sin efecto                             |
-| grupo propietario| ---     | Sin efecto                             |
-| otro       | RWX     | Se elimina lectura + escritura + ejecución         |
-
-En la siguiente ilustración se muestra esta umask, o máscara de usuario, en acción. El efecto neto es quitar **lectura + escritura + ejecución** para el usuario **otros**. Dado que la propiedad umask no especificó los bits del **usuario propietario** y del **grupo propietario**, dichos permisos no se transforman.
-
-![Listas de control de acceso de Data Lake Storage Gen1](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
-
-### <a name="the-sticky-bit"></a>El bit persistente
-
-El bit persistente es una característica más avanzada de un sistema de archivos POSIX. En el contexto de Data Lake Storage Gen1, es improbable que se necesite el bit persistente.
-
-En la tabla siguiente se muestra cómo funciona el bit persistente en Data Lake Storage Gen1.
-
-| Grupo de usuarios         | Archivo    | Carpeta |
-|--------------------|---------|-------------------------|
-| Sticky Bits **DESACTIVADO** | Sin efecto   | Sin efecto.           |
-| Sticky Bits **ACTIVADO**  | Sin efecto   | Impide que alguien elimine o cambie el nombre de un elemento secundario, excepto los **superusuarios** y el **usuario propietario** del mismo.               |
-
-El bit persistente no se muestra en Azure Portal.
+```
+def set_default_acls_for_new_child(parent, child):
+    child.acls = []
+    for entry in parent.acls :
+        new_entry = None
+        if (entry.type == OWNING_USER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
+        elif (entry.type == OWNING_GROUP) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
+        elif (entry.type == OTHER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.other))
+        else :
+            new_entry = entry.clone(perms = entry.perms )
+        child_acls.add( new_entry )
+```
 
 ## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Preguntas frecuentes acerca de las ACL en Data Lake Storage Gen1
-
-Estas son algunas preguntas que surgen a menudo con respecto a las ACL en Data Lake Storage Gen1.
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>¿Es preciso habilitar la compatibilidad con las ACL?
 
@@ -349,31 +282,15 @@ Cuando el usuario ya no existe en Azure AD, se mostrará un GUID. Normalmente es
 
 No, pero las ACL predeterminada pueden usarse para establecer las ACL para archivos y carpetas secundarios recién creados en la carpeta principal.  
 
-### <a name="what-is-the-difference-between-mask-and-umask"></a>¿Cuál es la diferencia entre mask y umask?
-
-| mask | umask|
-|------|------|
-| La propiedad **mask** está disponible en todos los archivos y carpetas. | **umask** es una propiedad de la cuenta de Data Lake Storage Gen1. Por lo tanto, en Data Lake Storage Gen1 solo hay una propiedad umask.    |
-| La propiedad mask de un archivo o carpeta puede modificarla el usuario propietario o grupo propietario de un archivo, o bien un superusuario. | Ningún usuario, ni siquiera un superusuario, puede modificar la propiedad umask. Es un valor constante y que no puede cambiarse.|
-| La propiedad mask se usa durante el algoritmo de comprobación de acceso en tiempo de ejecución para determinar si un usuario tiene el derecho necesario para realizar una operación en un archivo o carpeta. El rol de la propiedad mask es crear "permisos efectivos" en el momento de la comprobación de acceso. | umask no se utiliza durante la comprobación de acceso. umask se utiliza para determinar la ACL de acceso de los nuevos elementos secundarios de una carpeta. |
-| La máscara es un valor RWX de 3 bits que se aplica al usuario designado, el grupo propietario y el grupo designado en el momento de la comprobación de acceso.| umask es un valor de 9 bits que se aplica al usuario propietario, al grupo propietario y **otros** de un nuevo elemento secundario.|
-
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>¿Dónde puedo obtener más información sobre el modelo de control de acceso POSIX?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux) (Listas de control de acceso de POSIX en Linux)
-
 * [HDFS Permission Guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Guía de permisos de HDFS)
-
 * [POSIX FAQ (PREGUNTAS MÁS FRECUENTES SOBRE POSIX)](http://www.opengroup.org/austin/papers/posix_faq.html)
-
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-
 * [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-
 * [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-
 * [ACL de POSIX en Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-
 * [ACL: Using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso de listas de control de acceso en Linux)
 
 ## <a name="see-also"></a>Otras referencias

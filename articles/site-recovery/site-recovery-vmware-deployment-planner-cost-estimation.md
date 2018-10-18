@@ -2,24 +2,18 @@
 title: Azure Site Recovery Deployment Planner para VMware en Azure| Microsoft Docs
 description: Esta es la guía del usuario de Azure Site Recovery Deployment Planner.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f1d23419df6f66ef430cb57f41a9a70c7babe7df
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919149"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182389"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos de Azure Site Recovery Deployment Planner  
 
@@ -160,7 +154,7 @@ Azure Site Recovery Deployment Planner puede generar el informe de costos en cua
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileño (R$)|
 |CAD|Dólar canadiense ($)||CHF|Franco suizo (chf)||DKK|Corona danesa (kr)|
 |EUR|Euro (€)||GBP|Libra británica (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rupia indonesia (Rp)||INR|Rupia india ()||JPY|Yen japonés (¥)|
+|IDR|Rupia indonesia (Rp)||INR|Rupia india (₹)||JPY|Yen japonés (¥)|
 |KRW|Won coreano (₩)||MXN|Peso mexicano (MX$)||MYR|Ringgit malayo (RM$)|
 |NOK|Corona noruega (kr)||NZD|Dólar de Nueva Zelanda ($)||RUB|Rublo ruso (руб)|
 |SAR|Saudi Riyal (SR)||SEK|Corona sueca (kr)||TWD|Dólar taiwanés (NT$)|

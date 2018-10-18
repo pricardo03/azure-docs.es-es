@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699478"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423177"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -140,7 +140,7 @@ Service Bus de Azure admite el reenvío automático de mensajes desde entidades 
 
 En su implementación actual, Service Bus impone las siguientes limitaciones en colas y temas con particiones:
 
-* Los temas y las colas con particiones no se admiten en el nivel de mensajería Premium.
+* Los temas y las colas con particiones no se admiten en el nivel de mensajería Premium. Se admiten las sesiones en el nivel premier mediante el uso de SessionId. 
 * Las colas y los temas con particiones no admiten el envío de mensajes que pertenecen a sesiones diferentes en una sola transacción.
 * Actualmente, Service Bus permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10.000 entidades por espacio de nombres (no se aplica al nivel Premium).
 

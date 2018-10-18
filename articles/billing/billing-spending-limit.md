@@ -13,19 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.author: cwatson
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669997"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423092"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprender el límite de gasto de Azure y cómo quitarlo
 
 El límite de gasto de Azure existe para evitar gastos por encima de la cantidad de crédito. Todos los clientes nuevos que se registren para las ofertas de evaluación o las que incluyan créditos para varios meses, tienen activado el límite de gasto de forma predeterminada. El límite de gasto es $0. No se puede cambiar. El límite de gasto no está disponible para tipos de suscripción como suscripciones de pago por uso y planes con compromiso. Vea la [lista completa de ofertas de Azure y la disponibilidad del límite de gasto](https://azure.microsoft.com/support/legal/offer-details/).
-
-**¿Busca las alertas de facturación?** Consulte [Configuración de alertas de crédito o facturación para las suscripciones de Azure](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>¿Qué ocurre cuando alcanzo el límite de gasto?
 
@@ -64,7 +62,7 @@ Para quitar el límite de gasto, siga estos pasos:
 
 El límite de gasto podría impedirle implementar o usar ciertos servicios de Microsoft o de terceros. A continuación se indican los escenarios donde debería quitar el límite de gasto en su suscripción.
 
-* Planea implementar primero imágenes de usuario como Oracle y servicios como Visual Studio Team Services. Este escenario hace que se supere el límite de gasto prácticamente de forma inmediata y que la suscripción se deshabilite.
+* Planea implementar imágenes de primera entidad como Oracle y servicios como Azure DevOps Services. Este escenario hace que se supere el límite de gasto prácticamente de forma inmediata y que la suscripción se deshabilite.
 * Tiene servicios que no se pueden interrumpir.
 * Tiene servicios y recursos con configuraciones como direcciones IP virtuales que no quiere perder. Estas configuraciones se pierden cuando se desasignan los servicios y recursos.
 
@@ -78,7 +76,7 @@ Esta característica solo está disponible cuando se ha quitado el límite de ga
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>¿Cómo se puede establecer un límite de gasto personalizado?
 
-En este momento, no tenemos límites de gasto personalizados. Sin embargo, puede optar por [usar alertas de facturación para controlar el gasto](billing-set-up-alerts.md).
+Los límites de gasto personalizados no están disponibles.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>¿Impide el límite de gasto todos los cobros de Azure?
 

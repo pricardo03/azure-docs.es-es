@@ -5,26 +5,24 @@ services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 04/23/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 523ea3bf5d41231ab3281f9d8eb1fac8c3dfb55f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9320e3089e02e1ca6b6bcce0287946baaf0558d9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359152"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452044"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visualización de operaciones de implementación con Azure Resource Manager
 
-Puede ver las operaciones de una implementación mediante el Portal de Azure. Es posible que le resulte más interesante ver las operaciones si ha recibido un error durante la implementación; por ello, este artículo se centrará en la visualización de las operaciones en las que se han producido errores. El portal proporciona una interfaz que permite buscar los errores y determinar posibles correcciones con facilidad.
+Puede ver las operaciones de una implementación mediante el Portal de Azure. Es posible que esté más interesado en ver las operaciones si ha recibido un error durante la implementación; este artículo se centra en la visualización de las operaciones en las que se han producido errores. El portal proporciona una interfaz que permite buscar los errores y determinar posibles correcciones con facilidad.
 
 Puede solucionar los problemas de la implementación examinando los registros de auditoría o las operaciones de implementación. En el artículo se muestran ambos métodos. Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
@@ -37,7 +35,7 @@ Para ver las operaciones de implementación, siga estos pasos:
 2. Ve el historial de implementación reciente. Seleccione la implementación en la que se produjo un error.
    
     ![Estado de la implementación](./media/resource-manager-deployment-operations/select-deployment.png)
-3. Seleccione el vínculo para ver una descripción del motivo del error de la implementación. En la imagen siguiente, el registro de DNS no es único.  
+3. Seleccione el vínculo para ver una descripción del motivo del error de la implementación. En la imagen siguiente, el registro DNS no es único.  
    
     ![ver la implementación con errores](./media/resource-manager-deployment-operations/view-error.png)
    
@@ -67,7 +65,13 @@ Para ver las operaciones de implementación, siga estos pasos:
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Cada implementación incluye varias operaciones. Cada operación representa un paso del proceso de implementación. Para detectar qué salió mal con una implementación, normalmente es necesario ver los detalles de las operaciones de implementación. Puede ver el estado de las operaciones con **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Para obtener el Id. de correlación, use:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  ```
+
+1. Cada implementación incluye varias operaciones. Cada operación representa un paso del proceso de implementación. Para detectar qué salió mal con una implementación, normalmente es necesario ver los detalles de las operaciones de implementación. Puede ver el estado de las operaciones con **Get-AzureRmResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -85,7 +89,7 @@ Para ver las operaciones de implementación, siga estos pasos:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. Para más información acerca de las operaciones con errores, recupere las propiedades de aquellas operaciones con el estado **Error** .
+1. Para más información acerca de las operaciones con errores, recupere las propiedades de aquellas operaciones con el estado **Error** .
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -108,7 +112,7 @@ Para ver las operaciones de implementación, siga estos pasos:
   ```
 
     Tenga en cuenta los valores serviceRequestId y trackingId de la operación. serviceRequestId puede resultar útil cuando se trabaja con el soporte técnico para solucionar un problema de implementación. Utilizará trackingId en el paso siguiente para centrarse en una operación determinada.
-4. Para obtener el mensaje de estado de una operación con error determinada, use el siguiente comando:
+1. Para obtener el mensaje de estado de una operación con error determinada, use el siguiente comando:
 
   ```powershell
   ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -121,7 +125,7 @@ Para ver las operaciones de implementación, siga estos pasos:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Cada operación de implementación en Azure incluye el contenido de la solicitud y de la respuesta. El contenido de la solicitud es lo que se envía a Azure durante la implementación (por ejemplo, crear una máquina virtual, un disco del sistema operativo y otros recursos). El contenido de la respuesta es lo que Azure devolvió de la solicitud de implementación. Durante la implementación, puede usar el parámetro **DeploymentDebugLogLevel** para indicar que la solicitud o la respuesta deben conservarse en el registro. 
+1. Cada operación de implementación en Azure incluye el contenido de la solicitud y de la respuesta. El contenido de la solicitud es lo que se envía a Azure durante la implementación (por ejemplo, crear una máquina virtual, un disco del sistema operativo y otros recursos). El contenido de la respuesta es lo que Azure devolvió de la solicitud de implementación. Durante la implementación, puede usar el parámetro **DeploymentDebugLogLevel** para indicar que la solicitud o la respuesta deben conservarse en el registro. 
 
   Esa información se obtiene del registro y se guarda localmente mediante los siguientes comandos de PowerShell:
 

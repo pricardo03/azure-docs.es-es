@@ -9,17 +9,18 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 5a4d9debfcc48279bbb56df076a77a5c8b44e231
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 615dfc789db805e51ed3e7c11fed9da6d7079e96
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146943"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319105"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub con un dispositivo de Python y un servidor back-end de Python
 
 > [!NOTE]
 > [Las identidades de módulo y los módulos gemelos](iot-hub-devguide-module-twins.md) son similares a la identidad de dispositivo y el dispositivo gemelo de Azure IoT Hub, pero ofrecen granularidad más fina. Aunque la identidad de módulo y los dispositivos gemelos de Azure IoT Hub permiten que la aplicación back-end configure un dispositivo y proporcionan visibilidad para las condiciones del dispositivo, la identidad de módulo y los módulos gemelos proporcionan estas funcionalidades para los componentes individuales del dispositivo. En los dispositivos compatibles con varios componentes, como dispositivos con sistema operativo o firmware, permiten la configuración individual y condiciones específicas por componente.
+>
 
 Al final de este tutorial, tiene dos aplicaciones de Python:
 
@@ -28,13 +29,13 @@ Al final de este tutorial, tiene dos aplicaciones de Python:
 
 > [!NOTE]
 > Para más información acerca de los diversos SDK que puede usar para crear ambas aplicaciones para que se ejecuten en dispositivos y en el back-end de la solución, consulte [Azure IoT SDKs][lnk-hub-sdks] (SDK de IoT de Azure).
+>
 
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 * Una instancia de IoT Hub.
 * Instale el [SDK de Python](https://github.com/Azure/azure-iot-sdk-python) más reciente.
-
 
 Ya se creó IoT Hub y ya tiene el nombre de host y la cadena de conexión de IoT Hub que necesita para completar el resto del tutorial.
 
@@ -44,7 +45,7 @@ En esta sección se crea una aplicación de Python que crea a su vez una identid
 
 Agregue el siguiente código al archivo de Python:
 
-```Python
+```python
 import sys
 import iothub_service_client
 from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubError
@@ -78,6 +79,7 @@ Esta aplicación crea una identidad del dispositivo con el identificador **myFir
 
 > [!NOTE]
 > El registro de identidades de IoT Hub solo almacena identidades de dispositivos y módulos para permitir el acceso seguro a IoT Hub. El registro de identidades almacena los identificadores y las claves de dispositivo para usarlas como credenciales de seguridad. El registro de identidades también almacena una marca de habilitado o deshabilitado de cada dispositivo que se puede usar para deshabilitar el acceso a dicho dispositivo. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. No hay marcas de habilitado/deshabilitado para las identidades de módulo. Consulte la [guía para desarrolladores de IoT Hub][lnk-devguide-identity] para más información.
+>
 
 ## <a name="update-the-module-twin-using-python-device-sdk"></a>Actualizar el módulo gemelo con el SDK del dispositivo de Python
 
@@ -85,11 +87,11 @@ En esta sección se crea una aplicación de Python en el dispositivo simulado qu
 
 1. **Obtenga la cadena de conexión del módulo**: para ello, inicie sesión en [Azure Portal][lnk-portal]. Vaya a la instancia de IoT Hub y haga clic en Dispositivos IoT. Busque myFirstDevice, ábralo y verá que myFirstModule se creó correctamente. Copie la cadena de conexión del módulo, la necesitará en el paso siguiente.
 
-    ![Detalles del módulo en Azure Portal][15]
+  ![Detalles del módulo en Azure Portal][15]
 
-2. **Cree la aplicación de UpdateModuleTwinReportedProperties**: agregue las siguientes instrucciones `using` a la parte superior del archivo **Program.cs**:
+1. **Cree la aplicación de UpdateModuleTwinReportedProperties**: agregue las siguientes instrucciones `using` a la parte superior del archivo **Program.cs**:
 
-    ```Python
+    ```python
     import sys
     import iothub_service_client
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubDeviceTwin, IoTHubError
@@ -122,9 +124,10 @@ En esta sección se crea una aplicación de Python en el dispositivo simulado qu
 Este ejemplo de código muestra cómo recuperar el módulo gemelo y actualizar las propiedades notificadas con el protocolo AMQP. 
 
 ## <a name="get-updates-on-the-device-side"></a>Obtener actualizaciones en el lado de dispositivo
+
 Además del código anterior, puede agregar el siguiente bloque de código para obtener el mensaje de actualización gemela en el dispositivo.
 
-```Python
+```python
 import random
 import time
 import sys
@@ -166,7 +169,7 @@ Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, co
 
 
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]:./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

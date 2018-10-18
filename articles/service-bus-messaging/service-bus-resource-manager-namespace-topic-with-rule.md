@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: dd0ef94c7efb27641d5f0bf50d87bf852bcd1e9a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696343"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404968"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager
 
@@ -43,7 +43,7 @@ Para verla completa, consulte la plantilla de [espacio de nombres de Service Bus
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
+## <a name="what-do-you-deploy"></a>¿Qué puede implementar?
 
 Con esta plantilla, implementará un espacio de nombres de Service Bus con un tema, una suscripción y una regla (filtro).
 
@@ -51,7 +51,7 @@ Los [temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptio
 
 ## <a name="what-are-rules-filters"></a>¿Cuáles son las reglas (filtros)?
 
-En muchos escenarios, los mensajes que tienen características específicas deben procesarse de maneras diferentes. Para permitir este procesamiento personalizado, puede configurar suscripciones para buscar los mensajes que tengan propiedades específicas y, después, realizar modificaciones en dichas propiedades. Aunque las suscripciones de Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes en la cola de suscripción virtual. Esto se consigue mediante los filtros de suscripción. Para más información sobre las reglas (filtros), vea [Reglas y acciones](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+En muchos escenarios, los mensajes que tienen características específicas deben procesarse de maneras diferentes. Para permitir este procesamiento personalizado, puede configurar suscripciones para buscar los mensajes que tengan propiedades específicas y, después, realizar modificaciones en dichas propiedades. Aunque las suscripciones de Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes en la cola de suscripción virtual. Esto se consigue mediante filtros de suscripción. Para más información sobre las reglas (filtros), vea [Reglas y acciones](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -59,7 +59,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 ## <a name="parameters"></a>Parámetros
 
-Con Azure Resource Manager, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para esos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
+Con Azure Resource Manager, se definen los parámetros de los valores que quiere especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Defina un parámetro para esos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
 La plantilla define los parámetros siguientes:
 

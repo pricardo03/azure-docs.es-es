@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: c5445eb5e936fe73d51a41936b052f6495b1bcc6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633922"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227374"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Escenarios de automatización de administración de costos y facturación
 
@@ -95,7 +95,7 @@ Puede usar las API de administración de costos y facturación en una variedad d
 ### <a name="what-is-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>¿Cuál es la diferencia entre las API de Enterprise Reporting y las API de consumo? ¿Cuándo se debe usar cada una?
 Estas API tienen un conjunto similar de funcionalidades y pueden responder al mismo conjunto amplio de preguntas en el ámbito de administración de costos y facturación. Sin embargo, cada API se dirige a distintas audiencias: 
 
-- **API de Enterprise Reporting**: estas API están disponibles para los clientes que han firmado un contrato Enterprise con Microsoft que les concede acceso a compromisos monetarios negociados y precios personalizados. Para poder usarse, las API necesitan una clave que puede obtenerse en [Enterprise Portal](https://ea.azure.com). Para obtener una descripción de estas API, consulte [Información general de API de informes para clientes de Enterprise](billing-enterprise-api.md).
+- **API de Enterprise Reporting**: estas API están disponibles para los clientes que han firmado un contrato Enterprise con Microsoft que les concede acceso a compromisos monetarios negociados y precios personalizados. Para poder usarse, las API necesitan una clave que puede obtenerse en [Enterprise Portal](https://ea.azure.com). Para obtener una descripción de estas API, vea [Información general de API de informes para clientes de Enterprise](billing-enterprise-api.md).
 
 - **API de consumo**: estas API están disponibles para todos los clientes, con algunas excepciones. Para más información, consulte [Información general sobre la API de consumo de Azure](billing-consumption-api-overview.md) y la [referencia de la API de consumo de Azure](https://docs.microsoft.com/rest/api/consumption/). Las API proporcionadas son la solución recomendada para los escenarios de desarrollo más recientes. 
 

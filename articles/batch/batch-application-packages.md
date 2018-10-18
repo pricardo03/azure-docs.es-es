@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 06/15/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f982e859892965379b7ffb08e15dd1cf51b9801f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515686"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094142"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -98,7 +98,7 @@ Se recomienda crear una cuenta de Storage *específicamente* para su uso con la 
 > Actualmente no puede utilizar paquetes de aplicación con una cuenta de Azure Storage que esté configurada con [reglas de firewall](../storage/common/storage-network-security.md).
 > 
 
-El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Se le [cobrará de la forma habitual][storage_pricing] por los datos de los blobs en bloques. Asegúrese de considerar el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso para minimizar los costos.
+El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Los datos de blob en bloques [se cobran al precio habitual][storage_pricing] y el tamaño de cada paquete no puede superar el [tamaño de blob en bloques máximo](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Asegúrese de considerar el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso para minimizar los costos.
 > 
 > 
 
@@ -204,8 +204,8 @@ CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>

@@ -1,6 +1,6 @@
 ---
-title: Enlaces HTTP y webhook en Azure Functions
-description: Descubra cómo utilizar desencadenadores y enlaces HTTP y webhook en Azure Functions.
+title: Enlaces y desencadenadores HTTP de Azure Functions
+description: Aprenda a usar desencadenadores y enlaces HTTP en Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e989152ece19168138597a96d1246ec64498ce69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095120"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227561"
 ---
-# <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces HTTP y webhook en Azure Functions
+# <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
-En este artículo se explica cómo trabajar con enlaces HTTP en Azure Functions. Azure Functions admite enlaces de salida y desencadenadores HTTP.
+En este artículo se explica cómo trabajar con desencadenadores y enlaces de salida HTTP en Azure Functions.
 
-Es posible personalizar un desencadenador HTTP para responder a [webhooks](https://en.wikipedia.org/wiki/Webhook). Un desencadenador de webhook solo acepta una carga JSON y valida el JSON. Existen versiones especiales del desencadenador de webhook que permite facilitar el control de los webhooks de ciertos proveedores, como GitHub y Slack.
+Es posible personalizar un desencadenador HTTP para responder a [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -276,7 +276,7 @@ module.exports = function(context, req) {
 
 ### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
 
-En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Java](functions-reference-java.md) que usa el enlace. La función devuelve una respuesta HTTP con código de estado 200 y cuerpo arequest que se antepone al cuerpo de solicitud de desencadenamiento con un saludo: "Hello,".
+En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Java](functions-reference-java.md) que usa el enlace. La función devuelve una respuesta HTTP con código de estado 200 y un cuerpo de solicitud que antepone un saludo "Hola, " al cuerpo de solicitud de desencadenamiento.
 
 
 Este es el archivo *function.json*:
@@ -312,164 +312,6 @@ public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"
     }
 }
 ```
-     
-## <a name="trigger---webhook-example"></a>Desencadenador: ejemplo de webhook
-
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#webhook---c-example)
-* [Script de C# (.csx)](#webhook---c-script-example)
-* [F#](#webhook---f-example)
-* [JavaScript](#webhook---javascript-example)
-
-### <a name="webhook---c-example"></a>Webhook: ejemplo de C#
-
-En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que envía una respuesta HTTP 200 a una solicitud JSON genérica.
-
-```cs
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-### <a name="webhook---c-script-example"></a>Webhook: ejemplo de script de C#
-
-En el ejemplo siguiente se muestra un enlace de desencadenador de webhook en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. Esta función registra los comentarios de problemas de GitHub.
-
-Este es el archivo *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-En la sección de [configuración](#trigger---configuration) se explican estas propiedades.
-
-Este es el código de script de C#:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    dynamic data = JsonConvert.DeserializeObject(jsonContent);
-
-    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
-
-    return req.CreateResponse(HttpStatusCode.OK, new {
-        body = $"New GitHub comment: {data.comment.body}"
-    });
-}
-```
-
-### <a name="webhook---f-example"></a>Webhook: ejemplo de F#
-
-En el ejemplo siguiente se muestra un enlace de desencadenador de webhook en un archivo *function.json* y una [función de F#](functions-reference-fsharp.md) que usa el enlace. Esta función registra los comentarios de problemas de GitHub.
-
-Este es el archivo *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-En la sección de [configuración](#trigger---configuration) se explican estas propiedades.
-
-Este es el código de F#:
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-open Newtonsoft.Json
-
-type Response = {
-    body: string
-}
-
-let Run(req: HttpRequestMessage, log: TraceWriter) =
-    async {
-        let! content = req.Content.ReadAsStringAsync() |> Async.AwaitTask
-        let data = content |> JsonConvert.DeserializeObject
-        log.Info(sprintf "GitHub WebHook triggered! %s" data?comment?body)
-        return req.CreateResponse(
-            HttpStatusCode.OK,
-            { body = sprintf "New GitHub comment: %s" data?comment?body })
-    } |> Async.StartAsTask
-```
-
-### <a name="webhook---javascript-example"></a>Webhook: ejemplo de JavaScript
-
-En el ejemplo siguiente se muestra un enlace de desencadenador de webhook en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. Esta función registra los comentarios de problemas de GitHub.
-
-Estos son los datos de enlace del archivo *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-En la sección de [configuración](#trigger---configuration) se explican estas propiedades.
-
-Este es el código de JavaScript:
-
-```javascript
-module.exports = function (context, data) {
-    context.log('GitHub WebHook triggered!', data.comment.body);
-    context.res = { body: 'New GitHub comment: ' + data.comment.body };
-    context.done();
-};
-```
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
@@ -480,7 +322,7 @@ Puede establecer el nivel de autorización y los métodos HTTP permitidos en los
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
 public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
 {
     ...
 }
@@ -500,29 +342,18 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina qué claves, si las hubiera, deben estar presentes en la solicitud para poder invocar a la función. El nivel de autorización puede ser uno de los siguientes: <ul><li><code>anonymous</code>: no se requiere ninguna clave de API.</li><li><code>function</code>: se requiere una clave de API específica de la función. Este es el valor predeterminado si no se proporciona ninguno.</li><li><code>admin</code>: se requiere la clave maestra.</li></ul> Para más información, consulte la sección sobre las [claves de autorización](#authorization-keys). |
 | **methods** |**Métodos** | Una matriz de los métodos HTTP a los que responde la función. Si no se especifica, la función responde a todos los métodos HTTP. Consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
 | **route** | **Route** | Define la plantilla de ruta y controla las direcciones URL de solicitud a las que responde la función. El valor predeterminado es `<functionname>` si no se proporciona ninguno. Para más información, consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** |Configura el desencadenador HTTP para que actúe como un receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para el proveedor especificado. No establezca la propiedad `methods` si establece esta propiedad. El tipo de webhook puede ser uno de los valores siguientes:<ul><li><code>genericJson</code>: un punto de conexión de webhook de uso general sin lógica para un proveedor concreto. Este valor restringe las solicitudes a solo aquellas que usan HTTP POST y con el tipo de contenido `application/json`.</li><li><code>github</code>&mdash;La función responde a [webhooks de GitHub](https://developer.github.com/webhooks/). No use la propiedad _authLevel_ con webhooks de GitHub. Para más información, consulte la sección sobre webhooks de GitHub que aparece más adelante en este artículo.</li><li><code>slack</code>&mdash;La función responde a [webhooks de Slack](https://api.slack.com/outgoing-webhooks). No use la propiedad _authLevel_ con webhooks de Slack. Para más información, consulte la sección sobre webhooks de Slack que aparece más adelante en este artículo.</li></ul>|
+| **webHookType** | **WebHookType** | _Compatible solo con la versión 1.x del runtime._<br/><br/>Configura el desencadenador HTTP para que actúe como un receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para el proveedor especificado. No establezca la propiedad `methods` si establece esta propiedad. El tipo de webhook puede ser uno de los valores siguientes:<ul><li><code>genericJson</code>: un punto de conexión de webhook de uso general sin lógica para un proveedor concreto. Este valor restringe las solicitudes a solo aquellas que usan HTTP POST y con el tipo de contenido `application/json`.</li><li><code>github</code>&mdash;La función responde a [webhooks de GitHub](https://developer.github.com/webhooks/). No use la propiedad _authLevel_ con webhooks de GitHub. Para más información, consulte la sección sobre webhooks de GitHub que aparece más adelante en este artículo.</li><li><code>slack</code>&mdash;La función responde a [webhooks de Slack](https://api.slack.com/outgoing-webhooks). No use la propiedad _authLevel_ con webhooks de Slack. Para más información, consulte la sección sobre webhooks de Slack que aparece más adelante en este artículo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Desencadenador: uso
 
-Para las funciones C# y F #, puede declarar que el tipo de entrada del desencadenador sea `HttpRequestMessage` o un tipo personalizado. Si elige `HttpRequestMessage`, obtiene acceso completo al objeto de solicitud. En un tipo personalizado, Functions intenta analizar el cuerpo de la solicitud JSON para establecer las propiedades del objeto. 
+Para las funciones C# y F #, puede declarar que el tipo de entrada del desencadenador sea `HttpRequestMessage` o un tipo personalizado. Si elige `HttpRequestMessage`, obtiene acceso completo al objeto de solicitud. En un tipo personalizado, el runtime intenta analizar el cuerpo de la solicitud JSON para establecer las propiedades del objeto.
 
 Para las funciones de JavaScript, el sistema en tiempo de ejecución de Funciones proporciona el cuerpo de la solicitud en lugar del objeto de solicitud. Para más información, consulte el [ejemplo de desencadenador de JavaScript](#trigger---javascript-example).
 
-### <a name="github-webhooks"></a>Webhooks de GitHub
-
-Para responder a webhooks de GitHub, primero cree la función con un desencadenador HTTP y establezca la propiedad **webHookType** en `github`. Luego copie su dirección URL y clave de API en la página **Agregar webhook** del repositorio GitHub. 
-
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Para obtener un ejemplo, vea [Creación de una función desencadenada por Webhook de GitHub](functions-create-github-webhook-triggered-function.md).
-
-### <a name="slack-webhooks"></a>Webhooks de Slack
-
-El webhook de Slack genera un token en lugar de permitirle especificarlo, por lo que debe configurar una clave específica de función con el token desde Slack. Consulte [Claves de autorización](#authorization-keys).
 
 ### <a name="customize-the-http-endpoint"></a>Personalización del punto de conexión HTTP
 
-De forma predeterminada, al crear una función para un desencadenador HTTP, o webhook, la función se puede dirigir con una ruta que tenga el siguiente formato:
+De forma predeterminada, al crear una función para un desencadenador HTTP, la función se puede dirigir con una ruta que tenga el siguiente formato:
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
@@ -603,47 +434,92 @@ De forma predeterminada, todas las rutas de la función tienen el prefijo *api*.
 
 ### <a name="authorization-keys"></a>Claves de autorización
 
-Los desencadenadores HTTP permiten usar claves para una mayor seguridad. Un desencadenador HTTP estándar puede usarlas como claves de API, lo que exige que la clave esté en la solicitud. Los webhooks pueden usar claves para autorizar solicitudes de varias maneras, según lo que admita el proveedor.
+Functions permite usar claves para dificultar el acceso a los puntos de conexión de función HTTP durante el desarrollo.  Un desencadenador HTTP estándar puede necesitar que haya una clave de API de este tipo en la solicitud. 
+
+> [!IMPORTANT]
+> Aunque las claves pueden ayudar a ofuscar los puntos de conexión HTTP durante el desarrollo, no están diseñadas como una manera de proteger un desencadenador HTTP en producción. Para obtener más información, vea [Proteger un punto de conexión HTTP en producción](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> Al ejecutar las funciones de forma local, la autorización se deshabilita independientemente de `authLevel` establecido en `function.json`. En cuanto realice la publicación en Azure Functions, `authLevel` se aplicará de inmediato.
-
-Las claves se almacenan como parte de la aplicación de función en Azure y se cifran en reposo. Para ver las claves, crear unas nuevas o asignarles nuevos valores, navegue a una de las funciones en el portal y seleccione "Administrar". 
+> En el runtime 1.x de Functions, los proveedores de webhooks pueden usar claves para autorizar solicitudes de varias maneras, según lo que admita el proveedor. Esto se trata en [Webhooks y claves](#webhooks-and-keys). La versión 2.x del runtime no incluye compatibilidad integrada con proveedores de webhooks.
 
 Existen dos tipos de claves:
 
-- **Claves de host**: estas claves se comparten entre todas las funciones dentro de la aplicación de función. Cuando se usan como una clave de API, permiten el acceso a cualquier función dentro de la aplicación de función.
-- **Claves de función**: estas claves se aplican solo a las funciones específicas en las que se definen. Cuando se usan como una clave de API, solo permiten el acceso a esa función.
+* **Claves de host**: estas claves se comparten entre todas las funciones dentro de la aplicación de función. Cuando se usan como una clave de API, permiten el acceso a cualquier función dentro de la aplicación de función.
+* **Claves de función**: estas claves se aplican solo a las funciones específicas en las que se definen. Cuando se usan como una clave de API, solo permiten el acceso a esa función.
 
 Para cada clave se usa un nombre fácilmente referenciable y hay una clave predeterminada (denominada "predeterminada") en el nivel de función y host. Las claves de función tienen prioridad sobre las claves de host. Si se definen dos claves con el mismo nombre, siempre se usa la clave de función.
 
-La **clave maestra** es una clave de host predeterminada denominada "_master" que se define para cada aplicación de función. No se puede revocar esta clave. Proporciona acceso administrativo a las API en tiempo de ejecución. El uso de `"authLevel": "admin"` en el JSON de enlace exige que esta clave esté presente en la solicitud; cualquier otra clave da lugar a un error de autorización.
+Cada aplicación de función además tiene una **clave maestra** especial. Esta clave es una clave de host denominada `_master`, que proporciona acceso administrativo a las API en tiempo de ejecución. No se puede revocar esta clave. Al establecer un nivel de autorización `admin`, las solicitudes deben usar la clave maestra; cualquier otra clave da lugar a un error de autorización.
 
-> [!IMPORTANT]  
-> Debido a los permisos elevados otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en aplicaciones cliente nativas. Tenga cuidado al elegir el nivel de autorización de administrador.
+> [!CAUTION]  
+> Debido a los permisos elevados de la aplicación de función otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en aplicaciones cliente nativas. Tenga cuidado al elegir el nivel de autorización de administrador.
+
+### <a name="obtaining-keys"></a>Obtención de claves
+
+Las claves se almacenan como parte de la aplicación de función en Azure y se cifran en reposo. Para ver las claves, crear nuevas o asignarles nuevos valores, vaya a una de las funciones desencadenadas por HTTP de [Azure Portal](https://portal.azure.com) y seleccione **Administrar**.
+
+![Administre las claves de función en el portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+No hay ninguna API compatible para obtener claves de función mediante programación.
 
 ### <a name="api-key-authorization"></a>Autorización de la clave de API
 
-De forma predeterminada, un desencadenador HTTP requiere una clave de API en la solicitud HTTP. Por lo tanto, la solicitud HTTP normalmente tiene este aspecto:
+La mayoría de las plantillas de desencadenador HTTP requieren una clave de API en la solicitud. Por lo tanto, la solicitud HTTP normalmente se parece a la siguiente dirección URL:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-La clave se puede incluir en una variable de cadena de consulta denominada `code`, como se ha indicado anteriormente, o puede incluirse en un encabezado HTTP `x-functions-key`. El valor de la clave puede ser cualquier clave de función definida para la función o cualquier clave de host.
+La clave se puede incluir en una variable de cadena de consulta denominada `code`, como arriba. También puede incluirse en un encabezado HTTP `x-functions-key`. El valor de la clave puede ser cualquier clave de función definida para la función o cualquier clave de host.
 
 Puede permitir solicitudes anónimas, que no requieren claves. También puede exigir que se use la clave principal. Cambie el nivel de autorización predeterminado mediante la propiedad `authLevel` en el JSON de enlace. Para más información, consulte [Desencadenador: configuración](#trigger---configuration).
 
-### <a name="keys-and-webhooks"></a>Claves y webhooks
+> [!NOTE]
+> Cuando las funciones se ejecutan localmente, la autorización se deshabilita independientemente del valor del nivel de autenticación especificado. Después de publicar en Azure, se aplica el valor `authLevel` del desencadenador.
 
-La autorización de webhook se controla mediante el componente receptor de webhook, parte del desencadenador HTTP; el mecanismo varía según el tipo de webhook. Sin embargo, cada mecanismo se basa en una clave. De forma predeterminada, se usa la clave de función denominada "default". Para usar otra clave, configure el proveedor de webhook de modo que envíe el nombre de la clave con la solicitud de una de las siguientes maneras:
 
-- **Cadena de consulta**: el proveedor pasa el nombre de la clave en el parámetro de la cadena de consulta `clientid`, como `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-- **Encabezado de solicitud**: el proveedor pasa el nombre de clave en el encabezado `x-functions-clientid`.
+
+### <a name="secure-an-http-endpoint-in-production"></a>Proteger un punto de conexión HTTP en producción
+
+Para proteger totalmente los puntos de conexión de función en producción, considere la posibilidad de implementar una de las siguientes opciones de seguridad de nivel de aplicación de función:
+
+* Activar la autenticación o autorización de App Service para la aplicación de función. La plataforma App Service permite usar Azure Active Directory (AAD) y varios proveedores de identidades de terceros para autenticar a los clientes. Se puede usar para implementar reglas de autorización personalizadas para las funciones y permite trabajar con información de usuario desde el código de función. Para obtener más información, vea [Autenticación y autorización en Azure App Service](../app-service/app-service-authentication-overview.md).
+
+* Usar Azure API Management (APIM) para autenticar las solicitudes. APIM proporciona una serie de opciones de seguridad de API para las solicitudes entrantes. Para obtener más información, vea [Directivas de autenticación de Azure API Management](../api-management/api-management-authentication-policies.md). Con APIM, puede configurar la aplicación de función de modo que solo acepte solicitudes de la dirección IP de la instancia de APIM. Para obtener más información, vea [Restricciones de las direcciones IP](ip-addresses.md#ip-address-restrictions).
+
+* Implementar la aplicación de función en una instancia de Azure App Service Environment (ASE). ASE proporciona un entorno de hospedaje dedicado en el que ejecutar las funciones. ASE le permite configurar una puerta de enlace de front-end única que se puede usar para autenticar todas las solicitudes entrantes. Para obtener más información, vea [Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+
+Cuando use alguno de estos métodos de seguridad de nivel de aplicación de función, debe establecer el nivel de autenticación de función desencadenada por HTTP en `anonymous`.
+
+### <a name="webhooks"></a>Webhooks
+
+> [!NOTE]
+> El modo de webhook solo está disponible para la versión 1.x del runtime de Functions.
+
+El modo de webhook proporciona validación adicional para las cargas de webhook. En la versión 2.x, el desencadenador HTTP base todavía funciona y es el modo recomendado para webhooks.
+
+#### <a name="github-webhooks"></a>Webhooks de GitHub
+
+Para responder a webhooks de GitHub, primero cree la función con un desencadenador HTTP y establezca la propiedad **webHookType** en `github`. Luego copie su dirección URL y clave de API en la página **Agregar webhook** del repositorio GitHub. 
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+Para obtener un ejemplo, vea [Creación de una función desencadenada por Webhook de GitHub](functions-create-github-webhook-triggered-function.md).
+
+#### <a name="slack-webhooks"></a>Webhooks de Slack
+
+El webhook de Slack genera un token en lugar de permitirle especificarlo, por lo que debe configurar una clave específica de función con el token desde Slack. Consulte [Claves de autorización](#authorization-keys).
+
+### <a name="webhooks-and-keys"></a>Webhooks y claves
+
+La autorización de webhook se controla mediante el componente receptor de webhook, parte del desencadenador HTTP; el mecanismo varía según el tipo de webhook. Cada mecanismo se basa en una clave. De forma predeterminada, se usa la clave de función denominada "default". Para usar otra clave, configure el proveedor de webhook de modo que envíe el nombre de la clave con la solicitud de una de las siguientes maneras:
+
+* **Cadena de consulta**: el proveedor pasa el nombre de la clave en el parámetro de la cadena de consulta `clientid`, como `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Encabezado de solicitud**: el proveedor pasa el nombre de clave en el encabezado `x-functions-clientid`.
 
 ## <a name="trigger---limits"></a>Desencadenador: límites
 
-La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600) bytes, y la longitud de la dirección URL, a 4 KB (4096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) especifica estos límites.
+La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) especifica estos límites.
 
-Si una función que utiliza el desencadenador HTTP no se completa en menos de 2,5 minutos, la puerta de enlace agotará el tiempo de espera y devolverá un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#consumption-plan). 
+Si una función que usa el desencadenador HTTP no se completa en menos de 2,5 minutos, la puerta de enlace agota el tiempo de espera y devuelve un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Desencadenador: propiedades de host.json
 
@@ -657,7 +533,7 @@ Use el enlace de salida HTTP para responder al remitente de la solicitud HTTP. E
 
 ## <a name="output---configuration"></a>Salida: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json*. Para las bibliotecas de clase de C#, no hay ninguna propiedad de atributo que corresponda con estas propiedades *function.json*. 
+En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json*. En las bibliotecas de clases de C#, no hay ninguna propiedad de atributo que corresponda a estas propiedades *function.json*. 
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
@@ -669,7 +545,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Para enviar una respuesta HTTP, use los patrones de respuesta estándar del lenguaje. En C# o un script de C#, haga que la función devuelva el tipo `HttpResponseMessage` o `Task<HttpResponseMessage>`. En C#, no se requiere un atributo de valor devuelto.
 
-Para respuestas de ejemplo, consulte el [ejemplo de desencadenador](#trigger---example) y el [ejemplo de webhook](#trigger---webhook-example).
+Para obtener respuestas de ejemplo, vea el [ejemplo de desencadenador](#trigger---example).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

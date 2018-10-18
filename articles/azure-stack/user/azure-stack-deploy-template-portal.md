@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 931c3d8beb9f2ed12228c74f09f84bbdee1798b8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41954860"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363130"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Implementación de plantillas con el portal de Azure Stack
 
@@ -30,7 +30,7 @@ Puede usar el portal para implementar plantillas de Azure Resource Manager en Az
 
 ## <a name="to-deploy-a-template"></a>Para implementar una plantilla
 
-1. Inicie sesión en el portal, seleccione **Nuevo** y, a continuación, seleccione **Personalizado**.
+1. Inicie sesión en el portal, seleccione **+ Crear un recurso** y, a continuación, seleccione **Personalizado**.
 2. Seleccione **Implementación de plantillas**.
 3. Seleccione **Editar plantilla** y, a continuación, pegue el código de la plantilla JSON en la ventana de código. Seleccione **Guardar**.
 4. Seleccione **Editar parámetros**, escriba los valores para los parámetros que se muestran y, a continuación, seleccione **Aceptar**.
@@ -40,4 +40,6 @@ Puede usar el portal para implementar plantillas de Azure Resource Manager en Az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Implementación de plantillas con PowerShell](azure-stack-deploy-template-powershell.md)
+Para más información sobre cómo implementar plantillas, consulte:
+
+[Implementación de plantillas con PowerShell](azure-stack-deploy-template-powershell.md)

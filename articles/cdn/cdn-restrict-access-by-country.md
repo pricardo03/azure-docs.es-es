@@ -1,10 +1,10 @@
 ---
-title: Restricción del contenido de la red CDN de Azure por país | Microsoft Docs
+title: Restricción del contenido de Azure CDN por país | Microsoft Docs
 description: Aprenda cómo restringir el acceso por país a su contenido de Azure CDN mediante la característica de filtrado geográfico.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: v-deasim
-ms.openlocfilehash: 661356aeb2369bc1bbddd6caee57b256dd9e1212
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: magattus
+ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285022"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093313"
 ---
-# <a name="restrict-azure-cdn-content-by-country"></a>Restricción del contenido de la red CDN de Azure por país
+# <a name="restrict-azure-cdn-content-by-country"></a>Restricción del contenido de Azure CDN por país
 
 ## <a name="overview"></a>Información general
 Cuando un usuario solicita su contenido, de forma predeterminada, el contenido se proporciona sin tener en cuenta la ubicación desde la que el usuario realiza esta solicitud. Sin embargo, puede que en algunos casos desee restringir el acceso al contenido por país. Con la característica de *filtrado geográfico*, puede crear reglas sobre rutas de acceso específicas en su punto de conexión de CDN para permitir o bloquear contenido en países seleccionados.

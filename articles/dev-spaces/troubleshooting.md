@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841616"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226898"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -26,9 +26,13 @@ Esta guía contiene información sobre problemas habituales que pueden surgir al
 
 Con el fin de solucionar problemas de forma más eficaz, puede ser útil para crear registros más detallados para su revisión.
 
-Para la extensión de Visual Studio, puede hacerlo estableciendo la variable de entorno `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` en 1. Asegúrese de reiniciar Visual Studio para que la variable de entorno surta efecto. Una vez habilitada, los registros detallados se escribirán en su directorio `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
+Para la extensión de Visual Studio, establezca la variable de entorno `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` en 1. Asegúrese de reiniciar Visual Studio para que la variable de entorno surta efecto. Una vez habilitada, los registros detallados se escribirán en su directorio `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-En la CLI, puede generar más información durante la ejecución del comando mediante el uso del conmutador `--verbose`.
+En la CLI, puede generar más información durante la ejecución del comando mediante el uso del conmutador `--verbose`. También puede examinar registros más detallados en `%TEMP%\Azure Dev Spaces`. En un equipo Mac, para encontrar el directorio TEMP hay que ejecutar `echo $TMPDIR` desde una ventana de terminal. En un equipo Linux, el directorio TEMP es normalmente `/tmp`.
+
+## <a name="debugging-services-with-multiple-instances"></a>Servicios de depuración con varias instancias
+
+En este momento, Azure Dev Spaces funciona mejor cuando se depura una sola instancia (pod). El archivo azds.yaml contiene un valor, replicaCount, que indica el número de pods que se van a ejecutar para el servicio. Si cambia replicaCount para configurar la aplicación para que ejecute varios pods para un servicio determinado, el depurador se asociará al primer pod (cuando se muestran por orden alfabético). Si se recicla ese pod por cualquier motivo, el depurador se asociará a un pod diferente, lo cual podría dar lugar a un comportamiento inesperado.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Error "Failed to create Azure Dev Spaces controller" (Error al crear el controlador de Azure Dev Spaces)
 
@@ -67,14 +71,14 @@ Al usar _azds.exe_, emplee la opción de línea de comandos detallada, y utilice
 
 En Visual Studio:
 
-1. Abra **Herramientas > Opciones** y en **Proyectos y soluciones**, elija **Build and Run** (Compilar y ejecutar).
+1. Abra **Herramientas > Opciones** y, en **Proyectos y soluciones**, elija **Build and Run** (Compilar y ejecutar).
 2. Cambie la configuración de **Detalles de la salida de la compilación del proyecto de MSBuild** a **Detallado** o **Diagnóstico**.
 
     ![Captura de pantalla del cuadro de diálogo Opciones de herramientas](media/common/VerbositySetting.PNG)
     
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Se produce un error en la resolución de nombres DNS para una dirección URL pública asociada con un servicio Dev Spaces
 
-Cuando esto sucede, es posible que aparezca un error del tipo de la página no se puede mostrar o no se puede acceder a este sitio en el explorador web al intentar conectarse a la dirección URL pública asociada con un servicio Dev Spaces.
+Cuando se produce un error de resolución de nombre de DNS, es posible que aparezca un error de tipo "No se puede mostrar la página" o "No se puede acceder a este sitio" en el explorador web al intentar conectarse a la URL pública asociada con un servicio Dev Spaces.
 
 ### <a name="try"></a>Pruebe lo siguiente:
 
@@ -84,7 +88,7 @@ Puede usar el siguiente comando para enumerar todas las direcciones URL asociada
 azds list-uris
 ```
 
-Si una dirección URL está en estado *Pendiente*, significa que Dev Spaces aún está esperando que se complete el registro DNS. En ocasiones, tarda unos minutos para que esto ocurra. Dev Spaces también abre un túnel de host local para cada servicio, que puede usar mientras espera el registro del DNS.
+Si una dirección URL está en estado *Pendiente*, significa que Dev Spaces aún está esperando que se complete el registro DNS. A veces, el proceso de registro tarda unos minutos en completarse. Dev Spaces también abre un túnel de host local para cada servicio, que puede usar mientras espera el registro del DNS.
 
 Si una dirección URL permanece en estado *Pendiente* durante más de 5 minutos, puede que indique un problema con el pod de DNS externo que crea al punto de conexión público o el pod controlador de entrada nginx que adquiere el punto de conexión público. Puede usar los siguientes comandos para eliminar estos pods. Se volverá a crear automáticamente.
 
@@ -121,7 +125,7 @@ Azure Dev Spaces proporciona compatibilidad nativa para C# y Node.js. Al ejecuta
 Aún puede usar Azure Dev Spaces con código escrito en otros lenguajes, pero deberá crear el Dockerfile usted mismo antes de ejecutar *azds up* por primera vez.
 
 ### <a name="try"></a>Pruebe lo siguiente:
-Si la aplicación se escribe en un lenguaje que Azure Dev Spaces no admite de forma nativa, deberá proporcionar un Dockerfile apropiado para compilar una imagen de contenedor que se ejecute en el código. Docker ofrece una [lista de procedimientos recomendados para escribir un Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/), así como una [referencia sobre Dockerfile](https://docs.docker.com/engine/reference/builder/) que puede ayudarle a hacerlo.
+Si la aplicación se escribe en un lenguaje que Azure Dev Spaces no admite de forma nativa, deberá proporcionar un Dockerfile apropiado para compilar una imagen de contenedor que se ejecute en el código. Docker ofrece una [lista de procedimientos recomendados para escribir un Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/), así como una [referencia sobre Dockerfile](https://docs.docker.com/engine/reference/builder/) con la que le resultará más fácil escribir un Dockerfile que se ajuste a sus necesidades.
 
 Una vez que tenga un Dockerfile adecuado en su lugar, puede continuar ejecutando *azds up* para ejecutar la aplicación en Azure Dev Spaces.
 
@@ -152,7 +156,7 @@ Debe ejecutar `azds up` desde el directorio raíz del código que desea ejecutar
 1. Si no tiene un archivo _azds.yaml_ en la carpeta de código, ejecute `azds prep` para generar los recursos de Docker, Kubernetes y Azure Dev Spaces.
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Error: "El programa de canalización "azds" terminó inesperadamente con el código 126."
-El inicio del depurador de VS Code a veces produce este error. Este es un problema conocido.
+El inicio del depurador de VS Code a veces produce este error.
 
 ### <a name="try"></a>Pruebe lo siguiente:
 1. Cierre y vuelva a abrir VS Code.
@@ -162,7 +166,7 @@ El inicio del depurador de VS Code a veces produce este error. Este es un proble
 La ejecución del depurador de VS Code informa del error `Failed to find debugger extension for type:coreclr.`.
 
 ### <a name="reason"></a>Motivo
-La máquina de desarrollo no tiene instalada la extensión de VS Code para C# que incluye compatibilidad de depuración para .Net Core (CoreCLR).
+No tiene la extensión de VS Code para C# instalada en la máquina de desarrollo. La extensión de C# incluye compatibilidad de depuración para.Net Core (CoreCLR).
 
 ### <a name="try"></a>Pruebe lo siguiente:
 Instale la [extensión de VS Code para C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

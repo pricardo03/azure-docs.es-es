@@ -14,23 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919013"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222291"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
 [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) le permite [agregar una máquina virtual a la vez a un laboratorio](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm) fácilmente. Sin embargo, si el entorno contiene varias máquinas virtuales, cada una tiene que crearse por separado. Para escenarios como una aplicación web de varios niveles o una granja de SharePoint, se necesita un mecanismo para permitir la creación de varias máquinas virtuales en un solo paso. Mediante el uso de plantillas de Azure Resource Manager, puede definir ahora la infraestructura y la configuración de la solución de Azure e implementar repetidamente varias máquinas virtuales de manera coherente. Esta característica proporciona las siguientes ventajas:
 
-- Las plantillas de Azure Resource Manager se cargan directamente desde el repositorio de control de código fuente (GitHub o Git de Team Services).
+- Las plantillas de Azure Resource Manager se cargan directamente desde el repositorio de control de código fuente (GitHub o el Git de Azure DevOps Services).
 - Con la configuración finalizada, los usuarios pueden crear un entorno al seleccionar una plantilla de Azure Resource Manager desde Azure Portal como lo hacen con otros tipos de [bases de máquinas virtuales](./devtest-lab-comparing-vm-base-image-types.md).
 - Los recursos de PaaS de Azure se pueden aprovisionar en un entorno a partir de una plantilla de Azure Resource Manager además de desde las máquinas virtuales de IaaS.
 - El coste de los entornos puede controlarse desde el laboratorio además del de las máquinas virtuales individuales creadas por otros tipos de bases de datos.
 - Los recursos de PaaS se crean y se muestran en el seguimiento del costo; sin embargo, el cierre automático de máquina virtual no se aplica a ellos.
-- Los usuarios tienen el mismo control de las directivas de máquinas virtuales para los entornos que el que tienen para las máquinas virtuales de un solo laboratorio.
 
 Más información acerca de las muchas [ventajas del uso de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) para implementar, actualizar o eliminar todos los recursos de laboratorio en una sola operación.
 
@@ -42,7 +41,7 @@ Más información acerca de las muchas [ventajas del uso de plantillas de Resour
 Azure DevTest Labs tiene un [repositorio público de plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que puede usar para crear entornos sin tener que conectarse a un origen externo de GitHub por sí mismo. Este repositorio incluye plantillas usadas con frecuencia, como Azure Web Apps, Clúster de Service Fabric y entorno de desarrollo de Granja de SharePoint. Esta característica es similar al repositorio público de artefactos que se incluye para todos los laboratorios que cree. El repositorio de entorno le permite empezar a trabajar rápidamente con las plantillas de entorno ya creadas, con el mínimo de parámetros de entrada, para proporcionarle una experiencia de introducción sin problemas a los recursos de PaaS en laboratorios. Para más información, consulte [Configuración y uso de entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
 ## <a name="configure-your-own-template-repositories"></a>Configuración de sus propios repositorios de plantilla
-Como uno de los procedimientos recomendados con infraestructura como código y configuración como código, las plantillas de entorno deben administrarse con control de código fuente. Azure DevTest Labs sigue este procedimiento y carga todas las plantillas de Azure Resource Manager directamente desde los repositorios de GitHub o VSTS Git. Como resultado, las plantillas de Resource Manager pueden utilizarse en todo el ciclo de versiones, desde el entorno de prueba hasta el entorno de producción.
+Como uno de los procedimientos recomendados con infraestructura como código y configuración como código, las plantillas de entorno deben administrarse con control de código fuente. Azure DevTest Labs sigue este procedimiento y carga todas las plantillas de Azure Resource Manager directamente desde los repositorios de GitHub o el Git de Azure DevOps Services. Como resultado, las plantillas de Resource Manager pueden utilizarse en todo el ciclo de versiones, desde el entorno de prueba hasta el entorno de producción.
 
 Consulte las plantillas creadas por el equipo de DevTest Labs en el [repositorio público de GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Environments). En este repositorio público, puede ver las plantillas compartidas por otros usuarios que puede utilizar directamente o personalizarlas para adaptarlas a sus necesidades. Después de crear la plantilla, almacénela en este repositorio para compartirla con otros usuarios. También puede configurar su propio repositorio de Git con plantillas que se pueden usar para configurar los entornos en la nube. 
 
@@ -79,9 +78,9 @@ Los siguientes pasos le ayudarán a agregar un repositorio al laboratorio a trav
 1. Seleccione **+ Add** (+ Agregar) para agregar el repositorio de plantillas de Azure Resource Manager.
 1. Cuando se abra el segundo panel **Repositorios**, escriba la información necesaria como se indica a continuación:
     - **Name** (Nombre): nombre del repositorio que se utiliza en el laboratorio.
-    - **URL de clonación de Git**: escriba la URL de clonación HTTPS de GIT de GitHub o Visual Studio Team Services.  
+    - **URL de clonación de Git**: escriba la URL de clonación HTTPS de GIT de GitHub o Azure DevOps Services.  
     - **Branch** (Rama): nombre de la rama para acceder a las definiciones de plantilla de Azure Resource Manager. 
-    - **Personal access token** (Token de acceso personal): se usa para acceder de forma segura al repositorio. Para obtener el token de Visual Studio Team Services, seleccione **&lt;SuNombre> > Mi perfil > Seguridad > Public access token** (Token de acceso público). Para obtener el token de GitHub, seleccione su avatar seguido de la selección **Configuración > Public access token** (Token de acceso público). 
+    - **Personal access token** (Token de acceso personal): se usa para acceder de forma segura al repositorio. Para obtener el token de Azure DevOps Services, seleccione **&lt;SuNombre> > Mi perfil > Seguridad > Public access token** (Token de acceso público). Para obtener el token de GitHub, seleccione su avatar seguido de la selección **Configuración > Public access token** (Token de acceso público). 
     - **Rutas de acceso de carpeta**: en uno de los dos campos de entrada, escriba la ruta de acceso de carpeta que comienza con una barra diagonal (/) correspondiente a la URI de clonación de Git de cualquiera de las definiciones de artefacto (primer campo de entrada) o las definiciones de plantilla de Azure Resource Manager.   
     
         ![Repositorio público](./media/devtest-lab-create-environment-from-arm/repo-values.png)

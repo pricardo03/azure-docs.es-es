@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41946471"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366733"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Consideraciones de la plantilla de Azure Resource Manager
 
@@ -34,11 +34,13 @@ La plantilla que tenga previsto implementar debe utilizar solo servicios de Micr
 
 ## <a name="public-namespaces"></a>Espacios de nombres públicos
 
-Como Azure Slack se hospeda en el centro de datos, tiene espacios de nombres de punto de conexión de servicio diferentes a la nube pública de Azure. Como resultado, se producirá un error en los puntos de conexión públicos codificados de forma rígida de las plantillas de Azure Resource Manager al tratar de implementarlos en Azure Stack. Puede compilar dinámicamente puntos de conexión de servicio con las funciones *reference* y *concatenate* para recuperar valores del proveedor de recursos durante la implementación. Por ejemplo, en lugar de codificar de forma rígida *blob.core.windows.net* en la plantilla, recupere[primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) para establecer dinámicamente el punto de conexión *osDisk.URI*:
+Como Azure Slack se hospeda en el centro de datos, tiene espacios de nombres de punto de conexión de servicio diferentes a la nube pública de Azure. Como resultado, se producirá un error en los puntos de conexión públicos codificados de forma rígida de las plantillas de Azure Resource Manager al tratar de implementarlos en Azure Stack. Puede compilar dinámicamente puntos de conexión de servicio con las funciones *reference* y *concatenate* para recuperar valores del proveedor de recursos durante la implementación. Por ejemplo, en lugar de codificar de forma rígida *blob.core.windows.net* en la plantilla, recupere[primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para establecer dinámicamente el punto de conexión *osDisk.URI*:
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## <a name="api-versioning"></a>Control de versiones de la API
 
@@ -67,20 +69,22 @@ Estas funciones no están disponibles en Azure Stack:
 
 ## <a name="resource-location"></a>Ubicación del recurso
 
-Las plantillas de Azure Resource Manager usan un atributo location para incluir recursos durante la implementación. En Azure, las ubicaciones hacen referencia a una región como oeste de Estados Unidos o Sudamérica. En Azure Stack, las ubicaciones son diferentes porque Azure Stack está en el centro de datos. Para asegurarse de que las plantillas puedan transferirse entre Azure y Azure Stack, se debe hacer referencia a las ubicaciones del grupo de recursos al implementar recursos individuales. Puede hacerlo mediante `[resourceGroup().Location]` para garantizar que todos los recursos hereden la ubicación del grupo de recursos. El siguiente fragmento es un ejemplo de uso de esta función al implementar una cuenta de almacenamiento:
+Las plantillas de Azure Resource Manager usan un atributo `location` para incluir recursos durante la implementación. En Azure, las ubicaciones hacen referencia a una región, como Oeste de EE. UU. o Sudamérica. En Azure Stack, las ubicaciones son diferentes porque Azure Stack está en el centro de datos. Para asegurarse de que las plantillas puedan transferirse entre Azure y Azure Stack, se debe hacer referencia a las ubicaciones del grupo de recursos al implementar recursos individuales. Puede hacerlo mediante `[resourceGroup().Location]` para garantizar que todos los recursos hereden la ubicación del grupo de recursos. El siguiente código es un ejemplo de uso de esta función al implementar una cuenta de almacenamiento:
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

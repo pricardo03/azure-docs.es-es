@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 81638136589fc474d5183341d2fe0f9f896d6b41
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929688"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434473"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager 
 
@@ -54,9 +54,9 @@ Convierte el valor en una matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Sí |entero, cadena, matriz u objeto |Valor que se convierte en matriz. |
+| convertToArray |SÍ |entero, cadena, matriz u objeto |Valor que se convierte en matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -132,9 +132,9 @@ Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las ma
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |entero, cadena, matriz u objeto |El primer valor para comprobar si hay valores nulos. |
+| arg1 |SÍ |entero, cadena, matriz u objeto |El primer valor para comprobar si hay valores nulos. |
 | argumentos adicionales |Sin  |entero, cadena, matriz u objeto |Valores adicionales para probar si hay valores nulos. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -220,9 +220,9 @@ Combina varias matrices y devuelve la matriz concatenada, o combina varios valor
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |La primera matriz o cadena para la concatenación. |
+| arg1 |SÍ |matriz o cadena |La primera matriz o cadena para la concatenación. |
 | argumentos adicionales |Sin  |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
 
 Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros.
@@ -330,14 +330,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
-Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena.
+Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena. La comparación de cadena distingue mayúsculas de minúsculas. Pero, cuando se prueba si un objeto contiene una clave, la comparación no distingue mayúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
-| itemToFind |Sí |cadena o entero |El valor para buscar. |
+| container |SÍ |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
+| itemToFind |SÍ |cadena o entero |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -428,9 +428,9 @@ Crea una matriz a partir de los parámetros.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
+| arg1 |SÍ |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
 | argumentos adicionales |Sin  |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -509,9 +509,9 @@ Determina si una matriz, un objeto o una cadena están vacíos.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
+| itemToTest |SÍ |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -587,9 +587,9 @@ Devuelve el primer elemento de la matriz o el primer carácter de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
+| arg1 |SÍ |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -652,10 +652,10 @@ Devuelve una única matriz u objeto con los elementos comunes de los parámetros
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
-| arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
+| arg1 |SÍ |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
+| arg2 |SÍ |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
 | argumentos adicionales |Sin  |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -729,14 +729,18 @@ Devuelve un objeto JSON.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |string |Valor que se va a convertir en JSON. |
+| arg1 |SÍ |string |Valor que se va a convertir en JSON. |
 
 
 ### <a name="return-value"></a>Valor devuelto
 
 Objeto JSON de la cadena especificada o un objeto vacío si se especifica **null**.
+
+### <a name="remarks"></a>Comentarios
+
+Si necesita incluir un valor de parámetro o variable en el objeto JSON, use la función [concat](resource-group-template-functions-string.md#concat) para crear la cadena que se pasa a la función.
 
 ### <a name="example"></a>Ejemplo
 
@@ -746,6 +750,12 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -756,6 +766,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -767,6 +781,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | jsonOutput | Objeto | {"a": "b"} |
 | nullOutput | boolean | True |
+| paramOutput | Objeto | {"a": "demo value"}
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -789,9 +804,9 @@ Devuelve el último elemento de la matriz o el último carácter de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
+| arg1 |SÍ |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -854,9 +869,9 @@ Devuelve el número de elementos de una matriz, o los caracteres de una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
+| arg1 |SÍ |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -937,9 +952,9 @@ Devuelve el valor máximo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
+| arg1 |SÍ |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1001,9 +1016,9 @@ Devuelve el valor mínimo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
+| arg1 |SÍ |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1065,10 +1080,10 @@ Crea una matriz de enteros a partir de un entero de inicio y contiene un número
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Sí |int |El primer entero de la matriz. |
-| numberofElements |Sí |int |El número de enteros en la matriz. |
+| startingInteger |SÍ |int |El primer entero de la matriz. |
+| numberofElements |SÍ |int |El número de enteros en la matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1129,10 +1144,10 @@ Devuelve una matriz con todos los elementos después del número especificado de
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
-| numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
+| originalValue |SÍ |matriz o cadena |La matriz o cadena que se usará para la omisión. |
+| numberToSkip |SÍ |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1210,10 +1225,10 @@ Devuelve una matriz con el número especificado de elementos desde el inicio de 
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
-| numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
+| originalValue |SÍ |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
+| numberToTake |SÍ |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1291,10 +1306,10 @@ Devuelve una única matriz u objeto con todos los elementos de los parámetros. 
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
-| arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
+| arg1 |SÍ |matriz u objeto |El primer valor que se utiliza para unir elementos. |
+| arg2 |SÍ |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
 | argumentos adicionales |Sin  |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
 
 ### <a name="return-value"></a>Valor devuelto

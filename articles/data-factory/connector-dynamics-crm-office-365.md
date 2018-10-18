@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574681"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406182"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -158,7 +158,8 @@ Para copiar datos desde y hacia Dynamics, establezca la propiedad type del conju
 | entityName | El nombre lógico de la entidad que se va a recuperar. | No para el origen (si se especifica "query" en el origen de la actividad); sí para el receptor |
 
 > [!IMPORTANT]
->- Cuando se copian datos desde Dynamics, se requiere la sección "structure" en el conjunto de datos de Dynamics. Esta define el nombre de columna y el tipo de datos de los datos de Dynamics que desea copiar. Para más información, consulte [Estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure) y [Asignación de tipos de datos de Dynamics](#data-type-mapping-for-dynamics).
+>- Cuando se copian datos desde Dynamics, la sección "structure" es opcional, aunque se recomienda en el conjunto de datos de Dynamics para garantizar un resultado de copia determinista. Esta define el nombre de columna y el tipo de datos de los datos de Dynamics que desea copiar. Para más información, consulte [Estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure) y [Asignación de tipos de datos de Dynamics](#data-type-mapping-for-dynamics).
+>- Cuando se importa el esquema en la interfaz de usuario de creación, ADF lo deduce mediante un muestreo de las primeras filas de los resultados de la consulta de Dynamics a fin de inicializar la construcción de la estructura, en cuyo caso se omiten las columnas sin valores. Puede revisar y agregar más columnas al esquema o la estructura del conjunto de datos de Dynamics si es necesario, lo que se respeta durante el runtime de copia.
 >- Al copiar datos a Dynamics, la sección "structure" es opcional en el conjunto de datos de Dynamics. El esquema de datos de origen determinará qué columnas se copian. Si el origen es un archivo CSV sin encabezado, en el conjunto de datos de entrada, especifique "structure" con el tipo de datos y el nombre de columna. Estos se asignan a los campos del archivo CSV, uno por uno en orden.
 
 **Ejemplo:**

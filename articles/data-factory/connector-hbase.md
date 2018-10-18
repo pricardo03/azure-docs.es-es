@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701724"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364123"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copia de datos de HBase con Azure Data Factory 
 
@@ -45,7 +45,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HBase:
 | Tipo | La propiedad type debe establecerse en: **HBase** | SÍ |
 | host | Dirección IP o nombre de host del servidor de HBase. (es decir, `[clustername].azurehdinsight.net`， `192.168.222.160·)  | SÍ |
 | puerto | Puerto TCP que el servidor de HBase utiliza para escuchar las conexiones del cliente. El valor predeterminado es 9090. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sin  |
-| httpPath | Dirección URL parcial correspondiente al servidor de HBase. (es decir, `/hbaserest0`)  | Sin  |
+| httpPath | La dirección URL parcial correspondiente al servidor de HBase, por ejemplo, `/hbaserest0` cuando se usa el clúster de HDInsights. | Sin  |
 | authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de HBase. <br/>Los valores permitidos son: **Anonymous** y **Basic**. | SÍ |
 | nombre de usuario | Nombre de usuario que se usa para conectarse al servidor de HBase.  | Sin  |
 | contraseña | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
@@ -56,7 +56,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HBase:
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!NOTE]
->Si el clúster no es compatible con las sesiones rápidas como HDInsight, agregue explícitamente el índice del nodo al final de la configuración de la ruta de acceso http; por ejemplo, especifique `/hbaserest0` en lugar de `/hbaserest`.
+>Si el clúster no es compatible con las sesiones rápidas, como HDInsight, agregue explícitamente el índice del nodo al final de la configuración de la ruta de acceso http; por ejemplo, especifique `/hbaserest0` en lugar de `/hbaserest`.
 
 **Ejemplo de HDInsights HBase:**
 

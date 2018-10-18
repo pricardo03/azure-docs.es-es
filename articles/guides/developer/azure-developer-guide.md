@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424235"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423602"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -58,7 +58,7 @@ Puede crear aplicaciones web, back-ends de aplicaciones móviles y aplicaciones 
 
 Como los tres tipos de aplicación comparten el entorno de tiempo de ejecución de App Service, puede hospedar un sitio web, admitir clientes móviles y exponer sus API en Azure, todo ello desde el mismo proyecto o solución. Para más información sobre App Service, vea [¿Qué es Azure Web Apps?](../../app-service/app-service-web-overview.md)
 
-App Service se ha diseñado teniendo en cuenta DevOps. Admite varias herramientas de publicación e implementaciones de integración continuas, incluidos webhooks de GitHub, Jenkins, Visual Studio Team Services o TeamCity, entre otros.
+App Service se ha diseñado teniendo en cuenta DevOps. Admite varias herramientas de publicación e implementaciones de integración continuas, incluidos webhooks de GitHub, Jenkins, Azure DevOps, TeamCity y otros.
 
 Puede migrar las aplicaciones existentes a App Service con la [herramienta de migración en línea](https://www.migratetoazure.net/).
 
@@ -186,7 +186,7 @@ Cuando la aplicación está lista y funcionando en Azure, debe poder supervisar 
 
 ### <a name="devops-integration"></a>Integración con DevOps
 
-Tanto para aprovisionar máquinas virtuales como para publicar aplicaciones web con integración continua, Azure se integra con la mayoría de las herramientas de DevOps más conocidas. Es compatible con herramientas como Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS y otras, y permite trabajar con las herramientas que ya tiene y maximizar su experiencia actual.
+Tanto para aprovisionar máquinas virtuales como para publicar aplicaciones web con integración continua, Azure se integra con la mayoría de las herramientas de DevOps más conocidas. Es compatible con herramientas como Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps y otras, y permite trabajar con las herramientas que ya tiene y maximizar su experiencia actual.
 
 >**Pruébelo ahora:**[pruebe algunas de las integraciones con DevOps](https://azure.microsoft.com/try/devops/).
 
@@ -261,7 +261,7 @@ Como a los desarrolladores, nos gusta bucear en el código e intentar que nuestr
 
 ### <a name="what-is-an-azure-account"></a>¿Qué es una cuenta de Azure?
 
-Para poder crear o trabajar con una suscripción de Azure, debe tener una cuenta de Azure. Una cuenta de Azure es simplemente una identidad en Azure AD o en un directorio, por ejemplo, una organización profesional o académica, que sea de confianza para Azure AD. Si no pertenece a una organización de este tipo, siempre puede crear una suscripción usando su cuenta Microsoft, que es de confianza para Azure AD. Para más información sobre la integración de directorios locales de Windows Server Active Directory con Azure AD, consulte [Integración de los directorios locales con Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+Para poder crear o trabajar con una suscripción de Azure, debe tener una cuenta de Azure. Una cuenta de Azure es simplemente una identidad en Azure AD o en un directorio, por ejemplo, una organización profesional o académica, que sea de confianza para Azure AD. Si no pertenece a una organización de este tipo, siempre puede crear una suscripción usando su cuenta Microsoft, que es de confianza para Azure AD. Para más información sobre la integración de directorios locales de Windows Server Active Directory con Azure AD, consulte [Integración de los directorios locales con Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Cada suscripción de Azure tiene una relación de confianza con una instancia de Azure AD. Esto significa que confía en ese directorio para autenticar usuarios, servicios y dispositivos. Varias suscripciones pueden confiar en el mismo directorio, pero una suscripción confía solo en un único directorio. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -269,19 +269,7 @@ Además de definir identidades de cuenta de Azure individuales, también llamada
 
 ### <a name="manage-your-subscriptions"></a>Administración de suscripciones
 
-Una suscripción es una unidad lógica de servicios de Azure que está vinculada a una cuenta de Azure. Cada cuenta asociada tiene un rol en una suscripción. La facturación de los servicios de Azure se realiza por suscripción. Para obtener una lista de las ofertas de suscripción disponibles por tipo, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Roles de administrador
-
-Una suscripción de Azure tiene varios roles de administrador de cuenta, que puede asignar en cualquier momento.
-
--   **Administrador de cuenta**: este rol tiene control total sobre la suscripción y es la cuenta que se encarga de la facturación.
-
--   **Administrador de servicios**: este rol tiene control sobre todos los servicios de la suscripción. De forma predeterminada, es la misma cuenta que el administrador de cuenta.
-
--   **Coadministrador**: este rol tiene el mismo acceso que el administrador de servicios, pero no puede cambiar la asociación de la suscripción a un directorio de Azure.
-
-Para más información sobre los roles de administrador, consulte [Incorporación o cambio de roles de administrador de Azure](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Para obtener una lista de las ofertas de suscripción disponibles por tipo, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción, y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para obtener información sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
 
 #### <a name="resource-groups"></a>Grupos de recursos
 
@@ -293,11 +281,11 @@ El Explorador de recursos de Azure es una fantástica herramienta para visualiza
 
 Al permitir el acceso a los recursos de Azure, siempre es recomendable proporcionar a los usuarios los privilegios mínimos que se necesiten para realizar una tarea determinada.
 
--   **Control de acceso basado en rol (RBAC)**: en Azure, puede conceder acceso operativo a cuentas de usuario en un ámbito especificado: suscripción, grupo de recursos o recurso individual. RBAC permite implementar un conjunto de recursos en un grupo de recursos y conceder permisos a un usuario específico o a un grupo. También permite limitar el acceso únicamente a los recursos que pertenecen al grupo de recursos de destino. También puede conceder acceso a un único recurso, por ejemplo, una máquina virtual o una red virtual. Para conceder acceso, asigne un rol al usuario, grupo de usuarios o entidad de servicio. Hay muchos roles predefinidos y puede definir también sus propios roles personalizados.
+-   **Control de acceso basado en rol (RBAC)**: en Azure, puede conceder acceso operativo a cuentas de usuario en un ámbito especificado: suscripción, grupo de recursos o recurso individual. RBAC permite implementar un conjunto de recursos en un grupo de recursos y conceder permisos a un usuario específico o a un grupo. También permite limitar el acceso únicamente a los recursos que pertenecen al grupo de recursos de destino. También puede conceder acceso a un único recurso, por ejemplo, una máquina virtual o una red virtual. Para conceder acceso, asigne un rol al usuario, grupo de usuarios o entidad de servicio. Hay muchos roles predefinidos y puede definir también sus propios roles personalizados. Para obtener más información, vea [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md)
 
-    >**Cuándo se usa**: cuando se necesitan una administración personalizada del acceso para usuarios y grupos.
+    >**Cuándo se usa**: cuando se necesita administración de acceso detallada para usuarios y grupos o cuando se necesita convertir a un usuario en propietario de una suscripción.
 
-    >**Para empezar**: para más información, consulte [Introducción a la administración de acceso en Azure Portal](../../role-based-access-control/overview.md).
+    >**Introducción**: para obtener más información, vea [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Objetos de entidad de servicio**: además de proporcionar acceso a las entidades de seguridad de usuarios y grupos, puede conceder el mismo acceso a una entidad de servicio.
 
@@ -322,9 +310,3 @@ Azure proporciona un conjunto de API de REST de facturación que dan acceso a in
 Aunque resulta difícil calcular los costos de antemano, Azure tiene una [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) que permite calcular el costo de los recursos implementados. También puede usar la hoja de facturación en el portal y las API de REST de facturación para calcular los costos futuros en función del consumo actual.
 
 >**Introducción**: consulte [introducción a las API de Billing Usage y RateCard de Azure](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Configurar alertas de facturación para las suscripciones de Microsoft Azure
-
-Después de haber implementado la aplicación o la solución en Azure, puede crear alertas que le envíen correos electrónicos al aproximarse a los límites de gastos definidos en la alerta.
-
->[Para empezar](../../billing-set-up-alerts.md): para más información, consulte **Configuración de alertas de crédito o facturación para las suscripciones de Microsoft Azure**.

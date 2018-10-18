@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162328"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384969"
 ---
 # <a name="qna-maker-limits"></a>Límites de QnA Maker
 Lista completa de los límites de QnA Maker.
@@ -29,7 +29,7 @@ Lista completa de los límites de QnA Maker.
 |Número máximo de bases de conocimiento publicadas permitido (Máximo de índices: 1) (reservado para las pruebas)|2|14|49|199|199|2999|
 
 ## <a name="extraction-limits"></a>Límites de extracción
-* Número máximo de archivos que se pueden extraer y tamaño máximo del archivo: vea [Precios de QnAMaker](https://azure.microsoft.com/en-in/pricing/details/cognitive-services/qna-maker/)
+* Número máximo de archivos que se pueden extraer y tamaño máximo del archivo: vea [Precios de QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
 * Número máximo de vínculos profundos que se pueden rastrear para la extracción de QnA desde las páginas HTML de preguntas más frecuentes: 20
 
 ## <a name="metadata-limits"></a>Límites de metadatos
@@ -49,7 +49,7 @@ Límites generales del contenido de la base de conocimiento:
 * Longitud del nombre de archivo: 200
 * Formatos de archivo admitidos: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Número máximo de preguntas alternativas: 100
-* Número máximo de pares de preguntas y respuestas: depende del [plan de Azure Search](https://docs.microsoft.com/en-in/azure/search/search-limits-quotas-capacity#document-limits) elegido 
+* Número máximo de pares de preguntas y respuestas: depende del [plan de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) elegido 
 
 ## <a name="create-knowledge-base-call-limits"></a>Límites de llamada de creación de la base de conocimiento:
 Representan los límites para cada acción de creación de base de conocimiento; es decir, al hacer clic en *Crear una base de conocimiento* o al llamar a la API CreateKnowledgeBase.

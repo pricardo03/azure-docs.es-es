@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919133"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423007"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -54,17 +54,6 @@ Para más información sobre los precios, consulte estas [preguntas más frecuen
 Normalmente, cuando se agrega un servicio en Azure Portal, hay una vista que le muestra un coste estimado similar al mes. Por ejemplo, al elegir el tamaño de la máquina virtual Windows verá el costo mensual estimado de las horas de proceso:
 
 ![Ejemplo: se estima que una máquina virtual Windows A1 cuesta 66,96 dólares al mes](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Configurar alertas de facturación para las suscripciones de Microsoft Azure
-
-Configure alertas de facturación para recibir mensajes de correo electrónico cuando los costes de uso superen el importe que especifique. Si dispone de créditos mensuales, configure alertas para cuando supere una cantidad específica. Para obtener más información, consulte [Configurar alertas de facturación para las suscripciones de Microsoft Azure](billing-set-up-alerts.md).
-
-![Captura de pantalla de un correo electrónico de alerta de facturación](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Esta característica está todavía en versión preliminar, por lo que debe comprobar periódicamente el uso.
-
-Puede usar la estimación del coste de la calculadora de precios como guía para la primera alerta.
 
 ### <a name="spending-limit"></a> Comprobación para saber si tiene un límite de gasto activado
 
@@ -166,7 +155,7 @@ Las vistas de los costos de Enterprise están actualmente en la versión prelimi
     - Es el administrador del departamento y su administrador de inscripción ha deshabilitado la opción para que el administrador del departamento vea los cargos.  Póngase en contacto con el administrador de inscripción para obtener acceso. 
     - Adquirió Azure a través de un asociado de canal y el asociado no ha publicado la información de los precios.  
 - Cuando se actualiza la configuración relacionada con el acceso a los costos en Enterprise Portal, hay un retraso de unos minutos antes de que los cambios se reflejen en Azure Portal.
-- El límite de gasto, las alertas de facturación y la guía de facturación no se corresponden con las suscripciones EA.
+- El límite de gasto y la orientación de factura no se aplican a las suscripciones de EA.
 
 ### <a name="check-your-subscription-and-access"></a>Comprobación de la suscripción y el acceso
 

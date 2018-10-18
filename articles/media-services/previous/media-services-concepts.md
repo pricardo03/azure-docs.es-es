@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5a48a86e324af44143a7df64ca08fb71018711d3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942309"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364931"
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services
 En este tema se proporciona información general sobre los conceptos más importantes de Media Services.
@@ -147,7 +147,7 @@ Para transmitir un activo de cifrado de almacenamiento, debe configurar la direc
 Cuando un reproductor solicita una transmisión, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante un cifrado de sobre (con AES) o uno común (con PlayReady o Widevine). Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
 ### <a name="token-restriction"></a>Restricción de token
-La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Media Services admite tokens en formato Token de web simple (SWT) y en formato Token de web JSON (JWT). Media Services no proporciona Servicios de tokens seguros. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de Media Services devolverá la clave solicitada (o licencia) al cliente si el token es válido y las reclamaciones del token coinciden con las configuradas para la clave (o licencia).
+La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Media Services admite tokens en formato Token de web simple (SWT) y en formato Token de web JSON (JWT). Media Services no proporciona Servicios de tokens seguros. Puede crear un STS personalizado. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de Media Services devolverá la clave solicitada (o licencia) al cliente si el token es válido y las reclamaciones del token coinciden con las configuradas para la clave (o licencia).
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, emisor y público. La clave de comprobación principal contiene la clave con la que se firmó el token y el emisor es el servicio de tokens seguros que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 
@@ -163,7 +163,7 @@ Cuando se trabaja con Media Services, es aconsejable codificar los archivos inte
 ### <a name="streaming-endpoint"></a>extremo de streaming
 Un StreamingEndpoint representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproductor de cliente o a una instancia de Content Delivery Network (CDN) para su posterior distribución (Azure Media Services ahora proporciona la integración de Azure CDN). La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Los clientes de Media Services eligen un punto de conexión de streaming **estándar** o uno o varios puntos de conexión de streaming **premium**, según sus necesidades. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. 
 
-El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Los puntos de conexión de streaming estándar ofrecen la flexibilidad de entregar el contenido a prácticamente todos los dispositivos a través de empaquetado dinámico en HLS, MPEG-DASH y Smooth Streaming, así como cifrado dinámico para Microsoft PlayReady, Google Widevine, Apple Fairplay y AES128.  También se adaptan a tamaños de audiencias desde muy pequeñas a muy grandes con miles de personas visualizando simultáneamente a través de la integración de la red CDN de Azure. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajustan a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda, se recomienda asignar unidades de escalado (conocidas también como unidades de streaming premium).
+El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Los puntos de conexión de streaming estándar ofrecen la flexibilidad de entregar el contenido a prácticamente todos los dispositivos a través de empaquetado dinámico en HLS, MPEG-DASH y Smooth Streaming, así como cifrado dinámico para Microsoft PlayReady, Google Widevine, Apple Fairplay y AES128.  También se adaptan a tamaños de audiencias desde muy pequeñas a muy grandes con miles de personas visualizando simultáneamente a través de la integración de Azure CDN. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajustan a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda, se recomienda asignar unidades de escalado (conocidas también como unidades de streaming premium).
 
 Se recomienda utilizar el cifrado dinámico o el empaquetado dinámico.
 

@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: eacad4acbae0565cbd894d3f51665d751eb9a6e2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 80234610eda264976f3ec20da2a0ef12c73ccba6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783141"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035715"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migración de Contoso: rediseñar la arquitectura de una aplicación local en un contenedor de Azure y Azure SQL Database
 
@@ -25,18 +25,18 @@ Este documento es el primero de una serie de artículos que muestran cómo la co
 [Artículo 1: Introducción](contoso-migration-overview.md) | Información general de la serie de artículos, la estrategia de migración de Contoso y las aplicaciones de ejemplo que se usan en esta serie. | Disponible
 [Artículo 2: Implementación de la infraestructura de Azure](contoso-migration-infrastructure.md) | Contoso prepara la infraestructura local y la infraestructura de Azure para la migración. Se usa la misma infraestructura en todos los artículos de la serie sobre migración. | Disponible
 [Artículo 3: Evaluación de los recursos locales para la migración a Azure](contoso-migration-assessment.md)  | Contoso ejecuta una valoración de su aplicación local SmartHotel360 que se ejecuta en VMware. Contoso evalúa las máquinas virtuales de la aplicación mediante el servicio Azure Migrate, y la base de datos SQL Server de la aplicación con Data Migration Assistant. | Disponible
-[Artículo 4: Rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración "lift-and-shift" a Azure de su aplicación SmartHotel360 local. Contoso migra la máquina virtual de front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible   
+[Artículo 4: Rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración mediante lift-and-shift a Azure para su aplicación SmartHotel360 local. Contoso migra la máquina virtual de front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible   
 [Artículo 5: Rehospedaje de una aplicación en VM de Azure](contoso-migration-rehost-vm.md) | Contoso migra sus máquinas virtuales de la aplicación SmartHotel360 a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
 [Artículo 6: Rehospedaje de una aplicación en máquinas virtuales de Azure y en un grupo de disponibilidad Always On de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra la aplicación SmartHotel360. Contoso usa Site Recovery para migrar las máquinas virtuales de la aplicación. Usa Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server que está protegido por un grupo de disponibilidad Always On. | Disponible 
 [Artículo 7: Rehospedaje de una aplicación Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración mediante lift-and-shift de la aplicación osTicket de Linux a máquinas virtuales de Azure, mediante Azure Site Recovery | Disponible
 [Artículo 8: Rehospedaje de una aplicación Linux en VM de Azure y en Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra la aplicación osTicket de Linux a máquinas virtuales de Azure mediante Azure Site Recovery y la base de datos de la aplicación a una instancia de Azure MySQL Server con MySQL Workbench. | Disponible
 [Artículo 9: Refactorizar una aplicación en Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra la aplicación SmartHotel360 a una aplicación web de Azure y la base de datos de la aplicación a una instancia de Azure SQL Server con Database Migration Assistant | Disponible
 [Artículo 10: Refactorizar una aplicación Linux en Azure Web Apps y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varias regiones de Azure con Azure Traffic Manager, integrado con GitHub para la entrega continua. Contoso migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible 
-[Artículo 11: Refactorizar TFS en VSTS](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Visual Studio Team Services en Azure. | Disponible
-Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database | Contoso migra su aplicación SmartHotel360 a Azure. A continuación, rediseña el nivel de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos con Azure SQL Database. | Este artículo
-[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel360 mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible  
+[Artículo 11: Refactorización de TFS en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
+Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database | Contoso migra su aplicación SmartHotel a Azure. A continuación, rediseña el nivel de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos con Azure SQL Database. | Este artículo
+[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible 
 
-En este artículo, Contoso migra el sistema operativo Windows de dos niveles. la aplicación SmartHotel360 .NET de Windows de dos niveles que se ejecuta en las VM de VMware a Azure. Esta aplicación está disponible en código abierto y, si quiere usarla, puede descargarla en [GitHub](https://github.com/Microsoft/SmartHotel360).
+En este artículo, Contoso migra la aplicación SmartHotel360 de dos niveles de formularios XAML de Windows WPF que se ejecuta en máquinas virtuales de VMware en Azure. Esta aplicación está disponible en código abierto y, si quiere usarla, puede descargarla en [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Impulsores del negocio
 
@@ -57,7 +57,7 @@ El equipo de la nube de Contoso ha establecido los objetivos de esta migración.
 **Solicitudes de aplicación** | La aplicación de Azure seguirá siendo tan importante como lo es hoy en día.<br/><br/> Debe tener las mismas funcionalidades de rendimiento que las que tiene actualmente en VMWare.<br/><br/> Contoso quiere detener la compatibilidad con Windows Server 2008 R2, donde se ejecuta actualmente la aplicación, para invertir en dicha aplicación.<br/><br/> También quiere abandonar SQL Server 2008 R2 y pasar a una plataforma de base de datos PaaS moderna, lo que minimizará la necesidad de administración.<br/><br/> Contoso quiere aprovechar su inversión en licencias de SQL Server y Software Assurance, tanto como que sea posible.<br/><br/> Contoso quiere poder escalar verticalmente la capa de aplicación web.
 **Limitaciones** | La aplicación está formada por una aplicación de ASP.NET y un servicio WCF que se ejecutan en la misma máquina virtual. Contoso quiere dividirlos en dos aplicaciones web con Azure App Service. 
 **Solicitudes de Azure** | Contoso quiere mover la aplicación a Azure y ejecutarla en un contenedor para prolongar su duración. No quiere empezar a implementar la aplicación en Azure completamente desde cero. 
-**DevOps** | Contoso quiere moverse a un modelo DevOps con Visual Studio Team Services (VSTS) para las compilaciones de código y la canalización de versiones.
+**DevOps** | Contoso quiere migrar a un modelo de DevOps con Azure DevOps Services para las compilaciones de código y la canalización de versión.
 
 ## <a name="solution-design"></a>Diseño de la solución
 
@@ -79,10 +79,10 @@ Después de fijar sus objetivos y requisitos, Contoso diseña y revisa una soluc
     - Contoso aprovecha la herramienta ligera Data Migration Assistant (DMA) para evaluar y migrar la base de datos local a Azure SQL.
     - Con Software Assurance, Contoso puede intercambiar sus licencias existentes por descuentos en una instancia de SQL Database mediante la Ventaja híbrida de Azure para SQL Server. Esto puede proporcionar un ahorro de hasta un 30 %.
     - SQL Database proporciona diferentes características de seguridad, incluidos el enmascaramiento dinámico de datos siempre cifrados y la detección de amenazas o seguridad a nivel de fila.
-- Contoso ha decidido convertir la capa de aplicación web en el contenedor de Windows con Visual Studio.
+- Contoso ha decidido convertir la capa de aplicación web en el contenedor de Windows con Azure DevOps Services.
     - Contoso implementará la aplicación con Azure Service Fabric y extraerá la imagen de contenedor de Windows desde Azure Container Registry (ACR).
     - Implementarán un prototipo para ampliar la aplicación con la inclusión del análisis de sentimiento, como otro servicio en Service Fabric, conectado a Cosmos DB.  Esto leerá la información de Tweets y la mostrará en la aplicación.
-- Para implementar una canalización de DevOps, Contoso usará VSTS para la administración de código fuente (SCM), con repositorios Git.  Las compilaciones y versiones automatizadas se usarán para compilar el código e implementarlo en Azure Container Registry y Azure Service Fabric.
+- Para implementar una canalización de DevOps, Contoso usará Azure DevOps para la administración de código fuente (SCM) con repositorios de Git.  Las compilaciones y versiones automatizadas se usarán para compilar el código e implementarlo en Azure Container Registry y Azure Service Fabric.
 
     ![Arquitectura del escenario](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
 
@@ -114,6 +114,7 @@ Contoso evalúa el diseño propuesto y crea una lista de ventajas y desventajas.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Proporcione un servicio de base de datos relacional inteligente y completamente administrado en la nube. | Costo basado en características, rendimiento y tamaño. [Más información](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Almacena imágenes para todos los tipos de implementaciones de contenedor. | Costo basado en características, almacenamiento y duración de la utilización. [Más información](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Compila y usa aplicaciones escalables y distribuidas que estén siempre disponibles. | Costo basado en tamaño, ubicación y duración de los nodos de proceso. [Más información](https://azure.microsoft.com/pricing/details/service-fabric/).
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Ofrece integración continua y la canalización de implementación continua (CI/CD) para el desarrollo de aplicaciones. La canalización comienza con un repositorio de Git para administrar código de aplicaciones, un sistema de compilación para producir paquetes y otros artefactos de compilación, y un sistema Release Management para implementar cambios en entornos de desarrollo, prueba y producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -135,10 +136,10 @@ Así es cómo Contoso ejecuta la migración:
 > * **Paso 1: Aprovisionar una instancia de SQL Database en Azure**: Contoso aprovisiona una instancia de SQL en Azure. Después de migrar la máquina virtual web de front-end a un contenedor de Azure, la instancia de contenedor con el front-end web de la aplicación apuntará a esta base de datos.
 > * **Paso 2: Creación de una instancia de Azure Container Registry (ACR)**: Contoso aprovisiona un registro de contenedor empresarial para las imágenes de contenedor de Docker.
 > * **Paso 3: Aprovisionamiento de Azure Service Fabric**: aprovisiona un clúster de Service Fabric.
-> * **Paso 4: Administración de los certificados de Service Fabric**: Contoso configura los certificados para el acceso de VSTS en el clúster.
+> * **Paso 4: Administrar certificados de Service Fabric**: Contoso configura los certificados para el acceso de Azure DevOps Services al clúster.
 > * **Paso 5: Migración de la base de datos con DMA**: migra la base de datos de la aplicación con Database Migration Assistant.
-> * **Paso 6: Configuración de VSTS**: Contoso configura un nuevo proyecto en VSTS e importa el código en el repositorio de Git.
-> * **Paso 7: Conversión de la aplicación**: Contoso convierte la aplicación en un contenedor con Visual Studio y SDK Tools.
+> * **Paso 6: Configurar Azure DevOps Services**: Contoso configura un nuevo proyecto en Azure DevOps Services e importa el código al repositorio de Git.
+> * **Paso 7: Convertir la aplicación**: Contoso convierte la aplicación en un contenedor con Azure DevOps Services y SDK Tools.
 > * **Paso 8: Configuración de compilaciones y versiones**: Contoso configura las canalizaciones de compilación y versión para crear y publicar la aplicación en el ACR y un clúster de Service Fabric.
 > * **Paso 9: Extensión de la aplicación**: después de que la aplicación es pública, Contoso la extiende para aprovechar las funcionalidades de Azure y la vuelve a publicar en Azure mediante la canalización.
 
@@ -203,7 +204,7 @@ El contenedor SmartHotel360 se ejecutará en el clúster de Azure Service Fabric
 
      ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric1.png)
 
-2. En **Básico**, proporcionan un nombre único de DS para el clúster y las credenciales para obtener acceso a la máquina virtual local. Colocan el recurso en el grupo de recursos de producción (**ContosoRG**) en la región primaria Este de EE.UU. 2.
+2. En **Básico**, especifican un nombre único de DS para el clúster y las credenciales para obtener acceso a la máquina virtual local. Colocan el recurso en el grupo de recursos de producción (**ContosoRG**) en la región primaria Este de EE.UU. 2.
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric2.png) 
 
@@ -254,7 +255,7 @@ El contenedor SmartHotel360 se ejecutará en el clúster de Azure Service Fabric
 
 ## <a name="step-4-manage-service-fabric-certificates"></a>Paso 4: Administración de los certificados de Service Fabric
 
-Contoso necesita certificados de clúster para permitir el acceso de VSTS al clúster. Los administradores de Contoso se encargan de su configuración.
+Contoso necesita certificados de clúster para permitir el acceso de Azure DevOps Services al clúster. Los administradores de Contoso se encargan de su configuración.
 
 1. Abren Azure Portal y van hasta KeyVault.
 2. Abren los certificados y copian la huella digital del certificado que se creó durante el proceso de aprovisionamiento.
@@ -262,7 +263,7 @@ Contoso necesita certificados de clúster para permitir el acceso de VSTS al cl�
     ![Copia de la huella digital](./media/contoso-migration-rearchitect-container-sql/cert1.png)
  
 3. La copian en un archivo de texto para consultarla más adelante.
-4. Ahora, agregan un certificado de cliente que se convertirá en un certificado de cliente de administrador en el clúster. Esto permite a VSTS conectarse al clúster para la implementación de la aplicación en la canalización de versión. Para ello, abren KeyVault en el portal y seleccionan **Certificates** > **Generate/Import** (Certificados > Generar o importar).
+4. Ahora, agregan un certificado de cliente que se convertirá en un certificado de cliente de administrador en el clúster. Esto permite a Azure DevOps Services conectarse al clúster para la implementación de la aplicación en la canalización de versión. Para ello, abren KeyVault en el portal y seleccionan **Certificates** > **Generate/Import** (Certificados > Generar o importar).
 
     ![Generación del certificado de cliente](./media/contoso-migration-rearchitect-container-sql/cert2.png)
 
@@ -278,7 +279,7 @@ Contoso necesita certificados de clúster para permitir el acceso de VSTS al cl�
 
      ![Huella digital del certificado de cliente](./media/contoso-migration-rearchitect-container-sql/cert5.png)
 
-8. Para la implementación de VSTS, deben determinar el valor de Base64 del certificado. Esto lo hacen en la estación de trabajo de desarrollador local mediante PowerShell. Pegan la salida en un archivo de texto para usarla en otro momento.
+8. Para la implementación de Azure DevOps Services, han de determinar el valor Base64 del certificado. Esto lo hacen en la estación de trabajo de desarrollador local mediante PowerShell. Pegan la salida en un archivo de texto para usarla en otro momento.
 
     ```
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
@@ -359,23 +360,20 @@ Los administradores de Contoso ahora migran la base de datos.
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
-## <a name="step-6-set-up-vsts"></a>Paso 6: Configuración de VSTS
+## <a name="step-6-set-up-azure-devops-services"></a>Paso 6: Configurar Azure DevOps Services
 
-Contoso necesita compilar la infraestructura y las canalizaciones de DevOps para la aplicación.  Para ello, los administradores de Contoso crean un nuevo proyecto de VSTS, importan su código y, a continuación, las canalizaciones de compilación y versión.
+Contoso necesita compilar la infraestructura y las canalizaciones de DevOps para la aplicación.  Para ello, los administradores de Contoso crean un proyecto de Azure DevOps, importan el código y luego las canalizaciones de compilación y versión.
 
-1.   En la cuenta de VSTS de Contoso, crean un nuevo proyecto (**ContosoSmartHotelRearchitect**) y seleccionan **Git** como control de versiones.
+1.   En la cuenta de Azure DevOps de Contoso, crean un proyecto (**ContosoSmartHotelRearchitect**) y seleccionan **Git** como control de versiones.
+![Nuevo proyecto](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
 
-    ![Nuevo proyecto](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
-
-2. Importan el repositorio de Git que actualmente contiene su código de la aplicación. Se encuentra en un [repositorio público](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) y puede descargarlo.
+2. Importa el repositorio de Git que actualmente contiene su código de la aplicación. Se encuentra en un [repositorio público](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) y puede descargarlo.
 
     ![Descarga del código de la aplicación](./media/contoso-migration-rearchitect-container-sql/vsts2.png)
 
-3. Una vez importado el código, conectan Visual Studio al repositorio y clonan el código mediante Team Explorer.
+3. Una vez importado el código, conecta Visual Studio al repositorio y clona el código mediante Team Explorer.
 
-    ![Conexión al repositorio](./media/contoso-migration-rearchitect-container-sql/vsts3.png)
-
-4. Después de que el repositorio se ha clonado en la máquina del desarrollador, abren el archivo de la solución para la aplicación. La aplicación web y el servicio WCF tienen cada uno proyectos separados dentro del archivo.
+4. Después de que el repositorio se ha clonado en la máquina del desarrollador, abre el archivo de la solución para la aplicación. La aplicación web y el servicio WCF tienen cada uno proyectos separados dentro del archivo.
 
     ![Archivo de soluciones](./media/contoso-migration-rearchitect-container-sql/vsts4.png)
 
@@ -424,19 +422,19 @@ Los administradores de Contoso convertirán la aplicación en un contenedor con 
 
     ![Cadena de conexión](./media/contoso-migration-rearchitect-container-sql/container8.png)
 
-10. Confirman el código actualizado y lo insertan en VSTS.
+10. Confirman el código actualizado y lo insertan en Azure DevOps Services.
 
     ![Confirmación](./media/contoso-migration-rearchitect-container-sql/container9.png)
 
-## <a name="step-8-build-and-release-pipelines-in-vsts"></a>Paso 8: Creación de canalizaciones de compilación y versión en VSTS
+## <a name="step-8-build-and-release-pipelines-in-azure-devops-services"></a>Paso 8: Canalizaciones de compilación y versión en Azure DevOps Services
 
-Los administradores de Contoso ahora configuran VSTS para realizar el proceso de compilación y versión a fin de poner en marcha las prácticas de DevOps.
+Los administradores de Contoso configuran ahora Azure DevOps Services para realizar el proceso de compilación y versión a fin de poner en marcha las prácticas de DevOps.
 
-1. En VSTS, hacen clic en **Compilación y versión** > **Nueva canalización**.
+1. En Azure DevOps Services, hacen clic en **Compilación y versión** > **Nueva canalización**.
 
     ![Nueva canalización](./media/contoso-migration-rearchitect-container-sql/pipeline1.png)
 
-2. Seleccionan **Git de VSTS** y el repositorio pertinente.
+2. Seleccione **Azure DevOps Services Git** (Git de Azure DevOps Services) y el repositorio correspondiente.
 
     ![GIT y el repositorio](./media/contoso-migration-rearchitect-container-sql/pipeline2.png)
 
@@ -444,7 +442,7 @@ Los administradores de Contoso ahora configuran VSTS para realizar el proceso de
 
      ![Fabric y Docker](./media/contoso-migration-rearchitect-container-sql/pipeline3.png)
     
-4. Cambian las imágenes de etiqueta para compilar la imagen y configuran la tarea para usar el ACR aprovisionado.
+4. Cambian las imágenes de etiqueta de acción a **Build an image** (Compilar una imagen) y configuran la tarea para usar el ACR aprovisionado.
 
      ![Registro](./media/contoso-migration-rearchitect-container-sql/pipeline4.png)
 
@@ -454,15 +452,15 @@ Los administradores de Contoso ahora configuran VSTS para realizar el proceso de
     ![Desencadenadores](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
 
 7. Hacen clic en **Guardar y poner en cola** para iniciar una compilación.
-8. Después de que la compilación se ha realizado correctamente, siguen con la canalización de versión. En VSTS, hacen clic en **Versiones** > **Nueva canalización**.
+8. Después de que la compilación se ha realizado correctamente, siguen con la canalización de versión. En Azure DevOps Services, hacen clic en **Versiones** > **Nueva canalización**.
 
     ![Canalización de versión](./media/contoso-migration-rearchitect-container-sql/pipeline6.png)    
 
-9. Seleccionan la plantilla **Implementación de Azure Service Fabric** y asignan a la implementación el nombre (**SmartHotelSF**).
+9. Seleccionan la plantilla **Implementación de Azure Service Fabric** y asignan nombre (**SmartHotelSF**) a la fase.
 
     ![Entorno](./media/contoso-migration-rearchitect-container-sql/pipeline7.png)
 
-10. Proporcionan a la canalización el nombre (**ContosoSmartHotelRearchitect**). En el entorno, hacen clic en **1 phase, 1 task** (1 fase, 1 tarea) para configurar la implementación de Service Fabric.
+10. Especifican un nombre de canalización (**ContosoSmartHotel360Rearchitect**). En la fase, hacen clic en **1 job, 1 task** (1 trabajo, 1 tarea) para configurar la implementación de Service Fabric.
 
     ![Fase y tarea](./media/contoso-migration-rearchitect-container-sql/pipeline8.png)
 
@@ -470,7 +468,7 @@ Los administradores de Contoso ahora configuran VSTS para realizar el proceso de
 
     ![Nueva conexión](./media/contoso-migration-rearchitect-container-sql/pipeline9.png)
 
-12. En **Add Service Fabric service connection** (Agregar conexión del servicio Service Fabric), configuran la conexión y los valores de autenticación que se usarán en VSTS para implementar la aplicación. El punto de conexión del clúster puede encontrarse en Azure Portal. Los administradores agregan **tcp://** como prefijo.
+12. En **Add Service Fabric service connection** (Agregar conexión del servicio Service Fabric), configuran la conexión y las opciones de autenticación que se usarán en Azure DevOps Services para implementar la aplicación. El punto de conexión del clúster puede encontrarse en Azure Portal. Los administradores agregan **tcp://** como prefijo.
 13. La información del certificado que recopilan se introduce en **Huella digital de certificado de servidor** y **Certificado de cliente**.
 
     ![Certificate](./media/contoso-migration-rearchitect-container-sql/pipeline10.png)
@@ -499,7 +497,7 @@ Los administradores de Contoso ahora configuran VSTS para realizar el proceso de
 
     ![Publicar](./media/contoso-migration-rearchitect-container-sql/publish4.png)
 
-19. Para conectarse a la aplicación, dirigen el tráfico a la dirección IP pública del equilibrador de carga de Azure delante de sus nodos de Service Fabric.
+19. Para conectarse a la aplicación, dirigen el tráfico a la dirección IP pública del equilibrador de carga de Azure delante de los nodos de Service Fabric.
 
     ![Publicar](./media/contoso-migration-rearchitect-container-sql/publish5.png)
 
@@ -580,7 +578,7 @@ Después de aprovisionar Cosmos DB, los administradores de Contoso pueden config
 
 Después de extender la aplicación, los administradores de Contoso vuelven a publicarla en Azure mediante la canalización.
 
-1. Confirman e insertan su código en VSTS. Esto inicia las canalizaciones de compilación y versión.
+1. Confirman el código y lo insertan en Azure DevOps Services. Esto inicia las canalizaciones de compilación y versión.
 
 2. Una vez finalizada la implementación y la compilación, SmartHotel360 ejecutará Service Fabric. La consola de administración de Service Fabric muestra ahora tres servicios.
 

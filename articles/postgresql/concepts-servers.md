@@ -4,17 +4,16 @@ description: En este artículo se incluyen consideraciones e instrucciones para 
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/22/2018
-ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 09/27/2018
+ms.openlocfilehash: 8fcb5e8371d6c813eb7f0ab4d23a5aac5c41fb3b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640020"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404646"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Servidores de Azure Database for PostgreSQL
 En este artículo se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for PostgreSQL.
@@ -56,6 +55,7 @@ El atributo de superusuario de PostgreSQL se asigna a azure_superuser, que perte
 Un servidor de Azure Database for PostgreSQL tiene dos bases de datos predeterminadas: 
 - **postgres**: una base de datos predeterminada a la que puede conectarse una vez creado el servidor.
 - **azure_maintenance**: esta base de datos se usa para separar los procesos que proporciona el servicio administrado de las acciones del usuario. No dispone de acceso a esta base de datos.
+- **azure_sys**: una base de datos para el Almacén de consultas. Esta base de datos no acumula datos cuando el Almacén de consultas está desactivado, sino que se trata de la configuración predeterminada. Para más información, vea [Supervisión del rendimiento con el Almacén de consultas](concepts-query-store.md).
 
 
 ## <a name="server-parameters"></a>Parámetros del servidor

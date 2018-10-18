@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294063"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033437"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -259,28 +259,28 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Cifrado del lado servidor mediante claves administradas por el cliente en Key Vault**             |  **Cifrado del lado servidor mediante claves administradas por el cliente localmente**                  | **Lado cliente mediante claves administradas por el cliente**      |
 | **Almacenamiento y bases de datos**        |                    |                    |                    |                    |                    |
-| Disco (IaaS)                      | -                  | Sí, RSA de 2048 bits  | Sí               | -                  |
-| SQL Server (IaaS)                | Sí                | Sí, RSA de 2048 bits  | Sí                | Sí                |
-| Azure SQL Database (PaaS)        | Sí                | Sí, RSA de 2048 bits  | -                  | Sí                |
-| Azure Storage (blobs en bloques o en páginas) | Sí                | Sí, RSA de 2048 bits  | -                  | Sí                |
-| Azure Storage (archivos)            | Sí                | Sí, RSA de 2048 bits  | -                  | -                  |
-| Azure Storage (tablas, colas)   | Sí                | -                  | -                  | Sí                |
-| Cosmos DB (documento DB)          | Sí                | -                  | -                  | -                  |
-| StorSimple                       | Sí                | -                  | -                  | Sí                |
-| Backup                           | -                  | -                  | -                  | Sí                |
+| Disco (IaaS)                      | -                  | Sí, RSA de 2048 bits  | SÍ               | -                  |
+| SQL Server (IaaS)                | SÍ                | Sí, RSA de 2048 bits  | SÍ                | SÍ                |
+| Azure SQL (Base de datos/Almacenamiento de datos) | SÍ                | Sí, RSA de 2048 bits  | -                  | SÍ                |
+| Azure Storage (blobs en bloques o en páginas) | SÍ                | Sí, RSA de 2048 bits  | -                  | SÍ                |
+| Azure Storage (archivos)            | SÍ                | Sí, RSA de 2048 bits  | -                  | -                  |
+| Azure Storage (tablas, colas)   | SÍ                | -                  | -                  | SÍ                |
+| Cosmos DB (documento DB)          | SÍ                | -                  | -                  | -                  |
+| StorSimple                       | SÍ                | -                  | -                  | SÍ                |
+| Copia de seguridad                           | -                  | -                  | -                  | SÍ                |
 | **Inteligencia y análisis**   |                    |                    |                    |                    |
-| Azure Data Factory               | Sí                | -                  | -                  | -                  |
+| Azure Data Factory               | SÍ                | -                  | -                  | -                  |
 | Azure Machine Learning           | -                  | Versión preliminar, RSA de 2048 bits | -                  | -                  |
-| Azure Stream Analytics           | Sí                | -                  | -                  | -                  |
-| HDInsight (Azure Blob Storage)   | Sí                | -                  | -                  | -                  |
-| HDInsight (Data Lake Storage)    | Sí                | -                  | -                  | -                  |
-| Almacén de Azure Data Lake            | Sí                | Sí, RSA de 2048 bits  | -                  | -                  |
-| Azure Data Catalog               | Sí                | -                  | -                  | -                  |
-| Power BI                         | Sí                | -                  | -                  | -                  |
+| Azure Stream Analytics           | SÍ                | -                  | -                  | -                  |
+| HDInsight (Azure Blob Storage)   | SÍ                | -                  | -                  | -                  |
+| HDInsight (Data Lake Storage)    | SÍ                | -                  | -                  | -                  |
+| Azure Data Lake Store            | SÍ                | Sí, RSA de 2048 bits  | -                  | -                  |
+| Azure Data Catalog               | SÍ                | -                  | -                  | -                  |
+| Power BI                         | SÍ                | -                  | -                  | -                  |
 | **Servicios IoT**                 |                    |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | -                  | Sí                |
-| Azure Service Bus                      | Sí                | -                  | -                  | Sí                |
-| Event Hubs                       | Sí                | -                  | -                  | -                  |
+| IoT Hub                          | -                  | -                  | -                  | SÍ                |
+| Azure Service Bus                      | SÍ                | -                  | -                  | SÍ                |
+| Event Hubs                       | SÍ                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusión

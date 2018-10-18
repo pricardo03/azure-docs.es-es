@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144571"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423585"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importación de un archivo de Power BI Desktop
 
@@ -22,10 +22,13 @@ Puede importar un modelo de datos en un archivo de Power BI Desktop (pbix) en Az
 **Restricciones**   
 
 - La importación desde un archivo pbix utiliza la característica de diseñador web en el portal, que es la **versión preliminar**. La funcionalidad es limitada. Para llevar a cabo el desarrollo y las pruebas de modelos más avanzados, es mejor usar Visual Studio (SSDT) y SQL Server Management Studio (SSMS).
+- Si su modelo de datos se creó Power BI Desktop, actualización de julio de 2018 (2.60.5169.3201) o posterior, asegúrese de que ninguna característica en vista previa esté habilitada. Las características en vista previa aún no se admiten en Azure Analysis Services.  
+Si recibe este error al importar, significa que el archivo pbix tiene características en vista previa habilitadas que aún no se admiten en Azure Analysis Services.
+
+    ![Advertencia de nivel de compatibilidad](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - Debe tener permisos de administrador del servidor para importar desde un archivo pbix.
 - El modelo pbix puede conectarse solo a orígenes de datos de **Azure SQL Database** y **Azure SQL Data Warehouse**.
 - El modelo pbix no puede tener conexiones en vivo o de DirectQuery. 
-- Se puede producir un error en la importación si el modelo de datos pbix contiene metadatos que no se admiten en Analysis Services.
 
 
 ## <a name="to-import-from-pbix"></a>Para importar desde pbix

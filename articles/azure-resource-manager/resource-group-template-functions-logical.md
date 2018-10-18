@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359074"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164794"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
 
@@ -38,10 +38,10 @@ Comprueba si los dos valores de parámetro son verdaderos.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
-| arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
+| arg1 |SÍ |boolean |Primer valor cuya veracidad se comprueba. |
+| arg2 |SÍ |boolean |Segundo valor cuya veracidad se comprueba. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -100,9 +100,9 @@ Convierte el parámetro en un booleano.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |cadena o entero |El valor para convertir en booleano. |
+| arg1 |SÍ |cadena o entero |El valor para convertir en booleano. |
 
 ### <a name="return-value"></a>Valor devuelto
 Valor booleano del valor convertido.
@@ -165,11 +165,11 @@ Devuelve un valor dependiendo de si una condición es verdadera o falsa.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| condition |Sí |boolean |Valor cuya veracidad se comprueba. |
-| trueValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es verdadera. |
-| falseValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es falsa. |
+| condition |SÍ |boolean |Valor cuya veracidad se comprueba. |
+| trueValue |SÍ | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es verdadera. |
+| falseValue |SÍ | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es falsa. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -239,6 +239,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -250,6 +254,7 @@ El resultado del ejemplo anterior es:
 | ---- | ---- | ----- |
 | yesOutput | string | Sí |
 | noOutput | string | no |
+| objectOutput | Objeto | { "test": "value1" } |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -270,9 +275,9 @@ Convierte el valor booleano en su valor opuesto.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |boolean |Valor que se va a convertir. |
+| arg1 |SÍ |boolean |Valor que se va a convertir. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -365,10 +370,10 @@ Comprueba si cualquiera de los valores de parámetro es verdadero.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
-| arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
+| arg1 |SÍ |boolean |Primer valor cuya veracidad se comprueba. |
+| arg2 |SÍ |boolean |Segundo valor cuya veracidad se comprueba. |
 
 ### <a name="return-value"></a>Valor devuelto
 

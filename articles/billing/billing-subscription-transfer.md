@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6055dbab85acb1e5fed9679a5072144bc84712c
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7e9b5d1a84417cf6e6264211ea6e542ab712f9fe
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917130"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422613"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
 
@@ -77,12 +77,11 @@ El administrador de la empresa puede transferir la propiedad de las suscripcione
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Pasos siguientes después de aceptar la propiedad de una suscripción
 
-1. Ahora es el administrador de cuenta. Revise y actualice el administrador del servicio, los coadministradores y otros roles de RBAC. Para más información, consulte [Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios](billing-add-change-azure-subscription-administrator.md).
+1. Ahora es el administrador de cuenta. Revise y actualice el administrador del servicio, los coadministradores y otros roles de RBAC. Para obtener más información, vea [Agregar o cambiar los administradores de la suscripción de Azure](billing-add-change-azure-subscription-administrator.md) y [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 1. Actualice las credenciales asociadas a los servicios de esta suscripción:
    1. Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md)
    1. Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
    1. Credenciales de acceso remoto para servicios como Azure Virtual Machines. 
-1. [Actualice las alertas de facturación para esta suscripción](billing-set-up-alerts.md) en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). 
 1. Si trabaja con un asociado, considere la posibilidad de actualizar el identificador del asociado en esta suscripción. Puede actualizar el identificador de asociado en [Azure Portal](https://portal.azure.com).
 
 <a id="supported"></a>

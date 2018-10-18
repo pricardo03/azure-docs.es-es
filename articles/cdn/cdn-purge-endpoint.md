@@ -1,10 +1,10 @@
 ---
-title: Purga de un punto de conexión de red CDN de Azure| Microsoft Docs
-description: Aprenda a purgar todo el contenido almacenado en caché en un punto de conexión de la red CDN de Azure.
+title: Purga de un punto de conexión de Azure CDN | Microsoft Docs
+description: Aprenda a purgar todo el contenido almacenado en caché en un punto de conexión de Azure CDN.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: mazha
-ms.openlocfilehash: 262a8f7385ba5f74d21991772599540260a145fc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765173"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093857"
 ---
-# <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de red CDN de Azure
+# <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de Azure CDN
 ## <a name="overview"></a>Información general
-Los nodos perimetrales de la red CDN almacenarán recursos en caché hasta que el período de vida de dichos recursos (TTL) expire.  Tras la expiración del TTL del activo, cuando un cliente solicite el activo desde el nodo perimetral, este nodo recuperará una nueva copia actualizada del activo para atender la solicitud de cliente y almacenar actualizada la memoria caché.
+Los nodos perimetrales de Azure CDN almacenarán recursos en caché hasta que el período de vida de dichos recursos (TTL) expire.  Tras la expiración del TTL del activo, cuando un cliente solicite el activo desde el nodo perimetral, este nodo recuperará una nueva copia actualizada del activo para atender la solicitud de cliente y almacenar actualizada la memoria caché.
 
 El procedimiento recomendado para asegurarse de que los usuarios siempre obtengan la copia más reciente de los recursos es crear versiones correspondientes a cada actualización y publicarlos como nuevas URL.  La red CDN recuperará inmediatamente los nuevos recursos en las siguientes solicitudes de los clientes.  A veces puede que quiera purgar contenido almacenado en caché de todos los nodos perimetrales y forzarlos todos para recuperar nuevos activos actualizados.  Esto puede deberse a actualizaciones de la aplicación web o a actualizaciones rápidas de los activos de actualización que contienen información incorrecta.
 
@@ -53,11 +53,11 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
    > 
 4. Seleccione los activos que quiera purgar de los nodos perimetrales.  Si quiere borrar todos los recursos, haga clic en la casilla **Purgar todo** .  De lo contrario, escriba la ruta de acceso completa de cada recurso que quiera purgar en el cuadro de texto **Ruta de acceso**. Los siguientes formatos se pueden usar en las rutas de acceso.
     1. **Purga con una sola URL**: purgue recursos concretos especificando la URL completa, con o sin la extensión de archivo; por ejemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`.
-    2. **Purga con carácter comodín**: se puede usar el asterisco (\*) como carácter comodín. Purgue todas las carpetas, subcarpetas y archivos de un punto de conexión con `/*` en la ruta de acceso o todas las subcarpetas y archivos de una carpeta concreta especificando la carpeta seguido de `/*`; por ejemplo, `/pictures/*`.  Tenga en cuenta que, en estos momentos, la purga de carácter comodín no es compatible con la red CDN de Azure de Akamai. 
+    2. **Purga con carácter comodín**: se puede usar el asterisco (\*) como carácter comodín. Purgue todas las carpetas, subcarpetas y archivos de un punto de conexión con `/*` en la ruta de acceso o todas las subcarpetas y archivos de una carpeta concreta especificando la carpeta seguido de `/*`; por ejemplo, `/pictures/*`.  Tenga en cuenta que, en estos momentos, la purga de carácter comodín no es compatible con Azure CDN de Akamai. 
     3. **Purga de dominio raíz**: purgue la raíz del punto de conexión con "/" en la ruta de acceso.
    
    > [!TIP]
-   > Las rutas de acceso que se van a purgar deben especificarse y ser una URL relativa que se ajuste a la siguiente [expresión regular](https://msdn.microsoft.com/library/az24scfc.aspx). **Purgar todo** y la **purga con carácter comodín** no son compatibles en estos momentos con la **red CDN de Azure de Akamai**.
+   > Las rutas de acceso que se van a purgar deben especificarse y ser una URL relativa que se ajuste a la siguiente [expresión regular](https://msdn.microsoft.com/library/az24scfc.aspx). **Purgar todo** y la **purga con carácter comodín** no son compatibles en estos momentos con **Azure CDN de Akamai**.
    > > Purga con una sola URL `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Cadena de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Purga con carácter comodín `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";` 
@@ -69,11 +69,11 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
     ![Botón Purgar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Las solicitudes de purga tardan aproximadamente de 2 a 3 minutos en procesarse con **Azure CDN de Verizon** (estándar y premium) y unos 7 minutos con **Azure CDN de Akamai**.  La red CDN de Azure tiene un límite de 50 solicitudes de purga simultáneas en un momento dado en el nivel de perfil. 
+> Las solicitudes de purga tardan aproximadamente de 2 a 3 minutos en procesarse con **Azure CDN de Verizon** (estándar y premium) y unos 7 minutos con **Azure CDN de Akamai**.  Azure CDN tiene un límite de 50 solicitudes de purga simultáneas en un momento dado en el nivel de perfil. 
 > 
 > 
 
 ## <a name="see-also"></a>Otras referencias
-* [Carga previa de activos en un punto de conexión de CDN de Azure](cdn-preload-endpoint.md)
-* [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Carga previa de activos en un punto de conexión de Azure CDN](cdn-preload-endpoint.md)
+* [Referencia de la API REST de Azure CDN - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 

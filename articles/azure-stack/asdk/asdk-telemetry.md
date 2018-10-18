@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: bfd16901c5ce036719a1ed19e9a5b5c6ef52be93
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e50cb33acc95567a24afb19f88f88a3f586e0124
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257431"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224767"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetría de Azure Stack
 
@@ -85,13 +85,13 @@ Los niveles de telemetría son acumulativos y se clasifican en cuatro niveles (0
 **1 (Básico)**. Datos de seguridad y datos básicos de mantenimiento y calidad. Información básica del dispositivo, lo que incluye datos relacionados con la calidad, compatibilidad con aplicaciones, datos de uso de aplicaciones y datos del nivel Seguridad. Al establecer el nivel de telemetría en Básico se habilita la telemetría de Azure Stack. Los datos recopilados en este nivel incluyen:
 
 - **Información básica del dispositivo** que ayuda a comprender los tipos y las configuraciones de instancias de Windows Server 2016 nativas y virtualizadas del ecosistema, como por ejemplo:
- - Atributos de la máquina, como OEM, modelo
- - Atributos de red, como número y velocidad de los adaptadores de red
- - Atributos de procesador y memoria, como número de núcleos, tamaño de memoria
- - Atributos de almacenamiento, como número de unidades, tipo y tamaño
+  - Atributos de la máquina, como OEM, modelo
+  - Atributos de red, como número y velocidad de los adaptadores de red
+  - Atributos de procesador y memoria, como número de núcleos, tamaño de memoria
+  - Atributos de almacenamiento, como número de unidades, tipo y tamaño
 - **Funcionalidad de telemetría**, que incluye el porcentaje de eventos cargados, eventos descartados y hora de última carga.
 - **Información relacionada con la calidad** que ayuda a Microsoft a desarrollar un conocimiento básico del funcionamiento Azure Stack. Un ejemplo es el número de alertas críticas en una configuración de hardware determinada.
-- \*\*Datos de compatibilidad, que ayudan a saber qué proveedores de recursos están instalados en un sistema y en una máquina virtual, e identifican posibles problemas de compatibilidad.
+- **Datos de compatibilidad**, que permiten saber qué proveedores de recursos están instalados en un sistema y en una máquina virtual, e identifican posibles problemas de compatibilidad.
 
 **2 (Mejorado)**. Información adicional, que incluye cómo se usan el sistema operativo y otros servicios de Azure Stack, cuál es su rendimiento, datos avanzados de confiabilidad y datos de los niveles Básico y Seguridad.
 

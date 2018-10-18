@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: da69cc22fbb071ce3fa4b2c53aaf0b1ec4ba5e46
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314728"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096317"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
 
@@ -118,7 +118,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ## <a name="code-sample-on-github"></a>Código de ejemplo en GitHub
 Para ver cómo funcionan las tareas de preparación y liberación del trabajo, consulte el proyecto de ejemplo [JobPrepRelease][job_prep_release_sample] en GitHub. Esta aplicación de consola hace lo siguiente:
 
-1. Crea un grupo con dos nodos "pequeños".
+1. Crea un grupo con dos nodos.
 2. Crea un trabajo con las tareas de preparación y de liberación del trabajo, además de las estándar.
 3. Ejecuta la tarea de preparación del trabajo, que en primer lugar escribe el identificador de nodo en un archivo de texto en el directorio "shared" de un nodo.
 4. Ejecuta una tarea en cada nodo que escribe su identificador de tarea en el mismo archivo de texto.
@@ -131,7 +131,7 @@ La salida de la aplicación de ejemplo es similar a la siguiente:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-Created pool JobPrepReleaseSamplePool with 2 small nodes
+Created pool JobPrepReleaseSamplePool with 2 nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...

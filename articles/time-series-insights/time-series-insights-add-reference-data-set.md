@@ -10,12 +10,12 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631051"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364744"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante Azure Portal
 
@@ -24,6 +24,12 @@ En este artículo se describe cómo agregar un conjunto de datos de referencia a
 Un conjunto de datos de referencia es una colección de elementos que aumentan los eventos de un origen de eventos. El motor de entrada de Time Series Insights combina cada evento del origen de eventos con la fila de datos correspondiente en el conjunto de datos de referencia. A partir de ese momento, este evento aumentado está disponible para consultas. Esta combinación se basa en las columnas de clave principal definidas en el conjunto de datos de referencia.
 
 Los datos de referencia no se combinan de manera retroactiva. Esto significa que solo los datos de entrada actuales y futuros se combinan y unen con el conjunto de datos de referencia una vez que se configuran y cargan.
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>En este vídeo, se explica el modelo de datos de referencia de Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>Adición de un conjunto de datos de referencia
 

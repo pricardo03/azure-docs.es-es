@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 445628679a09a1884f63cdce446adec476af39af
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b254f9a4446a1b0ff400e0d63effe68fc4f82b4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41947971"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363673"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implementación de una plantilla en Azure Stack mediante PowerShell
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Puede usar PowerShell para implementar plantillas de Azure Resource Manager en Azure Stack. En este artículo, se muestra cómo usar PowerShell para implementar una plantilla.
+Puede usar PowerShell para implementar plantillas de Azure Resource Manager en Azure Stack. En este artículo, se describe cómo usar PowerShell para implementar una plantilla.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Ejecución de cmdlets de AzureRM PowerShell
 
@@ -35,36 +35,36 @@ En este ejemplo, se utilizan cmdlets de AzureRM PowerShell y una plantilla almac
 >[!NOTE]
 >Antes de probar este ejemplo, asegúrese de que se haya [configurado PowerShell](azure-stack-powershell-configure-user.md) para un usuario de Azure Stack.
 
-1. Vaya a <http://aka.ms/AzureStackGitHub> y busque la plantilla **101-simple-windows-vm**. Guarde la plantilla en esta ubicación: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+1. Vaya a [http://aka.ms/AzureStackGitHub](http://aka.ms/AzureStackGitHub) y busque la plantilla **101-simple-windows-vm**. Guarde la plantilla en esta ubicación: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
 2. Abra un símbolo del sistema de PowerShell con privilegios elevados.
 3. En el siguiente script, sustituya *username* (nombre de usuario) y *password* (contraseña) por su nombre de usuario y contraseña, y luego ejecute el script.
 
    ```PowerShell
-       # Set Deployment Variables
-       $myNum = "001" #Modify this per deployment
-       $RGName = "myRG$myNum"
-       $myLocation = "local"
+   # Set deployment variables
+   $myNum = "001" #Modify this per deployment
+   $RGName = "myRG$myNum"
+   $myLocation = "local"
    
-       # Create Resource Group for Template Deployment
-       New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+   # Create resource group for template deployment
+   New-AzureRmResourceGroup -Name $RGName -Location $myLocation
    
-       # Deploy Simple IaaS Template
-       New-AzureRmResourceGroupDeployment `
-           -Name myDeployment$myNum `
-           -ResourceGroupName $RGName `
-           -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-           -NewStorageAccountName mystorage$myNum `
-           -DnsNameForPublicIP mydns$myNum `
-           -AdminUsername <username> `
-           -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-           -VmName myVM$myNum `
-           -WindowsOSVersion 2012-R2-Datacenter
+   # Deploy simple IaaS template
+   New-AzureRmResourceGroupDeployment `
+       -Name myDeployment$myNum `
+       -ResourceGroupName $RGName `
+       -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
+       -NewStorageAccountName mystorage$myNum `
+       -DnsNameForPublicIP mydns$myNum `
+       -AdminUsername <username> `
+       -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
+       -VmName myVM$myNum `
+       -WindowsOSVersion 2012-R2-Datacenter
    ```
 
    >[!IMPORTANT]
-   >Incremente el valor del parámetro "$myNum" cada vez que ejecute este script para evitar sobrescribir su implementación.
+   >Incremente el valor del parámetro `$myNum` cada vez que ejecute este script para evitar sobrescribir la implementación.
 
-4. Abra el portal de Azure Stack, seleccione **Examinar**, luego seleccione **Máquinas virtuales** y busque su nueva máquina virtual (*myDeployment001*).
+4. Abra el portal de Azure Stack, seleccione **Examinar**, luego seleccione **Máquinas virtuales** y busque su nueva máquina virtual (**myDeployment001**).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

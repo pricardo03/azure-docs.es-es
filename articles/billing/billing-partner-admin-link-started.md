@@ -3,19 +3,19 @@ title: Vinculación de una cuenta de Azure a un Id. de partner | Microsoft Docs
 description: Controle las interacciones con clientes de Azure vinculando un Id. de partner a la cuenta de usuario que utiliza para administrar los recursos del cliente.
 services: billing
 author: dhirajgandhi
-ms.author: dhgandhi
+ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608719"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391785"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -89,7 +89,7 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ``` 
 
-2.  Inicie sesión en el inquilino de cliente con la cuenta de usuario o la entidad de servicio. Para más información, consulte [Inicio de sesión con la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2.  Inicie sesión en el inquilino de cliente con la cuenta de usuario o la entidad de servicio. Para más información, vea [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>

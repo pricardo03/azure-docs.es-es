@@ -1,20 +1,22 @@
 ---
-title: 'Registrar la aplicación: Azure Cognitive Services | Microsoft Docs'
-description: Guía detallada sobre el registro de una aplicación nueva con Azure Custom Decision Service
+title: 'Registro de la aplicación: Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: Guía detallada sobre el registro de una aplicación nueva con Azure Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.reviewer: marcozo;alekh;marossi
-ms.openlocfilehash: 2aa8fbe77c11df4434eefa4c92d8529d5ca1d885
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.reviewer: marcozo
+ms.openlocfilehash: 598300597856d858095ff7c2e2cf9e9264190a9d
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382102"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365407"
 ---
 # <a name="register-your-application"></a>Registrar su aplicación
 

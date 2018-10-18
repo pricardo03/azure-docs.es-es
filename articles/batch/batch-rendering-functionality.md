@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42146652"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392795"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
@@ -50,9 +50,12 @@ Las aplicaciones que se usarán y que tienen una tarifa de licencia deben especi
 * Especifique la propiedad `applicationLicenses` al [crear un grupo](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  En la matriz de cadenas ("vray", "arnold", "3dsmax", "maya") se pueden especificar los valores siguientes.
 * Cuando se especifican una o varias aplicaciones, el costo de esas aplicaciones se agrega al costo de las VM.  Los precios de las aplicaciones se muestran en la [página de precios de Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> Si, en cambio, se conecta a un servidor de licencias para usar las aplicaciones de representación, no especifique la propiedad `applicationLicenses`.
+
 Puede usar Azure Portal o Batch Explorer para seleccionar las aplicaciones y mostrar los precios.
 
-Si se intenta usar una aplicación, pero no se ha especificado la aplicación en la propiedad `applicationLicenses` de la configuración del grupo, no es posible ejecutar la aplicación debido a un error de licencias y el código de salida distinto de cero.
+Si se intenta usar una aplicación, pero no se ha especificado la aplicación en la propiedad `applicationLicenses` de la configuración del grupo o no se puede conectar con un servidor de licencias, no se podrá ejecutar la aplicación debido a un error de licencias y el código de salida distinto de cero.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Variables de entorno para aplicaciones instaladas previamente
 

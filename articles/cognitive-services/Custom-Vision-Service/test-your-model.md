@@ -1,20 +1,21 @@
 ---
-title: 'Prueba y reentrenamiento de un modelo: Custom Vision Service en Azure Cognitive Services | Microsoft Docs'
+title: 'Prueba y reentrenamiento de un modelo: Custom Vision Service'
+titlesuffix: Azure Cognitive Services
 description: Aprenda cómo probar una imagen y usarla luego para reentrenar el modelo.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 1933b1a45844ac99308baebe59b49687a957abfa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5830257cf246e059cbccb654462f709df981e06b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381278"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367957"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Prueba y reentrenamiento de un modelo con Custom Vision Service
 
@@ -43,18 +44,18 @@ Para usar la imagen enviada anteriormente para el entrenamiento, siga estos paso
     ![Imagen de la pestaña de predicciones](./media/test-your-model/predictions-tab.png)
 
     > [!TIP]
-    > La vista predeterminada muestra imágenes de la iteración actual. Puede usar el campo de lista desplegable __Iteration__ (Iteración) para ver las imágenes enviadas durante las iteraciones anteriores.
+    > La vista predeterminada muestra imágenes de la iteración actual. Puede usar el campo de lista desplegable __Iteración__ para ver las imágenes enviadas durante las iteraciones anteriores.
 
 2. Mantenga el mouse sobre una imagen para ver las etiquetas previstas por el clasificador.
 
     > [!TIP]
-    > Las imágenes se clasifican, y aquellas que pueden aportar más ganancias al clasificador se colocan en primer lugar. Para seleccionar una clasificación diferente, use la sección __Sort__ (Ordenar).
+    > Las imágenes se clasifican, y aquellas que pueden aportar más ganancias al clasificador se colocan en primer lugar. Para seleccionar una clasificación diferente, use la sección __Ordenar__.
 
-    Para agregar una imagen a los datos de entrenamiento, seleccione la imagen, seleccione la etiqueta y, a continuación, seleccione __Save and close__ (Guardar y cerrar). La imagen se quita de __Predictions__ (Predicciones) y se agrega a las imágenes de entrenamiento. Para verla, seleccione la pestaña __Training Images__ (Imágenes de entrenamiento).
+    Para agregar una imagen a los datos de entrenamiento, seleccione la imagen, seleccione la etiqueta y, a continuación, seleccione __Guardar y cerrar__. La imagen se quita de __Predictions__ (Predicciones) y se agrega a las imágenes de entrenamiento. Para verla, seleccione la pestaña __Training Images__ (Imágenes de entrenamiento).
 
     ![Imagen de la página de etiquetado](./media/test-your-model/tag-image.png)
 
-3. Use el botón __Train__ (Entrenar) para reentrenar el clasificador.
+3. Use el botón __Entrenar__ para reentrenar el clasificador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

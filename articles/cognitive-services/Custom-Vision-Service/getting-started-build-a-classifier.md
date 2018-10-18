@@ -1,20 +1,21 @@
 ---
-title: Creación de un clasificador con Custom Vision Service en Azure Cognitive Services | Microsoft Docs
+title: 'Creación de un clasificador: Custom Vision Service'
+titlesuffix: Azure Cognitive Services
 description: Aprenda a usar Custom Vision Service para crear un clasificador que pueda distinguir objetos en fotos.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223376"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364257"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Cómo crear un clasificador con Custom Vision
 

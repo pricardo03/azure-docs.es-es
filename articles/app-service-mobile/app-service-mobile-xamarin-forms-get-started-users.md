@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f7e500fb5856c7eec48a371042244b44dd944779
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593405"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063797"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Agregue autenticación a su aplicación de Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -188,6 +188,12 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en e
     Este código garantiza que el autenticador se inicializa antes de que se cargue la aplicación.
 8. Vuelva a compilar la aplicación, ejecútela, inicie sesión con el proveedor de autenticación que elija y compruebe que pueda acceder a los datos como usuario autenticado.
 
+### <a name="troubleshooting"></a>solución de problemas
+
+**La aplicación se ha bloqueado con `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+En algunos casos, los conflictos en los paquetes de soporte aparecen como simples advertencias en Visual Studio, pero la aplicación se bloquea con esta excepción en tiempo de ejecución. En este caso tiene que asegurarse de que todos los paquetes de soporte a los que se hace referencia en el proyecto tengan la misma versión. El [paquete NuGet de Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tiene la dependencia `Xamarin.Android.Support.CustomTabs` para la plataforma Android, por lo que si el proyecto usa paquetes de soporte más recientes, tiene que instalar este paquete con la versión necesaria directamente para evitar conflictos.
+
 ## <a name="add-authentication-to-the-ios-app"></a>Agregar autenticación a la aplicación de iOS
 En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en el proyecto de aplicación de iOS. Omita esta sección si no ofrece compatibilidad con dispositivos iOS.
 
@@ -333,7 +339,7 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en p
 
 4. Vuelva a compilar la aplicación, ejecútela, inicie sesión con el proveedor de autenticación que elija y compruebe que pueda acceder a los datos como usuario autenticado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Agregar notificaciones push a la aplicación](app-service-mobile-xamarin-forms-get-started-push.md)

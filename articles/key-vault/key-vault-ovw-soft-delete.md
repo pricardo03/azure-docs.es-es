@@ -2,16 +2,17 @@
 ms.assetid: ''
 title: Eliminación temporal de Azure Key Vault | Microsoft Docs
 ms.service: key-vault
+ms.topic: conceptual
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ccdefc83642285194635ffe7b561e9e322360533
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42142697"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407882"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -36,9 +37,26 @@ Los almacenes Azure Key Vault son recursos controlados que se administran por me
 
 ### <a name="soft-delete-behavior"></a>Comportamiento de eliminación temporal
 
-Con esta característica, la operación DELETE sobre un objeto o instancia de Key Vault es una operación temporal que retiene los recursos durante un período determinado durante el cual parece que el objeto se ha eliminado realmente. El servicio proporciona además un mecanismo para recuperar el objeto eliminado, básicamente deshaciendo la eliminación. 
+Con esta característica, la operación DELETE sobre un objeto o instancia de Key Vault es una operación temporal que retiene los recursos durante un período determinado (90 días) durante el cual parece que el objeto se ha eliminado realmente. El servicio proporciona además un mecanismo para recuperar el objeto eliminado, básicamente deshaciendo la eliminación. 
 
 La eliminación temporal es un comportamiento opcional de Key Vault y no **está habilitado de forma predeterminada** en esta versión. 
+
+### <a name="purge-protection--flag"></a>Marca de protección de purgas
+La marca de protección de purgas (**--enable-purge-protection** en la CLI de Azure) está desactivada de forma predeterminada. Cuando esta marca está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención de 90 días. El almacén u objeto todavía se puede recuperar. Esta marca ofrece a los clientes mayor seguridad de que un almacén u objeto nunca se va a eliminar de forma permanente hasta que haya transcurrido el período de retención. Puede activar la marca de protección de purgas solo si la marca de eliminación temporal está activada, o si durante la creación del almacén se activan la eliminación temporal y la protección de purgas.
+
+[!NOTE] El requisito previo para activar la protección de purgas es que la eliminación temporal debe estar activada. El comando para hacerlo en la CLI de Azure 2 es
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+### <a name="permitted-purge"></a>Purga permitida
+
+La purga permanente de una instancia de Key Vault es posible a través de una operación POST en el recurso de proxy y requiere privilegios especiales. Por lo general, el propietario de la suscripción es el único que puede purgar una instancia de Key Vault. La operación POST activa la eliminación inmediata y no recuperable de esa instancia. 
+
+Una excepción a esto es
+- si la suscripción de Azure se ha marcado como *no eliminable*. En este caso, solo el servicio puede realizar la eliminación real, y lo hace como un proceso programado. 
+- Si la marca --enable-purge-protection está habilitada en el propio almacén. En este caso, Key Vault espera durante 90 días a partir de que el objeto de secreto original se marcara para eliminación para eliminar permanentemente el objeto.
 
 ### <a name="key-vault-recovery"></a>Recuperación de Key Vault
 
@@ -62,12 +80,6 @@ Los recursos eliminados temporalmente se conservan durante un período de tiempo
 - Solo un usuario con privilegios determinados puede eliminar por la fuerza una instancia o un objeto de Key Vault mediante la emisión de un comando de eliminación en el recurso de proxy correspondiente.
 
 Una vez que finalice el intervalo de retención, el servicio lleva a cabo una purga de la instancia o el objeto de Key Vault eliminados temporalmente y de su contenido, a menos que se hayan recuperado. La eliminación de recursos no se puede volver a programar.
-
-### <a name="permitted-purge"></a>Purga permitida
-
-La purga permanente de una instancia de Key Vault es posible a través de una operación POST en el recurso de proxy y requiere privilegios especiales. Por lo general, el propietario de la suscripción es el único que puede purgar una instancia de Key Vault. La operación POST activa la eliminación inmediata y no recuperable de esa instancia. 
-
-Se da una excepción a esta circunstancia cuando la suscripción de Azure se ha marcado como *no eliminable*. En este caso, solo el servicio puede realizar la eliminación real, y lo hace como un proceso programado. 
 
 ### <a name="billing-implications"></a>Implicaciones de facturación
 

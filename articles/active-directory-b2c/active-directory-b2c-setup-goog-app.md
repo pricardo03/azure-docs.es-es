@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1ddcbba4eacad040420efaf087f170e6c06ab2a0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337741"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182406"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Google mediante Azure Active Directory B2C
 
@@ -25,26 +25,19 @@ Para usar una cuenta de Google como proveedor de identidades en Azure Active Dir
 
 1. Inicie sesión en [Google Developers Console](https://console.developers.google.com/) e inicie sesión con las credenciales de su cuenta de Google.
 2. Seleccione **Create project** (Crear proyecto) y luego haga clic en **Create** (Crear). Si creó proyectos antes, seleccione la lista de proyectos y, a continuación, seleccione **New Project** (Nuevo proyecto).
-3. Escriba un **nombre de proyecto** y luego haga clic en **Create** (Crear).
+3. Escriba un **Nombre de proyecto**, haga clic en **Crear** y asegúrese de que está usando el nuevo proyecto.
 3. Seleccione **Credentials** (Credenciales) en el menú izquierdo y, a continuación, seleccione **Create credentials** > **Oauth client ID** (Crear credenciales, Id. de cliente de Oauth).
 4. Seleccione **Configure consent screen** (Configurar pantalla de consentimiento).
 5. Seleccione o especifique una **Email address** (Dirección de correo electrónico), proporcione un **Product name shown to users** (Nombre de producto mostrado a los usuarios) y haga clic en **Save** (Guardar).
 6. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web).
-7. Escriba un **Name** (nombre) para la aplicación, escriba `https://{tenant}.b2clogin.com` en **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` en **Authorized redirect URIs** (URI de redirección autorizados). Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c).
+7. Escriba un **Name** (nombre) para la aplicación, escriba `https://your-tenant-name.b2clogin.com` en **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` en **Authorized redirect URIs** (URI de redirección autorizados). Reemplace `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
 8. Haga clic en **Create**(Crear).
 9. Copie los valores de **Client ID** y **Client Secret**. Necesitará ambos para configurar Google como proveedor de identidades de su inquilino. **Secreto del cliente** es una credencial de seguridad importante.
 
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Configuración de una cuenta de Google como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-2. Asegúrese de que está usando el directorio que contiene su inquilino de Azure AD B2C cambiando a él en la esquina superior derecha de Azure Portal. Seleccione la información de la suscripción y, después, seleccione **Cambiar directorio**. 
-
-    ![Cambiar al inquilino de Azure AD B2C](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
-    Elija el directorio que contiene el inquilino.
-
-    ![Selección de directorio](./media/active-directory-b2c-setup-fb-app/select-directory.png)
-
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 4. Seleccione **Proveedores de identidades** y, después, **Agregar**.
 5. Escriba la información de **Name** (Nombre). Por ejemplo, escriba *Google*.

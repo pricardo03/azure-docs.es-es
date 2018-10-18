@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: d76d02ba326cf93582c03937b3ab54d806acaff1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067612"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422667"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>¿Por qué está deshabilitada mi suscripción a Azure y cómo reactivarla?
 
@@ -38,7 +38,7 @@ Las suscripciones de Azure con crédito como la evaluación gratuita y Visual St
 > [!NOTE] 
 > Si tiene una suscripción de evaluación gratuita y quita los límites de gasto, la suscripción se convierte en pago por uso al final de dicha evaluación. El crédito restante se conserva durante los 30 días posteriores a la creación de la suscripción. También tendrá acceso a servicios gratuitos durante 12 meses.
 
-Para supervisar y administrar la actividad de facturación de Azure, consulte [Prevención de costos inesperados con la administración de costos y facturación de Azure](billing-getting-started.md) y [Configuración de alertas de facturación para las suscripciones de Microsoft Azure](billing-set-up-alerts.md).
+Para supervisar y administrar la actividad de facturación de Azure, vea [Prevención de cargos inesperados con la administración de costos y facturación de Azure](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Su factura está vencida

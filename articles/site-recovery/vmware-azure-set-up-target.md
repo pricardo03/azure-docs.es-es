@@ -1,29 +1,29 @@
 ---
-title: Preparación del entorno de destino para la replicación de VMware en Azure | Microsoft Docs
-description: En este artículo se describe cómo configurar el entorno de Azure de destino para la replicación de máquinas virtuales de VMware en Azure.
+title: Preparación del entorno de destino (VMware/Físico en Azure) | Microsoft Docs
+description: En este artículo se describe cómo preparar el entorno de Azure de destino para la replicación de máquinas virtuales de VMware y la replicación de servidores físicos en Azure.
 services: site-recovery
 author: bsiva
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/28/2018
 ms.author: bsiva
-ms.openlocfilehash: 4b428dff1cebf353cc081696649494e6e4ec9b92
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921117"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434643"
 ---
-# <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>Preparación del entorno de destino para la replicación de VMware en Azure
+# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>Preparación del entorno de destino (VMware/Físico en Azure)
 
-En este artículo se describe cómo configurar el entorno de Azure de destino para comenzar a replicar máquinas virtuales de VMware en Azure.
+En este artículo se describe cómo configurar el entorno de Azure de destino para empezar a replicar máquinas virtuales de VMware o servidores físicos en Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto lo siguiente:
-- Ha creado un almacén de Recovery Services para proteger sus máquinas virtuales de VMware. Puede crear un almacén de Recovery Services desde [Azure Portal](http://portal.azure.com "Azure Portal").
-- Ha [configurado el entorno local](vmware-azure-set-up-source.md) para replicar máquinas virtuales de VMware en Azure.
+- Ha creado un almacén de Recovery Services en [Azure Portal](http://portal.azure.com "Azure Portal") para proteger las máquinas de origen.
+- Ha configurado el entorno local para replicar las [máquinas virtuales de VMware](vmware-azure-set-up-source.md) o los [servidores físicos](physical-azure-set-up-source.md) en Azure.
 
 ## <a name="prepare-target"></a>Preparación del destino
 
@@ -31,10 +31,10 @@ Después de completar el **Paso 1: Selección del objetivo de protección** y el
 
 ![Preparación del destino](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **Suscripción:** En el menú desplegable, seleccione la suscripción en la que desea replicar las máquinas virtuales.
+1. **Suscripción:** En el menú desplegable, seleccione la suscripción en la que quiere replicar las máquinas virtuales o los servidores físicos.
 2. **Modelo de implementación:** Seleccione el modelo de implementación (clásica o Resource Manager).
 
-Según el modelo de implementación elegido, se ejecuta una validación para asegurarse de que tiene al menos una cuenta de almacenamiento compatible y una red virtual en la conmutación de destino en la que replicar y conmutar por error las máquinas virtuales.
+Según el modelo de implementación elegido, se ejecuta una validación para asegurarse de que tiene al menos una cuenta de almacenamiento compatible y una red virtual en la conmutación de destino en la que replicar y conmutar por error las máquinas virtuales o los servidores físicos.
 
 Una vez completadas las validaciones correctamente, haga clic en Aceptar para ir al paso siguiente.
 

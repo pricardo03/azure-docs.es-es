@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8c418a3681fa9d8ac70974ac2c0bcf1c826209aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16f7327659a0f5fe542375a4b7e3232ee14bb17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24809873"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158657"
 ---
 # <a name="pricing"></a>Precios
-Bash en Cloud Shell y PowerShell en Cloud Shell (versión preliminar) están sujetos a la siguiente información.
+Bash en Cloud Shell y PowerShell en Cloud Shell están sujetos a la siguiente información.
 
 ## <a name="compute-cost"></a>Costo de proceso
 Azure Cloud Shell se ejecuta en una máquina que Azure proporciona gratuitamente, pero requiere un recurso compartido de archivos de Azure para su uso. 
