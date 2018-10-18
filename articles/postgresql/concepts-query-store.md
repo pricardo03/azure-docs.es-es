@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393505"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379168"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
 **Se aplica a:** Azure Database for PostgreSQL 9.6 y 10
 
 > [!IMPORTANT]
-> La característica Almacén de consultas está en versión preliminar pública en una cantidad de regiones limitada.
+> La característica Almacén de consultas está en versión preliminar pública.
 
 
 La característica Almacén de consultas de Azure Database for PostgreSQL proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y las conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en una base de datos denominada **azure_sys** en la instancia de Azure Database for PostgreSQL.

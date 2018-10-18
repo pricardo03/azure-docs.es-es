@@ -7,24 +7,24 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 6de302dbcfa9d6d1d2b311f41b03d8e54aeb63f6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 46a4e69ecb08276e12ccc197de2d3ad838628b78
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395447"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378608"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Recomendaciones de rendimiento en Azure Database for PostgreSQL
 
 **Se aplica a:** Azure Database for PostgreSQL 9.6 y 10
 
 > [!IMPORTANT]
-> Recomendaciones de rendimiento está en versión preliminar pública en una cantidad de regiones limitada.
+> Recomendaciones de rendimiento está en versión preliminar pública.
 
-La característica Recomendaciones de rendimiento identifica los índices principales que se pueden crear en el servidor de Azure Database for PostgreSQL para mejorar el rendimiento. Para generar recomendaciones de índices, la función tiene en cuenta diversas características de la base de datos, incluido su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el impacto de estos cambios. 
+La característica Recomendaciones de rendimiento identifica los índices principales que se pueden crear en el servidor de Azure Database for PostgreSQL para mejorar el rendimiento. Para generar recomendaciones de índices, la función tiene en cuenta diversas características de la base de datos, incluido su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el efecto de estos cambios. 
 
 ## <a name="permissions"></a>Permisos
-Permisos de **Propietario** o **Colaborador** necesarios para ejecutar el análisis de uso de la característica Recomendaciones de rendimiento.
+Los permisos **Propietario** o **Colaborador** necesarios para ejecutar el análisis con la característica Recomendaciones de rendimiento.
 
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) analiza las cargas de trabajo en el servidor para identificar los índices con el potencial de mejorar el rendimiento.
@@ -42,5 +42,5 @@ La ventana **Recomendaciones de rendimiento** mostrará una lista de recomendaci
 Para implementar la recomendación, copie el texto de la consulta y ejecútelo desde el cliente que prefiera.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.
+- Más información acerca de la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.
 

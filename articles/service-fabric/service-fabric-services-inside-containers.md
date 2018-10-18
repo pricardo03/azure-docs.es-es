@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5672f5fffd9c93f710f8001285380fdbfcab0c5d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056941"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387000"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Inclusión de Reliable Services y Reliable Actors de Service Fabric en contenedores en Windows
 
@@ -103,7 +103,7 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
 </Policies>
  ```
 
-9. Para configurar el modo de aislamiento de contenedor, consulte [Configuración del modo de aislamiento]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper-V. Los siguientes fragmentos de código muestran cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
+9. Para configurar el modo de aislamiento de contenedor, consulte [Configuración del modo de aislamiento]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper-V. Los siguientes fragmentos de código muestran cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
 
  ```xml
 <Policies>

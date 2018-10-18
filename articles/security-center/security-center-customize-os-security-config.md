@@ -3,23 +3,23 @@ title: Personalizar las configuraciones de seguridad del sistema operativo en Az
 description: En este artículo se muestra cómo personalizar las valoraciones del centro de seguridad.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
-ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 18/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200017"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378370"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
 
@@ -53,29 +53,27 @@ Para personalizar la configuración de seguridad predeterminada del sistema oper
 
 1.  Abra el panel **Security Center**.
 
-2.  En el panel izquierdo, seleccione **Directiva de seguridad**.  
-    Se abre la ventana **Security Center - Security policy** (Security Center - Directiva de seguridad).
+2.  En el panel izquierdo, seleccione **Directiva de seguridad**.      
 
-    ![Lista de directivas de seguridad](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![Lista de directivas de seguridad](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Seleccione la suscripción para la que desea realizar la personalización.
+3.  En la fila de la suscripción que desea personalizar, haga clic en **Editar la configuración**.
 
-4. En **Componentes de la directiva**, seleccione **Edit security configurations** (Editar configuraciones de seguridad).  
-    Se abre la ventana **Edit security configurations** (Editar configuraciones de seguridad).
-
+4. Seleccione **Edit security configurations** (Editar configuraciones de seguridad).  
+    
     ![Ventana "Edit security configurations" (Editar configuraciones de seguridad)](media/security-center-customize-os-security-config/blade.png)
 
-5. En el panel derecho, siga los pasos para descargar, editar y cargar el archivo modificado.
+5. Siga los pasos para descargar, editar y cargar el archivo modificado.
 
    > [!NOTE]
    > De forma predeterminada, el archivo de configuración que descarga está en formato *json*. Para obtener instrucciones sobre cómo modificar este archivo, vaya a [Customize the configuration file](#customize-the-configuration-file) (Personalizar el archivo de configuración).
    >
 
-   Después de guardar correctamente el archivo, la configuración se aplica a todas las máquinas virtuales y equipos conectados a todas las áreas de trabajo en la suscripción. El proceso normalmente tarda unos minutos, pero puede tardar más tiempo en función del tamaño de la infraestructura.
-
 6. Para confirmar el cambio, seleccione **Guardar**. En caso contrario, no se almacenará la directiva.
 
     ![Botón Guardar](media/security-center-customize-os-security-config/save-successfully.png)
+
+   Después de guardar correctamente el archivo, la configuración se aplica a todas las máquinas virtuales y equipos conectados a las áreas de trabajo en la suscripción. El proceso normalmente tarda unos minutos, pero puede tardar más tiempo en función del tamaño de la infraestructura.
 
 Puede restablecer la configuración de directiva actual a su estado predeterminado en cualquier momento. Para ello, en la ventana **Edición de reglas de configuración de la seguridad del SO**, seleccione **Restablecer**. Confirme esta opción seleccionando **Sí** en la ventana emergente de confirmación.
 
@@ -116,9 +114,7 @@ Cada categoría tiene su propio conjunto de atributos. Puede cambiar los siguien
 
 -   **state**: cadena que puede contener las opciones *Disabled* o *Enabled*. En esta versión preliminar privada, la cadena distingue mayúsculas y minúsculas.
 
-Estos son los únicos campos que se pueden configurar. Si se infringe el formato o el tamaño de archivo, no se podrá guardar el cambio. El siguiente mensaje de error se produce cuando no se puede procesar el archivo:
-
-![Mensaje de error de la configuración de seguridad](media/security-center-customize-os-security-config/invalid-json.png)
+Estos son los únicos campos que se pueden configurar. Si se infringe el formato o el tamaño de archivo, no se podrá guardar el cambio. Recibirá un error que indica que necesita cargar un archivo de configuración JSON válido.
 
 Para obtener una lista de otros posibles errores, consulte [Códigos de error](#error-codes).
 
@@ -267,9 +263,7 @@ Ejemplo de una nueva regla personalizada:
 
 ## <a name="file-upload-failures"></a>Errores de carga de archivos
 
-Si el archivo de configuración enviado no es válido debido a errores en los valores o el formato, se muestra un error. Puede descargar un informe detallado de errores en formato .csv para solucionar y corregir los errores antes de volver a enviar un archivo de configuración corregido.
-
-![Mensaje de error "Error durante el proceso de guardado"](media/security-center-customize-os-security-config/invalid-configuration.png)
+Si el archivo de configuración enviado no es válido debido a errores en los valores o el formato, se muestra un error, como **Error durante el proceso de guardado**. Puede descargar un informe detallado de errores en formato .csv para solucionar y corregir los errores antes de volver a enviar un archivo de configuración corregido.
 
 Ejemplo de un archivo de error:
 
@@ -284,7 +278,7 @@ Todos los posibles errores se mencionan en la siguiente tabla:
 | BaselineConfiguratiohSchemaVersionError  | La propiedad *schemaVersion* no es válida o está vacía. El valor se debe establecer en *{0}*.                                                         |
 | BaselineInvalidStringError               | La propiedad *{0}* no puede contener *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | La lista de reglas de configuración de línea de base contiene una regla con el valor *null*.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | El valor de CCE-ID *{0}* no es único.                                                                                                                  |
+| BaselineRuleCceIdNotUniqueError          | El CCE-ID *{0}* no es único.                                                                                                                  |
 | BaselineRuleEmptyProperty                | La propiedad *{0}* falta o no es válida.                                                                                                       |
 | BaselineRuleIdNotInDefault               | La regla tiene una propiedad de origen *Microsoft*, pero no se encontró en el conjunto de reglas predeterminado de Microsoft.                                                   |
 | BaselineRuleIdNotUniqueError             | El identificador de regla no es único.                                                                                                                       |
@@ -317,7 +311,7 @@ Si no tiene permisos suficientes, puede que reciba un error general tal como se 
 
 ![Mensaje de error "Error durante el proceso de guardado"](media/security-center-customize-os-security-config/general-failure-error.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo se ha mostrado cómo personalizar las valoraciones de configuración de seguridad del sistema operativo en Security Center. Para más información sobre las reglas de configuración y la corrección, consulte:
 
 - [Security Center Common Configuration Identifiers and Baseline Rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) (Identificadores y reglas de línea de base comunes de configuración de Security Center).
