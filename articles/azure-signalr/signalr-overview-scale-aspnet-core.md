@@ -12,18 +12,18 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 380b70ac55bb1f9b447eb07dc475e354956f409e
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: af100c015845d095f39ee4245f71689a4d2a43c0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267358"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385014"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Escalar aplicaciones de ASP.NET Core SignalR con el servicio Azure SignalR
 
 ## <a name="developing-signalr-apps"></a>Desarrollo de aplicaciones SignalR
 
-Actualmente, hay [dos versiones](https://docs.microsoft.com/en-us/aspnet/core/signalr/version-differences) de SignalR que se puede usar con las aplicaciones web: SignalR para ASP.NET y ASP.NET Core SignalR, que es la versión más reciente. Azure SignalR Service es un servicio administrado de Azure basado en ASP.NET Core SignalR. 
+Actualmente, hay [dos versiones](https://docs.microsoft.com/aspnet/core/signalr/version-differences) de SignalR que se puede usar con las aplicaciones web: SignalR para ASP.NET y ASP.NET Core SignalR, que es la versión más reciente. Azure SignalR Service es un servicio administrado de Azure basado en ASP.NET Core SignalR. 
 
 ASP.NET Core SignalR es una reescritura de la versión anterior. Como resultado, ASP.NET Core SignalR no es compatible con la versión anterior de SignalR. Las API y los comportamientos son diferentes. El SDK de ASP.NET Core SignalR va dirigido a .NET Standard, por lo que también puede usarse con .NET Framework. Sin embargo, debe utilizar las nuevas API en lugar de las antiguas. Si usa SignalR y desea pasarse a ASP.NET Core SignalR, o Azure SignalR Service, debe cambiar el código para gestionar las diferencias en las API.
 

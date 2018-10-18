@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027051"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387454"
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -85,7 +85,7 @@ Para más información sobre Table Storage, consulte [Introducción a Azure Tabl
 
 ## <a name="disk-storage"></a>Almacenamiento en disco
 
-Azure Storage también incluye todas las funcionalidades de disco administrado y no administrado que utilizan las máquinas virtuales. Para más información acerca de estas características, consulte la [documentación del servicio Compute](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
+Azure Storage también incluye todas las funcionalidades de disco administrado y no administrado que utilizan las máquinas virtuales. Para más información acerca de estas características, consulte la [documentación del servicio Compute](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de cuentas de almacenamiento
 
@@ -168,7 +168,7 @@ Puede utilizar la utilidad de la línea de comandos de AzCopy para copiar datos 
 
 AzCopy se instala sobre la [biblioteca de movimiento de datos de Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), que está disponible actualmente en versión preliminar.
 
-El servicio Azure Import/Export puede utilizarse para importar grandes cantidades de datos de blobs hacia o desde la cuenta de almacenamiento. Debe preparar y enviar por correo varias unidades de disco duro a un centro de datos de Azure, donde se transfieren los datos desde y hacia los discos duros y, después, se le devuelven las unidades de disco duro. Para más información sobre el servicio Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage-import-export-service.md).
+El servicio Azure Import/Export puede utilizarse para importar grandes cantidades de datos de blobs hacia o desde la cuenta de almacenamiento. Debe preparar y enviar por correo varias unidades de disco duro a un centro de datos de Azure, donde se transfieren los datos desde y hacia los discos duros y, después, se le devuelven las unidades de disco duro. Para más información sobre el servicio Import/Export, consulte [Uso del servicio Azure Import/Export para transferir datos a Blob Storage](../storage-import-export-service.md).
 
 Para importar grandes cantidades de datos de blobs a su cuenta de almacenamiento de una forma rápida, barata y confiable, puede usar también Azure Data Box Disk. Microsoft envía hasta 5 discos de estado sólido (SSD) cifrados con una capacidad de 40 TB al centro de datos mediante un operador regional. Puede configurar rápidamente los discos, copiar los datos en ellos a través de una conexión USB y enviarlos de vuelta a Azure. En el centro de datos de Azure, los datos se cargan automáticamente de las unidades a la nube. Para más información sobre esta solución, vaya a [Introducción a Microsoft Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
@@ -182,16 +182,16 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 ### <a name="azure-storage-data-api-and-library-references"></a>Referencias de biblioteca y de API de datos de Azure Storage
 * [API de REST de servicios de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/)
 * [Biblioteca de cliente de Storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-* [Biblioteca de cliente de Storage para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
+* [Biblioteca de cliente de almacenamiento para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
 * [Biblioteca de cliente de Storage para Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
-* [Biblioteca de cliente de Storage para Python](https://github.com/Azure/azure-storage-python)
-* [Biblioteca de cliente de Storage para PHP](https://github.com/Azure/azure-storage-php)
+* [Biblioteca de cliente de almacenamiento para Python](https://github.com/Azure/azure-storage-python)
+* [Biblioteca de cliente de almacenamiento para PHP](https://github.com/Azure/azure-storage-php)
 * [Biblioteca de cliente de Storage para Ruby](https://github.com/Azure/azure-storage-ruby)
 * [Biblioteca de cliente de almacenamiento para C++](https://github.com/Azure/azure-storage-cpp)
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Referencias de biblioteca y de API de administración de Azure Storage
 * [API REST del proveedor de recursos de almacenamiento](https://docs.microsoft.com/rest/api/storagerp/)
-* [Biblioteca de cliente del proveedor de recursos de Storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+* [Biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
 * [API de REST de administración de servicios de almacenamiento (clásico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Referencias de biblioteca y de API de movimiento de datos de Azure Storage

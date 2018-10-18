@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 81c80ab6c8d10d263de96566f5554709a2404a24
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802600"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361718"
 ---
 # <a name="what-is-bing-spell-check-api"></a>¿Qué es Bing Spell Check API?
 
@@ -36,7 +36,7 @@ Este corrector ortográfico puede controlar cualquier escenario de procesamiento
 
 ## <a name="spell-check-modes"></a>Modos de comprobación ortográfica
 
-La API admite dos modos de corrección, `Proof` y `Spell`.  Vea los ejemplos [aquí](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).
+La API admite dos modos de corrección, `Proof` y `Spell`.  Vea los ejemplos [aquí](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Proof (para el escenario de documentos)
 El modo predeterminado es `Proof`. El modo de corrección ortográfica `Proof` es el que proporciona las comprobaciones más completas, agrega la capitalización, la puntuación básica y otras características que ayudan en la creación de documentos. Pero está disponible solo en los mercados de en-US (inglés de Estados Unidos), es-ES (español) y pt-BR (portugués) (Nota: en el caso de español y portugués solo en versión beta). Para los restantes mercados, establezca el parámetro de consulta de modo en Ortografía. 
 <br /><br/>**Nota:** si el texto de consulta tiene más de 4096 caracteres, se truncará a 4096 y luego se procesará. 

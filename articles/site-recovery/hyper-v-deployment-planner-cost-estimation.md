@@ -5,15 +5,15 @@ services: site-recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428537"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387249"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos mediante Azure Site Recovery Deployment Planner 
 
@@ -143,7 +143,7 @@ Para agregar las máquinas virtuales manualmente:
 
 **Number of DR-Drills in a year** (Número de simulacros de recuperación ante desastres en un año): número de veces que se realizan los simulacros de recuperación ante desastres en un año. De forma predeterminada, es cuatro veces en un año. Puede modificar el período para máquinas virtuales específicas o aplicar el nuevo valor a todas las máquinas virtuales. Escriba el nuevo valor en la fila superior y seleccione **Apply to all** (Aplicar a todo). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres realizados en un año y de la duración de cada uno de ellos. 
 
-**Each DR-Drill duration (Days)** (Duración de cada simulacro de recuperación ante desastres [días]): la duración de cada simulacro de recuperación ante desastres. De forma predeterminada, es de 7 días cada 90 días según la [ventaja de Software Assurance para la recuperación ante desastres](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Puede modificar el período para máquinas virtuales específicas, o puede aplicar un nuevo valor a todas las máquinas virtuales. Escriba un nuevo valor en la fila superior y seleccione **Apply to all** (Aplicar a todo). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres en un año y la duración de cada uno de ellos.
+**Each DR-Drill duration (Days)** (Duración de cada simulacro de recuperación ante desastres [días]): la duración de cada simulacro de recuperación ante desastres. De forma predeterminada, es de 7 días cada 90 días según la [ventaja de Software Assurance para la recuperación ante desastres](https://azure.microsoft.com/pricing/details/site-recovery). Puede modificar el período para máquinas virtuales específicas, o puede aplicar un nuevo valor a todas las máquinas virtuales. Escriba un nuevo valor en la fila superior y seleccione **Apply to all** (Aplicar a todo). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres en un año y la duración de cada uno de ellos.
  
 **OS Type** (Tipo de sistema operativo): el tipo de sistema operativo (SO) de la máquina virtual. Windows o Linux. Si el sistema operativo es Windows, se puede aplicar la Ventaja para uso híbrido de Azure a esa máquina virtual. 
 

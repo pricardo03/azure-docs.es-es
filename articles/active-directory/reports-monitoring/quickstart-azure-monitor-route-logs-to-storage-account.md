@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 08e4525e7dcf8edafc8819416b9d77e76fd78a65
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363435"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394260"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Archivado de registros de Azure AD en una cuenta de Azure Storage (versión preliminar)
 
@@ -77,4 +77,4 @@ Para usar esta característica, necesita:
 
 * [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Preguntas frecuentes y problemas conocidos](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Preguntas frecuentes y problemas conocidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

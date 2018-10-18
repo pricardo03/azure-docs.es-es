@@ -1,25 +1,19 @@
 ---
 title: Requisitos del sistema de Microsoft Azure Data Box Gateway | Microsoft Docs
 description: Obtenga más información sobre los requisitos de software y red de Azure Data Box Gateway
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991579"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379129"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos del sistema de Azure Data Box Gateway
 
@@ -114,11 +108,11 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 > [!NOTE]
 > - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube.
-> - Las IP de destino, por su parte, se deben establecer en los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - Las IP de destino, por su parte, se deben establecer en [Intervalos IP de centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 |     Patrón de URL                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Componente o funcionalidad                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.accesscontrol.windows.net/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Servicio Azure Data Box Gateway<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación    |
+|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Servicio Azure Data Box Gateway<br>Azure Service Bus<br>Servicio de autenticación    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Activación de dispositivo                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Revocación de certificados                                                                               |
 |    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Supervisión y cuentas de Almacenamiento de Azure                                                                |

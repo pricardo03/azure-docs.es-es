@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972135"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389075"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Tutorial: Escritura de una función de C# definida por el usuario para un trabajo de Azure Stream Analytics en dispositivos perimetrales en Visual Studio (versión preliminar)
 
@@ -37,7 +37,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Creación de un contenedor en una cuenta de Azure Storage
 
-El contenedor que cree se utilizará para almacenar el paquete de C# compilado e implementar el paquete en un dispositivo de IoT Edge. Use un contenedor dedicado para cada trabajo de Stream Analytics. No se admite la reutilización del mismo contenedor para varios trabajos de Stream Analytics en dispositivos perimetrales. Si ya tiene una cuenta de almacenamiento con los contenedores existentes, puede usarlos. De lo contrario, tendrá que [crear un nuevo contenedor](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
+El contenedor que cree se utilizará para almacenar el paquete de C# compilado e implementar el paquete en un dispositivo de IoT Edge. Use un contenedor dedicado para cada trabajo de Stream Analytics. No se admite la reutilización del mismo contenedor para varios trabajos de Stream Analytics en dispositivos perimetrales. Si ya tiene una cuenta de almacenamiento con los contenedores existentes, puede usarlos. De lo contrario, tendrá que [crear un nuevo contenedor](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Creación de un proyecto de Stream Analytics en dispositivos perimetrales en Visual Studio
 
@@ -146,7 +146,7 @@ Una vez que haya probado una consulta localmente, seleccione **Enviar a Azure** 
 ![Enviar un trabajo de Stream Analytics en dispositivos perimetrales a Azure desde Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Implementación en dispositivos de IoT Edge
-El trabajo de Stream Analytics ya está lista para implementarse como un módulo de IoT Edge. Siga la [guía de inicio rápido de IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) para crear una instancia de IoT Hub, registrar un dispositivo de IoT Edge e instalar e iniciar el runtime de IoT Edge en el dispositivo. A continuación, siga el tutorial de [implementación del trabajo](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) para implementar el trabajo de Stream Analytics como un módulo de IoT Edge. 
+El trabajo de Stream Analytics ya está lista para implementarse como un módulo de IoT Edge. Siga la [guía de inicio rápido de IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) para crear una instancia de IoT Hub, registrar un dispositivo de IoT Edge e instalar e iniciar el runtime de IoT Edge en el dispositivo. A continuación, siga el tutorial de [implementación del trabajo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) para implementar el trabajo de Stream Analytics como un módulo de IoT Edge. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,25 +4,22 @@ description: Siga los pasos de este inicio rápido para crear una cuenta de Azur
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: de54571308b737b9160a39ee4ba5d4b2d9f15775
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736009"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376540"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Inicio rápido: creación de una cuenta de Azure Media Services
-
-> [!NOTE]
-> La versión más reciente de Azure Media Services (30-03-2018) es una versión preliminar. Esta versión también se denomina v3. 
 
 Si es un desarrollador o un creador de contenido multimedia, tendrá que crear una cuenta de Media Services para la administración, el cifrado, la codificación, la administración y el streaming de contenido multimedia en Azure. Al crear una cuenta de Media Services, debe proporcionar el identificador de un recurso de cuenta de Azure Storage. La cuenta de almacenamiento especificada está asociada a su cuenta de Media Services. Este recurso de cuenta de almacenamiento debe ubicarse en la misma región geográfica que la cuenta de Media Services.  
 

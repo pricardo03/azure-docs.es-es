@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d0e7c3f7aeb42fd1525519b7908b1be6fc48aa65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034933"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362524"
 ---
 # <a name="keys-in-luis"></a>Claves en LUIS
 LUIS usa dos claves: de [creación](#programmatic-key) y [punto de conexión](#endpoint-key). La clave de creación se crea automáticamente al crear la cuenta de LUIS. Cuando esté listo para publicar la aplicación de LUIS, tiene que [crear la clave de punto de conexión](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [asignarla](luis-how-to-manage-keys.md#assign-endpoint-key) a la aplicación de LUIS y [usarla con la consulta de punto de conexión](#use-endpoint-key-in-query). 
@@ -60,7 +60,7 @@ El punto de conexión de LUIS acepta dos estilos de consulta; ambos usan el punt
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>Valor de cadena de consulta de `subscription-key`<br><br>Cambie el valor de la consulta de punto de conexión de `subscription-key` de la clave de creación (inicio) a la nueva clave de punto de conexión para usar la tasa de cuota de la clave de punto de conexión de LUIS. Si crea la clave y la asigna, pero no cambia el valor de la consulta de punto de conexión de "subscription-key", no está usando la cuota de la clave de punto de conexión.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> Valor de encabezado de `Ocp-Apim-Subscription-Key`<br><br>Cambie el valor de la consulta de punto de conexión de `Ocp-Apim-Subscription-Key` de la clave de creación (inicio) a la nueva clave de punto de conexión para usar la tasa de cuota de la clave de punto de conexión de LUIS. Si crea la clave y la asigna, pero no cambia el valor de la consulta de punto de conexión de `Ocp-Apim-Subscription-Key`, no está usando la cuota de la clave de punto de conexión.|
 
-El identificador de la aplicación que se usó en las direcciones URL anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, es la aplicación de IoT pública que se usa para la [demostración interactiva](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
+El identificador de la aplicación que se usó en las direcciones URL anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, es la aplicación de IoT pública que se usa para la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Uso de API de Ocp-Apim-Subscription-Key
 Las API de LUIS usan el encabezado `Ocp-Apim-Subscription-Key`. El nombre del encabezado no cambia en función de qué clave y conjunto de API está usando. Establezca el encabezado en la clave de creación para las API de creación. Si usa el punto de conexión, establezca el encabezado en la clave de punto de conexión. 

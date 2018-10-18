@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 792e0b3f8fdfe4ab1b79fec5f45d0587033eca0d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c9dded95fe3ae36a716544368e3dc44c9b86afe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055206"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365499"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -54,7 +54,8 @@ Después de identificar qué clave de partición está causando el sesgo en la d
 
 ## <a name="comparing-data-size-against-index-size"></a>Comparación del tamaño de los datos con el tamaño de índice
 
-En Azure Cosmos DB, el almacenamiento total consumido es la combinación del tamaño de los datos y del tamaño del índice. Normalmente, el tamaño del índice es una fracción del tamaño de los datos. En la hoja Métricas de [Azure Portal](https://portal.azure.com), la pestaña Almacenamiento muestra el desglose de consumo de almacenamiento en función de los datos y el índice. Imagen (quizás) O bien, desde el SDK, puede encontrar el uso de almacenamiento actual a través de una lectura de la recopilación.
+En Azure Cosmos DB, el almacenamiento total consumido es la combinación del tamaño de los datos y del tamaño del índice. Normalmente, el tamaño del índice es una fracción del tamaño de los datos. En la hoja Métricas de [Azure Portal](https://portal.azure.com), la pestaña Almacenamiento muestra el desglose de consumo de almacenamiento en función de los datos y el índice. 
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 

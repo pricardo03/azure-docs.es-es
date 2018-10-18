@@ -2,18 +2,18 @@
 title: 'Guía de inicio rápido: Creación de un clúster y de la base de datos del Explorador de datos de Azure'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster y la base de datos del Explorador de datos de Azure, y a ingerir (cargar) datos.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3280709c59edfd5d8e810c7ab33aa615e13f4b93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974721"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394228"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guía de inicio rápido: Creación de un clúster y de la base de datos del Explorador de datos de Azure
 
@@ -117,9 +117,9 @@ Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserv
 
 1. En Azure Portal, seleccione **Grupos de recursos** en el extremo izquierdo y luego seleccione el grupo de recursos que creó.  
 
-    Si el menú izquierdo está contraído, seleccione ![Botón Expandir](media/create-cluster-database-portal/expand.png) para expandirlo.
+    Si el menú izquierdo está contraído, seleccione el ![Botón Expandir](media/create-cluster-database-portal/expand.png) para expandirlo.
 
-   ![Selección del grupo de recursos que eliminar](media/create-cluster-database-portal/delete-resources-select.png)
+   ![Selección del grupo de recursos que se eliminará](media/create-cluster-database-portal/delete-resources-select.png)
 
 1. En **test-resource-group**, seleccione **Eliminar grupo de recursos**.
 
@@ -128,6 +128,6 @@ Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserv
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Ingesta de datos desde el centro de eventos en el Explorador de datos de Azure](ingest-data-event-hub.md)
+> [Guía de inicio rápido: Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md)
 
 

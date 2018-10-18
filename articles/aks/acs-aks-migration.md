@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: cb143998ac46f7f86b2dbf47b69cee7843418f5d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191398"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385048"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migración de Azure Container Service (ACS) a Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ ACS y AKS difieren en algunas áreas claves que afectan la migración. Debe revi
     * Los objetos `StorageClass` personalizados para discos de Azure tienen que cambiarse de `unmanaged` a `managed`
     * Cualquier objeto `PersistentVolumes` tendrá que utilizar `kind: Managed`
 * AKS solo admite en este momento un único grupo de agentes
-* Los nodos basados en Windows Server se encuentran actualmente en [versión preliminar privada](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
+* Los nodos basados en Windows Server se encuentran actualmente en [versión preliminar privada](https://azure.microsoft.com/blog/kubernetes-on-azure/)
 * Comprobar la lista de [regiones admitidas](https://docs.microsoft.com/azure/aks/container-service-quotas) de AKS
 * AKS es un servicio administrado con un plano de control hospedado de Kubernetes. Es posible que tenga que modificar las aplicaciones si previamente ha modificado la configuración de los maestros de ACS
 
@@ -53,7 +53,7 @@ Ejemplo:
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-Dado que las máquinas virtuales adicionales se implementarán en su suscripción durante la migración, debe comprobar que los límites y cuotas son suficientes para estos recursos. Para aprender más consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). Para comprobar las cuotas actuales, vaya a la [hoja suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal, seleccione su suscripción y elija `Usage + quotas`.
+Dado que las máquinas virtuales adicionales se implementarán en su suscripción durante la migración, debe comprobar que los límites y cuotas son suficientes para estos recursos. Para aprender más consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits). Para comprobar las cuotas actuales, vaya a la [hoja suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal, seleccione su suscripción y elija `Usage + quotas`.
 
 ### <a name="networking"></a>Redes
 
@@ -86,7 +86,7 @@ Hay varios factores que debe tener en cuenta si migra volúmenes persistentes ex
 2. Realización de instantáneas de los discos
 3. Creación de Managed Disks a partir de las instantáneas
 4. Creación de volúmenes persistentes en AKS
-5. Actualización de las especificaciones de Pod para [usar volúmenes existentes](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume) en lugar de PersistentVolumeClaims (aprovisionamiento estático)
+5. Actualización de las especificaciones de Pod para [usar volúmenes existentes](https://docs.microsoft.com/azure/aks/azure-disk-volume) en lugar de PersistentVolumeClaims (aprovisionamiento estático)
 6. Implementación de aplicaciones en AKS
 7. Validación
 8. Desvío del tráfico al clúster de AKS
@@ -112,7 +112,7 @@ Si no es así, un posible enfoque de migración implica los pasos siguientes:
 4. Validación
 5. Desvío del tráfico al clúster de AKS
 
-En los casos en los que quiera comenzar con un recurso compartido vacío y luego realizar una copia de los datos de origen, puede utilizar los comandos [`az storage file copy`](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) para migrar los datos.
+En los casos en los que quiera comenzar con un recurso compartido vacío y luego realizar una copia de los datos de origen, puede utilizar los comandos [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) para migrar los datos.
 
 ### <a name="deployment-strategy"></a>Estrategia de implementación
 
@@ -134,7 +134,7 @@ También hay varias herramientas de código abierto que, según sus necesidades,
 
 ### <a name="1-create-an-aks-cluster"></a>1. Creación de un clúster de AKS
 
-Puede seguir los documentos para [crear un clúster de AKS](https://docs.microsoft.com/en-us/azure/aks/create-cluster) mediante Azure Portal, la CLI de Azure o una plantilla de Resource Manager.
+Puede seguir los documentos para [crear un clúster de AKS](https://docs.microsoft.com/azure/aks/create-cluster) mediante Azure Portal, la CLI de Azure o una plantilla de Resource Manager.
 
 > Puede encontrar plantillas de Azure Resource Manager de ejemplo para AKS en repositorio [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) de GitHub
 

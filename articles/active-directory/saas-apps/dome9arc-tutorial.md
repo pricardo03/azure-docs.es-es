@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746498"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integración de Azure Active Directory con Dome9 Arc
 
@@ -150,7 +150,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     d. Haga clic en **Aceptar**.
     
     > [!NOTE]
-    > Consulte este [vínculo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) para obtener información sobre cómo configurar e instalar los roles de la aplicación.
+    > Consulte este [vínculo](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para obtener información sobre cómo configurar e instalar los roles de la aplicación.
 
 7. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 

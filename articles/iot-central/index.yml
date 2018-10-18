@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ffb0b9ceeb181e2d9922ab8e257a4df7f3d51ee0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 67299955e00f2bb5fb409420dd951357f89e1996
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364455"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384929"
 documentType: LandingData
 title: Documentación sobre Azure IoT Central
 metadata:
@@ -23,7 +23,7 @@ sections:
 - title: Alerta de características
   items:
   - type: paragraph
-    text: Azure IoT Central ha pasado a usar el servicio Azure IoT Hub Device Provisioning (DPS) para todas las conexiones de dispositivos. Es necesario usar el SDK de DPS para registrar y conectar dispositivos a la aplicación de Azure IoT Central. <a href="https://docs.microsoft.com/en-us/azure/iot-central/concepts-connectivity">Obtenga más información sobre la conectividad de dispositivos en Azure IoT Central.</a> A todas las aplicaciones que usan la característica de exportación de datos continua y la plantilla de soluciones de Power BI, se les pedirá que cambien el contenedor de almacenamiento de destino y creen una nueva plantilla de soluciones.
+    text: Azure IoT Central ha pasado a usar el servicio Azure IoT Hub Device Provisioning (DPS) para todas las conexiones de dispositivos. Es necesario usar el SDK de DPS para registrar y conectar dispositivos a la aplicación de Azure IoT Central. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Obtenga más información sobre la conectividad de dispositivos en Azure IoT Central.</a> A todas las aplicaciones que usan la característica de exportación de datos continua y la plantilla de soluciones de Power BI, se les pedirá que cambien el contenedor de almacenamiento de destino y creen una nueva plantilla de soluciones.
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34669353"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49346111"
 ---
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 * **Suscripción de Azure**: para implementar más que algunas instancias de proceso intensivo, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. Si usa una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), solo puede usar un número limitado de núcleos de proceso de Azure.
 
-* **Disponibilidad y precios**: los tamaños de máquina virtual se ofrecen solo en el plan de tarifa estándar. Consulte [Productos disponibles por región] https://azure.microsoft.com/regions/services/) para ver la disponibilidad en las regiones de Azure. 
+* **Disponibilidad y precios**: los tamaños de máquina virtual se ofrecen solo en el plan de tarifa estándar. Para ver la disponibilidad en las regiones de Azure, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) . 
 * **Cuota de núcleos**: quizás tenga que aumentar la cuota de núcleos de su suscripción de Azure partiendo del valor predeterminado. La suscripción también podría limitar el número de núcleos que se pueden implementar en ciertas familias de tamaño de máquina virtual, como la serie H. Para solicitar un aumento de cuota, [abra una solicitud de soporte técnico al cliente en línea](../articles/azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno. (Los límites predeterminados pueden variar según la categoría de suscripción).
   
   > [!NOTE]
@@ -37,4 +37,3 @@ Esta interfaz permite que las instancias compatibles con RDMA se comuniquen trav
 > En Azure, no se admite IP sobre IB. Solo se admite RDMA sobre IB.
 >
 
-Implemente las máquinas virtuales HPC compatibles con RDMA en el mismo conjunto de disponibilidad o conjunto de escalado de máquinas virtuales (si usa el modelo de implementación de Azure Resource Manager) o en el mismo servicio en la nube (si usa el modelo de implementación clásica). Si usa un conjunto de escalado de máquinas virtuales, asegúrese de que limita la implementación a un solo grupo de ubicaciones. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad *singlePlacementGroup* en *true*. A continuación se indican los requisitos adicionales para máquinas virtuales HPC compatibles con RDMA para acceder a la red RDMA de Azure.

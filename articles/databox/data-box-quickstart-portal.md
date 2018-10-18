@@ -2,24 +2,18 @@
 title: Inicio rápido de Microsoft Azure Data Box | Microsoft Docs
 description: Aprenda a implementar rápidamente Azure Data Box en Azure Portal
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784644"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385855"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Inicio rápido: Implementación de Azure Data Box mediante Azure Portal
 
@@ -35,7 +29,7 @@ Antes de empezar:
     - Contrato Enterprise (EA) de Microsoft. Más información acerca de [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Proveedor de soluciones en la nube (CSP). Más información acerca del [programa Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Consumo: pago por uso. Más información acerca de las [suscripciones de pago por uso de Azure](https://azure.microsoft.com/offers/ms-azr-0003p/).
-    - Patrocinio de Microsoft Azure Obtenga más información sobre el [programa de patrocinio de Azure](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
+    - Patrocinio de Microsoft Azure Obtenga más información sobre el [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Asegúrese de que tiene acceso de propietario o colaborador a la suscripción para crear un pedido de Data Box.
 - Revise las [directrices de seguridad para su Data Box](data-box-safety.md).

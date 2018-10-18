@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146696"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386304"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Administración de aplicaciones y servicios como recursos de Azure Resource Manager
 
@@ -264,7 +264,7 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
 Si el clúster ya está activo y algunas de las aplicaciones que le gustaría administrar como recursos de Resource Manager ya están implementadas en él, en lugar de quitar las aplicaciones y volver a implementarlas, puede usar una llamada PUT con las mismas API para que las aplicaciones se confirmen como recursos de Resource Manager. 
 
 > [!NOTE]
-> Para permitir que una actualización de clúster omita las aplicaciones en mal estado, el cliente puede especificar "maxPercentUnhealthyApplications: 100" en la sección "upgradeDescription/healthPolicy"; puede encontrar descripciones detalladas de todas las configuraciones en la [documentación de la directiva de actualización de clústeres de la API de REST de Service Fabric](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir que una actualización de clúster omita las aplicaciones en mal estado, el cliente puede especificar "maxPercentUnhealthyApplications: 100" en la sección "upgradeDescription/healthPolicy"; puede encontrar descripciones detalladas de todas las configuraciones en la [documentación de la directiva de actualización de clústeres de la API de REST de Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

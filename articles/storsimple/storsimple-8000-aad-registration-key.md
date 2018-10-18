@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113534"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387045"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Uso de la nueva autenticación de StorSimple
 
@@ -28,7 +28,7 @@ ms.locfileid: "37113534"
 El servicio StorSimple Device Manager se ejecuta en Microsoft Azure y se conecta a varios dispositivos de StorSimple. Hasta la fecha, el servicio del Administrador de dispositivos de StorSimple siempre ha utilizado Access Control Service (ACS) para autenticar el servicio en el dispositivo StorSimple. El mecanismo de ACS caerá pronto en desuso y se reemplazará con la autenticación de Azure Active Directory (AAD). Para obtener más información, vaya a los siguientes anuncios que indican el desuso de ACS y el uso de la autenticación de AAD.
 
 - [El futuro de Azure ACS es Azure Active Directory](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
-- [Próximos cambios en Microsoft Access Control Service](https://azure.microsoft.com/en-in/blog/acs-access-control-service-namespace-creation-restriction/)
+- [Próximos cambios en Microsoft Access Control Service](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)
 
 En este artículo se describen los detalles de la autenticación de AAD, la nueva clave de registro del servicio asociada y las modificaciones realizadas en las reglas de firewall que se aplican a los dispositivos de StorSimple. La información que se presenta en este artículo solo se aplica a los dispositivos de la serie StorSimple 8000.
 

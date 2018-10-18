@@ -3,23 +3,23 @@ title: Asignación de redes virtuales entre dos regiones de Azure en Azure Site 
 description: Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Obtenga información sobre la conmutación por error en Azure o en un centro de datos secundario.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142581"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353447"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Asignación de redes virtuales en regiones diferentes de Azure
 
@@ -106,7 +106,7 @@ Si la subred de origen y la de destino tienen distintos espacios de direcciones,
 A la máquina virtual conmutada por error se le asignará la siguiente IP disponible del final del intervalo de direcciones de subred que es: 10.0.0.254 </br>
 
 **Nota:** La terminología **red virtual de producción** hace referencia a la "red de destino" asignada durante la configuración de la recuperación ante desastres.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si la red de destino elegida no es la red virtual de producción, pero tiene el mismo intervalo de subred que la red de producción 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si la red de destino elegida no es la red virtual de producción, pero tiene el mismo intervalo de subred que la red de producción
 
 - La IP de recuperación (IP de destino) será una IP estática con la **misma dirección IP** (p.ej., dirección IP estática configurada) que la reservada para la conmutación por error. Siempre que la misma dirección IP esté disponible.
 - Si la IP estática configurada ya está asignada a cualquier otra VM o dispositivo, la IP de recuperación será la siguiente IP disponible del final del intervalo de direcciones de subred.

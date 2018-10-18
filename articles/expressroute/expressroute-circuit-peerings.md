@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c1fbc99702e077e600f01959224f3321e7543e59
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044406"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388432"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
  Para conectar su infraestructura local a Microsoft a través de un proveedor de conectividad, debe solicitar un *circuito ExpressRoute* . En la ilustración siguiente se muestra una representación lógica de conectividad entre la WAN y Microsoft.
@@ -82,7 +82,7 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 ## <a name="expressroute-health"></a>Estado de ExpressRoute
 Los circuitos de ExpressRoute se pueden supervisar para comprobar la disponibilidad, la conectividad con redes virtuales y la utilización del ancho de banda mediante [ Network Performance Monitor ](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-NPM supervisa el estado del emparejamiento privado de Azure y el emparejamiento de Microsoft.  Para más información, consulte nuestra [publicación](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/).
+NPM supervisa el estado del emparejamiento privado de Azure y el emparejamiento de Microsoft.  Para más información, consulte nuestra [publicación](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Busque un proveedor de servicios. Consulte [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).

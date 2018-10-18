@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 97f33a1c0c42b534dafd1e4ed378b655b339395a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143327"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386644"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados y seguridad en clústeres Linux
 
@@ -35,7 +35,7 @@ Si instala el certificado desde Azure Key Vault mediante una [plantilla de Resou
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados a los que se hace referencia en el manifiesto de aplicación
 
-Los certificados especificados en el manifiesto de aplicación, por ejemplo, mediante los elementos [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) o [**EndpointCertificate**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element), debe estar presente en el directorio */var/lib/sfcerts*. Los elementos que se usan para especificar los certificados en el manifiesto de aplicación no tienen un atributo de ruta de acceso, por lo que los certificados deben estar presentes en el directorio predeterminado. Estos elementos tienen el atributo opcional **X509StoreName**. El valor predeterminado es "My", que apunta al directorio */var/lib/sfcerts* en nodos Linux. Cualquier otro valor no está definida en un clúster Linux. Se recomienda omitir el atributo **X509StoreName** para las aplicaciones que se ejecutan en clústeres Linux. 
+Los certificados especificados en el manifiesto de aplicación, por ejemplo, mediante los elementos [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) o [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element), debe estar presente en el directorio */var/lib/sfcerts*. Los elementos que se usan para especificar los certificados en el manifiesto de aplicación no tienen un atributo de ruta de acceso, por lo que los certificados deben estar presentes en el directorio predeterminado. Estos elementos tienen el atributo opcional **X509StoreName**. El valor predeterminado es "My", que apunta al directorio */var/lib/sfcerts* en nodos Linux. Cualquier otro valor no está definida en un clúster Linux. Se recomienda omitir el atributo **X509StoreName** para las aplicaciones que se ejecutan en clústeres Linux. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certificados a los que se hace referencia en el paquete de configuración (Settings.xml)
 

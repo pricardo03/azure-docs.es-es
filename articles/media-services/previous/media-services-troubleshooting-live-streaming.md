@@ -4,22 +4,21 @@ description: En este tema se ofrecen sugerencias sobre cómo solucionar problema
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e6b135e14f06ecf4edfbb97913c411f55711854a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940931"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351459"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guía de solución de problemas para el streaming en vivo
 En este artículo se ofrecen sugerencias sobre cómo solucionar algunos problemas del streaming en vivo.
@@ -54,9 +53,6 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 > Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante Azure Portal.
 > 
 > 
-
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

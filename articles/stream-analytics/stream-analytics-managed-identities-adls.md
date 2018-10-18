@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2018
-ms.openlocfilehash: 72bf467cc0f2ba195aa4f25228bc9e08605cd4ee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018608"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365295"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Uso de identidades administradas para autenticar trabajos de Azure Stream Analytics en la salida de Azure Data Lake Storage Gen1 (versión preliminar)
 
 Azure Stream Analytics admite la autenticación de identidades administradas con la salida de Azure Data Lake Storage (ADLS) Gen1. La identidad es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado y que puede usarse para autenticar un recurso de destino. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Además, las identidades administradas sirven de ayuda en la automatización de las implementaciones de trabajos de Stream Analytics cuya salida es Azure Data Lake Storage Gen1.
 
-Visite la entrada de blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) (Ocho características nuevas de Azure Stream Analytics) para registrarse en esta versión preliminar y obtener más información acerca de las nuevas características.
+Visite la entrada de blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Ocho características nuevas de Azure Stream Analytics) para registrarse en esta versión preliminar y obtener más información acerca de las nuevas características.
 
 En este artículo se muestran dos formas de habilitar la identidad administrada para un trabajo de Azure Stream Analytics cuya salida se realiza en Azure Data Lake Storage Gen1 a través de Azure Portal y de la implementación de la plantilla de Resource Manager.
 

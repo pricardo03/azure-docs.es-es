@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168217"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385913"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>Tutorial: Bot de LUIS en Node.js
 Con Node.js puede crear un bot de chat que se integre con Language Understanding (LUIS). Este bot usa la aplicación HomeAutomation para implementar una solución de bot. El bot se compila con el [bot de aplicación web](https://docs.microsoft.com/azure/bot-service/) de Azure y con la [versión 4 de Bot Framework](https://github.com/Microsoft/botbuilder-js).
@@ -24,7 +24,7 @@ Con Node.js puede crear un bot de chat que se integre con Language Understanding
 
 > [!div class="checklist"]
 > * Crear un bot de aplicación web. Este proceso crea una nueva aplicación de LUIS.
-> * Agregar un dominio creados previamente para el nuevo modelo de LUIS.
+> * Agregar un dominio creado previamente para el nuevo modelo de LUIS.
 > * Descargar el proyecto creado por el servicio de bot web.
 > * Iniciar el emulador y el bot localmente en el equipo.
 > * Modificar el código del bot para nuevas intenciones de LUIS.
@@ -44,20 +44,20 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
 
 2. En el cuadro de búsqueda, busque y seleccione **Bot de aplicación web**. Seleccione **Crear**.
 
-3. En **Servicio de bots**, proporcione la información necesaria:
+3. En **Bot Service**, proporcione la información necesaria:
 
     |Configuración|Propósito|Configuración sugerida|
     |--|--|--|
     |Nombre del bot|Nombre del recurso|`luis-nodejs-bot-` + `<your-name>`, por ejemplo, `luis-nodejs-bot-johnsmith`|
-    |Subscription|Suscripción donde se desea crear el bot.|Suscripción principal.
+    |Subscription|Suscripción donde se creará el bot.|Suscripción principal.
     |Grupos de recursos|Grupo lógico de recursos de Azure|Crear un nuevo grupo para almacenar todos los recursos utilizados con este bot, denominando el grupo `luis-nodejs-bot-resource-group`.|
     |Ubicación|Región de Azure: no tiene que ser la misma que la región de creación o publicación de LUIS.|`westus`|
-    |Plan de tarifa|Se usa para los límites de solicitud de servicio y facturación.|`F0` es el plan gratuito.
-    |Nombre de la aplicación|El nombre se usa como el subdominio cuando el bot se implementa en la nube (por ejemplo, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, por ejemplo, `luis-nodejs-bot-johnsmith`|
+    |Plan de tarifa|Se usa para los límites de solicitud de servicio y facturación.|`F0` es el nivel Gratis.
+    |Nombre de la aplicación|El nombre se usa como subdominio cuando el bot se implementa en la nube (por ejemplo, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, por ejemplo, `luis-nodejs-bot-johnsmith`|
     |Plantilla de bot|Configuración de Bot Framework: ver la tabla siguiente|
     |Ubicación de la aplicación de LUIS|Debe ser la misma que la región de recursos de LUIS.|`westus`|
 
-4. En la **configuración de la plantilla del bot**, seleccione lo siguiente y luego elija el botón **Seleccionar** en esta configuración:
+4. En **Bot template settings** (Configuración de la plantilla del bot), seleccione lo siguiente y luego elija el botón **Seleccionar** en esta configuración:
 
     |Configuración|Propósito|Número de selección|
     |--|--|--|
@@ -84,14 +84,14 @@ Parte de la implementación del servicio de bots crea una nueva aplicación de L
 Agregue al modelo la aplicación HomeAutomation creada previamente para controlar expresiones como: `Turn off the living room lights`
 
 1. Vaya al portal de [LUIS](https://www.luis.ai) e inicie sesión.
-2. En la página **Mis aplicaciones**, seleccione la columna **Fecha de creación** para ordenar por la fecha en la que se creó la aplicación. Azure Bot Service creó una aplicación en la sección anterior. Su nombre es `luis-nodejs-bot-` + `<your-name>` + 4 caracteres aleatorios.
+2. En la página **Mis aplicaciones**, seleccione la columna **Fecha de creación** para ordenar por la fecha en la que se creó la aplicación. Azure Bot Service creó una nueva aplicación en la sección anterior. Su nombre es `luis-nodejs-bot-` + `<your-name>` + 4 caracteres aleatorios.
 3. Abra la aplicación y seleccione la sección **Compilar** en el panel de navegación superior.
 4. En el panel de navegación izquierdo, seleccione **Prebuilt Domains** (Dominios creados previamente).
-5. Seleccione el dominio **HomeAutomation** seleccionando **Agregar dominio** en su tarjeta.
+5. Seleccione el dominio **HomeAutomation** en **Agregar dominio** de su tarjeta.
 6. Seleccione **Train** (Entrenar) en el menú de la esquina superior derecha.
-7. Seleccione **Publish** (Publicar) en el menú de la esquina superior derecha. 
+7. Seleccione **Publicar** (Publicar) en el menú de la esquina superior derecha. 
 
-    La aplicación creada por el servicio de Azure Bot ahora tiene intenciones nuevas:
+    La aplicación creada por Azure Bot Service ahora tiene intenciones nuevas:
 
     |Nuevas intenciones del bot básico|Expresión de ejemplo|
     |--|--|
@@ -350,9 +350,9 @@ En el archivo `bot.js`, agregue código para controlar las intenciones nuevas.
 ## <a name="learn-more-about-bot-framework"></a>Más información sobre Bot Framework
 Azure Bot Service usa el SDK de Bot Framework. Más información sobre el SDK y bot framework:
 
-* Documentación sobre [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* Documentación sobre [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
 * [Ejemplos de Bot Builder](https://github.com/Microsoft/botbuilder-samples)
-* [SDK de Bot Builder](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [SDK de Bot Builder](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Herramientas de Bot Builder](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Pasos siguientes

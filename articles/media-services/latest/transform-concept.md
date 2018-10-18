@@ -4,19 +4,19 @@ description: Al usar Media Services, debe crear una transformación para describ
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 214d4d3d11255e417f3df1e5f6e648b2a30225ea
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272087"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377315"
 ---
 # <a name="transforms-and-jobs"></a>Transformaciones y trabajos
 
@@ -78,5 +78,4 @@ Imagine que desea extraer el primer fotograma de todos los vídeos como una imag
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Streaming de archivos de vídeo](stream-files-dotnet-quickstart.md)
+[Streaming de archivos de vídeo](stream-files-dotnet-quickstart.md)

@@ -1,24 +1,24 @@
 ---
-title: 'Glosario de términos: Custom Speech Service'
-titlesuffix: Azure Cognitive Services
+title: Glosario de términos de Custom Speech Service en Azure | Microsoft Docs
 description: Terminología del glosario que define los términos que encontrará al trabajar con Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6922244fa9a5d053e506120112759d29bc74a8af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222801"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344258"
 ---
 # <a name="glossary"></a>Glosario
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 ## <a name="a"></a>Una 
 

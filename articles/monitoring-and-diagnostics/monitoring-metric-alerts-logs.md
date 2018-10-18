@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980855"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388326"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creación de alertas de métricas para registros en Azure Monitor  
 
@@ -58,11 +58,11 @@ Para obtener instrucciones paso a paso y ejemplos, consulte [creación y adminis
 - La señal elegida para la alerta de métrica para el *área de trabajo de Log Analytics* seleccionada es del tipo **Métrica**.
 - Filtrar por condiciones o recurso específicos mediante filtros de dimensión; las métricas para registros son multidimensionales.
 - Al configurar la *lógica de señal*, se puede crear una sola alerta para abarcar varios valores de dimensión (por ejemplo, equipo).
-- Si **no** usa Azure Portal para crear la alerta de métrica para el *área de trabajo de Log Analytics* seleccionada, el usuario debe crear primero manualmente una regla explícita para convertir los datos de registro en una métrica mediante [Azure Monitor: Scheduled Query Rules](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- Si **no** usa Azure Portal para crear la alerta de métrica para el *área de trabajo de Log Analytics* seleccionada, el usuario debe crear primero manualmente una regla explícita para convertir los datos de registro en una métrica mediante [Azure Monitor: Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 ) (Azure Monitor: Reglas de consulta programadas).
 
 > [!NOTE]
-> Al crear la alerta de métrica para el área de trabajo de Log Analytics mediante Azure Portal, la regla correspondiente para convertir datos de registro en la métrica a través de [Azure Monitor: Scheduled Query Rules](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules) se crea automáticamente en segundo plano,  *sin necesidad de ninguna intervención o acción del usuario*. Para la creación de alertas de métricas para registros a través de medios distintos de Azure Portal, consulte la sección [Plantilla de recursos para las alertas de métricas de registros](#resource-template-for-metric-alerts-for-logs) por medios de ejemplo para crear una regla de conversión de registro a métrica basada en ScheduledQueryRule antes de la creación de la alerta de métrica o, de lo contrario, no habrá datos para la alerta de métrica en los registros creados.
+> Al crear la alerta de métrica para el área de trabajo de Log Analytics mediante Azure Portal, la regla correspondiente para convertir datos de registro en la métrica a través de [Azure Monitor: Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) se crea automáticamente en segundo plano,  *sin necesidad de ninguna intervención o acción del usuario*. Para la creación de alertas de métricas para registros a través de medios distintos de Azure Portal, consulte la sección [Plantilla de recursos para las alertas de métricas de registros](#resource-template-for-metric-alerts-for-logs) por medios de ejemplo para crear una regla de conversión de registro a métrica basada en ScheduledQueryRule antes de la creación de la alerta de métrica o, de lo contrario, no habrá datos para la alerta de métrica en los registros creados.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Plantilla de recursos para las alertas de métricas de registros
 Como se indicó anteriormente, el proceso de creación de alertas de métricas para registros tiene dos puntas:

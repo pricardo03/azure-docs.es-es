@@ -4,22 +4,21 @@ description: Preguntas más frecuentes (P+F)
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: a47163d06e24814ca5724d1fabea84058f8764cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783244"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353547"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -43,9 +42,9 @@ P: ¿Puedo realizar una composición en una secuencia en directo?
 
 R: no se ofrece actualmente la composición en secuencias en vivo en Azure Media Services, por lo que tendrá que realizar una composición previa en el equipo.
 
-P: ¿Puedo usar CDN de Azure con secuencia en directo?
+P: ¿Puedo usar Azure CDN con secuencia en directo?
 
-R: Media Services admite la integración con CDN de Azure (para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md)).  Puede usar el streaming en vivo con CDN. Azure Media Services proporciona salidas de Smooth Streaming, HLS y MPEG-DASH. Todos estos formatos usan HTTP para transferir datos y obtener beneficios del almacenamiento en caché de HTTP. En la transmisión en vivo, los datos de audio/vídeo reales se dividen en fragmentos y los fragmentos individuales se almacenan en caché en CDN. Solo tienen que actualizarse los datos de manifiesto. CDN actualiza periódicamente los datos de manifiesto.
+R: Media Services admite la integración con Azure CDN (para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md)).  Puede usar el streaming en vivo con CDN. Azure Media Services proporciona salidas de Smooth Streaming, HLS y MPEG-DASH. Todos estos formatos usan HTTP para transferir datos y obtener beneficios del almacenamiento en caché de HTTP. En la transmisión en vivo, los datos de audio/vídeo reales se dividen en fragmentos y los fragmentos individuales se almacenan en caché en CDN. Solo tienen que actualizarse los datos de manifiesto. CDN actualiza periódicamente los datos de manifiesto.
 
 P: ¿Los servicios multimedia de Azure admiten el almacenamiento de imágenes?
 

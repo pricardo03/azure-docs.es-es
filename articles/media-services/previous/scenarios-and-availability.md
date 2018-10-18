@@ -4,21 +4,21 @@ description: Este tema ofrece información general de los escenarios y la dispon
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809290"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352821"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
@@ -30,7 +30,7 @@ En este tema se muestran escenarios comunes para la entrega de contenido [en dir
 
 ## <a name="overview"></a>Información general
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para empezar a usar Azure Media Services, debe tener lo siguiente:
 
@@ -136,9 +136,9 @@ Para obtener información acerca de la disponibilidad en los centros de datos, c
 
 Azure Media Services proporciona las herramientas que necesita para crear aplicaciones cliente de reproductor enriquecidas y dinámicas para la mayoría de las plataformas, como dispositivos iOS, dispositivos Android, Windows, Windows Phone, Xbox y decodificadores (set-top boxes). El tema siguiente proporciona vínculos a los SDK y Player Framework que puede usar para desarrollar sus propias aplicaciones cliente que pueden consumir contenido multimedia en streaming desde Media Services. Para más información, consulte [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-## <a name="enabling-azure-cdn"></a>Habilitación de CDN de Azure
+## <a name="enabling-azure-cdn"></a>Habilitación de Azure CDN
 
-Media Services admite la integración con Azure CDN. Para obtener información sobre cómo habilitar CDN de Azure, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md).
+Media Services admite la integración con Azure CDN. Para obtener información sobre cómo habilitar Azure CDN, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a id="scaling"></a>Escalado de una cuenta de Media Services
 
@@ -158,7 +158,7 @@ Los clientes de AMS pueden escalar los puntos de conexión de streaming, el proc
     Para más información, consulte [Escalado del procesamiento de elementos multimedia mediante Azure Portal](media-services-portal-scale-media-processing.md).
 * También puede escalar la cuenta de Media Services agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Media Services. Para más información, consulte [Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a>Disponibilidad de características de Media Services en centros de datos
+## <a id="availability"></a>Disponibilidad de características de Media Services en centros de datos
 
 En esta sección se proporcionan detalles acerca de la disponibilidad de las características de Media Services en centros de datos.
 

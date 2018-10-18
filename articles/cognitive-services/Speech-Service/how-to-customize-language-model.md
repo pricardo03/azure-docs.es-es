@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017558"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364122"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Creación de un modelo de lenguaje personalizado
 
@@ -98,8 +98,6 @@ Debe seleccionar la configuración regional adecuada antes de realizar cualquier
 En la página Create Language Model (Crear el modelo de lenguaje), escriba un **nombre** y una **descripción** para ayudarlo a realizar un seguimiento de la información relativa a este modelo, como el conjunto de datos utilizado. A continuación, seleccione **Base Language Model** (Modelo de lenguaje base) en el menú desplegable. Este modelo será el punto de partida para la personalización. 
 
 Existen dos modelos de idioma base para elegir. El modelo Search and Dictation es adecuado para la voz dirigida a una aplicación, como comandos, consultas de búsqueda o dictado. El modelo Conversational es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este tipo de habla normalmente se dirige a otra persona y se produce en centros de llamadas o en reuniones. 
-
-En la página Create Language Model (Crear el modelo de lenguaje), escriba un **nombre** y una **descripción** para ayudarlo a realizar un seguimiento de la información relativa a este modelo, como el conjunto de datos utilizado. A continuación, seleccione **Base Language Model** (Modelo de lenguaje base) en el menú desplegable. Este modelo será el punto de partida para la personalización. Existen dos modelos de idioma base para elegir. 
 
 El modelo Search and Dictation es adecuado para la voz dirigida a una aplicación, como comandos, consultas de búsqueda o dictado. El modelo Conversational es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este tipo de habla normalmente se dirige a otra persona y se produce en centros de llamadas o en reuniones. Un nuevo modelo denominado "Universal" también está disponible públicamente. Universal pretende abordar todos los escenarios y, en última instancia, reemplazar los modelos Search and Dictation y Conversational.
 

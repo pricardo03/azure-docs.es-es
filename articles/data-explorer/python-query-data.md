@@ -2,18 +2,18 @@
 title: 'Inicio rápido: consulta de datos mediante la biblioteca de Python del Explorador de datos de Azure'
 description: Con esta guía de inicio rápido, obtendrá información sobre cómo utilizar Python para consultar datos en el Explorador de datos de Azure.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: fee982812456548ed6d1e15d86151df88532389f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17504cec6ddf98aca8ddfc6c91d21d34055902f6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956105"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394863"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Inicio rápido: consulta de datos mediante la biblioteca de Python del Explorador de datos de Azure
 
@@ -32,7 +32,7 @@ Esta guía de inicio rápido también está disponible como un [Azure Notebook](
 Instale *azure-kusto-data*.
 
 ```python
-pip install azure-kusto-data
+pip install azure-kusto-data==0.0.13
 ```
 
 ## <a name="add-import-statements-and-constants"></a>Agregar instrucciones y constantes de importación
@@ -42,19 +42,20 @@ Importe clases de la biblioteca, así como *Pandas*, una biblioteca de análisis
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 ```
 
-Para autenticar una aplicación, el Explorador de datos de Azure usa el identificador del inquilino AAD. Para buscar el identificador de inquilino, utilice la dirección URL siguiente y sustituya su dominio por *SuDominio*.
+Para autenticar una aplicación, el Explorador de datos de Azure usa el identificador del inquilino AAD. Para buscar el identificador de inquilino, use la dirección URL siguiente, sustituyendo su dominio por *SuDominio*.
 
 ```
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-Por ejemplo, si el dominio es *contoso.com*, la dirección URL es: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Haga clic en esta dirección URL para ver los resultados; la primera línea es como se indica a continuación. 
+Por ejemplo, si el nombre de dominio es *contoso.com*, la dirección URL es: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Haga clic en esta dirección URL para ver los resultados. la primera línea es como sigue.
 
 ```
-`"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"`
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
 En este caso, el identificador de inquilino es `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Establezca el valor de AAD_TENANT_ID antes de ejecutar este código.
@@ -80,7 +81,7 @@ Ejecute una consulta en el clúster y almacene el resultado en un marco de datos
 KUSTO_CLIENT  = KustoClient(KCSB)
 KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```
 
 ## <a name="explore-data-in-dataframe"></a>Exploración de los datos en DataFrame
@@ -88,6 +89,7 @@ df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].
 Después de especificar un inicio de sesión, la consulta devuelve resultados, que se almacenan en un marco de datos. Puede trabajar con los resultados como hace con cualquier otro marco de datos.
 
 ```python
+df = dataframe_from_result_table(RESPONSE.primary_results[0])
 df
 ```
 
@@ -96,4 +98,4 @@ Debe ver los diez primeros resultados de la tabla StormEvents.
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: introducción de datos mediante la biblioteca de Python del Explorador de datos de Azure](python-ingest-data.md)
+> [Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)

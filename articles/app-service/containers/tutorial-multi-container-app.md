@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054645"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390217"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 
@@ -235,7 +235,7 @@ Cuando se haya creado la base de datos, Cloud Shell muestra información similar
 
 ### <a name="configure-database-variables-in-wordpress"></a>Configuración de las variables de la base de datos de WordPress
 
-Para conectar la aplicación de WordPress a este nuevo servidor MySQL, tendrá que configurar algunas variables de entorno específicas de WordPress, incluida la ruta de acceso de la entidad emisora de certificados SSL definida por `MYSQL_SSL_CA`. El [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) de [DigiCert](http://www.digicert.com/) se proporciona en la [imagen personalizada](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) a continuación.
+Para conectar la aplicación de WordPress a este nuevo servidor MySQL, tendrá que configurar algunas variables de entorno específicas de WordPress, incluida la ruta de acceso de la entidad emisora de certificados SSL definida por `MYSQL_SSL_CA`. El [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) de [DigiCert](http://www.digicert.com/) se proporciona en la [imagen personalizada](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) a continuación.
 
 Para realizar estos cambios, use el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. La configuración de la aplicación distingue mayúsculas de minúsculas y la separación se realiza mediante espacios.
 

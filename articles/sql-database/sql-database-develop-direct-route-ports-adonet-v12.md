@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 560d96b188a02f8df0d41b040c90db9b813e3c0a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 89802722e9e848b5cd5ede952287d5c934c142c3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063258"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351326"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Puertos más allá de 1433 para ADO.NET 4.5
 En este tema se describe el comportamiento de conexión de Azure SQL Database para clientes que usan ADO.NET 4.5 o una versión posterior. 
@@ -69,7 +69,7 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
 * ADO.NET 4.5 se publicó el 15 de julio de 2012. Hay un anuncio de blog del equipo de .NET disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
   * Hay una entrada de blog sobre ADO.NET 4.5.1 disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
-* Microsoft® ODBC Driver 17 for SQL Server®: Windows, Linux y macOS https://www.microsoft.com/en-us/download/details.aspx?id=56567
+* Microsoft® ODBC Driver 17 for SQL Server®: Windows, Linux y macOS https://www.microsoft.com/download/details.aspx?id=56567
 
 * Conexión a Azure SQL Database V12 mediante un redireccionamiento https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/
 

@@ -3,8 +3,8 @@ title: Recuperación de la lista de POP de Verizon actual para Azure CDN| Micros
 description: Obtenga información acerca de cómo recuperar la lista de POP de Verizon actual mediante el uso de la API REST.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9605b352755933b37819527cecbc4e1ccc30e8aa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 34bd958260056d7a0297c4d3545d97543a363480
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579078"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344799"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Recuperación de la lista de POP de Verizon actual para Azure CDN
 
 Puede utilizar la API REST para recuperar el conjunto de direcciones IP de los servidores de punto de presencia (POP) de Verizon. Estos servidores de POP realizan solicitudes a los servidores de origen que están asociados a los puntos de conexión de Azure Content Delivery Network (CDN) en un perfil de Verizon (**Azure CDN de Verizon estándar** o **Azure CDN de Verizon premium**). Tenga en cuenta que este conjunto de direcciones IP es diferente de las direcciones IP que un cliente vería al realizar solicitudes a los POP. 
 
-Para obtener la sintaxis de la operación de API REST para recuperar la lista de POP, consulte [Edge Nodes - List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list) (Nodos de Edge: lista).
+Para obtener la sintaxis de la operación de API REST para recuperar la lista de POP, consulte [Edge Nodes - List](https://docs.microsoft.com/rest/api/cdn/edgenodes/edgenodes_list) (Nodos de Edge: lista).
 
 ## <a name="typical-use-case"></a>Caso de uso típico
 

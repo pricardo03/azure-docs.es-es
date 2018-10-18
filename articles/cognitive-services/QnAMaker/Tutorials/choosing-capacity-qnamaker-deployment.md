@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 01548cf2de8db8f4dc9984598a5e5544bf97fd49
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 582ace641cadbc7ad3a622def07f70ed51ccac53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432660"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389809"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Elegir capacidad para la implementación de QnA Maker
 
@@ -27,9 +27,9 @@ El servicio QnA Maker depende de tres recursos de Azure:
 Antes de crear el servicio QnA Maker, debe decidir qué nivel de los servicios anteriores es conveniente en su caso. 
 
 Normalmente hay tres parámetros que necesita tener en cuenta:
-1. **El rendimiento necesario del servicio**: seleccione el [plan de aplicación](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/) apropiado para el servicio aplicación en función de sus necesidades. Puede [escalar o reducir verticalmente](https://docs.microsoft.com/azure/app-service/web-sites-scale) la aplicación. Esto debería influir también en la selección de la SKU de Azure Search SKU; consulte más detalles [aquí](https://docs.microsoft.com/azure/search/search-sku-tier).
+1. **El rendimiento necesario del servicio**: seleccione el [plan de aplicación](https://azure.microsoft.com/pricing/details/app-service/plans/) apropiado para el servicio aplicación en función de sus necesidades. Puede [escalar o reducir verticalmente](https://docs.microsoft.com/azure/app-service/web-sites-scale) la aplicación. Esto debería influir también en la selección de la SKU de Azure Search SKU; consulte más detalles [aquí](https://docs.microsoft.com/azure/search/search-sku-tier).
 
-2. **Tamaño y número de bases de conocimiento**: seleccione la [SKU de Azure Search](https://azure.microsoft.com/en-in/pricing/details/search/) apropiada para su escenario. Puede publicar N-1 bases de conocimiento en un nivel particular, donde N se corresponde con los índices máximos permitidos en el nivel. Compruebe también el tamaño y el número máximos de documentos permitidos por cada nivel.
+2. **Tamaño y número de bases de conocimiento**: seleccione la [SKU de Azure Search](https://azure.microsoft.com/pricing/details/search/) apropiada para su escenario. Puede publicar N-1 bases de conocimiento en un nivel particular, donde N se corresponde con los índices máximos permitidos en el nivel. Compruebe también el tamaño y el número máximos de documentos permitidos por cada nivel.
 
 3. **Número de documentos como orígenes**: la SKU gratuita del servicio de administración de QnA Maker limita el número de documentos que puede administrar a través del portal y las API a 3 (de 1 MB cada una). La SKU estándar no tiene ningún límite en relación con el número de documentos que puede administrar. Puede consultar más información [aquí](https://aka.ms/qnamaker-pricing).
 

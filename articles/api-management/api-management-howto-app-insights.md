@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146941"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390030"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -51,7 +51,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
     ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> En segundo plano, se crea una entidad [Logger](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
+> En segundo plano, se crea una entidad [Logger](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitación del registro Application Insights para la API
 
@@ -68,7 +68,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 10. Haga clic en **Save**(Guardar).
 
 > [!NOTE]
-> En segundo plano, se crea una entidad de [diagnóstico](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
+> En segundo plano, se crea una entidad de [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
 
 | Nombre del valor                        | Tipo de valor                        | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,5 +123,5 @@ Omitir el registro de encabezados y del cuerpo de las solicitudes y respuestas t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-+ Más información sobre [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
++ Más información sobre [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
 + Tenga en cuenta el [registro con Azure Event Hubs](api-management-howto-log-event-hubs.md).

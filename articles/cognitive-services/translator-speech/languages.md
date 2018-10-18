@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd1c60a2c2ad88abf686e89972d29768ef600e4e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950189"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344564"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas admitidos en Translator Speech API
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 La traducción de voz admite los siguientes idiomas. Si ambos idiomas son compatibles con la traducción de voz, estará disponible tanto la función voz a voz como la de voz a texto. Si no se admite el idioma de destino para la traducción de voz, solo estará disponible la función de voz a texto. 
 
 | Idioma de voz    |
