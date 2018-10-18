@@ -1,22 +1,24 @@
 ---
-title: Preguntas frecuentes sobre Computer Vision API | Microsoft Docs
-description: Obtenga respuestas a preguntas frecuentes sobre Computer Vision API en Microsoft Cognitive Services.
+title: Preguntas más frecuentes sobre Computer Vision API
+titlesuffix: Azure Cognitive Services
+description: Obtenga respuestas a las preguntas más frecuentes sobre Computer Vision API en Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c862dd2fb26a005f4e785673a4e9358ecf9286f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5c0a4e981a290b9a758c8401a75e546c61618b45
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380119"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983908"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Preguntas frecuentes sobre Computer Vision API
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Si no puede encontrar respuestas a sus preguntas en estas P+F, puede plantearlas en la comunidad de Computer Vision API en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) o ponerse en contacto con [Ayuda y soporte técnico en UserVoice](https://cognitive.uservoice.com/).
 
 -----

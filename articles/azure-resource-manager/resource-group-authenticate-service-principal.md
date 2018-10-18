@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023331"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498613"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
@@ -29,7 +29,7 @@ Cuando haya una aplicación o un script que necesite acceder a recursos, puede c
 * Usar un certificado para la autenticación al ejecutar un script desatendido.
 
 > [!IMPORTANT]
-> En lugar de crear una entidad de servicio, considere el uso de la identidad de servicio administrada de Azure AD para la identidad de la aplicación. La identidad de servicio administrada de Azure AD es una característica pública en versión preliminar de Azure Active Directory que simplifica la creación de una identidad para el código. Si el código se ejecuta en un servicio que admite la a identidad de servicio administrada de Azure AD y tiene acceso a recursos que admiten la autenticación de Azure Active Directory, la identidad de servicio administrada de Azure AD es una opción mejor para usted. Para obtener más información sobre la identidad de servicio administrada de Azure AD, incluidos los servicios que actualmente lo admiten, consulte [Managed Service Identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) (Identidad de servicio administrada para recursos de Azure).
+> En lugar de crear una entidad de servicio, considere el uso de identidades administradas para recursos de Azure para la identidad de la aplicación. Si el código se ejecuta en un servicio que admite identidades administradas y tiene acceso a recursos que admiten la autenticación de Azure Active Directory, las identidades administradas son la opción ideal para usted. Para obtener más información sobre las identidades administradas para recursos de Azure, incluidos los servicios que actualmente lo admiten, consulte [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 En este artículo se muestra cómo crear una entidad de servicio que se autentica con un certificado. Para configurar una entidad de servicio con contraseña, consulte [Creación de una entidad de servicio de Azure con Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 

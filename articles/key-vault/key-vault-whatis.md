@@ -11,38 +11,46 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/02/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 26828efedac9953ce1c7375fc62269e93019ce50
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094877"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497610"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
 Azure Key Vault ayuda a solucionar los problemas siguientes
-- Azure Key Vault se puede utilizar para almacenar de forma segura y controlar estrechamente el acceso a los tokens, contraseñas, certificados, claves de API y otros secretos
-- También se puede usar Azure Key Vault como una solución de administración de claves. Azure Key Vault facilita la creación y control de las claves de cifrado utilizadas para cifrar los datos. 
-- Azure Key Vault también es un servicio que le permite aprovisionar, administrar e implementar fácilmente certificados públicos y privados de la Capa de sockets seguros y de Seguridad de la capa de transporte (SSL/TLS) para su uso con Azure y sus recursos internos conectados. 
-- Las claves y secretos se pueden proteger mediante software o mediante dispositivos HSM validados FIPS 140-2 de nivel 2
+- **Administración de secretos**: Azure Key Vault se puede utilizar para almacenar de forma segura y controlar de manera estricta el acceso a los tokens, contraseñas, certificados, claves de API y otros secretos.
+- **Administración de claves**: también se puede usar Azure Key Vault como una solución de administración de claves. Azure Key Vault facilita la creación y control de las claves de cifrado utilizadas para cifrar los datos. 
+- **Administración de certificados**: Azure Key Vault también es un servicio que le permite aprovisionar, administrar e implementar fácilmente certificados públicos y privados de la Capa de sockets seguros y de Seguridad de la capa de transporte (SSL/TLS) para su uso con Azure y sus recursos internos conectados. 
+- **Almacenamiento de secretos basado en módulos de seguridad de hardware**: las claves y secretos se pueden proteger mediante software o mediante dispositivos HSM validados por FIPS 140-2 de nivel 2
 
 ## <a name="basic-concepts"></a>Conceptos básicos
 
-Azure Key Vault es una herramienta para almacenar y acceder a los secretos de forma segura. Un secreto es todo aquello a lo cual se desea controlar estrechamente el acceso, como certificados, contraseñas o claves de API.
+Azure Key Vault es una herramienta para almacenar y acceder a los secretos de forma segura. Un secreto es todo aquello a lo cual se desea controlar estrechamente el acceso, como certificados, contraseñas o claves de API. Un **almacén** es un grupo lógico de secretos. Ahora, para realizar cualquier operación con Key Vault, en primer lugar, deberá autenticarse en él. 
+
+Básicamente, existen 3 formas de autenticarse en Key Vault.
+
+1. **Mediante [Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)** (**procedimiento recomendado**): cuando implementa una aplicación en una máquina virtual en Azure, puede asignar una identidad a la máquina virtual que tenga acceso a Key Vault. También puede asignar las identidades a otros recursos de Azure que se mencionan [aquí](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). La ventaja de este enfoque es que la aplicación o el servicio no administra la rotación del primer secreto. Azure alterna automáticamente la identidad. 
+2. **Mediante la entidad de servicio y el certificado:** la segunda opción es usar una entidad de servicio y un certificado asociado que tenga acceso a Key Vault. La responsabilidad de alternar el certificado recae en el propietario o desarrollador de la aplicación y, por tanto, no se recomienda.
+3. **Mediante la entidad de servicio y el secreto:** la tercera opción (opción no preferida) consiste en usar una entidad de servicio y un secreto para autenticarse en Key Vault.
+
 A continuación se muestran algunos términos clave:
 - **Inquilino**: un inquilino es la organización que posee y administra una instancia específica de los servicios en la nube de Microsoft. Se usa a menudo de manera exacta para hacer referencia al conjunto de servicios de Azure y Office 365 de una organización.
 - **Propietario del almacén**: un propietario del almacén puede crear un almacén de claves y obtener acceso completo y control sobre él. El propietario del almacén también puede configurar una auditoría para registrar quién accede a los secretos y claves. Los administradores pueden controlar el ciclo de vida de la clave. Pueden revertir a una nueva versión de la clave, realizar copias de seguridad de ella y efectuar otras tareas relacionadas.
+- **Consumidor del almacén**: un consumidor del almacén puede realizar acciones en los recursos del almacén de claves si el propietario del almacén le concede acceso de consumidor. Las acciones disponibles dependen de los permisos concedidos.
 - **Recurso**: un recurso es un elemento administrable que está disponible a través de Azure. Algunos recursos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual, pero hay muchos más.
 - **Grupo de recursos**: un grupo de recursos de Azure es un contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización.
-- **Consumidor del almacén**: un consumidor del almacén puede realizar acciones en los recursos del almacén de claves si el propietario del almacén le concede acceso de consumidor. Las acciones disponibles dependen de los permisos concedidos.
+- **Entidad de servicio**: para acceder a los recursos que están protegidos por un inquilino de Azure AD, la entidad que requiere acceso debe estar representada por una entidad de seguridad. Esto es cierto para los usuarios (entidad de seguridad de usuario) y para las aplicaciones (entidad de servicio). La entidad de seguridad define la directiva de acceso y los permisos para el usuario o aplicación de ese inquilino. Esto habilita características básicas como la autenticación del usuario o de la aplicación durante el inicio de sesión y la autorización durante el acceso a los recursos.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD es el servicio de Active Directory para un inquilino. Cada directorio tiene uno o varios dominios. Un directorio puede tener varias suscripciones asociadas, pero solo un inquilino. 
 - **Identificador de inquilino de Azure**: un identificador de inquilino es una manera única para identificar una instancia de Azure Active Directory dentro de una suscripción de Azure.
-- **Managed Service Identity**: Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Para solucionar este problema, Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse Key Vault o en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. Para más información, consulte [Managed Service Identity para recursos de Azure](../active-directory/managed-service-identity/overview.md).
+- **Identidades administradas para recursos de Azure**: Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. El uso de una identidad administrada permite solucionar este problema más fácilmente, al proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse Key Vault o en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. Para obtener más información, consulte la imagen que hay a continuación y la [introducción a las identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagrama con el funcionamiento de Managed Service Identity](./media/key-vault-whatis/msi.png)
+    ![Diagrama sobre cómo funcionan las identidades administradas para los recursos de Azure](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Roles de Key Vault
 

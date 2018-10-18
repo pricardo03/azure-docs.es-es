@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667164"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497933"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Configuración de la replicación de datos internos de Azure Database for MySQL
 
@@ -158,6 +158,9 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
    - master_log_pos: posición del registro binario procedente de la ejecución de `show master status`
    - master_ssl_ca: contexto del certificado de entidad de certificación. Si no usa SSL, pase una cadena vacía.
        - Se recomienda pasar este parámetro como una variable. Consulte los siguientes ejemplos para más información.
+
+> [!NOTE]
+> Si el servidor maestro se hospeda en una VM de Azure, establezca la opción "Permitir el acceso a servicios de Azure" en "Activado" para permitir que los servidores principal y réplica se comuniquen entre sí. Esta configuración se puede cambiar desde las opciones de **seguridad de conexión**. Consulte [Manage firewall rules using portal](howto-manage-firewall-using-portal.md) (Administrar reglas de firewall mediante el portal) para obtener más información.
 
    **Ejemplos**
 

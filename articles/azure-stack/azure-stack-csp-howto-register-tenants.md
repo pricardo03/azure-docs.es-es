@@ -3,7 +3,7 @@ title: Adición de inquilinos en Azure Stack para uso y facturación | Microsoft
 description: Los pasos necesarios agregan un usuario final a Azure Stack administrado por un proveedor de servicios en la nube (CSP).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: brenduns
+ms.date: 09/19/2018
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382695"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498579"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adición de inquilinos en Azure Stack para uso y facturación
 
@@ -69,9 +69,9 @@ Actualice el registro con la suscripción del nuevo cliente. Azure informa del u
 ### <a name="new-azurermresource-powershell-parameters"></a>Parámetros del comando de PowerShell New-AzureRmResource
 | Parámetro | DESCRIPCIÓN |
 | --- | --- | 
-|registrationSubscriptionID | La suscripción de Azure que se ha usado para el registro inicial de Azure Stack. |
-| customerSubscriptionID | La suscripción de Azure (no de Azure Stack) que pertenece al cliente que se va a registrar. Se debe crear en la oferta del CSP; en la práctica, esto significa mediante el centro de partners. Si un cliente tiene más de un inquilino de Azure Active Directory, esta suscripción debe crearse en el inquilino que se usará para iniciar sesión en Azure Stack.
-| resourceGroup | El grupo de recursos de Azure en el que se almacena el registro. 
+|registrationSubscriptionID | La suscripción de Azure que se ha usado para el registro inicial de Azure Stack.|
+| customerSubscriptionID | La suscripción de Azure (no de Azure Stack) que pertenece al cliente que se va a registrar. Se debe crear en la oferta del CSP; en la práctica, esto significa mediante el centro de partners. Si un cliente tiene más de un inquilino de Azure Active Directory, esta suscripción debe crearse en el inquilino que se usará para iniciar sesión en Azure Stack. El id. de suscripción de clientes debe usar letras minúsculas. |
+| resourceGroup | El grupo de recursos de Azure en el que se almacena el registro. |
 | registrationName | El nombre del registro de Azure Stack. Es un objeto almacenado en Azure. | 
 | Properties (Propiedades) | Especifica las propiedades del recurso. Use este parámetro para especificar los valores de las propiedades que son específicos del tipo de recurso.
 

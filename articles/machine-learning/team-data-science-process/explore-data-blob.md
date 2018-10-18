@@ -1,6 +1,6 @@
 ---
 title: Exploración de datos en Azure Blob Storage con Pandas | Microsoft Docs
-description: Cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante Pandas.
+description: Cómo explorar los datos que se almacenan en el contenedor de blobs de Azure mediante Pandas.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 61943da154483d8e815fa135fba30b136724b011
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246662"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497865"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en el almacenamiento de blobs de Azure con Pandas
-Este documento explica cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/) .
+En este documento se explica cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/).
 
 El siguiente **menú** vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](overview.md).
 
@@ -35,8 +35,8 @@ En este artículo se supone que ha:
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-quickstart-create-account.md)
 * Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte [mover con Azure Storage como origen y destino](../../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>Carga de los datos en una trama de datos de Pandas
-Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Carga de los datos en DataFraim de Pandas
+Para explorar y manipular un conjunto de datos, primero se debe descargar desde el origen de blob en un archivo local que, a continuación, se pueda cargar en un elemento DataFrame de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
 1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos: 
    
@@ -55,7 +55,7 @@ Para explorar y manipular un conjunto de datos, se debe descargar desde el orige
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. Lea los datos en una trama de datos de Pandas desde el archivo descargado.
+2. Lea los datos en un elemento DataFrame de Pandas desde el archivo descargado.
    
         #LOCALFILE is the file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)

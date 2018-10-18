@@ -1,0 +1,67 @@
+---
+title: Versiones de Kubernetes compatibles en Azure Kubernetes Service
+description: Obtener información sobre la directiva de soporte técnico de la versión de Kubernetes y el ciclo de vida de los clústeres en Azure Kubernetes Service (AKS)
+services: container-service
+author: sauryadas
+ms.service: container-service
+ms.topic: article
+ms.date: 09/21/2018
+ms.author: saudas
+ms.openlocfilehash: 6b55825107ae8872b146b3ad4fde0ef4b917b71d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47046832"
+---
+# <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
+
+La Comunidad de Kubernetes libera versiones secundarias aproximadamente cada tres meses. Estas versiones incluyen nuevas características y mejoras. Versiones de revisión son más frecuentes (a veces semanales) y solo están previstas para correcciones de errores críticos en una versión secundaria. Estas versiones de revisión incluyen correcciones de vulnerabilidades de seguridad o errores importantes que afectan a un gran número de clientes y productos que se ejecutan en producción basada en Kubernetes.
+
+Un nueva versión secundaria de Kubernetes está disponible en [acs-engine][acs-engine] desde el primer día. El objetivo de nivel de servicio (SLO) de AKS tiene como objetivo publicar la versión secundaria para los clústeres AKS en 30 días, dependiendo de la estabilidad de la versión.
+
+## <a name="kubernetes-version-support-policy"></a>Directiva de soporte técnico de versión de Kubernetes
+
+AKS es compatible con cuatro versiones secundarias de Kubernetes:
+
+- La versión secundaria actual que está publicado en el canal de subida (n)
+- Tres versiones secundarias anteriores. Cada versión secundaria compatible también admite dos revisiones estables.
+
+Por ejemplo, si AKS presenta *1.11.x* hoy, también se proporciona compatibilidad para *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F* (donde las versiones de revisión indicadas con letras son las compilaciones estables más recientes).
+
+Cuando se introduce una nueva versión secundaria, se retirarán la versión secundaria y la versión de revisión compatibles más antiguas. 15 días antes de la publicación de la nueva versión secundaria y la próxima retirada de la versión, se realiza un anuncio a través de los canales de actualización de Azure. En el ejemplo anterior en el que se publicó *1.11.x*, las versiones retiradas son *1.7.g* + *1.7.h*.
+
+Al implementar un clúster de AKS en Azure Portal o con la CLI de Azure, el clúster siempre se establece en la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS es compatible con *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F*, la versión predeterminada para nuevos clústeres es *1.10.b*.
+
+## <a name="faq"></a>Preguntas más frecuentes
+
+**¿Qué ocurre cuando un cliente actualiza un clúster de Kubernetes con una versión secundaria que no es compatible?**
+
+Si se encuentra en la versión *n-4*, está fuera del SLO. Si se realiza correctamente la actualización de la versión n-4 a n-3, volverá a estar en el SLO. Por ejemplo: 
+
+- Si las versiones compatibles de AKS son *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F* y se encuentra en *1.7.g* o *1.7.h*, está fuera del SLO.
+- Si la actualización de *1.7.g* o *1.7.h* a *1.8.e* o *1.8.f* se realiza correctamente, volverá a estar en el SLO.
+
+Las actualizaciones a las versiones anteriores a *n-4* no se admiten. En esos casos, se recomienda a los clientes que creen nuevos clústeres de AKS y vuelvan a implementar sus cargas de trabajo.
+
+**¿Qué ocurre cuando un cliente escala un clúster de Kubernetes con una versión secundaria que no es compatible?**
+
+Para las versiones secundarias que no son compatibles con AKS, el escalado sigue funcionando sin ningún problema.
+
+**¿Puede un cliente permanecer en una versión de Kubernetes para siempre?**
+
+Sí. No obstante, si el clúster no está en una de las versiones compatibles con AKS, el clúster está fuera del SLO de AKS. Azure no actualiza el clúster automáticamente ni lo elimina.
+
+**¿Qué versión admite el clúster principal si el clúster de agente no está en una de las versiones admitidas de AKS?**
+
+El clúster maestro se actualiza automáticamente a la última versión compatible.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener información sobre cómo actualizar el clúster, vea [Actualización de un clúster de Azure Kubernetes Service (AKS)][aks-upgrade].
+
+<!-- LINKS - External -->
+[acs-engine]: https://github.com/Azure/acs-engine
+
+<!-- LINKS - Internal -->
+[aks-upgrade]: upgrade-cluster.md

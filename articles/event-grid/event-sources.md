@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144236"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498307"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
 
@@ -58,7 +58,7 @@ Suscríbase a temas personalizados para responder a eventos de la aplicación.
 | [PowerShell: suscripción a eventos de un tema personalizado](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Script de ejemplo que crea una suscripción a un tema personalizado. Envía eventos a un webhook.|
 | [Plantilla de Resource Manager: tema personalizado y punto de conexión del webhook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Plantilla de Resource Manager que crea un tema personalizado y una suscripción a ese tema personalizado. Envía eventos a un webhook. |
 |
-| [Plantilla de Resource Manager: tema personalizado y punto de conexión a Event Hubs](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
+| [Plantilla de Resource Manager: tema personalizado y punto de conexión a Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Plantilla de Resource Manager que crea una suscripción a un tema personalizado. Envía eventos a una instancia de Azure Event Hubs. |
 | [Esquema del evento](event-schema.md) | Muestra los campos de eventos personalizados. |
 
 ## <a name="event-hubs"></a>Event Hubs
@@ -104,7 +104,7 @@ Suscríbase a eventos de grupos de recursos para responder a los cambios de los 
 | [CLI de Azure: suscripción a eventos de un grupo de recursos y filtrado de los eventos de un recurso](./scripts/event-grid-cli-resource-group-filter.md) | Script de ejemplo que se suscribe a eventos para un grupo de recursos y filtra los eventos para un recurso. |
 | [PowerShell: suscripción a eventos para un grupo de recursos](./scripts/event-grid-powershell-resource-group.md) | Script de ejemplo que se suscribe a eventos para un grupo de recursos. Envía eventos a un webhook. |
 | [PowerShell: suscripción a eventos para un grupo de recursos y filtrado de los eventos para un recurso](./scripts/event-grid-powershell-resource-group-filter.md) | Script de ejemplo que se suscribe a eventos para un grupo de recursos y filtra los eventos para un recurso. |
-| [Plantilla de Resource Manager: suscripción para un grupo de recursos](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | Crea una suscripción a eventos de un grupo de recursos. Envía eventos a un webhook. |
+| [Plantilla de Resource Manager: suscripción de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Se suscribe a eventos para una suscripción o grupo de recursos de Azure. Envía eventos a un webhook. |
 | [Esquema del evento](event-schema-resource-groups.md) | Muestra los campos de eventos de grupos de recursos. |
 
 ## <a name="service-bus"></a>Azure Service Bus
@@ -128,7 +128,7 @@ Suscríbase a eventos de Blob Storage para responder a eventos creados y elimina
 | [Guía de inicio rápido: creación y enrutamiento de eventos de Blob Storage con Azure Portal](blob-event-quickstart-portal.md) | Muestra cómo utilizar el portal para enviar eventos de Blob Storage a un webhook. |
 | [CLI de Azure: suscripción a eventos de una cuenta de Blob Storage](./scripts/event-grid-cli-blob.md) | Script de ejemplo que se suscribe a un evento para una cuenta de Blob Storage. Envía el evento a un webhook. |
 | [PowerShell: suscripción a eventos de una cuenta de Blob Storage](./scripts/event-grid-powershell-blob.md) | Script de ejemplo que se suscribe a un evento para una cuenta de Blob Storage. Envía el evento a un webhook. |
-| [Plantilla de Resource Manager: creación de una cuenta de Blob Storage y una suscripción](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Implementa una cuenta de Azure Blob Storage y crea una suscripción a eventos de dicha cuenta. Envía eventos a un webhook. |
+| [Plantilla de Resource Manager: creación de una cuenta de Blob Storage y una suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implementa una cuenta de Azure Blob Storage y crea una suscripción a eventos de dicha cuenta. Envía eventos a un webhook. |
 | [Introducción: reacción ante eventos de Blob Storage](../storage/blobs/storage-blob-event-overview.md) | Información general de la integración de Blob Storage con Event Grid. |
 | [Esquema del evento](event-schema-blob-storage.md) | Muestra los campos de los eventos de Blob Storage. |
 

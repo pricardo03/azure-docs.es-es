@@ -1,0 +1,172 @@
+---
+title: Corregir los recursos no conformes con Azure Policy
+description: Este procedimiento le guiará a través de la corrección de los recursos que no son conformes con las directivas de Azure Policy.
+services: azure-policy
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 09/25/2018
+ms.topic: conceptual
+ms.service: azure-policy
+manager: carmonm
+ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392707"
+---
+# <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
+
+Los recursos que no son conformes para un directiva **deployIfNotExists** se pueden colocar en un estado conforme a través de **Corrección**. La corrección se lleva a cabo indicando a Azure Policy que ejecute el efecto **deployIfNotExists** de la directiva asignada en los recursos existentes. Este procedimiento le guía a través de los pasos necesarios para lograr esto.
+
+## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
+
+Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
+Azure Policy crea una identidad administrada para cada asignación por usted, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si falta roles en la identidad administrada, esto se muestra durante la asignación de la directiva o una iniciativa que contiene la directiva. Al usar Azure Portal, Azure Policy concederá automáticamente a la identidad administrada los roles enumerados una vez que se inicia la asignación.
+
+![Identidad administrada - función ausente](../media/remediate-resources/missing-role.png)
+
+> [!IMPORTANT]
+> Si un recurso modificado por **deployIfNotExists** está fuera del ámbito de la asignación de directiva o la plantilla tiene acceso a propiedades en los recursos fuera del ámbito de la asignación de directiva, debe [concederse manualmente acceso](#manually-configure-the-managed-identity) a la identidad administrada de la asignación o se producirá un error en la implementación de actualizaciones.
+
+## <a name="configure-policy-definition"></a>Configurar la definición de directiva
+
+El primer paso es definir los roles que **deployIfNotExists** necesita en la definición de directiva para implementar correctamente el contenido de la plantilla incluida. En la propiedad **details**, agregue una propiedad **roleDefinitionIds**. Se trata de una matriz de cadenas que coinciden con los roles en su entorno.
+Para obtener un ejemplo completo, vea el [ejemplo deployIfNotExists](../concepts/effects.md#deployifnotexists-example).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
+
+**roleDefinitionIds** utiliza el identificador de recurso completo y no toma el **roleName** corto del rol. Para obtener el identificador del rol “Contributor” en su entorno, use el siguiente código:
+
+```azurecli-interactive
+az role definition list --name 'Contributor'
+```
+
+```azurepowershell-interactive
+Get-AzureRmRoleDefinition -Name 'Contributor'
+```
+
+## <a name="manually-configure-the-managed-identity"></a>Configurar manualmente la identidad administrada
+
+Al crear un trabajo mediante Azure Portal, Azure Policy genera la identidad administrada y le concede los roles definidos en **roleDefinitionIds**. En las siguientes condiciones, se deben realizar manualmente los pasos para crear la identidad administrada y asignarle permisos:
+
+- Al usar el SDK (por ejemplo, Azure PowerShell)
+- Cuando la plantilla modifica un recurso fuera del ámbito de asignación
+- Cuando la plantilla lee un recurso fuera del ámbito de asignación
+
+> [!NOTE]
+> Azure PowerShell y .NET son el únicos SDK que actualmente admiten esta funcionalidad.
+
+### <a name="create-managed-identity-with-powershell"></a>Creación de una identidad administrada con PowerShell
+
+Para crear una identidad administrada durante la asignación de la directiva, debe definirse **Location** y debe usarse **AssignIdentity**. En el siguiente ejemplo se obtiene la definición de la directiva integrada **Implementar cifrado de datos transparente de SQL DB**, se establece el grupo de recursos de destino y después se crea la asignación.
+
+```azurepowershell-interactive
+# Login first with Connect-AzureRmAccount if not using Cloud Shell
+
+# Get the built-in "Deploy SQL DB transparent data encryption" policy definition
+$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+
+# Get the reference to the resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+
+# Create the assignment using the -Location and -AssignIdentity properties
+$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+```
+
+La variable `$assignment` contiene ahora el identificador principal de la identidad administrada junto con los valores estándar devueltos cuando se crea una asignación de directiva. Se puede acceder a ella a través de `$assignment.Identity.PrincipalId`.
+
+### <a name="grant-defined-roles-with-powershell"></a>Conceder roles definidos con PowerShell
+
+La nueva identidad administrada debe completar la replicación a través de Azure Active Directory antes de se le puedan conceder los roles necesarios. Una vez se completa la replicación, el siguiente ejemplo itera la definición de directiva en `$policyDef` para el **roleDefinitionIds** y usa [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para conceder la nueva identidad administrada a los roles.
+
+```azurepowershell-interactive
+# Use the $policyDef to get to the roleDefinitionIds array
+$roleDefinitionIds = $policyDef.Properties.policyRule.then.details.roleDefinitionIds
+
+if ($roleDefinitionIds.Count -gt 0)
+{
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+    }
+}
+```
+
+### <a name="grant-defined-roles-through-portal"></a>Conceder roles definidos a través de Azure Portal
+
+Hay dos maneras de conceder a la identidad administrada de una asignación los roles definidos mediante Azure Portal, mediante **Access control (IAM)** o editando la asignación de directiva o iniciativa y haciendo clic en **Guardar**.
+
+Para agregar un rol a la identidad administrada de la asignación, siga estos pasos:
+
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+
+1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy.
+
+1. Busque la asignación que tiene una identidad administrada y haga clic en el nombre.
+
+1. Busque la propiedad **Id. de asignación** en la página Editar. El identificador de asignación será algo como:
+
+   ```
+   /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
+   ```
+
+   El nombre de la identidad administrada es la última parte del identificador del recurso de asignación, que es `2802056bfc094dfb95d4d7a5` en este ejemplo. Copie esta parte del identificador de recursos de asignación.
+
+1. Navegue hasta el contenedor primario del recurso o recursos (grupo de recursos, suscripción, grupo de administración) al que se debe agregar manualmente la definición de función.
+
+1. Haga clic en el vínculo de **Access Control (IAM)** en la página de recursos y haga clic en **+ Agregar** en la parte superior de la página de Access Control.
+
+1. Seleccione el rol adecuado que coincide con un **roleDefinitionIds** de la definición de la directiva. Deje **Asignar acceso a** con el valor predeterminado de “Usuario de Azure AD, grupo o aplicación”. En el cuadro **Seleccionar**, pegue o escriba la parte del identificador del recurso de asignación que buscó anteriormente. Una vez finalizada la búsqueda, haga clic en el objeto con el mismo nombre que el identificador seleccionado y haga clic en **Guardar**.
+
+## <a name="create-a-remediation-task"></a>Crear una tarea de corrección
+
+Durante la evaluación, el efecto de asignación de directiva con **deployIfNotExists** determina si hay recursos no conformes. Cuando se encuentran los recursos no conformes, se proporcionan los detalles en la página **Corrección**. La opción para desencadenar una **tarea de corrección** está junto a la lista de directivas que tienen recursos no página. Esto es lo que crea una implementación de la plantilla **deployIfNotExists**.
+
+Para crear un **tarea de corrección**, siga estos pasos:
+
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+
+   ![Búsqueda de directivas](../media/remediate-resources/search-policy.png)
+
+1. Seleccione **Corrección** en el lado izquierdo de la página Azure Policy.
+
+   ![Seleccione la corrección](../media/remediate-resources/select-remediation.png)
+
+1. Todas las asignaciones de directivas **deployIfNotExists** con recursos no conformes se incluyen en la tabla de datos y la pestaña **Directivas para resolver**. Haga clic en una directiva con recursos que no son conformes. Se abre la página **Nueva tarea de corrección**.
+
+   > [!NOTE]
+   > Una forma alternativa de abrir la página **Tareas de corrección** consiste en buscar y hacer clic en la directiva desde la página **Cumplimiento** y después hacer clic en el botón **Crear tarea de corrección**.
+
+1. En la página **Nueva tarea de corrección**, filtrar los recursos necesarios para corregir mediante el uso de la elipse **Ámbito** para seleccionar los recursos secundarios desde los que se asignó la directiva (hasta los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
+
+   ![Corrección: selección de recursos](../media/remediate-resources/select-resources.png)
+
+1. Inicie la tarea de corrección de cuando se hayan filtrado los recursos haciendo clic en **Corregir**. Se abrirá la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas.
+
+   ![Corrección: progreso de tareas](../media/remediate-resources/task-progress.png)
+
+1. Haga clic en el **tarea de corrección** en la página de cumplimiento de directiva para obtener detalles sobre el progreso. El filtro utilizado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
+
+1. En la página **tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, haga clic en **Eventos relacionados** para ver detalles, como un mensaje de error.
+
+   ![Corrección: menú contextual de tarea de recurso](../media/remediate-resources/resource-task-context-menu.png)
+
+Los recursos implementados mediante una **tarea de corrección** se agregarán a la pestaña **Recursos implementados** en la página de cumplimiento de directiva después de un breve retraso.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md)
+- Consulte la [Estructura de definición de directivas](../concepts/definition-structure.md)
+- Consulte [Descripción de los efectos de directivas](../concepts/effects.md)
+- Entender cómo se pueden [crear directivas mediante programación](programmatically-create.md)
+- Obtenga información sobre cómo [obtener datos de cumplimiento](getting-compliance-data.md)
+- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

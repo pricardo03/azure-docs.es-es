@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348283"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498596"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Requisitos previos de Azure Disk Encryption 
  Este artículo, Requisitos previos de Azure Disk Encryption, explica los elementos que deben estar implementados antes de usar Azure Disk Encryption. Azure Disk Encryption se integra con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ayudar a administrar las claves de cifrado. Puede usar [Azure PowerShell](/powershell/azure/overview), la [CLI de Azure](/cli/azure/) o [Azure portal](https://portal.azure.com) para configurar Azure Disk Encryption.
@@ -67,7 +67,7 @@ Puede encontrar un ejemplo de los comandos que se pueden usar para montar los di
     - [Instale y configure Azure PowerShell para Windows](/powershell/azure/install-azurerm-ps). 
         - Instale PowerShellGet, Azure PowerShell y cargue el módulo AzureRM. 
     - [Instale y configure Azure Powershell en macOS y Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Instale PowerShell Core, Azure PowerShell para .NET Core y cargue el módulo AzureRM.Netcore.
+        -  Instale PowerShell Core y Azure PowerShell para .NET Core y cargue el módulo Az.
 
 2. Compruebe las versiones instaladas del módulo AzureRM. Si es necesario, [actualice el módulo Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
     -  La versión del módulo AzureRM debe ser 6.0.0 o posterior.
@@ -127,6 +127,9 @@ Si ya está familiarizado con los requisitos previos de Key Vault y Azure AD par
 1. Si es necesario, cree un grupo de recursos.
 2. Cree un almacén de claves. 
 3. Configure las directivas de acceso avanzado del almacén de claves.
+
+>[!WARNING]
+>Antes de eliminar un almacén de claves, asegúrese de que no cifró ninguna de las VM existentes con él. Para proteger un almacén de la eliminación accidental, [habilite la eliminación temporal](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) y un [bloqueo de recurso](../azure-resource-manager/resource-group-lock-resources.md) en el almacén. 
  
 ## <a name="bkmk_KeyVault"></a> Crear un almacén de claves 
 Azure Disk Encryption se integra con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para controlar y administrar los secretos y las claves de cifrado de los discos en la suscripción de Key Vault. Puede crear un almacén de claves o usar uno existente para Azure Disk Encryption. Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md) y [Protección de un almacén de claves](../key-vault/key-vault-secure-your-key-vault.md). Puede usar una plantilla de Resource Manager, Azure PowerShell o la CLI de Azure para crear un almacén de claves. 

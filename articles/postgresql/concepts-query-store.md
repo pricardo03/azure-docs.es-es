@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953042"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393505"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
 **Se aplica a:** Azure Database for PostgreSQL 9.6 y 10
 
 > [!IMPORTANT]
-> La característica Almacén de consultas está en versión preliminar pública.
+> La característica Almacén de consultas está en versión preliminar pública en una cantidad de regiones limitada.
 
 
 La característica Almacén de consultas de Azure Database for PostgreSQL proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y las conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en una base de datos denominada **azure_sys** en la instancia de Azure Database for PostgreSQL.
@@ -112,12 +112,12 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 |**Nombre**   |**Tipo** | **Referencias**  | **Descripción**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | Id. de la tabla runtime_stats_entries|
-|user_id    |oid    |pg_authid.oid  |OID del usuario que ha ejecutado la instrucción|
-|db_id  |oid    |pg_database.oid    |OID de la base de datos en la que se ha ejecutado la instrucción|
-|query_id   |bigint  || Código hash interno, calculado a partir del árbol de análisis de la instrucción|
+|user_id    |oid    |pg_authid.oid  |OID del usuario que ha ejecutado la instrucción.|
+|db_id  |oid    |pg_database.oid    |OID de la base de datos en la que se ha ejecutado la instrucción.|
+|query_id   |bigint  || Código hash interno, calculado a partir del árbol de análisis de la instrucción.|
 |query_sql_text |Varchar(10000)  || Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupadas; este texto es el texto para la primera consulta del clúster.|
 |plan_id    |bigint |   |Identificador del plan correspondiente a esta consulta, no está disponible todavía.|
-|start_time |timestamp  ||  Las consultas se agregan por ciclos: el intervalo de tiempo de un ciclo es de 15 minutos de forma predeterminada, pero se puede configurar. Se trata de la hora de inicio correspondiente al ciclo para esta entrada.|
+|start_time |timestamp  ||  Las consultas se agregan por ciclos: el intervalo de tiempo de un ciclo es de 15 minutos de forma predeterminada. Se trata de la hora de inicio correspondiente al ciclo para esta entrada.|
 |end_time   |timestamp  ||  Hora de finalización correspondiente al ciclo para esta entrada.|
 |calls  |bigint  || Número de veces que se ejecuta la consulta.|
 |total_time |double precision   ||  Tiempo total de ejecución de las consultas, en milisegundos.|
@@ -168,6 +168,10 @@ Query_store.qs_reset() devuelve void.
 Query_store.staging_data_reset() devuelve void.
 
 `staging_data_reset` descarta todas las estadística recopiladas en la memoria por el Almacén de consultas (es decir, los datos en la memoria que no se ha vaciado aún a la base de datos). Esta función solo se puede ejecutar mediante el rol de administrador del servidor.
+
+## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
+- Si un servidor de PostgreSQL tiene el parámetro default_transaction_read_only activado, el Almacén de consultas no puede capturar datos.
+- Se puede interrumpir la funcionalidad de Almacén de consultas si encuentra consultas largas de Unicode (>= 6000 bytes).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310684"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390319"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -112,7 +112,7 @@ Nuevas características y mejoras
 
 ### <a name="fixed-issues"></a>Problemas corregidos 
 
-- Esta versión actualiza la instalación de SQL Server Express a SQL Server 2012 SP4, que, entre otras cosas, ofrece correcciones para varias vulnerabilidades de seguridad.  Consulta [aquí](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) para obtener más información sobre SQL Server 2012 SP4.
+- Esta versión actualiza la instalación de SQL Server Express a SQL Server 2012 SP4, que, entre otras cosas, ofrece correcciones para varias vulnerabilidades de seguridad.  Consulta [aquí](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) para obtener más información sobre SQL Server 2012 SP4.
 - Procesamiento de reglas de sincronización: las reglas de sincronización de unión de salida sin condición de unión se deben dejar de aplicar si la regla de sincronización principal ya no es aplicable.
 - Se han aplicado varias correcciones de accesibilidad a la interfaz de usuario de Synchronization Service Manager y al Editor de reglas de sincronización
 - Asistente de Azure AD Connect: se genera un error al crear la cuenta de Conector de AD si Azure AD Connect está en un grupo de trabajo.

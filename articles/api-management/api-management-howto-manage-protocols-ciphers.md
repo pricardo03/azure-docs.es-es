@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 454ba5c42694581bfa8fb1ec69ce97ac906b53d4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 5d18b0265d2b1c114ed9ef326241ed531e015288
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094582"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385146"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Administración de protocolos y cifrados en Azure API Management
 
@@ -45,5 +45,5 @@ Para seguir los pasos de este artículo, debe tener:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre [TLS (Seguridad de la capa de transporte)](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls).
+* Obtenga más información sobre [TLS (Seguridad de la capa de transporte)](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 * Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.

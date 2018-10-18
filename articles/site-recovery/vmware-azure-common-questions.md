@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344430"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388449"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -22,7 +22,7 @@ En este artículo se responden las preguntas frecuentes que vemos al replicar m�
 
 ## <a name="general"></a>General
 ### <a name="how-is-site-recovery-priced"></a>¿Cómo se fija el precio de Site Recovery?
-Consulte los detalles de los [precios de Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+Consulte los detalles de los [precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>¿Cómo se pagan las máquinas virtuales de Azure?
 Durante la replicación, los datos se replican en Azure Storage y no se paga ningún cambio en las máquinas virtuales. Cuando se ejecuta una conmutación por error en Azure, Site Recovery crea automáticamente máquinas virtuales IaaS de Azure. Después de eso, se le facturan los recursos de proceso que consume en Azure.

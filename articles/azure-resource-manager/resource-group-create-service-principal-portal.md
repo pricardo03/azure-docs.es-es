@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2f053f6dd98b9f4e97d69e51bce933a003633277
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025300"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497950"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -27,7 +27,7 @@ Si tiene código que necesita tener acceso a ciertos recursos o modificarlos, de
 En este artículo se muestra cómo realizar estos pasos en el portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
 
 > [!IMPORTANT]
-> En lugar de crear una entidad de servicio, considere el uso de la identidad de servicio administrada de Azure AD para la identidad de la aplicación. La identidad de servicio administrada de Azure AD es una característica pública en versión preliminar de Azure Active Directory que simplifica la creación de una identidad para el código. Si el código se ejecuta en un servicio que admite la a identidad de servicio administrada de Azure AD y tiene acceso a recursos que admiten la autenticación de Azure Active Directory, la identidad de servicio administrada de Azure AD es una opción mejor para usted. Para obtener más información sobre la identidad de servicio administrada de Azure AD, incluidos los servicios que actualmente lo admiten, consulte [Managed Service Identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) (Identidad de servicio administrada para recursos de Azure).
+> En lugar de crear una entidad de servicio, considere el uso de identidades administradas para recursos de Azure para la identidad de la aplicación. Si el código se ejecuta en un servicio que admite identidades administradas y tiene acceso a recursos que admiten la autenticación de Azure Active Directory, las identidades administradas son la opción ideal para usted. Para obtener más información sobre las identidades administradas para recursos de Azure, incluidos los servicios que actualmente lo admiten, consulte [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
@@ -84,7 +84,7 @@ Para comprobar los permisos de su suscripción:
 
    ![agregar aplicación](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Proporcione un nombre y una dirección URL para la aplicación. Seleccione **Aplicación web o API** para indicar el tipo de aplicación que desea crear. No se pueden crear credenciales para una aplicación [nativa](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); por consiguiente, ese tipo no funciona en una aplicación automatizada. Después de configurar los valores, seleccione **Crear**.
+1. Proporcione un nombre y una dirección URL para la aplicación. Seleccione **Aplicación web o API** para indicar el tipo de aplicación que desea crear. No se pueden crear credenciales para una [aplicación nativa](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); por consiguiente, ese tipo no funciona en una aplicación automatizada. Después de configurar los valores, seleccione **Crear**.
 
    ![aplicación de nombre](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -114,7 +114,7 @@ Al iniciar sesión mediante programación, necesitará el identificador de la ap
 
    ![guardar clave](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   Después de guardar la clave, se muestra el valor de la clave. Copie este valor porque no podrá recuperarlo más adelante. Proporcione el valor de clave junto con el id. de aplicación para iniciar sesión con la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
+   Después de guardar la clave, se muestra el valor de la clave. Copie este valor porque no podrá recuperar la clave más adelante. Debe proporcionar el valor de la clave junto con el identificador de la aplicación para iniciar sesión como la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
 
    ![clave guardada](./media/resource-group-create-service-principal-portal/copy-key.png)
 
