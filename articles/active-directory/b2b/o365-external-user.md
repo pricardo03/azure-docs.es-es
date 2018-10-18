@@ -4,18 +4,18 @@ description: Se describe el uso compartido de recursos con asociados externos me
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fc789283e56d220f0068277544cb6494e265ee39
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330744"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981935"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Uso compartido externo de Office 365 y colaboración B2B de Azure Active Directory
 
@@ -38,9 +38,14 @@ Para administrar el uso compartido externo en OneDrive o SharePoint Online con l
 
 ![La configuración de uso compartido externo de OneDrive y SharePoint Online](media/o365-external-user/odsp-sharing-setting.png)
 
+Después de habilitar el uso compartido externo, la posibilidad de buscar usuarios invitados existentes en el selector de personas de SharePoint Online (SPO) está desactivada de manera predeterminada para así coincidir con el comportamiento heredado.
+
+Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUsers" en el nivel de inquilino y colección de sitios. Para configurarla, use los cmdlets Set-SPOTenant y Set-SPOSite, que permiten que los miembros busquen a todos los usuarios invitados existentes en el directorio. Los cambios en el ámbito del inquilino no afectan los sitios de SPO que ya se aprovisionaron.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
 * [Incorporación de usuarios de colaboración B2B a un rol](add-guest-to-role.md)
 * [Delegación de las invitaciones de colaboración B2B](delegate-invitations.md)
 * [Grupos dinámicos y colaboración B2B](use-dynamic-groups.md)
+* [Solución de problemas de colaboración B2B de Azure Active Directory](troubleshoot.md)

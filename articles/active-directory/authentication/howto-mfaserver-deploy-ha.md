@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2097ce5cf249e7ff895769142d63b6cf47eed06d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161014"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298582"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configuración del Servidor Microsoft Azure Multi-Factor Authentication para la alta disponibilidad
 
@@ -42,7 +42,7 @@ Si la instancia maestra del Servidor MFA se queda sin conexión, las autenticaci
 Tenga en cuenta los siguientes puntos importantes para el equilibrio de carga del Servidor Azure MFA y los componentes relacionados.
 
 * **Uso del protocolo RADIUS para conseguir alta disponibilidad**. Si usa instancias del Servidor Azure MFA como servidores RADIUS, puede configurar un Servidor MFA como un destino de autenticación de RADIUS principal y otras instancias del Servidor Azure MFA como destinos de autenticación secundarios. Sin embargo, este método para lograr alta disponibilidad puede no resultar práctico, porque debe transcurrir un tiempo de espera en caso de errores de autenticación en el destino de autenticación principal para poder realizar la autenticación en el destino de autenticación secundario. Resulta más eficaz equilibrar la carga del tráfico RADIUS entre el cliente RADIUS y los servidores RADIUS (en este caso, las instancias del Servidor Azure MFA actúan como servidores RADIUS), para que pueda configurar los clientes RADIUS con una sola dirección URL a la que puedan apuntar.
-* **Necesidad de promover manualmente las instancias subordinadas de MFA**. Si la instancia maestra del Servidor Azure MFA se queda sin conexión, la instancia secundaria continúa con el procesamiento de solicitudes de MFA. Sin embargo, hasta que la instancia maestra del Servidor MFA no esté disponible, los administradores no pueden agregar usuarios ni modificar la configuración de MFA, y los usuarios no pueden realizar cambios a través del portal de usuarios. La promoción de una instancia subordinada de MFA al rol principal siempre se realiza a través de un proceso manual.
+* **Necesidad de promover manualmente las instancias subordinadas de MFA**. Si la instancia maestra del Servidor Azure MFA se queda sin conexión, la instancia secundaria continúa con el procesamiento de solicitudes de MFA. Sin embargo, hasta que la instancia maestra del Servidor MFA no esté disponible, los administradores no pueden agregar usuarios ni modificar la configuración de MFA, y los usuarios no pueden realizar cambios a través del portal de usuarios. La promoción de una instancia subordinada de MFA al rol principal siempre se realiza con un proceso manual.
 * **Separación de los componentes**. El Servidor Azure MFA consta de varios componentes que se pueden instalar en la misma instancia de Windows Server o en instancias diferentes. Estos componentes incluyen el Portal de usuarios, el servicio web de aplicación móvil y el adaptador de AD FS (agente). Esta separación permite usar el Proxy de aplicación web para publicar en el Portal de usuarios y en el servidor web de aplicación móvil desde la red perimetral. Esta configuración se agrega a la seguridad global del diseño, tal como se muestra en el diagrama siguiente. El Portal de usuarios de MFA y el servidor web de aplicación móvil también se pueden implementar en las configuraciones de carga equilibrada de alta disponibilidad.
 
    ![Servidor MFA con una red perimetral](./media/howto-mfaserver-deploy-ha/mfasecurity.png)

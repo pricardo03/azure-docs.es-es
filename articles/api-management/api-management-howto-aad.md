@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142941"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391885"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -79,7 +79,10 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 
     ![Casillas de permisos](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Seleccione **Concesión de permisos** para consentir los permisos de la aplicación.
+
     Para más información sobre los permisos de la aplicación y los permisos delegados, consulte [Acceso a la API Graph][Accessing the Graph API].
+    
 1. En el panel izquierdo, copie el valor de **Id. de aplicación**.
 
     ![Valor de Id. de aplicación](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
     > Anote esta clave. Después de cerrar el panel de configuración de Azure AD, la clave no se puede mostrar de nuevo.
     > 
     > 
+
 1. Vuelva a cambiar a la aplicación de API Management. 
 
     En la ventana **Add identity provider** (Agregar proveedor de identidades), pegue la clave en el cuadro de texto **Client secret** (Secreto de cliente).
@@ -106,6 +110,7 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
     > Asegúrese de actualizar el **secreto de cliente** antes de que expire la clave. 
     >  
     >
+
 1. La ventana **Add identity provider** (Agregar proveedor de identidades) también contiene el cuadro de texto **Allowed Tenants** (Inquilinos permitidos). Ahí, especifique los dominios de las instancias de Azure AD a las que quiere conceder acceso a las API de la instancia de servicio API Management. Puede separar varios dominios mediante nuevas líneas, espacios o comas.
 
     Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe:

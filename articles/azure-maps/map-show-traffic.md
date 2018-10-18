@@ -3,22 +3,22 @@ title: Visualización del tráfico con Azure Maps | Microsoft Docs
 description: Cómo mostrar los datos de tráfico en un mapa de Javascript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6d5c721ab84c28bae9415dceeaa09fd12cc05824
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746085"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733032"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 
-En este artículo se muestra cómo mostrar información de tráfico y de los incidentes en el mapa. 
+En este artículo se muestra cómo mostrar información de tráfico y de los incidentes en el mapa.
 
 ## <a name="understand-the-code"></a>Comprensión del código
 
@@ -31,12 +31,20 @@ El segundo bloque de código utiliza la función [setTraffic ](https://docs.micr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las clases y los métodos utilizados en este artículo: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
+Más información sobre las clases y los métodos utilizados en este artículo:
 
-Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos: 
-* [Interacción con el mapa: eventos del mouse](./map-events.md)
-* [Building an accessible map](./map-accessibility.md) (Creación de un mapa accesible)
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Visite nuestra [página de ejemplos de código](http://aka.ms/AzureMapsSamples) para ver más escenarios de asignación.
+Consulte los siguientes artículos para obtener ejemplos de código completos:
+
+> [!div class="nextstepaction"]
+> [Página de ejemplos de código](http://aka.ms/AzureMapsSamples)
+
+Mejore sus experiencias de usuario:
+
+> [!div class="nextstepaction"]
+> [Interacción del mapa con eventos del mouse](./map-events.md)
+
+> [!div class="nextstepaction"]
+> [Building an accessible map](./map-accessibility.md) (Creación de un mapa accesible)

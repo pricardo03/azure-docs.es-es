@@ -1,5 +1,5 @@
 ---
-title: Cambio de la configuración de ReliableDictionaryActorStateProvider en microservicios de Azure | Microsoft Docs
+title: Cambio de la configuración de ReliableDictionaryActorStateProvider en actores de Azure Service Fabric| Microsoft Docs
 description: Obtenga información sobre cómo configurar los actores con estado de Azure Service Fabric del tipo ReliableDictionaryActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 13cf9c148e36201bd8ee81d4072d8b8cd8660bd1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017902"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053155"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuración de Reliable Actors: ReliableDictionaryActorStateProvider
 Puede modificar configuración predeterminada de ReliableDictionaryActorStateProvider cambiando el archivo settings.xml que se genera en la raíz del paquete de Visual Studio en la carpeta Config del actor especificado.
@@ -70,7 +70,7 @@ Las configuraciones de seguridad del replicador se usan para proteger el canal d
 De forma predeterminada, una sección de configuración de seguridad vacía impide la seguridad de la replicación.
 
 > [!IMPORTANT]
-> En los nodos Linux, los certificados deben tener el formato PEM. Para más información sobre la ubicación y configuración de certificados para Linux, consulte [Configuración de certificados en Linux](./service-fabric-configure-certificates-linux.md). 
+> En los nodos Linux, los certificados deben tener el formato PEM. Para obtener más información sobre la ubicación y configuración de certificados para Linux, consulte [Configuración de certificados en Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
 ### <a name="section-name"></a>Nombre de sección

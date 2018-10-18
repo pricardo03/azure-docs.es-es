@@ -4,23 +4,19 @@ description: Obtenga información sobre cómo definir la configuración de Azure
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283809"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301490"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Administración de una Function App en Azure Portal 
 
@@ -32,9 +28,9 @@ Para comenzar, vaya a [Azure Portal](http://portal.azure.com) e inicie sesión e
 
 ## <a name="favorite"></a>Funciones favoritas en el portal 
 
-En ocasiones, puede resultar difícil encontrar los recursos en [Portal de Azure]. Para que sea más fácil encontrar las aplicaciones de función que ha creado, agregue Function App a sus favoritos en el portal. 
+En ocasiones, puede resultar difícil encontrar los recursos en [Azure Portal]. Para que sea más fácil encontrar las aplicaciones de función que ha creado, agregue Function App a sus favoritos en el portal. 
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en [Azure Portal].
 
 2. Haga clic en la flecha en la parte inferior izquierda para ampliar todos los servicios, escriba `Functions` en el campo **Filtro** y, después, haga clic en la estrella junto a **Instancias de Function App**.  
  
@@ -46,7 +42,7 @@ En ocasiones, puede resultar difícil encontrar los recursos en [Portal de Azure
  
     ![Function Apps en favoritos](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
  
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Pestaña Configuración de Function App
 
@@ -115,7 +111,7 @@ Para más información sobre cómo trabajar con la configuración de App Service
 
 | | |
 |-|-|
-| ![Opciones de implementación de Function App en Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions permite desarrollar código de funciones en la máquina local. Después, puede cargar el proyecto de Function App local en Azure. Además de la carga por FTP tradicional, Functions permite implementar Function App con soluciones populares de integración continua, como GitHub, VSTS, Dropbox, Bitbucket y otras. Para más información, vea [Implementación continua para Azure Functions](functions-continuous-deployment.md). Para realizar cargas manuales con FTP o Git local, también debe [configurar las credenciales de implementación](functions-continuous-deployment.md#credentials). |
+| ![Opciones de implementación de Function App en Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions permite desarrollar código de funciones en la máquina local. Después, puede cargar el proyecto de Function App local en Azure. Además de la carga por FTP tradicional, Functions permite implementar Function App con soluciones populares de integración continua, como GitHub, Azure DevOps, Dropbox, Bitbucket y otras. Para más información, vea [Implementación continua para Azure Functions](functions-continuous-deployment.md). Para realizar cargas manuales con FTP o Git local, también debe [configurar las credenciales de implementación](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS

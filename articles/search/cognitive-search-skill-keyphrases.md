@@ -10,18 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: a12efaa020e626e4a10a0708c9b84d8fe125588c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786814"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735805"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Aptitud cognitiva para la extracción de frases clave
 
 La aptitud **Extracción de frases clave** evalúa el texto no estructurado y, en cada registro, devuelve una lista de frases clave.
 
 Esta capacidad es útil si necesita identificar rápidamente los principales puntos de conversación en el registro. Por ejemplo, dado el texto de entrada "La comida estaba deliciosa y el personal era maravilloso", el servicio devuelve "comida" y "personal maravilloso".
+
+> [!NOTE]
+> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
@@ -37,7 +40,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | defaultLanguageCode | (Opcional) Es el código de idioma que se aplicará a los documentos que no especifiquen el lenguaje de forma explícita.  Si no se especifica el código de idioma predeterminado, se usará el inglés (en) como código de idioma predeterminado. <br/> Ver [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (Lista completa de idiomas admitidos). |
 | maxKeyPhraseCount   | (Opcional) Es el número máximo de frases clave para producir. |
 
-## <a name="skill-inputs"></a>Entradas de aptitudes
+## <a name="skill-inputs"></a>Entradas de la aptitud
 | Entradas     | DESCRIPCIÓN |
 |--------------------|-------------|
 | text | Texto que se va a analizar.|
@@ -117,4 +120,4 @@ Si el texto tiene más de 50 000 caracteres, solo se analizarán los primeros 50
 ## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
-+ [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

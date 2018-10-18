@@ -4,7 +4,7 @@ description: Versiones de clúster de Azure Service Fabric compatibles y víncul
 services: service-fabric
 documentationcenter: .net
 author: pkcsf
-manager: timlt
+manager: jpconnock
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/13/2018
+ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: 596e71be75453874492aac15d91cb6153c2076f5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e22a2431ecae68278276b069bc199cfea60cd413
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112897"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347365"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -45,52 +45,30 @@ Más información sobre:
 - [Soporte técnico profesional para Microsoft local](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
 
-## <a name="report-azure-service-fabric-issues"></a>Información de problemas con Azure Service Fabric 
+## <a name="report-azure-service-fabric-issues"></a>Información de problemas con Azure Service Fabric
+
 Configuramos un repositorio de GitHub para informar problemas con Service Fabric.  También supervisamos activamente los foros siguientes.
 
 ### <a name="github-repo"></a>Repositorio de GitHub 
+
 Informe problemas con Azure Service Fabric en el [repositorio de Git Service-Fabric-issues](https://github.com/Azure/service-fabric-issues). Este repositorio está diseñado para informar y rastrear problemas con Azure Service Fabric y para generar solicitudes de funciones pequeñas. **No lo use para informar problemas con el sitio activo**.
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow y foros de MSDN
+
 La [etiqueta Service Fabric en StackOverflow][stackoverflow] y el [foro de Service Fabric en MSDN][msdn-forum] son ideales para hacer preguntas sobre cómo funciona la plataforma y cómo podría realizar ciertas tareas con ella.
 
 ### <a name="azure-feedback-forum"></a>Foro de comentarios de Azure
+
 El [foro de comentarios de Azure para Service Fabric][uservoice-forum] es el lugar ideal para enviar ideas sobre características importantes que tenga para el producto, porque revisamos las solicitudes más populares que forman parte de nuestro planeamiento de mediano a largo plazo. Se recomienda buscar apoyo para sus sugerencias dentro de la comunidad.
 
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versiones de vista previa de Service Fabric: no admitidas para su uso en producción
 
-## <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric.
-
-Asegúrese de que el clúster siempre ejecute una versión compatible de Service Fabric. Cuando anunciamos el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de esa fecha. Las versiones nuevas se anuncian [en el blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
-
-Consulte los documentos siguientes para ver detalles sobre cómo hacer que el clúster ejecute una versión compatible de Service Fabric.
-
-- [Actualización de la versión de Service Fabric en un clúster de Azure ](service-fabric-cluster-upgrade.md)
-- [Actualización de la versión de Service Fabric en un clúster de servidores de Windows independiente ](service-fabric-cluster-upgrade-windows-server.md)
- 
-A continuación, aparece una lista con las versiones compatibles de Service Fabric y las fechas de finalización del soporte técnico.
-
-| **Entorno de tiempo de ejecución de Service Fabric en el clúster** | **Se puede actualizar directamente desde la versión del clúster** |**Versiones del SDK o paquete de NuGet compatibles** | **Fecha de finalización de soporte técnico** |
-| --- | --- |--- | --- |
-| Todas las versiones de clústeres anteriores a 5.3.121 | 5.1.158* |Versión 2.3 o anterior |20 de enero de 2017 |
-| 5.3* | 5.1.158.* |Versión 2.3 o anterior |24 de febrero de 2017 |
-| 5.4.* | 5.1.158.* |Versión 2.4 o anterior |10 de mayo de 2017       |
-| 5.5.* | 5.4.164.* |Versión 2.5 o anterior |10 de agosto de 2017    |
-| 5.6.* | 5.4.164.* |Versión 2.6 o anterior |13 de octubre de 2017   |
-| 5.7.* | 5.4.164.* |Versión 2.7 o anterior |15 de diciembre de 2017  |
-| 6.0.* | 5.6.205.* |Versión menor o igual que la 2.8 |30 de marzo de 2018     | 
-| 6.1.* | 5.7.221.* |Versión 3.0 o anterior |15 de julio de 2018      |
-| 6.2.* | 6.0.232.* |Versión 3.1 o anterior |15 de septiembre de 2018 |
-| 6.3.* | 6.1.480.* |Versión 3.2 o anterior |Versión actual y, por lo tanto, sin fecha de finalización |
-
-## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versiones de vista previa de Service Fabric: no admitidas para su uso en producción.
 De vez en cuando, publicamos versiones que tienen características importantes sobre las que deseamos saber su opinión, que se publican como versiones preliminares. Estas versiones preliminares solo se deben usar con fines de prueba. El clúster de producción debe estar ejecutando siempre una versión de Service Fabric compatible y estable. Una versión preliminar siempre comienza con un número de versión principal y secundaria de 255. Por ejemplo, si ve una versión 255.255.5703.949 de Service Fabric, esa versión es solo para su uso en clústeres de prueba y se encuentra en versión preliminar. Estas versiones preliminares también se anuncian en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) y se detallan en las características incluidas.
-
 No hay ninguna opción de soporte técnico de pago para estas versiones preliminares. Use una de las opciones enumeradas en [Notificación de problemas Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para formular preguntas o proporcionar comentarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Actualización de la versión de Service Fabric en un clúster de Azure ](service-fabric-cluster-upgrade.md)
-- [Actualización de la versión de Service Fabric en un clúster de servidores de Windows independiente ](service-fabric-cluster-upgrade-windows-server.md)
+[Versiones admitidas de Service Fabric](service-fabric-versions.md)
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric

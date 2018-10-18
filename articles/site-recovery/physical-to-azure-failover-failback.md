@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
-ms.openlocfilehash: 93f62bac3e2207caa265b3fca6634656d64b1491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918244"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391154"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos replicados en Azure
 
-En este tutorial se describe cómo realizar una conmutación por error de un servidor físico en Azure. Después de realizar la conmutación por error, deberá hacer la conmutación por recuperación del servidor en el sitio local cuando esté disponible. 
+En este tutorial se describe cómo realizar una conmutación por error de un servidor físico en Azure. Después de realizar la conmutación por error, deberá hacer la conmutación por recuperación del servidor en el sitio local cuando esté disponible.
 
 ## <a name="preparing-for-failover-and-failback"></a>Preparación de conmutación por error y conmutación por recuperación
 
-Los servidores físicos replicados en Azure mediante Site Recovery solo pueden realizar conmutaciones por recuperación como máquinas virtuales de VMware. Esto significa que necesita una infraestructura de VMware para realizar conmutaciones por recuperación. 
+Los servidores físicos replicados en Azure mediante Site Recovery solo pueden realizar conmutaciones por recuperación como máquinas virtuales de VMware. Esto significa que necesita una infraestructura de VMware para realizar conmutaciones por recuperación.
 
 La conmutación por error y la conmutación por recuperación constan de cuatro fases:
 
@@ -44,7 +44,7 @@ Compruebe las propiedades del servidor y asegúrese de que cumpla con los [requi
 
 1. En **Configuración** > **Elementos replicados**, haga clic en la máquina > **Conmutación por error**.
 2. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
-   - **Último** (valor predeterminado): esta opción procesa primero todos los datos enviados a Site Recovery. Ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
+   - **Último**: esta opción procesa primero todos los datos enviados a Site Recovery. Ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
    - **Procesado más recientemente**: con esta opción se realiza una conmutación por error de la máquina al último punto de recuperación que procesó Site Recovery. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
    - **Más reciente coherente con la aplicación**: esta opción realiza una conmutación por error de la máquina al punto de recuperación más reciente coherente con la aplicación que haya procesado Site Recovery.
    - **Personalizado**: especifique un punto de recuperación.
@@ -55,7 +55,13 @@ Compruebe las propiedades del servidor y asegúrese de que cumpla con los [requi
 
 > [!WARNING]
 > No cancele una conmutación por error en curso. Antes de que comience la conmutación por error, se detendrá la replicación de la máquina. Si cancela la conmutación por error esta se detiene, pero no replica de nuevo la máquina.
-> En cuanto a los servidores físicos, el proceso de conmutación por error adicional puede tardar de ocho a diez minutos en completarse. 
+> En cuanto a los servidores físicos, el proceso de conmutación por error adicional puede tardar de ocho a diez minutos en completarse.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
+
+Si desea conectarse a máquinas virtuales de Azure mediante RDP/SSH después de la conmutación por error, siga los requisitos resumidos en [esta](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabla.
+
+Siga los pasos descritos [aquí](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividad tras la conmutación por error.
 
 ## <a name="create-a-process-server-in-azure"></a>Creación de un servidor de procesos en Azure
 
@@ -120,4 +126,3 @@ Los datos ahora deben volver a estar en el sitio local, pero no se está replica
 2. Seleccione el servidor de procesos que se usa para enviar los datos replicados a Azure y haga clic en **Aceptar**.
 
 Una vez completada la reprotección, la máquina virtual se vuelve a replicar en Azure y podrá ejecutar una conmutación por error según sea necesario.
-

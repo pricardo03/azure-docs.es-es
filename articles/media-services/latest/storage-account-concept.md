@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6d4c21867b0b46508f348300ae2b9553a75d23b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 883aecaa82f1a83af22bf345d364c2b43776e559
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782574"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732216"
 ---
 # <a name="storage-accounts"></a>Cuentas de almacenamiento
 
@@ -27,7 +27,7 @@ Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier n�
 >[!NOTE]
 > No se permiten cuentas de solo BLOB como **Principal**. 
 
-Se recomienda usar GPv2 para que pueda tener la ventaja de elegir entre niveles de acceso frecuente y niveles de acceso esporádico. Para más información sobre las cuentas de almacenamiento, consulte [Opciones de la cuenta de Azure Storage](../../storage/common/storage-account-options.md). 
+Se recomienda usar GPv2 para que pueda tener la ventaja de elegir entre niveles de acceso frecuente y niveles de acceso esporádico. Para más información sobre las cuentas de almacenamiento, consulte la [Información general acerca de la cuenta de Azure Storage](../../storage/common/storage-account-overview.md). 
 
 ## <a name="assets-in-a-storage-account"></a>Recursos de una cuenta de almacenamiento
 

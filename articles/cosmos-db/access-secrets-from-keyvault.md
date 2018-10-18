@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42751531"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053091"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Uso de Key Vault para almacenar claves de Azure Cosmos DB y acceder a ellas
 
@@ -25,7 +25,7 @@ Los pasos siguientes son necesarios para almacenar y leer las claves de acceso d
 * Creación de un almacén de claves  
 * Adición de claves de acceso de Azure Cosmos DB en Key Vault  
 * Creación de una aplicación web de Azure  
-* Registro de la aplicación y concesión de permisos para leer Key Vault  
+* Registro de la aplicación y concesión de permisos para leer el almacén de claves  
 
 
 ## <a name="create-a-key-vault"></a>Creación de un almacén de claves
@@ -56,7 +56,7 @@ Los pasos siguientes son necesarios para almacenar y leer las claves de acceso d
 
 ## <a name="create-an-azure-web-application"></a>Creación de una aplicación web de Azure
 
-1. Cree una aplicación web de Azure o puede descargar la aplicación del [repositorio de GitHub](https://github.com/rsarosh/CosmosDB-KeyVault). Es una sencilla aplicación de MVC.  
+1. Cree una aplicación web de Azure o puede descargar la aplicación del [repositorio de GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Es una sencilla aplicación de MVC.  
 
 2. Descomprima la aplicación descargada y abra el archivo **HomeController.cs**. Actualice el identificador secreto en la siguiente línea:
 
@@ -87,11 +87,9 @@ Ahora, si ejecuta la aplicación, puede leer el secreto del almacén de claves.
 
 ![Aplicación implementada con secreto](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-De forma similar, puede agregar un usuario para acceder al almacén de claves. Debe agregarse al almacén de claves; para ello, haga clic en "Directivas de acceso" y después conceda todos los permisos que necesita para ejecutar la aplicación desde Visual Studio. Cuando se ejecuta esta aplicación desde el escritorio, usa su identidad.
+De forma similar, puede agregar un usuario para acceder al almacén de claves. Debe agregarse al almacén de claves; para ello, seleccione **Directivas de acceso** y después conceda todos los permisos que necesita para ejecutar la aplicación desde Visual Studio. Cuando se ejecuta esta aplicación desde el escritorio, usa su identidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para configurar un firewall para Azure Cosmos DB, vea el artículo sobre la [compatibilidad con un firewall](firewall-support.md).
 * Para configurar el punto de conexión de servicio de la red virtual, vea el artículo [Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de Azure Virtual Network](vnet-service-endpoint.md).
-
-

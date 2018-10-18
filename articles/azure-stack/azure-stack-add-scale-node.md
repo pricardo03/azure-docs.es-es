@@ -3,7 +3,7 @@ title: Incorporación de nodos de escalado en Azure Stack | Microsoft Docs
 description: Agregue nodos a unidades de escalado en Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41947951"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983004"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Incorporación de nodos de unidad de escalado adicionales en Azure Stack
 
@@ -64,7 +64,7 @@ Puede usar el portal de administración o PowerShell para agregar nuevos nodos. 
 ### <a name="use-the-admin-portal"></a>Uso del portal de administración
 
 1. Inicie sesión en el portal de administración de Azure Stack como operador de Azure Stack.
-2. Vaya a **Nueva** > **Capacidad** > **Nodo de la unidad de escalado**.
+2. Vaya a **+ Create a resource (Crear un recurso)** > **Capacidad** > **Nodo de la unidad de escalado**.
    ![Nodo de la unidad de escalado:](media/azure-stack-add-scale-node/select-node1.png)
 3. En el panel **Agregar nodo**, seleccione la *Región* y, a continuación, seleccione la *Unidad de escalado* a la que desea agregar el nodo. Especifique también la *DIRECCIÓN IP DE BMC* para el nodo de la unidad de escalado que va a agregar. Solo puede agregar un nodo a la vez.
    ![Incorporación de detalles de nodo](media/azure-stack-add-scale-node/select-node2.png)
@@ -142,4 +142,4 @@ Los siguientes son problemas comunes observados al agregar un nodo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes 
-Revise [Acciones de nodo](azure-stack-node-actions.md) 
+[Incorporación de direcciones IP públicas](azure-stack-add-ips.md) 

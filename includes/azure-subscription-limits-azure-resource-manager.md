@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348208"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979181"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -21,16 +21,17 @@ ms.locfileid: "37348208"
 | Total de núcleos de máquina virtual por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región | Ponerse en contacto con soporte técnico |
 | Máquina virtual por núcleos de serie (Dv2, F, etc.) por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región | Ponerse en contacto con soporte técnico |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por suscripción |Ilimitado |Ilimitado |
-| [Cuentas de almacenamiento](../articles/storage/common/storage-create-storage-account.md) por región por suscripción |200 |200<sup>2</sup> |
+| [Cuentas de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md) por región por suscripción |200 |200<sup>2</sup> |
 | [Grupos de recursos](../articles/azure-resource-manager/resource-group-overview.md) por suscripción |980 |980 |
 | [Conjuntos de disponibilidad](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por suscripción |2000 por región |2000 por región |
 | Lecturas de API del Administrador de recursos |15 000 por hora |15 000 por hora |
 | Escrituras de API del Administrador de recursos |1200 por hora |1200 por hora |
 | Tamaño de recursos de API de Administrador de recursos |4 194 304 bytes |4 194 304 bytes |
 | Etiquetas por suscripción<sup>3</sup> |sin límite |sin límite |
-| Cálculos de etiquetas únicas por suscripción<sup>3</sup> | 10.000 | 10.000 |
+| Cálculos de etiquetas únicas por suscripción<sup>3</sup> | 10 000 | 10 000 |
 | [Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción |No procede<sup>4</sup> |No procede<sup>4</sup> |
 | [Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción |No procede<sup>4</sup> |No procede<sup>4</sup> |
+| [Las implementaciones de nivel de suscripción](../articles/azure-resource-manager/deploy-to-subscription.md) por ubicación | 800 | 800 |
 
 <sup>1</sup>Los límites predeterminados varían según el tipo de categoría de la oferta, por ejemplo, evaluación gratuita, pago por uso y series, como Dv2, F, G, etc.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205466"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736978"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -43,26 +43,34 @@ Para obtener detalles completos sobre la configuración de la plantilla de dispo
 
 ## <a name="add-a-real-device"></a>Adición de un dispositivo real
 
-En su aplicación de Azure IoT Central, agregue un dispositivo real de la plantilla de dispositivo **MXChip** y tome nota de la cadena de conexión del dispositivo. Para obtener más información, consulte [Add a real device to your Azure IoT Central application](tutorial-add-device.md) (Adición de un dispositivo real a su aplicación de Azure IoT Central).
+En su aplicación de Azure IoT Central, agregue un dispositivo real de la plantilla de dispositivo **MXChip** y tome nota de los detalles de conexión del dispositivo (**Id. de ámbito, Id. de dispositivo y clave principal**).
+
+1. Agregue un **dispositivo real** en Device Explorer y haga clic en **+New > Real** (+Nuevo > Real) para agregar un dispositivo real.
+    * Escriba el identificador de dispositivo **<span style="color:Red">(debe estar en minúsculas)</span>** o use el identificador de dispositivo sugerido.
+    * Escriba el nombre del dispositivo o use el nombre sugerido
+    
+    ![Agregar dispositivo](media\concepts-connectivity\add-device.png)
+
+
+1. Obtenga detalles de conexión como el **id. de ámbito, el id. de dispositivo y la clave principal** para el dispositivo agregado; para ello, haga clic en **Conectar** en la página del dispositivo.
+ 
+    ![Detalles de conexión](media\concepts-connectivity\device-connect.PNG)
+
+3. No olvide guardar estos detalles, ya que se desconectará temporalmente de Internet mientras prepara el dispositivo DevKit. 
+
 
 ### <a name="prepare-the-devkit-device"></a>Preparación del dispositivo DevKit
 
 > [!NOTE]
 > Si ha usado anteriormente el dispositivo y tiene credenciales Wi-Fi almacenadas, y quiere reconfigurar el dispositivo para usar una red Wi-Fi, cadena de conexión o medida de telemetría diferentes, presione los botones **A** y **B** a la vez en el panel. Si no funciona, presione el botón **reset** (restablecer) e inténtelo de nuevo.
 
-#### <a name="before-you-start-configuring-the-device"></a>Antes de empezar a configurar el dispositivo:
-1. En **Ejemplo Devkits** de IoT Central, vaya a `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device` (en la esquina superior derecha) 
-2. Copie la cadena de conexión principal.
-3. No olvide guardar la cadena de conexión, ya que se desconectará temporalmente de Internet mientras prepara el dispositivo DevKit. 
 
 
 #### <a name="to-prepare-the-devkit-device"></a>Para preparar el dispositivo DevKit:
 
 
-1. Descargue el firmware de Azure IoT Central precompilado más reciente para MXChip desde la página [releases](https://github.com/Azure/iot-central-firmware/releases) (versiones) en GitHub. El nombre de archivo de descarga de la página de versiones es similar a `AZ3166-IoT-Central-X.X.X.bin`.
-
+1. Descargue el firmware de Azure IoT Central precompilado más reciente para MXChip desde la página [releases](http://aka.ms/iotcentral-docs-MXChip-releases) (versiones) en GitHub.
 1. Conecte el dispositivo DevKit en el equipo de desarrollo con un cable USB. En Windows, se abre una ventana del explorador de archivos en una unidad asignada al almacenamiento en el dispositivo DevKit. Por ejemplo, la unidad podría denominarse **AZ3166 (D:)**.
-
 1. Arrastre el archivo **iotCentral.bin** a la ventana de la unidad. Cuando se complete la operación de copia, el dispositivo se reinicia con el nuevo firmware.
 
 1. Cuando se reinicie el dispositivo DevKit, se muestra la siguiente pantalla:
@@ -75,7 +83,7 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
     ```
 
     > [!NOTE]
-    > Si la pantalla muestra cualquier otra cosa, presione los botones **A** y **B** del dispositivo al mismo tiempo para reiniciarlo. 
+    > Si la pantalla muestra cualquier otra cosa, reinicie el dispositivo y presione los botones **A** y **B** del dispositivo al mismo tiempo para reiniciarlo. 
 
 1. El dispositivo ya está en modo de punto de acceso. Puede conectarse a este punto de acceso Wi-Fi desde su equipo o dispositivo móvil.
 
@@ -89,7 +97,7 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
     - agregue el nombre de su red Wi-Fi 
     - la contraseña de la red Wi-Fi
     - el PIN CODE (CÓDIGO PIN) que se muestra en el dispositivo LCD 
-    - la cadena de conexión del dispositivo (ya debe haberla guardado siguiendo los pasos). Puede encontrar la cadena de conexión en `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (en la esquina superior derecha)
+    - los detalles de conexión **Id. de ámbito, Id. de dispositivo y clave principal** del dispositivo (debe haber guardado estos datos al seguir los pasos)      
     - Seleccione todas las mediciones de telemetría disponibles. 
 
 1. Después de elegir **Configure Device** (Configurar dispositivo), verá esta página:
@@ -99,7 +107,6 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
 1. Presione el botón **Reset**  (Restablecer) en el dispositivo.
 
 
-
 ## <a name="view-the-telemetry"></a>Visualización de la telemetría
 
 Cuando se reinicie el dispositivo DevKit, la pantalla del dispositivo muestra:
@@ -107,6 +114,9 @@ Cuando se reinicie el dispositivo DevKit, la pantalla del dispositivo muestra:
 * El número de mensajes de telemetría enviados.
 * El número de errores.
 * El número de propiedades deseadas recibidas y el número de propiedades notificadas enviadas.
+
+> [!NOTE]
+> Si el dispositivo parece estar en un bucle durante la conexión, compruebe si el dispositivo está *bloqueado* en IoT Central, y *desbloquéelo* para que pueda conectarse a la aplicación.
 
 Al agitar el dispositivo se incrementa el número de propiedades notificadas enviadas. El dispositivo envía un número aleatorio como propiedad del dispositivo **Die number** (Número de chip).
 
@@ -220,7 +230,7 @@ Cambiar configuración
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Propiedad de dispositivo | Ubicación del dispositivo   | location  | location    |

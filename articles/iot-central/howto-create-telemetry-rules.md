@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5913df2d4dc286fad63760c95f54e0dbc717acdc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246732"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729337"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central
 
-Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de un correo electrónico o el desencadenamiento de Microsoft Flow. En unos pocos clics, puede definir la condición para la cual supervisar los datos del dispositivo y configurar la acción correspondiente. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
+*Este artículo se aplica a los administradores, operadores y compiladores.*
+
+Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico o el desencadenamiento de Microsoft Flow. En unos pocos clics, puede definir la condición para la cual supervisar los datos del dispositivo y configurar la acción correspondiente. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
 
 Los dispositivos pueden usar la medición de telemetría para enviar datos numéricos desde el dispositivo. Una regla de telemetría se desencadena cuando la telemetría del dispositivo seleccionado supera un umbral especificado.
 
@@ -25,7 +27,7 @@ Los dispositivos pueden usar la medición de telemetría para enviar datos numé
 
 Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este ejemplo se utiliza un dispositivo de máquina expendedora refrigerada que envía datos de telemetría de temperatura y humedad. La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 80 grados.
 
-1. Con Device Explorer, navegue a la plantilla de dispositivos para la que va a agregar la regla.
+1. Con Device Explorer, vaya a la plantilla de dispositivos para la que va a agregar la regla.
 
 1. En la plantilla seleccionada, haga clic en un dispositivo existente. 
 
@@ -36,9 +38,9 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
     ![No hay ninguna regla todavía](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. En la pestaña **Reglas**, haga clic en **+Nueva regla** para ver los tipos de reglas que puede crear.
+1. En la pestaña **Reglas**, haga clic en **Editar plantilla** y, a continuación, en **+ Nueva regla** para ver los tipos de reglas que puede crear.
 
-1. Haga clic en el icono **Telemetría** para crear una regla para supervisar los datos de telemetría del dispositivo.
+1. Haga clic en **Telemetría** para crear una regla para supervisar los datos de telemetría del dispositivo.
 
     ![Tipos de regla](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -48,10 +50,10 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
    ![Detalle de la regla](media\howto-create-telemetry-rules\Rule_Detail.png)
     
-    La regla se aplica automáticamente a todos los dispositivos en la plantilla de dispositivos.
+    La regla se aplica automáticamente a todos los dispositivos de la plantilla de dispositivos.
     
 
-### <a name="configure-the-rule-conditions"></a>Configuración de las condiciones de regla
+### <a name="configure-the-rule-conditions"></a>Configuración de las condiciones de la regla
 
 La condición define los criterios que la regla supervisa.
 
@@ -66,11 +68,11 @@ La condición define los criterios que la regla supervisa.
     - Si se elige una función de agregado, como Promedio, Mín., Máx., Recuento, el usuario debe proporcionar una **ventana de tiempo agregado** en la cual debe evaluarse la condición. Por ejemplo, si establece el período como "5 minutos" y la regla busca la temperatura promedio por encima de 80, la regla se desencadena cuando la temperatura promedio está por encima de 80 durante al menos 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
 
     >[!NOTE]
-    >En **Condición** se puede agregar más de una medición de datos de telemetría. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición se une mediante una cláusula 'AND' de manera implícita. Al usar el agregado, se debe agregar cada medida.
+    >En **Condición** se puede agregar más de una medición de datos de telemetría. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición se une mediante una cláusula "AND" de manera implícita. Al usar el agregado, se debe agregar cada medida.
     
     
 
-### <a name="configure-actions"></a>Configurar acciones
+### <a name="configure-actions"></a>Configuración de acciones
 
 En esta sección se muestra cómo configurar las acciones que se realizarán cuando se active la regla. Se invocan las acciones cuando todas las condiciones especificadas en la regla se evalúan como verdaderas.
 
@@ -86,6 +88,8 @@ En esta sección se muestra cómo configurar las acciones que se realizarán cua
    ![Configuración de acción](media\howto-create-telemetry-rules\Configure_Action.png)
 
 1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de telemetría que se envía a la aplicación. Si coincide con la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
+
+1. Seleccione **Listo** para salir del modo **Editar plantilla**.
 
 Puede agregar otras acciones a la regla, como Microsoft Flow y webhooks. Puede agregar hasta 5 acciones por regla.
 
@@ -116,6 +120,6 @@ Navegue hasta el dispositivo y elija la regla que desea habilitar o deshabilitar
 
 Ahora que ha aprendido a crear reglas en una aplicación de Azure IoT Central, aquí tiene algunos de los pasos siguientes:
 
-- [Creación de flujos de trabajo con el conector de IoT Central en Microsoft Flow](howto-add-microsoft-flow.md)
-- [Creación de acciones de webhook para reglas](howto-create-webhooks.md)
-- [Administración de dispositivos](howto-manage-devices.md)
+- [Incorporación de una acción de Microsoft Flow a las reglas](howto-add-microsoft-flow.md)
+- [Incorporación de una acción de Webhook a las reglas](howto-create-webhooks.md)
+- [Administración de los dispositivos](howto-manage-devices.md)

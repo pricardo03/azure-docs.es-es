@@ -1,34 +1,34 @@
 ---
-title: Inclusión de los microservicios de Azure Service Fabric en contenedores (versión preliminar)
-description: Azure Service Fabric ha agregado una nueva funcionalidad para incluir los microservicios de Service Fabric en contenedores. Esta funcionalidad actualmente está en su versión preliminar.
+title: Inclusión de los servicios de Azure Service Fabric en contenedores en Windows
+description: Aprenda a incluir los servicios de Reliable Services y Reliable Actors de Service Fabric en contenedores en Windows.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
 manager: anmolah
-editor: anmolah
+editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/04/2017
+ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 3741e74e70769d186da2757b43ca60bbb1e78a1f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212660"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44056941"
 ---
-# <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Inclusión de Reliable Services y Reliable Actors de Service Fabric en contenedores (versión preliminar)
+# <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Inclusión de Reliable Services y Reliable Actors de Service Fabric en contenedores en Windows
 
 Service Fabric admite la inclusión de microservicios de Service Fabric en contenedores (servicios basados en Reliable Services y Reliable Actors). Para más información, consulte [Service Fabric y los contenedores](service-fabric-containers-overview.md).
 
-Esta característica se encuentra en versión preliminar y en este artículo se proporcionan los distintos pasos para que el servicio se ejecute dentro de un contenedor.  
+Este documento ofrece una guía para que el servicio se ejecute dentro de un contenedor de Windows.
 
 > [!NOTE]
-> Esta característica se encuentra en versión preliminar y no se admite en producción. Actualmente, esta característica solo funciona para Windows. Para ejecutar contenedores, el clúster debe ejecutarse en Windows Server 2016 con Containers.
+> Actualmente, esta característica solo funciona para Windows. Para ejecutar contenedores, el clúster debe ejecutarse en Windows Server 2016 con Containers.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Pasos para incluir la aplicación de Service Fabric en contenedores
 
@@ -58,13 +58,22 @@ Esta característica se encuentra en versión preliminar y en este artículo se 
 4. Compile y [empaquete](service-fabric-package-apps.md#Package-App) el proyecto. Para compilar y crear un paquete, haga clic con el botón derecho en el proyecto de aplicación en el Explorador de soluciones y elija el comando **Empaquetar**.
 
 5. Para cada paquete de código que necesite incluir en contenedores, ejecute el script de PowerShell [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). El uso es como sigue:
-  ```powershell
-    $codePackagePath = 'Path to the code package to containerize.'
-    $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
-    $applicationExeName = 'Name of the ode package executable.'
-    CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
- ```
-  El script crea una carpeta con los artefactos de Docker en $dockerPackageOutputDirectoryPath. Modifique el archivo de Docker generado para exponer los puertos, ejecutar scripts de configuración, etc. según sus necesidades.
+
+    .NET completo
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $applicationExeName = 'Name of the Code package executable.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
+      ```
+    .NET Core
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
+      ```
+      El script crea una carpeta con los artefactos de Docker en $dockerPackageOutputDirectoryPath. Modifique el Dockerfile generado para `expose` los puertos, ejecutar scripts de configuración, etc. según sus necesidades.
 
 6. A continuación, necesita [compilar](service-fabric-get-started-containers.md#Build-Containers) e [insertar](service-fabric-get-started-containers.md#Push-Containers) el paquete de contenedor de Docker en el repositorio.
 
@@ -79,7 +88,7 @@ Esta característica se encuentra en versión preliminar y en este artículo se 
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
   </EntryPoint>
-  <!-- Pass environment variables to your container: -->    
+  <!-- Pass environment variables to your container: -->
 </CodePackage>
   ```
 
@@ -94,7 +103,24 @@ Esta característica se encuentra en versión preliminar y en este artículo se 
 </Policies>
  ```
 
-9. Para probar esta aplicación, debe implementarla en un clúster que esté ejecutando la versión 5.7 o posterior. Además, debe editar y actualizar la configuración del clúster para habilitar esta característica de versión preliminar. Siga los pasos de este [artículo](service-fabric-cluster-fabric-settings.md) para agregar la configuración que se muestra a continuación.
+9. Para configurar el modo de aislamiento de contenedor, consulte [Configuración del modo de aislamiento]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper-V. Los siguientes fragmentos de código muestran cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
+
+ ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+  ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+
+10. Para probar esta aplicación, debe implementarla en un clúster que esté ejecutando la versión 5.7 o posterior. Para las versiones 6.1 o posteriores del entorno de ejecución, debe editar y actualizar la configuración del clúster para habilitar esta característica en vista previa. Siga los pasos de este [artículo](service-fabric-cluster-fabric-settings.md) para agregar la configuración que se muestra a continuación.
 ```
       {
         "name": "Hosting",
@@ -106,7 +132,8 @@ Esta característica se encuentra en versión preliminar y en este artículo se 
         ]
       }
 ```
-10. Después, [implemente](service-fabric-deploy-remove-applications.md) el paquete de aplicación editado en este clúster.
+
+11. Después, [implemente](service-fabric-deploy-remove-applications.md) el paquete de aplicación editado en este clúster.
 
 Ahora debería tener una aplicación de Service Fabric en contenedores ejecutando el clúster.
 

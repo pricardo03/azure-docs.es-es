@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 58c5826240b7c49ba29c0d8e86a2896e3ce2f7f7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6a618efc6860371883bff7ebb953880293ad3120
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838405"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303888"
 ---
 # <a name="project-lead-tasks"></a>Tareas del responsable de proyecto
 
@@ -31,7 +31,7 @@ Un **responsable de proyecto** administra las actividades diarias de los cientí
 
 En este tema se tratan las tareas 1,2 y 6 de este flujo de trabajo para los responsables de proyecto.
 
->[AZURE.NOTE] En las instrucciones siguientes se detallan los pasos necesarios para configurar un entorno de equipo de proceso de ciencia de datos en equipo para un proyecto mediante Visual Studio Team Services (VSTS). Se especifica cómo llevar a cabo estas tareas con VSTS ya que es así cómo se implementa TDSP en Microsoft. Si se usa otra plataforma de hospedaje de código para el grupo, las tareas que debe realizar el responsable de equipo seguirán siendo las mismas. Pero la forma de completar estas tareas va a ser diferente.
+>[AZURE.NOTE] En las instrucciones siguientes se detallan los pasos necesarios para configurar un entorno de equipo de proceso de ciencia de datos en equipo (TDSP) para un proyecto mediante Azure DevOps. Se especifica cómo llevar a cabo estas tareas con Azure DevOps ya que es así cómo se implementa el proceso de ciencia de datos en equipo (TDSP) en Microsoft. Si se usa otra plataforma de hospedaje de código para el grupo, las tareas que debe realizar el responsable de equipo seguirán siendo las mismas. Pero la forma de completar estas tareas va a ser diferente.
 
 
 ## <a name="repositories-and-directories"></a>Repositorios y directorios
@@ -44,33 +44,33 @@ En este tutorial se usan abreviaturas de nombres de los repositorios y directori
 - **D5**: el directorio local clonado de R5.
 
 
-## <a name="0-prerequisites"></a>0. requisitos previos
+## <a name="0-prerequisites"></a>0. Requisitos previos
 
 Para cumplir los requisitos previos, es necesario realizar las tareas asignadas al administrador de grupo que se describen en [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md) y al responsable de equipo descrito en [Tareas del responsable de equipo para un equipo de ciencia de datos](team-lead-tasks.md). 
 
 Para resumir aquí, se deben cumplir los siguientes requisitos antes de comenzar las tareas del responsable de equipo: 
 
-- El administrador de grupo debe haber configurado el **servidor VSTS del grupo** (o la cuenta de grupo en otras plataformas de hospedaje de código).
+- El administrador del grupo debe haber configurado la instancia de **Azure DevOps Services del grupo** o la cuenta de grupo en otras plataformas de hospedaje de código.
 - El responsable de equipo debe haber configurado el **repositorio TeamProjectTemplate** (R3) en la cuenta de grupo en la plataforma de hospedaje de código que planee usar.
 - El responsable de equipo le ha **autorizado** para crear repositorios en su cuenta de grupo para su equipo.
 - Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).  
 - Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su máquina. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue al instalador .exe desde aquí y ejecútelo. 
-- Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela al servidor de VSTS del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
+- Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela a la instancia de Azure DevOps Services del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-a-project-repository-r5"></a>1. Creación de un repositorio del proyecto (R5)
 
-- Inicie sesión en el servidor de VSTS del grupo en *https://\<Nombre del servidor de VSTS\>. visualstudio.com*. 
-- En **Proyectos y equipos recientes**, haga clic en **Examinar**. Una ventana emergente muestra todos los proyectos de equipo en el servidor VSTS. 
+- Inicie sesión en la instancia de Azure DevOps Services del grupo en *https://\<Nombre de Azure DevOps Services\>.visualstudio.com*. 
+- En **Proyectos y equipos recientes**, haga clic en **Examinar**. Una ventana emergente muestra todos los proyectos de Azure DevOps Services. 
 
     ![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
 
-- Haga clic en el nombre del proyecto de equipo en el que va a crear el repositorio del proyecto. En este ejemplo, haga clic en **MyTeam**. 
-- Después, haga clic en **Navegar** para acceder a la página principal del proyecto de equipo **MyTeam**:
+- Haga clic en el nombre del proyecto en el que va a crear el repositorio del proyecto. En este ejemplo, haga clic en **MyTeam**. 
+- Después, haga clic en **Navegar** para acceder a la página principal del proyecto **MyTeam**:
 
     ![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
 
-- Haga clic en **Colaborar en el código** para que se dirijan a la página principal de git del proyecto de equipo.  
+- Haga clic en **Colaborar en el código** para acceder a la página principal de GIT del proyecto.  
 
     ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
@@ -87,33 +87,33 @@ Para resumir aquí, se deben cumplir los siguientes requisitos antes de comenzar
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. Propagación del repositorio del proyecto DSProject1
 
-La tarea aquí es propagar el repositorio del proyecto **DSProject1** (R5) desde el repositorio de plantillas de proyecto de equipo (R3). El procedimiento de propagación usa los directorios D3 y D5 de instancia de DSVM como sitios de almacenamiento provisional intermedios. En resumen, es la ruta de acceso de propagación: R3 -> D3 -> D5 -> R5.
+La tarea aquí es propagar el repositorio del proyecto **DSProject1** (R5) desde el repositorio de plantillas de proyecto (R3). El procedimiento de propagación usa los directorios D3 y D5 de instancia de DSVM como sitios de almacenamiento provisional intermedios. En resumen, es la ruta de acceso de propagación: R3 -> D3 -> D5 -> R5.
 
 Si necesita personalizar el repositorios del proyecto **DSProject1** para satisfacer algunas necesidades específicas, lo hará en el penúltimo paso del procedimiento siguiente. Este es un resumen de los pasos que se usan para propagar el contenido del repositorio del proyecto **DSProject1**. Los pasos individuales corresponden a las subsecciones del procedimiento de propagación:
 
-- Clone el repositorio de plantillas de proyecto de equipo en el directorio local: equipo R3 - clonado en -> D3 local.
+- Clone el repositorio de plantillas de proyecto en el directorio local: equipo R3 - clonado en -> D3 local.
 - Clone el repositorio de DSProject1 en un directorio local: R5 de equipo - clonado a -> D5 local.
-- Copie el contenido de la plantilla de proyecto de equipo clonado en clon local del repositorio DSProject1: D3 - contenido copiado en -> D5.
+- Copie el contenido de la plantilla de proyecto clonado en el clon local del repositorio DSProject1: D3 - contenido copiado en -> D5.
 - (Opcional) Personalización de D5 local
 - Inserte el contenido de DSProject1 local en los repositorios de equipo: D5 - el contenido se agrega a -> R5 de equipo.
 
 
-### <a name="clone-your-team-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone el repositorio de plantillas de proyecto de equipo (R3) en un directorio (D3) en la máquina local.
+### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone el repositorio de plantillas de proyecto (R3) en un directorio (D3) en la máquina local.
 
 En la máquina local, cree un directorio:
 
 - *C:\GitRepos\MyTeamCommon* para Windows 
 - *$home/GitRepos/MyTeamCommon* para Linux
 
-Cambie a ese directorio. Después, ejecute el comando siguiente para clonar el repositorio de plantillas de proyecto de equipo en la máquina local. 
+Cambie a ese directorio. Después, ejecute el comando siguiente para clonar el repositorio de plantillas de proyecto en la máquina local. 
 
 **Windows**
             
     git clone <the HTTPS URL of the TeamProjectTemplate repository>
     
-Si se utiliza VSTS como plataforma de hospedaje de código, por lo general, la *dirección URL HTTPS del repositorio de plantillas de proyecto de equipo* es la siguiente:
+Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la *dirección URL HTTPS del repositorio de plantillas de proyecto* es la siguiente:
 
- ***https://\<Nombre de servidor VSTS\>.visualstudio.com/\<Nombre del proyecto de equipo\>/_git/\<Nombre de repositorio de plantillas de proyecto de equipo\>***. 
+ ***https://\<Nombre de Azure DevOps Services\>.visualstudio.com/\<Nombre del proyecto\>/_git/\<Nombre del repositorio de plantillas de proyecto\>***. 
 
 En este ejemplo, tenemos:
 
@@ -127,9 +127,9 @@ En este ejemplo, tenemos:
         
 ![8](./media/project-lead-tasks/project-leads-8-clone-team-project-template-linux.png)
 
-Si se utiliza VSTS como plataforma de hospedaje de código, por lo general, la *dirección URL SSH del repositorio de plantillas de proyecto de equipo* es la siguiente:
+Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la *dirección URL SSH del repositorio de plantillas de proyecto* es la siguiente:
 
-***ssh://\<Nombre de servidor VSTS\>@\<Nombre de servidor VSTS\>.visualstudio.com:22/\<Nombre de proyecto de equipo>/_git/\<Nombre de repositorio de plantillas de proyecto de equipo\>.*** 
+***ssh://\<Nombre de Azure DevOps Services\>@\<Nombre de Azure DevOps Services\>.visualstudio.com:22/\<Nombre del proyecto>/_git/\<Nombre del repositorio de plantillas de proyecto\>.*** 
 
 En este ejemplo, tenemos:
 
@@ -145,7 +145,7 @@ Cambie el directorio a **GitRepos** y ejecute el comando siguiente para clonar e
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-Si se utiliza VSTS como plataforma de hospedaje de código, por lo general, la _dirección URL HTTPS del repositorio del proyecto_ es ***https://\<Nombre de servidor de VSTS\>.visualstudio.com/\<Nombre de proyecto de equipo>/_git/<Nombre de repositorio del proyecto\>***. En este ejemplo, tenemos ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
+Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la _dirección URL HTTPS del repositorio del proyecto_ es ***https://\<Nombre de Azure DevOps Services\>.visualstudio.com/\<Nombre del proyecto>/_git/<Nombre de repositorio del proyecto\>***. En este ejemplo, tenemos ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
 
 **Linux**
 
@@ -153,7 +153,7 @@ Si se utiliza VSTS como plataforma de hospedaje de código, por lo general, la _
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Si se utiliza VSTS como plataforma de hospedaje de código, por lo general, la _dirección URL SSH del repositorio del proyecto_ es _ssh://<Nombre de servidor de VSTS\>@<Nombre de servidor de VSTS\>.visualstudio.com:22/<Your Team Project Name>/\_git/<Su nombre de repositorio del proyecto\>. En este ejemplo, tenemos ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la _dirección URL SSH del repositorio del proyecto_ es _ssh://<Nombre de Azure DevOps Services\>@<Nombre de Azure DevOps Services\>.visualstudio.com:22/<Your Project Name>/\_git/<Nombre del repositorio del proyecto\>. En este ejemplo, tenemos ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Copia del contenido de D3 a D5 
 
@@ -184,11 +184,11 @@ Ahora puede ver que en la carpeta _DSProject1_ se copian todos los archivos (exc
 
 ### <a name="customize-d5-if-you-need-to-optional"></a>Personalización de D5 si se necesita (opcional)
 
-Si el proyecto necesita algunos directorios o documentos específicos distintos de los que se obtiene de la plantilla de proyecto de equipo (que se ha copiado al directorio D5 en el paso anterior), puede personalizar ahora el contenido de D5. 
+Si el proyecto necesita algunos directorios o documentos específicos distintos de los que se obtienen de la plantilla de proyecto (que se ha copiado al directorio D5 en el paso anterior), puede personalizar ahora el contenido de D5. 
 
-### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>Adición de contenido de DSProject1 de D5 a R5 en el servidor de VSTS del grupo
+### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-azure-devops-services"></a>Adición de contenido de DSProject1 de D5 a R5 en la instancia de Azure DevOps Services del grupo
 
-Ahora tiene que insertar contenido de **_DSProject1_** al repositorio _R5_ en el proyecto de equipo en el servidor VSTS del grupo. 
+Ahora tiene que insertar contenido de **_DSProject1_** al repositorio _R5_ en el proyecto en la instancia de Azure DevOps Services del grupo. 
 
 
 - Cambie al directorio **D5**. 

@@ -1,6 +1,6 @@
 ---
-title: Creación de la primera aplicación de microservicios de Azure en Linux con C#| Microsoft Docs
-description: Creación e implementación de una aplicación de Service Fabric con C#
+title: Creación de la primera aplicación de Azure Service Fabric en Linux con C#| Microsoft Docs
+description: Aprenda a crear e implementar una aplicación de Service Fabric con C# y .NET Core 2.0.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e917119e2d0f9b7b5cfa9ea145cc6e540486ac66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617093"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052603"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creación de la primera aplicación de Azure Service Fabric
 > [!div class="op_single_selector"]

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859874"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163284"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Con Bash en Cloud Shell, puede ejecutar un comando denominado `clouddrive`, lo q
 #### <a name="prerequisites-for-manual-mounting"></a>Requisitos previos para el montaje manual
 Puede actualizar el recurso compartido de archivos que esté asociada con Cloud Shell mediante el uso del comando `clouddrive mount`.
 
-Si se monta un recurso compartido de archivos existente, las cuentas de almacenamiento tienen que ser:
-* De almacenamiento con redundancia local o de almacenamiento con redundancia geográfica para que admitan recursos compartidos de archivos.
-* Deben ubicarse en su región asignada. Al incorporarse, la región a la que está asignado aparece en el nombre del grupo de recursos `cloud-shell-storage-<region>`.
+Si se monta un recurso compartido de archivos existente, las cuentas de almacenamiento han de encontrarse en la región de Cloud Shell seleccionada. Para recuperar la ubicación, ejecute `env` en Bash y compruebe la `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>El comando `clouddrive mount`
 

@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/15/2017
-ms.topic: article
+ms.date: 09/05/2018
+ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b158414e7a2954981534fe6fb26c987eb2f4ce67
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: d9fc845316d6e785d8215ac738b893ebc080d911
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146811"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300977"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -29,12 +29,12 @@ El uso de credenciales de desarrollador durante el desarrollo local es más segu
 
 La biblioteca `Microsoft.Azure.Services.AppAuthentication` administra la autenticación automáticamente, que a su vez le permite centrarse en la solución, en lugar de en las credenciales.
 
-La biblioteca `Microsoft.Azure.Services.AppAuthentication` admite el desarrollo local con Microsoft Visual Studio, la CLI de Azure o Azure AD Integrated Authentication (Autenticación integrada de Azure AD). Cuando se implementa en Azure App Services o en una máquina virtual (VM) de Azure, la biblioteca usa automáticamente [Identidad de servicio administrada](/azure/active-directory/msi-overview) (MSI). No se requieren cambios de configuración o código. La biblioteca también admite el uso directo de las [credenciales de cliente](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) de Azure AD cuando MSI no está disponible o cuando no se puede determinar el contexto de seguridad del desarrollador durante el desarrollo local.
+La biblioteca `Microsoft.Azure.Services.AppAuthentication` admite el desarrollo local con Microsoft Visual Studio, la CLI de Azure o Azure AD Integrated Authentication (Autenticación integrada de Azure AD). Cuando se implementa en Azure App Services o en una máquina virtual (VM) de Azure, la biblioteca usa automáticamente [identidades administradas para servicios de Azure](/azure/active-directory/msi-overview). No se requieren cambios de configuración o código. La biblioteca también admite el uso directo de las [credenciales de cliente](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) de Azure AD cuando una identidad administrada no está disponible o cuando no se puede determinar el contexto de seguridad del desarrollador durante el desarrollo local.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Uso de la biblioteca
 
-Para aplicaciones. NET, la manera más sencilla de trabajar con una identidad de servicio administrada (MSI) es a través del paquete `Microsoft.Azure.Services.AppAuthentication`. Aquí tiene información sobre cómo empezar:
+Para aplicaciones. NET, la manera más sencilla de trabajar con una identidad administrada es con el paquete `Microsoft.Azure.Services.AppAuthentication`. Aquí tiene información sobre cómo empezar:
 
 1. Agregue una referencia al paquete de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para la aplicación.
 
@@ -58,7 +58,7 @@ Para aplicaciones. NET, la manera más sencilla de trabajar con una identidad de
 
 La `AzureServiceTokenProvider` clase almacena el token en la memoria y lo recupera de Azure AD justo antes de que expire. Por lo tanto, ya no tiene que comprobar la expiración antes de llamar al método `GetAccessTokenAsync`. Simplemente llame al método cuando desee utilizar el token. 
 
-El método `GetAccessTokenAsync` requiere un identificador de recursos. Para más información, vea [¿Qué servicios de Azure son compatibles con Identidad de servicio administrada?](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity)
+El método `GetAccessTokenAsync` requiere un identificador de recursos. Para más información, vea [qué servicios de Azure admiten identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>
@@ -66,11 +66,11 @@ El método `GetAccessTokenAsync` requiere un identificador de recursos. Para má
 
 Los siguientes ejemplos muestran la biblioteca `Microsoft.Azure.Services.AppAuthentication` en acción:
 
-1. [Use una identidad de servicio administrada (MSI) para recuperar un secreto de almacén de Azure Key Vault en tiempo de ejecución](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+1. [Use una identidad administrada para recuperar un secreto de almacén de Azure Key Vault en tiempo de ejecución](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
-2. [Implemente mediante programación una plantilla de Azure Resource Manager desde una máquina virtual de Azure con una MSI](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
+2. [Implemente mediante programación una plantilla de Azure Resource Manager desde una máquina virtual de Azure con una identidad administrada](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
 
-3. [Use el ejemplo .NET Core y MSI para llamar a los servicios de Azure desde una máquina virtual Linux de Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
+3. [Use el ejemplo .NET Core y una identidad administrada para llamar a los servicios de Azure desde una máquina virtual Linux de Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
 
 <a name="local"></a>
@@ -86,7 +86,7 @@ A continuación, aprenderá los requisitos para cada escenario y las herramienta
 
 ### <a name="authenticating-to-azure-services"></a>Autenticación en los servicios de Azure
 
-Los equipos locales no son compatibles con la identidad de servicio administrada (MSI).  Como resultado, la biblioteca `Microsoft.Azure.Services.AppAuthentication` utiliza las credenciales de desarrollador para la ejecución en el entorno de desarrollo local. Cuando la solución se implementa en Azure, la biblioteca usa MSI para cambiar a un flujo de concesión de credenciales de cliente de OAuth 2.0.  Esto significa que puede probar el mismo código local y remotamente sin preocuparse.
+Los equipos locales no admiten identidades administradas para recursos de Azure.  Como resultado, la biblioteca `Microsoft.Azure.Services.AppAuthentication` utiliza las credenciales de desarrollador para la ejecución en el entorno de desarrollo local. Cuando la solución se implementa en Azure, la biblioteca usa una identidad administrada para cambiar a un flujo de concesión de credenciales de cliente de OAuth 2.0.  Esto significa que puede probar el mismo código local y remotamente sin preocuparse.
 
 Para el desarrollo local, `AzureServiceTokenProvider` captura tokens mediante **Visual Studio**, la **interfaz de línea de comandos de Azure** (CLI) o **la autenticación integrada de Azure AD**. Cada opción se prueba secuencialmente y la biblioteca usa la primera opción correcta. Si no funciona ninguna opción, se produce una excepción `AzureServiceTokenProviderException` con información detallada.
 
@@ -160,12 +160,12 @@ Al crear un servicio que llama a un servicio personalizado, use las credenciales
 
 Una vez que haya iniciado sesión en Azure, `AzureServiceTokenProvider` usa la entidad de servicio para recuperar un token para el desarrollo local.
 
-Esto se aplica solo a desarrollo local. Cuando la solución se implementa en Azure, la biblioteca cambia a la autenticación de MSI.
+Esto se aplica solo a desarrollo local. Cuando la solución se implementa en Azure, la biblioteca cambia a una identidad administrada para la autenticación.
 
 <a name="msi"></a>
-## <a name="running-the-application-using-a-managed-service-identity"></a>Ejecución de la aplicación con una identidad de servicio administrada 
+## <a name="running-the-application-using-managed-identity"></a>Ejecución de la aplicación con una identidad administrada 
 
-Cuando se ejecuta el código en un Azure App Service o una máquina virtual de Azure con MSI habilitado, la biblioteca usa automáticamente Identidad de servicio administrada. No se requiere ningún cambio de código. 
+Cuando se ejecuta el código en una instancia de Azure App Service o en una máquina virtual de Azure con una identidad administrada habilitada, la biblioteca usa automáticamente dicha identidad. No se requiere ningún cambio de código. 
 
 
 <a name="sp"></a>
@@ -177,7 +177,7 @@ Puede ser necesario crear una credencial de cliente de Azure AD para autenticar.
  
 2. El código se ejecuta en un entorno de desarrollo local y se autentica en un servicio personalizado, por lo que no puede usar la identidad de desarrollador. 
  
-3. Se ejecuta el código en un recurso de procesos de Azure que aún no admite Identidad de servicio administrada, como Azure Batch.
+3. Se ejecuta el código en un recurso de Azure Compute que aún no admite identidades administradas para recursos de Azure, como Azure Batch.
 
 Para usar un certificado para iniciar sesión en Azure AD:
 
@@ -228,7 +228,7 @@ Se admiten las siguientes opciones:
 | `RunAs=Developer; DeveloperTool=AzureCli` | Desarrollo local | AzureServiceTokenProvider utiliza AzureCli para obtener el token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desarrollo local | AzureServiceTokenProvider utiliza Visual Studio para obtener el token. |
 | `RunAs=CurrentUser;` | Desarrollo local | AzureServiceTokenProvider utiliza Azure AD Integrated Authentication (Autenticación integrada de Azure AD) para obtener el token. |
-| `RunAs=App;` | Identidad de servicio administrada | AzureServiceTokenProvider utiliza Identidad de servicio administrada para obtener el token. |
+| `RunAs=App;` | Identidades administradas para recursos de Azure | AzureServiceTokenProvider utiliza una identidad administrada para obtener el token. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Entidad de servicio | `AzureServiceTokenProvider` usa el certificado para obtener el token desde Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Entidad de servicio | `AzureServiceTokenProvider` usa el certificado para obtener el token desde Azure AD.|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Entidad de servicio |`AzureServiceTokenProvider` usa el secreto para obtener el token desde Azure AD. |
@@ -236,7 +236,7 @@ Se admiten las siguientes opciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Identidad de servicio administrada](/azure/app-service/app-service-managed-service-identity).
+- Obtenga más información sobre las [identidades administradas para recursos de Azure](/azure/app-service/app-service-managed-service-identity).
 
 - Obtenga información acerca de diferentes maneras de [autenticar y autorizar aplicaciones](/azure/app-service/app-service-authentication-overview).
 

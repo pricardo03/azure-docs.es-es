@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171779"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983772"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos.
@@ -47,10 +47,7 @@ El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azu
 - La reducción del tamaño de almacenamiento del servidor no se admite actualmente.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
-- La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento.
-
-### <a name="subscription-management"></a>Administración de suscripciones
-- El movimiento dinámico de servidores entre grupos de suscripciones y recursos no se admite en este momento.
+- La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento. Si desea actualizar a la siguiente versión principal, realice un [volcado de memoria y restáurelo ](./howto-migrate-using-dump-and-restore.md) a un servidor que se haya creado con la nueva versión del motor.
 
 ### <a name="vnet-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.

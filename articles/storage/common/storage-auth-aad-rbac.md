@@ -1,6 +1,6 @@
 ---
-title: Uso de RBAC para administrar los derechos de acceso a los contenedores de almacenamiento y colas de Azure Storage (versión preliminar) | Documentos de Microsoft
-description: Uso del control de acceso basado en rol (RBA) para asignar roles para el acceso a los datos de Azure Storage para los usuarios, grupos, entidades de servicio de aplicación o las identidades de servicio administrado. Azure Storage es compatible con roles integrados y personalizados para los derechos de acceso a los contenedores y las colas.
+title: 'Uso de RBAC para administrar los derechos de acceso a contenedores y colas (versión preliminar): Azure Storage | Microsoft Docs'
+description: Uso del control de acceso basado en rol (RBA) para asignar roles para el acceso a los datos de blobs y colas para los usuarios, grupos, entidades de servicio de aplicación o las identidades de servicio administradas. Azure Storage es compatible con roles integrados y personalizados para los derechos de acceso a los contenedores y las colas.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298682"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737301"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)
 
 Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage define un conjunto de roles de RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores o las colas. Cuando un rol RBAC se asigna a una identidad de Azure AD, se concede a esa identidad acceso a esos recursos según el ámbito especificado. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Puede asignar derechos de acceso para los recursos de Azure Storage con Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure. 
 
-Una identidad de Azure AD puede ser un usuario, un grupo o una entidad de servicio de aplicación, o puede ser una *identidad de servicio administrada*. Una entidad de seguridad puede ser un usuario, grupo o entidad de servicio de aplicación. Una [identidad de servicio administrada](../../active-directory/managed-identities-azure-resources/overview.md) es una identidad administrada automáticamente utilizada para autenticar desde aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros. Para información general de identidad en Azure AD, consulte [Información acerca de las soluciones de identidades de Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Una identidad de Azure AD puede ser un usuario, un grupo o una entidad de servicio de aplicación, o puede ser una identidad de servicio administrada para recursos de Azure. Una entidad de seguridad puede ser un usuario, grupo o entidad de servicio de aplicación. Una [identidad administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md) es una identidad automáticamente administrada utilizada para autenticar desde aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros. Para información general de identidad en Azure AD, consulte [Información acerca de las soluciones de identidades de Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
-## <a name="rbac-roles-for-azure-storage"></a>Funciones RBAC para Azure Storage
+## <a name="rbac-roles-for-blobs-and-queues"></a>Roles RBAC para blobs y colas
 
 Azure Storage es compatible con roles RBAC tanto integrados como personalizados. Azure Storage proporciona estos roles integrados de RBAC para su uso con Azure AD:
 

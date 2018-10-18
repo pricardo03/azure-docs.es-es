@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528721"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304686"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ Para obtener una guía práctica para la solución de problemas integral en apli
   * [Apéndice 2: Uso de Wireshark para capturar tráfico de red]
   * [Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]
   * [Apéndice 4: Uso de Excel para ver métricas y datos de registro]
-  * [Apéndice 5: Supervisión de Visual Studio Team Services mediante Application Insights]
+  * [Apéndice 5: Supervisión mediante Application Insights para Azure DevOps]
 
 ## <a name="introduction"></a>Introducción
 En esta guía se explica cómo usar algunas características, como el análisis de Azure Storage, el registro del lado cliente de la biblioteca de cliente de Azure Storage y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage.
@@ -125,7 +125,7 @@ Puede usar [Azure Portal](https://portal.azure.com) para ver el estado del servi
 [Azure Portal](https://portal.azure.com) también puede proporcionar notificaciones sobre los incidentes que afectan a los diversos servicios de Azure.
 Nota: Anteriormente esta información estaba disponible, junto con los datos históricos, en el [Panel de servicios de Azure](http://status.azure.com).
 
-Mientras que [Azure Portal](https://portal.azure.com) recopila información sobre el estado del servicio desde el interior de los centros de datos de Azure (esto es, una supervisión desde el interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) y Application Insights para Visual Studio Team Services, son algunos de ejemplos de este enfoque. Para obtener más información sobre Application Insights para Visual Studio Team Services, consulte el apéndice "[Apéndice 5: supervisión de Visual Studio Team Services mediante Application Insights](#appendix-5)".
+Mientras que [Azure Portal](https://portal.azure.com) recopila información sobre el estado del servicio desde el interior de los centros de datos de Azure (esto es, una supervisión desde el interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) y Application Insights para Azure DevOps son algunos de ejemplos de este enfoque. Para obtener más información sobre Application Insights para Azure DevOps, consulte el apéndice "[Apéndice 5: Supervisión mediante Application Insights para Azure DevOps](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a>Supervisión de la capacidad
 Las métricas de Storage solo almacenan las métricas de capacidad de Blob service, porque los blob suelen representar la mayor parte de los datos almacenados (en el momento de la escritura, no se pueden usar las métricas de Storage para supervisar la capacidad de las tablas y las colas). Puede encontrar estos datos en la tabla **$MetricsCapacityBlob** si habilitó la supervisión de Blob service. Las métricas de Almacenamiento registran estos datos una vez al día, y puede usar el valor de **RowKey** para saber si la fila contiene una entidad relacionada con datos de usuarios (valor **data**) o con datos de análisis (valor **analytics**). Cada entidad almacenada contiene información sobre la cantidad de almacenamiento utilizada (**Capacity**, medida en bytes) y el número actual de contenedores (**ContainerCount**) y BLOB (**ObjectCount**) que se están usando en la cuenta de almacenamiento. Para más información sobre las métricas de capacidad almacenadas en la tabla **$MetricsCapacityBlob** , consulte [Esquema de tabla de métricas de Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -799,8 +799,8 @@ Para importar los datos del registro de Storage en Excel después de descargarlo
 
 En el paso 1 del **Asistente para importar texto**, seleccione **Punto y coma** como el único delimitador y elija la comilla doble como **Calificador de texto**. Luego, haga clic en **Finalizar** y elija dónde quiere colocar los datos del libro.
 
-### <a name="appendix-5"></a>Apéndice 5: Supervisión de Visual Studio Team Services mediante Application Insights
-Asimismo, también puede usar la característica Application Insights para Visual Studio Team Services como parte de la supervisión del rendimiento y la disponibilidad. Esta herramienta puede:
+### <a name="appendix-5"></a>Apéndice 5: Supervisión mediante Application Insights para Azure DevOps
+Asimismo, también puede usar la característica Application Insights para Azure DevOps como parte de la supervisión del rendimiento y la disponibilidad. Esta herramienta puede:
 
 * Comprobar que el servicio web está disponible y responde adecuadamente. Tanto si la aplicación es un sitio web como si es una aplicación para dispositivo que utiliza un servicio web, puede probar la URL cada pocos minutos desde ubicaciones de todo el mundo e informar si hay algún problema.
 * Diagnosticar rápidamente los problemas de rendimiento o las excepciones del servicio web. Averigüe si la CPU u otros recursos se están ampliando, observe el seguimiento de la pila de las excepciones y busque fácilmente en los seguimientos de registros. Si el rendimiento de la aplicación desciende por debajo de los límites aceptables, Microsoft puede enviarle un correo electrónico. Puede supervisar servicios web de .NET y de Java.
@@ -865,7 +865,7 @@ Puede encontrar más información en [¿Qué es Application Insights?](../../app
 [Apéndice 2: Uso de Wireshark para capturar tráfico de red]: #appendix-2
 [Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]: #appendix-3
 [Apéndice 4: Uso de Excel para ver métricas y datos de registro]: #appendix-4
-[Apéndice 5: Supervisión de Visual Studio Team Services mediante Application Insights]: #appendix-5
+[Apéndice 5: Supervisión mediante Application Insights para Azure DevOps]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

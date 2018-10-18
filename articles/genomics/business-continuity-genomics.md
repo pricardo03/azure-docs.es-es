@@ -1,23 +1,21 @@
 ---
 title: 'Continuidad empresarial: Microsoft Genomics | Microsoft Docs'
 titleSuffix: Azure
-description: Aprenda cómo Microsoft Genomics sirve de soporte a la continuidad empresarial
+description: En este artículo de introducción se describen las funcionalidades que Microsoft Genomics proporciona a la continuidad empresarial y la recuperación ante desastres. Obtenga información acerca de las opciones para la recuperación de eventos potencialmente perjudiciales, como una interrupción de la región de Azure, que podrían provocar la pérdida de datos.
 keywords: Continuidad empresarial, recuperación ante desastres
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 04/06/2018
-ms.openlocfilehash: cb3825cb89aff386c4f7c3f3b0d771d73fe637b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be678648ab93fcbdfd0a0baa1b01dcb273060ce2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426812"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729459"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Introducción a la continuidad empresarial con Microsoft Genomics
 En este artículo de introducción se describen las funcionalidades que Microsoft Genomics proporciona a la continuidad empresarial y la recuperación ante desastres. Obtenga información acerca de las opciones para la recuperación de eventos potencialmente perjudiciales, como una interrupción de la región de Azure, que podrían provocar la pérdida de datos. 
@@ -32,7 +30,7 @@ Aunque es poco frecuente, un centro de datos de Azure puede tener una interrupci
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Flujos de trabajo de conmutación por error de Microsoft Genomics a otra región
-En el caso de una interrupción del centro de datos de una región, puede decidir el envío de flujos de trabajo de Microsoft Genomics en una región secundaria, según la soberanía de datos individuales y los requisitos de continuidad empresarial. Para realizar una conmutación por error manual de los flujos de trabajo de Microsoft Genomics, se usaría una cuenta de Genomics específica de una región distinta y se enviaría el trabajo con unas credenciales de cuenta de almacenamiento de Genomics específicas de región.
+En el caso de una interrupción del centro de datos de una región, puede decidir el envío de flujos de trabajo de Microsoft Genomics en una región secundaria, según la soberanía de datos individuales y los requisitos de continuidad empresarial. Para realizar una conmutación por error manual de los flujos de trabajo de Microsoft Genomics, se usa una cuenta de Genomics específica para una región y se envía el trabajo con las credenciales de una cuenta de almacenamiento y de Genomics adecuadas y específicas para una región.
 
 En concreto, tendrá que:
 * Crear una cuenta de Genomics en la región secundaria mediante Azure Portal. 

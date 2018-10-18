@@ -1,22 +1,20 @@
 ---
-title: 'Microsoft Genomics: preguntas frecuentes | Microsoft Docs'
+title: 'Microsoft Genomics: preguntas más frecuentes | Microsoft Docs'
 titleSuffix: Azure
 description: Aquí encontrará respuestas a las preguntas que hicieron los clientes sobre Microsoft Genomics.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 804076fdc653622336ac3b99c15df0bc027510d9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517025"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730157"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: preguntas frecuentes
 

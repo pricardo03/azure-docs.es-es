@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 6800bf766deb2044d400f92dbe370fa15bdd5f00
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26047606"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051483"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Uso de un certificado SSL en el código de aplicación de Azure App Service
 
@@ -51,7 +51,7 @@ Aquí se muestran todos los certificados SSL cargados e importados para esta apl
 
 En el panel izquierdo, haga clic en **Configuración de la aplicación**.
 
-Agregue una configuración de la aplicación llamada `WEBSITE_LOAD_CERTIFICATES` y establezca su valor en la huella digital del certificado. Para hacer que varios certificados sean accesibles, use valores de huellas digitales separados por comas. Para que todos los certificados sean accesibles, establezca el valor en `*`. 
+Agregue una configuración de la aplicación llamada `WEBSITE_LOAD_CERTIFICATES` y establezca su valor en la huella digital del certificado. Para hacer que varios certificados sean accesibles, use valores de huellas digitales separados por comas. Para que todos los certificados sean accesibles, establezca el valor en `*`. Este valor colocará el certificado en el almacén `CurrentUser\My`.
 
 ![Configurar las opciones de la aplicación](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

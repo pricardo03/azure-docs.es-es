@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2cae74224a9d59939175ac7e43d4d6b183ca3933
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146548"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050751"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
@@ -37,7 +37,7 @@ La característica TTL se controla mediante las propiedades de TTL en dos nivele
    * La propiedad solo es aplicable si DefaultTTL existe en la colección primaria.
    * Invalida el valor DefaultTTL para la colección primaria.
 
-En cuanto el documento ha expirado (`ttl` + `_ts` <=hora actual del servidor), el documento se marca como "expirado". Transcurrido este tiempo, no se permite ninguna operación en estos documentos y quedarán excluidos de los resultados de todas las consultas realizadas. Los documentos se eliminan físicamente del sistema y se eliminan en segundo plano de manera oportuna en un momento posterior. Esta proceso no consume ninguna [unidad de solicitud (RU)](request-units.md) del presupuesto de la colección.
+En cuanto el documento ha expirado (`ttl` + `_ts` <=hora actual del servidor), se marca como "expirado". Transcurrido este tiempo, no se permite ninguna operación en estos documentos y quedarán excluidos de los resultados de todas las consultas realizadas. Los documentos se eliminan físicamente del sistema y se eliminan en segundo plano de manera oportuna en un momento posterior. Esta proceso no consume ninguna [unidad de solicitud (RU)](request-units.md) del presupuesto de la colección.
 
 La lógica anterior se puede mostrar en la siguiente matriz:
 
@@ -55,7 +55,7 @@ De forma predeterminada, el período de vida está deshabilitado en todas las co
 2. Vaya a la colección en la que quiere establecer el valor de TTL y abra el panel **Scale & Settings** (Escala y configuración). Puede ver que el período de vida se establece de forma predeterminada en **desactivado**. Puede cambiarlo a **activado (sin valor predeterminado)** o **activado**.
 
    **desactivado**: los documentos no se eliminan automáticamente.  
-   **activado (sin valor predeterminado)**: esta opción establece el valor de TTL en "-1" (infinito) lo que significa que los documentos no caducan de forma predeterminada.  
+   **activado (sin valor predeterminado)**: esta opción establece el valor de TTL en "-1" (infinito), lo que significa que los documentos no caducan de forma predeterminada.  
    **activado**: los documentos caducan "n" segundos después de la última modificación.  
 
    ![Configuración del período de vida](./media/time-to-live/set-ttl-in-portal.png)

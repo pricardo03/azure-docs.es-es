@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: genli
-ms.openlocfilehash: 59a9011edef49494288716ab16f30e28e440293b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dd87c75638c3d084226becaace5c9454660c907
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195189"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303683"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Solucionar problemas de dominio y certificado SSL en aplicaciones web de Azure
 
@@ -167,7 +167,7 @@ Este problema se produce por uno de los siguientes motivos:
 
 - No es el propietario de la suscripción, por lo que no tiene permiso para comprar un dominio.
 
-    **Solución**: [Agregue el rol Propietario](../billing/billing-add-change-azure-subscription-administrator.md) a la cuenta. O póngase en contacto con el administrador de la suscripción para obtener permiso para comprar un dominio.
+    **Solución**: [asigne el rol Propietario](../role-based-access-control/role-assignments-portal.md) a la cuenta. O póngase en contacto con el administrador de la suscripción para obtener permiso para comprar un dominio.
 - Ha alcanzado el límite de adquisición de dominios de su suscripción. El límite actual es de 20.
 
     **Solución**: Para solicitar un aumento del límite, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

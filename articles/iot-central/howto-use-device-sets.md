@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206078"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731993"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Uso de conjuntos de dispositivos en una aplicación de Azure IoT Central
 
@@ -50,7 +50,7 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
 
 1. Seleccione la pestaña **Panel**.
 
-1. Active **Modo de diseño**.
+1. Haga clic en **Editar plantilla**.
 
     ![Activación del modo de diseño](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
 
 1. Agregue un título de vínculo:
     1. Elija **Vínculo** en el panel derecho.
-
-        ![Elección de Vínculo](media/howto-use-device-sets/image6.png)
-
     1. En **Título**, asigne un título al vínculo.
     1. Elija una dirección URL que se abrirá cuando se haga clic en el vínculo.
     1. Proporcione una descripción para el vínculo que se muestra debajo de **Título**.
@@ -87,38 +84,26 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
     > [!NOTE]
     > Puede agregar varias imágenes, vínculos y cuadrículas.
   
-    1. Desactive **Modo de diseño**.
+    1. Haga clic en **Done**(Listo).
 
     ![Desactivación del modo de diseño](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuración del mapa de ubicación en el panel de conjuntos de dispositivos 
-Puede agregar un mapa de ubicación para visualizar la ubicación de los conjuntos de dispositivos en un mapa. 
+Puede agregar un mapa de ubicación para visualizar la ubicación de los conjuntos de dispositivos en un mapa.
 
 Para agregar un mapa de ubicación al panel de conjuntos de dispositivos, debe haber configurado la propiedad de ubicación en la plantilla de dispositivo. Consulte [Creación de una propiedad de ubicación con Azure Maps](howto-set-up-template.md).
 
 
-1. En el panel de conjuntos de dispositivos, seleccione Mapa en la biblioteca. 
+1. En el panel de conjunto de dispositivos, seleccione Mapa en la biblioteca.
 
     ![Mapas del panel de conjuntos de dispositivos](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. Asigne un título y elija la propiedad de ubicación que se ha configurado anteriormente como parte de la propiedad de dispositivo.
-
-    ![Configuración de mapas del panel](media/howto-use-device-sets/LocationMaps2.png)
-
 3. Después de guardar, verá el icono de mapa, que muestra la ubicación de los dispositivos del conjunto de dispositivos.
-
-    ![Guardar mapas del panel](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. Ahora, cuando un operador visualice el panel de conjuntos de dispositivos, puede ver todos los iconos configurados, incluido el mapa de ubicación para visualizar la ubicación de todos los dispositivos de un vistazo. 
-
-    ![Vista del operador de los mapas del panel](media/howto-use-device-sets/LocationMaps4.png)
-
-    Podrá cambiar el tamaño del mapa hasta obtener el tamaño deseado.
-
-    Al hacer clic en una chincheta en el mapa, se mostrarán la información, el nombre y la ubicación del dispositivo. Puede hacer clic en la ventana emergente para ir a la página de propiedades del dispositivo.  
+4. Ahora, cuando un operador visualice el panel de conjuntos de dispositivos, puede ver todos los iconos configurados, incluido el mapa de ubicación para visualizar la ubicación de todos los dispositivos de un vistazo. 
+    
+[!NOTE] Podrá cambiar el tamaño del mapa hasta obtener el tamaño deseado. Al hacer clic en una chincheta en el mapa, se mostrarán la información, el nombre y la ubicación del dispositivo. Puede hacer clic en la ventana emergente para ir a la página de propiedades del dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configuración de la lista del conjunto de dispositivos

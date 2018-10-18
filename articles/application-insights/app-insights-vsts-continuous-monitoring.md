@@ -1,33 +1,34 @@
 ---
-title: "Supervisión continua de la canalización de versión de DevOps con VSTS y Azure Application Insights | Microsoft Docs"
-description: "Proporciona instrucciones para configurar rápidamente una supervisión continua con Application Insights"
+title: Supervisión continua de la canalización de versión de DevOps con Azure DevOps y Azure Application Insights | Microsoft Docs
+description: Proporciona instrucciones para configurar rápidamente una supervisión continua con Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301638"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Incorporación de supervisión continua a la canalización de versión
 
-Visual Studio Team Services (VSTS) se integra con Azure Application Insights para permitir la supervisión continua de la canalización de versión de DevOps a lo largo del ciclo de vida de desarrollo del software. 
+Azure DevOps Services se integra con Azure Application Insights para permitir la supervisión continua de la canalización de versión de DevOps a lo largo del ciclo de vida de desarrollo del software. 
 
-VSTS admite ahora la supervisión continua mediante la cual las canalizaciones de versión pueden incorporar datos de supervisión de Application Insights y otros recursos de Azure. Cuando se detecta una alerta de Application Insights, la implementación puede permanecer controlada o se puede revertir hasta que se resuelva la alerta. Si todas las comprobaciones son correctas, las implementaciones pueden continuar automáticamente de prueba a producción sin necesidad de intervención manual. 
+Azure DevOps Services admite ahora la supervisión continua mediante la cual las canalizaciones de versión pueden incorporar datos de supervisión de Application Insights y otros recursos de Azure. Cuando se detecta una alerta de Application Insights, la implementación puede permanecer controlada o se puede revertir hasta que se resuelva la alerta. Si todas las comprobaciones son correctas, las implementaciones pueden continuar automáticamente de prueba a producción sin necesidad de intervención manual. 
 
 ## <a name="configure-continuous-monitoring"></a>Configuración de la supervisión continua
 
-1. Seleccione un proyecto VSTS existente.
+1. Seleccione un proyecto existente de Azure DevOps Services.
 
 2. Mantenga el mouse sobre **Compilación y lanzamiento** > Seleccione **Versiones** > haga clic en el **signo más** > **Crear definición de versión**  > Busque **Supervisión** > **Azure App Service Deployment with Continuous Monitoring** (implementación de Azure App Service Deployment con supervisión continua)
 
-   ![Nueva definición de la versión en VSTS](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nueva canalización de versión de Azure DevOps Services](.\media\app-insights-continuous-monitoring\001.png)
 
 3. Haga clic en **Aplicar.**
 
@@ -39,8 +40,8 @@ VSTS admite ahora la supervisión continua mediante la cual las canalizaciones d
 
     | Parámetro        | Valor |
    | ------------- |:-----|
-   | **Nombre del entorno**      | Nombre que describe el entorno de la definición de versión |
-   | **Suscripción de Azure** | La lista desplegable se rellena con cualquier suscripción a Azure vinculada a la cuenta VSTS|
+   | **Nombre del entorno**      | Nombre que describe el entorno de la canalización de versión |
+   | **Suscripción de Azure** | La lista desplegable se rellena con cualquier suscripción a Azure vinculada a la organización de Azure DevOps Services|
    | **Nombre de App Service** | Dependiendo de otras selecciones puede ser necesaria la introducción manual de un nuevo valor para este campo |
    | **Grupo de recursos**    | La lista desplegable se rellena con los grupos de recursos disponibles |
    | **Nombre de recurso de Application Insights** | La lista desplegable se rellena con todos los recursos de Application Insights que se corresponden con el grupo de recursos seleccionado anteriormente.
@@ -89,4 +90,4 @@ Para observar este comportamiento, seleccione **Versiones** > haga clic con el b
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la compilación y versión de VSTS pruebe estos [inicios rápidos.](https://docs.microsoft.com/vsts/build-release/)
+Para más información sobre Azure Pipelines, pruebe estos [inicios rápidos](https://docs.microsoft.com/azure/devops/pipelines).

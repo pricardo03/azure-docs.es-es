@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42143851"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983182"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
@@ -32,7 +32,7 @@ Después de crear un recurso compartido de archivos, puede crear periódicamente
 ## <a name="capabilities"></a>Capacidades
 Una instantánea de recurso compartido es una copia de solo lectura de un momento dado de sus datos. Puede crear, eliminar y administrar instantáneas mediante la API de REST. Asimismo, tiene disponibles estas mismas funcionalidades en la biblioteca cliente, la CLI de Azure y Azure Portal. 
 
-Puede ver las instantáneas de un recurso compartido con la API de REST y SMB. Igualmente, puede recuperar la lista de versiones del directorio o archivo y también puede montar una versión específica directamente como unidad. 
+Puede ver las instantáneas de un recurso compartido con la API de REST y SMB. Igualmente, puede recuperar la lista de versiones del directorio o archivo y también puede montar una versión específica directamente como unidad (disponible solo en Windows: consulte los [Límites](#limits)). 
 
 Una vez se crea la instantánea de recurso compartido, puede leerla, copiarla o eliminarla, pero no modificarla. Recuerde que no puede copiar una instantánea de recurso compartido completa en otra cuenta de almacenamiento. Si quiere copiarla, deberá hacerlo archivo por archivo, mediante AzCopy u otros mecanismos de copia.
 
@@ -62,6 +62,8 @@ Las instantáneas no se tienen en cuenta en el límite de recursos compartidos d
 En cambio, el número máximo de instantáneas de recurso compartido que permite Azure Files actualmente es de 200. Una vez se llegue a las 200 instantáneas de recurso compartido, las instantáneas más antiguas se eliminarán para poder crear otras nuevas. 
 
 No hay ningún límite en las llamadas simultáneas dedicadas a crear instantáneas de recurso compartido. Asimismo, tampoco hay ningún límite en la cantidad de espacio que las instantáneas de recurso compartido de un recurso compartido de archivos determinado pueden consumir. 
+
+En la actualidad, no es posible montar instantáneas de recurso compartido en Linux. Esto se debe a que el cliente de SMB de Linux, a diferencia del de Windows, no es compatible con el montaje de instantáneas.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Volver a copiar datos en un recurso compartido desde una instantánea de recurso compartido
 Las operaciones de copia que implican archivos e instantáneas de recurso compartido siguen estas reglas:

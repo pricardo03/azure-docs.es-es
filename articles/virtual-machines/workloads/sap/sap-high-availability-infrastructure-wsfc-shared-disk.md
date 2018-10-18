@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 223c038155d16f41f1599aa76081560739cd7095
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 12decd07934b45c3f2e8b9b098af305303641176
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657383"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634785"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP
 
@@ -166,7 +166,7 @@ ms.locfileid: "34657383"
 
 Este artículo describe los pasos a seguir para preparar la infraestructura de Azure para instalar y configurar un sistema SAP de alta disponibilidad en un clúster de conmutación por error de Windows mediante el uso de un *disco compartido de clúster* como una opción de agrupación en clústeres de una instancia de ASCS de SAP.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar la instalación, consulte este artículo:
 
@@ -305,7 +305,7 @@ Para configurar la plantilla de varios SID de ASCS/SCS, en la [plantilla de vari
   -  **Disponibilidad del sistema**: seleccione **HA**.
   -  **Nombre de usuario administrador y contraseña de administrador**: cree un nuevo usuario que pueda usarse para iniciar sesión en la máquina.
   -  **Subred nueva o existente**: determina si es necesario crear una red virtual y una subred nuevas o si se debe usar una que ya exista. Si ya tiene una red virtual conectada a la red local, seleccione la **existente**.
-  -  **Identificador de subred**: establezca el identificador de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de ExpressRoute para conectar la máquina virtual a la red local. Normalmente, el identificador tiene este aspecto:
+  -  **Id. de subred**: si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre a esa subred específica. Normalmente, el identificador tiene este aspecto:
 
    /subscriptions/\<identificador de suscripción\>/resourceGroups/\<nombre del grupo de recursos\>/providers/Microsoft.Network/virtualNetworks/\<nombre de red virtual\>/subnets/\<nombre de subred\>
 

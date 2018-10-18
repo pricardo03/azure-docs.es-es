@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223674"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023358"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 Lo siguiente es una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10. 
@@ -44,10 +44,11 @@ Los grupos de configuración siguientes están disponibles para que los usuarios
 
 * Tema: fondo de escritorio, icono de usuario, posición de la barra de tareas, etc. 
 * Configuración de Internet Explorer: historial de exploración, direcciones URL escritas, favoritos, etc. 
-* Contraseñas: [Caja de seguridad de credenciales de Windows](https://technet.microsoft.com/library/jj554668.aspx), incluidos perfiles de Wi-Fi 
+* Contraseñas: administrador de credenciales de Windows, incluidos los perfiles Wi-Fi 
 * Preferencias de idioma: diccionario de ortografía, configuración de idioma del sistema 
 * Facilidad de acceso: narrador, teclado en pantalla, lupa 
 * Otras configuraciones de Windows: consultar Detalles de configuración de Windows
+* Configuración del explorador de Edge: favoritos de Microsoft Edge, lista de lectura y otras opciones
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,20 +74,20 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Datos de la aplicación**: las aplicaciones individuales pueden sincronizar datos |sincronización copia de seguridad |sincronización copia de seguridad |interno |
 | **Lista de aplicaciones**: lista de aplicaciones instaladas |X |backup |Otros |
 | **Bluetooth**: toda la configuración de Bluetooth |X |X | |
-| **Símbolo del sistema**: configuración predeterminada del símbolo del sistema. |sync |X | |
+| **Símbolo del sistema**: configuración predeterminada del símbolo del sistema. |sync |X |interno |
 | **Credenciales**: Caja de seguridad de credenciales |sync |sync |contraseña |
-| **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |Idioma |
-| **Fecha, hora y región**: formato de 24 horas |sync |X |Idioma |
-| **Fecha, hora y región**: fecha y hora |sync |X |Idioma |
-| **Fecha, hora y región**: zona horaria | |X |Idioma |
-| **Fecha, hora y región**: horario de verano |sync |X |Idioma |
-| **Fecha, hora y región**: país o región |sync |X |Idioma |
-| **Fecha, hora y región**: primer día de la semana |sync |X |Idioma |
-| **Fecha, hora y región**: formato de región (configuración regional) |sync |X |Idioma |
-| **Fecha, hora y región**: fecha corta |sync |X |Idioma |
-| **Fecha, hora y región**: fecha larga |sync |X |Idioma |
+| **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |language |
+| **Fecha, hora y región**: formato de 24 horas |sync |X |language |
+| **Fecha, hora y región**: fecha y hora |sync |X |language |
+| **Fecha, hora y región**: zona horaria | |X |language |
+| **Fecha, hora y región**: horario de verano |sync |X |language |
+| **Fecha, hora y región**: país o región |sync |X |language |
+| **Fecha, hora y región**: primer día de la semana |sync |X |language |
+| **Fecha, hora y región**: formato de región (configuración regional) |sync |X |language |
+| **Fecha, hora y región**: fecha corta |sync |X |language |
+| **Fecha, hora y región**: fecha larga |sync |X |language |
 | **Fecha, hora y región**: hora corta |sync |X |language |
-| **Fecha, hora y región**: hora larga |sync |X |Idioma |
+| **Fecha, hora y región**: hora larga |sync |X |language |
 | **Personalización del escritorio**: tema de escritorio (fondo, color del sistema, sonidos del sistema predeterminados, protector de pantalla) |sync |X |Tema |
 | **Personalización del escritorio**: papel tapiz de presentación |sync |X |Tema |
 | **Personalización del escritorio**: configuración de la barra de tareas (posición, ocultar automáticamente, etc.) |sync |X |Tema |

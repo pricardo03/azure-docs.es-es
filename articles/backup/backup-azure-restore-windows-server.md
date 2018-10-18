@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 20d2f289f4d40d773fde9f6b770dc49b87c34804
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576192"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297254"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de Resource Manager
 
@@ -54,6 +54,9 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 > [!IMPORTANT]
 > La opción de restauración *Archivos y carpetas individuales* requiere .NET Framework 4.5.2 o superior. Si no ve la opción *Archivos y carpetas individuales*, debe actualizar .NET Framework a la versión 4.5.2 o posterior e intentarlo de nuevo.
 
+> [!TIP]
+> La opción *Archivos y carpetas individuales* permite el acceso rápido a los datos de punto de recuperación. Es adecuada para recuperar archivos individuales, con tamaños que no superen los 80 GB en total, y ofrece velocidades de transferencia y copia de hasta 6 MBps durante la recuperación. La opción *Volumen* recupera todos los datos copiados en un volumen determinado. Esta opción ofrece mayores velocidades de transferencia (hasta 60 MBps), lo que resulta ideal para la recuperación de volúmenes completos o de datos de gran tamaño.
+
 5. En el panel **Seleccionar volumen y fecha**, seleccione el volumen que contiene los archivos y/o carpetas que desea restaurar.
 
     En el calendario, seleccione un punto de recuperación. Puede realizar la restauración desde cualquier momento dado de recuperación. Las fechas en **negrita** indican la disponibilidad de al menos un punto de recuperación. Cuando selecciona una fecha, si están disponibles varios puntos de recuperación, elija el punto de recuperación específico desde el menú desplegable **Hora**.
@@ -72,6 +75,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 8. En el Explorador de Windows, copie los archivos y/o carpetas que desea restaurar y péguelos en cualquier ubicación local en el servidor o equipo. Puede abrir o transmitir los archivos directamente desde el volumen de recuperación y comprobar que está recuperando las versiones correctas.
 
     ![Copia y pegado de archivos y carpetas desde el volumen montado en la ubicación local](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
 
 9. Cuando termine de restaurar los archivos y/o carpetas, en el panel **Examinar y recuperar archivos**, haga clic en **Desmontar**. Haga clic en **Sí** para confirmar que desea desmontar el volumen.
 

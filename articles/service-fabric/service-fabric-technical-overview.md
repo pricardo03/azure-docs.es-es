@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: e3da081f9b327031d6d1e0afd2f2fb52383bf933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b670b767a631e453bd58069fd69720bd1ab7c20a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212075"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983570"
 ---
 # <a name="service-fabric-terminology-overview"></a>Información general sobre la terminología de Service Fabric
-Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. En este artículo se describe la terminología que se usa en Service Fabric para comprender los términos que se utilizan en la documentación.
+Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  También puede [hospedar clústeres de Service Fabric en cualquier lugar](service-fabric-deploy-anywhere.md): en Azure, en un centro de datos local o en cualquier proveedor de nube.  Service Fabric es el orquestador que sustenta a [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Puede usar cualquier marco de trabajo para escribir los servicios y elegir entre varias opciones de entorno desde las que ejecutar la aplicación. En este artículo se describe la terminología que se usa en Service Fabric para comprender los términos que se utilizan en la documentación.
 
 Los conceptos descritos en esta sección también se explican en los siguientes vídeos de Microsoft Virtual Academy: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">Core concepts</a> (Conceptos principales), <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">Design-time concepts</a> (Conceptos de diseño) y <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Runtime concepts</a> (Conceptos del sistema en tiempo de ejecución).
 
@@ -31,14 +31,44 @@ Los conceptos descritos en esta sección también se explican en los siguientes 
 
 **Nodo**: cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan *nodo*. A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características, como propiedades de colocación. Cada máquina física o virtual tiene un servicio de Windows de inicio automático, `FabricHost.exe`, que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: `Fabric.exe` y `FabricGateway.exe`. Estos dos ejecutables conforman el nodo. En los escenarios de prueba, se pueden hospedar varios nodos en un solo equipo y máquina virtual mediante la ejecución de varias instancias de `Fabric.exe` y `FabricGateway.exe`.
 
-## <a name="application-concepts"></a>Conceptos de las aplicaciones
+## <a name="application-and-service-concepts"></a>Conceptos de la aplicación y el servicio
+
+**Aplicación de Service Fabric Mesh**: las aplicaciones de Service Fabric Mesh se describen mediante el modelo de recursos (archivos de recursos JSON y YAML) y se pueden implementar en cualquier entorno donde se ejecute Service Fabric.
+
+**Aplicación nativa de Service Fabric**: las aplicaciones nativas de Service Fabric se describen mediante el modelo de aplicación nativa (manifiestos de servicio y de aplicación basados en XML).  Las aplicaciones nativas de Service Fabric no pueden ejecutarse en Service Fabric Mesh.
+
+### <a name="service-fabric-mesh-application-concepts"></a>Conceptos de una aplicación de Service Fabric Mesh
+
+**Aplicación**: una aplicación es la unidad de implementación, control de versiones y duración de una aplicación Mesh. Además, el ciclo de vida de cada instancia de aplicación se puede administrar de forma independiente.  Las aplicaciones se componen de uno o más paquetes y configuraciones de código de servicio. Una aplicación se define mediante el esquema de modelo de recursos de Azure (RM).  Los servicios se describen como propiedades del recurso de aplicación en una plantilla de RM.  La aplicación hace referencia a las redes y volúmenes utilizados por la aplicación.  Al crear una aplicación, la aplicación, los servicios, la red y los volúmenes se modelan mediante el modelo de recursos de Service Fabric.
+
+**Servicio**: en una aplicación, un servicio representa un microservicio y realiza una función completa e independiente. Cada servicio se compone de uno o más paquetes de código que describen todo lo necesario para ejecutar la imagen de contenedor asociada con el paquete de código.  El número de servicios en una aplicación se puede escalar verticalmente y reducir verticalmente.
+
+**Red**: un recurso de red crea una red privada para las aplicaciones y es independiente de las aplicaciones o servicios que pueden hacer referencia a ella. Varios servicios de distintas aplicaciones pueden formar parte de la misma red. Las redes son recursos que se pueden implementar y a los que las aplicaciones hacen referencia.
+
+**Paquete de código**: los paquetes de código describen todo lo necesario para ejecutar la imagen de contenedor asociada con el paquete de código, incluidos los siguientes elementos:
+
+* Nombre, versión y registro del contenedor
+* Recursos de CPU y memoria necesarios para cada contenedor
+* Puntos de conexión de red
+* Volúmenes de montaje en el contenedor, que hacen referencia a un recurso de volumen independiente.
+
+Todos los paquetes de código definidos como parte de un recurso de aplicación se implementan y activan juntos como grupo.
+
+**Volumen**: los volúmenes son directorios que se montan dentro de las instancias de contenedor que puede usar para conservar el estado. El controlador de volumen de Azure Files monta un recurso compartido de Azure Files a un contenedor y proporciona almacenamiento de datos confiable a través de cualquier API que admita el almacenamiento de archivos. Los volúmenes son recursos que se pueden implementar y a los que las aplicaciones hacen referencia.
+
+### <a name="service-fabric-native-application-concepts"></a>Conceptos de las aplicaciones nativas de Service Fabric
+
+**Aplicación**: una aplicación es una colección de servicios constituyentes que realizan una determinada función o funciones. Además, el ciclo de vida de cada instancia de aplicación se puede administrar de forma independiente.
+
+**Servicio**: un servicio realiza una función completa e independiente, y puede iniciarse y ejecutarse independientemente de otros servicios. Un servicio se compone de código, configuración y datos. Para cada servicio, el código consta de los archivos binarios ejecutables, la configuración consta de una configuración del servicio que se puede cargar en tiempo de ejecución y los datos constan de datos estáticos arbitrarios que el servicio va a consumir.
+
 **Tipo de aplicación**: nombre o versión asignados a una colección de tipos de servicios. Se define en un archivo `ApplicationManifest.xml` y se inserta en un directorio del paquete de aplicación. Después, el directorio se copia en el almacén de imágenes del clúster de Service Fabric. Después puede crear una aplicación con nombre de este tipo de aplicación en el clúster.
 
 Para más información, consulte el artículo sobre el [modelado de una aplicación](service-fabric-application-model.md).
 
 **Paquete de aplicación**: directorio del disco que contiene el archivo `ApplicationManifest.xml` del tipo de aplicación. Hace referencia a los paquetes de servicios de cada uno de los tipos de servicios que conforman el tipo de aplicación. Los archivos en el directorio del paquete de aplicación se copian en el almacén de imágenes del clúster de Service Fabric. Por ejemplo, un paquete de aplicación de un tipo de aplicación de correo electrónico puede contener referencias a un paquete de servicios de cola, un paquete de servicios de front-end y un paquete de servicios de base de datos.
 
-**Aplicación con nombre**: después de copiar un paquete de aplicación en el almacén de imágenes, se crea una instancia de la aplicación en el clúster. Cree una instancia al especificar el tipo de aplicación del paquete, con el nombre o la versión. A cada instancia de tipo de aplicación se le asigna un nombre de identificador uniforme de recursos (URI) similar al siguiente: `"fabric:/MyNamedApp"`. En un clúster se pueden crear varias aplicaciones con nombre de un único tipo de aplicación. También se pueden crear aplicaciones con nombre de diferentes tipos de aplicación. Cada aplicación con nombre se administra de manera independiente y tiene versiones independientes.      
+**Aplicación con nombre**: después de copiar un paquete de aplicación en el almacén de imágenes, se crea una instancia de la aplicación en el clúster. Cree una instancia al especificar el tipo de aplicación del paquete, con el nombre o la versión. A cada instancia de tipo de aplicación se le asigna un nombre de identificador uniforme de recursos (URI) similar al siguiente: `"fabric:/MyNamedApp"`. En un clúster se pueden crear varias aplicaciones con nombre de un único tipo de aplicación. También se pueden crear aplicaciones con nombre de diferentes tipos de aplicación. Cada aplicación con nombre se administra de manera independiente y tiene versiones independientes.
 
 **Tipo de servicio**: nombre o versión asignados a los paquetes de código, de datos y de configuración de un servicio. El tipo de servicio se define en el archivo `ServiceManifest.xml` y se inserta en un directorio del paquete de servicio. El archivo `ApplicationManifest.xml` de un paquete de aplicación hace referencia al directorio del paquete de servicio. En el clúster, después de crear una aplicación con nombre se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. El archivo `ServiceManifest.xml` del tipo de servicio describe el servicio.
 
@@ -60,7 +90,7 @@ Existen dos tipos de servicios:
 **Paquete de código**: directorio del disco que contiene archivos ejecutables (normalmente EXE o DLL) del tipo de servicio. El archivo `ServiceManifest.xml` del tipo de servicio hace referencia a los archivos del directorio del paquete de código. Al crear un servicio con nombre, el paquete de código se copia en los nodos seleccionados para ejecutar dicho servicio. A continuación, el código comienza a ejecutarse. Hay dos tipos de ejecutables de paquetes de código:
 
 * **Ejecutables de invitado**: ejecutables que se ejecutan tal cual en sistema operativo host (Windows o Linux). Estos ejecutables no se vinculan ni hacen referencia a los archivos del sistema en tiempo de ejecución de Service Fabric y, por consiguiente, no usan ninguno de los modelos de programación de Service Fabric. Estos ejecutables no pueden utilizar algunas características de Service Fabric, como el servicio de nomenclatura para la detección de puntos de conexión. Los ejecutables de invitado no pueden informar de métricas de carga específicas de cada instancia del servicio.
-* **Ejecutables de host de servicios**: los utilizan los modelos de programación de Service Fabric mediante la vinculación a los archivos del sistema en tiempo de ejecución de Service Fabric, lo que habilita las características de Service Fabric. Por ejemplo, una instancia del servicio con nombre puede registrar puntos de conexión con en el servicio de nombres de Service Fabric y también puede notificar métricas de carga.      
+* **Ejecutables de host de servicios**: los utilizan los modelos de programación de Service Fabric mediante la vinculación a los archivos del sistema en tiempo de ejecución de Service Fabric, lo que habilita las características de Service Fabric. Por ejemplo, una instancia del servicio con nombre puede registrar puntos de conexión con en el servicio de nombres de Service Fabric y también puede notificar métricas de carga.
 
 **Paquete de datos**: directorio del disco que contiene los archivos de datos de solo lectura estáticos del tipo de servicio (normalmente archivos fotográficos, de sonido y de vídeo). El archivo `ServiceManifest.xml` del tipo de servicio hace referencia a los archivos del directorio del paquete de datos. Al crear un servicio con nombre, el paquete de datos se copia en los nodos seleccionados para ejecutar dicho servicio. El código empieza a ejecutarse, tras lo cual se habilita el acceso a los archivos de datos.
 
@@ -94,8 +124,17 @@ Para más información sobre la implementación en el servicio Image Store, cons
    - Reparaciones de mantenimiento de Azure en clústeres de Azure Service Fabric con [durabilidad Silver y Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
    - Acciones de reparación para la [aplicación de orquestación de revisiones](service-fabric-patch-orchestration-application.md)
 
-## <a name="built-in-programming-models"></a>Modelos de programación integrados
-Hay modelos de programación de .NET Framework y Java disponibles para compilar servicios de Service Fabric:
+## <a name="deployment-and-application-models"></a>Modelos de implementación y aplicación 
+
+Para implementar los servicios, debe describir cómo se deben ejecutar. Service Fabric admite tres modelos de implementación diferentes:
+
+### <a name="resource-model-preview"></a>Modelo de recursos (versión preliminar)
+Los recursos de Service Fabric son todo lo que se puede implementar de manera individual en Service Fabric, como aplicaciones, servicios, redes y volúmenes. Los recursos se definen mediante un archivo JSON, que se puede implementar en un punto de conexión del clúster.  Para Service Fabric Mesh, se usa el esquema de modelo de recursos de Azure. Un esquema de archivo YAML también puede usarse para crear más archivos de definición con mayor facilidad. Los recursos se pueden implementar en cualquier lugar en el que se ejecute Service Fabric. El modelo de recursos es la manera más sencilla de describir las aplicaciones de Service Fabric. Su objetivo principal es en una implementación simple y la administración de servicios en contenedores. Para obtener más información, consulte [Introducción al modelo de recursos de Azure Service Fabric](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
+
+### <a name="native-model"></a>Modelo nativo
+El modelo de aplicación nativo proporciona a las aplicaciones acceso completo de bajo nivel a Service Fabric. Las aplicaciones y los servicios se definen como tipos registrados en archivos de manifiesto XML.
+
+El modelo nativo es compatible con los marcos de Reliable Services y Reliable Actors, que proporcionan acceso a las API de tiempo de ejecución de Service Fabric y a las de administración de clústeres de C# y Java. El modelo nativo también admite archivos ejecutables y contenedores arbitrarios. El modelo nativo no se admite en el [entorno de Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview).
 
 **Reliable Services**: una API para generar servicios con y sin estado. Los servicios con estado almacenan su estado en colecciones confiables, como un diccionario o una cola. También permiten conectar una amplia variedad de pilas de comunicación, como la API web y Windows Communication Foundation (WCF).
 
@@ -109,6 +148,33 @@ También puede ejecutar las aplicaciones existentes en Service Fabric:
 
 Para más información, consulte el artículo de [elección de un modelo de programación para el servicio](service-fabric-choose-framework.md).
 
+### <a name="docker-compose"></a>Docker Compose 
+[Docker Compose](https://docs.docker.com/compose/) forma parte del proyecto Docker. Service Fabric proporciona compatibilidad limitada para la [implementación de aplicaciones con el modelo de Docker Compose](service-fabric-docker-compose.md).
+
+## <a name="environments"></a>Entornos
+
+Service Fabric es una tecnología de plataforma de código abierto en la que se basan varios productos y servicios diferentes. Microsoft proporciona las opciones siguientes:
+
+ - **Azure Service Fabric Mesh**: un servicio totalmente administrado para ejecutar aplicaciones de Service Fabric en Microsoft Azure.
+ - **Azure Service Fabric**: la oferta de clúster de Service Fabric hospedado en Azure. Proporciona integración entre Service Fabric y la infraestructura de Azure, junto con la administración de actualización y configuración de clústeres de Service Fabric.
+ - **Service Fabric independiente**: un conjunto de herramientas de instalación y configuración para [implementar clústeres de Service Fabric en cualquier lugar](/azure/service-fabric/service-fabric-deploy-anywhere) (de forma local o en cualquier proveedor de nube). No se administra mediante Azure.
+ - **Clúster de desarrollo de Service Fabric**: proporciona una experiencia de desarrollo local en Windows, Linux o Mac para el desarrollo de aplicaciones de Service Fabric.
+
+## <a name="environment-framework-and-deployment-model-support-matrix"></a>Matriz de compatibilidad de entorno, marco de trabajo y modelo de implementación
+Cada entorno tiene un nivel de compatibilidad diferente con los marcos de trabajo y los modelos de implementación. En la tabla siguiente se describen las combinaciones admitidas de marco de trabajo y modelo de implementación.
+
+| Tipo de aplicación | Descrito por | Azure Service Fabric Mesh | Clústeres de Azure Service Fabric (cualquier sistema operativo)| Clúster local | Clúster independiente |
+|---|---|---|---|---|---|---|---|---|---|
+| Aplicaciones de Service Fabric Mesh | Modelo de recursos (YAML & JSON) | Compatible |No compatible | Windows es compatible, Linux y Mac no son compatibles | Windows no es compatible |
+|Aplicaciones nativas de Service Fabric | Modelo de aplicación nativo (XML) | No compatible| Compatible|Compatible|Windows es compatible|
+
+En la tabla siguiente se describen los distintos modelos de aplicación y las herramientas que existen para ellos en Service Fabric.
+
+| Tipo de aplicación | Descrito por | Visual Studio | Eclipse | SFCTL | CLI de AZ | PowerShell|
+|---|---|---|---|---|---|---|---|---|---|
+| Aplicaciones de Service Fabric Mesh | Modelo de recursos (YAML & JSON) | VS 2017 |No compatible |No compatible | Compatible: solo para el entorno de Mesh | No compatible|
+|Aplicaciones nativas de Service Fabric | Modelo de aplicación nativo (XML) | VS 2017 y VS 2015| Compatible|Compatible|Compatible|Compatible|
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Service Fabric:
@@ -117,4 +183,6 @@ Para más información acerca de Service Fabric:
 * [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 * [Escenarios de aplicación](service-fabric-application-scenarios.md)
 
+Para más información acerca de Service Fabric Mesh:
 
+* [Información general sobre Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview)

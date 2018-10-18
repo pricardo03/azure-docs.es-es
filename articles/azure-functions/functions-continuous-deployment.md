@@ -4,26 +4,22 @@ description: Utilice las funciones de implementación continua de Azure App Serv
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735710"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301555"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
-Azure Functions facilita la implementación de Function App mediante la integración continua de App Service. Functions se integra con BitBucket, Dropbox, GitHub y Visual Studio Team Services (VSTS). Esto permite un flujo de trabajo en el que las actualizaciones del código de la función realizadas mediante uno de estos servicios integrados desencadenan la implementación en Azure. Si no está familiarizado con Azure Functions, consulte primero [Información general sobre Azure Functions](functions-overview.md).
+Azure Functions facilita la implementación de Function App mediante la integración continua de App Service. Functions se integra con BitBucket, Dropbox, GitHub y Azure DevOps. Esto permite un flujo de trabajo en el que las actualizaciones del código de la función realizadas mediante uno de estos servicios integrados desencadenan la implementación en Azure. Si no está familiarizado con Azure Functions, consulte primero [Información general sobre Azure Functions](functions-overview.md).
 
 La implementación continua representa una buena opción para los proyectos donde se integran contribuciones diversas y frecuentes. También le permite mantener el control de código fuente en el código de las funciones. Actualmente se admiten los siguientes orígenes de implementación:
 
@@ -33,7 +29,7 @@ La implementación continua representa una buena opción para los proyectos dond
 * [Repositorio local de GIT](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
 
 Las implementaciones se configuran por Function App. Después de habilitada la implementación continua, el acceso al código de la función en el portal está establecido en acceso *de solo lectura*.
 
@@ -43,10 +39,10 @@ Para configurar la implementación continua debe tener configurados el origen de
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Para poder realizar una implementación desde VSTS, primero debe vincular su cuenta de VSTS con su suscripción de Azure. Para más información, consulte [Configuración de la facturación para una cuenta de VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+Para poder realizar una implementación desde Azure DevOps, primero debe vincular la organización de Azure DevOps a la suscripción de Azure. Para más información, consulte [Configuración de la facturación para una organización de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Configurar la implementación continua
-Use este procedimiento para configurar la implementación continua para una Function App existente. Estos pasos muestran la integración con un repositorio de GitHub, aunque se aplican pasos similares para Visual Studio Team Services u otros servicios de implementación.
+Use este procedimiento para configurar la implementación continua para una Function App existente. Estos pasos muestran la integración con un repositorio de GitHub, aunque se aplican pasos similares para Azure DevOps u otros servicios de implementación.
 
 1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Opciones de implementación**. 
    

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5f19a6cb356332e95f96484953f1be3df006dd09
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 03723b8653e42bca371f47e16657e7e973c257ae
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931929"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294993"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Windows en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Windows y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y sistemas operativos más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
@@ -64,7 +64,7 @@ Para crear imágenes, es preciso crear una plantilla en forma de archivo JSON. E
 
 Cree un archivo denominado *windows.json* y pegue el siguiente contenido. Escriba sus propios valores para los siguientes elementos:
 
-| .                           | Dónde se obtiene |
+| Parámetro                           | Dónde se obtiene |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Vea el identificador de la entidad de servicio con `$sp.applicationId` |
 | *client_secret*                     | La contraseña que especificó en `$securePassword` |
@@ -243,6 +243,6 @@ Para ver en acción la máquina virtual, que incluye la instalación de IIS desd
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este ejemplo, ha utilizado Packer para crear una imagen de máquina virtual con IIS instalado. Esta imagen se puede usar junto con los flujos de trabajo de la implementación existentes, como implementar la aplicación en las máquinas virtuales que se crean a partir de la imagen con Team Services, Ansible, Chef o Puppet.
+En este ejemplo, ha utilizado Packer para crear una imagen de máquina virtual con IIS instalado. Puede usar esta imagen de máquina virtual junto con flujos de trabajo de implementación existentes, como implementar la aplicación en máquinas virtuales creadas a partir de la imagen con Azure DevOps Services, Ansible, Chef o Puppet.
 
 Para ver más plantillas de Packer de ejemplo para otras distribuciones de Windows, consulte [este repositorio de GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

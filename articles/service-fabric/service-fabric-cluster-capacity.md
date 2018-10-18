@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617225"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348575"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -51,7 +51,7 @@ Cada tipo de nodo es un conjunto de escalado diferente que se puede escalar o re
 
 Un clúster de Service Fabric puede constar de más de un tipo de nodo. En ese caso, el clúster consta de un tipo de nodo principal y uno o más tipos de nodo no principales.
 
-Un tipo de nodo único simplemente no puede superar los 100 nodos por conjunto de escalado de máquinas virtuales. Es posible que tenga que agregar conjuntos de escalado de máquinas virtuales para lograr la escala de destino y el escalado automático no puede agregar automáticamente conjuntos de escalado de máquinas virtuales. La adición de conjuntos de escalado de máquinas virtuales locales en un clúster en vivo es una tarea difícil y, normalmente, provoca que los usuarios aprovisionen nuevos clústeres con los tipos de nodo adecuados en el momento de la creación. 
+Un solo tipo de nodo no puede escalar de manera confiable más allá de 100 nodos por cada conjunto de escalado de máquinas virtuales para aplicaciones SF; para lograr más de 100 nodos de manera confiable, tendrá que agregar más conjuntos de escalado de máquinas virtuales.
 
 ### <a name="primary-node-type"></a>Tipo de nodo principal
 

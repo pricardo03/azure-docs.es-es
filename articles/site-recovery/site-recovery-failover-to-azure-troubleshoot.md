@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: b7b5dcd88b6e4e09dd9beb21e83ef405df148115
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443391"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391017"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Solución de problemas y errores cuando una máquina virtual se conmuta por error en Azure
 
@@ -45,36 +45,51 @@ Site Recovery no pudo crear una máquina virtual clásica conmutada por error en
 
 * No existe uno de los recursos, como una red virtual, que se requieren para crear la máquina virtual. Cree la red virtual según lo indicado en la configuración de Proceso y red de la máquina virtual, o bien modifique la configuración a una red virtual que ya existe y reintente la conmutación por error.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>No se puede conectar/RDP/SSH a la máquina virtual que conmutó por error debido a que el botón Conectar de la máquina virtual no está disponible.
+## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>No se puede conectar/RDP/botón de conexión SSH con la máquina virtual no disponible
 
-Si el botón Conectar no está disponible y no está conectado a Azure a través de una conexión VPN Express Route o de sitio a sitio, entonces:
+Si el botón **Conectar** de la máquina virtual conmutada por error de Azure no está disponible y no está conectado a Azure a través de una conexión VPN Express Route o de sitio a sitio, entonces:
 
 1. Vaya a la **Máquina virtual** > **Red**, y haga clic en el nombre de la interfaz de red necesaria.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-1. Navegue hasta **Configuraciones IP** y, después, haga clic en el campo de nombre de la configuración IP necesaria. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-1. Para habilitar la dirección IP pública, haga clic en **Habilitar**. ![Habilitar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-1. Haga clic en **Configurar los valores obligatorios** > **Crear uno nuevo**. ![Cree uno nuevo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-1. Escriba el nombre de la dirección pública, seleccione las opciones predeterminadas para **SKU**y **asignación** y, después, haga clic en **Aceptar**.
-1. Ahora, haga clic en **Guardar** para guardar los cambios.
-1. Cierre los paneles y navegue a la sección **Introducción** de la máquina virtual para conectar/RDP.
+2. Navegue hasta **Configuraciones IP** y, después, haga clic en el campo de nombre de la configuración IP necesaria. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Para habilitar la dirección IP pública, haga clic en **Habilitar**. ![Habilitar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Haga clic en **Configurar los valores obligatorios** > **Crear uno nuevo**. ![Cree uno nuevo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Escriba el nombre de la dirección pública, seleccione las opciones predeterminadas para **SKU**y **asignación** y, después, haga clic en **Aceptar**.
+6. Ahora, haga clic en **Guardar** para guardar los cambios.
+7. Cierre los paneles y navegue a la sección **Introducción** de la máquina virtual para conectar/RDP.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>No se puede conectar/RDP/SSH a la máquina virtual que conmutó por error aunque el botón Conectar de la máquina virtual está disponible.
+## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>No se puede conectar/RDP/botón de conexión SSH con la máquina virtual disponible
 
-Compruebe **Diagnósticos de arranque** en la máquina virtual y compruebe los errores que se muestran en este artículo.
+Si el botón **Conectar** de la máquina virtual conmutada por error de Azure está disponible, compruebe **Diagnósticos de arranque** en su máquina virtual, así como los errores enumerados en [este artículo](../virtual-machines/windows/boot-diagnostics.md).
 
 1. Si la máquina virtual no se ha iniciado, realice la conmutación por error a un punto de recuperación anterior.
-1. Si la aplicación dentro de la máquina virtual no aparece, realice la conmutación por error a un punto de recuperación coherente con la aplicación.
-1. Si la máquina virtual está unida al dominio, asegúrese de que ese controlador de dominio funciona correctamente. Esto se puede hacer siguiendo los siguientes pasos.
+2. Si la aplicación dentro de la máquina virtual no aparece, realice la conmutación por error a un punto de recuperación coherente con la aplicación.
+3. Si la máquina virtual está unida al dominio, asegúrese de que ese controlador de dominio funciona correctamente. Esto se puede hacer siguiendo los siguientes pasos:
+
     a. Cree una nueva máquina virtual en la misma red.
 
     b.  Asegúrese de que es capaz de unirse al mismo dominio en el que se espera que aparezca la máquina virtual que ha conmutado por error.
 
-    c. Si el controlador de dominio no funciona correctamente, inicie sesión en la máquina virtual con conmutación por error mediante una cuenta de administrador local.
-1. Si está utilizando un servidor DNS personalizado, asegúrese de que es accesible. Esto se puede hacer siguiendo los siguientes pasos.
-    a. Cree una nueva máquina virtual en la misma red. b. Compruebe si la máquina virtual es capaz de realizar la resolución de nombres con el servidor DNS personalizado.
+    c. Si el controlador de dominio **no** funciona correctamente, inicie sesión en la máquina virtual con conmutación por error mediante una cuenta de administrador local.
+4. Si está utilizando un servidor DNS personalizado, asegúrese de que es accesible. Esto se puede hacer siguiendo estos pasos:
+
+    a. Cree una nueva máquina virtual en la misma red y
+
+    b. Compruebe si la máquina virtual es capaz de realizar la resolución de nombres con el servidor DNS personalizado.
 
 >[!Note]
 >Habilitar cualquier ajuste que no sea Diagnósticos de arranque requiere que el agente de la máquina virtual de Azure esté instalado en la máquina virtual antes de la conmutación por error.
 
+## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensaje de cierre inesperado (Id. de evento 6008)
+
+Al arrancar una máquina tras la conmutación por error, si recibe un mensaje de cierre inesperado sobre la máquina virtual recuperada, esto indica que el estado de cierre no se capturó en el punto de recuperación usado para la conmutación por error. Esto ocurre al recuperarse hasta un punto en el que la máquina virtual no se había cerrado completamente.
+
+Esto no suele ser motivo de preocupación y normalmente puede omitirse en las conmutaciones por error no planeadas. En el caso de una conmutación por error planeada, asegúrese de que la máquina virtual se cierra correctamente antes de la conmutación por error y proporcione tiempo suficiente para que los datos de replicación pendientes locales se envíen a Azure. A continuación, use la opción **Más reciente** de la [pantalla Conmutación por error](site-recovery-failover.md#run-a-failover) para que los datos pendientes de Azure se procesen en un punto de recuperación, el cual se utiliza para la conmutación por error de la máquina virtual.
+
+## <a name="retaining-drive-letter-after-failover"></a>Conservación de la letra de unidad después de la conmutación por error
+Para conservar la letra de unidad en las máquinas virtuales después de la conmutación por error, puede establecer la **Directiva SAN** de la máquina virtual local en **OnlineAll**. [Más información](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+
 ## <a name="next-steps"></a>Pasos siguientes
+- Solucionar problemas de [conexión RDP con una máquina virtual Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Solucionar problemas de [conexión SSH a una máquina virtual Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
 Si necesita más ayuda, publique la consulta en el [foro de Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) o deje un comentario al final de este documento. Tenemos una comunidad activa que debería poder ayudarle.

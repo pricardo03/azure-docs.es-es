@@ -2,24 +2,20 @@
 title: Instalación del Sistema en ejecución de Azure Functions | Microsoft Docs
 description: Instalación de la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions
 services: functions
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: f8ce27bf28f73818932f2ac9056d4fdd573679e8
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290664"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093675"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instalación de la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions
 
@@ -53,7 +49,7 @@ El instalador de la versión preliminar del Sistema en tiempo de ejecución de A
 
     ![Instalador de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][1]
 
-1. Haga clic en **Siguiente**.
+1. Haga clic en **Next**.
 1. Una vez que haya leído los términos del **CLUF**, **active la casilla** para aceptar los términos y haga clic en **Siguiente** para avanzar.
 1. Seleccione los roles que desea instalar en esta máquina, **Functions Management Role** (Rol de administración de Functions) o **Functions Worker Role** (Rol de trabajo de Functions) y haga clic en **Next** (Siguiente).
 
@@ -62,7 +58,7 @@ El instalador de la versión preliminar del Sistema en tiempo de ejecución de A
     > [!NOTE]
     > Puede instalar **Functions Worker Role** (Rol de trabajo de Functions) en muchas otras máquinas. Para ello, siga estas instrucciones y seleccione únicamente **Functions Worker Role** (Rol de trabajo de Functions) en el instalador.
 
-1. Haga clic en **Next** (Siguiente) tener que **Azure Functions Runtime Setup Wizard** (Asistente para la instalación del Sistema en tiempo de ejecución de Azure Functions) comience el proceso de instalación en la máquina.
+1. Haga clic en **Next** (Siguiente) tener que **Azure Functions Runtime Setup Wizard** (Asistente para la instalación del Sistema en tiempo de ejecución de Azure funciones) comience el proceso de instalación en la máquina.
 1. Una vez completado el Asistente para la instalación, se iniciará la herramienta de configuración del **Sistema en tiempo de ejecución de Azure Functions**.
 
     ![Instalador de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions completado][6]
@@ -106,7 +102,7 @@ Para completar la instalación del Sistema en tiempo de ejecución de Azure Func
 
 Para crear la primera función en la versión preliminar del Sistema en tiempo de ejecución de Azure Functions, siga estos pasos:
 
-1. Por último, vaya al **portal del Sistema en tiempo de ejecución de Azure Functions** como https://<machinename>.<domain> Por ejemplo, https://miEquipo.miDominio.com
+1. Por último, vaya al **portal del Sistema en tiempo de ejecución de Azure Functions** como https://<machinename>.<domain> Por ejemplo: https://mycomputer.mydomain.com
 1. Se le pedirá que **inicie sesión**. Si se implementó en un dominio, use el nombre de usuario y la contraseña de la cuenta de dominio, en caso contrario, utilice el nombre de usuario y la contraseña de la cuenta local y para iniciar sesión en el portal.
 
 ![Inicio de sesión en el Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][14]

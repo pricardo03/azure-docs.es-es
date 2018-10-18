@@ -1,5 +1,5 @@
 ---
-title: Conversión de aplicaciones de Azure Cloud Services en microservicios | Microsoft Docs
+title: Conversión de aplicaciones de Azure Cloud Services a Service Fabric | Microsoft Docs
 description: Esta guía compara los roles web y de trabajo de Cloud Services y los servicios sin estado de Service Fabric para ayudar a la migración desde Cloud Services a Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206689"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049956"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric
 Este artículo describe cómo migrar los roles web y de trabajo de Cloud Services a los servicios sin estado de Service Fabric. Se trata de la ruta de migración más sencilla desde Cloud Services a Service Fabric para aquellas aplicaciones cuya arquitectura global va a permanecer más o menos igual.
@@ -44,7 +44,7 @@ Igual que el rol de trabajo, un rol web también representa una carga de trabajo
 | Formularios Web Forms ASP.NET |Sin  |Conversión a ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migración |Actualización a ASP.NET Core 1 MVC |
 | ASP.NET Web API |Con migración |Uso de servidor autohospedado o ASP.NET Core 1 |
-| ASP.NET Core 1 |Sí |N/D |
+| ASP.NET Core 1 |SÍ |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de punto de entrada y ciclo de vida
 Las API de rol de trabajo y las de los servicios de Service Fabric ofrecen puntos de entrada similares: 

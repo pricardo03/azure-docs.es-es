@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: wesmc
-ms.openlocfilehash: 6733891213f15e9ceaf08ef7fb50380db47a695f
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: b48235b1c1912ac767070d5890d4768138a9db8b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259201"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732098"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importación y exportación de datos en Azure Redis Cache
 Import/Export es una operación de administración de datos de Azure Redis Cache que permite realizar operaciones de importación o exportación con Azure Redis Cache mediante la importación y exportación de una instantánea de base de datos de Redis Cache (RDB) desde una caché premium a un blob en una cuenta de Azure Storage. 
@@ -78,7 +78,7 @@ La exportación permite exportar los datos almacenados en Azure Redis Cache a ar
 2. Haga clic en **Elegir el contenedor de almacenamiento** y seleccione la cuenta de almacenamiento. La cuenta de almacenamiento debe encontrarse en la misma región y suscripción que la memoria caché.
 
    > [!IMPORTANT]
-   > La exportación funciona con blobs en páginas, que son compatibles con las cuentas de almacenamiento del modelo clásico y de Resource Manager, aunque en este momento no lo son con las [cuentas de Blob Storage](../storage/common/storage-account-options.md#blob-storage-accounts).
+   > La exportación funciona con blobs en páginas, que son compatibles con las cuentas de almacenamiento del modelo clásico y de Resource Manager, aunque en este momento no lo son con las cuentas de Blob Storage. Para más información, consulte [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
    >
    >
 
@@ -156,7 +156,7 @@ Si permanece en la hoja **Importar datos** o **Exportar datos** durante más de 
 Para solucionarlo, inicie la operación de importación o exportación antes de que transcurran 15 minutos.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Aparece un error al exportar los datos a Azure Blob Storage. ¿Qué ha ocurrido?
-La exportación solo funciona con archivos RDB almacenados como blobs en páginas. No se admiten otros tipos de blob en este momento, incluidas las cuentas de Blob Storage con niveles de acceso frecuente y esporádico. Para más información, consulte [Cuentas de Blob Storage](../storage/common/storage-account-options.md#blob-storage-accounts).
+La exportación solo funciona con archivos RDB almacenados como blobs en páginas. No se admiten otros tipos de blob en este momento, incluidas las cuentas de Blob Storage con niveles de acceso frecuente y esporádico. Para más información, consulte [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.

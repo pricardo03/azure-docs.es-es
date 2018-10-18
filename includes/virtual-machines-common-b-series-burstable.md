@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182384"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369498"
 ---
 La familia de máquinas virtuales de la serie B le permite elegir qué tamaño de máquina virtual proporciona el rendimiento base necesario para su carga de trabajo, con la posibilidad de ampliar el rendimiento de la CPU hasta el 100 % de una vCPU con procesador Intel® Broadwell E5-2673 v4 a 2.3 GHz o Intel® Haswell 2.4 GHz E5-2673 v3.
 
-Las máquinas virtuales de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, pequeñas bases de datos y entornos de desarrollo y de prueba. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. La serie B le brinda la posibilidad de adquirir un tamaño de máquina virtual con un rendimiento base al tiempo que la instancia de máquina virtual acumula créditos si utiliza un rendimiento por debajo de este nivel de base. Cuando la máquina virtual ha acumulado crédito se puede ampliar por encima de la base de referencia de esta con un uso de hasta un 100 % de la vCPU si la aplicación necesita el mayor rendimiento de CPU posible.
+Las máquinas virtuales de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, pruebas de concepto, pequeñas bases de datos y entornos de desarrollo y de prueba. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. La serie B le brinda la posibilidad de adquirir un tamaño de máquina virtual con un rendimiento base al tiempo que la instancia de máquina virtual acumula créditos si utiliza un rendimiento por debajo de este nivel de base. Cuando la máquina virtual ha acumulado crédito se puede ampliar por encima de la base de referencia de esta con un uso de hasta un 100 % de la vCPU si la aplicación necesita el mayor rendimiento de CPU posible.
 
 La serie B incluye los siguientes seis tamaños de máquina virtual:
 
@@ -51,7 +51,7 @@ Para más información acerca de cómo acceder a los datos de las métricas de A
 
 Mi aplicación está ocupada al principio y al final de la jornada laboral de mis empleados, es decir, de 7:00 a 9:00 A.M. y de 4:00 a 6:00 PM. Durante las otras 20 horas del día, la aplicación suele estar inactiva y solo usa el 10% de la vCPU. Durante las horas de poca actividad, gano 0,2 créditos por minuto y solo consumo 0,1 créditos por minuto, por lo que la máquina virtual acumulará 0,1 x 60 = 6 créditos por hora.  Es decir, durante las 20 horas de poca actividad acumularé 120 créditos.  
 
-Durante las horas punta, la aplicación realiza un uso promedio del 60% de la vCPU, sigo ganando 0,2 créditos por minuto pero consumo 0,6 créditos por minuto, lo cual supone un costo neto de 0,4 créditos por minuto o 0,4 x 60 = 24 créditos por hora. Si tengo 4 horas al día de uso máximo, eso significa 4 x 24 = 96 créditos de consumo al día.
+Durante las horas punta, la aplicación realiza un uso promedio del 60 % de la vCPU, sigo ganando 0,2 créditos por minuto pero consumo 0,6 créditos por minuto, lo cual supone un costo neto de 0,4 créditos por minuto o 0,4 x 60 = 24 créditos por hora. Si tengo 4 horas al día de uso máximo, eso significa 4 x 24 = 96 créditos de consumo al día.
 
 Si tomo los 120 créditos que acumulé durante las horas de poca actividad y le resto los 96 créditos que utilicé durante las horas punta, obtendré 24 créditos adicionales que puedo acumular al día. Estos créditos los podré utilizar en otras ampliaciones de actividades.
 

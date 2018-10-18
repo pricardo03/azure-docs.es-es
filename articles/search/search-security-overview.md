@@ -6,14 +6,14 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 888f7c3ced0ef48cff222bffdbf0f278fa5f42b3
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285736"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092638"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Seguridad y privacidad de datos en Azure Search
 
@@ -23,9 +23,7 @@ La arquitectura de seguridad de Azure Search abarca seguridad física, transmisi
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Cumplimiento de normas: ISO 27001, SOC 2, HIPAA
 
-Una lista parcial del cumplimiento de normas incluye HIPAA y SOC 2 tipo 2 para las características con disponibilidad general. Las características de versión preliminar están certificadas como parte de la disponibilidad general y no se deben usar en soluciones que tienen requisitos de normas específicos. La certificación de cumplimiento está documentada en [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general del cumplimiento de Microsoft Azure) y el [Centro de confianza](https://www.microsoft.com/en-us/trustcenter). 
-
-La certificación de las siguientes normas [se anunció en junio de 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/).
+Azure Search está certificada por los siguientes estándares, tal como se [anunció en junio de 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [Cumplimiento de SOC 2 tipo 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Para ver el informe completo, vaya a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Informe de SOC 2 de tipo II de Azure y Azure Government). 
@@ -35,13 +33,15 @@ La certificación de las siguientes normas [se anunció en junio de 2018](https:
 + [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) (PCI DSS de nivel 1)
 + [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm) (DLM sin clasificar del programa IRAP en Australia)
 
+El cumplimiento de estándares se aplica a las características disponibles con carácter general. Las características en versión preliminar se certifican cuando pasan a disponibilidad general y no se deben usar en soluciones que tengan requisitos de estándares estrictos. La certificación de cumplimiento está documentada en [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general del cumplimiento de Microsoft Azure) y el [Centro de confianza](https://www.microsoft.com/en-us/trustcenter). 
+
 ## <a name="encrypted-transmission-and-storage"></a>Transmisión y almacenamiento cifrados
 
 El cifrado se extiende a lo largo de la canalización de indización: desde las conexiones, pasando por la transmisión y hasta los datos indizados almacenados en Azure Search.
 
 | Nivel de seguridad | DESCRIPCIÓN |
 |----------------|-------------|
-| Cifrado en tránsito | Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. |
+| Cifrado en tránsito <br>(HTTPS/SSL/TLS) | Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Search de cliente a servicio son compatibles con los protocolos SSL o TLS 1.2.  Asegúrese de usar TLSv1.2 para las conexiones SSL con el servicio.|
 | Cifrado en reposo | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.|
 
 El cifrado es interno para Azure Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación. 

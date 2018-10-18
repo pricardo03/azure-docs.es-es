@@ -4,17 +4,17 @@ description: Implementación continua de DevOps mediante Azure Automation State 
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038641"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634259"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
 
@@ -182,7 +182,7 @@ Ese nuspec se debe compilar y almacenar en el servidor NuGet. Este proceso se de
 ## <a name="step-6-tying-it-all-together"></a>Paso 6: Unión de todos los elementos
 
 Cada vez que una versión pasa un control de calidad y se aprueba para implementación, se crea el paquete, se actualizan nuspec y nupkg, y se implementan en el servidor NuGet. Además, se debe actualizar la configuración (el paso 4 anterior) para que coincida con el nuevo número de versión. Se debe enviar al servidor de extracción y se debe compilar.
-Desde ese momento, corresponderá a las máquinas virtuales que dependen de esa configuración extraer la actualización e instalarla. Cada una de estas actualizaciones son sencillas: solo una línea o dos de PowerShell. En el caso de Visual Studio Team Services, algunas de ellas se encapsulan en tareas de compilación que se pueden encadenar de manera conjunta en una compilación. En [este artículo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) se ofrecen más detalles. En este [repositorio de GitHub](https://github.com/Microsoft/vso-agent-tasks) se detallan las diversas tareas de compilación disponibles.
+Desde ese momento, corresponderá a las máquinas virtuales que dependen de esa configuración extraer la actualización e instalarla. Cada una de estas actualizaciones son sencillas: solo una línea o dos de PowerShell. En el caso de Azure DevOps, algunas de ellas se encapsulan en tareas de compilación que se pueden encadenar de manera conjunta en una compilación. En [este artículo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) se ofrecen más detalles. En este [repositorio de GitHub](https://github.com/Microsoft/vso-agent-tasks) se detallan las diversas tareas de compilación disponibles.
 
 ## <a name="notes"></a>Notas
 
@@ -203,8 +203,8 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general, consulte [Azure Automation State Configuration](automation-dsc-overview.md).
-- Para empezar a usar Azure Automation State Configuration, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
-- Para obtener información acerca de la compilación de configuraciones de DSC para que poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en Azure Automation State Configuration](automation-dsc-compile.md).
+- Para empezar a usar Azure Automation State Configuration, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md)
+- Para obtener información acerca de la compilación de configuraciones de DSC para que poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en Azure Automation State Configuration](automation-dsc-compile.md)
 - Para la referencia de cmdlets de PowerShell, consulte [cmdlets de Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
-- Para obtener información de precios, consulte [Precios de Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
+- Para obtener información de precios, consulte [Precios de Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
 - Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, consulte [Implementación continua mediante Azure Automation State Configuration y Chocolatey](automation-dsc-cd-chocolatey.md)

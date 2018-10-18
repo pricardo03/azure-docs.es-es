@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972298"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302476"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry en Azure
 
@@ -60,9 +60,9 @@ Si usa Pivotal Cloud Foundry, el agente de servicio también está [disponible c
 
 ## <a name="related-resources"></a>Recursos relacionados
 
-### <a name="visual-studio-team-services-plugin"></a>Complemento de Visual Studio Team Services
+### <a name="azure-devops-services-plugin"></a>Complemento Azure DevOps Services
 
-Cloud Foundry se adapta perfectamente al desarrollo ágil de software, incluido el uso de la integración continua (CI) y la entrega continua (CD). Si usa Visual Studio Team Services (VSTS) para administrar los proyectos y le gustaría configurar una canalización de CI/CD hacia Cloud Foundry, puede usar la [extensión de compilación VSTS Cloud Foundry](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). El complemento simplifica el proceso de configurar y automatizar implementaciones en Cloud Foundry, tanto si se ejecuta en Azure como en otro entorno.
+Cloud Foundry se adapta perfectamente al desarrollo ágil de software, incluido el uso de la integración continua (CI) y la entrega continua (CD). Si usa Azure DevOps Services para administrar los proyectos y le gustaría configurar una canalización de CI/CD hacia Cloud Foundry, puede usar la [extensión de compilación Cloud Foundry para Azure DevOps Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). El complemento simplifica el proceso de configurar y automatizar implementaciones en Cloud Foundry, tanto si se ejecuta en Azure como en otro entorno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

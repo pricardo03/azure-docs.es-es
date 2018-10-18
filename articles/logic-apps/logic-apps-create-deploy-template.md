@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123472"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304244"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creación de plantillas de Azure Resource Manager para implementar aplicaciones lógicas
 
@@ -173,7 +173,7 @@ Si tiene un proyecto de grupo de recursos existente, puede agregar la aplicació
 
 ## <a name="deploy-a-logic-app-template"></a>Implementación de una plantilla de aplicación lógica
 
-Puede implementar su plantilla mediante cualquier herramienta, entre las que se incluyen PowerShell, API de REST, [Visual Studio Team Services Release Management](#team-services) o la implementación de plantillas de Azure Portal.
+Puede implementar su plantilla mediante cualquier herramienta, entre las que se incluyen PowerShell, API REST, [Release Management para Azure DevOps](#team-services) o la implementación de plantillas de Azure Portal.
 Además, para almacenar los valores de parámetros, se recomienda crear un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Aprenda cómo [implementar recursos con las plantillas de Azure Resource Manager y PowerShell](../azure-resource-manager/resource-group-template-deploy.md) o cómo [implementar recursos con las plantillas de Azure Resource Manager y Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,13 +185,13 @@ Para autorizar las conexiones de OAuth, abra la aplicación lógica en Diseñado
 Hay un script de ejemplo en GitHub, en el proyecto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
 
 <a name="team-services"></a>
-## <a name="visual-studio-team-services-release-management"></a>Administración de versiones de Visual Studio Team Services
+## <a name="azure-devops-release-management"></a>Release Management de Azure DevOps
 
-Un escenario común para implementar y administrar un entorno es usar una herramienta como Release Management en Visual Studio Team Services con una plantilla de implementación de aplicaciones lógicas. Visual Studio Team Services incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) , que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la definición de la versión.
+Un escenario común para implementar y administrar un entorno es usar una herramienta como Release Management en Azure DevOps con una plantilla de implementación de aplicación lógica. Azure DevOps incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup), que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la canalización de la versión.
 
-1. En Release Management, seleccione **Vacío** para crear una definición vacía.
+1. En Release Management, seleccione **Vacío** para crear una canalización vacía.
 
-    ![Creación de una definición vacía][1]
+    ![Creación de una canalización vacía][1]
 
 2. Elija los recursos que necesite para esto, que probablemente incluirán la plantilla de aplicación lógica que se genera manualmente o como parte del proceso de compilación.
 3. Agregue una tarea de **Implementación de un grupo de recursos de Azure** .

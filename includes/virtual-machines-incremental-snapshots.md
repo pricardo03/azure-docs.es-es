@@ -1,8 +1,25 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979409"
+---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Copias de seguridad de discos de máquinas virtuales de Azure no administrados con instantáneas incrementales
 ## <a name="overview"></a>Información general
-Almacenamiento de Azure permite realizar instantáneas de blobs. Dichas instantáneas capturan el estado del blob en el preciso momento en el que se realicen. En este artículo, se describe un escenario para mantener copias de seguridad de discos de máquinas virtuales por medio de instantáneas. Podrá utilizar esta metodología cuando opte por no usar el servicio de recuperación y copia de seguridad de Azure y quiera crear una estrategia de copias de seguridad personalizada para los discos de sus máquinas virtuales.
+Azure Storage permite realizar instantáneas de blobs. Dichas instantáneas capturan el estado del blob en el preciso momento en el que se realicen. En este artículo, se describe un escenario para mantener copias de seguridad de discos de máquinas virtuales por medio de instantáneas. Podrá utilizar esta metodología cuando opte por no usar el servicio de recuperación y copia de seguridad de Azure y quiera crear una estrategia de copias de seguridad personalizada para los discos de sus máquinas virtuales.
 
-Los discos de las máquinas virtuales de Azure se almacenan como blobs en páginas en Almacenamiento de Azure. Como en este artículo se describe una estrategia de copias de seguridad para discos de máquinas virtuales, cuando hablemos de instantáneas, lo haremos en el contexto de blobs en páginas. Para obtener más información sobre las instantáneas, consulte [Creación de una instantánea a partir de un blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+Los discos de las máquinas virtuales de Azure se almacenan como blobs en páginas en Azure Storage. Como en este artículo se describe una estrategia de copias de seguridad para discos de máquinas virtuales, cuando hablemos de instantáneas, lo haremos en el contexto de blobs en páginas. Para obtener más información sobre las instantáneas, consulte [Creación de una instantánea a partir de un blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 ## <a name="what-is-a-snapshot"></a>¿Qué es una instantánea?
 Una instantánea de blob es una versión de solo lectura de un blob que se ha capturado en un momento dado. Una vez se crea la instantánea, puede leerla, copiarla o eliminarla, pero no modificarla. Las instantáneas le ofrecen una oportunidad de realizar una copia de seguridad de un blob en el momento en que éste aparezca. Hasta la versión 2015-04-05 de REST podía copiar instantáneas completas. Con la versión 2015-07-08 de REST y posteriores, también puede copiar instantáneas incrementales.
@@ -29,7 +46,7 @@ Puede implementar una copia de una instantánea completa siguiendo estos pasos:
 * Repita este proceso para mantener copias de seguridad de su blob de base.
 
 ## <a name="incremental-snapshot-copy"></a>Copia de instantáneas incrementales
-La nueva característica de la API [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) ofrece un modo mucho mejor de realizar copias de seguridad de las instantáneas de los discos o blobs en páginas. La API devuelve la lista de cambios entre el blob de base y las instantáneas, lo que reduce la cantidad de espacio de almacenamiento utilizado en la cuenta de copia de seguridad. La API es compatible con blobs en páginas en Almacenamiento premium, así como en su vertiente estándar. Gracias a esta API, puede crear soluciones de copia de seguridad más rápidas y eficaces para las máquinas virtuales de Azure. Esta API estará disponible con la versión 2015-07-08 de REST y posteriores.
+La nueva característica de la API [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) ofrece un modo mucho mejor de realizar copias de seguridad de las instantáneas de los discos o blobs en páginas. La API devuelve la lista de cambios entre el blob de base y las instantáneas, lo que reduce la cantidad de espacio de almacenamiento utilizado en la cuenta de copia de seguridad. La API es compatible con blobs en páginas en Premium Storage, así como en su vertiente Standard. Gracias a esta API, puede crear soluciones de copia de seguridad más rápidas y eficaces para las máquinas virtuales de Azure. Esta API estará disponible con la versión 2015-07-08 de REST y posteriores.
 
 La copia de instantáneas incrementales permite realizar copiar de una cuenta de almacenamiento a otra la diferencia entre:
 
@@ -62,7 +79,7 @@ En esta sección se describe un escenario en el que se utiliza una estrategia de
 
 Considere la posibilidad de usar una VM de Azure de serie DS con un disco P30 de almacenamiento premium conectado. El disco P30 denominado *mypremiumdisk* se almacena en una cuenta de almacenamiento premium denominada *mypremiumaccount*. Se usa una cuenta de almacenamiento estándar denominada *mybackupstdaccount* para almacenar la copia de seguridad de *mypremiumdisk*. Nos gustaría mantener una instantánea de *mypremiumdisk* cada 12 horas.
 
-Para obtener información sobre cómo crear discos y cuentas de almacenamiento, consulte [About Azure storage accounts](../articles/storage/storage-create-storage-account.md)(Acerca de las cuentas de almacenamiento de Azure).
+Para obtener más información sobre la creación de una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 Para obtener información sobre la realización de copias de seguridad de máquinas virtuales de Azure, consulte [Plan Azure VM backups](../articles/backup/backup-azure-vms-introduction.md)(Planeación de copias de seguridad de máquinas virtuales de Azure).
 

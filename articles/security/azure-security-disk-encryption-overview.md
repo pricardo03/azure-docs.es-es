@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: ea72e4ac778e52d4f6e4f5597d38a1de59ba43fc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: 193aa8f87a90eb7bbf1e2c49132ad480881d41fe
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348946"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633476"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS 
 Microsoft Azure se ha comprometido a garantizar la privacidad y soberanía de los datos, y a permitirle controlar los datos hospedados en Azure mediante una gama de tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Este control proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentamos una nueva solución de tecnología, "Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux", para ayudarle a proteger y salvaguardar sus datos para que satisfagan los compromisos de seguridad y cumplimiento de su organización. 
@@ -78,7 +78,10 @@ La solución no admite los siguientes escenarios, características y tecnología
 * Máquinas virtuales IaaS creadas con el método clásico de generación de máquinas virtuales
 * Habilitación del cifrado en imágenes personalizadas de cliente de máquinas virtuales IaaS Linux
 * Integración con el Servicio de administración de claves local
-* Azure Files (recurso compartido de archivos de Azure), Network File System (NFS), volúmenes dinámicos y máquinas virtuales Windows configuradas con sistemas RAID basados en software
+* Azure Files (sistema de archivos compartido)
+* Network File System (NFS)
+* Volúmenes dinámicos
+* Máquinas virtuales de Windows que estén configuradas con sistemas RAID basados en software
 
 ## <a name="encryption-features"></a>Características de cifrado
 Al habilitar e implementar Azure Disk Encryption para las máquinas virtuales IaaS con Azure, se habilitan las funcionalidades siguientes, dependiendo de la configuración proporcionada:

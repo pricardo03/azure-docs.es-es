@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 40c7b2865795f8c6a5cfbabe4d59aea1715d4a57
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143919"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730167"
 ---
-# <a name="create-an-eevent-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de evento y configuración de las notificaciones en la aplicación de Azure IoT Central
+# <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de evento y configuración de las notificaciones en la aplicación de Azure IoT Central
+
+*Este artículo se aplica a los administradores, operadores y compiladores.*
 
 Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico o el desencadenamiento de Microsoft Flow. En unos pocos clics, puede definir la condición para la cual supervisar los datos del dispositivo y configurar la acción correspondiente. En este artículo se explica cómo crear reglas para supervisar los eventos que envía el dispositivo.
 
@@ -37,10 +39,10 @@ Para crear una regla de evento, la plantilla de dispositivos debe tener definida
     ![No hay ninguna regla todavía](media\howto-create-event-rules\Rules_Landing_Page.png)
 
 
-1. En la pestaña **Reglas**, haga clic en **+ Nueva regla** para ver los tipos de reglas que puede crear.
+1. En la pestaña **Reglas**, haga clic en **Editar plantilla** y, a continuación, en **+ Nueva regla** para ver los tipos de reglas que puede crear.
 
 
-1. Haga clic en el icono **Evento** para crear una regla.
+1. Haga clic en el icono **Evento** para crear una regla de supervisión de eventos.
 
     ![Tipos de regla](media\howto-create-event-rules\Rule_Types.png)
 
@@ -92,6 +94,8 @@ En esta sección se muestra cómo configurar las acciones que se realizarán cua
    ![Configuración de acción](media\howto-create-event-rules\Configure_Action.png)
 
 1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de los eventos que se envían a la aplicación. Si coincide con la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
+
+1. Seleccione **Listo** para salir del modo **Editar plantilla**.
 
 Puede agregar otras acciones a la regla, como Microsoft Flow y webhooks. Puede agregar hasta 5 acciones por regla.
 

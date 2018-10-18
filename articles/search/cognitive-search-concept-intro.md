@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617965"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729067"
 ---
 # <a name="what-is-cognitive-search"></a>¿Qué es Cognitive Search?
 
@@ -31,7 +31,7 @@ Las aptitudes cognitivas de Azure Search se basan en los mismos algoritmos de in
 El lenguaje natural y el procesamiento de imágenes se aplican durante la fase de ingesta de datos, con resultados que formarán parte de la composición de un documento en un índice que se puede buscar en Azure Search. Los datos se obtienen como un conjunto de datos de Azure y luego se insertan a través de una canalización de indexación mediante las [aptitudes integradas](cognitive-search-predefined-skills.md) que necesite. La arquitectura es extensible, por lo que si las aptitudes integradas no son suficientes, puede crear y adjuntar [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) para integrar el procesamiento personalizado. Algunos ejemplos pueden ser un módulo de entidad personalizado o un clasificador de documentos que tiene como destino un dominio específico, como finanzas, publicaciones científicas o medicina.
 
 > [!NOTE]
-> Cognitive Search se encuentra en versión preliminar pública y la ejecución del conjunto de aptitudes se ofrece de forma gratuita. Más adelante, se anunciarán los precios de esta funcionalidad. 
+> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
 
 ## <a name="components-of-cognitive-search"></a>Componentes de Cognitive Search
 

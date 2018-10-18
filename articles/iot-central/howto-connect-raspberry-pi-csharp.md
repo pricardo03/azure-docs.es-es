@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205143"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734242"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central (C#)
 
@@ -263,6 +263,9 @@ Para completar los pasos siguientes, puede usar Visual Studio Code. Para obtener
 
 Agregue la cadena de conexión específica del dispositivo al código para que el dispositivo se autentique con Azure IoT Central. Anotó esta cadena de conexión cuando agregó el dispositivo real a la aplicación de Azure IoT Central.
 
+  > [!NOTE]
+   > Azure IoT Central ha pasado a usar Azure IoT Hub Device Provisioning Service (DPS) para todas las conexiones de dispositivo; siga estas instrucciones para [obtener la cadena de conexión del dispositivo](concepts-connectivity.md#getting-device-connection-string) y siga con el resto del tutorial.
+
 1. Reemplace `{your device connection string}` en el archivo **Program.cs** por la cadena de conexión que anotó anteriormente.
 
 1. En el entorno de línea de comandos, ejecute el comando siguiente:
@@ -347,7 +350,7 @@ Cambiar configuración
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Texto            | Ubicación     | location   | N/D       |

@@ -1,6 +1,6 @@
 ---
-title: Creación del primer microservicio de Azure basado en actores en C# | Microsoft Docs
-description: En este tutorial se explica paso a paso cómo crear, depurar e implementar un servicio de actor sencillo con Reliable Actors de Service Fabric.
+title: Creación de un servicio basado en actores en Azure Service Fabric | Microsoft Docs
+description: Aprenda a crear, depurar e implementar su primer servicio basado en actores en C# con Reliable Actors de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 32d3fa09c863c47753267e97e7c4730dff869887
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211412"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054764"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introducción a Reliable Actors
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "34211412"
 
 Este artículo le guía por la creación y depuración de una aplicación sencilla de Reliable Actors en Visual Studio. Para obtener más información sobre Reliable Actors, vea [Introducción a Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que el entorno de desarrollo de Service Fabric, incluido Visual Studio, está configurado en la máquina. Para obtener más información, consulte [cómo configurar el entorno de desarrollo](service-fabric-get-started.md).
 

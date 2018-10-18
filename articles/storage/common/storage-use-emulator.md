@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888090"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052550"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -68,7 +68,7 @@ La herramienta de la línea de comandos del emulador de almacenamiento se puede 
 
   También puede usar el siguiente comando, el cual indicará al emulador que utilice la instancia predeterminada de SQL Server:
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   O bien, puede usar el comando siguiente, que reinicializa la base de datos a la instancia de LocalDB predeterminada:
 
@@ -93,10 +93,10 @@ Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xa
 También puede generar un token de SAS mediante Azure PowerShell. En el ejemplo siguiente se genera un token de SAS con permisos completos a un contenedor de blobs:
 
 1. Instale Azure PowerShell si no lo ha hecho ya (se recomienda el uso de la versión más reciente de los cmdlets de Azure PowerShell). Para ver las instrucciones de instalación, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
-2. Abra Azure PowerShell y ejecute los siguientes comandos; sustituya `ACCOUNT_NAME` y `ACCOUNT_KEY==` por sus propias credenciales y `CONTAINER_NAME` por un nombre de su elección:
+2. Abra Azure PowerShell y ejecute los siguientes comandos, sustituyendo `CONTAINER_NAME` por un nombre de su elección:
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 El identificador URI de la firma de acceso compartido resultante para el nuevo contenedor debe ser similar a:
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 La firma de acceso compartido creada con este ejemplo es válida durante un día. La firma concede acceso completo (lectura, escritura, eliminación, enumeración) a blobs situados dentro del contenedor.

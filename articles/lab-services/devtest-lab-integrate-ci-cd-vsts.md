@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438790"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301215"
 ---
-# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de VSTS
-Puede usar la extensión *Azure DevTest Labs Tasks*, que se instala en Visual Studio Team Services (VSTS), para integrar fácilmente la compilación de CI/CD y la canalización de versión con Azure DevTest Labs. La extensión instala tres tareas: 
+# <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de Azure DevOps
+Puede usar la extensión *Azure DevTest Labs Tasks*, que se instala en Azure DevOps, para integrar fácilmente la compilación de CI/CD y la canalización de versión con Azure DevTest Labs. La extensión instala tres tareas: 
 * Crear una VM
 * Crear una imagen personalizada a partir de una máquina virtual
 * Eliminación de una máquina virtual 
@@ -85,16 +85,16 @@ En esta sección se describe cómo crear la plantilla de Azure Resource Manager 
 
 1. Compruebe el script en el sistema de control de código fuente. Asígnele el nombre **GetLabVMParams.ps1**.
 
-   Al ejecutar este script en el agente como parte de la definición de versión y si usa pasos de tareas, como *Azure File Copy* o *PowerShell en las máquinas de destino*, el script recopila los valores necesarios para implementar la aplicación en la máquina virtual. Estas tareas se usarían normalmente para implementar aplicaciones en una máquina virtual de Azure. Las tareas requieren valores como el nombre del grupo de recursos de máquina virtual, la dirección IP y el nombre de dominio completo (FQDN).
+   Al ejecutar este script en el agente como parte de la canalización de versión y si usa pasos de tareas, como *Copia de archivos de Azure* o *PowerShell en equipos de destino*, el script recopila los valores necesarios para implementar la aplicación en la máquina virtual. Estas tareas se usarían normalmente para implementar aplicaciones en una máquina virtual de Azure. Las tareas requieren valores como el nombre del grupo de recursos de máquina virtual, la dirección IP y el nombre de dominio completo (FQDN).
 
-## <a name="create-a-release-definition-in-release-management"></a>Creación de una definición de versión en Release Management
-Para crear la definición de la versión, siga estos pasos:
+## <a name="create-a-release-pipeline-in-release-management"></a>Creación de una canalización de versión en Release Management
+Para crear la canalización de versión, siga estos pasos:
 
 1. En la pestaña **Versiones** del concentrador **Compilación y versión**, seleccione el botón con el signo de la suma (+).
 1. En la ventana **Crear definición de versión**, seleccione la plantilla **Vacía** y, luego, seleccione **Siguiente**.
-1. Seleccione **Elegir más tarde** y, luego, seleccione **Crear** para crear una nueva definición de versión con un entorno predeterminado y ningún artefacto vinculado.
-1. Para abrir el menú contextual, en la nueva definición de versión, seleccione los puntos suspensivos (...) junto al nombre del entorno y, luego, seleccione **Configurar variables**. 
-1. En la ventana de **configuración del entorno**, escriba los siguientes valores para las variables que se usan en las tareas de definición de versión:
+1. Seleccione **Elegir más tarde** y, luego, seleccione **Crear** para crear una canalización de versión con un entorno predeterminado y ningún artefacto vinculado.
+1. Para abrir el menú contextual, en la nueva canalización de versión, seleccione los puntos suspensivos (...) junto al nombre del entorno y, luego, seleccione **Configurar variables**. 
+1. En la ventana de **configuración del entorno**, escriba los siguientes valores para las variables que se usan en las tareas de canalización de versión:
 
    a. En **vmName**, escriba el nombre que asignó a la máquina virtual cuando creó la plantilla de Resource Manager en Azure Portal.
 
@@ -106,13 +106,13 @@ Para crear la definición de la versión, siga estos pasos:
 
 La siguiente fase de la implementación consiste en crear la máquina virtual que se usará como la "imagen maestra" en las sucesivas implementaciones. Creará la máquina virtual en su instancia de Azure DevTest Lab mediante la tarea desarrollada especialmente para este fin. 
 
-1. En la definición de versión, seleccione **Agregar tareas**.
+1. En la canalización de versión, seleccione **Agregar tareas**.
 1. En la pestaña **Implementar**, agregue una tarea de *creación de una máquina virtual de Azure DevTest Labs*. Configure la tarea de la siguiente manera:
 
    > [!NOTE]
    > Para crear la máquina virtual que se usará en las implementaciones posteriores, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
+   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
 
    b. En **Nombre de laboratorio**, seleccione el nombre de la instancia que creó anteriormente.
 
@@ -135,14 +135,14 @@ La siguiente fase de la implementación consiste en crear la máquina virtual qu
    ```
 
 1. Ejecute el script que creó anteriormente para recopilar los detalles de la máquina virtual de DevTest Labs. 
-1. En la definición de versión, seleccione **Agregar tareas** y, luego, en la pestaña **Implementar**, agregue una tarea de *Azure PowerShell*. Configure la tarea de la siguiente manera:
+1. En la canalización de versión, seleccione **Agregar tareas** y, luego, en la pestaña **Implementar**, agregue una tarea de *Azure PowerShell*. Configure la tarea de la siguiente manera:
 
    > [!NOTE]
    > Para recopilar los detalles de la máquina virtual de DevTest Labs, consulte [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) (Implementación: Azure PowerShell) y ejecute el script.
 
    a. En **Tipo de conexión de Azure**, seleccione **Azure Resource Manager**.
 
-   b. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
+   b. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
 
    c. En **Tipo de script**, seleccione **Archivo de script**.
  
@@ -154,22 +154,22 @@ La siguiente fase de la implementación consiste en crear la máquina virtual qu
       ```
       -labVmId '$(labVMId)'
       ```
-    El script recopila los valores necesarios y los almacena en variables de entorno dentro de la definición de versión, para que así pueda consultarlos fácilmente en pasos posteriores.
+    El script recopila los valores necesarios y los almacena en variables de entorno dentro de la canalización de versión, para que así pueda consultarlos fácilmente en pasos posteriores.
 
 1. Implemente la aplicación en la nueva máquina de DevTest Labs. Las tareas que se usan habitualmente para implementar la aplicación son *Azure File Copy* y *PowerShell en las máquinas de destino*.
-   La información acerca de la máquina virtual que se necesita para los parámetros de estas tareas se almacena en tres variables de configuración denominadas **labVmRgName**, **labVMIpAddress**, y **labVMFqdn** dentro de la definición de versión. Si solo desea experimentar con la creación de una máquina virtual de DevTest Labs y una imagen personalizada, sin implementar una aplicación en ella, puede omitir este paso.
+   La información acerca de la máquina virtual que se necesita para los parámetros de estas tareas se almacena en tres variables de configuración denominadas **labVmRgName**, **labVMIpAddress** y **labVMFqdn** dentro de la canalización de versión. Si solo desea experimentar con la creación de una máquina virtual de DevTest Labs y una imagen personalizada, sin implementar una aplicación en ella, puede omitir este paso.
 
 ### <a name="create-an-image"></a>Crear una imagen
 
 La siguiente fase consiste en crear una imagen de la máquina virtual recién implementada en la instancia de Azure DevTest Labs. Luego, puede usar la imagen para crear copias de la máquina virtual a petición siempre que quiera ejecutar una tarea de desarrollo o ejecutar algunas pruebas. 
 
-1. En la definición de versión, seleccione **Agregar tareas**.
+1. En la canalización de versión, seleccione **Agregar tareas**.
 1. En la pestaña **Implementar**, agregue una tarea de **creación de imagen personalizada de Azure DevTest Labs**. Configúrelo de la siguiente forma:
 
    > [!NOTE]
    > Para crear la imagen, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
+   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
 
    b. En **Nombre de laboratorio**, seleccione el nombre de la instancia que creó anteriormente.
 
@@ -185,17 +185,17 @@ La siguiente fase consiste en crear una imagen de la máquina virtual recién im
 
 La fase final consiste en eliminar la máquina virtual que se implementó en la instancia de Azure DevTest Labs. Lo habitual es eliminar la máquina virtual después de ejecutar las tareas de desarrollo o de ejecutar las pruebas que necesita en la máquina virtual implementada. 
 
-1. En la definición de versión, seleccione **Agregar tareas** y, luego, en la pestaña **Implementar**, agregue una tarea de *eliminación de una máquina virtual de Azure DevTest Labs*. Configúrelo de la siguiente forma:
+1. En la canalización de versión, seleccione **Agregar tareas** y, luego, en la pestaña **Implementar**, agregue una tarea de *eliminación de una máquina virtual de Azure DevTest Labs*. Configúrelo de la siguiente forma:
 
       > [!NOTE]
       > Para eliminar la máquina virtual, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
+   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
  
    b. En **Lab VM ID** (Id. de máquina virtual de laboratorio), si cambió el nombre predeterminado de la variable de entorno que se rellenó automáticamente con el identificador de la máquina virtual de laboratorio en una tarea anterior, edítelo aquí. El valor predeterminado es **$(labVMId)**.
 
-1. Escriba un nombre para la definición de versión y, a continuación, guárdelo.
-1. Cree una nueva versión, seleccione la última compilación e impleméntela en el entorno único de la definición.
+1. Escriba un nombre para la canalización de versión y después guárdelo.
+1. Cree una versión, seleccione la última compilación e impleméntela en el entorno único de la canalización.
 
 En cada una de las fases, actualice la vista de la instancia de DevTest Labs en Azure Portal para ver de nuevo la máquina virtual y la imagen que se crean, y la máquina virtual que se elimina.
 
@@ -207,5 +207,5 @@ Ahora puede usar la imagen personalizada para crear máquinas virtuales cuando s
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [crear entornos de varias máquinas virtuales con plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md).
 * Explore más plantillas de inicio rápido de Resource Manager para la automatización de DevTest Labs desde el [repositorio público de GitHub de DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
-* Si es necesario, consulte la página de [solución de problemas de VSTS](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting).
+* Si es necesario, consulte la página de [solución de problemas de Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting).
  

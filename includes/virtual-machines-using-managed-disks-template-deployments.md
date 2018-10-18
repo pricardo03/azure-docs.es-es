@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c7db8eaf57bf29e17b4543e99a44655030aa6172
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269568"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979105"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Uso de discos administrados en plantillas de Azure Resource Manager
 
@@ -96,7 +96,7 @@ Con Azure Managed Disks, el disco se convierte en un recurso de nivel superior y
 
 ### <a name="default-managed-disk-settings"></a>Configuración predeterminada de discos administrados
 
-Para crear una máquina virtual con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento y es posible actualizar el recurso de máquina virtual como se indica a continuación. Observe específicamente que `apiVersion` refleja `2017-03-30` y ni `osDisk` ni `dataDisks` hacen referencia ya a un URI específico para el VHD. Cuando la implementación se realiza sin especificar propiedades adicionales, el disco usará el [almacenamiento LRS estándar](../articles/storage/common/storage-redundancy.md). Si no se especifica ningún nombre, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos. De manera predeterminada, Azure Disk Encryption está deshabilitado; el almacenamiento en caché es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos. En el ejemplo siguiente, puede observar que todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
+Para crear una máquina virtual con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento y es posible actualizar el recurso de máquina virtual como se indica a continuación. Observe específicamente que `apiVersion` refleja `2017-03-30` y ni `osDisk` ni `dataDisks` hacen referencia ya a un URI específico para el VHD. Cuando se realiza la implementación sin especificar propiedades adicionales, el disco usará un tipo de almacenamiento acorde con el tamaño de la máquina virtual. Por ejemplo, si usa un tamaño de máquina virtual compatible con Premium (tamaños con "s" en el nombre, como Standard_D2s_v3) el sistema usará un almacenamiento Premium_LRS. Use la configuración de la SKU del disco para especificar un tipo de almacenamiento. Si no se especifica ningún nombre, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos. De manera predeterminada, Azure Disk Encryption está deshabilitado; el almacenamiento en caché es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos. En el ejemplo siguiente, puede observar que todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
 
 ```json
 {

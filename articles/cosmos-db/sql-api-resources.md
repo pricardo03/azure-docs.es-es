@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ba02e7760d7400b5168a902415f16c4b276b3a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0869881ace689d12272affb38d3689965e107e8f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287960"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050939"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Conceptos básicos y modelo jerárquico de recursos de Azure Cosmos DB
 
@@ -214,7 +214,7 @@ Debido a su profundo compromiso con JavaScript y JSON directamente dentro del mo
 * Implementación eficaz del control simultáneo, la recuperación, la indexación automática de los gráficos de objeto JSON directamente en el motor de la base de datos.
 * Expresión de forma natural del flujo de control, el ámbito de las variables, la asignación y la integración de primitivos de control de excepciones con transacciones de bases de datos directamente en términos del lenguaje de programación de JavaScript.
 
-La lógica de JavaScript registrada a nivel de colección puede entonces emitir operaciones de base de datos en los documentos de la colección dada. Azure Cosmos DB ajusta los procedimientos almacenados y desencadenadores basados en JavaScript dentro de una transacción ACID ambiental con un aislamiento de instantáneas en los documentos de una colección. Durante el transcurso de esta ejecución, si JavaScript lanza una excepción, entonces se cancela toda la transacción. El modelo de programación resultante es sencillo, pero eficaz. Los desarrolladores de JavaScript obtienen un modelo de programación “duradero” mientras siguen utilizando sus construcciones de lenguaje y primitivos de biblioteca familiares.   
+La lógica de JavaScript registrada a nivel de colección puede entonces emitir operaciones de base de datos en los documentos de la colección dada. Azure Cosmos DB ajusta los procedimientos almacenados y desencadenadores basados en JavaScript dentro de una transacción ACID ambiental con un aislamiento de instantáneas en los documentos de una colección. Durante el transcurso de esta ejecución, si JavaScript lanza una excepción, entonces se cancela toda la transacción. El modelo de programación resultante es sencillo, pero eficaz. Los desarrolladores de JavaScript obtienen un modelo de programación “duradero” al tiempo que siguen usando sus construcciones de lenguaje y primitivos de biblioteca que ya conocen.   
 
 La capacidad de ejecutar JavaScript directamente en el motor de la base de datos en el mismo espacio de dirección que el grupo de búferes, permite la ejecución transaccional y con mayor rendimiento de las operaciones de base de datos en los documentos de una colección. Además, debido a que el motor de base de datos de Cosmos DB tiene un fuerte compromiso con JSON y JavaScript, elimina cualquier error de coincidencia de impedancia entre los sistemas tipo de la aplicación y la base de datos.   
 
@@ -251,7 +251,7 @@ Tras crear una colección, puede registrar procedimientos almacenados, desencade
             })
     };
 
-El cliente puede "enviar" la lógica de JavaScript anterior a la base de datos para la ejecución transaccional mediante POST HTTP. Para obtener más información acerca del uso de los métodos HTTP, consulte [Interacciones RESTful con recursos de Azure Cosmos DB](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
+El cliente puede "enviar" la lógica de JavaScript anterior a la base de datos para la ejecución transaccional mediante HTTP POST. Para obtener más información acerca del uso de los métodos HTTP, consulte [Interacciones RESTful con recursos de Azure Cosmos DB](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
 
     client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
        .then(function(createdStoredProcedure) {
@@ -267,7 +267,7 @@ El cliente puede "enviar" la lógica de JavaScript anterior a la base de datos p
         });
 
 
-Tenga en cuenta que debido a que la base de datos comprende JSON y JavaScript de forma nativa, no existe ningún de error de coincidencia del sistema de tipo, no es necesaria ninguna "asignación OR" ni magia de generación de códigos.   
+Tenga en cuenta que debido a que la base de datos comprende JSON y JavaScript de forma nativa, no existe ningún de error de coincidencia del sistema de tipos, no es necesaria ninguna "asignación OR" ni ninguna magia de generación de códigos.   
 
 Los procedimientos almacenados y desencadenadores interactúan con una colección y los documentos de la misma a través de un modelo de objetos bien definido que se expone al contexto de colección actual.  
 

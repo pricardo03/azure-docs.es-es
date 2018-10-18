@@ -2,24 +2,20 @@
 title: Uso de servidores proxy en Azure Functions | Microsoft Docs
 description: Información general sobre cómo usar Azure Functions Proxies
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29933782"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095052"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -77,7 +73,7 @@ Puede utilizar `localhost` para hacer referencia a una función dentro de la mis
 Puede usar parámetros de solicitud como entradas para la propiedad de dirección URL de back-end o como parte de la modificación de solicitudes y respuestas. Algunos parámetros pueden enlazarse desde la plantilla de ruta especificada en la configuración de proxy base, y otros pueden proceder de propiedades de la solicitud entrante.
 
 #### <a name="route-template-parameters"></a>Parámetros de plantilla de ruta
-Los parámetros que se usan en la plantilla de ruta están disponibles para hacer referencia a ellos por su nombre. Los nombres de parámetro van rodeados de llaves ({}).
+Los parámetros que se usan en la plantilla de ruta están disponibles para hacer referencia a ellos por su nombre. Los nombres de parámetro se incluyen entre llaves ({}).
 
 Por ejemplo, si un proxy tiene una plantilla de ruta, como `/pets/{petId}`, la dirección URL de back-end puede incluir el valor de `{petId}`, como en `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. Si la plantilla de ruta finaliza en un carácter comodín, como `/api/{*restOfPath}`, el valor `{restOfPath}` es una representación de cadena de los segmentos de ruta de acceso restantes procedentes de la solicitud entrante.
 
@@ -236,12 +232,12 @@ Una configuración de ejemplo puede tener el siguiente aspecto:
 > En este ejemplo, el cuerpo de la respuesta se define directamente, por lo que no se necesita ninguna propiedad `backendUri`. En el ejemplo, se muestra cómo usar Azure Functions Proxies para simular las API.
 
 [Azure Portal]: https://portal.azure.com
-[desencadenadores HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
+[Desencadenadores HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Definición de un objeto requestOverrides]: #requestOverrides
 [Definición de un objeto responseOverrides]: #responseOverrides
-[configuración de la aplicación]: #use-appsettings
+[Configuración de la aplicación]: #use-appsettings
 [Uso de variables]: #using-variables
-[parámetros de la solicitud de cliente original]: #request-parameters
-[parámetros de la respuesta de back-end]: #response-parameters
+[Parámetros de la solicitud de cliente original]: #request-parameters
+[Parámetros de la respuesta de back-end]: #response-parameters

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450445"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301198"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatización de procesos de Application Insights con Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "39450445"
 
 Con esta integración, se pueden automatizar numerosos procesos sin tener que escribir una sola línea de código. Puede crear una aplicación lógica con Application Insights Connector para automatizar rápidamente cualquier proceso de Application Insights. 
 
-También puede agregar acciones adicionales. La característica Logic Apps de Azure App Service realiza cientos de acciones disponibles. Por ejemplo, si usa una aplicación lógica, puede enviar automáticamente una notificación por correo electrónico o crear un error en Visual Studio Team Services. También puede utilizar una de las muchas [plantillas](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponibles para ayudar a acelerar el proceso de creación de la aplicación lógica. 
+También puede agregar acciones adicionales. La característica Logic Apps de Azure App Service realiza cientos de acciones disponibles. Por ejemplo, si usa una aplicación lógica, puede enviar automáticamente una notificación por correo electrónico o crear un error en Azure DevOps. También puede utilizar una de las muchas [plantillas](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponibles para ayudar a acelerar el proceso de creación de la aplicación lógica. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Creación de una aplicación lógica para Application Insights
 

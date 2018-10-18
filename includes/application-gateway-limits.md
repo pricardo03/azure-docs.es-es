@@ -1,6 +1,6 @@
 | Recurso | Límite predeterminado | Nota: |
 | --- | --- | --- |
-| Application Gateway |50 por suscripción | 100 como máximo |
+| Application Gateway |50 por suscripción | Máximo 1000 |
 | Configuraciones de direcciones IP de front-end |2 |1 pública y 1 privada |
 | Puertos de front-end |20 | |
 | Grupo de direcciones de back-end |20 | |

@@ -1,6 +1,6 @@
 ---
 title: Adición de un repositorio de Git a un laboratorio en Azure DevTest Labs | Microsoft Docs
-description: Aprenda a agregar un repositorio Git de GitHub o Visual Studio Team Services para el origen de artefactos personalizados en Azure DevTest Labs.
+description: Aprenda a agregar un repositorio de GIT de GitHub o Azure DevOps Services para el origen de artefactos personalizados en Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452505"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299889"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
 
-También puede [crear artefactos personalizados](devtest-lab-artifact-author.md) para las máquinas virtuales en el laboratorio, o [utilizar plantillas de Azure Resource Manager para crear un entorno de prueba personalizado](devtest-lab-create-environment-from-arm.md). Debe agregar un repositorio Git privado para los artefactos o plantillas de Resource Manager que crea su equipo. El repositorio se puede hospedar en [GitHub](https://github.com) o en [Visual Studio Team Services](https://visualstudio.com).
+También puede [crear artefactos personalizados](devtest-lab-artifact-author.md) para las máquinas virtuales en el laboratorio, o [utilizar plantillas de Azure Resource Manager para crear un entorno de prueba personalizado](devtest-lab-create-environment-from-arm.md). Debe agregar un repositorio Git privado para los artefactos o plantillas de Resource Manager que crea su equipo. El repositorio se puede hospedar en [GitHub](https://github.com) o en [Azure DevOps Services](https://visualstudio.com).
 
 Ofrecemos un [repositorio de GitHub de artefactos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) que puede implementar como está o personalizarlo para sus laboratorios. Al personalizar o crear un artefacto, no se puede almacenar el artefacto en el repositorio público. Debe crear su propio repositorio privado para los artefactos personalizados y para los artefactos que cree. 
 
 Cuando crea una máquina virtual, puede guardar la plantilla de Resource Manager, personalizarla si lo desea y usarla más adelante para crear más máquinas virtuales. Debe crear su propio repositorio privado para almacenar las plantillas personalizadas de Resource Manager.  
 
 * Para obtener información sobre cómo crear un repositorio de GitHub, consulte [Entrenamiento militar de GitHub](https://help.github.com/categories/bootcamp/).
-* Para aprender a crear un proyecto Team Services con un repositorio de Git, vea [Conexión con Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Para aprender a crear un proyecto de Azure DevOps Services con un repositorio de GIT, vea [Conexión con Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La siguiente ilustración es un ejemplo del aspecto que podría tener en GitHub un repositorio que contiene artefactos:  
 
 ![Repositorio de artefactos de GitHub de ejemplo](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>Obtención de la información del repositorio y las credenciales
-Para agregar un repositorio al laboratorio, obtenga cierta información clave del repositorio. En las secciones siguientes, se describe el modo de obtener la información requerida para los repositorios hospedados en GitHub y Visual Studio Team Services.
+Para agregar un repositorio al laboratorio, obtenga cierta información clave del repositorio. En las secciones siguientes, se describe el modo de obtener la información requerida para los repositorios hospedados en GitHub o Azure DevOps Services.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación del repositorio de GitHub y el token de acceso personal
 
@@ -52,7 +52,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 9. Cierre GitHub.   
 10. Continúe con la sección [Conexión del laboratorio al repositorio](#connect-your-lab-to-the-repository) .
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación de Visual Studio Team Services y del token de acceso personal
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación de Azure Repos y el token de acceso personal
 
 1. Vaya a la página principal de la colección de equipo (por ejemplo, https://contoso-web-team.visualstudio.com)) y después seleccione el proyecto.
 2. En la página de inicio del proyecto, seleccione **Código**.
@@ -79,9 +79,9 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
     ![Botón Agregar repositorio](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. En la segunda página **Repositorios**, especifique la información siguiente:
   1. **Nombre**. Escriba un nombre para el repositorio.
-  2. **URL de clonación de Git**. Escriba la dirección URL de clonación HTTPS de Git que copió anteriormente de GitHub o de Visual Studio Team Services.
+  2. **URL de clonación de Git**. Escriba la dirección URL de clonación HTTPS de GIT que copió anteriormente de GitHub o de Azure DevOps Services.
   3. **Rama**. Escriba la rama para obtener las definiciones.
-  4. **Token de acceso personal**. Especifique el token de acceso personal que obtuvo anteriormente de GitHub o de Visual Studio Team Services.
+  4. **Token de acceso personal**. Especifique el token de acceso personal que obtuvo anteriormente de GitHub o de Azure DevOps Services.
   5. **Rutas de acceso de carpeta**. Escriba al menos una ruta de acceso de carpeta con respecto a la dirección URL de clonación que contenga las definiciones del artefacto o de la plantilla de Azure Resource Manager. Cuando especifique un subdirectorio, asegúrese de incluir la barra diagonal en la ruta de acceso de la carpeta.
 
      ![Área Repositorios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c2cd38001a9645011bbab84cff3b9366aa64b1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3bd77891cc7508eeb1fee2152d37478c654a7e37
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206147"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294713"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Escenarios y patrones de Service Fabric
 Si está pensando en crear microservicios a gran escala mediante Azure Service Fabric, aprenda de la mano de los expertos que diseñaron y construyeron esta plataforma como servicio (PaaS). Comience con la arquitectura adecuada y aprenda luego a optimizar los recursos de su aplicación. El curso de [patrones y procedimientos de Service Fabric](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) da respuesta a las preguntas más frecuentes que plantean los clientes del mundo real sobre los escenarios y las áreas de aplicación de Service Fabric.
@@ -72,7 +72,7 @@ Examine juegos basados en turnos, juegos interactivos y hospedaje de motores de 
 </table>
 
 ## <a name="continuous-delivery"></a>Entrega continua
-Explore conceptos, como integración continua/entrega continua con Visual Studio Team Services, compilación/empaquetado/publicación de flujos de trabajo, configuración en varios entornos y empaquetado/uso compartido de servicios.
+Explore conceptos tales como la integración continua y la entrega continua con Azure Pipelines, el flujo de trabajo de compilación/empaquetado/publicación, la configuración en varios entornos y el empaquetado/uso compartido de servicios.
 
 <table><tr><th>Vídeo</th><th>Lote de PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=78h5ofSGD_305167344">

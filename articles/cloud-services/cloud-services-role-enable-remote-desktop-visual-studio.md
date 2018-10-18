@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 87c7029836bf28464fd48e17480119a4dcb1201c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142837"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304070"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante Visual Studio
 
@@ -30,7 +30,7 @@ Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta
 
 El asistente para publicación que Visual Studio proporciona para los servicios en la nube incluye una opción para habilitar Escritorio remoto durante el proceso de publicación, con las credenciales que se hayan proporcionado. El uso de esta opción es adecuado cuando se utiliza Visual Studio 2017 versión 15.4 y versiones anteriores.
 
-Sin embargo, con Visual Studio 2017 versión 15.5 y versiones posteriores, se recomienda que evite habilitar Escritorio remoto mediante el asistente para publicación a menos que trabaje como desarrollador individual. Para cualquier situación en la que el proyecto se pueda abrir por otros desarrolladores, active Remote Desktop mediante Azure Portal, con PowerShell, o desde una definición de versión en un flujo de trabajo de implementación continua. Esta recomendación se debe a un cambio en la forma en que Visual Studio se comunica con Escritorio remoto en la máquina virtual del servicio en la nube, tal como se explica en este artículo.
+Sin embargo, con Visual Studio 2017 versión 15.5 y versiones posteriores, se recomienda que evite habilitar Escritorio remoto mediante el asistente para publicación a menos que trabaje como desarrollador individual. Para cualquier situación en la que el proyecto se pueda abrir por otros desarrolladores, habilite Remote Desktop mediante Azure Portal, con PowerShell, o desde una canalización de versión en un flujo de trabajo de implementación continua. Esta recomendación se debe a un cambio en la forma en que Visual Studio se comunica con Escritorio remoto en la máquina virtual del servicio en la nube, tal como se explica en este artículo.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configuración de Escritorio remoto mediante Visual Studio 2017 versión 15.4 y versiones anteriores
 
@@ -82,9 +82,9 @@ Si comparte el proyecto con un equipo, lo mejor es desactivar la opción del asi
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Implementación desde un servidor de compilación con Visual Studio 2017 versión 15.5 y versiones posteriores
 
-Puede implementar un proyecto de servicio en la nube desde un servidor de compilación (por ejemplo, con Visual Studio Team Services) en el que Visual Studio 2017 versión 15.5 o una versión posterior está instalado en el agente de compilación. Con este acuerdo, la implementación se realiza desde el mismo equipo en el que está disponible el certificado de cifrado.
+Puede implementar un proyecto de servicio en la nube desde un servidor de compilación (por ejemplo, con Azure DevOps Services) en el que Visual Studio 2017 versión 15.5 o una versión posterior está instalado en el agente de compilación. Con este acuerdo, la implementación se realiza desde el mismo equipo en el que está disponible el certificado de cifrado.
 
-Para utilizar la extensión RDP desde Visual Studio Team Services, incluya los siguientes detalles en la definición de compilación:
+Para utilizar la extensión RDP desde Azure DevOps Services, incluya los siguientes detalles en la canalización de compilación:
 
 1. Incluya `/p:ForceRDPExtensionOverPlugin=true` en los argumentos de MSBuild para asegurarse de que la implementación funciona con la extensión RDP en lugar de con el complemento RDP. Por ejemplo: 
 

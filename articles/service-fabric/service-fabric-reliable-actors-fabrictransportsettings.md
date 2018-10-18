@@ -1,5 +1,5 @@
 ---
-title: Cambio de la configuración de FabricTransport en microservicios de Azure | Microsoft Docs
+title: Cambio de la configuración de FabricTransport en actores de Azure Service Fabric | Microsoft Docs
 description: Obtenga información sobre cómo configurar las opciones de comunicación de Azure Service Fabric Actor.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: aa4339fa1fe4b21369004e748492ee71cbe6d616
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021419"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052146"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configuración de FabricTransport de Reliable Actors
 

@@ -18,12 +18,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223956"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022805"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solución de problemas de la configuración de Enterprise State Roaming en Azure Active Directory
 
@@ -71,7 +71,7 @@ Enterprise State Roaming requiere que el dispositivo esté registrado con Azure 
 **Problema potencial**: **WamDefaultSet** y **AzureAdJoined** tienen "NO" en el valor del campo, el dispositivo está unido a un dominio y registrado con Azure AD y no se sincroniza. Si se muestra esto, el dispositivo puede que tenga que esperar la aplicación de la directiva o se producirá un error de autenticación cuando el dispositivo se conecte a Azure AD. El usuario puede tener que esperar unas pocas horas para la directiva se aplique. Otros pasos de solución de problemas pueden incluir volver a intentar el registro automático mediante el cierre y el inicio de sesión, o el mediante el inicio de la tarea en el Programador de tareas. En algunos casos, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
 
 
-**Problema potencial**: el campo de **AzureAdSettingsUrl** está vacío y el dispositivo no se sincroniza. El usuario puede haber iniciado sesión en el dispositivo antes de habilitar Enterprise State Roaming en el portal de Azure Active Directory. Reinicie el dispositivo pida al usuario que inicie sesión. Además, en el portal, pruebe a deshabilitar el administrador de TI y vuelva a habilitar la opción de que los usuarios puedan sincronizar la configuración y los datos de aplicaciones empresariales. Cuando se haya vuelto a habilitar, reinicie el dispositivo pida al usuario que inicie sesión. Si no se soluciona el problema, **AzureAdSettingsUrl** puede estar vacío en el caso de un certificado de dispositivo defectuoso. En este caso, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
+**Posible problema**: el campo de **SettingsUrl** está vacío y el dispositivo no se sincroniza. El usuario puede haber iniciado sesión en el dispositivo antes de habilitar Enterprise State Roaming en el portal de Azure Active Directory. Reinicie el dispositivo pida al usuario que inicie sesión. Además, en el portal, pruebe a deshabilitar el administrador de TI y vuelva a habilitar la opción de que los usuarios puedan sincronizar la configuración y los datos de aplicaciones empresariales. Cuando se haya vuelto a habilitar, reinicie el dispositivo pida al usuario que inicie sesión. Si el problema no se soluciona, puede que **SettingsUrl** esté vacío en el caso de un certificado de dispositivo defectuoso. En este caso, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming y Multi-Factor Authentication 
 En algunas circunstancias, Enterprise State Roaming no puede sincronizar los datos si se ha configurado Azure Multi-Factor Authentication. Para más información sobre estos síntomas, consulte el documento de soporte técnico [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -81,7 +81,7 @@ En algunas circunstancias, Enterprise State Roaming no puede sincronizar los dat
 **Problema potencial**: La sincronización puede producir un error si el administrador configura la directiva de acceso condicional de Multi-Factor Authentication de Active Directory Federation Services y caduca el token de acceso en el dispositivo. Asegúrese de iniciar sesión y de cerrarla con el PIN de Microsoft Passport for Work, o bien de completar Multi-Factor Authentication al acceder a otros servicios de Azure, como Office 365.
 
 ### <a name="event-viewer"></a>Visor de eventos
-Para la solución avanzada de problemas, se puede usar el Visor de eventos para buscar errores específicos. Estos aparecen documentados en la tabla siguiente. Los eventos se pueden encontrar en el Visor de eventos > Registros de aplicaciones y servicios > **Microsoft** > **Windows** > **SettingSync** y, para problemas relacionados con la identidad del proceso de sincronización, vaya a **Microsoft** > **Windows** > **AAD**.
+Para la solución avanzada de problemas, se puede usar el Visor de eventos para buscar errores específicos. Estos aparecen documentados en la tabla siguiente. Los eventos se pueden encontrar en Visor de eventos > Registros de aplicaciones y servicios > **Microsoft** > **Windows** > **SettingSync-Azure**; y, para problemas relacionados con la identidad del proceso de sincronización, vaya a **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Problemas conocidos
@@ -174,14 +174,6 @@ En el Visor de eventos, en los registros AAD/Operational, este error puede apare
 
 **Acción recomendada**  
 Continúe con los pasos enumerados en el artículo [KB3196528](https://support.microsoft.com/kb/3196528).  
-
-
-
-## <a name="next-steps"></a>Pasos siguientes
-
-- Emplee el foro [UserVoice](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) para proporcionar comentarios y realizar sugerencias sobre cómo mejorar Enterprise State Roaming.
-
-- Para más información, consulte [Información general de Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md). 
 
 ## <a name="related-topics"></a>Temas relacionados
 * [Información general de Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

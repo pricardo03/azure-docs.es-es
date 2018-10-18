@@ -3,23 +3,19 @@ title: 'Control de errores con Durable Functions: Azure'
 description: Aprenda a controlar errores en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763312"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377912"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Control de errores con Durable Functions (Azure Functions)
 
@@ -96,7 +92,7 @@ Existen varias opciones para personalizar la directiva de reintentos automático
 * **Backoff coefficient** (Coeficiente de retroceso): coeficiente que se usa para determinar la tasa de incremento del retroceso. De manera predeterminada, su valor es 1.
 * **Max retry interval** (Intervalo de reintento máximo): cantidad máxima de tiempo de espera entre reintentos.
 * **Retry timeout** (Tiempo de espera de reintento): cantidad máxima de tiempo durante el que realizar reintentos. El comportamiento predeterminado es realizar reintentos de manera indefinida.
-* **Personalizado**: se puede especificar una devolución de llamada definida por el usuario que determina si se debe reintentar una llamada de función.
+* **Manipulador**: se puede especificar una devolución de llamada definida por el usuario que determina si se debe reintentar una llamada de función.
 
 ## <a name="function-timeouts"></a>Tiempos de espera de función
 

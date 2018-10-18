@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0c2ae7e4cf0b19ab9e1c276504892a2a8aaa8dfc
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32155303"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297390"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -51,7 +51,7 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 7. Ahora haga clic en las **direcciones URL de respuesta**, edite la **dirección URL de respuesta**, pegue la dirección URL de la aplicación (del paso 1), modifique el protocolo para asegurarse de que tiene el protocolo **https://** (no http://) y, luego anexe */.auth/login/aad/callback* al final de la dirección URL (por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Haga clic en **Save**(Guardar).   
 8.  En este punto, copie el **identificador de la aplicación** en cuestión. Consérvelo para usarlo más adelante. Lo necesitará para configurar la aplicación de App Service.
 9. Cierre la página **Aplicación registrada**. En la página **Registros de aplicación**, haga clic en el botón **Puntos de conexión** en la parte superior y luego copie la dirección URL del **documento de metadatos de federación**. 
-10. Abra una ventana del explorador y navegue a la dirección URL pegando y yendo a la página XML. En la parte superior del documento, hay un elemento **EntityDescriptor**; debe haber un atributo **entityID** del formulario `https://sts.windows.net/` seguido de un GUID específico para el inquilino (denominado "identificador de inquilino"). Copie este valor: actúa como **dirección URL del emisor**. Más adelante configurará la aplicación para usarla.
+10. Abra una ventana del explorador y navegue a la dirección URL pegando y yendo a la página XML. Al principio del documento se encuentra un elemento **EntityDescriptor**. Busque el atributo **entityID** y copie su valor. Actúa como **dirección URL del emisor**. Más adelante configurará la aplicación para usarla.
 
 ### <a name="secrets"> </a>Incorporación de información de Azure Active Directory a la aplicación de App Service
 1. Vuelva a [Azure Portal] y vaya a su aplicación de App Service. Haga clic en **Autenticación y autorización**. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**. Haga clic en **Azure Active Directory**, en Proveedores de autenticación, para configurar la aplicación. (Opcional) De manera predeterminada, App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación. Establezca **Acción necesaria cuando la solicitud no está autenticada**, en **Iniciar sesión con Azure Active Directory**. Esta opción requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.

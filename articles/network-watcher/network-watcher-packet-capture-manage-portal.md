@@ -1,10 +1,10 @@
 ---
 title: 'Administración de capturas de paquetes con Azure Network Watcher: Azure Portal | Microsoft Docs'
-description: En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante Azure Portal
+description: Aprenda a administrar la característica de captura de paquetes de Network Watcher mediante Azure Portal.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
@@ -12,154 +12,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 09/10/2018
 ms.author: jdial
-ms.openlocfilehash: 18e5f8eda51f8834f6346eef3d7ad31bc556290a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 827a3c2f831c8e8fb459e494dcad58e3661e78bd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090204"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348164"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Administración de capturas de paquetes con Azure Network Watcher mediante Azure Portal
 
-> [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-packet-capture-manage-portal.md)
-> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI de Azure](network-watcher-packet-capture-manage-cli.md)
-> - [API de REST de Azure](network-watcher-packet-capture-manage-rest.md)
+La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico hacia y desde una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en la máquina virtual deseada, y permite ahorrar tiempo.
 
-La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico hacia y desde una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en el equipo deseado, y permite ahorrar tiempo.
-
-Este artículo le guiará por las diferentes tareas de administración que están actualmente disponibles para la captura de paquetes.
-
-- [**Inicio de una captura de paquetes**](#start-a-packet-capture)
-- [**Detención de una captura de paquetes**](#stop-a-packet-capture)
-- [**Eliminación de una captura de paquetes**](#delete-a-packet-capture)
-- [**Descarga de una captura de paquetes**](#download-a-packet-capture)
+En este artículo, aprenderá a iniciar, detener, descargar y eliminar una captura de paquetes. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se da por hecho que tiene los siguientes recursos:
+La captura de paquetes requiere la siguiente conectividad:
+* Conectividad saliente a una cuenta de almacenamiento a través del puerto 443.
+* Conectividad entrante y saliente a 169.254.169.254
+* Conectividad entrante y saliente a 168.63.129.16
 
-- Una instancia de Network Watcher en la región donde desea crear una captura de paquetes
-- Una máquina virtual con la extensión de captura de paquetes habilitada.
-
-> [!IMPORTANT]
-> La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
-
-### <a name="packet-capture-agent-extension-through-the-portal"></a>Extensión del agente de captura de paquetes a través del portal
-
-Para instalar el agente de captura de paquetes de máquina virtual a través del portal, vaya a la máquina virtual, haga clic en **Extensiones** > **Agregar** y busque **Agente para Windows de Network Watcher**
-
-![Vista del agente][agent]
-
-## <a name="packet-capture-overview"></a>Introducción a la captura de paquetes
-
-Navegue hasta [Azure Portal](https://portal.azure.com) y haga clic en **Redes** > **Network Watcher** > **Captura de paquetes**
-
-La página de información general muestra una lista de todos los paquetes que existen independientemente de su estado.
-
-> [!NOTE]
-> La captura de paquetes requiere la siguiente conectividad.
-> * Conectividad saliente a la cuenta de almacenamiento a través del puerto 443.
-> * Conectividad entrante y saliente a 169.254.169.254
-> * Conectividad entrante y saliente a 168.63.129.16
-
-![Pantalla de introducción a la captura de paquetes][1]
+Si un grupo de seguridad de red está asociado a la interfaz de red o a una subred en la que se encuentra la interfaz de red, asegúrese de que existen reglas que permiten los puertos anteriores. 
 
 ## <a name="start-a-packet-capture"></a>Inicio de una captura de paquetes
 
-Haga clic en **Agregar** para crear una captura de paquetes.
+1. En el explorador, navegue hasta [Azure Portal](https://portal.azure.com) y seleccione **Todos los servicios**; a continuación, seleccione **Network Watcher** en la **sección Redes**.
+2. Seleccione **Captura de paquetes** en **Herramientas de diagnóstico de red**. Se muestran las capturas de paquetes existentes, independientemente de su estado.
+3. Seleccione **Agregar** para crear una captura de paquetes. Puede seleccionar valores para las propiedades siguientes:
+   - **Suscripción**: la suscripción en la que se encuentra la máquina virtual para la que desea crear la captura de paquetes.
+   - **Grupo de recursos**: el grupo de recursos de la máquina virtual.
+   - **Máquina virtual de destino**: la máquina virtual para la que desea crear la captura de paquetes.
+   - **Nombre de la captura de paquetes**: un nombre para la captura de paquetes.
+   - **Cuenta de almacenamiento o archivo**: seleccione **Cuenta de almacenamiento**, **Archivo**, o ambas opciones. Si selecciona **Archivo**, la captura se escribe en una ruta de acceso dentro de la máquina virtual.
+   - **Ruta de acceso de archivo local**: ruta de acceso local en la máquina virtual donde se guardará la captura de paquetes (solo si se ha seleccionado *Archivo*). La ruta debe ser una ruta de acceso válida. Si usa una máquina virtual Linux, la ruta de acceso debe comenzar con */var/captures*.
+   - **Cuentas de almacenamiento**: seleccione una cuenta de almacenamiento existente si seleccionó *Cuenta de almacenamiento*. Esta opción solo está disponible si seleccionó **Almacenamiento**.
+   
+     > [!NOTE]
+     > Actualmente las cuentas de Premium Storage no se admiten para almacenar paquetes de captura.
 
-Las propiedades que se pueden definir en una captura de paquetes son:
+   - **Número máximo de bytes por paquete**: el número de bytes de cada paquete que se captura. Si se deja en blanco, se capturan todos los bytes.
+   - **Número máximo de bytes por sesión**: el número total de bytes que se capturan. Una vez que se alcanza el valor, la captura de paquetes se detiene.
+   - **Límite de tiempo (segundos)**: el límite de tiempo antes de que se detenga la captura de paquetes. El valor predeterminado es 18.000 segundos.
+   - Filtrado (opcional). Seleccione **+ Agregar filtro**.
+     - **Protocolo**: el protocolo por el que filtrar la captura de paquetes. Los valores disponibles son TCP, UDP y Any (cualquiera).
+     - **Dirección IP local**: filtra la captura de paquetes para los paquetes en los que la dirección IP local coincide con este valor.
+     - **Puerto local**: filtra la captura de paquetes para los paquetes en los que el puerto local coincide con este valor.
+     - **Dirección IP remota**: filtra la captura de paquetes para los paquetes en los que la dirección IP remota coincide con este valor.
+     - **Puerto remoto**: filtra la captura de paquetes para los paquetes en los que el puerto remoto coincide con este valor.
+    
+    > [!NOTE]
+    > Los valores de dirección IP y puerto pueden ser un solo valor, un rango de valores o un conjunto, como 80-1024, para el puerto. Puede definir tantos filtros como desee.
 
-**Configuración principal**
+4. Seleccione **Aceptar**.
 
-- **Suscripción**: este valor es la suscripción que se utiliza, se necesita una instancia de Network Watcher en cada suscripción.
-- **Grupo de recursos**: el grupo de recursos de destino de la máquina virtual.
-- **Máquina virtual de destino**: la máquina virtual que está ejecutando la captura de paquetes.
-- **Nombre de la captura de paquetes**: este valor es el nombre de la captura de paquetes.
-
-**Configuración de captura**
-
-- **Ruta de acceso de archivo local**: ruta de acceso local en la máquina virtual donde se guarda la captura de paquetes (solo si **[file]** está seleccionado). Debe especificar una ruta de acceso válida. Si usa una máquina virtual Linux, la ruta de acceso debe comenzar con /var/captures.
-- **Cuenta de almacenamiento**: determina si la captura de paquetes se guarda en una cuenta de almacenamiento.
-- **Archivo**: determina si una captura de paquetes se guarda localmente en la máquina virtual.
-- **Cuentas de almacenamiento**: la cuenta de almacenamiento seleccionada para guardar la captura de paquetes. La ubicación predeterminada es https://{nombre de la cuenta de almacenamiento}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{nombre del grupo de recursos}/providers/microsoft.compute/virtualmachines/{nombre de la máquina virtual}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Solo se habilita si está seleccionada la opción **Almacenamiento**)
-- **Ruta de acceso de archivo local**: la ruta de acceso local en una máquina virtual para guardar la captura de paquetes. (Solo se habilita si está seleccionada la opción **Archivo**). Se debe proporcionar una ruta de acceso válida. Para una máquina virtual Linux, la ruta de acceso debe comenzar con */var/captures*.
-- **Número máximo de bytes por paquete**: el número de bytes de cada paquete que se captura, si se deja en blanco se capturan todos los bytes.
-- **Número máximo de bytes por sesión**: número total de bytes que se capturan, una vez que se alcanza este valor la captura de paquetes se detiene.
-- **Límite de tiempo (segundos)**: establece un límite de tiempo para detener la captura del paquete. El valor predeterminado es 18 000 segundos.
-
-> [!NOTE]
-> Actualmente las cuentas de Premium Storage no se admiten para almacenar paquetes de captura.
-
-**Filtrado (opcional)**
-
-- **Protocolo**: el protocolo para filtrar la captura de paquetes. Los valores disponibles son TCP, UDP y Any (cualquiera).
-- **Dirección IP local**: este valor filtra la captura de paquetes a los paquetes en los que la dirección IP local coincide con este valor de filtro.
-- **Puerto local**: este valor filtra la captura de paquetes a los paquetes en los que el puerto local coincide con este valor de filtro.
-- **Dirección IP remota**: este valor filtra la captura de paquetes a los paquetes en los que la dirección IP remota coincide con este valor de filtro.
-- **Puerto remoto**: este valor filtra la captura de paquetes a los paquetes en los que el puerto remoto coincide con este valor de filtro.
+Una vez que haya transcurrido el límite de tiempo establecido en la captura de paquetes, esta se detiene y se puede revisar. También puede detener manualmente la sesión de captura de paquetes.
 
 > [!NOTE]
-> Los valores de dirección IP y puerto pueden ser un solo valor, un rango de valores o un conjunto. (es decir, 80-1024 para el puerto) Puede definir tantos filtros como desee.
-
-Una vez que se rellenan los valores, haga clic en **Aceptar** para crear la captura de paquetes.
-
-![Creación de una captura de paquetes][2]
-
-Una vez que haya transcurrido el límite de tiempo establecido en la captura de paquetes, esta se detendrá y se podrá revisar. También puede detener manualmente las sesiones de captura de paquetes.
+> El portal automáticamente:
+>  * Crea un monitor de red en la misma región en que existe la región de la máquina virtual seleccionada, si la región no tiene todavía un monitor de red.
+>  * Agrega la extensión de máquina virtual *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) o [Windows](../virtual-machines/windows/extensions-nwa.md) a la máquina virtual, si aún no se ha instalado.
 
 ## <a name="delete-a-packet-capture"></a>Eliminación de una captura de paquetes
 
-En la vista de captura de paquetes, haga clic en el **menú contextual** (...) o haga clic con el botón derecho y haga clic en **Eliminar** para detener la captura de paquetes
-
-![Eliminación de una captura de paquetes][3]
+1. En la vista de captura de paquetes, seleccione **...**  en el lado derecho de la captura de paquetes, o haga clic con el botón derecho en una captura de paquetes existente y seleccione **Eliminar**.
+2. Se le pide que confirme que desea eliminar la captura de paquetes. Seleccione **Sí**.
 
 > [!NOTE]
-> La eliminación de una captura de paquetes no elimina el archivo en la cuenta de almacenamiento.
-
-Se le pide que confirme que desea eliminar la captura de paquetes, haga clic en **Sí**
-
-![Confirmación][4]
+> La eliminación de una captura de paquetes no elimina el archivo de captura en la cuenta de almacenamiento ni en la máquina virtual.
 
 ## <a name="stop-a-packet-capture"></a>Detención de una captura de paquetes
 
-En la vista de captura de paquetes, haga clic en el **menú contextual** (...) o haga clic con el botón derecho y haga clic en **Detener** para detener la captura de paquetes
+En la vista de captura de paquetes, seleccione **...**  en el lado derecho de la captura de paquetes, o haga clic con el botón derecho en una captura de paquetes existente y seleccione **Detener**.
 
 ## <a name="download-a-packet-capture"></a>Descarga de una captura de paquetes
 
-Una vez finalizada la sesión de captura de paquetes, el archivo de captura se carga en Blob Storage o en un archivo local en la máquina virtual. La ubicación de almacenamiento de la captura de paquetes se define al crear la sesión. Una herramienta práctica para acceder a estos archivos de captura guardados en una cuenta de almacenamiento es el Explorador de Microsoft Azure Storage, que puede descargarse aquí: http://storageexplorer.com/
+Una vez finalizada la sesión de captura de paquetes, el archivo de captura se carga en Blob Storage o en un archivo local en la máquina virtual. La ubicación de almacenamiento de la captura de paquetes se define durante la creación de la captura de paquetes. Una herramienta práctica para acceder a los archivos de captura guardados en una cuenta de almacenamiento es el Explorador de Microsoft Azure Storage, que puede [descargar](http://storageexplorer.com/).
 
 Si se especifica una cuenta de almacenamiento, los archivos de captura de paquetes se guardan en una cuenta de almacenamiento en la siguiente ubicación:
+
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
+Si seleccionó **Archivo** cuando creó la captura, puede ver o descargar el archivo desde la ruta de acceso que configuró en la máquina virtual.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
-
-Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](diagnose-vm-network-traffic-filtering-problem.md)
-
-<!-- Image references -->
-[1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png
-[2]: ./media/network-watcher-packet-capture-manage-portal/figure2.png
-[3]: ./media/network-watcher-packet-capture-manage-portal/figure3.png
-[4]: ./media/network-watcher-packet-capture-manage-portal/figure4.png
-[agent]: ./media/network-watcher-packet-capture-manage-portal/agent.png
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Para obtener más información sobre cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
+- Para determinar si se permite el tráfico específico dentro o fuera de una máquina virtual, consulte [Diagnóstico de problemas al filtrar el tráfico de las máquinas virtuales](diagnose-vm-network-traffic-filtering-problem.md).

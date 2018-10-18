@@ -1,38 +1,42 @@
 ---
-title: Introducción a las directivas de seguridad de Azure Security Center | Microsoft Docs
-description: Obtenga información sobre las directivas de Azure Security Center y sus principales funcionalidades.
+title: Configuración de directivas de seguridad en Azure Security Center | Microsoft Docs
+description: Establezca la configuración de directivas de seguridad de Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
-ms.author: yurid
-ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776132"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295744"
 ---
-# <a name="security-policies-overview"></a>Introducción a las directivas de seguridad
-En este documento se proporciona información general sobre las directivas de seguridad de Security Center.
+# <a name="security-policy-settings"></a>Configuración de directiva de seguridad
+En este documento se ofrece información general sobre la configuración de directivas de seguridad en Security Center.
 
 ## <a name="what-are-security-policies"></a>¿Qué son las directivas de seguridad?
-Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Security Center, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo. 
+Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Security Center, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo.
 
-Las directivas de Security Center contienen los componentes siguientes:
+Puede establecer las opciones siguientes en Directiva de seguridad:
 
 - **Recopilación de datos**: determina el aprovisionamiento del agente y la configuración de la [colección de datos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Directiva de seguridad**: determina qué controles Security Center supervisa y recomienda. Puede editar la [directiva de seguridad](https://docs.microsoft.com/azure/security-center/security-center-policies) en Security Center. También puede usar [Azure Policy](security-center-azure-policy.md) (en versión preliminar limitada) para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración.
-- **Notificaciones por correo electrónico**: determina la configuración de contactos de seguridad y de [notificaciones por correo electrónico](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
-- **Plan de tarifa**: define la [selección de precios](https://docs.microsoft.com/azure/security-center/security-center-pricing) gratuitos o estándar. El plan elegido determina qué características de Security Center están disponibles para los recursos del ámbito. Puede especificar un plan para las suscripciones, los grupos de recursos y las áreas de trabajo. 
+- **Directiva de seguridad**: determina qué controles Security Center supervisa y recomienda. Puede editar la [directiva de seguridad](security-center-policies.md) en Security Center. También puede usar [Azure Policy](security-center-azure-policy.md) para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración. 
+- **Notificaciones por correo electrónico**: determina los contactos de seguridad y la configuración de [notificaciones por correo electrónico](security-center-provide-security-contact-details.md).
+- **Plan de tarifa**: define la [selección de precios](security-center-pricing.md) gratuitos o estándar. El plan elegido determina qué características de Security Center están disponibles para los recursos del ámbito. Puede especificar un plan para las suscripciones, los grupos de recursos y las áreas de trabajo.
+
+> [!NOTE]
+> Puede establecerlas todas por suscripción. En Áreas de trabajo, solo puede establecer Recopilación de datos y Plan de tarifa. En Grupos de recursos, solo puede establecer Plan de tarifa.
+>
 
 
 ## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
@@ -53,5 +57,3 @@ En este artículo ha aprendido a configurar directivas de seguridad en Azure Sec
 - [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo Security Center administra y protege los datos.
 * [Preguntas frecuentes acerca de Azure Security Center](security-center-faq.md): obtenga respuestas a las preguntas más frecuentes sobre cómo usar el servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
-
-

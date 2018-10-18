@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630763"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026863"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Preguntas más frecuentes sobre itinerancia de datos y configuración
 Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración.
@@ -35,12 +35,12 @@ Este artículo responde a algunas preguntas que los administradores de TI podrí
 * *Contraseñas*, entre las que se incluyen las contraseñas de Internet, perfiles de Wi-Fi, y otras.
 * *Preferencias de idioma*, que incluye la configuración de la distribución del teclado, el idioma del sistema, la fecha y hora, y mucho más.
 * *Características de facilidad de acceso*, como el tema de contraste alto, narrador o lupa
-* *Otra configuración de Windows*, como la configuración de símbolo del sistema y la lista de aplicaciones.
+* *Otras configuraciones de Windows*, como la configuración del mouse.
 
 **Datos de la aplicación**: las aplicaciones universales de Windows pueden escribir los datos de configuración en una carpeta de itinerancia y todos los datos escritos en esta carpeta se sincronizarán automáticamente. Depende del desarrollador de las aplicaciones individuales el diseñar una aplicación para sacar partido a esta funcionalidad. Para más información acerca de cómo desarrollar una aplicación universal de Windows que use la itinerancia, consulte [Almacenar y recuperar la configuración y otros datos de aplicación](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) y el [blog para desarrolladores de itinerancia de datos de aplicación de Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>¿Qué cuenta se usa para la sincronización de configuración?
-En Windows 8 y Windows 8.1, la sincronización de configuración siempre utiliza cuentas de Microsoft de consumidor. Los usuarios empresariales tenían la capacidad de conectar una cuenta de Microsoft a su cuenta de dominio de Active Directory para obtener acceso a la sincronización de configuración. En Windows 10, esta funcionalidad de cuenta de Microsoft conectada se ha sustituido por una plataforma de cuenta principal o secundaria.
+En Windows 8.1, siempre se usan cuentas Microsoft de consumo para la sincronización de la configuración. Los usuarios empresariales tenían la capacidad de conectar una cuenta de Microsoft a su cuenta de dominio de Active Directory para obtener acceso a la sincronización de configuración. En Windows 10, esta funcionalidad de cuenta de Microsoft conectada se ha sustituido por una plataforma de cuenta principal o secundaria.
 
 La cuenta principal se define como la cuenta utilizada para iniciar sesión en Windows. Puede ser una cuenta de Microsoft, una cuenta de Azure Active Directory (Azure AD), una cuenta de Active Directory local o una cuenta local. Además de la cuenta principal, los usuarios de Windows 10 pueden agregar una o más cuentas de nube secundarias a su dispositivo. Esta cuenta secundaria suele ser una cuenta de Microsoft, una cuenta de Azure AD o alguna otra cuenta como Gmail o Facebook. Estas cuentas secundarias proporcionan acceso a servicios adicionales, como el inicio de sesión único o a la Tienda Windows, pero no pueden activar la sincronización de configuración.
 
@@ -59,7 +59,7 @@ Si no se puede identificar al propietario de una aplicación, se movilizará con
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>¿Cómo actualizo desde la sincronización de configuración de cuenta de Microsoft en Windows 8 a la sincronización de configuración de Azure AD en Windows 10?
-Si es un usuario unido al dominio de Active Directory que ejecuta Windows 8 o Windows 8.1 con una cuenta de Microsoft conectada, sincronizará la configuración a través de la cuenta de usuario de Microsoft. Después de actualizar a Windows 10, continuará la sincronización de la configuración de usuario a través de la cuenta de Microsoft, siempre que sea un usuario unido a dominio y el dominio de Active Directory no se conecte con Azure AD.
+Si se ha unido al dominio de Active Directory que ejecuta Windows 8.1 con una cuenta Microsoft conectada, la configuración se sincronizará mediante la cuenta de usuario de Microsoft. Después de actualizar a Windows 10, continuará la sincronización de la configuración de usuario a través de la cuenta de Microsoft, siempre que sea un usuario unido a dominio y el dominio de Active Directory no se conecte con Azure AD.
 
 Si el dominio de Active Directory local se conecta con Azure AD, su dispositivo comenzará a intentar sincronizar la configuración mediante la cuenta de Azure AD conectada. Si el administrador de Azure AD no permite Enterprise State Roaming, su cuenta de Azure AD conectada detendrá la sincronización de la configuración. Si es un usuario de Windows 10 y ha iniciado sesión con una identidad de Azure AD, iniciará la sincronización de la configuración de Windows en cuanto el administrador habilite la sincronización de configuración a través de Azure AD.
 
@@ -94,7 +94,7 @@ Los administradores pueden configurar UE-V para usar un perfil itinerante en los
 En el futuro, Microsoft podría investigar formas de integrar UE-V profundamente en Windows y ampliar UE-V para movilizar la configuración a través de la nube de Azure AD.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>¿Se pueden almacenar configuraciones sincronizados y datos locales?
-Enterprise State Roaming almacena todos los datos sincronizados en la nube de Azure. UE-V ofrece una solución de itinerancia local.
+Enterprise State Roaming almacena todos los datos sincronizados en la nube de Microsoft. UE-V ofrece una solución de itinerancia local.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>¿Quién administra los datos que usan un perfil itinerante?
 Las empresas tienen la propiedad de los datos que usan un perfil itinerante mediante Enterprise State Roaming. Los datos se almacenan en un centro de datos de Azure. Todos los datos de usuario se cifran en tránsito y en reposo en la nube mediante el servicio Azure Rights Management de Azure Information Protection. Esto es una mejora comparado con la sincronización de la configuración basada en la cuenta de Microsoft, donde solo ser cifran determinados datos confidenciales, como las credenciales de usuario, antes de dejar el dispositivo.

@@ -1,5 +1,5 @@
 ---
-title: 'Prueba de código de ciencia de datos en Azure con el conjunto de datos de predicción de ingresos de adultos UCI: proceso de ciencia de datos en equipo y Visual Studio Team Services'
+title: 'Prueba de código de ciencia de datos en Azure con el conjunto de datos de predicción de ingresos de adultos UCI: proceso de ciencia de datos en equipo y Azure DevOps Services'
 description: Prueba de código de ciencia de datos con datos de predicción de ingresos de adultos UCI
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439504"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294707"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Prueba de código de ciencia de datos con el conjunto de datos de predicción de ingresos de adultos UCI
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
@@ -37,8 +37,8 @@ En este artículo se reemplaza el término "prueba unitaria" por "prueba de cód
 
 En este artículo se proporcionan referencias como recursos útiles.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services para el marco de pruebas
-En este artículo se describe cómo realizar y automatizar las pruebas mediante Visual Studio Team Services (VSTS). Puede optar por usar herramientas alternativas. También se muestra cómo configurar una compilación automática mediante VSTS y agentes de compilación. Para los agentes de compilación, usamos máquinas virtuales de ciencia de datos de Azure (DSVM).
+## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps para el marco de pruebas
+En este artículo se describe cómo realizar y automatizar las pruebas mediante Azure DevOps. Puede optar por usar herramientas alternativas. También se muestra cómo configurar una compilación automática mediante Azure DevOps y agentes de compilación. Para los agentes de compilación, usamos máquinas virtuales de ciencia de datos de Azure (DSVM).
 
 ## <a name="flow-of-code-testing"></a>Flujo de la prueba de código
 El flujo de trabajo global de la prueba de código en un proyecto de ciencia de datos tiene el siguiente aspecto: 
@@ -48,7 +48,7 @@ El flujo de trabajo global de la prueba de código en un proyecto de ciencia de 
     
 ## <a name="detailed-steps"></a>Pasos detallados
 
-Use los pasos siguientes para configurar y ejecutar pruebas de código y una compilación automatizada mediante un agente de compilación y VSTS:
+Siga estos pasos para configurar y ejecutar pruebas de código y una compilación automatizada mediante un agente de compilación y Azure DevOps:
 
 1. Cree un proyecto en la aplicación de escritorio de Visual Studio:
 
@@ -60,7 +60,7 @@ Use los pasos siguientes para configurar y ejecutar pruebas de código y una com
 
     ![Explorador de soluciones](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Introducir el código del proyecto en el repositorio de código de proyecto de VSTS: 
+1. Introduzca el código del proyecto en el repositorio de código de proyecto de Azure DevOps: 
 
     ![Repositorio de código de proyecto](./media/code-test/create_repo.PNG)
 
@@ -108,13 +108,13 @@ Use los pasos siguientes para configurar y ejecutar pruebas de código y una com
 
     ![Ejecución de las pruebas](./media/code-test/run_tests.PNG)
 
-1. Inserte el código en el repositorio del proyecto mediante comandos de Git. El trabajo más reciente se verá reflejado en breve en VSTS.
+1. Inserte el código en el repositorio del proyecto mediante comandos de Git. El trabajo más reciente se verá reflejado en breve en Azure DevOps.
 
     ![Comandos de Git para insertar código en el repositorio](./media/code-test/git_check_in.PNG)
 
-    ![Trabajo más reciente en VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Trabajo más reciente en Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Configure la compilación automática y la prueba en VSTS:
+1. Configure la compilación automática y la prueba en Azure DevOps:
 
     a. En el repositorio del proyecto, seleccione **Compilación y lanzamiento** y luego seleccione **+Nuevo** para crear un nuevo proceso de compilación.
 
@@ -128,7 +128,7 @@ Use los pasos siguientes para configurar y ejecutar pruebas de código y una com
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar un DSVM para finalizar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
+    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar un DSVM para finalizar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ Use los pasos siguientes para configurar y ejecutar pruebas de código y una com
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. Seleccione **Guardar y poner en cola** para finalizar el proceso de definición de compilación.
+    g. Seleccione **Guardar y poner en cola** para finalizar el proceso de canalización de compilación.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Ahora, cada vez que se inserte una nueva confirmación en el repositorio de código, se iniciará automáticamente el proceso de compilación. (Aquí usamos maestro como el repositorio, pero puede definir cualquier rama). El proceso ejecuta el archivo **test1.py** en la máquina del agente para asegurarse de que todos los elementos definidos en el código se ejecutan correctamente. 
 
-Si las alertas están configuradas correctamente, se le notificará por correo electrónico cuando finalice la compilación. También puede comprobar el estado de compilación en VSTS. Si se produce un error, puede comprobar los detalles de la compilación y averiguar qué parte se interrumpe.
+Si las alertas están configuradas correctamente, se le notificará por correo electrónico cuando finalice la compilación. También puede comprobar el estado de compilación en Azure DevOps. Si se produce un error, puede comprobar los detalles de la compilación y averiguar qué parte se interrumpe.
 
 ![Notificación por correo electrónico del éxito de la compilación](./media/code-test/email_build_succeed.PNG)
 
-![Notificación de VSTS del éxito de la compilación](./media/code-test/vs_online_build_succeed.PNG)
+![Notificación de Azure DevOps del éxito de la compilación](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte el [repositorio de predicción de ingresos UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para ejemplos concretos de pruebas unitarias para escenarios de ciencia de datos.
@@ -161,5 +161,5 @@ Si las alertas están configuradas correctamente, se le notificará por correo e
 ## <a name="references"></a>Referencias
 * [Proceso de ciencia de datos en equipo (TDSP)](https://aka.ms/tdsp)
 * [Herramientas de pruebas de Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
-* [Recursos de pruebas de VSTS](https://www.visualstudio.com/team-services/)
+* [Recursos de pruebas de Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Máquinas virtuales de ciencia de datos](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

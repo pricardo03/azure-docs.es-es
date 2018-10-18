@@ -3,7 +3,7 @@ title: Configuración de Azure Key Vault con la auditoría y la rotación de cla
 description: Utilice este tutorial para establecer la configuración con rotación de claves y supervisar los registros del almacén de claves.
 services: key-vault
 documentationcenter: ''
-author: swgriffith
+author: barclayn
 manager: mbaldwin
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
@@ -11,23 +11,30 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: stgriffi
-ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 06/12/2018
+ms.author: barclayn
+ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302024"
 ---
-# <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro
+# <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
+
 ## <a name="introduction"></a>Introducción
-Una vez que haya creado el almacén de claves, podrá utilizarlo para guardar las claves y los secretos. Ya no será necesario que las claves y secretos se guarden en las aplicaciones, sino que las aplicaciones solicitarán las claves al almacén cuando lo necesiten. De este modo, puede actualizar las claves y los secretos sin que esto afecte al rendimiento de la aplicación, lo que brinda un amplio abanico de posibilidades en lo que respecta a la administración de las claves y los secretos.
+
+Cuando disponga de un almacén de claves, puede empezar a usarlo para almacenar claves y secretos. Ya no será necesario que las claves y los secretos se guarden en las aplicaciones, sino que estas los solicitarán al almacén cuando sea preciso. De este modo, puede actualizar las claves y los secretos sin que esto afecte al rendimiento de la aplicación, lo que brinda un amplio abanico de posibilidades en lo que respecta a la administración de las claves y los secretos.
 
 >[!IMPORTANT]
 > Los ejemplos de este artículo se proporcionan únicamente con fines ilustrativos. No pretenden servir para su uso en producción. 
 
-En este artículo, se explica paso a paso un ejemplo sobre el uso de Azure Key Vault para guardar un secreto. En este caso, se trata de una clave de la cuenta de Azure Storage a la que accede una aplicación. El artículo también incluye una demostración de la implementación de una rotación programada de dicha clave. Por último, se explica paso a paso cómo supervisar los registros de auditoría del almacén de claves y cómo generar alertas cuando se realizan solicitudes inesperadas.
+Este artículo ofrece lo siguiente:
+
+- Un ejemplo de uso de Azure Key Vault para almacenar un secreto. En este tutorial, el secreto almacenado es la clave de la cuenta de Azure Storage a la que accede una aplicación. 
+- El artículo también incluye una demostración de la implementación de una rotación programada de dicha clave.
+- Se explica cómo supervisar los registros de auditoría del almacén de claves y cómo generar alertas cuando se realizan solicitudes inesperadas.
 
 > [!NOTE]
 > En este tutorial no se explica en detalle la configuración inicial del almacén de claves. Para obtener información, consulte [Introducción a Azure Key Vault](key-vault-get-started.md). Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [Administración de Key Vault mediante la CLI](key-vault-manage-with-cli2.md).
@@ -35,6 +42,7 @@ En este artículo, se explica paso a paso un ejemplo sobre el uso de Azure Key V
 >
 
 ## <a name="set-up-key-vault"></a>Configuración de Key Vault
+
 Para que una aplicación pueda recuperar un secreto de Key Vault, primero debe crear el secreto y guardarlo en el almacén. Para ello, abra una sesión de Azure PowerShell e inicie sesión en su cuenta de Azure con el siguiente comando:
 
 ```powershell
@@ -68,6 +76,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
 Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
+
 A continuación, obtenga el identificador URI para el secreto que creó. Este se utilizará en un paso posterior, cuando llame al almacén de claves para recuperar el secreto. Ejecute el siguiente comando de PowerShell y anote el valor de identificación, que es el URI del secreto:
 
 ```powershell
@@ -75,6 +84,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Configuración de la aplicación
+
 Ahora que tiene un secreto almacenado, puede utilizar el código para recuperarlo y utilizarlo. Existen varios pasos obligatorios para conseguirlo. El primero y más importante consiste en registrar la aplicación con Azure Active Directory y proporcionar a Key Vault la información de la aplicación para que pueda permitir que se realicen solicitudes desde dicha aplicación.
 
 > [!NOTE]
@@ -82,29 +92,23 @@ Ahora que tiene un secreto almacenado, puede utilizar el código para recuperarl
 >
 >
 
-Abra la pestaña Aplicaciones de Azure Active Directory.
+1. Acceda a Azure Active Directory.
+2. Elija **Registros de aplicaciones**. 
+3. Elija **Nuevo registro de aplicaciones** para agregar una aplicación a Azure Active Directory.
 
-![Abra las aplicaciones de Azure Active Directory](./media/keyvault-keyrotation/AzureAD_Header.png)
+    ![Abra las aplicaciones de Azure Active Directory](./media/keyvault-keyrotation/azure-ad-application.png)
 
-Elija **AGREGAR** para agregar una aplicación a Azure Active Directory.
+4. En la sección **Crear**, deje el tipo de aplicación como **APLICACIÓN WEB Y/O API WEB** y asigne un nombre a la aplicación. Especifique un valor en **URL DE INICIO DE SESIÓN** para la aplicación. Puede ser cualquier valor que desee para esta demostración.
 
-![Elija AGREGAR](./media/keyvault-keyrotation/Azure_AD_AddApp.png)
+    ![Crear registro de aplicación](./media/keyvault-keyrotation/create-app.png)
 
-Deje el tipo de aplicación como **APLICACIÓN WEB Y/O API WEB** y asigne un nombre a la aplicación.
+5. Una vez que la aplicación se ha agregado a Azure Active Directory, accederá automáticamente a la página de la aplicación. Seleccione **Configuración** y luego Propiedades. Copie el valor **Id. de aplicación**. Se necesitará en los pasos posteriores.
 
-![Asigne un nombre a la aplicación](./media/keyvault-keyrotation/AzureAD_NewApp1.png)
+A continuación, genere una clave para su aplicación para que pueda interactuar con Azure Active Directory. Puede crear una clave en la sección **Claves** en **Configuración**. No olvide anotar esta nueva clave de la aplicación de Azure Active Directory, ya que la necesitará más adelante. Tenga en cuenta que la clave no estará disponible después de salir de esta sección. 
 
-Especifique un valor en **URL DE INICIO DE SESIÓN** y en **URI DE ID DE APLICACIÓN**. En esta demostración, puede especificar los valores que desee y cambiarlos más adelante si es necesario.
+![Claves de aplicaciones de Azure Active Directory](./media/keyvault-keyrotation/create-key.png)
 
-![Especifique los identificadores URI necesarios](./media/keyvault-keyrotation/AzureAD_NewApp2.png)
-
-Una vez que la aplicación se ha agregado a Azure Active Directory, accederá automáticamente a la página de la aplicación. Una vez aquí, deberá hacer clic en la pestaña **Configurar** para buscar y copiar el valor de **ID de cliente**. Anote este valor, ya que lo necesitará posteriormente.
-
-A continuación, genere una clave para su aplicación para que pueda interactuar con Azure Active Directory. Puede crear esta clave en la sección **Claves** de la pestaña **Configuración**. No olvide anotar esta nueva clave de la aplicación de Azure Active Directory, ya que la necesitará más adelante.
-
-![Claves de aplicaciones de Azure Active Directory](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
-
-Antes de definir en el almacén de claves las llamadas que se realizarán desde la aplicación, debe proporcionar al almacén de claves los datos de la aplicación y sus permisos. El comando siguiente toma el nombre del almacén y el identificador de cliente de la aplicación de Azure Active Directory y concede a la aplicación acceso **Get** al almacén de claves.
+Antes de definir en el almacén de claves las llamadas que se realizarán desde la aplicación, debe proporcionar al almacén de claves los datos de la aplicación y sus permisos. El comando siguiente toma el nombre del almacén y el identificador de la aplicación de Azure Active Directory y concede a la aplicación el permiso **Get** para acceder al almacén de claves.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
@@ -160,6 +164,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 Cuando ejecute la aplicación, debería estar autenticado en Azure Active Directory y recuperar el valor del secreto de Azure Key Vault.
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotación de claves mediante Azure Automation
+
 Existen varias opciones para implementar una estrategia de rotación de los valores que se guardan como secretos de Azure Key Vault. Los secretos pueden rotarse mediante un proceso manual, mediante programación a través de llamadas a API o mediante un script de automatización. En este artículo, utilizaremos Azure PowerShell y Azure Automation para cambiar una clave de acceso de la cuenta de Azure Storage. A continuación, podrá actualizar un secreto del almacén de claves con esa nueva clave.
 
 Para que Azure Automation pueda establecer los valores del secreto en el almacén de claves, deberá obtener el identificador de cliente de la conexión AzureRunAsConnection que se creó al establecer la instancia de Azure Automation. Para encontrar este identificador, seleccione **Recursos** en la instancia de Azure Automation. A continuación, seleccione **Conexiones** y el nombre principal de servicio **AzureRunAsConnection**. Anote el **Identificador de la aplicación**.
@@ -406,6 +411,7 @@ Y agregue un archivo denominado project.json con el contenido siguiente:
        }
     }
 ```
+
 Cuando haga clic en **Guardar**, Azure Functions descargará los binarios necesarios.
 
 Cambie a la pestaña **Integrar** y asigne al parámetro del temporizador un nombre descriptivo para usarlo en la función. En el código anterior, el nombre esperado para el temporizador es *myTimer*. Especifique una [expresión CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) del modo siguiente: 0 \* \* \* \* \* para el temporizador que hará que la función se ejecute una vez por minuto.
@@ -417,6 +423,7 @@ Agregue una salida que sea de tipo *Azure Blob Storage*. Esta salida también ap
 Llegados a este punto, la función ya está lista. No olvide volver a la pestaña **Desarrollar** y guardar el código. Compruebe en la ventana de salida si hay algún error de compilación y, de ser así, corrija los errores como corresponda. Si el código se compila correctamente, debería ya comprobar cada minuto los registros del almacén de claves e insertar los nuevos eventos en la cola de Service Bus definida. Cada vez que la función se desencadena, debería aparecer la información de los registros en la ventana del registro.
 
 ### <a name="azure-logic-app"></a>Aplicación lógica de Azure
+
 Ahora, debe crear una aplicación lógica de Azure que seleccione los eventos que la función inserta en la cola de Service Bus, analice el contenido y envíe un correo electrónico si se cumple una determinada condición.
 
 [Cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) en **Nuevo -&gt; Aplicación lógica**.

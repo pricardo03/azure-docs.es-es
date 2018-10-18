@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: e50390a1b6385cabfd0e6b30340634860a062d8d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 32390b05d2ec258a68ed4f53135399675105a7e9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838949"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302092"
 ---
 # <a name="track-progress-of-data-science-projects"></a>Seguimiento del progreso de proyectos de ciencia de datos
 
-Los administradores de grupo de ciencia de datos, los responsables de equipo y de proyecto tienen que realizar el seguimiento del progreso de sus proyectos de equipo, qué trabajo se ha realizado en ellos y por quién, y lo que queda en la lista de tareas pendientes. 
+Los administradores de grupo de ciencia de datos, los responsables de equipo y de proyecto tienen que realizar el seguimiento del progreso de sus proyectos, qué trabajo se ha realizado en ellos y por quién, y lo que queda en la lista de tareas pendientes. 
 
-## <a name="vsts-dashboards"></a>Paneles de VSTS
-Si usa Visual Studio Team Services (VSTS), es posible crear paneles para hacer el seguimiento de las actividades y de los elementos de trabajo asociados a un proyecto ágil determinado. 
+## <a name="azure-devops-dashboards"></a>Paneles de Azure DevOps
+Si usa Azure DevOps, puede crear paneles para hacer el seguimiento de las actividades y de los elementos de trabajo asociados a un proyecto ágil determinado. 
 
-Para más información sobre cómo crear y personalizar los paneles y widgets en Visual Studio Team Services, consulte los conjuntos de instrucciones siguientes:
+Para más información sobre cómo crear y personalizar los paneles y widgets en Azure DevOps, consulte los conjuntos de instrucciones siguientes:
 
-- [Agregar y administrar paneles](https://docs.microsoft.com/vsts/report/dashboards/dashboards).
-- [Agregar widgets a un panel](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard).
+- [Agregar y administrar paneles](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards).
+- [Agregar widgets a un panel](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
 
 ## <a name="example-dashboard"></a>Panel de ejemplo
 
@@ -49,7 +49,7 @@ En el resto de los paneles se muestra el diagrama de flujo acumulado (CFD), la e
 
 ![dashboard](./media/track-progress/dashboard.png)
 
-Para una descripción de cómo crear estos gráficos, consulte las guías de inicio rápido y los tutoriales que aparecen en [Paneles](https://docs.microsoft.com/vsts/report/dashboards/).
+Para una descripción de cómo crear estos gráficos, consulte las guías de inicio rápido y los tutoriales que aparecen en [Paneles](https://docs.microsoft.com/azure/devops/report/dashboards/).
  
 ## <a name="next-steps"></a>Pasos siguientes
 

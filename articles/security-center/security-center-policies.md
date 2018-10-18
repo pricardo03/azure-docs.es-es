@@ -3,26 +3,28 @@ title: Establecimiento de directivas de seguridad en Azure Security Center | Mic
 description: Este documento le ayuda a configurar directivas de seguridad en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: terrylan
-ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c68b55beba445b7f5d30efe7155a47e7f6f76690
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756998"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161295"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Establecimiento de directivas de seguridad en Azure Security Center
 Este artículo le ayuda a configurar directivas de seguridad en Security Center.
+
+Para obtener instrucciones sobre cómo establecer directivas con PowerShell, vea [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles con el módulo Azure RM PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
 ## <a name="how-security-policies-work"></a>¿Cómo funcionan las directivas de seguridad?
 Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. En Security Center, puede editar las directivas y supervisar su cumplimiento.
@@ -37,13 +39,12 @@ Puede editar la directiva de seguridad predeterminada de cada una de las suscrip
 
 1. Inicie sesión en el Portal de Azure.
 
-2. En el panel **Security Center**, en **General**, seleccione **Directiva de seguridad**.
+2. En el panel **Security Center**, en **POLICY & COMPLIANCE** (DIRECTIVA Y CUMPLIMIENTO), seleccione **Security policy** (Directiva de seguridad).
 
 3. Seleccione la suscripción para la que quiere habilitar una directiva de seguridad.
 
-4. En la sección **Componentes de la directiva**, seleccione **Directiva de seguridad**.  
-    Esta es la directiva predeterminada asignada por Security Center. Puede activar o desactivar las recomendaciones de seguridad disponibles.
-
+4. Active las directivas que quiere habilitar para la suscripción. Recibirá recomendaciones en función de cada directiva que seleccione. 
+  ![lista de directivas](./media/security-center-policies/policies.png)
 5. Cuando termine de editar, seleccione **Guardar**.
 
 ## <a name="available-security-policy-definitions"></a>Definiciones de directivas de seguridad disponibles

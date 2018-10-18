@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4b4ded86075e49277bca84f5261b6762b0f4fcae
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937625"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737318"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
@@ -51,12 +51,9 @@ Para agregar un dispositivo real a una aplicación de Azure IoT Central:
 
 ## <a name="import-devices"></a>Importación de dispositivos
 
-Para conectar un gran número de dispositivos a la aplicación, Azure IoT Central ofrece importar dispositivos en bloque a través de un archivo CSV. 
-
-Requisitos del archivo CSV:
-1. El archivo CSV debe tener una única columna que contenga los identificadores de dispositivo.
-
-1. El archivo no debe tener ningún encabezado.
+Para conectar un gran número de dispositivos a la aplicación, Azure IoT Central ofrece importar dispositivos en bloque a través de un archivo CSV. El archivo CSV debe tener las siguientes columnas (y encabezados)
+1.  IOTC_DeviceID **<span style="color:Red">(debe estar en minúscula)</span>**
+1.  IOTC_DeviceName (opcional)
 
 
 Para registrar dispositivos en la aplicación en bloque:
@@ -119,11 +116,13 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 
     [![Exportación correcta](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. El archivo CSV exportado tendrá la siguiente información:
-    1. NOMBRE
-    1. Id. de dispositivo
-    1. Cadena de conexión principal
-
+1. El archivo CSV exportado tendrá la siguiente información de columnas: **id. del dispositivo, nombre del dispositivo, claves primaria y secundaria del dispositivo y huellas digitales del certificado primario y secundario**
+    *   IOTC_DEVICEID
+    *   IOTC_DEVICENAME
+    *   IOTC_SASKEY_PRIMARY
+    *   IOTC_SASKEY_SECONDARY
+    *   IOTC_X509THUMBPRINT_PRIMARY 
+    *   IOTC_X509THUMBPRINT_SECONDARY
 
 ## <a name="delete-a-device"></a>Eliminar un dispositivo
 

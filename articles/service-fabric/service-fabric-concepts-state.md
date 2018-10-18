@@ -1,6 +1,6 @@
 ---
-title: Administrar el estado en los microservicios de Azure Service Fabric | Microsoft Docs
-description: Cómo definir y administrar el estado de servicio en Service Fabric
+title: Administración del estado en los servicios de Azure Service Fabric | Microsoft Docs
+description: Aprenda a definir y administrar el estado de servicio en los servicios de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: eaa38e864da2525b640fa101ecc807f89de8eeaf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 48345be959bb9bebf7c30fa71de91b7881863d66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072204"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054964"
 ---
 # <a name="service-state"></a>Estado de servicio
 **Estado de servicio** hace referencia a los datos en memoria o en disco que el servicio necesita para funcionar. Incluye, por ejemplo, las variables de miembro y las estructuras de datos que el servicio lee y escribe para trabajar. Dependiendo del diseño del servicio, también puede incluir archivos u otros recursos que se almacenan en discos. Por ejemplo, los archivos que usaría una base de datos para almacenar los registros de transacciones y de datos.

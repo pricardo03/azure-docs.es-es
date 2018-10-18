@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446857"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303377"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
 
@@ -136,7 +136,7 @@ Con un entorno ASE externo, todas estas opciones de publicación se comportan de
 
 La gran diferencia con la publicación tiene que ver con un ASE con un ILB. Con un ASE con un ILB, los puntos de conexión de publicación solo están disponibles a través de ILB. El ILB está en una dirección IP privada en la subred de ASE en la red virtual. Si no tiene acceso de red al ILB, no puede publicar ninguna aplicación en ese entorno ASE. Tal como se indica en [Creación y uso de un ASE con un ILB][MakeILBASE], debe configurar DNS para las aplicaciones del sistema. Eso incluye el punto de conexión de SCM. Si no se han definido correctamente, no puede llevar a cabo la publicación. Los IDE también deben tener acceso de red al ILB para publicar directamente en él.
 
-Los sistemas de CI basados en Internet, como GitHub y Visual Studio Team Services, no funcionan con un ASE con un ILB ya que el punto de conexión de publicación no es accesible desde Internet. En lugar de eso, necesita usar un sistema de CI que use un modelo de extracción, como Dropbox.
+Los sistemas de CI basados en Internet, como GitHub y Azure DevOps, no funcionan con un ASE con un ILB, ya que el punto de conexión de publicación no es accesible desde Internet. En lugar de eso, necesita usar un sistema de CI que use un modelo de extracción, como Dropbox.
 
 Los puntos de conexión de publicación para las aplicaciones en un ASE con un ILB usan el dominio con el que se creó el ASE con un ILB. Puede verlo en el perfil de publicación de la aplicación y en la hoja del portal de la aplicación (en **Información general** > **Información esencial** y también en **Propiedades**). 
 

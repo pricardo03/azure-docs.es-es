@@ -3,21 +3,25 @@ title: Habilidades predefinidas de extracción de datos, lenguaje natural y proc
 description: Las habilidades cognitivas de extracción de datos, lenguaje natural y procesamiento de imágenes agregan semántica y estructura al contenido sin procesar de una canalización de Azure Seach.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 870cf9629c7af8faee0ce5709199b64910b27ffb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786704"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734541"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Habilidades predefinidas para el enriquecimiento del contenido (Azure Search)
 
-En este artículo se obtiene información sobre las habilidades cognitivas que proporciona la búsqueda cognitiva. Una *habilidad cognitiva* es una operación que transforma el contenido de alguna manera. Normalmente es un componente que extrae datos o deduce la estructura y, por tanto, aumenta la comprensión de los datos de entrada. Casi siempre la salida se basa en texto. Un *conjunto de habilidades* es una colección de habilidades que definen la canalización de enriquecimiento. 
+En este artículo se obtiene información sobre las habilidades cognitivas que proporciona Azure Search. Una *habilidad cognitiva* es una operación que transforma el contenido de alguna manera. Normalmente es un componente que extrae datos o deduce la estructura y, por tanto, aumenta la comprensión de los datos de entrada. Casi siempre la salida se basa en texto. Un *conjunto de habilidades* es una colección de habilidades que definen la canalización de enriquecimiento. 
+
+> [!NOTE]
+> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
 
 ## <a name="predefined-skills"></a>Habilidades predefinidas
 
@@ -37,6 +41,6 @@ Hay varias habilidades que son flexibles con respecto a lo que usan o producen. 
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Custom Skills interface definition](cognitive-search-custom-skill-interface.md) (Definición de interfaz de habilidades personalizadas)
 + [Tutorial: Enriched indexing with cognitive search](cognitive-search-tutorial-blob.md) (Tutorial: Indización enriquecida con búsqueda cognitiva)

@@ -8,20 +8,20 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047462"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302578"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integración continua e implementación continua en Azure IoT Edge
 
-En este artículo se muestra cómo puede usar las características de integración continua e implementación continua de Visual Studio Team Services (VSTS) y Microsoft Team Foundation Server (TFS) para compilar, probar e implementar aplicaciones de forma rápida y eficiente en su instancia de Azure IoT Edge. 
+En este artículo se muestra cómo puede usar las características de integración continua e implementación continua de Azure DevOps Services y Microsoft Team Foundation Server (TFS) para compilar, probar e implementar aplicaciones de forma rápida y eficaz en su instancia de Azure IoT Edge. 
 
 En este artículo, aprenderá a:
 * Crear e insertar en el repositorio una solución de IoT Edge de ejemplo que contiene pruebas unitarias
-* Instalar la extensión de Azure IoT Edge para su VSTS
+* Instale la extensión de Azure IoT Edge para Azure DevOps.
 * Configurar la integración continua (CI) para compilar la solución y ejecutar las pruebas unitarias
 * Configurar la implementación continua (CD) para implementar la solución y ver las respuestas
 
@@ -277,31 +277,31 @@ En esta sección, creará una solución de IoT Edge de ejemplo que contendrá pr
 
     ![Prueba unitaria](./media/how-to-ci-cd/unit-test.png)
 
-7. Guarde estos proyectos e insértelos en el repositorio de VSTS o TFS.
+7. Guarde estos proyectos e insértelos en el repositorio de Azure DevOps o TFS.
     
 
 > [!NOTE]
-> Para más información sobre el uso de repositorios de VSTS, consulte [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts) (Compartir el código con Visual Studio y Git de VSTS).
+> Para más información sobre el uso Azure Repos, vea [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts) (Compartir el código con Visual Studio y Azure Repos).
 
 
 ## <a name="configure-continuous-integration"></a>Configuración de la integración continua
-En esta sección, creará una definición de compilación que está configurada para ejecutarse automáticamente al insertar en el repositorio los cambios realizados en la solución de IoT Edge de ejemplo, y ejecutará automáticamente las pruebas unitarias que contiene.
+En esta sección, creará una canalización de compilación que está configurada para ejecutarse automáticamente al insertar en el repositorio los cambios realizados en la solución de IoT Edge de ejemplo, y ejecutará automáticamente las pruebas unitarias que contiene.
 
-1. Inicie sesión en su cuenta de VSTS (**https://**_su cuenta_**. visualstudio.com**) y abra el proyecto donde insertó en el repositorio la aplicación de ejemplo.
+1. Inicie sesión en la organización de Azure DevOps (**https://**_su-cuenta_**.visualstudio.com**) y abra el proyecto donde insertó en el repositorio la aplicación de ejemplo.
 
     ![Inserción del código en el repositorio](./media/how-to-ci-cd/init-project.png)
 
-1. Visite [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) en VSTS Marketplace. Haga clic en **Get it free** y siga los pasos del asistente para instalar esta extensión en su cuenta de VSTS o descargarla en su TFS.
+1. Visite [Azure IoT Edge para Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) en Azure DevOps Marketplace. Haga clic en **Obtener gratis** y siga los pasos del asistente para instalar esta extensión en la organización de Azure DevOps o descargarla en su TFS.
 
     ![Instalación de la extensión](./media/how-to-ci-cd/install-extension.png)
 
-1. En su instancia de VSTS, abra el centro **Compilación &amp; Versión** y, en la pestaña **Compilaciones**, elija **+Nueva definición**. O bien, si ya tiene definiciones de compilación, elija el botón **+Nuevo**. 
+1. En su instancia de Azure DevOps, abra el centro **Compilación &amp; Versión** y, en la pestaña **Compilaciones**, elija **+ Nueva canalización**. O bien, si ya tiene canalizaciones de compilación, elija el botón **+ Nuevo**. 
 
     ![Nueva compilación](./media/how-to-ci-cd/add-new-build.png)
 
-1. Si se le solicita, seleccione el tipo de origen **Git de VSTS** y, luego, seleccione el proyecto, el repositorio y la rama donde está ubicado el código. Elija **Continuar**.
+1. Si se le solicita, seleccione el tipo de origen **GIT de Azure DevOps** y, luego, seleccione el proyecto, el repositorio y la rama donde está ubicado el código. Elija **Continuar**.
 
-    ![Selección de Git de VSTS](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Seleccionar GIT de Azure DevOps](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. En la ventana **Seleccione una plantilla** , elija **Proceso vacío** para comenzar con un proceso vacío.
 
@@ -343,9 +343,9 @@ En esta sección, creará una definición de compilación que está configurada 
 
     ![Desencadenador](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Guarde la nueva definición de compilación y ponga la nueva compilación en cola. Haga clic en el botón **Save & queue** (Guardar y poner en cola).
+1. Guarde la nueva canalización de compilación y ponga la nueva compilación en cola. Haga clic en el botón **Save & queue** (Guardar y poner en cola).
 
-1. Elija el vínculo a la compilación en la barra de mensajes que aparece. O bien, vaya a la definición de compilación para ver el trabajo de compilación más reciente en cola.
+1. Elija el vínculo a la compilación en la barra de mensajes que aparece. O bien, vaya a la canalización de compilación para ver el trabajo de compilación más reciente en cola.
 
     ![Compilación](./media/how-to-ci-cd/build-def.png)
 

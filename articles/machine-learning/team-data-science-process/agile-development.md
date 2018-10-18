@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: b57b77f5adfa3fb73372ac8297f408fb339b5d79
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a032127d249f944d08cc6578a03f1a7e5a658361
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837436"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301096"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desarrollo de Agile de proyectos de ciencia de datos
 
@@ -31,7 +31,7 @@ En este artículo se incluyen instrucciones acerca de cómo:
 2. **Agregar elementos de trabajo** a los sprint. 
 
 > [!NOTE]
-> En el siguiente conjunto de instrucciones se detallan los pasos necesarios para configurar un entorno de equipo de proceso de ciencia de datos en equipo mediante Visual Studio Team Services (VSTS). Especifican cómo llevar a cabo estas tareas con VSTS, ya que es así cómo se implementa TDSP en Microsoft.  Si decide usar VSTS, los elementos (3) y (4) de la lista anterior son las ventajas que obtendrá de forma natural. Si se usa otra plataforma de hospedaje de código para el grupo, las tareas que debe realizar el responsable de equipo seguirán siendo las mismas. Pero la forma de completar estas tareas va a ser diferente. Por ejemplo, el elemento de la sección seis, **Vincular un elemento de trabajo a una rama de GIT**, podría no ser tan sencillo como en VSTS.
+> En el siguiente conjunto de instrucciones se detallan los pasos necesarios para configurar un entorno de equipo de proceso de ciencia de datos en equipo (TDSP) mediante Azure DevOps Services. Se especifica cómo llevar a cabo estas tareas con Azure DevOps Services ya que es así cómo se implementa el proceso de ciencia de datos en equipo (TDSP) en Microsoft.  Si decide usar Azure DevOps Services, los elementos (3) y (4) de la lista anterior son las ventajas que obtendrá de forma natural. Si se usa otra plataforma de hospedaje de código para el grupo, las tareas que debe realizar el responsable de equipo seguirán siendo las mismas. Pero la forma de completar estas tareas va a ser diferente. Por ejemplo, el elemento de la sección seis, **Vínculo de un elemento de trabajo con una rama de GIT**, podría no ser tan sencillo como en Azure DevOps Services.
 >
 >
 
@@ -42,7 +42,7 @@ En la siguiente ilustración se muestra un flujo de trabajo habitual de planeaci
 
 ##  1. <a name='Terminology-1'></a>Terminología 
 
-En la plataforma de planeamiento de sprint del proceso de ciencia de datos en equipo, hay cuatro tipos más usados de **elementos de trabajo**: **característica**, **caso de usuario**, **tarea** y **error**. Cada proyecto de equipo mantiene un único trabajo pendiente para todos los elementos de trabajo. No hay ningún trabajo pendiente en el nivel de repositorio de Git en un proyecto de equipo. Estas son sus definiciones:
+En la plataforma de planeamiento de sprint del proceso de ciencia de datos en equipo, hay cuatro tipos más usados de **elementos de trabajo**: **característica**, **caso de usuario**, **tarea** y **error**. Cada proyecto mantiene un único trabajo pendiente para todos los elementos de trabajo. No hay ningún trabajo pendiente en el nivel de repositorio de GIT en un proyecto. Estas son sus definiciones:
 
 - **Característica**: una característica se corresponde a una interacción de proyecto. Las distintas interacciones con un cliente se consideran características diferentes. De igual forma, es mejor considerar las distintas fases de un proyecto con un cliente como características diferentes. Si elige un esquema como ***ClientName-EngagementName*** para denominar las características, puede reconocer fácilmente el contexto del proyecto o interacción y de los propios nombres.
 - **Caso**: los casos son elementos de trabajo diferentes que son necesarios para completar una característica (proyecto) completa. Ejemplos de casos incluyen:
@@ -69,14 +69,14 @@ En la plataforma de planeamiento de sprint del proceso de ciencia de datos en eq
 
 ## 2. <a name='SprintPlanning-2'></a>Planeamiento de sprint 
 
-El planeamiento de sprint es útil para la priorización del proyecto y el planeamiento y asignación de recursos. Muchos científicos de datos interactúan con varios proyectos, cada uno de los cuales puede tardar meses en completarse. Los proyectos suelen transcurrir a diferente ritmo. En el servidor de VSTS, puede crear, administrar y realizar el seguimiento fácilmente de los elementos de trabajo en el proyecto de equipo, y llevar a cabo el planeamiento de sprint para garantizar que los proyectos avanzan de la forma prevista. 
+El planeamiento de sprint es útil para la priorización del proyecto y el planeamiento y asignación de recursos. Muchos científicos de datos interactúan con varios proyectos, cada uno de los cuales puede tardar meses en completarse. Los proyectos suelen transcurrir a diferente ritmo. En Azure DevOps Services, puede crear, administrar y realizar el seguimiento fácilmente de los elementos de trabajo en el proyecto, y llevar a cabo el planeamiento de sprint para garantizar que los proyectos avanzan de la forma prevista. 
 
-Siga [este vínculo](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) para obtener instrucciones paso a paso sobre el planeamiento de sprint en VSTS. 
+Siga [este vínculo](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) para obtener instrucciones detalladas sobre el planeamiento de sprint en Azure DevOps Services. 
 
 
 ## 3. <a name='AddFeature-3'></a>Adición de una característica  
 
-Una vez creado el repositorio del proyecto en un proyecto de equipo, vaya a la página **Introducción** y haga clic en **Administrar el trabajo**.
+Una vez creado el repositorio del proyecto en un proyecto, vaya a la página **Introducción** y haga clic en **Administrar el trabajo**.
 
 ![2](./media/agile-development/2-sprint-team-overview.png)
 
@@ -161,11 +161,11 @@ En este artículo se explica cómo configurar una plantilla de proceso de cienci
 
 Una vez creada la plantilla de proceso de ciencia de datos, puede crear y realizar un seguimiento de los elementos de trabajo de ciencia de datos correspondientes al ciclo de vida del TDSP.
 
-1. Cuando cree un nuevo proyecto de equipo, seleccione "Agile\AgileDataScienceProcess" como **Proceso de elemento de trabajo**:
+1. Cuando cree un nuevo proyecto, seleccione "Agile\AgileDataScienceProcess" como **Proceso de elemento de trabajo**:
 
     ![15](./media/agile-development/15-newproject.png)
 
-2. Vaya al proyecto de equipo recién creado y haga clic en **Trabajo** -> **Trabajos pendientes**.
+2. Vaya al proyecto recién creado y haga clic en **Trabajo** -> **Trabajos pendientes**.
 
 3. Haga que "Proyectos de TDSP" sea visible haciendo clic en **Definir la configuración del equipo** y compruebe "Proyectos de TDSP"; a continuación, haga clic en Guardar.
 

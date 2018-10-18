@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57d3566e973f2bcd0ecea43173df5f65c96b404f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658424"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634870"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure
 
@@ -802,9 +802,7 @@ Para configurar la plantilla de varios SID de ASCS/SCS, en la [plantilla de vari
   -  **Disponibilidad del sistema**. Seleccione **Alta disponibilidad**.
   -  **Nombre de usuario y contraseña del administrador**. Cree un nuevo usuario que pueda usarse para iniciar sesión en la máquina.
   -  **Subred nueva o existente**. Establezca si es necesario crear una red virtual y subred nuevas o si se debe usar una subred existente. Si ya tiene una red virtual conectada a la red local, seleccione la **existente**.
-  -  **Identificador de subred**. Establezca el identificador de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la red privada virtual (VPN) o la red virtual de ExpressRoute para conectar la máquina virtual a la red local. Normalmente, el identificador tiene este aspecto:
-
-   /subscriptions/<*identificador de suscripción*>/resourceGroups/<*nombre del grupo de recursos*>/providers/Microsoft.Network/virtualNetworks/<*nombre de la red virtual*>/subnets/<*nombre de la subred*>
+  -  **Identificador de subred**. Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este formato: /subscriptions/<*id. de suscripción*>/resourceGroups/<*nombre del grupo de recursos*>/providers/Microsoft.Network/virtualNetworks/<*nombre de la red virtual*>/subnets/<*nombre la de subred*>
 
 La plantilla implementa una instancia de Azure Load Balancer que admite varios sistemas SAP.
 

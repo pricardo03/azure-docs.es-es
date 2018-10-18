@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9db0fa29f6af0053d45f9f0238b52ac34fdb464a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f1bbbecf1f40b110614b3da9874d5d2c560f9e58
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223268"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024642"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configuración de MDM y directivas de grupo
 Use esta configuración de directiva de grupo y de dispositivos móviles (MDM) de solo en dispositivos de empresa, dado que estas directivas se aplican en todo el dispositivo del usuario. Aplicar una directiva MDM para deshabilitar la sincronización de configuración para un dispositivo de usuario personal ejercerá un impacto negativo en el uso de ese dispositivo. Además, otras cuentas de usuario en el dispositivo también se verán afectadas por la directiva.
@@ -30,7 +30,7 @@ Las empresas que desean administrar la movilidad para sus dispositivos personale
 Las tablas siguientes describen la configuración de la directiva disponible.
 
 ## <a name="mdm-settings"></a>Configuración de MDM
-La configuración de directiva MDM se aplica a Windows 10 y Windows 10 Mobile.  El soporte para Windows 10 Mobile existe solo para la itinerancia basada en cuentas de Microsoft a través de la cuenta OneDrive del usuario.  Consulte la sección "Dispositivos y puntos de conexión" para obtener detalles sobre qué dispositivos son compatibles para la sincronización basad en Azure AD.
+La configuración de directiva MDM se aplica a Windows 10 y Windows 10 Mobile.  El soporte para Windows 10 Mobile existe solo para la itinerancia basada en cuentas de Microsoft a través de la cuenta OneDrive del usuario.  Consulte la sección [Dispositivos y puntos de conexión](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) para información detallada sobre qué dispositivos se admiten para la sincronización basada en Azure AD.
 
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |

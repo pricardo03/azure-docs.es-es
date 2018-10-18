@@ -2,24 +2,20 @@
 title: Enlaces de archivo externo para Azure Functions (experimental)
 description: Uso de enlaces de archivo externo en Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27607928"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093777"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Enlaces de archivo externo de Azure Functions (experimental)
 En este artículo se muestra cómo manipular archivos de distintos proveedores de SaaS (como Dropbox o Google Drive) en Azure Functions. Azure Functions admite enlaces de desencadenador, entrada y salida para archivos externos. Estos enlaces crean conexiones de API para los proveedores de SaaS o usan conexiones de API existentes del grupo de recursos de Function App.
@@ -380,7 +376,7 @@ En las funciones de C# también puede enviar la salida a cualquiera de los sigui
 * `CloudBlockFile`
 * `CloudPageFile`
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

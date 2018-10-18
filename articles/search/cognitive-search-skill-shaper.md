@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 311f4bd67081de567763783a9d86540eda36d9f8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786774"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729010"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
@@ -27,6 +27,8 @@ De forma predeterminada, esta técnica admite objetos de un nivel de profundidad
 
 En la respuesta, el nombre de la salida es siempre "salida". Internamente, la canalización puede asignar otro nombre, por ejemplo, "analyzedText" en los ejemplos siguientes a "salida", pero la propia habilidad Conformador devuelve "salida" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
 
+> [!NOTE]
+> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -154,6 +156,6 @@ En este caso, Conformador acopla todos los títulos de capítulos para crear una
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
-+ [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 

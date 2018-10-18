@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, introducción, aprovisionamiento en la nube, a
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: e710770131c844598762feebe09ba50dc120de0c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106907"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160752"
 ---
 # <a name="ansible-with-azure"></a>Ansible con Azure
 
@@ -44,6 +44,10 @@ A través de su característica de [inventario dinámico](http://docs.ansible.co
 
 ## <a name="additional-azure-marketplace-options"></a>Opciones adicionales de Azure Marketplace
 La imagen en Azure Marketplace de [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) de Red Hat ayuda a las organizaciones a escalar la automatización de TI y administrar implementaciones complejas en infraestructuras físicas, virtuales y en la nube. Ansible Tower incluye funcionalidades que proporcionan los niveles adicionales de visibilidad, control, seguridad y eficacia que necesitan las empresas de hoy en día. Ansible Tower cifra las credenciales como claves de Azure y SSH de forma que puede delegar trabajos a empleados con menos experiencia sin el riesgo de exponer las credenciales.
+
+## <a name="ansible-module-and-version-matrix-for-azure"></a>Matriz de módulo y versión de Ansible para Azure
+Ansible se suministra con una serie de módulos que se pueden ejecutar directamente en los hosts remotos o mediante guiones de procedimientos.
+En [Matriz de módulo y versión de Ansible](./ansible-matrix.md) se enumeran los módulos de Ansible para Azure que pueden aprovisionar recursos en la nube de Azure, como máquinas virtuales, redes y servicios de contenedor. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

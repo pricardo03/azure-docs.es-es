@@ -10,18 +10,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859983"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050194"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
 En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos de Azure Cosmos DB. Para información sobre la biblioteca BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial, se va a compilar una aplicación de Java que genera documentos aleatorios que se importan en bloque en un contenedor de Azure Cosmos DB. Tras la importación, se actualizarán en masa algunas propiedades de un documento. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.  
 
@@ -46,7 +46,7 @@ Ahora vamos a pasar a trabajar con el código mediante la descarga de una aplica
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-El repositorio clonado contiene dos ejemplos “bulkimport” y “bulkupdate” relacionados con la carpeta “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor”. La aplicación “bulkimport” genera documentos aleatorios y los importa en Azure Cosmos DB. La aplicación “bulkupdate” actualiza algunos documentos en Azure Cosmos DB. En las secciones siguientes, se revisará el código en cada una de estas aplicaciones de ejemplo. 
+El repositorio clonado contiene dos ejemplos "bulkimport" y "bulkupdate" relacionados con la carpeta "\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor". La aplicación "bulkimport" genera documentos aleatorios y los importa en Azure Cosmos DB. La aplicación "bulkupdate" actualiza algunos documentos en Azure Cosmos DB. En las secciones siguientes, se revisará el código en cada una de estas aplicaciones de ejemplo. 
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importación de datos en masa a Azure Cosmos DB
 
@@ -120,7 +120,7 @@ El repositorio clonado contiene dos ejemplos “bulkimport” y “bulkupdate”
    |List<Exception> getErrors() |  Obtiene la lista de errores si algunos documentos fuera del lote proporcionados a la llamada API de importación en bloque no se pudieron insertar.       |
    |List<Object> getBadInputDocuments()  |    La lista de documentos con formato incorrecto no importados correctamente en la llamada API de importación en bloque. El usuario debe corregir los documentos devueltos y reintentar la importación. Los documentos con formato incorrecto incluyen documentos cuyo valor de identificador no es una cadena (null o cualquier otro tipo de datos se consideran no válidos).     |
 
-5. Una vez que la aplicación de importación en bloque está lista, cree la herramienta de línea de comandos desde el origen con el uso del comando "mvn clean package". Este comando genera un archivo jar en la carpeta de destino:  
+5. Una vez que la aplicación de importación en bloque está lista, compile la herramienta de línea de comandos desde el origen con el comando "mvn clean package". Este comando genera un archivo jar en la carpeta de destino:  
 
    ```java
    mvn clean package
@@ -183,7 +183,7 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
    |Duration getTotalTimeTaken()  |   El tiempo total que tarda la llamada API de actualización en masa en completar la ejecución.      |
    |List<Exception> getErrors()   |     Obtiene la lista de errores si algunos documentos fuera del lote proporcionados a la llamada API de actualización en masa no se pudieron insertar.      |
 
-3. Una vez que la aplicación de actualización en masa está lista, cree la herramienta de línea de comandos desde el origen con el uso del comando "mvn clean package". Este comando genera un archivo jar en la carpeta de destino:  
+3. Una vez que la aplicación de actualización masiva está lista, compile la herramienta de línea de comandos desde el origen con el comando "mvn clean package". Este comando genera un archivo jar en la carpeta de destino:  
 
    ```
    mvn clean package

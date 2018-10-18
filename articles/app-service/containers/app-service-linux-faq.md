@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444596"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295725"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -34,8 +34,7 @@ Si tiene alguna pregunta, comente este artículo.
 
 Puede encontrar todos los archivos de Docker en [GitHub](https://github.com/azure-app-service). Puede encontrar todos los contenedores de Docker en [Docker Hub](https://hub.docker.com/u/appsvc/).
 
-
-  **¿Cuáles son los valores previsibles para la sección del archivo de inicio cuando se configura la pila en tiempo de ejecución?**
+**¿Cuáles son los valores previsibles para la sección del archivo de inicio cuando se configura la pila en tiempo de ejecución?**
 
 Para Node.js, puede especificar el archivo de configuración de PM2 o el archivo de script. Para .NET Core, debe especificar el nombre del archivo DLL compilado como `dotnet <myapp>.dll`. Para Ruby, puede especificar un script de Ruby con el que quiera inicializar la aplicación.
 
@@ -75,7 +74,7 @@ Sí, es necesario establecer un valor de la aplicación llamado `WEBSITE_WEBDEPL
 
 Si se produce un error en la implementación de Git en la aplicación web de Linux, puede elegir una de las opciones siguientes para implementar el código de aplicación:
 
-- Use la característica Entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio de GIT de Team Services o en un repositorio GitHub para usar Azure Continuous Delivery. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
+- Use la característica Entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio GIT de Azure DevOps o en un repositorio GitHub para usar Azure Continuous Delivery. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
 
 - Use la [API ZIP deploy](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) y vaya a la carpeta en la que desea implementar el código. Ejecute el código siguiente:
 

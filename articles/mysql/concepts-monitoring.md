@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 03/15/2018
-ms.openlocfilehash: af90fb4c89cf552d4c5637db08ef0acd9984b31b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264704"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981948"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Supervisión en Azure Database for MySQL
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MySQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor MySQL. 
@@ -31,11 +31,16 @@ Estas métricas están disponibles para Azure Database for MySQL:
 |memory_percent|Porcentaje de memoria|Percent|Porcentaje de memoria en uso.|
 |io_consumption_percent|Porcentaje de E/S|Percent|Porcentaje de E/S en uso.|
 |storage_percent|Porcentaje de almacenamiento|Percent|Porcentaje de almacenamiento que se usa más allá del límite máximo del servidor.|
-|storage_used|Almacenamiento utilizado|Bytes|Cantidad de almacenamiento en uso. El almacenamiento que usa el servicio incluye los archivos de base de datos, los registros de transacciones y los registros de servidor.|
+|storage_used|Almacenamiento utilizado|Bytes|Cantidad de almacenamiento en uso. El almacenamiento que usa el servicio puede incluir los archivos de base de datos, los registros de transacciones y los registros de servidor.|
+|serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|El porcentaje usado del almacenamiento máximo de registro del servidor.|
+|serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|La cantidad de almacenamiento de registro del servidor en uso.|
+|serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|El almacenamiento máximo de registro de este servidor.|
 |storage_limit|Límite de almacenamiento|Bytes|Almacenamiento máximo de este servidor.|
-|active_connections|Conexiones activas totales|Recuento|Número de conexiones activas al servidor.|
-|connections_failed|Conexiones con errores totales|Recuento|Número de conexiones con errores al servidor.|
-
+|active_connections|Conexiones activas|Recuento|Número de conexiones activas al servidor.|
+|connections_failed|Conexiones con errores|Recuento|Número de conexiones con errores al servidor.|
+|seconds_behind_master|Intervalo de replicación en segundos|Recuento|El número de segundos que el servidor de réplica se retrasa en relación con el servidor maestro.|
+|network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
+|network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.

@@ -8,13 +8,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: a2c992a47e40a4f8764f5950c65bb90f1cd9e066
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 7c58162048de341468b69a29c55edf346b376e9b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045150"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733821"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -29,11 +29,11 @@ Hay dos formas de configurar una tienda de metadatos para los clústeres de HDIn
 
 ## <a name="default-metastore"></a>Tienda de metadatos predeterminada
 
-De forma predeterminada, HDInsight aprovisiona una tienda de metadatos con cada tipo de clúster. Pero en vez de esto, puede especificar una tienda de metadatos personalizada. La tienda de metadatos predeterminada incluye las siguientes consideraciones:
-- No implica costes adicionales. HDInsight aprovisiona una tienda de metadatos con cada tipo de clúster sin ningún coste adicional para el usuario.
-- Cada tienda de metadatos predeterminada forma parte del ciclo de vida del clúster. Al eliminar un clúster, también se eliminan esa tienda de metadatos y los metadatos.
+De forma predeterminada, HDInsight crea una tienda de metadatos con cada tipo de clúster. Pero en vez de esto, puede especificar una tienda de metadatos personalizada. La tienda de metadatos predeterminada incluye las siguientes consideraciones:
+- No implica costes adicionales. HDInsight crea una tienda de metadatos con cada tipo de clúster sin ningún coste adicional para el usuario.
+- Cada tienda de metadatos predeterminada forma parte del ciclo de vida del clúster. Al eliminar un clúster, también se eliminan la tienda de metadatos y los metadatos correspondientes.
 - No puede compartir la tienda de metadatos predeterminada con otros clústeres.
-- La tienda de metadatos predeterminada utiliza una base de datos Azure SQL DB básica, que tiene un límite de 5 DTU (unidad de transacción de base de datos).
+- La tienda de metadatos predeterminada utiliza una base de datos Azure SQL DB básica, que tiene un límite de cinco DTU (unidad de transacción de base de datos).
 Esta tienda de metadatos predeterminada se utiliza normalmente para las cargas de trabajo relativamente sencillas que no requieren varios clústeres y no necesitan que los metadatos se conserven más allá del ciclo de vida del clúster.
 
 
@@ -46,11 +46,7 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 - Se paga por el costo de una tienda de metadatos (Azure SQL DB) de acuerdo con el nivel de rendimiento que seleccione.
 - Es posible escalar la tienda de metadatos según sea necesario.
 
-
 ![Caso de uso de repositorio de metadatos de Hive en HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
-
-<!-- Image – Typical shared custom Metastore scenario in HDInsight (?) -->
-
 
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selección de una tienda de metadatos personalizada durante la creación del clúster
@@ -67,12 +63,14 @@ También puede agregar más clústeres a una tienda de metadatos personalizada d
 
 Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 
-- Use una tienda de metadatos personalizada siempre que sea posible: esto le ayudará a separar los recursos de proceso (el clúster de ejecución) y los metadatos (almacenados en la tienda de metadatos).
+- Use una tienda de metadatos personalizada siempre que sea posible para ayudarle a separar los recursos de proceso (el clúster de ejecución) y los metadatos (almacenados en la tienda de metadatos).
 - Comience con un nivel S2, que proporciona 50 DTU y 250 GB de almacenamiento. Si percibe un cuello de botella, puede escalar la base de datos.
-- Asegúrese de que la tienda de metadatos creada para una versión del clúster de HDInsight no se comparta entre diferentes versiones del clúster de HDInsight. Diferentes versiones de Hive utilizan diferentes esquemas. Por ejemplo, no se puede compartir una tienda de metadatos con los clústeres de Hive 1.2 y 2.1.
-- Realice una copia de la tienda de metadatos personalizada periódicamente.
-- Mantenga su tienda de metadatos y el clúster de HDInsight en la misma región.
+- Si tiene previsto que varios clústeres de HDInsight tengan acceso a datos separados, use una base de datos independiente para la tienda de metadatos en cada clúster. Si comparte una tienda de metadatos entre varios clústeres de HDInsight, entonces los clústeres utilizan los mismos metadatos y los mismos archivos de datos de usuario subyacentes.
+- Realice una copia de la tienda de metadatos personalizada periódicamente. Azure SQL Database genera las copias de seguridad automáticamente, pero el período de tiempo de retención de dichas copias de seguridad varía. Para más información, consulte [más información sobre copias de seguridad automáticas de SQL Database](../sql-database/sql-database-automated-backups.md).
+- Coloque la tienda de metadatos y el clúster de HDInsight en la misma región para obtener el mayor rendimiento y los cargos de salida de red más bajos.
 - Supervise el rendimiento y la disponibilidad de su tienda de metadatos mediante herramientas de supervisión de Azure SQL Database, como Azure Portal o Azure Log Analytics.
+- Cuando se crea una nueva versión de Azure HDInsight en una base de datos de tienda de metadatos personalizada ya existente, el sistema actualiza el esquema de la tienda de metadatos; esta acción es irreversible sin tener que restaurar la base de datos de la copia de seguridad.
+- Si comparte una misma tienda de metadatos entre varios clústeres, asegúrese de que todos ellos cuentan con la misma versión de HDInsight. Diferentes versiones de Hive utilizan diferentes esquemas de base de datos de tienda de metadatos. Por ejemplo, no se puede compartir una tienda de metadatos con los clústeres de las versiones Hive 1.2 y 2.1. 
 
 ## <a name="oozie-metastore"></a>Oozie Metastore
 

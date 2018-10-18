@@ -3,23 +3,23 @@ title: Incorporación a Azure Security Center Estándar para una seguridad mejor
 description: " Obtenga información sobre como incorporarse a Azure Security Center Estándar para una seguridad mejorada. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479468"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380002"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Incorporación a Azure Security Center Estándar para una seguridad mejorada
 Actualice a Security Center Estándar para sacar partido de la administración de seguridad mejorada y protección contra amenazas en las cargas de trabajo de la nube híbrida.  Puede probar la version Estándar de forma gratuita durante 60 días. Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -40,59 +40,40 @@ Puede actualizar una suscripción a Azure entera al nivel Estándar, que heredar
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Actualizar una suscripción a Azure
-Para actualizar todas las suscripciones a Estándar:
-1. En el menú principal de Security Center, seleccione **Incorporación a la seguridad avanzada**.
-2. En **Incorporación a la seguridad avanzada**, Security Center muestra las suscripciones aptas para la incorporación. Para actualizar todas las suscripciones que aparecen, seleccione **Aplicar el plan Estándar**.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Actualización de un área de trabajo o suscripción a Azure
+Para actualizar un área de trabajo o una suscripción a Estándar:
+1. En el menú principal de Security Center, seleccione **Introducción**.
+  ![Introducción](./media/security-center-onboarding/get-started.png)
+2. En **Actualizar**, Security Center muestra las suscripciones y áreas de trabajo aptas para la incorporación. 
+   - Puede hacer clic en el expandible **Apply your trial** (Aplicar prueba) para ver una lista de todas las suscripciones y áreas de trabajo con el estado de elegibilidad de prueba.
+   -    Puede actualizar las suscripciones y áreas de trabajo que no sean aptas para la versión de prueba.
+   -    Puede seleccionar las áreas de trabajo y las suscripciones aptas para iniciar la versión de prueba.
+3.  Haga clic en **Iniciar período de prueba** para iniciar la evaluación de las suscripciones seleccionadas.
+  ![Selección de la suscripción](./media/security-center-onboarding/select-subscription.png)
 
-  ![Actualizar todas las suscripciones][1]
-
-Para actualizar una suscripción individual a Estándar: puede actualizar una suscripción de **Incorporación** seleccionando **Aplicar el nivel Estándar**. Para actualizar un grupo de recursos de la suscripción a Estándar, seleccione la suscripción:
-1. Seleccione una suscripción.  **Directiva de seguridad** proporciona información sobre el grupo de recursos incluido en la suscripción.
-2. Seleccione la suscripción o un grupo de recursos.
-
-  ![Actualizar todas las suscripciones][2]
-
-3. Seleccione **Estándar** para actualizar de gratis a Estándar.
-4. Seleccione **Guardar**.
-
-> [!NOTE]
-> Cuando una suscripción se actualiza a Estándar, se activará el [aprovisionamiento automático](security-center-enable-data-collection.md) si estaba deshabilitado. El aprovisionamiento automático de los agentes de supervisión es recomendable.
->
->
-
-## <a name="upgrade-a-workspace"></a>Actualizar un área de trabajo
-Aplicar el nivel Estándar al área de trabajo competerá a todos los recursos que dependan de dicha área de trabajo.
-
-1. Vuelva a la hoja **Incorporación**.
-2. Seleccione un área de trabajo.
-
-  ![Actualizar un área de trabajo][8]
-
-3. Seleccione **Estándar** para efectuar la actualización.  
-4. Seleccione **Guardar**.
 
    > [!NOTE]
-   > Hay un escenario donde puede que el área de trabajo no tenga el nivel gratis o Estándar. Si selecciona el nivel gratis, las funciones gratuitas de Security Center solo se aplicarán a las máquinas virtuales de Azure. Estas funciones gratuitas no se aplicarán a los equipos que no sean de Azure. Si selecciona Estándar, las funciones de ese nivel se aplicarán a todas las máquinas virtuales de Azure y a los equipos que no sean de Azure que dependan del área de trabajo. Se recomienda aplicar el nivel Estándar para proporcionar seguridad avanzada para los recursos tanto de Azure como distintos de Azure.
+   > Las funciones gratuitas de Security Center se aplican solo a las máquinas virtuales de Azure. Estas funciones gratuitas no se aplicarán a los equipos que no sean de Azure. Si selecciona Estándar, las funciones de ese nivel se aplicarán a todas las máquinas virtuales de Azure y a los equipos que no sean de Azure que dependan del área de trabajo. Se recomienda aplicar el nivel Estándar para proporcionar seguridad avanzada para los recursos tanto de Azure como distintos de Azure.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>Incorporar equipos que no son de Azure
-Security Center puede supervisar la situación de seguridad de los equipos que no son de Azure, pero para ello antes hay que incorporar esos recursos. Los equipos que no son de Azure se pueden agregar desde las hojas **Incorporación** o **Proceso**. Veremos ambos métodos.
+Security Center puede supervisar la situación de seguridad de los equipos que no son de Azure, pero para ello antes hay que incorporar esos recursos. Los equipos que no son de Azure se pueden agregar desde las hojas **Introducción** o **Proceso**. Veremos ambos métodos.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>Agregar nuevos equipos que no son de Azure desde Incorporación
+### <a name="add-new-non-azure-computers-from-getting-started"></a>Adición de nuevos equipos que no son de Azure desde **Introducción**
 
-1. Vuelva a **Incorporación**.   
-2. Seleccione **Do you want to add new non-Azure computers** (¿Quiere agregar nuevos equipos que no son de Azure?).
+1. Vuelva a **Introducción**.   
+2. Seleccione la pestaña **Introducción**.
 
-  ![Agregar un equipo que no es de Azure][3]
+  ![Ajeno a Azure](./media/security-center-onboarding/non-azure.png)
+
+3. Haga clic en **Configurar** en **Agregar nuevos equipos que no son de Azure**. Aparecerá una lista de las áreas de trabajo de Log Analytics. La lista incluye, si procede, el área de trabajo predeterminada que Security Center crea automáticamente si el aprovisionamiento automático está habilitado. Seleccione esta área de trabajo u otra que desee usar.
+
+  ![Agregar un equipo que no es de Azure][7]
 
 Si tiene áreas de trabajo existentes, se enumerarán en **Add new Non-Azure computers** (Agregar nuevos equipos que no son de Azure). Puede agregar equipos a un área de trabajo existente o crear un área de trabajo. Para crear un área de trabajo, seleccione el vínculo **add a new workspace** (agregar una nueva área de trabajo).
 
-Veremos ambos métodos:
-
-- Crear un área de trabajo y agregar un equipo
-- Seleccionar un área de trabajo existente y agregar un equipo
+### <a name="add-new-non-azure-computers-from-compute"></a>Adición de nuevos equipos que no son de Azure desde **Proceso**
 
 **Crear un área de trabajo y agregar un equipo**
 
@@ -122,7 +103,7 @@ Puede agregar un equipo con el flujo de trabajo de **Incorporación** descrito a
 
    ![Agregar equipos][7]
 
- En la hoja **Agente directo** encontrará un vínculo para descargar un agente de Windows o de Linux, y las claves de su identificador de área de trabajo que usará para configurar el agente.   
+ En la hoja **Agente directo** encontrará un vínculo para descargar un agente de Windows o de Linux, así como las claves y el identificador de área de trabajo para configurar el agente.   
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha obtenido información sobre cómo incorporar recursos de Azure y que no son de Azure para beneficiarse de la seguridad avanzada de Security Center.  Para hacer más cosas con los recursos incorporados, vea:
@@ -134,9 +115,9 @@ En este artículo ha obtenido información sobre cómo incorporar recursos de Az
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

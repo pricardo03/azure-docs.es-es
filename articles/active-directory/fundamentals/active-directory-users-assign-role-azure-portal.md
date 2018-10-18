@@ -1,44 +1,68 @@
 ---
-title: Asignación de un usuario a roles de administrador en Azure Active Directory | Microsoft Docs
-description: Procedimiento para cambiar la información administrativa de los usuarios en Azure Active Directory
+title: Asignación de roles de directorio a usuarios con Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo asignar roles de directorio a usuarios con Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 06/25/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440755"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733049"
 ---
-# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Asignación de un usuario a roles de administrador en Azure Active Directory
-En este artículo se explica cómo asignar un rol administrativo a un usuario en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
+# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Asignación de roles y administradores a usuarios con Azure Active Directory
+Si un usuario de su organización necesita permiso para administrar recursos de Azure Active Directory (Azure AD), debe asignar al usuario un rol adecuado en Azure AD, en función de las acciones para las que el usuario necesita permisos.
 
-## <a name="assign-a-role-to-a-user"></a>Asignar de un rol a un usuario
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global o de administrador de rol con privilegios en el directorio.
+Para más información acerca de los roles disponibles, consulte [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obtener información sobre cómo agregar usuarios, consulte [Incorporación de nuevos usuarios a Azure Active Directory](add-users-azure-active-directory.md).
 
-2. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, seleccione un usuario específico de la lista.
+## <a name="assign-roles"></a>Asignación de roles
+Comúnmente, se asignan roles de Azure AD a los usuarios desde la página **Rol de directorio** de un usuario.
 
-    ![Apertura de Administración de usuarios](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
+También puede asignar roles mediante Privileged Identity Management (PIM). Para obtener más información sobre cómo usar PIM, consulte [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
-3. Para el usuario seleccionado, seleccione **Rol de directorio**, seleccione **Agregar rol** y, a continuación, seleccione los roles de administrador adecuados de la lista **Roles de directorio**, como **Administrador de acceso condicional**. Para más información acerca de los roles de administrador, consulte [Asignación de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md). 
+### <a name="to-assign-a-role-to-a-user"></a>Para asignar un rol a un usuario
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global del directorio.
 
-    ![Asignación de un rol a un usuario](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
+2. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios a los que realizará una asignación de roles. Por ejemplo, _Alain Charon_.
 
-1. Presione **Seleccionar** para guardar.
+3. En la página **Alain Charon - Perfil**, seleccione **Rol de directorio**.
+
+    Se muestra la página **Alain Charon - Rol de directorio**.
+
+4. Seleccione **Agregar rol**, seleccione el rol que asignará a Alain (por ejemplo, _Administrador de la aplicación_) y, a continuación, elija **Seleccionar**.
+
+    ![Página Roles de directorio, se muestra el rol seleccionado](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+
+    El rol de administrador de la aplicación se asigna a Alain Charon y se muestra en la página **Alain Charon - Rol de directorio**.
+
+## <a name="remove-a-role-assignment"></a>Eliminación de una asignación de rol
+Si necesita quitar la asignación de roles de un usuario, también puede hacerlo desde la página **Alain Charon - Rol de directorio**.
+
+### <a name="to-remove-a-role-assignment-from-a-user"></a>Para quitar una asignación de rol a un usuario
+
+1. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios a los que quitará una asignación de roles. Por ejemplo, _Alain Charon_.
+
+2. Seleccione **Rol del directorio**, **Administrador de la aplicación** y, a continuación, seleccione **Quitar rol**.
+
+    ![Página Roles de directorio, se muestra el rol seleccionado y la opción para quitarlo](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+
+    El rol de administrador de la aplicación se quita de Alain Charon y ya no se muestra en la página **Alain Charon - Rol de directorio**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Guía de inicio rápido: Agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md)
-* [Administrar perfiles de usuario](active-directory-users-profile-azure-portal.md)
-* [Adición de usuarios invitados de otro directorio](../b2b/what-is-b2b.md) 
-* [Asignar a un usuario a un rol de Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Restaurar un usuario eliminado](active-directory-users-restore.md)
+- [Adición o eliminación de usuarios](add-users-azure-active-directory.md)
+
+- [Adiciones o cambios a la información del perfil](active-directory-users-profile-azure-portal.md)
+
+- [Adición de usuarios invitados de otro directorio](../b2b/what-is-b2b.md)
+
+O bien, puede realizar otras tareas de administración de usuarios, como asignar delegados, usar directivas y compartir cuentas de usuario. Para obtener más información acerca de otras acciones disponibles, consulte la [documentación de administración de usuarios en Azure Active Directory](../users-groups-roles/index.yml).
+
+

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431647"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050007"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -88,7 +88,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de colecció
 1. Seleccione una o varias recopilaciones para muestrear y luego haga clic en **Muestra**. 
 1. En la pestaña **Vista de diseño**, se representan la base de datos, el esquema y la tabla. En la vista de tabla, el examen muestra el conjunto de propiedades asociadas a los nombres de columna (Nombre SQL, Nombre de origen, etc.).
     Para cada columna, puede modificar el nombre SQL de la columna, el tipo de SQL, la longitud SQL (si procede), la escala (si procede), la precisión (si procede) y si acepta valores NULL.
-    - Puede establecer **Ocultar columna** en **true** si desea excluir esa columna de los resultados de la consulta. Las columnas marcadas con Ocultar columna = true no se devuelven para la selección y proyección, aunque aún forman parte del esquema. Por ejemplo, puede ocultar todas las propiedades necesarias del sistema de Azure Cosmos DB a partir de “_”.
+    - Puede establecer **Ocultar columna** en **true** si desea excluir esa columna de los resultados de la consulta. Las columnas marcadas con Ocultar columna = true no se devuelven para la selección y proyección, aunque aún forman parte del esquema. Por ejemplo, puede ocultar todas las propiedades necesarias del sistema de Azure Cosmos DB a partir de "_".
     - La columna **identificador** es el único campo que no se puede ocultar, ya que se usa como la clave principal en el esquema normalizado. 
 1. Cuando haya terminado de definir el esquema, haga clic en **Archivo** | **Guardar**, navegue hasta el directorio para guardar el esquema y, luego, haga clic en **Guardar**.
 
@@ -98,7 +98,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de colecció
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de colección** o **delimitadores de tabla**. Una sesión de muestreo puede utilizar ambos métodos de muestreo, pero cada colección solo puede usar un método de muestreo específico. 
 
-Los pasos siguientes crean un esquema para los datos de una o varias colecciones mediante el método de asignación de **delimitadores de table**. Se recomienda usar este método de muestreo cuando las colecciones contengan un tipo heterogéneo de datos. Puede usar este método para limitar el muestreo a un conjunto de atributos y sus valores correspondientes. Por ejemplo, si un documento contiene una propiedad "Tipo", puede limitar el muestreo a los valores de esta propiedad. El resultado final del muestreo sería un conjunto de tablas para cada uno de los valores para el tipo especificado. Por ejemplo, Tipo = Vehículo generará una tabla de vehículos, mientras que Tipo = Plano generaría una tabla de planos.
+Los pasos siguientes crean un esquema para los datos de una o varias colecciones mediante el método de asignación de **delimitadores de table**. Se recomienda usar este método de muestreo cuando las colecciones contengan un tipo heterogéneo de datos. Puede usar este método para limitar el muestreo a un conjunto de atributos y sus valores correspondientes. Por ejemplo, si un documento contiene una propiedad "Type", puede limitar el muestreo a los valores de esta propiedad. El resultado final del muestreo sería un conjunto de tablas para cada uno de los valores para el tipo especificado. Por ejemplo, Tipo = Vehículo generará una tabla de vehículos, mientras que Tipo = Plano generaría una tabla de planos.
 
 1. Después de completar los pasos 1 a 4 de [Conexión a la base de datos de Azure Cosmos DB](#connect), haga clic en **Editor de esquemas** en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB).
 1. En la ventana **Editor de esquemas**, haga clic en **Crear nuevo**.
@@ -173,7 +173,7 @@ Puede definir y crear vistas como parte del proceso de muestreo. Estas vistas so
 
 Para crear una vista para los datos, en la ventana **Editor de esquemas**, en la columna **View Definitions** (Definiciones de vista), haga clic en **Agregar** en la fila de la colección en el ejemplo. A continuación, en la ventana **View Definitions** (Definiciones de vista), haga lo siguiente:
 1. Haga clic en **Nuevo**, escriba un nombre para la vista, por ejemplo, EmployeesfromSeattleView y luego haga clic en **Aceptar**.
-1. En la ventana **Editar vista**, escriba una consulta de Azure Cosmos DB. Debe tratarse de una consulta SQL de Azure Cosmos DB, por ejemplo`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”` y, luego, haga clic en **Aceptar**.
+1. En la ventana **Editar vista**, escriba una consulta de Azure Cosmos DB. Debe tratarse de una consulta SQL de Azure Cosmos DB, por ejemplo`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"` y, luego, haga clic en **Aceptar**.
 
 Puede crear tantas vistas como desee. Una vez que haya terminado de definir las vistas, puede muestrear los datos. 
 

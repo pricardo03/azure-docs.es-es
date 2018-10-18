@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Identity Protection: desbloqueo de usuarios | Microsoft Docs'
+title: Desbloqueo de usuarios con Azure Active Directory Identity Protection | Microsoft Docs
 description: Aprenda a desbloquear usuarios bloqueados por una directiva de Azure Active Directory Identity Protection.
 services: active-directory
 keywords: 'azure active directory identity protection: desbloquear usuario'
@@ -13,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 09/13/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 1bfc70680ecef2ee4fe162f81aac71430c773740
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.reviewer: raluthra
+ms.openlocfilehash: f8bf983033407bbf597af15f18f28ecf33b7558f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005085"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631691"
 ---
-# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection: desbloqueo de usuarios
+# <a name="how-to-unblock-users"></a>Procedimiento: desbloqueo de usuarios
+
 Con Azure Active Directory Identity Protection se pueden configurar directivas para bloquear a los usuarios si se cumplen las condiciones configuradas. Normalmente, los usuarios bloqueados se ponen en contacto con el departamento de soporte técnico para que se desbloqueen. En este artículo se explican los pasos que puede seguir para desbloquear un usuario bloqueado.
 
 ## <a name="determine-the-reason-for-blocking"></a>Determinación del motivo de bloqueo
@@ -52,8 +53,8 @@ Para desbloquear un inicio de sesión sospechoso, tiene las siguientes opciones:
 ## <a name="unblocking-accounts-at-risk"></a>Desbloqueo de cuentas en riesgo
 Para desbloquear una cuenta en riesgo, tiene las siguientes opciones:
 
-1. **Restablecer contraseña** : puede restablecer la contraseña del usuario. Para obtener más información, consulte [Restablecimiento manual de una contraseña segura](overview.md#manual-secure-password-reset).
-2. **Descartar todos los eventos de riesgo** : la directiva de riesgo de usuario bloquea un usuario si se ha alcanzado el nivel de riesgo del usuario configurado para bloquear el acceso. Para reducir el nivel de riesgo de un usuario, cierre manualmente los eventos de riesgo notificados. Para obtener más información, consulte [Cierre manual de eventos de riesgo](overview.md#closing-risk-events-manually).
+1. **Restablecer contraseña** : puede restablecer la contraseña del usuario. 
+2. **Descartar todos los eventos de riesgo** : la directiva de riesgo de usuario bloquea un usuario si se ha alcanzado el nivel de riesgo del usuario configurado para bloquear el acceso. Para reducir el nivel de riesgo de un usuario, cierre manualmente los eventos de riesgo notificados. 
 3. **Excluir de la directiva** : si piensa que la configuración actual de la directiva de inicio de sesión provoca problemas a usuarios concretos, puede excluir los usuarios de ella. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Deshabilitar directiva** : si piensa que la configuración de la directiva provoca problemas a todos los usuarios, puede deshabilitar la directiva. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

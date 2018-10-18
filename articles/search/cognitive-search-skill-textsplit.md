@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dbb9261cfce0a8437cfe76121fa16aa87c4b3393
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786804"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730773"
 ---
 #   <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
 
 La aptitud **División de texto** divide el texto en fragmentos de texto. Puede especificar si desea dividir el texto en oraciones o en páginas de una longitud determinada. Esta aptitud es especialmente útil si hay requisitos de longitud de texto máxima en otras aptitudes de bajada. 
+
+> [!NOTE]
+> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 

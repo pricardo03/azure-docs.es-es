@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 842ec8f641fca80e469864dd4d81e14c863fd464
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600064"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053387"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Uso de la biblioteca BulkExecutor en .NET para realizar operaciones en masa en Azure Cosmos DB
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 El repositorio clonado contiene dos ejemplos, "BulkImportSample" y "BulkUpdateSample". Puede abrir cualquiera de las aplicaciones de ejemplo, actualizar las cadenas de conexión en un archivo App.config con las cadenas de conexión de la cuenta de Azure Cosmos DB, compilar la solución y ejecutarla. 
 
-La aplicación “BulkImportSample” genera documentos aleatorios y los importa en bloque en Azure Cosmos DB. La aplicación “BulkUpdateSample” realiza actualizaciones en masa de los documentos importados al especificar revisiones como operaciones que se deben realizar en campos de documentos específicos. En las secciones siguientes, se revisará el código en cada una de estas aplicaciones de ejemplo.
+La aplicación "BulkImportSample" genera documentos aleatorios y los importa en bloque en Azure Cosmos DB. La aplicación "BulkUpdateSample" realiza actualizaciones en masa de los documentos importados al especificar revisiones como operaciones que se deben realizar en campos de documentos específicos. En las secciones siguientes, se revisará el código en cada una de estas aplicaciones de ejemplo.
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importación de datos en masa a Azure Cosmos DB
 

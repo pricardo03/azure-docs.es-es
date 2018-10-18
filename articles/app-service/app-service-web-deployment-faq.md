@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068077"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302595"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la implementación en Web Apps en Azure
 
@@ -62,7 +62,7 @@ Si ve este mensaje, es probable que se haya topado con una cuota de disco en el 
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>¿Cómo se configura la implementación continua para la aplicación web de App Service?
 
-Puede configurar la implementación continua desde varios recursos, incluidos Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox y otros repositorios de GIT. Estas opciones están disponibles en el portal. El tutorial [Implementación continua en App Service](app-service-continuous-deployment.md) es un recurso muy útil en el que se explica cómo se configura la implementación continua.
+Puede configurar la implementación continua desde varios recursos, incluidos Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox y otros repositorios de GIT. Estas opciones están disponibles en el portal. El tutorial [Implementación continua en App Service](app-service-continuous-deployment.md) es un recurso muy útil en el que se explica cómo se configura la implementación continua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>¿Cómo se solucionan los problemas relacionados con la implementación continua desde GitHub y Bitbucket?
 
@@ -85,9 +85,9 @@ El inicio rápido de Azure está diseñado para ayudarle a implementar la aplica
 
 Para obtener información sobre las circunstancias en las que una implementación de aplicación podría producir un reinicio, vea [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts") (Problemas de implementación frente a problemas en tiempo de ejecución). Como se describe en el artículo, App Service implementa los archivos en la carpeta wwwroot. Nunca reinicia directamente la aplicación.
 
-## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a>¿Cómo se integra el código de Visual Studio Team Services con App Service?
+## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>¿Cómo se puede integrar código de Azure DevOps con App Service?
 
-Tiene dos opciones para usar la implementación continua con Visual Studio Team Services:
+Tiene dos opciones para usar la implementación continua con Azure DevOps:
 
 *   Use un proyecto de GIT. Conéctese a través de App Service mediante las opciones de implementación de ese repositorio.
 *   Use un proyecto de Control de versiones de Team Foundation (TFVC). Realice la implementación mediante el agente de compilación para App Service.
@@ -95,7 +95,7 @@ Tiene dos opciones para usar la implementación continua con Visual Studio Team 
 La implementación de código continua para ambas opciones depende de los flujos de trabajo de desarrollador existentes y de los procedimientos de inserción en el repositorio. Para obtener más información, consulte estos artículos: 
 
 *   [Aplicar una implementación continua de la aplicación en un sitio web de Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Configurar una cuenta de Visual Studio Team Services para que pueda implementar en una aplicación web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Configurar una organización de Azure DevOps para que pueda implementarse en una aplicación web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>¿Cómo se usa FTP o FTPS para implementar la aplicación en App Service?
 

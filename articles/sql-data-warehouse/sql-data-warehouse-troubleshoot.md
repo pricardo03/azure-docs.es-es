@@ -10,15 +10,15 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: befb4cc075841d45cae769b5ddf924434e65eff3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3500754c7e9cb14ea86e9c0e562ec5f98fc1fc94
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307254"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377775"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solución de problemas de Azure SQL Data Warehouse
-En este tema figuran las preguntas habituales sobre la solución de problemas.
+En este artículo figuran las preguntas habituales sobre la solución de problemas.
 
 ## <a name="connecting"></a>Conexión
 | Problema | Resolución |
@@ -27,7 +27,7 @@ En este tema figuran las preguntas habituales sobre la solución de problemas.
 | La entidad de seguridad del servidor "MyUserName" no puede obtener acceso a la base de datos "maestra" en el contexto de seguridad actual. No se puede abrir la base de datos predeterminada del usuario. Error de inicio de sesión. Error de inicio de sesión del usuario 'MyUserName'. (Microsoft SQL Server, error: 916) |Este error se produce cuando un usuario de AAD intenta conectarse a la base de datos maestra, pero no tiene un usuario ahí.  Para corregir este problema, especifique la instancia de SQL Data Warehouse a la que desea conectarse en el momento de la conexión o agregue el usuario a la base de datos maestra.  Consulte el artículo [Información general sobre seguridad][Security overview] para obtener más detalles. |
 | Error CTAIP |Este error puede producirse cuando se ha creado un inicio de sesión en la base de datos maestra de SQL Server, pero no en la base de datos de SQL Data Warehouse.  Si se produce este error, eche un vistazo al artículo sobre la [información general de seguridad][Security overview].  En este artículo se explica cómo crear un inicio de sesión y un usuario en una base de datos maestra y luego cómo crear un usuario en la base de datos de SQL Data Warehouse. |
 | Bloqueado por el firewall |Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse.  Para configurar el firewall para el acceso, siga los pasos de la sección de [configuración del acceso de nivel de firewall para el cliente IP][Configure server firewall access for your client IP] en las [instrucciones de aprovisionamiento][Provisioning instructions]. |
-| No se puede conectar con una herramienta o un controlador |SQL Data Warehouse recomienda usar [SSMS][SSMS], [SSDT para Visual Studio][SSDT for Visual Studio] o [sqlcmd][sqlcmd] para consultar los datos. Para obtener más detalles sobre los controladores y cómo conectarse a SQL Data Warehouse, consulte los artículos [Controladores de SQL Data Warehouse de Azure][Drivers for Azure SQL Data Warehouse] y [Conexión a SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
+| No se puede conectar con una herramienta o un controlador |SQL Data Warehouse recomienda usar [SSMS][SSMS], [SSDT para Visual Studio][SSDT for Visual Studio] o [sqlcmd][sqlcmd] para consultar los datos. Para obtener más información sobre los controladores y cómo conectarse a SQL Data Warehouse, consulte los artículos [Controladores de SQL Data Warehouse de Azure][Drivers for Azure SQL Data Warehouse] y [Conexión a SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
 
 ## <a name="tools"></a>Herramientas
 | Problema | Resolución |
@@ -102,7 +102,7 @@ Para obtener más ayuda en la búsqueda de soluciones para su problema, aquí ti
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: sql-data-warehouse-tables-overview.md
 [Data types]: sql-data-warehouse-tables-data-types.md
-[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
 [Statistics]: sql-data-warehouse-tables-statistics.md

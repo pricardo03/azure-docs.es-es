@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 234651ad3672982e4de9617561a926712697945a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055756"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734040"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
@@ -28,8 +28,10 @@ La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos
 + .BMP
 + .GIF
 
+> [!NOTE]
+> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
 
-## <a name="skill-parameters"></a>Parámetros de las aptitudes
+## <a name="skill-parameters"></a>Parámetros de la aptitud
 
 Los parámetros distinguen mayúsculas de minúsculas.
 

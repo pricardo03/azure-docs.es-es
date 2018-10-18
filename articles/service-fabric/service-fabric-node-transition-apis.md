@@ -1,5 +1,5 @@
 ---
-title: Inicio y detención de nodos de clúster para probar los microservicios de Azure | Microsoft Docs
+title: Inicio y detención de nodos de clúster para probar las aplicaciones de Azure Service Fabric | Microsoft Docs
 description: Obtenga información acerca de cómo iniciar o detener nodos de clúster para usar la inserción de errores con el fin de probar una aplicación de Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 0ed18097fa18101c237b4408d26dd1bc9c5d5648
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212585"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055410"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sustitución de las API Start Node y Stop node con la API Node Transition
 
@@ -42,12 +42,12 @@ Se han solucionado estos problemas anteriores en un nuevo conjunto de API.  La n
 
 **Uso**
 
-Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información sobre el estado actual de la operación, llame a la API Node Transition Progress (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar la API Node Transition para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es "Running", significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obtener más información sobre la propiedad Estado y la sección "Ejemplo de uso" más adelante para ver los ejemplos de código.
+Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información sobre el estado actual de la operación, llame a la API Node Transition Progress (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar la API Node Transition para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es “Running”, significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obtener más información sobre la propiedad Estado y la sección "Ejemplo de uso" más adelante para ver los ejemplos de código.
 
 
 **Diferenciar entre un nodo detenido y un nodo inactivo** Si un nodo está *detenido* con la API Node Transition, el resultado de una consulta de nodo (administrada [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nodo tiene un valor true para la propiedad *IsStopped*.  Tenga en cuenta que este valor es diferente del valor de la propiedad *NodeStatus*, que será *Down* (Apagado).  Si la propiedad *NodeStatus* tiene el valor *Down*, pero *IsStopped* es false, entonces significa que el nodo no se ha detenido con la API Node Transition y que está *apagado* por alguna otra razón.  Si la propiedad *IsStopped* es true y la propiedad *NodeStatus* es *Down*, entonces significa que se ha detenido con la API Node Transition.
 
-Al iniciar un nodo *detenido* con la API Node Transition, el nodo volverá a funcionar como un miembro normal del clúster.  El resultado de la API de consulta de nodo mostrará *IsStopped* como false, y *NodeStatus* con un estado distinto a apagado, como por ejemplo, Up (encendido).
+Al iniciar un nodo *detenido* con la API Node Transition, el nodo volverá a funcionar como un miembro normal del clúster.  El resultado de la API de consulta de nodo mostrará *IsStopped* como false, y *NodeStatus* con un estado distinto a Down (apagado), como por ejemplo, Up (encendido).
 
 
 **Duración limitada** Al usar la API Node Transition para detener un nodo, uno de los parámetros necesarios *stopNodeDurationInSeconds*, representa la duración en segundos durante la cual el nodo debe estar *detenido*.  Este valor debe estar dentro del intervalo permitido, que tiene un mínimo de 600, y un máximo de 14400.  Después de que expire este tiempo, el propio nodo se reiniciará automáticamente con el estado Up.  Consulte el Ejemplo 1 a continuación para ver un ejemplo de uso.
@@ -285,6 +285,6 @@ Al iniciar un nodo *detenido* con la API Node Transition, el nodo volverá a fun
 [startnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StartNodeAsync_System_String_System_Numerics_BigInteger_System_String_System_Int32_System_Fabric_CompletionMode_System_Threading_CancellationToken_
 [startnodeps]: https://msdn.microsoft.com/library/mt163520.aspx
 [nodequery]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient#System_Fabric_FabricClient_QueryClient_GetNodeListAsync_System_String_
-[nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
+[nodequeryps]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode
 [snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_

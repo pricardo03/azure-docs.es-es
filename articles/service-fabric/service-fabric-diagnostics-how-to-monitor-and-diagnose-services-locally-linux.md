@@ -1,6 +1,6 @@
 ---
-title: Depuración de microservicios de Azure en Linux | Microsoft Docs
-description: Aprenda a supervisar y diagnosticar sus servicios creados con Service Fabric de Microsoft Azure en una máquina de desarrollo local.
+title: Depuración de aplicaciones de Azure Service Fabric en Linux | Microsoft Docs
+description: Aprenda a supervisar y diagnosticar sus servicios de Service Fabric en una máquina de desarrollo local Linux.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 563f9d73d5a8d56e834c36d03aed75812ec123ba
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5aeb87538968304d3eaf73873d4c4c762c07329c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212718"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051381"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local
 

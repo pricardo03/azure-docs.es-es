@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 20aa842fb8168bc28a388c817f4e4eedbdd63ebd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: eb8db75a8ff5af11b98ee2c61628f923a8422153
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726695"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299940"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: aplicación web de PaaS para FedRAMP
 
@@ -28,7 +28,7 @@ Esta arquitectura de referencia, las guías de implementación de los controles 
 ## <a name="architecture-diagram-and-components"></a>Componentes y diagrama de la arquitectura
 Esta solución proporciona una arquitectura de referencia para una aplicación web de PaaS con un back-end de Azure SQL Database. La aplicación web está hospedada en una instancia de Azure App Service Environment aislada, que es un entorno privado y dedicado en un centro de datos de Azure. La carga del entorno equilibra el tráfico para la aplicación web en máquinas virtuales administradas por Azure. Esta arquitectura también incluye grupos de seguridad de red, una instancia de Application Gateway, Azure DNS y Load Balancer. Además, Operations Management Suite proporciona análisis en tiempo real del mantenimiento y la seguridad del sistema. **Azure recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en la subred de la arquitectura de referencia.**
 
-![Diagrama de la arquitectura de referencia de una aplicación web PaaS para FedRAMP](images/fedramp-paaswa-architecture.png?raw=true) "Diagrama de la arquitectura de referencia de una aplicación web PaaS para FedRAMP"
+![Diagrama de arquitectura de referencia de aplicación web de PaaS para FedRAMP](images/fedramp-paaswa-architecture.png?raw=true "Diagrama de arquitectura de referencia de aplicación web de PaaS para FedRAMP")
 
 Esta solución usa los siguientes servicios de Azure. Los detalles de la arquitectura de implementación se encuentran en la sección [Arquitectura de implementación](#deployment-architecture).
 
@@ -40,7 +40,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
         - Modo de firewall: prevención
         - Conjunto de reglas: OWASP 3.0
         - Agente de escucha: puerto 443
-- Red virtual de Azure
+- red virtual de Azure
 - Grupos de seguridad de red
 - Azure DNS
 - Azure Storage
@@ -67,13 +67,13 @@ Puede usar las instancias de ASE de esta arquitectura en los siguientes controle
 - [Modo de equilibrio de carga interno](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)
 - Deshabilitación de [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Al cambiar el [cifrado TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings).
-- Al controlar [puertos N/W de tráfico entrante](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic).
+- Control de [puertos N/W de tráfico entrante](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Firewall de aplicaciones web: restringir datos](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Al permitir el [tráfico de Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
 La sección [Guía y recomendaciones](#guidance-and-recommendations) contiene más información acerca de ASE.
 
-**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permite a los clientes crear y hospedar aplicaciones web en el lenguaje de programación que prefiera sin tener que administrar la infraestructura. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Visual Studio Team Services o cualquier repositorio Git.
+**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permite a los clientes crear y hospedar aplicaciones web en el lenguaje de programación que prefiera sin tener que administrar la infraestructura. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux y permite implementaciones automatizadas desde GitHub, Azure DevOps o cualquier repositorio Git.
 
 ### <a name="virtual-network"></a>Virtual Network
 La arquitectura define una red virtual privada con un espacio de direcciones de 10.200.0.0/16.

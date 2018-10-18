@@ -3,7 +3,7 @@ title: Publicar un elemento de Marketplace personalizado en Azure Stack (operado
 description: Como operador de Azure Stack, aprenda cómo publicar un elemento de Marketplace personalizado en Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 12310c088777d65bef211747806f942433857e40
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605576"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632355"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Información general de Azure Stack Marketplace
 
@@ -33,7 +33,7 @@ Como operador Azure Stack, usted decide qué elementos quiere agregar (publicar)
 > [!Caution]  
 > Todos los elementos de galería, conocidos como imágenes y archivos json, son accesibles sin autenticación después de publicarlos en Azure Stack Marketplace. Consulte otros aspectos que se deben tener en cuenta al publicar elementos en Marketplace en [Creación y publicación de un producto en Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
-Para abrir Marketplace, en la consola de administración, seleccione **Nuevo**.
+Para abrir Marketplace, en la consola de administración, seleccione **+Crear un recurso**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
