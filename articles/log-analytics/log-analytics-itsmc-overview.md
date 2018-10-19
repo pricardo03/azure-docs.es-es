@@ -173,7 +173,7 @@ En la siguiente información se muestran ejemplos de datos recopilados por ITSMC
 
 > En función del tipo de elemento de trabajo que se importa a Log Analytics, **ServiceDesk_CL** contiene los campos siguientes:
 
-**Elemento de trabajo:****incidentes**  
+**Elemento de trabajo:** **incidentes**  
 ServiceDeskWorkItemType_s="Incidente"
 
 **Fields**
@@ -200,7 +200,7 @@ ServiceDeskWorkItemType_s="Incidente"
 - Equipo
 
 
-**Elemento de trabajo:****solicitudes de cambio**
+**Elemento de trabajo:** **solicitudes de cambio**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
