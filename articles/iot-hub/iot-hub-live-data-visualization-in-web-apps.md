@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 445bc4b693c8129c4faf42fee3b2be34d90846ae
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d40bcc8e6fd47a00618b98972f92c1e6fa019612
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160258"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318527"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar datos del sensor en tiempo real desde Azure IoT Hub mediante la característica Web Apps de Azure App Service
 
@@ -63,6 +63,7 @@ En este tutorial, obtendrá más información sobre cómo visualizar los datos d
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | Obtenido de la CLI de Azure                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | El nombre del grupo de consumidores que agrega a su IoT Hub.  |
+   | WEBSITE_NODE_DEFAULT_VERSION          | 8.9.4                                                        |
 
    ![Agregar la configuración a una aplicación web con pares clave-valor](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 

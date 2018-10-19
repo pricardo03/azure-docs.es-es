@@ -34,6 +34,7 @@
 ## Administrar un dominio administrado
 ### [Administrar un dominio administrado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar DNS en un dominio administrado](active-directory-ds-admin-guide-administer-dns.md)
+### [Actualización de notificaciones de correo electrónico](active-directory-ds-notifications.md)
 ### Configurar LDAP seguro para un dominio administrado
 #### [Tarea 1: Obtención de un certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarea 2: Exportación del certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

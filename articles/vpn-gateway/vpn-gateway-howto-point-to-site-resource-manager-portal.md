@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 477913ba13c2bcfe6dd7ba88ee4e53546fd69be6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d524555330653a90f52505c22f50f4d677ab6632
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303547"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387266"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
 
@@ -172,7 +172,7 @@ Los archivos de configuración del cliente VPN contienen opciones para configura
 
 En el cuadro de diálogo Red, localice el perfil de cliente que desea utilizar, especifique la configuración de [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) y, después, haga clic en **Conectar**.
 
-Pata obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (OS X)](https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac).
+Pata obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac).
 
   ![Conexión de Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
