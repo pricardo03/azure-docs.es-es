@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d7f1c1d523bc9c9d717accf7667c8bd7402bbc72
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ecfb8cff995d471a480226bc44164107b50eda84
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388381"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458027"
 documentType: LandingData
 title: Traffic Manager
 metadata:
@@ -19,7 +19,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 10/15/2018
   ms.author: kumud
 abstract:
   description: Aprenda a usar Azure Traffic Manager. Guías de inicio rápido, tutoriales, ejemplos, etc, para mostrarle cómo administrar el tráfico entrante para conseguir un rendimiento óptimo de la aplicación y cómo distribuir el tráfico a Azure o a los puntos de conexión de servicio externos.
@@ -43,10 +43,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Enrutamiento del tráfico según la ubicación geográfica del punto de conexión</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Enrutamiento del tráfico para baja latencia</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">Enrutamiento del tráfico para baja latencia</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribución del tráfico a un conjunto de puntos de conexión</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Enrutamiento del tráfico a un punto de conexión prioritario</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Enrutamiento del tráfico basado en la subred del usuario</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">Control del tráfico con puntos de conexión ponderados</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">Enrutamiento del tráfico basado en la subred del usuario</a>
 - title: Vídeo gratuito de aprendizaje de PluralSight
   items:
   - type: list
