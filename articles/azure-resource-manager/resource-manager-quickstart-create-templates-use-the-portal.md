@@ -10,23 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/16/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: bb056602300917e9a420cf6bcdc0ee1203cc427f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8094105fd14ef13dd5f6b892425608806ca4dbd2
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158133"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378040"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
 
-Aprenda cómo crear su primera plantilla de Azure Resource Manager al generar una con Azure Portal, y cómo editar e implementar la plantilla desde el portal.
-
-Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para crear una plantilla, no tiene que empezar siempre desde cero. En este tutorial, aprenderá a generar una plantilla desde Azure Portal. Después, puede personalizar la plantilla e implementarla.
-
-Las instrucciones de este tutorial crean una cuenta de Azure Storage. Puede usar el mismo proceso para crear otros recursos de Azure.
+Aprenda cómo crear su primera plantilla de Azure Resource Manager al generar una con Azure Portal, así como el proceso de editar e implementar la plantilla desde Azure Portal. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Las instrucciones de este tutorial crean una cuenta de Azure Storage. Puede usar el mismo proceso para crear otros recursos de Azure.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -38,10 +34,10 @@ En esta sección, creará una cuenta de almacenamiento con Azure Portal. Antes d
 2. Seleccione **Crear un recurso** > **Storage** > **Cuenta de almacenamiento: blob, archivo, tabla, cola**.
 
     ![Creación de una cuenta de Azure Storage con Azure Portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
-3. Escriba la siguiente información. Asegúrese de seleccionar **Opciones de automatización** en lugar de **Crear** en el siguiente paso, para que pueda ver la plantilla antes de que se implemente.
+3. Escriba la siguiente información. 
 
-    - **Nombre**: escriba un nombre único para la cuenta de almacenamiento. En la captura de pantalla, el nombre es *mystorage0626*.
-    - **Grupo de recursos**: cree un nuevo grupo de recursos de Azure con el nombre que prefiera. En la captura de pantalla, el nombre del grupo de recursos es *mystorage0626rg*.
+    - **Grupo de recursos**: cree un nuevo grupo de recursos de Azure con el nombre que prefiera. En la captura de pantalla, el nombre del grupo de recursos es *mystorage1016rg*.
+    - **Nombre**: escriba un nombre único para la cuenta de almacenamiento. En la captura de pantalla, el nombre es *mystorage1016*.
 
     Puede usar los valores predeterminados para el resto de propiedades.
 
@@ -50,59 +46,48 @@ En esta sección, creará una cuenta de almacenamiento con Azure Portal. Antes d
     > [!NOTE]
     > Algunas de las plantillas exportadas requieren algunas modificaciones antes de poder implementarlas.
 
-4. Seleccione **Opciones de automatización** en la parte inferior de la pantalla. El portal muestra la plantilla en la pestaña **Plantilla**:
+4. Seleccione **Revisar y crear** en la parte inferior de la pantalla. 
+5. Seleccione **Descargar una plantilla para la automatización** en la parte inferior de la pantalla. El portal muestra la plantilla generada:
 
     ![Generación de una plantilla desde el portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    El panel principal muestra la plantilla. Es un archivo JSON con cuatro elementos de nivel superior. Para más información, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
+    El panel principal muestra la plantilla. Es un archivo JSON con cuatro elementos de nivel superior: `schema`, `contentVersion`, `parameters` y `resources`. Para más información, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
 
-    En el elemento **Parámetro**, hay cinco parámetros definidos. Para ver los valores que ha proporcionado durante la implementación, seleccione la pestaña **Parámetros**.
+    Hay seis parámetros definidos. Uno de ellos se denomina **storageAccountName**. La segunda parte resaltada muestra cómo utilizar este parámetro en la plantilla. En la sección siguiente, edite la plantilla para usar un nombre generado para la cuenta de almacenamiento.
+
+    En la plantilla, se define un recurso de Azure. El tipo es [Microsoft.Storage/storageAccounts]. Vea cómo se define el recurso y la estructura de definición.
+6. Seleccione **Descargar**. Guarde **template.json** del paquete descargado en el equipo. En la siguiente sección, usará una herramienta de implementación de plantilla para modificar la plantilla.
+7. Seleccione la pestaña **Parámetro** para ver los valores proporcionados para los parámetros. Anote estos valores, porque los necesitará en la sección siguiente al implementar la plantilla.
 
     ![Generación de una plantilla desde el portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Estos valores son los que haya configurado en la sección anterior. Con la plantilla y los archivos de parámetros, puede crear una cuenta de almacenamiento de Azure.
-
-5. En la parte superior de las pestañas, hay tres elementos de menú:
-
-    - **Descargar**: descargue la plantilla y el archivo de parámetros en el equipo local.
-    - **Agregar a la biblioteca**: agregue la plantilla a la biblioteca para volverla a usar en el futuro.
-    - **Implementar**: implemente la cuenta de almacenamiento de Azure en Azure.
-
-    En este tutorial, usará la opción **Agregar a la biblioteca**.
-
-6. Seleccione **Agregar a la biblioteca**.
-7. Escriba el **nombre** y la **descripción** y, a continuación, seleccione **Guardar**.
-
-> [!NOTE]
-> La característica de biblioteca de plantillas se encuentra en versión preliminar. Mayoría de los usuarios eligen guardar sus plantillas en un equipo local o en un almacenamiento público como Github.  
+    Con la plantilla y los archivos de parámetros, puede crear una cuenta de almacenamiento de Azure.
 
 ## <a name="edit-and-deploy-the-template"></a>Edición e implementación de la plantilla
 
-En esta sección, va a abrir la plantilla guardada en la biblioteca de plantillas, va a editar la plantilla dentro del portal y, después, va a implementar la plantilla revisada. Para editar una plantilla más compleja, considere el uso de [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) que proporciona mejores funcionalidades de edición.
+Azure Portal puede utilizarse para realizar algunas modificaciones básicas de la plantilla. En esta guía de inicio rápido, va a usar una herramienta del portal denominada *Template Deployment*. Para editar una plantilla más compleja, considere el uso de [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) que proporciona mejores funcionalidades de edición.
 
-Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá un error en la implementación si escribe un nombre de cuenta de almacenamiento que ya existe. Para evitar este problema, puede usar una llamada de función de plantilla uniquestring() para generar un nombre de cuenta de almacenamiento único.
+Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá un error en la implementación si escribe un nombre de cuenta de almacenamiento que ya existe. Para evitar este problema, puede usar una llamada de función de plantilla `uniquestring()` para generar un nombre de cuenta de almacenamiento único.
 
-1. En Azure Portal, seleccione **Todos los servicios** en el menú de la izquierda, escriba **plantilla** en el cuadro de filtro y, a continuación, seleccione **Plantillas (Vista previa)**.
+1. En Azure Portal, haga clic en **Crear un recurso**.
+2. En **Buscar en Marketplace**, escriba **implementación de plantillas** y, después, presione **ENTRAR**.
+3. Seleccione **Implementación de plantillas**.
 
-    ![Plantillas del Administrador de recursos de Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
-2. Seleccione la plantilla que guardó en la última sección. El nombre utilizado en la captura de pantalla es *mystorage0626*.
-3. Seleccione **Editar** y, después, seleccione **Plantilla agregada**.
-
-    ![Plantillas del Administrador de recursos de Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template.png)
-
-4. Agregue un elemento **variables** y, después, agregue una variable, tal como se muestra en la siguiente captura de pantalla:
+    ![Biblioteca de plantillas de Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
+4. Seleccione **Crear**.
+5. Seleccione **Cree su propia plantilla en el editor**.
+6. Seleccione **Cargar archivo** y, después, siga las instrucciones para cargar template.json que descargó en la última sección.
+7. Agregue una variable, tal como se muestra en la siguiente captura de pantalla:
 
     ```json
-    "variables": {
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-    },
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
     ```
     ![Plantillas del Administrador de recursos de Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Aquí se usan dos funciones: *concat()* y *uniqueString()*. La función uniqueString() es útil para crear un nombre único para un recurso.
+    Aquí se usan dos funciones: `concat()` y `uniqueString()`.
 
-5. Quite el parámetro **name** resaltado en la captura de pantalla anterior.
-6. Actualice el elemento name del recurso **Microsoft.Storage/storageAccounts** para usar la variable recién definida en lugar del parámetro:
+8. Quite el parámetro **storageAccountName** resaltado en la captura de pantalla anterior.
+9. Actualice el elemento name del recurso **Microsoft.Storage/storageAccounts** para usar la variable recién definida en lugar del parámetro:
 
     ```json
     "name": "[variables('storageAccountName')]",
@@ -112,7 +97,7 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá 
 
     ```json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "location": {
@@ -124,7 +109,10 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá 
             "kind": {
                 "type": "string"
             },
-            "httpsTrafficOnlyEnabled": {
+            "accessTier": {
+                "type": "string"
+            },
+            "supportsHttpsTrafficOnly": {
                 "type": "bool"
             }
         },
@@ -133,44 +121,34 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá 
         },
         "resources": [
             {
-                "apiVersion": "2018-02-01",
                 "name": "[variables('storageAccountName')]",
-                "location": "[parameters('location')]",
                 "type": "Microsoft.Storage/storageAccounts",
+                "apiVersion": "2018-07-01",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "accessTier": "[parameters('accessTier')]",
+                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+                },
+                "dependsOn": [],
                 "sku": {
                     "name": "[parameters('accountType')]"
                 },
-                "kind": "[parameters('kind')]",
-                "properties": {
-                    "supportsHttpsTrafficOnly": "[parameters('httpsTrafficOnlyEnabled')]",
-                    "encryption": {
-                        "services": {
-                            "blob": {
-                                "enabled": true
-                            },
-                            "file": {
-                                "enabled": true
-                            }
-                        },
-                        "keySource": "Microsoft.Storage"
-                    }
-                },
-                "dependsOn": []
+                "kind": "[parameters('kind')]"
             }
-        ]
+        ],
+        "outputs": {}
     }
     ```
-7. Seleccione **Aceptar** y, después, seleccione **Guardar** para guardar los cambios.
-8. Seleccione **Implementar**.
-9. Escriba los siguientes valores:
+7. Seleccione **Guardar**.
+8. Escriba los siguientes valores:
 
-    - **Suscripción**: seleccione su suscripción de Azure.
     - **Grupo de recursos**: dé un nombre único a su grupo de recursos.
     - **Ubicación**: seleccione una ubicación para el grupo de recursos.
     - **Ubicación**: seleccione la ubicación para la cuenta de almacenamiento.  Puede usar la misma ubicación que el grupo de recursos.
     - **Tipo de cuenta**: escriba **Standard_LRS** para esta guía de inicio rápido.
-    - **Variante**: escriba **Almacenamiento** para esta guía de inicio rápido.
-    - **Https Traffic Only Enabled** (Solo tráfico HTTPS habilitado).  Seleccione **false** para esta guía de inicio rápido.
+    - **Variante**: escriba **StorageV2** para esta guía de inicio rápido.
+    - **Nivel de acceso**: escriba **Frecuente** para esta guía de inicio rápido.
+    - **Https Traffic Only Enabled** (Solo tráfico HTTPS habilitado).  Seleccione **true** para esta guía de inicio rápido.
     - **Acepto los términos y condiciones indicados anteriormente**: (seleccionar)
 
     Esta es una captura de pantalla de una implementación de ejemplo:
@@ -178,7 +156,7 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá 
     ![Implementación de plantillas de Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
 
 10. Seleccione **Comprar**.
-11. Seleccione el icono de campana (notificaciones) en la parte superior de la pantalla para ver el estado de implementación.
+11. Seleccione el icono de campana (notificaciones) en la parte superior de la pantalla para ver el estado de implementación. Espere hasta que se complete la implementación.
 
     ![Notificación sobre la implementación de plantillas de Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
 
@@ -199,7 +177,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo generar una plantilla desde Azure Portal y cómo implementar la plantilla mediante el portal. La plantilla usada en esta guía de inicio rápido es una plantilla sencilla con un recurso de Azure. Cuando la plantilla es compleja, es más fácil de usar Visual Studio Code o Visual Studio para desarrollarla. El siguiente inicio rápido también muestra cómo implementar plantillas mediante Azure PowerShell y la interfaz de la línea de comandos (CLI) de Azure.
+En este tutorial, ha aprendido cómo generar una plantilla desde Azure Portal y cómo implementar la plantilla mediante el portal. La plantilla usada en esta guía de inicio rápido es una plantilla sencilla con un recurso de Azure. Cuando la plantilla es compleja, es más fácil de usar Visual Studio Code o Visual Studio para desarrollarla. La siguiente guía de inicio rápido también muestra cómo implementar plantillas mediante Azure PowerShell y la interfaz de la línea de comandos (CLI) de Azure.
 
 > [!div class="nextstepaction"]
 > [Creación de plantillas mediante Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
