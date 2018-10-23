@@ -244,7 +244,6 @@
 
 #### Acceso condicional
 ##### [El cliente no cumplía los requisitos previos de registro de dispositivos](active-directory-conditional-access.md)
-##### [Se bloquea al inquilino debido a una configuración incorrecta de las directivas de acceso condicional](active-directory-conditional-access-device-remediation.md)
 ##### [¿Cómo y cuándo entran en vigor las reglas ajenas a la red corporativa?](https://aka.ms/calocation)
 ##### [¿Cómo aumentar el número de dispositivos que el usuario puede registrar en Azure AD?](active-directory-azureadjoin-setup.md)
 ##### [¿Cómo se configura el acceso condicional para Exchange Online](https://aka.ms/csforexchange)
