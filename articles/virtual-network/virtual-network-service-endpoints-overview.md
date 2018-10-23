@@ -3,7 +3,7 @@ title: Puntos de conexión de servicio de Azure Virtual Network | Microsoft Docs
 description: Aprenda a habilitar el acceso directo a los recursos de Azure desde una red virtual con puntos de conexión de servicio.
 services: virtual-network
 documentationcenter: na
-author: anithaa
+author: sumeetmittal
 manager: narayan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
-ms.author: anithaa
+ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239190"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395214"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -42,6 +42,7 @@ Esta característica está disponible en los siguientes servicios y regiones de 
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar en todas las regiones de nube pública de Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
 
 Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -65,6 +66,10 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Un punto de conexión de servicio de la red virtual proporciona la identidad de la red virtual al servicio de Azure. Una vez que los puntos de conexión de servicio se habilitan en la red virtual, puede proteger los recursos de servicio de Azure en la red virtual mediante la incorporación de una regla de red virtual a los recursos.
 - Actualmente, el tráfico del servicio de Azure desde una red virtual usa direcciones IP públicas como direcciones IP de origen. Con los puntos de conexión de servicio, el tráfico del servicio cambia para usar direcciones privadas de red virtual como la direcciones IP de origen al acceder al servicio de Azure desde una red virtual. Este modificador permite acceder a los servicios sin necesidad de direcciones IP públicas y reservadas utilizadas en los firewalls IP.
+
+>[!NOTE]
+> Con los puntos de conexión de servicio, las direcciones IP de origen de las máquinas virtuales en la subred para el tráfico de servicio pasan de utilizar direcciones IPv4 públicas a utilizar direcciones IPv4 privadas. Las reglas existentes de firewall de servicio de Azure que utilizan direcciones IP públicas Azure dejarán de funcionar con este cambio. Asegúrese de que las reglas de firewall del servicio de Azure permiten este cambio antes de configurar los puntos de conexión de servicio. También es posible que experimente una interrupción temporal del tráfico de servicio desde esta subred mientras configura los puntos de conexión de servicio. 
+ 
 - __Protección del acceso de servicio de Azure desde el entorno local__:
 
   De forma predeterminada, los recursos de servicio de Azure protegidos para las redes virtuales no son accesibles desde redes locales. Si desea permitir el tráfico desde el entorno local, también debe permitir las direcciones IP públicas (normalmente NAT) desde el entorno local o ExpressRoute. Estas direcciones IP se pueden agregar a través de la configuración del firewall de IP para los recursos de los servicios de Azure.
@@ -87,6 +92,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
   El cambio de dirección IP solo afecta el tráfico del servicio desde la red virtual. No afecta a ningún otro tráfico dirigido a direcciones IPv4 públicas, o desde ellas, asignadas a las máquinas virtuales. Para los servicios de Azure, si tiene reglas de firewall existentes que usan direcciones IP públicas de Azure, estas reglas dejan de funcionar con el cambio a las direcciones privadas de red virtual.
 - Con los puntos de conexión de servicio, las entradas DNS para los servicios de Azure permanecen tal y como están ahora y seguirán resolviendo las direcciones IP públicas asignadas al servicio de Azure.
+
 - Grupos de seguridad de red (NSG) con puntos de conexión de servicio:
   - De forma predeterminada, los grupos de seguridad de red permiten el tráfico saliente de Internet y, por lo tanto, también permiten el tráfico desde la red virtual a los servicios de Azure. Esto continúa funcionando tal cual, con puntos de conexión de servicio. 
   - Si desea denegar todo el tráfico de Internet saliente y permitir únicamente el tráfico a servicios de Azure específicos, puede hacerlo mediante las [etiquetas de servicio](security-overview.md#service-tags) de sus grupos de seguridad de red. Puede especificar los servicios de Azure compatibles como destino en las reglas de grupos de seguridad de red y Azure proporciona el mantenimiento de las direcciones IP subyacentes en cada etiqueta. Para más información, consulte las [etiquetas de servicio de Azure para grupos de seguridad de red](security-overview.md#service-tags). 

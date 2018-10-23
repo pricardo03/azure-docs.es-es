@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055380"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165988"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Escala de una aplicación que se ejecuta en Service Fabric Mesh
 
-Este tutorial es la segunda parte de una serie. Aprenda a escalar manualmente el número de instancias de servicio de una aplicación que se [implementó previamente en Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  Cuando haya terminado, habrá.
+Este tutorial es la segunda parte de una serie. Aprenda a escalar manualmente el número de instancias de servicio de una aplicación que se [implementó previamente en Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Cuando haya terminado, tendrá un servicio front-end que ejecuta tres instancias y un servicio de datos que ejecuta dos.
 
 En la segunda parte de la serie, se aprende a:
 
@@ -34,7 +34,7 @@ En la segunda parte de la serie, se aprende a:
 
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
-> * [Implementar una aplicación de Service Fabric Mesh en Service Fabric Mesh mediante una plantilla](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Implementar una aplicación en Service Fabric Mesh mediante una plantilla](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * Escala de una aplicación que se ejecuta en Service Fabric Mesh
 > * [Actualizar una aplicación que se ejecuta en Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [Eliminar una aplicación](service-fabric-mesh-tutorial-template-remove-app.md)
@@ -69,9 +69,9 @@ En la plantilla de implementación para el recurso de aplicación, cada servicio
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificación de los parámetros de la plantilla de implementación
 
-Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación, o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores.
+Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores.
 
-Antes, la aplicación se implementó con los archivos [de la plantilla de implementación mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) y [de los parámetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
+Antes, la aplicación se implementó con los archivos de la [plantilla de implementación mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) y [ de los parámetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 Abra el archivo [de parámetros mesh_rp.windows.parameter.json parámetros](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) localmente y establezca el valor de *frontEndReplicaCount* en 3 y el valor de *serviceReplicaCount* en 2:
 

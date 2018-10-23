@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731907"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310443"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configuración de reglas y acciones para el dispositivo en Azure IoT Central
 
@@ -96,6 +96,9 @@ Al definir una regla, también se defina una acción que se ejecuta cuando se cu
 Poco después de guardar la regla, esta se activa. Cuando se cumplan las condiciones definidas en la regla, la aplicación enviará un mensaje a la dirección de correo electrónico que especificó en la acción.
 
 ![Acción de enviar un correo electrónico](media/tutorial-configure-rules/email.png)
+
+> [!NOTE]
+> Una vez terminada la prueba, desactive la regla para dejar de recibir alertas en la bandeja de entrada. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

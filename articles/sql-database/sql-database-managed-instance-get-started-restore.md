@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6cad73c8b8fa6a2fa95a6ea0c1fdb5d4114ffd41
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fa9686e7f9ca7f14a51ea2b9c313dd69a2e40cec
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180106"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362261"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database
 
@@ -29,7 +29,7 @@ Para consultar un tutorial con Azure Database Migration Service (DMS) para la mi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este inicio rápido:
+En esta guía de inicio rápido:
 - Se usan como punto de partida los recursos creados en esta guía: [Creación de una Instancia administrada](sql-database-managed-instance-get-started.md).
 - Requiere la versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) en el equipo cliente local
 - Requiere conectividad a la Instancia administrada mediante SQL Server Management Studio. Consulte estas guías de inicio rápido para ver las opciones de conectividad:
@@ -38,7 +38,7 @@ En este inicio rápido:
 - Se usa una cuenta de Azure Blob Storage preconfigurada que contiene el archivo de copia de seguridad Wide World Importers - Standard (descargado desde https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak)).
 
 > [!NOTE]
-> Para obtener más información sobre cómo realizar una copia de seguridad y restaurar una base de datos de SQL Server con Azure Blob Storage y una Firma de acceso compartido (SAS), vea [Copia de seguridad en URL de SQL Server](sql-database-managed-instance-get-started-restore.md).
+> Para más información acerca de cómo realizar una copia de seguridad y restaurar una base de datos de SQL Server mediante Azure Blob Storage y una Firma de acceso compartido (SAS), consulte [Copia de seguridad en URL de SQL Server](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="restore-the-wide-world-importers-database-from-a-backup-file"></a>Restauración de la base de datos de Wide World Importers desde un archivo de copia de seguridad
 

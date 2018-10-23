@@ -12,16 +12,16 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 8cf26a055b6c0c3ffaf3690d4a6f30505f403eba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951498"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318714"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crear aplicaciones en tiempo real con Azure Functions y el servicio Azure SignalR
 
-Dado que Azure SignalR Service y Azure Functions son servicios altamente escalables y totalmente administrados que le permiten concentrarse en crear aplicaciones en lugar de tener que administrar la infraestructura, es normal usar los dos servicios para proporcionar comunicaciones en tiempo real en un entorno sin servidores.
+Dado que Azure SignalR Service y Azure Functions son servicios altamente escalables y totalmente administrados que le permiten concentrarse en crear aplicaciones en lugar de tener que administrar la infraestructura, es normal usar los dos servicios para proporcionar comunicaciones en tiempo real en un entorno [sin servidores](https://azure.microsoft.com/solutions/serverless/).
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Integrar las comunicaciones en tiempo real con los servicios de Azure
 

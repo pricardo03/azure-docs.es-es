@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038296"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309467"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalización de la vista del operador en Azure IoT Central
 
@@ -56,7 +56,7 @@ Como generador, puede definir qué información se muestra en el panel del dispo
 
     ![Página del panel de la plantilla de dispositivo](media/tutorial-customize-operator/dashboard.png)
 
-4. Para agregar un icono de indicador clave de rendimiento al panel, elija **KPI**:
+4. Para agregar un icono de indicador clave de rendimiento (KPI) al panel, elija **KPI**:
 
     ![Incorporación de indicador clave de rendimiento (KPI)](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ Como generador, puede definir qué información se muestra en el panel del dispo
 
 ## <a name="configure-your-settings-layout"></a>Configuración del diseño de los valores de configuración
 
-Como generador, también puede configurar la vista de los valores de configuración del dispositivo para el operador. El operador utiliza la página de los valores de configuración del dispositivo para configurarlo. Por ejemplo, el para establecer el objetivo de temperatura para el frigorífico.
+Como generador, también puede configurar la vista de los valores de configuración del dispositivo para el operador. El operador utiliza la página de los valores de configuración del dispositivo para configurarlo. Por ejemplo, para establecer el objetivo de temperatura de la máquina de aire acondicionado.
 
 1. Para editar el diseño de los valores de configuración del aire acondicionado conectado, elija **Configuración** y seleccione **Editar plantilla**:
 
@@ -117,7 +117,7 @@ Además del panel y la configuración, también puede configurar la vista de las
 
 En **Modo de diseño**, puede personalizar el panel, la configuración y las páginas de propiedades para el operador. Si no está en el modo **Editar plantilla**, puede ver la aplicación como un operador.
 
-1. Para ver el dispositivo de aire acondicionado conectado como operador, debe hacer clic en **Listo** para detener la edición de la plantilla. Esto le devolverá a una vista de operador del dispositivo.
+1. Para ver la máquina de aire acondicionado conectada como operador, haga clic en **Listo** para detener la edición de la plantilla y volver a la vista del operador del dispositivo.
 
 2. Para actualizar la ubicación de este dispositivo, edite el valor en el icono Ubicación y elija **Guardar**:
 

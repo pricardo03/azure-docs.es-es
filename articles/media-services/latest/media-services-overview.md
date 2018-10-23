@@ -13,24 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 09/25/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 66c9b8297254b41156131d795376857029424e97
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221944"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377923"
 ---
 # <a name="what-is-azure-media-services-v3"></a>¿Qué es Azure Media Services v3?
-
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Versión 2: disponibilidad general](../previous/media-services-overview.md)
-> * [Versión 3: versión preliminar](media-services-overview.md)
-
-> [!NOTE]
-> La versión más reciente de Azure Media Services está en versión preliminar y se denomina v3.
 
 Azure Media Services es una plataforma basada en la nube que le permite compilar soluciones que consiguen un streaming de vídeo con calidad de difusión, mejoran la accesibilidad y la distribución, analizan el contenido, etc. Tanto si es un desarrollador de aplicaciones, un centro de llamadas, una autoridad gubernamental o una empresa de entretenimiento, Media Services le ayuda a crear aplicaciones que ofrecen experiencias multimedia de alta calidad a grandes audiencias de los navegadores y dispositivos móviles más populares en la actualidad. 
 
@@ -133,6 +126,7 @@ Microsoft genera y admite las bibliotecas de cliente siguientes:
 |[Referencia de Node.js](https://aka.ms/ams-v3-nodejs-ref)|[SDK de Node.js](https://aka.ms/ams-v3-nodejs-sdk)|[Ejemplos de Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
 |[Referencia de Python](https://aka.ms/ams-v3-python-ref)|[SDK de Python](https://aka.ms/ams-v3-python-sdk)||
 |[Referencia de Go](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
+|Ruby|[SDK de Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
 ## <a name="next-steps"></a>Pasos siguientes
 

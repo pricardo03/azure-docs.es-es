@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220896"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394432"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. Azure Resource Manager permite trabajar con los recursos de la solución como un grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación. 
@@ -159,7 +159,7 @@ Después de definir la plantilla, está listo para implementar los recursos en A
 
 Al implementar un servicio complejo en Azure, es posible que necesite implementar el servicio en varias regiones y comprobar su estado antes de continuar con el paso siguiente. Use [Azure Deployment Manager](deployment-manager-overview.md) para coordinar un lanzamiento por fases del servicio. Mediante el establecimiento de fases en el lanzamiento del servicio, puede encontrar posibles problemas antes de que se haya implementado en todas las regiones. Si no necesita estas precauciones, las operaciones de implementación de la sección anterior son la mejor opción.
 
-Deployment Manager se encuentra actualmente en versión preliminar pública.
+Deployment Manager se encuentra actualmente en versión preliminar privada.
 
 ## <a name="tags"></a>Etiquetas
 Administrador de recursos proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Use etiquetas cuando tenga una colección compleja de grupos de recursos y recursos, y necesite visualizar dichos activos de la manera que le resulte más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento. Sin etiquetas, los usuarios de su organización pueden crear varios recursos que son difíciles de identificar y administrar posteriormente. Por ejemplo, puede desear eliminar todos los recursos de un proyecto concreto. Si dichos recursos no se etiquetan para el proyecto, tiene que buscarlos manualmente. El etiquetado puede ser un aspecto importante para reducir costos innecesarios en la suscripción. 

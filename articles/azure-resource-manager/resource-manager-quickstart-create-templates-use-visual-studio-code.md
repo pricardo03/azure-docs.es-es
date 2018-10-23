@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419124"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378697"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
 
-Obtenga información sobre cómo crear plantillas de Azure Resource Manager mediante el uso de Visual Studio Code y la extensión Herramientas de Azure Resource Manager. Puede crear plantillas de Resource Manager en Visual Studio Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).
+Obtenga información sobre cómo usar el código de Visual Studio y la extensión de herramientas de Azure Resource Manager para crear y modificar las plantillas de Azure Resource Manager. Puede crear plantillas de Resource Manager en Visual Studio Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -55,9 +55,14 @@ La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta
 
 ## <a name="edit-the-template"></a>Edición de la plantilla
 
-Para saber cómo editar una plantilla mediante Visual Studio Code, puede agregar más de un elemento en la sección outputs.
+Para saber cómo editar una plantilla mediante Visual Studio Code, puede agregar más de un elemento en la sección `outputs`.
 
-1. En Visual Studio Code, agregue una salida más a la plantilla exportada:
+1. En Visual Studio Code, compruebe el valor de la **variante**. Si el valor es **Almacenamiento**, actualice el valor a **StorageV2**.
+
+    ```json
+    "kind": "StorageV2",
+    ```
+2. Agregue una salida más a la plantilla exportada:
 
     ```json
     "storageUri": {
@@ -85,25 +90,17 @@ Para saber cómo editar una plantilla mediante Visual Studio Code, puede agregar
 
     ![Intellisense de Visual Studio Code de la plantilla de Resource Manager](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. Seleccione **File**>**Guardar** para guardar los cambios.
+3. Seleccione **File**>**Guardar** para guardar los cambios.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Existen muchos métodos para la implementación de plantillas.  En esta guía de inicio rápido, va a utilizar Azure Cloud Shell desde Azure Portal. Cloud Shell es compatible con la CLI de Azure y Azure PowerShell. 
+Existen muchos métodos para la implementación de plantillas.  En esta guía de inicio rápido, va a utilizar Azure Cloud Shell. Cloud Shell es compatible con la CLI de Azure y Azure PowerShell. 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-2. Seleccione **Cloud Shell** en la esquina superior derecha, tal como se muestra en la siguiente imagen:
-
-    ![Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
-
-    Cloud Shell se abre en la parte inferior de la ventana.
-
-3. Seleccione **PowerShell** o **Bash** en la esquina superior izquierda de Cloud Shell. Para usar la CLI, deberá abrir una sesión de Bash. Para ejecutar PowerShell, deberá abrir una sesión de PowerShell. Seleccione la flecha abajo para alternar entre Bash y PowerShell. La siguiente imagen muestra el cambio de PowerShell a Bash.
+1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
     ![CLI de Cloud Shell de Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-
-    Es necesario reiniciar el shell cuando realiza el cambio.
-4. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**.
+2. Seleccione **PowerShell** o **Bash** en la esquina superior izquierda de Cloud Shell. Para usar la CLI, deberá abrir una sesión de Bash. Para ejecutar PowerShell, deberá abrir una sesión de PowerShell. Seleccione la flecha abajo para alternar entre Bash y PowerShell. Consulte la captura de pantalla anterior. Es necesario reiniciar el shell cuando realiza el cambio.
+3. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -116,7 +113,7 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
     ---
 
     Debe cargar el archivo de plantilla antes de poder implementarla desde el shell.
-5. Seleccione el archivo que guardó anteriormente en la guía de inicio rápido. El nombre predeterminado es **azuredeploy.json**.
+5. Seleccione el archivo que guardó en la sección anterior. El nombre predeterminado es **azuredeploy.json**.
 6. En Cloud Shell, ejecute el comando **ls** para comprobar que el archivo se ha cargado correctamente. También puede usar el comando **cat** para comprobar el contenido de la plantilla. La siguiente imagen muestra la ejecución del comando desde Bash.  Puede utilizar los mismos comandos desde una sesión de PowerShell.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -132,20 +129,30 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the name for this deployment:" &&
+    read deploymentName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    az group create --name $resourceGroupName --location $location &&
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
-
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
+
+    Actualice el nombre del archivo de plantilla si guarda el archivo en un nombre distinto a **azuredeploy.json**.
 
     En la captura de pantalla siguiente se muestra una implementación de ejemplo:
 
@@ -159,26 +166,25 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
     
     ---
 
-    En la captura de pantalla, se utilizan estos valores:
-
-    - **&lt;ResourceGroupName>**: myresourcegroup0709. Hay dos apariciones del parámetro.  Asegúrese de utilizar el mismo valor.
-    - **&lt;AzureLocation>**: eastus2
-    - **&lt;DeployName>**: mydeployment0709
-    - **&lt;TemplateFile>**: azuredeploy.json
-
-    En la salida de la captura de pantalla, el nombre de cuenta de almacenamiento es *3tqebj3slyfyestandardsa*. 
+    El nombre de la cuenta de almacenamiento y la dirección URL de almacenamiento en la sección outputs se resaltan en la captura de pantalla. Necesita el nombre de la cuenta de almacenamiento en el paso siguiente.
 
 7. Ejecute el siguiente comando de la CLI o de PowerShell para enumerar la cuenta de almacenamiento recién creada:
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the Storage Account name:" &&
+    read storageAccountName &&
+    az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
+    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---

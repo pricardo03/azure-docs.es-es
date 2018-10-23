@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e705a0f57b598eb60932ca1056131cedc1416ffc
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987797"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394481"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -125,7 +125,7 @@ Al comprar una reserva, el pago es único. Hay dos maneras de ver el pago en Clo
 
 Los informes de análisis del costo real y a lo largo del tiempo muestran el importe total que ha pagado por la reserva, a partir del mes de compra. Además, ayudan a ver los gastos reales durante un período.
 
-Vaya a **Cost** > **Cost Analysis** (Costo > Análisis del costo) en el portal de Cloudyn y seleccione **Actual Cost Analysis** (Análisis del costo real) o **Actual Cost Over Time** (Costo real a lo largo del tiempo). A continuación, establezca los filtros. Por ejemplo, filtre solo por el servicio Azure/máquina virtual y agrupe por tipo de recursos y modelo de precios. Consulte la siguiente imagen:
+Vaya a **Costs** > **Cost Analysis** (Costos > Análisis del costo) en el portal de Cloudyn y seleccione **Actual Cost Analysis** (Análisis del costo real) o **Actual Cost Over Time** (Costo real a lo largo del tiempo). A continuación, establezca los filtros. Por ejemplo, filtre solo por el servicio Azure/máquina virtual y agrupe por tipo de recursos y modelo de precios. Consulte la siguiente imagen:
 
 ![Costo real de la instancia reservada](./media/tutorial-optimize-reserved-instances/azure05.png)
 
@@ -143,7 +143,7 @@ Al calcular el costo amortizado de las instancias reservadas se considera el pre
 
 En el informe de costo real, ha visto un pico por la compra de una instancia reservada el 16 de noviembre de 747 $. En el informe de costo amortizado (vea la imagen siguiente) hay un costo parcial del 16 de noviembre. A partir del 17 de noviembre verá el costo amortizado de la instancia reservada de 747/365 $ = 2,05 $. En consecuencia, también observará que la reserva adquirida no está en uso, puede cambiarla a un tamaño de máquina virtual distinto para optimizarla.
 
-Para verlo, vaya a **Cost** > **Cost Analysis** (Costo > Análisis del costo), seleccione **Amortized Cost Analysis** (Análisis del costo amortizado) o **Amortized Cost Over Time** (Costo amortizado a lo largo del tiempo).
+Para verlo, vaya a **Costs** > **Cost Analysis** (Costo > Análisis del costo), seleccione **Amortized Cost Analysis** (Análisis del costo amortizado) o **Amortized Cost Over Time** (Costo amortizado a lo largo del tiempo).
 
 ![Costo amortizado de las instancias reservadas](./media/tutorial-optimize-reserved-instances/azure07.png)
 

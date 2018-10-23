@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855192"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352667"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios federados
 
@@ -124,7 +124,7 @@ Para configurar una unión a Azure AD híbrido utilizando Azure AD Connect, nece
 
     a. Seleccione el bosque.
 
-    b. Seleccione el servicio de autenticación. Debe seleccionar servidor de AD FS, salvo que su organización tenga exclusivamente clientes de Windows 10.
+    b. Seleccione el servicio de autenticación. Debe seleccionar un servidor de AD FS, salvo que su organización tenga exclusivamente clientes de Windows 10 y haya configurado la sincronización de equipos o dispositivos, o bien su organización use SeamlessSSO.
 
     c. Haga clic en **Agregar** para especificar las credenciales de administrador de empresa.
 
@@ -194,7 +194,7 @@ Cuando se usa el cmdlet **Get-MSolDevice** para comprobar los detalles de servic
 
 - Tiene que existir un objeto con el **Identificador de dispositivo** que coincida con el identificador en el cliente de Windows.
 - El valor de **DeviceTrustType** tiene que ser **Unido a dominio**. Esto es equivalente al estado **Unido a Azure AD híbrido** en la página de dispositivos en el portal de Azure AD.
-- El valor de **Habilitado** tiene que ser **True** para los dispositivos que se usan en el acceso condicional. 
+- En el caso de los dispositivos que se usan en el acceso condicional, el valor de **Habilitado** tiene que ser **True** y el de **DeviceTrustLevel** tiene que ser **Administrado**. 
 
 
 **Para comprobar los detalles del servicio:**

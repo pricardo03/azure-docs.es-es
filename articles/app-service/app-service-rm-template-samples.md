@@ -4,23 +4,21 @@ description: Ejemplos de plantillas de Azure Resource Manager para la caracterí
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
-editor: ggailey777
 tags: azure-service-management
 ms.service: app-service
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 02/26/2018
+ms.date: 10/15/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 155b47fc4c664701ec0f21bdc5ae34f3d7f666ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 627480fab7a28794a215642fda8e57280f19f19b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29933075"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345074"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Plantillas de Azure Resource Manager para Web Apps
 
@@ -29,15 +27,17 @@ En la tabla siguiente se incluyen vínculos a las plantillas de Azure Resource M
 | | |
 |-|-|
 |**Implementación de una aplicación web**||
+| [App Service plan and basic Linux web app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) (Plan de App Service y la aplicación web básica para Linux) | Implementa una aplicación web de Azure configurada para Linux. |
+| [App Service plan and basic Windows web app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) (Plan de App Service y la aplicación web básica para Windows) | Implementa una aplicación web de Azure configurada para Windows. |
 | [Aplicación web vinculada a un repositorio de GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Implementa una aplicación web de Azure que extrae código de GitHub. |
 | [Web app with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots) (Aplicación web con espacios de implementación personalizados)| Implementa una aplicación web de Azure con espacios o entornos de implementación personalizados. |
 |**Configuración de una aplicación web**||
 | [Web app certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault) (Certificado de aplicación web de Key Vault)| Implementa un certificado de aplicación web de Azure desde un secreto de Azure Key Vault y lo utiliza para el enlace de SSL. |
 | [Aplicación web con un dominio personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Implementa una aplicación web de Azure con un nombre de host personalizado. |
 | [Web app with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl) (Aplicación web con un dominio personalizado y SSL)| Implementa una aplicación web de Azure con un nombre de host personalizado y obtiene un certificado de aplicación web desde Key Vault para el enlace de SSL. |
-| [Web app with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang) (Aplicación web con una extensión de GoLang)| Implementa una aplicación web de Azure con la extensión de sitio GoLang. A continuación, puede ejecutar aplicaciones web desarrolladas en GoLang en Azure. |
+| [Web app with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang) (Aplicación web con una extensión de GoLang)| Implementa una aplicación web de Azure con la extensión de sitio Golang. A partir de ese momento se pueden ejecutar en Azure aplicaciones web desarrolladas en Golang. |
 | [Web app with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat) (Aplicación web con Java 8 y Tomcat 8)| Implementa una aplicación web de Azure con Java 8 y Tomcat 8 habilitados. A continuación, puede ejecutar aplicaciones Java en Azure. |
-|**Aplicación web para Linux**||
+|**Linux web app with connected resources** (Aplicación web para Linux con recursos conectados)||
 | [Web app on Linux with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) (Aplicación web en Linux con MySQL) | Implementa una aplicación web de Azure en Linux con Azure Database for MySQL. |
 | [Web app on Linux with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) (Aplicación web en Linux con PostgreSQL) | Implementa una aplicación web de Azure en Linux con Azure Database for PostgreSQL. |
 |**Web app with connected resources** (Aplicación web con recursos conectados)||

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
 ms.author: barbkess
-ms.openlocfilehash: 16910e51380a9d3f5ddf46b0deabc79830bb10c9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 9cb3cb16e0eba30f98767efd0d1c0d9123304c27
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324670"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395013"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Guía de inicio rápido: Incorporación de una aplicación a un inquilino de Azure Active Directory
 
@@ -157,7 +157,7 @@ Para usar un logotipo personalizado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha aprendido a agregar una aplicación de la galería a su inquilino de Azure AD. También ha aprendido a editar las propiedades de una aplicación. 
+En esta guía de inicio rápido, ha aprendido a agregar una aplicación de la galería a su inquilino de Azure AD. Ha aprendido a modificar las propiedades de una aplicación. 
 
 Ahora, está preparado para configurar la aplicación para el inicio de sesión único. 
 

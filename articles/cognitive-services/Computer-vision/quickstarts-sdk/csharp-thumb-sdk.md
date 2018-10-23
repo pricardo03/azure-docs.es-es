@@ -3,25 +3,23 @@ title: 'Guía de inicio rápido: Generación de una miniatura - SDK, C# - Comput
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante la biblioteca cliente C# para Windows de Computer Vision.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 758021a9428672789923d1774f51fd319fe9885f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054819"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343119"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Inicio rápido: Generación de una miniatura mediante el SDK de Computer Vision y C#
 
 En esta guía de inicio rápido, generará una miniatura de una imagen mediante la biblioteca cliente para Windows de Computer Vision.
-
-El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,6 +28,9 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 * El paquete NuGet de la biblioteca cliente [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). No es necesario descargar el paquete. A continuación, se proporcionan instrucciones de instalación.
 
 ## <a name="generatethumbnailasync-method"></a>Método GenerateThumbnailAsync
+
+> [!TIP]
+> Obtenga el código más reciente como solución de Visual Studio desde [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Los métodos `GenerateThumbnailAsync` y `GenerateThumbnailInStreamAsync` encapsulan [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para las imágenes locales y remotas, respectivamente.  Puede usar estos métodos para generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
 
@@ -42,7 +43,7 @@ Para ejecutar el ejemplo, siga estos pasos:
     1. Seleccione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** cuando aparezca, marque la casilla junto al nombre del proyecto y haga clic en **Instalar**.
 1. Reemplace `Program.cs` por el código siguiente.
 1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Cambie `computerVision.Endpoint` en la región de Azure asociada con las claves de suscripción, si es necesario.
+1. Cambie `computerVision.Endpoint` por la región de Azure asociada con las claves de suscripción, si es necesario.
 1. Tiene la opción de reemplazar `<LocalImage>` por la ruta de acceso y el nombre de archivo de una imagen local (si no se establece, se omite).
 1. También tiene la opción de establecer `remoteImageUrl` en una imagen diferente.
 1. Y puede establecer `writeThumbnailToDisk` en `true` de manera opcional para guardar la miniatura en el disco.

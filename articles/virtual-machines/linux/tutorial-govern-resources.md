@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968822"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309866"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Obtener información sobre el control de máquinas virtuales de Linux con la CLI de Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "46968822"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI de Azure en el entorno local, en este tutorial es preciso que ejecute la versión 2.0.30 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 
@@ -55,19 +55,17 @@ Para administrar las soluciones de máquina virtual, hay tres roles específicos
 * [Colaborador de la red](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-En lugar de asignar roles a usuarios individuales, a menudo resulta más fácil [crear un grupo de Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para los usuarios que tienen que realizar acciones similares. A continuación, asigne a ese grupo el rol apropiado. Para simplificar este artículo, cree un grupo de Azure Active Directory sin miembros. Todavía puede asignar a este grupo un rol para un ámbito. 
+En lugar de asignar roles a usuarios individuales, a menudo resulta más fácil usar un grupo de Azure Active Directory con usuarios que tienen que realizar acciones similares. A continuación, asigne a ese grupo el rol apropiado. Para este artículo puede usar un grupo existente para administrar la máquina virtual o el portal para [crear un grupo de Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-En el siguiente ejemplo se crea un grupo de Azure Active Directory denominado *VMDemoContributors* con un alias de correo de *vmDemoGroup*. El alias de correo hace las veces de alias del grupo.
-
-```azurecli-interactive
-adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
-```
-
-Tras volver el símbolo del sistema, el grupo tardará un momento en propagarse por todo Azure Active Directory. Después de esperar durante 20 o 30 segundos, use el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para asignar el nuevo grupo de Azure Active Directory al rol Colaborador de la máquina virtual para el grupo de recursos.  Si ejecuta el siguiente comando antes de su propagación, recibirá un error en el que se indica que la **entidad de seguridad<guid> no existe en el directorio**. Intente ejecutar el comando de nuevo.
+Después de crear un grupo o de buscar uno existente, use el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para asignar el nuevo grupo de Azure Active Directory al rol Colaborador de la máquina virtual para el grupo de recursos.
 
 ```azurecli-interactive
+adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
+
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
+
+Si recibe un error que indica **Principal <guid> does not exist in the directory** (La entidad de seguridad no existe en el directorio), el nuevo grupo no se ha propagado en Azure Active Directory. Intente ejecutar el comando de nuevo.
 
 Por lo general, repetirá el proceso para *Colaborador de la red* y *Colaborador de la cuenta de almacenamiento* con el objetivo de asegurarse de que los usuarios se asignan para administrar los recursos implementados. En este artículo, puede omitir esos pasos.
 
@@ -85,7 +83,7 @@ Ve las definiciones de directiva existentes. El tipo de directiva es **BuiltIn**
 * Limite las SKU para las máquinas virtuales.
 * Realice auditorías de las máquinas virtuales que no usen discos administrados.
 
-En el siguiente ejemplo, recupera tres definiciones de directivas en función del nombre para mostrar. Puede usar el comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) para asignar esas definiciones al grupo de recursos. En algunas directivas, puede proporcionar valores de los parámetros para especificar los valores permitidos.
+En el siguiente ejemplo, se recuperan tres definiciones de directivas en función del nombre para mostrar. Puede usar el comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) para asignar esas definiciones al grupo de recursos. En algunas directivas, puede proporcionar valores de los parámetros para especificar los valores permitidos.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks

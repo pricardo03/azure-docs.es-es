@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984932"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341317"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: Computer Vision API para JavaScript
 
 En este tutorial se muestran las características de la API de REST Computer Vision de Azure Cognitive Services.
 
-Explore una aplicación de JavaScript que usa la API REST Computer Vision API para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Este ejemplo le permite enviar la dirección URL de una imagen para su análisis o procesamiento. Puede usar este ejemplo de código abierto como plantilla para crear su propia aplicación de JavaScript para que use la Computer Vision REST API.
+Explore una aplicación de JavaScript que usa la API REST Computer Vision API para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Este ejemplo le permite enviar la dirección URL de una imagen para su análisis o procesamiento. Puede usar este ejemplo de código abierto como plantilla para crear su propia aplicación de JavaScript para usar la API REST de Computer Vision.
 
 La aplicación de JavaScript ya se ha escrito, pero no tiene ninguna funcionalidad de Computer Vision. En este tutorial, agregará el código específico de la API REST Computer Vision API para completar la funcionalidad de la aplicación.
 
@@ -35,25 +35,27 @@ Este tutorial se ha desarrollado con un editor de texto simple.
 
 Antes de crear el ejemplo, debe suscribirse a Computer Vision API, que forma parte de Azure Cognitive Services. Para más información sobre la administración de claves y suscripciones, consulte [Suscripciones](https://azure.microsoft.com/try/cognitive-services/). En este tutorial son válidas las claves principal y secundaria. 
 
-## <a name="download-the-tutorial-project"></a>Descarga del proyecto del tutorial
+## <a name="acquire-the-incomplete-tutorial-project"></a>Adquisición del proyecto del tutorial incompleto
+
+### <a name="download-the-tutorial-project"></a>Descarga del proyecto del tutorial
 
 Clone el [tutorial de Computer Vision de Cognitive Services para JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) o descargue el archivo .zip y extráigalo en un directorio vacío.
 
 Si prefiere usar el tutorial terminado que ya tiene todo el código agregado, puede usar los archivos de la carpeta **Completed**.
 
-## <a name="add-the-tutorial-code"></a>Adición del código del tutorial
+## <a name="add-the-tutorial-code-to-the-project"></a>Adición del código del tutorial al proyecto
 
 La aplicación de JavaScript se instala con seis archivos .html, uno para cada característica. Cada archivo muestra una función diferente de Computer Vision (analizar, OCR, etc.). Las seis secciones del tutorial son independientes entre sí, por lo que puede agregar el código del tutorial a un archivo, los seis archivos o solo un par de ellos. Puede agregar el código del tutorial a los archivos en cualquier orden.
 
 Comencemos.
 
-## <a name="analyze-an-image"></a>Análisis de una imagen
+### <a name="analyze-an-image"></a>Análisis de una imagen
 
-La característica Analyze de Computer Vision analiza una imagen en busca de más de 2000 objetos reconocibles, seres vivos, escenarios y acciones. Una vez completado el análisis, Analyze devuelve un objeto JSON que describe la imagen con etiquetas descriptivas, análisis de color o títulos, entre otros.
+La característica Analyze de Computer Vision examina una imagen en busca de más de 2000 objetos reconocibles, seres vivos, escenarios y acciones. Una vez completado el análisis, Analyze devuelve un objeto JSON que describe la imagen con etiquetas descriptivas, análisis de color o títulos, entre otros.
 
 Para completar la característica Analyze de la aplicación del tutorial, siga estos pasos:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Paso 1 de Analyze: Adición del código de controlador de eventos para el botón del formulario
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adición del código de controlador de eventos para el botón del formulario
 
 Abra el archivo **analyze.html** en un editor de texto y busque la función **analyzeButtonClick** cerca de la parte inferior del archivo.
 
@@ -77,7 +79,7 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Paso 2 de Analyze: Adición del encapsulador para la llamada API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adición del contenedor para la llamada a API REST
 
 La función **AnalyzeImage** ajusta la llamada API REST para analizar una imagen. Tras una devolución correcta, el análisis JSON con formato se mostrará en el área de texto especificada y el título se mostrará en el intervalo especificado.
 
@@ -151,17 +153,17 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="analyze-step-3-run-the-application"></a>Paso 3 de Analyze: Ejecución de la aplicación
+#### <a name="run-the-application"></a>Ejecución de la aplicación
 
 Guarde el archivo **analyze.html** y ábralo en un explorador web. Coloque la clave de suscripción en el campo **Subscription Key** (Clave de suscripción) y compruebe que está usando la región correcta en **Subscription Region** (Región de suscripción). Escriba una dirección URL a la imagen que desea analizar y haga clic en el botón **Analyze Image** (Analizar imagen) para analizar una imagen y ver el resultado.
 
-## <a name="recognize-a-landmark"></a>Reconocimiento de un lugar de interés
+### <a name="recognize-a-landmark"></a>Reconocimiento de un lugar de interés
 
 La característica Landmark de Computer Vision analiza una imagen en busca de lugares de interés naturales y artificiales, tales como montañas o edificios famosos. Una vez completado el análisis, Landmark devuelve un objeto JSON que identifica los lugares de interés que encuentre en la imagen.
 
 Para completar la característica Landmark de la aplicación del tutorial, siga estos pasos:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Paso 1 de Landmark: Adición del código de controlador de eventos para el botón del formulario
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adición del código de controlador de eventos para el botón del formulario
 
 Abra el archivo **landmark.html** en un editor de texto y busque la función **landmarkButtonClick** cerca de la parte inferior del archivo.
 
@@ -185,7 +187,7 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Paso 2 de Landmark: Adición del encapsulador para la llamada API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adición del contenedor para la llamada a API REST
 
 La función **IdentifyLandmarks** ajusta la llamada API REST para analizar una imagen. Tras una devolución correcta, el análisis JSON con formato se mostrará en el área de texto especificada y el título se mostrará en el intervalo especificado.
 
@@ -258,17 +260,17 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Paso 3 de Landmark: Ejecución de la aplicación
+#### <a name="run-the-application"></a>Ejecución de la aplicación
 
 Guarde el archivo **landmark.html** y ábralo en un explorador web. Coloque la clave de suscripción en el campo **Subscription Key** (Clave de suscripción) y compruebe que está usando la región correcta en **Subscription Region** (Región de suscripción). Escriba una dirección URL a la imagen que desea analizar y haga clic en el botón **Analyze Image** (Analizar imagen) para analizar una imagen y ver el resultado.
 
-## <a name="recognize-celebrities"></a>Reconocimiento de celebridades
+### <a name="recognize-celebrities"></a>Reconocimiento de celebridades
 
 La característica Celebrities de Computer Vision analiza una imagen en busca de personas famosas. Una vez completado el análisis, Celebrities devuelve un objeto JSON que identifica las personas famosas que encuentre en la imagen.
 
 Para completar la característica Celebrities de la aplicación del tutorial, siga estos pasos:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Paso 1 de Celebrities: Adición del código de controlador de eventos para el botón del formulario
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adición del código de controlador de eventos para el botón del formulario
 
 Abra el archivo **celebrities.html** en un editor de texto y busque la función **celebritiesButtonClick** cerca de la parte inferior del archivo.
 
@@ -292,7 +294,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Paso 2 de Celebrities: Adición del encapsulador para la llamada API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adición del contenedor para la llamada a API REST
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -361,17 +363,17 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Paso 3 de celebritiesButtonClick: Ejecución de la aplicación
+#### <a name="run-the-application"></a>Ejecución de la aplicación
 
 Guarde el archivo **celebrities.html** y ábralo en un explorador web. Coloque la clave de suscripción en el campo **Subscription Key** (Clave de suscripción) y compruebe que está usando la región correcta en **Subscription Region** (Región de suscripción). Escriba una dirección URL a la imagen que desea analizar y haga clic en el botón **Analyze Image** (Analizar imagen) para analizar una imagen y ver el resultado.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Generación inteligente de una miniatura
+### <a name="intelligently-generate-a-thumbnail"></a>Generación inteligente de una miniatura
 
 La característica Thumbnail de Computer Vision genera una miniatura de una imagen. Con la característica **Smart Crop**, la característica Thumbnail identificará el área de interés de una imagen y centrará la miniatura en esta área para generar miniaturas más bonitas.
 
 Para completar la característica Thumbnail de la aplicación del tutorial, siga estos pasos:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Paso 1 de Thumbnail: Adición del código de controlador de eventos para el botón del formulario
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adición del código de controlador de eventos para el botón del formulario
 
 Abra el archivo **thumbnail.html** en un editor de texto y busque la función **thumbnailButtonClick** cerca de la parte inferior del archivo.
 
@@ -403,7 +405,7 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Paso 2 de Thumbnail: Adición del encapsulador para la llamada API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adición del contenedor para la llamada a API REST
 
 La función **getThumbnail** ajusta la llamada API REST para analizar una imagen. Si la devolución es correcta, la miniatura se mostrará en el elemento img especificado.
 
@@ -482,11 +484,11 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Paso 3 de Thumbnail: Ejecución de la aplicación
+#### <a name="run-the-application"></a>Ejecución de la aplicación
 
 Guarde el archivo **thumbnail.html** y ábralo en un explorador web. Coloque la clave de suscripción en el campo **Subscription Key** (Clave de suscripción) y compruebe que está usando la región correcta en **Subscription Region** (Región de suscripción). Escriba una dirección URL a la imagen que desea analizar y haga clic en el botón **Generate Thumbnails** (Generar miniaturas) para analizar una imagen y ver el resultado.
 
-## <a name="read-printed-text-ocr"></a>Lectura de texto impreso (OCR)
+### <a name="read-printed-text-ocr"></a>Lectura de texto impreso (OCR)
 
 La característica de reconocimiento óptico de caracteres (OCR) de Computer Vision analiza una imagen de texto impreso. Una vez completado el análisis, OCR devuelve un objeto JSON que contiene el texto y la ubicación del texto de la imagen.
 
@@ -516,7 +518,7 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>Paso 2 de OCR: Adición del encapsulador para la llamada API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adición del contenedor para la llamada a API REST
 
 La función **ReadOcrImage** ajusta la llamada API REST para analizar una imagen. Una vez devuelto el resultado, el código JSON con formato que describe el texto y la ubicación del texto se muestran en el área de texto especificada.
 
@@ -577,17 +579,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>Paso 3 de OCR: Ejecución de la aplicación
+#### <a name="run-the-application"></a>Ejecución de la aplicación
 
 Guarde el archivo **ocr.html** y ábralo en un explorador web. Coloque la clave de suscripción en el campo **Subscription Key** (Clave de suscripción) y compruebe que está usando la región correcta en **Subscription Region** (Región de suscripción). Escriba una dirección URL a la imagen que desea leer y haga clic en el botón **Read Image** (Leer imagen) para analizar una imagen y ver el resultado.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Lectura de texto escrito a mano (Handwriting Recognition)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Lectura de texto escrito a mano (Handwriting Recognition)
 
 La característica Handwriting Recognition de Computer Vision analiza una imagen de texto escrito a mano. Una vez completado el análisis, Handwriting Recognition devuelve un objeto JSON que contiene el texto y la ubicación del texto de la imagen.
 
 Para completar la característica Handwriting Recognition de la aplicación del tutorial, siga estos pasos:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Paso 1 de Handwriting Recognition: Adición del código de controlador de eventos para el botón del formulario
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adición del código de controlador de eventos para el botón del formulario
 
 Abra el archivo **handwriting.html** en un editor de texto y busque la función **handwritingButtonClick** cerca de la parte inferior del archivo.
 
@@ -610,7 +612,7 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Paso 2 de Handwriting Recognition: Adición del encapsulador para la llamada API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adición del contenedor para la llamada a API REST
 
 La función **ReadHandwrittenImage** encapsula las dos llamadas API REST necesarias para analizar una imagen. Como el reconocimiento de la escritura a mano es un proceso lento, se utiliza un proceso en dos pasos. La primera llamada envía la imagen para su procesamiento; la segunda llamada recupera el texto detectado una vez completado el procesamiento.
 
@@ -736,7 +738,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Paso 3 de Handwriting Recognition: Ejecución de la aplicación
+#### <a name="run-the-application"></a>Ejecución de la aplicación
 
 Guarde el archivo **handwriting.html** y ábralo en un explorador web. Coloque la clave de suscripción en el campo **Subscription Key** (Clave de suscripción) y compruebe que está usando la región correcta en **Subscription Region** (Región de suscripción). Escriba una dirección URL a la imagen que desea leer y haga clic en el botón **Read Image** (Leer imagen) para analizar una imagen y ver el resultado.
 

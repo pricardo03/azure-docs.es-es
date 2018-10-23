@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410211"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353723"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de aprendizaje automático de Edge con Azure y Azure Stack
 
@@ -210,7 +210,7 @@ Coloque la nueva DSVM en el mismo grupo de recursos que la cuenta de almacenamie
 
     d.  En **Cuenta de almacenamiento de diagnóstico**, seleccione la cuenta de almacenamiento que creó anteriormente.
 
-    e.  Nota: Con AAD habilitado y configurado para la suscripción de Azure, Managed Service Identity se puede habilitar también.
+    e.  Nota: Con AAD habilitado y configurado para la suscripción de Azure, también se pueden habilitar las identidades administradas para los recursos de Azure.
 
 2.  Seleccione **Aceptar**.
 

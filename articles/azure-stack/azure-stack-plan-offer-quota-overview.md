@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077126"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318136"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Introducción a los planes, ofertas, cuotas y suscripciones
 
@@ -40,7 +40,7 @@ Al ofrecer un servicio, siga estos pasos de alto nivel:
 2. Cree un plan que tenga uno o varios servicios. Al crear un plan, seleccione o cree cuotas que definan los límites de recursos de cada servicio en el plan.
 3. Cree una oferta que contenga uno o varios planes. La oferta puede incluir planes base y planes complementarios opcionales.
 
-Después de haber creado la oferta, los usuarios pueden suscribirse a ella para acceder a los servicios y recursos que la oferta proporciona. Los usuarios pueden suscribirse a todas las ofertas que quieran. En el diagrama siguiente se muestra un ejemplo sencillo de un usuario que se ha suscrito a dos ofertas. Cada oferta tiene un plan o dos, y cada plan le proporciona acceso a los servicios.
+Después de haber creado la oferta, los usuarios pueden suscribirse a ella para acceder a los servicios y recursos que la oferta proporciona. Los usuarios pueden suscribirse a todas las ofertas que quieran. En la siguiente ilustración se muestra un ejemplo sencillo de un usuario que se ha suscrito a dos ofertas. Cada oferta tiene un plan o dos, y cada plan le proporciona acceso a los servicios.
 
 ![Suscripción de inquilinos con ofertas y planes](media/azure-stack-key-features/image4.png)
 
@@ -50,9 +50,9 @@ Los planes son agrupaciones de uno o varios servicios. Como operador de Azure St
 
 ### <a name="quotas"></a>Cuotas
 
-Para ayudarle a administrar la capacidad de la nube, puede usar cuotas configuradas previamente o crear una nueva cuota para cada servicio de un plan. Las cuotas definen los límites de recursos superiores que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales. Puede establecer cuotas adicionales en las máquinas virtuales, como núcleos de RAM y CPU.
+Para ayudarle a administrar la capacidad de la nube, puede usar *cuotas* configuradas previamente o crear una nueva para cada servicio de un plan. Las cuotas definen los límites de recursos superiores que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales.
 
-Puede configurar cuotas por región. Por ejemplo, un plan que proporciona servicios de proceso para la región A puede tener una cuota de dos máquinas virtuales, 4 GB de RAM y 8 núcleos de CPU.
+Puede configurar cuotas por región. Por ejemplo, un plan que proporciona servicios de proceso para la región A puede tener una cuota de dos máquinas virtuales.
 
 >[!NOTE]
 >En el Kit de desarrollo de Azure Stack, solo hay una región (denominada *local*) disponible.
@@ -85,4 +85,4 @@ La suscripción de proveedor predeterminada se crea automáticamente al implemen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de un plan](azure-stack-create-plan.md)
+Para más información acerca de los planes y las ofertas, consulte el artículo de [Creación de un plan](azure-stack-create-plan.md).

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888152"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319343"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
 El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Puede hacerlo sin tener que abrir una conexión de firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
@@ -81,10 +81,9 @@ El siguiente diagrama muestra el control de las solicitudes de transmisión entr
 4. La puerta de enlace que recibe la solicitud busca la transmisión en el almacén de puerta de enlace. 
 5. La puerta de enlace reenvía la solicitud de conexión a la puerta de enlace correcta mencionada en el almacén de puerta de enlace. 
 6. La puerta de enlace envía una solicitud al cliente de escucha para que cree un canal temporal al nodo de la puerta de enlace que esté más próximo al cliente de envío. 
-7. Ahora, el cliente de escucha crea un canal temporal y envía un mensaje de respuesta a la puerta de enlace más cercana al cliente de envío.
-8. La puerta de enlace reenvía el mensaje de respuesta al cliente de envío. 
-
-Cuando se establece la conexión de retransmisión, los clientes pueden intercambiar mensajes a través del nodo de puerta de enlace que se usa para el encuentro.
+7. El cliente de escucha crea un canal temporal a la puerta de enlace más cercana al cliente de envío. Ahora que la conexión está establecida entre los clientes a través de una puerta de enlace, estos pueden intercambiarse mensajes. 
+8. La puerta de enlace reenvía cualquier mensaje del cliente de escucha al cliente de envío. 
+9. La puerta de enlace reenvía cualquier mensaje del cliente de envío al cliente de escucha.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a los Websockets de .NET](relay-hybrid-connections-dotnet-get-started.md)

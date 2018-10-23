@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: carga e indexación de vídeos con Video Indexer'
+title: Carga e indexación de vídeos con Video Indexer
 titlesuffix: Azure Cognitive Services
 description: En este tema se muestra cómo usar las API para cargar e indexar los vídeos con Video Indexer.
 services: cognitive services
@@ -10,14 +10,14 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884312"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377836"
 ---
-# <a name="example-upload-and-index-your-videos"></a>Ejemplo: carga e indexación de los vídeos  
+# <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
 En este artículo se muestra cómo cargar un vídeo con Azure Video Indexer. La API de Video Indexer proporciona dos opciones de carga: 
 

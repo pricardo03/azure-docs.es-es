@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 755c301651e7c49faa8b05b2b443c5cce1a03c90
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364080"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393328"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 Azure Active Directory (Azure AD) es el directorio multiinquilino basado en la nube y el servicio de administración de identidades de Microsoft. Azure AD combina servicios de directorio fundamentales, administración de acceso de aplicaciones y protección de identidad en una única solución, ofrece una plataforma basada en estándares que permite a los desarrolladores ofrecer control de acceso a sus aplicaciones, según directivas y reglas centralizadas.

@@ -9,28 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0199efbc1456206c67efb846b4381cae333e3749
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465612"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309049"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creación de una aplicación de Azure IoT Central
 
-Como _generador_, usará la interfaz de usuario de Azure IoT Central para definir la aplicación de Azure IoT Central. Esta guía de inicio rápido le muestra cómo:
-
-- Crear una aplicación de Azure IoT Central que contenga un ejemplo de _plantilla de dispositivo_ y _dispositivos_ simulados.
-- Ver las características de la plantilla de dispositivo **Refrigerated Vending Machine** en la aplicación.
-- Ver la telemetría y los análisis de los dispositivos simulados **Refrigerator**.
-
-En esta guía de inicio rápido se crea un dispositivo simulado **Refrigerator** a partir de una plantilla de dispositivo. El dispositivo simulado:
-
-* Envía telemetría a la aplicación, como la temperatura y la presión.
-* Informa a la aplicación de los valores de propiedad del dispositivo, por ejemplo, las alertas de movimiento.
-* Tiene una configuración de dispositivo que se puede establecer en la aplicación, como la velocidad del ventilador.
-
-Con un dispositivo simulado creado a partir de una plantilla de dispositivo en la aplicación de Azure IoT Central se puede probar la aplicación antes de conectar un dispositivo real.
+Como _generador_, usará la interfaz de usuario de Azure IoT Central para definir la aplicación de Azure IoT Central. En esta guía de inicio rápido se muestra cómo crear una aplicación de Azure IoT Central que contenga un ejemplo de _plantilla de dispositivo_ y _dispositivos_ simulados.
 
 ## <a name="create-the-application"></a>Creación de la aplicación
 

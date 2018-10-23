@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 9e4cb497a2dc81b9503b03fd2db27ff2538d424a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039689"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378726"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Qué es Apache Spark en Azure HDInsight
 
-*Apache Spark* es una plataforma de procesamiento paralelo que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de macrodatos. Apache Spark en Azure HDInsight es la implementación que hace Microsoft de Apache Hadoop en la nube. HDInsight facilita la creación y la configuración de un clúster de Spark en Azure. Los clústeres de Spark en HDInsight son compatibles con Azure Storage y Azure Data Lake Store. Por lo que puede usar clústeres de HDInsight Spark para procesar los datos almacenados en Azure. Para conocer los componentes y la información de versiones, consulte los [componentes y versiones de Hadoop disponibles con Azure HDInsight](../hdinsight-component-versioning.md).
+*Apache Spark* es una plataforma de procesamiento paralelo que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de macrodatos. Apache Spark en Azure HDInsight es la implementación que hace Microsoft de Apache Spark en la nube. HDInsight facilita la creación y la configuración de un clúster de Spark en Azure. Los clústeres de Spark en HDInsight son compatibles con Azure Storage y Azure Data Lake Store. Por lo que puede usar clústeres de HDInsight Spark para procesar los datos almacenados en Azure. Para conocer los componentes y la información de versiones, consulte los [componentes y versiones de Hadoop disponibles con Azure HDInsight](../hdinsight-component-versioning.md).
 
 ![Spark: un marco unificado](./media/apache-spark-overview/hdinsight-spark-overview.png)
 

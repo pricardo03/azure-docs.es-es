@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1954ae9fcbb010c66e8a812e3e34477ac2bfc29
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953691"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395231"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Tutorial: Previsión de gastos futuros
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Cloudyn incluye informes de proyección de costos que le ayudarán a pronosticar los gastos según su uso con el paso del tiempo. Su objetivo principal es ayudarle a asegurarse de que sus tendencias de costo no superen las expectativas de su organización. Los informes que usará son el de costo previsto del mes en curso y el de costo previsto anual. Ambos muestran el gasto futuro previsto si su uso permanece relativamente coherente con los últimos 30 días de uso.
 
-El informe de costo previsto del mes en curso muestra los costos de los servicios. Emplea los costos desde el comienzo del mes y el mes anterior para mostrar el costo previsto. En el menú de informes de la parte superior del portal, haga clic en **Cost** >  (Costo) **Projection and Budget** >  (Proyección y presupuesto) **Current Month Projected Cost** (Costo previsto del mes en curso). En la imagen siguiente se muestra un ejemplo:
+El informe de costo previsto del mes en curso muestra los costos de los servicios. Emplea los costos desde el comienzo del mes y el mes anterior para mostrar el costo previsto. En el menú de informes de la parte superior del portal, haga clic en **Costs** >  (Costos) **Projection and Budget** >  (Proyección y presupuesto) **Current Month Projected Cost** (Costo previsto del mes en curso). En la imagen siguiente se muestra un ejemplo:
 
 ![Costo previsto del mes en curso](./media/tutorial-forecast-spending/project-month01.png)
 
@@ -47,7 +47,7 @@ Siga los mismos pasos básicos anteriores para examinar las proyecciones de cost
 
 El informe de costo previsto anual muestra el costo extrapolado de los servicios durante los próximos 12 meses.
 
-En el menú de informes de la parte superior del portal, haga clic en **Cost** >  (Costo) **Projection and Budget** >  (Proyección y presupuesto) **Annual Projected Cost** (Costo previsto anual). En la imagen siguiente se muestra un ejemplo:
+En el menú de informes de la parte superior del portal, haga clic en **Costs** >  (Costos) **Projection and Budget** >  (Proyección y presupuesto) **Annual Projected Cost** (Costo previsto anual). En la imagen siguiente se muestra un ejemplo:
 
 ![Informe de costo previsto anual](./media/tutorial-forecast-spending/project-annual01.png)
 

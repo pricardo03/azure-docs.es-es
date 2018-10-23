@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235488"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310631"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Uso de Azure IoT Central para supervisar dispositivos
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 > * Investigar un problema
 > * Corregir un problema
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, el desarrollador debería realizar los tres tutoriales del desarrollador para crear la aplicación de Azure IoT Central:
 
@@ -61,7 +61,7 @@ El gráfico del panel muestra un trazado de la temperatura del dispositivo. Tamb
 
 Para cambiar la temperatura de destino del dispositivo, use la página **Settings** (Configuración):
 
-1. Elija **Settings** (Configuración). Cambie **Set Temperature** (Establecer temperatura) a 100. Elija **Update** (Actualizar) para enviar la nueva temperatura de destino al dispositivo. Cuando el dispositivo confirma el cambio de configuración, el estado del valor de configuración se cambia a **sincronizado**:
+1. Elija **Settings** (Configuración). Cambie **Set Temperature** (Establecer temperatura) a 75. Elija **Update** (Actualizar) para enviar la nueva temperatura de destino al dispositivo. Cuando el dispositivo confirma el cambio de configuración, el estado del valor de configuración se cambia a **sincronizado**:
 
     ![Actualización de la configuración](media/tutorial-monitor-devices/change_settings.png)
 

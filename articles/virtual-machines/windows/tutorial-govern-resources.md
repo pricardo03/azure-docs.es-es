@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: a785a18ac4aec3006397b6d681c476f8acf982a7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205680"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311395"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Información acerca del control de máquinas virtuales Windows con Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "39205680"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Los ejemplos de este artículo requieren la versión 6.0 o posterior de Azure PowerShell. Si va a ejecutar PowerShell localmente y no tiene la versión 6.0 o posterior, [actualice su versión](/powershell/azure/install-azurerm-ps). También tiene que ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure. En las instalaciones locales, también debe [descargar el módulo PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para crear un nuevo grupo de Azure Active Directory.
+Los ejemplos de este artículo requieren la versión 6.0 o posterior de Azure PowerShell. Si ejecuta PowerShell localmente y no tiene la versión 6.0 o una posterior, [actualice la versión](/powershell/azure/install-azurerm-ps). También tiene que ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure. En las instalaciones locales, también debe [descargar el módulo PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para crear un nuevo grupo de Azure Active Directory.
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 
@@ -55,24 +55,19 @@ Para administrar las soluciones de máquina virtual, hay tres roles específicos
 * [Colaborador de la red](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-En lugar de asignar roles a usuarios individuales, a menudo resulta más fácil [crear un grupo de Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para los usuarios que tienen que realizar acciones similares. A continuación, asigne a ese grupo el rol apropiado. Para simplificar este artículo, cree un grupo de Azure Active Directory sin miembros. Todavía puede asignar a este grupo un rol para un ámbito. 
+En lugar de asignar roles a usuarios individuales, a menudo resulta más fácil usar un grupo de Azure Active Directory con usuarios que tienen que realizar acciones similares. A continuación, asigne a ese grupo el rol apropiado. Para este artículo puede usar un grupo existente para administrar la máquina virtual o el portal para [crear un grupo de Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-En el siguiente ejemplo se crea un grupo de Azure Active Directory denominado *VMDemoContributors* con un alias de correo de *vmDemoGroup*. El alias de correo hace las veces de alias del grupo.
-
-```azurepowershell-interactive
-$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
-  -MailNickName vmDemoGroup `
-  -MailEnabled $false `
-  -SecurityEnabled $true
-```
-
-Tras volver el símbolo del sistema, el grupo tardará un momento en propagarse por todo Azure Active Directory. Después de esperar durante 20 o 30 segundos, use el comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para asignar el nuevo grupo de Azure Active Directory al rol Colaborador de la máquina virtual para el grupo de recursos.  Si ejecuta el siguiente comando antes de que se propague, recibirá un error en el que se indica que la **entidad de seguridad<guid> no existe en el directorio**. Intente ejecutar el comando de nuevo.
+Después de crear un grupo o de buscar uno existente, use el comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para asignar el grupo de Azure Active Directory al rol Colaborador de la máquina virtual para el grupo de recursos.  
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+$adgroup = Get-AzureRmADGroup -DisplayName <your-group-name>
+
+New-AzureRmRoleAssignment -ObjectId $adgroup.id `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
+
+Si recibe un error que indica **Principal <guid> does not exist in the directory** (La entidad de seguridad no existe en el directorio), el nuevo grupo no se ha propagado en Azure Active Directory. Intente ejecutar el comando de nuevo.
 
 Por lo general, repetirá el proceso para *Colaborador de la red* y *Colaborador de la cuenta de almacenamiento* con el objetivo de asegurarse de que los usuarios se asignan para administrar los recursos implementados. En este artículo, puede omitir esos pasos.
 
@@ -125,7 +120,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>Implementación de la máquina virtual
 
-Ha asignado roles y directivas, por lo que está listo para implementar la solución. El tamaño predeterminado es Standard_DS1_v2, que es una de las SKU permitidas. Cuando se realiza este paso, se le solicitará las credenciales. Los valores que especifique se configuran como el nombre de usuario y la contraseña de la máquina virtual.
+Ha asignado roles y directivas, por lo que está listo para implementar la solución. El tamaño predeterminado es Standard_DS1_v2, que es una de las SKU permitidas. Cuando se realiza este paso, se le solicitan las credenciales. Los valores que especifique se configuran como el nombre de usuario y la contraseña de la máquina virtual.
 
 ```azurepowershell-interactive
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `

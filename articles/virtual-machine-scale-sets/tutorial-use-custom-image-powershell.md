@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c4ecb7c43a9a26385d5e6cef023c7219fb1120d3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606170"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363613"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -42,7 +42,7 @@ Si decide instalar y usar PowerShell de forma local, en este tutorial se requier
 ## <a name="create-and-configure-a-source-vm"></a>Creación y configuración de una máquina virtual de origen
 
 >[!NOTE]
-> Este tutorial le guía por el proceso de creación y uso de una imagen de máquina virtual generalizada. No permite crear un conjunto de escalado a partir de una imagen de máquina virtual especializada.
+> Este tutorial le guía por el proceso de creación y uso de una imagen de máquina virtual generalizada. No se admite la creación de un conjunto de escalado a partir de un disco duro virtual especializado.
 
 Primero, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) y, después, cree una máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Esta máquina virtual se usará después como origen para la imagen de máquina virtual personalizada. En el ejemplo siguiente, se crea una máquina virtual llamada *myCustomVM* en el grupo de recursos llamado *myResourceGroup*. Cuando se le solicite, escriba el nombre de usuario y la contraseña que se usarán como credenciales de inicio de sesión para la máquina virtual:
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166884"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310222"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -111,7 +111,9 @@ Al probar esta funcionalidad con Escritorio remoto, el vínculo "Restablecer con
 
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
-Si se ha deshabilitado la pantalla de bloqueo al usar una clave del Registro de Windows o una directiva de grupo, el vínculo **Restablecer contraseña** no estará disponible.
+Si se ha deshabilitado la pantalla de bloqueo al usar una clave del Registro de Windows o una directiva de grupo, **Restablecer contraseña** no estará disponible.
+
+Si la directiva requiere Ctrl + Alt + Supr o si las notificaciones de pantalla de bloqueo están desactivadas, **Restablecer contraseña** no funcionará. Windows 10 19H 1 hará que se cumpla este requisito.
 
 El registro de auditoría de Azure AD incluirá información sobre la dirección IP y el ClientType donde se produjo el restablecimiento de contraseña.
 

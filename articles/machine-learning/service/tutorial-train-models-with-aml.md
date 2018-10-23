@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785145"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343765"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial 1: Entrenamiento de un modelo de clasificación de imágenes con el servicio Azure Machine Learning
 
@@ -40,6 +40,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para su comodidad, este tutorial está disponible como un [cuaderno de Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Ejecute el cuaderno `01.train-models.ipynb` en Azure Notebooks o en su propio servidor de cuadernos de Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+>[!NOTE]
+> Este tutorial se ha probado con la versión 0.168 del SDK de Azure Machine Learning 
 
 ## <a name="set-up-your-development-environment"></a>Configuración de su entorno de desarrollo
 
@@ -288,7 +291,7 @@ y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 print('Train a logistic regression model with regularizaion rate of', args.reg)
 clf = LogisticRegression(C=1.0/args.reg, random_state=42)

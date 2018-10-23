@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: af291782585cf0211cf8beac54adc36fd9fe0d34
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9683a33efba427e83b2ff27ec57d2d437c61d5ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023032"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166287"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guía de inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux x64
 
@@ -117,7 +117,7 @@ Complete los pasos siguientes en la máquina o máquina virtual Linux que está 
 
 Los paquetes necesarios para ejecutar el entorno de ejecución de Azure IoT Edge se administran en un repositorio de software. Configure el dispositivo IoT Edge para acceder a este repositorio. 
 
-Los pasos de esta sección son para dispositivos que ejecutan **Ubuntu 16.04**. Para acceder al repositorio de software en otras versiones de Linux, consulte [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) [Instalación del entorno de ejecución de Azure IoT Edge en Linux (x64)] o [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)].
+Los pasos de esta sección son para dispositivos basados en x64 que ejecutan **Ubuntu 16.04**. Para acceder al repositorio de software en otras versiones de Linux o arquitecturas de dispositivo, consulte [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](how-to-install-iot-edge-linux.md) o [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. En la máquina que está utilizando como dispositivo IoT Edge, instale la configuración del repositorio.
 
@@ -185,7 +185,7 @@ El demonio de seguridad se instala como un servicio del sistema para que el ento
    ```
 
 >[!TIP]
->Necesita privilegios elevados para ejecutar comandos `iotedge`. Cuando cierre la sesión de la máquina y la inicie de nuevo la primera vez después de instalar el entorno de ejecución de Azure IoT Edge, sus permisos se actualizarán automáticamente. Hasta entonces, utilice **sudo** antes de los comandos. 
+>Necesita privilegios elevados para ejecutar comandos `iotedge`. Cuando cierre la sesión en su máquina y la inicie de nuevo por primera vez después de instalar el entorno de ejecución de IoT Edge, sus permisos se actualizarán automáticamente. Hasta entonces, use **sudo** delante de los comandos. 
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visualización del estado del entorno de ejecución de Azure IoT Edge
 

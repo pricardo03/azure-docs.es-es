@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268942"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115083"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 
@@ -118,7 +118,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-Actualice `ServiceInstanceListener` para que use el nuevo punto de conexión *EndpointHttps* y escuche en el puerto 443.
+Actualice `ServiceInstanceListener` para que use el nuevo punto de conexión *EndpointHttps* y escuche en el puerto 443. Al configurar el host de web para usar el servidor Kestrel, debe configurar Kestrel para escuchar las direcciones IPv6 en todas las interfaces de red: `opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`.
 
 ```csharp
 new ServiceInstanceListener(

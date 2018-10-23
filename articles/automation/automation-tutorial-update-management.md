@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498528"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167263"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
@@ -116,7 +116,8 @@ En **Lógica de alerta**, en **Umbral**, escriba **1**. Cuando haya finalizado, 
 
 #### <a name="runbook-alert"></a>Alerta de runbook
 
-En el caso de implementaciones con errores, deberá enviar una alerta de error de la ejecución maestra en Azure Portal, vaya a **Monitor**y, después, seleccione **Crear alerta**.
+Si se produce un error del runbook maestro durante la implementación, debe alertar.
+En Azure Portal, vaya a **Monitor** y, a continuación, seleccione **Crear alerta**.
 
 En **1. Definir condición de la alerta**, haga clic en **Seleccionar destino**. En **Filtrar por tipo de recurso**, seleccione **Cuentas de Automation**. Seleccione su cuenta de Automation y, después, seleccione **Listo**.
 

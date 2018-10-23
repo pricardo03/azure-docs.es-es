@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948890"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167079"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves
 
@@ -126,10 +126,11 @@ Hay dos paquetes NuGet que la aplicación web debe tener instalados. Para instal
 1. En el Explorador de soluciones, haga clic con el botón derecho en el nombre del sitio web.
 2. Seleccione **Administrar paquetes NuGet para la solución...**
 3. Seleccione la casilla situada junto al cuadro de búsqueda. **Incluya la versión preliminar**.
-4. Busque los dos paquetes NuGet que se enumeran a continuación y acepte para que agreguen a la solución:
+4. Busque los tres paquetes NuGet que se enumeran a continuación y acepte que agreguen a la solución:
 
     * [Microsoft.Azure.Services.AppAuthentication ](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication): facilita la captura de tokens de acceso en escenarios de autenticación de servicio a servicio de Azure. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault): contiene métodos para interactuar con Key Vault.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/): contiene extensiones `IConfiguration` para Azure Key Vault
 
 5. Use el Explorador de soluciones para abrir `Program.cs` y reemplace el contenido del archivo Program.cs por el código siguiente. Reemplace ```<YourKeyVaultName>``` por el nombre del almacén de claves:
 

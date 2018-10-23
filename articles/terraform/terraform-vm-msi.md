@@ -1,6 +1,6 @@
 ---
-title: Uso de una imagen de Azure Marketplace para crear una máquina virtual Linux de Terraform con Managed Service Identity
-description: Use una imagen de Marketplace para crear una máquina virtual Linux de Terraform con Managed Service Identity y la administración del estado remoto de forma que pueda implementar fácilmente recursos en Azure.
+title: Uso de una imagen de Azure Marketplace para crear una máquina virtual Linux de Terraform con identidad administrada
+description: Use una imagen de Marketplace para crear una máquina virtual Linux de Terraform con una identidad administrada y la administración remota del estado para implementar fácilmente recursos en Azure.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669394"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343833"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Uso de una imagen de Azure Marketplace para crear una máquina virtual Linux de Terraform con Managed Service Identity
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Uso de una imagen de Azure Marketplace para crear una máquina virtual Linux de Terraform con identidades administradas para recursos de Azure
 
-En este artículo, se explica cómo usar una [imagen de Marketplace de Terraform](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) para crear una máquina virtual Ubuntu Linux (16.04 LTS) con la versión más reciente de [Terraform](https://www.terraform.io/intro/index.html) instalada y configurada mediante [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Esta imagen también configura un back-end remoto para habilitar la administración del [estado remoto](https://www.terraform.io/docs/state/remote.html) mediante Terraform. 
+En este artículo, se muestra cómo usar una [imagen de Marketplace de Terraform](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) para crear una máquina virtual Ubuntu Linux (16.04 LTS) con la versión más reciente de [Terraform](https://www.terraform.io/intro/index.html) instalada y configurada mediante las [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Esta imagen también configura un back-end remoto para habilitar la administración del [estado remoto](https://www.terraform.io/docs/state/remote.html) mediante Terraform. 
 
 La imagen de Marketplace de Terraform permite empezar a trabajar fácilmente con Terraform en Azure sin necesidad de instalar ni configurar Terraform manualmente. 
 
@@ -79,13 +79,13 @@ La imagen de máquina virtual de Terraform realiza los pasos siguientes:
 
 Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Utilice las credenciales de la cuenta que creó en la sección "Aspectos básicos" del paso 3 con la interfaz de shell de texto. En Windows, puede descargar una herramienta de cliente SSH como [Putty](http://www.putty.org/).
 
-Después de utilizar SSH para conectarse a la máquina virtual, tendrá que conceder permisos de colaborador a toda la suscripción de Managed Service Identity en la máquina virtual. 
+Después de utilizar SSH para conectarse a la máquina virtual, tendrá que conceder permisos de colaborador a toda la suscripción de identidades administradas para recursos de Azure en la máquina virtual. 
 
 Los permisos de colaborador ayudan a MSI en la máquina virtual a usar Terraform para crear recursos fuera del grupo de recursos de la máquina virtual. Puede hacerlo fácilmente; basta con ejecutar un script una sola vez. Use el comando siguiente:
 
 `. ~/tfEnv.sh`
 
-El script anterior usa el mecanismo de [inicio de sesión interactivo de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) para autenticarse con Azure y asignar el permiso de colaborador de Managed Service Identity de la máquina virtual en toda la suscripción. 
+El script anterior usa el mecanismo de [inicio de sesión interactivo de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) para autenticarse con Azure y asignar el permiso de colaborador de Managed Identity de la máquina virtual en toda la suscripción. 
 
  La máquina virtual tiene un back-end de estado remoto de Terraform. Para habilitarlo en la implementación de Terraform, copie el archivo remoteState.tf del directorio tfTemplate en la raíz de los scripts de Terraform.  
 

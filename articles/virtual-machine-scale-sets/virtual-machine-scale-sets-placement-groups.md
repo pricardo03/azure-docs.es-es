@@ -3,7 +3,7 @@ title: Uso de grandes conjuntos de escalado de máquinas virtuales de Azure | Mi
 description: Qué necesita saber para usar grandes conjuntos de escalado de máquinas virtuales de Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: negat
-ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: rajraj
+ms.openlocfilehash: f45b78f1c30119f5e892287719c9c2edfae57ce6
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941135"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364221"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
@@ -35,18 +35,18 @@ Lo que hace que un conjunto de escalado _grande_ sea especial no es el número d
 ## <a name="checklist-for-using-large-scale-sets"></a>Lista de comprobación para usar grandes conjuntos de escalado
 Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de escalado grandes, tenga en cuenta los siguientes requisitos:
 
+- Si planea implementar un gran número de máquinas virtuales, quizás tenga que aumentar los límites de cuota de vCPU de proceso. 
 - Los conjuntos de escalado grandes necesitan Azure Managed Disks. Los conjuntos de escalado grandes que no se crean con Managed Disks requieren varias cuentas de almacenamiento (una por cada 20 máquinas virtuales). Los conjuntos de escalado grandes están diseñados para trabajar exclusivamente con Managed Disks para reducir la sobrecarga de administración del almacenamiento y para evitar el riesgo de alcanzar los límites de suscripción de las cuentas de almacenamiento. Si no usa Managed Disks, el conjunto de escalado está limitado a 100 máquinas virtuales.
 - Los conjuntos de escalado creados a partir de imágenes de Azure Marketplace pueden escalar a un máximo de 1000 máquinas virtuales.
-- Los conjuntos de escalado creados a partir de imágenes personalizadas (imágenes de máquina virtual creadas y cargadas por el usuario) actualmente pueden escalar a 300 máquinas virtuales, como máximo.
+- Los conjuntos de escalado creados a partir de imágenes personalizadas (imágenes de máquina virtual que crea y carga el usuario) actualmente pueden escalar a 600 máquinas virtuales, como máximo.
 - El equilibrio de carga de nivel 4 con conjuntos de escalado compuestos por varios grupos de selección de ubicación necesita la [SKU estándar de Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). La SKU estándar de Load Balancer proporciona ventajas adicionales, como la capacidad de equilibrar la carga entre varios conjuntos de escalado. La SKU estándar también necesita que el conjunto de escalado tenga un grupo de seguridad de red asociado a ella, en caso contrario, los grupos NAT no funcionarán correctamente. Si necesita usar la SKU básica de Azure Load Balancer, asegúrese de que el conjunto de escalado está configurado para usar un único grupo de selección de ubicación, que es el valor predeterminado.
 - Se admite el equilibrio de carga de nivel 7 con Azure Application Gateway para todos los conjuntos de escalado.
 - Un conjunto de escalado se define con una sola subred; asegúrese de que la subred tenga suficiente espacio de direcciones para todas las máquinas virtuales que necesita. De forma predeterminada, un conjunto de escalado se aprovisiona en exceso (crea máquinas virtuales adicionales durante la implementación o durante el escalado horizontal, que no se le cobran) para mejorar el rendimiento y la confiabilidad de la implementación. Deje un 20 % más de espacio que el número de máquinas virtuales al que tiene pensado escalar.
-- Si planea implementar muchas máquinas virtuales, quizás tenga que aumentar los límites de cuota de vCPU de proceso.
 - Los dominios de error y los dominios de actualización solo son coherentes dentro de un grupo de selección de ubicación. Esta arquitectura no cambia la disponibilidad global de un conjunto de escalado, porque las máquinas virtuales se distribuyen uniformemente entre los distintos componentes de hardware físico, lo que significa que, si tiene que garantizar que dos máquinas virtuales están en un hardware diferente, debe asegurarse de que están en distintos dominios de error en el mismo grupo de selección de ubicación. El dominio de error y el identificador del grupo de selección de ubicación se muestran en la _vista de instancia_ de una máquina virtual del conjunto de escalado. Puede ver la vista de instancia de una máquina virtual del conjunto de escalado el [Explorador de recursos de Azure](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Creación de un conjunto de escalado grande
-Cuando se crea un conjunto de escalado en Azure Portal, puede permitir que escale a diversos grupos de selección de ubicación; para ello, establezca la opción _Limit to a single placement group_ (Limitar a un solo grupo de selección de ubicación) en _False_, en la hoja _Datos básicos_. Con esta opción establecida en _False_, puede especificar un valor de _Número de instancias_ de hasta 1000.
+Al crear un conjunto de escalado en Azure Portal, simplemente especifique un valor de *Recuento de instancias* de hasta 1000. Si hay más de 100 instancias, en *Habilitar el escalado con más de 100 instancias* está seleccionado *Sí*, lo que le permitirá escalar a varios grupos de selección de ubicación. 
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 

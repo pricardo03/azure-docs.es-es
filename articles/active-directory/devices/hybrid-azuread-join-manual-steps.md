@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049944"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352810"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido 
 
@@ -92,6 +92,8 @@ Si su organización tiene previsto usar SSO sin problemas, las siguientes direcc
 Si su organización usa una configuración administrada (no federada) con AD local y no utiliza ADFS para federar con Azure AD, la combinación de Azure AD híbrido de Windows 10 usa los objetos de equipo de AD para sincronizarse con Azure AD. Asegúrese de que todas las unidades organizativas que contengan los objetos de equipo que deban unirse a Azure AD híbrido estén habilitados para sincronizarse en la configuración de sincronización de Azure AD Connect.
 
 En el caso de la versión 1703 o anterior de los dispositivos Windows 10, si su organización requiere acceso a Internet a través de un proxy de salida, debe implementar la Detección automática de proxy web (WPAD) para permitir que los equipos Windows 10 se registren en Azure AD. 
+
+A partir de Windows 10 1803, aunque se produzca un error en el intento de combinación por parte de un dispositivo de Azure AD híbrido en un dominio federado mediante AD FS y aunque Azure AD Connect esté configurado para sincronizar los objetos equipo o dispositivo con Azure AD, el dispositivo intentará completar la combinación de Azure AD híbrido mediante el equipo o dispositivo sincronizado.
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 

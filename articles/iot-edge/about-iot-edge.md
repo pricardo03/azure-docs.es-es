@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6e3571fb54f12ef3bb5519f572b8af5bf9247e7d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 107852bd2c4ec0b932008b498dde4ea77f8071a3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033095"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116343"
 ---
 # <a name="what-is-azure-iot-edge"></a>¿Qué es Azure IoT Edge?
 
@@ -55,7 +55,7 @@ El entorno de tiempo de ejecución de Azure IoT Edge permite lógica de la nube 
 * Facilita la comunicación entre los módulos y el dispositivo IoT Edge.
 * Facilita la comunicación entre el dispositivo de IoT Edge y la nube.
 
-![El entorno de tiempo de ejecución de IoT Edge envía información e informes a IoT Hub][1]
+![El entorno de tiempo de ejecución de IoT Edge envía información e informes a IoT Hub](./media/about-iot-edge/runtime.png)
 
 Cómo usar los dispositivos de Azure IoT Edge es decisión suya. El entorno de tiempo de ejecución a menudo se usa para implementar inteligencia artificial en puertas de enlace que agregan y procesan datos de otros dispositivos locales, pero esto es solo una de las opciones disponibles. Los dispositivos de hoja también pueden ser dispositivos de Azure IoT Edge, independientemente de si están conectados a una puerta de enlace o directamente a la nube.
 
@@ -71,15 +71,10 @@ Azure IoT Edge se integra perfectamente con los aceleradores de soluciones de Io
 * Enviar una carga de trabajo a un conjunto de dispositivos.
 * Supervisar las cargas de trabajo que se ejecutan en los dispositivos de campo.
 
-![La telemetría, la información y las acciones de los dispositivos se coordinan con la nube][2]
+![La telemetría, la información y las acciones de los dispositivos se coordinan con la nube](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe estos conceptos al [implementar IoT Edge en un dispositivo simulado][lnk-quickstart].
+Pruebe estos conceptos al [implementar IoT Edge en un dispositivo simulado](quickstart.md).
 
-<!-- Images -->
-[1]: ./media/about-iot-edge/runtime.png
-[2]: ./media/about-iot-edge/cloud-interface.png
-
-<!-- Links -->
-[lnk-quickstart]: quickstart.md
+ 

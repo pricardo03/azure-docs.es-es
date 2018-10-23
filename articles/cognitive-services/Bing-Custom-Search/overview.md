@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 2483bf36bb18af21bc454e08f3321b33094c43c8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: f2946918f0c1a7a516788989042825e8f49d7b0b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814311"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318731"
 ---
 # <a name="what-is-bing-custom-search"></a>¿Qué es Bing Custom Search?
 
@@ -29,7 +29,7 @@ Después de definir la instancia, puede integrar la búsqueda personalizada en s
 
 La siguiente imagen muestra la simplicidad de la integración de la búsqueda personalizada.
 
-![imagen alt](./media/bcs-overview.png "Funcionamiento de Bing Custom Search")
+![imagen alt](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/Bing-Custom-Search/media/BCS-Overview.png "Funcionamiento de Bing Custom Search")
 
 ## <a name="adding-custom-search-box-suggestions"></a>Agregar sugerencias personalizadas del cuadro de búsqueda
 
@@ -57,7 +57,7 @@ Familiarícese con el contenido de referencia de cada uno de los puntos de conex
 
 - [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
 - [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
-- [Custom Vidoe API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
 - [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
 

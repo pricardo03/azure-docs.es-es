@@ -2,24 +2,18 @@
 title: Configuración de Azure Data Box | Microsoft Docs
 description: Aprenda a cablear y conectar Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785643"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393837"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box
 
@@ -92,7 +86,9 @@ Realice los pasos siguientes para configurar el dispositivo mediante la interfaz
 
     ![Panel del dispositivo](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
-Una vez completada la configuración del dispositivo, puede conectarse a los recursos compartidos del dispositivo y copiar los datos desde el equipo en el dispositivo. 
+Una vez configuradas las interfaces de red de datos, también puede utilizar la dirección IP de cualquiera de las interfaces DATA 1 - DATA 3 para acceder a la interfaz de usuario web local en `https://<IP address of a data network interface>`. 
+
+Después de completada la configuración del dispositivo, puede conectarse a los recursos compartidos del dispositivo y copiar los datos desde el equipo en el dispositivo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

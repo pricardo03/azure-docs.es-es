@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803722"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394489"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar pública)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar privada)
 
 Aprenda a usar [Azure Deployment Manager](./deployment-manager-overview.md) para implementar sus aplicaciones en varias regiones. Para usar Deployment Manager, deberá crear dos plantillas:
 
@@ -48,7 +48,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este artículo, necesitará lo siguiente:
 
 * Algo de experiencia con el desarrollo de [plantillas Azure Resource Manager](./resource-group-overview.md).
-* Azure Deployment Manager está en versión preliminar pública. Para registrarse con Azure Deployment Manager, rellene la [hoja de suscripción](https://aka.ms/admsignup). 
+* Azure Deployment Manager está en versión preliminar privada. Para registrarse con Azure Deployment Manager, rellene la [hoja de suscripción](https://aka.ms/admsignup). 
 * Azure PowerShell. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Cmdlets de Deployment Manager. Para instalar estos cmdlets en versión preliminar, necesita la versión más reciente de PowerShellGet. Para obtener la versión más reciente, consulte [Instalación de PowerShellGet](/powershell/gallery/installing-psget). Después de instalar PowerShellGet, cierre la ventana de PowerShell. Abra una nueva ventana de PowerShell y ejecute el siguiente comando:
 

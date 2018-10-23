@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023164"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320159"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal
 
@@ -40,12 +40,12 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     * **Suscripción**: elija la suscripción que quiere usar para crear esta instancia del servicio Device Provisioning.
     * **Grupo de recursos:** este campo le permite crear un nuevo grupo de recursos o elegir uno existente para que contenga la nueva instancia. Elija el mismo grupo de recursos que contenga el centro de Iot que creó anteriormente, por ejemplo, **TestResources**. Al colocar juntos todos los recursos relacionados en un grupo, puede administrarlos juntos también. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para más información, consulte [Administración de los recursos de Azure a través del Portal](../azure-resource-manager/resource-group-portal.md).
     * **Ubicación**: seleccione la ubicación más cercana a sus dispositivos.
-    * **Anclar al panel:** seleccione esta opción para que la instancia anclada al panel resulte más fácil de encontrar.
 
     ![Especificación de la información básica de la instancia del servicio Device Provisioning en la hoja del portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. Una vez que el servicio se implementa de forma correcta, se abre automáticamente la hoja de resumen.
+4. Haga clic en el botón de notificación para supervisar la creación de la instancia del recurso. Una vez implementado el servicio correctamente, haga clic en **Anclar al panel** y en **Ir al recurso**.
 
+    ![Supervisión de la notificación de implementación](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>Vínculo del centro de IoT y el servicio Device Provisioning
 
