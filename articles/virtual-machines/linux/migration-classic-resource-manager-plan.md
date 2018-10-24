@@ -124,19 +124,19 @@ A continuación se indican problemas detectados en muchas de las migraciones má
 
     Puede comprobar las cuotas actuales de Azure Resource Manager mediante los comandos siguientes con la última versión de la CLI de Azure.
 
-    **Proceso***(núcleos y conjuntos de disponibilidad)*
+    **Proceso** *(núcleos y conjuntos de disponibilidad)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
     ```
 
-    **Red***(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces, equilibradores de carga y tablas de rutas)*
+    **Red** *(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces, equilibradores de carga y tablas de rutas)*
     
     ```bash
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **Almacenamiento***(cuenta de almacenamiento)*
+    **Almacenamiento** *(cuenta de almacenamiento)*
     
     ```bash
     az storage account show-usage
