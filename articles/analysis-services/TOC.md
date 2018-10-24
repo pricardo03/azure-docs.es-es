@@ -38,8 +38,8 @@
 ### [Administración de un servicio](analysis-services-manage.md)
 ### [Supervisión de las métricas del servidor](analysis-services-monitor.md)
 ### [Configuración del registro de diagnósticos](analysis-services-logging.md)
-### [Creación de una entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Creación de una entidad de servicio: PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Creación de una entidad de servicio: Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Creación de una entidad de servicio: PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)
 
 ## Modelo
