@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c047555c30481f34b607197f71483197bc64620c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638450"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961474"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referencia sobre la API de recopilación de datos de modelos de Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 La recopilación de datos del modelo permite archivar entradas del modelo y predicciones de un servicio web de aprendizaje automático. Consulte la [guía de procedimientos de recopilación de datos de modelos](how-to-use-model-data-collection.md) para aprender a instalar `azureml.datacollector` en la máquina Windows y Linux.
 
@@ -27,7 +30,7 @@ En esta guía de referencia de la API, se usa un enfoque paso a paso sobre cómo
 
 ## <a name="enable-model-data-collection-in-azure-ml-workbench-environment"></a>Habilitamiento de la recopilación de datos de modelos en el entorno de Azure Machine Learning Workbench
 
- Busque el archivo conda\_dependencies.yml en el proyecto en la carpeta aml_config y haga que conda\_dependencies incluya el módulo azureml.datacollector en la sección pip tal y como se muestra a continuación. Tenga en cuenta que esto es solo una subsección de un archivo conda\_dependencies.yml completo:
+ Busque el archivo conda\_dependencies.yml en el proyecto en la carpeta aml_config y haga que incluya el módulo azureml.datacollector en la sección pip tal y como se muestra a continuación. Tenga en cuenta que esto es solo una subsección de un archivo conda\_dependencies.yml completo:
 
     dependencies:
       - python=3.5.2
