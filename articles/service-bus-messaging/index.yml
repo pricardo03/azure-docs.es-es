@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e0b533272baadb329989b18bcc8179c77c2cafaf
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f5392e27a68b5a5bebe855cbc559c7653f6ad9be
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390166"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944270"
 documentType: LandingData
 title: Documentación sobre la mensajería de Azure Service Bus
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 05/16/2018
   ms.author: spelluru
 abstract:
-  description: Azure Service Bus es un servicio de mensajería multiinquilino en la nube que envía información entre aplicaciones y servicios. Las operaciones asincrónicas le ofrecen una mensajería flexible y asincrónica, además de funcionalidades de mensajería estructurada de tipo FIFO (primero en entrar, primero en salir) y de publicación-suscripción.<p>Aprenda a usar los servicios de mensajería de Azure Service Bus para enviar y recibir mensajes hacia las colas y desde estas, y publicar y suscribirse a mensajes mediante temas y suscripciones.</p>
+  description: Azure Service Bus es un servicio de mensajería multiinquilino en la nube que puede usar para enviar información entre aplicaciones y servicios. Las operaciones asincrónicas le ofrecen una mensajería flexible y asincrónica, además de funcionalidades de mensajería estructurada de tipo FIFO (primero en entrar, primero en salir) y de publicación-suscripción.<p>Aprenda a usar los servicios de mensajería de Azure Service Bus para enviar y recibir mensajes hacia las colas y desde estas, y publicar y suscribirse a mensajes mediante temas y suscripciones.</p>
   aside:
     image:
       alt: 

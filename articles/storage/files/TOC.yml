@@ -1,89 +1,95 @@
 items:
 - name: Información general
   items:
-  - name: Introducción
+  - name: ¿Qué es Azure Files?
     href: storage-files-introduction.md
   - name: Elección de blobs, archivos o discos de datos
     href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Preguntas más frecuentes
-    href: storage-files-faq.md
-- name: Introducción
+- name: Guías de inicio rápido
   items:
-  - name: Crear una cuenta de almacenamiento
-    href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Creación de un recurso compartido de archivos
-    href: storage-how-to-create-file-share.md
-  - name: Montaje en Windows
-    href: storage-how-to-use-files-windows.md
-  - name: Montaje en Linux
-    href: storage-how-to-use-files-linux.md
-  - name: Montaje en macOS
-    href: storage-how-to-use-files-mac.md
-  - name: Administración con Azure Portal
+  - name: 'Creación de recursos compartidos de archivos: Portal'
     href: storage-how-to-use-files-portal.md
-  - name: Administración con PowerShell
+  - name: 'Creación de recursos compartidos de archivos: PowerShell'
     href: storage-how-to-use-files-powershell.md
-  - name: Administración con la CLI de Azure
+  - name: 'Creación de recursos compartidos de archivos: CLI'
     href: storage-how-to-use-files-cli.md
-  - name: Administración con el Explorador de Storage
+  - name: 'Creación de recursos compartidos de archivos: Explorador de Storage'
     href: storage-how-to-use-files-storage-explorer.md
-- name: Procedimientos
+  expanded: true
+- name: Tutoriales
+  items:
+  - name: Extensión de servidores de archivos de Windows con Azure File Sync
+    href: storage-sync-files-extend-servers.md
+- name: Conceptos
   items:
   - name: Plan
     items:
-    - name: Planeamiento de una implementación de Azure Files
+    - name: Archivos de Azure
       href: storage-files-planning.md
-    - name: Planeamiento de una implementación de Azure Files Sync
+    - name: Azure File Sync
       href: storage-sync-files-planning.md
-    - name: Descripción de los niveles de nube
-      href: storage-sync-cloud-tiering.md
-    - name: Información acerca de las cuentas de almacenamiento
-      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      items:
-      - name: Administración de una cuenta de almacenamiento
-        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Actualización de una cuenta de almacenamiento
-        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Información acerca de las instantáneas de recursos compartidos de archivos
-      href: storage-snapshots-files.md
-    - name: Redundancia de datos
-      items:
-      - name: Información general acerca de la redundancia
-        href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Almacenamiento con redundancia local
-        href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Almacenamiento con redundancia de zona
-        href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Almacenamiento con redundancia geográfica
-        href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Objetivos de escalabilidad y rendimiento
-      href: storage-files-scale-targets.md
-    - name: Guía de recuperación ante desastres
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Notas de la versión de Azure File Sync
-      href: storage-files-release-notes.md
+  - name: Información acerca de las cuentas de almacenamiento
+    href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Redundancia de datos
+    items:
+    - name: Información general acerca de la redundancia
+      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Almacenamiento con redundancia local
+      href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Almacenamiento con redundancia de zona
+      href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Almacenamiento con redundancia geográfica
+      href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Objetivos de escalabilidad y rendimiento
+    href: storage-files-scale-targets.md
+  - name: Guía de recuperación ante desastres
+    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Preguntas más frecuentes
+    href: storage-files-faq.md
+- name: Procedimientos
+  items:
   - name: Implementación
     items:
     - name: Implementación de Azure Files
       href: storage-files-deployment-guide.md
-    - name: Implementación de Azure Files Sync
+    - name: Implementación de Azure File Sync
       href: storage-sync-files-deployment-guide.md
-    - name: Configuración del proxy y el firewall de Azure File Sync
+    - name: Configuración del proxy y el firewall de File Sync
       href: storage-sync-files-firewall-and-proxy.md
+    - name: Notas de la versión de Azure File Sync
+      href: storage-files-release-notes.md
   - name: administración
     items:
+    - name: Creación de un recurso compartido de archivos
+      href: storage-how-to-create-file-share.md
+    - name: Uso de Azure Files con Windows
+      href: storage-how-to-use-files-windows.md
+    - name: Uso de Azure Files con Linux
+      href: storage-how-to-use-files-linux.md
+    - name: Uso de Azure Files con macOS
+      href: storage-how-to-use-files-mac.md
     - name: Registro de un servidor en Azure Files Sync
       href: storage-sync-files-server-registration.md
+    - name: Información acerca de las instantáneas de recursos compartidos de archivos
+      href: storage-snapshots-files.md
     - name: Adición de un punto de conexión de servidor de Azure Files Sync
       href: storage-sync-files-server-endpoint.md
     - name: PowerShell para nubes de China, Alemania y de la administración pública
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure Automation
-      href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Transferencia de datos
+    items:
+    - name: Movimiento de datos hacia Storage y desde este
+      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: AzCopy en Windows
+      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: AzCopy en Linux
+      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Desarrollo
     items:
-    - name: Administrar la simultaneidad
+    - name: Administración de la simultaneidad
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Configurar cadenas de conexión
+      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: .NET
       href: storage-dotnet-how-to-use-files.md
     - name: Java
@@ -92,15 +98,7 @@ items:
       href: storage-c-plus-plus-how-to-use-files.md
     - name: Python
       href: storage-python-how-to-use-file-storage.md
-    - name: Ejemplos
-      items:
-      - name: .NET
-        href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Java
-        href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Configurar cadenas de conexión
-      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Seguridad y control de acceso
+  - name: Protección
     items:
     - name: Guía de seguridad
       href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -110,12 +108,6 @@ items:
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Requerir transferencia segura
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Autenticación de Azure AD sobre SMB
-      items:
-      - name: Información general sobre la autenticación de Azure AD sobre SMB
-        href: storage-files-active-directory-overview.md
-      - name: Habilitación de la autenticación de Azure AD sobre SMB
-        href: storage-files-active-directory-enable.md
     - name: Autenticación de clave compartida
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Firmas de acceso compartido (SAS)
@@ -126,38 +118,24 @@ items:
       href: ../common/storage-compliance-offerings.md
   - name: Supervisión y solución de problemas
     items:
-    - name: 'Solución de problemas de las conexiones de Azure Files: Windows'
+    - name: Solución de problemas de Azure Files en Windows
       href: storage-troubleshoot-windows-file-connection-problems.md
-    - name: 'Solución de problemas de las conexiones de Azure Files: Linux'
+    - name: Solución de problemas de Azure Files en Linux
       href: storage-troubleshoot-linux-file-connection-problems.md
     - name: Solución de problemas de Azure Files Sync
       href: storage-sync-files-troubleshoot.md
-    - name: Tutorial de solución de problemas
-      href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Supervisión, diagnóstico y solución de problemas
       href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Métricas y registro
       items:
       - name: Métricas en Azure Monitor
-        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Migración a nuevas métricas
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Storage Analytics
-        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Habilitación y visualización de métricas (clásico)
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Transferencia de datos
-    items:
-    - name: Movimiento de datos hacia Storage y desde este
-      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: AzCopy (v10)
-      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: AzCopy en Windows (v8)
-      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: AzCopy en Linux (v8)
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Ejemplos
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
+        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Referencia
   items:
   - name: PowerShell
@@ -200,6 +178,8 @@ items:
       href: /rest/api/storagerp
     - name: Import/Export
       href: /rest/api/storageimportexport
+  - name: Ejemplos
+    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Recursos
   items:
   - name: Azure Roadmap
@@ -246,23 +226,15 @@ items:
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Proveedor de recursos
         href: https://github.com/Azure/azure-sdk-for-net
-    - name: Node.js
-      href: http://azure.github.io/azure-storage-node/
     - name: Java
       href: https://github.com/Azure/azure-storage-java
     - name: C++
       href: https://github.com/Azure/azure-storage-cpp
-    - name: PHP
-      href: https://github.com/Azure/azure-storage-php
     - name: Python
       href: https://github.com/Azure/azure-storage-python
-    - name: Ruby
-      href: https://github.com/Azure/azure-storage-ruby
-    - name: iOS
-      href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: 4aff84477434cfa96ae422e96d389804c27a5cb6
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a649fd094459493c982e7c3f3ef0da2ca14116bd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426985"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958788"
