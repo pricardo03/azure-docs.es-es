@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "36300917"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364105"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operaciones de mantenimiento del proveedor de recursos de SQL
 
@@ -53,9 +53,9 @@ Para modificar la configuración, seleccione **Examinar** &gt; **RECURSOS ADMINI
 
 ## <a name="secrets-rotation"></a>Cambio de secretos
 
-*Estas instrucciones se aplican solo a sistemas integrados de Azure Stack (versión 1804 y posteriores). No intente cambiar secretos en versiones de Azure Stack anteriores a 1804.*
+*Estas instrucciones se aplican solo a sistemas integrados de Azure Stack.*
 
-Al usar los proveedores de recursos de SQL y MySQL con sistemas integrados de Azure Stack, puede cambiar los siguientes secretos de infraestructura (implementación):
+Al usar los proveedores de recursos de SQL y MySQL con los sistemas integrados de Azure Stack, el operador de Azure Stack se encarga de rotar los siguientes secretos de infraestructura del proveedor de recursos para asegurarse de que no caduquen:
 
 - Certificado SSL externo [proporcionado durante la implementación](azure-stack-pki-certs.md).
 - La contraseña de la cuenta de administrador local de la máquina virtual del proveedor de recursos proporcionada durante la implementación.
@@ -109,7 +109,7 @@ Al usar los proveedores de recursos de SQL y MySQL con sistemas integrados de Az
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>Parámetros de SecretRotationSQLProvider.ps1
 
-|.|DESCRIPCIÓN|
+|Parámetro|DESCRIPCIÓN|
 |-----|-----|
 |AzCredential|Credencial de la cuenta de administrador de servicio de Azure Stack.|
 |CloudAdminCredential|Credencial de cuenta de dominio de administración en la nube de Azure Stack.|

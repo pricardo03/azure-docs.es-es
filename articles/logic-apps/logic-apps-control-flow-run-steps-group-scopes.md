@@ -3,21 +3,21 @@ title: Agregar ámbitos que ejecutan acciones en función del estado del grupo -
 description: Cómo crear ámbitos que ejecuten acciones de flujo de trabajo en función del estado de la acción de grupo en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 10/03/2018
+ms.topic: article
+ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298821"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320550"
 ---
-# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Crear ámbitos que ejecuten acciones de flujo de trabajo en función del estado del grupo en Azure Logic Apps
+# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo con ámbitos en Azure Logic Apps
 
 Para ejecutar acciones solo después de que otro grupo de acciones se haya realizado correctamente o con errores, ponga esas acciones en un *ámbito*. Esta estructura es útil cuando desea organizar acciones como un grupo lógico, evaluar el estado del grupo y realizar acciones basadas en el estado del ámbito. Una vez que todas las acciones de un ámbito acaben de ejecutarse, el ámbito obtiene también su propio estado. Por ejemplo, puede usar ámbitos cuando desea implementar el [control de errores y excepciones](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
@@ -27,7 +27,7 @@ Por ejemplo, aquí hay una aplicación lógica de alto nivel que utiliza un ámb
 
 ![Configurar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir el ejemplo de este artículo, necesita estos elementos:
 
@@ -54,14 +54,14 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
 1. Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> si aún no lo ha hecho. Crear una aplicación lógica en blanco.
 
-2. Agregue el desencadenador **Programación: Periodicidad** con estos valores: **Intervalo** = "1" y **Frecuencia** = "Minuto"
+1. Agregue el desencadenador **Programación: Periodicidad** con estos valores: **Intervalo** = "1" y **Frecuencia** = "Minuto"
 
    ![Configurar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
    > [!TIP]
    > Para simplificar visualmente la vista y ocultar los detalles de cada acción en el diseñador, contraiga la forma de cada acción a medida que recorre estos pasos.
 
-3. Agregue la acción **Bing Maps - Get route** (Mapas de Bing: Obtener ruta). 
+1. Agregue la acción **Bing Maps - Get route** (Mapas de Bing: Obtener ruta). 
 
    1. Si no tiene una conexión de Mapas de Bing, se le solicitará que cree una.
 
@@ -71,7 +71,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
       | **Clave de API** | <*su-clave-de-Mapas-de-Bing*> | Escriba la clave de Mapas de Bing recibida previamente. | 
       ||||  
 
-   2. Configure la acción **Get route** (Obtener ruta) tal como se muestra en la tabla que aparece a continuación de esta imagen:
+   1. Configure la acción **Get route** (Obtener ruta) tal como se muestra en la tabla que aparece a continuación de esta imagen:
 
       ![Configurar acción "Bing Maps - Get route" (Mapas de Bing: Obtener ruta)](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
@@ -89,45 +89,50 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
       | **Transit Date-Type Type** (Fecha y tipo de tránsito) | None | Se aplica solo al modo de tránsito. | 
       ||||  
 
-4. Agregue una condición para comprobar si el tiempo de trayecto con el tráfico actual supera el tiempo especificado. En este ejemplo, siga los pasos que aparecen a continuación de esta imagen:
+1. [Agregue una condición](../logic-apps/logic-apps-control-flow-conditional-statement.md) que compruebe si el tiempo de trayecto con el tráfico actual supera el tiempo especificado. Para este ejemplo, siga estos pasos:
 
-   ![Crear condición](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+   1. Cambie el nombre de la condición con esta descripción: **If traffic time is more than specified time** (Si el tiempo de trayecto es mayor que el tiempo especificado)
 
-   1. Cambie el nombre de la condición con esta descripción: **If traffic time more than specified time** (Si el tiempo de trayecto es mayor que el tiempo especificado)
+   1. En la columna más a la izquierda, haga clic dentro del cuadro **Elegir un valor** para que aparezca la lista de contenido dinámico. En la lista, seleccione el campo **Travel Duration Traffic** (Tráfico de duración del desplazamiento), que está en segundos. 
 
-   2. En la lista de parámetros, seleccione el campo **Travel Duration Traffic** (Tráfico de duración del desplazamiento), que está en segundos. 
+      ![Crear condición](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   3. En el operador de comparación, seleccione este operador: **es mayor que**
+   1. En el cuadro del medio, seleccione este operador: **es mayor que**
 
-   4. Como valor de comparación, escriba **600**, que está en segundos y equivale a 10 minutos.
+   1. En la columna más a la derecha, escriba este valor de comparación, que está en segundos y equivale a 10 minutos: **600**
 
-5. En la rama **If true** de la condición, agregue una acción "send email" (enviar correo electrónico) para su proveedor de correo electrónico. Configure esta acción con la información que aparece en la tabla que sigue a esta imagen:
+      Una vez que haya terminado, la condición debe ser parecida a la de este ejemplo:
+
+      ![Condición finalizada](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
+
+1. En la rama **If true**, agregue una acción "send email" (enviar correo electrónico) para su proveedor de correo electrónico. Para configurar esta acción, siga los pasos descritos en esta imagen:
 
    ![Agregar acción "Send an email" (Enviar un correo electrónico) a la rama "If true"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
    1. En el campo **Para**, escriba su dirección de correo electrónico con fines de prueba.
 
-   2. En el campo **Asunto**, escriba este texto:
+   1. En el campo **Asunto**, escriba este texto:
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. En el campo **Cuerpo**, escriba este texto con un espacio final: 
+   1. En el campo **Cuerpo**, escriba este texto con un espacio final: 
 
       ```Travel time: ```
 
       Mientras el cursor aparece en el campo **Cuerpo**, la lista de contenido dinámica permanece abierta para que pueda seleccionar los parámetros que estén disponibles en este momento.
 
-   4. En la lista de contenido dinámico, elija **Expresión**.
+   1. En la lista de contenido dinámico, elija **Expresión**.
 
-   5. Busque y seleccione la función **div( )**.
+   1. Busque y seleccione la función **div()**. 
+   Coloque el cursor dentro de los paréntesis de la función.
 
-   6. Mientras el cursor se encuentra entre los paréntesis de la función, elija **Contenido dinámico** para que pueda agregar el parámetro **Travel Duration Traffic** (Tráfico de duración del desplazamiento) a continuación.
-
-   7. En **Get route** (Obtener ruta) en la lista dinámica de parámetros, seleccione el campo **Travel Duration Traffic** (Tráfico de duración del desplazamiento).
+   1. Mientras el cursor se encuentre dentro de los paréntesis de la función, elija **Contenido dinámico** para que aparezca la lista de contenido dinámico. 
+   
+   1. Desde la sección **Get route**, seleccione el campo **Travel Duration Traffic**.
 
       ![Seleccionar "Travel Duration Traffic" (Tráfico de duración del desplazamiento)](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   8. Una vez que el campo se resuelve en formato JSON, agregue una **coma** (```,```) seguida del número ```60``` para que convierta el valor de **Travel Duration Traffic** (Tráfico de duración del desplazamiento) de segundos a minutos. 
+   1. Una vez que el campo se resuelve en formato JSON, agregue una **coma** (```,```) seguida del número ```60``` para que convierta el valor de **Travel Duration Traffic** (Tráfico de duración del desplazamiento) de segundos a minutos. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -137,15 +142,15 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
       ![Finalizar expresión](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. Asegúrese de que elige **Aceptar** cuando haya terminado.
+   1. Cuando termine, elija **Aceptar**.
 
-  10. Una vez que la expresión se resuelve, agregue este texto con un espacio inicial: ``` minutes```
+  1. Una vez que la expresión se resuelve, agregue este texto con un espacio inicial: ``` minutes```
   
-      Ahora, el campo **Cuerpo** es similar a este ejemplo:
+     Ahora, el campo **Cuerpo** es similar a este ejemplo:
 
-      ![Campo "Cuerpo" terminado](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+     ![Campo "Cuerpo" terminado](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. Guarde la aplicación lógica.
+1. Guarde la aplicación lógica.
 
 A continuación, agregue un ámbito para que pueda agrupar acciones específicas y evaluar su estado.
 
@@ -153,43 +158,71 @@ A continuación, agregue un ámbito para que pueda agrupar acciones específicas
 
 1. Si aún no lo ha hecho, abra la aplicación lógica en el Diseñador de aplicación lógica. 
 
-2. Agregue un ámbito a la ubicación del flujo de trabajo que quiera. Por ejemplo: 
+1. Agregue un ámbito a la ubicación del flujo de trabajo que quiera. Por ejemplo, para agregar un ámbito entre pasos existentes en el flujo de trabajo de la aplicación lógica, siga estos pasos: 
 
-   * Para agregar un ámbito entre pasos existentes en el flujo de trabajo de la aplicación lógica, mueva el puntero sobre la flecha en la que quiere agregar el ámbito. 
-   Elija el **signo más** (**+**) > **Agregar un ámbito**.
+   1. Mueva el puntero sobre la flecha donde quiere agregar el ámbito. 
+   Elija el **signo más** (**+**) > **Agregar una acción**.
 
-     ![Agregar un ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![Agregar un ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-     Si desea agregar un ámbito al final del flujo de trabajo actual, en la parte inferior de la aplicación lógica elija **+ Nuevo paso** > **...Más** > **Agregar un ámbito**.
+   1. En el cuadro de búsqueda, escriba "ámbito" como filtro. 
+   Seleccione la acción **Ámbito**.
 
-3. Ahora agregue los pasos o arrastre los pasos existentes que desea ejecutar dentro del ámbito. En este ejemplo, arrastre estas acciones al ámbito:
+## <a name="add-steps-to-scope"></a>Agregar pasos al ámbito
+
+1. Ahora agregue los pasos o arrastre los pasos existentes que desea ejecutar dentro del ámbito. En este ejemplo, arrastre estas acciones al ámbito:
       
    * **Get route** (Obtener ruta)
-   * **If traffic time more than specified time** (Si el tiempo de trayecto es mayor que el tiempo especificado), que incluye las dos ramas: **true** y **false**
+   * **If traffic time is more than specified time** (Si el tiempo de trayecto es mayor que el tiempo especificado), que incluye las dos ramas: **true** y **false**
 
    Ahora, la aplicación lógica es similar a este ejemplo:
 
    ![Ámbito agregado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-4. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambie el nombre de la condición por esta descripción: **If scope failed** (Si el ámbito es erróneo)
+1. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambie el nombre de la condición por esta descripción: **If scope failed** (Si el ámbito es erróneo)
 
    ![Agregar condición para comprobar el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-5. Cree esta expresión que comprueba si el estado del ámbito es igual a `Failed` o `Aborted`.
+1. En la condición, agregue estas expresiones que comprueban si el estado del ámbito es igual a "Erróneo" o "Anulado". 
 
-   ![Agregar expresión que comprueba el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/build-expression-check-scope-status.png)
+   1. Para agregar otra fila, elija **Agregar**. 
 
-   O bien, para escribir esta expresión como texto, elija **Editar en el modo avanzado**.
+   1. En cada fila, haga clic en el cuadro de la izquierda para que aparezca la lista de contenido dinámico. 
+   En la lista de contenido dinámico, elija **Expresión**. En el cuadro de edición, escriba esta expresión y, luego, elija **Aceptar**: 
+   
+      `result('Scope')[0]['status']`
 
-   ```@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')```
+      ![Agregar expresión que comprueba el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-6. En las ramas **If true** y **If false**, agregue las acciones que desea realizar, por ejemplo, enviar correo electrónico o un mensaje.
+   1. Para ambas filas, seleccione **es igual a** como operador. 
+   
+   1. Para los valores de comparación, en la primera fila, escriba `Failed`. 
+   En la segunda fila, escriba `Aborted`. 
 
-   ![Agregar expresión que comprueba el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+      Una vez que haya terminado, la condición debe ser parecida a la de este ejemplo:
 
-7. Guarde la aplicación lógica.
+      ![Agregar expresión que comprueba el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-La aplicación lógica terminada es similar ahora a este ejemplo con todas las formas expandidas:
+      Ahora, establezca la propiedad `runAfter` de la condición, para que esta compruebe el estado del ámbito y ejecute la acción correspondiente que definirá en pasos posteriores.
+
+   1. En la condición **If scope failed** (Si el ámbito fue erróneo), elija el botón de **puntos suspensivos** (...) y, luego, elija **Configurar ejecución posterior**.
+
+      ![Configurar la propiedad "runAfter"](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+
+   1. Seleccione todos estos estados de ámbito: **Correcto**, **con errores**, **se omitió** y **se superó el tiempo de espera**
+
+      ![Seleccione los estados de ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+
+   1. Cuando haya finalizado, elija **Listo**. 
+   La condición ahora muestra un icono de "información".
+
+1. En las ramas **If true** e **If false**, agregue las acciones que quiere realizar en función de cada estado de ámbito, por ejemplo, enviar correo electrónico o un mensaje.
+
+   ![Adición de acciones para realizar en función del estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+
+1. Guarde la aplicación lógica.
+
+Ahora, la aplicación lógica finalizada es similar a este ejemplo:
 
 ![Aplicación lógica terminada con ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
@@ -210,7 +243,7 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
     "recurrence": {
        "frequency": "Minute",
        "interval": 1
-    },
+    }
   }
 }
 ```
@@ -224,7 +257,7 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -245,7 +278,7 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -261,10 +294,28 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ 
+         {
+            "equals": [ 
+              "@result('Scope')[0]['status']", 
+              "Failed"
+            ]
+         },
+         {
+            "equals": [
+               "@result('Scope')[0]['status']", 
+               "Aborted"
+            ]
+         } 
+      ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Failed",
+        "Skipped",
+        "Succeeded",
+        "TimedOut"
       ]
     }
   },
@@ -291,14 +342,14 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
         },
         "runAfter": {}
       },
-      "If_traffic_time_more_than_specified_time": {
+      "If_traffic_time_is_more_than_specified_time": {
         "type": "If",
         "actions": {
           "Send_mail_when_traffic_exceeds_10_minutes": {
             "type": "ApiConnection",
             "inputs": {
               "body": {
-                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'], 60)} minutes",
+                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'],60)} minutes",
                  "Subject": "Time to leave: Traffic more than 10 minutes",
                  "To": "<your-email@domain.com>"
               },
@@ -313,7 +364,16 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
             "runAfter": {}
           }
         },
-        "expression": "@greater(body('Get_route')?['travelDurationTraffic'], 600)",
+        "expression": {
+          "and" : [
+            {
+               "greater": [ 
+                  "@body('Get_route')?['travelDurationTraffic']", 
+                  600
+               ]
+            }
+          ]
+        },
         "runAfter": {
           "Get_route": [
             "Succeeded"
@@ -323,7 +383,7 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
     },
     "runAfter": {}
   }
-}
+},
 ```
 
 ## <a name="get-support"></a>Obtención de soporte técnico

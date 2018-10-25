@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055751"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167579"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory 
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory 
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Netezza. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Netezza. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos de Netezza en cualquier almacén de datos de receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Puede copiar datos de Netezza en cualquier almacén de datos de receptor admitido. Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+Azure Data Factory proporciona un controlador integrado para permitir la conectividad. No es necesario instalar manualmente uno para usar este conector.
 
-## <a name="getting-started"></a>Introducción
+## <a name="get-started"></a>Introducción
 
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede crear una canalización que use una actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o una plantilla de Azure Resource Manager. Consulte el [tutorial de la actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Netezza.
+En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas del conector de Netezza.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -42,18 +42,18 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Netezza:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Netezza** | Sí |
-| connectionString | Cadena de conexión de ODBC para conectarse a Netezza. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+| Tipo | La propiedad **type** debe establecerse en **Netezza**. | SÍ |
+| connectionString | Cadena de conexión de ODBC para conectarse a Netezza. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacen referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede elegir una instancia autohospedada de Integration Runtime o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin  |
 
-Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Más propiedades que puede establecer para su caso:
+Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. En la tabla siguiente se describen más propiedades que puede establecer:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
-|:--- |:--- |:--- |:--- |
-| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Por ejemplo, `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- Only Unsecured (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Preferred Unsecured (preferredUnSecured) (valor predeterminado)**: si el servidor proporciona una elección, el controlador no usa SSL. <br/>- **Preferred Secured (preferredSecured)**: si el servidor proporciona una elección, el controlador usa SSL. <br/>- **Only Secured (onlySecured)**: el controlador no se conectará a menos que haya una conexión SSL disponible | Sin  |
-| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Por ejemplo, `CaCertFile=<cert path>;`| Sí, si se ha habilitado SSL |
+|:--- |:--- |:--- |
+| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Ejemplo: `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- **Only unsecured** (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Preferred unsecured (preferredUnSecured) (valor predeterminado)**: si el servidor proporciona una elección, el controlador no usa SSL. <br/>- **Preferred secured (preferredSecured)**: si el servidor proporciona una elección, el controlador usa SSL. <br/>- **Only secured (onlySecured)**: el controlador no se conectará a menos que haya una conexión SSL disponible. | Sin  |
+| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Ejemplo: `CaCertFile=<cert path>;`| Sí, si se ha habilitado SSL |
 
-**Ejemplo:**
+**Ejemplo**
 
 ```json
 {
@@ -76,9 +76,11 @@ Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<databa
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Netezza.
+En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Netezza.
 
-Para copiar datos desde Netezza, establezca la propiedad type del conjunto de datos en **NetezzaTable**. No hay ninguna propiedad específica de tipo adicional en este tipo de conjunto de datos.
+Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos](concepts-datasets-linked-services.md). 
+
+Para copiar datos desde Netezza, establezca la propiedad **type** del conjunto de datos en **NetezzaTable**. No hay ninguna propiedad específica de tipo adicional en este tipo de conjunto de datos.
 
 **Ejemplo**
 
@@ -97,16 +99,18 @@ Para copiar datos desde Netezza, establezca la propiedad type del conjunto de da
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admite el origen Netezza.
+En esta sección se proporciona una lista de las propiedades que admite el origen de Netezza.
+
+Para ver una lista completa de las secciones y propiedades que hay disponibles para definir actividades, consulte [Canalizaciones](concepts-pipelines-activities.md). 
 
 ### <a name="netezza-as-source"></a>Netezza como origen
 
-Para copiar datos desde Netezza, establezca el tipo de origen de la actividad de copia como **NetezzaSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
+Para copiar datos desde Netezza, establezca el tipo **source** en la actividad de copia en **NetezzaSource**. La sección **source** de la actividad de copia admite las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **NetezzaSource** | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sí |
+| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **NetezzaSource**. | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Ejemplo: `"SELECT * FROM MyTable"` | SÍ |
 
 **Ejemplo:**
 
@@ -141,4 +145,5 @@ Para copiar datos desde Netezza, establezca el tipo de origen de la actividad de
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+
+Para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores en Azure Data Factory, consulte los [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095443"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377870"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
-La configuración de la aplicación en una aplicación de función contiene opciones de configuración global que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, esta configuración es en variables de entorno. Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
+La configuración de la aplicación en una aplicación de función contiene opciones de configuración global que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, esta configuración es en [variables de entorno](functions-run-local.md#local-settings-file). Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
 
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Hay otras opciones de configuración global en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-run-local.md#local-settings-file).
 
@@ -40,6 +40,9 @@ Cadena de conexión de la cuenta de almacenamiento opcional para almacenar los r
 |Clave|Valor de ejemplo|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[nombre];AccountKey=[clave]|
+
+> [!TIP]
+> Por motivos de rendimiento y experiencia, se recomienda utilizar APPINSIGHTS_INSTRUMENTATIONKEY y App Insights para la supervisión, en lugar de AzureWebJobsDashboard.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -111,11 +114,19 @@ Los valores válidos son "readwrite" y "readonly".
 
 ## <a name="functionsextensionversion"></a>VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS
 
-Versión del tiempo de ejecución de Azure Functions para usar en esta aplicación de función. Una tilde con la versión principal significa utilizar la versión más reciente de esa versión principal (por ejemplo, "~ 1"). Cuando haya disponibles versiones nuevas de la misma versión principal, se instalarán automáticamente en la aplicación de función. Para anclar la aplicación a una versión específica, use el número completo de la versión (por ejemplo, "1.0.12345"). El valor predeterminado es "~1".
+La versión del tiempo de ejecución de Functions para usar en esta aplicación de función. Una tilde con la versión principal significa utilizar la versión más reciente de esa versión principal (por ejemplo, "~2"). Cuando haya disponibles versiones nuevas de la misma versión principal, se instalarán automáticamente en la aplicación de función. Para anclar la aplicación a una versión específica, use el número completo de la versión (por ejemplo, "2.0.12345"). El valor predeterminado es "~2". Un valor de `~1` ancla la aplicación a la versión 1.x del tiempo de ejecución.
 
 |Clave|Valor de ejemplo|
 |---|------------|
-|VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS|~1|
+|VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS|~2|
+
+## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
+
+Tiempo de ejecución del trabajo del lenguaje que se cargará en la aplicación de función.  Se corresponderá con el lenguaje usado en la aplicación (por ejemplo, "dotnet"). Para las funciones en varios lenguajes deberá publicarlas en varias aplicaciones, cada una con un valor de tiempo de ejecución de trabajo correspondiente.  Los valores válidos son `dotnet` (C#/F#), `node` (JavaScript) y `java` (Java).
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,32 +149,29 @@ Solo para los planes de consumo. Ruta de acceso del archivo para el código de l
 Número máximo de instancias al que se puede escalar horizontalmente la aplicación de función. El valor predeterminado es sin límite.
 
 > [!NOTE]
-> Esta configuración es para una característica de vista previa.
+> Este ajuste es una característica en vista previa, que solo es confiable si se establece en un valor <= 5
 
 |Clave|Valor de ejemplo|
 |---|------------|
-|ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA|10|
+|ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA|5|
 
 ## <a name="websitenodedefaultversion"></a>DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB
 
-El valor predeterminado es "6.5.0".
+El valor predeterminado es "8.11.1".
 
 |Clave|Valor de ejemplo|
 |---|------------|
-|DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB|6.5.0|
+|DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB|8.11.1|
 
-## <a name="websiterunfromzip"></a>WEBSITE\_RUN\_FROM\_ZIP
+## <a name="websiterunfrompackage"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
 Permite que la aplicación de función se ejecute desde un archivo de paquete montado.
 
-> [!NOTE]
-> Esta configuración es para una característica de vista previa.
-
 |Clave|Valor de ejemplo|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_ZIP|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
-Los valores válidos son una dirección URL que se resuelve en la ubicación de un archivo de paquete de implementación o `1`. Cuando se establece en `1`, el paquete debe estar en la carpeta `d:\home\data\SitePackages`. Cuando se usa la implementación de ZIP con esta configuración, el paquete se carga automáticamente en esta ubicación.  Para más información, vea [Run your functions from a package file](run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
+Los valores válidos son una dirección URL que se resuelve en la ubicación de un archivo de paquete de implementación o `1`. Cuando se establece en `1`, el paquete debe estar en la carpeta `d:\home\data\SitePackages`. Cuando se usa la implementación de ZIP con esta configuración, el paquete se carga automáticamente en esta ubicación. En la versión preliminar, este ajuste se denomina `WEBSITE_RUN_FROM_ZIP`. Para más información, vea [Run your functions from a package file](run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

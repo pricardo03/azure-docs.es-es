@@ -10,12 +10,12 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 08/07/2018
 ms.author: bahariri
-ms.openlocfilehash: f3881d4448f44d44515ddb25072401d775d69b90
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 2812ba42ee9e6cd49d7ab4d72fb5df461959a2b7
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747195"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319836"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Uso de Apache Kafka MirrorMaker con Event Hubs para Apache Kafka
 
@@ -24,7 +24,7 @@ En este ejemplo, se muestra cómo reflejar un agente de Kafka en un centro de ev
    ![Kafka MirrorMaker con Event Hubs](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
 > [!NOTE]
-> Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-hubs).
+> Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker).
 
 
 En este tutorial, aprenderá a:
@@ -60,11 +60,11 @@ Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualqui
 
 ## <a name="clone-the-example-project"></a>Clonación del proyecto de ejemplo
 
-Ahora que tiene una cadena de conexión de Event Hubs habilitada para Kafka, clone el repositorio de Azure Event Hubs y navegue hasta la subcarpeta `mirror-maker`:
+Ahora que tiene una cadena de conexión de Event Hubs habilitada para Kafka, clone el repositorio de Azure Event Hubs para Kafka y vaya a la subcarpeta `mirror-maker`:
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/mirror-maker
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/mirror-maker
 ```
 
 ## <a name="set-up-a-kafka-cluster"></a>Configuración de un clúster de Kafka
@@ -130,7 +130,9 @@ En este tutorial, aprenderá a:
 > * Configurar de Kafka MirrorMaker
 > * Ejecución de Kafka MirrorMaker
 
-Avance al siguiente artículo para obtener más información sobre Event Hubs para Apache Kafka:
+Para obtener más información acerca de Event Hubs y Event Hubs para Kafka, consulte el tema siguiente:  
 
-> [!div class="nextstepaction"]
-> [Uso de Apache Flink con Azure Event Hubs para Kafka](event-hubs-kafka-flink-tutorial.md)
+* [Más información sobre Events Hubs](event-hubs-what-is-event-hubs.md)
+* [Información sobre Event Hubs para Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Más ejemplos en GitHub de Event Hubs para Kafka](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Aprenda a transmitir en una instancia de Event Hubs habilitada para Kafka mediante [aplicaciones nativas de Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md) o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).

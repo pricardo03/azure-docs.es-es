@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 9/14/2018
+ms.date: 10/15/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1242cf80ffd283471eb507612949a81d4b3fd594
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401629"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49367017"
 ---
 ### <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
 Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad a la nube sin restricciones. Puede crear, aplicar y registrar directivas de aplicaciones y de conectividad de red a nivel central en suscripciones y redes virtuales.
 
-### <a name="what-capabilities-are-supported-in-azure-firewall"></a>¿Qué funcionalidades son compatibles con Azure Firewall?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>¿Qué funcionalidades son compatibles con Azure Firewall?
 
 * Firewall con estado como servicio
 * Alta disponibilidad integrada con escalabilidad en la nube sin restricciones
@@ -29,7 +29,7 @@ Azure Firewall es un servicio de seguridad de red administrado y basado en la nu
 * Compatibilidad con SNAT saliente
 * Compatibilidad con DNAT entrante
 * Creación, aplicación y registro de directivas de aplicación y de conectividad de red en las suscripciones y redes virtuales de Azure
-* Totalmente integrado con Azure Monitor para registros y análisis 
+* Totalmente integrado con Azure Monitor para registros y análisis
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>¿Cuál es el precio de Azure Firewall?
 
@@ -52,13 +52,13 @@ Azure Firewall es compatible con las reglas y las colecciones de reglas. Una col
 
 Existen dos tipos de colecciones de reglas:
 
-* *Reglas de aplicación*: permiten configurar los nombres de dominio completos (FQDN) a los que se puede acceder desde una subred. 
-* *Reglas de red*: permiten configurar reglas que contienen direcciones de origen, protocolos, puertos de destino y direcciones de destino. 
+* *Reglas de aplicación*: permiten configurar los nombres de dominio completos (FQDN) a los que se puede acceder desde una subred.
+* *Reglas de red*: permiten configurar reglas que contienen direcciones de origen, protocolos, puertos de destino y direcciones de destino.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>¿Admite Azure Firewall el filtrado del tráfico de entrada?
 
 Azure Firewall es compatible con el filtrado entrante y saliente. La protección entrante es para los protocolos que no son HTTP/S. Por ejemplo, los protocolos RDP, SSH y FTP.
- 
+
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>¿Qué servicios de registro y análisis son compatibles con Azure Firewall?
 
 Azure Firewall se integra con Azure Monitor para ver y analizar los registros de firewall. Los registros se pueden enviar a Log Analytics, Azure Storage o Event Hubs. Puede analizarse en Log Analytics o usando distintas herramientas, como Excel y Power BI. Para más información, consulte [Tutorial: Supervisión de los registros de Azure Firewall](../articles/firewall/tutorial-diagnostics.md).
@@ -66,14 +66,14 @@ Azure Firewall se integra con Azure Monitor para ver y analizar los registros de
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>¿Cómo Azure Firewall funciona distinto de servicios existentes como NVA que ya están en el mercado?
 
 Azure Firewall es un servicio de firewall básica que puede abordar determinados escenarios de cliente. Se espera que tenga una combinación de NVA de terceros y Azure Firewall. Trabajar mejor juntos es una prioridad fundamental.
- 
+
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>¿Cuál es la diferencia entre WAF de Application Gateway y Azure Firewall?
 
-Firewall de aplicaciones web (WAF) es una característica de Application Gateway que proporciona a las aplicaciones una protección de entrada centralizada contra ataques y puntos vulnerables comunes. Azure Firewall proporciona protección de salida a nivel de red para todos los puertos y protocolos, y protección a nivel de aplicación para las salidas HTTP/S. La protección de entrada para los protocolos no HTTP/S (por ejemplo: RDP, SSH, FTP) está prevista provisionalmente para proporcionarse con la disponibilidad general de Azure Firewall.
+Firewall de aplicaciones web (WAF) es una característica de Application Gateway que proporciona a las aplicaciones una protección de entrada centralizada contra ataques y puntos vulnerables comunes. Azure Firewall proporciona protección de entrada para protocolos no HTTP/S (como RDP, SSH y FTP), protección de salida a nivel de red para todos los puertos y protocolos, y protección a nivel de aplicación para las salidas HTTP/S.
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>¿Cuál es la diferencia entre los grupos de seguridad de red (NSG) y Azure Firewall?
 
-El servicio Azure Firewall complementa la funcionalidad de grupo de seguridad de red. Juntos proporcionan una mejor seguridad de red de "defensa en profundidad". Los grupos de seguridad de red proporcionan filtrado del trafico de capas de red distribuida para limitar el tráfico a los recursos dentro de las redes virtuales en cada suscripción. Azure Firewall es un firewall de red centralizada como servicio con estado completo que proporciona protección a nivel de red y de aplicación en todas las distintas suscripciones y redes virtuales. 
+El servicio Azure Firewall complementa la funcionalidad de grupo de seguridad de red. Juntos proporcionan una mejor seguridad de red de "defensa en profundidad". Los grupos de seguridad de red proporcionan filtrado del trafico de capas de red distribuida para limitar el tráfico a los recursos dentro de las redes virtuales en cada suscripción. Azure Firewall es un firewall de red centralizada como servicio con estado completo que proporciona protección a nivel de red y de aplicación en todas las distintas suscripciones y redes virtuales.
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>¿Cómo puedo configurar Azure Firewall con mis puntos de conexión de servicio?
 
@@ -107,7 +107,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>¿Cuáles son los límites conocidos del servicio?
 
-* Azure Firewall tiene un límite flexible de 1000 TB por firewall por mes. 
+* Azure Firewall tiene un límite flexible de 1000 TB por firewall por mes.
 * Una instancia de Azure Firewall que se está ejecutando en una red virtual central tiene limitaciones de emparejamiento de red virtual, con un máximo de 50 redes virtuales de radio.  
 * Azure Firewall no funciona con el emparejamiento global, por lo que debe tener al menos una implementación de firewall por región.
 * Azure Firewall admite 10 000 reglas de aplicación y 10 000 reglas de red.
@@ -119,3 +119,7 @@ Sí, puede usar Azure Firewall en la red virtual de un concentrador para enrutar
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>¿Azure Firewall puede reenviar y filtrar el tráfico de red entre subredes de la misma red virtual?
 
 El tráfico entre subredes de la misma red virtual o de una red virtual emparejada directamente se enruta de forma directa, incluso si la UDR apunta a la instancia de Azure Firewall como puerta de enlace predeterminada. El método recomendado para la segmentación de redes internas es utilizar grupos de seguridad de red. Para enviar tráfico de subred a subred al firewall en este escenario, el UDR debe contener el prefijo de red de la subred de destino de forma explícita en ambas subredes.
+
+### <a name="are-there-any-firewall-resource-group-restrictions"></a>¿Existe alguna restricción de grupo de recursos de firewall?
+
+Sí. El firewall, la subred, la red virtual y la dirección IP pública deben estar en el mismo grupo de recursos.

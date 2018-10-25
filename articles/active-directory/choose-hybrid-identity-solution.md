@@ -13,22 +13,25 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 905cedd6ee781ca163731a6f71b083acfc11b5eb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 15a28cd5937be103aac888a5fc5485e39854a1b4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332378"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319955"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluciones de identidad híbrida de Microsoft
+
 Las soluciones de identidad híbrida de [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permiten sincronizar objetos de directorio locales con Azure AD mientras administra los usuarios locales. La primera decisión que hay que tomar cuando se planea sincronizar la instancia local de Windows Server Active Directory con Azure AD es si desea usar una identidad sincronizada o identidad federada. Las identidades sincronizadas, y, opcionalmente, los hashes de contraseña, permiten a los usuarios usar la misma contraseña para acceder tanto a los recursos organizacionales locales como los basados en la nube. Para unos requisitos de escenario más avanzados, como el inicio de sesión único (SSO) o MFA local, debe implementar Servicios de federación de Active Directory (AD FS) para federar identidades. 
 
 Hay varias opciones disponibles para configurar la identidad híbrida. En este artículo se proporciona información que le ayuda a elegir la opción más idónea para su organización en función de la facilidad de implementación y las necesidades específicas de administración de acceso e identidad. Mientras piensa en el modelo de identidad que mejor se adapte a las necesidades de su organización, debe pensar también en el tiempo, la infraestructura existente, la complejidad y el costo. Estos factores son diferentes para cada organización y pueden cambiar con el tiempo. Sin embargo, si cambian los requisitos, también cuenta con la flexibilidad para cambiar a otro modelo de identidad.
 
 > [!TIP]
 > [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) entrega todas estas opciones.
+>
 
 ## <a name="synchronized-identity"></a>Identidad sincronizada 
+
 La identidad sincronizada es la manera más sencilla de sincronizar objetos de directorio locales (usuarios y grupos) con Azure AD. 
 
 ![Identidad híbrida sincronizada](./media/choose-hybrid-identity-solution/synchronized-identity.png)
@@ -39,8 +42,10 @@ Para la mayoría de las organizaciones que solo tienen que habilitar a sus usuar
 
 > [!TIP]
 > Las contraseñas de usuario se almacenan en Windows Server Active Directory local en forma de un valor hash que representa la contraseña real del usuario. Un valor hash es el resultado de una función matemática unidireccional (el algoritmo hash). No hay ningún método para volver del resultado de una función unidireccional a la versión de texto sin formato de una contraseña. El hash de contraseña no puede usarse para iniciar sesión en la red local. Si decide sincronizar contraseñas, Azure AD Connect extrae los hashes de contraseña de la instancia local de Active Directory y aplica un procesamiento de seguridad adicional al hash de contraseña antes de sincronizarlo con Azure AD. También se puede usar la sincronización de contraseñas junto con la escritura diferida de contraseñas para habilitar el autoservicio de restablecimiento de contraseña en Azure AD. Además, puede habilitar el inicio de sesión único (SSO) para usuarios en equipos unidos a un dominio que están conectados a la red corporativa. Con el inicio de sesión único, los usuarios habilitados solo necesitan escribir un nombre de usuario para acceder a los recursos de nube de manera segura. 
+>
 
 ## <a name="pass-through-authentication"></a>Autenticación de paso a través
+
 La [autenticación de paso a través de Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) proporciona una sencilla solución de validación de contraseñas para servicios basados en Azure AD mediante su instancia de Active Directory local. Si las directivas de seguridad y cumplimiento de su organización no permiten el envío de contraseñas de los usuarios, incluso en un formulario con algoritmo hash, y solo hay que admitir el SSO de escritorio para dispositivos unidos a un dominio, se recomienda que lo evalúe mediante la autenticación de paso a través. La autenticación de paso a través no requiere ninguna implementación en la red perimetral, lo que simplifica la infraestructura de implementación cuando se compara con AD FS. Cuando los usuarios inician sesión con Azure AD, este método de autenticación valida las contraseñas de los usuarios directamente en la instancia de Active Directory local.
 
 ![Autenticación de paso a través](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
@@ -53,6 +58,7 @@ La autenticación de paso a través se configura mediante Azure AD Connect y uti
 - Unión a un dominio en el bosque en el que se validan los usuarios
 
 ## <a name="federated-identity-ad-fs"></a>Identidad federada (AD FS)
+
 Para tener más control sobre cómo los usuarios acceden a Office 365 y otros servicios en la nube, puede configurar la sincronización de directorios con el inicio de sesión único (SSO) mediante [Servicios de federación de Active Directory (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). La federación de los inicios de sesión del usuario con AD FS delega la autenticación a un servidor local que valida las credenciales del usuario. En este modelo, las credenciales de Active Directory local nunca se pasan a Azure AD.
 
 ![Identidad federada](./media/choose-hybrid-identity-solution/federated-identity.png)
@@ -61,9 +67,10 @@ También llamado federación de identidades, este método garantiza que toda la 
 
 > [!TIP]
 > Si opta por usar Federación con Servicios de federación de Active Directory (AD FS), tiene la posibilidad de configurar la sincronización de contraseña como copia de seguridad en caso de error en la infraestructura de AD FS.
-
+>
 
 ## <a name="common-scenarios-and-recommendations"></a>Escenarios comunes y recomendaciones
+
 Estos son algunos escenarios comunes de identidad híbrida y administración de acceso con recomendaciones sobre la opción (u opciones) de identidad que podría ser más adecuada.
 
 |Necesitará:|PWS y SSO<sup>1</sup>| PTA y SSO<sup>2</sup> | AD FS<sup>3</sup>|
@@ -77,19 +84,17 @@ Estos son algunos escenarios comunes de identidad híbrida y administración de 
 |Admitir la autenticación de tarjeta inteligente para mis usuarios<sup>4</sup>| | |![Recomendado](./media/choose-hybrid-identity-solution/ic195031.png)|
 |Mostrar notificaciones de expiración de contraseña en el portal de Office y en el escritorio de Windows 10| | |![Recomendado](./media/choose-hybrid-identity-solution/ic195031.png)|
 
-> <sup>1</sup> Sincronización de contraseñas con inicio de sesión único. 
-
+> <sup>1</sup> Sincronización de contraseñas con inicio de sesión único.
+>
 > <sup>2</sup> Autenticación de paso a través e inicio de sesión único. 
-
+>
 > <sup>3</sup> Inicio de sesión único federado con AD FS.
-
+>
 > <sup>4</sup> AD FS se puede integrar con el PKI de la empresa para permitir el inicio de sesión con certificados. Estos certificados pueden ser certificados flexibles implementados a través de canales de aprovisionamiento de confianza, como certificados MDM o GPO o de tarjetas inteligentes (incluidas las tarjetas PIV/CAC) o Hello para empresas (cert-trust). Para más información sobre la compatibilidad con la autenticación de tarjetas inteligentes, consulte [este blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
-
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Información sobre el entorno de prueba de concepto de Azure](https://aka.ms/aad-poc)
 
+[Obtenga más información en un entorno de prueba de concepto de Azure](https://aka.ms/aad-poc)
 [Instalación de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-
-[Supervisión de 'sincronización de identidades híbridas](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)
-
+[Supervisión de la sincronización de identidades híbridas](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)

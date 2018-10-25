@@ -9,20 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048048"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364870"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Zeppelin con un clúster Apache Spark en Azure HDInsight
 
 Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que se pueden utilizar para ejecutar trabajos de Spark. En este artículo, aprenderá a usar Zeppelin Notebook en un clúster de HDInsight.
-
-> [!NOTE]
-> Los notebooks de Zeppelin están disponibles solo para Spark 1.6.3 en HDInsight 3.5 y Spark 2.1.0 en HDInsight 3.6.
->
 
 **Requisitos previos:**
 
@@ -33,7 +29,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
 1. En la hoja del clúster Spark, haga clic en **Panel de clúster** y en **Zeppelin Notebook**. Cuando se le pida, escriba las credenciales del clúster.
    
    > [!NOTE]
-   > También puede comunicarse con su equipo portátil ligero Zeppelin en el clúster si abre la siguiente dirección URL en el explorador. Reemplace **CLUSTERNAME** por el nombre del clúster:
+   > También puede comunicarse con su equipo portátil ligero Zeppelin en el clúster si abre la siguiente dirección URL en el explorador. Reemplace **CLUSTERNAME** por el nombre del clúster.
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
    > 
@@ -50,7 +46,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
    
     En el párrafo vacío que se crea de manera predeterminada en el nuevo cuaderno, pegue el siguiente fragmento.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
     ![Creación de una tabla temporal a partir de datos sin procesar](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Creación de una tabla temporal a partir de datos sin procesar")
    
     También puede proporcionar un título para cada párrafo. En la esquina derecha, haga clic en el icono **Configuración** y luego haga clic en **Mostrar título**.
+
+> [!NOTE]
+> El intérprete %spark2 no se admite en los cuadernos de Zeppelin en todas las versiones de HDInsight y el intérprete %sh no se admite en HDInsight 4.0 y versiones posteriores.
+>
+
 1. Ahora puede ejecutar instrucciones Spark SQL en la tabla **hvac** . Pegue la siguiente consulta en un nuevo párrafo. La consulta recupera el identificador del edificio y la diferencia entre la temperatura objetivo y la real para cada edificio en una fecha determinada. Presione **MAYÚS + ENTRAR**.
    
         %sql

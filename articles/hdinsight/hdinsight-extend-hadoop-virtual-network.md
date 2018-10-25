@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/08/2018
+ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972188"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363850"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -173,7 +173,7 @@ Para más información, vea el documento [Resolución de nombres para máquinas 
 
 ## <a name="directly-connect-to-hadoop-services"></a>Conectar directamente a servicios Hadoop
 
-En la mayor parte de la documentación sobre HDInsight se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en https://CLUSTERNAME.azurehdinsight.net. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado NSG o UDR para restringir el acceso desde Internet.
+Puede conectarse al clúster en https://CLUSTERNAME.azurehdinsight.net. Esta dirección usa una dirección IP pública, que podría no ser accesible en caso de haber usado grupos de seguridad de red o rutas definidas por el usuario para restringir el tráfico entrante de internet. Además, al implementar el clúster en una red virtual puede acceder a ella mediante el punto de conexión privado https://CLUSTERNAME-internal.azurehdinsight.net. Este punto de conexión se resuelve en una dirección IP privada dentro de la red virtual para el acceso al clúster.
 
 Para conectarse a Ambari y otras páginas web a través de la red virtual, siga estos pasos:
 
@@ -253,7 +253,7 @@ La tunelización forzada es una configuración de enrutamiento definida por el u
 >
 > Si no usa grupos de seguridad de red ni rutas definidas por el usuario para controlar el tráfico, puede omitir esta sección.
 
-Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permitir que el tráfico de los servicios de mantenimiento y administración de Azure llegue a HDInsight. Siga los pasos siguientes para buscar las direcciones IP que se deben permitir:
+Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permitir que el tráfico de los servicios de mantenimiento y administración de Azure llegue a HDInsight. También debe permitir el tráfico entre máquinas virtuales dentro de la subred. Siga los pasos siguientes para buscar las direcciones IP que se deben permitir:
 
 1. Siempre debe permitir el tráfico de las siguientes direcciones IP:
 
@@ -280,6 +280,7 @@ Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permiti
     | &nbsp; | Centro de Canadá | 52.228.37.66</br>52.228.45.222 | 443 | Entrada |
     | China | Norte de China | 42.159.96.170</br>139.217.2.219 | 443 | Entrada |
     | &nbsp; | Este de China | 42.159.198.178</br>42.159.234.157 | 443 | Entrada |
+    | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Entrada |
     | Europa | Europa del Norte | 52.164.210.96</br>13.74.153.132 | 443 | Entrada |
     | &nbsp; | Europa occidental| 52.166.243.90</br>52.174.36.244 | 443 | Entrada |
     | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |
@@ -301,7 +302,7 @@ Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permiti
 
     Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Inteligencia y análisis de Azure Government).
 
-3. Si usa un servidor DNS personalizado con la red virtual, también debe permitir el acceso desde __168.63.129.16__. Esta es la dirección de la resolución recursiva de Azure. Para más información, vea el documento [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+3. También debe permitir el acceso desde __168.63.129.16__. Esta es la dirección de la resolución recursiva de Azure. Para más información, vea el documento [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Para más información, vea la sección [Control del tráfico de red](#networktraffic).
 

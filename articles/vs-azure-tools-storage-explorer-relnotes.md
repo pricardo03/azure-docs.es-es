@@ -14,26 +14,225 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190528"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388310"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
-Este artículo contiene las notas de la versión del Explorador de Azure Storage 1.4.1, así como las de versiones anteriores.
+En este artículo encontrará las notas de la versión del Explorador de Azure Storage 1.4.3, así como las de versiones anteriores.
 
 [Explorador de Microsoft Azure Storage](./vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux.
 
+## <a name="version-144"></a>Versión 1.4.4
+15/10/2018
+
+### <a name="download-azure-storage-explorer-144"></a>Descarga del Explorador de Azure Storage 1.4.4
+- [Explorador de Azure Storage 1.4.4 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de Azure Storage 1.4.4 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de Azure Storage 1.4.4 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Revisiones
+* La versión de API de administración de recursos de Azure se revirtió para poder desbloquear los usuarios de Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Los indicadores giratorios de carga ahora usan animaciones CSS para reducir la cantidad de GPU que usa el Explorador de Storage. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Nuevo
+* Los datos adjuntos de los recursos externos, como las conexiones y los emuladores de SAS, se han mejorado considerablemente. Ahora puede:
+   * Personalizar el nombre para mostrar del recurso que va a adjuntar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Conectarlo a varios emuladores locales mediante distintos puertos. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Agregar recursos adjuntos a Acceso rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* El Explorador de Azure Storage ahora admite la eliminación temporal. Puede:
+   * Configurar una directiva de eliminación temporal haciendo clic con el botón derecho en el nodo Blob Containers de la cuenta de Storage.
+   * Ver los blobs eliminados temporalmente en el Editor de blob seleccionando "Active and deleted blobs" (Blobs activos y eliminados) en la lista desplegable situada junto a la barra de navegación.
+   * Recuperar los blobs eliminados temporalmente.
+
+### <a name="fixes"></a>Correcciones
+* La acción "Configurar opciones de CORS" ya no está disponible en las cuentas de Premium Storage porque dichas cuentas no admiten CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Ahora hay una propiedad Firma de acceso compartido para los servicios conectados mediante SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* La acción "Establecer nivel de acceso predeterminado" ya está disponibles cuentas de almacenamiento de GPV2 y de Blob ancladas a Acceso rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* A veces, el Explorador de Storage no mostraba cuentas de almacenamiento clásico. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas conocidos
+* Al usar emuladores, como el emulador de Azure Storage o Azurite, necesitará hacer que escuchen conexiones en sus puertos predeterminados. De otro modo, el Explorador de Storage no podrá conectarlos.
+* Si usa VS para Mac y nunca ha creado una configuración de AAD personalizada, es posible que no pueda iniciar sesión. Para solucionar el problema, elimine el contenido de ~/.IdentityService/AadConfigurations. Si al hacerlo no se desbloquea, incluya un comentario sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite todavía no ha implementado por completo todas las API de Azure Storage. Por este motivo, pueden haber errores o comportamientos inesperados cuando se usa Azurite para el almacenamiento de desarrollo.
+* En raras ocasiones, el foco de árbol puede quedarse bloqueado en un acceso rápido. Para desbloquear el foco, puede seleccionar Actualizar todo.
+* Cargar desde la carpeta de OneDrive no funciona debido a un error en NodeJS. El error se ha corregido, pero aún no se ha integrado en Electron.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe [aquí](https://github.com/Azure/azure-storage-node/issues/317).
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las otras propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versiones anteriores
+
+* [Versión 1.4.3](#version-143)
+* [Versión 1.4.2](#version-142)
+* [Versión 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Versión 1.2.0](#version-120)
+* [Versión 1.1.0](#version-110)
+* [Versión 1.0.0](#version-100)
+* [Versión 0.9.6](#version-096)
+* [Versión 0.9.5](#version-095)
+* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
+* [Versión 0.9.2](#version-092)
+* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
+* [Versión 0.8.16](#version-0816)
+* [Versión 0.8.14](#version-0814)
+* [Versión 0.8.13](#version-0813)
+* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
+* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
+* [Versión 0.8.7](#version-087)
+* [Versión 0.8.6](#version-086)
+* [Versión 0.8.5](#version-085)
+* [Versión 0.8.4](#version-084)
+* [Versión 0.8.3](#version-083)
+* [Versión 0.8.2](#version-082)
+* [Versión 0.8.0](#version-080)
+* [Versión 0.7.20160509.0](#version-07201605090)
+* [Versión 0.7.20160325.0](#version-07201603250)
+* [Versión 0.7.20160129.1](#version-07201601291)
+* [Versión 0.7.20160105.0](#version-07201601050)
+* [Versión 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-143"></a>Versión 1.4.3
+11/10/2018
+
+### <a name="hotfixes"></a>Revisiones
+* La versión de la API de administración de recursos de Azure se revirtió para poder desbloquear los usuarios de Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Los indicadores giratorios de carga ahora usan animaciones CSS para reducir la cantidad de GPU que usa el Explorador de Storage. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Nuevo
+* Los datos adjuntos de los recursos externos, como las conexiones y los emuladores de SAS, se han mejorado considerablemente. Ahora puede:
+   * Personalizar el nombre para mostrar del recurso que va a adjuntar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Conectarlo a varios emuladores locales mediante distintos puertos. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Agregar recursos adjuntos a Acceso rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* El Explorador de Azure Storage ahora admite la eliminación temporal. Puede:
+   * Configurar una directiva de eliminación temporal haciendo clic con el botón derecho en el nodo Blob Containers de la cuenta de Storage.
+   * Ver los blobs eliminados temporalmente en el Editor de blob seleccionando "Active and deleted blobs" (Blobs activos y eliminados) en la lista desplegable situada junto a la barra de navegación.
+   * Recuperar los blobs eliminados temporalmente.
+
+### <a name="fixes"></a>Correcciones
+* La acción "Configurar opciones de CORS" ya no está disponible en las cuentas de Premium Storage porque dichas cuentas no admiten CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Ahora hay una propiedad Firma de acceso compartido para los servicios conectados mediante SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* La acción "Establecer nivel de acceso predeterminado" ya está disponibles cuentas de almacenamiento de GPV2 y de Blob ancladas a Acceso rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* A veces, el Explorador de Storage no mostraba cuentas de almacenamiento clásico. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas conocidos
+* Al usar emuladores, como el emulador de Azure Storage o Azurite, necesitará hacer que escuchen conexiones en sus puertos predeterminados. De otro modo, el Explorador de Storage no podrá conectarlos.
+* Si usa VS para Mac y nunca ha creado una configuración de AAD personalizada, es posible que no pueda iniciar sesión. Para solucionar el problema, elimine el contenido de ~/.IdentityService/AadConfigurations. Si al hacerlo no se desbloquea, incluya un comentario sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite todavía no ha implementado por completo todas las API de Azure Storage. Por este motivo, pueden haber errores o comportamientos inesperados cuando se usa Azurite para el almacenamiento de desarrollo.
+* En raras ocasiones, el foco de árbol puede quedarse bloqueado en un acceso rápido. Para desbloquear el foco, puede seleccionar Actualizar todo.
+* Cargar desde la carpeta de OneDrive no funciona debido a un error en NodeJS. El error se ha corregido, pero aún no se ha integrado en Electron.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe [aquí](https://github.com/Azure/azure-storage-node/issues/317).
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las otras propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-142"></a>Versión 1.4.2
+24/09/2018
+
+### <a name="hotfixes"></a>Revisiones
+* Actualice la versión de la API de administración de recursos de Azure a 01-07-2018 para agregar la compatibilidad con los nuevos tipos de cuenta de Azure Storage. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### <a name="new"></a>Nuevo
+* Los datos adjuntos de los recursos externos, como las conexiones y los emuladores de SAS, se han mejorado considerablemente. Ahora puede:
+   * Personalizar el nombre para mostrar del recurso que va a adjuntar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Conectarlo a varios emuladores locales mediante distintos puertos. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Agregar recursos adjuntos a Acceso rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* El Explorador de Azure Storage ahora admite la eliminación temporal. Puede:
+   * Configurar una directiva de eliminación temporal haciendo clic con el botón derecho en el nodo Blob Containers de la cuenta de Storage.
+   * Ver los blobs eliminados temporalmente en el Editor de blob seleccionando "Active and deleted blobs" (Blobs activos y eliminados) en la lista desplegable situada junto a la barra de navegación.
+   * Recuperar los blobs eliminados temporalmente.
+
+### <a name="fixes"></a>Correcciones
+* La acción "Configurar opciones de CORS" ya no está disponible en las cuentas de Premium Storage porque dichas cuentas no admiten CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Ahora hay una propiedad Firma de acceso compartido para los servicios conectados mediante SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* La acción "Establecer nivel de acceso predeterminado" ya está disponibles cuentas de almacenamiento de GPV2 y de Blob ancladas a Acceso rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* A veces, el Explorador de Storage no mostraba cuentas de almacenamiento clásico. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas conocidos
+* Al usar emuladores, como el emulador de Azure Storage o Azurite, necesitará hacer que escuchen conexiones en sus puertos predeterminados. De otro modo, el Explorador de Storage no podrá conectarlos.
+* Si usa VS para Mac y nunca ha creado una configuración de AAD personalizada, es posible que no pueda iniciar sesión. Para solucionar el problema, elimine el contenido de ~/.IdentityService/AadConfigurations. Si al hacerlo no se desbloquea, incluya un comentario sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite todavía no ha implementado por completo todas las API de Azure Storage. Por este motivo, pueden haber errores o comportamientos inesperados cuando se usa Azurite para el almacenamiento de desarrollo.
+* En raras ocasiones, el foco de árbol puede quedarse bloqueado en un acceso rápido. Para desbloquear el foco, puede seleccionar Actualizar todo.
+* Cargar desde la carpeta de OneDrive no funciona debido a un error en NodeJS. El error se ha corregido, pero aún no se ha integrado en Electron.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe [aquí](https://github.com/Azure/azure-storage-node/issues/317).
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las otras propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-141"></a>Versión 1.4.1
 28/08/2018
-
-### <a name="download-azure-storage-explorer-141"></a>Descarga del Explorador de Azure Storage 1.4.1
-- [Explorador de Azure Storage 1.4.1 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de Azure Storage 1.4.1 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de Azure Storage 1.4.1 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Revisiones
 * Al iniciarse por primera vez, el Explorador de Storage no podía generar la clave utilizada para cifrar datos confidenciales. Esto provocaba problemas al usar Acceso rápido y asociar recursos. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
@@ -76,7 +275,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```
@@ -91,35 +290,6 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versiones anteriores
-
-* [Version 1.3.0](#version-130)
-* [Versión 1.2.0](#version-120)
-* [Versión 1.1.0](#version-110)
-* [Versión 1.0.0](#version-100)
-* [Versión 0.9.6](#version-096)
-* [Versión 0.9.5](#version-095)
-* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
-* [Versión 0.9.2](#version-092)
-* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
-* [Versión 0.8.16](#version-0816)
-* [Versión 0.8.14](#version-0814)
-* [Versión 0.8.13](#version-0813)
-* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
-* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
-* [Versión 0.8.7](#version-087)
-* [Versión 0.8.6](#version-086)
-* [Versión 0.8.5](#version-085)
-* [Versión 0.8.4](#version-084)
-* [Versión 0.8.3](#version-083)
-* [Versión 0.8.2](#version-082)
-* [Versión 0.8.0](#version-080)
-* [Versión 0.7.20160509.0](#version-07201605090)
-* [Versión 0.7.20160325.0](#version-07201603250)
-* [Versión 0.7.20160129.1](#version-07201601291)
-* [Versión 0.7.20160105.0](#version-07201601050)
-* [Versión 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-130"></a>Versión 1.3.0
 09/07/2018
@@ -162,7 +332,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```
@@ -219,7 +389,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```
@@ -240,7 +410,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 
 ### <a name="new"></a>Nuevo
 * El Explorador de Azure Storage admite ahora el uso de Azurite. Nota: La conexión a Azurite está codificada en los puntos de conexión de desarrollo predeterminados.
-* El Explorador de Azure Storage ahora admite los niveles de acceso para las cuentas de almacenamiento Solo blob y GPV2. Obtenga [más información](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers) sobre los niveles de acceso.
+* El Explorador de Azure Storage ahora admite los niveles de acceso para las cuentas de almacenamiento Solo blob y GPV2. Obtenga [más información](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) sobre los niveles de acceso.
 * Ya no se requiere una hora de inicio al generar una SAS.
 
 ### <a name="fixes"></a>Correcciones
@@ -273,7 +443,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```
@@ -300,7 +470,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 * Los comentarios del Explorador de Storage ahora se guardan en GitHub. Puede acceder a nuestra página de problemas haciendo clic en el botón Comentarios en la esquina inferior izquierda, o visitando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). No dude en hacer sugerencias, informar sobre problemas, hacer preguntas o dejar cualquier otro comentario.
 * Si tiene problemas relacionados con certificados SSL y no puede encontrar el certificado en cuestión, puede iniciar el Explorador de Storage desde la línea de comandos con la marca `--ignore-certificate-errors`. Cuando se inicie con esta marca, el Explorador de Storage pasará por alto los errores del certificado SSL.
 * Hemos incluido la opción "Descargar" en el menú emergente para elementos de blobs y archivos.
-* Se ha mejorado la accesibilidad y la compatibilidad del lector de pantalla. Si confía en las características de accesibilidad, consulte nuestra [documentación de accesibilidad](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) para obtener más información.
+* Se ha mejorado la accesibilidad y la compatibilidad del lector de pantalla. Si confía en las características de accesibilidad, consulte nuestra [documentación de accesibilidad](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para obtener más información.
 * El Explorador de Store ahora usa Electron 1.8.3.
 
 ### <a name="breaking-changes"></a>Cambios importantes
@@ -339,7 +509,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```

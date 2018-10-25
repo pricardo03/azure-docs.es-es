@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8f2dbe4885f1cb85ab5eb78ae4f06b2ad702d53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348575"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389588"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -83,7 +83,7 @@ El nivel de durabilidad se usa para indicar al sistema los privilegios que tiene
 > [!WARNING]
 > Los tipos de nodos que se ejecutan con la durabilidad Bronze _no obtienen privilegios_. Es decir, los trabajos de infraestructura que afectan a las cargas de trabajo sin estado no se detendrán ni retrasarán, lo que podría afectar a las cargas de trabajo. Utilice el nivel Bronze en los tipos de nodos que ejecutan únicamente cargas de trabajo sin estado. Para las cargas de trabajo de producción, se recomienda utilizar el nivel Silver o superiores. 
 
-> Con independencia de cualquier nivel de durabilidad, la operación de [desasignación](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) en el conjunto de escalado de máquina virtual destruirá el clúster
+> Con independencia de cualquier nivel de durabilidad, la operación de [desasignación](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) en el conjunto de escalado de máquina virtual destruirá el clúster
 
 **Ventajas del uso de los niveles de durabilidad Silver o Gold**
  
@@ -165,6 +165,7 @@ Para cargas de trabajo de producción:
 - El SSD local de 14 GB es un requisito mínimo. Nuestra recomendación es un mínimo de 50 GB. Para las cargas de trabajo, especialmente cuando se ejecutan contenedores de Windows, se necesitan discos más grandes. 
 - Las SKU de máquina virtual de núcleo parcial, como Standard A0, no se admiten en cargas de trabajo de producción.
 - La SKU Standard A1 no se admite en cargas de trabajo de producción por motivos de rendimiento.
+- No se admiten máquinas virtuales de prioridad baja.
 
 > [!WARNING]
 > Cambiar el tamaño de SKU de la máquina virtual del nodo principal en un clúster en ejecución es una operación de escalado, y se documenta en [Escalado horizontal de un conjunto de escalado de máquinas virtuales](virtual-machine-scale-set-scale-node-type-scale-out.md).

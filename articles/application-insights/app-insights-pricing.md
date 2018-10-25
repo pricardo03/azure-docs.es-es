@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146970"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319462"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Administración de precios y volúmenes de datos de Application Insights
 
 > [!NOTE]
 > En este artículo se describe cómo analizar el uso de datos de Application Insights.  Consulte los artículos siguientes para obtener información relacionada.
-> - En [Supervisión del uso y costos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios. También se describe cómo cambiar el modelo de precios.
+> - En [Supervisión del uso y costos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios. También describe cómo cambiar el modelo de precios.
 
 Los precios para [Azure Application Insights][start] se basan en el volumen de datos por aplicación. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure.
 
@@ -159,6 +159,10 @@ Puede escribir un script para establecer el plan de precios con la administraci�
 ## <a name="limits-summary"></a>Resumen de límites
 
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+
+## <a name="disable-daily-cap-e-mails"></a>Deshabilitación de los correos electrónicos de límite diario
+
+Para deshabilitar los correos electrónicos de límite de volumen diario, en la sección de **Configuración** del recurso de Application Insights, en el panel **Uso y costos estimados**, seleccione **Límite diario**. Hay opciones para enviar correos electrónicos cuando se alcanza el límite, así como cuando se ha alcanzado un nivel de advertencia ajustable. Si quiere deshabilitar todos los correos electrónicos relacionados con el límite de volumen diario, desactive ambas casillas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

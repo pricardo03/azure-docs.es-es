@@ -9,15 +9,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493875"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364309"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
-En este artículo se responden a preguntas habituales sobre los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+En este artículo se responden a preguntas habituales sobre los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Para examinar rápidamente las secciones de este artículo, use los vínculos de la derecha que aparecen debajo de **En este artículo**.
 
@@ -31,7 +31,7 @@ Sí. Se pueden crear hasta 500 almacenes de Recovery Services por cada región a
 Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el agente de MAB, puede registrar hasta 50 agentes de MAB por almacén. Y puede registrar 50 servidores de MAB o servidores DPM en un almacén.
 
 ### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>¿Puedo usar una API de REST para consultar el tamaño de los elementos protegidos en un almacén? <br/>
-Sí, en el artículo de [Usages - List by Vaults](https://t.co/2lgIrIaF0J) (Usos: enumerar por almacenes) se muestra la información que se puede obtener del almacén de Recovery Services.
+Sí, en el artículo de [Usages - List by Vaults](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults) (Usos: enumerar por almacenes) se muestra la información que se puede obtener del almacén de Recovery Services.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Si la organización tiene un almacén, ¿cómo se pueden aislar los datos de un servidor desde otro servidor al restaurar los datos?<br/>
 Los servidores registrados en el mismo almacén podrán recuperar los datos cuya copia de seguridad hayan realizado otros servidores *que usen la misma frase de contraseña*. Si tiene servidores cuyos datos de copia de seguridad desee aislar de otros servidores de la organización, utilice una frase de contraseña específica para dichos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
@@ -42,8 +42,11 @@ No. El almacén se crea en un nivel de suscripción y no se puede reasignar a ot
 ### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>¿Puedo migrar datos de copia de seguridad a otro almacén? <br/>
 No. Los datos de copia de seguridad almacenados en un almacén no se pueden mover a otro almacén.
 
+### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>¿Puedo cambiar de GRS a LRS después de una copia de seguridad? <br/>
+No. Un almacén de Recovery Services solo puede cambiar las opciones de almacenamiento antes de almacenar ninguna copia de seguridad.
+
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Los almacenes de Recovery Services se basan en Resource Manager. ¿Son todavía compatibles los almacenes de Backup? <br/>
-Los almacenes de Backup se han convertido en almacenes de Recovery Services. Si no ha convertido el almacén Backup en un almacén de Recovery Services, esto se hizo automáticamente. 
+Los almacenes de Backup se han convertido en almacenes de Recovery Services. Si no ha convertido el almacén Backup en un almacén de Recovery Services, esto se hizo automáticamente.
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>¿Se puede migrar un almacén de Copia de seguridad a un almacén de Recovery Services? <br/>
 Todos los almacenes de Backup se han convertido en almacenes de Recovery Services. Si no ha convertido el almacén Backup en un almacén de Recovery Services, esto se hizo automáticamente.
@@ -57,7 +60,6 @@ Se puede encontrar una lista detallada de preguntas en las [P+F sobre la copia d
 ## <a name="back-up-vmware-servers"></a>Copias de seguridad de servidores VMware
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>¿Puedo hacer copias de seguridad de servidores de VMware vCenter en Azure?
-
 Sí. Se puede usar Azure Backup Server para realizar una copia de seguridad de VMware vCenter y ESXi en Azure. Para más información sobre la versión admitida de VMware, consulte el artículo [Matriz de protección de Azure Backup Server](backup-mabs-protection-matrix.md). Para obtener instrucciones detalladas, consulte [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md).
 
 ### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>¿Necesito una licencia independiente para recuperar un clúster de Hyper-V o VMware local completo de DPM o Azure Backup Server?<br/>
@@ -71,17 +73,14 @@ Sí.
 No. Un servidor DPM o MABS solo se puede registrar en un único almacén.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>¿Qué versión de System Center Data Protection Manager se admite?
-
-Se recomienda que instale el agente de Azure Backup [más reciente](http://aka.ms/azurebackup_agent) en el último paquete acumulativo (UR) de actualizaciones para System Center Data Protection Manager (DPM). 
+Se recomienda que instale el agente de Azure Backup [más reciente](http://aka.ms/azurebackup_agent) en el último paquete acumulativo (UR) de actualizaciones para System Center Data Protection Manager (DPM).
 - Para System Center DPM 2012 R2, el [paquete acumulativo de actualizaciones 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) es la última actualización.
 - Para System Center DPM 2016, el [paquete acumulativo de actualizaciones 2](https://support.microsoft.com/en-us/help/3209593) es la última actualización.
 
 ### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>He instalado el agente de Azure Backup para proteger archivos y carpetas. ¿Puedo instalar System Center DPM para proteger las cargas de trabajo locales de aplicaciones o de máquinas virtuales en Azure?
-
 Sí. Sin embargo, para usar Azure Backup con System Center Data Protection Manager (DPM), instale DPM en primer lugar e instale el agente de Azure Backup. Instalar los componentes de Azure Backup en este orden garantiza que el agente funcione con DPM. No se recomienda o no se admite la instalación de Azure Backup.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>¿Puedo usar DPM para realizar copias de seguridad de aplicaciones en Azure Stack?
-
 No. Aunque puede usar Azure Backup para proteger Azure Stack, Azure Backup no admite actualmente el uso de DPM para realizar copias de seguridad de aplicaciones en Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Cómo funciona Azure Backup
@@ -112,7 +111,7 @@ Azure Backup admite la siguiente lista de sistemas operativos para la copia de s
 | Windows Server 2016 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 y SP más recientes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 y SP más recientes |64 bits |Datacenter, Foundation, Standard |
-| Windows Storage Server 2016 y SP más recientes |64 bits |Standard, Workgroup | 
+| Windows Storage Server 2016 y SP más recientes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 R2 y SP más recientes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 y SP más recientes |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 y SP más recientes |64 bits |Essential |
@@ -145,7 +144,7 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 | Microsoft Exchange |Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad |
 | Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad |
 
-Para copia de seguridad de la máquina virtual de IaaS de Azure, cada máquina virtual puede tener hasta 16 discos de datos y cada disco de datos puede tener un tamaño de hasta 4095 GB.
+Para la copia de seguridad de la máquina virtual de IaaS de Azure, cada máquina virtual puede tener hasta 32 discos de datos y cada disco de datos puede tener un tamaño de hasta 4095 GB.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>¿Hay un límite en la cantidad de datos contenidos en un almacén de Recovery Services?
 No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad en un almacén de Recovery Services.
@@ -189,7 +188,7 @@ Sí. Los datos se cifran en la máquina cliente/servidor/SCDPM local mediante AE
 Sí. Los datos que se envían a Azure permanecen cifrados (en reposo). Microsoft no descifra los datos de copia de seguridad en ningún momento. Al realizar una copia de seguridad de una máquina virtual de Azure, Azure Backup se basa en el cifrado de la máquina virtual. Por ejemplo, si la máquina virtual utiliza Azure Disk Encryption o alguna otra tecnología de cifrado, Azure Backup usa dicho cifrado para proteger los datos.
 
 ### <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>¿Cuál es la longitud mínima de la clave de cifrado utilizada para cifrar los datos de copia de seguridad? <br/>
-La clave de cifrado debe tener al menos 16 caracteres cuando se usa Azure Backup Agent. Para máquinas virtuales de Azure, no hay ningún límite de longitud para las claves usadas por Azure KeyVault. 
+La clave de cifrado debe tener al menos 16 caracteres cuando se usa Azure Backup Agent. Para máquinas virtuales de Azure, no hay ningún límite de longitud para las claves usadas por Azure KeyVault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos (o) puede Microsoft recuperar los datos? <br/>
 La clave utilizada para cifrar los datos de copia de seguridad está presente en las instalaciones del cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si el cliente pierde la clave, Microsoft no puede recuperar los datos de copia de seguridad.

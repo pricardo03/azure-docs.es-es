@@ -4,19 +4,19 @@ description: En este artículo se explica qué son los artículos y cómo los us
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fcb4500a1e4503d90b00528544ae98fa93e16191
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284845"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379233"
 ---
 # <a name="assets"></a>Recursos
 
@@ -36,7 +36,7 @@ En la tabla siguiente se muestran las propiedades de los recursos y se proporcio
 
 |NOMBRE|Escriba|DESCRIPCIÓN|
 |---|---|---|
-|Id|string|Identificador de recurso completo del recurso.|
+|id|string|Identificador de recurso completo del recurso.|
 |Nombre|string|Nombre del recurso.|
 |properties.alternateId |string|Id. alternativo del recurso.|
 |properties.assetId |string|Identificador del recurso.|
@@ -59,18 +59,27 @@ Media Services admite las siguientes opciones de consulta de OData para los recu
 * $top 
 * $skiptoken 
 
+Descripción del operador:
+
+* Eq = es igual que
+* Ne = no es igual que
+* Ge = es mayor o igual que
+* Le = es menor o igual que
+* Gt = es mayor que
+* Lt = es menor que
+
 ### <a name="filteringordering"></a>Filtrado y ordenación
 
 En la tabla siguiente se muestra cómo pueden aplicarse estas opciones a las propiedades del recurso: 
 
 |NOMBRE|Filtrar|Orden|
 |---|---|---|
-|Id|Admite:<br/>Equals<br/>Mayor que<br/>Menor que|Admite:<br/>Ascendente<br/>Descendente|
-|Nombre|||
-|properties.alternateId |Admite:<br/>Equals||
-|properties.assetId |Admite:<br/>Equals||
+|id|||
+|Nombre|Es compatible con: Eq, Gt, Lt|Es compatible con: Ascendente y descendente|
+|properties.alternateId |Es compatible con: Eq||
+|properties.assetId |Es compatible con: Eq||
 |properties.container |||
-|properties.created|Admite:<br/>Equals<br/>Mayor que<br/>Menor que|Admite:<br/>Ascendente<br/>Descendente|
+|properties.created|Es compatible con: Eq, Gt, Lt| Es compatible con: Ascendente y descendente|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -86,9 +95,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>Paginación
 
-La paginación se admite para cada uno de los cuatro criterios de ordenación habilitados. 
+La paginación se admite para cada uno de los cuatro criterios de ordenación habilitados. En este momento, el tamaño de página es 1000.
 
-Si una respuesta de consulta contiene muchos elementos (actualmente más de 1000), el servicio devuelve una propiedad "\@odata.nextLink" para obtener la siguiente página de resultados. Esto se puede utilizar para pasar de página en el conjunto de resultados completo. El usuario no puede configurar el tamaño de página. 
+> [!TIP]
+> Siempre debe usar el vínculo siguiente para enumerar la colección y así no tener que depender de un tamaño de página determinado.
+
+Si una respuesta de consulta contiene muchos elementos, el servicio devuelve una propiedad "\@odata.nextLink" para obtener la siguiente página de resultados. Esto se puede utilizar para pasar de página en el conjunto de resultados completo. No puede configurar el tamaño de página. 
 
 Si se crean o eliminan recursos durante la paginación a través de la colección, los cambios se ven reflejados en los resultados que se devuelven (si esos cambios se encuentran en la parte de la colección que no se ha descargado). 
 
@@ -104,7 +116,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Para obtener ejemplos de REST, consulte [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list) (Recursos: lista)
+Para obtener ejemplos de REST, consulte [Assets - List](https://docs.microsoft.com/rest/api/media/assets/assets_list) (Recursos: lista)
 
 
 ## <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento
@@ -123,5 +135,4 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Streaming de un archivo](stream-files-dotnet-quickstart.md)
+[Streaming de un archivo](stream-files-dotnet-quickstart.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409480"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389283"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -131,10 +131,25 @@ Este problema puede producirse si no se está ejecutando el proceso del monitor 
 
 Para resolver este problema, siga estos pasos:
 
-1. Abra el administrador de tareas en el servidor y compruebe que se está ejecutando el proceso del monitor de sincronización de almacenamiento (AzureStorageSyncMonitor.exe). Si no se está ejecutando el proceso, primero pruebe a reiniciar el servidor. Si reiniciar el servidor no resuelve el problema, desinstale y vuelva a instalar el agente de Azure File Sync (Nota: la configuración del servidor se mantiene al desinstalar y volver a instalar el agente).
+1. Abra el administrador de tareas en el servidor y compruebe que se está ejecutando el proceso del monitor de sincronización de almacenamiento (AzureStorageSyncMonitor.exe). Si no se está ejecutando el proceso, primero pruebe a reiniciar el servidor. Si no se resuelve el problema al reiniciar el servidor, actualice el agente de Azure File Sync a la versión [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018), en caso de que no esté instalada.
 2. Compruebe que la configuración del firewall y del proxy está configurada correctamente:
-    - Si el servidor está detrás de un firewall, compruebe que se permite el puerto 443 de salida. Si el firewall restringe el tráfico a dominios concretos, confirme que se puede acceder a los dominios enumerados en la [documentación](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall.
-    - Si el servidor está detrás de un proxy, configure los valores del proxy aplicables a toda la máquina o específicos de la aplicación mediante los pasos que se describen en la [documentación](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
+    - Si el servidor está detrás de un firewall, compruebe que se permite el puerto 443 de salida. Si el firewall restringe el tráfico a dominios concretos, confirme que se puede acceder a los dominios enumerados en la [documentación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall.
+    - Si el servidor está detrás de un proxy, configure los valores del proxy aplicables a toda la máquina o específicos de la aplicación mediante los pasos que se describen en la [documentación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
+
+<a id="endpoint-noactivity-sync"></a>**El estado de mantenimiento del punto de conexión del servidor es "Sin actividad" y el estado del servidor en la hoja de servidores registrados es "En línea"**  
+
+Si el estado de mantenimiento del punto de conexión del servidor es "Sin actividad", esto significa que el punto de conexión del servidor no ha registrado la actividad de sincronización en las últimas dos horas.
+
+Es posible que un punto de conexión del servidor no registre la actividad de sincronización debido a los siguientes motivos:
+
+- El servidor alcanzó el número máximo de sesiones de sincronización simultáneas. Azure File Sync actualmente admite 2 sesiones de sincronización activas por procesador o un máximo de 8 sesiones de sincronización activas por servidor.
+
+- El servidor tiene una sesión de sincronización de VSS activa (SnapshotSync). Cuando una sesión de sincronización de VSS está activa en un punto de conexión del servidor, otros puntos de conexión del servidor no pueden iniciar ninguna sesión de sincronización hasta que finalice la sesión de sincronización de VSS anterior.
+
+Para comprobar la actividad de sincronización actual de un servidor, consulte [¿Cómo se puede supervisar el progreso de una sesión de sincronización actual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Si el estado del servidor en la hoja de servidores registrados es "Aparece sin conexión", realice los pasos detallados en la sección [El estado del punto de conexión del servidor es "Sin actividad" o "Pendiente" y el estado del servidor en la hoja de servidores registrados es "Aparece sin conexión"](#server-endpoint-noactivity).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Si creé un archivo directamente en el recurso compartido de archivos de Azure mediante SMB o el portal, ¿cuánto tiempo tarda el archivo en sincronizarse con los servidores del grupo de sincronización?**  
@@ -236,7 +251,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Se modificó un archivo durante la sincronización, por lo que debe sincronizarse de nuevo. | No es necesaria ninguna acción. |
 
 #### <a name="handling-unsupported-characters"></a>Tratamiento de caracteres no admitidos
-Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra fallos debidos a caracteres no admitidos (códigos de error 0x7b y 0x8007007b), debe quitar o cambiar el nombre de los caracteres erróneos de los archivos respectivos. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. Se puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-tool) para identificar los caracteres que no son compatibles.
+Si el script de PowerShell **FileSyncErrorsReport.ps1** muestra errores debido a caracteres no admitidos (códigos de error 0x7b y 0x8007007b), debe quitar los caracteres erróneos de los nombres de los archivos afectados o cambiarles el nombre. PowerShell probablemente imprimirá estos caracteres como signos de interrogación o rectángulos vacíos, ya que la mayoría de estos caracteres no tienen codificación visual estándar. Puede usar la [herramienta de evaluación](storage-sync-files-planning.md#evaluation-tool) para identificar los caracteres que no son compatibles.
 
 La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aún no admite.
 
@@ -319,6 +334,16 @@ Este error se produce porque el agente de Azure File Sync no puede acceder al re
 | **Se requiere una corrección** | SÍ |
 
 Este error se produce cuando hay un problema con la base de datos interna utilizada por Azure File Sync. Cuando este problema ocurre, cree una solicitud de soporte técnico y nos pondremos en contacto con usted para ayudarle a resolver este problema.
+
+<a id="-2134364053"></a>**No se admite la versión del agente de Azure File Sync instalada en el servidor.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimal)** | -2134364053 |
+| **Cadena de error** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Se requiere una corrección** | SÍ |
+
+Se producirá un error si la versión del agente de Azure File Sync instalada en el servidor no se admite. Para resolver este problema, [actualícelo]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) a una [versión del agente admitida]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Se ha alcanzado el límite de almacenamiento del recurso compartido de archivos de Azure.**  
 | | |

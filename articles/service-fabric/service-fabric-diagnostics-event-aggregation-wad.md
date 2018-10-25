@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 38a026e8995bb7384c866dcd2f12588ca816009f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205780"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389690"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar 
 
 Uno de los métodos para cargar y recopilar registros es usar la extensión Azure Diagnostics de Windows (WAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. También puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como [Log Analytics](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se emplean las herramientas siguientes:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
@@ -65,7 +65,7 @@ Ahora que agrega eventos a Azure Storage, [configure Log Analytics](service-fabr
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implementación de la extensión de Diagnostics mediante Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Creación de un clúster con la extensión de Diagnostics
-Para crear un clúster mediante el Resource Manager, tiene que agregar el JSON de la configuración de Diagnostics a la plantilla de Resource Manager completa antes de crear el clúster. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en: [Ejemplo de plantilla de clúster de cinco nodos con el Administrador de recursos de Diagnósticos](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)en la galería de ejemplos de Azure.
+Para crear un clúster mediante el Resource Manager, tiene que agregar el JSON de la configuración de Diagnostics a la plantilla de Resource Manager completa antes de crear el clúster. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en: [Ejemplo de plantilla de clúster de cinco nodos con el Administrador de recursos de Diagnósticos](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)en la galería de ejemplos de Azure.
 
 Para ver la configuración de Diagnósticos en la plantilla de Resource Manager, abra el archivo azuredeploy.json y busque **IaaSDiagnostics**. Para crear un clúster con esta plantilla, presione el botón **Deploy to Azure** (Implementar en Azure) disponible en el vínculo anterior.
 
@@ -223,7 +223,7 @@ Los registros de los canales adicionales también están disponibles para la rec
 >Este canal tiene un volumen muy grande de eventos; permitir la recopilación desde este canal detallado provoca la generación rápida de muchos seguimientos, lo que puede consumir capacidad de almacenamiento. Solo active esta opción si es absolutamente necesario.
 
 
-Para habilitar el **Canal de datos y mensajería básico**, nuestra recomendación para el registro completo, `EtwManifestProviderConfiguration` en `WadCfg` de la plantilla se vería similar al siguiente:
+Para habilitar el **Canal operativo básico**, nuestra recomendación para realizar el registro completo con el mínimo de inconvenientes es que `EtwManifestProviderConfiguration` en el elemento `WadCfg` de la plantilla tenga el mismo aspecto que le mostramos aquí:
 
 ```json
   "WadCfg": {
@@ -251,7 +251,7 @@ Para habilitar el **Canal de datos y mensajería básico**, nuestra recomendaci�
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"

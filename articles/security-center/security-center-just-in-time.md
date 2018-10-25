@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124159"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320346"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administrar el acceso a máquina virtual mediante Just-In-Time
 
@@ -111,6 +111,33 @@ En **JIT VM access configuration** (Configuración de acceso a máquina virtual 
 > [!NOTE]
 >Cuando el acceso a la máquina virtual JIT se habilita en una máquina virtual, Azure Security Center crea la opción para denegar todas las reglas de tráfico de entrada para los puertos seleccionados en los grupos de seguridad de red asociados a ella. Las reglas serán la prioridad principal de sus grupos de seguridad de red, o tendrán una prioridad más baja que las reglas existentes. Esto depende del análisis que realice Azure Security Center, que determinará si una regla es segura o no.
 >
+
+
+## <a name="set-just-in-time-within-a-vm"></a>Establecer Just-In-Time en una VM
+
+Para facilitar el despliegue del acceso Just-In-Time en las VM, puede establecer una VM para permitir solo el acceso Just-In-Time directamente desde dentro de la VM.
+
+1. En Azure Portal, seleccione **Máquinas virtuales**.
+2. Haga clic en la máquina virtual a la que quiere limitar el acceso Just-In-Time.
+3. En el menú, haga clic en **Configuración**.
+4. En **Acceso Just-In-Time** haga clic en **Habilitar directiva Just-In-Time**. 
+
+Esto habilita el acceso Just-In-Time para la VM con las siguientes opciones:
+
+- Servidores Windows:
+    - Puerto RDP 3389
+    - 3 horas de acceso
+    - Las direcciones IP de origen permitidas se establecen en Por solicitud
+- Servidores Linux:
+    - Puerto SSH 22
+    - 3 horas de acceso
+    - Las direcciones IP de origen permitidas se establecen en Por solicitud
+     
+Si una VM ya tiene Just-In-Time habilitado, cuando va a su página de configuración podrá ver que Just-In-Time está habilitado y que puede usar el vínculo para abrir la directiva en Azure Security Center para ver y cambiar la configuración.
+
+![jit config in vm](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>Solicitar acceso a una máquina virtual
 
 Para solicitar acceso a una máquina virtual:

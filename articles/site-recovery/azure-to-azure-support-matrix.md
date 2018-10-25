@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 0e9c5c7ebaaa0a51d723340751e8ea82bfb96b5e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433674"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378625"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -28,7 +28,7 @@ En este artículo se resumen las configuraciones y los componentes admitidos al 
 --- | ---
 **Azure Portal** | Compatible
 **PowerShell** | [Replicación de Azure a Azure con PowerShell](azure-to-azure-powershell.md)
-**API de REST** | No se admite actualmente.
+**API DE REST** | No se admite actualmente.
 **CLI** | No se admite actualmente.
 
 
@@ -69,7 +69,7 @@ Esta compatibilidad es aplicable a cualquier carga de trabajo que se ejecute en 
 - SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versiones de kernel admitidas)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4, 6.5, 6.6 y 6.7 que ejecutan el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3)
+- Oracle Linux 6.4, 6.5, 6.6 y 6.7 que ejecutan el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3)
 
 (No se admite la actualización de máquinas de replicación de SLES 11 SP3 a SLES 11 SP4. Si una máquina replicada se ha actualizado de SLES 11 SP3 a SLES 11 SP4, es preciso deshabilitar la replicación y volver a proteger la máquina después de la actualización).
 

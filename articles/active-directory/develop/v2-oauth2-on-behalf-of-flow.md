@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344883"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320312"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 y el flujo en nombre de OAuth 2.0
 El flujo en nombre de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de Azure Active Directory (Azure AD) en nombre del usuario.
@@ -33,7 +33,7 @@ El flujo en nombre de OAuth 2.0 se usa en los casos en que una aplicación invoc
 
 
 > [!IMPORTANT]
-> La [concesión implícita](v2-oauth2-implicit-grant-flow.md) no puede usarse con el flujo en nombre de otra persona: las aplicaciones de página única (SPA) han de pasar su token de acceso (flujo implícito) a un cliente confidencial de nivel intermedio para ejecutar flujos OBO. Vea [limitaciones](#client-limitations) para más información sobre los clientes que pueden realizar llamadas en nombre de otra persona.  
+> A partir de mayo de 2018, no puede usarse un `id_token` con el flujo en nombre de otra persona: las aplicaciones de página única (SPA) han de pasar su token de **acceso** a un cliente confidencial de nivel intermedio para ejecutar flujos OBO. Vea [limitaciones](#client-limitations) para más información sobre los clientes que pueden realizar llamadas en nombre de otra persona.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 Suponga que el usuario se ha autenticado en una aplicación mediante el [flujo de concesión del código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md). En este punto, la aplicación tiene un token de acceso *para la API A* (token A) con las notificaciones del usuario y su consentimiento para tener acceso a la API web de nivel intermedio (API A). Ahora, la API A debe realizar una solicitud autenticada a la API web de bajada (API B).

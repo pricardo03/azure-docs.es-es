@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037148"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378092"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de Azure Virtual Network
 
@@ -226,7 +226,7 @@ Sí, las redes virtuales creadas en regiones diferentes pueden acceder a la nuev
 
 Sí, el punto de conexión de servicio de Virtual Network y un firewall pueden coexistir. En general, debe asegurarse de que el acceso a Azure Portal está siempre habilitado antes de configurar un punto de conexión de servicio de Virtual Network para poder ver las métricas asociadas con el contenedor.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>¿Puedo "permitir el acceso a otros servicios de Azure desde una región de Azure determinada" si el acceso del punto de conexión de servicio está habilitado para Azure Cosmos DB?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>¿Puedo aceptar conexiones de centros de datos Azure públicos cuando está habilitado el acceso al punto de conexión de servicio para Azure Cosmos DB?  
 
 Esto solo es necesario si desea que otros servicios propios de Azure accedan a la cuenta de Azure Cosmos DB, como Azure Data Factory, Azure Search o cualquier servicio implementado en una región de Azure determinada.
 

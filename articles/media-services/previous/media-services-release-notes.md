@@ -4,22 +4,21 @@ description: Notas de la versión de Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 531cdf9a69e0ecfa2d2d8ae02f8f88fd5f400479
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143308"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378948"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 Estas notas de la versión de Azure Media Services resumen los cambios realizados desde las versiones anteriores y los problemas conocidos.
@@ -45,6 +44,16 @@ Estas notas de la versión de Azure Media Services resumen los cambios realizado
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historial de versiones de la API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Media Services, consulte la [Referencia de la API de REST de Azure Media Services].
+
+## <a name="october-2018"></a>Octubre de 2018
+
+### <a name="cmaf-support"></a>Compatibilidad con CMAF
+
+Compatibilidad con el cifrado de CMAF y “cbcs” para reproductores Apple HLS (iOS 11+) y MPEG-DASH que admiten CMAF.
+
+### <a name="web-vtt-thumbnail-sprites"></a>Sprites de miniaturas WebVTT
+
+Ahora puede usar Media Services para generar sprites de miniaturas VTTWeb mediante nuestras API v2. Para obtener más información, consulte [Generación de un sprite de miniaturas](generate-thumbnail-sprite.md).
 
 ## <a name="july-2018"></a>Julio de 2018
 
@@ -533,9 +542,6 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK:
 * Compatibilidad con el método asincrónico
   
     * Se ha agregado compatibilidad asincrónica a todos los métodos.
-
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

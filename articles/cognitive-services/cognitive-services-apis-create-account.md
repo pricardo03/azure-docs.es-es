@@ -1,78 +1,70 @@
 ---
-title: Creación de una cuenta de Cognitive Services APIs en Azure Portal | Microsoft Docs
+title: Creación de una cuenta de Cognitive Services APIs en Azure Portal
+titlesuffix: Azure Cognitive Services
 description: Creación de una cuenta de Microsoft Cognitive Services APIs en Azure Portal.
 services: cognitive-services
-documentationcenter: ''
 author: garyericson
 manager: cgronlun
-editor: ''
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: cognitive-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.reviewer: gibattag
-ms.openlocfilehash: ed5f19b23375ecb83e19274c7405e9a1208a7985
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 37f53303a3b0c224c1286fb488a796fd5cdee0e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036165"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386423"
 ---
-# <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>Creación de una cuenta de Cognitive Services APIs en Azure Portal
+# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Guía de inicio rápido: crear una cuenta de Cognitive Services en Azure Portal
 
-Para usar Microsoft Cognitive Service APIs, primero debe crear una cuenta en Azure Portal.
+Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. Estos servicios se representan mediante los [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure, que le permitirán conectarse a una o varias de las API de Cognitive Services disponibles.
 
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
+## <a name="prerequisites"></a>Requisitos previos
 
-2. Haga clic en **+ Crear un recurso**.
+* Una suscripción válida a Azure. También puede [crear una cuenta](https://azure.microsoft.com/free/) de forma gratuita.
 
-3. En Azure Marketplace, seleccione **IA y Cognitive Services** y descubra la lista de las API disponibles. Haga clic en **Ver todos** para ver la lista completa de Cognitive Services APIs. Haga clic en la API de su elección para continuar.
+## <a name="create-and-subscribe-to-an-azure-cognitive-services-resource"></a>Crear y suscribirse a un recurso de Azure Cognitive Services
 
-    ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/select-cognitive-services-apis.png)
+1. Inicie sesión en [Azure Portal](http://portal.azure.com) y haga clic en **+Crear un recurso**.
+    
+    ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
-4. En la página **Crear**, proporcione la siguiente información:
+2. En Azure Marketplace, seleccione **IA y Machine Learning**. Si no ve el servicio que le interesa, haga clic en **Ver todo** para ver el catálogo completo de Cognitive Services APIs.
 
-   - **Nombre de cuenta:** nombre de la cuenta. Se recomienda usar un nombre descriptivo, por ejemplo *AFaceAPIAccount*.
+    ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
-   - **Suscripción:** seleccione una de las suscripciones de Azure disponibles en las que tenga al menos permisos de colaborador.
+3. En la página **Crear**, proporcione la siguiente información:
 
-   - **Tipo de API:** elija la API de Cognitive Services que desee usar. Para obtener más información sobre las diversas API de Cognitive Services APIs disponibles, visite el sitio de [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+    |    |    |
+    |--|--|
+    | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Es recomendable usar un nombre descriptivo, por ejemplo, *MyNameFaceAPIAccount*. |
+    | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
+    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
+    | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Grupos de recursos** | [Grupo de recursos de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
 
-   - **Plan de tarifa:** el costo de la cuenta de Cognitive Services depende del uso real y de las opciones que elija. Para obtener más información sobre los precios de cada API, consulte las [páginas de precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-   - **Grupo de recursos**: un grupo de recursos es una colección de recursos que comparten el mismo ciclo de vida, los mismos permisos e idénticas directivas. Para obtener más información sobre los grupos de recursos, consulte [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+## <a name="access-your-resource"></a>Obtenga acceso al recurso 
 
-   - **Ubicación del grupo de recursos:** esto solo es necesario si la API seleccionada es global (es decir, no está ligada a una ubicación). Sin embargo, si la API es global y no está ligada a una ubicación, debe especificar una ubicación para el grupo de recursos donde residen los metadatos asociados con la cuenta de la API de Cognitive Services. Esta ubicación no afecta a la disponibilidad de runtime de la cuenta. Para obtener más información sobre el grupo de recursos, consulte [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+> [!NOTE]
+> Los propietarios de las suscripciones pueden deshabilitar las opciones de creación de cuentas de Cognitive Services para los grupos de recursos y las suscripciones; para ello, deben aplicar la [directiva de Azure](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), asignar una definición de directiva "Tipos de recursos no permitidos" y especificar **Microsoft.CognitiveServices/accounts** como el tipo de recurso de destino.
 
-   - **Confirmación explícita de las condiciones de los servicios en línea:** con el fin de crear una cuenta, los propietarios de las suscripciones o los colaboradores (tal como se define en [Control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)) deben confirmar explícitamente los términos aplicables a Cognitive Services en las [condiciones de los servicios en línea](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx). 
+Después de crear el recurso, puede obtener acceso al mismo desde el panel de Azure si lo ancló allí. De lo contrario, puede encontrarlo en la opción **Grupos de recursos**.
 
-     El propietario de la suscripción puede deshabilitar la creación de la cuenta de Cognitive Services para una suscripción o un grupo de recursos específicos a través de las [directivas de Azure](../azure-policy/azure-policy-introduction.md). Para ello, deben seguir el artículo sobre el [uso de Azure Portal para asignar y administrar directivas de recursos](../azure-policy/assign-policy-definition.md), asignar una definición de directiva "Tipos de recursos no permitidos" y especificar **Microsoft.CognitiveServices/accounts** como tipo de recurso de destino.
+Asimismo, en el recurso de Cognitive Services puede usar la dirección URL del punto de conexión y las claves en la sección **Información general**, para poder comenzar a realizar llamadas a la API en las aplicaciones.
 
-     Si la creación de la cuenta estuviese deshabilitada, se mostraría el siguiente error en el momento de realizar la operación:
+![Pantalla de recursos](media/cognitive-services-apis-create-account/resourceScreen.png)
 
-     ![Error de creación de cuenta](media/cognitive-services-apis-create-account/error-message.png)
+## <a name="next-steps"></a>Pasos siguientes
 
-5. Para anclar la cuenta al panel de Azure Portal, haga clic en **Anclar al panel**.
+> [!div class="nextstepaction"]
+> [Tutorial de C# de Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/tutorials/csharptutorial)
 
-6. Haga clic en **Crear** para crear la cuenta.
+## <a name="see-also"></a>Otras referencias
 
-Después de que se haya implementado correctamente la cuenta de Cognitive Services, haga clic en el icono del panel para ver la información de cuenta.
-
-Puede usar la **Dirección URL del extremo** de la sección **Información general** y las claves de la sección **Claves** para empezar a hacer llamadas API en sus aplicaciones.
-
-![Mostrar información de cuenta](media/cognitive-services-apis-create-account/display-account.png)
-
-![Mostrar de claves de cuenta](media/cognitive-services-apis-create-account/account-keys.png)
-
-### <a name="next-steps"></a>Pasos siguientes
-
-Para obtener más información sobre todos los servicios disponibles de Microsoft Cognitive Services, consulte [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
-
-Para ver las guías de inicio rápido y obtener algunos ejemplos de Cognitive Services APIs:
-
- - [Inicio rápido en Computer Vision en C#](computer-vision/quickstarts/csharp.md)
- - [Text Analytics con Python](text-analytics/quickstarts/python.md)
- - [Face API con JavaScript](face/quickstarts/javascript.md)
+* [Quickstart: Extract handwritten text from an image](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) (Guía de inicio rápido: extraer texto manuscrito de una imagen)
+* [Tutorial: Create an app to detect and frame faces in an image](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial) (Tutorial: crear una aplicación para detectar y enmarcar caras en una imagen)
+* [Build a custom search webpage](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page) (Compilación de una página web de Custom Search)
+* [Integrate Language Understanding (LUIS) with a bot using the Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample) (Integrar Language Understanding (LUIS) con un bot mediante Bot Framework)

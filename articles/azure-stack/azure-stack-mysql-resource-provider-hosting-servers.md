@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408885"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364680"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Incorporación de servidores de hospedaje para el proveedor de recursos MySQL
 
 Puede hospedar una instancia MySQL en una máquina virtual en [Azure Stack](azure-stack-poc.md), o en una máquina virtual fuera de su entorno de Azure Stack, siempre y cuando el proveedor de recursos MySQL pueda conectarse a la instancia.
 
 > [!NOTE]
-> Las bases de datos MySQL se deben crear en el servidor del proveedor de recursos MySQL. El proveedor de recursos MySQL debe crearse en la suscripción de proveedor predeterminada, mientras que los servidores de hospedaje de MySQL deben crearse en una suscripción de usuario facturable. El servidor del proveedor de recursos no debe usarse para hospedar bases de datos de usuario.
+> Las bases de datos MySQL deben crearse en el servidor del proveedor de recursos MySQL. El proveedor de recursos MySQL debe crearse en la suscripción de proveedor predeterminada, mientras que los servidores de hospedaje de MySQL deben crearse en una suscripción de usuario facturable. El servidor del proveedor de recursos no debe usarse para hospedar bases de datos de usuario.
 
 Para los servidores de hospedaje, se pueden usar las versiones de MySQL 5.6, 5.7 y 8.0. RP de MySQL no admite la autenticación caching_sha2_password, que se agregará en la próxima versión. Los servidores MySQL 8.0 deben configurarse para usar mysql_native_password. También se admite MariaDB.
 
@@ -75,6 +75,24 @@ La siguiente información se aplica a los servidores de hospedaje de MySQL y RP:
 ## <a name="increase-backend-database-capacity"></a>Aumento de la capacidad de la base de datos back-end
 
 Puede aumentar la capacidad de la base de datos back-end mediante la implementación de más servidores de MySQL en el portal de Azure Stack. Agregue dichos servidores a una SKU nueva o existente. Si agrega un servidor a una SKU existente, asegúrese de que las características del servidor son las mismas que las de otros servidores de la SKU.
+
+## <a name="sku-notes"></a>Notas de la SKU
+Use un nombre de SKU que describa las capacidades de los servidores de la SKU, como la capacidad y el rendimiento. El nombre sirve de ayuda para que los usuarios implementen sus bases de datos en la SKU adecuada. Por ejemplo, puede usar nombres de SKU para diferenciar las ofertas de servicio mediante las características siguientes:
+  
+* alta capacidad
+* alto rendimiento
+* alta disponibilidad
+
+Como procedimiento recomendado, todos los servidores de hospedaje de una SKU deben tener las mismas características de rendimiento y recursos.
+
+Las SKU no se pueden asignar a usuarios o grupos específicos.
+
+Las SKU pueden tardar hasta una hora en estar visibles en el portal. Los usuarios no pueden crear una base de datos hasta que se cree totalmente la SKU.
+
+Para editar una SKU, diríjase a **All services (Todos los servicios)** > **MySQL Adapter (Adaptador de MySQL)** > **SKUs (SKU)**. Seleccione la SKU que quiere modificar, realice los cambios necesarios y haga clic en **Guardar** para guardar los cambios. Para eliminar una SKU que ya no es necesaria, vaya a **All services (Todos los servicios)** > **MySQL Adapter (Adaptador de MySQL)** > **SKUs (SKU)**. Haga clic en el nombre de la SKU y seleccione **Eliminar** para eliminarla.
+
+> [!TIP]
+> Puede editar o eliminar las cuotas del proveedor de recursos de MySQL en la misma ubicación.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Disposición de los servidores de base de datos MySQL para los usuarios
 

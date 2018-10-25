@@ -2,26 +2,26 @@
 title: API REST del servicio Speech
 description: Referencia de las API REST del servicio Speech.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: erhopf
+ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032434"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167637"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servicio Speech
 
-Las API de REST del servicio de voz unificado de Azure Cognitive Services son similares a las API que proporciona [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). Los puntos de conexión son distintos a los usados por el servicio Bing Speech. Hay puntos de conexión regionales disponibles, y debe usar una clave de suscripción que corresponda al punto de conexión que esté usando.
+Las API de REST del servicio de voz de Azure Cognitive Services son similares a las API que proporciona [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). Los puntos de conexión son distintos a los usados por el servicio Bing Speech. Hay puntos de conexión regionales disponibles, y debe usar una clave de suscripción que corresponda al punto de conexión que esté usando.
 
 ## <a name="speech-to-text"></a>Speech to Text
 
-Los puntos de conexión de la API de REST de conversión de voz en texto se muestran en la tabla siguiente. Use el que coincida con su región de suscripción.
+Los puntos de conexión de la API de REST de conversión de voz en texto se muestran en la tabla siguiente. Use el que coincida con su región de suscripción. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -30,13 +30,14 @@ Los puntos de conexión de la API de REST de conversión de voz en texto se mues
 
 Esta API admite solo expresiones cortas. Las solicitudes pueden contener hasta 10 segundos de audio y pueden durar 14 segundos como máximo en general. La API de REST solo devuelve resultados finales, ni parciales ni provisionales. El servicio de voz también tiene una API de [transcripción de lotes](batch-transcription.md) que puede transcribir fragmentos de audio más largos.
 
+
 ### <a name="query-parameters"></a>Parámetros de consulta
 
 Los parámetros siguientes podrían incluirse en la cadena de consulta de la solicitud de REST.
 
 |Nombre de parámetro|Obligatorio/opcional|Significado|
 |-|-|-|
-|`language`|Obligatorio|Identificador del idioma que se va a reconocer. Vea [Idiomas admitidos](supported-languages.md#speech-to-text).|
+|`language`|Obligatorio|Identificador del idioma que se va a reconocer. Vea [Idiomas admitidos](language-support.md#speech-to-text).|
 |`format`|Opcional<br>valor predeterminado: `simple`|Formato del resultado, `simple` o `detailed`. Los resultados simples incluyen `RecognitionStatus`, `DisplayText`, `Offset` y duración. Los resultados detallados incluyen varios candidatos con valores de confianza y cuatro representaciones diferentes.|
 |`profanity`|Opcional<br>valor predeterminado: `masked`|Cómo controlar las palabras soeces en los resultados del reconocimiento. Puede ser `masked` (sustituye las palabras soeces por asteriscos), `removed` (quita todas las palabras soeces) o `raw` (incluye palabras soeces).
 
@@ -47,7 +48,7 @@ Los siguientes campos se envían en el encabezado de la solicitud HTTP.
 |Encabezado|Significado|
 |------|-------|
 |`Ocp-Apim-Subscription-Key`|Clave de suscripción del servicio de voz. Se debe proporcionar este encabezado o `Authorization`.|
-|`Authorization`|Un token de autorización precedido por la palabra `Bearer`. Se debe proporciona este encabezado u `Ocp-Apim-Subscription-Key`. Consulte [Autenticación](#authentication).|
+|`Authorization`|Un token de autorización precedido por la palabra `Bearer`. Se debe proporcionar este encabezado o `Ocp-Apim-Subscription-Key`. Consulte [Autenticación](#authentication).|
 |`Content-type`|Describe el formato y el códec de los datos de audio. De momento, este valor debe ser `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|Opcional. Si se proporciona, debe ser `chunked` para permitir que los datos de audio se envíen en varios fragmentos pequeños en lugar de en un único archivo.|
 |`Expect`|Si usa la transferencia fragmentada, envíe `Expect: 100-continue`. El servicio de voz confirma la solicitud inicial y espera datos adicionales.|
@@ -55,13 +56,19 @@ Los siguientes campos se envían en el encabezado de la solicitud HTTP.
 
 ### <a name="audio-format"></a>Formato de audio
 
-El audio se envía en el cuerpo de la solicitud HTTP `PUT`. Debe estar en formato WAV de 16 bits con canal único PCM (mono) a 16 kHz.
+El audio se envía en el cuerpo de la solicitud HTTP `PUT`. Debe estar en formato WAV de 16 bits con canal único PCM (mono) a 16 kHz de los siguientes formatos/codificaciones.
+
+* Formato WAV con el códec PCM
+* Formato Ogg con el códec OPUS
+
+>[!NOTE]
+>Se admiten los formatos anteriores a través de la API de REST y WebSocket en el servicio de voz. El [SDK de Voz](/index.yml) actualmente solo admite el formato WAV con el códec PCM. 
 
 ### <a name="chunked-transfer"></a>Transferencia fragmentada
 
 La transferencia fragmentada (`Transfer-Encoding: chunked`) puede ayudar a reducir la latencia de reconocimiento, ya que permite que el servicio de voz comience a procesar el archivo de audio mientras se transmite. La API de REST no proporciona resultados parciales ni provisionales. Esta opción está diseñada exclusivamente para mejorar la capacidad de respuesta.
 
-El siguiente código muestra cómo enviar audio en fragmentos. `request` es un objeto HTTPWebRequest conectado al punto de conexión de REST adecuado. `audioFile` es la ruta de acceso a un archivo de audio en disco.
+El siguiente código muestra cómo enviar audio en fragmentos. Solo el primer fragmento debe contener el encabezado del archivo de audio. `request` es un objeto HTTPWebRequest conectado al punto de conexión de REST adecuado. `audioFile` es la ruta de acceso a un archivo de audio en disco.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -195,9 +202,6 @@ Estos son los puntos de conexión de REST de Text to Speech API del servicio de 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Si ha creado una fuente de voz personalizada, use el punto de conexión personalizado asociado en su lugar.
-
 El servicio de voz admite la salida de audio de 24 kHz además de la salida de 16 kHz compatible con Bing Speech. Hay cuatro formatos de salida de 24 kHz disponibles para su uso en el encabezado HTTP `X-Microsoft-OutputFormat`, además de dos voces de 24 kHz, `Jessa24kRUS` y `Guy24kRUS`.
 
 Configuración regional | Idioma   | Sexo | Asignación de nombre de servicio
@@ -205,7 +209,7 @@ Configuración regional | Idioma   | Sexo | Asignación de nombre de servicio
 es-ES  | English (Estados Unidos) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
 es-ES  | English (Estados Unidos) | Hombre   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
-Hay una lista completa de voces disponibles en [Idiomas admitidos](supported-languages.md#text-to-speech).
+Hay una lista completa de voces disponibles en [Idiomas admitidos](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>Encabezados de solicitud
 
@@ -265,7 +269,8 @@ Código HTTP|Significado|Posible motivo
 400 |Bad Request |Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo.
 401|No autorizado |La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta.
 413|Entidad de solicitud demasiado larga|La entrada de SSML tiene más de 1024 caracteres.
-|502|Puerta de enlace incorrecta    | Problema de red o de servidor. Podría indicar también encabezados no válidos.
+429|Demasiadas solicitudes|Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción.
+502|Puerta de enlace incorrecta | Problema de red o de servidor. Podría indicar también encabezados no válidos.
 
 Si el estado HTTP es `200 OK`, el cuerpo de la respuesta contiene un archivo de audio en el formato solicitado. Este archivo se puede reproducir mientras se transfiere o guardarse en un búfer o archivo para su posterior reproducción u otro uso.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497610"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385870"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
@@ -35,7 +35,7 @@ Azure Key Vault es una herramienta para almacenar y acceder a los secretos de fo
 
 Básicamente, existen 3 formas de autenticarse en Key Vault.
 
-1. **Mediante [Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)** (**procedimiento recomendado**): cuando implementa una aplicación en una máquina virtual en Azure, puede asignar una identidad a la máquina virtual que tenga acceso a Key Vault. También puede asignar las identidades a otros recursos de Azure que se mencionan [aquí](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). La ventaja de este enfoque es que la aplicación o el servicio no administra la rotación del primer secreto. Azure alterna automáticamente la identidad. 
+1. **Mediante las [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)** (**procedimiento recomendado**): cuando implementa una aplicación en una máquina virtual en Azure, puede asignar una identidad a la máquina virtual que tenga acceso a Key Vault. También puede asignar las identidades a otros recursos de Azure que se mencionan [aquí](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). La ventaja de este enfoque es que la aplicación o el servicio no administra la rotación del primer secreto. Azure alterna automáticamente la identidad. 
 2. **Mediante la entidad de servicio y el certificado:** la segunda opción es usar una entidad de servicio y un certificado asociado que tenga acceso a Key Vault. La responsabilidad de alternar el certificado recae en el propietario o desarrollador de la aplicación y, por tanto, no se recomienda.
 3. **Mediante la entidad de servicio y el secreto:** la tercera opción (opción no preferida) consiste en usar una entidad de servicio y un secreto para autenticarse en Key Vault.
 

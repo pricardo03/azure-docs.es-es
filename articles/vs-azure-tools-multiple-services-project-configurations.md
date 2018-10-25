@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 56b01855a5996bb62f721bda2bfc207684227854
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1ec587f4a4519f86efceb7cefa0acb372035a9a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143895"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318221"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configuración de su proyecto de Azure en Visual Studio para usar varias configuraciones de servicio
 
@@ -75,8 +75,9 @@ Para crear una cadena de conexión, seleccione **Agregar configuración** y esta
 Para cadenas de conexión nuevas o existentes, seleccione **...*** a la derecha del campo **Valor** para abrir el cuadro de diálogo **Crear cadena de conexión de almacenamiento**:
 
 1. En **Conectar mediante**, elija la opción **Su suscripción** para seleccionar una cuenta de almacenamiento de una suscripción. Después, Visual Studio obtiene las credenciales de la cuenta de almacenamiento automáticamente del archivo `.publishsettings`.
-1. Si selecciona **Credenciales escritas manualmente**, puede especificar el nombre de la cuenta y la clave directamente con la información de Azure Portal. Para copiar la clave de la cuenta: a. Vaya a la cuenta de almacenamiento en Azure Portal y seleccione **Administrar claves**.
-    2. Para copiar la clave de cuenta, vaya a la cuenta de almacenamiento en Azure Portal, seleccione **Configuración > Claves de acceso** y use el botón Copiar para copiar la clave de acceso principal en el Portapapeles.
+1. Si selecciona **Credenciales escritas manualmente**, puede especificar el nombre de la cuenta y la clave directamente con la información de Azure Portal. Para copiar la clave de cuenta:
+    1. Vaya a la cuenta de almacenamiento en Azure Portal y seleccione **Administrar claves**.
+    1. Para copiar la clave de cuenta, vaya a la cuenta de almacenamiento en Azure Portal, seleccione **Configuración > Claves de acceso** y use el botón Copiar para copiar la clave de acceso principal en el Portapapeles.
 1. Seleccione una de las opciones de conexión. En **Especificar extremos personalizados** se le pide que especifique direcciones URL específicas para los blobs, las tablas y las colas. Los puntos de conexión personalizados permiten usar [dominios personalizados](storage/blobs/storage-custom-domain-name.md) y controlar el acceso con mayor precisión. Consulte [Configuración de las cadenas de conexión de Azure Storage](./storage/common/storage-configure-connection-string.md).
 1. Seleccione **Aceptar** y, después, **Archivo > Guardar**, para actualizar la configuración con la nueva cadena de conexión.
 

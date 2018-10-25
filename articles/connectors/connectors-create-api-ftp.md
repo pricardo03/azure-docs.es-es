@@ -1,92 +1,136 @@
 ---
 title: 'Conexión al servidor FTP: Azure Logic Apps | Microsoft Docs'
 description: Creación, supervisión y administración de archivos en un servidor FTP con Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/22/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 4355a767d2ecd500662cdf4522e8a7e12de86b80
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e72b7e5ac3c66283116925e8e36c1c33e777042c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866158"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318924"
 ---
-# <a name="get-started-with-the-ftp-connector"></a>Introducción al conector de FTP
-Use el conector de FTP para supervisar, administrar y crear archivos en un servidor FTP. 
+# <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creación, supervisión y administración de archivos FTP mediante Azure Logic Apps
 
-Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Con Azure Logic Apps y el conector FTP, puede crear tareas y flujos de trabajo automatizados que crea, supervisan, envían y reciben archivos mediante su cuenta en un servidor FTP, junto con otras acciones, por ejemplo:
 
-## <a name="connect-to-ftp"></a>Conexión a un FTP
-Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.  
+* Supervisar cuándo se agregan o cambian archivos
+* Obtener, crear, copiar, actualizar, enumerar y eliminar archivos
+* Obtener contenido de archivos y metadatos
+* Extraer archivos en carpetas
 
-### <a name="create-a-connection-to-ftp"></a>Creación de una conexión a FTP
-> [!INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
-> 
-> 
-
-## <a name="use-a-ftp-trigger"></a>Uso de un desencadenador de FTP
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
-
-> [!IMPORTANT]
-> El conector de FTP necesita un servidor FTP que sea accesible desde Internet y que esté configurado para poder funcionar en modo PASIVO. Además, el conector de FTP **no es compatible con FTPS implícito (FTP por SSL)**. El conector de FTP solo admite FTPS explícito (FTP por SSL).  
-> 
-> 
-
-En este ejemplo, le enseñaremos a usar el desencadenador **FTP - When a file is added or modified (FTP: cuando se agrega o modifica un archivo)** para que, cuando se agregue o se modifique un archivo en un servidor FTP, se inicie el flujo de trabajo de una aplicación lógica. En un entorno empresarial, podría utilizar este desencadenador para supervisar los nuevos archivos que se agregan a una carpeta FTP y que representan los pedidos de los clientes.  Podría usar una acción del conector de FTP, como **Get file content (Obtener contenido del archivo)**, para obtener el contenido del archivo a fin de procesarlo y almacenarlo después en la base de datos de pedidos.
-
-1. Escriba *ftp* en el cuadro de búsqueda del diseñador de Logic Apps y seleccione el desencadenador **FTP - When a file is added or modified (FTP: cuando se agrega o modifica un archivo)**.   
-   ![Imagen de desencadenador de FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-   Se abre el control **When a file is added or modified** (Cuando se agrega o modifica un archivo).  
-   ![Imagen de desencadenador de FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. Seleccione la opción **...** situada a la derecha del control. Se abrirá el control de selector de carpeta.  
-   ![Imagen de desencadenador de FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Seleccione la opción **>** (flecha derecha) y busque la carpeta donde quiere supervisar los archivos nuevos o modificados. Al seleccionar la carpeta, observará que esta aparece en el control **Carpeta**.  
-   ![Imagen de desencadenador de FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
-
-En este punto, la aplicación lógica está configurada con un desencadenador que activará otros desencadenadores y acciones del flujo de trabajo cuando se cree o modifique un archivo en la carpeta FTP especificada. 
+Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones en las aplicaciones lógicas para realizar tareas con archivos en el servidor FTP. También puede hacer que otras acciones usen la salida de las acciones de FTP. Por ejemplo, si recupera archivos del servidor FTP normalmente, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> Para que una aplicación lógica sea funcional, debe contener al menos un desencadenador y una acción. Siga los pasos que se describen en la sección siguiente para agregar una acción.  
-> 
-> 
+> El conector FTP solo admite archivos que tengan un máximo de 50 MB, a menos que use [fragmentación para el tratamiento de mensajes de gran tamaño](../logic-apps/logic-apps-handle-large-messages.md). 
+>
+> Además, el conector de FTP admite solo FTP por SSL (FTPS) explícito y no es compatible con FTPS implícito. 
 
-## <a name="use-a-ftp-action"></a>Uso de una acción de FTP
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+## <a name="prerequisites"></a>Requisitos previos
 
-Ahora que ha agregado un desencadenador, siga estos pasos para incorporar una acción que obtendrá el contenido del archivo nuevo o modificado detectado por el desencadenador.    
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
 
-1. Seleccione **+ Nuevo paso** para agregar la acción que obtendrá el contenido del archivo del servidor FTP.  
-2. Seleccione el vínculo **Add an action** (Agregar una acción).  
-   ![Imagen de acción de FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-3. Escriba *FTP* para buscar todas las acciones relacionadas con FTP.
-4. Seleccione **FTP - Get file content (FTP: obtener contenido del archivo)**. Esta será la acción que se ejecutará cuando se encuentre un archivo nuevo o modificado en la carpeta FTP.      
-   ![Imagen de acción de FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   Se abrirá el control **Get file content (Obtener contenido del archivo)**. **Nota**: Si no lo ha hecho previamente, se le pedirá que autorice a la aplicación lógica para que pueda acceder a la cuenta del servidor FTP.  
-   ![Imagen de acción de FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Seleccione el control **Archivo** (el espacio en blanco situado bajo ***ARCHIVO***). Aquí, podrá utilizar cualquiera de las propiedades del archivo nuevo o modificado detectado en el servidor FTP.  
-6. Seleccione la opción **Contenido del archivo**.  
-   ![Imagen de acción de FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
-7. El control se actualiza, lo que indica que la acción **FTP - Get file content (FTP: obtener contenido del archivo)** obtendrá el *contenido del archivo* nuevo o modificado del servidor FTP.      
-   ![Imagen de acción de FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
-8. Guarde el trabajo y agregue un archivo a la carpeta FTP para comprobar el flujo de trabajo.    
+* Las credenciales de la cuenta y la dirección del servidor host FTP
 
-En este punto, la aplicación lógica está configurada con un desencadenador que supervisa una carpeta de un servidor FTP e inicia el flujo de trabajo cuando se detecta un archivo nuevo o modificado en dicho servidor. 
+  El conector de FTP requiere que el servidor FTP sea accesible desde Internet y que esté configurado para poder funcionar en modo *pasivo*. Las credenciales autorizan a la aplicación lógica a crear una conexión a la cuenta de FTP y acceder a ella.
 
-La aplicación lógica también está configurada con una acción que obtiene el contenido del archivo nuevo o modificado.
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-Puede agregar otra acción; por ejemplo, [SQL Server - insert row (SQL Server: insertar fila)](connectors-create-api-sqlazure.md), para insertar el contenido del archivo nuevo o modificado en una tabla de SQL Database.  
+* La aplicación lógica desde donde quiere acceder a la cuenta de FTP. Para comenzar con un desencadenador de FTP, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de FTP, inicie la aplicación lógica con otro desencadenador, por ejemplo, el desencadenador **Recurrence**.
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+## <a name="connect-to-ftp"></a>Conexión a un FTP
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/ftpconnector/). 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
+
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de desencadenadores, seleccione el que desee. 
+
+   O bien
+
+   Para las aplicaciones lógicas existentes, en el último paso donde quiere agregar una acción, elija **Nuevo paso** y seleccione **Agregar una acción**. 
+   En el cuadro de búsqueda, escriba "ftp" como filtro. 
+   En la lista de acciones, seleccione la que desee.
+
+   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
+   Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+
+1. Proporcione la información necesaria para la conexión y, a continuación, seleccione **Crear**:
+
+1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
+
+## <a name="examples"></a>Ejemplos
+
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Desencadenador de FTP: Cuando se agrega o modifica un archivo
+
+Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando detecta que se ha agregado o cambiado un archivo en un servidor FTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y decida si obtener ese contenido, en función de si cumple una condición especificada. Por último, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta en el servidor SFTP. 
+
+**Ejemplo empresarial**: puede usar este desencadenador para supervisar nuevos archivos en una carpeta de FTP que representan los pedidos de los clientes. Luego, puede usar una acción de FTP, como **Obtener contenido de archivo** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
+
+Una aplicación lógica válida y funcional requiere un desencadenador y al menos una acción. Asegúrese de agregar una acción después de agregar un desencadenador.
+
+Este es un ejemplo que muestra este desencadenador: **Cuando se agrega o modifica un archivo**
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
+
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de desencadenadores, seleccione el siguiente: **Cuando se agrega o modifica un archivo - FTP**.
+
+   ![Busque y seleccione el desencadenador de FTP](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
+
+1. Proporcione la información necesaria para la conexión y, a continuación, seleccione **Crear**:
+
+   ![Creación de una conexión al servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
+
+1. Junto al cuadro **Carpeta**, seleccione el icono de carpeta para que aparezca una lista. Para buscar la carpeta donde quiere supervisar los archivos nuevos o modificados, seleccione la flecha de ángulo derecho (**>**), vaya a esa carpeta y, luego, seleccione la carpeta.
+
+   ![Busque y seleccione la carpeta para supervisar](./media/connectors-create-api-ftp/select-folder.png)  
+
+   La carpeta seleccionada aparece en el cuadro **Carpeta**.
+
+   ![Carpeta seleccionada](./media/connectors-create-api-ftp/selected-folder.png)  
+
+Ahora que la aplicación lógica tiene un desencadenador, agregue las acciones que quiera ejecutar cuando la aplicación lógica encuentre un archivo nuevo o modificado. En este ejemplo, puede agregar una acción de FTP que obtiene el contenido nuevo o actualizado.
+
+### <a name="ftp-action-get-content"></a>Acción de FTP: Obtener contenido
+
+Esta acción obtiene el contenido de un archivo en un servidor FTP cuando ese archivo se agrega o actualiza. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una acción que obtiene el contenido del archivo después de que se agregue o modifique el archivo. 
+
+1. En el desencadenador o en cualquiera de las otras acciones, elija **Nuevo paso**. 
+
+1. En el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de acciones, seleccione esta acción: **Obtener contenido de archivo - FTP**
+
+   ![Selección de la acción de FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
+
+1. Si ya tiene una conexión con el servidor FTP y la cuenta, vaya al paso siguiente. De lo contrario, proporcione la información necesaria para la conexión y, luego, seleccione **Crear**. 
+
+   ![Creación de una conexión al servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
+
+1. Después de que se abra la acción **Obtener contenido de archivo**, haga clic dentro del cuadro **Archivo** para que aparezca la lista de contenido dinámico. Ahora puede seleccionar propiedades para las salidas de los pasos anteriores. En la lista de contenido dinámico, seleccione la propiedad **Contenido del archivo**, que tiene el contenido del archivo agregado o actualizado.  
+
+   ![Buscar y seleccionar el archivo](./media/connectors-create-api-ftp/ftp-action-get-file-content.png)
+
+   La propiedad **Contenido del archivo** aparece ahora en el cuadro **Archivo**.
+
+   ![Propiedad "Contenido del archivo" seleccionada](./media/connectors-create-api-ftp/ftp-action-selected-file-content-property.png)
+
+1. Guarde la aplicación lógica. Para probar el flujo de trabajo, agregue un archivo a la carpeta FTP que ahora supervisa la aplicación lógica.
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/ftpconnector/) del conector.
+
+## <a name="get-support"></a>Obtención de soporte técnico
+
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

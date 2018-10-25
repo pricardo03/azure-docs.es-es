@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395702"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377657"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Uso de temas y suscripciones de Service Bus con Node.js
 
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión de Service Bus
 El módulo de Azure lee la variable de entorno `AZURE_SERVICEBUS_CONNECTION_STRING` para la cadena de conexión que ha obtenido en el paso anterior, "Obtención de las credenciales". Si no se configura esta variable de entorno, debe especificar la información de la cuenta al llamar a `createServiceBusService`.
 
-Para ver un ejemplo de configuración de las variables de entorno para un servicio en la nube de Azure, consulte [Servicio en la nube de Node.js con Storage][Node.js Cloud Service with Storage].
+Para ver un ejemplo de configuración de las variables de entorno para un servicio en la nube de Azure, consulte [Establecimiento de variables de entorno](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -242,7 +242,7 @@ Para enviar un mensaje a un tema de Service Bus, la aplicación debe utilizar el
 Los mensajes enviados a los temas de Service Bus son objetos **BrokeredMessage**.
 Los objetos **BrokeredMessage** cuentan con un conjunto de propiedades estándar (como `Label` y `TimeToLive`), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos de cadenas. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método `sendTopicMessage`, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
 
-En el ejemplo siguiente se demuestra cómo enviar cinco mensajes de prueba a `MyTopic`. El valor de la propiedad `messagenumber` de cada mensaje varía en función de la iteración del bucle (lo que determina qué suscripciones lo reciben):
+En el ejemplo siguiente se demuestra cómo enviar cinco mensajes de prueba a `MyTopic`. El valor de la propiedad `messagenumber` de cada mensaje varía en función de la iteración del bucle (esta propiedad determina qué suscripciones lo reciben):
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 Los mensajes se reciben de una suscripción utilizando el método `receiveSubscriptionMessage` del objeto **ServiceBusService**. De forma predeterminada, los mensajes se eliminan de la suscripción a medida que se leen. Sin embargo, puede establecer el parámetro opcional `isPeekLock` en **True** para leer y bloquear los mensajes sin eliminarlos de la suscripción.
 
-El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entender este comportamiento, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+El comportamiento predeterminado de lectura y eliminación del mensaje como parte de la operación de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entender este comportamiento, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
 Si el parámetro `isPeekLock` está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que permite admitir aplicaciones que no toleran mensajes perdidos. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y lo devuelve a la aplicación.
 Una vez que la aplicación procesa el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **deleteMessage** y pasa el mensaje que se va a eliminar como parámetro. El método **deleteMessage** marca el mensaje como consumido y lo quita de la suscripción.

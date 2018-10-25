@@ -5,27 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295842"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319381"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
-Tener una utilidad de restablecimiento de contraseña basada en la nube es genial, pero la mayoría de las empresas todavía tienen un directorio local en donde se encuentran sus usuarios. ¿Cómo mantiene Microsoft el soporte técnico tradicional de Active Directory (AD) local sincronizado con los cambios de contraseña en la nube? La escritura diferida de contraseñas es una característica que se habilita con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) y que permite que los cambios de contraseña en la nube se escriban en diferido en un directorio local existente en tiempo real.
+Tener una utilidad de restablecimiento de contraseña basada en la nube es genial, pero la mayoría de las empresas todavía tienen un directorio local donde se encuentran sus usuarios. ¿Cómo mantiene Microsoft el soporte técnico tradicional de Active Directory (AD) local sincronizado con los cambios de contraseña en la nube? La escritura diferida de contraseñas es una característica que se habilita con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) y que permite que los cambios de contraseña en la nube se escriban en diferido en un directorio local existente en tiempo real.
 
 La escritura diferida de contraseñas se admite en entornos que usan:
 
 * [Servicios de federación de Active Directory](../hybrid/how-to-connect-fed-management.md)
 * [Sincronización de hash de contraseñas](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Autenticación de paso a través](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> La escritura diferida de contraseñas dejará de funcionar para los clientes que usan versiones de Azure AD Connect 1.0.8641.0 y anteriores cuando el [servicio de Azure Access Control (ACS) se retire el 7 de noviembre de 2018](../develop/active-directory-acs-migration.md). Las versiones de Azure AD Connect 1.0.8641.0 y anteriores ya no permitirán la escritura diferida de contraseñas a partir de ese momento porque dependen de ACS para esa funcionalidad.
+>
+> Para evitar una interrupción en el servicio y actualizar desde una versión anterior de Azure AD Connect a una versión más reciente, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 La escritura diferida de contraseñas ofrece:
 
@@ -37,6 +43,7 @@ La escritura diferida de contraseñas ofrece:
 
 > [!Note]
 > Las cuentas de usuario que se encuentran dentro de grupos protegidos en Active Directory local no se pueden utilizar con la escritura diferida de contraseñas. Para más información sobre los grupos protegidos, vea [Cuentas y grupos protegidos en Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
 
@@ -63,28 +70,30 @@ Si un usuario con federación o sincronización de hash de contraseñas cambia o
 1. Se comprueba qué tipo de contraseña tiene el usuario. Si la contraseña del usuario se administra en el entorno local:
    * Se comprueba si el servicio de escritura diferida está en funcionamiento. Si es así, el usuario puede continuar.
    * Si el servicio de escritura diferida no está activo, se informa al usuario de que la contraseña no se puede restablecer en este momento.
-2. A continuación, el usuario realiza los pasos de autenticación adecuados y llega a la página **Restablecer contraseña**.
-3. El usuario selecciona una nueva contraseña y la confirma.
-4. Al hacer clic en **Enviar**, se cifra la contraseña de texto no cifrado con una clave simétrica creada durante el proceso de configuración de la escritura diferida.
-5. La contraseña cifrada se incluye en una carga que se envía a través de un canal HTTPS a la instancia de Service Bus Relay específica del inquilino (que se establece automáticamente durante el proceso de configuración de la escritura diferida). Esta retransmisión está protegida por una contraseña generada de forma aleatoria que sólo conoce la instalación local.
-6. Una vez que el mensaje llega a Service Bus, el punto de conexión de restablecimiento de contraseña se activa automáticamente y comprueba que tiene una solicitud de restablecimiento pendiente.
-7. A continuación, el servicio busca al usuario mediante el atributo delimitador de la nube. Para que esta búsqueda se realice correctamente:
+1. A continuación, el usuario realiza los pasos de autenticación adecuados y llega a la página **Restablecer contraseña**.
+1. El usuario selecciona una nueva contraseña y la confirma.
+1. Al hacer clic en **Enviar**, se cifra la contraseña de texto no cifrado con una clave simétrica creada durante el proceso de configuración de la escritura diferida.
+1. La contraseña cifrada se incluye en una carga que se envía a través de un canal HTTPS a la instancia de Service Bus Relay específica del inquilino (que se establece automáticamente durante el proceso de configuración de la escritura diferida). Esta retransmisión está protegida por una contraseña generada de forma aleatoria que sólo conoce la instalación local.
+1. Una vez que el mensaje llega a Service Bus, el punto de conexión de restablecimiento de contraseña se activa automáticamente y comprueba que tiene una solicitud de restablecimiento pendiente.
+1. A continuación, el servicio busca al usuario mediante el atributo delimitador de la nube. Para que esta búsqueda se realice correctamente:
 
    * El objeto de usuario debe existir en el espacio del conector de Active Directory.
    * El objeto de usuario debe estar vinculado al objeto de metaverso (MV) correspondiente.
    * El objeto de usuario debe estar vinculado al objeto de conector de Azure Active Directory correspondiente.
-   * El vínculo del objeto de conector de Active Directory que lleva al objeto de MV debe tener la regla de sincronización `Microsoft.InfromADUserAccountEnabled.xxx` en ese vínculo. <br> <br>
+   * El vínculo del objeto de conector de Active Directory que lleva al objeto de MV debe tener la regla de sincronización `Microsoft.InfromADUserAccountEnabled.xxx` en ese vínculo.
+   
    Cuando se recibe la llamada de la nube, el motor de sincronización usa el atributo **cloudAnchor** para buscar el objeto de espacio de conector de Azure Active Directory. A continuación, sigue el vínculo de vuelta al objeto de MV para volver a seguir el vínculo al objeto de Active Directory. Dado que podría haber varios objetos de Active Directory (bosque múltiple) para el mismo usuario, el motor de sincronización se basa en el vínculo `Microsoft.InfromADUserAccountEnabled.xxx` para seleccionar el objeto correcto.
 
    > [!Note]
    > Como resultado de esta lógica, para que la escritura diferida de contraseñas funcione en Azure AD Connect, debe poder comunicarse con el emulador del controlador de dominio principal (PDC). Si necesita habilitar esta opción manualmente, puede conectar Azure AD Connect al emulador de PDC. Haga clic con el botón derecho en las **propiedades** del conector de sincronización de Active Directory y, a continuación, seleccione **configure directory partitions** (configurar particiones del directorio). Desde allí, busque la sección **domain controller connection settings** (configuración de conexión del controlador de dominio) y active la casilla titulada **only use preferred domain controllers** (solo usar los controladores de dominio preferidos). Incluso si el controlador de dominio preferido no es un emulador de PDC, Azure AD Connect intentará conectarse al PDC para realizar la escritura diferida de contraseñas.
 
-8. Una vez que se encuentra la cuenta de usuario, se intenta restablecer la contraseña directamente en el bosque de Active Directory correspondiente.
-9. Si la operación de establecimiento de la contraseña se realiza correctamente, se notifica al usuario que se ha cambiado su contraseña.
+1. Una vez que se encuentra la cuenta de usuario, se intenta restablecer la contraseña directamente en el bosque de Active Directory correspondiente.
+1. Si la operación de establecimiento de la contraseña se realiza correctamente, se notifica al usuario que se ha cambiado su contraseña.
    > [!NOTE]
    > Si la contraseña del usuario se sincroniza con Azure AD mediante la sincronización de hash de contraseñas, existe la posibilidad de que la directiva de contraseñas local sea menos segura que la directiva de contraseñas en la nube. En este caso, se aplica la directiva local. Esta directiva garantiza que la directiva local se aplique en la nube, sin importar si se usa la federación o sincronización de hash de contraseñas para proporcionar el inicio de sesión único.
+   >
 
-10. Si la operación de establecimiento de la contraseña no se realiza, un mensaje de error pide al usuario que vuelva a intentarla. La operación puede producir un error debido a lo siguiente:
+1. Si la operación de establecimiento de la contraseña no se realiza, un mensaje de error pide al usuario que vuelva a intentarla. La operación puede producir un error debido a lo siguiente:
    * El servicio estaba inactivo.
    * La contraseña seleccionada no cumple las directivas de la organización.
    * No se encuentra el usuario en Active Directory local.
@@ -101,10 +110,10 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
    * Una vez creada la instancia de Service Bus Relay, se crea una clave simétrica segura que se usa para cifrar la contraseña tal cual llega de la red. Esta clave solo reside en el almacén secreto en la nube de la compañía, el cual se bloquea y audita de forma estricta como se haría con cualquier contraseña del directorio.
 * **Seguridad de la capa de transporte (TLS) estándar del sector**
    1. Cuando se produce una operación de restablecimiento o cambio de contraseña, la contraseña de texto no cifrado se cifra con la clave pública.
-   2. La contraseña cifrada se inserta en un mensaje HTTPS que se envía a Service Bus Relay a través de un canal cifrado con certificados SSL de Microsoft.
-   3. Una vez que el mensaje llega a Service Bus, el agente local se activa y se autentica en Service Bus con la contraseña segura que se generó anteriormente.
-   4. El agente local selecciona el mensaje cifrado y lo descifra con la clave privada.
-   5. El agente local intenta definir la contraseña con SetPassword API de AD DS. Este paso permite aplicar la directiva de contraseñas local de Active Directory (como, por ejemplo, complejidad, antigüedad, historial y filtros) en la nube.
+   1. La contraseña cifrada se inserta en un mensaje HTTPS que se envía a Service Bus Relay a través de un canal cifrado con certificados SSL de Microsoft.
+   1. Una vez que el mensaje llega a Service Bus, el agente local se activa y se autentica en Service Bus con la contraseña segura que se generó anteriormente.
+   1. El agente local selecciona el mensaje cifrado y lo descifra con la clave privada.
+   1. El agente local intenta definir la contraseña con SetPassword API de AD DS. Este paso permite aplicar la directiva de contraseñas local de Active Directory (como, por ejemplo, complejidad, antigüedad, historial y filtros) en la nube.
 * **Directivas de expiración de mensajes**
    * Si el mensaje se queda en Service Bus porque el servicio local está inactivo, se agotará el tiempo de espera y se eliminará después de varios minutos. El tiempo de espera y la eliminación del mensaje aumenta aún más la seguridad.
 

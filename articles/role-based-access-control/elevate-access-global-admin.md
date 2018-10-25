@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996849"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321672"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevación de los privilegios de acceso de un administrador global en Azure Active Directory
 
@@ -31,29 +31,37 @@ Si es un [administrador global](../active-directory/users-groups-roles/directory
 - Ver todas las suscripciones a Azure de una organización
 - Permitir que una aplicación de automatización (por ejemplo, una aplicación de facturación o auditoría) tenga acceso a todas las suscripciones de Azure
 
-De forma predeterminada, los roles del administrador de Azure AD y el control de acceso basado en roles (RBAC) de Azure (RBAC) no abarcan Azure AD y Azure. Sin embargo, si es un administrador Global de Azure AD, puede elevar los privilegios de acceso para administrar las suscripciones a Azure y los grupos de administración. Cuando eleve los privilegios de acceso, se le concederá el rol de [administrador de accesos de usuario](built-in-roles.md#user-access-administrator) (un rol RBAC) en todas las suscripciones para un inquilino determinado. El rol de administrador de accesos de usuario permite conceder a otros usuarios acceso a recursos de Azure en el ámbito raíz (`/`).
-
-Esta elevación debe ser temporal y solo debe realizarse cuando sea necesario.
+En este artículo se describen las distintas maneras en que puede elevar los derechos de acceso en Azure AD.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
+## <a name="overview"></a>Información general
+
+Azure AD y los recursos de Azure están protegidos de forma independiente entre sí. Es decir, las asignaciones de roles de Azure AD no otorgan acceso a recursos de Azure, y las asignaciones de roles de Azure no conceden acceso a Azure AD. Sin embargo, si es administrador global de Azure AD, puede asignarse a sí mismo los privilegios de acceso para todas las suscripciones a Azure y los grupos de administración de su directorio. Use esta funcionalidad si no tiene acceso a recursos de suscripción a Azure, como máquinas virtuales o cuentas de almacenamiento, y quiere usar su privilegio de administrador global para obtener acceso a esos recursos.
+
+Al elevar los privilegios de acceso, se le asignará el rol [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) en Azure en el ámbito raíz (`/`). Esto le permite ver todos los recursos y asignar acceso en cualquier suscripción o grupo de administración en el directorio. Se pueden quitar las asignaciones de roles de administrador de acceso de usuario mediante PowerShell.
+
+Debe quitar este acceso con privilegios elevados una vez que haya hecho los cambios necesarios en el ámbito raíz.
+
+![Elevación de los privilegios de acceso](./media/elevate-access-global-admin/elevate-access.png)
 
 ## <a name="azure-portal"></a>Azure Portal
 
 Siga estos pasos para elevar los privilegios de acceso de un administrador global mediante Azure Portal.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) como administrador global.
 
 1. En la lista de navegación, haga clic en **Azure Active Directory** y, luego, haga clic en **Propiedades**.
 
    ![Propiedades de Azure AD, captura de pantalla](./media/elevate-access-global-admin/aad-properties.png)
 
-1. En **El administrador global puede administrar las suscripciones a Azure y los grupos de administración**, seleccione **Sí**.
+1. En **Access management for Azure resources** (Administración de acceso a recursos de Azure), establezca el modificador en **Sí**.
 
-   ![El administrador global puede gestionar las suscripciones s Azure y los grupos de administración (captura de pantalla)](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Captura de pantalla de administración de acceso a recursos de Azure](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Si selecciona **Sí**, se agrega la cuenta de administrador global (usuario conectado actualmente) al rol de administrador de accesos de usuario en RBAC de Azure en el ámbito raíz (`/`), que le concede acceso para ver e informar sobre todas las suscripciones a Azure asociadas al inquilino de Azure AD.
+   Al establecer el modificador en **Sí**, se le asigna el rol de administrador de acceso de usuario en Azure RBAC en el ámbito raíz (/). Esto le concede permiso para asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Este modificador solo está disponible para los usuarios que tienen asignado el rol de administrador global de Azure AD.
 
-   Si selecciona **No**, se quita la cuenta de administrador global (usuario conectado actualmente) del rol de administrador de accesos de usuario en Azure RBAC. No se pueden ver todas las suscripciones a Azure asociadas con el inquilino de Azure AD. Solo se pueden ver y administrar las suscripciones a Azure a las que se le ha concedido acceso.
+   Al establecer el modificador en **No**, se quita el rol de administrador de acceso de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
 
 1. Haga clic en **Guardar** para guardar la configuración.
 
@@ -92,11 +100,11 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="rest-api"></a>API REST
+## <a name="rest-api"></a>API DE REST
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Elevación de los privilegios de acceso de un administrador global
 
-Utilice los siguientes pasos básicos para elevar los privilegios de acceso de un administrador global mediante la API REST.
+Utilice los siguientes pasos básicos para elevar los privilegios de acceso de un administrador global mediante la API de REST.
 
 1. Mediante REST, llame a `elevateAccess`. Entonces, se le concede el rol de administrador de accesos de usuario en el ámbito raíz (`/`).
 
@@ -190,16 +198,16 @@ Cuando llama a `elevateAccess`, crea una asignación de roles para sí mismo, po
 
     Guarde el id. del parámetro `name`; en este caso: `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. También necesita mostrar la asignación de roles del administrador de inquilinos en el ámbito del inquilino. Mostrar todas las asignaciones en el ámbito del inquilino para `principalId` del administrador de inquilinos, que realizó la llamada de elevación de privilegios de acceso. Esto mostrará todas las asignaciones en el inquilino para ObjectID.
+2. También tiene que mostrar la asignación de roles del administrador de directorios en el ámbito del directorio. Muestre todas las asignaciones en el ámbito del directorio para `principalId` del administrador de directorios que hizo la llamada de elevación de privilegios de acceso. Esto mostrará todas las asignaciones en el directorio para objectid.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >Un administrador de inquilinos no debe tener muchas asignaciones; si la consulta anterior devuelve demasiadas asignaciones, puede consultar también todas las asignaciones en el nivel de ámbito de inquilino y, después, filtrar los resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Un administrador de directorios no debe tener muchas asignaciones; si la consulta anterior devuelve demasiadas asignaciones, puede consultar también todas las asignaciones en el nivel de ámbito de directorio y, después, filtrar los resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Las llamadas anteriores devuelven una lista de asignaciones de roles. Busque la asignación de roles en la que el ámbito sea `"/"`, `roleDefinitionId`termine con el id. del nombre de rol que se encuentra en el paso 1, y `principalId` coincida con el valor de ObjectId del administrador de inquilinos. 
+    2. Las llamadas anteriores devuelven una lista de asignaciones de roles. Busque la asignación de roles en la que el ámbito sea `"/"`, `roleDefinitionId` termine con el id. del nombre de rol que se encuentra en el paso 1, y `principalId` coincida con el valor de ObjectId del administrador de directorios. 
     
     Ejemplo de asignación de rol:
 
@@ -235,6 +243,5 @@ Cuando llama a `elevateAccess`, crea una asignación de roles para sí mismo, po
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Descripción de los distintos roles](rbac-and-directory-admin-roles.md)
 - [Control de acceso basado en roles con REST](role-assignments-rest.md)
-- [Administración del acceso a recursos de Azure con Privileged Identity Management](pim-azure-resource.md)
-- [Administración el acceso a la administración de Azure con acceso condicional](conditional-access-azure-management.md)

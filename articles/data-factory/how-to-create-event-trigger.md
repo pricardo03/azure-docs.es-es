@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867059"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309371"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -80,7 +80,7 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 En esta sección encontrará ejemplos de configuración de desencadenadores basados en eventos.
 
 -   **Blob path begins with**('/NombreDeContenedor/'): recibe eventos de cualquier blob del contenedor.
--   **Blob path begins with**('/NombreDeContenedor/blobs/NombreDeCarpeta'): recibe eventos de los blobs del contenedor NombreDeContenedor de la carpeta NombreDeCarpeta.
+-   **Blob path begins with**('/NombreDeContenedor/blobs/NombreDeCarpeta'): recibe eventos de los blobs del contenedor NombreDeContenedor de la carpeta NombreDeCarpeta. También puede hacer referencia a una subcarpeta; por ejemplo, "/containername/blobs/foldername/subfoldername/".
 -   **Blob path begins with**('/NombreDeContenedor/blobs/NombreDeCarpeta/archivo.txt'): recibe eventos de un blob llamado archivo.txt de la carpeta NombreDeCarpeta del contenedor NombreDeContenedor.
 -   **Blob path ends with**('Archivo.txt'): recibe eventos de un blob llamado Archivo.txt en cualquier ruta de acceso.
 -   **Blob path ends with**('/NombreDeContenedor/blobs/Archivo.txt'): recibe eventos de un blob llamado archivo.txt del contenedor NombreDeContenedor.
