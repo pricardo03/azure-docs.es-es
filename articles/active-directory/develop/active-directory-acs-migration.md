@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036548"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249441"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimiento para la migración desde Azure Access Control Service
 
@@ -116,6 +116,9 @@ Aquí está el calendario que indica el desuso de los componentes de Access Cont
 - **Noviembre de 2017**: la experiencia de administración de Azure AD en el Portal de Azure clásico [se retira](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). En este momento, la administración del espacio de nombres de Access Control estará disponible en esta nueva dirección URL dedicada: `http://manage.windowsazure.com?restoreClassic=true`. Use esta URl para ver los espacios de nombres existentes y habilitar, deshabilitar y eliminar diversos espacios de nombres si así lo desea.
 - **2 de abril de 2018**: el Portal de Azure clásico se ha retirado por completo, lo que significa que la administración del espacio de nombres de Access Control ya no está disponible a través de ninguna dirección URL. No podrá deshabilitar o habilitar, eliminar o enumerar los espacios de nombres de Access Control. Sin embargo, el portal de administración de Access Control será totalmente funcional y se ubicará en `https://\<namespace\>.accesscontrol.windows.net`. Todos los demás componentes de Access Control también seguirán funcionando con normalidad.
 - **7 de noviembre de 2018**: todos los componentes de Access Control se cierran permanentemente. Esto incluye el portal de administración de Access Control, el servicio de administración, STS y el motor de reglas de transformación de tokens. En este momento, las solicitudes enviadas a Access Control (ubicado en \<espacio de nombres\>.accesscontrol.windows.net) producirán un error. Debe haber migrado todos los servicios y aplicaciones existentes a otras tecnologías bastante antes de esta fecha.
+
+> [!NOTE]
+> Una directiva deshabilita los espacios de nombres que no han solicitado un token durante un período de tiempo. A partir de principios de septiembre de 2018, este período de tiempo es actualmente de 14 días de inactividad, pero se reducirá a 7 días de inactividad en las próximas semanas. Si tiene espacios de nombres de Access Control que actualmente están deshabilitados, puede [descargar e instalar PowerShell ACS](#download-and-install-acs-powershell) para volver a habilitarlos.
 
 ## <a name="migration-strategies"></a>Estrategias de migración
 
@@ -347,6 +350,10 @@ En estos casos, conviene considerar la posibilidad de migrar la aplicación web 
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | La [identidad de Ping](https://www.pingidentity.com) le ofrece dos soluciones similares a ACS. PingOne es un servicio de identidad en la nube que admite muchas de las características de ACS, y PingFederate es un producto de identidad local similar que ofrece más flexibilidad. Si quiere obtener más detalles acerca de cómo usar estos productos, consulte [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) (Guía de retirada de ACS de Ping). |
 
 Nuestro objetivo al trabajar con la identidad de Ping y Auth0 es asegurarnos de que todos los clientes de Access Control tengan una ruta de migración que minimice la cantidad de trabajo necesario para mover las aplicaciones y servicios de Access Control.
+
+#### <a name="passthrough-authentication"></a>Autenticación de paso a través
+
+Para la autenticación de paso a través con la transformación de tokens arbitraria, no hay ninguna tecnología de Microsoft equivalente a ACS. Si eso es lo que necesitan los clientes, Auth0 puede que sea quien proporciona la solución de aproximación más cercana.
 
 ## <a name="questions-concerns-and-feedback"></a>Preguntas, problemas y comentarios
 

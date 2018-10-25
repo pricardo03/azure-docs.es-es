@@ -13,52 +13,70 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 4445787fd559c6d0a6dfc891910cb9a139a6907e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ac5ad9d0067205411c56562264aed81f8a5751bc
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602576"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267460"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
-Se puede crear un recurso de imagen administrado a partir de una máquina virtual generalizada que se almacena como un disco administrado o como un disco no administrado en una cuenta de almacenamiento. A partir de ese momento, la imagen se puede utilizar para crear varias máquinas virtuales. 
+Se puede crear un recurso de imagen administrado a partir de una máquina virtual (VM) generalizada que se almacena como un disco administrado o como un disco no administrado en una cuenta de almacenamiento. A partir de ese momento, la imagen se puede utilizar para crear varias máquinas virtuales. 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
 
-Entre otras características, Sysprep elimina toda la información personal de la cuenta y prepara, entre otras cosas, la máquina para usarse como imagen. Para obtener más información sobre Sysprep, vea [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep elimina toda la información de seguridad y de la cuenta personal y luego prepara la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte la [Introducción a Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con roles de servidor).
 
 > [!IMPORTANT]
-> Una vez que se ha ejecutado sysprep en una máquina virtual, se considera *generalizada* y no se puede reiniciar. El proceso de generalización de una máquina virtual no es reversible. Si necesita mantener el funcionamiento original de la máquina virtual, debe realizar una [copia de la máquina virtual](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) y generalizar la copia. 
+> Una vez que se ha ejecutado sysprep en una máquina virtual, se considera *generalizada* y no se puede reiniciar. El proceso de generalización de una máquina virtual no es reversible. Si necesita mantener el funcionamiento original de la máquina virtual, debe crear una [copia de la máquina virtual](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) y generalizar la copia. 
 >
-> Si ejecuta Sysprep antes de cargar el VHD en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de ejecutar Sysprep.  
+> Si tiene pensado ejecutar Sysprep antes de cargar el disco duro virtual (VHD) en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 
-1. Inicie sesión en la máquina virtual de Windows.
-2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, después, ejecute `sysprep.exe`.
-3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está activada.
+Para generalizar la máquina virtual de Windows, siga estos pasos:
+
+1. Inicie sesión en la máquina virtual Windows.
+   
+2. Abra una ventana de símbolo del sistema como administrador. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
+   
+3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y active la casilla **Generalizar**.
+   
 4. En **Opciones de apagado**, seleccione **Apagar**.
-5. Haga clic en **OK**.
+   
+5. Seleccione **Aceptar**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+
 6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creación de una imagen administrada en el portal 
 
-1. Abra el [portal](https://portal.azure.com).
-2. En el menú de la izquierda, haga clic en Virtual Machines y seleccione la máquina virtual en la lista.
-3. En la página de la máquina virtual, en el menú superior, haga clic en **Capturar**.
-3. En **Nombre**, escriba el nombre que desea usar para la imagen.
-4. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre o elija **Usar existente** y seleccione en la lista desplegable el grupo de recursos que desea utilizar.
-5. Si desea eliminar la máquina virtual de origen tras haberse creado la imagen, seleccione **Eliminar automáticamente esta máquina virtual después de crear la imagen**.
-6. Cuando haya terminado, haga clic en **Crear**.
-16. Después de crear la imagen, esta aparecerá como un recurso **Imagen** en la lista de recursos del grupo de recursos.
+1. Abra [Azure Portal](https://portal.azure.com).
+
+2. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione la máquina virtual de la lista.
+
+3. En la página **Máquina virtual** de la máquina virtual, en el menú superior, seleccione **Capturar**.
+
+   Aparece la página **Crear imagen**.
+
+4. En **Nombre**, acepte el nombre con que se rellena el espacio previamente o escriba un nombre que le gustaría que se usara para la imagen.
+
+5. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre, o elija **Usar existente** y seleccione en la lista desplegable el grupo de recursos que desea utilizar.
+
+6. Si desea eliminar la máquina virtual de origen tras haberse creado la imagen, seleccione **Eliminar automáticamente esta máquina virtual después de crear la imagen**.
+
+7. Si desea tener la posibilidad de usar la imagen en cualquier [zona de disponibilidad](../../availability-zones/az-overview.md), seleccione **Activar** para **Resistencia de zona**.
+
+8. Seleccione **Crear** para crear la imagen.
+
+9. Después de crear la imagen, esta aparecerá como un recurso **Imagen** en la lista de recursos del grupo de recursos.
 
 
 
@@ -67,12 +85,13 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 Crear una imagen directamente desde la VM garantiza que la imagen incluya todos los discos asociados a la VM, incluido el disco del SO y todos los discos de datos. En este ejemplo se muestra cómo crear una imagen administrada a partir de una máquina virtual que utiliza discos administrados.
 
 
-Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell. Para este artículo se requiere la versión 5.7.0 del módulo de AzureRM o una versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell, que debe ser la versión 5.7.0 o posterior. Para buscar la versión, ejecute `Get-Module -ListAvailable AzureRM.Compute` en PowerShell. Si tiene que actualizar, consulte [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azurerm-ps) (Instalación de Azure PowerShell en Windows con PowerShellGet). Si PowerShell se ejecuta localmente, ejecute `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 
 > [!NOTE]
-> Si desea almacenar la imagen en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad](../../availability-zones/az-overview.md) e incluir el parámetro `-ZoneResilient` en la configuración de la imagen.
+> Si desea almacenar la imagen en un almacenamiento con redundancia de zona, debe crearla en una región que admita [zonas de disponibilidad](../../availability-zones/az-overview.md) e incluir el parámetro `-ZoneResilient` en la configuración de la imagen (comando `New-AzureRmImageConfig`).
 
+Para crear una imagen de VM, siga estos pasos:
 
 1. Cree algunas variables.
 
@@ -103,16 +122,17 @@ Antes de comenzar, asegúrese de que tiene la última versión del módulo Azure
 5. Cree la configuración de la imagen.
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
+    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
 6. Cree la imagen.
 
     ```azurepowershell-interactive
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
+
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Creación de una imagen a partir de un disco administrado mediante PowerShell
 
-Si solo desea crear una imagen del disco del sistema operativo, también puede crear una imagen especificando el identificador del disco administrado como disco del sistema operativo.
+Si desea crear una imagen de solo el disco del SO, especifique el identificador del disco administrado como disco del SO:
 
     
 1. Cree algunas variables. 
@@ -153,7 +173,7 @@ Si solo desea crear una imagen del disco del sistema operativo, también puede c
 
 ## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Creación de una imagen a partir de una instantánea mediante PowerShell
 
-Puede crear una imagen administrada a partir de una instantánea de una VM generalizada.
+Puede crear una imagen administrada a partir de una instantánea de una VM generalizada siguiendo estos pasos:
 
     
 1. Cree algunas variables. 
@@ -184,21 +204,21 @@ Puede crear una imagen administrada a partir de una instantánea de una VM gener
     ``` 
 
 
-## <a name="create-image-from-a-vhd-in-a-storage-account"></a>Creación de una imagen a partir de un VHD en una cuenta de almacenamiento
+## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Creación de una imagen a partir de un VHD en una cuenta de almacenamiento
 
-Cree una imagen administrada a partir de un VHD del sistema operativo generalizado en una cuenta de almacenamiento. Es necesario el URI del VHD en la cuenta de almacenamiento, que se encuentra en formato https://*mystorageaccount*.blob.core.windows.net/*container*/*vhd_filename.vhd*. En este ejemplo, el VHD que usamos está en *mystorageaccount* en un contenedor denominado *vhdcontainer* y el nombre de archivo de VHD es *osdisk.vhd*.
+Cree una imagen administrada a partir de un VHD del sistema operativo generalizado en una cuenta de almacenamiento. Es necesario el URI del VHD en la cuenta de almacenamiento, que se encuentra en formato https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. En este ejemplo, el VHD está en *mystorageaccount*, en un contenedor denominado *vhdcontainer*, y el nombre de archivo de VHD es *vhdfilename.vhd*.
 
 
-1.  En primer lugar, establezca los parámetros comunes:
+1.  Cree algunas variables.
 
     ```azurepowershell-interactive
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "EastUS"
     $imageName = "myImage"
-    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
+    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
     ```
-2. Detenga/desasigne la VM.
+2. Detenga/desasigne la máquina virtual.
 
     ```azurepowershell-interactive
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
@@ -219,5 +239,5 @@ Cree una imagen administrada a partir de un VHD del sistema operativo generaliza
 
     
 ## <a name="next-steps"></a>Pasos siguientes
-- Ahora puede [crear una VM a partir de la imagen administrada generalizada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+- [Creación de una máquina virtual a partir de una imagen administrada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)    
 

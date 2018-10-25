@@ -2,30 +2,29 @@
 title: Azure IoT Hub y Event Grid | Microsoft Docs
 description: Use Azure Event Grid para desencadenar procesos basados en acciones que se producen en IoT Hub.
 author: kgremban
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719858"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249475"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
-Azure IoT Hub se integra con Azure Event Grid para poder enviar notificaciones de eventos a otros servicios y desencadenar procesos de descarga. Configure las aplicaciones empresariales para escuchar eventos de IoT Hub, a fin de poder crear reacciones a eventos críticos de manera confiable, escalable y segura. Por ejemplo, compile una aplicación que realice varias acciones, como actualizar una base de datos, crear un vale y entregar una notificación por correo electrónico cada vez que se registre un nuevo dispositivo IoT en IoT Hub. 
+Azure IoT Hub se integra con Azure Event Grid para poder enviar notificaciones de eventos a otros servicios y desencadenar procesos de descarga. Configure las aplicaciones empresariales para escuchar eventos de IoT Hub, a fin de poder crear reacciones a eventos críticos de manera confiable, escalable y segura. Por ejemplo, compile una aplicación que realice varias acciones, por ejemplo, actualizar una base de datos, crear un vale y enviar una notificación por correo electrónico cada vez que se registre un nuevo dispositivo IoT en IoT Hub. 
 
-[Azure Event Grid][lnk-eg-overview] es un servicio de enrutamiento de eventos totalmente administrado que utiliza un modelo de publicación-suscripción. Event Grid tiene compatibilidad integrada para servicios de Azure, como [Azure Functions](../azure-functions/functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), y puede proporcionar alertas de eventos a los servicios que no son de Azure mediante webhooks. Para obtener una lista completa de los controladores de eventos que Event Grid admite, vea [una introducción a Azure Event Grid][lnk-eg-overview]. 
+[Azure Event Grid](../event-grid/overview.md) es un servicio de enrutamiento de eventos totalmente administrado que utiliza un modelo de publicación-suscripción. Event Grid tiene compatibilidad integrada para servicios de Azure, como [Azure Functions](../azure-functions/functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), y puede proporcionar alertas de eventos a los servicios que no son de Azure mediante webhooks. Para obtener una lista completa de los controladores de eventos que Event Grid admite, vea [una introducción a Azure Event Grid](../event-grid/overview.md). 
 
 ![Arquitectura de Azure Event Grid](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La integración de Event Grid está disponible en centros de IoT ubicados en las regiones donde se admite Event Grid. Para conocer la lista más reciente de regiones disponibles [Introducción a Azure Event Grid][lnk-eg-overview]. 
+La integración de Event Grid está disponible en centros de IoT ubicados en las regiones donde se admite Event Grid. Para conocer la lista más reciente de regiones disponibles, vea [Introducción a Azure Event Grid](../event-grid/overview.md). 
 
 ## <a name="event-types"></a>Tipos de eventos
 
@@ -132,23 +131,23 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitaciones de los eventos de dispositivo conectado y dispositivo desconectado
 
-Para recibir los eventos de dispositivo conectado y dispositivo desconectado, debe abrir el vínculo D2C o C2D del dispositivo. Si el dispositivo usa el protocolo MQTT, IoT Hub mantendrá el vínculo C2D abierto. Para AMQP puede abrir el vínculo C2D mediante una llamada a [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). Si está enviando telemetría, el vínculo D2C está abierto. Si la conexión del dispositivo es intermitente, es decir, el dispositivo se conecta y desconecta con frecuencia, no se le enviarán todos y cada uno de los estados de conexión sino que se publicará el estado de conexión del que se realice la instantánea cada minuto. En el caso de una interrupción de IoT Hub, publicaremos el estado de conexión del dispositivo tan pronto como termine la interrupción. Si el dispositivo se desconecta durante esa interrupción, el evento de dispositivo desconectado se publicará en 10 minutos.
+Para recibir los eventos de dispositivo conectado y dispositivo desconectado, debe abrir el vínculo D2C o C2D del dispositivo. Si el dispositivo usa el protocolo MQTT, IoT Hub mantendrá el vínculo C2D abierto. Para AMQP puede abrir el vínculo C2D mediante una llamada a [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+
+Si está enviando telemetría, el vínculo D2C está abierto. Si la conexión del dispositivo es intermitente, es decir, el dispositivo se conecta y desconecta con frecuencia, no se le enviarán todos y cada uno de los estados de conexión sino que se publicará el estado de conexión del que se realice la instantánea cada minuto. En el caso de una interrupción de IoT Hub, publicaremos el estado de conexión del dispositivo tan pronto como termine la interrupción. Si el dispositivo se desconecta durante esa interrupción, el evento de dispositivo desconectado se publicará en 10 minutos.
 
 ## <a name="tips-for-consuming-events"></a>Sugerencias para consumir eventos
 
 Las aplicaciones que controlan los eventos de IoT Hub deben seguir estas prácticas recomendadas:
 
 * Se pueden configurar varias suscripciones para enrutar los eventos al mismo controlador de eventos, por lo que es importante no asumir que los eventos proceden de un origen particular. Compruebe siempre el tema del mensaje para asegurarse de que se trata de la instancia de IoT Hub que está esperando. 
+
 * No suponga que todos los eventos que recibe son los tipos que espera. Compruebe siempre eventType antes de procesar el mensaje.
+
 * Los mensajes pueden llegar desordenados o después de un retraso. Utilice el campo de la etiqueta de entidad para saber si la información sobre los objetos está actualizada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Pruebe el tutorial de eventos de IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Aprenda a ordenar eventos conectados y desconectados de dispositivos](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
-* [Más información sobre Event Grid][lnk-eg-overview]
-* [Compare las diferencias entre el enrutamiento de eventos y mensajes de IoT Hub][lnk-eg-compare]
-
-<!-- Links -->
-[lnk-eg-overview]: ../event-grid/overview.md
-[lnk-eg-compare]: iot-hub-event-grid-routing-comparison.md
+* [Aprenda a ordenar eventos conectados y desconectados de dispositivos](iot-hub-how-to-order-connection-state-events.md)
+* [Más información sobre Event Grid](../event-grid/overview.md)
+* [Compare las diferencias entre el enrutamiento de eventos y mensajes de IoT Hub](iot-hub-event-grid-routing-comparison.md)
