@@ -1,20 +1,21 @@
 ---
 title: Instrucciones de transcripción para el entrenamiento del servicio Voz
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo preparar el texto para personalizar modelos de lenguaje y acústicos, y fuentes de voz para el servicio Voz.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721830"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467742"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Instrucciones de transcripción para usar el servicio Voz
 

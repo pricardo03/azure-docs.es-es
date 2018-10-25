@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092551"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958455"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Proporcionar a las aplicaciones acceso a Azure Stack
 
@@ -40,7 +40,7 @@ Dependiendo de cómo ha implementado Azure Stack, primero debe crear una entidad
 
 ## <a name="create-service-principal-for-azure-ad"></a>Crear una entidad de servicio para Azure AD
 
-Si ha implementado Azure Stack con Azure AD como el almacén de identidades, puede crear entidades de servicio igual que hace para Azure. En este tema se muestra cómo realizar estos pasos a través del portal. Compruebe que tiene los [permisos de Azure AD necesarios](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de comenzar.
+Si ha implementado Azure Stack con Azure AD como el almacén de identidades, puede crear entidades de servicio igual que hace para Azure. En este tema se muestra cómo realizar estos pasos a través del portal. Compruebe que tiene los [permisos de Azure AD necesarios](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de comenzar.
 
 ### <a name="create-service-principal"></a>Creación de una entidad de servicio
 En esta sección, creará una aplicación (entidad de servicio) en Azure AD que representará su aplicación.

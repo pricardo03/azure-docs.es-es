@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 0c017907378376c01e4a4a98190f73a9452b9a3d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6d9deba8c7e6317ab349f86d5a1730f05288ea35
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264959"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987671"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL: uso de Connector/C++ para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de C++. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante C++ y que nunca ha usado Azure Database for MySQL.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de las guías siguientes:
 - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
@@ -30,7 +30,7 @@ Además, deberá:
 - Instalar [.NET Framework](https://www.microsoft.com/net/download)
 - Instalar [Visual Studio](https://www.visualstudio.com/downloads/)
 - Instalación de [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
-- Instalación de [Boost](http://www.boost.org/)
+- Instalación de [Boost](https://www.boost.org/)
 
 ## <a name="install-visual-studio-and-net"></a>Instalación de Visual Studio y .NET
 En los pasos de esta sección se supone que está familiarizado con el desarrollo mediante .NET.
