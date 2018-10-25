@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363850"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945763"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -173,7 +173,7 @@ Para más información, vea el documento [Resolución de nombres para máquinas 
 
 ## <a name="directly-connect-to-hadoop-services"></a>Conectar directamente a servicios Hadoop
 
-Puede conectarse al clúster en https://CLUSTERNAME.azurehdinsight.net. Esta dirección usa una dirección IP pública, que podría no ser accesible en caso de haber usado grupos de seguridad de red o rutas definidas por el usuario para restringir el tráfico entrante de internet. Además, al implementar el clúster en una red virtual puede acceder a ella mediante el punto de conexión privado https://CLUSTERNAME-internal.azurehdinsight.net. Este punto de conexión se resuelve en una dirección IP privada dentro de la red virtual para el acceso al clúster.
+Puede conectarse al clúster en https://CLUSTERNAME.azurehdinsight.net. Esta dirección usa una dirección IP pública, que podría no ser accesible en caso de haber usado grupos de seguridad de red o rutas definidas por el usuario para restringir el tráfico entrante de internet. Además, al implementar el clúster en una red virtual puede acceder a ella mediante el punto de conexión privado https://CLUSTERNAME-int.azurehdinsight.net. Este punto de conexión se resuelve en una dirección IP privada dentro de la red virtual para el acceso al clúster.
 
 Para conectarse a Ambari y otras páginas web a través de la red virtual, siga estos pasos:
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 1757ca84e7390f1ecd2d6d1e90a085372d3e4c57
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380921"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986906"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 
@@ -72,7 +72,7 @@ En la tabla siguiente se muestra cómo pueden aplicarse estas opciones a las pro
 |properties.alternativeMediaId  |||
 |properties.assetName   |||
 |properties.contentKeys |||
-|properties.created |Eq, ne, ge, le,  gt, lt|Ascendente y descendente|
+|properties.created |Eq, ne, ge, le, gt, lt|Ascendente y descendente|
 |properties.defaultContentKeyPolicyName |||
 |properties.endTime |Eq, ne, ge, le, gt, lt|Ascendente y descendente|
 |properties.startTime   |||
@@ -103,7 +103,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Para obtener ejemplos de REST, consulte [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/streaminglocators_list) (Lista de localizadores de streaming).
+Para obtener ejemplos de REST, consulte [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list) (Lista de localizadores de streaming).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

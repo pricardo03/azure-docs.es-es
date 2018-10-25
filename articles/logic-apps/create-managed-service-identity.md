@@ -1,6 +1,6 @@
 ---
-title: 'Acceso y autenticación sin iniciar sesión: Azure Logic Apps | Microsoft Docs'
-description: Cree una identidad administrada para que la aplicación lógica pueda autenticarse y acceder a recursos de otros inquilinos de Azure Active Directory (Azure AD) sin sus credenciales
+title: 'Autenticación con identidades administradas: Azure Logic Apps | Microsoft Docs'
+description: Para autenticarse sin iniciar sesión, puede crear una identidad administrada (anteriormente denominada Managed Service Identity o MSI) para que su aplicación lógica pueda acceder a los recursos de los otros inquilinos de Azure Active Directory (Azure AD) sin usar credenciales ni secretos.
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
@@ -8,36 +8,36 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: fb1c31e6e7c075e20191a4e51d7b1a9323f3b979
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/05/2018
+ms.openlocfilehash: 2964869933dd096b96e892cf08b8d4b66a8f210c
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973973"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817065"
 ---
-# <a name="access-resources-and-authenticate-as-managed-identities-in-azure-logic-apps"></a>Acceso a recursos y autenticación como identidades administradas en Azure Logic Apps
+# <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticación y acceso a los recursos con identidades administradas en Azure Logic Apps
 
-Para obtener acceso a los recursos de otros inquilinos de Azure Active Directory (Azure AD) y autenticar la identidad sin iniciar sesión, puede crear una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) que la aplicación lógica usará en lugar de sus credenciales. Azure administra esta identidad y le ayuda a proteger las credenciales porque de esta forma no tiene que proporcionar secretos o cambiarlos. En este artículo se muestra cómo crear y usar una identidad administrada para la aplicación lógica. Para más información, consulte [Administrar identidades para los recursos de Azure](../app-service/app-service-managed-service-identity.md).
+Para obtener acceso a los recursos en otros inquilinos de Azure Active Directory (Azure AD) y autenticar su identidad sin iniciar sesión, su aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocida como Managed Service Identity o MSI), en lugar de credenciales o secretos. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. En este artículo se muestra cómo crear y usar una identidad administrada asignada por el sistema para la aplicación lógica. Para obtener más información sobre las identidades administradas, consulte [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> Managed Identities for Azure Resources es el nombre por el que ahora se conoce al servicio Managed Service Identity (MSI).
+> Actualmente, puede tener hasta 10 flujos de trabajo de la aplicación lógica con las identidades administradas asignadas por el sistema en cada suscripción a Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure, si no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
-* La aplicación lógica en la que desea usar la identidad administrada. Si no tiene una aplicación lógica, consulte [Creación del primer flujo de trabajo de aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* La aplicación lógica en la que quiere usar la identidad administrada asignada por el sistema. Si no tiene una aplicación lógica, consulte [Creación del primer flujo de trabajo de aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-identity"></a>
 
 ## <a name="create-managed-identity"></a>Creación de una identidad administrada
 
-Puede crear o habilitar una identidad administrada para la aplicación lógica mediante Azure Portal, las plantillas de Azure Resource Manager o Azure PowerShell. 
+Puede crear o habilitar una identidad administrada asignada por el sistema para la aplicación lógica mediante Azure Portal, las plantillas de Azure Resource Manager o Azure PowerShell. 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Para crear una identidad administrada para la aplicación lógica mediante Azure Portal, active el valor **Registrar en Azure Active Directory** en la configuración del flujo de trabajo de la aplicación lógica.
+Para habilitar una identidad administrada asignada por el sistema para la aplicación lógica mediante Azure Portal, active el valor **Registrar en Azure Active Directory** en la configuración del flujo de trabajo de la aplicación lógica.
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
@@ -52,29 +52,27 @@ Para crear una identidad administrada para la aplicación lógica mediante Azure
 
       ![Activación del valor de identidad administrada](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-      Azure muestra ahora estas propiedades y valores para la identidad administrada de la aplicación lógica:
+      La aplicación lógica ahora tiene una identidad administrada asignada por el sistema registrada en Azure Active Directory con estas propiedades y valores:
 
-      ![GUID del identificador de entidad y del identificador del inquilino](./media/create-managed-service-identity/principal-tenant-id.png)
+      ![GUID del identificador de la entidad de seguridad y del identificador del inquilino](./media/create-managed-service-identity/principal-tenant-id.png)
 
       | Propiedad | Valor | DESCRIPCIÓN | 
       |----------|-------|-------------| 
-      | **Identificador de entidad de seguridad** | <*principal-ID-GUID*> | Un identificador único global (GUID) que representa la aplicación lógica en un inquilino de Azure AD | 
-      | **Id. de inquilino** | <*Azure-AD-tenant--ID-GUID*> | Un identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica es ahora miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la instancia de aplicación lógica. | 
+      | **Identificador de entidad de seguridad** | <*principal-ID*> | Un identificador único global (GUID) que representa la aplicación lógica en un inquilino de Azure AD | 
+      | **Id. de inquilino** | <*Azure-AD-tenant-ID*> | Un identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica es ahora miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la instancia de aplicación lógica. | 
       ||| 
 
 ### <a name="deployment-template"></a>Plantilla de implementación
 
-Para automatizar la creación e implementación de los recursos de Azure como las aplicaciones lógicas, puede configurar plantillas de Azure Resource Manager. Para más información consulte [Creación e implementación de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). 
-
-Para crear una identidad administrada para la aplicación lógica mediante una plantilla, agregue el elemento **identity** y la propiedad **type** a la definición del flujo de trabajo de la aplicación lógica en la plantilla de implementación. Estos valores indican que Azure crea y administra esta identidad para la aplicación lógica:
+Si quiere automatizar la creación e implementación de los recursos de Azure, como las aplicaciones lógicas, puede usar [plantillas de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). Para crear una identidad administrada asignada por el sistema para su aplicación lógica mediante una plantilla, agregue el elemento `"identity"` y la propiedad `"type"` a la definición del flujo de trabajo de la aplicación lógica en la plantilla de implementación: 
 
 ```json
 "identity": {
-    "type": "SystemAssigned"
+   "type": "SystemAssigned"
 }
 ```
 
-Para ver un ejemplo, la aplicación lógica podría parecerse a esta versión:
+Por ejemplo: 
 
 ```json
 {
@@ -88,14 +86,14 @@ Para ver un ejemplo, la aplicación lógica podría parecerse a esta versión:
    "properties": { 
       "definition": { 
          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#", 
-          "actions": {}, 
-          "parameters": {}, 
-          "triggers": {}, 
-          "contentVersion": "1.0.0.0", 
-          "outputs": {} 
-     }, 
-     "parameters": {}, 
-     "dependsOn": [] 
+         "actions": {}, 
+         "parameters": {}, 
+         "triggers": {}, 
+         "contentVersion": "1.0.0.0", 
+         "outputs": {} 
+   }, 
+   "parameters": {}, 
+   "dependsOn": [] 
 }
 ```
 
@@ -103,25 +101,50 @@ Cuando Azure crea la aplicación lógica, la definición de flujo de trabajo de 
 
 ```json
 "identity": {
-    "type": "SystemAssigned",
-    "principalId": "<principal-ID-GUID>",
-    "tenantId": "<Azure-AD-tenant-ID>-GUID"
+   "type": "SystemAssigned",
+   "principalId": "<principal-ID>",
+   "tenantId": "<Azure-AD-tenant-ID>"
 }
 ```
 
 | Propiedad | Valor | DESCRIPCIÓN | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID-GUID*> | Un identificador único global (GUID) que representa la aplicación lógica en el inquilino de Azure AD | 
-| **tenantId** | <*Azure-AD-tenant--ID-GUID*> | Un identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica es ahora miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la instancia de aplicación lógica. | 
+| **principalId** | <*principal-ID*> | Un identificador único global (GUID) que representa la aplicación lógica en el inquilino de Azure AD | 
+| **tenantId** | <*Azure-AD-tenant-ID*> | Un identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica es ahora miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la instancia de aplicación lógica. | 
 ||| 
 
 <a name="access-other-resources"></a>
 
 ## <a name="access-resources-with-managed-identity"></a>Acceso a recursos con la identidad administrada
 
-Después de crear una identidad administrada para la aplicación lógica, puede [proporcionar a dicha identidad acceso a otros recursos](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). A continuación, puede usar esa identidad administrada para la autenticación, como cualquier otra [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md). 
+Después de crear una identidad administrada asignada por el sistema para la aplicación lógica, puede [proporcionar a dicha identidad acceso a otros recursos de Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). A continuación, puede usar esa identidad para la autenticación, como cualquier otra [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md). 
 
-Por ejemplo, supongamos que ya ha configurado una aplicación lógica con una identidad administrada que tenga acceso a otro recurso. Ahora puede agregar una acción HTTP para que la aplicación lógica pueda enviar una solicitud HTTP o llamada a ese recurso. 
+> [!NOTE]
+> La identidad administrada asignada por el sistema y el recurso en el que quiere asignar acceso deben tener la misma suscripción a Azure.
+
+### <a name="assign-access-to-managed-identity"></a>Asignación de acceso a la identidad administrada
+
+Para proporcionar acceso a otro recurso de Azure para la identidad administrada asignada por el sistema de la aplicación lógica, siga estos pasos:
+
+1. En Azure Portal, vaya al recurso de Azure en el que quiere asignar acceso para la identidad administrada. 
+
+1. En el menú del recurso, seleccione **Control de acceso (IAM)** y elija **Agregar**. 
+
+   ![Adición de permisos](./media/create-managed-service-identity/add-permissions-logic-app.png)
+
+1. En **Agregar permisos**, seleccione el **rol** que quiera para la identidad. 
+
+1. En la propiedad **Asignar acceso a**, seleccione la opción **Usuario, grupo o aplicación de Azure AD**, si aún no está seleccionada.
+
+1. En el cuadro **Seleccionar**, escriba el nombre de la aplicación lógica empezando por el primer carácter del nombre de la aplicación lógica. Cuando aparezca la aplicación lógica, selecciónela.
+
+   ![Selección de la aplicación lógica con la identidad administrada](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
+
+1. Cuando termine, seleccione **Guardar**.
+
+### <a name="authenticate-with-managed-identity-in-logic-app"></a>Autenticación con una identidad administrada en la aplicación lógica
+
+Después de configurar la aplicación lógica con una identidad administrada asignada por el sistema y de asignar acceso al recurso que quiere para esa identidad, puede usar dicha identidad para la autenticación. Por ejemplo, puede usar una acción HTTP para que su aplicación lógica pueda enviar una solicitud HTTP o una llamada a ese recurso. 
 
 1. Agregue la acción **HTTP** a la aplicación lógica. 
 
@@ -139,7 +162,7 @@ Por ejemplo, supongamos que ya ha configurado una aplicación lógica con una id
 
 ## <a name="remove-managed-identity"></a>Eliminación de una identidad administrada
 
-Para deshabilitar una identidad administrada en la aplicación lógica, puede seguir unos pasos similares a los que realizó al crear la identidad mediante Azure Portal, las plantillas de implementación de Azure Resource Manager o Azure PowerShell. 
+Para deshabilitar una identidad administrada asignada por el sistema en la aplicación lógica, puede seguir unos pasos similares a los que realizó al crear la identidad mediante Azure Portal, las plantillas de implementación de Azure Resource Manager o Azure PowerShell. 
 
 Cuando se elimina la aplicación lógica, Azure quita automáticamente de Azure AD la identidad asignada por el sistema a la aplicación lógica.
 
@@ -159,11 +182,11 @@ Cuando se elimina la aplicación lógica, Azure quita automáticamente de Azure 
 
 ### <a name="deployment-template"></a>Plantilla de implementación
 
-Si ha creado la identidad administrada de la aplicación lógica con una plantilla de implementación de Azure Resource Manager, establezca la propiedad `"type"` elemento `"identity"` en `"None"`. Esta acción también elimina el identificador de entidad de seguridad de Azure AD. 
+Si ha creado la identidad administrada asignada por el sistema de la aplicación lógica con una plantilla de implementación de Azure Resource Manager, establezca la propiedad `"type"` del elemento `"identity"` en `"None"`. Esta acción también elimina el identificador de entidad de seguridad de Azure AD. 
 
 ```json
 "identity": {
-    "type": "None"
+   "type": "None"
 }
 ```
 
@@ -171,3 +194,4 @@ Si ha creado la identidad administrada de la aplicación lógica con una plantil
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+
