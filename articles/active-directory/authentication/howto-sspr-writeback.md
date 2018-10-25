@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295825"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801937"
 ---
 # <a name="how-to-configure-password-writeback"></a>Cómo configurar la escritura diferida de contraseñas
 
@@ -34,6 +34,12 @@ En los pasos siguientes se da por supuesto que ya ha configurado Azure AD Connec
 8. Cuando finalice la configuración, seleccione **Salir**.
 
 Para tareas de solución de problemas comunes relacionadas con la escritura diferida de contraseñas, consulte la sección [Solución de problemas con la escritura diferida de contraseñas](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) en nuestro artículo de solución de problemas.
+
+> [!WARNING]
+> La escritura diferida de contraseñas dejará de funcionar para los clientes que usan versiones de Azure AD Connect 1.0.8641.0 y anteriores cuando el [servicio de Azure Access Control (ACS) se retire el 7 de noviembre de 2018](../develop/active-directory-acs-migration.md). Las versiones de Azure AD Connect 1.0.8641.0 y anteriores ya no permitirán la escritura diferida de contraseñas a partir de ese momento porque dependen de ACS para esa funcionalidad.
+>
+> Para evitar una interrupción en el servicio y actualizar desde una versión anterior de Azure AD Connect a una versión más reciente, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 ## <a name="active-directory-permissions"></a>Permisos de Active Directory
 
@@ -67,7 +73,7 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 4. En la pestaña **Permisos**, haga clic en **Agregar**.
 5. Elija la cuenta a la que se van a aplicar los permisos (en el programa de instalación de Azure AD Connect).
 6. En la lista desplegable **Se aplica a**, seleccione **Descendent User objects** (Objetos de usuario descendiente).
-7. En **Permisos**, active las casillas para los siguientes elementos:
+7. En **Permisos**, active las casillas para las siguientes opciones:
     * **Restablecimiento de contraseñas**
     * Haga clic en **Cambiar contraseña**.
     * **Escribir lockoutTime**

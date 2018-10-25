@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cfca7361831734baaf150b3e19b14c7dc88def36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176982"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043676"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuración del modo de distribución de Azure Load Balancer
 
@@ -48,7 +48,15 @@ Otro escenario de caso de uso es la carga de elementos multimedia. La carga de d
 
 ## <a name="configure-source-ip-affinity-settings"></a>Configuración de la afinidad de IP de origen
 
-En las máquinas virtuales, utilice Azure PowerShell para cambiar la configuración de tiempo de espera. Agregue un punto de conexión de Azure a una máquina virtual y configure el modo de distribución del equilibrador de carga:
+En máquinas virtuales implementadas con Resource Manager, use PowerShell para cambiar la configuración de distribución del equilibrador de carga en una regla de equilibrio de carga existente. De esta forma se actualiza el modo de distribución: 
+
+```powershell 
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
+Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```
+
+En máquinas virtuales clásicas, use Azure PowerShell para cambiar la configuración de distribución. Agregue un punto de conexión de Azure a una máquina virtual y configure el modo de distribución del equilibrador de carga:
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM

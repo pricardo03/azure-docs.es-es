@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6da81ab90a87285f9e1874e3f10eff4570124192
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930297"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344020"
 ---
 # <a name="start-and-stop-azure-stack"></a>Inicio y detención de Azure Stack
 Siga los procedimientos que se describen en este artículo para detener y reiniciar los servicios de Azure Stack correctamente. El apagado apagará físicamente la totalidad del entorno de Azure Stack. El inicio activa todos los roles de infraestructura y devuelve los recursos del inquilino al estado de energía en el que se encontraban antes del apagado.
@@ -90,4 +90,4 @@ Siga los pasos que se indican a continuación en caso de que los servicios de in
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-Para más información sobre la herramienta de diagnóstico de Azure Stack y el registro de problemas, consulte [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md).
+Más información sobre las [herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md)

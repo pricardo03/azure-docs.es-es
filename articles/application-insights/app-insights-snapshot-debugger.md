@@ -10,21 +10,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2018
+ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 6dd39fddd99f5f8ea9329f21c271ed4c1063362d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144132"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078977"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 
 Cuando se produce una excepción, puede recopilar automáticamente una instantánea de depuración desde la aplicación web activa. La instantánea muestra el estado del código fuente y las variables en el momento en que se produjo la excepción. El depurador de instantáneas (versión preliminar) de [Azure Application Insights](app-insights-overview.md) supervisa la telemetría de excepciones de su aplicación web. Recopila instantáneas de las excepciones más importantes con el fin de que tenga la información necesaria para diagnosticar problemas en producción. Incluya el [paquete NuGet del recopilador de instantáneas](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación y, opcionalmente, configure los parámetros de recopilación en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Las instantáneas aparecen en [excepciones](app-insights-asp-net-exceptions.md) en el portal de Application Insights.
 
 Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Para obtener una experiencia de depuración más eficaz con el código fuente, abra las instantáneas con Visual Studio Enterprise de 2017 [descargando la extensión del depurador de instantáneas para Visual Studio](https://aka.ms/snapshotdebugger). En Visual Studio también puede [establecer puntos de acoplamiento para tomar instantáneas de forma interactiva](https://aka.ms/snappoint) sin tener que esperar una excepción.
+
+Las instantáneas de depuración se guardan durante siete días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
 
 La recopilación de instantáneas está disponible para:
 * Aplicaciones de .NET Framework y ASP.NET que ejecuten .NET Framework 4.5 o posterior.
@@ -191,9 +193,12 @@ Se admiten los siguientes entornos:
 
 ## <a name="grant-permissions"></a>Concesión de permisos
 
-Los propietarios de la suscripción de Azure pueden inspeccionar instantáneas. Otros usuarios deben obtener permiso de un propietario.
+El acceso a las instantáneas está protegido por el control de acceso basado en rol (RBAC). Para poder inspeccionar una instantánea, el propietario de la suscripción debe agregarle primero al rol necesario.
 
-Para conceder permiso, asigne el rol `Application Insights Snapshot Debugger` a los usuarios que inspeccionarán instantáneas. Los propietarios de suscripción pueden asignar este rol a usuarios individuales o grupos en el recurso de Application Insights de destino o en su grupo de recursos o suscripción.
+> [!NOTE]
+> Los propietarios y los colaboradores no tienen automáticamente este rol. Si desean ver las instantáneas, se deben agregar a sí mismos al rol.
+
+Los propietarios de la suscripción deben asignar el rol `Application Insights Snapshot Debugger` a los usuarios que van a inspeccionar las instantáneas. Los propietarios de suscripción pueden asignar este rol a usuarios individuales o grupos en el recurso de Application Insights de destino o en su grupo de recursos o suscripción.
 
 1. Vaya al recurso de Application Insights en Azure Portal.
 1. Haga clic en **Access Control (IAM)**.

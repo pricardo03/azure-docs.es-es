@@ -2,34 +2,32 @@
 title: Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB | Microsoft Docs
 description: En este artículo se describe cómo ordenar y registrar los eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB para mantener el estado de conexión más reciente
 services: iot-hub
-documentationcenter: ''
-author: ash2017
-manager: briz
-editor: ''
 ms.service: iot-hub
+author: ash2017
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: dd3c750e93646624e46c46afd871ef75af905bf0
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 02fc47200157b813da4d0031effa39633719855d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145436"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340212"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
 Azure Event Grid le ayuda a compilar aplicaciones basadas en eventos y a integrar fácilmente eventos de IoT en sus soluciones empresariales. En este artículo se describe una configuración que se puede usar para realizar un seguimiento y almacenar el estado de conexión de dispositivo más reciente en Cosmos DB. Se usará el número de secuencia disponible en los eventos de dispositivo conectado y de dispositivo desconectado, y se almacenará el estado más reciente en Cosmos DB. Se va a usar un procedimiento almacenado, que es una lógica de aplicación que se ejecuta en una colección de Cosmos DB.
 
-El número de secuencia es una representación de cadena de un número hexadecimal. Puede usar la comparación de cadenas para identificar el número más grande. Si va a convertir la cadena a hexadecimal, el número será un número de 256 bits. El número de secuencia es estrictamente ascendente por lo que el registro más reciente tendrá un número mayor que el de los otros eventos. Esto resulta útil si tiene conexiones y desconexiones frecuentes de dispositivo y quiere asegurarse de que solo el evento más reciente se usa para desencadenar una acción de nivel inferior, ya que Azure Event Grid no admite la ordenación de eventos.
+El número de secuencia es una representación de cadena de un número hexadecimal. Puede usar la comparación de cadenas para identificar el número más grande. Si va a convertir la cadena a hexadecimal, el número será de 256 bits. El número de secuencia es estrictamente ascendente por lo que el registro más reciente tendrá un número mayor que el de los otros eventos. Esto resulta útil si tiene conexiones y desconexiones frecuentes de dispositivo y quiere asegurarse de que solo el evento más reciente se usa para desencadenar una acción de nivel inferior, ya que Azure Event Grid no admite la ordenación de eventos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede [crear una gratis](http://azure.microsoft.com/pricing/free-trial/).
+
 * Una cuenta activa de la API de SQL de Azure Cosmos DB. Si aún no la ha creado, consulte [Creación de una cuenta de base de datos](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) para ver un tutorial.
+
 * Una colección en la base de datos. Consulte [Incorporación de una colección](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection) para ver un tutorial.
+
 * Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md). 
 
 ## <a name="create-a-stored-procedure"></a>Creación de un procedimiento almacenado
@@ -144,7 +142,8 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
    ![Creación de la aplicación lógica](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
 2. Asigne un nombre a la aplicación lógica que sea único en su suscripción; a continuación, seleccione la misma suscripción, el grupo de recursos y la ubicación en que se encuentra la instancia de IoT Hub. 
-3. Cuando esté listo, elija **Anclar al panel** y elija **Crear**.
+
+3. Elija **Anclar al panel** y **Crear**.
 
    Ahora ha creado un recurso de Azure para la aplicación lógica. Después de que Azure implemente la aplicación lógica, el Diseñador de aplicaciones lógicas muestra plantillas de patrones comunes de modo que pueda empezar con mayor rapidez.
 
@@ -158,13 +157,14 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 Un desencadenador es un evento específico que inicia la aplicación lógica. Para este tutorial, el desencadenador que activa el flujo de trabajo recibe una solicitud a través de HTTP.  
 
 1. En la barra de búsqueda de conectores y desencadenadores, escriba **HTTP**.
+
 2. Seleccione **Solicitud: Cuando se recibe una solicitud HTTP** como desencadenador. 
 
    ![Selección del desencadenador de solicitud HTTP](./media/iot-hub-how-to-order-connection-state-events/http-request-trigger.png)
 
 3. Seleccione **Usar una carga de ejemplo para generar el esquema**. 
 
-   ![Selección del desencadenador de solicitud HTTP](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
+   ![Use una carga de ejemplo para generar el esquema](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
 
 4. Pegue el siguiente código JSON de ejemplo en el cuadro de texto y después seleccione **Listo**:
 
@@ -194,13 +194,14 @@ Un desencadenador es un evento específico que inicia la aplicación lógica. Pa
 
 ### <a name="create-a-condition"></a>Creación de una condición
 
-Las condiciones ayudan a ejecutar acciones concretas cuando se produce una condición específica en el flujo de trabajo de la aplicación lógica. Una vez que se cumple la condición, se puede definir una acción deseada. En este tutorial, la condición es comprobar si eventType es Dispositivo conectado o Dispositivo desconectado. La acción consiste en ejecutar el procedimiento almacenado en la base de datos. 
+En el flujo de trabajo de la aplicación lógica, las condiciones ayudan a ejecutar acciones concretas cuando se produce una condición específica. Una vez que se cumple la condición, se puede definir una acción deseada. En este tutorial, la condición es comprobar si eventType es Dispositivo conectado o Dispositivo desconectado. La acción consiste en ejecutar el procedimiento almacenado en la base de datos. 
 
 1. Seleccione **Nuevo paso** y, a continuación, **Integraciones** y **Condición**. 
 
 2. Rellene la condición como se muestra a continuación para que solo se ejecute en caso de eventos de Dispositivo conectado y Dispositivo desconectado:
+
   * Elija un valor: **eventType**
-  * El cambio es igual a **termina con**
+  * Cambie "es igual a" por **termina con**
   * Elija un valor: **nected**
 
    ![Rellenar condición](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
@@ -221,9 +222,10 @@ Las condiciones ayudan a ejecutar acciones concretas cuando se produce una condi
 
 ### <a name="copy-the-http-url"></a>Copia de la dirección URL HTTP
 
-Antes de cerrar el Diseñador de Logic Apps, copie la dirección URL en la que se realizan las escuchas de un desencadenador de las aplicaciones lógicas. Use esta dirección URL para configurar Event Grid. 
+Antes de cerrar el Diseñador de aplicaciones lógicas, copie la dirección URL en la que se realizan las escuchas de un desencadenador de aplicación lógica. Use esta dirección URL para configurar Event Grid. 
 
 1. Haga clic en el cuadro de configuración del desencadenador **Cuando se recibe una solicitud HTTP** para expandirlo. 
+
 2. Seleccione el botón de copia que se encuentra junto al valor **Dirección URL de HTTP POST** para copiarlo. 
 
    ![Copia de la dirección URL de HTTP POST](./media/iot-hub-how-to-order-connection-state-events/copy-url.png)
@@ -235,6 +237,7 @@ Antes de cerrar el Diseñador de Logic Apps, copie la dirección URL en la que s
 En esta sección, va a configurar IoT Hube para publicar eventos cuando se produzcan. 
 
 1. En Azure Portal, navegue hasta el centro de IoT. 
+
 2. Seleccione **Eventos**.
 
    ![Abrir los detalles de Event Grid](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
@@ -244,26 +247,34 @@ En esta sección, va a configurar IoT Hube para publicar eventos cuando se produ
    ![Crear una suscripción de eventos](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
 4. Cree la suscripción de eventos con los siguientes valores: 
+
    * **Tipo de evento**: desactive la opción Suscribirse a todos los tipos de evento y seleccione **Dispositivo conectado** y **Dispositivo desconectado** en el menú.
+
    * **Detalles de punto de conexión**: en Tipo de punto de conexión, seleccione **Webhook**, haga clic en Seleccionar punto de conexión y pegue la dirección URL que copió de la aplicación lógica y confirme la selección.
 
-   ![seleccionar dirección URL de punto de conexión](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+       ![seleccionar dirección URL de punto de conexión](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Detalles de suscripciones de eventos**: especifique un nombre descriptivo y seleccione **Esquema de Event Grid**. Una vez realizadas las acciones anteriores, el formulario debe tener un aspecto similar al del ejemplo siguiente: 
+   * **Detalles de suscripciones de eventos**: especifique un nombre descriptivo y seleccione **Esquema de Event Grid**.
+   El formulario es similar al del siguiente ejemplo: 
 
-   ![Formulario de ejemplo de suscripción de eventos](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
+       ![Formulario de ejemplo de suscripción de eventos](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
 5. Seleccione **Crear** para guardar la suscripción de eventos.
 
 ## <a name="observe-events"></a>Observación de eventos
+
 Ahora que la suscripción de eventos se ha configurado, vamos a probar a conectar un dispositivo.
 
 ### <a name="register-a-device-in-iot-hub"></a>Registro de un dispositivo en IoT Hub
 
 1. En IoT Hub, seleccione **Dispositivos IoT**. 
+
 2. Seleccione **Agregar**.
+
 3. En **Id. de dispositivo**, escriba `Demo-Device-1`.
+
 4. Seleccione **Guardar**. 
+
 5. Puede agregar varios dispositivos con distintos identificadores de dispositivo.
 
    ![Resultado del procedimiento](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
@@ -278,7 +289,8 @@ Ahora que la suscripción de eventos se ha configurado, vamos a probar a conecta
 
 [Iniciar simulador de Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
-### <a name="run-a-sample-applciation-on-the-raspberry-pi-web-simulator"></a>Ejecución de una aplicación de ejemplo en el simulador web de Raspberry Pi
+### <a name="run-a-sample-application-on-the-raspberry-pi-web-simulator"></a>Ejecución de una aplicación de ejemplo en el simulador web de Raspberry Pi
+
 Esto desencadenará un evento de dispositivo conectado.
 
 1. En el área de codificación, reemplace el marcador de posición de la línea 15 con la cadena de conexión del dispositivo de Azure IoT Hub.
@@ -297,13 +309,13 @@ Ahora ya ha ejecutado una aplicación de ejemplo para recopilar datos de un sens
 
 ### <a name="observe-events-in-cosmos-db"></a>Observación de eventos en Cosmos DB
 
-Puede ver los resultados del procedimiento almacenado ejecutado en el documento de Cosmos DB. Este es su aspecto. Observe que cada fila contiene el estado de conexión de dispositivo más reciente por cada dispositivo
+Puede ver los resultados del procedimiento almacenado ejecutado en el documento de Cosmos DB. Se ven de la siguiente forma. Cada fila contiene el estado de conexión de dispositivo más reciente por cada dispositivo.
 
    ![Resultado del procedimiento](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
-En lugar de usar Azure Portal, puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](https://docs.microsoft.com/cli/azure/iot/device).
+En lugar de usar [Azure Portal](http://portal.azure.com), puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](https://docs.microsoft.com/cli/azure/iot/device).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -312,17 +324,21 @@ En este tutorial se usaron recursos que generan gastos en su suscripción de Azu
 Si no desea perder el trabajo realizado en la aplicación lógica, deshabilítela en lugar de eliminarla. 
 
 1. Vaya a la aplicación lógica.
-2. En la hoja **Introducción**, seleccione **Eliminar** o **Deshabilitar**. 
+
+2. En la hoja **Información general**, seleccione **Eliminar** o **Deshabilitar**. 
 
 Cada suscripción solo puede tener una instancia de IoT Hub gratuita. Si creó una instancia de IoT Hub gratis para este tutorial, no es necesario eliminarla para evitar cargos.
 
 1. Vaya a su instancia de IoT Hub. 
-2. En la página **Introducción**, seleccione **Eliminar**. 
+
+2. En la página **Información general**, seleccione **Eliminar**. 
 
 Aunque conserve la instancia de IoT Hub, puede que desee eliminar la suscripción de eventos que creó. 
 
 1. En la instancia de IoT Hub, seleccione **Event Grid**.
+
 2. Seleccione la suscripción de eventos que desea eliminar. 
+
 3. Seleccione **Eliminar**. 
 
 Para quitar una cuenta de Azure Cosmos DB de Azure Portal, haga clic con el botón derecho en el nombre de la cuenta y haga clic en **Eliminar cuenta**. Consulte las instrucciones detalladas para [eliminar una cuenta de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
@@ -330,7 +346,9 @@ Para quitar una cuenta de Azure Cosmos DB de Azure Portal, haga clic con el bot�
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre [reacción a eventos de IoT Hub mediante Event Grid para desencadenar acciones](../iot-hub/iot-hub-event-grid.md).
+
 * [Pruebe el tutorial de eventos de IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+
 * Obtenga información sobre qué más puede hacer con [Event Grid](../event-grid/overview.md).
 
 

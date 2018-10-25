@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: e7ed0049e64a7740063f2fab7bdfddff38d45ed9
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287717"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269418"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Aceleración de análisis de macrodatos mediante el conector de Apache Spark a Azure Cosmos DB
  
@@ -83,7 +83,7 @@ Ejecute estos pasos para conectar Spark con Azure Cosmos DB mediante el SDK de p
 
 6. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre descriptivo y elija **Python** como lenguaje. En la lista desplegable, seleccione el clúster que creó anteriormente y seleccione **Create** (Crear).  
 
-7. Ejecute algunas consultas de Spark con los datos de ejemplo de vuelos hospedados en la cuenta de Azure Cosmos DB "doctorwho". (Esta cuenta es de acceso público). El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda la versión HTML del cuaderno. Descargue los archivos del repositorio y vaya a `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. Puede importar el cuaderno a su cuenta de Azure Databricks y ejecutarlo. En la sección siguiente se explica detalladamente la funcionalidad de los bloques de código.
+7. Ejecute algunas consultas de Spark con los datos de ejemplo de vuelos hospedados en la cuenta "doctorwho" de Azure Cosmos DB. (Esta cuenta es de acceso público). El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda la versión HTML del cuaderno. Descargue los archivos del repositorio y vaya a `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. Puede importar el cuaderno a su cuenta de Azure Databricks y ejecutarlo. En la sección siguiente se explica detalladamente la funcionalidad de los bloques de código.
 
 El fragmento de código siguiente muestra la importancia del SDK de pyDocumentDB y cómo ejecutar una consulta en el contexto de Spark. Como se indica en el fragmento de código, el SDK de pyDocumentDB contiene los parámetros de conexión necesarios para conectarse a la cuenta de Azure Cosmos DB. Importa las bibliotecas necesarias, y configura la clave maestra y el host para crear el cliente de Azure Cosmos DB (pydocumentdb.document_client).
 
@@ -123,7 +123,7 @@ querystr = "SELECT c.City FROM c WHERE c.State='WA'"
 
 ```
 
-Después de ejecutar la consulta, el resultado es “query_iterable.QueryIterable” que se convierte en una lista Python. Esta lista, a su vez, se convierte en una trama de datos de Spark. 
+Después de ejecutar la consulta, el resultado es "query_iterable.QueryIterable" que se convierte en una lista Python. Esta lista, a su vez, se convierte en una trama de datos de Spark. 
 
 ```python
 # Query documents
@@ -179,7 +179,7 @@ La comunicación entre Spark y Azure Cosmos DB es mucho más rápida porque el m
 
 4. Extraiga el contenido del ejemplo de fuente de Twitter y abra el archivo config.py. Actualice los valores de masterKey, host, databaseId, collectionId y preferredLocations.  
 
-5. Vaya a `http://apps.twitter.com/` y registre el script de la fuente de Twitter como una aplicación nueva. Después de elegir un nombre y una aplicación para la aplicación, recibirá una **clave de consumidor, secreto de consumidor, token de acceso y secreto de token de acceso**. Copie estos valores y actualícelos en el archivo config.py para proporcionar acceso mediante programación a la aplicación para Twitter.   
+5. Vaya a `http://apps.twitter.com/` y registre la aplicación de fuente de Twitter. Después de elegir un nombre para la aplicación, recibirá una **clave de consumidor, un secreto de consumidor, un token de acceso y un secreto de token de acceso**. Copie estos valores y actualícelos en el archivo config.py para proporcionar a la aplicación de fuente de Twitter el acceso mediante programación a Twitter.   
 
 6. Guarde el archivo config.py. Abra un símbolo del sistema y ejecute la aplicación de Python mediante el comando siguiente:
 

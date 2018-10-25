@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 10/08/2018
 ms.author: juliako
-ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 27f24d588cf1cac5f580a41cc0901a8907b66652
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985650"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884297"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examen de la salida de Video Indexer producida por la API v2
 
@@ -332,7 +332,7 @@ Ejemplo:
 |Nombre|Descripción|
 |---|---|
 |id|Identificador del rostro.|
-|name|Nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
+|Nombre|Nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
 |confidence|Confidencialidad de la identificación facial.|
 |description|Descripción de la celebridad. |
 |thumbnalId|Identificador de la miniatura del rostro en cuestión.|

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732456"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584173"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -139,7 +139,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
     
     - Cargar los archivos de diario que creó con anterioridad en [Paso 1: Preparación de las unidades de disco](#step-1-prepare-the-drives). 
     - Seleccione la cuenta de almacenamiento en la que se importarán los datos. 
-    - La ubicación de la entrega se rellena automáticamente según la región de la cuenta de almacenamiento seleccionada.
+    - La ubicación de llegada se rellena automáticamente según la región de la cuenta de almacenamiento seleccionada.
    
        ![Creación del trabajo de importación: Paso 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

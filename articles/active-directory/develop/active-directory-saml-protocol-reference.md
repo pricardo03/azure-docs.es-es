@@ -1,5 +1,5 @@
 ---
-title: Referencia del protocolo SAML de Azure AD | Microsoft Docs
+title: Uso del protocolo SAML por parte de Azure AD | Microsoft Docs
 description: En este artículo se proporciona información general de los perfiles SAML de inicio y cierre de sesión único de Azure Active Directory.
 services: active-directory
 documentationcenter: .net
@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 067924294838459c866a0603ab092d139f1e6331
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.reviewer: hirsin
+ms.openlocfilehash: b9ae7cf9d6fd383c7cdfa3957b5d9b94c7207d50
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579238"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900662"
 ---
-# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Cómo Azure Active Directory usa el protocolo SAML
+# <a name="how-azure-ad-uses-the-saml-protocol"></a>Uso del protocolo SAML por parte de Azure AD
+
 Azure Active Directory (Azure AD) utiliza el protocolo SAML 2.0 para permitir que las aplicaciones ofrezcan una experiencia de inicio de sesión único a sus usuarios. Los perfiles SAML de [inicio](single-sign-on-saml-protocol.md) y [cierre de sesión único](single-sign-out-saml-protocol.md) de Azure AD explican cómo se usan las aserciones, los protocolos y los enlaces SAML en el servicio de proveedor de identidades.
 
 El protocolo SAML requiere que el proveedor de identidades (Azure AD) y el proveedor de servicios (la aplicación) intercambien información sobre sí mismos.

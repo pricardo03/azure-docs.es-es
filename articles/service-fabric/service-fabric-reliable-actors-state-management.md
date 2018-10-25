@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 3cab4d87eacc7bce17da64cda213086c262179a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206205"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041174"
 ---
 # <a name="reliable-actors-state-management"></a>Administración de estado de Reliable Actors
 Reliable Actors son objetos uniproceso que encapsulan la lógica y el estado. Como los actores se ejecutan en Reliable Services, pueden mantener el estado de forma confiable con los mismos mecanismos de persistencia y replicación. De este modo, los actores no pierden su estado después de los errores, cuando se reactivan después de la recolección de elementos no utilizados o cuando se mueven entre los nodos de un clúster debido un equilibrio de los recursos o actualizaciones.
@@ -121,7 +121,7 @@ A continuación se incluyen diversas prácticas recomendadas y sugerencias de re
 Esto es fundamental para el rendimiento y el uso de recursos de la aplicación. Siempre que se escriba o se actualice el "estado con nombre" de un actor, todo el valor correspondiente a ese "estado con nombre" se serializa y se envía a través de la red a las réplicas secundarias.  Los servidores secundarios lo escriben en el disco local y responden a la réplica principal. Cuando la principal recibe confirmaciones de un cuórum de réplicas secundarias, escribe el estado en su disco local. Por ejemplo, suponga que el valor es una clase que tiene 20 miembros y un tamaño de 1 MB. Incluso si solo modifica uno de los miembros de la clase con un tamaño de 1 KB, acabará por pagar el costo de la serialización y las escrituras de disco y red para 1 MB completo. Del mismo modo, si el valor es una colección (como una lista, matriz o diccionario), paga el costo por toda la colección incluso si solo modifica uno de sus miembros. La interfaz de StateManager de la clase de actor es como un diccionario. Siempre se debe modelar la estructura de datos que representa el estado de actor sobre este diccionario.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Administrar correctamente el ciclo de vida del actor
-Debe tener una directiva clara acerca de cómo administrar el tamaño del estado en cada partición de un servicio de actor. El servicio de actor debería tener un número fijo de actores que debe volver a utilizar tanto como sea posible. Si crea continuamente nuevos actores, debe eliminarlos una vez que hayan terminado su trabajo. La plataforma de actores almacena algunos metadatos sobre cada actor que existe. La eliminación de todo el estado de un actor no elimina los metadatos sobre ese actor. Debe eliminar el actor (consulte cómo [eliminar actores y su estado](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) para eliminar toda la información sobre dicho actor almacenada en el sistema. Como comprobación adicional, debe consultar el servicio de actor (consulte [Enumeración de los actores](service-fabric-reliable-actors-platform.md)) cada cierto tiempo para asegurarse de que el número de actores está dentro del rango esperado.
+Debe tener una directiva clara acerca de cómo administrar el tamaño del estado en cada partición de un servicio de actor. El servicio de actor debe tener un número fijo de actores y reutilizarlos tanto como sea posible. Si crea continuamente nuevos actores, debe eliminarlos una vez que hayan terminado su trabajo. La plataforma de actores almacena algunos metadatos sobre cada actor que existe. La eliminación de todo el estado de un actor no elimina los metadatos sobre ese actor. Debe eliminar el actor (consulte cómo [eliminar actores y su estado](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) para eliminar toda la información sobre dicho actor almacenada en el sistema. Como comprobación adicional, debe consultar el servicio de actor (consulte [Enumeración de los actores](service-fabric-reliable-actors-enumerate.md)) cada cierto tiempo para asegurarse de que el número de actores está dentro del intervalo esperado.
  
 Si alguna vez observa que el tamaño del archivo de base de datos de un servicio de actor supera el tamaño previsto, compruebe que se respeten las directrices anteriores. Si sigue estas directrices y aún tiene problemas con el tamaño del archivo de base de datos, debe [abrir una incidencia de soporte técnico](service-fabric-support.md) con el equipo de producto para obtener ayuda.
 

@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 2ce86bee96f22b4079afee3eacbeee7ea15a6ffa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 10/05/2018
+ms.openlocfilehash: 639795824bf75bb99d34f12d4dfc4e0695341986
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226014"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868419"
 ---
-# <a name="copy-an-azure-sql-database"></a>Copiar una base de datos SQL de Azure
+# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos SQL de Azure
 
 Azure SQL Database proporciona varios métodos para crear una copia transaccionalmente coherente de una instancia de Azure SQL Database existente en el mismo servidor o en un servidor diferente. Puede copiar una instancia de SQL Database mediante Azure Portal, PowerShell o T-SQL. 
 

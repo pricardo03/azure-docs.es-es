@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: b8c00795c7777e5485f4725e1da63fc764973f43
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 209152b157ef2cfae872490bcff4f2a7100c3a4d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628937"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339345"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Administración del uso y la facturación para Azure Stack como un proveedor de servicios en la nube 
 
@@ -33,9 +33,9 @@ El siguiente diagrama muestra los pasos que necesita para elegir su cuenta de se
 
 **Pasos para agregar seguimiento de uso como un CSP**
 
-![Proceso para habilitar el uso y la administración como un proveedor de servicios en la nube.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
+[ ![Proceso para habilitar el uso y administración como Proveedor de servicios en la nube](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "Proceso para habilitar el uso y administración como Proveedor de servicios en la nube")](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>Creación de una suscripción de CSP o CSPSS
+## <a name="create-a-csp-or-apss-subscription"></a>Creación de una suscripción de CSP o APSS
 
 ### <a name="cloud-service-provider-subscription-types"></a>Tipos de suscripción del proveedor de servicios en la nube
 
@@ -44,13 +44,13 @@ Tendrá que elegir el tipo de cuenta de servicios compartidos que utiliza para A
  - Proveedor de servicios en la nube 
  - Suscripción de servicios compartidos de asociados 
 
-#### <a name="csp-shared-services"></a>Servicios compartidos de CSP
+#### <a name="azure-partner-shared-services"></a>Servicios compartidos para asociados de Azure
 
-Las suscripciones de los servicios compartidos de proveedor de servicio en la nube (CSPSS) son la opción preferida para el registro cuando un distribuidor de CSP o CSP directo opera en Azure Stack.
+Las suscripciones de los servicios compartidos para asociados de Azure (APSS) son la opción preferida para el registro cuando un distribuidor de CSP o CSP directo opera en Azure Stack.
 
-Las suscripciones de CSPSS están asociadas a un inquilino de servicios compartidos. Cuando se registra Azure Stack, hay que proporcionar credenciales para una cuenta que es propietaria de la suscripción. La cuenta que usa para registrar Azure Stack puede ser diferente de la cuenta de administrador que usa para la implementación. Además, las dos *no* tienen que pertenecer al mismo dominio. En otras palabras, puede realizar la implementación mediante el inquilino que ya usa. Por ejemplo puede usar ContosoCSP.onmicrosoft.com y, después, registrarse con un inquilino diferente, por ejemplo IURContosoCSP.onmicrosoft.com. Deberá recordar que debe iniciar sesión con ContosoCSP.onmicrosoft.com cuando realice la administración diaria de Azure Stack. Cuando inicia sesión en Azure usando IURContosoCSP.onmicrosoft.com cuando necesita hacer operaciones de registro.
+Las suscripciones de APSS están asociadas a un inquilino de servicios compartidos. Cuando se registra Azure Stack, hay que proporcionar credenciales para una cuenta que es propietaria de la suscripción. La cuenta que usa para registrar Azure Stack puede ser diferente de la cuenta de administrador que usa para la implementación. Además, las dos *no* tienen que pertenecer al mismo dominio. En otras palabras, puede realizar la implementación mediante el inquilino que ya usa. Por ejemplo puede usar ContosoCSP.onmicrosoft.com y, después, registrarse con un inquilino diferente, por ejemplo IURContosoCSP.onmicrosoft.com. Deberá recordar que debe iniciar sesión con ContosoCSP.onmicrosoft.com cuando realice la administración diaria de Azure Stack. Cuando inicia sesión en Azure usando IURContosoCSP.onmicrosoft.com cuando necesita hacer operaciones de registro.
 
-Consulte lo siguiente para obtener una descripción de las suscripciones de CSPSS, así como instrucciones sobre cómo crear una suscripción en [Adición de servicios compartidos para partners de Azure](https://msdn.microsoft.com/partner-center/shared-services).
+Consulte el siguiente vínculo para obtener una descripción de las suscripciones de APSS, así como instrucciones sobre cómo crear una suscripción en [Adición de servicios compartidos para asociados de Azure](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>Suscripciones de CSP
 
@@ -58,7 +58,7 @@ Las suscripciones de un proveedor de servicio en la nube (CSP) son la opción pr
 
 ## <a name="register-azure-stack"></a>Registro de Azure Stack
 
-Use la suscripción de CSPSS creada siguiendo la información de la sección anterior para registrar Azure Stack con Azure. Para obtener más información, consulte [Registro de Azure Stack con una suscripción de Azure](azure-stack-registration.md).
+Use la suscripción de APSS creada con la información de la sección anterior para registrar Azure Stack con Azure. Para obtener más información, consulte [Registro de Azure Stack con una suscripción de Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Adición a un cliente final
 
@@ -72,7 +72,7 @@ Con el uso del registro de Azure Stack, se puede:
  - Desviar los datos de uso de Azure Stack a Azure Commerce y facture una suscripción a Azure.
  - Notificar el uso de cada cliente en una suscripción diferente con una implementación multiinquilino de Azure Stack. La arquitectura multiinquilino permite que Azure Stack admita distintas organizaciones en la misma instancia de Azure Stack.
 
-Para cada instancia de Azure Stack, hay una suscripción predeterminada y varias suscripciones de inquilinos. La suscripción predeterminada es una suscripción de Azure que se cobra si no hay una suscripción específica de inquilino. Debe ser la primera suscripción registrada. Para que los informes de uso multiinquilinos funcionen, la suscripción debe ser un plan CSP o CSPSS.
+Para cada instancia de Azure Stack, hay una suscripción predeterminada y varias suscripciones de inquilinos. La suscripción predeterminada es una suscripción de Azure que se cobra si no hay una suscripción específica de inquilino. Debe ser la primera suscripción registrada. Para que los informes de uso multiinquilinos funcionen, la suscripción debe ser un plan CSP o APSS.
 
 Después, el registro se actualiza con una suscripción de Azure para cada inquilino que vaya a usar Azure Stack. Las suscripciones de inquilinos deben ser de tipo CSP y deben trasferirse al asociado que posee la suscripción predeterminada. En otras palabras, no puede registrar los clientes de otra persona.
 

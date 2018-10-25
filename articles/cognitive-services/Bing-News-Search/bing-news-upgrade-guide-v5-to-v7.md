@@ -1,21 +1,21 @@
 ---
-title: Actualizar Bing News Search API v5 a v7 | Microsoft Docs
+title: Actualización de Bing News Search API v5 a v7
+titlesuffix: Azure Cognitive Services
 description: Identifica las partes de la aplicación que se deben actualizar para usar la versión 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 5334C475-4841-4736-A66E-DC1E07CBCEC9
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: baed6f0091ddad40b4802c0fb52dc2ca1818cd03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380266"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801172"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guía de actualización de News Search API
 

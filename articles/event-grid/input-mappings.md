@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578924"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043404"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Asignación de campos personalizados a esquemas de Event Grid
 
-Si los datos del evento no coinciden con el [esquema de Event Grid](event-schema.md), puede usar Event Grid para enrutar el evento a los suscriptores. En este artículo se describe cómo asignar el esquema al de Event Grid.
+Si los datos del evento no coinciden con el [esquema de Event Grid](event-schema.md) esperado, podrá seguir usando Event Grid para enrutar el evento a los suscriptores. En este artículo se describe cómo asignar el esquema al de Event Grid.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -43,9 +43,9 @@ Al crear un tema personalizado, especifique cómo asignar campos del evento orig
 
 * El parámetro `--input-schema` especifica el tipo de esquema. Las opciones disponibles son *cloudeventv01schema*, *customeventschema* y *eventgridschema*. El valor predeterminado es eventgridschema. Al crear la asignación personalizada entre el esquema y el esquema de Event Grid, use customeventschema. Si los eventos están en el esquema CloudEvents, use cloudeventv01schema.
 
-* El parámetro `--input-mapping-default-values` especifica los valores predeterminados para los campos en el esquema de Event Grid. Puede definir valores predeterminados para *subject*, *eventtype* y *dataversion*. Normalmente, se usa este parámetro si el esquema personalizado no incluye un campo que se corresponde con alguno de esos tres campos. Por ejemplo, puede especificar en el campo dataversion que la versión de datos siempre se defina en **1.0**.
+* El parámetro `--input-mapping-default-values` especifica los valores predeterminados para los campos en el esquema de Event Grid. Puede establecer valores predeterminados para `subject`, `eventtype` y `dataversion`. Normalmente, se usa este parámetro si el esquema personalizado no incluye un campo que se corresponde con alguno de esos tres campos. Por ejemplo, puede especificar que la versión de datos siempre se establezca en **1.0**.
 
-* El parámetro `--input-mapping-fields` asigna los campos del esquema al esquema de Event Grid. Especifique los valores en pares clave-valor separados por espacios. Para el nombre de clave, usa el nombre del campo de Event Grid. Para el valor, utilice el nombre del campo. Puede usar los nombres de clave para *id*, *topic*, *eventtime*, *subject*, *eventtype* y *dataversion*.
+* El parámetro `--input-mapping-fields` asigna los campos del esquema al esquema de Event Grid. Especifique los valores en pares clave-valor separados por espacios. Para el nombre de clave, usa el nombre del campo de Event Grid. Para el valor, utilice el nombre del campo. Puede usar nombres de clave para `id`, `topic`, `eventtime`, `subject`, `eventtype` y `dataversion`.
 
 En el ejemplo siguiente se crea un tema personalizado con algunos campos asignados y predeterminados:
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ Al suscribirse al tema personalizado, especifique el esquema que le gustaría ut
 
 Los ejemplos de esta sección usan una instancia de Queue Storage para el controlador de eventos. Para más información, vea [Enrutamiento de eventos personalizados a Azure Queue Storage](custom-event-to-queue-storage.md).
 
-El siguiente ejemplo se suscribe a un tema de Event Grid y usa el esquema predeterminado de Event Grid:
+En el ejemplo siguiente se realiza la suscripción a un tema de Event Grid y se usa el esquema de cuadrícula de eventos:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -100,9 +101,9 @@ Ahora ya puede enviar un evento al tema personalizado y ver el resultado de la a
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Ahora, vea su instancia de Queue Storage. Las dos suscripciones entregaron eventos en diferentes esquemas.

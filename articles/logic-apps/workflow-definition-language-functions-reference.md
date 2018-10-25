@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307120"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269571"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -82,7 +82,7 @@ Para trabajar con cadenas, puede usar estas funciones de cadena y también algun
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devuelve la posición inicial de una subcadena. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devuelve la posición inicial de la última repetición de una subcadena. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Reemplaza una subcadena por la cadena especificada y devuelve la cadena actualizada. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devuelve una matriz que tiene todos los caracteres de una cadena y separa cada carácter con el carácter delimitador específico. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devuelve una matriz que contiene subcadenas, separadas por comas, de una cadena mayor en función de un carácter delimitador especificado en la cadena original. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Comprueba si una cadena comienza con una subcadena especificada. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Devuelve caracteres de una cadena, a partir de la posición especificada. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Devuelve una cadena en formato de minúsculas. | 
@@ -493,7 +493,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 | <*días*> | SÍ | Entero | Número positivo o negativo de días que desea agregar | 
-| <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3016,32 +3016,32 @@ Y devuelve esta matriz con los elementos restantes: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Devuelve una matriz que tiene todos los caracteres de una cadena y tiene cada carácter separado por un *delimitador*.
+Devuelve una matriz que contiene subcadenas, separadas por comas, en función de un carácter delimitador especificado en la cadena original. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | SÍ | string | Cadena que contiene los caracteres que se van a dividir |  
-| <*separador*> | SÍ | string | Separador que aparece entre cada carácter de la matriz resultante | 
+| <*texto*> | SÍ | string | La cadena para separar en subcadenas según el delimitador especificado en la cadena original |  
+| <*delimitador*> | SÍ | string | El carácter de la cadena original que se usará como delimitador | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
 | ------------ | ---- | ----------- | 
-| [<*carácter1*><*separador*><*carácter2*><*separador*>...] | Matriz | Matriz resultante creada a partir de todos los elementos de la cadena especificada |
+| [<*subcadena1*>, <*subcadena2*>,...] | Matriz | Una matriz que contiene subcadenas de la cadena original, separadas por comas |
 |||| 
 
 *Ejemplo* 
 
-Este ejemplo crea una matriz a partir de la cadena especificada, separando cada carácter con una coma como delimitador:
+En este ejemplo se crea una matriz con las subcadenas de la cadena especificada según el carácter especificado como delimitador: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-Y devuelve este resultado: `[a, b, c]`
+Y devuelve esta matriz como resultado: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

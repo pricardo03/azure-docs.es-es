@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f6a574f169310f2779fb20353fda748e6893a4bd
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163046"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016747"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)
 
@@ -46,7 +46,7 @@ Dependiendo de la configuración de su organización, puede que se le pida que a
 
 3. En la página **Garantizar la seguridad de la cuenta**, seleccione **Listo**.
 
-    La información de seguridad se actualiza para usar la dirección de correo electrónico para comprobar su identidad al usar la verificación en dos pasos.
+    La información de seguridad se actualiza para usar la dirección de correo electrónico con el fin de comprobar su identidad cuando se usa el restablecimiento de contraseña.
 
 ## <a name="additional-security-info-options"></a>Opciones de información de seguridad adicionales
 

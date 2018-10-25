@@ -11,19 +11,19 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 6ccb29c9c464c21f09b1e547903a283201c52618
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: b64c8f5d30f95cccf8a029adfd5c443a81597c4d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159631"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870696"
 ---
-# <a name="intelligent-insights"></a>Intelligent Insights
+# <a name="intelligent-insights-using-artificial-intelligence-to-monitor-database-usage"></a>Intelligent Insights con inteligencia artificial para supervisar el uso de la base de datos
 
 Azure SQL Database Intelligent Insights le permite saber lo que ocurre con el rendimiento de la base de datos de Instancia administrada y SQL Database.
 
-Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo. Una vez detectados, se realiza un análisis detallado que genera un registro de diagnóstico con una evaluación inteligente del problema. Esta evaluación está formada por un análisis de la causa raíz del problema de rendimiento de la base de datos y, si es posible, recomendaciones para mejorar el rendimiento. 
+Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo. Una vez detectados, se realiza un análisis detallado que genera un registro de diagnóstico con una evaluación inteligente del problema. Esta evaluación está formada por un análisis de la causa raíz del problema de rendimiento de la base de datos y, si es posible, recomendaciones para mejorar el rendimiento.
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>¿Qué puede hacer Intelligent Insights por usted?
 
@@ -41,7 +41,7 @@ Intelligent Insights es una funcionalidad única de inteligencia integrada de Az
 
 Intelligent Insights analiza el rendimiento de la base de datos comparando la carga de trabajo de la base de datos de la última hora con la de referencia de los últimos siete días. La carga de trabajo de la base de datos se compone de consultas determinadas para que sean las más significativas para el rendimiento de la base de datos, como las consultas más repetidas y de mayor tamaño. Dado que cada base de datos es única según su estructura, datos, uso y aplicación, cada referencia de carga de trabajo generada es específica y única para una instancia individual. Intelligent Insights, que es independiente de la referencia de la carga de trabajo, también supervisa umbrales operativos absolutos y detecta problemas con los tiempos de espera excesivos, las excepciones críticas y los problemas con parametrizaciones de consulta que podrían afectar al rendimiento.
 
-Una vez detectado un problema de degradación del rendimiento de varias métricas observadas mediante el uso de inteligencia artificial, se lleva a cabo el análisis. Se genera un registro de diagnóstico con una valoración inteligente de lo que sucede con la base de datos. Intelligent Insights facilita la realización de un seguimiento del problema de rendimiento de la base de datos desde su primera aparición hasta la resolución. Cada problema detectado se sigue a través de su ciclo de vida desde la detección inicial del mismo y la comprobación de la mejora en el rendimiento hasta su finalización. Las actualizaciones se proporcionan en el registro de diagnóstico cada 15 minutos. 
+Una vez detectado un problema de degradación del rendimiento de varias métricas observadas mediante el uso de inteligencia artificial, se lleva a cabo el análisis. Se genera un registro de diagnóstico con una valoración inteligente de lo que sucede con la base de datos. Intelligent Insights facilita la realización de un seguimiento del problema de rendimiento de la base de datos desde su primera aparición hasta la resolución. Cada problema detectado se sigue a través de su ciclo de vida desde la detección inicial del mismo y la comprobación de la mejora en el rendimiento hasta su finalización. Las actualizaciones se proporcionan en el registro de diagnóstico cada 15 minutos.
 
 ![Flujo de trabajo del análisis del rendimiento de las bases de datos](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
@@ -62,7 +62,6 @@ Las degradaciones en el rendimiento de Azure SQL Database se guardan en el regis
 
 Para obtener información general práctica acerca del uso de Intelligent Insights con Azure SQL Analytics y escenarios de uso habituales, vea el vídeo incrustado:
 
-
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -70,17 +69,17 @@ Intelligent Insights destaca a la hora de detectar y solucionar problemas de ren
 
 ## <a name="configure-intelligent-insights"></a>Configuración de Intelligent Insights
 
-El resultado de Intelligent Insights es un registro de diagnóstico de rendimiento inteligente. Este registro se puede usar de varias maneras: mediante streaming a Azure SQL Analytics, Azure Event Hubs y Azure Storage o un producto de terceros. 
+El resultado de Intelligent Insights es un registro de diagnóstico de rendimiento inteligente. Este registro se puede usar de varias maneras: mediante streaming a Azure SQL Analytics, Azure Event Hubs y Azure Storage o un producto de terceros.
 
-* Use el producto con [Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) para ver la información a través de la interfaz de usuario de Azure Portal. Esta es la solución integrada de Azure y la forma más habitual de ver la información.
-* Use el producto con Azure Event Hubs para el desarrollo de escenarios de supervisión y alertas personalizados.
-* Use el producto con Azure Storage para desarrollar aplicaciones personalizadas, por ejemplo, de generación de informes personalizados, archivo de datos a largo plazo, etc.
+- Use el producto con [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) para ver información detallada mediante la interfaz de usuario de Azure Portal. Esta es la solución integrada de Azure y la forma más habitual de ver la información.
+- Use el producto con Azure Event Hubs para el desarrollo de escenarios de supervisión y alertas personalizados.
+- Use el producto con Azure Storage para desarrollar aplicaciones personalizadas, por ejemplo, de generación de informes personalizados, archivo de datos a largo plazo, etc.
 
 Para realizar la integración de Intelligent Insights con Azure SQL Analytics, Azure Event Hub, Azure Storage o productos de terceros para su uso es necesario habilitar el registro de Intelligent Insights (registro de "SQLInsights") en la hoja Configuración de diagnóstico de una base de datos y, después, configurar los datos de registro de Intelligent Insights para transmitirlos a uno de estos productos.
 
-Para obtener más información acerca de cómo habilitar el registro de Intelligent Insights y cómo configurar los datos de registro para su transmisión a un producto de consumo, consulte [Métricas y registros de diagnóstico de Azure SQL Database](sql-database-metrics-diag-logging.md). 
+Para obtener más información acerca de cómo habilitar el registro de Intelligent Insights y cómo configurar los datos de registro para su transmisión a un producto de consumo, consulte [Métricas y registros de diagnóstico de Azure SQL Database](sql-database-metrics-diag-logging.md).
 
-### <a name="set-up-with-azure-sql-analytics"></a>Configurar con Azure SQL Analytics 
+### <a name="set-up-with-azure-sql-analytics"></a>Configurar con Azure SQL Analytics
 
 La solución Azure SQL Analytics proporciona funcionalidades de interfaz gráfica de usuario, informes y alertas sobre el rendimiento de la base de datos, junto con datos de registro de diagnóstico de Intelligent Insights.
 
@@ -88,9 +87,9 @@ La solución Azure SQL Analytics proporciona funcionalidades de interfaz gráfic
 > Introducción rápida: la manera más fácil de ponerse en marcha con Intelligent Insights es usarlo junto con Azure SQL Analytics, que proporcionará una interfaz gráfica de usuario para los problemas de rendimiento de bases de datos. Agregue la solución Azure SQL Analytics desde el Marketplace, cree un área de trabajo dentro de esta solución y, a continuación, para cada base de datos en la que desee habilitar Intelligent Insights, configure el streaming del registro de "SQLInsights" en la hoja Configuración de diagnóstico de una base de datos del área de trabajo de Azure SQL Analytics.
 >
 
-Como requisito previo, debe agregar Azure SQL Analytics al panel de Azure Portal desde el Marketplace y crear un área de trabajo (consulte [Configuración de Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md#configuration)). 
+Como requisito previo, debe agregar Azure SQL Analytics al panel de Azure Portal desde el Marketplace y crear un área de trabajo (consulte [Configuración de Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md#configuration)).
 
-Para usar Intelligent Insights con Azure SQL Analytics, configure los datos de registro de Intelligent Insights que transmitirá al área de trabajo de Azure SQL Analytics creada en el paso anterior (consulte [Métricas y registros de diagnóstico de Azure SQL Database](sql-database-metrics-diag-logging.md)). 
+Para usar Intelligent Insights con Azure SQL Analytics, configure los datos de registro de Intelligent Insights que transmitirá al área de trabajo de Azure SQL Analytics creada en el paso anterior (consulte [Métricas y registros de diagnóstico de Azure SQL Database](sql-database-metrics-diag-logging.md)).
 
 En el ejemplo siguiente se muestra un ejemplo de Intelligent Insights a través de Azure SQL Analytics:
 
@@ -100,7 +99,7 @@ En el ejemplo siguiente se muestra un ejemplo de Intelligent Insights a través 
 
 Para usar Intelligent Insights con Event Hubs, configure los datos de registro de Intelligent Insights que transmitirá a Event Hubs, vea [Transmisión de registros de diagnóstico de Azure a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
 
-Para usar Event Hubs para configurar una supervisión y alertas personalizadas, vea [Qué hacer con las métricas y registros de diagnóstico en Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Para usar Event Hubs para configurar una supervisión y alertas personalizadas, vea [Qué hacer con las métricas y registros de diagnóstico en Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
 ### <a name="set-up-with-azure-storage"></a>Configuración con Azure Storage
 
@@ -125,15 +124,15 @@ El sistema considera automáticamente los cambios en la carga de trabajo y en el
 
 Se consideran todas las métricas juntas en distintas relaciones a través de un modelo de datos derivado científicamente que categoriza cada problema de rendimiento detectado. La información proporcionada a través de una recomendación inteligente incluye:
 
-* Detalles del problema de rendimiento detectado. 
-* Análisis de la causa raíz del problema detectado. 
-* Recomendaciones sobre cómo mejorar el rendimiento de la base de datos SQL supervisada, siempre que sea posible.
+- Detalles del problema de rendimiento detectado.
+- Análisis de la causa raíz del problema detectado.
+- Recomendaciones sobre cómo mejorar el rendimiento de la base de datos SQL supervisada, siempre que sea posible.
 
 ## <a name="query-duration"></a>Duración de la consulta
 
 El modelo de degradación de la duración de la consulta analiza las consultas individuales y detecta el aumento del tiempo que se tarda en compilar y ejecutar una consulta en comparación con la línea base de rendimiento.
 
-Si la inteligencia integrada de SQL Database detecta un aumento significativo en la compilación de consultas o en su tiempo de ejecución que afecta al rendimiento de la carga de trabajo, estas consultas se marcan como problema de degradación del rendimiento de duración de la consulta. 
+Si la inteligencia integrada de SQL Database detecta un aumento significativo en la compilación de consultas o en su tiempo de ejecución que afecta al rendimiento de la carga de trabajo, estas consultas se marcan como problema de degradación del rendimiento de duración de la consulta.
 
 El registro de diagnósticos de Intelligent Insights da como resultado el hash de consulta de la consulta degradada en el rendimiento. El hash de consulta indica si la degradación del rendimiento se relaciona con el aumento en el tiempo de ejecución o de compilación de la consulta, que aumentó la duración de la consulta.
 
@@ -141,11 +140,11 @@ El registro de diagnósticos de Intelligent Insights da como resultado el hash d
 
 El modelo de degradación de solicitudes de tiempo de espera analiza las consultas individuales y detecta un aumento en los tiempos de espera en el nivel de ejecución de la consulta y los tiempos de espera de solicitud totales en el nivel de base de datos en comparación con el período de línea base de rendimiento.
 
-El tiempo de espera de algunas consultas podría incluso superarse antes de que lleguen a la fase de ejecución. A través de la comparación entre los trabajos anulados frente a las solicitudes realizadas, la inteligencia integrada de SQL Database mide y analiza todas las consultas que llegaron a la base de datos y si entraron en la fase de ejecución o no. 
+El tiempo de espera de algunas consultas podría incluso superarse antes de que lleguen a la fase de ejecución. A través de la comparación entre los trabajos anulados frente a las solicitudes realizadas, la inteligencia integrada de SQL Database mide y analiza todas las consultas que llegaron a la base de datos y si entraron en la fase de ejecución o no.
 
 Cuando el tiempo de espera de las consultas ejecutadas se haya agotado o bien los trabajos de solicitud se hayan anulado una cantidad de veces que supere el umbral administrado por el sistema, se rellena un registro de diagnóstico con Intelligent Insights.
 
-La información que se genera contiene el número de solicitudes y el número de consultas que agotaron el tiempo de espera. La indicación de la degradación del rendimiento está relacionada con el aumento del tiempo de espera en la fase de ejecución, o se proporciona el nivel de base de datos general. Cuando el aumento de los tiempos de espera se considera significativo para el rendimiento de la base de datos, estas consultas se marcan como problema de degradación del rendimiento de tiempo de espera. 
+La información que se genera contiene el número de solicitudes y el número de consultas que agotaron el tiempo de espera. La indicación de la degradación del rendimiento está relacionada con el aumento del tiempo de espera en la fase de ejecución, o se proporciona el nivel de base de datos general. Cuando el aumento de los tiempos de espera se considera significativo para el rendimiento de la base de datos, estas consultas se marcan como problema de degradación del rendimiento de tiempo de espera.
 
 ## <a name="excessive-wait-times"></a>Tiempo de espera excesivo
 
@@ -172,14 +171,13 @@ El modelo de degradación de solicitudes cerradas por un error supervisa las con
 
 Cuando se considera que el aumento medido en las solicitudes con errores relativas al número total de solicitudes realizadas es significativo en el rendimiento de la carga de trabajo, las consultas afectadas se marcan como problema de degradación del rendimiento de las solicitudes cerradas por un error.
 
-El registro de Intelligent Insights da como resultado el número de solicitudes con errores. Indica si la degradación del rendimiento estaba relacionada con un aumento en las solicitudes con errores o con traspasar un umbral de excepción crítica supervisado y el tiempo medido de la degradación del rendimiento. 
+El registro de Intelligent Insights da como resultado el número de solicitudes con errores. Indica si la degradación del rendimiento estaba relacionada con un aumento en las solicitudes con errores o con traspasar un umbral de excepción crítica supervisado y el tiempo medido de la degradación del rendimiento.
 
 En caso de que alguna de las excepciones críticas supervisadas supere los umbrales absolutos administrados por el sistema, se genera una instancia de Intelligent Insights con detalles de la excepción crítica.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Aprenda a [solucionar problemas de rendimiento de SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-* Use el [Registro de diagnóstico de rendimiento de SQL Database de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-* Aprenda a [supervisar SQL Database mediante SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
-* Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
-
+- Aprenda a [solucionar problemas de rendimiento de SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Use el [Registro de diagnóstico de rendimiento de SQL Database de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
+- Aprenda a [supervisar SQL Database mediante SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

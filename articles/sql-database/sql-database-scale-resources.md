@@ -11,34 +11,37 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: cd0653cf1920bd62621b89410b8cd2de2570fae3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: ede96607e14a43e85c3605e2d710c15ef0495c1f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162925"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868193"
 ---
-# <a name="scale-database-resources"></a>Escalar los recursos de base de datos
+# <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 
 Azure SQL Database permite agregar de forma dinámica más recursos a la base de datos con un tiempo de inactividad mínimo.
 
 ## <a name="overview"></a>Información general
 
-Cuando la demanda de una aplicación aumenta de unos cuantos dispositivos y clientes a millones, Azure SQL Database se escala sobre la marcha con un tiempo de inactividad mínimo. La escalabilidad es una de las características más importantes de PaaS que permite agregar de forma dinámica más recursos al servicio cuando sea necesario. Azure SQL Database permite cambiar fácilmente los recursos (potencia de CPU, memoria, almacenamiento y rendimiento de E/S) asignados a las bases de datos.  
+Cuando la demanda de una aplicación aumenta de unos cuantos dispositivos y clientes a millones, Azure SQL Database se escala sobre la marcha con un tiempo de inactividad mínimo. La escalabilidad es una de las características más importantes de PaaS que permite agregar de forma dinámica más recursos al servicio cuando sea necesario. Azure SQL Database permite cambiar fácilmente los recursos (potencia de CPU, memoria, almacenamiento y rendimiento de E/S) asignados a las bases de datos.
+
 Puede mitigar problemas de rendimiento debidos al aumento del uso de la aplicación que no se pueden resolver mediante métodos de indexación o reescritura de consultas. Agregar más recursos permite reaccionar rápidamente cuando la base de datos alcanza los límites de recursos actuales y se necesita más capacidad para controlar la carga de trabajo entrante. Azure SQL Database también permite reducir verticalmente los recursos cuando no se necesitan para reducir el costo.
+
 No es necesario preocuparse de comprar hardware ni cambiar la infraestructura subyacente. El escalado de la base de datos se puede realizar fácilmente a través de Azure Portal mediante un control deslizante.
 
 ![Escalar el rendimiento de la base de datos](media/sql-database-scalability/scale-performance.svg)
 
-Azure SQL Database ofrece un [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). 
--   El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
--   El [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. Este modelo de compra ofrece tres niveles de servicio: de uso general, crítico para la empresa y de hiperescala (versión preliminar).
-La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes en el nivel de servicio de uso general y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento al nivel de servicio crítico para la empresa para adecuarla a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+Azure SQL Database ofrece el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+
+- El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
+- El [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. Este modelo de compra ofrece tres niveles de servicio: de uso general, crítico para la empresa y de hiperescala (versión preliminar).
+
+La primera aplicación se puede compilar en una base de datos pequeña con un costo muy bajo al mes en los niveles de servicio Básico, Estándar o Uso general y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento al nivel de servicio Premium o Crítico para la empresa para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
 > [!IMPORTANT]
-> No se puede escalar de un nivel de servicio de uso general o crítico para la empresa a un nivel de servicio de hiperescala. Sin embargo, se pueden cambiar los niveles de rendimiento en el nivel de servicio de hiperescala.
-
+> El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar pública y está disponible en regiones de Azure limitadas. No se puede actualizar una base de datos de Hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio Hiperescala.
 > [!NOTE]
 > La escalabilidad dinámica es diferente del escalado automático. El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual sin tiempo de inactividad.
 
@@ -50,18 +53,21 @@ Puede cambiar los [niveles de servicio de DTU](sql-database-service-tiers-dtu.md
 ![Introducción a SQL Database: DTU de bases de datos únicas por nivel](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Las tres versiones de Azure SQL Database ofrecen la posibilidad de escalar dinámicamente las bases de datos:
--   En [una base de datos única de Azure SQL](sql-database-single-database-scale.md), se pueden usar los modelos de [DTU](sql-database-dtu-resource-limits-single-databases.md) o [núcleo virtual](sql-database-vcore-resource-limits-single-databases.md) para definir la cantidad máxima de recursos que se asignarán a cada base de datos.
--   En [Instancia administrada de Azure SQL](sql-database-managed-instance.md) se usa el modo de [núcleos virtuales](sql-database-managed-instance.md#vcore-based-purchasing-model) y se puede definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia comparten los recursos asignados a la instancia.
--   Los [Grupos elásticos de Azure SQL](sql-database-elastic-pool-scale.md) permiten definir el límite máximo de recursos por grupo de bases de datos en el grupo.
+
+- En [una base de datos única de Azure SQL](sql-database-single-database-scale.md), se pueden usar los modelos de [DTU](sql-database-dtu-resource-limits-single-databases.md) o [núcleo virtual](sql-database-vcore-resource-limits-single-databases.md) para definir la cantidad máxima de recursos que se asignarán a cada base de datos.
+- En [Instancia administrada de Azure SQL](sql-database-managed-instance.md) se usa el modo de [núcleos virtuales](sql-database-managed-instance.md#vcore-based-purchasing-model) y se puede definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia comparten los recursos asignados a la instancia.
+- Los [Grupos elásticos de Azure SQL](sql-database-elastic-pool-scale.md) permiten definir el límite máximo de recursos por grupo de bases de datos en el grupo.
 
 ## <a name="alternative-scale-methods"></a>Métodos de escala alternativos
+
 El escalado de recursos es la manera más fácil y eficaz de mejorar el rendimiento de la base de datos sin cambiar su código ni el de la aplicación. En algunos casos, es posible que incluso los niveles de servicio, los tamaños de proceso y las optimizaciones de rendimiento más altos no puedan controlar la carga de trabajo de forma correcta y rentable. En esos casos dispone de estas opciones para escalar la base de datos:
--   [Escalado horizontal de lectura](sql-database-read-scale-out.md) es una característica disponible en la que se obtiene una réplica de solo lectura de los datos en la que se pueden ejecutar consultas exigentes de solo lectura, como informes. La réplica de solo lectura controlará la carga de trabajo de solo lectura sin que el uso de los recursos en la base de datos principal se vea afectado.
--   [Particionamiento de base de datos](sql-database-elastic-scale-introduction.md) es un conjunto de técnicas que permite dividir los datos en varias bases de datos y escalarlas por separado.
+
+- [Escalado horizontal de lectura](sql-database-read-scale-out.md) es una característica disponible en la que se obtiene una réplica de solo lectura de los datos en la que se pueden ejecutar consultas exigentes de solo lectura, como informes. La réplica de solo lectura controlará la carga de trabajo de solo lectura sin que el uso de los recursos en la base de datos principal se vea afectado.
+- [Particionamiento de base de datos](sql-database-elastic-scale-introduction.md) es un conjunto de técnicas que permite dividir los datos en varias bases de datos y escalarlas por separado.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Para obtener información sobre cómo mejorar el rendimiento de la base de datos cambiando el código de la base de datos, vea [Búsqueda y aplicación de recomendaciones de rendimiento](sql-database-advisor-portal.md).
 - Para obtener información sobre cómo permitir que la inteligencia de base de datos integrada optimice la base de datos, vea [Ajuste automático](sql-database-automatic-tuning.md).
 - Para obtener información sobre el Escalado horizontal de lectura en el servicio de Azure SQL Database, vea [Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura](sql-database-read-scale-out.md).
 - Para obtener información sobre el particionamiento de una base de datos, vea [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md).
-

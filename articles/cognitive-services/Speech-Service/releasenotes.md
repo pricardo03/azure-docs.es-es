@@ -7,16 +7,30 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963090"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340008"
 ---
 # <a name="release-notes"></a>Notas de la versión
+
+## <a name="cognitive-services-speech-sdk-101"></a>SDK de Voz 1.0.1 de Cognitive Services
+
+Mejoras en la confiabilidad y correcciones de errores:
+
+* Corrección de un potencial error grave debido a una condición de carrera al desechar un reconocedor
+* Corrección de un potencial error grave en el caso de propiedades sin establecer.
+* Comprobación adicional de errores y parámetros.
+* Objective-C: corrección de posibles errores graves causados por la invalidación de nombres en NSString.
+* Objective-C: ajuste de visibilidad en la API
+* JavaScript: correcciones con respecto a los eventos y sus cargas.
+* Mejoras en la documentación.
+
+Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplos](https://aka.ms/csspeech/samples).
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK 1.0.0 de Voz de Cognitive Services: versión de septiembre de 2018
 

@@ -1,32 +1,32 @@
 ---
-title: Administración de un clúster de Azure Kubernetes con una interfaz de usuario web
-description: Obtenga información sobre cómo usar el panel integrado de la interfaz de usuario web de Kubernetes con Azure Kubernetes Service (AKS)
+title: Administración de un clúster de Azure Kubernetes Service con el panel web
+description: Obtenga información sobre cómo usar el panel integrado de la interfaz de usuario web de Kubernetes para administrar un clúster de Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307932"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067596"
 ---
-# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Acceso al panel de Kubernetes con Azure Kubernetes Service (AKS)
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
-Kubernetes incluye un panel web que se puede usar para operaciones básicas de administración. Este artículo muestra cómo acceder al panel de Kubernetes mediante la CLI de Azure y luego lo guía por algunas operaciones básicas del panel. Para más información sobre el panel de Kubernetes, consulte [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes).
+Kubernetes incluye un panel web que se puede usar para operaciones básicas de administración. Este panel le permite ver el estado de mantenimiento básico y las métricas para sus aplicaciones, crear e implementar servicios, y modificar las aplicaciones existentes. Este artículo muestra cómo acceder al panel de Kubernetes mediante la CLI de Azure y luego lo guía por algunas operaciones básicas del panel.
+
+Para más información sobre el panel de Kubernetes, consulte [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En los pasos que se detallan en este documento se da por hecho que ha creado un clúster de AKS y que ha establecido una conexión `kubectl` con dicho clúster. Si necesita crear un clúster de AKS, consulte el [inicio rápido de AKS][aks-quickstart].
 
-También es preciso que esté instalada y configurada la versión 2.0.27 de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
 
-## <a name="start-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
+## <a name="start-the-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
 
 Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-browse]. El ejemplo siguiente abre el panel para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
 
@@ -34,7 +34,9 @@ Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-brows
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes.
+Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes. Si un explorador web no se abre en el panel de Kubernetes, copie y pegue la dirección URL que anotó en la CLI de Azure, normalmente *http://127.0.0.1:8001*.
+
+![Página de información general del panel web de Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ### <a name="for-rbac-enabled-clusters"></a>Para los clústeres habilitados para RBAC
 
@@ -53,48 +55,57 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 Ahora puede acceder al panel de Kubernetes en el clúster habilitado para RBAC. Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-browse] como se detalló en el paso anterior.
 
-## <a name="run-an-application"></a>Ejecución de una aplicación
+## <a name="create-an-application"></a>Creación de una aplicación
 
-En el panel de Kubernetes, haga clic en el botón **Create** (Crear) de la ventana derecha superior. Asigne el nombre `nginx` a la implementación y escriba `nginx:latest` para el nombre de las imágenes de contenedor. En **Service** (Servicio), seleccione **External** (Externo) y escriba `80` para el puerto y el puerto de destino.
+Para ver cómo el panel de Kubernetes puede reducir la complejidad de las tareas de administración, vamos a crear una aplicación. Puede crear una aplicación desde el panel de Kubernetes, ya sea proporcionando la entrada de texto, un archivo YAML o mediante un asistente gráfico.
 
-Cuando esté listo, haga clic en **Deploy** (Implementar) para crear la implementación.
+Para crear una aplicación, realice los pasos siguientes:
 
-![Cuadro de diálogo de creación del servicio de Kubernetes](./media/container-service-kubernetes-ui/create-deployment.png)
+1. Seleccione el botón **Crear** de la ventana superior derecha.
+1. Para usar el asistente para gráficos, elija **Crear una aplicación**.
+1. Proporcione un nombre para la implementación, por ejemplo *nginx*
+1. Escriba el nombre de la imagen de contenedor que se utilizará, como *nginx:1.15.5*
+1. Para exponer el puerto 80 para el tráfico web, cree un servicio de Kubernetes. En **Service** (Servicio), seleccione **External** (Externo) y escriba **80** tanto para el puerto como para el puerto de destino.
+1. Cuando esté preparado, seleccione **Implementar** para crear la aplicación.
 
-## <a name="view-the-application"></a>Visualización de la aplicación
+![Implementación de una aplicación en el panel web de Kubernetes](./media/kubernetes-dashboard/create-app.png)
 
-El estado de la aplicación puede verse en el panel de Kubernetes. Una vez que se ejecuta la aplicación, cada componente tiene una casilla verde junto a ella.
+Se tarda un minuto o dos en que una dirección IP externa pública se asigne al servicio de Kubernetes. A la izquierda, bajo **Discovery and Load Balancing** (Detección y equilibrio de carga), seleccione **Servicios**. Se muestra el servicio de la aplicación, incluidos los *puntos de conexión externos*, como se muestra en el ejemplo siguiente:
 
-![Pod de Kubernetes](./media/container-service-kubernetes-ui/complete-deployment.png)
+![Visualización de la lista de servicios y puntos de conexión](./media/kubernetes-dashboard/view-services.png)
 
-Para más información sobre los pods de aplicación, haga clic en **Pod** en el menú izquierdo y, luego, seleccione el pod **NGINX**. Aquí puede ver información específica del pod como el consumo de recursos.
+Seleccione la dirección de punto de conexión para abrir una ventana del explorador web con la página predeterminada de NGINX:
 
-![Recursos de Kubernetes](./media/container-service-kubernetes-ui/running-pods.png)
+![Visualización de la página predeterminada de NGINX de la aplicación implementada](./media/kubernetes-dashboard/default-nginx.png)
 
-Para buscar la dirección IP de la aplicación, haga clic en **Services** (Servicios) en el menú izquierdo y, luego, seleccione el servicio **NGINX**.
+## <a name="view-pod-information"></a>Visualización de la información de pod
 
-![vista de nginx](./media/container-service-kubernetes-ui/nginx-service.png)
+El panel de Kubernetes puede proporcionar métricas de supervisión básicas e información para solución de problemas como los registros.
+
+Para más información acerca de los pods de aplicación, seleccione **Pods** en el menú izquierdo. Se muestra una lista de los pods disponibles. Elija su pod *nginx* para ver información, por ejemplo, del consumo de recursos:
+
+![Visualización de la información de pod](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>Edición de aplicación
 
-Además de crear y visualizar las aplicaciones, el panel de Kubernetes puede utilizarse para editar y actualizar las implementaciones de aplicaciones.
+Además de crear y visualizar las aplicaciones, el panel de Kubernetes puede utilizarse para editar y actualizar las implementaciones de aplicaciones. Para proporcionar redundancia adicional para la aplicación, vamos a aumentar el número de réplicas de NGINX.
 
-Para editar una implementación, haga clic en **Deployments** (Implementaciones) en el menú izquierdo y, luego, seleccione la implementación **NGINX**. Por último, seleccione **Edit** (Editar) en la barra de navegación superior derecha.
+Para editar una implementación:
 
-![Edición de Kubernetes](./media/container-service-kubernetes-ui/view-deployment.png)
+1. Seleccione **Deployments** (Implementaciones) en el menú izquierdo y, a continuación, elija su implementación de *nginx*.
+1. Seleccione **Edit** (Editar) en la barra de navegación superior derecha.
+1. Busque el valor de `spec.replica`, en torno a la línea 20. Para aumentar el número de réplicas de la aplicación, cambie este valor de *1* a *3*.
+1. Seleccione **Update** (Actualizar) cuando esté listo.
 
-Busque el valor `spec.replica`, que debe ser 1, y cambie este valor a 3. Si lo hace, el número de réplicas de la implementación NGINX aumenta de 1 a 3.
+![Edición de la implementación para actualizar el número de réplicas](./media/kubernetes-dashboard/edit-deployment.png)
 
-Seleccione **Update** (Actualizar) cuando esté listo.
+Se tarda unos minutos en que los nuevos pods se creen dentro de un conjunto de réplicas. En el menú izquierdo, elija **Replica Sets** (Conjuntos de réplicas) y, a continuación, elija su conjunto de réplicas de *nginx*. La lista de los pods ahora refleja el número de réplicas actualizado, como se muestra en la salida del ejemplo siguiente:
 
-![Edición de Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Visualización de información sobre el conjunto de réplicas](./media/kubernetes-dashboard/view-replica-set.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el panel de Kubernetes, vea la documentación de Kubernetes.
-
-> [!div class="nextstepaction"]
-> [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes)
+Para más información sobre el panel de Kubernetes, vea el [panel de la interfaz de usuario web de Kubernetes][kubernetes-dashboard].
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

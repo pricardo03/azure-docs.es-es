@@ -1,27 +1,31 @@
 ---
-title: Etiquetado de categorías gramaticales en Linguistic Analysis API | Microsoft Docs
-description: Conozca cómo el etiquetado de categorías gramaticales en Microsoft Cognitive Services permite identificar la categoría o función de cada palabra del texto.
+title: 'Etiquetado de categorías gramaticales: Linguistic Analysis API'
+description: Obtenga información sobre la manera en que el etiquetado de categorías gramaticales en Linguistic Analysis API permite identificar la categoría o función de cada palabra del texto.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082645"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238537"
 ---
 # <a name="part-of-speech-tagging"></a>Etiquetado de categorías gramaticales
+
+> [!IMPORTANT]
+> El 9 de agosto de 2018 se retiró la versión preliminar de Linguistic Analysis. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 ## <a name="background-and-motivation"></a>Contexto y motivación
 
 Una vez que un texto se ha dividido en frases y elementos, el siguiente paso del análisis es identificar la categoría gramatical de cada palabra.
-Puede tratarse de categorías como *sustantivo* (que por lo general representa personas, lugares, cosas, ideas, etc.) y *verbo* (que generalmente representa acciones, cambios de estado, etc). Para algunas palabras, la categoría gramatical es inequívoca (por ejemplo, *pantano* solo puede ser en realidad un nombre), pero en muchos otros casos, resulta difícil saber la categoría.
+Puede tratarse de categorías como *sustantivo* (que por lo general representa personas, lugares, cosas, ideas, etc.) y *verbo* (que generalmente representa acciones, cambios de estado, etc). Para algunas palabras, la categoría gramatical es inequívoca (por ejemplo, *pantano* solo puede ser un nombre), pero en muchos otros casos, resulta difícil saber la categoría.
 *Corro* podría ser un círculo de personas, pero puede ser también un verbo en "corro la carrera".
 
 ## <a name="list-of-part-of-speech-tags"></a>Lista de etiquetas de categorías gramaticales
@@ -45,7 +49,7 @@ Puede tratarse de categorías como *sustantivo* (que por lo general representa p
 | IN | preposición o conjunción subordinada| "en", "dentro de", "si", "después de" |
 | JJ | adjetivo o numeral, ordinal | "noveno", "bastante", "execrable", "multimodal" |
 | JJR | adjetivo, comparativo | "mejor", "más rápido", "más barato" |
-| JJS | adjetivo, superlativo | "el mejor", "el más barato", "el más rápido" | 
+| JJS | adjetivo, superlativo | "el mejor", "el más barato", "el más rápido" |
 | LS | marcador de elemento de lista | (a) (b) 1 2 A B A. B. |
 | MD | auxiliar modal | "puede", "podría", "debería" |
 | NN | nombre común, singular o plural | "patata", "dinero", "zapato" |

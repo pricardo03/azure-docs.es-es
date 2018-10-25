@@ -1,22 +1,23 @@
 ---
-title: Método Transliterate de Microsoft Translator Text API | Microsoft Docs
-description: Use el método Transliterate de Microsoft Translator Text API.
+title: Método de transliteración de Translator Text API
+titlesuffix: Azure Cognitive Services
+description: Use el método de transliteración de Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382403"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018628"
 ---
-# <a name="text-api-30-transliterate"></a>Texto API 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: transliteración
 
 Convierte el texto en un idioma de un script a otro.
 
@@ -40,16 +41,16 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td>*Parámetro obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
   </tr>
   <tr>
-    <td>Idioma</td>
+    <td>language</td>
     <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto que se va a convertir de un script a otro. Los idiomas posibles se enumeran en el ámbito `transliteration` obtenido al consultar el servicio de sus [idiomas admitidos](.\v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Parámetro obligatorio*.<br/>Especifica el script que usa el texto de entrada. Busque los [idiomas admitidos](.\v3-0-languages.md) utilizando el ámbito `transliteration`, para buscar los scripts de entrada disponibles para el idioma seleccionado.</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el script que usa el texto de entrada. Busque los [idiomas admitidos](.\v3-0-languages.md) con el ámbito `transliteration`, para ver los scripts de entrada disponibles para el idioma seleccionado.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Parámetro obligatorio*.<br/>Especifica el nombre del script de salida. Busque los [idiomas admitidos](.\v3-0-languages.md) utilizando el ámbito `transliteration`, para buscar los scripts de salida disponibles para la combinación de idiomas y el script de entrada seleccionados.</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el nombre del script de salida. Busque los [idiomas admitidos](.\v3-0-languages.md) con el ámbito `transliteration`, para ver los scripts de salida disponibles para la combinación de idiomas y el script de entrada seleccionados.</td>
   </tr>
 </table> 
 
@@ -72,13 +73,13 @@ Los encabezados de solicitud incluyen lo siguiente:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Un GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Cuerpo de la solicitud
 
-El cuerpo de solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`, que representa la cadena que se va a convertir.
+El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`, que representa la cadena que se va a convertir.
 
 ```json
 [
@@ -91,7 +92,7 @@ Se aplican las siguientes limitaciones:
 
 * La matriz puede tener como máximo 10 elementos.
 * El valor de texto de un elemento de la matriz no puede superar los 1 000 caracteres, incluyendo los espacios.
-* El texto completo incluido en la solicitud no puede superar los 5 000 caracteres, incluidos los espacios.
+* El texto completo incluido en la solicitud no puede superar los 5000 caracteres, incluidos los espacios.
 
 ## <a name="response-body"></a>Response body
 
@@ -150,11 +151,11 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>500</td>
-    <td>Se ha producido un error inesperado. Si el error persiste, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId`e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
+    <td>Se ha producido un error inesperado. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId` e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error persiste, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId`e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
+    <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId` e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -170,7 +171,7 @@ Esta es la carga de JSON para la solicitud en este ejemplo:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Si está usando cUrl en una ventana de línea de comandos que no admite caracteres Unicode, use la siguiente carga JSON y guárdela en un archivo denominado `request.txt`. Asegúrese de guardar el archivo con una codificación `UTF-8`.
+Si está usando cURL en una ventana de línea de comandos que no admite caracteres Unicode, use la siguiente carga JSON y guárdela en un archivo denominado `request.txt`. Asegúrese de guardar el archivo con una codificación `UTF-8`.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/08/2018
-ms.openlocfilehash: a9a3d696f1c503969b89795f8c6d86a77bd353e8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 499689e4d36f368746e5e0ea9e6bc3f3bf0ec0d9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160731"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868244"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services
+# <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configuración de la retención de copia de seguridad a largo plazo con el almacén de Azure Recovery Services
 
 El almacén de Azure Recovery Services se puede configurar para almacenar copias de seguridad de Azure SQL Database y, después, recuperar una base de datos con las copias de seguridad que se conservan en el almacén mediante Azure Portal o PowerShell.
 
 > [!NOTE]
-> Como parte de la publicación inicial de la versión preliminar de esta característica de retención de copia de seguridad a largo plazo en octubre de 2016, las copias de seguridad se almacenaban en el almacén del servicio Azure Recovery Services. En esta actualización se elimina esta dependencia pero por motivos de compatibilidad con versiones anteriores, se admite la API original hasta el 31 de mayo de 2018. Si necesita interactuar con copias de seguridad del almacén de Azure Recovery Services, consulte [Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services](sql-database-long-term-backup-retention-configure-vault.md). 
-
+> Como parte de la publicación inicial de la versión preliminar de esta característica de retención de copia de seguridad a largo plazo en octubre de 2016, las copias de seguridad se almacenaban en el almacén del servicio Azure Recovery Services. En esta actualización se elimina esta dependencia pero por motivos de compatibilidad con versiones anteriores, se admite la API original hasta el 31 de mayo de 2018. Si necesita interactuar con copias de seguridad del almacén de Azure Recovery Services, consulte [Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services](sql-database-long-term-backup-retention-configure-vault.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -33,7 +32,7 @@ Las secciones siguientes muestran cómo usar Azure Portal para configurar el alm
 
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configuración del almacén, registro del servidor y selección de bases de datos
 
-Configure un almacén de Azure Recovery Services para [conservar las copias de seguridad automáticas](sql-database-long-term-retention.md) durante un período superior al período de retención del nivel de servicio. 
+Configure un almacén de Azure Recovery Services para [conservar las copias de seguridad automáticas](sql-database-long-term-retention.md) durante un período superior al período de retención del nivel de servicio.
 
 1. Abra la página **SQL Server** del servidor.
 
@@ -62,7 +61,7 @@ Configure un almacén de Azure Recovery Services para [conservar las copias de s
 7. En la página **Almacenes de Recovery Services**, haga clic en **Agregar**.
 
    ![agregar vinculo de almacén](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. En la página **Almacén de Recovery Services**, especifique un nombre válido para el almacén de Recovery Services.
 
    ![nuevo nombre de almacén](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -73,7 +72,6 @@ Configure un almacén de Azure Recovery Services para [conservar las copias de s
 
    > [!IMPORTANT]
    > El almacén debe estar ubicado en la misma región que el servidor lógico de Azure SQL y debe usar el mismo grupo de recursos que el servidor lógico.
-   >
 
 10. Después de crear el nuevo almacén, ejecute los pasos necesarios para volver a la página **Almacén de Recovery Services**.
 
@@ -84,9 +82,9 @@ Configure un almacén de Azure Recovery Services para [conservar las copias de s
 12. En la página **Configurar**, especifique un nombre válido para la nueva directiva de retención, modifique la directiva de retención predeterminada como sea pertinente y haga clic en **Aceptar**.
 
    ![definir directiva de retención](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
-   
-   >[!NOTE]
-   >Los nombres de las directivas de retención no permiten algunos caracteres, incluidos los espacios.
+
+   > [!NOTE]
+   > Los nombres de las directivas de retención no permiten algunos caracteres, incluidos los espacios.
 
 13. En la página **Long-term backup retention** (Retención de copia de seguridad a largo plazo) de la base de datos, haga clic en **Guardar** y luego en **Aceptar** para aplicar la directiva de retención de copia de seguridad a largo plazo a todas las bases de datos seleccionadas.
 
@@ -98,11 +96,10 @@ Configure un almacén de Azure Recovery Services para [conservar las copias de s
 
 > [!IMPORTANT]
 > Una vez configurado, las copias de seguridad se mostrarán en el almacén en los próximos siete días. No continúe con este tutorial hasta que las copias de seguridad se muestren en el almacén.
->
 
 ### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Visualización de copias de seguridad en retención a largo plazo mediante Azure Portal
 
-Visualización de información acerca de las copias de seguridad de su base de datos en la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md). 
+Visualización de información acerca de las copias de seguridad de su base de datos en la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md).
 
 1. En Azure Portal, abra el almacén de Azure Recovery Services de las copias de seguridad de su base de datos (vaya a **Todos los recursos** y selecciónela en la lista de recursos de su suscripción) para ver la cantidad de almacenamiento que usan las copias de seguridad de su base de datos en el almacén.
 
@@ -167,7 +164,7 @@ Utilice el cmdlet [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.
 $serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
 $recoveryServiceVaultName = "{new-vault-name}"
 
-$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
+$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
@@ -176,18 +173,17 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 Utilice el cmdlet [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) para asociar un almacén de Recovery Services creado anteriormente a un servidor SQL específico de Azure.
 
 ```PowerShell
-# Set your server to use the vault to for long-term backup retention 
+# Set your server to use the vault to for long-term backup retention
 
 Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### <a name="create-a-retention-policy"></a>Creación de una directiva de retención
 
-Una directiva de retención permite establecer cuánto tiempo desea conservar una copia de seguridad de una base de datos. Use el cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) para obtener la directiva de retención predeterminada que se utiliza como plantilla para crear directivas. En esta plantilla, el período de retención se establece en 2 años. A continuación, ejecute el cmdlet [AzureRmRecoveryServicesBackupProtectionPolicy New](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) para crear la directiva. 
+Una directiva de retención permite establecer cuánto tiempo desea conservar una copia de seguridad de una base de datos. Use el cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) para obtener la directiva de retención predeterminada que se utiliza como plantilla para crear directivas. En esta plantilla, el período de retención se establece en 2 años. A continuación, ejecute el cmdlet [AzureRmRecoveryServicesBackupProtectionPolicy New](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) para crear la directiva.
 
 > [!NOTE]
-> Algunos cmdlets requieren que defina el contexto del almacén antes de ejecutarlos ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) por lo que verá este cmdlet en algunos fragmentos de código relacionados. El contexto se establece porque la directiva forma parte del almacén. Puede crear varias directivas de retención para cada almacén y, a continuación, aplicar la directiva que desee a bases de datos específicas. 
-
+> Algunos cmdlets requieren que defina el contexto del almacén antes de ejecutarlos ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) por lo que verá este cmdlet en algunos fragmentos de código relacionados. El contexto se establece porque la directiva forma parte del almacén. Puede crear varias directivas de retención para cada almacén y, a continuación, aplicar la directiva que desee a bases de datos específicas.
 
 ```PowerShell
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
@@ -218,7 +214,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Visualización de la información sobre copias de seguridad y copias de seguridad con retención a largo plazo
 
-Visualización de información acerca de las copias de seguridad de su base de datos en la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md). 
+Visualización de información acerca de las copias de seguridad de su base de datos en la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md).
 
 Use los siguientes cmdlets para ver la información de copia de seguridad:
 
@@ -264,18 +260,17 @@ $restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 $restoredDb
 ```
 
-
 > [!NOTE]
 > Desde aquí, puede conectarse a la base de datos restaurada mediante SQL Server Management Studio para realizar las tareas necesarias, como extraer un bit de datos de la base de datos restaurada para copiarlo en la base de datos existente o para eliminar la base de datos existente y cambiar el nombre de la base de datos restaurada por el nombre de la base de datos existente. Consulte la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Limpieza de copias de seguridad en un almacén de Recovery Services
 
-A partir del 1 de julio de 2018, la API LTR V1 ha caído en desuso, y todas las copias de seguridad existentes en los almacenes de Recovery Services se han migrado a los contenedores de almacenamiento de LTR administrados por SQL Database. Para asegurarse de que ya no se le cobren las copias de seguridad originales, se han eliminado de los almacenes después de la migración. Sin embargo, si bloquea el almacén, las copias de seguridad permanecerán allí. Para evitar gastos innecesarios, puede quitar manualmente las copias de seguridad anteriores desde el almacén de Recovery Services mediante el siguiente script. 
+A partir del 1 de julio de 2018, la API LTR V1 ha caído en desuso, y todas las copias de seguridad existentes en los almacenes de Recovery Services se han migrado a los contenedores de almacenamiento de LTR administrados por SQL Database. Para asegurarse de que ya no se le cobren las copias de seguridad originales, se han eliminado de los almacenes después de la migración. Sin embargo, si bloquea el almacén, las copias de seguridad permanecerán allí. Para evitar gastos innecesarios, puede quitar manualmente las copias de seguridad anteriores desde el almacén de Recovery Services mediante el siguiente script.
 
 ```PowerShell
 <#
 .EXAMPLE
-    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}”
 #>
 [CmdletBinding()]
 Param (
@@ -302,14 +297,14 @@ $containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
 
 ForEach ($container in $containers)
 {
-   $canDeleteContainer = $true  
+   $canDeleteContainer = $true
    $ItemCount = 0
    Write-Host "Working on container" $container.Name
    $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
    ForEach ($item in $items)
    {
-          write-host "Deleting item" $item.name
-          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+    write-host "Deleting item" $item.name
+    Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
    }
 
    Write-Host "Deleting container" $container.Name

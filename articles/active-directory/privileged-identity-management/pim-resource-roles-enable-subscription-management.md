@@ -1,6 +1,6 @@
 ---
 title: 'Habilitación de la administración de suscripciones en un inquilino: Azure | Microsoft Docs'
-description: Aprenda a habilitar la administración de suscripciones en un inquilino al usar Azure AD Privileged Identity Management (PIM).
+description: Aprenda a habilitar la administración de suscripciones en un inquilino cuando se usa Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: bcaea64484010672a53050cb806c4256a17b19a8
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190002"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901182"
 ---
-# <a name="enable-subscription-management-in-your-tenant"></a>Habilitar la administración de suscripciones en un inquilino
+# <a name="enable-subscription-management-in-your-tenant"></a>Habilitar la administración de suscripciones
 
 Como administrador global del directorio, puede que no tenga acceso de forma predeterminada a todos los recursos de suscripción del inquilino. En este artículo se describen los pasos para dar acceso a todas las suscripciones en el inquilino. También se proporciona un enfoque recomendado para seguir cumpliendo con los controles de seguridad que la organización requiere después de recibir acceso.
 

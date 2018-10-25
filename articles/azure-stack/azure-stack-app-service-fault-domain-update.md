@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d361b4165c1fbbf79321e3f6d2ade711f9173c56
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440158"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267222"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Redistribución de Azure App Service en Azure Stack entre dominios de error
 
@@ -48,8 +48,8 @@ Para redistribuir los conjuntos de escalado implementados para el proveedor de r
 Para escalar horizontalmente los conjuntos de escalado, siga estos pasos:
 
 1. Inicie sesión en el Portal de administración de Azure Stack.
-1. Seleccione **Más servicios**.
-1. En COMPUTE, seleccione **Conjuntos de escalado de máquinas virtuales**. Los conjuntos de escalado implementados como parte de la implementación de App Service se enumerarán con la información del recuento de instancias. La captura de pantalla siguiente muestra un ejemplo de conjunto de escalado.
+1. Seleccione **Todos los servicios**.
+2. En la categoría **COMPUTE**, seleccione **Conjuntos de escalado de máquinas virtuales**. Los conjuntos de escalado implementados como parte de la implementación de App Service se enumerarán con la información del recuento de instancias. La captura de pantalla siguiente muestra un ejemplo de conjunto de escalado.
 
       ![Azure App Service Scale Sets enumerados en la experiencia de usuario con Virtual Machine Scale Sets][1]
 

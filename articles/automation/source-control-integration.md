@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2d13a409d095bca64da781e5c5ca58553f9710c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046856"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785331"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
-El control de código fuente permite mantener los runbooks de su cuenta de Automation actualizados con los scripts de su repositorio de control de código fuente de GitHub o de Azure DevOps. El control de código fuente le permite colaborar fácilmente con su equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, le permite sincronizar distintas ramas de control de código fuente con sus cuentas de Automation de desarrollo, prueba o producción, lo que facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automation de producción.
+El control de código fuente permite mantener los runbooks de su cuenta de Automation actualizados con los scripts de su repositorio de control de código fuente de GitHub o de Azure DevOps. El control de código fuente le permite colaborar fácilmente con su equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, el control de código fuente permite sincronizar distintas ramas de control de código fuente con las cuentas de Automation de desarrollo, prueba o producción. Esto facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automation de producción.
 
 Azure Automation admite 3 tipos de control de código fuente:
 
@@ -29,6 +29,7 @@ Azure Automation admite 3 tipos de control de código fuente:
 ## <a name="pre-requisites"></a>Requisitos previos
 
 * Un repositorio de control de código fuente (GitHub o Visual Studio Team Services)
+* Los [permisos](#personal-access-token-permissions) correctos en el repositorio de control de código fuente
 * Una [cuenta de ejecución y conexión](manage-runas-account.md)
 
 > [!NOTE]
@@ -40,7 +41,7 @@ Dentro de su cuenta de Automation, seleccione **Control de código fuente (versi
 
 ![Seleccionar control de código fuente](./media/source-control-integration/select-source-control.png)
 
-Elija **Tipo de control de código fuente**, haga clic en **Autenticar**.
+Elija **Tipo de control de código fuente** y haga clic en **Autenticar**.
 
 Revise la página de permisos de solicitud de la aplicación y haga clic en **Aceptar**.
 
@@ -49,8 +50,8 @@ En la página **Resumen del control de código fuente**, rellene la información
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 |Nombre del control de código fuente     | Nombre descriptivo del control de código fuente.        |
-|Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> Github</br>Visual Studio Team Services (Git)</br>Visual Studio Team Services (TFVC)        |
-|Repositorio     | Nombre del propietario del repositorio o proyecto. Esto se extrae del repositorio de control de código fuente. Ejemplo: $/ContosoFinanceTFVCExample         |
+|Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Repositorio     | Nombre del propietario del repositorio o proyecto. Este valor se extrae del repositorio de control de código fuente. Ejemplo: $/ContosoFinanceTFVCExample         |
 |Rama     | Rama de la que se van a extraer los archivos de código fuente. No se permite especificar una rama para el tipo de control de código fuente TFVC.          |
 |Ruta de acceso a la carpeta     | Carpeta que contiene los runbooks que se van a sincronizar. Ejemplo: /Runbooks         |
 |Sincronización automática     | Activa o desactiva la sincronización automática cuando se realiza una confirmación en el repositorio de control de código fuente.         |
@@ -101,6 +102,35 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+## <a name="personal-access-token-permissions"></a>Permisos de token de acceso personal
+
+El control de código fuente requiere algunos permisos mínimos para los tokens de acceso personal. Las tablas siguientes contienen los permisos mínimos necesarios para GitHub y Azure DevOps.
+
+### <a name="github"></a>GitHub
+
+|Ámbito  |DESCRIPCIÓN  |
+|---------|---------|
+|**repo**     |         |
+|repo:status     | Acceder al estado de confirmación         |
+|repo_deployment      | Acceder al estado de implementación         |
+|public_repo     | Acceder a los repositorios públicos         |
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Escribir los enlaces de repositorio         |
+|read:repo_hook|Leer los enlaces de repositorio|
+
+### <a name="azure-devops"></a>Azure DevOps
+
+|Ámbito  |
+|---------|
+|Código (leer)     |
+|Proyecto y equipo (leer)|
+|Identidad (leer)      |
+|Perfil de usuario (leer)     |
+|Elementos de trabajo (leer)    |
+|Conexiones de servicio (leer, consultar y administrar)<sup>1</sup>    |
+
+<sup>1</sup>El permiso de Conexiones de servicio solo es necesario si ha habilitado la sincronización automática.
 
 ## <a name="disconnecting-source-control"></a>Desconexión del control de código fuente
 

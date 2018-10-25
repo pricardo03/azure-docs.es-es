@@ -2,21 +2,21 @@
 title: Preguntas más frecuentes sobre el uso de Azure Database Migration Service | Microsoft Docs
 description: Conozca las preguntas más frecuentes sobre cómo usar Azure Database Migration Service para realizar migraciones de base de datos.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 2fd5049b8b65620087e3c1ec42b6a5dcb0e0741a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 10/09/2018
+ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214110"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887111"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Preguntas más frecuentes sobre el uso de Azure Database Migration Service
 En este artículo aparecen las preguntas más comunes sobre el uso de Azure Database Migration Service junto con las respuestas relacionadas.
@@ -28,7 +28,7 @@ Azure Database Migration Service es un servicio totalmente administrado diseñad
 - Inversión continuada en migraciones libres de problemas
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>P: ¿Qué pares origen-destino admite actualmente Azure Database Migration Service?
-El servicio admite actualmente migraciones desde SQL Server hasta Azure SQL Database y ahora se puede ir a Azure Portal para comenzar a usar Azure Database Migration Service para este escenario. Otros pares de origen-destino, como Oracle-Azure SQL Database están disponibles mediante una versión preliminar privada. Si desea una oportunidad para participar en la versión preliminar privada limitada de estos escenarios, suscríbase [aquí](https://aka.ms/dms-preview/).
+El servicio admite actualmente migraciones desde SQL Server hasta Azure SQL Database y ahora se puede ir a Azure Portal para comenzar a usar Azure Database Migration Service para este escenario. Otros pares origen-destino, como Oracle-Azure SQL Database están disponibles mediante una versión preliminar privada. Si desea una oportunidad para participar en la versión preliminar privada limitada de estos escenarios, suscríbase [aquí](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>P: ¿Cómo se compara Azure Database Migration Service con otras herramientas de migración de bases de datos de Microsoft, como Database Migration Assistant (DMA) o SQL Server Migration Assistant (SSMA)?
 Azure Database Migration Service es el método preferido para la migración de bases de datos a Microsoft Azure a escala. Para más detalles sobre cómo se compara Azure Database Migration Service con otras herramientas de migración de bases de datos de Microsoft y para recomendaciones sobre cómo usar el servicio en distintos escenarios, consulte esta entrada de blog sobre [cómo diferenciar los servicios y las herramientas de migración de bases de datos de Microsoft](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -53,15 +53,15 @@ Durante una migración de base de datos sencilla típica, debe:
 Hay varios requisitos previos necesarios para garantizar que Azure Database Migration Service se ejecute sin problemas al realizar migraciones de bases de datos. Algunos de los requisitos previos se aplican en todos los escenarios (pares origen-destino) compatibles con el servicio, mientras que otros son exclusivos para un escenario específico.
 Los requisitos de Azure Database Migration Service que son comunes en todos los escenarios de migración compatibles incluyen la necesidad de:
 - Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Asegúrese de que el grupo de seguridad de red de Azure Virtual Network (VNET) no bloquea los puertos de comunicación 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Asegúrese de que las reglas del grupo de seguridad de red de Azure Virtual Network (VNET) no bloquean los puertos de comunicación 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
  
 Para una lista de todos los requisitos previos que se necesitan para completar los escenarios de migración específicos mediante Azure Database Migration Service, consulte los tutoriales relacionados en la [documentación](https://docs.microsoft.com/azure/dms/dms-overview) de Azure Database Migration Service que se encuentra en docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>P: ¿Cómo busco la dirección IP de Azure Database Migration Service para poder crear una lista de las reglas de firewall permitidas que se usa para acceder a mi base de datos de origen para la migración?
-Puede que tenga que agregar reglas de firewall para permitir que Azure Database Migration Service acceda a la base de datos de origen para la migración. La dirección IP del servicio es dinámica, pero si se usa ExpressRoute, esta dirección la asigna la red corporativa de manera privada. La manera más sencilla de identificar la dirección IP adecuada es buscar en el mismo grupo de recursos del recurso de Azure Database Migration Service aprovisionado para buscar la interfaz de red asociada. Habitualmente, el nombre del recurso de interfaz de red comienza con el prefijo NIC y continúa con una secuencia única de caracteres y números, como NIC-jj6tnztnmarpsskr82rbndyp. Al seleccionar este recurso de interfaz de red, puede ver la dirección IP que se debe incluir en la lista de permitidos en la página de información general de los recursos de Azure Portal.
+Puede que tenga que agregar reglas de firewall para permitir que Azure Database Migration Service acceda a la base de datos de origen para la migración. La dirección IP del servicio es dinámica, pero si se usa ExpressRoute, esta dirección la asigna la red corporativa de manera privada. La manera más sencilla de identificar la dirección IP adecuada es buscar en el mismo grupo de recursos del recurso de Azure Database Migration Service aprovisionado para buscar la interfaz de red asociada. Habitualmente, el nombre del recurso de interfaz de red comienza con el prefijo NIC y continúa con una secuencia única de caracteres y números, por ejemplo, NIC-jj6tnztnmarpsskr82rbndyp. Al seleccionar este recurso de interfaz de red, puede ver la dirección IP que se debe incluir en la lista de permitidos en la página de información general de los recursos de Azure Portal.
 
-Puede que también tenga que incluir en la lista de permitidos el origen de puerto en que SQL Server escucha. De manera predeterminada, se trata del puerto 1433, pero SQL Server de origen también puede estar configurado para escuchar en otros puertos. En este caso, debe incluir también estos puertos en la lista de permitidos. Puede determinar el puerto en que SQL Server escuchar mediante una consulta de vista de administración dinámica:
+Puede que también tenga que incluir en la lista de permitidos el origen de puerto en que SQL Server escucha. De manera predeterminada, se trata del puerto 1433, pero la instancia de SQL Server de origen también puede estar configurada para escuchar en otros puertos. En este caso, debe incluir también estos puertos en la lista de permitidos. Puede determinar el puerto en que SQL Server escuchar mediante una consulta de vista de administración dinámica:
 
 ```sql
     SELECT DISTINCT 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158571"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236591"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migración a la versión más reciente del servicio Azure Machine Learning 
 
@@ -52,7 +52,7 @@ Más información acerca de lo [que cambió en esta versión](overview-what-happ
 
 Recursos como las cuentas de experimentación, las cuentas de administración de modelos y los entornos de proceso del aprendizaje automático no se pueden migrar a la versión más reciente del servicio Azure Machine Learning. Consulte en la [escala de tiempo](overview-what-happened-to-workbench.md#timeline) cuánto tiempo seguirán funcionando los recursos.
 
-Introducción a la versión más reciente mediante la creación de un área de trabajo de Azure Machine Learning en [Azure Portal](quickstart-get-started.md). El panel del área de trabajo del portal solo es compatible con los exploradores Edge, Chrome y Firefox.
+Introducción a la versión más reciente mediante la creación de un área de trabajo del servicio Azure Machine Learning en [Azure Portal](quickstart-get-started.md). El panel del área de trabajo del portal solo es compatible con los exploradores Edge, Chrome y Firefox.
 
 Esta nueva área de trabajo es el recurso de servicio de nivel superior y le permite usar todas las características más recientes del servicio Azure Machine Learning. Más información sobre esta [área de trabajo y esta arquitectura](concept-azure-machine-learning-architecture.md).
 

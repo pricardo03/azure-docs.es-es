@@ -1,22 +1,27 @@
 ---
-title: Estructura de nomenclatura de los analizadores en Linguistic Analysis API | Microsoft Docs
-description: Aprenda cómo Linguistic Analysis API usa su estructura de nomenclatura en los analizadores para permitir flexibilidad y precisión.
+title: 'Estructura de nomenclatura de los analizadores: Linguistic Analysis API'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información sobre la manera en que la estructura de nomenclatura del analizador de Linguistic Analysis API permite flexibilidad y precisión.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: 2729b7126e82862660fc8e1a995cc87ae996ea03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380138"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237239"
 ---
 # <a name="analyzer-names"></a>Nombres de analizador
+
+> [!IMPORTANT]
+> El 9 de agosto de 2018 se retiró la versión preliminar de Linguistic Analysis. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 La estructura de nomenclatura que se usa con los analizadores es algo complicada a fin de permitir flexibilidad en los analizadores y precisión a la hora de comprender lo que significa un nombre.
 Los nombres de analizador constan de cuatro partes: un identificador, un tipo, una especificación y una implementación.

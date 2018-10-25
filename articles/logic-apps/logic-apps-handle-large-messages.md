@@ -1,6 +1,6 @@
 ---
 title: Control de mensajes grandes en Azure Logic Apps | Microsoft Docs
-description: Aprenda a controlar tamaños de mensaje grandes con la fragmentación de Logic Apps.
+description: Aprenda a controlar tamaños de mensaje grandes con la fragmentación de Azure Logic Apps.
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 6064db5455d92d15dca0e2a4a78285f0aeade904
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299052"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041652"
 ---
-# <a name="handle-large-messages-with-chunking-in-logic-apps"></a>Control de mensajes grandes con la fragmentación de Logic Apps
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Control de mensajes grandes con la fragmentación de Azure Logic Apps
 
 Cuando se administran los mensajes, Logic Apps limita el contenido del mensaje a un tamaño máximo. Este límite ayuda a reducir la sobrecarga creada al almacenar y procesar mensajes de gran tamaño. Para controlar mensajes que superan este límite, Logic Apps puede *fragmentar* un mensaje grande en mensajes más pequeños. De este modo, puede seguir transfiriendo archivos grandes con Logic Apps en condiciones determinadas. Cuando se comunica con otros servicios mediante conectores o HTTP, Logic Apps puede consumir mensajes grandes pero *solo* en fragmentos. Esta condición significa que los conectores deben admitir también la fragmentación, o que en el intercambio de mensajes HTTP subyacente entre Logic Apps y estos servicios y aplicaciones se debe usar la fragmentación.
 

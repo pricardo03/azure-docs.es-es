@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d3d8df0d1e00fdff4d0e1e93715e1a408116d1e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632482"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585652"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envío de mensajes de nube a dispositivo desde IoT Hub
 
-Para enviar notificaciones unidireccionales a la aplicación para dispositivo desde el back-end de la solución, envíe mensajes de nube a dispositivo desde su centro de IoT al dispositivo. Para obtener una explicación de otras opciones de nube a dispositivos compatibles con IoT Hub, consulte [Guía de comunicación de nube a dispositivo][lnk-c2d-guidance].
+Para enviar notificaciones unidireccionales a la aplicación para dispositivo desde el back-end de la solución, envíe mensajes de nube a dispositivo desde su centro de IoT al dispositivo. Para obtener una explicación de otras opciones de la nube al dispositivo compatibles con IoT Hub, consulte [Guía de comunicación de nube a dispositivo](iot-hub-devguide-c2d-guidance.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -33,24 +33,26 @@ Para garantizar la entrega de mensajes al menos una vez, IoT Hub conserva los me
 
 En el diagrama siguiente se detalla el gráfico de estado del ciclo de vida de un mensaje de nube a dispositivo en IoT Hub.
 
-![Ciclo de vida de los mensajes de nube a dispositivo][img-lifecycle]
+![Ciclo de vida de los mensajes de nube a dispositivo](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
 Cuando el servicio IoT Hub envía un mensaje a un dispositivo, el servicio establece el estado del mensaje en **En cola**. Cuando un dispositivo quiere *recibir* un mensaje, IoT Hub *bloquea* dicho mensaje (estableciendo el estado en **Invisible**), lo que permite que otros subprocesos del dispositivo empiecen a recibir otros mensajes. Cuando el subproceso de un dispositivo termina de procesar un mensaje, informa a IoT Hub *finalizando* dicho mensaje. Luego, IoT Hub establece el estado en **Completado**.
 
 Un dispositivo también puede hacer lo siguiente:
 
 * *Rechazar* el mensaje, lo que hace que IoT Hub lo establezca en estado **Deadlettered** (Procesado como devuelto). Los dispositivos que se conectan mediante el protocolo MQTT no pueden rechazar mensajes de nube a dispositivo.
+
 * *Abandonar* el mensaje, lo que hace que Azure IoT Hub vuelva a ponerlo en la cola con el estado **Enqueued**(En cola). Los dispositivos que se conectan mediante el protocolo MQTT no pueden abandonar mensajes de nube a dispositivo.
 
 Podría producirse un error en el subproceso al procesar un mensaje sin notificar a IoT Hub. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **Enqueued** (En cola) después de un *tiempo de espera de visibilidad (o bloqueo)*. El valor predeterminado de este tiempo de espera es un minuto.
 
-La propiedad **max delivery count** en IoT Hub determina el número máximo de veces que un mensaje puede cambiar entre los estados **Enqueued** (en cola) e **Invisible**. Después de ese número de transiciones, IoT Hub establece el estado del mensaje en **Deadlettered** (Procesado como devuelto). De igual forma, IoT Hub establece el estado de un mensaje en **Deadlettered** (Procesado como devuelto) después de su fecha de caducidad (vea [Expiración de mensajes [periodo de vida]][lnk-ttl]).
+La propiedad **max delivery count** en IoT Hub determina el número máximo de veces que un mensaje puede cambiar entre los estados **Enqueued** (en cola) e **Invisible**. Después de ese número de transiciones, IoT Hub establece el estado del mensaje en **Deadlettered** (Procesado como devuelto). De igual forma, IoT Hub establece el estado de un mensaje en **En la cola de mensajes fallidos** después de su fecha de caducidad (consulte [Expiración de mensajes [periodo de vida]](#message-expiration-time-to-live)).
 
-El tutorial [Envío de mensajes desde la nube al dispositivo con IoT Hub][lnk-c2d-tutorial] muestra cómo enviar mensajes de nube a dispositivo y cómo recibir estos mensajes en un dispositivo.
+En el tutorial [Envío de mensajes de nube a dispositivo desde IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo enviar mensajes de la nube al dispositivo y cómo recibir estos mensajes en un dispositivo.
 
 Normalmente, un dispositivo completa un mensaje de nube a dispositivo cuando la pérdida del mensaje no afecta a la lógica de aplicación; por ejemplo, cuando el dispositivo conserva el contenido del mensaje localmente o ha ejecutado correctamente una operación. El mensaje también puede llevar información transitoria, cuya pérdida no afectaría a la funcionalidad de la aplicación. A veces, para tareas de ejecución prolongada, puede:
 
 * Completar el mensaje de la nube a dispositivo después de guardar la descripción de la tarea en el almacenamiento local.
+
 * Notificar al back-end de la solución con uno o más mensajes de dispositivo a la nube en distintas fases de progreso de la tarea.
 
 ## <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
@@ -60,7 +62,7 @@ Cada mensaje de nube a dispositivo tiene una fecha de expiración. Este tiempo s
 * La propiedad **ExpiryTimeUtc** en el servicio.
 * IoT Hub, con el valor predeterminado de *time to live* especificado como una propiedad de IoT Hub.
 
-Consulte [Opciones de configuración de la nube al dispositivo][lnk-c2d-configuration].
+Consulte [Opciones de configuración de nube a dispositivo](#cloud-to-device-configuration-options).
 
 Una forma habitual de aprovechar la expiración de los mensajes y evitar enviarlos a dispositivos desconectados consiste en establecer valores cortos de período de vida. Así se consigue el mismo resultado que al mantener el estado de la conexión de los dispositivos, con la diferencia de que la primera opción resulta más eficiente. Cuando solicita confirmación de mensajes, IoT Hub notifica qué dispositivos cumplen las siguientes condiciones:
 
@@ -79,7 +81,7 @@ Cuando envía un mensaje de nube a dispositivo, el servicio puede solicitar la e
 
 Si **Ack** es **full** y no recibe un mensaje de comentarios, significa que este ha expirado. El servicio no puede saber qué ha ocurrido con el mensaje original. En la práctica, un servicio debe asegurarse de que puede procesar el comentario antes de que expire. El tiempo de expiración máximo es de dos días, lo que permite tener tiempo suficiente para poner de nuevo en funcionamiento el servicio en caso de error.
 
-Como se explica en [Puntos de conexión][lnk-endpoints], IoT Hub envía los comentarios a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/feedback**) en forma de mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de la nube al dispositivo. Siempre que sea posible, los comentarios de mensajes se agrupan en un único mensaje, con el formato siguiente:
+Como se explica en [Puntos de conexión](iot-hub-devguide-endpoints.md), IoT Hub envía los comentarios a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/feedback**) en forma de mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de la nube al dispositivo. Siempre que sea posible, los comentarios de mensajes se agrupan en un único mensaje, con el formato siguiente:
 
 | Propiedad     | DESCRIPCIÓN |
 | ------------ | ----------- |
@@ -130,21 +132,10 @@ Cada centro de IoT expone las siguientes opciones de configuración para la mens
 | feedback.ttlAsIso8601     | Retención de mensajes de comentarios del límite de servicio. | Intervalo de ISO_8601 hasta 2D (1 minuto como mínimo). Valor predeterminado: 1 hora. |
 | feedback.maxDeliveryCount |Número máximo de entregas para la cola de comentarios. | De 1 a 100. Valor predeterminado: 100. |
 
-Para obtener más información sobre cómo establecer estas opciones de configuración, consulte [Crear instancias de IoT Hub][lnk-portal].
+Para más información sobre cómo establecer estas opciones de configuración, consulte [Crear instancias de IoT Hub](iot-hub-create-through-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre los SDK que puede utilizar para recibir mensajes de nube a dispositivo, consulte [SDK de Azure IoT][lnk-sdks].
+Para información sobre los SDK que puede usar para recibir mensajes de la nube al dispositivo, consulte [SDK de Azure IoT](iot-hub-devguide-sdks.md).
 
-Para probar la recepción de mensajes de nube a dispositivo, consulte el tutorial [Envío de mensajes desde la nube al dispositivo][lnk-c2d-tutorial].
-
-[img-lifecycle]: ./media/iot-hub-devguide-messages-c2d/lifecycle.png
-
-[lnk-portal]: iot-hub-create-through-portal.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-ttl]: #message-expiration-time-to-live
-[lnk-c2d-configuration]: #cloud-to-device-configuration-options
-[lnk-lifecycle]: #message-lifecycle
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+Para probar la recepción de mensajes de la nube al dispositivo, consulte el tutorial [Envío de mensajes de nube a dispositivo desde IoT Hub](iot-hub-csharp-csharp-c2d.md).

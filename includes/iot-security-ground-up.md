@@ -1,19 +1,19 @@
 ---
 title: archivo de inclusión
 description: archivo de inclusión
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
 ms.date: 04/24/2018
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189469"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069945"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Seguridad de Internet de las cosas desde el principio
 
@@ -62,7 +62,9 @@ Las directivas de control de acceso de Azure IoT Hub en la nube permiten la acti
 Entre las características de seguridad de dispositivo adicionales se incluyen:
 
 * Los dispositivos no aceptan conexiones de red no solicitadas. Establecen todas las conexiones y rutas solo en modo saliente. Para que un dispositivo reciba comandos del back-end, dicho dispositivo debe iniciar una conexión para comprobar si hay comandos pendientes de procesar. Cuando una conexión entre el dispositivo y Azure IoT Hub se establece de forma segura, los mensajes desde la nube hasta el dispositivo y desde el dispositivo hasta la nube se pueden enviar de forma transparente.
+
 * Los dispositivos solo se conectan a servicios conocidos con los que están emparejados, o con los que tienen rutas establecidas, como un centro de IoT de Azure.
+
 * En la autenticación y la autorización de nivel de sistema se emplean las identidades de cada dispositivo, lo que hace que las credenciales y los permisos de acceso se puedan revocar casi de manera instantánea.
 
 ### <a name="secure-connectivity"></a>Conectividad segura
@@ -76,7 +78,9 @@ La escalabilidad requiere la posibilidad de interoperar con una amplia variedad 
 Entre las características de seguridad de conexión adicionales se incluyen:
 
 * La ruta de comunicación entre los dispositivos y Azure IoT Hub, o entre las puertas de enlace y Azure IoT Hub, está protegida mediante el protocolo Seguridad de capa de transporte (TLS) estándar del sector, estando autenticado Azure IoT Hub mediante el protocolo X.509.
+
 * Para proteger los dispositivos de conexiones entrantes no solicitadas, Azure IoT Hub no abre ninguna conexión con el dispositivo. El dispositivo inicia todas las conexiones.
+
 * Azure IoT Hub almacena de forma duradera los mensajes para los dispositivos y espera a que el dispositivo se conecte. Estos comandos se almacenan durante dos días, lo que permite que los dispositivos se conecten de forma esporádica, por problemas de conectividad o alimentación, para recibir estos comandos. Azure IoT Hub mantiene una cola por dispositivo para cada dispositivo.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>Seguridad en el procesamiento y el almacenamiento en la nube
@@ -100,8 +104,13 @@ Los aceleradores de soluciones incorporan medidas de seguridad en su diseño, lo
 Cada acelerador de soluciones crea instancias de los servicios de Azure, tales como:
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): la puerta de enlace que conecta la nube con los dispositivos. Se puede escalar a millones de conexiones por centro y procesar volúmenes masivos de datos gracias a la compatibilidad con la autenticación individual de cada dispositivo, lo que ayuda a proteger la solución.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): servicio de base de datos completamente indexado y escalable destinado a datos semiestructurados que administra los metadatos de los dispositivos aprovisionados, como los atributos, la configuración y las propiedades de seguridad. Azure Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
+
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede obtener acceso a datos en cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y para automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
-* [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): almacenamiento en la nube confiable y económico para los datos que los dispositivos envían a la nube.
+
+* [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): almacenamiento en la nube de confianza y económico para los datos que los dispositivos envían a la nube.

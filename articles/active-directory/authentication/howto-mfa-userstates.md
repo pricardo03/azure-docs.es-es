@@ -10,16 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c39b78995aaa7e6754b180142c03cf3aa25199a5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 302cf047ee1ffea685a939bddee84551de7042ec
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574287"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166770"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
-
-Puede elegir uno de dos enfoques para exigir la verificación en dos pasos. La primera opción consiste en habilitar a cada usuario para Azure Multi-factor Authentication (MFA). Cuando los usuarios se habilitan de forma individual, realizan la verificación en dos pasos cada vez que inician sesión (con algunas excepciones, como cuando inician sesión desde direcciones IP de confianza o si se activa la característica _recordar dispositivos_). La segunda opción consiste en configurar una directiva de acceso condicional que requiere la verificación en dos pasos en determinadas condiciones.
+Puede utilizar uno de estos dos métodos para requerir la verificación en dos pasos, los cuales requieren el uso de una cuenta de administrador global. La primera opción consiste en habilitar a cada usuario para Azure Multi-factor Authentication (MFA). Cuando los usuarios se habilitan de forma individual, realizan la verificación en dos pasos cada vez que inician sesión (con algunas excepciones, como cuando inician sesión desde direcciones IP de confianza o si se activa la característica _recordar dispositivos_). La segunda opción consiste en configurar una directiva de acceso condicional que requiere la verificación en dos pasos en determinadas condiciones.
 
 > [!TIP]
 > Elija uno de estos métodos para requerir la verificación en dos pasos, no ambos. La habilitación de un usuario para Azure Multi-Factor Authentication invalida las directivas de acceso condicional.
@@ -36,7 +35,7 @@ Enabled by Azure AD Identity Protection (Habilitada por Azure AD Identity Protec
 > Puede encontrar más información sobre licencias y precios en las páginas de precios de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) y [Multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
-## <a name="enable-azure-mfa-by-changing-user-status"></a>Habilitar Azure MFA mediante el cambio de estado del usuario
+## <a name="enable-azure-mfa-by-changing-user-state"></a>Habilitar Azure MFA mediante el cambio de estado del usuario
 
 Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguientes tres estados:
 
@@ -87,8 +86,17 @@ Para cambiar el estado del usuario mediante [Azure AD PowerShell](/powershell/az
 
 No mueva a los usuarios directamente a estado *Aplicado*. Si lo hace, las aplicaciones que no son de explorador dejan de funcionar porque el usuario no ha pasado a través del proceso de registro de Azure MFA y obtenido una [contraseña de aplicación](howto-mfa-mfasettings.md#app-passwords).
 
+Instale el módulo en primer lugar, mediante:
+
+       Install-Module MSOnline
+       
+> [!TIP]
+> No se olvide de conectarse primero con **Connect-MsolService**
+
+
 El uso de PowerShell es una buena opción cuando necesite habilitar usuarios de forma masiva. Cree un script de PowerShell que recorre en iteración una lista de usuarios y los habilita:
 
+        Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -106,8 +114,18 @@ El script siguiente es un ejemplo:
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
+    
+Para el MFA deshabilitado, se usó este script:
+
+    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+    
+o también puede acortarse a:
+
+    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+¿Por qué se solicitó o no a un usuario que realizará MFA? Consulte la sección [Informe de inicios de sesión de Azure AD en los informes del documento Azure Multi-factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 
 Para configurar opciones adicionales tales como direcciones IP de confianza, mensajes de voz personalizados y alertas de fraude, vea el artículo [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
 

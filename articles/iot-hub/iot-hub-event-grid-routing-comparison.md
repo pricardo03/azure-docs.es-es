@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978682"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247459"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparación del enrutamiento de mensajes y Event Grid para IoT Hub
 
@@ -22,6 +22,7 @@ Azure IoT Hub proporciona la capacidad de transmitir datos desde los dispositivo
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[Enrutamiento de mensajes de IoT Hub](iot-hub-devguide-messages-d2c.md)**: esta característica de IoT Hub permite a los usuarios enrutar los mensajes del dispositivo a la nube a los puntos de conexión de servicio como contenedores de Azure Storage, Event Hubs, colas de Service Bus y temas de Service Bus. El enrutamiento también proporciona una capacidad de consulta para filtrar los datos antes de enrutarlos a los puntos de conexión. Además de los datos de telemetría del dispositivo, también puede enviar [eventos que no son de telemetría](iot-hub-devguide-messages-d2c.md#non-telemetry-events) que se pueden utilizar para desencadenar acciones. 
+
 * **Integración de IoT Hub con Event Grid**: Azure Event Grid es un servicio de enrutamiento de eventos totalmente administrado que utiliza un modelo de publicación-suscripción. Hub IoT y Event Grid trabajan juntos para [integrar eventos de IoT Hub en servicios de Azure y no de Azure](iot-hub-event-grid.md), en tiempo casi real. 
 
 ## <a name="similarities-and-differences"></a>Similitudes y diferencias
@@ -74,5 +75,5 @@ El enrutamiento de mensajes IoT Hub y la integración de Hub IoT con Event Grid 
 
 * Más información sobre el [enrutamiento de mensajes de IoT Hub](iot-hub-devguide-messages-d2c.md) y [los puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
 * Más información sobre [Azure Event Grid](../event-grid/overview.md)
-* Para aprender a crear rutas de mensajes, consulte el tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas](../iot-hub/tutorial-routing.md).
+* Para aprender a crear rutas de mensajes, consulte el tutorial [Procesamiento de mensajes del dispositivo a la nube de IoT Hub mediante rutas](../iot-hub/tutorial-routing.md).
 * Pruebe la integración de Event Grid mediante el [envío de notificaciones por correo electrónico sobre los eventos de Azure IoT Hub con Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).

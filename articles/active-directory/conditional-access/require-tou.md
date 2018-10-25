@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: solicitar la aceptación de las condiciones de uso antes de acceder a aplicaciones en la nube protegidas mediante el acceso condicional de Azure Active Directory | Microsoft Docs'
-description: En esta guía de inicio rápido, aprenderá a solicitar que se acepten las condiciones de uso para poder que el acceso condicional de Azure Active Directory conceda acceso acceder a determinadas aplicaciones en la nube.
+description: En esta guía de inicio rápido, aprenderá a solicitar que se acepten las condiciones de uso antes del acceso a las aplicaciones en la nube seleccionadas concedidas por el acceso condicional de Azure Active Directory.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional, condiciones de uso
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605851"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901896"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Inicio rápido: solicitar la aceptación de las condiciones de uso antes de acceder a aplicaciones en la nube 
 

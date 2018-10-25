@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: e36b8a680f0dc5bf6b438ab00620d4f2a5b9770c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980600"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043014"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usar la extensión de IoT de la CLI de Azure para la administración de dispositivos de Azure IoT Hub
 
@@ -27,8 +27,8 @@ ms.locfileid: "46980600"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Opción de administración          | Task                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Opción de administración          | Task  |
+|----------------------------|-----------|
 | Métodos directos             | Hacer que un dispositivo actúe, por ejemplo, para iniciar o detener el envío de mensajes o reiniciar el dispositivo.                                        |
 | Propiedades deseadas de dispositivos gemelos    | Poner un dispositivo en determinados estados, como establecer un indicador LED en verde o establecer el intervalo de envío de telemetría en 30 minutos.         |
 | Propiedades notificadas de dispositivos gemelos   | Obtener el estado notificado de un dispositivo. Por ejemplo, el dispositivo informa de que el LED está parpadeando.                                    |
@@ -49,17 +49,19 @@ Deberá ejecutar la CLI de Azure y la extensión de IoT de la CLI de Azure con v
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-- Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
+* Realice el tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md), donde se abordan los siguientes requisitos:
+
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
 
-- Asegúrese de que el dispositivo se está ejecutando con la aplicación de cliente durante este tutorial.
+* Asegúrese de que el dispositivo se está ejecutando con la aplicación de cliente durante este tutorial.
 
-- [Python 2.7x o Python 3.x](https://www.python.org/downloads/)
-- La CLI de Azure. Si necesita instalarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). La versión mínima de la CLI de Azure es la 2.0.24. Use `az –version` para asegurarse. 
-- Instale la extensión de IoT. La manera más sencilla es ejecutar `az extension add --name azure-cli-iot-ext`. En el [archivo Léame de la extensión de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) se describen varias maneras de instalarla.
+* [Python 2.7x o Python 3.x](https://www.python.org/downloads/)
 
+* La CLI de Azure. Si necesita instalarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). La versión mínima de la CLI de Azure es la 2.0.24. Use `az –version` para asegurarse. 
+
+* Instale la extensión de IoT. La manera más sencilla es ejecutar `az extension add --name azure-cli-iot-ext`. En el [archivo Léame de la extensión de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) se describen varias maneras de instalarla.
 
 ## <a name="log-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure
 
@@ -72,7 +74,10 @@ az login
 ## <a name="direct-methods"></a>Métodos directos
 
 ```bash
-az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
+az iot hub invoke-device-method --device-id <your device id> \
+  --hub-name <your hub name> \
+  --method-name <the method name> \
+  --method-payload <the method payload>
 ```
 
 ## <a name="device-twin-desired-properties"></a>Propiedades deseadas de dispositivos gemelos
@@ -80,7 +85,8 @@ az iot hub invoke-device-method --device-id <your device id> --hub-name <your hu
 Establezca un intervalo de propiedad deseada = 3000 mediante la ejecución del comando siguiente:
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.desired.interval = 3000
+az iot hub device-twin update -n <your hub name> \
+  -d <your device id> --set properties.desired.interval = 3000
 ```
 
 Esta propiedad se puede leer desde el dispositivo.
@@ -106,7 +112,10 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 Agregue un rol de campo = temperatura y humedad al dispositivo mediante la ejecución del comando siguiente:
 
 ```bash
-az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
+az iot hub device-twin update \
+  --hub-name <your hub name> \
+  --device-id <your device id> \
+  --set tags = '{"role":"temperature&humidity"}}'
 ```
 
 ## <a name="device-twin-queries"></a>Consultas de dispositivos gemelos
@@ -114,13 +123,15 @@ az iot hub device-twin update --hub-name <your hub name> --device-id <your devic
 Consulte los dispositivos con una etiqueta de rol = "temperatura y humedad" mediante la ejecución del comando siguiente:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Consulte todos los dispositivos excepto aquellos con una etiqueta de rol = "temperatura y humedad" mediante la ejecución del comando siguiente:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

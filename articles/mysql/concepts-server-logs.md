@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: ac5be20815b552c08e5cd1054bf24d7a10b56498
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 10/03/2018
+ms.openlocfilehash: 73be0e4ecff4bc0d9b69249430bba69a93cc54ae
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124276"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093789"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Registros de servidor en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema. 
@@ -45,6 +45,39 @@ Otros parámetros que se pueden ajustar son los siguientes:
 - **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas no de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
 
 Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de MySQL para obtener una descripción completa de los parámetros de registro de consultas lentas.
+
+## <a name="diagnostic-logs"></a>Registros de diagnóstico
+Azure Database for MySQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MySQL, puede optar por hacer que se emitan a Log Analytics, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+
+En la tabla siguiente se describe lo que contiene cada registro. En función del método de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen.
+
+| **Propiedad** | **Descripción** |
+|---|---|---|
+| TenantId | Id. del inquilino |
+| SourceSystem | `Azure` |
+| TimeGenerated [UTC] | Marca de tiempo de cuando se grabó el registro en UTC |
+| Escriba | Tipo del registro. Siempre `AzureDiagnostics` |
+| SubscriptionId | GUID de la suscripción a la que pertenece el servidor |
+| ResourceGroup | Nombre del grupo de recursos al que pertenece el servidor |
+| ResourceProvider | Nombre del proveedor de recursos Siempre `MICROSOFT.DBFORMYSQL` |
+| ResourceType | `Servers` |
+| ResourceId | URI de recurso |
+| Recurso | Nombre del servidor |
+| Categoría | `MySqlSlowLogs` |
+| nombreOperación | `LogEvent` |
+| Logical_server_name_s | Nombre del servidor |
+| start_time_t [UTC] | Hora de inicio de la consulta |
+| query_time_s | Tiempo total que tardó en ejecutarse la consulta |
+| lock_time_s | Tiempo total durante el que se bloqueó la consulta |
+| user_host_s | Nombre de usuario |
+| rows_sent_s | Número de filas enviadas |
+| rows_examined_s | Número de filas examinadas |
+| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| insert_id_s | Id. de inserción |
+| sql_text_s | Consulta completa |
+| server_id_s | Id. del servidor |
+| thread_id_s | Id. del subproceso |
+| \_ResourceId | URI de recurso |
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [How to configure and access server logs from the Azure CLI](howto-configure-server-logs-in-cli.md) (Configuración y acceso de registros de servidor desde la CLI de Azure).

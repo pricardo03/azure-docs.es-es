@@ -1,0 +1,63 @@
+---
+title: Creación de páginas de error personalizadas de Azure Application Gateway
+description: Este artículo muestra cómo crear páginas de error personalizadas de Application Gateway.
+services: application-gateway
+author: amitsriva
+ms.service: application-gateway
+ms.topic: article
+ms.date: 10/11/2018
+ms.author: victorh
+ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49071099"
+---
+# <a name="create-application-gateway-custom-error-pages"></a>Creación de páginas de error personalizadas de Application Gateway
+
+Application Gateway permite crear páginas de error personalizadas, en lugar de mostrar las páginas de error predeterminadas. Mediante una página de error personalizada puede usar su propia marca y diseño.
+
+Por ejemplo, puede definir su propia página de mantenimiento si la aplicación web no está accesible. O bien, puede crear una página de acceso no autorizado si se envía una solicitud malintencionada a una aplicación web.
+
+Las páginas de error personalizadas se admiten para los dos escenarios siguientes:
+
+- **Página de mantenimiento**: esta página de error personalizada se envía en lugar de una página de puerta de enlace incorrecta 502. Se muestra cuando Application Gateway no tiene ningún back-end para enrutar el tráfico. Por ejemplo, cuando hay un mantenimiento programado o cuando un problema imprevisto afecta al acceso al grupo de back-end.
+- **Página de acceso no autorizado**: esta página de error personalizada se envía en lugar de una página de acceso no autorizado 403. Se muestra cuando el WAF de Application Gateway detecta tráfico malintencionado y lo bloquea.
+
+Si se origina un error en los servidores de back-end, se pasa de vuelta sin modificar al llamador. No se muestra una página de error personalizada. Application Gateway puede mostrar una página de error personalizada cuando una solicitud no puede conectar con el back-end.
+
+Las páginas de error personalizadas se pueden definir en el nivel global y en el nivel del agente de escucha:
+
+- **Nivel global**: la página de error se aplica al tráfico de todas las aplicaciones web implementadas en esa puerta de enlace de aplicación.
+- **Nivel del agente de escucha**: la página de error se aplica al tráfico recibido en ese agente de escucha.
+- **Ambos**: la página de error personalizada definida en el nivel del agente de escucha reemplaza la establecida en el nivel global.
+
+Para crear una página de error personalizada, debe tener:
+- un código de estado de respuesta HTTP.
+- la ubicación correspondiente de la página de error. 
+- un blob de Azure Storage públicamente accesible para la ubicación.
+- un tipo de extensión *.htm o *.html. 
+
+El tamaño de la página de error debe ser inferior a 1 MB. Si hay imágenes vinculadas en la página de error, deben ser accesibles públicamente mediante direcciones URL absolutas o bien puede codificar en base 64 la imagen insertada en la página de error personalizada. Actualmente no se admiten vínculos relativos con imágenes en la misma ubicación del blob. 
+
+Después de especificar una página de error, la puerta de enlace de la aplicación lo descarga desde la ubicación de Blob Storage y lo guarda en la memoria caché de la puerta de enlace de aplicaciones local. A continuación, la página de error se sirve directamente desde la puerta de enlace de la aplicación. Para modificar una página de error personalizada existente, debe apuntar a una ubicación de blob distinta en la configuración de la puerta de enlace de aplicaciones. La puerta de enlace de aplicaciones no comprueba periódicamente la ubicación del blob para recuperar las nuevas versiones.
+
+## <a name="portal-configuration"></a>Configuración del portal
+
+1. Vaya a Application Gateway en el portal y elija una puerta de enlace de aplicaciones.
+
+    ![Introducción a ag](media/custom-error/ag-overview.png)
+2. Haga clic en **Agentes de escucha** y vaya a un agente de escucha determinado en el que desea especificar una página de error.
+
+    ![Agentes de escucha de Application Gateway](media/custom-error/ag-listener.png)
+3. Configure una página de error personalizada para un error 403 de WAF o una página de mantenimiento 502 en el nivel del agente de escucha.
+
+    > [!NOTE]
+    > Actualmente no se admite la creación de páginas de error personalizadas de nivel global desde Azure Portal.
+
+4. Especifique una dirección URL para el blob accesible públicamente para un código de estado de error especificado y haga clic en **Guardar**. Application Gateway ahora está configurado con la página de error personalizada.
+
+   ![Códigos de error de Application Gateway](media/custom-error/ag-error-codes.png)
+## <a name="next-steps"></a>Pasos siguientes
+Para más información acerca de los diagnósticos de Application Gateway, consulte [Mantenimiento del back-end, registros de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365594"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856537"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migración de soluciones EDI de BizTalk Server a BizTalk Services: Guía técnica
 
@@ -28,7 +28,7 @@ Revisores: Karthik Bharthy
 Escrito con: Microsoft Azure BizTalk Services (versión de febrero de 2014).
 
 ## <a name="introduction"></a>Introducción
-Intercambio electrónico de datos (EDI) es uno de los medios más frecuentes mediante los que las empresas intercambian datos electrónicamente. También se llaman transacciones entre empresas o B2B. BizTalk Server lleva teniendo compatibilidad con EDI más de una década, desde su versión inicial. Con BizTalk Services, Microsoft continúa la compatibilidad con las soluciones EDI en la Plataforma Microsoft Azure. Las transacciones B2B son mayormente externas a una organización y, por tanto, resultan más fáciles de implementar si se han implementado en una plataforma en la nube. Microsoft Azure proporciona esta capacidad a través de BizTalk Services.
+Intercambio electrónico de datos (EDI) es uno de los medios más frecuentes mediante los que las empresas intercambian datos electrónicamente. También se llaman transacciones entre empresas o B2B. BizTalk Server lleva teniendo compatibilidad con EDI más de una década, desde su primera versión. Con BizTalk Services, Microsoft continúa la compatibilidad con las soluciones EDI en la Plataforma Microsoft Azure. Las transacciones B2B son mayormente externas a una organización y, por tanto, resultan más fáciles de implementar si se han implementado en una plataforma en la nube. Microsoft Azure proporciona esta capacidad a través de BizTalk Services.
 
 Aunque algunos clientes consideran BizTalk Services como una plataforma "virgen" para nuevas soluciones EDI, muchos tienen soluciones EDI de BizTalk Server actuales que pueden migrar a Azure. Porque EDI de BizTalk Services está diseñado según las mismas entidades clave que la arquitectura de EDI de BizTalk Server (socios comerciales, entidades, contratos), es posible migrar artefactos de EDI de BizTalk Server a BizTalk Services.
 

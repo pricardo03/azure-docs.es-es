@@ -1,26 +1,19 @@
 ---
 title: Límites de Azure Data Box Gateway | Microsoft Docs
 description: Se describen los límites del sistema y los tamaños recomendados de Microsoft Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: edb4995b626055be830a7accb74d99f1db3ef8d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962225"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49164440"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Límites de Azure Data Box Gateway (versión preliminar)
 
@@ -44,7 +37,7 @@ En la tabla siguiente se describen los límites del dispositivo de Data Box Gate
 |---|---|
 |No. de archivos por dispositivo |100 millones <br> El límite es ~ 25 millones de archivos para cada 2 TB de espacio en disco con un límite máximo de 100 millones |
 |No. de recursos compartidos por dispositivo |24 |
-|Tamaño máximo de archivo escrito en un recurso compartido|5 TB |
+|Tamaño máximo de archivo escrito en un recurso compartido|Para un dispositivo virtual de 2 TB, el tamaño máximo de archivo es de 500 GB. <br> El tamaño máximo de archivo aumenta con el tamaño del disco de datos en la relación anterior hasta que alcanza un máximo de 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Límites de almacenamiento de Azure
 

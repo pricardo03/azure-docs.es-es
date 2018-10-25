@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/02/2018
 ms.author: jeedes
-ms.openlocfilehash: d53877dbcc25edad14714633bfa11a0c3cbbf76e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c9ee0af3cbf2c1aa7b24d2f4cf5fba9d664bc087
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433265"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integración de Azure Active Directory con Expensify
 
@@ -56,25 +56,26 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-expensify-from-the-gallery"></a>Agregar Expensify desde la galería
+
 Para configurar la integración de Expensify en Azure AD, deberá agregar Expensify desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Expensify desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![Botón Azure Active Directory][1]
+    ![imagen](./media/expensify-tutorial/selectazuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
+    ![imagen](./media/expensify-tutorial/a_select_app.png)
     
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![imagen](./media/expensify-tutorial/a_new_app.png)
 
-1. En el cuadro de búsqueda, escriba **Expensify**, seleccione **Expensify** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Expensify**, seleccione **Expensify** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Expensify en la lista de resultados](./media/expensify-tutorial/tutorial_expensify_addfromgallery.png)
+     ![imagen](./media/expensify-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -98,84 +99,75 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 **Para configurar el inicio de sesión único de Azure AD con Expensify, siga estos pasos:**
 
-1. En Azure Portal, en la página de integración de la aplicación **Expensify**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicacionsz de **Expensify**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![imagen](./media/expensify-tutorial/b1_b2_select_sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/expensify-tutorial/tutorial_expensify_samlbase.png)
+2. Haga clic en **Cambiar el modo de inicio de sesión único** en la parte superior de la pantalla para seleccionar el modo **SAML**.
 
-1. En la sección **Dominio y direcciones URL de Expensify**, lleve a cabo los pasos siguientes:
+      ![imagen](./media/expensify-tutorial/b1_b2_saml_ssso.png)
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Expensify](./media/expensify-tutorial/tutorial_expensify_url.png)
+3. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, haga clic en **Seleccionar** para el modo **SAML** para habilitar el inicio de sesión único.
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL similar a la siguiente: `https://www.expensify.com/authentication/saml/login`
+    ![imagen](./media/expensify-tutorial/b1_b2_saml_sso.png)
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.<companyname>.expensify.com`
+4. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+
+    ![imagen](./media/expensify-tutorial/b1-domains_and_urlsedit.png)
+
+5. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una URL como: `https://www.expensify.com/authentication/saml/login`
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.<companyname>.expensify.com`
+
+    ![imagen](./media/expensify-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
-    > Reemplace la sección `<companyname>` de la dirección URL del identificador por el dominio de su empresa. Consulte el ejemplo de `https://contoso.expensify.com` anteriormente presentado. Póngase en contacto con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com) para obtener este valor.
+    > Reemplace la sección <companyname> de la dirección URL del identificador por el dominio de su empresa. Consulte el ejemplo de `https://contoso.expensify.com` anteriormente presentado. En Expensify, este es el nombre del dominio, tal como se muestra en **Configuración > Control de dominio**.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+    ![Información del dominio de Expensify](./media/expensify-tutorial/tutorial_expensify_domain.png)
 
-    ![Vínculo de descarga del certificado](./media/expensify-tutorial/tutorial_expensify_certificate.png) 
+6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el certificado adecuado según sus requisitos y guárdelo en el equipo.
 
-1. Haga clic en el botón **Guardar** .
+    ![imagen](./media/expensify-tutorial/certificatebase64.png)
 
-    ![Botón Configurar inicio de sesión único](./media/expensify-tutorial/tutorial_general_400.png)
-
-1. Para habilitar SSO en Expensify, primero deberá habilitar el **control de dominio** en la aplicación. Se puede habilitar el control de dominio de la aplicación mediante los pasos enumerados [aquí](http://help.expensify.com/domain-control). Para más información, trabaje con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com). Una vez habilitado el control de dominio, siga estos pasos:
+7. Para habilitar SSO en Expensify, primero deberá habilitar el **control de dominio** en la aplicación. Se puede habilitar el control de dominio de la aplicación mediante los pasos enumerados [aquí](http://help.expensify.com/domain-control). Para más información, trabaje con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com). Una vez habilitado el control de dominio, siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/expensify-tutorial/tutorial_expensify_51.png)
     
     a. Inicie sesión en la aplicación Expensify.
     
-    b. En la barra de herramientas de la parte superior, haga clic en **Administración**.
+    b. En el panel izquierdo, haga clic en **Configuración** y vaya a **SAML**.
     
-    c. En el panel izquierdo, haga clic en **Dominio**.
+    c. Cambie la opción **Inicio de sesión SAML** a **Habilitado**.
     
-    d. Haga clic en su nombre de dominio comprobado.
-    
-    e. En el panel izquierdo, haga clic en **SAML** y, a continuación, seleccione **Habilitado**.
-    
-    f. Abra el documento de metadatos de federación descargado desde Azure AD en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Metadatos del proveedor de identidades** que se proporciona.
+    d. Abra el documento de metadatos de federación descargado desde Azure AD en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Metadatos del proveedor de identidades** que se proporciona.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, seleccione **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![imagen](./media/expensify-tutorial/d_users_and_groups.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/expensify-tutorial/create_aaduser_01.png)
+    ![imagen](./media/expensify-tutorial/d_adduser.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades de usuario, realice los pasos siguientes.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/expensify-tutorial/create_aaduser_02.png)
+    ![imagen](./media/expensify-tutorial/d_userproperties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/expensify-tutorial/create_aaduser_03.png)
+    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
 
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/expensify-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-
-    d. Haga clic en **Create**(Crear).
+    d. Seleccione **Crear**.
  
 ### <a name="create-an-expensify-test-user"></a>Creación de un usuario de prueba de Expensify
 
@@ -185,31 +177,25 @@ En esta sección, creará un usuario denominado Britta Simon en Expensify. Colab
 
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Expensify.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 
-**Para asignar a Britta Simon a Expensify, siga estos pasos:**
+    ![imagen](./media/expensify-tutorial/d_all_applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **Expensify**.
 
-    ![Asignar usuario][201] 
+    ![imagen](./media/expensify-tutorial/d_all_proapplications.png)
 
-1. En la lista de aplicaciones, seleccione **Expensify**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo a Expensify en la lista de aplicaciones](./media/expensify-tutorial/tutorial_expensify_app.png)  
+    ![imagen](./media/expensify-tutorial/d_leftpaneusers.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![imagen](./media/expensify-tutorial/d_assign_user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios y, a continuación, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-    ![Panel Agregar asignación][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
@@ -223,17 +209,6 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
 
-[1]: ./media/expensify-tutorial/tutorial_general_01.png
-[2]: ./media/expensify-tutorial/tutorial_general_02.png
-[3]: ./media/expensify-tutorial/tutorial_general_03.png
-[4]: ./media/expensify-tutorial/tutorial_general_04.png
 
-[100]: ./media/expensify-tutorial/tutorial_general_100.png
-
-[200]: ./media/expensify-tutorial/tutorial_general_200.png
-[201]: ./media/expensify-tutorial/tutorial_general_201.png
-[202]: ./media/expensify-tutorial/tutorial_general_202.png
-[203]: ./media/expensify-tutorial/tutorial_general_203.png
 

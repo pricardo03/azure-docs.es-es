@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972817"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067710"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Uso de los perfiles de la versión de la API con la CLI de Azure en Azure Stack
 
@@ -168,7 +168,8 @@ Use los pasos siguientes para conectarse a Azure Stack:
 
 1. Inicie sesión en el entorno de Azure Stack. Para ello, use el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack como un usuario o una [entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Iniciar sesión como un *usuario*: puede especificar el nombre de usuario y la contraseña directamente en el comando `az login` o autenticarse mediante un explorador. Deberá hacer esto último, si la cuenta tiene habilitada la autenticación multifactor.
+    * Entornos de AAD
+      * Iniciar sesión como un *usuario*: puede especificar el nombre de usuario y la contraseña directamente en el comando `az login` o autenticarse mediante un explorador. Deberá hacer esto último, si la cuenta tiene habilitada la autenticación multifactor.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Use los pasos siguientes para conectarse a Azure Stack:
       > [!NOTE]
       > Si su cuenta de usuario tiene la autenticación multifactor habilitada, puede usar `az login command` sin proporcionar el parámetro `-u`. Al ejecutar el comando, se le proporciona una URL y un código que debe usar para la autenticación.
    
-   * Iniciar sesión como una *entidad de servicio*: antes de iniciar sesión, [cree una entidad de servicio a través de Azure Portal](azure-stack-create-service-principals.md) o la CLI y asígnele un rol. Ahora, inicie sesión con el siguiente comando:
+      * Iniciar sesión como una *entidad de servicio*: antes de iniciar sesión, [cree una entidad de servicio a través de Azure Portal](azure-stack-create-service-principals.md) o la CLI y asígnele un rol. Ahora, inicie sesión con el siguiente comando:
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Use los pasos siguientes para conectarse a Azure Stack:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * Entornos de AD FS
+
+        * Inicie sesión como una *entidad de servicio*: 
+          1.    Prepare el archivo .pem que se va a usar para el inicio de sesión de la entidad de servicio.
+                * En el equipo cliente donde se ha creado la entidad de seguridad, exporte el certificado de la entidad de servicio como un archivo pfx con la clave privada (ubicada en cert:\CurrentUser\My; el nombre del certificado es igual que el de la entidad de seguridad).
+
+                *   Convierta el archivo pfx a pem (use la utilidad OpenSSL).
+
+          1.    Inicie sesión en la CLI. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>Prueba de la conectividad
 

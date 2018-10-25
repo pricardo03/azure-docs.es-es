@@ -1,7 +1,7 @@
 ---
 title: Seguridad en Azure App Service y Azure Functions | Microsoft Docs
 description: Obtenga información acerca de cómo App Service le ayuda a proteger su aplicación y aislarla de las amenazas.
-keywords: azure app service, aplicación web, aplicación móvil, aplicación api, aplicación de función, seguridad, seguro, protegido, cumplimiento, conforme, certificado, certificados, https, ftps, tls, confianza, cifrado, cifrar, restricción de ip, autenticación, autorización, auth, autorizar, msi, managed service identity, secretos, secreto, revisar, revisión, revisiones, versión, aislamiento, aislamiento de red, ddos, mitm
+keywords: azure app service, aplicación web, aplicación móvil, api app, aplicación de función, seguridad, seguro, protegido, cumplimiento, conforme, certificado, certificados, https, ftps, tls, confianza, cifrado, cifrar, restricción de ip, autenticación, autorización, authn, autho, msi, managed service identity, secretos, secreto, revisar, revisión, revisiones, versión, aislamiento, aislamiento de red, ddos, mitm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382123"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857506"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Seguridad en Azure App Service y Azure Functions
 
@@ -69,7 +69,7 @@ La funcionalidad de autorización y autenticación de App Service admite varios 
 
 Al autenticarse con un servicio back-end, App Service proporciona dos mecanismos diferentes dependiendo de sus necesidades:
 
-- **Identidad de servicio**: inicie sesión en el recurso remoto con la identidad de la propia aplicación. App Service permite crear fácilmente una [identidad de servicio administrada](app-service-managed-service-identity.md), que puede usar para autenticarse en otros servicios, como [Azure SQL Database](/azure/sql-database/) o [Azure Key Vault](/azure/key-vault/). Para ver un tutorial completo sobre este tema, consulte [Protección de la conexión con Azure SQL Database desde App Service mediante una identidad de servicio administrada](app-service-web-tutorial-connect-msi.md).
+- **Identidad de servicio**: inicie sesión en el recurso remoto con la identidad de la propia aplicación. App Service permite crear fácilmente una [identidad administrada](app-service-managed-service-identity.md), que puede usar para autenticarse en otros servicios, como [Azure SQL Database](/azure/sql-database/) o [Azure Key Vault](/azure/key-vault/). Para ver un tutorial completo sobre este tema, consulte [Tutorial: protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada](app-service-web-tutorial-connect-msi.md).
 - **En nombre de otra persona (OBO)**: cree un acceso delegado a los recursos remotos en nombre del usuario. Con Azure Active Directory como proveedor de autenticación, la aplicación de App Service puede realizar un inicio de sesión delegada a un servicio remoto, como [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) o una aplicación de API remota en App Service. Para ver un tutorial completo sobre este tema, consulte [Autenticación y autorización de usuarios de un extremo a otro en Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividad a los recursos remotos
@@ -106,13 +106,13 @@ Hay tres maneras de acceder de forma segura a los recursos locales, por ejemplo,
 
 No almacene los secretos de la aplicación, como las credenciales de la base de datos, los tokens de API y las claves privadas en el código o en archivos de configuración. El enfoque aceptado es acceder a ellos como [variables de entorno](https://wikipedia.org/wiki/Environment_variable), usando el patrón estándar en el lenguaje que prefiera. En App Service, las variables de entorno se definen mediante la [configuración de la aplicación](web-sites-configure.md#app-settings) y, especialmente para las aplicaciones .NET, [cadenas de conexión](web-sites-configure.md#connection-strings). La configuración de la aplicación y las cadenas de conexión se almacenan cifradas en Azure y se descifran solo antes de insertarlas en la memoria de proceso de la aplicación cuando se inicia la aplicación. Las claves de cifrado rotan con regularidad.
 
-También puede integrar la aplicación de App Service con [Azure Key Vault](/azure/key-vault/) para la administración avanzada de secretos. La aplicación de App Service puede [acceder al almacén de claves con una identidad de servicio administrada](../key-vault/tutorial-web-application-keyvault.md) para tener acceso seguro a los secretos que necesita.
+También puede integrar la aplicación de App Service con [Azure Key Vault](/azure/key-vault/) para la administración avanzada de secretos. Al [acceder a Key Vault con una identidad administrada](../key-vault/tutorial-web-application-keyvault.md), la aplicación App Service puede acceder de forma segura a los secretos que necesita.
 
 ## <a name="network-isolation"></a>Aislamiento de red
 
 Excepto en el plan de tarifa **Aislado**, todos los niveles ejecutan las aplicaciones en la infraestructura de red compartida en App Service. Por ejemplo, las direcciones IP públicas y los equilibradores de carga de front-end se comparten con otros inquilinos. El plan **Aislado** ejecuta las aplicaciones dentro de un [entorno de App Service](environment/intro.md) dedicado para tener un aislamiento de red completo. Los entornos de App Service se ejecutan en su propia instancia de la [red virtual de Azure](/azure/virtual-network/). Le permite: 
 
-- Restringir el acceso de red mediante [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md). 
+- Restringir el acceso de red mediante [grupos de seguridad de red](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Servir las aplicaciones a través de un punto de conexión público dedicado, con servidores front-end dedicados.
 - Servir la aplicación interna usando un equilibrador de carga interno (ILB), que permite el acceso únicamente desde dentro de la red virtual de Azure. El ILB tiene una dirección IP de la subred privada, que aísla completamente las aplicaciones de Internet.
 - [Uso de un ILB detrás de un firewall de aplicaciones web (WAF)](environment/integrate-with-application-gateway.md). WAFS ofrece protección de nivel empresarial para las aplicaciones de acceso público, tales como protección frente a DDoS, filtrado de URI y prevención de inyección de SQL.

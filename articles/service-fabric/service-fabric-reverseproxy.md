@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503526"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344632"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
 El servidor proxy inverso creado en Azure Service Fabric ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con estos servicios.
@@ -156,9 +156,12 @@ Para los servicios que se ejecutan en contenedores, puede usar la variable de en
 ```
 Para el clúster local, `Fabric_NodeIPOrFQDN` está establecido en "localhost" de forma predeterminada. Inicie el clúster local con el parámetro `-UseMachineName` para asegurarse de que los contenedores pueden llegar al proxy inverso que se ejecuta en el nodo. Para más información, consulte [Configuración del entorno de desarrollo para depurar contenedores](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
+Los servicios de Service Fabric que se ejecutan dentro de contenedores de Docker Compose requieren una configuración http: o https: especial para la *sección de puertos* del archivo docker-compose.yml. Para obtener más información, consulte [Compatibilidad con la implementación de Docker Compose en Azure Service Fabric](service-fabric-docker-compose.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Instalación y configuración del proxy inverso en un clúster](service-fabric-reverseproxy-setup.md)
 * [Configuración del reenvío para proteger el servicio HTTP con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)
+* [Diagnóstico de eventos de proxy inverso](service-fabric-reverse-proxy-diagnostics.md)
 * Vea un ejemplo de comunicación HTTP entre los servicios de un [proyecto de ejemplo en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Llamadas a procedimiento remoto con la comunicación remota de Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API web que usa OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)

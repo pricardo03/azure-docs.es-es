@@ -4,14 +4,14 @@ description: Aborda las preguntas más frecuentes sobre Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699971"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239224"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -48,7 +48,7 @@ Azure Migrate es una herramienta de planeación de migración y Azure Site Recov
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>¿Qué regiones de Azure con compatibles con Azure Migrate?
 
-Azure Migrate admite actualmente las ubicaciones de proyecto de migración de Este de EE. UU. y Centro-oeste de EE. UU. Tenga en cuenta que aunque solo puede crear proyectos de migración en Centro-oeste de EE. UU. y Este de EE. UU., puede evaluar sus máquinas para [varias ubicaciones de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La ubicación del proyecto solo se usa para almacenar los datos detectados.
+Azure Migrate admite actualmente las ubicaciones de proyecto de migración de Este de EE. UU. y Centro-oeste de EE. UU. Aunque solo puede crear proyectos de migración en Centro-oeste de EE. UU. y Este de EE. UU., puede evaluar sus máquinas para [varias ubicaciones de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La ubicación del proyecto solo se usa para almacenar los datos detectados.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>¿Cómo se conecta el sitio local a Azure Migrate?
 
@@ -58,7 +58,7 @@ La conexión puede ser a través de Internet o usar ExpressRoute con emparejamie
 
 Se pueden agregar componentes adicionales (por ejemplo, un antivirus) en la plantilla .OVA siempre que las reglas de firewall y de comunicación necesarias para que el dispositivo de Azure Migrate funcionen tal cual.   
 
-## <a name="discovery-and-assessment"></a>Detección y valoración
+## <a name="discovery"></a>Detección
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>¿Qué datos recopila Azure Migrate?
 
@@ -87,6 +87,12 @@ La detección basada en el dispositivo recopila metadatos acerca de las máquina
   - Red externa
 
 La detección basada en el agente es una opción disponible además de la detección basada en el dispositivo, que ayuda a los clientes a [visualizar dependencias](how-to-create-group-machine-dependencies.md) de las máquinas virtuales locales. Los agentes de dependencias recopilan detalles, como el FQDN, el sistema operativo, la dirección IP, la dirección MAC, los procesos que se ejecutan dentro de la máquina virtual y las conexiones TCP entrantes o salientes de la máquina virtual. La detección basada en el agente es opcional y puede elegir no instalar los agentes si no quiere ver las dependencias de las máquinas virtuales.
+
+### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>¿Habría algún impacto en el rendimiento en el entorno del host de ESXi analizado?
+
+En el caso del [enfoque de detección de una sola vez](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), para recopilar los datos de rendimiento, el nivel de estadísticas en vCenter Server debería establecerse en 3. Si se establece en este nivel, se recopilaría una gran cantidad de datos de resolución de problemas, que se almacenarían en la base de datos de vCenter Server. Por lo tanto, podría provocar algunos problemas de rendimiento en vCenter Server. Habrá un efecto insignificante en el host de ESXi.
+
+Hemos introducido la generación de perfiles continua de datos de rendimiento (que se encuentra en versión preliminar). Con la generación de perfiles continua, ya no es necesario cambiar el nivel de estadísticas de vCenter Server para ejecutar una evaluación basada en el rendimiento. La aplicación del recopilador ahora generará perfiles de las máquinas locales para medir los datos de rendimiento de las máquinas virtuales. Esto tendría un impacto prácticamente nulo en el rendimiento en los hosts de ESXi, así como en vCenter Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>¿Dónde se almacenan los datos recopilados y durante cuánto tiempo?
 
@@ -124,11 +130,14 @@ Si tiene un entorno que se comparte entre los inquilinos y no desea detectar las
 
 Puede detectar 1500 máquinas virtuales en un solo proyecto de migración. Si tiene varias máquinas en su entorno local, [obtenga más información](how-to-scale-assessment.md) sobre cómo puede detectar un entorno de gran tamaño en Azure Migrate.
 
+## <a name="assessment"></a>Evaluación
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>¿Azure Migrate es compatible con la estimación de costes basada en Contrato Enterprise (EA)?
 
 Actualmente, Azure Migrate no es compatible con la estimación de costes de la [oferta para Contrato Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support/). La solución alternativa consiste en especificar pago por uso como la oferta y especificar manualmente el porcentaje de descuento (se aplica a la suscripción) en el campo "Descuento" de las propiedades de valoración.
 
   ![Descuento](./media/resources-faq/discount.png)
+  
 
 ## <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -138,7 +147,34 @@ Azure Migrate está disponible sin costo adicional. [Aquí](https://azure.micros
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>¿Puedo usar un área de trabajo existente para la visualización de dependencias?
 
-Azure Migrate no admite el uso de un área de trabajo existente para la visualización de dependencias, pero Microsoft Monitoring Agent (MMA) admite el hospedaje múltiple y le permite enviar datos a varias áreas de trabajo. Así, si ya tiene los agentes implementados y configurados en un área de trabajo, puede usar el hospedaje múltiple y el agente MMA, y configurarlos para el área de trabajo de Azure Migrate (además del área de trabajo existente) y ponerlos en marcha. [Aquí](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) encontrará un blog sobre cómo habilitar el hospedaje múltiple en un agente MMA.
+Sí, Azure Migrate ahora permite asociar un área de trabajo existente para el proyecto de migración y aprovecharla para la visualización de dependencias. [Más información](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>¿Puedo exportar el informe de visualización de dependencias?
+
+No, el informe de visualización de dependencias no se puede exportar. Sin embargo, como Azure Migrate usa Service Map para la visualización de dependencias, puede usar las [API REST de Service Map](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para obtener las dependencias en formato json.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>¿Cómo puedo automatizar la instalación de Microsoft Monitoring Agent (MMA) y el agente de dependencia?
+
+[Aquí](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) hay un script que puede usar para la instalación del agente de dependencia. Para MMA, [aquí](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) hay un script disponible en TechNet que puede aprovechar.
+
+Además de los scripts, también puede aprovechar las herramientas de implementación como System Center Configuration Manager (SCCM) o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), etc. para implementar los agentes.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>¿Cuáles son los sistemas operativos compatibles con MMA?
+
+[Aquí](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) tiene una lista de los sistemas operativos Windows compatibles con MMA.
+La lista de los sistemas operativos de Linux compatibles con MMA la encontrará [aquí](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>¿Cuáles son los sistemas operativos compatibles con el agente de dependencias?
+
+[Aquí](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems) tiene una lista de los sistemas operativos Windows compatibles con el agente de dependencias.
+La lista de los sistemas operativos de Linux compatibles con el agente de dependencias la encontrará [aquí](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>¿Puedo visualizar las dependencias de Azure Migrate durante más de una hora?
+No, Azure Migrate le permite visualizar las dependencias durante un máximo de una hora. Azure Migrate le permite volver atrás a una fecha concreta en el historial de hasta el último mes, pero el tiempo máximo durante el que se pueden visualizar las dependencias es de una hora. Por ejemplo, puede usar la característica de duración de tiempo en el mapa de dependencias para ver las dependencias de ayer, pero solo puede verlas durante un período de una hora.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>¿Se admite la visualización de dependencias para grupos con más de diez máquinas virtuales?
+Puede [visualizar las dependencias de grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que tengan un máximo de diez máquinas virtuales. Si tiene un grupo con más de diez, recomendamos dividirlo en grupos más pequeños y visualizar las dependencias.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

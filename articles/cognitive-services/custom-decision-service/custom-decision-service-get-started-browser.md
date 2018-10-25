@@ -1,25 +1,27 @@
 ---
-title: Llamada a API desde un explorador - Azure Cognitive Services | Microsoft Docs
-description: Cómo empezar a trabajar con Azure Custom Decision Service para optimizar una página web mediante la realización de llamadas API directamente desde un explorador.
+title: 'Llamada a la API desde un explorador: Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: Cómo optimizar una página web mediante la realización de llamadas API directamente desde un explorador a Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: slivkins,marcozo,alekh
-ms.openlocfilehash: 10236c9d8f70d9b90a896464b4f86a847ee904c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 01f75d333e3eea5af35ca57bd44bc76148a481f2
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382255"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867622"
 ---
 # <a name="call-api-from-a-browser"></a>Llamada a la API desde un explorador
 
 En este artículo, le ayudaremos a realizar llamadas a las API de Azure Custom Decision Service directamente desde un explorador.
 
-En primer lugar, haga clic en [Registrar la aplicación](custom-decision-service-get-started-register.md).
+En primer lugar, asegúrese de [Registrar su aplicación](custom-decision-service-get-started-register.md).
 
 Comencemos. La aplicación se modela como si tuviera una página principal con vínculos a varias páginas de artículo. La página principal utiliza Custom Decision Service para especificar el orden de las páginas del artículo. Inserte el código siguiente en el encabezado HTML de la página principal:
 
@@ -45,7 +47,7 @@ $.ajax({
 
 En este caso, `data` es el argumento para la función `callback()`. Encontrará un ejemplo de implementación en este [tutorial](custom-decision-service-tutorial-news.md#use-the-apis).
 
-Por último, debe proporcionar Action Set API, que devuelve la lista de artículos (acciones) que debe considerar Custom Decision Service. Implemente esta API como fuente RSS, como se muestra aquí:
+Por último, debe proporcionar Action Set API, que devuelve la lista de artículos (acciones) que debe considerar Custom Decision Service. Implemente esta API como una fuente RSS, tal como se muestra a continuación:
 
 ```xml
 <rss version="2.0">
@@ -62,9 +64,9 @@ Por último, debe proporcionar Action Set API, que devuelve la lista de artícul
 </rss>
 ```
 
-Aquí, cada elemento `<item>` de nivel superior describe un artículo. `<link>` es obligatorio y Custom Decision Service lo usa como id. de acción. Especifique `<date>` (en un formato RSS estándar) si tiene más de 15 artículos. Se usan los 15 artículos más recientes. `<title>` es opcional y se usa para crear características relacionadas con el texto para el artículo.
+En este ejemplo, cada elemento `<item>` de nivel superior describe un artículo. `<link>` es obligatorio y Custom Decision Service lo usa como id. de acción. Especifique `<date>` (en un formato RSS estándar) si tiene más de 15 artículos. Se usan los 15 artículos más recientes. El elemento `<title>` es opcional y se usa para crear características relacionadas con texto para el artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Complete un [tutorial](custom-decision-service-tutorial-news.md) para obtener un ejemplo más detallado.
-* Consulte la [API](custom-decision-service-api-reference.md) de referencia para obtener más información sobre la funcionalidad que proporciona.
+* Examine un [tutorial](custom-decision-service-tutorial-news.md) para obtener ejemplos más detallados.
+* Consulte la [API](custom-decision-service-api-reference.md) de referencia para obtener más información acerca de la funcionalidad proporcionada.

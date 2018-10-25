@@ -1,20 +1,21 @@
 ---
-title: 'Elaborar acústica con Project Acoustics: Cognitive Services'
+title: Elaboración de la acústica con Elementos acústicos de un proyecto
+titlesuffix: Azure Cognitive Services
 description: En este documento se describe el proceso de realizar una elaboración de la acústica mediante la extensión del editor Unity.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181437"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902253"
 ---
 # <a name="bake-acoustics"></a>Elaboración de la acústica
 
@@ -199,15 +200,19 @@ Cuando esté satisfecho con los datos de la vista previa, use la pestaña **Bake
 1. El botón de la pestaña Bake (Elaborar) se usa para abrir esta página.
 2. Una breve descripción de qué hacer en esta página.
 3. Campos para especificar las credenciales de Azure una vez creada la cuenta de Azure. Para más información, vea [Create an Azure Batch Account](create-azure-account.md) (Crear una cuenta de Azure Batch).
-4. Tipo de nodo de proceso de Azure Batch que se usará para el cálculo. El tipo de nodo debe ser compatible con la ubicación del centro de datos de Azure. Si no está seguro, deje **Standard_F8**.
-5. Número de nodos que se usarán para este cálculo. El número que especifique aquí afectará al tiempo en que se completará la elaboración y está limitado por la asignación de núcleos de Azure Batch. La asignación predeterminada solo permite dos nodos de 8 núcleos o un nodo de 16 núcleos, pero se puede expandir. Para obtener más información sobre las restricciones de la asignación de núcleos, consulte [Create an Azure Batch Account](create-azure-account.md) (Crear una cuenta de Azure Batch).
-6. El recuento del sondeo de la escena tal como se ha calculado en la pestaña **Probes** (Sondeos). El número de sondeos determina el número de simulaciones que se deben ejecutar en la nube. No se pueden especificar más nodos que sondeos.
-7. La cantidad de tiempo transcurrido que se espera que tarde el trabajo en ejecutarse en la nube. Esto no incluye el tiempo de inicio del nodo. Una vez que el trabajo comienza a ejecutarse, es el tiempo que tardará en obtener los resultados. Tenga en cuenta que esto es solo una estimación.
-8. La cantidad total de tiempo de proceso necesario para ejecutar las simulaciones. Se trata de la cantidad total de tiempo de proceso del nodo que se usará en Azure. Consulte [Estimación de costos de la elaboración](#Estimating-bake-cost) más abajo para obtener más información sobre el uso de este valor.
-9. Este mensaje indica dónde se guardarán los resultados de la elaboración una vez completado el trabajo.
-10. (Solo para uso avanzado) Si por algún motivo tiene que forzar que Unity olvide una elaboración enviada (por ejemplo, ha descargado los resultados con otro equipo), haga clic en el botón **Clear State** (Borrar estado) para que se olvide del trabajo enviado. Tenga en cuenta que esto significa que el archivo de resultados, cuando esté listo, **no** se descargará y esto **no es igual a cancelar el trabajo**. El trabajo, si está en ejecución, se seguirá ejecutando en la nube.
-11. Haga clic en el botón Bake (Elaborar) para enviar la elaboración a la nube. Mientras se ejecuta un trabajo, se muestra **Cancel Job** (Cancelar trabajo) en su lugar.
-12. En esta área se muestra el estado de la elaboración. Cuando se haya completado, debe mostrar **Downloaded** (Descargado).
+4. Etiqueta de imagen de Docker para el conjunto de herramientas acústicas.
+5. Abra Azure Portal para administrar las suscripciones, supervisar el uso, ver información de facturación, etc. 
+6. Tipo de nodo de proceso de Azure Batch que se usará para el cálculo. El tipo de nodo debe ser compatible con la ubicación del centro de datos de Azure. Si no está seguro, deje **Standard_F8s_v2**.
+7. Número de nodos que se usarán para este cálculo. El número que especifique aquí afectará al tiempo en que se completará la elaboración y está limitado por la asignación de núcleos de Azure Batch. La asignación predeterminada solo permite dos nodos de 8 núcleos o un nodo de 16 núcleos, pero se puede expandir. Para obtener más información sobre las restricciones de la asignación de núcleos, consulte [Create an Azure Batch Account](create-azure-account.md) (Crear una cuenta de Azure Batch).
+8. Active esta casilla para configurar el grupo de proceso para que use [nodos de prioridad baja](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Los nodos de proceso de prioridad baja tienen un costo mucho menor, pero no siempre están disponibles o se pueden reemplazar en cualquier momento.
+9. El recuento del sondeo de la escena tal como se ha calculado en la pestaña **Probes** (Sondeos). El número de sondeos determina el número de simulaciones que se deben ejecutar en la nube. No se pueden especificar más nodos que sondeos.
+10. La cantidad de tiempo transcurrido que se espera que tarde el trabajo en ejecutarse en la nube. Esto no incluye el tiempo de inicio del nodo. Una vez que el trabajo comienza a ejecutarse, es el tiempo que tardará en obtener los resultados. Tenga en cuenta que esto es solo una estimación.
+11. La cantidad total de tiempo de proceso necesario para ejecutar las simulaciones. Se trata de la cantidad total de tiempo de proceso del nodo que se usará en Azure. Consulte [Estimación de costos de la elaboración](#Estimating-bake-cost) más abajo para obtener más información sobre el uso de este valor.
+12. Este mensaje indica dónde se guardarán los resultados de la elaboración una vez completado el trabajo.
+13. (Solo para uso avanzado) Si por algún motivo tiene que forzar que Unity olvide una elaboración enviada (por ejemplo, ha descargado los resultados con otro equipo), haga clic en el botón **Clear State** (Borrar estado) para que se olvide del trabajo enviado. Tenga en cuenta que esto significa que el archivo de resultados, cuando esté listo, **no** se descargará y esto **no es igual a cancelar el trabajo**. El trabajo, si está en ejecución, se seguirá ejecutando en la nube.
+14. Haga clic en el botón Bake (Elaborar) para enviar la elaboración a la nube. Mientras se ejecuta un trabajo, se muestra **Cancel Job** (Cancelar trabajo) en su lugar.
+15. Se prepara para el procesamiento de la simulación acústica en un equipo local. Vea [Elaboración local](#Local-bake) para obtener más información.  
+16. En esta área se muestra el estado de la elaboración. Cuando se haya completado, debe mostrar **Downloaded** (Descargado).
 
 Siempre puede obtener la información completa sobre los trabajos activos, los grupos de proceso y el almacenamiento en [Azure Portal](https://portal.azure.com).
 
@@ -217,13 +222,34 @@ Una vez iniciada una elaboración, puede cerrar Unity. Según el proyecto, el ti
 
 Las credenciales de Azure se almacenan de forma segura en el equipo local y están asociadas al editor Unity. Se usan únicamente para establecer una conexión segura con Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimación del costo de la elaboración
+### <a name="Estimating-bake-cost"></a> Estimación del costo de elaboración de Azure
 
-Para estimar lo que costará una elaboración determinada, tome el valor que se muestra para **Estimated Compute Cost** (Costo de proceso estimado), que es una duración, y multiplíquelo por el costo por hora en su moneda local del **VM Node Type** (Tipo de nodo VM) que ha seleccionado. El resultado no incluirá el tiempo de nodo necesario para que los nodos entren en ejecución. Por ejemplo, si selecciona **Standard_F8** para el tipo de nodo, que tiene un costo de 0,75 USD/hora y el costo estimado de proceso es de 3 horas y 57 minutos, el costo estimado para la ejecución del trabajo será 0,75 USD * ~ 4 horas = ~ 3,00 USD. El costo real probablemente será un poco mayor debido al tiempo adicional para iniciar los nodos. Puede encontrar el costo de nodo por hora en la página [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Precios de Azure Batch) (seleccione "Proceso optimizado" o "Proceso de alto rendimiento" para la categoría).
+Para estimar lo que costará una elaboración determinada, tome el valor que se muestra para **Estimated Compute Cost** (Costo de proceso estimado), que es una duración, y multiplíquelo por el costo por hora en su moneda local del **VM Node Type** (Tipo de nodo VM) que ha seleccionado. El resultado no incluirá el tiempo de nodo necesario para que los nodos entren en ejecución. Por ejemplo, si selecciona **Standard_F8s_v2** para el tipo de nodo, que tiene un costo de 0,40 USD/hora y el costo estimado de proceso es de 3 horas y 57 minutos, el costo estimado para la ejecución del trabajo será 0,40 USD * ~ 4 horas = ~ 1,60 USD. El costo real probablemente será un poco mayor debido al tiempo adicional para iniciar los nodos. Puede encontrar el costo de nodo por hora en la página [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Precios de Azure Batch) (seleccione "Proceso optimizado" o "Proceso de alto rendimiento" para la categoría).
 
 ### <a name="reviewing-the-bake-results"></a>Revisión de los resultados de la elaboración
 
 Una vez finalizada la elaboración, compruebe que los vóxeles y los puntos de sondeo estén en las ubicaciones esperadas, ejecutando el complemento de tiempo de ejecución. Encontrará más información disponible en [Design Process Overview for Acoustics](design-process.md) (Introducción al proceso de diseño para la acústica).
+
+## <a name="Local-bake"></a>Elaboración local
+La elaboración local ejecuta la simulación acústica en su PC en lugar de descargarla en el clúster de proceso de Azure Batch. Esto puede ser una buena opción para experimentar con la acústica sin necesidad de una suscripción de Azure. Tenga en cuenta que la simulación acústica conlleva muchos cálculos y puede tardar mucho tiempo en función del tamaño de la escena, la configuración de la simulación y la capacidad de proceso del equipo que realiza el procesamiento.
+
+### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
+Procesador Intel de 64 bits con al menos 8 núcleos y 32 GB de RAM o superior.
+
+Por ejemplo, en un equipo de 8 núcleos con Intel Xeon E5-1660 @ 3 GHz y 32 GB de RAM:
+* Un escena pequeña con 100 sondeos tarda unas 2 horas para una elaboración gruesa y unas 32 para una de resolución fina.
+* Una escena de mayor con 1000 sondeos puede tardar hasta 20 horas para una elaboración gruesa y 21 días para una de resolución fina.
+
+### <a name="setup-docker"></a>Instalación de Docker
+Instale y configure Docker en el equipo en el que se va a procesar la simulación:
+1. Instale el [conjunto de herramientas de Docker](https://www.docker.com/products/docker-desktop).
+2. Inicie la configuración de Docker, vaya a las opciones "Avanzadas" y configure los recursos para tener al menos 8 GB de RAM. Cuantas más CPU pueda asignar a Docker, más rápidamente se completará la elaboración. ![Configuración de Docker de ejemplo](media/DockerSettings.png)
+3. Vaya a "Unidades compartidas" y active el uso compartido de la unidad que se usa para el procesamiento.![Uso compartido de la unidad Docker](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>Ejecución de la elaboración local
+1. Haga clic en el botón "Prepare Local Bake" (Preparar la elaboración local) en la pestaña Bake (Elaboración) y seleccione una carpeta para guardar los archivos de entrada y los scripts de ejecución. Después, puede ejecutar la elaboración en cualquier equipo, siempre que cumpla los requisitos mínimos de hardware y tenga Docker instalado si copia la carpeta en ese equipo.
+2. Inicie la simulación mediante el script "runlocalbake.bat". Este script capturará la imagen de Docker de Elementos acústicos de un proyecto con el conjunto de herramientas necesarias para el procesamiento de la simulación e iniciará la simulación. 
+3. Cuando haya finalizado la simulación, copie el archivo .ace resultante al proyecto Unity. Para asegurarse de que Unity lo reconoce como un archivo binario, anexe ".bytes" a la extensión de archivo (por ejemplo, "Scene1.ace.bytes"). Los registros detallados para la simulación se almacenan en "AcousticsLog.txt". Si experimenta algún problema, comparta este archivo para ayudar con el diagnóstico.
 
 ## <a name="Data-Files"></a>Archivos de datos
 

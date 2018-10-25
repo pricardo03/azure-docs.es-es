@@ -1,22 +1,27 @@
 ---
-title: Análisis de elementos de la oración en Linguistic Analysis API | Microsoft Docs
+title: 'Análisis de elementos de la oración: Linguistic Analysis API'
+titlesuffix: Azure Cognitive Services
 description: Más información sobre cómo el análisis de elementos de la oración, también conocido como "análisis de la estructura de sintagmas", identifica sintagmas del texto.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082179"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238631"
 ---
 # <a name="constituency-parsing"></a>Análisis de elementos de la oración
+
+> [!IMPORTANT]
+> El 9 de agosto de 2018 se retiró la versión preliminar de Linguistic Analysis. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 El objetivo del análisis de elementos de la oración, también conocido como "análisis de la estructura de sintagmas", es identificar sintagmas del texto.
 Esto puede ser útil al extraer información de un texto.

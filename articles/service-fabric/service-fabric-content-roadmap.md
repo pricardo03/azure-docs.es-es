@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: d4b27feab5c1bb5913d2ba26f7f43aca9a899aa0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c55e67e24c8f5ff6e243c67b614592874b2cc459
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697676"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870662"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -84,7 +84,7 @@ Una diferencia clave con Service Fabric es la gran importancia que da a la creac
 Service Fabric ofrece varias maneras de escribir y administrar los servicios. Los servicios pueden usar las API de Service Fabric para sacar el máximo provecho de los marcos de aplicaciones y las características de la plataforma. Los servicios también pueden ser cualquier programa ejecutable compilado escrito en cualquier lenguaje y hospedado en un clúster de Service Fabric. Para más información, consulte [Modelos de programación admitidos](service-fabric-choose-framework.md).
 
 ### <a name="containers"></a>Contenedores
-De forma predeterminada, Service Fabric implementa y activa estos servicios como procesos. Service Fabric puede implementar también servicios en [contenedores](service-fabric-containers-overview.md). Lo importantes es que puede mezclar servicios en procesos y servicios en contenedores en la misma aplicación. Service Fabric admite la implementación de contenedores de Linux/contenedores de Windows en Windows Server 2016. Puede usar Service Fabric para implementar aplicaciones existentes y servicios con o sin estado en un contenedor. 
+De forma predeterminada, Service Fabric implementa y activa estos servicios como procesos. Service Fabric puede implementar también servicios en [contenedores](service-fabric-containers-overview.md). Lo importantes es que puede mezclar servicios en procesos y servicios en contenedores en la misma aplicación. Service Fabric admite la implementación de contenedores de Linux y contenedores de Windows en Windows Server 2016. Puede usar Service Fabric para implementar aplicaciones existentes y servicios con o sin estado en un contenedor. 
 
 ### <a name="reliable-services"></a>Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md) es un entorno de trabajo ligero para escribir servicios que se integran con la plataforma Service Fabric y que se benefician de todo el conjunto de características de la plataforma. Reliable Services puede no tener estado (de forma similar a la mayoría de las plataformas de servicios, como servidores web o roles de trabajo de Azure Cloud Services), y el estado se conserva en una solución externa, como Azure DB o Azure Table Storage. Reliable Services también puede tener estado, y este se conserva directamente en el propio servicio mediante Reliable Collections. El estado cuenta con una [alta disponibilidad](service-fabric-availability-services.md) mediante la replicación y se distribuye a través de [particiones](service-fabric-concepts-partitioning.md), todo administrado automáticamente por Service Fabric.
@@ -104,7 +104,7 @@ Un [ejecutable de invitado](service-fabric-guest-executables-introduction.md) es
 ## <a name="application-lifecycle"></a>Ciclo de vida de aplicación
 Al igual que sucede con otras plataformas, una aplicación en Service Fabric normalmente pasa por las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. En [Ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) se proporciona información general de las API y cómo las utilizan los distintos roles durante todas las fases del ciclo de vida de la aplicación de Service Fabric. 
 
-El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/system.fabric) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/system.fabric._application_management_client) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Azure Pipelines](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 En el siguiente vídeo de la Academia virtual de Microsoft describe cómo administrar el ciclo de vida de la aplicación: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

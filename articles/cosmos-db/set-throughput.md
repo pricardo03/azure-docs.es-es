@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734478"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869931"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Configuración y obtención del rendimiento para contenedores y la base de datos de Azure Cosmos DB
 
-Puede establecer el rendimiento de un contenedor, o de un conjunto de contenedores, de Azure Cosmos DB desde Azure Portal o mediante los SDK del cliente. 
-
-**Rendimiento de aprovisionamiento para un contenedor individual:** Si se aprovisiona el rendimiento de un conjunto de contenedores, todos ellos comparten el rendimiento aprovisionado. El aprovisionamiento del rendimiento en los contenedores individuales garantizará la reserva de rendimiento para ese contenedor específico. Al asignar RU/s en el nivel de contenedor individual, los contenedores se pueden crear como *fijos* o *ilimitados*. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor ilimitado, debe especificar un rendimiento mínimo de 1000 RU/s y una [clave de partición](partition-data.md). Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar el contenedor, la tabla, el grafo y las solicitudes de manera uniforme. 
-
-**Rendimiento de, aprovisionamiento para un conjunto de contenedores o una base de datos:** el aprovisionamiento de rendimiento en una base de datos permite compartir dicho rendimiento entre todos los contenedores que pertenecen a dicha base de datos. En una base de datos de Azure Cosmos DB, puede tener un conjunto de contenedores que comparta tanto el rendimiento como los contenedores, que tienen rendimiento dedicado. Al asignar RU/s en un conjunto de contenedores, los contenedores que pertenecen a este conjunto se tratan como *ilimitados* y debe especificar una clave de partición.
-
-Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar el contenedor y divide y reequilibra los datos entre las particiones a medida que crece. El aprovisionamiento del rendimiento de nivel de base de datos y de contenedor son ofertas diferentes y cambiar entre cualquiera de estos requiera migrar datos de origen a destino. Lo que significa que deberá crear una nueva base de datos o una colección nueva y luego migrar datos mediante el uso de [biblioteca de ejecutor masiva](bulk-executor-overview.md) o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). La siguiente imagen ilustra el rendimiento de aprovisionamiento en niveles diferentes:
-
-![Unidades de solicitud de aprovisionamiento para contenedores individuales y conjuntos de contenedores](./media/request-units/provisioning_set_containers.png)
-
-En las siguientes secciones, se le guiará por los pasos necesarios para configurar el rendimiento a diferentes niveles en una cuenta de Azure Cosmos DB. 
+Puede establecer el rendimiento de un contenedor, o de un conjunto de contenedores, de Azure Cosmos DB desde Azure Portal o mediante los SDK del cliente. En este artículo se describen los pasos necesarios para configurar el rendimiento con diferentes granularidades en una cuenta de Azure Cosmos DB.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Aprovisionamiento del rendimiento mediante Azure Portal
 
@@ -45,7 +35,7 @@ En las siguientes secciones, se le guiará por los pasos necesarios para configu
    |Id. de base de datos  |  Especifique un nombre único para identificar la base de datos. Una base de datos es un contenedor lógico de una o varias colecciones. Los nombres de base de datos tiene que tener entre 1 y 255 caracteres y no pueden contener /, \\; #, ?, o un espacio al final. |
    |Id. de colección  | Especifique un nombre único para identificar la colección. Los identificadores de las colecciones tienen los mismos requisitos de caracteres que los nombres de las bases de datos. |
    |Capacidad de almacenamiento   | Este valor representa la capacidad de almacenamiento de la base de datos. Al aprovisionar el rendimiento de una colección individual, la capacidad de almacenamiento puede ser **Fija (10 GB)** o **Sin límite**. Una capacidad de almacenamiento ilimitada requiere que se establezca una clave de partición para los datos.  |
-   |Throughput   | Cada colección y base de datos pueden tener un rendimiento en unidades de solicitud por segundo.  En el caso de la capacidad de almacenamiento fija, el rendimiento mínimo es 400 unidades de solicitud por segundo (RU/s), mientras que en el de la capacidad de almacenamiento ilimitada, el mínimo se establece en 1000 RU/s.|
+   |Throughput   | Cada colección y base de datos pueden tener un rendimiento en unidades de solicitud por segundo.  Y una colección puede tener capacidad de almacenamiento fija o ilimitada. |
 
 6. Después de especificar los valores de estos campos, seleccione **Aceptar** para guardar la configuración.  
 
@@ -198,6 +188,21 @@ int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
+
+## <a name="get-the-request-charge-using-cassandra-api"></a>Obtención del cargo de solicitud mediante Cassandra API 
+
+Cassandra API admite una forma de proporcionar información adicional sobre el cargo de unidades de solicitud para una operación determinada. Por ejemplo, los cargos de RU/s para la operación de inserción se pueden recuperar como se indica a continuación:
+
+```csharp
+var insertResult = await tableInsertStatement.ExecuteAsync();
+ foreach (string key in insertResult.Info.IncomingPayload)
+        {
+            byte[] valueInBytes = customPayload[key];
+            string value = Encoding.UTF8.GetString(valueInBytes);
+            Console.WriteLine($“CustomPayload:  {key}: {value}”);
+        }
+```
+
 
 ## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtención de rendimiento mediante el uso de las métricas de portal de API de MongoDB
 

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b6708dac548db9e11d1092a6b84083d057401176
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221158"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237677"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -45,7 +45,7 @@ A continuación, puede obtener información acerca de los mecanismos adicionales
  - Las [copias de seguridad automatizadas integradas](sql-database-automated-backups.md) y la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) le permiten restaurar la base de datos completa a un momento dado de los últimos 35 días.
  - Puede [restaurar una base de datos eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) al momento en que se eliminó si el **servidor lógico no se ha eliminado**.
  - La [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md) le permite conservar las copias de seguridad hasta 10 años.
- - La [replicación geográfica](sql-database-geo-replication-overview.md) permite que la aplicación realice una rápida recuperación ante desastres en el caso de que se produzca una interrupción a escala del centro de datos.
+ - El [grupo de conmutación por error automática](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) permite que la aplicación se recupere automáticamente en el caso de que se produzca una interrupción a escala del centro de datos.
 
 Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación calculado (ERT) y pérdida de datos potencial de transacciones recientes. Cuando entienda estas opciones, puede elegir las que más relevantes considere y, en la mayoría de los escenarios, utilizarlas juntas con distintos objetivos. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que la aplicación se recupere totalmente se conoce como el objetivo de tiempo de recuperación (RTO). También debe conocer el período máximo de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO).
 
@@ -54,9 +54,8 @@ En la tabla siguiente se comparan los valores de ERT y RPO de cada nivel de serv
 | Capacidad | Básica | Estándar | Premium  | Uso general | Crítico para la empresa
 | --- | --- | --- | --- |--- |--- |
 | Restauración a un momento dado a partir de una copia de seguridad |Cualquier punto de restauración en 7 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en el período configurado (hasta 35 días)|Cualquier punto de restauración en el período configurado (hasta 35 días)|
-| Restauración geográfica de las copias de seguridad con replicación geográfica |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
-| Restauración desde la retención a largo plazo de SQL |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem.|ERT < 12 h, RPO < 1 sem.|
-| Replicación geográfica activa |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
+| Restauración geográfica de las copias de seguridad con replicación geográfica |ERT < 12 horas<br> RPO < 1 hora |ERT < 12 horas<br>RPO < 1 hora |ERT < 12 horas<br>RPO < 1 hora |ERT < 12 horas<br>RPO < 1 hora|ERT < 12 horas<br>RPO < 1 hora|
+| Grupos de conmutación por error automática |RTO = 1 hora<br>RPO < 5 segundos |RTO = 1 hora<br>RPO < 5 segundos |RTO = 1 hora<br>RPO < 5 segundos |RTO = 1 hora<br>RPO < 5 segundos|RTO = 1 hora<br>RPO < 5 segundos|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperación de una base de datos en el servidor existente
 
@@ -73,7 +72,8 @@ Utilice las copias de seguridad automatizadas y la [restauración a un momento d
 * Tiene una tasa de cambio de datos reducida (bajo número de transacciones por hora) y se tolera perder hasta una hora de datos.
 * Los costos son un factor fundamental.
 
-Si necesita recuperaciones más rápidas, utilice la [replicación geográfica activa](sql-database-geo-replication-overview.md) (se describe a continuación). Si necesita recuperar datos de un período anterior a 35 días, use la [retención a largo plazo](sql-database-long-term-retention.md). 
+Si necesita una recuperación más rápida, utilice [grupos de conmutación por error ](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+) (se describen a continuación). Si necesita recuperar datos de un período anterior a 35 días, use la [retención a largo plazo](sql-database-long-term-retention.md). 
 
 ## <a name="recover-a-database-to-another-region"></a>Recuperación de una base de datos en otra región
 <!-- Explain this scenario -->
@@ -82,9 +82,7 @@ Aunque es poco habitual, en los centros de datos de Azure pueden producirse inte
 
 * Una opción consiste en esperar a que la base de datos vuelva a estar en línea cuando termine la interrupción del centro de datos. Esto puede hacerse con las aplicaciones que pueden permitirse que la base de datos esté desconectada. Por ejemplo, los proyectos de desarrollo o las pruebas gratuitas no tienen que estar en funcionamiento constantemente. Cuando se produce una interrupción en un centro de datos, no sabe cuánto durará, por lo que esta opción solo es útil si no necesita utilizar la base de datos durante un tiempo.
 * Otra opción consiste en restaurar una base de datos en cualquier servidor de cualquier región de Azure mediante [copias de seguridad de base de datos con redundancia geográfica](sql-database-recovery-using-backups.md#geo-restore) (restauración geográfica). La funcionalidad de restauración geográfica utiliza una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción.
-* Por último, puede promocionar rápidamente una base de datos secundaria en otra región de datos para que se convierta en principal (proceso también denominado conmutación por error) y configurar las aplicaciones para que se conecten a la base de datos promocionada principal si va a usar la replicación geográfica activa. Puede que se pierda una pequeña cantidad de datos en las transacciones muy recientes debido a la naturaleza de la replicación asincrónica. Con el uso de grupos de conmutación automática por error, puede personalizar la directiva de conmutación por error para minimizar la posible pérdida de datos. En todos los casos, los usuarios experimentan un tiempo de inactividad reducido y tienen que volver a conectarse. La conmutación por error solo lleva unos segundos, mientras que la recuperación de una base de datos a partir de copias de seguridad dura horas.
-
-Para conmutar por error a otra región, puede usar la [replicación geográfica activa](sql-database-geo-replication-overview.md) para hacer que una base de datos tenga un máximo de cuatro bases de datos secundarias legibles en las regiones que prefiera. Estas bases de datos secundarias se mantienen sincronizadas con la principal a través de un mecanismo de replicación asincrónica. 
+* Por último, puede recuperarse rápidamente de una interrupción si ha configurado un [grupo de conmutación por error automática](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) para las bases de datos. Puede personalizar la directiva de conmutación por error para usar la conmutación por error automática o manual. Mientras la propia conmutación por error solo tarda unos segundos, el servicio tardará al menos de 1 hora en activarla. Esto es necesario asegurarse de que la conmutación por error está justificada por la escala de la interrupción. Además, la conmutación por error puede provocar pérdida de datos pequeño debido a la naturaleza de la replicación asincrónica. Consulte la tabla anterior de este artículo para detalles sobre RTO y RPO de conmutación por error automática.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -94,12 +92,12 @@ Para conmutar por error a otra región, puede usar la [replicación geográfica 
 > Para usar grupos de conmutación automática por error y la replicación geográfica activa, debe ser el propietario de la suscripción o tener permisos administrativos en SQL Server. Puede realizar tareas de configuración y conmutación por error mediante Azure Portal, PowerShell o la API de REST con los permisos de la suscripción de Azure, o bien mediante Transact-SQL con los permisos de SQL Server.
 > 
 
-Esta característica se utiliza para proteger su negocio de interrupciones en el centro de datos o durante una actualización de la aplicación. Para habilitar la conmutación por error automática y transparente debe organizar las bases de datos de replicación geográfica en grupos mediante la característica [auto-failover group](sql-database-geo-replication-overview.md) de grupos de conmutación automática por error de SQL Database. Use la replicación geográfica activa y los grupos de conmutación automática por error si su aplicación cumple alguno de estos criterios:
+Use grupos de conmutación por error automática si su aplicación cumple alguno de estos criterios:
 
 * Es crítica.
-* Tiene un SLA que no se permite que se produzcan tiempos de inactividad de más de 24 horas.
+* Tiene un SLA que no se permite que se produzcan tiempos de inactividad de más de 12 horas.
 * El tiempo de inactividad incurrirá en responsabilidades financieras.
-* Tiene una tasa de cambio de datos elevada y no se acepta perder una hora de datos.
+* Tiene una tasa de cambio de datos elevada y una hora de pérdida de datos es inaceptable.
 * El costo adicional por utilizar la replicación geográfica activa es menor que el de la posible responsabilidad financiera y la pérdida de negocio asociada que habría que asumir.
 
 Cuando pase a la acción, el tiempo que se tarde en recuperar las bases de datos y la cantidad de información que se pierde en el caso de una interrupción en el centro de datos dependerá de cómo decida usar las características de continuidad empresarial de la aplicación. De hecho, puede decidir usar una combinación de copias de seguridad de bases de datos y la replicación geográfica activa según los requisitos de la aplicación. Para una explicación de las consideraciones de diseño de las aplicaciones para bases de datos independientes y grupos elásticos con estas características de continuidad empresarial, consulte los artículos sobre [diseño de una aplicación para la recuperación ante desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [estrategias de recuperación ante desastres para los grupos elásticos](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
@@ -136,6 +134,11 @@ Cuando efectúe la recuperación con cualquiera de los mecanismos para llevarla 
 * No se olvide de emplear permisos de nivel de base de datos maestra e inicios de sesión apropiados (o use [usuarios contenidos](https://msdn.microsoft.com/library/ff929188.aspx)).
 * Configure la auditoría según corresponda.
 * Configure las alertas según corresponda.
+
+> [!NOTE]
+> Si está utilizando un grupo de conmutación por error y se conectar a las bases de datos mediante el agente de escucha de lectura y escritura, el redireccionamiento después de la conmutación por error se realizará de forma automática y transparente a la aplicación.  
+>
+>
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>Actualice una aplicación con el mínimo tiempo de inactividad posible.
 A veces, debe desconectar una aplicación debido a un mantenimiento planeado, por ejemplo, para actualizarla. En el artículo [Administración de actualizaciones graduales de aplicaciones](sql-database-manage-application-rolling-upgrade.md) se explica cómo utilizar la replicación geográfica activa para poder actualizar gradualmente su aplicación en la nube con el objetivo de minimizar el tiempo de inactividad durante este proceso. Además, se describe una ruta de recuperación para cuando se empiece a detectar errores. 

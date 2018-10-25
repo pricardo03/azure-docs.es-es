@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 97e1efe34417c3bf2f23801b2112b718f55d3416
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: f2cf472ef3c2c9950dd9f9382009e21fbf62771b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36962405"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856792"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hospedaje de alta densidad en Azure App Service con escalado por aplicación
 De forma predeterminada, para escalar las aplicaciones de App Service, se escala [plan de App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) en el que se ejecutan. Cuando se ejecutan varias aplicaciones en el mismo plan de App Service, cada instancia escalada horizontalmente ejecuta todas las aplicaciones del plan.
@@ -32,7 +32,7 @@ Puede habilitar el *escalado por aplicación* en el nivel del plan de App Servic
 
 ## <a name="per-app-scaling-using-powershell"></a>Escalado por aplicación mediante PowerShell
 
-Cree un plan escalado por aplicación; para ello, pase el atributo ```-perSiteScaling $true``` al commandlet ```New-AzureRmAppServicePlan```.
+Cree un plan con escalado por aplicación; para ello, pase el parámetro ```-PerSiteScaling $true``` al cmdlet ```New-AzureRmAppServicePlan```.
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -41,23 +41,12 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Para actualizar un plan de App Service existente con escalado por aplicación: 
-
-- obtenga el plan de destino ```Get-AzureRmAppServicePlan```
-- modifique la propiedad localmente ```$newASP.PerSiteScaling = $true```
-- publique los cambios en Azure ```Set-AzureRmAppServicePlan``` 
+Habilite el escalado por aplicación con un plan de App Service existente; para ello, pase el parámetro `-PerSiteScaling $true` al cmdlet ```Set-AzureRmAppServicePlan```.
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
 En el nivel de aplicación, configure el número de instancias que puede usar la aplicación en el plan de App Service.

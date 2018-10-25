@@ -1,6 +1,6 @@
 ---
-title: Creación y administración de áreas de trabajo de Azure Machine Learning
-description: Aprenda a crear, ver y eliminar áreas de trabajo de Azure Machine Learning en Azure Portal.
+title: Creación y administración de áreas de trabajo del servicio Azure Machine Learning
+description: Aprenda a crear, ver y eliminar áreas de trabajo del servicio Azure Machine Learning en Azure Portal.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d01a2e3ebd46315966c82a43a17ffc5b329b829
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954354"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238686"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning
+# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Creación y administración de áreas de trabajo del servicio Azure Machine Learning
 
-En este artículo creará, verá y eliminará [**áreas de trabajo de Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) en Azure Portal para el [servicio Azure Machine Learning](overview-what-is-azure-ml.md).  También puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md) o [con código de Python](http://aka.ms/aml-sdk).
+En este artículo creará, verá y eliminará [**áreas de trabajo del servicio Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) en Azure Portal para el [servicio Azure Machine Learning](overview-what-is-azure-ml.md).  También puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md) o [con código de Python](http://aka.ms/aml-sdk).
 
 Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -30,17 +30,17 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
 
 1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. 
 
-1. En el campo de filtro **Todos los servicios**, escriba **Área de trabajo de Machine Learning**.  
+1. En el campo de filtro **Todos los servicios**, escriba **Área de trabajo del servicio Machine Learning**.  
 
-   ![Busque el área de trabajo de Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
+   ![búsqueda del área de trabajo del servicio Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
 
-1. En los resultados del filtro, seleccione **Área de trabajo de Machine Learning** para mostrar una lista de las áreas de trabajo. 
+1. En los resultados del filtro, seleccione **Área de trabajo del servicio Machine Learning** para mostrar una lista de las áreas de trabajo. 
 
-   ![Busque el área de trabajo de Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
+   ![búsqueda del área de trabajo del servicio Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Examine la lista de áreas de trabajo encontradas. Puede filtrar en función de suscripción, grupos de recursos y ubicaciones.  
 
-   ![Lista de áreas de trabajo de Azure Machine Learning](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Lista de áreas de trabajo del servicio Azure Machine Learning](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Seleccione el área de trabajo que acaba de crear para mostrar sus propiedades.
 

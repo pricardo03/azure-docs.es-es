@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/21/2018
+ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523767"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114199"
 ---
 # <a name="azure-storage-replication"></a>Replicación de Azure Storage
 
@@ -39,9 +39,13 @@ En la tabla siguiente se ofrece una rápida información general del ámbito de 
 | Una interrupción en toda la región                                                                                     | Sin                               | No                               | SÍ                                  | SÍ                                  |
 | Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | No                               | No                                   | SÍ                                  |
 | Diseñado para proporcionar una durabilidad de objetos ___ a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
-| Tipos de cuenta de almacenamiento admitidos                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+| Tipos de cuenta de almacenamiento admitidos                                                                   | GPv2, GPv1, Blob                | GPv2, GPv1 (a través de PowerShell, la CLI de Azure o la API del proveedor de recursos)                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
+| SLA de disponibilidad para las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,99 % (99,9 % para el nivel de acceso esporádico) |
+| SLA de disponibilidad para las solicitudes de escritura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |
 
-Consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para más información sobre las diferentes opciones de redundancia.
+Para obtener información sobre los precios de las diferentes opciones de redundancia, vea [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). 
+
+Para obtener información acerca de las garantías de durabilidad y disponibilidad de Azure Storage, vea [Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
 > Premium Storage solo admite almacenamiento con redundancia local (LRS). Para más información sobre Premium Storage, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../virtual-machines/windows/premium-storage.md).

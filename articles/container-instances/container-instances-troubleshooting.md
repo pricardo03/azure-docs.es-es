@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f57bc41cddc997a69f92ba4e8ca66faaeb29738
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424609"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079368"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -89,11 +89,24 @@ Si no se puede extraer la imagen, se muestran eventos similares al siguiente en 
 ],
 ```
 
-## <a name="container-continually-exits-and-restarts"></a>El contenedor continuamente se cierra y se reinicia
+## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>El contenedor se cierra y se reinicia continuamente (sin proceso de ejecución prolongada)
 
-Si el contenedor se ejecuta por completo y se reinicia automáticamente, tendrá que establecer la [directiva de reinicio](container-instances-restart-policy.md) **OnFailure** o **Never**. Si especifica **OnFailure** y sigue observando reinicios continuos, podría haber un problema con la aplicación o el script que se ejecuta en el contenedor.
+Los grupos de contenedores tienen una [directiva de reinicio](container-instances-restart-policy.md) establecida en **Always** (Siempre) de forma predeterminada, por lo que los contenedores del grupo de contenedores siempre se reinician después de ejecutarse hasta su finalización. Es posible que deba cambiar este valor a **OnFailure** (En caso de error) o **Never** (Nunca) si va a ejecutar contenedores basados en tareas. Si especifica **OnFailure** y sigue observando reinicios continuos, podría haber un problema con la aplicación o el script que se ejecuta en el contenedor.
 
-La API de Container Instances incluye una propiedad `restartCount`. Para comprobar el número de reinicios de un contenedor, puede usar el comando [az container show][az-container-show] de la CLI de Azure. En la siguiente salida de ejemplo (que se ha truncado por razones de brevedad), puede ver la propiedad `restartCount` al final de la salida.
+Al ejecutar grupos de contenedores sin procesos de ejecución prolongada, es posible que vea cierres y reinicios repetidos con imágenes como Ubuntu o Alpine. La conexión mediante [EXEC](container-instances-exec.md) no funcionará porque el contenedor no tiene ningún proceso que lo mantenga activo. Para resolver esto, incluya un comando de inicio similar al siguiente con la implementación del grupo de contenedores para mantener el contenedor en ejecución.
+
+```azurecli-interactive
+## Deploying a Linux container
+az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
+```
+
+```azurecli-interactive 
+## Deploying a Windows container
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+ --command-line "ping -t localhost"
+```
+
+La API de Container Instances y Azure Portal incluyen una propiedad `restartCount`. Para comprobar el número de reinicios de un contenedor, puede usar el comando [az container show][az-container-show] de la CLI de Azure. En la siguiente salida de ejemplo (que se ha truncado por razones de brevedad), puede ver la propiedad `restartCount` al final de la salida.
 
 ```json
 ...

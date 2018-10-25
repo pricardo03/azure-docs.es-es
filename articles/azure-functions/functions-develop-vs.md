@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093880"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069184"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -96,7 +96,7 @@ Para establecer la cadena de conexión de cuenta de almacenamiento:
 
 3. Repita el paso anterior para agregar claves únicas a la matriz de **valores** para cualquier otra conexión que requieran sus funciones.
 
-## <a name="create-a-function"></a>Creación de una función
+## <a name="add-a-function-to-your-project"></a>Incorporación de una función al proyecto
 
 En las funciones compiladas previamente, los enlaces que la función usa se definen mediante la aplicación de atributos en el código. Cuando usa Herramientas de Azure Functions para crear las funciones a partir de las plantillas proporcionadas, estos atributos se aplican automáticamente. 
 
@@ -171,7 +171,9 @@ Para probar la función, presione F5. Si se le solicita, acepte la solicitud de 
 
 Con el proyecto en ejecución, puede probar el código tal como probaría la función implementada. Para más información, consulte [Estrategias para probar el código en Azure Functions](functions-test-a-function.md). Cuando se ejecuta en modo de depuración, los puntos de interrupción se alcanzan en Visual Studio tal como se esperaba. 
 
-Para un ejemplo de cómo probar una función desencadenada de cola, consulte el [tutorial de inicio rápido de la función desencadenada de cola](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Para más información sobre cómo usar Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md).
 
@@ -196,6 +198,20 @@ También puede administrar la configuración de la aplicación en una de estas o
 * [Uso de Azure Portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Uso de la opción de publicación de `--publish-local-settings` en Herramientas principales de Azure Functions](functions-run-local.md#publish).
 * [Uso de la CLI de Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>Supervisión de funciones
+
+La forma recomendada de supervisar la ejecución de una función de Azure es mediante la integración con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, cuando se crea la aplicación de función durante la publicación de Visual Studio, no se lleva a cabo su integración en Azure. En su lugar, se obtienen registros integrados, lo que no resulta recomendable.
+
+Si desea habilitar Application Insights para la aplicación de función en Azure:
+
+1. Cree una instancia de Application Insights en [Azure Portal](https://portal.azure.com) y copie su clave de instrumentación. Para saber cómo hacerlo, consulte [Conexión manual de un recurso de App Insights](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Agregue una opción llamada `APPINSIGHTS_INSTRUMENTATIONKEY` a la configuración de la aplicación de función de Azure, tal y como se describe en [configuración de Function App](#function-app-settings). Esta opción de configuración de la aplicación contiene la clave de instrumentación que creó en el paso anterior.
+
+1. Quite la opción `AzureWebJobsDashboard` de la aplicación de función de Azure, lo que deshabilitará los registros integrados.  
+
+Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

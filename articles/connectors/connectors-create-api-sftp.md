@@ -10,13 +10,13 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
-ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/11/2018
+ms.openlocfilehash: 77a76aa4fbb051e5999053279798c1b0147ae8e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042045"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166787"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante Azure Logic Apps
 
@@ -27,8 +27,10 @@ Con Azure Logic Apps y el conector SFTP, puede crear tareas y flujos de trabajo 
 * Obtener contenido de archivos y metadatos
 * Extraer archivos en carpetas
 
-Puede usar desencadenadores que obtengan respuestas de su servidor SFTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones en las aplicaciones lógicas para realizar tareas con archivos en el servidor SFTP. También puede hacer que otras acciones usen la salida de las acciones de SFTP. Por ejemplo, si recupera archivos del servidor SFTP con regularidad, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com.
-Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Puede usar desencadenadores que obtengan respuestas de su servidor SFTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones en las aplicaciones lógicas para realizar tareas con archivos en el servidor SFTP. También puede hacer que otras acciones usen la salida de las acciones de SFTP. Por ejemplo, si recupera archivos del servidor SFTP con regularidad, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> Los archivos mayores de 50 MB y de hasta 1 GB, usan el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md). El conector SFTP solo admite archivos que son de 50 MB o más pequeños a menos que use [fragmentación para el tratamiento de mensajes de gran tamaño](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -46,7 +48,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
 1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "sftp" como filtro. En la lista de desencadenadores, seleccione el que desee. 
 
@@ -77,7 +79,7 @@ Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para conocer los detalles técnicos sobre desencadenadores, acciones y límites, que se incluyen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/sftpconnector/) del conector.
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/sftpconnector/) del conector.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

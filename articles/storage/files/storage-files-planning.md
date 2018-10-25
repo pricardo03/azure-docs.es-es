@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783158"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831388"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de archivos de Azure para su uso en producción dentro de la organización.
@@ -56,19 +56,36 @@ Azure Files tiene varias opciones integradas para garantizar la seguridad de los
 
 * Compatibilidad con el cifrado en ambos protocolos a través de cable: cifrado SMB 3.0 y REST de archivo a través de HTTPS. De forma predeterminada: 
     * Los clientes que admiten el cifrado SMB 3.0 envían y reciben datos a través de un canal cifrado.
-    * Los clientes que no admiten SMB 3.0, pueden comunicarse dentro de centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado. Tenga en cuenta que no se permite a los clientes comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado.
+    * Los clientes que no admiten SMB 3.0 con cifrado pueden comunicarse dentro de centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado. No se permite a los clientes SMB comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado.
     * Los clientes pueden comunicarse a través de REST de archivo con HTTP o HTTPS.
 * Cifrado en reposo ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): la característica Storage Service Encryption (SSE) está habilitada para todas las cuentas de almacenamiento. Los datos en reposo se cifran con claves completamente administradas. En el cifrado en reposo no se aumentan los costos de almacenamiento ni se reduce el rendimiento. 
 * Requisito opcional de datos cifrados en tránsito: cuando está seleccionado, Azure Files rechaza el acceso a los datos a través de canales sin cifrar. En concreto, solo se permiten HTTPS y SMB 3.0 con conexiones de cifrado. 
 
     > [!Important]  
-    > La exigencia de transferencia segura de datos hace que los clientes SMB más antiguos que no son capaces de comunicarse con SMB 3.0 con cifrado experimenten un error. Vea [Montaje en Windows](storage-how-to-use-files-windows.md), [Montaje en Linux](storage-how-to-use-files-linux.md) y [Montaje en macOS](storage-how-to-use-files-mac.md) para más información.
+    > La exigencia de transferencia segura de datos hace que los clientes SMB más antiguos que no son capaces de comunicarse con SMB 3.0 con cifrado experimenten un error. Para más información, consulte [Montaje en Windows](storage-how-to-use-files-windows.md), [Montaje en Linux](storage-how-to-use-files-linux.md) y [Montaje en macOS](storage-how-to-use-files-mac.md).
 
 Para lograr la máxima seguridad, se recomienda encarecidamente habilitar siempre el cifrado en reposo y el cifrado de datos en tránsito cuando se usen clientes modernos para acceder a los datos. Por ejemplo, si tiene que montar un recurso compartido en una máquina virtual de Windows Server 2008 R2 que solo es compatible con SMB 2.1, debe permitir el tráfico sin cifrar a la cuenta de almacenamiento, dado que SMB 2.1 no admite el cifrado.
 
 Si usa Azure File Sync para acceder al recurso compartido de archivos de Azure, use siempre HTTPS y SMB 3.0 con cifrado para sincronizar los datos en los servidores de Windows Server, independientemente de si se exige cifrado de datos en reposo.
 
-## <a name="data-redundancy"></a>Redundancia de datos
+## <a name="file-share-performance-tiers"></a>Niveles de rendimiento de un recurso compartido de archivos
+Azure Files admite dos niveles de rendimiento: Estándar y Premium.
+
+* Los **recursos compartidos de archivos estándar** tienen el respaldo de discos duros (HDD) que giran y ofrecen un rendimiento confiable para cargas de trabajo de E/S que no dan tanta importancia a la variabilidad del rendimiento, como recursos compartidos de archivos de uso general y entornos de desarrollo y pruebas. Los recursos compartidos de archivos estándar solo están disponibles en un modelo de facturación de pago por uso.
+* Los **recursos compartidos de archivos Premium (versión preliminar)** están respaldados por discos en estado sólido (SSD) que proporcionan alto rendimiento y baja latencia de forma consistente en menos de 10 milisegundos en la mayoría de las operaciones de E/S para las cargas de trabajo intensivas con mayor uso de E/S, lo que hace que sean adecuados para una amplia variedad de cargas de trabajo como bases de datos, hospedaje de sitios web, entornos de desarrollo, etc. Los recursos compartidos de archivos Premium solo están disponibles en un modelo de facturación aprovisionada.
+
+### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
+Los recursos compartidos de archivos Premium se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Por cada GiB aprovisionado, se generará un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS/rendimiento mínimos. El tamaño del recurso compartido se puede aumentar en cualquier momento, pero se puede reducir una vez cada 24 horas desde el último aumento.
+
+En su máximo esfuerzo, todos los recursos compartidos pueden aumentar hasta tres IOPS por GiB de almacenamiento aprovisionado durante 60 minutos, o más, según el tamaño del recurso compartido. Los nuevos recursos compartidos comienzan con todos los créditos de aumento según la capacidad aprovisionada.
+
+| Capacidad aprovisionada | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
+|----------------------|---------|---------|-------|-------|
+| IOPS base | 100 | 500 | 1024 | 5120 | 
+| Límite de aumento | 300 | 1500 | 3072 | 15 360 | 
+| Rendimiento | 110 MiB/s | 150 MiB/s | 202 MiB/s | 612 MiB/s |
+
+## <a name="file-share-redundancy"></a>Redundancia del recurso compartido de archivos
 Azure Files admite tres opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona y almacenamiento con redundancia geográfica (GRS). En las siguientes secciones se describen las diferencias entre las diferentes opciones de redundancia:
 
 ### <a name="locally-redundant-storage"></a>Almacenamiento con redundancia local
@@ -81,9 +98,9 @@ Azure Files admite tres opciones de redundancia de datos: almacenamiento con red
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos
-Actualmente, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TiB. Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure. Tenga en cuenta que una cuenta de Azure Storage puede almacenar varios recursos compartidos con un total de 500 TiB almacenados en todos los recursos compartidos.
+Actualmente, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TiB. Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure. 
 
-Es posible sincronizar varios recursos compartidos de archivos de Azure en un único servidor de archivos de Windows con Azure File Sync. Esto permite garantizar que los recursos compartidos de archivos anteriores de gran tamaño que pueda tener en local se incluyan en Azure File Sync. Vea [Planeamiento de una implementación de Azure File Sync](storage-files-planning.md) para más información.
+Es posible sincronizar varios recursos compartidos de archivos de Azure en un único servidor de archivos de Windows con Azure File Sync. Esto permite garantizar que los recursos compartidos de archivos anteriores de gran tamaño que pueda tener en un entorno local se incluyen en Azure File Sync. Para más información, consulte [Planeamiento de una implementación de Azure File Sync](storage-files-planning.md).
 
 ## <a name="data-transfer-method"></a>Método de transferencia de datos
 Existen muchas opciones sencillas para la transferencia masiva de datos desde un recurso de archivos existente, como un recurso compartido de archivos local, a Azure Files. Algunas populares incluyen (lista no exhaustiva):

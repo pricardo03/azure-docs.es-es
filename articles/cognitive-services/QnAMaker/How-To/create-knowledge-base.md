@@ -1,7 +1,7 @@
 ---
 title: 'Creación de una base de conocimiento: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: La incorporación de charlas al bot lo hace más atractivo y conversacional. QnA Maker permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la KB. Puede ser un punto de partida para las charlas del bot y ahorrarle el tiempo y el costo que supone escribirlas desde cero.
+description: La incorporación de charlas al bot lo hace más atractivo y conversacional. QnA Maker permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la KB. Esto puede ser un punto de partida para las charlas del bot y permite ahorrar el tiempo y el costo que supone escribirlas desde cero.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 274c2289c75f44c5a1c8dd3799612a23f46a6d67
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c9d36014bc364d8b016221e6b9ff380b0bd4b8ed
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037701"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854174"
 ---
 # <a name="create-a-knowledge-base"></a>Creación de una base de conocimientos
 
@@ -28,9 +28,7 @@ QnA Maker facilita la incorporación de orígenes de datos existentes a la hora 
 
 ## <a name="steps"></a>Pasos
 
-1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai) con las credenciales de Azure y seleccione **Crear un servicio nuevo**.
-
-    ![Crear una base de conocimiento ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai) con las credenciales de Azure y seleccione **Create a knowledge base** (Crear una base de conocimientos).
 
 2. Si aún no ha creado un servicio QnA Maker, haga clic en **Create a QnA service** (Crear un servicio QnA). 
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036963"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830997"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Uso de listas de frases para aumentar la señal de la lista de palabras
 
@@ -46,7 +46,7 @@ Puede agregar características a la aplicación de LUIS para mejorar su precisi�
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Puede editar, eliminar o desactivar una lista de frases desde el botón de puntos suspensivos (***...***) situado al final de la fila de cada lista de frases.
+> Puede eliminar o desactivar una lista de frases desde la barra de herramientas contextual de la página **Lista de frases**.
 
 ## <a name="pattern-regular-expression-feature"></a>Característica de patrón (expresión regular) 
 **Esta característica está en desuso**. No se pueden agregar características de patrón nuevas a LUIS. Las características de patrón existentes se admiten hasta mayo de 2018. Contribuya a la coincidencia de expresión regular de LUIS estándar con una solicitud al [repositorio Recognizers-Text de Github](https://github.com/Microsoft/Recognizers-Text). 

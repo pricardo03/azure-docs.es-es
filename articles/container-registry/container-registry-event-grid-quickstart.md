@@ -2,18 +2,17 @@
 title: 'Inicio rápido: Envío de eventos de Azure Container Registry a Event Grid'
 description: En este tutorial, habilita eventos de Event Grid para el registro de contenedor, luego envía los eventos push y delete de la imagen del contenedor a una aplicación de ejemplo.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.author: danlep
+ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746515"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857370"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Inicio rápido: Envío de eventos del registro de contenedor a Event Grid
 
@@ -141,20 +140,20 @@ Una vez completada la suscripción, debería ver un resultado similar al siguien
 
 ## <a name="trigger-registry-events"></a>Desencadenamiento de eventos del registro
 
-Ahora que la aplicación de ejemplo está en funcionamiento y que se suscribió al registro en Event Grid, está listo para generar algunos eventos. En esta sección, utilizará ACR Build para compilar e insertar una imagen de contenedor en el registro. ACR Build es una característica de Azure Container Registry que le permite crear imágenes de contenedor en la nube, sin necesidad del motor de Docker instalado en el equipo local.
+Ahora que la aplicación de ejemplo está en funcionamiento y que se suscribió al registro en Event Grid, está listo para generar algunos eventos. En esta sección, se usa ACR Tasks para compilar e insertar una imagen de contenedor en el registro. ACR Tasks es una característica de Azure Container Registry que permite crear imágenes de contenedor en la nube, sin necesidad de que el motor de Docker esté instalado en el equipo local.
 
 ### <a name="build-and-push-image"></a>Compilación e inserción de la imagen
 
-Ejecute el siguiente comando de CLI de Azure para crear una imagen de contenedor desde el contenido de un repositorio de GitHub. De forma predeterminada, ACR Build inserta automáticamente una imagen compilada correctamente en el registro, lo que genera el evento `ImagePushed`.
+Ejecute el siguiente comando de CLI de Azure para crear una imagen de contenedor desde el contenido de un repositorio de GitHub. De forma predeterminada, ACR Tasks inserta automáticamente una imagen compilada correctamente en el registro, lo que genera el evento `ImagePushed`.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-Debería ver un resultado similar al siguiente mientras se compila ACR Build y, a continuación, inserta la imagen. El resultado de ejemplo siguiente se ha truncado por razones de espacio.
+Debería ver un resultado similar al siguiente mientras ACR Tasks se compila e inserta la imagen. El resultado de ejemplo siguiente se ha truncado por razones de espacio.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -227,10 +226,10 @@ Puede encontrar la referencia del esquema de mensajes de eventos de Azure Contai
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha implementado un registro de contenedor, compilado una imagen con ACR Build, la ha eliminado y ha consumido los eventos del registro desde Event Grid con una aplicación de ejemplo. A continuación, vaya al tutorial de ACR Build para obtener más información sobre la compilación de imágenes de contenedor en la nube, incluidas compilaciones automatizadas en la actualización de imagen base:
+En esta guía de inicio rápido, ha implementado un registro de contenedor, compilado una imagen con ACR Tasks, la ha eliminado y ha consumido los eventos del registro desde Event Grid con una aplicación de ejemplo. A continuación, vaya al tutorial de ACR Tasks para más información acerca de la compilación de imágenes de contenedor en la nube, incluidas compilaciones automatizadas en la actualización de imagen base:
 
 > [!div class="nextstepaction"]
-> [Compilación de imágenes de contenedor en la nube con Azure Container Registry Build](container-registry-tutorial-quick-build.md)
+> [Compilación de imágenes de contenedor en la nube con ACR Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

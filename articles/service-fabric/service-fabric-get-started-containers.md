@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12a2ff3f96fa86ac1b52a3138d9a9b2a30b867db
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700178"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803790"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 > [!div class="op_single_selector"]
@@ -232,6 +232,7 @@ Estas variables de entorno se pueden invalidar en el manifiesto de aplicación:
 ```xml
 <ServiceManifestImport>
   <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <EnvironmentOverrides CodePackageRef="FrontendService.Code">
     <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
   </EnvironmentOverrides>
   ...
@@ -575,7 +576,7 @@ El intervalo de tiempo predeterminado se establece en diez segundos. Puesto que 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configuración del entorno de ejecución para quitar imágenes de contenedor sin usar
 
-Puede configurar el clúster de Service Fabric para quitar del nodo las imágenes de contenedor sin usar. Esta configuración permite recuperar el espacio en disco si hay demasiadas imágenes de contenedor en el nodo. Para habilitar esta característica, actualice la sección `Hosting` en el manifiesto de clúster, tal como se muestra en el fragmento siguiente: 
+Puede configurar el clúster de Service Fabric para quitar del nodo las imágenes de contenedor sin usar. Esta configuración permite recuperar el espacio en disco si hay demasiadas imágenes de contenedor en el nodo. Para habilitar esta característica, actualice la sección [Hospedaje](service-fabric-cluster-fabric-settings.md#hosting) en el manifiesto de clúster, tal como se muestra en el fragmento siguiente: 
 
 
 ```json
@@ -596,7 +597,7 @@ Puede configurar el clúster de Service Fabric para quitar del nodo las imágene
 } 
 ```
 
-Puede especificar las imágenes que no se deben eliminar en el parámetro `ContainerImagesToSkip`. 
+Puede especificar las imágenes que no se deben eliminar en el parámetro `ContainerImagesToSkip`.  
 
 
 ## <a name="configure-container-image-download-time"></a>Configuración del tiempo de descarga de la imagen de contenedor

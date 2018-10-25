@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143923"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586128"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
 En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
@@ -32,7 +32,7 @@ También es posible utilizar un cuaderno de IPython para realizar las tareas que
 ## <a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trips
 Los datos de NYC Taxi Trip son aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (unos 48 GB descomprimidos). Están compuestos por más de 173 millones de carreras e incluyen las tarifas que se pagaron para cada una de ellas. Cada registro de carrera incluye la hora y los puntos de recogida y destino, el número de licencia anonimizado del conductor y el número de identificación del taxi. Los datos cubren todos los viajes del año 2013 y, para cada mes, se proporcionan en los dos conjuntos de datos siguientes:
 
-- Los archivos CSV "trip_data" contienen información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración y la longitud del recorrido. Estos son algunos registros de ejemplo:
+- Los archivos CSV "trip_data" contienen información detallada de las carreras, Por ejemplo, el número de pasajeros, los puntos de recogida y destino, la duración y la longitud del recorrido. Estos son algunos registros de ejemplo:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171

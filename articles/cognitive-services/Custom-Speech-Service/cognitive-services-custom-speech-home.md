@@ -1,24 +1,24 @@
 ---
-title: ¿Qué es Custom Speech Service?
-titlesuffix: Azure Cognitive Services
+title: Introducción a Custom Speech Service en Azure | Microsoft Docs
 description: Custom Speech Service es un servicio basado en la nube que permite a los usuarios personalizar los modelos de voz para la transcripción de voz a texto.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: overview
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222750"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342303"
 ---
 # <a name="what-is-custom-speech-service"></a>¿Qué es Custom Speech Service?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Custom Speech Service es un servicio basado en la nube que ofrece a los usuarios la posibilidad de personalizar los modelos de voz para la transcripción de voz a texto.
 Para usar Custom Speech Service, consulte el [portal de Custom Speech Service](https://cris.ai).
@@ -44,7 +44,7 @@ Por ejemplo, si fuera a crear una aplicación que realiza búsquedas en MSDN med
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo usar Custom Speech Service, consulte el [portal de Custom Speech Service] (https://cris.ai).
+Para más información sobre cómo usar Custom Speech Service, consulte el [portal de Custom Speech Service](https://cris.ai).
 
 * [Primeros pasos](cognitive-services-custom-speech-get-started.md)
 * [P+F](cognitive-services-custom-speech-faq.md)

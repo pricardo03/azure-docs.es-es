@@ -1,6 +1,6 @@
 ---
-title: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory | Microsoft Docs
-description: Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory
+title: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure AD | Microsoft Docs
+description: Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure AD.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956979"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902032"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Procedimientos para personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure AD
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimiento: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
-Hoy en día Azure Active Directory admite el inicio de sesión único con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
+Hoy en día, Azure Active Directory (Azure AD) admite el inicio de sesión único con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
 
-En términos de identidad, una "notificación" es información que declara un proveedor de identidades sobre un usuario dentro del token que emite para dicho usuario. En [token SAML](http://en.wikipedia.org/wiki/SAML_2.0), estos datos suelen incluirse en la instrucción SAML Attribute. El identificador único del usuario suele representarse en SAML Subject, también denominado NameIdentifier.
+Una *notificación* es información que un proveedor de identidades declara sobre un usuario dentro del token que se emite para dicho usuario. En [token SAML](http://en.wikipedia.org/wiki/SAML_2.0), estos datos suelen incluirse en la instrucción SAML Attribute. El identificador único del usuario suele representarse en SAML Subject, también denominado NameIdentifier.
 
-De forma predeterminada, Azure Active Directory emite un token SAML a la aplicación que contiene una notificación NameIdentifier, con un valor de nombre de usuario del usuario (también conocido como nombre principal de usuario) en Azure AD. Este valor solo puede identificar al usuario. El token SAML también contiene notificaciones adicionales con la dirección de correo electrónico, el nombre y el apellido del usuario.
+De forma predeterminada, Azure AD emite un token SAML a la aplicación que contiene una notificación NameIdentifier, con un valor de nombre de usuario del usuario (también llamado nombre principal de usuario) en Azure AD. Este valor solo puede identificar al usuario. El token SAML también contiene notificaciones adicionales con la dirección de correo electrónico, el nombre y el apellido del usuario.
 
 Para ver o editar las notificaciones emitidas en el token SAML a la aplicación, abra la aplicación en Azure Portal. A continuación, active la casilla **Ver y editar todos los demás atributos de usuario** en la sección **Atributos de usuario** de la aplicación.
 
@@ -38,7 +38,7 @@ Para ver o editar las notificaciones emitidas en el token SAML a la aplicación,
 
 Hay dos razones posibles por las que tendría que editar las notificaciones emitidas en el token SAML:
 * La aplicación se ha creado para requerir un conjunto diferente de URI o valores de notificación.
-* La aplicación se ha implementado de forma que requiere que la notificación NameIdentifier tenga un valor que no sea el del nombre de usuario (también conocido como nombre principal de usuario) almacenado en Azure Active Directory.
+* La aplicación se ha implementado de forma que requiere que la notificación NameIdentifier tenga un valor que no sea el del nombre de usuario (también conocido como nombre principal de usuario) almacenado en Azure AD.
 
 Puede editar cualquiera de los valores de notificación predeterminados. Seleccione la fila de notificación en la tabla de atributos de token SAML. De este modo se abre la sección **Editar atributo** y, a continuación, puede editar el nombre de la notificación, el valor y el espacio de nombres asociados a la notificación.
 
@@ -130,8 +130,9 @@ Hay algunas notificaciones restringidas en SAML. Si agrega estas notificaciones,
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Administración de aplicaciones en Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+
+* [Administración de aplicaciones en Azure AD](../manage-apps/what-is-application-management.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

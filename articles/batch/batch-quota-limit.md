@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423749"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887571"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -53,7 +53,9 @@ Si creó una cuenta de Batch con el modo de asignación de grupo establecido en 
 | [Aplicaciones](batch-application-packages.md) por cuenta de Batch |20 |
 | Paquetes de aplicación por aplicación |40 |
 | Duración máxima de la tarea | 7 días<sup>1</sup> |
-| Nodos de cálculo en el grupo con la comunicación entre nodos habilitada | 100 |
+| Nodos de proceso en el [grupo con la comunicación entre nodos habilitada](batch-mpi.md) | 100 |
+| Nodos de proceso dedicados en el [grupo creado con la imagen de máquina virtual personalizada](batch-custom-images.md) | 2.500 |
+| Nodos de proceso de prioridad baja en el [grupo creado con la imagen de máquina virtual personalizada](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 7 días. Las tareas completadas se mantienen de forma indefinida; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
 

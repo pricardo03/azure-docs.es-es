@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730956"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341878"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -22,7 +22,7 @@ Azure Storage proporciona un completo conjunto de funcionalidades de seguridad q
 - Todos los datos escritos en Azure Storage se cifran automáticamente con el [cifrado del servicio Storage (SSE)](storage-service-encryption.md). Para obtener más información, consulte [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Presentación del cifrado predeterminado de Azure Blobs, Files, Table y Queue Storage).
 - Azure Active Directory (Azure AD) y el control de acceso basado en rol (RBAC) son compatibles con Azure Storage para las operaciones de administración de recursos y las operaciones de datos, como se indica a continuación:   
     - Puede asignar roles de RBAC en el ámbito de la cuenta de almacenamiento para las entidades de seguridad y utilizar Azure AD para autorizar las operaciones de administración de recursos, como la administración de claves.
-    - La integración con Azure AD se admite en la versión preliminar para las operaciones de datos en Blob service y Queue service. Puede asignar roles de RBAC en el ámbito de una suscripción, un grupo de recursos, una cuenta de almacenamiento, un contenedor individual o una cola para una entidad de seguridad o una identidad de servicio administrada. Para más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)](storage-auth-aad.md).   
+    - La integración con Azure AD se admite en la versión preliminar para las operaciones de datos en Blob service y Queue service. Puede asignar roles de RBAC en el ámbito de una suscripción, un grupo de recursos, una cuenta de almacenamiento, un contenedor individual o una cola a una entidad de seguridad o identidad administrada para los recursos de Azure. Para más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)](storage-auth-aad.md).   
 - Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](../storage-client-side-encryption.md), HTTPS o SMB 3.0.  
 - Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por Azure Virtual Machines mediante [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las [Firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1.md).
@@ -473,7 +473,7 @@ Esto es lo que significa cada fila:
 #### <a name="resources"></a>Recursos
 Para más información sobre el uso compartido de recursos entre orígenes y cómo habilitarlo, consulte estos recursos.
 
-* [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage en Azure.com](../storage-cors-support.md)
+* [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage en Azure.com](../storage-cors-support.md)
 
   Este artículo proporciona una visión general del uso compartido de recursos entre orígenes y explica cómo establecer las reglas para los diferentes servicios de Storage.
 * [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage en MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)

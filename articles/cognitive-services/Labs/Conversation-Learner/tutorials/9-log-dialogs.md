@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171442"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248388"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Uso de diálogos de registro con un modelo de Conversation Learner
 
@@ -51,7 +51,7 @@ Puede usar los diálogos de registro para revisar los diálogos mantenidos con l
 1. Haga clic en Actions (Acciones) y, a continuación, en New Action (Nueva acción).
 2. En Response (Respuesta), escriba "Which city?" (¿Qué ciudad?).
 3. En Disqualifying Entities (Entidades descalificadas), escriba $city.
-3. Click Create
+3. Haga clic en Crear.
 
 A continuación, cree la segunda acción:
 
@@ -76,7 +76,7 @@ Ahora tiene dos acciones.
 
 Agregue otro diálogo de ejemplo:
 
-1. Haga clic en New Action (Nueva acción) y luego en New Train Dialog (Nuevo diálogo de entrenamiento).
+1. Haga clic en Train Dialogs (Cuadros de diálogo de entrenamiento) y, después, en New Train Dialog (Nuevo cuadro de diálogo de entrenamiento).
 2. Escriba "What's the weather in seattle" (¿Qué tiempo hace en Seattle?). Tenga en cuenta que Seattle se etiqueta como una entidad.
 5. Haga clic en Score Actions (Acciones de puntuación). 
 6. Seleccione "The weather in $city is probably sunny" (Parece que está soleado en $city).
@@ -86,7 +86,7 @@ Agregue otro diálogo de ejemplo:
 Imaginemos que hemos implementado este bot a los usuarios.
 
 1. Haga clic en Log Dialogs (Diálogos de registro).
-2. Haga clic en New Chat Session (Nueva sesión de chat).
+2. Haga clic en Nuevo cuadro de diálogo de registro.
     - Esto presenta el bot como el usuario lo experimentaría en el control de chat web en la parte izquierda de la interfaz del usuario. Puede ignorar el área del espacio en blanco a la derecha.
 3. Escriba "hello" (hola).
 4. Respuesta de bot: "which city?" (¿Qué ciudad?).
@@ -97,10 +97,10 @@ Imaginemos que hemos implementado este bot a los usuarios.
 
 Vamos a iniciar una sesión nueva:
 
-2. Haga clic en New Chat Session (Nueva sesión de chat).
+2. Haga clic en Nuevo cuadro de diálogo de registro.
 3. Escriba "forecast for Boston" (Previsión de Boston).
 4. Respuesta de bot: "which city?" (¿Qué ciudad?).
-2. Haga clic en Done Teaching (Aprendizaje completado).
+2. Haga clic en Done Testing (Prueba completada).
 
 Ahora vamos a hacer correcciones en el segundo diálogo:
 

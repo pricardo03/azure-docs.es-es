@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e9598cb464360e35a86b6fe35d8c965a5e7fb51d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963039"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585924"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 
@@ -250,7 +250,7 @@ Los pasos que debe seguir son los siguientes:
 1. Habilitar el modo de agente en la llamada al código de la aplicación para el SDK de Microsoft.
 2. Establecer un nuevo URI de redirección e indicarlo tanto en la aplicación como en el registro de la aplicación.
 3. Registrar un esquema de dirección URL.
-4. Compatibilidad con iOS 9: agregar un permiso al archivo info.plist.
+4. Agregar un permiso al archivo info.plist.
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>Paso 1: Habilitar el modo de agente en la aplicación
 
@@ -307,12 +307,16 @@ Para admitir la autenticación basada en certificados, se requiere el registro d
 
 Por ejemplo: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Paso 4: iOS 9: Agregar un parámetro de configuración a la aplicación
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Paso 4: Agregar un parámetro de configuración a la aplicación
 
-ADAL usa – canOpenURL: para comprobar si el agente está instalado en el dispositivo. En iOS 9, Apple ha bloqueado los esquemas que puede consultar una aplicación. Debe agregar "msauth" a la sección LSApplicationQueriesSchemes de `info.plist file`.
+ADAL usa – canOpenURL: para comprobar si el agente está instalado en el dispositivo. Desde iOS 9 en adelante, Apple ha bloqueado los esquemas que puede consultar una aplicación. Debe agregar "msauth" a la sección LSApplicationQueriesSchemes de `info.plist file`.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### <a name="youve-configured-sso"></a>Ya ha configurado el SSO.

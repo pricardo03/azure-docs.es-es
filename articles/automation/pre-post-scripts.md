@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c906a771a63b3d8320eab1d2d57e8c34916e1d39
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1c5bcca2571ffee9e1c20f0b7d2608b62c962177
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433199"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815348"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Administración de scripts previos y posteriores (versión preliminar)
 
-Los scripts previos y posteriores le permiten ejecutar runbooks de PowerShell en la cuenta de Automation antes (antes de la tarea) y después (después de la tarea) de la implementación de una actualización. Los scripts previos y posteriores se ejecutan en el contexto de Azure y no de forma local.
+Los scripts previos y posteriores le permiten ejecutar runbooks de PowerShell en la cuenta de Automation antes (antes de la tarea) y después (después de la tarea) de la implementación de una actualización. Los scripts previos y posteriores se ejecutan en el contexto de Azure y no de forma local. Los scripts previos se ejecutan al principio de la implementación de actualizaciones. Los scripts posteriores se ejecutan al final de la implementación y después de todos reinicios que estén configurados.
 
 ## <a name="runbook-requirements"></a>Requisitos de runbook
 

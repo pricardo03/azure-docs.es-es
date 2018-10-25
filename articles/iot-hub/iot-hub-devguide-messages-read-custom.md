@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: af0b819c6c60835089c174a1f9f7c3a6215e362c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956973"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585958"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Uso de rutas de mensajes y de puntos de conexión personalizados para mensajes de dispositivo a nube
 
@@ -32,37 +32,30 @@ Un solo mensaje puede cumplir la condición en varias consultas de enrutamiento,
 
 ## <a name="endpoints-and-routing"></a>Puntos de conexión y enrutamiento
 
-Un centro de IoT tiene un [punto de conexión integrado][lnk-built-in] predeterminado. Puede crear puntos de conexión personalizados a los que enrutar mensajes vinculando otros servicios de su suscripción al centro. IoT Hub admite actualmente los contenedores de Azure Storage, Event Hubs, las colas de Service Bus y los temas de Service Bus como puntos de conexión personalizados.
+Un centro de IoT tiene un [punto de conexión integrado](iot-hub-devguide-messages-read-builtin.md) predeterminado. Puede crear puntos de conexión personalizados a los que enrutar mensajes vinculando otros servicios de su suscripción al centro. IoT Hub admite actualmente los contenedores de Azure Storage, Event Hubs, las colas de Service Bus y los temas de Service Bus como puntos de conexión personalizados.
 
 Cuando utilice el enrutamiento y los puntos de conexión personalizados, los mensajes se entregarán solo al punto de conexión integrado si no coinciden con ninguna consulta. Para entregar mensajes al punto de conexión integrado, además de a un punto de conexión personalizado, agregue una ruta que envíe mensajes al punto de conexión **events**.
 
 > [!NOTE]
-> IoT Hub solo admite la escritura de datos en contenedores de Azure Storage como blobs.
+> * IoT Hub solo admite la escritura de datos en contenedores de Azure Storage como blobs.
+> * Las colas y los temas de Service Bus con **Sesiones** o **Detección de duplicados** habilitadas no son compatibles como puntos de conexión personalizados.
 
-> [!WARNING]
-> Las colas y los temas de Service Bus con **Sesiones** o **Detección de duplicados** habilitadas no son compatibles como puntos de conexión personalizados.
-
-Para más información sobre cómo crear puntos de conexión personalizados en IoT Hub, consulte [Referencia: Puntos de conexión de IoT Hub][lnk-devguide-endpoints].
+Para más información sobre cómo crear puntos de conexión personalizados en IoT Hub, vea [Referencia: Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
 
 Para obtener más información sobre la lectura de puntos de conexión personalizados, consulte:
 
-* Leer de [contenedores de Azure Storage][lnk-getstarted-storage].
-* Leer de [Event Hubs][lnk-getstarted-eh].
-* Leer de [colas de Service Bus][lnk-getstarted-queue].
-* Leer de [temas de Service Bus][lnk-getstarted-topic].
+* Lectura desde [contenedores de Azure Storage](../storage/blobs/storage-blobs-introduction.md).
 
-### <a name="next-steps"></a>Pasos siguientes
+* Lectura desde [Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-devguide-endpoints].
+* Lectura desde [colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+
+* Lectura desde [temas de Service Bus](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
+
 * Para más información sobre el lenguaje de consulta que se usa para definir consultas de enrutamiento, consulte la [sintaxis de consultas de enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md).
-* El tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas][lnk-d2c-tutorial] muestra cómo usar las consultas de enrutamiento y los puntos de conexión personalizados.
 
-[lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-query-language]: iot-hub-devguide-query-language.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: tutorial-routing.md
-[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md
+* El tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas](tutorial-routing.md) muestra cómo usar las consultas de enrutamiento y los puntos de conexión personalizados.

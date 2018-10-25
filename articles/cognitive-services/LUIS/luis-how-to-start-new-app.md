@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 55af0559c98c9fc63fd6902d80b4e6f2f0a7d2da
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031261"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870122"
 ---
 # <a name="create-an-app"></a>Creación de una aplicación
 Hay un par de formas de crear aplicaciones de LUIS. Puede crear una aplicación de LUIS en el portal de [LUIS](https://www.luis.ai), o bien mediante las [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de creación de LUIS.
@@ -22,9 +22,9 @@ Hay un par de formas de crear aplicaciones de LUIS. Puede crear una aplicación 
 ## <a name="using-the-luis-portal"></a>Mediante el portal de LUIS
 Puede crear una aplicación en el portal de LUIS de varias maneras:
 
-* [Comience](#create-new-app) con una aplicación vacía y cree intenciones, expresiones y entidades.
-* [Comience](#create-new-app) con una aplicación vacía y agregue un [dominio creado previamente](luis-how-to-use-prebuilt-domains.md).
-* [Importe una aplicación de LUIS](#import-new-app) desde un archivo JSON que ya contenga las intenciones, expresiones y entidades.
+* Comience con una aplicación vacía y cree intenciones, expresiones y entidades.
+* Comience con una aplicación vacía y agregue un [dominio creado previamente](luis-how-to-use-prebuilt-domains.md).
+* Importe una aplicación de LUIS desde un archivo JSON que ya contenga intenciones, expresiones y entidades.
 
 ## <a name="using-the-authoring-apis"></a>Mediante las API de creación
 Puede crear una aplicación con las API de creación de dos maneras:

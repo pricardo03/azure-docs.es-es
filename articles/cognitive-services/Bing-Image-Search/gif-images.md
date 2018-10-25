@@ -1,45 +1,47 @@
 ---
-title: Obtener imágenes en .gif - Microsoft Cognitive Services | Microsoft Docs
+title: 'Obtención de imágenes .gif: Bing Image Search API'
+titleSuffix: Azure Cognitive Services
 description: Cómo usar Bing Image Search API para obtener más información sobre las imágenes en formato .gif.
 services: cognitive-services
 author: MikeDodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 10e922b0cd15868bfe8f09b3846c76a368052e69
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382466"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870254"
 ---
-# <a name="search-for-gif-images"></a>Buscar imágenes en formato .gif
+# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Búsqueda de imágenes .gif con Bing Image Search API
+
 Bing Image Search API le permite buscar en toda la Red la imágenes .gif más relevantes.  Los desarrolladores pueden integrar gifs atractivos en varios casos de conversación. 
 
 La siguiente dirección URL es una consulta para las imágenes animadas en .gif.
 ````
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ````
-El parámetro [q](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#query) especifica los términos de la búsqueda.  En la consulta anterior también se especifica `animatedGif`, mediante el parámetro de filtro [imageType](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype).
+El parámetro [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) especifica los términos de la búsqueda.  En la consulta anterior también se especifica `animatedGif`, mediante el parámetro de filtro [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype).
 
 Para ver ejemplos de los resultados, use la siguiente dirección URL para buscar en bing.com.
 ````
-https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif 
+https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
 ````
 ## <a name="query-parameters"></a>Parámetros de consulta
 
-Para obtener más información sobre los parámetros de consulta y las opciones, consulte la [referencia de Image Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). También podrá ver un ejemplo bajo el encabezado de la sección[Ejemplo de búsqueda de gif animados mediante Java](#gifExample).
+Para obtener más información sobre los parámetros de consulta y las opciones, consulte la [referencia de Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). También podrá ver un ejemplo bajo el encabezado de la sección[Ejemplo de búsqueda de gif animados mediante Java](#gifExample).
 
 ## <a name="tips-and-suggestions"></a>Recomendaciones y sugerencias
 
-- Puede especificar los parámetros [maxFileSize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) y [minFileSize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize). Le recomendamos establecer maxFileSize=2000000, ya que la mayoría de los gifs en nuestro índice tienen menos de 2 MB.  Esta opción también le permitirá controlar el tamaño de los datos si el ancho de banda es un problema, como suele suceder con los dispositivos móviles.
+- Puede especificar los parámetros [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) y [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize). Le recomendamos establecer maxFileSize=2000000, ya que la mayoría de los gifs en nuestro índice tienen menos de 2 MB.  Esta opción también le permitirá controlar el tamaño de los datos si el ancho de banda es un problema, como suele suceder con los dispositivos móviles.
 - Con el fin de mejorar el rendimiento percibido, cargue la miniatura antes de cargar la dirección URL de origen.  
 - Para realizar la primera ejecución o poder obtener acceso a la página de aterrizaje donde todavía no tiene una consulta de usuario, intente utilizar nuestras búsquedas de novedades en gif para obtener ayuda de la [API de novedades en imágenes](trending-images.md).
-- Hay tres configuraciones para el parámetro [safeSearch](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch).  La opción `strict` bloquea el contenido para adultos. 
+- Hay tres configuraciones para el parámetro [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch).  La opción `strict` bloquea el contenido para adultos.
 - Consulte [mkt](supported-countries-markets.md) para obtener la lista completa de idiomas y ubicaciones compatibles.
 - *AnimatedGifHttps* solo devuelve imágenes gif animadas que provienen de una dirección HTTPS. Por seguridad, muchas aplicaciones deben conectarse a vínculos web externos a través del protocolo HTTPS. Por ejemplo, Apple App Store debe conectarse a servicios web a través de HTTPS, para poder encriptar los datos del usuario de forma segura durante el tránsito.
 
@@ -51,7 +53,7 @@ La siguiente dirección URL busca imágenes animadas en .gif: `q=interesting`
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
 ````
-Tal como se muestra en el siguiente ejemplo, la consulta de la dirección URL requiere el encabezado [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
+Tal como se muestra en el siguiente ejemplo, la consulta de la dirección URL requiere el encabezado [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
 
 En el siguiente ejemplo de Java, se crea y se envía la solicitud.
 

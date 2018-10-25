@@ -5,22 +5,52 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 4d53c33daefaadb4c58ce500a5d564af7988b606
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841599"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077095"
 ---
-# <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid 
+# <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
 En este artículo se describe cómo Azure Event Grid administra los eventos cuando no se confirma la entrega.
 
-Event Grid ofrece entrega duradera. Entrega cada mensaje por lo menos una vez en cada suscripción. Los eventos se envían inmediatamente al webhook registrado de cada suscripción. Si un webhook no acusa recibo de un evento en los 60 segundos siguientes al primer intento, Event Grid reintenta la entrega del evento. 
+Event Grid ofrece entrega duradera. Entrega cada mensaje por lo menos una vez en cada suscripción. Los eventos se envían inmediatamente al punto de conexión registrado de cada suscripción. Si un punto de conexión no acusa recibo de un evento, Event Grid reintenta la entrega del evento.
 
 Actualmente, Event Grid envía cada evento individualmente a los suscriptores. El suscriptor recibe una matriz con un solo evento.
+
+## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
+
+Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Si un punto de conexión no responde o devuelve un código de error, Event Grid reintenta la entrega según la siguiente programación:
+
+1. 10 segundos
+2. 30 segundos
+3. 1 minuto
+4. 5 minutos
+5. 10 minutos
+6. 30 minutos
+7. 1 hora
+
+Event Grid agrega una pequeña selección aleatoria a todos los pasos de reintento. Después de una hora, la entrega del evento se vuelve a intentar cada una hora.
+
+De forma predeterminada, Event Grid expira todos los eventos que no se entregan en 24 horas. Puede [personalizar la directiva de reintentos](manage-event-delivery.md) al crear una suscripción al evento. Proporcione el número máximo de intentos de entrega (el valor predeterminado es 30) y el periodo de vida de los eventos (el valor predeterminado es 1440 minutos).
+
+## <a name="dead-letter-events"></a>Eventos fallidos
+
+Si Event Grid no puede entregar un evento, puede enviar el evento no entregado a una cuenta de almacenamiento. Este proceso se conoce como colas de eventos fallidos. De forma predeterminada, Event Grid no tiene activada esta opción. Para habilitarla, debe especificar una cuenta de almacenamiento para contener los eventos no entregados al crear la suscripción a eventos. Puede extraer eventos de esta cuenta de almacenamiento para resolver las entregas.
+
+Event Grid envía un evento a la ubicación de la cola de mensajes fallidos cuando ha intentado todos los reintentos. Si Event Grid recibe un código de respuesta 400 (solicitud incorrecta) o 413 (entidad de solicitud demasiado grande), envía inmediatamente el evento al punto de conexión de la cola de mensajes fallidos. Estos códigos de respuesta indican que la entrega del evento nunca se realizará correctamente.
+
+Hay un retraso de cinco minutos entre el último intento de entregar un evento y su entrega a la ubicación de mensajes fallidos. Este retraso está pensado para reducir el número de operaciones de almacenamiento de blobs. Si la ubicación de la cola de mensajes fallidos no está disponible durante cuatro horas, se elimina el evento.
+
+Antes de establecer la ubicación de mensajes fallidos, debe tener una cuenta de almacenamiento con un contenedor. Puede proporcionar el punto de conexión de este contenedor al crear la suscripción a eventos. El punto de conexión tiene este formato: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+
+Es posible que desee recibir una notificación cuando un evento se envía a la ubicación de la cola de mensajes fallidos. Para utilizar Event Grid para responder a eventos no entregados, [cree una suscripción a eventos](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para el almacenamiento de blobs de los eventos fallidos. Cada vez que el almacenamiento de blobs de eventos fallidos recibe un evento no entregado, Event Grid lo notifica al controlador. El controlador responderá con las acciones que debe realizar para conciliar los eventos no entregados.
+
+Para obtener un ejemplo de cómo configurar una ubicación de la cola de mensajes fallidos, consulte [Cola de mensajes fallidos y directivas de reintento](manage-event-delivery.md).
 
 ## <a name="message-delivery-status"></a>Estado de entrega de mensajes
 
@@ -48,31 +78,7 @@ Los siguientes códigos de respuesta HTTP indican que el intento de entrega de u
 - Servicio no disponible 503
 - Tiempo de espera de puerta de enlace 504
 
-Si tiene [configurado un punto de conexión de mensajes fallidos](manage-event-delivery.md) y Event Grid recibe un código de respuesta 400 o 413, Event Grid envía de inmediato el evento al punto de conexión de mensajes fallidos. En caso contrario, Event Grid reintenta todos los errores.
-
-## <a name="retry-intervals-and-duration"></a>Intervalos de reintento y duración
-
-Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Si el webhook no responde o devuelve un código de error, Event Grid reintenta la entrega según la siguiente programación:
-
-1. 10 segundos
-2. 30 segundos
-3. 1 minuto
-4. 5 minutos
-5. 10 minutos
-6. 30 minutos
-7. 1 hora
-
-Event Grid agrega una pequeña selección aleatoria a todos los intervalos de reintento. Después de una hora, la entrega del evento se vuelve a intentar cada una hora.
-
-De forma predeterminada, Event Grid expira todos los eventos que no se entregan en 24 horas. Puede [personalizar la directiva de reintentos](manage-event-delivery.md) al crear una suscripción al evento. Proporcione el número máximo de intentos de entrega (el valor predeterminado es 30) y el periodo de vida de los eventos (el valor predeterminado es 1440 minutos).
-
-## <a name="dead-letter-events"></a>Eventos fallidos
-
-Si Event Grid no puede entregar un evento, puede enviar el evento no entregado a una cuenta de almacenamiento. Este proceso se conoce como colas de eventos fallidos. Para ver los eventos sin entregar, puede extraerlos de la ubicación de los eventos fallidos. Para más información, consulte [Directivas de reintentos y eventos fallidos](manage-event-delivery.md).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para ver el estado de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
-* Para personalizar las opciones de entrega de eventos, consulte [Administración de la configuración de entrega de Event Grid](manage-event-delivery.md).
-* Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).
-* Para comenzar a usar rápidamente Event Grid, vea [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).
+* Para personalizar las opciones de entrega de eventos, consulte [Cola de mensajes fallidos y directivas de reintento](manage-event-delivery.md).

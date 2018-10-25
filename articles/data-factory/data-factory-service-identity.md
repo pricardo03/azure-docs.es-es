@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143190"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249220"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidad de servicio de Azure Data Factory
 
@@ -169,6 +169,6 @@ Type                  : ServicePrincipal
 Consulte los siguientes temas que presentan cuándo y cómo se utiliza la identidad de servicio de Data Factory:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copia de datos con Azure Data Lake Store como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)
+- [Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)
 
-Consulte el tema de [información general sobre MSI](~/articles/active-directory/msi-overview.md) para obtener más información sobre la identidad de servicio administrada en la que se basa la identidad de servicio de factoría de datos. 
+Vea [¿Qué es Managed Identities for Azure Resources?](~/articles/active-directory/msi-overview.md) para más información sobre las identidades administradas para los recursos de Azure y en qué identidad de servicio de factoría está basado. 

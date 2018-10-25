@@ -9,16 +9,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181449"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247814"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Desarrollar funciones definidas por el usuario de .NET Standard para trabajos perimetrales de Azure Stream Analytics (versión preliminar)
 
-Azure Stream Analytics ofrece un lenguaje de consulta similar a SQL para realizar transformaciones y cálculos sobre transmisiones de datos del evento. Hay muchas funciones integradas, pero algunos escenarios complejos requieren flexibilidad adicional. Con las funciones definidas por el usuario (UDF) de .NET Standard, puede invocar sus propias funciones escritas en cualquier lenguaje de .NET Standard (C#, F#, etc.) para ampliar el lenguaje de consulta de Stream Analytics. Las UDF le permiten realizar cálculos matemáticos complejos, importar modelos de aprendizaje automático personalizados mediante ML.NET y usar una lógica personalizada de imputación para datos que faltan. La característica UDF para trabajos perimetrales de Stream Analytics está actualmente en versión preliminar y no debe usarse en las cargas de trabajo de producción.
+Azure Stream Analytics ofrece un lenguaje de consulta similar a SQL para realizar transformaciones y cálculos sobre transmisiones de datos del evento. Hay muchas funciones integradas, pero algunos escenarios complejos requieren flexibilidad adicional. Con las funciones definidas por el usuario (UDF) de .NET Standard, puede invocar sus propias funciones escritas en cualquier lenguaje de .NET Standard (C#, F#, etc.) para ampliar el lenguaje de consulta de Stream Analytics. Las UDF le permiten realizar cálculos matemáticos complejos, importar modelos de aprendizaje automático personalizados mediante ML.NET y usar una lógica personalizada de imputación para datos que faltan. La característica UDF para trabajos de Stream Analytics en dispositivos perimetrales está actualmente en versión preliminar y no debe usarse en las cargas de trabajo de producción.
 
 ## <a name="overview"></a>Información general
 Las herramientas de Visual Studio para Azure Stream Analytics facilitan la escritura de las UDF, probar localmente los trabajos (incluso sin conexión) y publicar el trabajo de Stream Analytics en Azure. Una vez publicado en Azure, puede implementar el trabajo en dispositivos de IoT mediante IoT Hub.
@@ -37,16 +37,13 @@ El formato de cualquier paquete UDF tiene la ruta de acceso `/UserCustomCode/CLR
 
 |**Tipo de UDF (C#)**  |**Tipo de Azure Stream Analytics**  |
 |---------|---------|
-|Booleano  |  bigint   |
-|int32  |  bigint   |
-|int64  |  bigint   |
-|float  |  double   |
+|long  |  bigint   |
 |double  |  double   |
 |string  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |objeto  |  IRecord   |
-|Matriz  |  IArray   |
+|Matriz<object>  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -116,7 +113,7 @@ Expanda la sección **Configuración de código definido por el usuario** y rell
  |**Configuración**  |**Valor sugerido**  |
  |---------|---------|
  |Origen del ensamblado  | Paquetes de ensamblado existentes de la nube    |
- |Recurso  |  Elegir datos de la cuenta actual   |
+ |Recurso  |  Elija los datos de la cuenta actual   |
  |Subscription  |  Elija su suscripción.   |
  |Cuenta de almacenamiento  |  Elija la cuenta de almacenamiento.   |
  |Contenedor  |  Elija el contenedor que creó en la cuenta de almacenamiento.   |

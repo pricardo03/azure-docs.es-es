@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4f043cfc9c85513abe16bde38c5cac6e16e34af9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/05/2018
+ms.openlocfilehash: 02fae39325e632c087fcd2969fbaf5dd705994ba
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063326"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867681"
 ---
-# <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
+# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático para supervisar las consultas y mejorar el rendimiento de la carga de trabajo
 
 Azure SQL Database es un servicio de datos completamente administrado que supervisa constantemente las consultas e identifica la acción que puede realizar para mejorar el rendimiento de la carga de trabajo. Puede revisar las recomendaciones y aplicarlas manualmente o dejar que Azure SQL Database aplique automáticamente acciones correctoras, lo que se conoce como **modo de ajuste automático**.
 

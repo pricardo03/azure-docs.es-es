@@ -5,25 +5,23 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: d357a9a7f249127289a256685d9555f777742b68
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355495"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044491"
 ---
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Asignación de usuarios y grupos a una aplicación
-
-Para que los usuarios puedan hacer cualquiera de las siguientes acciones para una aplicación específica, antes debe **asignarlos a la aplicación** para concederles acceso:
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Asignación de usuarios y grupos en una aplicación de Azure Active Directory
+En este artículo se muestra cómo asignar usuarios o grupos a una aplicación en Azure Active Directory (Azure AD). Los usuarios deben asignarse primero a una aplicación antes de que un administrador les conceda acceso para hacer lo siguiente:
 
 -   Acceso a una aplicación mediante la **navegación directa a la dirección URL de la aplicación** (también conocido como inicio de sesión iniciado por el proveedor de servicios).
 
@@ -33,17 +31,19 @@ Para que los usuarios puedan hacer cualquiera de las siguientes acciones para un
 
 -   Vea como aparece una aplicación en el [iniciador de aplicaciones de Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Métodos de asignación de aplicaciones con Azure Active Directory 
+## <a name="prerequisties"></a>Requisitos previos
+Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios. Para requerir la asignación de usuario:
 
-Hay 3 formas de asignar aplicaciones con Azure Active Directory:
+1. Inicie sesión en el portal de Azure con una cuenta de administrador.
+2. Haga clic en el elemento **Todos los servicios** del menú principal.
+3. Elija el directorio que está usando para la aplicación.
+4. Haga clic en la pestaña **Aplicaciones empresariales**.
+5. Seleccione la aplicación en la lista de aplicaciones asociada a este directorio.
+6. Haga clic en la pestaña **Propiedades**.
+7. Cambie la opción **¿Asignación de usuarios?** a Sí.
+8. Haga clic en el botón **Guardar** de la parte superior de la pantalla.
 
--   [Asignación de un usuario directamente a una aplicación como administrador](#assign-a-user-directly-as-an-administrator)
-
--   [Asignación de un grupo directamente a una aplicación como administrador](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [Habilitar el acceso de autoservicio a las aplicaciones para permitir a los usuarios buscar sus propias aplicaciones](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## <a name="assign-a-user-directly-as-an-administrator"></a>Asignación de un usuario directamente como administrador
+## <a name="assign-users"></a>Asignar usuarios
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
@@ -81,7 +81,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 Tras un breve período de tiempo, los usuarios seleccionados podrán iniciar estas aplicaciones mediante los métodos descritos en la sección de descripción de la solución.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Asignación de un grupo directamente a una aplicación como administrador
+## <a name="assign-groups"></a>Asignación de grupos
 
 Para asignar uno o varios grupos a una aplicación directamente, siga estos pasos:
 
@@ -119,7 +119,7 @@ Para asignar uno o varios grupos a una aplicación directamente, siga estos paso
 
 Tras un breve período de tiempo, los usuarios de los grupos seleccionados podrán iniciar estas aplicaciones mediante los métodos descritos en la sección de descripción de la solución. Si se trata de grupos dinámicos, puede que haya algo de retardo de procesamiento adicional en estas asignaciones hasta que aparezcan para los usuarios dentro de estos grupos asignados.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Habilitar el acceso de autoservicio a las aplicaciones para permitir a los usuarios buscar sus propias aplicaciones
+## <a name="enable-self-service-application-access"></a>Habilitación del acceso de autoservicio a las aplicaciones
 
 El acceso de autoservicio a las aplicaciones es una excelente manera de permitir a los usuarios detectar automáticamente aplicaciones y, si lo desea, permitir que el grupo de negocios apruebe el acceso a esas aplicaciones. Puede permitir que el grupo de negocios administre las credenciales asignadas a esos usuarios para que puedan realizar un inicio de sesión único con contraseña en las aplicaciones directamente desde sus paneles de acceso.
 

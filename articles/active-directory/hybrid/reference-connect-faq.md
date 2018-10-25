@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fb19c7b74d059d83cc5a51a158dcc6ba9bede23
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306274"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269452"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -47,7 +47,7 @@ No, no se admiten varios conectores para el mismo dominio de AD.
 **P: ¿Se puede mover la base de datos de Azure AD Connect de la base de datos local a una instancia remota de SQL Server?**   
 Sí, en los pasos siguientes se proporcionan instrucciones generales sobre cómo hacerlo. Actualmente estamos trabajando en un documento más detallado.
 1. Realice una copia de seguridad de la base de datos LocalDB ADSync.
-La manera más sencilla de hacerlo es usar SQL Server Management Studio instalado en el mismo equipo que Azure AD Connect. Conéctese a *(localdb)\.\ADSync* y, a continuación, realice una copia de seguridad de la base de datos ADSync.
+La manera más sencilla de hacerlo es usar SQL Server Management Studio instalado en el mismo equipo que Azure AD Connect. Conéctese a *(LocalDb).\ADSync* y, a continuación, realice una copia de seguridad de la base de datos ADSync.
 
 2. Restaure la base de datos ADSync en la instancia remota de SQL Server.
 

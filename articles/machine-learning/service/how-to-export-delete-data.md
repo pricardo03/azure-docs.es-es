@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
-ms.openlocfilehash: aef7bae7d2c511766bdbebbf1180e19263d7ccec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 20c75b55e9b02f30e90ad40ea11383b91ae0a247
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986309"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267327"
 ---
-# <a name="export-or-delete-your-workspace-data-in-machine-learning"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning
+# <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service 
 
 En Azure Machine Learning, puede exportar o eliminar los datos del área de trabajo con la API REST autenticada. En este artículo se indica cómo hacerlo.
 

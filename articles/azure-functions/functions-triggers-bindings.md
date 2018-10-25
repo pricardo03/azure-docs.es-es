@@ -9,14 +9,14 @@ keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proces
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969434"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801312"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -168,7 +168,7 @@ Esta sección se aplica únicamente a Functions 2.x. Las extensiones de enlace n
 
 Al crear una función o agregar un enlace, se le avisa cuando hay que registrar la extensión para el desencadenador o el enlace que requieren el registro. Responda a la pregunta haciendo clic en **Instalar** para registrar la extensión. La instalación puede tardar hasta 10 minutos en un plan de consumo.
 
-Solo necesita instalar cada extensión una vez para una aplicación de función determinada. 
+Solo necesita instalar cada extensión una vez para una aplicación de función determinada. Para los enlaces admitidos que no están disponibles en el portal o para actualizar una extensión instalada, también puede [instalar o actualizar manualmente las extensiones de enlace de Azure Functions desde el portal](install-update-binding-extensions-manual.md).  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Desarrollo local con Azure Functions Core Tools
 

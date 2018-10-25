@@ -11,34 +11,38 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 89466d8774698028c8574e90f5a58e1678c9b938
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160714"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343561"
 ---
-# <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database   
+# <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database
+
 Cuando se [migra la base de datos](sql-database-cloud-migrate.md) de SQL Server a Azure SQL Server, es posible que descubra que la base de datos requiere cierta reingeniería antes de que se pueda migrar el servidor SQL Server. En este artículo se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. Para detectar incompatibilidades, utilice el [Asistente para migración de datos (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Información general
+
 La mayoría de las características de Transact-SQL que usan las aplicaciones se admiten en Microsoft SQL Server y Azure SQL Database. Por ejemplo, los componentes principales de SQL, como tipos de datos, operadores, funciones de cadena, aritméticas, lógicas y de cursor, funcionan de la misma forma en SQL Server y SQL Database. Pero hay algunas diferencias de T-SQL en los elementos DDL (lenguaje de definición de datos) y DML (lenguaje de manipulación de datos) que generan instrucciones y consultas de T-SQL que solo se admiten parcialmente (como se describe más adelante en este artículo).
 
-Además, hay algunas características y sintaxis que no se admiten en absoluto porque Azure SQL Database se diseñó para aislar las características de cualquier dependencia de la base de datos maestra y el sistema operativo. Por eso, muchas actividades de nivel de servidor no son apropiadas para SQL Database. Las instrucciones y opciones de T-SQL no están disponibles si configuran opciones de nivel de servidor y componentes del sistema operativo, o especifican la configuración del sistema de archivos. Cuando se necesitan estas capacidades, suele estar disponible una alternativa adecuada en alguna otra manera de SQL Database o de otra función o servicio de Azure. 
+Además, hay algunas características y sintaxis que no se admiten en absoluto porque Azure SQL Database se diseñó para aislar las características de cualquier dependencia de la base de datos maestra y el sistema operativo. Por eso, muchas actividades de nivel de servidor no son apropiadas para SQL Database. Las instrucciones y opciones de T-SQL no están disponibles si configuran opciones de nivel de servidor y componentes del sistema operativo, o especifican la configuración del sistema de archivos. Cuando se necesitan estas capacidades, suele estar disponible una alternativa adecuada en alguna otra manera de SQL Database o de otra función o servicio de Azure.
 
-Por ejemplo, la alta disponibilidad se integra en Azure, por lo que configurar Siempre disponible no es necesario (aunque puede interesarle configurar la replicación geográfica activa para una recuperación más rápida en caso de desastre). Por esto, las instrucciones de T-SQL relacionadas con los grupos de disponibilidad no son compatibles con SQL Database y tampoco se admiten las vistas de administración dinámica relacionadas con Siempre disponible.
+Por ejemplo, la alta disponibilidad está integrada en Azure SQL Database con tecnología similar a la de los [grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Las instrucciones de T-SQL relacionadas con los grupos de disponibilidad no son compatibles con SQL Database y tampoco se admiten las vistas de administración dinámica relacionadas con los grupos de disponibilidad AlwaysOn.
 
 Para obtener una lista de las funciones compatibles y no compatibles con SQL Database, vea [Características de Azure SQL Database](sql-database-features.md). La lista de esta página complementa ese artículo de instrucciones y características, y se centra en las instrucciones de Transact-SQL.
 
 ## <a name="transact-sql-syntax-statements-with-partial-differences"></a>Instrucciones de sintaxis de Transact-SQL con diferencias parciales
-Las instrucciones DDL (lenguaje de definición de datos) principales están disponibles, pero algunas instrucciones DDL tienen extensiones relacionadas con la ubicación de disco y las características no admitidas. 
+
+Las instrucciones DDL (lenguaje de definición de datos) principales están disponibles, pero algunas instrucciones DDL tienen extensiones relacionadas con la ubicación de disco y las características no admitidas.
 
 - Las instrucciones CREATE y ALTER DATABASE tienen más de 30 opciones. Las instrucciones incluyen la ubicación de archivos, FILESTREAM y opciones de agente de servicio que solo se aplican a SQL Server. Puede que esto no sea importante si se crean las bases de datos antes de la migración, pero si se va a migrar código de T-SQL que crea bases de datos, se debe comparar [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) con la sintaxis de SQL Server en [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) para asegurarse de que se admiten todas las opciones que se usan. CREATE DATABASE para Azure SQL Database también tiene opciones de objetivo de servicio y escalado flexible que se aplican únicamente a SQL Database.
 - Las instrucciones CREATE y ALTER TABLE tienen opciones FileTable que no se pueden usar en SQL Database porque no se admite FILESTREAM.
 - Se admiten las instrucciones de inicio de sesión CREATE y ALTER, pero SQL Database no ofrece todas las opciones. Para que la base de datos sea más portable, SQL Database promueve la utilización de usuarios de base de datos independiente en lugar de inicios de sesión siempre que sea posible. Para más información, vea [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) y [Control y concesión de acceso a bases de datos](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
-## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Sintaxis de Transact-SQL no admitida en Azure SQL Database   
+## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Sintaxis de Transact-SQL no admitida en Azure SQL Database
+
 Además de las instrucciones de Transact-SQL relacionadas con las funciones no admitidas descritas en [Características de Azure SQL Database](sql-database-features.md), no se admiten las instrucciones y grupos de instrucciones siguientes. Por tanto, si la base de datos que se va a migrar usa alguna de las siguientes características, vuelva a diseñar el código de T-SQL para eliminar estas características e instrucciones de T-SQL.
 
 - Intercalación de objetos del sistema
@@ -74,9 +78,11 @@ Además de las instrucciones de Transact-SQL relacionadas con las funciones no a
 - Instrucción `USE`: para cambiar el contexto de base de datos a una base de datos distinta, debe crear una nueva conexión a la base de datos nueva.
 
 ## <a name="full-transact-sql-reference"></a>Referencia completa de Transact-SQL
-Para obtener más información sobre la gramática de Transact-SQL, su uso y ejemplos, consulte [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx) en Libros en pantalla de SQL Server. 
+
+Para obtener más información sobre la gramática de Transact-SQL, su uso y ejemplos, consulte [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx) en Libros en pantalla de SQL Server.
 
 ### <a name="about-the-applies-to-tags"></a>Acerca de las etiquetas "Se aplica a"
+
 La referencia de Transact-SQL incluye artículos relacionados con las versiones de SQL Server que abarcan desde la de 2008 hasta la actual. Debajo del título del artículo hay una barra de iconos donde se muestran las cuatro plataformas de SQL Server y se indica la aplicabilidad. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. En el artículo [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) se indica que la instrucción se aplica a **SQL Server (a partir de 2012)**. La instrucción no se aplica a SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse o Almacenamiento de datos paralelos.
 
 En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. Por ejemplo, el artículo CREATE TRIGGER está disponible en SQL Database. No obstante, la opción **ALL SERVER** para desencadenadores de nivel de servidor indica que no se pueden usar desencadenadores de nivel de servidor en SQL Database. Use desencadenadores de nivel de base de datos en su lugar.
@@ -84,4 +90,3 @@ En algunos casos, la línea general de un artículo se puede usar en un producto
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener una lista de las funciones compatibles y no compatibles con SQL Database, vea [Características de Azure SQL Database](sql-database-features.md). La lista de esta página complementa ese artículo de instrucciones y características, y se centra en las instrucciones de Transact-SQL.
-

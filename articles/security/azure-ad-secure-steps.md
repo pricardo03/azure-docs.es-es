@@ -1,6 +1,6 @@
 ---
 title: Cinco pasos para proteger su infraestructura de identidad en Azure Active Directory
-description: En este documento se proporciona una lista de acciones importantes que los administradores deberían implementar para proteger su organización mediante las capacidades de Azure AD.
+description: En este documento se proporciona una lista de acciones importantes que los administradores deberían implementar para proteger su organización mediante las funcionalidades de Azure AD.
 services: active-directory
 author: martincoetzer
 manager: manmeetb
@@ -10,83 +10,83 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505616"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341589"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
 Si está leyendo este documento, es consciente de la importancia de la seguridad. Es probable que ya tenga la responsabilidad de proteger su organización. Si necesita convencer a otros de la importancia de la seguridad, hágales leer el último [informe de inteligencia de seguridad de Microsoft](https://www.microsoft.com/security/intelligence-report).
 
-Este documento le ayudará a conseguir una posición más segura gracias a las capacidades de Azure Active Directory; para ello, deberá usar una lista de comprobación de cinco pasos para proteger su organización contra los ciberataques.
+Este documento le ayudará a conseguir una posición más segura gracias a las funcionalidades de Azure Active Directory; para ello, deberá usar una lista de comprobación de cinco pasos para proteger su organización contra los ciberataques.
 
 Esta lista de comprobación le ayudará a implementar rápidamente las acciones críticas recomendadas para proteger su organización de inmediato; en ella se explica cómo:
 
-* Fortalecer las credenciales.
-* Reducir el área de superficie de ataque.
-* Automatizar la respuesta a amenazas.
+* Reforzar las credenciales.
+* Reducir el área de la superficie de ataque.
+* Automatizar la respuesta frente a amenazas.
 * Aumentar el reconocimiento de la utilidad de las auditorías y supervisiones.
-* Habilitar un método seguridad para el usuario final que sea más predecible y completo, y que cuente con autoayuda.
+* Habilitar un método de seguridad para el usuario final que sea más predecible y completo, y que cuente con autoayuda.
 
 > [!NOTE]
-> Muchas de las recomendaciones de este documento solo son válidas para aquellas aplicaciones que estén configuradas para usar Azure Active Directory como proveedor de identidades. La configuración de aplicaciones para el inicio de sesión único garantiza los beneficios que ofrecen las políticas de credenciales, la detección de amenazas, la auditoría, el registro y otras características que se agregan a esas aplicaciones. El [inicio de sesión único mediante Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) es la base en la que se cimentan todas estas recomendaciones.
+> Muchas de las recomendaciones de este documento solo son válidas para aquellas aplicaciones que estén configuradas para usar Azure Active Directory como proveedor de identidades. La configuración de aplicaciones para el inicio de sesión único garantiza las ventajas que ofrecen las políticas de credenciales, la detección de amenazas, la auditoría, el registro y otras características que se agregan a esas aplicaciones. El [inicio de sesión único mediante Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) es la base en la que se cimentan todas estas recomendaciones.
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de comenzar: proteja sus cuentas con privilegios con MFA
 
-Antes de comenzar a trabajar con esta lista de comprobación, asegúrese de que no se encontrará con problemas mientras realiza los pasos de esta lista de comprobación. En primer lugar, necesita proteger sus cuentas con privilegios.
+Antes de comenzar a trabajar con esta lista de comprobación, asegúrese de que no se encontrará con problemas mientras lo hace. En primer lugar, necesita proteger sus cuentas con privilegios.
 
 Los atacantes que tomen el control de cuentas con privilegios pueden producir enormes daños, por lo que es fundamental proteger estas cuentas primero. Habilite y solicite que todos los administradores de la organización usen el servicio [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) (MFA) mediante la [protección de línea base](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-baseline-protection). Si no ha implementado MFA, ¡hágalo ahora! Es importantísimo.
 
 ¿Todo listo? Comencemos con la lista de comprobación.
 
-## <a name="step-1---strengthen-your-credentials"></a>Paso 1: fortalezca sus credenciales 
+## <a name="step-1---strengthen-your-credentials"></a>Paso 1: Refuerce sus credenciales 
 
-La mayoría de infracciones de seguridad que sufren las empresas se originan con una cuenta que se ha comprometido mediante un método seleccionado de una gran variedad; por ejemplo, ataques de difusión de contraseñas, la reproducción de infracciones de seguridad o el phishing. Obtenga más información acerca de este tipo de ataques en este vídeo:
+La mayoría de infracciones de seguridad que sufren las empresas se originan con una cuenta que se ha visto comprometida con uno de los diversos métodos existentes, como por ejemplo, los ataques de difusión de contraseña, la reproducción de infracciones de seguridad o la suplantación de identidad (phishing). Obtenga más información acerca de este tipo de ataques en este vídeo (1:15:00):
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 Si los usuarios de su sistema de identidad usan contraseñas débiles y no las fortalecen con la autenticación de multifactor, ya no será cuestión de si ven sus cuentas comprometidas; será cuestión de "con qué frecuencia" se ven afectadas.
 
-### <a name="make-sure-your-organization-use-strong-authentication"></a>Asegúrese de que la organización use un método de autenticación fuerte
+### <a name="make-sure-your-organization-use-strong-authentication"></a>Asegúrese de que la organización use un método de autenticación sólida
 
 Dada la frecuencia de las contraseñas que se adivinan, se suplantan, se roban con malware o se reutilizan, es fundamental fortalecer la contraseña con algún tipo de credencial sólida: obtenga más información sobre [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
 
-### <a name="turn-off-traditional-complexity-expiration-rules-and-start-banning-commonly-attacked-passwords-instead"></a>Deje de lado la complejidad y las reglas de expiración tradicionales y, comience a prohibir las contraseñas que sufren ataques con más frecuencia.
+### <a name="turn-off-traditional-complexity-expiration-rules-and-start-banning-commonly-attacked-passwords-instead"></a>Deje de lado la complejidad y las reglas de expiración tradicionales y comience a prohibir las contraseñas que sufren ataques con más frecuencia.
 
-Muchas organizaciones usan la complejidad tradicional (por ejemplo, caracteres especiales) y las reglas de expiración de contraseñas. La investigación de Microsoft ha demostrado que estas políticas son perjudiciales, ya que solo se consigue que los usuarios elijan contraseñas que sean más fáciles de adivinar.
+Muchas organizaciones usan la complejidad tradicional (por ejemplo, caracteres especiales) y las reglas de expiración de contraseñas. La investigación de Microsoft ha demostrado que estas políticas son perjudiciales, ya que solo se consigue que los usuarios elijan contraseñas que son más fáciles de adivinar.
 
-Según la recomendación de Microsoft y la [guía NIST ](https://pages.nist.gov/800-63-3/sp800-63b.html), hay que implementar las siguientes tres opciones:
+Según la recomendación de Microsoft y la [guía NIST](https://pages.nist.gov/800-63-3/sp800-63b.html), hay que implementar las tres opciones siguientes:
 
 1. Solicitar contraseñas que tengan al menos 8 caracteres. Que sean más largas no quiere decir que sean mejores, ya que hacen que los usuarios elijan contraseñas predecibles, guarden las contraseñas en archivos o las acaben apuntando.
 2. Deshabilitar las reglas de expiración, que solo consiguen que los usuarios elijan contraseñas fáciles de adivinar, como **Summer2018!**.
 3. Deshabilitar los requisitos de composición de caracteres y evitar que los usuarios elijan contraseñas comúnmente atacadas, ya que solo se consigue que los usuarios elijan sustituciones de caracteres predecibles en las contraseñas.
 
-Puede usar [PowerShell para evitar que las contraseñas de los usuarios expiren](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy), si crea identidades directamente en Azure AD. Las organizaciones que usan una instancia local de AD con Azure AD Connect para sincronizar identidades en Azure AD (operación también conocida como implementación híbrida), deben implementar [directivas de contraseñas inteligentes](https://aka.ms/passwordguidance) locales mediante la [configuración de directivas del grupo de dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) o [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Si crea identidades directamente en Azure AD, puede usar [PowerShell para evitar que las contraseñas de los usuarios expiren](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy). Las organizaciones que usan una instancia local de AD con Azure AD Connect para sincronizar identidades en Azure AD (operación también conocida como implementación híbrida) deben implementar [directivas de contraseñas inteligentes](https://aka.ms/passwordguidance) locales mediante la [configuración de directivas del grupo de dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) o [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
-La característica [contraseña dinámica prohibida](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) de Azure Active Directory usa el comportamiento actual del atacante para evitar que los usuarios configuren contraseñas que puedan adivinarse fácilmente. Esta capacidad siempre está activada y las organizaciones que tengan una implementación híbrida pueden beneficiarse de esta función habilitando la [escritura diferida de contraseñas ](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback), o pueden implementar la [protección de contraseñas de Azure AD para Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protección de contraseñas de Azure AD impide que los usuarios elijan contraseñas comunes en general y contraseñas personalizadas que usted mismo pueda configurar.
+La característica de [contraseña dinámica prohibida](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) de Azure Active Directory usa el comportamiento actual del atacante para evitar que los usuarios configuren contraseñas que puedan adivinarse fácilmente. Esta funcionalidad siempre está activada y las organizaciones que tengan una implementación híbrida pueden beneficiarse de esta función habilitando la [escritura diferida de contraseñas ](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback), o bien pueden implementar la [protección de contraseñas de Azure AD para Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protección de contraseñas de Azure AD impide que los usuarios elijan contraseñas comunes en general y contraseñas personalizadas que usted mismo pueda configurar.
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Protéjase contra la filtración de credenciales y mejore la resistencia contra las interrupciones
 
 Si su organización usa una solución de identidad híbrida, debe habilitar la sincronización de hash de contraseñas por los siguientes dos motivos:
 
 * El informe [Usuarios con credenciales filtradas](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) de la administración de Azure AD le advierte sobre los pares de nombre de usuario y contraseña que se expusieron en la "web oscura". Se filtra un volumen increíble de contraseñas a través del phishing, el malware y la reutilización de contraseñas en sitios de terceros que luego se vulneran. Cuando Microsoft encuentre estas credenciales filtradas, le indicará en este informe si coinciden con las credenciales de su organización, pero para ello, debe [habilitar la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
-* En caso de una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Este método de autenticación de respaldo le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Office 365.
+* En caso de una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Este método de autenticación de copias de seguridad le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Office 365.
 
 Obtenga más información sobre cómo funciona [la sincronización de hash de contraseñas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
 ### <a name="implement-ad-fs-extranet-lockout"></a>Implemente el bloqueo de extranet de AD FS
 
-Las organizaciones que configuran aplicaciones para que se autentiquen directamente en Azure AD, se benefician del [bloqueo inteligente de Azure AD ](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Si usa AD FS en Windows Server 2012 R2, implemente la [protección de bloqueo de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) de AD FS. Si usa AD FS en Windows Server 2016, implemente el [bloqueo inteligente de extranet](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). El bloqueo inteligente de extranet de AD FS le protege contra ataques de fuerza bruta que se dirigen a AD FS, a la vez que evitan que los usuarios sean bloqueados en Active Directory.
+Las organizaciones que configuran aplicaciones para que se autentiquen directamente en Azure AD se benefician del [bloqueo inteligente de Azure AD ](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Si usa AD FS en Windows Server 2012 R2, implemente la [protección de bloqueo de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) de AD FS. Si usa AD FS en Windows Server 2016, implemente el [bloqueo inteligente de extranet](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). El bloqueo inteligente de extranet de AD FS le protege contra ataques de fuerza bruta que se dirigen a AD FS, a la vez que evitan que los usuarios sean bloqueados en Active Directory.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Aproveche las credenciales intrínsecamente seguras y fáciles de usar
 
-Gracias a [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), puede reemplazar las contraseñas mediante una sólida autenticación en dos fases en su PC y en dispositivos móviles. Este método de autenticación consiste en un nuevo tipo de credencial de usuario que está vinculada a un dispositivo y utiliza la biometría o un PIN.
+Gracias a [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), puede reemplazar las contraseñas mediante una  autenticación sólida en dos fases en su PC y en dispositivos móviles. Este método de autenticación consiste en un nuevo tipo de credencial de usuario que está vinculada a un dispositivo y utiliza la biometría o un PIN.
 
 ## <a name="step-2---reduce-your-attack-surface"></a>Paso 2: reduzca su superficie de ataque
 
-Dado el amplio número de contraseñas que se ven en riesgo, es fundamental minimizar la superficie de ataque en su organización. Eliminar el uso de los protocolos más antiguos y menos seguros, limitar los puntos de entrada de acceso y ejercer un control más significativo del acceso administrativo a los recursos, puede ayudarle a reducir el área de superficie de ataque.
+Dado el amplio número de contraseñas que se ven en riesgo, es fundamental minimizar la superficie de ataque en su organización. Eliminar el uso de los protocolos más antiguos y menos seguros, limitar los puntos de entrada de acceso y ejercer un mayor control del acceso administrativo a los recursos puede ayudarle a reducir el área de superficie de ataque.
 
 ### <a name="block-legacy-authentication"></a>Bloquear la autenticación heredada
 
@@ -119,7 +119,7 @@ Como parte del proceso de implementación de la cuenta con privilegios, siga los
 
 ## <a name="step-3---automate-threat-response"></a>Paso 3: automatizar la respuesta a amenazas
 
-Azure Active Directory tiene varias capacidades que interceptan ataques automáticamente, y que le permiten eliminar la latencia entre la detección y la respuesta. Puede reducir los costos y riesgos a la vez que reduce el tiempo que usan los delincuentes para integrarse en su entorno. Estos son los pasos concretos que puede tomar.
+Azure Active Directory tiene varias funcionalidades que interceptan ataques automáticamente, y que le permiten eliminar la latencia entre la detección y la respuesta. Puede reducir los costos y riesgos a la vez que reduce el tiempo que usan los delincuentes para integrarse en su entorno. Estos son los pasos concretos que puede tomar.
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementar la directiva de seguridad de riesgo de usuario con Azure AD Identity Protection
 
@@ -135,7 +135,7 @@ El riesgo de inicio de sesión es la probabilidad de que alguien que no sea el p
 
 ## <a name="step-4---increase-your-awareness"></a>Paso 4: aumentar la concienciación
 
-La auditoría, el registro de eventos y las alertas relacionados con la seguridad son componentes importantes en una estrategia de protección de datos eficaz. Los registros e informes de seguridad proporcionan un registro electrónico de actividades sospechosas y le ayudan a detectar patrones que puedan indicar una acceso externo de la red, así como ataques internos. Puede utilizar la auditoría para supervisar la actividad de usuario y el cumplimiento normativo de documentos, realizar análisis forenses y mucho más. Además, las alertas le proporcionarán notificaciones acerca de eventos de seguridad.
+La auditoría, el registro de eventos y las alertas relacionados con la seguridad son componentes importantes en una estrategia de protección de datos eficaz. Los registros e informes de seguridad proporcionan un registro electrónico de actividades sospechosas y le ayudan a detectar patrones que puedan indicar un acceso externo a la red, así como ataques internos. Puede utilizar la auditoría para supervisar la actividad de usuario y el cumplimiento normativo de documentos, realizar análisis forenses y mucho más. Además, las alertas le proporcionarán notificaciones acerca de eventos de seguridad.
 
 ### <a name="monitor-azure-ad"></a>Supervisar Azure AD
 
@@ -173,11 +173,11 @@ Gracias a las [revisiones de acceso de Azure AD](https://docs.microsoft.com/azur
 
 Existen muchos aspectos en una infraestructura de identidad segura, pero esta lista de comprobación de cinco pasos le ayudará a lograr rápidamente una infraestructura de identidad segura:
 
-* Fortalecer las credenciales.
-* Reducir el área de superficie de ataque.
-* Automatizar la respuesta a amenazas.
+* Reforzar las credenciales.
+* Reducir el área de la superficie de ataque.
+* Automatizar la respuesta frente a amenazas.
 * Aumentar el reconocimiento de la utilidad de las auditorías y supervisiones.
-* Habilitar un método seguridad para el usuario final que sea más predecible y completo, y que cuente con autoayuda.
+* Habilitar un método de seguridad para el usuario final que sea más predecible y completo, y que cuente con autoayuda.
 
 Le agradecemos todo el esfuerzo que ha dedicado en mejorar la seguridad de la identidad, y esperamos que este documento sea una hoja de ruta útil para conseguir mejorar la seguridad de su organización.
 

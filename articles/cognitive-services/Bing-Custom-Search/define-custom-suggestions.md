@@ -1,20 +1,21 @@
 ---
-title: 'Bing Custom Search: definición de las sugerencias de Custom Autosuggest'
+title: 'Definición de sugerencias de Custom Autosuggest: Bing Custom Search'
+titlesuffix: Azure Cognitive Services
 description: Describe cómo configurar Custom Autosuggest con sugerencias personalizadas
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-custom-search
-ms.topic: article
+ms.component: bing-custom-search
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 11d3b1c2d98caa8d6527c52bec1cc65ba22c6c3b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 738f0d6ea083b59cddf408941cda81e980daa334
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958754"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883197"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configuración de experiencia de Custom Autosuggest
 

@@ -1,20 +1,21 @@
 ---
-title: 'Problemas conocidos con el complemento de acústica: Cognitive Services'
+title: Problemas conocidos con el complemento Elementos acústicos de un proyecto
+titlesuffix: Azure Cognitive Services
 description: Podría encontrar los siguientes problemas conocidos al usar la versión preliminar del diseñador para Elementos acústicos de un proyecto.
 services: cognitive-services
 author: kylestorck
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6d3605b579a44dccb259bef281392cbfe2b9f916
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432006"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902166"
 ---
 # <a name="known-issues"></a>Problemas conocidos
 Podría encontrar los siguientes problemas conocidos al usar la versión preliminar del diseñador para Elementos acústicos de un proyecto.
@@ -23,17 +24,9 @@ Podría encontrar los siguientes problemas conocidos al usar la versión prelimi
 
 Si cambia el nombre de una escena, todos los parámetros acústicos que pertenecen a dicha escena no se transferirán automáticamente a la escena nueva. Sin embargo, seguirán existiendo en el archivo de recursos antiguo. Busque el archivo **SceneName_AcousticParameters.asset** en el directorio **Editor** junto al archivo de la escena. Cámbiele el nombre para reflejar el nuevo nombre de la escena.
 
-## <a name="the-default-path-for-the-acousticsdata-folder-in-probes-tab-is-an-absolute-path"></a>La ruta de acceso predeterminada para la carpeta AcousticsData en la pestaña Probes (Sondeos) es una ruta absoluta
-
-Debería establecerse por defecto en una ruta de acceso relativa para poder compartir más fácilmente los proyectos entre los colaboradores. Como solución alternativa, cambie la ruta de acceso para que sea relativa al directorio del proyecto.
-
 ## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Los vóxeles en tiempo de ejecución tienen un tamaño distinto de los vóxeles de vista previa de la escena
 
 Si hace un **cálculo** en la pestaña **Probes** (Sondeos) y ve los vóxeles, haga una elaboración y vea los vóxeles en tiempo de ejecución para la misma escena. Los vóxeles tendrán tamaños distintos. Los vóxeles que se muestran previos a la elaboración son los vóxeles que se usan en la simulación. Los vóxeles que se muestran en tiempo de ejecución se usan para la interpolación entre los puntos de sondeo. Esto puede provocar una incoherencia en la que los portales aparecerán abiertos en tiempo de ejecución, pero no estarán abiertos realmente.
-
-## <a name="uwp-builds-not-working"></a>Las compilaciones de UWP no funcionan
-
-En las versiones más recientes de Unity (2018.2 +), no se completan correctamente las compilaciones de UWP. La fase de ejecución de la compilación se detendrá y se generarán errores del tipo "Unity extensiones are not yet initialized" (Las extensiones de Unity todavía no se inicializan). En [este error de Unity](https://fogbugz.unity3d.com/default.asp?1070491_1rgf14bakv5u779d) se hace un seguimiento de esto.
 
 ## <a name="unity-crashes-when-closing-project"></a>Unity se bloquea al cerrar un proyecto
 
@@ -49,6 +42,9 @@ Asegúrese de que la versión en tiempo de ejecución de scripting en la configu
 ## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Tengo problemas de autenticación al conectarme a Azure
 
 Compruebe que usó las credenciales correctas para su cuenta de Azure, que la cuenta es compatible con el tipo de nodo solicitado en la elaboración y que el reloj del sistema es exacto.
+
+## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>La cancelación de una elaboración deja la pestaña Bake (Elaboración) en el estado "eliminación"
+Elementos acústicos de un proyecto limpiará todos los recursos de Azure para un trabajo cuando la finalización o la cancelación sea correcta, lo que puede tardar hasta cinco minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Introducción a la [integración de la acústica en un proyecto de Unity](getting-started.md)

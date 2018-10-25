@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2018
+ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: afb4cbafeb29800b1f5b1c837da301e2944d678b
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842539"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815875"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -33,7 +33,7 @@ Puede copiar datos de Azure SQL Database a cualquier almacén de datos receptor 
 
 En concreto, este conector de Azure SQL Database admite estas funciones:
 
-- Copiar datos mediante la autenticación SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o Managed Service Identity (MSI).
+- Copiar datos mediante la autenticación con SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o identidades administradas para recursos de Azure.
 - Como origen, la recuperación de datos mediante una consulta SQL o un procedimiento almacenado.
 - Como receptor, la anexión de datos a una tabla de destino o la invocación de un procedimiento almacenado con lógica personalizada durante la copia.
 
@@ -64,7 +64,7 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 
 - [Autenticación de SQL](#sql-authentication)
 - [Autenticación de tokens de aplicaciones de Azure AD: entidad de servicio](#service-principal-authentication)
-- [Autenticación de tokens de aplicaciones de Azure AD: Managed Service Identity](#managed-service-identity-authentication)
+- [Autenticación de tokens de aplicaciones de Azure AD: identidades administradas para recursos de Azure](#managed-identity)
 
 >[!TIP]
 >Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
@@ -146,9 +146,9 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticación de Managed Service Identity
+### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociarse con una instancia de [Managed Service Identity](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad de servicio se puede usar para Azure SQL Database. Con esta identidad la fábrica designada y puede acceder y copiar datos de su base de datos o en ella.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad de servicio se puede usar para Azure SQL Database. Con esta identidad la fábrica designada y puede acceder y copiar datos de su base de datos o en ella.
 
 Para usar la autenticación de token de aplicación de Azure AD basada en MSI, siga estos pasos:
 
@@ -201,7 +201,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en MSI, s
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Azure SQL Database.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Azure SQL Database.
 
 Para copiar datos con una instancia de Azure SQL Database como origen o destino, establezca la propiedad **type** del conjunto de datos en **AzureSqlTable**. Se admiten las siguientes propiedades:
 
@@ -568,6 +568,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>Si escribe en el tipo de datos Money/Smallmoney mediante la invocación de Procedimiento almacenado, se pueden redondear los valores. Especifique el tipo de datos correspondiente en TVP como Decimal en lugar de Money/Smallmoney para mitigar. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Asignación de tipos de Azure SQL Database
 

@@ -1,20 +1,21 @@
 ---
-title: 'Requisitos de uso y visualización de Project Answer Search: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Requisitos de uso y visualización: Project Answer Search'
+titlesuffix: Azure Cognitive Services
 description: Requisitos de uso y visualización del punto de conexión de Project Answer Search.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6e8eaaaa2c83a1420f2de86b23e15f4f19f7a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 0869833ec83c40f061bebf1aeb1267f44dcbb048
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381847"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868262"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Requisitos de uso y visualización de Project Answer Search
 
@@ -22,7 +23,7 @@ Los requisitos de uso y visualización se aplican a cualquier implementación de
 
 ## <a name="1-bing-spell-check-and-bing-autosuggest-api"></a>1. Bing Spell Check API y Bing Autosuggest API.
 
-No debe:
+No:
 
 - copiar, almacenar ni almacenar en caché los datos que reciba de las API Bing Spell Check o Bing Autosuggest;
 - usar datos que reciba desde las API Bing Spell Check o Bing Autosuggest como parte de cualquier aprendizaje automático o actividad algorítmica similar para entrenar, evaluar o mejorar los servicios nuevos o existentes que usted o terceros pueden ofrecer.
@@ -48,7 +49,7 @@ Los requisitos de esta sección 3 se aplican a las API de búsqueda.
 - Incluye cualquier otra combinación de las medidas necesarias para garantizar que el uso de los datos recibidos de las API de búsqueda no incumple ninguna ley aplicable, ni vulnera los derechos de terceros (por ejemplo, si depende de una licencia de Creative Commons, el cumplimiento de los términos de licencia aplicables). Consulte con sus asesores legales para determinar las medidas que pueden ser adecuadas.
 La única excepción a los requisitos de experiencia de búsqueda de Internet es para la detección de direcciones URL tal como se describe en la sección 3E (Detección de direcciones URL fuera de presentación) a continuación. 
 
-**B. Restricciones.** No debe:
+**B. Restricciones.** No:
 
 - copiar, almacenar ni almacenar en caché ningún dato de las respuestas (excepto la retención en la medida permitida por la sección "Continuidad del servicio" más adelante); 
 - usar datos recibidos de las API de búsqueda como parte de cualquier actividad de Machine Learning o actividad algorítmica similar para entrenar, evaluar o mejorar los servicios nuevos o existentes que usted o terceros puedan ofrecer;
@@ -73,7 +74,7 @@ La única excepción a los requisitos de experiencia de búsqueda de Internet es
   - para las respuestas de las API Bing Web, Image, News y Video, presentar texto que indique que la respuesta se obtuvo a través de una experiencia de búsqueda de Internet usando la tecnología de Bing (por ejemplo, "Con tecnología de Bing", "Obtener más información sobre esta imagen en Bing" o mediante el uso del logotipo de Bing);
   - para las respuestas que se reciben de Bing Custom Search API, mostrar texto que indique que la respuesta se obtuvo a través de una experiencia de búsqueda en Internet (por ejemplo, "Obtener más información sobre este resultado de la búsqueda");
   - presentar de forma destacada la consulta completa utilizada para generar la respuesta; e
-  - incluir un vínculo destacado o atribución similar con el origen subyacente de la respuesta, ya sea directamente o a través del motor de búsqueda (bing.com, m.bing.com o su propio servicio de búsqueda personalizado, según sea aplicable).
+  - Incluir un vínculo destacado o atribución similar con el origen subyacente de la respuesta, ya sea directamente o a través del motor de búsqueda (bing.com, m.bing.com o su propio servicio de búsqueda personalizado, según sea aplicable).
 - No puede automatizar la transferencia de las respuestas. Una transferencia tiene que iniciarse a partir de una acción del usuario que evidencie claramente un intento de transferir una respuesta.
 - Solo puede permitir que un usuario transfiera las respuestas que haya obtenido como resultado de la consulta del usuario para realizar la transferencia.
 

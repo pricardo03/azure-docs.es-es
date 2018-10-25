@@ -7,14 +7,14 @@ manager: carmonm
 keywords: copias de seguridad; realizar copia de seguridad
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445750"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884940"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
@@ -37,7 +37,7 @@ Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de segur
 
  * **Linux**: Azure Backup admite [una lista de distribuciones que Azure aprueba](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con la excepción de CoreOS Linux. Para obtener la lista de sistemas operativos Linux que admiten la restauración de archivos, consulte [Recuperación de archivos desde una copia de seguridad de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Otras distribuciones del tipo "traiga su propio Linux" podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python. Sin embargo, estas distribuciones no se admiten.
     >
  * **Windows Server**, **cliente de Windows**: no se admiten las versiones anteriores a Windows Server 2008 R2 o Windows 7.
@@ -46,10 +46,10 @@ Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de segur
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitaciones al realizar copias de seguridad y restaurar una máquina virtual
 Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 
-* No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
+* No se admite la copia de seguridad de máquinas virtuales con más de 32 discos de datos.
 * No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
 * No se admite la copia de seguridad de máquinas virtuales Linux en las que se ha usado el cifrado LUKS (Linux Unified Key Setup).
-* No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Si hace esto, se espera un error de los escritores de CSV. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM. 
+* No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Si hace esto, se espera un error de los escritores de CSV. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM.
 * Los datos de la copia de seguridad no incluyen unidades montadas de red conectadas a una máquina virtual.
 * No se admite el reemplazo de una máquina virtual existente durante la restauración. Si intenta restaurar la máquina virtual cuando ya existe, la operación de restauración dará error.
 * No se admiten la restauración y la copia de seguridad entre regiones.
@@ -62,6 +62,9 @@ Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
   * Máquinas virtuales con la configuración del equilibrador de carga (interna y externa).
   * Máquinas virtuales con varias direcciones IP reservadas.
   * Máquinas virtuales con varios adaptadores de red.
+
+  > [!NOTE]
+  > Azure Backup admite las instancias de [SSD estándar de Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), un nuevo tipo de almacenamiento duradero para las máquinas virtuales de Microsoft Azure. Es compatible con discos administrados en la [versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Creación de un almacén de Recovery Services para una máquina virtual
 Un almacén de Recovery Services es una entidad que almacena las copias de seguridad y los puntos de recuperación creados a lo largo del tiempo. También contiene las directivas de copia de seguridad asociadas con las máquinas virtuales protegidas.
@@ -114,7 +117,7 @@ Para editar la configuración de replicación de almacenamiento:
    Si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando el almacenamiento con redundancia geográfica. Si se usa Azure como punto de conexión de almacenamiento de copia de seguridad no principal, elija el almacenamiento con redundancia local. Para más información acerca de las opciones de almacenamiento, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md).
 
 1. Si cambia el tipo de replicación de Storage, seleccione **Guardar**.
-    
+
 Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selección de un objetivo de copia de seguridad, establecimiento de una directiva y definición de los elementos que se van a proteger
@@ -171,11 +174,11 @@ Después de habilitar correctamente la copia de seguridad, la directiva de copia
 Si surgen problemas al registrar la máquina virtual, consulte la siguiente información acerca de cómo instalar el agente de máquina virtual y de la conectividad de red. Probablemente no necesite la siguiente información si va a proteger máquinas virtuales creadas en Azure. Sin embargo, si ha migrado las máquinas virtuales a Azure, asegúrese de que ha instalado correctamente el agente de máquina virtual y que la máquina virtual se puede comunicar con la red virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalación del agente de máquina virtual en la máquina virtual
-Para que la extensión de Backup funcione, el [agente de máquina virtual](../virtual-machines/extensions/agent-windows.md) de Azure se debe instalar en la máquina virtual de Azure. Si la máquina virtual se ha creado en Microsoft Azure Marketplace, el agente de máquina virtual ya estará presente en la máquina virtual. 
+Para que la extensión de Backup funcione, el [agente de máquina virtual](../virtual-machines/extensions/agent-windows.md) de Azure se debe instalar en la máquina virtual de Azure. Si la máquina virtual se ha creado en Microsoft Azure Marketplace, el agente de máquina virtual ya estará presente en la máquina virtual.
 
 La siguiente información se proporciona para aquellas situaciones en las que *no* se usa una máquina virtual creada en Microsoft Azure Marketplace. **Por ejemplo, ha migrado una máquina virtual desde un centro de datos local. En ese caso, debe instalarse el agente de máquina virtual con el fin de proteger la máquina virtual.**
 
-**Nota**: después de instalar el agente de máquina virtual, también debe usar Azure PowerShell para actualizar la propiedad ProvisionGuestAgent para que Azure sepa que la máquina virtual tiene instalado el agente. 
+**Nota**: después de instalar el agente de máquina virtual, también debe usar Azure PowerShell para actualizar la propiedad ProvisionGuestAgent para que Azure sepa que la máquina virtual tiene instalado el agente.
 
 Si tiene problemas para realizar una copia de seguridad de la máquina virtual de Azure, use la siguiente tabla para comprobar que el agente de máquina virtual de Azure está instalado correctamente en la máquina virtual. La tabla proporciona información adicional acerca del agente de máquina virtual para las máquinas virtuales Windows y Linux.
 
@@ -206,16 +209,16 @@ Al decidir qué opción utilizar, hay que buscar el equilibrio entre costo, cont
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
 Para incluir los intervalos de IP de un centro de datos de Azure en una lista blanca, visite el [sitio web de Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653), donde encontrará información detallada acerca de los intervalos de IP, junto con instrucciones.
 
-Con las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) puede permitir conexiones al almacenamiento de la región concreta. Asegúrese de que la regla que permite el acceso a la cuenta de almacenamiento tiene mayor prioridad que la que bloquea el acceso a Internet. 
+Con las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) puede permitir conexiones al almacenamiento de la región concreta. Asegúrese de que la regla que permite el acceso a la cuenta de almacenamiento tiene mayor prioridad que la que bloquea el acceso a Internet.
 
 ![NSG con etiquetas de almacenamiento para una región](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-El vídeo siguiente le guiará por el procedimiento paso a paso para configurar las etiquetas de servicio: 
+El vídeo siguiente le guiará por el procedimiento paso a paso para configurar las etiquetas de servicio:
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Las etiquetas del servicio de almacenamiento solo están disponibles en determinadas regiones y en versión preliminar. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> Para ver la lista de etiquetas de servicio para almacenamiento y regiones, consulte el apartado [Etiquetas de servicio para almacenamiento](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Uso de un proxy HTTP para copias de seguridad de máquinas virtuales
 Cuando se realiza una copia de seguridad de una máquina virtual, la extensión de copia de seguridad de dicha máquina envía los comandos de administración de instantáneas a Azure Storage mediante una API de HTTPS. Enrute el tráfico de extensión de copia de seguridad a través del proxy HTTP, ya que es el único componente configurado para acceder a la red pública de Internet.
@@ -291,7 +294,7 @@ HttpProxy.Port=<proxy port>
    * En **Puerto Local**, seleccione **Puertos específicos**. En el siguiente cuadro, especifique el número del puerto del proxy que se ha configurado.
    * En **Puerto remoto**, seleccione **Todos los puertos**.
 
-En cuanto al resto del asistente, acepte la configuración predeterminada hasta llegar al final. Asigne un nombre a esta regla. 
+En cuanto al resto del asistente, acepte la configuración predeterminada hasta llegar al final. Asigne un nombre a esta regla.
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Paso 3: Incorporación de una regla de excepción al grupo de seguridad de red
 El siguiente comando agrega una excepción al NSG. Esta excepción permite el tráfico TCP de cualquier puerto en la dirección IP 10.0.0.5 a cualquier dirección de Internet en los puertos 80 (HTTP) o 443 (HTTPS). Si necesita un puerto específico en la red pública de Internet, asegúrese de agregarlo a ```-DestinationPortRange```.

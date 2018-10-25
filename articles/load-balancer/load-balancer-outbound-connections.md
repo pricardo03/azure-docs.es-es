@@ -4,7 +4,7 @@ description: En este artículo se explica cómo Azure permite que las máquinas 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036997"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249135"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -75,7 +75,7 @@ Para supervisar el mantenimiento de las conexiones salientes con Load Balancer b
 
 ### <a name="defaultsnat"></a>Escenario 3: Máquina virtual independiente sin una dirección IP pública en el nivel de instancia
 
-En este escenario, la máquina virtual no forma parte de un grupo público de un grupo de Load Balancer (ni tampoco de un grupo de Load Balancer estándar interno) y no tiene asignada una dirección ILPIP. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción.
+En este escenario, la máquina virtual no forma parte de un grupo público de un grupo de Load Balancer (ni tampoco de un grupo de Load Balancer estándar interno) y no tiene asignada una dirección ILPIP. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción. Esta dirección IP pública no le pertenece y no se puede reservar. Si vuelve a implementar la máquina virtual, el conjunto de disponibilidad o el VMSS, esta dirección IP pública se publicará y se solicitará una nueva dirección IP pública. No use este escenario para direcciones IP permitidas. En su lugar, utilice uno de los otros dos escenarios en el que declare explícitamente el escenario de salida y la dirección IP pública que se utilizará para la conectividad de salida.
 
 >[!IMPORTANT] 
 >Este escenario también se aplica cuando __solo__ se asocia una instancia de Load Balancer básico interna. El escenario 3 __no está disponible__ cuando se asocia una instancia de Load Balancer estándar interna a una máquina virtual.  Debe crear explícitamente el [escenario 1](#ilpip) o el [escenario 2](#lb) además de usar una instancia de Load Balancer estándar interna.

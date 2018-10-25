@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 578d078550daaae54c63bf91da1fa5590bb8fdf6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360366"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249152"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -65,9 +65,9 @@ Devuelve la representación de base64 de la cadena de entrada.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| inputString |Sí |string |Valor que se va a devolver como una representación de base64. |
+| inputString |SÍ |string |Valor que se va a devolver como una representación de base64. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -143,9 +143,9 @@ Convierte una representación en base64 a un objeto JSON.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sí |string |La representación en base64 para convertir en un objeto JSON. |
+| base64Value |SÍ |string |La representación en base64 para convertir en un objeto JSON. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -221,9 +221,9 @@ Convierte una representación en base64 en una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sí |string |La representación en base64 para convertir en una cadena. |
+| base64Value |SÍ |string |La representación en base64 para convertir en una cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -299,9 +299,9 @@ Combina varios valores de cadena y devuelve la cadena concatenada, o combina var
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |cadena o matriz |El primer valor para la concatenación. |
+| arg1 |SÍ |cadena o matriz |El primer valor para la concatenación. |
 | argumentos adicionales |Sin  |string |Valores adicionales en orden secuencial para la concatenación. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -407,14 +407,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="contains"></a>contains
 `contains (container, itemToFind)`
 
-Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena.
+Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena. La comparación de cadena distingue mayúsculas de minúsculas. Pero, cuando se prueba si un objeto contiene una clave, la comparación no distingue mayúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
-| itemToFind |Sí |cadena o entero |El valor para buscar. |
+| container |SÍ |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
+| itemToFind |SÍ |cadena o entero |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -505,9 +505,9 @@ Convierte un valor en un identificador URI de datos.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sí |string |El valor para convertir en un identificador URI de datos. |
+| stringToConvert |SÍ |string |El valor para convertir en un identificador URI de datos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -573,9 +573,9 @@ Convierte un valor con formato de identificador URI de datos en una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sí |string |El valor del identificador URI para convertir. |
+| dataUriToConvert |SÍ |string |El valor del identificador URI para convertir. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -641,9 +641,9 @@ Determina si una matriz, un objeto o una cadena están vacíos.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
+| itemToTest |SÍ |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -719,10 +719,10 @@ Determina si una cadena termina con un valor. La comparación distingue entre ma
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
-| stringToFind |Sí |string |El valor para buscar. |
+| stringToSearch |SÍ |string |El valor que contiene el elemento para buscar. |
+| stringToFind |SÍ |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -798,9 +798,9 @@ Devuelve el primer carácter de la cadena o el primer elemento de la matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
+| arg1 |SÍ |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -862,9 +862,9 @@ Crea un valor en el formato de un identificador único global en función de los
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| baseString |Sí |string |El valor utilizado en la función hash para crear el GUID. |
+| baseString |SÍ |string |El valor utilizado en la función hash para crear el GUID. |
 | parámetros adicionales según sea necesario |Sin  |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Comentarios
@@ -946,10 +946,10 @@ Devuelve la primera posición de un valor dentro de una cadena. La comparación 
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
-| stringToFind |Sí |string |El valor para buscar. |
+| stringToSearch |SÍ |string |El valor que contiene el elemento para buscar. |
+| stringToFind |SÍ |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1020,9 +1020,9 @@ Devuelve el último carácter de la cadena, o el último elemento de la matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
+| arg1 |SÍ |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1085,10 +1085,10 @@ Devuelve la última posición de un valor dentro de una cadena. La comparación 
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
-| stringToFind |Sí |string |El valor para buscar. |
+| stringToSearch |SÍ |string |El valor que contiene el elemento para buscar. |
+| stringToFind |SÍ |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1159,9 +1159,9 @@ Devuelve el número de caracteres de una cadena, o elementos de una matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
+| arg1 |SÍ |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1231,10 +1231,10 @@ Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda ha
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Sí |cadena o entero |Valor que se va a alinear a la derecha. |
-| totalLength |Sí |int |El número total de caracteres de la cadena devuelta. |
+| valueToPad |SÍ |cadena o entero |Valor que se va a alinear a la derecha. |
+| totalLength |SÍ |int |El número total de caracteres de la cadena devuelta. |
 | paddingCharacter |Sin  |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
 
 Si la cadena original es mayor que el número de caracteres que se va a rellenar, no se agrega ningún carácter.
@@ -1294,11 +1294,11 @@ Devuelve una nueva cadena con todas las instancias de una cadena reemplazadas po
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| originalString |Sí |string |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
-| oldString |Sí |string |Cadena que se va a quitar de la cadena original. |
-| newString |Sí |string |La cadena que se va a agregar en lugar de la cadena eliminada. |
+| originalString |SÍ |string |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
+| oldString |SÍ |string |Cadena que se va a quitar de la cadena original. |
+| newString |SÍ |string |La cadena que se va a agregar en lugar de la cadena eliminada. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1360,10 +1360,10 @@ Devuelve una cadena con todos los caracteres después del número especificado d
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
-| numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
+| originalValue |SÍ |matriz o cadena |La matriz o cadena que se usará para la omisión. |
+| numberToSkip |SÍ |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1441,10 +1441,10 @@ Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entra
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| inputString |Sí |string |La cadena que se va a dividir. |
-| delimiter |Sí |cadena o matriz de cadenas |Delimitador que se utilizará para dividir la cadena. |
+| inputString |SÍ |string |La cadena que se va a dividir. |
+| delimiter |SÍ |cadena o matriz de cadenas |Delimitador que se utilizará para dividir la cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1513,10 +1513,10 @@ Determina si una cadena empieza con un valor. La comparación distingue entre ma
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
-| stringToFind |Sí |string |El valor para buscar. |
+| stringToSearch |SÍ |string |El valor que contiene el elemento para buscar. |
+| stringToFind |SÍ |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1592,9 +1592,9 @@ Convierte el valor especificado en cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sí | Cualquiera |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
+| valueToConvert |SÍ | Cualquiera |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1676,19 +1676,19 @@ Devuelve una subcadena que empieza en la posición de carácter especificada y q
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
+| stringToParse |SÍ |string |La cadena original desde la que se extrae la subcadena. |
 | startIndex |Sin  |int |La posición de carácter inicial basado en cero de la subcadena. |
-| length |Sin  |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. |
+| length |Sin  |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
 
 ### <a name="return-value"></a>Valor devuelto
 
-Subcadena.
+Subcadena. O bien, una cadena vacía si la longitud es cero.
 
 ### <a name="remarks"></a>Comentarios
 
-La función genera un error cuando la subcadena supera el final de la cadena. En el ejemplo siguiente se produce el error "Los parámetros index y length deben hacer referencia a una ubicación dentro de la cadena. Parámetro index: '0'; parámetro length: '11'; longitud del parámetro string: '10'.
+La función genera un error cuando la subcadena supera el final de la cadena, o bien cuando la longitud es menor que cero. En el ejemplo siguiente se produce el error "Los parámetros index y length deben hacer referencia a una ubicación dentro de la cadena. Parámetro index: '0'; parámetro length: '11'; longitud del parámetro string: '10'.
 
 ```json
 "parameters": {
@@ -1750,10 +1750,10 @@ Devuelve una cadena con el número especificado de caracteres desde el inicio de
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
-| numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
+| originalValue |SÍ |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
+| numberToTake |SÍ |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1831,9 +1831,9 @@ Convierte la cadena especificada a minúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sí |string |Valor que se va a convertir a minúsculas. |
+| stringToChange |SÍ |string |Valor que se va a convertir a minúsculas. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1895,9 +1895,9 @@ Convierte la cadena especificada a mayúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sí |string |Valor que se va a convertir a mayúsculas. |
+| stringToChange |SÍ |string |Valor que se va a convertir a mayúsculas. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1959,9 +1959,9 @@ Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sí |string |Valor que se recortará. |
+| stringToTrim |SÍ |string |Valor que se recortará. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -2018,9 +2018,9 @@ Crea una cadena de hash determinista basada en los valores proporcionados como p
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| baseString |Sí |string |Valor utilizado en la función hash para crear una cadena única. |
+| baseString |SÍ |string |Valor utilizado en la función hash para crear una cadena única. |
 | parámetros adicionales según sea necesario |Sin  |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Comentarios
@@ -2107,10 +2107,10 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sí |string |La cadena de uri base. |
-| relativeUri |Sí |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
+| baseUri |SÍ |string |La cadena de uri base. |
+| relativeUri |SÍ |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
 
 El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar `http://contoso.com/resources/azuredeploy.json` como parámetro baseUri, se obtiene como resultado un identificador URI base de `http://contoso.com/resources/`.
 
@@ -2184,9 +2184,9 @@ Codifica un identificador URI.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sí |string |El valor para codificar. |
+| stringToEncode |SÍ |string |El valor para codificar. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -2252,9 +2252,9 @@ Devuelve una cadena del valor codificado por el identificador URI.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sí |string |El valor codificado por el identificador URI para convertir en una cadena. |
+| uriEncodedString |SÍ |string |El valor codificado por el identificador URI para convertir en una cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 

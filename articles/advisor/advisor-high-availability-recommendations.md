@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143676"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068363"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recomendaciones sobre alta disponibilidad de Advisor
 
@@ -67,6 +67,10 @@ Si todos los puntos de conexión de un perfil de Traffic Manager configurado par
 
 Si un perfil de Traffic Manager está configurado para el enrutamiento geográfico, el tráfico se enrutará a puntos de conexión en función de las regiones definidas. Si se produce un error en una región, no hay ninguna conmutación por error predefinida. Tener un punto de conexión en el que la agrupación regional está configurada en "All (World)" evitará que se quite tráfico y mejorará la disponibilidad del servicio. Advisor identifica los perfiles de Traffic Manager configurados para enrutamiento geográfico, en los que no hay ningún punto de conexión que tenga la agrupación regional configurada como "All (World)" y recomienda realizar ese cambio de configuración.
 
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Uso de la eliminación temporal en la cuenta de Azure Storage para guardar y recuperar datos en caso de la sobrescritura o eliminación accidentales
+
+Habilite la [eliminación temporal](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) en la cuenta de almacenamiento para que los blobs eliminados pasen a un estado de eliminación temporal en lugar de eliminarse de forma definitiva. Cuando se sobrescriben datos, se genera una instantánea de la eliminación temporal para guardar el estado de los datos sobrescritos. Esto permite recuperar los datos en el caso de que la eliminación o sobrescritura sea accidental. Advisor identifica las cuentas de Azure Storage que no tienen habilitada la eliminación temporal y sugiere habilitarla.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre alta disponibilidad en Advisor
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después abra [Azure Advisor](https://aka.ms/azureadvisordashboard).
@@ -78,7 +82,7 @@ Si un perfil de Traffic Manager está configurado para el enrutamiento geográfi
 Para más información acerca de las recomendaciones de Advisor, consulte:
 * [Introducción a Azure Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
-* [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 

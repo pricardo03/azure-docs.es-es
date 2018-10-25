@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ee89aa901c9553d22470a0481909e9cd62d60cf
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222274"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345137"
 ---
 # <a name="what-is-baseline-protection-preview"></a>¿Qué es la protección de base de referencia (versión preliminar)?  
 
@@ -86,7 +86,7 @@ Aunque la administración de directivas de acceso condicional personalizadas req
 
 Los roles de directorio que se incluyen en la directiva de base de referencia son los roles de Azure AD con más privilegios. 
 
-Si tiene cuentas con privilegios que se usan en sus scripts, debería reemplazarlas por [Managed Service Identity (MSI)](../managed-identities-azure-resources/overview.md) o [entidades de servicio con certificados](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Como solución temporal, puede excluir determinadas cuentas de usuario de la directiva de base de referencia. 
+Si tiene cuentas con privilegios que se usan en sus scripts, debería reemplazarlas por [identidades administradas para los recursos de Azure](../managed-identities-azure-resources/overview.md) o [entidades de servicio con certificados](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Como solución temporal, puede excluir determinadas cuentas de usuario de la directiva de base de referencia. 
 
 Las directivas de base de referencia se aplican a los flujos de autenticación heredados, como POP, IMAP o el cliente de escritorio de Office anterior. 
 

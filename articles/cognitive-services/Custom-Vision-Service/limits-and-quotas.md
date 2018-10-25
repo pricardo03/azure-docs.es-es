@@ -1,20 +1,21 @@
 ---
-title: Límites y cuotas de Custom Vision Service en Azure Cognitive Services | Microsoft Docs
-description: Obtenga información sobre los límites y las cuotas de Custom Vision Service para Azure Cognitive Services.
+title: 'Límites y cuotas: Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información sobre los límites y las cuotas para Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: anroth
-ms.openlocfilehash: 44666d5d7f2a51e4017c704205d21b1f6d06908c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382459"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902868"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -25,8 +26,9 @@ Los recursos de un proyecto de prueba limitado se adjuntan a su inicio de sesió
 ||**Prueba limitada**|**F0 (Azure)**|**S0 (Azure)**|
 |-----|-----|-----|-----|
 |Proyectos|2|2|100|
-|Imágenes de aprendizaje por proyecto|5.000|5.000|50.000|
-|Predicciones/mes|10.000 |10.000|Ilimitado|
+|Imágenes de aprendizaje por proyecto; clasificación|5.000|5.000|50.000|
+|Imágenes de aprendizaje por proyecto; detección de objetos|5.000|5.000|10 000|
+|Predicciones/mes|10 000 |10 000|Ilimitado|
 |Etiquetas/proyecto|50|50|250|
 |Iteraciones |10|10|10|
 |Mínimo de imágenes marcadas por etiqueta; clasificación (es recomendable 50 o más) |5|5|5|

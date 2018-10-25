@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b2efdf0b1a8abe91589f56ecbb6dc01f7606f305
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158994"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830079"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU 
 
@@ -131,7 +131,7 @@ En la tabla siguiente se describen las propiedades de las bases de datos agrupad
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md) para conocer las respuestas a las preguntas más frecuentes.
-- Consulte [Información general de los límites de recursos de Azure SQL Database](sql-database-resource-limits.md) para información sobre los límites en los niveles de servidor y suscripción.
+- Consulte [Introducción a los límites de recursos de un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
-- Para más información sobre las DTU y eDTU, consulte [DTU y eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
+- Para más información sobre las DTU y eDTU, consulte [DTU y eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Para más información sobre los límites de tamaño de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

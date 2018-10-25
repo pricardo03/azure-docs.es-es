@@ -2,23 +2,23 @@
 title: 'Azure Site Recovery: Configuración y prueba de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell | Microsoft Docs'
 description: Aprenda a configurar la recuperación ante desastres en máquinas virtuales de Azure con Azure Site Recovery mediante Azure PowerShell.
 services: site-recovery
-author: bsiva
-manager: abhemraj
-editor: raynew
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: 62dd02d53c14635a386a8c6fa3fbfbd6f91a88f7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.date: 10/02/2018
+ms.author: sutalasi
+ms.openlocfilehash: 9b7200dab0351b6cd00aef05bf27c5c71a049d76
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921093"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044516"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell
 
-En este artículo, aprenderá a configurar y probar la recuperación ante desastres en máquinas virtuales de Azure con Azure PowerShell. 
+
+En este artículo, aprenderá a configurar y probar la recuperación ante desastres en máquinas virtuales de Azure con Azure PowerShell.
 
 Aprenderá a:
 
@@ -34,10 +34,9 @@ Aprenderá a:
 
 > [!NOTE]
 > Puede que no todas las funcionalidades del escenario disponibles a través del portal podrían estén disponibles a través de Azure PowerShell. Algunas de las funcionalidades del escenario que no se admiten actualmente a través de Azure PowerShell son:
-> - La capacidad de replicar máquinas virtuales de Azure que usan discos administrados.
 > - La capacidad de especificar que todos los discos de una máquina virtual deben replicarse sin tener que especificar explícitamente cada disco de la máquina virtual.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 - Asegúrese de entender la [arquitectura y los componentes del escenario](azure-to-azure-architecture.md).
@@ -93,13 +92,13 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
-Cree el grupo de recursos en el que se creará el almacén de Recovery Services. 
+Cree el grupo de recursos en el que se creará el almacén de Recovery Services.
 
 > [!IMPORTANT]
 > * El almacén de Recovery Services, y las máquinas virtuales que se van a proteger, deben estar en diferentes ubicaciones de Azure.
 > * El grupo de recursos del almacén de Recovery Services, y las máquinas virtuales que se van a proteger, deben estar en diferentes ubicaciones de Azure.
 > * El almacén de Recovery Services, y el grupo de recursos al que pertenece, pueden estar en la misma ubicación de Azure.
- 
+
 En el ejemplo de este artículo, la máquina virtual que se protege se encuentra en la región Este de EE. UU. La región de recuperación seleccionada para la recuperación ante desastres es la región Oeste de EE. UU. 2. El almacén de Recovery Services, y el grupo de recursos del almacén, están ambos en la región de recuperación (Oeste de EE. UU. 2)
 
 ```azurepowershell
@@ -110,10 +109,10 @@ New-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 ResourceGroupName : a2ademorecoveryrg
 Location          : westus2
 ProvisioningState : Succeeded
-Tags              : 
+Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
-   
+
 Cree un almacén de Recovery Services. En el ejemplo siguiente se crea un almacén de Recovery Services llamado a2aDemoRecoveryVault en la región Oeste de EE. UU. 2.
 
 ```azurepowershell
@@ -130,15 +129,15 @@ Location          : westus2
 ResourceGroupName : a2ademorecoveryrg
 SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
-``` 
+```
 ## <a name="set-the-vault-context"></a>Establecer el contexto de almacén
 
 > [!TIP]
 > El módulo PowerShell de Azure Site Recovery (módulo AzureRm.RecoveryServices.SiteRecovery) viene con alias fáciles de usar para la mayoría de los cmdlets. Los cmdlets del módulo adoptan la forma *\<Operación>-**AzureRmRecoveryServicesAsr**\<Objeto>* y tienen alias equivalentes que adoptan la forma *\<Operación>-**ASR**\<Objeto>*. En este artículo se usan alias de cmdlet para facilitar la lectura.
 
-Establezca el contexto de almacén que se usará en la sesión de PowerShell. Para ello, descargue el archivo de configuración del almacén e impórtelo en la sesión de PowerShell. 
+Establezca el contexto de almacén que se usará en la sesión de PowerShell. Para ello, descargue el archivo de configuración del almacén e impórtelo en la sesión de PowerShell.
 
-Una vez establecido, las operaciones posteriores de Azure Site Recovery de la sesión de PowerShell se realizan en el contexto de almacén seleccionado. 
+Una vez establecido, las operaciones posteriores de Azure Site Recovery de la sesión de PowerShell se realizan en el contexto de almacén seleccionado.
 
  ```azurepowershell
 #Download the vault settings file for the vault.
@@ -160,21 +159,24 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Preparación del almacén para iniciar la replicación de máquinas virtuales de Azure
 
-####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1. Creación de un objeto de tejido de Site Recovery para representar la región primaria (origen)
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Creación de un objeto de tejido de Site Recovery para representar la región primaria (origen)
 
-El objeto de tejido en el almacén representa una región de Azure. El objeto de tejido principal es el objeto de tejido creado para representar la región de Azure a la que pertenecen las máquinas virtuales que se van a proteger. En el ejemplo de este artículo, la máquina virtual que se protege se encuentra en la región Este de EE. UU.
+El objeto de tejido en el almacén representa una región de Azure. El objeto de tejido principal se crea para representar la región de Azure a la que pertenecen las máquinas virtuales que se van a proteger. En el ejemplo de este artículo, la máquina virtual que se protege se encuentra en la región Este de EE. UU.
 
-> [!NOTE]
-> Las operaciones de Azure Site Recovery se ejecutan de manera asincrónica. Cuando se inicia una operación, se envía un trabajo de Azure Site Recovery y se devuelve un objeto de seguimiento de trabajo. Use el objeto de seguimiento de trabajos para obtener el estado más reciente del trabajo (Get-ASRJob) y para supervisar el estado de la operación.
+- Solamente se puede crear un objeto de tejido por región. 
+- Si anteriormente ha habilitado la replicación de Site Recovery para una máquina virtual en Azure Portal, Site Recovery crea automáticamente un objeto de tejido. Si existe un objeto de tejido para una región, no puede crear uno nuevo.
+
+
+Antes de empezar, tenga en cuenta que las operaciones de Azure Site Recovery se ejecutan de manera asincrónica. Cuando se inicia una operación, se envía un trabajo de Azure Site Recovery y se devuelve un objeto de seguimiento de trabajo. Use el objeto de seguimiento de trabajos para obtener el estado más reciente del trabajo (Get-ASRJob) y para supervisar el estado de la operación.
 
 ```azurepowershell
 #Create Primary ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS" 
+$TempASRJob = New-ASRFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
-        sleep 10; 
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -185,17 +187,17 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
 Si las máquinas virtuales procedentes de varias regiones de Azure se van a proteger en el mismo almacén, cree un objeto de tejido para cada región de Azure de origen.
 
-####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2. Creación de un objeto de tejido de Site Recovery para representar la región de recuperación
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Creación de un objeto de tejido de Site Recovery para representar la región de recuperación
 
 El objeto de tejido de recuperación representa la ubicación de Azure de recuperación. Las máquinas virtuales se replicarán y recuperarán (en caso de una conmutación por error) en la región de recuperación representada por el tejido de recuperación. La región de Azure de recuperación usada en este ejemplo es Oeste de EE. UU. 2
 
 ```azurepowershell
 #Create Recovery ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS" 
+$TempASRJob = New-ASRFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -206,7 +208,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3. Creación de un contenedor de protección de Site Recovery en el tejido principal
+### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>Creación de un contenedor de protección de Site Recovery en el tejido principal
 
 El contenedor de protección es un contenedor que se usa para agrupar los elementos replicados en un tejido.
 
@@ -215,8 +217,8 @@ El contenedor de protección es un contenedor que se usa para agrupar los elemen
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -224,15 +226,15 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4. Creación de un contenedor de protección de Site Recovery en el tejido de recuperación
+### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>Creación de un contenedor de protección de Site Recovery en el tejido de recuperación
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -243,15 +245,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
-####<a name="5-create-a-replication-policy"></a>5. Creación de una directiva de replicación
+### <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
 
 ```azurepowershell
 #Create replication policy
 $TempASRJob = New-ASRPolicy -AzureToAzure -Name "A2APolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -260,7 +262,7 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6. Creación de una asignación de contenedor de protección entre el contenedor de protección principal y el de recuperación
+### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>Creación de una asignación de contenedor de protección entre el contenedor de protección principal y el de recuperación
 
 Una asignación de contenedor de protección asigna el contenedor de protección principal con un contenedor de protección de recuperación y una directiva de replicación. Cree una asignación por cada directiva de replicación que vaya a usar para replicar máquinas virtuales entre un par de contenedores de protección.
 
@@ -269,8 +271,8 @@ Una asignación de contenedor de protección asigna el contenedor de protección
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2APrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer $PrimaryProtContainer -RecoveryProtectionContainer $RecoveryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -280,17 +282,17 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-####<a name="7-create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>7. Creación de una asignación de contenedor de protección para la conmutación por recuperación (replicación inversa después de una conmutación por error)
+### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Creación de una asignación de contenedor de protección para la conmutación por recuperación (replicación inversa después de una conmutación por error)
 
 Después de una conmutación por error, cuando esté listo para devolver la máquina virtual conmutada por error a la región de Azure original, realizará la conmutación por recuperación. Para ello, la máquina virtual conmutada por error se replica a la inversa desde la región de conmutación por error a la región original. En la replicación inversa, los roles de la región original y la región de recuperación se intercambian. La región original se convierte ahora en la nueva región de recuperación y la que originalmente era la región de recuperación se convierte ahora en la región primaria. La asignación de contenedor de protección para la replicación inversa representa los roles intercambiados de las regiones original y de recuperación.
 
 ```azurepowershell
-#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy 
+#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -307,7 +309,7 @@ Una cuenta de almacenamiento en caché es una cuenta de almacenamiento estándar
 $EastUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-En máquinas virtuales que no usan discos administrados, la cuenta de almacenamiento de destino es la cuenta de almacenamiento de la región de recuperación en la que se replican los discos de la máquina virtual. La cuenta de almacenamiento de destino puede ser una cuenta de almacenamiento estándar o una cuenta de almacenamiento premium. Seleccione el tipo de cuenta de almacenamiento necesario según la velocidad de cambio de los datos (velocidad de escritura de E/S) de los discos y los límites de actividad admitidos de Azure Site Recovery para el tipo de almacenamiento.
+En máquinas virtuales **que no usan discos administrados**, la cuenta de almacenamiento de destino es la cuenta de almacenamiento de la región de recuperación en la que se replican los discos de la máquina virtual. La cuenta de almacenamiento de destino puede ser una cuenta de almacenamiento estándar o una cuenta de almacenamiento premium. Seleccione el tipo de cuenta de almacenamiento necesario según la velocidad de cambio de los datos (velocidad de escritura de E/S) de los discos y los límites de actividad admitidos de Azure Site Recovery para el tipo de almacenamiento.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -332,7 +334,7 @@ Una asignación de red asigna redes virtuales de la región primaria a las redes
 - Recuperación de la red virtual principal (la red virtual a la que está conectada la máquina virtual)
    ```azurepowershell
     #Retrieve the virtual network that the virtual machine is connected to
-    
+
     #Get first network interface card(nic) of the virtual machine
     $SplitNicArmId = $VM.NetworkProfile.NetworkInterfaces[0].Id.split("/")
 
@@ -355,35 +357,72 @@ Una asignación de red asigna redes virtuales de la región primaria a las redes
    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AEusToWusNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $EastUSPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $WestUSRecoveryNetwork
-    
+
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
-    
+
     #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
     Write-Output $TempASRJob.State
-    
+
    ```
 - Creación de la asignación de red para la dirección inversa (conmutación por recuperación)
     ```azurepowershell
     #Create an ASR network mapping for failback between the recovery Azure virtual network and the primary Azure virtual network
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $WestUSRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $EastUSPrimaryNetwork
-    
+
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
-        
+
     #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
     Write-Output $TempASRJob.State
     ```
 
 ## <a name="replicate-azure-virtual-machine"></a>Replicación de máquinas virtuales de Azure
 
-Replique la máquina virtual de Azure.
+Replique la máquina virtual de Azure con **discos administrados**.
+
+```azurepowershell
+
+#Get the resource group that the virtual machine must be created in when failed over.
+$RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
+
+#Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
+
+#OsDisk
+$OSdiskId =  $vm.StorageProfile.OsDisk.ManagedDisk.Id
+$RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+
+$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $OSdiskId -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryOSDiskAccountType $RecoveryOSDiskAccountType
+
+# Data disk
+$datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+
+$DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+
+#Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
+$diskconfigs = @()
+$diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
+
+
+#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
+$TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
+
+```
+
+Replique la máquina virtual de Azure con **discos no administrados**.
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
@@ -405,8 +444,8 @@ $RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -415,9 +454,9 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 ```
 
-Una vez que la operación de replicación inicial se realiza correctamente, se replican los datos de la máquina virtual en la región de recuperación. 
+Una vez que la operación de replicación inicial se realiza correctamente, se replican los datos de la máquina virtual en la región de recuperación.
 
-El proceso de replicación comienza con la propagación inicial de una copia de los discos de replicación de la máquina virtual en la región de recuperación. Esta fase se conoce como fase de replicación inicial. 
+El proceso de replicación comienza con la propagación inicial de una copia de los discos de replicación de la máquina virtual en la región de recuperación. Esta fase se conoce como fase de replicación inicial.
 
 Una vez completada la replicación inicial, la replicación pasa a la fase de sincronización diferencial. En este momento, la máquina virtual está protegida y puede realizarse en ella una operación de conmutación por error de prueba. El estado de replicación del elemento replicado que representa la máquina virtual pasa al estado "Protegido" una vez finalizada la replicación inicial.
 
@@ -473,7 +512,7 @@ EndTime          : 4/25/2018 4:33:06 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisites check for test failover, Create test virtual machine, Preparing the virtual machine, Start the virtual machine}
 Errors           : {}
 ```
@@ -544,7 +583,7 @@ EndTime          : 4/25/2018 4:51:01 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```

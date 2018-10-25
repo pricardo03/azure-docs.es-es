@@ -14,12 +14,12 @@ ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041030"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855279"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -137,8 +137,22 @@ Si desea comparar el valor de un atributo de usuario con un número de valores d
  En el ejemplo siguiente, la expresión se evalúa como true si el valor de user.department es igual a cualquiera de los valores de la lista:
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### <a name="using-the--match-operator"></a>Uso del operador -match 
+El operador **-coinciden** se utiliza para que coincida con cualquier expresión regular. Ejemplos:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav y David se evalúan como true, aDa se evalúa como false.
+
+```
+user.displayName -match ".*vid"
+```
+David se evalúa como true, Da como false.
 
 ## <a name="supported-values"></a>Valores admitidos
 
@@ -349,7 +363,7 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 
 En estos artículos se proporciona información adicional sobre los grupos en Azure Active Directory.
 
-* [Ver los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Crear un nuevo grupo y agregar miembros](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Administrar la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)

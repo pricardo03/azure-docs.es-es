@@ -1,20 +1,21 @@
 ---
-title: 'Referencia de Project URL Preview: Microsoft Cognitive Services | Microsoft Docs'
+title: Referencia de Project URL Preview
+titlesuffix: Azure Cognitive Services
 description: Referencia de punto de conexión de Project URL Preview.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865882"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870815"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referencia de Project URL Preview v7
 
@@ -74,10 +75,10 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta. La consulta debe ser una dirección URL absoluta con un esquema http o https; no se admiten las direcciones URL relativas ni otros esquemas, como ftp://.
   
   
-|NOMBRE|Valor|type|Obligatorio|  
+|NOMBRE|Valor|Escriba|Obligatorio|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Mercado de donde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte [Códigos de mercado](#market-codes).<br /><br /> **NOTA:** URL Preview API solo admite actualmente la geografía de Estados Unidos y el idioma inglés.<br /><br />|string|Sí|  
-|<a name="query" />q|Dirección URL para la vista previa.|string|Sí|  
+|<a name="mkt" />mkt|Mercado de donde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte [Códigos de mercado](#market-codes).<br /><br /> **NOTA:** URL Preview API solo admite actualmente la geografía de Estados Unidos y el idioma inglés.<br /><br />|string|SÍ|  
+|<a name="query" />q|Dirección URL para la vista previa.|string|SÍ|  
 |<a name="responseformat" />responseFormat|Tipo de medio que se usará para la respuesta. A continuación se indican los valores posibles que no distinguen entre mayúsculas y minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> El valor predeterminado es JSON. Para obtener información acerca de los objetos JSON que contiene la respuesta, consulte [Objetos de respuesta](#response-objects).<br /><br />  Si especifica JsonLd, el cuerpo de respuesta incluye objetos JSON-LD que contienen los resultados de la búsqueda. Para obtener información acerca de JSON-LD, consulte [JSON-LD](http://json-ld.org/).|string|Sin |
 |<a name="safesearch"/>safeSearch|El contenido para adultos ilegal o contenido pirateado se bloquea con el código de error 400 y no se devuelve la marca *isFamilyFriendly*. <p>Para el contenido para adultos legal, se muestra el comportamiento a continuación. Código de estado devuelve 200 y la marca *isFamilyFriendly* se establece en false.<ul><li>safeSearch=strict: no se devolverán los valores de título, descripción, dirección URL e imagen.</li><li>safeSearch=moderate: se obtienen los valores de título, dirección URL y descripción, pero no la imagen descriptiva.</li><li>safeSearch=off: se obtienen todos los objetos/elementos de respuesta: título, dirección URL, descripción e imagen.</li></ul> |string|No se requiere. </br> Se establece de manera predeterminada en safeSearch=strict.| 
 
@@ -93,7 +94,7 @@ El esquema de respuesta es un objeto [WebPage] o ErrorResponse, como se muestra 
 ### <a name="error"></a>Error  
 Define el error que se produjo.  
   
-|Elemento|DESCRIPCIÓN|type|  
+|Elemento|DESCRIPCIÓN|Escriba|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|Código de error que identifica la categoría de error. Para obtener una lista de los códigos posibles, consulte [Códigos de error](#error-codes).|string|  
 |<a name="error-message" />message|Descripción del error.|string|  
@@ -106,26 +107,26 @@ Define el error que se produjo.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.  
   
-|NOMBRE|Valor|type|  
+|NOMBRE|Valor|Escriba|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|string|  
 |<a name="errors" />errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)[]|   
   
 
 ### <a name="webpage"></a>WebPage  
-Define la información sobre una página web en la vista previa.  
+Define la información acerca de una página web en la vista previa.  
   
-|NOMBRE|Valor|type|  
+|NOMBRE|Valor|Escriba|  
 |----------|-----------|----------|
 |Nombre|Título de la página (no necesariamente el título HTML).|string|
 |URL|Dirección URL que se rastreó realmente (la solicitud puede tener redireccionamientos con seguimiento)|string|  
-|Descripción|Breve descripción de la página y el contenido|string|  
+|description|Breve descripción de la página y el contenido|string|  
 |isFamilyFriendly|Más preciso para elementos del índice web; las capturas en tiempo real realizan esta detección basada únicamente en la dirección URL y no en el contenido de la página.|boolean|
 |primaryImageOfPage/contentUrl|Dirección URL de una imagen representativa que se incluirá en la vista previa.|string| 
 
 
 ### <a name="identifiable"></a>Identifiable
-|NOMBRE|Valor|type|  
+|NOMBRE|Valor|Escriba|  
 |-------------|-----------------|----------|
 |id|Identificador de recursos.|string|
  
@@ -179,7 +180,7 @@ A continuación se indican los valores de código de error y subcódigo de error
 
 |Código|Subcódigo|DESCRIPCIÓN
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|El código de estado HTTP es 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|El código de estado de HTTP es 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Bing devuelve InvalidRequest siempre que alguna parte de la solicitud no es válida. Por ejemplo, falta un parámetro necesario o un valor de parámetro no es válido.<br/><br/>Si el error es ParameterMissing o ParameterInvalidValue, el código de estado HTTP es 400.<br/><br/>Si usa el protocolo HTTP en lugar de HTTPS, Bing devuelve HttpNotAllowed y el código de estado HTTP es 410.
 |RateLimitExceeded|No hay subcódigos|Bing devuelve RateLimitExceeded cada vez que se supera la cuota de consultas por segundo (QPS) o de consultas por mes (QPM).<br/><br/>Si se supera la cuota QPS, Bing devuelve el código de estado HTTP 429, mientras que si se supera la cuota QPM, devuelve 403.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing devuelve InvalidAuthorization cuando no puede autenticar el autor de la llamada. Por ejemplo, falta el encabezado `Ocp-Apim-Subscription-Key` o la clave de suscripción no es válida.<br/><br/>Se produce redundancia si especifica más de un método de autenticación.<br/><br/>Si el error es InvalidAuthorization, el código de estado HTTP es 401.

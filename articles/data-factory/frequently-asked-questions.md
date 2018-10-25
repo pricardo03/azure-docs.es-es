@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577139"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249594"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -83,7 +83,7 @@ Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data Fa
 -   Instancia administrada (MI)
 -   Grupo elástico
 -   Compatibilidad con la red virtual de Azure Resource Manager en lugar de la red virtual clásica que caerá en desuso en el futuro. Esto le permite insertar o unir su instancia de Integration Runtime para la integración de SSIS en Azure en una red virtual que está configurada para Azure SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para ello, consulte: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. 
--   Compatibilidad con la autenticación de Azure Active Directory (AAD) en lugar de la autenticación de SQL para conectarse a SSISDB. Esto le permite usar la autenticación de AAD con Managed Service Identity (MSI) de ADF.
+-   Compatibilidad con la autenticación de Azure Active Directory (AAD) en lugar de la autenticación de SQL para conectarse a SSISDB. Esto le permite usar la autenticación de AAD con su identidad administrada de ADF para los recursos de Azure
 -   Compatibilidad para usar su propia licencia de SQL Server local para conseguir ahorros sustanciales de costos con la opción Ventaja híbrida de Azure (AHB).
 -   Compatibilidad con la versión empresarial de Integration Runtime para la integración de SSIS en Azure que le permite usar características avanzadas o premium, configuraciones personalizadas para instalar componentes o extensiones adicionales y ecosistemas de terceros. Para más información, consulte: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/. 
 -   Una integración más profunda de SSIS en ADF que le permite invocar o desencadenar actividades de primera clase de ejecución de paquetes SSIS en canalizaciones de ADF y programarlas mediante SSMS. Para más información, consulte: https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 

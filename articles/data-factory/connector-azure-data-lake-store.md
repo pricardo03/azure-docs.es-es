@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338769"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817031"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Puede copiar datos desde cualquier almacén de datos de origen compatible a Azur
 
 En concreto, este conector de Azure Data Lake Store admite las siguientes funcionalidades:
 
-- Copia de los archivos mediante la autenticación de **entidad de servicio** o **identidad de servicio administrada (MSI)**.
+- Copia de los archivos mediante la autenticación de la **entidad de servicio** o **identidades administradas para recursos de Azure**.
 - Copia de archivos tal cual, o bien análisis o generación de archivos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 En las secciones siguientes puede consultar más propiedades y ejemplos de JSON para los distintos tipos de autenticación, respectivamente:
 
 - [Uso de la autenticación de entidad de servicio](#using-service-principal-authentication)
-- [Uso de la autenticación de identidades de servicio administradas](#using-managed-service-identity-authentication)
+- [Uso de identidades administradas para la autenticación de recursos de Azure](#managed-identity)
 
 ### <a name="using-service-principal-authentication"></a>Uso de la autenticación de entidad de servicio
 
@@ -114,11 +114,11 @@ Se admiten las siguientes propiedades:
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>Uso de la autenticación de identidades de servicio administradas
+### <a name="managed-identity"></a> Uso de identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos puede asociarse con una [identidad de servicio administrada](data-factory-service-identity.md), que representa esta factoría de datos específica. Puede usar directamente esta identidad de servicio para la autenticación en Data Lake Store, de manera similar a como usa su propia entidad de servicio. Permite que esta fábrica designada tenga acceso y copie los datos desde y hacia Data Lake Store.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad de servicio para la autenticación en Data Lake Store, de manera similar a como usa su propia entidad de servicio. Permite que esta fábrica designada tenga acceso y copie los datos desde y hacia Data Lake Store.
 
-Para usar la autenticación de identidades de servicio administradas (MSI):
+Para usar identidades administradas para la autenticación de recursos de Azure:
 
 1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
 2. Conceda a la identidad de servicio acceso a Data Lake Store de la misma manera que lo hace para la entidad de servicio, con las notas siguientes.

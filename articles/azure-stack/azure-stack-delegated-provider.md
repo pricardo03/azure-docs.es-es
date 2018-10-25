@@ -3,7 +3,7 @@ title: Delegación de ofertas en Azure Stack | Microsoft Docs
 description: Obtenga información acerca de cómo delegar a otras personas sus tareas de crear ofertas y registrar a usuarios.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946559"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077991"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegación de ofertas en Azure Stack
 
@@ -113,7 +113,7 @@ El siguiente paso es crear el plan y la oferta que va a delegar y que usarán lo
 
 Inicie sesión en el portal de usuarios como proveedor delegado y luego cree una oferta nueva usando la oferta delegada como plantilla.
 
-1. Seleccione **Nueva** > **Ofertas + Planes de inquilinos** > **Oferta**.
+1. Seleccione **+ Crear un recurso** > **Ofertas + Planes de inquilinos** > **Oferta**.
 
     ![Crear una nueva oferta](media/azure-stack-delegated-provider/image5.png)
 
@@ -128,7 +128,7 @@ Inicie sesión en el portal de usuarios como proveedor delegado y luego cree una
 
 4. Las ofertas delegadas públicas solo son visibles en el portal delegado. Para buscar y cambiar esta dirección URL:
 
-    a.  Seleccione **Examinar** > **Más servicios** > **Suscripciones**. A continuación, seleccione la suscripción del proveedor delegado. Por ejemplo, **DPSubscription** > **Propiedades**.
+    a.  Seleccione **Examinar** > **Todos los servicios** y, en la categoría **GENERAL**, seleccione **Suscripciones**. Seleccione la suscripción del proveedor delegado. Por ejemplo, **DPSubscription** > **Propiedades**.
 
     b.  Copie la URL del portal en una ubicación diferente, como el Bloc de notas.
 

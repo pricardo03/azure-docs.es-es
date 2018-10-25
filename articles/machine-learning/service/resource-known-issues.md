@@ -8,18 +8,36 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: d84040dc440c373ae9bae6dbac7a95109a387ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162753"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249424"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
  
 En este artículo obtendrá ayuda para buscar y corregir los errores que se producen al usar el servicio Azure Machine Learning. 
 
+## <a name="sdk-installation-issues"></a>Problemas de instalación de SDK
+
+**Mensaje de error: no se puede desinstalar 'PyYAML'** 
+
+PyYAML es un proyecto instalado de Distutils. Por lo tanto, no podemos determinar con precisión qué archivos le pertenecen en caso de una desinstalación parcial. Para continuar con la instalación del SDK sin tener en cuenta este error, use:
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
+
+## <a name="image-building-failure"></a>Error de creación de imagen
+
+Error de creación de imagen al implementar el servicio web. La solución alternativa es agregar "pynacl==1.2.1" como una dependencia pip al archivo Conda para la configuración de la imagen.  
+
+## <a name="pipelines"></a>Procesos
+Se produce un error al llamar a PythonScriptStep varias veces seguidas sin cambiar el script o los parámetros. Una solución alternativa es volver a crear el objeto PipelineData.
+
+## <a name="fpgas"></a>FPGA
+No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aprobado para la cuota FPGA. Para solicitar acceso, rellene el formulario de solicitud de cuota: https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
 
@@ -36,7 +54,7 @@ Problemas de Databricks y Azure Machine Learning.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## <a name="gather-diagnostics-information"></a>Recopilación de información de diagnóstico
+## <a name="diagnostic-logs"></a>Registros de diagnóstico
 A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Aquí es donde se encuentran los archivos de registro:
 
 ## <a name="resource-quotas"></a>Cuotas de recursos

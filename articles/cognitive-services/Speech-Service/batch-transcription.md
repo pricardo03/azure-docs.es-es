@@ -4,20 +4,20 @@ description: Ejemplos
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
-ms.technology: Speech to Text
+ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981379"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884466"
 ---
 # <a name="batch-transcription"></a>Transcripción de Azure Batch
 
-La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio. Puede apuntar a archivos de audio y obtener transcripciones de ellos en modo asincrónico.
+La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio. Puede apuntar a archivos de audio por URI y obtener transcripciones de ellos en modo asincrónico.
 
 ## <a name="batch-transcription-api"></a>API de transcripciones de Azure Batch
 
@@ -59,7 +59,7 @@ Si se trata de secuencias de audio estéreo, la transcripción de Batch divide e
 
 ## <a name="authorization-token"></a>Token de autorización
 
-Al igual que con todas las características de Unified Speech Service, creará una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md). Si va a obtener transcripciones de nuestros modelos de línea base, esto es todo lo que necesita hacer. 
+Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md). Si va a obtener transcripciones de nuestros modelos de línea base, esto es todo lo que necesita hacer. 
 
 Si va a personalizar y usar un modelo personalizado, deberá agregar entonces esta clave de suscripción al portal de voz personalizado de la manera siguiente:
 

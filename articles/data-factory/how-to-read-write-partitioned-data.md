@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053717"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091056"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Lectura o escritura de datos con particiones en Azure Data Factory versión 2
-En la versión 1, Azure Data Factory admitía la lectura y la escritura de datos con particiones por medio de las variables del sistema SliceStart, SliceEnd, WindowStart y WindowEnd. En la versión actual de Data Factory, este comportamiento se logra mediante un parámetro de canalización y la hora de inicio o la hora programada del desencadenador como valor del parámetro. 
+
+En la versión 1 de Azure Data Factory, podrá leer y escribir datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de Data Factory, este comportamiento se logra mediante un parámetro de canalización y la hora de inicio o la hora programada del desencadenador como valor del parámetro. 
 
 ## <a name="use-a-pipeline-parameter"></a>Usar un parámetro de canalización 
-En la versión 1, podía usar la propiedad partitionedBy y la variable del sistema SliceStart tal como se muestra en el ejemplo siguiente: 
+
+En la versión 1 de Data Factory, podía usar la propiedad **partitionedBy** y la variable del sistema **SliceStart** tal como se muestra en el ejemplo siguiente: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ En la versión 1, podía usar la propiedad partitionedBy y la variable del siste
 ],
 ```
 
-Para obtener más información acerca de la propiedad partitonedBy, consulte el artículo sobre la [versión 1 del conector de Azure Blob Storage](v1/data-factory-azure-blob-connector.md#dataset-properties). 
+Para obtener más información acerca de la propiedad **partitonedBy**, vea [Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-En la versión actual de Data Factory, una forma de lograr este comportamiento es realizar las siguientes acciones: 
+Para lograr este comportamiento en la versión actual de Data Factory: 
 
-1. Definir un **parámetro de canalización** de tipo cadena. En el ejemplo siguiente, el nombre del parámetro de canalización es **windowStartTime**. 
-2. Establecer la propiedad **folderPath** de la definición del conjunto de datos para que haga referencia al valor del parámetro de canalización. 
-3. Pasar el valor real del parámetro al invocar la canalización a petición, o pasar una hora de inicio del desencadenador o una hora programada de forma dinámica en el runtime. 
+1. Defina un *parámetro de canalización* de tipo **cadena**. En el ejemplo siguiente, el nombre del parámetro de canalización es **windowStartTime**. 
+2. Establezca la propiedad **folderPath** de la definición del conjunto de datos para que haga referencia al valor del parámetro de canalización. 
+3. Pase el valor real para el parámetro al invocar la canalización a petición. También puede pasar una hora de inicio o programada del desencadenador de forma dinámica en tiempo de ejecución. 
 
 ```json
 "folderPath": {
@@ -50,7 +52,8 @@ En la versión actual de Data Factory, una forma de lograr este comportamiento e
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>Pasar el valor desde un desencadenador
+## <a name="pass-in-a-value-from-a-trigger"></a>Pasar un valor desde un desencadenador
+
 En la siguiente definición del desencadenador de la ventana de saltos de tamaño constante, la hora de inicio del desencadenador se pasa como un valor del parámetro de canalización **windowStartTime**: 
 
 ```json
@@ -176,4 +179,6 @@ Definición de la canalización:
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener un tutorial completo de creación de una factoría de datos con una canalización, consulte [Inicio rápido: Create a data factory](quickstart-create-data-factory-powershell.md) (Crear una factoría de datos). 
+
+Para obtener un tutorial completo acerca de cómo crear una factoría de datos con una canalización, consulte [Inicio rápido: Crear una factoría de datos](quickstart-create-data-factory-powershell.md). 
+

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393084"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267994"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>La estructura de los paneles de Azure
 Este documento le guía a través de la estructura de un panel de Azure con el panel siguiente como ejemplo:
@@ -338,7 +338,7 @@ Cada elemento tiene una propiedad metadata, un objeto solo tiene una propiedad n
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`: se usa para mostrar las métricas de supervisión
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`: se usa para mostrar con texto o imágenes y con el formato básico para listas, vínculos, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`: se usa para mostrar vídeos de YouTube, Channel9 y cualquier otro tipo de vídeo que funcione en una etiqueta de vídeo html.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart`: se usa para mostrar vídeos de YouTube, Channel9 y cualquier otro tipo de vídeo que funcione en una etiqueta de vídeo HTML.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`: se usa para mostrar el nombre y el estado de una máquina virtual de Azure.
 
 Cada tipo de elemento tiene su propia configuración. Las posibles propiedades de configuración se denominan __inputs__, __settings__ y __asset__. 

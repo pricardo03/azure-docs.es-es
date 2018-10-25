@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412963"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885296"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola serie de máquinas virtuales
 
@@ -29,7 +29,7 @@ La consola serie de máquina virtual en Azure ofrece acceso a una consola basada
 Para obtener documentación de la consola serie para VM Windows, [haga clic aquí](../windows/serial-console.md).
 
 > [!Note] 
-> La consola serie para las máquinas virtuales está normalmente disponible en las regiones globales de Azure. En este momento, la consola serie no está disponible en las nubes de Azure Government o Azure China.
+> La consola serie para máquinas virtuales suele estar disponible en las regiones globales de Azure. En este momento, la consola serie no está disponible aún en las nubes de Azure Government ni Azure China.
 
 
 ## <a name="prerequisites"></a>Requisitos previos 
@@ -44,18 +44,18 @@ Para obtener documentación de la consola serie para VM Windows, [haga clic aqu�
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Para conocer valores específicos de distribución de Linux, consulte [Acceso a la consola serie para Linux](#Serial-Console-Linux-distro-availability).
+* Para conocer valores específicos de distribución de Linux, consulte [Disponibilidad de distribuciones de Linux para la consola serie](#serial-console-linux-distro-availability)
 
 
 
 ## <a name="get-started-with-serial-console"></a>Introducción al uso de la consola serie
-La consola serie para las máquinas virtuales solo es accesible mediante [Azure Portal](https://portal.azure.com). A continuación se muestran los pasos requeridos para acceder a la consola de serie para las máquinas virtuales a través del portal. 
+La consola serie para las máquinas virtuales solo es accesible mediante [Azure Portal](https://portal.azure.com). Asegúrese de cumplir los [requisitos previos](#prerequisites) anteriores. A continuación se muestran los pasos requeridos para acceder a la consola serie para las máquinas virtuales a través del portal:
 
   1. Abra Azure Portal.
   1. (Omita este paso si su máquina virtual tiene un usuario que usa la autenticación de contraseña). Agregue un usuario que use la autenticación de nombre de usuario o contraseña haciendo clic en la hoja "Restablecer contraseña".
   1. En el menú de la izquierda, seleccione Máquinas virtuales.
   1. Haga clic en la máquina virtual en la lista. Se abrirá la página de información general de la máquina virtual.
-  1. Desplácese hacia abajo hasta la sección de Soporte técnico y solución de problemas, y haga clic en la opción "Consola serie". Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
+  1. Desplácese hacia abajo hasta la sección de Soporte técnico y solución de problemas, y haga clic en la opción "Consola de serie". Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
 
 ![](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -92,7 +92,7 @@ Interacción con el cargador de arranque | Acceda a GRUB mediante la consola de 
 De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado para todas las VM. Puede deshabilitar la consola serie en el nivel de suscripción o el nivel de VM.
 
 > [!Note] 
-> Con el fin de habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura para la suscripción. Esto incluye, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
+> Para habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura en la suscripción. Esto incluye, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
 
 ### <a name="subscription-level-disable"></a>Deshabilitación a nivel de supervisión
 La consola serie puede deshabilitarse para toda una suscripción a través de la [llamada a la API de REST Disable Console](https://aka.ms/disableserialconsoleapi). Puede usar la funcionalidad "Pruébelo" disponible en la página de documentación de la API para deshabilitar y habilitar la consola serie para una suscripción. Escriba su `subscriptionId`, "default" en el campo `default` y haga clic en Ejecutar. Los comandos de la CLI de Azure todavía no están disponibles y llegarán en una fecha posterior. [Pruebe la llamada de API de REST aquí](https://aka.ms/disableserialconsoleapi).
@@ -171,13 +171,13 @@ Socket web está cerrado o no se pudo abrir. | Puede que necesite incluir `*.con
 Se encontró una respuesta "Prohibido" al obtener acceso a la cuenta de almacenamiento de diagnóstico de arranque de la VM. | Asegúrese de que el diagnóstico de arranque no tenga un firewall de cuentas. Se necesita una cuenta de almacenamiento de diagnóstico de arranque accesible para que la consola serie funcione.
 
 ## <a name="known-issues"></a>Problemas conocidos 
-Somos conscientes de algunos problemas que presenta la consola serie. Esta es una lista de esos problemas y los pasos que puede realizar para mitigarlos.
+Somos conscientes de que la consola serie presenta algunos problemas. Esta es una lista de dichos problemas y los pasos que puede realizar para mitigarlos.
 
 Problema                           |   Mitigación 
 :---------------------------------|:--------------------------------------------|
 Al pulsar Entrar tras un banner de conexión no aparece la solicitud de inicio de sesión | Consulte esta página: [Pulsar Entrar no hace nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esto puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo reforzado o una configuración de GRUB que hace que Linux no pueda conectarse correctamente al puerto serie.
 El texto de la consola serie solo ocupa una parte de la pantalla (a menudo después de usar un editor de texto) | Las consolas serie no admiten operaciones para cambiar el tamaño de la ventana ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), lo que significa que no se enviará ninguna señal SIGWINCH para actualizar el tamaño de la pantalla y la máquina virtual no tendrá conocimiento del tamaño del terminal. Se recomienda instalar xterm u otra herramienta similar que le permita usar el comando "resize". Ejecutar "resize" solucionará el problema.
-No funciona la opción para pegar cadenas muy largas | La consola serie limita la longitud de las cadenas que pegó en el terminal a 2048 caracteres. Esto es para evitar sobrecargar el ancho de banda del puerto de serie.
+La opción de pegar cadenas muy largas no funciona | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres. Con el fin de evitar sobrecargar el ancho de banda del puerto de serie.
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
@@ -185,9 +185,9 @@ No funciona la opción para pegar cadenas muy largas | La consola serie limita l
 
 A. Envíe comentarios como problemas que tenga acudiendo a https://aka.ms/serialconsolefeedback. También tiene la posibilidad (aunque no es tan recomendable) de enviar comentarios a azserialhelp@microsoft.com, o en la categoría de máquinas virtuales en http://feedback.azure.com.
 
-**P. ¿La consola serie admite las operaciones para copiar y pegar?**
+**P. ¿Admite la consola serie las operaciones para copiar y pegar?**
 
-A. Efectivamente. Use Ctrl + Mayús + C y Ctrl + Mayús + V para copiar y pegar contenido en el terminal.
+A. Sí. Use Ctrl + Mayús + C y Ctrl + Mayús + V para copiar y pegar contenido en el terminal.
 
 **P. ¿Puedo usar la consola serie en lugar de una conexión SSH?**
 
@@ -196,19 +196,19 @@ A. Aunque esto pueda parecer técnicamente posible, la consola serie está pensa
 1. La consola serie no tiene el ancho de banda de SSH: es una conexión de solo texto, por lo que las interacciones más inclinadas hacia la interfaz gráfica de usuario serán complicadas en la consola serie.
 1. Actualmente, solo se puede acceder a la consola serie con el nombre de usuario y contraseña. Las claves SSH son mucho más seguras que las combinaciones de nombre de usuario y contraseña; así que, desde una perspectiva de seguridad de inicio de sesión, SSH es más recomendable que la consola serie.
 
-**P. ¿Quién puede habilitar o deshabilitar la consola serie de mi suscripción?**
+**P. ¿Quién puede habilitar o deshabilitar la consola serie en mi suscripción?**
 
-A. Con el fin de habilitar o deshabilitar la consola serie en toda la suscripción, debe tener permisos de escritura para esa suscripción. Los roles que tienen permiso de escritura son, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
+A. Para habilitar o deshabilitar la consola serie en toda una suscripción, es preciso tener permisos de escritura en la suscripción. Los roles que tienen permiso de escritura son, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
 
-**P. ¿Quién puede obtener acceso a la consola serie de mi máquina virtual?**
+**P. ¿Quién puede acceder a la consola serie de mi máquina virtual?**
 
-A. Debe tener acceso de nivel de colaborador o superior para una máquina virtual, con el fin de obtener acceso a la consola serie de la máquina virtual. 
+A. Para acceder a la consola serie de la máquina virtual es preciso tener acceso de nivel de colaborador o superior a una máquina virtual. 
 
-**P. La consola serie no muestra nada, ¿qué debo hacer?**
+**P. La consola serie no muestra nada, ¿qué hago?**
 
-A. Es probable que la imagen esté mal configurada para el acceso a la consola serie. Consulte [Access Serial Console for Linux](#Access-Serial-Console-for-Linux) (Acceso a la consola serie para Linux) para obtener más información sobre la configuración de la imagen para habilitar la consola serie.
+A. Es probable que la imagen esté mal configurada para el acceso a la consola serie. Consulte [Disponibilidad de distribuciones de Linux para la consola serie](#serial-console-linux-distro-availability) para más información sobre la configuración de la imagen para habilitar la consola serie.
 
-**P. ¿La consola serie está disponible en conjuntos de escalado de máquinas virtuales?**
+**P. ¿Está disponible la consola serie en Virtual Machine Scale Sets?**
 
 A. En estos momentos no se admite el acceso a la consola serie mediante instancias del conjunto de escalado de máquinas virtuales.
 

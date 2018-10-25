@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530434"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018722"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
@@ -96,7 +96,7 @@ La siguiente tabla proporciona definiciones de las propiedades de un sondeo de m
 
 Si hay un grupo de seguridad de red (NSG) en una subred de Application Gateway, se deben abrir los intervalos de puertos 65503-65534 en la subred de Application Gateway para el tráfico de entrada. Estos puertos son necesarios para que funcione correctamente la API de estado de back-end.
 
-Además, no se puede bloquear la conectividad saliente de Internet y se debe permitir el tráfico desde la etiqueta AzureLoadBalancer.
+Además, no se puede bloquear la conectividad saliente de Internet y se debe permitir el tráfico entrante desde la etiqueta AzureLoadBalancer.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Tras conocer todo lo referente a la supervisión del mantenimiento de Application Gateway, puede configurar un [sondeo de mantenimiento personalizado](application-gateway-create-probe-portal.md) en Azure Portal o un [sondeo de mantenimiento personalizado](application-gateway-create-probe-ps.md) mediante PowerShell y el modelo de implementación con Azure Resource Manager.

@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 25bb665d9ea9166d099ab7f3f9696d92da8314e9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161832"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869625"
 ---
-# <a name="data-dependent-routing"></a>Enrutamiento dependiente de los datos
+# <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Usar el enrutamiento dependiente de datos para enrutar una consulta a la base de datos adecuada
+
 El **enrutamiento dependiente de los datos** es la posibilidad de utilizar los datos de una consulta para enrutar la solicitud a una base de datos adecuada. El enrutamiento dependiente de los datos es un patrón fundamental cuando se trabaja con bases de datos con particiones. El contexto de solicitud también puede utilizarse para enrutar la solicitud, en especial si la clave de particionamiento no forma parte de la consulta. Cada consulta o transacción específica en una aplicación que usa enrutamiento dependiente de los datos tiene restringido el acceso a una base de datos única por solicitud. En las herramientas elásticas de Azure SQL Database, este enrutamiento se efectúa con la clase **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)).
 
 La aplicación no necesita realizar el seguimiento de las distintas cadenas de conexión o ubicaciones de base de datos asociadas con diferentes segmentos de datos en el entorno particionado. Por el contrario, el [Administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) abre las conexiones a las bases de datos correctas cuando es necesario, en función de los datos del mapa de particiones y del valor de la clave de particionamiento que es el destino de la solicitud de la aplicación. Esta clave normalmente es el valor de *customer_id*, *tenant_id*, *date_key* o algún otro identificador específico que sea un parámetro fundamental de la solicitud de la base de datos. 

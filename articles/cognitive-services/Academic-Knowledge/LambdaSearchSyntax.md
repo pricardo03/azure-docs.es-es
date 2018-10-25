@@ -1,20 +1,21 @@
 ---
-title: Sintaxis de búsqueda lambda en Academic Knowledge API | Microsoft Docs
-description: Aprenda sobre la sintaxis de búsqueda lambda que puede usar en Academic Knowledge API de Microsoft Cognitive Services.
+title: 'Sintaxis de búsqueda lambda: Academic Knowledge API'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información sobre la sintaxis de búsqueda lambda que puede usar en Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f486368e1d0258087091acb846a84b125712db40
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380078"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902695"
 ---
 # <a name="lambda-search-syntax"></a>Sintaxis de búsqueda lambda
 

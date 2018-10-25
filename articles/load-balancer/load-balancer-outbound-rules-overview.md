@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/8/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163025"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883965"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 
@@ -180,10 +180,10 @@ Defina una instancia pública de Standard Load Balancer, coloque las VM en el gr
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT de salida para escenarios internos de Standard Load Balancer
 
-Cuando se usa una instancia de Standard Load Balancer, la NAT de salida no está disponible hasta que también se configura una instancia pública de Standard Load Balancer. Para cambiarlo, puede usar una regla de salida para crear conectividad de salida para VM virtuales detrás de una instancia interna de Standard Load Balancer.
+Cuando se usa una instancia de Standard Load Balancer, la NAT de salida no está disponible hasta que la conectividad de salida se haya declarado explícitamente. Puede definir la conectividad de salida utilizando una regla de salida para crear conectividad de salida para las máquinas virtuales detrás de una instancia interna de Standard Load Balancer con los pasos siguientes:
 
 1. Cree una instancia pública de Standard Load Balancer.
-2. Cree un grupo de back-end y coloque las VM en un grupo de back-end de la instancia pública de Load Balancer.
+2. Cree un grupo de back-end y coloque las máquinas virtuales en un grupo de back-end de la instancia pública de Load Balancer además de la instancia interna de Load Balancer.
 3. Configure una regla de salida en la instancia pública de Load Balancer para programar una NAT de salid para estas VM.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Habilitar los protocolos TCP y UDP para NAT de salida con una instancia pública de Standard Load Balancer

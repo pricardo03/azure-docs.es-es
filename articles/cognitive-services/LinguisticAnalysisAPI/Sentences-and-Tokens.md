@@ -1,22 +1,27 @@
 ---
-title: Oraciones y tokens en Linguistic Analysis API | Microsoft Docs
-description: Aprenda sobre la separación y la tokenización de oraciones en Linguistic Analysis API de Cognitive Services.
+title: 'Oraciones y tokens: Linguistic Analysis API'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información sobre la separación y la tokenización de oraciones en Linguistic Analysis API.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084049"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237881"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Separación y tokenización de oraciones
+
+> [!IMPORTANT]
+> El 9 de agosto de 2018 se retiró la versión preliminar de Linguistic Analysis. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 ## <a name="background-and-motivation"></a>Contexto y motivación
 
@@ -52,7 +57,8 @@ La primera oración podría escribirse como "Whatdidyousay?")
 
 Hay algunos casos difíciles.
 En primer lugar, los signos de puntuación se deben separar a menudo (aunque no siempre) del contexto que los rodea.
-En segundo lugar, el inglés tiene *contracciones*, como "didn't" o "it's", donde las palabras se han comprimido y abreviado en trozos más pequeños. El objetivo del tokenizador consiste en dividir la secuencia de caracteres en palabras.
+En segundo lugar, el inglés tiene *contracciones*, como "didn't" o "it's", donde las palabras se han comprimido y abreviado en trozos más pequeños.
+El objetivo del tokenizador consiste en dividir la secuencia de caracteres en palabras.
 
 Vamos a volver a las oraciones del ejemplo anterior.
 Ahora hemos colocado un "punto central" (&middot;) entre cada token distintivo.
@@ -63,7 +69,8 @@ Ahora hemos colocado un "punto central" (&middot;) entre cada token distintivo.
 
 Observe cómo la mayoría de los tokens son palabras que encontraría en el diccionario (por ejemplo, *important*, *director*).
 Otros constan solamente de signos de puntuación.
-Por último, hay tokens más inusuales para representar contracciones como *n't* para *not*, posesivos como *'s*, etc. Esta tokenización nos permite administrar la palabra *didn't* y la frase *did not* de forma más coherente, por ejemplo.
+Por último, hay tokens más inusuales para representar contracciones como *n't* para *not* y posesivos como *'s*.
+Esta tokenización nos permite administrar la palabra *didn't* y la frase *did not* de forma más coherente.
 
 ## <a name="specification"></a>Especificación
 

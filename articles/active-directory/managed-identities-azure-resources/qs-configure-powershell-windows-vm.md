@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: e8d85144b89d81e67d5ac225f0b6467230608ce0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3cd0a88747379edb15385014fcc93287d95295e0
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106519"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114046"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante PowerShell
 
@@ -175,6 +175,9 @@ Para asignar una identidad administrada asignada por el usuario a una VM de Azur
    ```
 3. Recupere las propiedades de la máquina virtual mediante el cmdlet `Get-AzureRmVM`. A continuación, para asignar una identidad administrada asignada por el usuario a la máquina virtual de Azure, use los modificadores `-IdentityType` y `-IdentityID` en el cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm).  El valor del parámetro `-IdentityId` es el `Id` que ha anotado en el paso anterior.  Reemplace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` con sus propios valores.
 
+   > [!WARNING]
+   > Para conservar las identidades administradas previamente asignadas al usuario, pero asignadas ahora a la máquina virtual, consulte la propiedad `Identity` del objeto de la máquina virtual (por ejemplo, `$vm.Identity`).  Si se devuelven identidades administradas asignadas al usuario, inclúyalas en el siguiente comando junto con la nueva identidad administrada asignada por el usuario que desea asignar a la máquina virtual.
+
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
@@ -189,7 +192,7 @@ Para asignar una identidad administrada asignada por el usuario a una VM de Azur
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Eliminación de una identidad administrada asignada por el usuario de una VM de Azure
 
-Si la máquina virtual tiene varias identidades administradas asignadas por el usuario, puede quitar todas, menos la última, mediante los comandos siguientes. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. `<USER ASSIGNED IDENTITY NAME>` es la propiedad de nombre de la identidad administrada asignada por el usuario, que debe permanecer en la máquina virtual. Esta información se puede encontrar en la sección de identidad de la máquina virtual mediante `az vm show`:
+Si la máquina virtual tiene varias identidades administradas asignadas por el usuario, puede quitar todas, menos la última, mediante los comandos siguientes. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. `<USER ASSIGNED IDENTITY NAME>` es la propiedad de nombre de la identidad administrada asignada por el usuario, que debe permanecer en la máquina virtual. Esta información puede encontrarse consultando la propiedad `Identity` del objeto de la máquina virtual.  Por ejemplo, `$vm.Identity`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm

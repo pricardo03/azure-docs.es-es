@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126209"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043208"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Actualizaciones de esquema para Azure Logic Apps, 1 de junio de 2016
 
@@ -33,23 +33,23 @@ Para actualizar las aplicaciones lógicas del esquema de versión preliminar del
 
 Este esquema incluye ámbitos, que le permiten agrupar acciones o anidar acciones unas dentro de otras. Por ejemplo, una condición puede contener otra condición. Aprenda más sobre la [sintaxis de los ámbitos](../logic-apps/logic-apps-loops-and-scopes.md), o revise este ejemplo básico de ámbitos:
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -57,29 +57,29 @@ Este esquema incluye ámbitos, que le permiten agrupar acciones o anidar accione
 
 ## <a name="conditions-and-loops-changes"></a>Cambios de condiciones y bucles
 
-En las versiones anteriores del esquema, las condiciones y los bucles eran parámetros asociados a una sola acción. Este esquema elimina esta limitación, por lo que las condiciones y los bucles aparecen ahora como tipos de acción. Aprenda más sobre [bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md), o revise este ejemplo básico de una acción de condición:
+En las versiones anteriores del esquema, las condiciones y los bucles eran parámetros asociados a una sola acción. Este esquema elimina esta limitación, por lo que las condiciones y los bucles están ahora disponibles como tipos de acción. Aprenda más sobre [bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md), [condiciones](../logic-apps/logic-apps-control-flow-conditional-statement.md) o revise este ejemplo básico de una acción de condición:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -87,16 +87,14 @@ En las versiones anteriores del esquema, las condiciones y los bucles eran pará
 
 ## <a name="runafter-property"></a>Propiedad "runAfter"
 
-La propiedad `runAfter` reemplaza a `dependsOn`, por lo que se proporciona una mayor precisión al especificar el orden de ejecución de las acciones según el estado de acciones anteriores.
+La propiedad `runAfter` reemplaza a `dependsOn`, por lo que se proporciona una mayor precisión al especificar el orden de ejecución de las acciones según el estado de acciones anteriores. La propiedad `dependsOn` indica si "la acción se ejecutó correctamente", en función de si la acción anterior se realizó correctamente, no se pudo realizar o se omitió, y no del número de veces que quiso ejecutar la acción. La propiedad `runAfter` proporciona flexibilidad como un objeto que especifica todos los nombres de acción después de los cuales se ejecuta el objeto. Esta propiedad también define una matriz de estados que son aceptables como desencadenadores. Por ejemplo, si quiere que una acción se ejecute después de la acción A se realiza correctamente y también después de que la acción B se realiza correctamente o no, configure esta propiedad `runAfter`:
 
-La propiedad `dependsOn` era sinónimo de "la acción se ejecutó correctamente", no importa cuántas veces quisiera ejecutar una acción, en función de si la acción anterior era correcta, tenía un error o se había omitido. La propiedad `runAfter` ofrece esa flexibilidad como un objeto que especifica todos los nombres de acciones después de los cuales se ejecuta el objeto. Esta propiedad también define una matriz de estados que son aceptables como desencadenadores. Por ejemplo, si quisiera ejecutar una acción después de que el paso A se realiza correctamente y también después de que el paso B se realiza correctamente o produce error, construiría esta propiedad `runAfter`:
-
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -109,10 +107,12 @@ Para actualizar el [esquema más reciente](https://schema.management.azure.com/s
 
 2. Vaya a **Overview** (Información general). En la barra de herramientas de aplicaciones lógicas, elija **Actualizar esquema**.
    
-    ![Selección del esquema de actualización][1]
+   ![Selección del esquema de actualización][1]
    
-    Se devuelve la definición actualizada, que puede copiar y pegar en una definición de recurso si es necesario. 
-    Pero **se recomienda firmemente** elegir **Guardar como** para asegurarse de que todas las referencias de conexión sean válidas en la aplicación lógica actualizada.
+   Se devuelve la definición actualizada, que puede copiar y pegar en una definición de recurso si es necesario. 
+
+   > [!IMPORTANT]
+   > *Asegúrese* de elegir **Guardar como** para que todas las referencias de conexión sigan siendo válidas en la aplicación lógica actualizada.
 
 3. En la barra de herramientas de la hoja de actualización, elija **Guardar como**.
 
@@ -125,17 +125,17 @@ Para actualizar el [esquema más reciente](https://schema.management.azure.com/s
 
 6. *Opcional*: para sobrescribir la aplicación lógica anterior con la nueva versión de esquema, en la barra de herramientas, elija **Clonar**, junto a **Actualizar esquema**. Este paso solo es necesario si quiere mantener el mismo identificador de recurso o dirección URL del desencadenador de solicitud de la aplicación lógica.
 
-### <a name="upgrade-tool-notes"></a>Notas de la herramienta de actualización
+## <a name="upgrade-tool-notes"></a>Notas de la herramienta de actualización
 
-#### <a name="mapping-conditions"></a>Condiciones de asignación
+### <a name="mapping-conditions"></a>Condiciones de asignación
 
-En la definición actualizada, la herramienta hace todo lo posible por agrupar las acciones de bifurcación true y false como un ámbito. En concreto, el patrón de diseñador de `@equals(actions('a').status, 'Skipped')` debe aparecer como una acción `else`. Sin embargo, si la herramienta detecta patrones irreconocibles, podría crear condiciones distintas para la bifurcación true y false. Si es necesario, puede volver a asignar acciones después de la actualización.
+En la definición actualizada, la herramienta hace todo lo posible por agrupar las acciones de bifurcación verdaderas y falsas como un ámbito. En concreto, el patrón de diseñador de `@equals(actions('a').status, 'Skipped')` aparece como una acción `else`. Sin embargo, si la herramienta detecta patrones irreconocibles, podría crear condiciones distintas para la bifurcación true y false. Si es necesario, puede volver a asignar acciones después de la actualización.
 
 #### <a name="foreach-loop-with-condition"></a>Bucle "foreach" con condición
 
-En el nuevo esquema, puede usar la acción de filtro para replicar el patrón de un bucle `foreach` con una condición por elemento, pero este cambio debe ocurrir automáticamente al actualizar. La condición se convierte en una acción de filtro delante del bucle foreach para devolver solo una matriz de elementos que coincidan con la condición, y esa matriz se pasa a la acción de foreach. Para ver un ejemplo, consulte [Bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md).
+En el nuevo esquema, puede usar la acción de filtro para replicar el patrón que usa un bucle **For each** con una condición por elemento. Sin embargo, el cambio sucede automáticamente cuando actualiza. La condición se convierte en una acción de filtro que aparece antes del bucle **For each**, que devuelve solo una matriz de elementos que cumplen la condición y pasa esa matriz a la acción **For each**. Para ver un ejemplo, consulte [Bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### <a name="resource-tags"></a>Etiquetas del recurso
+### <a name="resource-tags"></a>Etiquetas del recurso
 
 Después de actualizar, se quitan las etiquetas del recurso, por lo que debe restablecerlas para el flujo de trabajo actualizado.
 
@@ -157,20 +157,20 @@ Los bucles `foreach` y `until` están limitados a una sola acción.
 
 Las acciones pueden tener ahora una propiedad adicional llamada `trackedProperties`, que está relacionada con las propiedades `runAfter` y `type`. Este objeto especifica determinadas entradas o salidas de acciones que desea incluir en la telemetría de Azure Diagnostic, que se emiten como parte de un flujo de trabajo. Por ejemplo: 
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

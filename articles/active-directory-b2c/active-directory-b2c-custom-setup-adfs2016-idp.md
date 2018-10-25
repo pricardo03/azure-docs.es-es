@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2c2e6861fda42a9e8c1aabcba303bfede47ac3c1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e8737e379dc69385b2bd5ac2b2af89bf8d38b63a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669233"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886881"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Agregar ADFS como proveedor de identidades de SAML mediante las directivas personalizadas de Azure Active Directory B2C
 
@@ -25,33 +25,32 @@ En este artículo se muestra cómo habilitar el inicio de sesión para una cuent
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
+- Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Asegúrese de que tiene acceso al archivo .pfx del certificado con la clave privada emitida por ADFS.
 
-## <a name="add-the-adfs-account-application-key-to-azure-ad-b2c"></a>Adición de la clave de aplicación de la cuenta de ADFS a Azure AD B2C
+## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
-La federación con cuentas de ADFS requiere un secreto de cliente para que la cuenta de ADFS confíe en Azure AD B2C en nombre de la aplicación. Debe almacenar el certificado de ADFS en el inquilino de Azure AD B2C. 
+Debe almacenar el certificado de ADFS en el inquilino de Azure AD B2C.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que está usando el directorio que contiene su inquilino de Azure AD B2C cambiando a él en la esquina superior derecha de Azure Portal. Seleccione **Cambiar directorio** y luego elija el directorio que contiene el inquilino que creó. En este tutorial, se usa el directorio *contoso* que contiene el inquilino denominado *contoso0522Tenant.onmicrosoft.com*.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal y busque y seleccione **Azure AD B2C**.
+4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+5. Seleccione **Claves de directiva** y luego **Agregar**.
+6. En **Opciones**, elija `Upload`.
+7. Escriba un **Nombre** para la clave de directiva. Por ejemplo, `ADFSSamlCert`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+8. Busque el archivo .pfx de certificado con la clave privada y selecciónelo.
+9. Haga clic en **Create**(Crear).
 
-    ![Cambio de directorios](./media/active-directory-b2c-custom-setup-adfs2016-idp/switch-directories.png)
+## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. Ahora debería estar usando el inquilino.
-4. En la página de introducción, seleccione **Identity Experience Framework**.
-5. Seleccione **Claves de directiva** para ver las claves disponibles en el inquilino y haga clic en **Agregar**.
-6. Elija **Cargar** como opción.
-7. Escriba `ADFSSamlCert` como nombre. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-8. Busque el archivo .pfx de certificado con la clave privada y selecciónelo. Este certificado con la clave privada debe ser el mismo que el que se emite y se usa con el usuario de confianza de ADFS.
-9. Haga clic en **Crear** y confirme que creó la clave `B2C_1A_ADFSSamlCert`.
+Si desea que los usuarios inicien sesión con una cuenta de ADFS, deberá definirla como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
 
-## <a name="add-a-claims-provider-in-your-extension-policy"></a>Adición de un proveedor de notificaciones en la directiva de extensión
+Puede definir una cuenta de ADFS como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
 
-Si quiere que los usuarios inicien sesión mediante una cuenta de ADFS, debe definir la cuenta como proveedor de notificaciones. Para ello, especifique un punto de conexión con el que Azure AD B2C se comunica. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
-
-Defina ADFS como proveedor de notificaciones. Para ello, agregue el elemento **ClaimsProvider** en el archivo de directiva de extensión.
-
-1. Abra el archivo de directiva *TrustFrameworkExtensions.xml* del directorio de trabajo. Si necesita un editor XML, [pruebe Visual Studio Code](https://code.visualstudio.com/download), un editor multiplataforma ligero.
-2. Agregue el siguiente código XML en el elemento **ClaimsProviders**, reemplace **el dominio de ADFS** por el nombre de dominio de ADFS y reemplace el valor de la notificación de salida **identityProvider** por el DNS (valor arbitrario que indica el dominio). Luego guarde el archivo. 
+1. Abra el archivo *TrustFrameworkExtensions.xml*.
+2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
+3. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
 
     ```xml
     <ClaimsProvider>
@@ -60,7 +59,7 @@ Defina ADFS como proveedor de notificaciones. Para ello, agregue el elemento **C
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
           <DisplayName>Contoso ADFS</DisplayName>
-          <Description>Login with your Contoso account</Description>
+          <Description>Login with your ADFS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
             <Item Key="RequestsSigned">false</Item>
@@ -92,78 +91,55 @@ Defina ADFS como proveedor de notificaciones. Para ello, agregue el elemento **C
     </ClaimsProvider>
     ```
 
-## <a name="register-the-claims-provider-for-sign-up-and-sign-in"></a>Registrar el proveedor de notificaciones para registrarse e iniciar sesión
+4. Reemplace `your-ADFS-domain` por el nombre de su dominio de AD FS y reemplace el valor de la notificación de salida **identityProvider** por su DNS (valor arbitrario que indica el dominio).
+5. Guarde el archivo.
 
-Para que el proveedor de identidades de la cuenta de ADFS esté disponible en las páginas de registro e inicio de sesión, deberá agregarlo a su recorrido del usuario **SignUpOrSignIn**. 
+### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
 
-Realice una copia de un recorrido del usuario de plantilla existente y luego modifíquelo para que incluya el proveedor de identidades de ADFS:
+Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con la cuenta de ADFS. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
 
->[!NOTE]
->Si copió anteriormente el elemento **UserJourneys** del archivo base de la directiva en el archivo de extensión (*TrustFrameworkExtensions.xml*), puede omitir esta sección.
+1. En la página **Directivas personalizadas** del inquilino de Azure AD B2C, seleccione **Cargar directiva**.
+2. Habilite **Sobrescribir la directiva, si existe** y, a continuación, busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
+3. Haga clic en **Cargar**.
 
-1. Abra el archivo base de la directiva. Por ejemplo, *TrustFrameworkBase.xml*.
-2. Copie todo el contenido del elemento **UserJourneys**.
-3. Abra el archivo de extensión (*TrustFrameworkExtensions.xml*) y pegue todo el contenido del elemento **UserJourneys** que copió en el archivo de extensión.
+## <a name="register-the-claims-provider"></a>Registro del proveedor de notificaciones
+
+En este punto, el proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las pantallas de registro o de inicio de sesión. Para que esté disponible, debe crear un duplicado de un recorrido del usuario de plantilla existente que modificaremos a continuación para que también tenga el proveedor de identidades de ADFS.
+
+1. Abra el archivo *TrustFrameworkBase.xml* del paquete de inicio.
+2. Busque y copie todo el contenido del elemento **UserJourney** que incluye `Id="SignUpOrSignIn"`.
+3. Abra el archivo *TrustFrameworkExtensions.xml* y busque el elemento **UserJourneys**. Si el elemento no existe, agréguelo.
+4. Pegue todo el contenido del elemento **UserJourney** que ha copiado como elemento secundario del elemento **UserJourneys**.
+5. Cambie el identificador del recorrido del usuario. Por ejemplo, `SignUpSignInADFS`.
 
 ### <a name="display-the-button"></a>Visualización del botón
 
-El elemento **ClaimsProviderSelections** define la lista de las selecciones del proveedor de notificaciones y su orden.  El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de identidades en una página de registro e inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta de ADFS, se muestra un nuevo botón cuando un usuario ve la página. Para agregar este elemento:
+El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta de ADFS, se muestra un nuevo botón cuando un usuario llega a la página.
 
-1. En el elemento **UserJourney** con un identificador `SignUpOrSignIn` en los recorridos del usuario que copió, busque el elemento **OrchestrationStep** de `Order="1"`.
-2. Agregue el siguiente elemento **ClaimsProviderSelection** debajo del elemento **ClaimsProviderSelections**:
+1. Busque el elemento **OrchestrationStep** que incluye `Order="1"` en el recorrido del usuario que ha creado.
+2. En **ClaimsProviderSelections**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo `ContosoExchange`:
 
-    ```xml
+    ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
 ### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
 
-Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con la cuenta de ADFS para recibir un token. Vincule el botón a una acción mediante la vinculación del perfil técnico del proveedor de notificaciones de la cuenta de ADFS:
+Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con una cuenta de ADFS para recibir un token.
 
-1. Busque el elemento **OrchestrationStep** de `Order="2"` debajo del elemento **UserJourney**.
-2. Agregar el siguiente elemento **ClaimsExchange** debajo del elemento **ClaimsExchanges**:
+1. Busque el elemento **OrchestrationStep** que incluye `Order="2"` en el recorrido del usuario.
+2. Al agregar el siguiente elemento **ClaimsExchange**, se asegura de usar el mismo valor para el elemento **Id** que usó en **TargetClaimsExchangeId**:
 
-    ```xml
+    ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
+    
+    Actualice el valor de **TechnicalProfileReferenceId** con el **identificador** del perfil técnico que creó anteriormente. Por ejemplo, `Contoso-SAML2`.
 
-> [!NOTE]
-> * Asegúrese de que el valor de `Id` sea el mismo que el de `TargetClaimsExchangeId` en la sección anterior.
-> * Asegúrese de que el valor de `TechnicalProfileReferenceId` se estabelzca en el perfil técnico que creó anteriormente (Contoso-SAML2).
-
-
-## <a name="optional-register-the-claims-provider-for-profile-edit"></a>[Opcional] Registrar el proveedor de notificaciones para la edición del perfil
-
-También puede agregar el proveedor de identidades de la cuenta de ADFS a su recorrido del usuario para la edición del perfil.
-
-### <a name="display-the-button"></a>Visualización del botón
-
-1. Abra el archivo de extensión de la directiva. Por ejemplo, *TrustFrameworkExtensions.xml*.
-2. En el elemento **UserJourney** con un identificador `ProfileEdit` en los recorridos del usuario que copió, busque el elemento **OrchestrationStep** de `Order="1"`.
-3. Agregue el siguiente elemento **ClaimsProviderSelection** debajo del elemento **ClaimsProviderSelections**:
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
-
-1. Busque el elemento **OrchestrationStep** de `Order="2"` debajo del elemento **UserJourney**.
-2. Agregar el siguiente elemento **ClaimsExchange** debajo del elemento **ClaimsExchanges**:
-
-    ```xml
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
-    ```
-
-## <a name="upload-the-policy-to-your-tenant"></a>Carga de la directiva en el inquilino
-
-1. En Azure Portal, seleccione **Todas las directivas**.
-2. Seleccione **Cargar directiva**.
-3. Habilite **Sobrescribir la directiva si existe**.
-4. Busque el archivo de directiva *TrustFrameworkExtensions.xml*, selecciónelo y luego seleccione **Cargar**. Asegúrese de que la validación sea correcta.
+3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo para realizar el proceso de comprobación.
 
 
-## <a name="configure-an-adfs-relying-party-trust"></a>Configurar una relación de confianza para usuarios de confianza de ADFS
+## <a name="configure-an-adfs-relying-party-trust"></a>Configuración de una relación de confianza para usuarios de confianza de ADFS
 
 Para usar ADFS como proveedor de identidades en Azure AD B2C, debe crear una relación de confianza para usuarios de confianza de ADFS con los metadatos de SAML de Azure AD B2C. En el ejemplo siguiente se muestra una dirección URL a los metadatos SAML de un perfil técnico de Azure AD B2C:
 
@@ -174,12 +150,10 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 Reemplace los valores siguientes:
 
 - **your-tenant** por el nombre del inquilino, como inquilino.onmicrosoft.com.
-- **your-policy** por el nombre de la directiva. Use la directiva donde configura el perfil técnico del proveedor de SAML o una directiva que hereda de esa directiva.
-- **your-technical-profile** por el nombre de su perfil técnico del proveedor de identidades de SAML.
+- **your-policy** por el nombre de la directiva. Por ejemplo, B2C_1A_signup_signin_adfs.
+- **your-technical-profile** por el nombre de su perfil técnico del proveedor de identidades de SAML. Por ejemplo, Contoso-SAML2.
  
-Abra un explorador y vaya a esta dirección URL. Asegúrese de escribir la dirección URL correcta y que tenga acceso al archivo XML de metadatos.
-
-Para agregar una nueva relación de confianza para usuarios de confianza mediante el complemento de administración de ADFS y configurar manualmente los valores, realice el procedimiento siguiente en un servidor de federación. Para realizar este procedimiento, se requiere al menos la pertenencia al grupo **Administradores**, o equivalente, en el equipo local. Revise los detalles sobre el uso de las cuentas adecuadas y las pertenencias a grupos en [Local and Domain Default Groups](http://go.microsoft.com/fwlink/?LinkId=83477) (Grupos locales y de dominio).
+Abra un explorador y vaya a esta dirección URL. Asegúrese de escribir la dirección URL correcta y que tenga acceso al archivo XML de metadatos. Para agregar una nueva relación de confianza para usuarios de confianza mediante el complemento de administración de ADFS y configurar manualmente los valores, realice el procedimiento siguiente en un servidor de federación. Para realizar este procedimiento, se requiere al menos la pertenencia al grupo **Administradores**, o equivalente, en el equipo local.
 
 1. En el Administrador del servidor, seleccione **Herramientas** y luego **ADFS Management** (Administración de ADFS).
 2. Seleccione **Agregar confianza para usuario de confianza**.
@@ -192,23 +166,30 @@ Para agregar una nueva relación de confianza para usuarios de confianza mediant
 9. Seleccione **Agregar regla**.  
 10. En **Claim rule template** (Plantilla de regla de notificación), seleccione **Send LDAP attributes as claims** (Enviar atributos LDAP como notificaciones).
 11. Proporcione un valor en **Claim rule name** (Nombre de la regla de notificación). Para **Attribute store** (Almacén de atributos), seleccione **Select Active Directory** (Seleccionar Active Directory), agregue las siguientes notificaciones y haga clic en **Finalizar** y luego en **Aceptar**.
-
-    ![Establecer las propiedades de la regla](./media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-3.png)
-
 12.  Según el tipo de certificado, es posible que tenga que establecer el algoritmo HASH. En la ventana de propiedades de la relación de confianza de usuario (demo de B2C), haga clic en la pestaña **Avanzado** y cambie el valor de **Algoritmo hash seguro** a `SHA-1` o `SHA-256` y luego haga clic en **Aceptar**.  
+13. En el Administrador del servidor, seleccione **Herramientas** y luego **ADFS Management** (Administración de ADFS).
+14. Seleccione la relación de usuario de confianza que creó, seleccione **Actualizar a partir de los metadatos de federación** y luego haga clic en **Actualizar**. 
 
-### <a name="update-the-relying-party-metadata"></a>Actualizar los metadatos del usuario de confianza
+## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
 
-El cambio del perfil técnico de SAML requiere la actualización de ADFS con la versión actualizada de los metadatos. No es necesario actualizar los metadatos al crear la aplicación del usuario de confianza, pero cuando se realiza un cambio, se actualizan los metadatos en ADFS.
+La comunicación con Azure AD B2C se produce mediante una aplicación que se crea en el inquilino. En esta sección se enumeran los pasos opcionales que puede llevar a cabo para crear una aplicación de prueba, si aún no lo ha hecho.
 
-1. En el Administrador del servidor, seleccione **Herramientas** y luego **ADFS Management** (Administración de ADFS).
-2. Seleccione la relación de usuario de confianza que creó, seleccione **Actualizar a partir de los metadatos de federación** y luego haga clic en **Actualizar**. 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal y busque y seleccione **Azure AD B2C**.
+4. Seleccione **Aplicaciones** y, a continuación, seleccione **Agregar**.
+5. Escriba un nombre para la aplicación; por ejemplo, *testapp1*.
+6. En **Aplicación web/API web**, seleccione `Yes` y, a continuación, escriba `https://jwt.ms` como **URL de respuesta**.
+7. Haga clic en **Create**(Crear).
 
-### <a name="test-the-policy-by-using-run-now"></a>Probar la directiva mediante Ejecutar ahora
+### <a name="update-and-test-the-relying-party-file"></a>Actualización y prueba del archivo del usuario de confianza
 
-1.  Abra la **configuración de Azure AD B2C** y vaya a **Marco de experiencia de identidad**.
-2.  Abra **B2C_1A_ProfileEdit**, que es la directiva personalizada del usuario de confianza (RP) que ha cargado. Seleccione **Ejecutar ahora**. Debería poder iniciar sesión con la cuenta de ADFS.
+Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado.
 
-## <a name="download-the-complete-policy-files"></a>Descarga de los archivos de directiva completos
+1. Realice una copia del archivo *SignUpOrSignIn.xml* en el directorio de trabajo y cámbiele el nombre. Por ejemplo, cambie su nombre a *SignUpSignInADFS.xml*.
+2. Abra el nuevo archivo y actualice el valor del atributo **PolicyId** del elemento **TrustFrameworkPolicy** con un valor único. Por ejemplo, `SignUpSignInADFS`.
+3. Actualice el valor de **PublicPolicyUri** con el identificador URI de la directiva. Por ejemplo, "http://contoso.com/B2C_1A_signup_signin_adfs">
+4. Cambie el valor del atributo **ReferenceId** del elemento **DefaultUserJourney** para que coincida con el identificador del nuevo recorrido del usuario que ha creado (SignUpSignInADFS).
+5. Guarde los cambios, cargue el archivo y, a continuación, seleccione la nueva directiva en la lista.
+6. Asegúrese de que la aplicación de Azure AD B2C que creó está seleccionada en el campo **Seleccionar aplicación** y, a continuación, pruébela; para ello, haga clic en **Ejecutar ahora**.
 
-Opcional: puede compilar el escenario con archivos de directiva personalizada propios tras completar los pasos de [Azure Active Directory B2C: introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). Para obtener archivos de ejemplo, consulte los [archivos de ejemplo de directiva solo a modo de referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app).

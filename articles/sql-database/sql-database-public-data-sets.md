@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160424"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586264"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de datos públicos para pruebas y prototipos
 
@@ -40,7 +40,7 @@ Consulte la siguiente lista de conjuntos de datos públicos que puede usar para 
 
 | Origen de datos | Acerca de los datos | Acerca de los archivos |
 |---|---|---|
-| [Datos de los taxi de la ciudad de Nueva York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Los registros de las carreras de los taxis incluyen campos que recopilan las fechas y horas de inicio y fin, así como los lugares de inicio y fin, las distancias de las carreras, las tarifas desglosadas, los tipos de tarifa, los tipos de pago y los recuentos de pasajeros notificados por el conductor". | Los conjuntos de datos se encuentran en archivos CSV por mes. |
+| [Datos de los taxi de la ciudad de Nueva York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Los registros de las carreras de los taxis incluyen campos que recopilan las fechas y horas de inicio y fin, así como las ubicaciones de recogida y destino, las distancias de las carreras, las tarifas desglosadas, los tipos de tarifa, los tipos de pago y los recuentos de pasajeros notificados por el conductor". | Los conjuntos de datos se encuentran en archivos CSV por mes. |
 | [Conjuntos de datos de Microsoft Research: "Ciencia de datos para la investigación"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Diversos conjuntos de datos que cubren la interacción de personas y equipos informáticos, audio y vídeo, recuperación de información y minería de datos, geoespacial y ubicación, procesamiento del lenguaje natural y visión robótica e informática. | Los conjuntos de datos se encuentran en diversos formatos, comprimidos para su descarga. |
 | [Datos públicos del genoma](http://www.completegenomics.com/public-data/) | "Hay un diverso conjunto de datos de todos los genomas humanos disponible para uso público con el fin de mejorar los estudios del genoma..." El proveedor, Complete Genomics, es una empresa privada con ánimo de lucro. | Los conjuntos de datos, después de la extracción, están en formato de texto de UNIX. También hay herramientas de análisis disponibles. |
 | [Datos de la nube de datos científicos abiertos](https://www.opensciencedatacloud.org/) | "La nube de datos científicos abiertos (Open Science Data Cloud) proporciona a la comunidad científica recursos para almacenar, compartir y analizar terabytes y petabytes de conjuntos de datos científicos".| Los conjuntos de datos están en distintos formatos. |

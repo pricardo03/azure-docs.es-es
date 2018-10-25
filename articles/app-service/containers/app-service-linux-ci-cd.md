@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: msangapu
-ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130980"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867038"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementación continua con Web App for Containers
 
@@ -42,7 +42,7 @@ En [Azure Portal](https://portal.azure.com/), seleccione la opción **App Servic
 
 Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua de Docker Hub.
 
-En la página **Contenedor de Docker**, seleccione **Activado** y, a continuación, seleccione **Guardar** para habilitar la implementación continua.
+En la página **Configuración del contenedor**, seleccione **Activado** y, luego, seleccione **Guardar** para habilitar la implementación continua.
 
 ![Captura de pantalla de la configuración de la aplicación](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 

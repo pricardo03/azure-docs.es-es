@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9e3f190decdc907cf57a0235b9d7142081bd2f1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208036"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815654"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Escalado de clústeres de Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -75,6 +75,10 @@ En función de estas limitaciones, puede que desee [implementar modelos de escal
 Los clústeres independientes le permiten implementar el clúster de Service Fabric de modo local o en el proveedor en la nube de su elección.  Los tipos de nodo están formados por máquinas físicas o virtuales, según la implementación. En comparación con los clústeres que se ejecutan en Azure, el proceso de escalado de un clúster independiente es un poco más complicado.  Debe cambiar manualmente el número de nodos del clúster y, a continuación, ejecutar una actualización de la configuración de clúster.
 
 La eliminación de nodos puede iniciar varias actualizaciones. Algunos nodos están marcados con la etiqueta `IsSeedNode=”true”` y se pueden identificar consultando el manifiesto del clúster mediante [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). La eliminación de estos nodos puede tardar más que la de otros, ya que se tendrán que mover los nodos de inicialización en estos escenarios. El clúster debe tener un mínimo de tres nodos del tipo de nodo principal.
+
+> [!WARNING]
+> Se recomienda no reducir el número de nodos por debajo del [tamaño del clúster del nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) del clúster. Esto interferirá con la capacidad de los servicios del sistema de Service Fabric para replicarse en el clúster y llegar a desestabilizar o, posiblemente, destruir el clúster.
+>
 
 Al escalar un clúster independiente, tenga en cuenta las directrices siguientes:
 - Los nodos principales se deben sustituir uno por uno, en lugar de quitarlos y agregarlos de forma masiva.

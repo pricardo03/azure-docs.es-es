@@ -3,19 +3,19 @@ title: 'Reconocer el texto manuscrito e impreso: Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: Conceptos relacionados con el reconocimiento del texto manuscrito e impreso en imágenes mediante Computer Vision API.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 6827bf5f983834dc5222a3f3028386f8bbcb253a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985318"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338107"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Reconocimiento de texto manuscrito e impreso
 
@@ -29,7 +29,7 @@ Computer Vision puede reconocer el texto impreso y manuscrito de las imágenes q
 
 - La imagen debe estar en formato JPEG, PNG, GIF o BMP
 - El tamaño de archivo de la imagen debe ser inferior a 4 megabytes (MB)
-- El tamaño de la imagen debe estar entre 40 x 40 y 3200 x 3200 píxeles.
+- El tamaño de la imagen debe estar entre 50 x 50 y 4200 x 4200 píxeles.
 
 > [!NOTE]
 > Esta tecnología está actualmente en versión preliminar y solo está disponible para textos en inglés.

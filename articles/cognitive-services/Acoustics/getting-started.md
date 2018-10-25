@@ -1,20 +1,21 @@
 ---
-title: 'Introducción a Elementos acústicos de un proyecto: Cognitive Services'
+title: Introducción a Elementos acústicos de un proyecto
+titlesuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido le mostrará cómo integrar el complemento en el proyecto de Unity, elaborar la escena y aplicar la acústica a los orígenes de sonido.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181398"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902950"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Introducción a Elementos acústicos de un proyecto
 Esta guía de inicio rápido le mostrará cómo integrar el complemento en el proyecto de Unity, elaborar la escena y aplicar la acústica a los orígenes de sonido. Para este inicio rápido, primero deberá crear una [cuenta de Azure Batch](create-azure-account.md). Esta guía supone que está algo familiarizado con Unity.
@@ -93,9 +94,9 @@ Cree un origen de sonido. Active la casilla de verificación en la parte inferio
 ![Origen de audio](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>Aplicación del diseño posterior a la elaboración
-Puede adjuntar el script **AcousticsSourceCustomization** a un origen de sonido de la escena para habilitar parámetros de diseño de origen adicionales mediante un clic en **Add Component** (Agregar componente) y la elección de **Scripts > Acoustics Source Customization** (Scripts > Personalización de origen de acústica):
+Puede adjuntar el script **AcousticsAdjust** a un origen de sonido de la escena para habilitar parámetros de diseño de origen adicionales si hace clic en **Add Component** (Agregar componente) y selecciona **Scripts > Acoustics Adjust** (Scripts > Ajuste de acústica):
 
-![Personalización de origen](media/SourceCustomization.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
 También hay parámetros en **Microsoft Acoustics Mixer** (Mezclador de Microsoft Acoustics). Para más información sobre el diseño posterior a la elaboración, consulte los [parámetros de diseño](design-process.md).
 

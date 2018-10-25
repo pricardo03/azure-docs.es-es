@@ -1,12 +1,34 @@
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 063ca2bbb334c120e285d4b3eac8af00fafa7e5a
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843103"
+---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Llamada a Microsoft Graph API desde una aplicación iOS
 
 En esta guía se muestra cómo una aplicación iOS nativa (Swift) puede llamar a las API que requieren los tokens de acceso desde el punto de conexión v2.0 de Microsoft Azure Active Directory (Azure AD). La guía explica cómo obtener tokens de acceso y usarlos en las llamadas a Microsoft Graph API y otras API.
 
 Después de completar los ejercicios de esta guía, la aplicación puede llamar a una API protegida de cualquier empresa u organización que tenga Azure AD. La aplicación puede realizar llamadas API protegidas mediante el uso de cuentas personales, como outlook.com, live.com u otras, así como cuentas profesionales o educativas.
 
-## <a name="prerequisites"></a>requisitos previos
-- Para el ejemplo que se crea en esta guía, se requiere XCode versión 8.x. Puede descargar XCode desde [el sitio web de iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
+## <a name="prerequisites"></a>Requisitos previos
+- Para el ejemplo que se crea en esta guía, se requiere XCode versión 10.x. Puede descargar XCode desde [el sitio web de iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - El administrador de dependencias de [Carthage](https://github.com/Carthage/Carthage) es necesario para la administración del paquete.
 
 ## <a name="how-this-guide-works"></a>Funcionamiento de esta guía

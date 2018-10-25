@@ -2,18 +2,17 @@
 title: Procedimientos recomendados en Azure Container Registry
 description: Obtenga información sobre cómo de forma eficaz Azure Container Registry mediante los siguientes procedimientos recomendados.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: marsma
-ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: article
+ms.date: 09/27/2018
+ms.author: danlep
+ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423511"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857710"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedimientos recomendados para Azure Container Registry
 
@@ -66,31 +65,25 @@ Para obtener información detallada acerca de la autenticación de Azure Contain
 
 Las restricciones de almacenamiento de cada [SKU de registro de contenedor][container-registry-skus] están diseñadas para adaptarse a un escenario típico: **Básico** para obtener una introducción, **Estándar** para la mayoría de las aplicaciones de producción y **Premium** para obtener un rendimiento a gran escala y [replicación geográfica][container-registry-geo-replication]. Durante todo el ciclo de vida del registro, debe administrar su tamaño mediante la eliminación periódica del contenido sin usar.
 
-Puede consultar el uso actual de un registro en la **información general** del registro de contenedor en Azure Portal:
+Use el comando [az acr show-usage][az-acr-show-usage] de la CLI de Azure para mostrar el tamaño actual del registro:
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+También puede encontrar el almacenamiento actual usado en **Información general** del registro en Azure Portal:
 
 ![Información del uso del registro en Azure Portal][registry-overview-quotas]
 
-Puede administrar el tamaño del registro mediante la [CLI de Azure][azure-cli] o [Azure Portal][azure-portal]. Solo las SKU administradas (Básico, Estándar, Premium) admiten la eliminación de imágenes y repositorios. No se pueden eliminar los repositorios, las imágenes ni las etiquetas en un registro Clásico.
+### <a name="delete-image-data"></a>Eliminación de los datos de la imagen
 
-### <a name="delete-in-azure-cli"></a>Eliminación en la CLI de Azure
+Azure Container Registry admite varios métodos para eliminar datos de imagen del registro de contenedor. Puede eliminar imágenes por etiqueta o síntesis de manifiesto o eliminar un repositorio entero.
 
-Use el comando [az acr repository delete][az-acr-repository-delete] para eliminar un repositorio o contenido de un repositorio.
-
-Para eliminar un repositorio, incluidas todas las etiquetas y los datos de la capa de imagen que incluye, especifique solo el nombre del repositorio al ejecutar [az acr repository delete][az-acr-repository-delete]. En el ejemplo siguiente, se elimina el repositorio *myapplication* y todas las etiquetas y los datos de la capa de imagen de este:
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-También puede eliminar datos de la imagen de un repositorio mediante los argumentos `--tag` y `--manifest`. Para obtener más información sobre estos argumentos, consulte la [referencia del comando az acr repository delete][az-acr-repository-delete].
-
-### <a name="delete-in-azure-portal"></a>Eliminación en Azure Portal
-
-Para eliminar un repositorio de un registro en Azure Portal, primero navegue hasta el registro de contenedor. Luego, en **SERVICIOS**, seleccione **Repositorios** y haga clic con el botón derecho en el repositorio que quiera eliminar. Seleccione **Eliminar** para eliminar el repositorio y las imágenes de Docker que contiene.
-
-![Eliminación de un repositorio en Azure Portal][delete-repository-portal]
-
-De forma similar, también puede eliminar las etiquetas de un repositorio. Desplácese hasta el repositorio, haga clic con el botón derecho en la etiqueta que quiera eliminar en **ETIQUETAS** y seleccione **Eliminar**.
+Para más información sobre cómo eliminar datos de imagen del registro, como imágenes no etiquetadas (a veces llamadas "pendientes" o "huérfanas"), consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -102,6 +95,7 @@ Azure Container Registry está disponible en varios niveles, denominados SKU, y 
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

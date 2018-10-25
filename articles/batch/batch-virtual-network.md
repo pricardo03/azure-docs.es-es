@@ -1,48 +1,43 @@
 ---
 title: Aprovisionamiento de un grupo de Azure Batch en una red virtual | Microsoft Docs
-description: Puede crear un grupo de Batch en una red virtual para que los nodos de proceso puedan comunicarse de manera segura con otras máquinas virtuales en la red, como un servidor de archivos.
+description: Cómo crear un grupo de Batch en una red virtual de Azure para que los nodos de proceso puedan comunicarse de manera segura con otras máquinas virtuales en la red, como un servidor de archivos.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9e8bd6819601cc4436e3432ee390f2ae82a0d94a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143323"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091968"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
-
 Al crear un grupo de Azure Batch, puede aprovisionarlo en una subred de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) que especifique. En este artículo se explica cómo configurar un grupo de Batch en una red virtual. 
-
-
 
 ## <a name="why-use-a-vnet"></a>¿Por qué se utiliza una red virtual?
 
-
 Un grupo de Azure Batch tiene una configuración para permitir que los nodos de proceso se comuniquen entre sí; por ejemplo, para ejecutar tareas de varias instancias. Esta configuración no requiere una red virtual distinta. Sin embargo, de forma predeterminada, los nodos no pueden comunicarse con máquinas virtuales que no forman parte del grupo de Batch, como un servidor de licencias o un servidor de archivos. Para permitir que los nodos de proceso del grupo se comuniquen de manera segura con otras máquinas virtuales, o con una red local, puede aprovisionar el grupo en una subred de una red virtual de Azure. 
-
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Autenticación**. Para usar una red virtual de Azure, la API de cliente de Batch debe usar la autenticación de Azure Active Directory (AD). La compatibilidad de Azure Batch con Azure AD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md). 
 
-* **Una red virtual de Azure**. Para preparar una red virtual con una o varias subredes previamente, puede usar Azure Portal, Azure PowerShell, la interfaz de línea de comandos (CLI) de Azure u otros métodos. Para crear una red virtual basada en Azure Resource Manager, consulte [Creación de una red virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para crear una red virtual clásica, consulte [Creación de una red virtual (clásica) con varias subredes](../virtual-network/create-virtual-network-classic.md).
+* **Una red virtual de Azure**. Consulte la sección siguiente para conocer los requisitos de la red virtual y cómo configurarla. Para preparar una red virtual con una o varias subredes previamente, puede usar Azure Portal, Azure PowerShell, la interfaz de línea de comandos (CLI) de Azure u otros métodos.  
+  * Para crear una red virtual basada en Azure Resource Manager, consulte [Creación de una red virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se recomienda una red virtual basada en Resource Manager para implementaciones nuevas y solo se admite en grupos en la configuración de la máquina virtual.
+  * Para crear una red virtual clásica, consulte [Creación de una red virtual (clásica) con varias subredes](../virtual-network/create-virtual-network-classic.md). Una red virtual clásica solo se admite en grupos en la configuración de Cloud Services.
 
-### <a name="vnet-requirements"></a>Requisitos de la red virtual
+## <a name="vnet-requirements"></a>Requisitos de la red virtual
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
-    
+
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Creación de un grupo con una red virtual en el portal
 
 Una vez que haya creado la red virtual y le haya asignado una subred, puede crear un grupo de Batch a esa red virtual. Siga estos pasos para crear un grupo en Azure Portal: 
-
-
 
 1. Vaya a la cuenta de Batch en Azure Portal. Esta cuenta debe estar en la misma suscripción y región que el grupo de recursos que contiene la red virtual que pretende utilizar. 
 2. En la ventana **Configuración** que aparece a la izquierda, seleccione el elemento de menú **Grupos**.

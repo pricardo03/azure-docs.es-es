@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434932"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343734"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 
@@ -81,7 +81,7 @@ Busque la definición de·conjunto de escalado de máquinas virtuales en la secc
 En el recurso del conjunto de escalado de máquinas virtuales, busque la sección **virtualMachineProfile**. Agregue un nuevo perfil llamado **extensionsProfile** para administrar las extensiones.  
 
 
-En **extensionProfile**, agregue una nueva extensión a la plantilla, como se muestra en la **sección VMSS-WAD-extension**.  Esta sección es la extensión de Managed Service Identity (MSI) que garantiza que Azure Monitor acepte las métricas que se emiten. El campo **name** puede contener cualquier nombre. 
+En **extensionProfile**, agregue una nueva extensión a la plantilla, como se muestra en la **sección VMSS-WAD-extension**.  Esta sección es la extensión de identidades administradas para los recursos de Azure que garantiza que Azure Monitor acepta las métricas que se emiten. El campo **name** puede contener cualquier nombre. 
 
 El código siguiente de la extensión MSI también agrega la extensión de diagnóstico y la configuración como recurso de extensión al recurso del conjunto de escalado de máquinas virtuales. No dude en agregar o quitar contadores de rendimiento según sea necesario. 
 
@@ -89,7 +89,7 @@ El código siguiente de la extensión MSI también agrega la extensión de diagn
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed service identity   
+            // Managed identites for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

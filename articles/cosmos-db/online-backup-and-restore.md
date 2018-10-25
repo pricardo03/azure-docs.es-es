@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 613c61d9b881b7d736a50cadbf313c1f9aac57c9
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 657b75e5e3bb5c35bb23221235e62298fc797046
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038664"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902679"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB
-Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos o de recuperación ante desastres.  
+Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos.  
 
 Este artículo comienza con un resumen rápido de la disponibilidad y redundancia de datos en Cosmos DB y, luego, analiza las copias de seguridad. 
 
@@ -47,11 +47,18 @@ La imagen siguiente ilustra copias de seguridad completas y periódicas de todas
 ## <a name="backup-retention-period"></a>Período de retención de copia de seguridad
 Como se describió anteriormente, Azure Cosmos DB toma instantáneas de los datos cada cuatro horas en el nivel de partición. En un momento dado del tiempo, solo las dos últimas instantáneas se conservan. Pero si se elimina el contenedor o la base de datos, Azure Cosmos DB conserva las instantáneas existentes para todas las particiones eliminadas dentro del contenedor o la base de datos determinada durante 30 días.
 
-Para la API de SQL, si quiere mantener sus propias instantáneas, puede usar la opción de exportación a JSON de la [herramienta de migración de datos](import-data.md#export-to-json-file) de Azure Cosmos DB para programar copias de seguridad adicionales.
+Para la API de SQL, si desea mantener sus propias instantáneas, puede hacerlo con las siguientes opciones:
+
+* Con la opción de exportación a JSON en la [herramienta de migración de datos](import-data.md#export-to-json-file) de Azure Cosmos DB para programar copias de seguridad adicionales.
+
+* Con [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) para mover datos periódicamente.
+
+* Con la [fuente de cambios](change-feed.md) de Azure Cosmos DB para leer datos periódicamente para una copia de seguridad completa y por separado para los cambios incrementales, y para moverlos al destino de blob. 
+
+* Para administrar las copias de seguridad semiactivas, es posible leer periódicamente los datos de la fuente de cambios y retrasar su escritura a otra colección. De este modo se garantiza que tenga que restaurar los datos y que inmediatamente pueda mirar los datos para el problema. 
 
 > [!NOTE]
-> Si aprovisiona el rendimiento de un conjunto de contenedores en el nivel de base de datos, recuerde que la restauración tiene lugar en el nivel completo de la cuenta de base de datos. También debe asegurarse de ponerse en contacto con el equipo de soporte técnico en un plazo de 8 horas si usa esta nueva funcionalidad y elimina por accidente su contenedor. Los datos no se pueden restaurar si no se pone en contacto con el equipo de soporte técnico en un plazo de 8 horas. 
-
+> Si aprovisiona el rendimiento de un conjunto de contenedores en el nivel de base de datos, recuerde que la restauración tiene lugar en el nivel completo de la cuenta de base de datos. También debe asegurarse de ponerse en contacto con el equipo de soporte técnico en un plazo de ocho horas si usa esta nueva funcionalidad y elimina por accidente su contenedor. Los datos no se pueden restaurar si no se pone en contacto con el equipo de soporte técnico en un plazo de 8 horas.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restauración de una base de datos desde una copia de seguridad en línea
 
@@ -59,18 +66,24 @@ En caso de que elimine accidentalmente la base de datos o el contenedor, puede [
 
 Si necesita restaurar la base de datos debido a problemas de datos dañados (incluye los casos en los que se eliminan documentos de un contenedor), vea [Control de datos dañados](#handling-data-corruption) ya que puede ser necesario realizar pasos adicionales para impedir que los datos dañados se escriban en las copias de seguridad existentes. Si se va a restaurar una instantánea específica de su copia de seguridad, Cosmos DB requiere que los datos hayan estado disponibles durante el ciclo de copia de seguridad de esa instantánea.
 
+> [!NOTE]
+> Las colecciones o bases de datos solo pueden restaurarse en las solicitudes de cliente explícitas. Es responsabilidad del cliente eliminar el contenedor o la base de datos inmediatamente después de la conciliación de los datos. Si no elimina las bases de datos o las colecciones restauradas, supondrá un costo para las unidades de solicitud, el almacenamiento y la salida.
+
 ## <a name="handling-data-corruption"></a>Control de los datos dañados
 
 Azure Cosmos DB conserva las dos últimas copias de seguridad de cada partición en la cuenta de la base de datos. Este modelo funciona bien cuando un contenedor (colección de documentos, grafos o tablas) o una base de datos se eliminan accidentalmente porque una de las últimas versiones se puede restaurar. Sin embargo, cuando se presenta un problema de daños en los datos, Azure Cosmos DB puede no ser consciente de los daños en los datos y es posible que los daños puedan haberse escrito en las copias de seguridad existentes. 
 
-En cuanto se detecte el daño, póngase en contacto con la asistencia al cliente y proporcione la información de la cuenta y el contenedor, además de la hora aproximada del daño. Otra acción que puede realizar el usuario en caso de daños (eliminación o actualización de datos) es eliminar el contenedor dañado (colección, gráfico o tabla) para que las copias de seguridad estén protegidas y no se sobrescriban con datos dañados.  
+En cuanto se detectan daños, el usuario debe eliminar el contenedor dañado (colección, grafo o tabla) para que las copias de seguridad estén protegidas de ser sobrescritas con datos dañados. Y lo más importante: póngase en contacto con el servicio de soporte técnico de Microsoft y genere una incidencia con una solicitud específica de gravedad 2. 
 
 En la siguiente imagen se ilustra la creación de solicitud de soporte técnico para restaurar el contenedor (colección, gráfico o tabla) por medio de Azure Portal debido a eliminación accidental o actualización de datos en un contenedor.
 
 ![Restauración de un contenedor para actualizaciones erróneas o eliminaciones de datos en Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Cuando se realiza la restauración para este tipo de escenarios, los datos se restauran en otra cuenta (con el sufijo "-restored") y otro contenedor. Esta restauración no se realiza localmente para darle una oportunidad al cliente para validar los datos y moverlos según lo requiera. El contenedor restaurado está en la misma región con las mismas RU y políticas de indexación. 
+Cuando se realiza la restauración para este tipo de escenarios, los datos se restauran en otra cuenta (con el sufijo "-restored") y otro contenedor. Esta restauración no se realiza localmente para darle una oportunidad al cliente para validar los datos y moverlos según lo requiera. El contenedor restaurado está en la misma región con las mismas RU y políticas de indexación. El usuario que sea administrador de suscripciones o administrador conjunto puede ver esta cuenta restaurada.
 
+
+> [!NOTE]
+> Si restaura los datos para corregir los daños o solo para las pruebas, planee quitarlos en cuanto la tarea se lleve a cabo, ya que los contenedores o la base de datos restaurados supondrán un costo adicional en función del rendimiento aprovisionado. 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para replicar la base de datos en varios centros de datos, consulte [Distribución global de datos con Cosmos DB](distribute-data-globally.md). 

@@ -1,21 +1,21 @@
 ---
-title: Actualizar Bing Autosuggest API v5 a v7 | Microsoft Docs
+title: Actualización de Bing Autosuggest API v5 a v7
+titlesuffix: Azure Cognitive Services
 description: Identifica las partes de la aplicación que se deben actualizar para usar la versión 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 751EDCF0-0C8B-4C23-942C-FA06F5DAD3FD
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 5663a671711dba4f44c89e8221a729c6670ec8fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ada9ab6622ea12e48475230787168d90e95ec0d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382119"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829875"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guía de actualización de AutoSuggest API
 
@@ -35,7 +35,7 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
   - `subCode`&mdash;Divide el código de error en cubos discretos, si es posible.
   - `moreDetails`&mdash;Información adicional sobre el error descrito en el campo `message`.
 
-- Se han reemplazado los códigos de error de v5 por los posibles valores de `code` y `subCode` siguientes.
+- Se han reemplazado los códigos de error v5 por los posibles valores de `code` y `subCode` siguientes.
 
 |Código|Subcódigo|DESCRIPCIÓN
 |-|-|-

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011363"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249339"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Copia de datos de Azure Data Lake Storage Gen1 en Gen2 (versión preliminar) con Azure Data Factory
 
@@ -80,7 +80,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
    3. Seleccione **Next** (Siguiente).
    
    > [!IMPORTANT]
-   > En este tutorial, utilizará una _identidad de servicio administrada_ para autenticar Data Lake Storage Gen1e. Asegúrese de conceder a MSI los permisos adecuados en Azure Data Lake Storage Gen1 con [estas instrucciones](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > En este tutorial, utilizará una identidad administrada para recursos de Azure para autenticar la cuenta de Data Lake Storage Gen1e. Asegúrese de conceder a MSI los permisos adecuados en Azure Data Lake Storage Gen1 con [estas instrucciones](connector-azure-data-lake-store.md#managed-identity).
    
    ![Especificación de una cuenta de Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    

@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225232"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091630"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Preparación de la implementación de modelos en IoT Edge
 
@@ -35,7 +35,7 @@ Antes de implementar un modelo en un dispositivo perimetral, utilice los pasos d
 
 * Una instancia de [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure. 
 
-* Un modelo entrenado. Para obtener un ejemplo de entrenamiento de un modelo, consulte el documento [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning).
+* Un modelo entrenado. Para obtener un ejemplo de entrenamiento de un modelo, consulte el documento [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning). Hay disponible un modelo previamente entrenado en el [Kit de herramientas de AI para el repositorio de Azure IoT Edge GitHub](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ## <a name="prepare-the-iot-device"></a>Preparación del dispositivo IoT
 
@@ -43,10 +43,7 @@ Para obtener información sobre cómo registrar el dispositivo e instalar el ent
 
 ## <a name="register-the-model"></a>Registro del modelo
 
-Los módulos de Azure IoT Edge se basan en las imágenes de contenedor. Para implementar el modelo en un dispositivo IoT Edge, siga estos pasos para registrar el modelo en un área de trabajo de Azure Machine Learning y crear una imagen de Docker. 
-
-> [!IMPORTANT]
-> Si ha usado Azure Machine Learning para entrenar el modelo puede que ya esté registrado en el área de trabajo; en ese caso, omita el paso 3.
+Los módulos de Azure IoT Edge se basan en las imágenes de contenedor. Para implementar el modelo en un dispositivo IoT Edge, siga estos pasos para registrar el modelo en un área de trabajo del servicio Azure Machine Learning y crear una imagen de Docker. 
 
 1. Inicialice el área de trabajo y cargue el archivo config.json:
 
@@ -58,6 +55,9 @@ Los módulos de Azure IoT Edge se basan en las imágenes de contenedor. Para imp
     ```    
 
 1. Registre el modelo en el área de trabajo. Reemplace el texto predeterminado con la ruta de acceso del modelo,el nombre, las etiquetas y la descripción:
+
+    > [!IMPORTANT]
+    > Si ha usado Azure Machine Learning para entrenar el modelo, puede que ya esté registrado en el área de trabajo. En este caso, omita este paso. Para ver una lista de los modelos registrados con este área de trabajo, use `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model
@@ -122,7 +122,7 @@ Azure IoT necesita las credenciales para el registro de contenedor que almacena 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/signin/index).
 
-1. Vaya al área de trabajo de Azure Machine Learning y seleccione __Introducción__. Para ir a la configuración del registro de contenedor, seleccione el vínculo __Registro__.
+1. Vaya al área de trabajo del servicio Azure Machine Learning y seleccione __Introducción__. Para ir a la configuración del registro de contenedor, seleccione el vínculo __Registro__.
 
     ![Imagen de la entrada en el registro de contenedor](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

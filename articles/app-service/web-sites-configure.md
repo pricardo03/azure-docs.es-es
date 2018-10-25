@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293723"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115529"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en Azure App Service
 
@@ -73,6 +73,7 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 Esta sección contiene los pares de nombre y valor que la aplicación web cargará al inicio. 
 
 * En las aplicaciones .NET, estas configuraciones se insertarán en la sección de la configuración de .NET `AppSettings` en tiempo de ejecución y reemplazará la configuración existente. 
+* Para App Service en Linux o Web App for Containers, si ha anidado en su nombre la estructura de claves de JSON como `ApplicationInsights:InstrumentationKey` deberá tener `ApplicationInsights__InstrumentationKey` como nombre de clave. Por lo que tenga en cuenta que cualquier `:` deben reemplazarse por `__` (es decir, el subrayado doble).
 * Las aplicaciones PHP, Python, Java y Node pueden acceder a estas configuraciones como variables de entorno en tiempo de ejecución. En cada configuración de aplicación se crean dos variables de entorno; una con el nombre especificado en el entrada de configuración de la aplicación y otra con el prefijo APPSETTING_. Ambas contienen el mismo valor.
 
 La configuración de la aplicación siempre se cifra cuando se almacena (cifrado en reposo).
@@ -89,7 +90,7 @@ En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán dis
 * SQL Database: `SQLAZURECONNSTR_`
 * Personalizado: `CUSTOMCONNSTR_`
 
-Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
+Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de  `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
 
 Las cadenas de conexión siempre se cifran cuando se almacenan (cifrado en reposo).
 

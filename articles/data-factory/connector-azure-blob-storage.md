@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444595"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815433"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Puede copiar datos desde cualquier almacén de datos de origen admitido a Blob S
 En concreto, este conector de Blob Storage admite las siguientes operaciones:
 
 - Copia de blobs con cuentas de Azure Storage de uso general y almacenamiento de blobs en frío y en caliente como orígenes y destinos. 
-- Copia de blobs mediante el uso de la clave de cuenta, la firma de acceso compartido de servicio, las autenticaciones mediante una identidad de servicio administrada o una entidad de servicio.
+- Copia de blobs mediante el uso de una clave de cuenta, una firma de acceso compartido de servicio, una entidad de servicio o identidades administradas paras las autenticaciones de recursos de Azure.
 - Copia de blobs desde blobs en bloques, blobs con anexos o blobs en páginas y copia de datos solo a blobs en bloques. Azure Premium Storage no es compatible como receptor porque está respaldado por blobs en páginas.
 - Copia de blobs tal cual, o análisis o generación de los mismos con [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ El conector de Azure Blob admite los siguientes tipos de autenticación. Consult
 - [Autenticación de clave de cuenta](#account-key-authentication)
 - [Autenticación con firma de acceso compartido](#shared-access-signature-authentication)
 - [Autenticación de entidad de servicio](#service-principal-authentication)
-- [Autenticación con Managed Service Identity](#managed-service-identity-authentication)
+- [Identidades administradas para la autenticación de recursos de Azure](#managed-identity)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning y la carga de PolyBase de Azure SQL Data Warehouse solo admiten la autenticación de clave de cuenta de Azure Blob Storage.
@@ -191,13 +191,13 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticación con Managed Service Identity
+### <a name="managed-identity"></a>Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos puede asociarse con una [identidad de servicio administrada](data-factory-service-identity.md), que representa esta factoría de datos específica. Puede usar directamente esta identidad de servicio para la autenticación de Blob Storage, de manera similar a como usa su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad de servicio para la autenticación de Blob Storage, de manera similar a como usa su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
 
 Para la autenticación con MSI de Azure Storage en general, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-Para usar la autenticación de identidades de servicio administradas (MSI), siga estos pasos:
+Para usar identidades administradas para la autenticación de recursos de Azure, siga estos pasos:
 
 1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
 
@@ -214,8 +214,8 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 | serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |SÍ |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
->[!NOTE]
->Solo el servicio vinculado tipo "AzureBlobStorage" admite la autenticación con Managed Service Identity pero no el servicio vinculado tipo "AzureStorage" anterior. 
+> [!NOTE]
+> Identidades administradas para la autenticación de recursos de Azure solo lo admite el servicio vinculado del tipo "AzureBlobStorage", pero no el servicio vinculado del tipo "AzureStorage" anterior. 
 
 **Ejemplo:**
 

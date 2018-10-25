@@ -1,28 +1,29 @@
 ---
-title: 'Idiomas admitidos: Speech API'
-titleSuffix: Azure Cognitive Services
-description: Lista de los idiomas naturales admitidos por Speech API.
+title: Idiomas admitidos en Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Lista de los idiomas hablados admitidos por Bing Speech.
 services: cognitive-services
 author: zhouwangzw
-manager: cgronlun
+manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: eeb0f475193a43ab8b0b0ca562364cbdef8a21d2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 961bc2f5d8d619c5a1815b0f4be3b837f72513f4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433147"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340042"
 ---
-# <a name="language-and-region-support-for-speech-api"></a>Idiomas y regiones admitidos para Speech API
+# <a name="supported-languages"></a>Idiomas admitidos
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="interactive-and-dictation-mode"></a>Modo interactivo y dictado
 
-Microsoft Speech Recognition API admite los siguientes idiomas en los modos `interactive` y `dictation`.
+Microsoft Speech Recognition API admite los siguientes idiomas en los modos `interactive` y `dictation`. 
 
 |Código | Idioma | Código | Idioma |
 |-----|-----|-----|-----|
@@ -40,12 +41,11 @@ Microsoft Speech Recognition API admite los siguientes idiomas en los modos `int
 | es-MX | Español (México) |zh-CN | Chino (mandarín, simplificado)  |
 | fi-FI | Finés (Finlandia) |zh-HK | Chino (Hong Kong RAE) |
 | fr-CA | Francés (Canadá) | zh-TW | Chino (mandarín, Taiwán)|
-| fr-FR | Francés (Francia) | gu-IN | Gujarati (India) |
-| ta-IN |Tamil (India) | te-IN | Telugu (India) |
+| fr-FR | Francés (Francia) | ||
 
 ## <a name="conversation-mode"></a>Modo de conversación
 
-Microsoft Speech Recognition API admite los siguientes idiomas en los modos `conversation`.
+Microsoft Speech Recognition API admite los siguientes idiomas en los modos `conversation`. 
 
 | Código | Idioma | Código | Idioma |
 |-----|-----|-----|-----|

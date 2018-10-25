@@ -3,7 +3,7 @@ title: Consola serie de Azure para llamadas SysRq y NMI | Microsoft Docs
 description: Uso de la consola serie para llamadas SysRq y NMI en máquinas virtuales de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6f46a1d6964af867b7b0671d020002d1c1de19ae
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412976"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884649"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Uso de la consola serie para llamadas SysRq y NMI
 
@@ -30,11 +30,11 @@ Una vez que se entrega la secuencia SysRq, la configuración del kernel controla
 
 La consola serie de Azure se puede usar para enviar un comando SysRq a una máquina virtual de Azure mediante el icono de teclado de la barra de comandos que se muestra a continuación.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Al elegir "Send SysRq Command" (Enviar comando SysRq) se abre un cuadro de diálogo que proporciona opciones comunes de SysRq o que acepta una secuencia de comandos SysRq escritos en el cuadro de diálogo.  Esto permite que la serie de comandos SysRq realice una operación de alto nivel como un reinicio seguro mediante: `REISUB`.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 No se puede usar el comando SysRq en máquinas virtuales que estén detenidas o cuyo kernel se encuentre en un estado sin respuesta (por ejemplo, una alerta de pánico del kernel).
 
@@ -103,8 +103,9 @@ Una interrupción no enmascarable (NMI) está diseñada para crear una señal qu
 
 La consola serie se puede usar para enviar una NMI a una máquina virtual de Azure mediante el icono de teclado de la barra de comandos que se muestra a continuación. Una vez que se entrega la NMI, la configuración de la máquina virtual controla cómo responde el sistema.  Los sistemas operativos Linux se pueden configurar para bloquearse y crear un volcado de memoria cuando el sistema operativo recibe una NMI.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
+### <a name="enable-nmi"></a>Habilitar NMI
 En el caso de sistemas Linux que admiten sysctl para configurar parámetros del kernel, puede habilitar una alerta de pánico al recibir esta NMI mediante estas acciones:
 1. Agregar esta línea a */etc/sysctl.conf* <br>
     `kernel.panic_on_unrecovered_nmi=1`

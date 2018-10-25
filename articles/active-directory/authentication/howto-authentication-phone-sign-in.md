@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046929"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804334"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Inicio de sesión telefónico sin contraseña con la aplicación Microsoft Authenticator (versión preliminar pública)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Inicio de sesión telefónico sin contraseña con la aplicación Microsoft Authenticator (versión preliminar pública)
 
 La aplicación Microsoft Authenticator se puede utilizar para iniciar sesión en cualquier cuenta de Azure AD sin utilizar una contraseña. Similar a la tecnología de [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa la autenticación basada en claves para habilitar una credencial de usuario que está asociada a un dispositivo y usa un sistema biométrico o un PIN.
 
@@ -37,7 +37,7 @@ En la versión preliminar pública, un administrador debe agregar una directiva 
 
 ### <a name="steps-to-enable"></a>Pasos para la habilitación
 
-1. Instale la [versión preliminar pública del módulo de PowerShell de Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.114).  
+1. Instale la [versión preliminar pública del módulo de PowerShell de Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureADPreview/).  
 2. En PowerShell, ejecute estos dos comandos:
    1. `Connect-AzureAD`
       1. En el cuadro de diálogo de autenticación, inicie sesión con una cuenta del inquilino. La cuenta debe ser un administrador de seguridad o un administrador global.

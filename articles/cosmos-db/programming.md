@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287451"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817116"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programación en el servidor de Azure Cosmos DB: procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario
 
@@ -39,7 +39,7 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
   
   * Procesamiento por lotes: los desarrolladores pueden agrupar operaciones como inserciones y enviarlas en masa. El coste de la latencia de tráfico de red y la sobrecarga de almacenamiento para crear transacciones independientes se reducen de forma significativa. 
   * Precompilación: Cosmos DB precompila procedimientos almacenados, desencadenadores y funciones definidas por el usuario para evitar el costo de compilación de JavaScript en cada invocación. La sobrecarga de generar el código de byte para la lógica de procedimiento se amortiza en un valor mínimo.
-  * Secuenciación: muchas operaciones necesitan un efecto secundario (“desencadenador”) que implica potencialmente realizar una o más operaciones de almacenamiento secundarias. Aparte de la atomicidad, tiene mayor rendimiento cuando se mueve al servidor. 
+  * Secuenciación: muchas operaciones necesitan un efecto secundario (“desencadenador”) que implica potencialmente realizar una o varias operaciones de almacenamiento secundarias. Aparte de la atomicidad, tiene mayor rendimiento cuando se mueve al servidor. 
 * **Encapsulación:** los procedimientos almacenados se pueden utilizar para agrupar la lógica empresarial en un lugar, lo que tiene dos ventajas:
   * Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esta capa de abstracción supone una ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
   * Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
@@ -50,7 +50,7 @@ En este tutorial se usa el [SDK de Node.js con objetos Q promise](http://azure.g
 
 ## <a name="stored-procedures"></a>Procedimientos almacenados
 ### <a name="example-write-a-stored-procedure"></a>Ejemplo: Escritura de un procedimiento almacenado
-Comencemos con un sencillo procedimiento almacenado que devuelve una respuesta “Hello World”.
+Comencemos con un sencillo procedimiento almacenado que devuelve una respuesta “Hola mundo”.
 
 ```javascript
 var helloWorldStoredProc = {
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de Cosmos DB, así como acceso a los objetos de solicitud y respuesta. En este caso, usará el objeto de respuesta para establecer el cuerpo de la respuesta que se devolvió al cliente. Para más información, consulte la [documentación del SDK del lado del servidor JavaScript de Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
+El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de Cosmos DB, así como acceso a los objetos de solicitud y respuesta. En este caso, usará el objeto de respuesta para establecer el cuerpo de la respuesta que se devolvió al cliente. Para más información, consulte la [referencia de la API del servidor JavaScript de Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Permítanos ampliar este ejemplo y agregar más funcionalidad relacionada con la base de datos al procedimiento almacenado. Los procedimientos almacenados pueden crear, actualizar, leer, consultar y eliminar documentos y datos adjuntos de la colección.    
 
@@ -245,7 +245,7 @@ Si la colección en la que se encuentra registrado el procedimiento almacenado e
 ### <a name="commit-and-rollback"></a>Confirmación y reversión
 Las transacciones están integradas de forma profunda y nativa en el modelo de programación de JavaScript de Cosmos DB. Dentro de una función de JavaScript, todas las operaciones se ajustan automáticamente en una única transacción. Si el JavaScript se completa sin excepciones, se confirman las operaciones en la base de datos. De hecho, las instrucciones “BEGIN TRANSACTION” y “COMMIT TRANSACTION” en las bases de datos relacionales están implícitas en Cosmos DB.  
 
-Si existe cualquier excepción que se propague desde el script, el sistema en tiempo de ejecución de JavaScript de Cosmos DB revertirá toda la transacción. Como se muestra en el ejemplo anterior, iniciar una excepción es un equivalente efectivo de “ROLLBACK TRANSACTION” en Cosmos DB.
+Si existe cualquier excepción que se propague desde el script, el sistema en tiempo de ejecución de JavaScript de Cosmos DB revertirá toda la transacción. Como se muestra en el ejemplo anterior, iniciar una excepción es un equivalente efectivo de "ROLLBACK TRANSACTION" en Cosmos DB.
 
 ### <a name="data-consistency"></a>Coherencia de datos
 Los procedimientos almacenados y los desencadenadores se ejecutan siempre en la réplica principal del contenedor de Azure Cosmos DB. Esto garantiza que las lecturas desde dentro de los procedimientos almacenados ofrecen una fuerte coherencia. Las consultas que utilizan funciones definidas por el usuario se pueden ejecutar en la réplica principal o en cualquier réplica secundaria, pero asegúrese de cumplir con el nivel de coherencia solicitado seleccionando la réplica adecuada.
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta integradas en lenguajes JavaScript
-Además de emitir consultas mediante la gramática de SQL de Azure Cosmos DB, el SDK del lado servidor permite realizar consultas optimizadas a través de una interfaz fluida de JavaScript sin necesidad de tener conocimientos de SQL. La API de consulta de JavaScript permite crear mediante programación consultas pasando las funciones de predicado a llamadas de función encadenadas, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y conocidas bibliotecas de JavaScript, como Lodash. Las consultas se analizan con el tiempo de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
+Además de generar consultas mediante la gramática de SQL de Azure Cosmos DB, el [SDK del servidor](https://azure.github.io/azure-cosmosdb-js-server/) le permite realizar consultas optimizadas mediante una interfaz de JavaScript fluida sin necesidad de tener conocimientos de SQL. La API de consulta de JavaScript permite crear mediante programación consultas pasando las funciones de predicado a llamadas de función encadenadas, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y conocidas bibliotecas de JavaScript, como Lodash. Las consultas se analizan con el tiempo de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (subrayado doble) es un alias para `getContext().getCollection()`.
@@ -831,9 +831,8 @@ Una vez que haya almacenado uno o varios procedimientos, y creado desencadenador
 
 También puede encontrar útiles las siguientes referencias y recursos en su camino hacia el aprendizaje de la programación del servidor de Azure Cosmos DB:
 
-* [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Referencia de la API del servidor JavaScript de Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Extensibilidad de la base de datos segura y portátil](http://dl.acm.org/citation.cfm?id=276339) 
 * [Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

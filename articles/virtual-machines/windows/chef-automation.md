@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038401"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585381"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatización de la implementación de la máquina virtual de Azure con Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef es una fantástica herramienta para ofrecer automatización y las configuraciones de estado que desee.
 
-Con la versión de API de nube más reciente, Chef proporciona una perfecta integración con Azure, lo que da la capacidad de aprovisionar e implementar los estados de configuración a través de un único comando.
+Con la versión de API de nube más reciente, Chef proporciona una perfecta integración con Azure, lo que ofrece la posibilidad de aprovisionar e implementar los estados de configuración mediante un único comando.
 
 En este artículo, configurará su entorno de Chef para aprovisionar máquinas virtuales de Azure y se le guiará en la creación de una directiva o "CookBook" y, a continuación, implementará esta guía en una máquina virtual de Azure.
 
@@ -42,7 +42,7 @@ El diagrama siguiente muestra la arquitectura Chef de alto nivel.
 
 Chef tiene tres componentes de arquitectura principales: servidor de Chef, cliente de Chef (nodo) y estación de trabajo de Chef.
 
-El servidor Chef es el punto de administración y hay dos opciones para el servidor Chef: una solución hospedada o una solución local. Vamos a usar una solución hospedada.
+El servidor Chef es el punto de administración y hay dos opciones para el servidor Chef: una solución hospedada o una solución local. En este tutorial vamos a usar una solución hospedada.
 
 El cliente Chef (nodo) es el agente que se encuentra en los servidores que está administrando.
 
@@ -94,7 +94,7 @@ Debería tener ahora cuatro archivos, incluido el archivo de publicación de Azu
 
 Los archivos PEM contienen sus claves privadas de organización y administración para la comunicación mientras que el archivo knife.rb archivo contiene la configuración de knife. Tendremos que editar el archivo knife.rb.
 
-Abra el archivo en el editor que desee y modifique la "ruta de acceso_cookbook" quitando /../ en la ruta de acceso para que aparezca como se muestra a continuación.
+Abra el archivo en el editor que desee y quite /../ de la ruta de acceso para modificar "cookbook_path" de forma que aparezca como se muestra a continuación.
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -109,7 +109,7 @@ El archivo knife.rb ahora debería ser ahora similar al siguiente ejemplo.
 Estas líneas asegurarán las referencias de Knife en el directorio de cookbooks en c:\chef\cookbooks y también usa nuestro archivo de configuración de publicación de Azure durante las operaciones de Azure.
 
 ## <a name="installing-the-chef-development-kit"></a>Instalar el kit de desarrollo de Chef
-A continuación, [descargue e instale](http://downloads.getchef.com/chef-dk/windows) el ChefDK (Kit de desarrollo de Chef) para configurar su estación de trabajo de Chef.
+A continuación, [descargue e instale](http://downloads.getchef.com/chef-dk/windows) ChefDK (Kit de desarrollo de Chef) para configurar su estación de trabajo de Chef.
 
 ![][7]
 
@@ -119,7 +119,9 @@ Confirme que la variable PATH contiene entradas para C:\opscode\chefdk\bin;C:\op
 
 Si no están ahí, asegúrese de agregar estas rutas de acceso.
 
-*¡TENGA EN CUENTA QUE EL ORDEN DE LA RUTA DE ACCESO ES IMPORTANTE!* Si las rutas de acceso de opscode no están en el orden correcto, tendrá problemas.
+> [!NOTE]
+> El orden de la ruta de acceso es importante. Si las rutas de acceso de opscode no están en el orden correcto, tendrá problemas. 
+> 
 
 Reinicie la estación de trabajo antes de continuar.
 

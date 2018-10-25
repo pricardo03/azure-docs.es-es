@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036498"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888295"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adición de expresiones de ejemplo y etiquetas con entidades
 
@@ -92,12 +92,12 @@ Para agregar un sinónimo a la entidad de la lista, seleccione la palabra o fras
 
 En la expresión, seleccione la palabra sinónima, como `aqua` para agua, luego seleccione el nombre de entidad de la lista en la lista desplegable, como **Bebida**, a continuación, seleccione **Set as synonym** (Establecer como sinónimo) y, por último, seleccione el elemento de lista sinónimo, como **agua**.
 
-![Captura de pantalla de la página de detalles de intención, con la opción Create a new synonym (Crear nuevo sinónimo) resaltada](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Captura de pantalla de la página de detalles de intención, con la opción Create a new normalized view (Crear una vista normalizada) resaltada](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Creación de un nuevo elemento para la entidad de la lista
-Para crear un nuevo elemento para una entidad de la lista existente, seleccione la palabra o frase en la expresión. Si tiene una lista de bebidas y quiere agregar `tea` como un nuevo elemento, siga los pasos:
+Para crear un nuevo elemento para una entidad de la lista existente, seleccione la palabra o frase en la expresión. Si tiene una lista de empleados y quiere agregar `Bob Smith` como un nuevo elemento, siga estos pasos:
 
-En la expresión, seleccione la palabra para el nuevo elemento de lista, como `tea`, a continuación, seleccione el nombre de entidad de la lista en la lista desplegable, como **Bebida**, y seleccione **Create a new synonym** (Crear un nuevo sinónimo). 
+En la expresión, seleccione la palabra u oración para el nuevo elemento de lista, como `Bob Smith`. Después, seleccione el nombre de entidad de la lista en la lista desplegable, como **Empleado**, y seleccione **Create a new normalized view** (Crear una vista normalizada). 
 
 ![Captura de pantalla para agregar un nuevo elemento de lista](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

@@ -1,20 +1,21 @@
 ---
-title: Método de evaluación de Academic Knowledge API | Microsoft Docs
-description: Utilice el método de evaluación para devolver un conjunto de entidades académicas basadas en una expresión de consulta en Microsoft Cognitive Services.
+title: 'Método de evaluación: Academic Knowledge API'
+titlesuffix: Azure Cognitive Services
+description: Use el método de evaluación para devolver un conjunto de entidades académicas basadas en una expresión de consulta.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 3005ae1f6df042a49db086de4982d8206f6938a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380014"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902338"
 ---
 # <a name="evaluate-method"></a>Método de evaluación
 
@@ -29,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ## <a name="request-parameters"></a>Parámetros de solicitud  
 NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 -----------|-----------|---------|--------
-**expr**       | Cadena de texto | Sí | Expresión de consulta que especifica qué entidades se deben devolver.
+**expr**       | Cadena de texto | SÍ | Expresión de consulta que especifica qué entidades se deben devolver.
 **model**      | Cadena de texto | Sin   | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
 **attributes** | Cadena de texto | Sin <br>valor predeterminado: Id | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
 **count**        | Number | Sin <br>Valor predeterminado: 10 | Número de resultados que se van a devolver.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722017"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166974"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -81,7 +81,8 @@ Si ejecuta el cambio de secretos mediante las instrucciones que aparecen a conti
 
    > [!IMPORTANT]  
    > Asegúrese de que la rotación de secretos no se haya ejecutado correctamente en el entorno. Si ya se ha realizado la rotación de secretos, actualice Azure Stack a la versión 1807 o posterior antes de ejecutar la rotación de secretos. 
-1.  Avise a los usuarios de cualquier operación de mantenimiento. Programe ventanas de mantenimiento normales, en la medida de lo posible, durante horas no laborables. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
+1.  Los operadores pueden notar que las alertas se abren y cierran automáticamente durante la rotación de los secretos de Azure Stack.  Este comportamiento es el esperado y puede hacerse caso omiso de las alertas.  Los operadores pueden comprobar la validez de estas alertas mediante la ejecución de Test-AzureStack.  Para los operadores que usan SCOM para supervisar los sistemas de Azure Stack, poner un sistema en modo de mantenimiento evitará que estas alertas lleguen a sus sistemas ITSM, pero continuarán alertando si no se puede acceder al sistema de Azure Stack. 
+2. Avise a los usuarios de cualquier operación de mantenimiento. Programe ventanas de mantenimiento normales, en la medida de lo posible, durante horas no laborables. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
     > [!note]  
     > Los pasos siguientes solo se aplican al cambiar secretos externos de Azure Stack.
 3. Prepare un nuevo conjunto de certificados externos de reemplazo. El nuevo conjunto coincide con las especificaciones de certificado que se describen en [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).

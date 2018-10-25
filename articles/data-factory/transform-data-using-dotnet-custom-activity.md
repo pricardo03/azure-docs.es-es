@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144361"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888228"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | linkedServiceName     | Servicio vinculado a Azure Batch. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  | SÍ      |
 | command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | SÍ      |
 | resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | Sin        |
-| folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias | Sin        |
+| folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias<br/><br/>Si tiene dependencias que se almacenan en subcarpetas (es decir, en una estructura jerárquica de carpetas bajo *folderPath*) la estructura de carpetas se elimina cuando los archivos se copian en Azure Batch. Es decir, todos los archivos se copian en una sola carpeta sin subcarpetas. Para evitar este comportamiento, considere la posibilidad de comprimir los archivos, copiar el archivo comprimido y, a continuación, descomprimirlo con código personalizado en la ubicación deseada. | Sin        |
 | referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | Sin        |
 | extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | Sin        |
 
@@ -293,6 +293,23 @@ Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener
   > [!IMPORTANT]
   > - Los archivos activity.json, linkedServices.json y datasets.json se almacenan en la carpeta de tiempo de ejecución de la tarea de Batch. Para este ejemplo, los archivos activity.json, linkedServices.json y datasets.json se almacenan en la ruta de acceso "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Si es necesario, deberá limpiarlos por separado. 
   > - Para los servicios vinculados que usan Integration Runtime autohospedado, la información confidencial (como claves o contraseñas) se cifran mediante Integration Runtime autohospedado para garantizar que las credenciales permanecen en el entorno de red privada definido por el cliente. Si el código de la aplicación personalizada hace referencia de esta forma a algunos campos confidenciales, es posible que estos no estén presentes. Si es necesario, use SecureString en extendedProperties en lugar de usar la referencia al servicio vinculado. 
+
+## <a name="retrieve-securestring-outputs"></a>Recuperación de salidas de SecureString
+
+Los valores de propiedades confidenciales designados como de tipo *SecureString*, tal y como se muestra en algunos de los ejemplos de este artículo, se enmascaran en la pestaña Supervisión de la interfaz de usuario de Data Factory.  Sin embargo, en la ejecución de la canalización real, una propiedad *SecureString* se serializa como JSON dentro del archivo `activity.json` como texto sin formato. Por ejemplo: 
+
+```json
+"extendedProperties": {
+    "connectionString": {
+        "type": "SecureString",
+        "value": "aSampleSecureString"
+    }
+}
+```
+
+Esta serialización no es verdaderamente segura y no está pensada para serlo. La intención es sugerir que Data Factory enmascare el valor en la pestaña Supervisión.
+
+Para acceder a las propiedades de tipo *SecureString* desde una actividad personalizada, lea el archivo `activity.json`, que se coloca en la misma carpeta que su archivo .EXE, deserialice el archivo JSON y, a continuación, acceda a la propiedad JSON (extendedProperties => [propertyName] => valor).
 
 ## <a name="compare-v2-v1"></a> Comparación de la actividad personalizada de la versión 2 y la actividad de DotNet de la versión 1 (personalizada)
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145000"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854888"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 En este ejemplo, `RequestTelemetry` se notifica en cada mensaje procesado e indica la marca de tiempo, la duración y el resultado (correcto). La telemetría también tiene un conjunto de propiedades de correlación.
 Igualmente, los seguimientos anidados y las excepciones que se notifican durante el procesamiento de mensajes también se marcan con propiedades de correlación que se representan como "elementos secundarios" de `RequestTelemetry`.
 
-Si llama a componentes externos compatibles durante el procesamiento de mensajes, también se seguirán y correlacionarán de forma automágica. Consulte [Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights](../application-insights/application-insights-custom-operations-tracking.md), si quiere obtener más información sobre el seguimiento y la correlación manuales.
+Si realiza llamadas a componentes externos compatibles durante el procesamiento de mensajes, también se seguirán y correlacionarán de forma automática. Consulte [Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights](../application-insights/application-insights-custom-operations-tracking.md), si quiere obtener más información sobre el seguimiento y la correlación manuales.
 
 ### <a name="tracking-without-tracing-system"></a>Realizar seguimientos sin sistema de seguimiento
-En caso de que el sistema de seguimiento no admita la función de seguimiento automágico de llamadas de Service Bus, puede hacer que un sistema de seguimiento o la aplicación sean compatibles. En esta sección se describen los eventos de diagnóstico que envió el cliente .NET de Service Bus.  
+Si el sistema de seguimiento no admite el seguimiento automático de llamadas de Service Bus, puede examinar la posibilidad de añadir dicha compatibilidad a un sistema de seguimiento o a su aplicación. En esta sección se describen los eventos de diagnóstico que envió el cliente .NET de Service Bus.  
 
 El cliente .NET de Service Bus se instrumentó mediante las primitivas de seguimiento de .NET [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) y [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -227,7 +227,6 @@ Cuando hay varios agentes de escucha `DiagnosticSource` en el mismo origen, un s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Correlación de Application Insights](../application-insights/application-insights-correlation.md)
 * [Dependencias de supervisión de Application Insights](../application-insights/app-insights-asp-net-dependencies.md) para ver si REST, SQL u otros recursos externos le están ralentizando.
 * [Realizar el seguimiento de operaciones personalizadas con el SDK de .NET para Application Insights](../application-insights/application-insights-custom-operations-tracking.md)

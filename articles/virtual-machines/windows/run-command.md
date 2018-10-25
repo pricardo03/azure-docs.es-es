@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128602"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267960"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar
 
@@ -21,7 +21,7 @@ El comando Ejecutar usa el agente de VM para ejecutar los scripts de PowerShell 
 
 ## <a name="benefits"></a>Ventajas
 
-Existen varias opciones que pueden utilizarse para tener acceso a las máquinas virtuales. El comando Ejecutar pueden ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. El comando Ejecutar se puede usar mediante Azure Portal, la [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), la [CLI de Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) o [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Existen varias opciones que pueden utilizarse para tener acceso a las máquinas virtuales. El comando Ejecutar pueden ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. El comando Ejecutar se puede usar mediante Azure Portal, la [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) para VM con Windows.
 
 Esta funcionalidad resulta útil en situaciones en las que desea ejecutar un script en una máquina virtual, y es una de las únicas maneras de solucionar problemas y corregir una máquina virtual que no tiene el RDP o el puerto SSH abiertos debido a una configuración de usuario administrativo o red incorrectos.
 
@@ -33,6 +33,7 @@ Las siguientes consideraciones se aplican al usar el comando Ejecutar:
 * El tiempo mínimo para ejecutar un script es de aproximadamente 20 segundos
 * Los script se ejecutan como sistema en Windows
 * Se puede ejecutar un script a la vez
+* No se admiten los scripts que solicitan información (modo interactivo).
 * No se puede cancelar un script en ejecución
 * El tiempo máximo que se puede ejecutar un script es de 90 minutos después de agotarse el tiempo de espera
 * La conectividad saliente de la máquina virtual es necesaria para devolver los resultados del script.

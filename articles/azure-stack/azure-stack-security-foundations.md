@@ -1,31 +1,30 @@
 ---
-title: Información sobre los controles de seguridad de Azure Stack | Microsoft Docs
+title: Información sobre los controles de seguridad de Azure Stack
 description: Como administrador de servicios, conozca los controles de seguridad aplicados a Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
-ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 10/9/2018
+ms.author: patricka
+ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011255"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901488"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Posición de seguridad de la infraestructura de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
-Entre los principales factores que determinan el uso de nubes híbridas están las consideraciones de seguridad y las regulaciones de conformidad. Azure Stack se diseñó para estos escenarios, así que es importante comprender los controles ya existentes al adoptarlo.
+Entre los principales factores que determinan el uso de nubes híbridas están las consideraciones de seguridad y las regulaciones de conformidad. Azure Stack está diseñado para estos escenarios. En este artículo se explican los controles de seguridad que hay para Azure Stack.
 
 En Azure Stack coexisten dos capas de posición de seguridad. La primera capa es la infraestructura de Azure Stack, que incluye los componentes de hardware hasta Azure Resource Manager. La primera capa incluye los portales Administrador e Inquilino. La segunda capa consta de las cargas de trabajo creadas, implementadas y administradas por los inquilinos. La segunda capa incluye elementos como las máquinas virtuales y sitios web de App Services.
 
@@ -51,14 +50,14 @@ Todos los puntos de conexión externos de la infraestructura, como los puntos de
 Aunque se pueden usar certificados autofirmados para estos puntos de conexión externos, Microsoft aconseja encarecidamente no hacerlo. 
 
 ## <a name="secret-management"></a>Administración de secretos
-La infraestructura de Azure Stack emplea multitud de secretos, como las contraseñas, para funcionar. La mayoría de ellos se rotan automáticamente con frecuencia, ya que son cuentas de servicio administradas de grupo, que lo hacen cada 24 horas.
+La infraestructura de Azure Stack emplea multitud de secretos, como las contraseñas, para funcionar. La mayoría de ellos se rotan automáticamente con frecuencia, ya que son cuentas de servicio administradas de grupo, que rotan cada 24 horas.
 
 El resto de secretos no son cuentas de servicio administradas de grupo y se pueden rotar manualmente con un script en el punto de conexión con privilegios.
 
 ## <a name="code-integrity"></a>Integridad del código
 Azure Stack emplea las características de seguridad de Windows Server 2016 más recientes. Una de ellas es Device Guard de Windows Defender, que proporciona la inclusión en lista blanca de aplicaciones y que garantiza que solo se ejecuta en la infraestructura de Azure Stack código autorizado. 
 
-El código autorizado lleva la firma de Microsoft o del asociado OEM y se incluye en la lista de software permitido que se especifica en una directiva que define Microsoft. En otras palabras, solo se puede ejecutar software que esté aprobado para ejecutarse en la infraestructura de Azure Stack. Cualquier intento de ejecutar código no autorizado se bloqueará y se generará una auditoría.
+El código autorizado está firmado por Microsoft o el socio de OEM. El código autorizado firmado se incluye en la lista de software permitido especificada en una directiva definida por Microsoft. En otras palabras, solo se puede ejecutar software que esté aprobado para ejecutarse en la infraestructura de Azure Stack. Cualquier intento de ejecutar código no autorizado se bloqueará y se generará una auditoría.
 
 La directiva de Device Guard también impide que agentes o software de terceros se ejecuten en la infraestructura de Azure Stack.
 
@@ -68,7 +67,7 @@ Otra característica de seguridad de Windows Server 2016 en Azure Stack es Crede
 ## <a name="antimalware"></a>Antimalware
 Todos los componentes de Azure Stack (tanto los hosts de Hyper-V como Virtual Machines) están protegidos con el antivirus de Windows Defender.
 
-En escenarios conectados, las actualizaciones de definiciones y motores de antivirus se aplican varias veces al día. En escenarios desconectados, se aplican las actualizaciones de antimalware como parte de las actualizaciones mensuales de Azure Stack. Consulte [actualizar Antivirus de Windows Defender en Azure Stack](azure-stack-security-av.md) para obtener más información.
+En escenarios conectados, las actualizaciones de definiciones y motores de antivirus se aplican varias veces al día. En escenarios desconectados, se aplican las actualizaciones de antimalware como parte de las actualizaciones mensuales de Azure Stack. Para más información, vea [Actualización de Antivirus de Windows Defender en Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Modelo de administración restringida
 La administración de Azure Stack está controlada mediante el uso de tres puntos de entrada, cada uno con un fin específico: 
@@ -84,6 +83,20 @@ Las ACL de red se exigen en tres capas:
 2.  Red definida por el software
 3.  Firewalls de sistema operativo host y de máquina virtual
 
+## <a name="regulatory-compliance"></a>Cumplimiento de normativas
+
+Azure Stack ha pasado por una evaluación formal realizada por una auditora independiente. Como resultado, hay disponible documentación donde se explica que la infraestructura de Azure Stack cumple los controles aplicables de varios estándares de cumplimiento importantes. La documentación no es una certificación de Azure Stack debido a que los estándares incluyen varios controles relacionados con el personal y con el proceso. Pero los clientes pueden usar esta documentación para impulsar su proceso de certificación.
+
+Las evaluaciones incluyen estos estándares:
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) aborda el sector de tarjetas de pago.
+- [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) es una asignación completa entre varios estándares, incluidos FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 y otros.
+- [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) para clientes gubernamentales.
+
+La documentación de cumplimiento está disponible en el [Portal de confianza del servicio de Microsoft](https://servicetrust.microsoft.com/ViewPage/Blueprint). Las guías de cumplimiento son un recurso protegido y para consultarlas es necesario iniciar sesión con sus credenciales de servicio en la nube de Azure.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Aprenda a cambiar los secretos en Azure Stack](azure-stack-rotate-secrets.md)
+- [Documentos de PCI-DSS y CSA-CCM para Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [Documentos de DoD y NIST para Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

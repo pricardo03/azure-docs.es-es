@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27f926a9a5d30d28e2721ffa52695292f794a501
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 564e8e2968f31b9e2aef8f7eadbf848885037ccb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522438"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040769"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Ejemplos de PowerShell de máquina virtual de Azure
 
@@ -43,6 +43,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell 
 | [Creación de un disco administrado a partir de una instantánea](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un disco administrado a partir de una instantánea. |
 | [Copiar el disco administrado en la misma suscripción o en otra](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Copia el disco administrado en la misma u otra suscripción pero en la misma región que el disco administrado primario. 
 | [Exportar una instantánea como un disco duro virtual a una cuenta de almacenamiento](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Exporta una instantánea administrada como un disco duro virtual a una cuenta de almacenamiento en una región diferente. |
+| [Exportar el disco duro virtual de un disco administrado a una cuenta de almacenamiento](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Exporta el disco duro virtual subyacente de un disco administrado a una cuenta de almacenamiento de otra región. |
 | [Creación de una instantánea a partir de un disco duro virtual](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea una instantánea a partir de un disco duro virtual para crear varios discos administrados idénticos a partir de la instantánea en poco tiempo.  |
 | [Copia de una instantánea en la misma u otra suscripción](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Copia la instantánea en la misma u otra suscripción, pero en la misma región que la instantánea primaria. |
 |**Protección de las máquinas virtuales**||

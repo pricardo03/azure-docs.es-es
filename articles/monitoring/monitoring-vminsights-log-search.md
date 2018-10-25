@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 446268f28e7c87196023636889f03be2da92ecfd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967649"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269401"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Cómo consultar registros de Azure Monitor para VM
 Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al almacén de datos de Log Analytics en Azure Monitor.  Estos datos están disponibles para realizar [búsquedas](../log-analytics/log-analytics-log-searches.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
@@ -69,9 +69,9 @@ Además de las métricas de recuento de conexión, también se incluye informaci
 |BytesSent |Número total de bytes enviados durante el período de tiempo de generación de informes |
 |BytesReceived |Número total de bytes recibidos durante el período de tiempo de generación de informes |
 |Respuestas |Número de respuestas observado durante el período de tiempo de generación de informes. 
-|ResponseTimeMax |Mayor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
-|ResponseTimeMin |Menor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
-|ResponseTimeMin |Suma de todos los tiempos de respuesta (milisegundos) observados durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
+|ResponseTimeMax |Mayor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes. Si no hay ningún valor, la propiedad está en blanco.|
+|ResponseTimeMin |Menor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes. Si no hay ningún valor, la propiedad está en blanco.|
+|ResponseTimeMin |Suma de todos los tiempos de respuesta (milisegundos) observados durante el período de tiempo de generación de informes. Si no hay ningún valor, la propiedad está en blanco.|
 
 El tercer tipo de datos que se va a notificar es el tiempo de respuesta: ¿cuánto tiempo pasa el autor de la llamada esperando que una solicitud enviada a través de una conexión se procese y reciba respuesta del punto de conexión remoto? El tiempo de respuesta notificado es una estimación del tiempo de respuesta real del protocolo de aplicación subyacente. Se calcula utilizando la heurística basada en la observación del flujo de datos entre el origen y destino de una conexión de red física. Conceptualmente, es la diferencia entre el momento en que el último byte de una solicitud sale del remitente y el momento en que llega el último byte de la respuesta. Estas dos marcas de tiempo se utilizan para delinear los eventos de solicitud y respuesta de una conexión física concreta. La diferencia entre ellas representa el tiempo de respuesta de una única solicitud. 
 
@@ -93,8 +93,8 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
 |RemoteCountry |Nombre del país que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
-|RemoteLatitude |Latitud de geolocalización.  Por ejemplo, *47.68* |
-|RemoteLongitude |Longitud de geolocalización.  Por ejemplo, *-122.12* |
+|RemoteLatitude |Latitud de geolocalización. Por ejemplo, *47.68* |
+|RemoteLongitude |Longitud de geolocalización. Por ejemplo, *-122.12* |
 
 #### <a name="malicious-ip"></a>Direcciones IP malintencionadas
 Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un conjunto de direcciones IP con actividad malintencionada conocida. Si el valor de RemoteIp se identifica como malintencionado, las propiedades siguientes se completarán (si la IP no se considera malintencionada, están vacías) en las siguientes propiedades del registro:
@@ -102,16 +102,16 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
 |MaliciousIP |Dirección RemoteIp |
-|IndicatorThreadType | |
-|DESCRIPCIÓN | |
-|TLPLevel | |
-|Confianza | |
-|Gravedad | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Indicador de amenazas detectadas es uno de los siguientes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+|DESCRIPCIÓN |Descripción de la amenaza observada. |
+|TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos, *blanco*, *verde*, *ámbar*, *rojo*. |
+|Confianza |Los valores válidos se encuentran entre *0 y 100*. |
+|Gravedad |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
+|FirstReportedDateTime |La primera vez que el proveedor informó sobre el indicador. |
+|LastReportedDateTime |La última vez que Interflow ha visto el indicador. |
+|IsActive |Indica que los indicadores se desactivan con el valor *True* o *False*. |
+|ReportReferenceLink |Vínculos a informes relacionados con un objeto observable especificado. |
+|AdditionalInformation |Proporciona información adicional, si procede, sobre la amenaza observada. |
 
 ### <a name="servicemapcomputercl-records"></a>Registros de ServiceMapComputer_CL
 Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario para servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
@@ -166,34 +166,34 @@ Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 
 ### <a name="list-all-known-machines"></a>Enumerar todas las máquinas conocidas
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumerar la capacidad de memoria física de todos los equipos administrados.
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Enumerar el nombre de equipo, DNS, IP y SO.
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Buscar todos los procesos con "sql" en la línea de comandos
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Buscar una máquina (registro más reciente) por el nombre de recurso
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Buscar un equipo (registro más reciente) por dirección IP
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Enumerar todos los procesos conocidos en un equipo determinado
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Enumerar todos los equipos que ejecutan SQL
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Enumerar todas las versiones de producto únicas de curl en mi centro de datos
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Crear un grupo de equipos de todos los equipos con CentOS
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir las conexiones salientes desde un grupo de máquinas
 ```

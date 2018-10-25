@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214948"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831626"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
 
 ## <a name="overview"></a>Información general
 
-**El proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST ofrece una implementación llave en mano de una solución de PaaS de Azure para mostrar cómo recopilar, almacenar, analizar e interactuar de forma segura con los datos médicos y alcanzar los requisitos de cumplimiento del sector. El proyecto le ayuda a acelerar la adopción en la nube y el uso de los clientes con datos regulados.**
+**El Plano técnico de seguridad y cumplimiento de Azure (IA y datos de estado de HIPAA/HITRUST) ofrece una implementación llave en mano de una solución de IaaS y PaaS de Azure para mostrar cómo ingerir, almacenar, analizar, interactuar, identificar y desplegar de forma segura soluciones con datos de estado y alcanzar los requisitos de cumplimiento del sector. El proyecto le ayuda a acelerar la adopción en la nube y el uso de los clientes con datos regulados.**
 
-El proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST proporciona herramientas y orientación para ayudar a implementar un entorno seguro de plataforma como servicio (PaaS) conforme a Health Insurance Portability and Accountability Act (HIPAA) y Health Information Trust Alliance (HITRUST) para introducir, almacenar, analizar e interactuar con los historiales médicos personales y de carácter no personal en un entorno seguro y niveles múltiples en la nube, implementado como una solución de un extremo a otro. Muestra una arquitectura de referencia común y está diseñado para simplificar la adopción de Microsoft Azure. La arquitectura proporcionada muestra una solución completa para satisfacer las necesidades de organizaciones que buscan un enfoque basado en la nube para reducir la carga y los costos de implementación.
+El proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST proporciona herramientas y orientación para ayudar a implementar un entorno seguro de plataforma como servicio (PaaS) conforme a Health Insurance Portability and Accountability Act (HIPAA) y Health Information Trust Alliance (HITRUST) para introducir, almacenar, analizar e interactuar con los historiales médicos personales y de carácter no personal en un entorno seguro y niveles múltiples en la nube, implementado como una solución de un extremo a otro. 
+
+La solución de IaaS mostrará cómo migrar una solución SQL local a Azure e implementar una estación de trabajo de acceso con privilegios (PAW) para administrar de forma segura soluciones y servicios basados en la nube. La base de datos SQL Server de IaaS agrega posibles datos de experimentación, se importa en una máquina virtual IaaS de SQL y dicha máquina virtual usa el acceso autenticado por MSI para interactuar con de un servicio de Azure PaaS de SQL. Ambas presentan una arquitectura de referencia común y están diseñados para simplificar la adopción de Microsoft Azure. La arquitectura proporcionada muestra una solución completa para satisfacer las necesidades de organizaciones que buscan un enfoque basado en la nube para reducir la carga y los costos de implementación.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Este proyecto está diseñado para servir como base modular para que los cliente
 
 ## <a name="deploying-the-automation"></a>Implementación de la automatización
 
-- Para implementar la solución, siga las instrucciones proporcionadas en la guía de implementación. 
+- Para implementar la solución, siga las instrucciones que se proporcionan en la [guía de implementación](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Para obtener información general de cómo funciona esta solución, vea este [vídeo](https://aka.ms/healthblueprintvideo) en el que se explica y demuestra cómo realizar la implementación.
+- Para obtener información general de cómo funciona esta solución, vea este [vídeo](https://aka.ms/healthblueprintvideo) en el que se explica y demuestra cómo realizar la implementación.
 
 - Las preguntas más frecuentes se pueden encontrar en la guía de [preguntas más frecuentes](https://aka.ms/healthblueprintfaq).
 
 -   **Diagrama de arquitectura.** El diagrama muestra la arquitectura de referencia utilizada en el proyecto y el escenario del caso de uso de ejemplo.
 
--   **Plantillas de implementación**. En esta implementación, las [plantillas de Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) se usan para implementar automáticamente los componentes de la arquitectura en Microsoft Azure; para ello, se especifican los parámetros de configuración durante la instalación.
-
--   **[Scripts de implementación automatizados](https://aka.ms/healthblueprintdeploy)**. Estos scripts ayudan a implementar la solución. Asimismo, estos scripts constan de los siguientes elementos:
-
-
--   Una instalación de módulo y un script de configuración del [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) se usan para instalar y comprobar que los roles de administrador global y los módulos de PowerShell necesarios están configurados correctamente. 
--   Se usa un script de instalación de PowerShell para implementar la solución, que se proporciona en un archivo .zip que contiene funciones de demostración integradas.
+-   [Extensión de IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   Esta solución mostrará cómo migrar una solución SQL local a Azure e implementar una estación de trabajo de acceso con privilegios para administrar de forma segura soluciones y servicios basados en la nube. 
 
 ## <a name="solution-components"></a>Componentes de soluciones
 
@@ -70,7 +64,7 @@ La arquitectura fundamental consta de los siguientes componentes:
 # <a name="architectural-diagram"></a>Diagrama de arquitectura
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>Roles
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c626bd193d883f292bf8d20913ff21d86d0d761
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: a857b813cee86079b96cd2bca297c1cf098819f5
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268486"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113910"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Obtención de soporte técnico y aprendizaje para el servicio Azure Machine Learning
 
@@ -26,6 +26,8 @@ Además de la documentación de este sitio, puede encontrar lo siguiente:
 + [Tutoriales y artículos de procedimientos](../service/index.yml)
 + [Introducción a la arquitectura](../service/concept-azure-machine-learning-architecture.md)
 + [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+
+## <a name="submit-doc-feedback"></a>Enviar comentarios del documento 
 
 Puede **enviar solicitudes** para obtener material de aprendizaje adicional mediante el vínculo de comentarios situado en la parte inferior del artículo.
 

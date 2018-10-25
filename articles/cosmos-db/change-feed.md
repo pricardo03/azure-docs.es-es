@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287332"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269503"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Compatibilidad con la fuente de cambios en Azure Cosmos DB
 
@@ -351,19 +351,13 @@ Para implementar la biblioteca de procesadores de fuente de cambios, tiene que h
                     CollectionName = this.leaseCollectionName
                 };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
-            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-
-            /* ie customize StartFromBeginning so change feed reads from beginning
-                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-            */
-
-            feedOptions.StartFromBeginning = true;
-        
+       
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
 
             this.builder
                 .WithHostName(hostName)

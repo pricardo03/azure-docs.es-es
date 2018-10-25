@@ -2,18 +2,17 @@
 title: Actualización de un registro clásico de Azure Container Registry
 description: Benefíciese del conjunto de características ampliado de los registros de contenedores administrados Básico, Estándar y Premium mediante la actualización de su registro de contenedor clásico no administrado.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: marsma
-ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: danlep
+ms.openlocfilehash: fd22677c2acc9e61abc082b3515a817c01c163cb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189028"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855976"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Actualización de un registro clásico
 
@@ -23,7 +22,7 @@ La SKU clásica está en desuso y dejará de estar disponible a partir de marzo 
 
 ## <a name="why-upgrade"></a>¿Por qué actualizar?
 
-La SKU clásica está **en desuso** y dejará de estar disponible a partir de **marzo de 2019**. Todos los registros clásicos existentes se deben actualizar antes de marzo de 2019.
+La SKU clásica está **en desuso** y dejará de estar disponible a partir de **marzo de 2019**. Todos los registros de la SKU clásica existentes se deben actualizar antes de marzo de 2019.
 
 Debido al aviso de desuso programado y a las funcionalidades limitadas de los registros clásicos no administrados, se recomienda actualizar todos los registros clásicos a registros administrados de los niveles Básico, Estándar o Premium. Estas SKU de nivel superior integran mejor el registro en las funcionalidades de Azure.
 

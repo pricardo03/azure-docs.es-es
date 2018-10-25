@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/28/2018
+ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33ffb9d1685f3d76e884ae0d90545f659b5ec87c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953363"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018832"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Búsqueda de imágenes de maquina virtual Linux en Azure Marketplace con la CLI de Azure
 Este tema describe cómo usar la CLI de Azure para buscar imágenes de máquina virtual en Azure Marketplace. Use esta información para especificar una imagen de Marketplace cuando se crea una máquina virtual mediante programación con la CLI, plantillas de Resource Manager u otras herramientas.
@@ -49,7 +49,7 @@ Offer          Publisher               Sku                 Urn                  
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
-openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+openSUSE-Leap  SUSE                    42.3                SUSE:openSUSE-Leap:42.3:latest                                  openSUSE-Leap        latest
 RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
@@ -71,6 +71,7 @@ Salida parcial:
 ```
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  --------------
+...
 Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
 Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
 Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
@@ -95,7 +96,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 ...
 ```
 
-Aplique filtros similares con las opciones `--location`, `--publisher` y `--sku`. Incluso puede realizar coincidencias parciales en un filtro, como la búsqueda de `--offer Deb` de todas las imágenes de Debian.
+Aplique filtros similares con las opciones `--location`, `--publisher` y `--sku`. Puede realizar coincidencias parciales en un filtro, como la búsqueda de `--offer Deb` para encontrar todas las imágenes de Debian.
 
 Si no especifica una ubicación determinada con la opción `--location`, se devuelven los valores de la ubicación predeterminada. (Establezca una ubicación predeterminada distinta ejecutando `az configure --defaults location=<location>`).
 
@@ -146,21 +147,31 @@ Salida parcial:
 ```
 Location    Name
 ----------  ----------------------------------------------------
+westus      128technology
 westus      1e
 westus      4psa
+westus      5nine-software-inc
 westus      7isolutions
 westus      a10networks
 westus      abiquo
 westus      accellion
+westus      accessdata-group
+westus      accops
 westus      Acronis
 westus      Acronis.Backup
+westus      actian-corp
 westus      actian_matrix
 westus      actifio
 westus      activeeon
-westus      adatao
+westus      advantech-webaccess
+westus      aerospike
+westus      affinio
+westus      aiscaler-cache-control-ddos-and-url-rewriting-
+westus      akamai-technologies
+westus      akumina
 ...
 ```
-Utilice esta información para buscar ofertas desde un publicador específico. Por ejemplo, si *Canonical* es un publicador de imágenes de la ubicación Oeste de EE. UU., busque sus ofertas al ejecutar `azure vm image list-offers`. Pase la ubicación y el publicador como en el ejemplo siguiente:
+Utilice esta información para buscar ofertas desde un publicador específico. Por ejemplo, para el editor *Canonical* de la ubicación oeste de Estados Unidos, busque ofertas mediante la ejecución de `azure vm image list-offers`. Pase la ubicación y el publicador como en el ejemplo siguiente:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -176,8 +187,6 @@ westus      Ubuntu15.04SnappyDocker
 westus      UbunturollingSnappy
 westus      UbuntuServer
 westus      Ubuntu_Core
-westus      Ubuntu_Snappy_Core
-westus      Ubuntu_Snappy_Core_Docker
 ```
 Verá que en la región del oeste de EE. UU, Canonical publica la oferta *UbuntuServer* sobre Azure. Pero, ¿con qué SKU? Para obtener esos valores, ejecute `azure vm image list-skus` y establezca la ubicación, el publicador y la oferta que descubrió:
 
@@ -192,9 +201,7 @@ Location    Name
 ----------  -----------------
 westus      12.04.3-LTS
 westus      12.04.4-LTS
-westus      12.04.5-DAILY-LTS
 westus      12.04.5-LTS
-westus      12.10
 westus      14.04.0-LTS
 westus      14.04.1-LTS
 westus      14.04.2-LTS
@@ -202,15 +209,14 @@ westus      14.04.3-LTS
 westus      14.04.4-LTS
 westus      14.04.5-DAILY-LTS
 westus      14.04.5-LTS
-westus      16.04-beta
 westus      16.04-DAILY-LTS
 westus      16.04-LTS
 westus      16.04.0-LTS
-westus      16.10
-westus      16.10-DAILY
-westus      17.04
-westus      17.04-DAILY
+westus      17.10
 westus      17.10-DAILY
+westus      18.04-DAILY-LTS
+westus      18.04-LTS
+westus      18.10-DAILY
 ```
 
 Por último, use el comando `az vm image list` para buscar una versión determinada de la SKU que quiera, por ejemplo, *16.04-LTS*:
@@ -219,7 +225,7 @@ Por último, use el comando `az vm image list` para buscar una versión determin
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
 ```
 
-Salida:
+Salida parcial:
 
 ```
 Offer         Publisher    Sku        Urn                                               Version
@@ -238,17 +244,7 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703280  16.04.201703280
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703300  16.04.201703300
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705080  16.04.201705080
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707210  16.04.201707210
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707270  16.04.201707270
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708030  16.04.201708030
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
+...
 ```
 
 Ahora puede elegir de forma precisa la imagen que desee usar tomando nota del valor URN. Pase este valor con el parámetro `--image` cuando cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create). Recuerde que puede reemplazar de forma opcional el número de versión del URN por "latest". Esta versión siempre es la versión más reciente de la imagen. 
@@ -258,12 +254,13 @@ Si implementa una máquina virtual con una plantilla de Resource Manager, los pa
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
 ### <a name="view-plan-properties"></a>Vista de las propiedades del plan
+
 Para ver la información del plan de compra de una imagen, ejecute el comando [az vm image show](/cli/azure/image#az_image_show). Si la propiedad `plan` de la salida no es `null`, la imagen tienen términos que debe aceptar antes de la implementación mediante programación.
 
 Por ejemplo, la imagen de Canonical Ubuntu Server 16.04 LTS no tiene términos adicionales, porque la información de `plan` es `null`:
 
 ```azurecli
-az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
 ```
 
 Salida:
@@ -273,7 +270,7 @@ Salida:
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
   "location": "westus",
-  "name": "16.04.201801260",
+  "name": "16.04.201809120",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -285,7 +282,7 @@ Salida:
 Ejecutar un comando similar para la imagen RabbitMQ Certified by Bitnami muestra las propiedades de `plan` siguientes: `name`, `product` y `publisher`. (Algunas imágenes también tienen una propiedad `promotion code`). Para implementar esta imagen, consulte las secciones siguientes para aceptar los términos y habilitar la implementación mediante programación.
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
+az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 Salida:
 
@@ -294,7 +291,7 @@ Salida:
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1807171506",
+  "name": "3.7.1809211005",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -308,6 +305,7 @@ Salida:
 ```
 
 ### <a name="accept-the-terms"></a>Aceptación de los términos
+
 Para ver y aceptar los términos de licencia, use el comando [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms). Cuando acepta los términos, habilita la implementación mediante programación en la suscripción. Solo debe aceptar los términos una vez por suscripción para la imagen. Por ejemplo: 
 
 ```azurecli
@@ -328,12 +326,13 @@ La salida incluye un `licenseTextLink` a los términos de licencia e indica que 
   "product": "rabbitmq",
   "publisher": "bitnami",
   "retrieveDatetime": "2018-02-22T04:06:28.7641907Z",
-  "signature": "WVIEA3LAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNKLNLWI",
+  "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
 ```
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Implementación mediante los parámetros del plan de compra
+
 Después de aceptar los términos de la imagen, puede implementar una máquina virtual en la suscripción. Para implementar la imagen con el comando `az vm create`, proporcione parámetros para el plan de compra además de un URN para la imagen. Por ejemplo, para implementar una máquina virtual con la imagen RabbitMQ Certified by Bitnami:
 
 ```azurecli
@@ -342,8 +341,6 @@ az group create --name myResourceGroupVM --location westus
 az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 
 ```
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para crear una máquina virtual rápidamente con la información de la imagen, consulte [Creación y administración de máquinas virtuales Linux con la CLI de Azure](tutorial-manage-vm.md).

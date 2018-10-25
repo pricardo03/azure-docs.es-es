@@ -1,20 +1,20 @@
 ---
 title: Lenguaje de marcado de síntesis de voz
-description: Uso el lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
-titleSuffix: Microsoft Cognitive Services
+description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 48e2f965cdc482f9070497f9a4e7e016bfeb92ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: erhopf
+ms.openlocfilehash: bdcb206e092467703f0bd4404da47b334ea8ccaf
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978155"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165494"
 ---
 # <a name="speech-synthesis-markup-language"></a>Lenguaje de marcado de síntesis de voz
 
@@ -22,7 +22,7 @@ El lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basa
 
 Para obtener más información, consulte [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) [Lenguaje de marcado de síntesis de voz (SSML) versión 1.0] en W3C.
 
-Los ejemplos siguientes muestran cómo usar SSML para satisfacer las necesidades de síntesis de voz comunes.
+En los ejemplos siguientes se muestra cómo usar SSML para satisfacer las necesidades de síntesis de voz comunes:
 
 ## <a name="add-a-break"></a>Adición de una pausa
 ```xml

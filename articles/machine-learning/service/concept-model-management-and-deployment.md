@@ -1,6 +1,6 @@
 ---
-title: Administración e implementación de modelos en Azure Machine Learning
-description: Aprenda a usar Azure Machine Learning para implementar, administrar y supervisar sus propios modelos para mejorarlos permanentemente. Puede implementar los modelos que haya entrenado con Azure Machine Learning, en la máquina local o que procedan de otros orígenes.
+title: Administración e implementación de modelos en Azure Machine Learning Services
+description: Aprenda a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos de forma continua. Puede implementar los modelos que haya entrenado con Azure Machine Learning Services, en la máquina local o que procedan de otros orígenes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166544"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885074"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Administración, implementación y supervisión de modelos Azure Machine Learning
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
-En este artículo aprenderá a usar Azure Machine Learning para implementar, administrar y supervisar sus propios modelos para mejorarlos permanentemente. Puede implementar los modelos que haya entrenado con Azure Machine Learning, en la máquina local o que procedan de otros orígenes. 
+En este artículo aprenderá a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos continuamente. Puede implementar los modelos que haya entrenado con Azure Machine Learning, en la máquina local o que procedan de otros orígenes. 
 
 El siguiente diagrama ilustra el flujo de trabajo de implementación completo: [ ![flujo de trabajo de implementación para Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 El flujo de trabajo de implementación incluye los siguientes pasos:
-1. **Registrar el modelo** en un registro hospedado en el área de trabajo de Azure Machine Learning
+1. **Registrar el modelo** en un registro hospedado en el área de trabajo de Azure Machine Learning Services
 1. **Registrar una imagen** que empareje un modelo con un script de puntuación y las dependencias en un contenedor portátil 
 1. **Implementar** la imagen como servicio web en la nube o en dispositivos perimetrales
 1. **Supervisar y recopilar datos**
@@ -35,7 +35,7 @@ Cada paso puede realizarse de forma independiente o como parte de un comando de 
 
 ## <a name="step-1-register-model"></a>Paso 1: registro del modelo
 
-El registro de modelo realiza un seguimiento de todos los modelos del área de trabajo de Azure Machine Learning.
+El registro de modelo realiza un seguimiento de todos los modelos del área de trabajo de Azure Machine Learning Services.
 Los modelos se identifican por el nombre y la versión. Cada vez que registra un modelo con el mismo nombre que uno existente, el registro incrementa la versión. También puede proporciona etiquetas de metadatos adicionales durante el registro para usarlas al buscar modelos.
 
 No se pueden eliminar los modelos que una imagen esté utilizando.
@@ -71,7 +71,7 @@ Puede implementar sus imágenes en los siguientes [destinos de implementación](
 * Máquinas con FPGA de Azure
 * Dispositivos de Azure IoT Edge
 
-Al implementarse el servicio, la solicitud de inferencia equilibra la carga automáticamente y el clúster se escala para dar respuesta a cualquier aumento de demanda. Los [datos de telemetría sobre el servicio](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) se pueden capturar en el servicio Azure Application Insights asociado al área de trabajo.
+Al implementarse el servicio, la solicitud de inferencia equilibra la carga automáticamente y el clúster se escala para dar respuesta a cualquier aumento de demanda. Los [datos de telemetría sobre el servicio](how-to-enable-app-insights.md) se pueden capturar en el servicio Azure Application Insights asociado al área de trabajo.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>Paso 4: supervisión de los modelos y recopilación de datos
 

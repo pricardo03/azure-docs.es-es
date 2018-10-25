@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093625"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044780"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y de acción del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -62,7 +62,7 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Matriz | Una matriz que contiene una o más [condiciones](#trigger-conditions) que determinan si ejecutar o no el flujo de trabajo | 
+| <*array-with-conditions*> | Matriz | Una matriz que contiene una o más [condiciones](#trigger-conditions) que determinan si ejecutar o no el flujo de trabajo. Disponible solo para desencadenadores. | 
 | <*runtime-config-options*> | Objeto JSON | Puede cambiar el comportamiento del entorno en tiempo de ejecución del desencadenador estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
 | <*splitOn-expression*> | string | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que [divide o *desagrupa*](#split-on-debatch) los elementos de matriz en varias instancias de flujo de trabajo para su procesamiento. | 
 | <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
@@ -340,8 +340,8 @@ Para que funcione bien con la aplicación lógica, el punto de conexión debe cu
 | Response | Obligatorio | DESCRIPCIÓN | 
 |----------|----------|-------------| 
 | Código de estado | SÍ | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
-| Encabezado Retry-after | No | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
-| Encabezado Location | No | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
+| Encabezado Retry-after | Sin  | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
+| Encabezado Location | Sin  | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
 |||| 
 
 *Comportamientos de ejemplo para solicitudes distintas*
@@ -657,7 +657,7 @@ Este desencadenador especifica que una solicitud entrante debe usar el método H
 
 ## <a name="trigger-conditions"></a>Condiciones del desencadenador
 
-Para cualquier desencadenador, puede incluir una matriz con una o varias expresiones de condiciones que determinan si el flujo de trabajo debe ejecutarse o no. Para agregar la propiedad `conditions` a la aplicación lógica, abra esta en el editor de la vista Código.
+Para cualquier desencadenador, y solo desencadenadores, puede incluir una matriz con una o varias expresiones de condiciones que determinan si el flujo de trabajo debe ejecutarse o no. Para agregar la propiedad `conditions` a un desencadenador en la aplicación lógica, abra esta en el editor de la vista Código.
 
 Por ejemplo, puede especificar que un desencadenador se active solo cuando un sitio web devuelve un error de servidor interno haciendo referencia al código de estado del desencadenador en la propiedad `conditions`:
 
@@ -2318,7 +2318,7 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 
 ### <a name="change-trigger-concurrency"></a>Cambio en la simultaneidad de desencadenadores
 
-De forma predeterminada, las instancias de la aplicación lógica se ejecutan al mismo tiempo (simultáneamente) o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Por tanto, cada instancia del desencadenador se activa antes de que finalice la ejecución de la instancia de la aplicación lógica activa anteriormente. Este límite ayuda a controlar el número de solicitudes que reciben los sistemas de back-end. 
+De forma predeterminada, las instancias de la aplicación lógica se ejecutan al mismo tiempo (simultáneamente) o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Por tanto, cada instancia del desencadenador se activa antes de que finalice la ejecución de la instancia de la aplicación lógica precedente. Este límite ayuda a controlar el número de solicitudes que reciben los sistemas de back-end. 
 
 Para cambiar el límite predeterminado, puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. Esta propiedad controla el número máximo de instancias de la aplicación lógica que se pueden ejecutar en paralelo. 
 
@@ -2385,7 +2385,7 @@ Este es un ejemplo que limita las ejecuciones simultáneas a 10 iteraciones:
 
 #### <a name="edit-in-logic-apps-designer"></a>Edición en el diseñador de Logic Apps
 
-1. En la esquina superior derecha de la acción **For each**, elija el botón de puntos suspensivos (...) y, a continuación, elija **Configuración**.
+1. En la acción **For each**, en la esquina superior derecha, elija el botón de puntos suspensivos (...) y luego elija **Configuración**.
 
 2. En **Control de simultaneidad**, establezca **Invalidar predeterminado** en **Activado**. 
 
@@ -2399,7 +2399,7 @@ De forma predeterminada, las instancias de la aplicación lógica se ejecutan al
 
 El número de ejecuciones que se pueden poner en espera también tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) que puede modificar. No obstante, una vez que la aplicación lógica alcanza el límite de ejecuciones en espera, el motor de Logic Apps ya no acepta nuevas ejecuciones. Los desencadenadores de solicitudes y de webhooks devuelven errores 429 y los desencadenadores recurrentes empiezan a omitir los intentos de sondeo.
 
-Para cambiar el límite predeterminado de las ejecuciones en espera, en la definición del desencadenador subyacente, agregue y establezca la propiedad `runtimeConfiguration.concurency.maximumWaitingRuns` en un valor entre `0` y `100`. 
+Para cambiar el límite predeterminado de las ejecuciones en espera, en la definición del desencadenador subyacente, agregue la propiedad `runtimeConfiguration.concurency.maximumWaitingRuns` con un valor entre `0` y `100`. 
 
 ```json
 "<trigger-name>": {

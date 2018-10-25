@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888211"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268028"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Uso de la propiedad "Entidad esperada" de las acciones
 
@@ -63,9 +63,10 @@ Concretamente, si el campo "entidad esperada" de una acción está establecido e
 2. En Respuesta, escriba "What's your name?" (¿Cómo se llama?).
 3. En Expected Entities (Entidades esperadas), escriba $name. Haga clic en Guardar.
     - Este valor significa que si se plantea esta pregunta y la respuesta del usuario no tienen ninguna entidad detectada, el bot asumiría la respuesta completa del usuario en esta entidad.
+    - La entidad se agrega automáticamente como una entidad descalificadora. 
 2. Haga clic en Actions (Acciones) y en New Action (Nueva acción) para crear una segunda acción.
 3. En Response (Respuesta), escriba "Hello $name" (Hola, $name).
-    - La entidad se agrega automáticamente como una entidad obligatoria. 
+    - La entidad se agrega automáticamente como una entidad obligatoria.
 4. Haga clic en Guardar.
 
 Ahora tiene dos acciones.
@@ -111,7 +112,7 @@ En los ejemplos siguientes, se desencadena la heurística de la "entidad esperad
 2. Escriba "hello" (Hola).
 3. En la respuesta a "what's your name" (¿Cómo se llama?), escriba "I am called frank" (Me llaman Frank).
     - Se resalta la frase completa. Esto se debe a que el modelo estadístico no encontró un nombre, por lo que la heurística desencadenó y seleccionó la respuesta completa como la entidad de nombre.
-2. Para corregirlo, haga clic en la frase resaltada y luego haga clic en la x roja. 
+2. Para corregirlo, haga clic en la frase resaltada y luego haga clic en el icono de la papelera de color rojo. 
 3. Haga clic para seleccionar frank y, a continuación, haga clic en el nombre.
 2. Haga clic en Score Actions (Acciones de puntuación).
 3. Seleccione "Hello $name" (Hola, $name).

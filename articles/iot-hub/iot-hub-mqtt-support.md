@@ -1,19 +1,19 @@
 ---
 title: Información sobre Azure MQTT con IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: compatibilidad con dispositivos que se conectan a un punto de conexión orientado a dispositivos IoT Hub mediante el protocolo MQTT. Incluye información sobre la compatibilidad integrada de MQTT de los SDK de dispositivo IoT de Azure.'
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
-ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 10/12/2018
+ms.author: rezas
+ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42146920"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344972"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -107,7 +107,7 @@ Para Device Explorer:
 
 Para que MQTT conecte y desconecte paquetes, Azure IoT Hub emite un evento en el canal **Supervisión de operaciones** . Este evento tiene información adicional que puede ayudarle a solucionar problemas de conectividad.
 
-La aplicación para dispositivo puede especificar un mensaje**Will** en el paquete **CONNECT**. La aplicación para dispositivo debe usar `devices/{device_id}/messages/events/{property_bag}` o `devices/{device_id}/messages/events/{property_bag}` como el nombre del tema **Will** para definir los mensajes **Will** que se reenviarán como un mensaje de telemetría. En este caso, si la conexión de red se cierra, pero no se recibió anteriormente un paquete **DISCONNECT** desde el dispositivo, IoT Hub envía el mensaje **Will** que se suministra en el paquete **CONNECT** al canal de telemetría. El canal de telemetría puede ser el punto de conexión **Eventos** predeterminado o un punto de conexión personalizado que se define por el enrutamiento de IoT Hub. El mensaje tiene la propiedad **iothub-MessageType** con un valor de **Will** asignado.
+La aplicación para dispositivo puede especificar un mensaje**Will** en el paquete **CONNECT**. La aplicación para dispositivo debe usar `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` como el nombre del tema **Will** para definir los mensajes **Will** que se reenviarán como un mensaje de telemetría. En este caso, si la conexión de red se cierra, pero no se recibió anteriormente un paquete **DISCONNECT** desde el dispositivo, IoT Hub envía el mensaje **Will** que se suministra en el paquete **CONNECT** al canal de telemetría. El canal de telemetría puede ser el punto de conexión **Eventos** predeterminado o un punto de conexión personalizado que se define por el enrutamiento de IoT Hub. El mensaje tiene la propiedad **iothub-MessageType** con un valor de **Will** asignado.
 
 ### <a name="tlsssl-configuration"></a>Configuración de TLS/SSL
 
@@ -228,6 +228,8 @@ Para obtener más información, consulte la [guía para desarrolladores sobre di
 
 ### <a name="update-device-twins-reported-properties"></a>Actualización de las propiedades notificadas del dispositivo gemelo
 
+Para actualizar las propiedades notificadas, el dispositivo emite una solicitud a IoT Hub a través de una publicación en un tema designado de MQTT. Después de procesar la solicitud, IoT Hub responde con el estado de éxito o fracaso de la operación de actualización a través de una publicación en otro tema. El dispositivo puede suscribirse a ese tema con el fin de notificarle sobre el resultado de su solicitud de actualización gemela. Para implementar este tipo de interacción entre solicitud y respuesta en MQTT, hemos aprovechado la noción del Id. de solicitud (`$rid`) proporcionada inicialmente por el dispositivo en su solicitud de actualización. Este identificador de solicitud también se incluye en la respuesta de IoT Hub para permitir que el dispositivo correlacione la respuesta a su solicitud previa específica.
+
 La secuencia siguiente describe cómo un dispositivo actualiza las propiedades notificadas en el dispositivo gemelo de IoT Hub:
 
 1. En primer lugar, un dispositivo debe suscribirse al tema `$iothub/twin/res/#` para recibir las respuestas de la operación de IoT Hub.
@@ -253,6 +255,20 @@ Los códigos de estado posibles son:
 | 400 | Solicitud incorrecta. JSON con formato incorrecto |
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub][lnk-quotas] |
 | 5** | Errores del servidor |
+
+En el fragmento de código Python siguiente, se muestra el proceso de actualización de propiedades notificadas por el gemelo a través de MQTT (mediante el cliente de Paho MQTT):
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+Cuando se realiza correctamente la operación anterior de actualización de propiedades notificadas por el gemelo, el mensaje de publicación de IoT Hub tiene el siguiente tema: `$iothub/twin/res/204/?$rid=1&$version=6`, donde `204` es el código de estado que indica éxito, `$rid=1` se corresponde con el identificador de solicitud proporcionada por el dispositivo en el código, y `$version` corresponde a la versión de la sección de propiedades notificadas de dispositivos gemelos tras la actualización.
 
 Para obtener más información, consulte la [guía para desarrolladores sobre dispositivos gemelos][lnk-devguide-twin].
 

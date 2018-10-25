@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166493"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870985"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de la base de datos en Azure SQL Database
 
@@ -98,7 +98,7 @@ Un firewall impide el acceso al servidor desde una entidad externa al permitir q
 Puede crear reglas de firewall en el nivel de servidor o el nivel de base de datos. Las reglas de firewall de nivel de servidor se pueden crear a través del portal o a través de SSMS. Para obtener más información acerca de cómo configurar una regla de firewall de nivel de servidor y de base de datos, consulte el tema sobre la [creación de reglas de firewall en SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Puntos de conexión de servicio
-De forma predeterminada, su instancia de SQL Database está configurada para "Permitir que los servicios de Azure accedan al servidor", lo que significa que todas las máquinas virtuales de Azure pueden intentar conectarse a su base de datos. Estos intentos todavía tienen que autenticarse. Sin embargo, si no desea que la base de datos sea accesible para las direcciones IP de Azure, puede deshabilitar "Permitir que los servicios de Azure accedan al servidor". Asimismo, puede configurar [Puntos de conexión de servicio de red virtual](sql-database-vnet-service-endpoint-rule-overview.md).
+De forma predeterminada, su instancia de SQL Database está configurada para "Permitir que los servicios de Azure accedan al servidor", lo que significa que todas las máquinas virtuales de Azure pueden intentar conectarse a su base de datos. Estos intentos todavía tienen que autenticarse. Sin embargo, si no desea que la base de datos sea accesible para las direcciones IP de Azure, puede deshabilitar "Permitir que los servicios de Azure accedan al servidor". Asimismo, puede configurar [puntos de conexión de servicio de red virtual](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Los puntos de conexión de servicio (SE) le permiten exponer los recursos críticos de Azure solo a su propia red privada virtual en Azure. Al hacerlo, básicamente se elimina el acceso público a sus recursos. El tráfico entre su red virtual y Azure se mantiene en la red troncal de Azure. Sin SE obtendrá un enrutamiento de paquetes de tunelización forzada. La red virtual fuerza el tráfico de Internet a su organización y el tráfico del servicio de Azure para que sigan la misma ruta. Con los puntos de conexión de servicio, puede optimizar esto, ya que los paquetes fluyen directamente de la red virtual al servicio en la red troncal de Azure.
 

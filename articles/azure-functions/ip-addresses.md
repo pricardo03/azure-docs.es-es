@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 0fcda59add346d60f37273625fbbcf41faab0e15
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0ed488cd717bc1548b26dcf8ff5f200a62710132
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091210"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584895"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -58,21 +58,31 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>Direcciones IP de salida del centro de datos
 
-Si necesita incluir en la lista blanca las direcciones IP de salida que utilizan sus aplicaciones de función, otra opción es incluir en la lista blanca el centro de datos de las aplicaciones de función (región de Azure). Puede [descargar un archivo XML que contenga las direcciones IP de todos los centros de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Luego, busque el elemento XML que se aplique a la región en que se ejecuta la aplicación de función.
+Si necesita incluir en la lista blanca las direcciones IP de salida que utilizan sus aplicaciones de función, otra opción es incluir en la lista blanca el centro de datos de las aplicaciones de función (región de Azure). Puede [descargar un archivo JSON que contiene las direcciones IP de todos los centros de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Luego, busque el fragmento JSON que se aplique a la región en la que se ejecuta la aplicación de función.
 
-Por ejemplo, así sería el elemento XML de Europa occidental:
+Por ejemplo, este sería el aspecto del fragmento JSON de Europa Occidental:
 
 ```
-  <Region Name="europewest">
-    <IpRange Subnet="13.69.0.0/17" />
-    <IpRange Subnet="13.73.128.0/18" />
-    <!-- Some IP addresses not shown here -->
-    <IpRange Subnet="213.199.180.192/27" />
-    <IpRange Subnet="213.199.183.0/24" />
-  </Region>
+{
+  "name": "AzureCloud.westeurope",
+  "id": "AzureCloud.westeurope",
+  "properties": {
+    "changeNumber": 9,
+    "region": "westeurope",
+    "platform": "Azure",
+    "systemService": "",
+    "addressPrefixes": [
+      "13.69.0.0/17",
+      "13.73.128.0/18",
+      ... Some IP addresses not shown here
+     "213.199.180.192/27",
+     "213.199.183.0/24"
+    ]
+  }
+}
 ```
 
- Para obtener información acerca de cuándo se actualiza este archivo y cuando cambian las direcciones IP, expanda la sección **Details** (Detalles) de la [página del Centro de descarga](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+ Para obtener información acerca de cuándo se actualiza este archivo y cuando cambian las direcciones IP, expanda la sección **Details** (Detalles) de la [página del Centro de descarga](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 ## <a name="inbound-ip-address-changes"></a>Cambios en la dirección IP de entrada
 

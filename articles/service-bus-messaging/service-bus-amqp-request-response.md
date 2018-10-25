@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f5d5b8064821dfb1aa6d4e99d0152e364f9a83fe
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700525"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269350"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
@@ -142,6 +142,10 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|Matriz de UUID|SÍ|Tokens de bloqueo de renovación de mensajes.|  
+
+> [!NOTE]
+> Los tokens de bloqueo son la propiedad `DeliveryTag` en los mensajes recibidos. Consulte el ejemplo siguiente en [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) que los recupera. El token también puede aparecer en "DeliveryAnnotations" como "x-opt-lock-token"; sin embargo, esto no está garantizado y se debe preferir `DeliveryTag`. 
+> 
   
 #### <a name="response"></a>Response  
 
@@ -365,7 +369,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|SÍ|`com.microsoft:peek-message`|  
+|operación|string|SÍ|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  

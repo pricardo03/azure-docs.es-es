@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 713c0f676067cb32a84361dd7801031295e2244f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634445"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167008"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -224,6 +224,17 @@ El objetivo de supervisar los cambios en las claves del Registro identificar los
 |&nbsp;&nbsp;&nbsp;&nbsp;Supervisa la lista de DLL del sistema conocidas o utilizadas; este sistema impide que las personas se aprovechen de permisos de directorio de aplicación débiles colocando versiones de troyanos en DLL del sistema.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Supervisa la lista de paquetes que pueden recibir notificaciones de eventos de Winlogon, el modelo de compatibilidad de inicio de sesión interactivo para el sistema operativo Windows.|
+
+## <a name="network-requirements"></a>Requisitos de red
+
+Las direcciones siguientes se requieren específicamente para Change Tracking. La comunicación con estas direcciones se realiza a través del puerto 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|* .ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|* .azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Uso de seguimiento de cambios
 

@@ -1,20 +1,21 @@
 ---
-title: Método de interpretación de Academic Knowledge API | Microsoft Docs
+title: 'Método de interpretación: Academic Knowledge API'
+titlesuffix: Azure Cognitive Services
 description: Utilice el método de interpretación para devolver interpretaciones con formato de cadenas de consulta de usuario basadas en datos de Academic Graph y Academic Grammar en Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a46c792f14fabf6562666d1067ef880bd505741f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380058"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902576"
 ---
 # <a name="interpret-method"></a>Método de interpretación
 
@@ -30,7 +31,7 @@ Para proporcionar una experiencia interactiva, puede llamar a este método varia
 
 NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 ---------|---------|---------|---------
-**consulta**    | Cadena de texto | Sí | Consulta especificada por el usuario.  Si complete se establece en 1, la consulta se interpretará como un prefijo para generar sugerencias de finalización automática para la consulta.        
+**consulta**    | Cadena de texto | SÍ | Consulta especificada por el usuario.  Si complete se establece en 1, la consulta se interpretará como un prefijo para generar sugerencias de finalización automática para la consulta.        
 **model**    | Cadena de texto | Sin   | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
 **complete** | 0 o 1 | Sin <br>valor predeterminado:0  | 1 significa que las sugerencias de finalización automática se generan según los datos de gráfico y la gramática.         
 **count**    | Number | Sin <br>valor predeterminado:10 | Número máximo de interpretaciones de retorno.         

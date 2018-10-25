@@ -1,26 +1,18 @@
 ---
-title: Administración del conjunto de registros de DNS y registros con Azure DNS | Microsoft Docs
+title: Administración de conjuntos de registros de DNS y de registros con Azure DNS
 description: Azure DNS proporciona la funcionalidad de administrar registros y conjuntos de registros de DNS al hospedar un dominio.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451399"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853715"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Administración de registros y conjuntos de registros DNS mediante el Portal de Azure
 
@@ -120,3 +112,4 @@ No puede eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombr
 * Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 * Para más información acerca de la automatización de DNS, consulte [Creación de conjuntos de registros y zonas DNS con el SDK de .NET](dns-sdk.md).
 * Para más información acerca de los registros de DNS inversos, consulte [Introducción a DNS inverso y compatibilidad en Azure](dns-reverse-dns-overview.md).
+* Para más información acerca de Azure DNS, consulte [Introducción a los registros de alias de Azure DNS](dns-alias.md).

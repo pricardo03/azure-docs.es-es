@@ -7,16 +7,16 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e29186d07d9a060e45ed051d6f7ed0ac81a5e15b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982671"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867789"
 ---
 # <a name="monitor-and-tune"></a>Supervisión y ajuste
-La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. 
+La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
 
 ## <a name="metrics"></a>Métricas
 Azure Database for PostgreSQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor PostgreSQL. Cada métrica se emite con una frecuencia de un minuto y tiene un historial de hasta 30 días. Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
@@ -40,6 +40,9 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 
+## <a name="server-logs"></a>Registros del servidor
+Puede habilitar el registro en el servidor. Estos registros también están disponibles mediante los registros de diagnóstico de Azure en [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs y la cuenta de almacenamiento. Para más información sobre el registro, visite la página [Registros de servidor](concepts-server-logs.md).
+
 ## <a name="query-store"></a>Almacén de consultas
 [Almacén de consultas](concepts-query-store.md) es una característica en versión preliminar pública que realiza un seguimiento del rendimiento de las consultas a lo largo del tiempo, lo que incluye estadísticas en tiempo de ejecución y eventos de espera de consultas. La característica conserva información del rendimiento en tiempo de ejecución de las consultas en una base de datos del sistema denominada **azure_sys** bajo el esquema query_store. Puede controlar la recopilación y el almacenamiento de datos mediante diversos botones de configuración.
 
@@ -50,5 +53,5 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) identifica oportunidades para mejorar el rendimiento de la carga de trabajo. La versión preliminar pública de Recomendaciones de rendimiento le proporciona recomendaciones para crear nuevos índices que tienen el potencial de mejorar el rendimiento de las cargas de trabajo. Para generar recomendaciones de índices, la característica tiene en cuenta diversas funcionalidades de la base de datos, como su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el efecto de estos cambios. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.
+- Consulte [Configuración de alertas](howto-alert-on-metric.md) para obtener instrucciones sobre cómo crear una alerta en una métrica.
 - Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API de REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

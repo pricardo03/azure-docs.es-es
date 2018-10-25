@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449366"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166073"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
@@ -57,6 +57,12 @@ Puede crear un plan de App Service vacío o como parte de la creación de la apl
 
 Puede mover una aplicación a otro plan de App Service siempre que el plan de origen y el plan de destino se encuentren en el _mismo grupo de recursos y región geográfica_.
 
+> [!NOTE]
+> Azure implementa cada nuevo plan de App Service en una unidad de implementación, que internamente se denomina espacio web. Cada región puede tener muchos espacios web, pero la aplicación solo puede moverse entre planes que se hayan creado en el mismo espacio web. Una instancia de App Service Environment es un espacio web aislado, por lo que las aplicaciones se pueden mover entre planes de la misma instancia de App Service Environment, pero no entre planes de diferentes instancias de App Service Environment.
+>
+> No se puede especificar el espacio web que quiera al crear un plan, pero es posible asegurar que un plan se cree en el mismo espacio web que un plan existente. En resumen, todos los planes que se creen con la misma combinación de grupo de recursos y región se implementan en el mismo espacio de web. Por ejemplo, si crea un plan en un grupo de recursos A y en una región B, cualquier plan que cree posteriormente en el grupo de recursos A y en la región B se implementará en el mismo espacio web. Tenga en cuenta que los planes no pueden mover espacios web una vez que se crean, por lo que no podrá mover un plan al "mismo espacio web" como otro plan moviéndolo a otro grupo de recursos.
+> 
+
 1. En [Azure Portal](https://portal.azure.com), vaya a la aplicación que desea mover.
 
 1. En el menú, busque la sección **Plan de App Service**.
@@ -67,16 +73,7 @@ Puede mover una aplicación a otro plan de App Service siempre que el plan de or
 
 1. En el selector **Plan de App Service**, seleccione un plan existente al que mover esta aplicación.   
 
-> [!IMPORTANT]
-> La página **Select App Service plan** (Seleccionar plan de App Service) se filtra por los siguientes criterios: 
-> - Existe en el mismo grupo de recursos 
-> - Existe en la misma región geográfica 
-> - Existe en el mismo espacio web  
-> 
-> Un _espacio web_ es una construcción lógica en App Service que define una agrupación de recursos del servidor. Una región geográfica (por ejemplo, Oeste de EE. UU.) contiene muchos espacios web para poder asignar a los clientes que usan App Service. Actualmente, no se pueden mover recursos de App Service entre espacios web. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+La página **Select App Service plan** (Seleccionar plan de App Service) muestra únicamente los planes que se encuentran en el mismo grupo de recursos y región geográfica que el plan de App Service de la aplicación actual.
 
 Cada plan tiene su propio plan de tarifa. Por ejemplo, al mover un sitio de un plan **Gratis** a un plan **Estándar**, todas las aplicaciones asignadas puedan usar las características y los recursos del plan **Estándar**. Sin embargo, mover una aplicación de un plan de un nivel superior a un plan de un nivel inferior implicará que deje de tener acceso a determinadas características. Si la aplicación utiliza una característica que no está disponible en el plan de destino, obtendrá un error que muestra qué característica está en uso que no está disponible. 
 

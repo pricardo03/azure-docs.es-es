@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184674"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247761"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: integración de Azure Active Directory con My Award Points Top Sub/Top Team
 
@@ -50,7 +50,8 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
+El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de My Award Points Top Sub/Top Team desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -112,7 +113,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`.
 
     > [!NOTE]
-    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com) para obtener este valor.
+    > Obtendrá el valor `<SAMLENTITYID>` en los últimos pasos en este tutorial.
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -122,7 +123,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Para configurar el inicio de sesión único en **My Award Points Top Sub/Top Team**, es preciso enviar el **XML de metadatos** descargado al [equipo de soporte técnico de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+6. En la sección **Mi configuración de My Award Points Top Sub/Top Team**, seleccione **Configurar My Award Points Top Sub/Top Team** para abrir la ventana Configurar inicio de sesión. Copie el identificador de entidad de SAML en la sección **Referencia rápida** y anexe el valor de Id. de entidad de SAML con la dirección URL de inicio de sesión en lugar de `<SAMLENTITYID>` en la sección **Dominio y direcciones URL de My Award Points Top Sub/Top Team** en Azure Portal.
+
+7. Para configurar el inicio de sesión único en **My Award Points Top Sub/Top Team**, es preciso enviar el **XML de metadatos** descargado al [equipo de soporte técnico de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

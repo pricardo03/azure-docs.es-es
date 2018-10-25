@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984592"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079062"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
 Con la API de REST de alertas de Log Analytics se pueden crear y administrar alertas de Operations Management Suite (OMS).  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
@@ -138,6 +138,7 @@ Una programación debe tener una acción de alerta única y exclusivamente.  Las
 |:--- |:--- |:--- |
 | Umbral |Criterios para establecer cuándo se va a ejecutar la acción.| Se requiere para cada alerta, ya sea antes o después de extenderlas a Azure. |
 | Gravedad |Etiqueta que se usa para clasificar la alerta cuando se desencadena.| Se requiere para cada alerta, ya sea antes o después de extenderlas a Azure. |
+| Suprimir |Opción para dejar de recibir notificaciones de la alerta. | Opcional para cada alerta, ya sea antes o después de extenderlas a Azure. |
 | Grupos de acciones |Identificadores para Azure ActionGroup donde se especifican las acciones requeridas, como correos electrónicos, mensajes SMS, llamadas de voz, webhooks, runbooks de Automation, conectores ITSM, etc.| Se requiere una vez que las alertas se extienden a Azure|
 | Personalizar las acciones|Modifica la salida estándar para seleccionar acciones en ActionGroup| Opcional para cada alerta, se puede usar después de que las alertas se extienden a Azure. |
 | EmailNotification |Se envía un correo electrónico a varios destinatarios. | No se requiere si las alertas se extendieron a Azure|
@@ -213,6 +214,37 @@ Use el método Put con un identificador de acción existente para modificar una 
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="suppress"></a>Suprimir
+Las alertas de consulta basadas en Log Analytics se activarán cada vez que se alcance o supere el umbral. Según la lógica implicada en la consulta, esto puede producir que la alerta se active en una serie de intervalos y, por tanto, también se envíen notificaciones constantemente. Para evitar estos escenarios, un usuario puede establecer la opción de suprimir para indicar a Log Analytics que debe esperar durante un período de tiempo estipulado antes de que la notificación se desencadene por segunda vez para la regla de alertas. Por lo tanto, si la supresión se establece en 30 minutos, la alerta se activará la primera vez y enviará las notificaciones configuradas. Pero, a continuación, espera 30 minutos antes de volver a utilizar la notificación para la regla de alertas. En el período transitorio, la regla de alertas se seguirá ejecutando: Log Analytics solo suprime la notificación durante el tiempo especificado, independientemente de cuántas veces se desencadena la regla de alertas durante este período.
+
+La propiedad de supresión de la regla de alertas de Log Analytics se especifica con el valor *Throttling* y el período de supresión mediante el valor *DurationInMinutes*.
+
+La siguiente es una respuesta de ejemplo de una acción con un solo umbral, la gravedad y la propiedad de supresión.
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Use el método Put con un identificador de acción único para crear una acción para una programación con gravedad.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+Use el método Put con un identificador de acción existente para modificar una acción de gravedad para una programación.  El cuerpo de la solicitud debe incluir el valor etag de la acción.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>Grupos de acciones
 Todas las alertas de Azure usan el grupo de acciones como el mecanismo predeterminado para controlar las acciones. Con el grupo de acciones, puede especificar las acciones una vez y, luego, asociar el grupo de acciones a varias alertas en todo Azure, sin la necesidad de declarar repetidamente una y otra vez las mismas acciones. Los grupos de acciones admiten varias acciones, incluido el correo electrónico, SMS, llamadas de voz, conexión ITSM, runbook de Automation, URI de webhook, etc. 

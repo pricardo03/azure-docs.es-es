@@ -1,79 +1,59 @@
 ---
-title: Incorporación de un proveedor de Salesforce SAML mediante el uso de directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
-description: Obtenga información sobre cómo crear y administrar directivas personalizadas de Azure Active Directory B2C.
+title: Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
+description: Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5b7621bde0be02b4656c4678438b94499bb82b5b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ebce7a661ab305e5dcfda191ddbad54a4e9d33a1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345044"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887264"
 ---
-# <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: inicio de sesión mediante cuentas de Salesforce a través de SAML
+# <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se muestra cómo usar [directivas personalizadas](active-directory-b2c-overview-custom.md) para configurar el inicio de sesión de los usuarios de una organización de Salesforce concreta.
+En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta de organización de Salesforce mediante [directivas personalizadas](active-directory-b2c-overview-custom.md) en Azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="azure-ad-b2c-setup"></a>Configuración de Azure AD B2C
-
-Asegúrese de que ha completado todos los pasos que le muestran cómo [empezar a trabajar con directivas personalizadas](active-directory-b2c-get-started-custom.md) en Azure Active Directory B2C (Azure AD B2C).
-
-Entre ellas se incluyen las siguientes:
-
-* Crear un inquilino de Azure AD B2C.
-* Crear una aplicación de Azure AD B2C.
-* Registrar dos aplicaciones de motor de directivas.
-* Configurar las claves.
-* Configurar el paquete de inicio.
-
-### <a name="salesforce-setup"></a>Configuración de Salesforce
-
-En este artículo se supone que ya ha realizado lo siguiente:
-
-* Se ha registrado para obtener una cuenta de Salesforce. Puede registrarse para [una cuenta gratuita de Developer Edition](https://developer.salesforce.com/signup).
-* [Ha configurado un Mi dominio](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) para su organización de Salesforce.
-
-## <a name="set-up-salesforce-so-users-can-federate"></a>Configurar Salesforce, para que los usuarios se puedan federar
-
-Para permitir que Azure AD B2C se comunique con Salesforce, debe obtener la dirección URL de metadatos de Salesforce.
+- Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Si aún no lo ha hecho, regístrese en una [cuenta gratuita de Developer Edition](https://developer.salesforce.com/signup). Este artículo usa la [experiencia Salesforce Lightning](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
+- [Ha configurado un Mi dominio](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) para su organización de Salesforce.
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Configurar Salesforce como proveedor de identidades
 
-> [!NOTE]
-> En este artículo, se supone que usa [Lightning Experience de Salesforce](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
-
 1. [Inicie sesión en Salesforce](https://login.salesforce.com/). 
-2. En el menú de la izquierda, en **Settings** (Configuración), expanda **Identity** (Identidad) y haga clic en **Identity Provider** (Proveedor de identidades).
-3. Haga clic en **Enable Identity Provider** (Habilitar proveedor de identidades).
-4. Bajo **Select the certificate** (Seleccionar el certificado), seleccione el certificado que quiere que Salesforce use para comunicarse con Azure AD B2C. (Puede usar el certificado predeterminado). Haga clic en **Save**(Guardar). 
+2. En el menú de la izquierda, en **Settings** (Configuración), expanda **Identity** (Identidad) y seleccione **Identity Provider** (Proveedor de identidades).
+3. Seleccione **Enable Identity Provider** (Habilitar proveedor de identidades).
+4. Bajo **Select the certificate** (Seleccionar el certificado), seleccione el certificado que quiere que Salesforce use para comunicarse con Azure AD B2C. Puede usar el certificado predeterminado. 
+5. Haga clic en **Save**(Guardar). 
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Crear una aplicación conectada en Salesforce
 
-1. En la página **Identity Provider** (Proveedor de identidades), vaya a **Service Providers** (Proveedores de servicios).
-2. Haga clic en **Service Providers are now created via Connected Apps (Los proveedores de servicios se crean ahora a través de aplicaciones conectadas). Haga clic aquí.**
-3. En **Basic Information**(Información básica), escriba los valores necesarios para la aplicación conectada.
-4. En **Web App Settings** (Configuración de aplicación web), active la casilla **Enable SAML** (Habilitar SAML).
-5. En el campo **Entity ID** (Id. de entidad), escriba la siguiente dirección URL. Asegúrese de que reemplaza el valor de `tenantName`.
+1. En la página **Identity Provider** (proveedor de identidades), seleccione que **los proveedores de servicios se creen ahora con aplicaciones conectadas. Haga clic aquí.**
+2. En **Basic Information**(Información básica), escriba los valores necesarios para la aplicación conectada.
+3. En **Web App Settings** (Configuración de aplicación web), active la casilla **Enable SAML** (Habilitar SAML).
+4. En el campo **Entity ID** (Id. de entidad), escriba la siguiente dirección URL. Asegúrese de reemplazar el valor de `your-tenant` con el nombre del inquilino de Azure AD B2C.
+
       ```
-      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
-6. En el campo **ACS URL** (Dirección URL de ACS), escriba la siguiente dirección URL. Asegúrese de que reemplaza el valor de `tenantName`.
+
+6. En el campo **ACS URL** (Dirección URL de ACS), escriba la siguiente dirección URL. Asegúrese de reemplazar el valor de `your-tenant` con el nombre del inquilino de Azure AD B2C.
+      
       ```
-      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
-7. Deje los valores predeterminados de las demás opciones de configuración.
-8. Desplácese hasta la parte inferior de la lista y, después, haga clic en **Guardar**.
+7. Desplácese hasta la parte inferior de la lista y, después, haga clic en **Guardar**.
 
 ### <a name="get-the-metadata-url"></a>Obtener la dirección URL de metadatos
 
@@ -82,11 +62,10 @@ Para permitir que Azure AD B2C se comunique con Salesforce, debe obtener la dire
 
 ### <a name="set-up-salesforce-users-to-federate"></a>Configurar usuarios de Salesforce para la federación
 
-1. En la página **Administrar** de la aplicación conectada, vaya a **Perfiles**.
-2. Haga clic en **Administrar perfiles**.
-3. Seleccione los perfiles (o grupos de usuarios) que quiere que realicen la federación con Azure AD B2C. Como administrador del sistema, active la casilla **Administrador del sistema** para poder realizar la federación con su cuenta de Salesforce.
+1. En la página **Administrar** de la aplicación conectada, haga clic en **Administrar perfiles**.
+2. Seleccione los perfiles (o grupos de usuarios) que quiere que realicen la federación con Azure AD B2C. Como administrador del sistema, active la casilla **Administrador del sistema** para poder realizar la federación con su cuenta de Salesforce.
 
-## <a name="generate-a-signing-certificate-for-azure-ad-b2c"></a>Generar un certificado de firma para Azure AD B2C
+## <a name="generate-a-signing-certificate"></a>Generación de un certificado de firma
 
 Las solicitudes enviadas a Salesforce deben estar firmadas mediante Azure AD B2C. Para generar un certificado de firma, abra Azure PowerShell y ejecute los comandos siguientes.
 
@@ -104,26 +83,30 @@ $pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
 Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 ```
 
-## <a name="add-the-saml-signing-certificate-to-azure-ad-b2c"></a>Agregar un certificado de firma de SAML a Azure AD B2C
+## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
-Cargue el certificado de firma en el inquilino de Azure AD B2C: 
+Debe almacenar el certificado que creó en el inquilino de Azure AD B2C.
 
-1. Vaya al inquilino de Azure AD B2C. Haga clic en **Configuración** > **Marco de experiencia de identidad** > **Claves de directiva**.
-2. Haga clic en **+Agregar** y después:
-    1. Haga clic en **Opciones** > **Cargar**.
-    2. Escriba un **nombre** (por ejemplo, SAMLSigningCert). El prefijo *B2C_1A_* se agrega automáticamente al nombre de la clave.
-    3. Para seleccionar el certificado, use el **control de carga de archivos**. 
-    4. Escriba la contraseña del certificado que ha establecido en el script de PowerShell.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal y busque y seleccione **Azure AD B2C**.
+4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+5. Seleccione **Claves de directiva** y luego **Agregar**.
+6. En **Opciones**, elija `Upload`.
+7. Escriba un **Nombre** para la directiva. Por ejemplo, SAMLSigningCert. El prefijo `B2C_1A_` se agrega automáticamente al nombre de la clave.
+8. Busque el certificado B2CSigningCert.pfx que ha creado y selecciónelo. 
+9. Escriba la **Contraseña** del certificado.
 3. Haga clic en **Create**(Crear).
-4. Compruebe que ha creado una clave (por ejemplo, B2C_1A_SAMLSigningCert). Tome nota del nombre completo (incluido *B2C_1A_*). Hará referencia a esta clave más adelante en la directiva.
 
-## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Creación del proveedor de notificaciones de Salesforce SAML en la directiva de base
+## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 
-Para que los usuarios puedan iniciar sesión mediante Salesforce, debe definir Salesforce como proveedor de notificaciones. En otras palabras, tiene que especificar el punto de conexión con el que Azure AD B2C se va a comunicar. El punto de conexión *proporcionará* un conjunto de *notificaciones* que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. Para ello, agregue un `<ClaimsProvider>` para Salesforce en el archivo de extensión de la directiva:
+Si desea que los usuarios inicien sesión con una cuenta de Salesforce, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
 
-1. En el directorio de trabajo, abra el archivo de extensión (TrustFrameworkExtensions.xml).
-2. Busque la sección `<ClaimsProviders>`. Si no existe, créelo debajo del nodo raíz.
-3. Agregar un nuevo `<ClaimsProvider>`:
+Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
+
+1. Abra el archivo *TrustFrameworkExtensions.xml*.
+2. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
+3. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
 
     ```XML
     <ClaimsProvider>
@@ -165,90 +148,72 @@ Para que los usuarios puedan iniciar sesión mediante Salesforce, debe definir S
     </ClaimsProvider>
     ```
 
-En el nodo `<ClaimsProvider>`:
-
-1. Cambie el valor de `<Domain>` a un valor único que distinga `<ClaimsProvider>` de otros proveedores de identidades.
-2. Actualice el valor de `<DisplayName>` a un nombre para mostrar para el proveedor de notificaciones. Actualmente este valor no se usa.
-
-### <a name="update-the-technical-profile"></a>Actualización del perfil técnico
-
-Para obtener un token de SAML de Salesforce, defina los protocolos que Azure AD B2C va a usar para comunicarse con Azure Active Directory (Azure AD). Puede hacer esto en el elemento `<TechnicalProfile>` de `<ClaimsProvider>`:
-
-1. Actualice el identificador del nodo `<TechnicalProfile>`. Este identificador se usa para hacer referencia a este perfil técnico desde otras partes de la directiva.
-2. Actualice el valor de `<DisplayName>`. Este valor se muestra en el botón de inicio de sesión de la página de inicio de sesión.
-3. Actualice el valor de `<Description>`.
-4. Salesforce usa el protocolo SAML 2.0. Asegúrese de que el valor de `<Protocol>` es **SAML2**.
-
-Actualice la sección `<Metadata>` del código XML anterior para reflejar la configuración de su cuenta de Salesforce específica. En el código XML, actualice los valores de metadatos:
-
-1. Actualice el valor de `<Item Key="PartnerEntity">` con la dirección URL de metadatos de Salesforce que ha copiado anteriormente. Tiene el siguiente formato: 
-
-    `https://contoso-dev-ed.my.salesforce.com/.well-known/samlidp/connectedapp.xml`
-
-2. En la sección `<CryptographicKeys>`, actualice el valor de las dos instancias de `StorageReferenceId` con el nombre de la clave de su certificado de firma (por ejemplo, B2C_1A_SAMLSigningCert).
+4. Actualice el valor de **PartnerEntity** con la dirección URL de metadatos de Salesforce que ha copiado anteriormente.
+5. Actualice el valor de ambas instancias de **StorageReferenceId** con el nombre de la clave de su certificado de firma. Por ejemplo, B2C_1A_SAMLSigningCert.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
 
-Ahora la directiva está configurada para que Azure AD B2C sepa cómo comunicarse con Salesforce. Pruebe a cargar el archivo de extensión de la directiva, para confirmar que no tiene problemas. Para cargar el archivo de extensión de la directiva:
+Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su cuenta de Salesforce. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
 
-1. En el inquilino de Azure AD B2C, vaya a la hoja **All Policies** (Todas las directivas).
-2. Active la casilla **Sobrescribir la directiva si existe**.
-3. Cargue el archivo de extensión (TrustFrameworkExtensions.xml). Asegúrese de que no se produce un error en la validación.
+1. En la página **Directivas personalizadas** de su inquilino de Azure AD B2C, seleccione **Cargar directiva**.
+2. Habilite **Overwrite the policy if it exists** (Sobrescribir la directiva, si existe) y, a continuación, busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
+3. Haga clic en **Cargar**.
 
-## <a name="register-the-salesforce-saml-claims-provider-to-a-user-journey"></a>Registrar el proveedor de notificaciones de Salesforce SAML en un recorrido del usuario
+## <a name="register-the-claims-provider"></a>Registro del proveedor de notificaciones
 
-Después, agregue el proveedor de identidades de Salesforce SAML a uno de los recorridos del usuario. El proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las páginas de registro o inicio de sesión de usuario. Para agregar el proveedor de identidades a una página de inicio de sesión, en primer lugar cree un duplicado de una plantilla de recorrido del usuario existente. Después, modifique la plantilla para que también tenga el proveedor de identidades de Azure AD.
+En este punto, el proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las pantallas de registro o de inicio de sesión. Para que esté disponible, debe crear un duplicado de un recorrido del usuario de plantilla existente y luego modificarlo para que también tenga el proveedor de identidades de Salesforce.
 
-1. Abra el archivo base de la directiva (por ejemplo, TrustFrameworkBase.xml).
-2. Busque el elemento `<UserJourneys>` y copie el valor `<UserJourney>` completo, incluido Id="SignUpOrSignIn".
-3. Abra el archivo de extensión (por ejemplo, TrustFrameworkExtensions.xml). Busque el elemento `<UserJourneys>`. Si el elemento no existe, cree uno.
-4. Pegue todo el elemento `<UserJourney>` copiado como elemento secundario de `<UserJourneys>`.
-5. Cambie el nombre del Id. del nuevo `<UserJourney>` (por ejemplo, SignUpOrSignUsingContoso).
+1. Abra el archivo *TrustFrameworkBase.xml* del paquete de inicio.
+2. Busque y copie todo el contenido del elemento **UserJourney** que incluye `Id="SignUpOrSignIn"`.
+3. Abra el archivo *TrustFrameworkExtensions.xml* y busque el elemento **UserJourneys**. Si el elemento no existe, agréguelo.
+4. Pegue todo el contenido del elemento **UserJourney** que ha copiado como elemento secundario del elemento **UserJourneys**.
+5. Cambie el identificador del recorrido del usuario. Por ejemplo, `SignUpSignInSalesforce`.
 
-### <a name="display-the-identity-provider-button"></a>Mostrar el botón de proveedor de identidades
+### <a name="display-the-button"></a>Visualización del botón
 
-El elemento `<ClaimsProviderSelection>` es análogo a un botón de proveedor de identidades en una página de registro o inicio de sesión. Al agregar un elemento `<ClaimsProviderSelection>` para Salesforce, aparece un botón nuevo cuando un usuario se desplaza a esta página. Para mostrar el botón de proveedor de identidades:
+El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta de LinkedIn, se muestra un nuevo botón cuando un usuario llega a la página.
 
-1. En el `<UserJourney>` que ha creado, busque `<OrchestrationStep>` con `Order="1"`.
-2. Agregue el siguiente código XML:
-
-    ```XML
-    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
-    ```
-
-3. Establezca `TargetClaimsExchangeId` en un valor lógico. Se recomienda seguir la misma convención que en el resto: (por ejemplo, *\[NombreProveedorDeNotificaciones\]Exchange*).
-
-### <a name="link-the-identity-provider-button-to-an-action"></a>Vincular el botón de proveedor de identidades a una acción
-
-Ahora que hay un botón de proveedor de identidades colocado, vincúlelo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con Salesforce para recibir un token SAML. Para ello, vincule el perfil técnico del proveedor de notificaciones de Salesforce SAML:
-
-1. En el nodo `<UserJourney>`, busque `<OrchestrationStep>` con `Order="2"`.
-2. Agregue el siguiente código XML:
+1. Busque el elemento **OrchestrationStep** que incluye `Order="1"` en el recorrido del usuario que ha creado.
+2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo `SalesforceExchange`:
 
     ```XML
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
     ```
 
-3. Actualice `Id` al mismo valor que ha usado previamente para `TargetClaimsExchangeId`.
-4. Actualice `TechnicalProfileReferenceId` al valor `Id` del perfil técnico que ha creado anteriormente (por ejemplo, ContosoProfile).
+### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
 
-### <a name="upload-the-updated-extension-file"></a>Cargar el archivo de extensión actualizado
+Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con la cuenta de Salesforce para recibir un token.
 
-Ya ha terminado la modificación del archivo de extensión. Guarde y cargue este archivo. Asegúrese de que todas las validaciones se han realizado correctamente.
+1. Busque el elemento **OrchestrationStep** que incluye `Order="2"` en el recorrido del usuario.
+2. Al agregar el siguiente elemento **ClaimsExchange**, se asegura de usar el mismo valor para el elemento **Id** que usó en **TargetClaimsExchangeId**:
 
-### <a name="update-the-relying-party-file"></a>Actualizar el archivo de usuario de confianza
+    ```XML
+    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
+    ```
+    
+    Actualice el valor de **TechnicalProfileReferenceId** con el **identificador** del perfil técnico que creó anteriormente. Por ejemplo, `LinkedIn-OAUTH`.
 
-Después, actualice el archivo del usuario de confianza (RP) que inicia el recorrido del usuario que ha creado:
+3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo para realizar el proceso de comprobación.
 
-1. Realice una copia de SignUpOrSignIn.xml en el directorio de trabajo. Después, cambie el nombre (por ejemplo, SignUpOrSignInWithAAD.xml).
-2. Abra el archivo nuevo y actualice el atributo `PolicyId` de `<TrustFrameworkPolicy>` con un valor único. Este es el nombre de la directiva (por ejemplo, SignUpOrSignInWithAAD).
-3. Modifique el atributo `ReferenceId` de `<DefaultUserJourney>` para que coincida con el `Id` del nuevo recorrido del usuario que ha creado (por ejemplo, SignUpOrSignUsingContoso).
-4. Guarde los cambios y después cargue el archivo.
+## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
 
-## <a name="test-and-troubleshoot"></a>Pruebas y solución de problemas
+La comunicación con Azure AD B2C se produce mediante una aplicación que se crea en el inquilino. En esta sección se enumeran los pasos opcionales que puede llevar a cabo para crear una aplicación de prueba, si aún no lo ha hecho.
 
-Para probar la directiva personalizada que acaba de cargar, en Azure Portal, vaya a la hoja de la directiva y, después, haga clic en **Ejecutar ahora**. Si se produce un error, vea [Solución de problemas de directivas personalizadas](active-directory-b2c-troubleshoot-custom.md).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal y busque y seleccione **Azure AD B2C**.
+4. Seleccione **Aplicaciones** y, a continuación, **Agregar**.
+5. Escriba un nombre para la aplicación; por ejemplo, *testapp1*.
+6. En **Aplicación web / API web**, seleccione `Yes` y, a continuación, escriba `https://jwt.ms` como **dirección URL de respuesta**.
+7. Haga clic en **Create**(Crear).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="update-and-test-the-relying-party-file"></a>Actualización y prueba del archivo del usuario de confianza
 
-Envíe sus comentarios a [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
+Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario recién creado:
+
+1. Realice una copia del archivo *SignUpOrSignIn.xml* en el directorio de trabajo y cámbiele el nombre. Por ejemplo, cambie su nombre a *.xml*.
+2. Abra el nuevo archivo y actualice el valor del atributo **PolicyId** del elemento **TrustFrameworkPolicy** con un valor único. Por ejemplo, `SignUpSignInSalesforce`.
+3. Actualice el valor de **PublicPolicyUri** con el URI para la directiva. Por ejemplo, `http://contoso.com/B2C_1A_signup_signin_salesforce`
+4. Actualice el valor del atributo **ReferenceId** del elemento **DefaultUserJourney** para que coincida con el identificador del nuevo recorrido del usuario que ha creado (SignUpSignInSalesforce).
+5. Guarde los cambios, cargue el archivo y, a continuación, seleccione la nueva directiva en la lista.
+6. Asegúrese de que la aplicación de Azure AD B2C que creó está seleccionada en el campo **Seleccionar aplicación** y, a continuación, pruébela; para ello, haga clic en **Ejecutar ahora**.

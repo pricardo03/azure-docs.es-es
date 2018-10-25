@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47389937"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874122"
 ---
 ## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
@@ -34,11 +34,11 @@ Para poder eliminar un archivo .vhd de origen, deberá quitar la concesión elim
 
 Los discos de Azure están diseñados para ofrecer una disponibilidad del 99,999 %. Los discos de Azure ofrecen durabilidad de nivel empresarial, con una tasa de error anualizada del 0 %.
 
-Hay tres niveles de rendimiento para el almacenamiento que puede elegir al crear los discos: discos SSD premium, SSD estándar (versión preliminar) y almacenamiento HDD estándar. Además, hay dos tipos de discos: administrado y no administrado.
+Hay tres niveles de rendimiento para el almacenamiento que puede elegir al crear los discos: discos SSD Premium, SSD estándar y almacenamiento HDD estándar. Además, hay dos tipos de discos: administrado y no administrado.
 
 ### <a name="standard-hdd-disks"></a>Discos HDD estándar
 
-Los discos HDD estándar están respaldados por unidades de disco duro y proporcionan un almacenamiento de menor costo. El almacenamiento HDD estándar se puede replicar de forma local en un centro de datos o tener redundancia geográfica con centros de datos principales y secundarios. Para más información sobre la replicación del almacenamiento, consulte [Replicación en Azure Storage](../articles/storage/common/storage-redundancy.md). 
+Los discos HDD estándar están respaldados por unidades de disco duro y proporcionan un almacenamiento de menor costo. El almacenamiento HDD estándar se puede replicar de forma local en un centro de datos o tener redundancia geográfica con centros de datos principales y secundarios. Para más información sobre la replicación del almacenamiento, consulte [Replicación en Azure Storage](../articles/storage/common/storage-redundancy.md).
 
 Para más información sobre el uso de discos HDD estándar, consulte [Discos y almacenamiento estándar](../articles/virtual-machines/windows/standard-storage.md).
 

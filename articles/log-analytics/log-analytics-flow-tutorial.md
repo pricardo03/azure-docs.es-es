@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 21cf7cf3d12902b02fcbf650a1623e78004d28b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131707"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041993"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de Log Analytics con el conector para Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. La salida de una acción se puede utilizar como entrada de otra lo que le permite crear una integración entre los diferentes servicios.  El conector de Azure Log Analytics para Microsoft Flow le permite compilar flujos de trabajo que incluyen datos recuperados de las búsquedas de registros de Log Analytics.
 
-Por ejemplo, puede utilizar Microsoft Flow para usar los datos de Log Analytics incluidos en una notificación de correo electrónico de Office 365, crear un error en Visual Studio Team Services o publicar un mensaje de Slack.  Puede desencadenar un flujo de trabajo mediante una programación simple o a partir de alguna acción de un servicio conectado, como cuando se recibe un correo electrónico o un tweet.  
+Por ejemplo, puede usar Microsoft Flow para utilizar los datos de Log Analytics incluidos en una notificación de correo electrónico de Office 365, crear un error en Azure DevOps o publicar un mensaje de Slack.  Puede desencadenar un flujo de trabajo mediante una programación simple o a partir de alguna acción de un servicio conectado, como cuando se recibe un correo electrónico o un tweet.  
 
 El tutorial de este artículo le muestra cómo crear un flujo que envíe automáticamente los resultados de una búsqueda de registros de Log Analytics por correo electrónico, lo cual es solo un ejemplo de cómo puede usar Log Analytics en Microsoft Flow. 
 

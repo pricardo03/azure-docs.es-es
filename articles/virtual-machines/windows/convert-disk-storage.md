@@ -13,31 +13,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 10/04/2018
 ms.author: ramankum
-ms.openlocfilehash: 6cfbc458a4bd751b8b871501d19db641e3980767
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 958f661585b38b156cf523fe00986e7594474917
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719331"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093823"
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Conversión de almacenamiento de Azure Managed Disks de estándar a premium, y viceversa
+# <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
 
-Managed Disks ofrece tres opciones de almacenamiento: [SSD premium](../windows/premium-storage.md), SSD estándar (versión preliminar) y [HDD estándar](../windows/standard-storage.md). Permite cambiar fácilmente entre las opciones en función de sus necesidades de rendimiento, con el mínimo tiempo de inactividad. Esto no se admite para discos no administrados. Pero resulta muy sencillo realizar la [conversión a Managed Disks](convert-unmanaged-to-managed-disks.md) para cambiar fácilmente entre los tipos de discos.
+Azure Managed Disks ofrece tres opciones de almacenamiento: [SSD premium](../windows/premium-storage.md), [SSD estándar](../windows/disks-standard-ssd.md) y [HDD estándar](../windows/standard-storage.md). En función de sus necesidades de rendimiento, puede cambiar un disco administrado entre tipos de almacenamiento con un tiempo de inactividad mínimo. En un disco no administrado, no se puede cambiar de un tipo de almacenamiento a otro. Sin embargo, le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md).
 
-En este artículo se muestra cómo convertir Managed Disks de estándar a premium, y viceversa, mediante Azure PowerShell. Si necesita instalarlas o actualizarlas, consulte [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1) (Instalación y configuración de Azure PowerShell).
+En este artículo se muestra cómo convertir un disco administrado de estándar a premium, y viceversa, mediante Azure PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
-* La conversión requiere reiniciar la máquina virtual, por lo que debe programar la migración del almacenamiento de discos durante una ventana de mantenimiento existente previamente. 
-* Si usa discos no administrados, debe primero realizar la [conversión a Managed Disks](convert-unmanaged-to-managed-disks.md) para usar este artículo para cambiar entre las opciones de almacenamiento. 
-* En este artículo se requiere la versión 6.0.0 del módulo de Azure PowerShell, u otra posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). También tiene que ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+* Debido a que la conversión requiere reiniciar la máquina virtual, debería programar la migración del almacenamiento de discos durante una ventana de mantenimiento existente previamente. 
+* Si usa un disco no administrado, en primer lugar [conviértalo en un disco administrado](convert-unmanaged-to-managed-disks.md) para permitirle cambiar entre tipos de almacenamiento. 
+* Los ejemplos de este artículo requieren la versión 6.0.0 o posterior del módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Ejecute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para crear una conexión con Azure.
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Conversión de todos los discos Managed Disks de una máquina virtual de estándar a premium, y viceversa
+## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Conversión de todos los discos administrados de una máquina virtual de estándar a prémium
 
-En el ejemplo siguiente se muestra cómo cambiar todos los discos de una máquina virtual del almacenamiento estándar al premium. Para usar discos administrados premium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo también se pasa a un tamaño que admite Premium Storage.
+En el ejemplo siguiente se muestra cómo cambiar todos los discos de una máquina virtual del almacenamiento estándar al premium. Para usar discos administrados premium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo también se pasa a un tamaño que admite Premium Storage:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -79,9 +79,10 @@ foreach ($disk in $vmDisks)
 
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Conversión de un disco de Managed Disks de estándar a premium, y viceversa
 
-Puede que, en el caso de la carga de trabajo de desarrollo y pruebas, prefiera tener una combinación de discos estándar y premium para reducir el costo. Para ello, puede actualizar a Premium Storage solo los discos que requieren mejor rendimiento. En el ejemplo siguiente se muestra cómo cambiar un solo disco de una máquina virtual del almacenamiento estándar al premium, y viceversa. Para usar discos administrados premium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo también se pasa a un tamaño que admite Premium Storage.
+## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Conversión de un disco administrado de estándar a prémium
+
+Puede que, en el caso de la carga de trabajo de desarrollo y pruebas, prefiera tener una combinación de discos estándar y prémium para reducir el costo. Para ello, puede actualizar a Premium Storage solo los discos que requieren mejor rendimiento. En el ejemplo siguiente se muestra cómo cambiar un solo disco de una máquina virtual del almacenamiento estándar al premium, y viceversa. Para usar discos administrados prémium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo se muestra cómo pasar a un tamaño que admite Premium Storage:
 
 ```azurepowershell-interactive
 
@@ -116,9 +117,9 @@ Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Conversión de un disco administrado de HDD estándar a SSD estándar, y viceversa
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Conversión de un disco administrado de HDD estándar a SSD estándar
 
-En el ejemplo siguiente se muestra cómo cambiar un solo disco de una máquina virtual de HDD estándar a SSD estándar, y viceversa.
+En el ejemplo siguiente se muestra cómo cambiar un solo disco de una máquina virtual de HDD estándar a SSD estándar, y viceversa:
 
 ```azurepowershell-interactive
 
@@ -148,5 +149,5 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Realice una copia de solo lectura de una máquina virtual mediante [instantáneas](snapshot-copy-managed-disk.md).
+Realice una copia de solo lectura de una máquina virtual mediante una [instantánea](snapshot-copy-managed-disk.md).
 

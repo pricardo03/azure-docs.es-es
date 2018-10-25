@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304125"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044083"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. Asimismo, copia los archivos de volcado de memoria en dicha área de trabajo.
@@ -34,7 +34,8 @@ Este artículo proporcionan instrucciones sobre cómo instalar Microsoft Monitor
 > - La recopilación de datos para el conjunto de escalado de máquinas virtuales no se admite actualmente.
 
 
-## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Habilitar el aprovisionamiento automático de Microsoft Monitoring Agent     
+## Habilitar el aprovisionamiento automático de Microsoft Monitoring Agent<a name="auto-provision-mma"></a>
+
 Para recopilar los datos de las máquinas, debe tener instalado Microsoft Monitoring Agent.  La instalación del agente puede ser automática (recomendado) o se puede optar por instalar el agente manualmente.  
 
 >[!NOTE]
@@ -61,8 +62,8 @@ Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 > - Para obtener instrucciones sobre cómo aprovisionar una instalación ya existente, consulte [Aprovisionamiento automático en los casos de una instalación de agente ya existente](#preexisting).
 > - Para obtener instrucciones sobre aprovisionamiento manual,consulte [Instalación de la extensión de Microsoft Monitoring Agent de forma manual](#manualagent).
 > - Para obtener instrucciones sobre cómo desactivar el aprovisionamiento automático, consulte [Desactivación del aprovisionamiento automático](#offprovisioning).
+> - Para obtener instrucciones sobre cómo incorporar Security Center mediante PowerShell, consulte [Automatización de la incorporación de Azure Security Center mediante PowerShell](security-center-powershell-onboarding.md).
 >
-
 
 ## <a name="workspace-configuration"></a>Configuración del área de trabajo
 Los datos recopilados por Security Center se almacenan en áreas de trabajo de Log Analytics.  Puede optar por que los datos se recopilen de las máquinas virtuales de Azure almacenadas en áreas de trabajo creadas por Security Center o en un área de trabajo que haya creado. 
@@ -146,12 +147,17 @@ Cuando se selecciona un área de trabajo para almacenar los datos, todas las ár
 
 
 ## <a name="data-collection-tier"></a>Nivel de recopilación de datos
-Security Center puede reducir el volumen de eventos mientras mantiene suficientes eventos para la investigación, la auditoría y la detección de amenazas. Puede elegir la directiva de filtrado adecuada para sus suscripciones y áreas de trabajo de cuatro conjuntos de eventos que recopilará el agente.
+La selección de un nivel de recopilación de datos en Azure Security Center solo afecta al almacenamiento de eventos de seguridad en el área de trabajo de Log Analytics. Microsoft Monitoring Agent sigue recopilando y analizando los eventos de seguridad necesarios para las detecciones de amenazas de Azure Security Center, con independencia del nivel de eventos de seguridad que elija almacenar en el área de trabajo de Log Analytics (si lo hay). Si elige almacenar los eventos de seguridad en el área de trabajo, permitirá la investigación, búsqueda y auditoría de esos eventos en el área de trabajo. 
+> [!NOTE]
+> El almacenamiento de datos en Log Analytics podría suponer cargos adicionales. Consulte la página de precios para más información.
+>
+Puede elegir la directiva de filtrado adecuada para sus suscripciones y áreas de trabajo entre cuatro conjuntos de eventos para almacenar en el área de trabajo. 
 
-- **Todos los eventos**: Para los clientes que quieren asegurarse de que se recopilan todos los eventos. Este es el valor predeterminado.
-- **Común**: Es un conjunto de eventos que satisfacen a la mayoría de los clientes y les permite efectuar un registro de auditoría completo.
+- **Ninguno**: deshabilita el almacenamiento de eventos de seguridad. Esta es la configuración predeterminada.
 - **Mínimo**: Es un conjunto más pequeño de eventos para los clientes que quieren reducir el volumen de eventos.
-- **Ninguno**: Se deshabilita la recopilación de eventos de seguridad de los registros de seguridad y de AppLocker. Para los clientes que elijan esta opción, sus paneles de seguridad solo tendrán registros del Firewall de Windows y evaluaciones preventivas, como el antimalware, la línea base y las actualizaciones.
+- **Común**: Es un conjunto de eventos que satisfacen a la mayoría de los clientes y les permite efectuar un registro de auditoría completo.
+- **Todos los eventos**: para clientes que quieren asegurarse de que se almacenan todos los eventos.
+
 
 > [!NOTE]
 > Estos conjuntos de eventos de seguridad solo están disponibles en nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
@@ -260,7 +266,7 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
   > [!NOTE]
   > La sección **Recopilación de datos de eventos y rendimiento** es opcional.
   >
-6. Para usar PowerShell con el fin de implementar la extensión: utilice el siguiente ejemplo de PowerShell:
+6. Para usar PowerShell con el fin de implementar la extensión, use el siguiente ejemplo de PowerShell:
     1.  Vaya a **Log Analytics** y haga clic en **Configuración avanzada**.
     
         ![Configuración de Log Analytics][11]
@@ -288,17 +294,17 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
         
              Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> Para obtener instrucciones sobre cómo incorporar Security Center mediante PowerShell, consulte [Automatización de la incorporación de Azure Security Center mediante PowerShell](security-center-powershell-onboarding.md).
 
 ## <a name="troubleshooting"></a>solución de problemas
 
 -   Para identificar problemas de instalación de aprovisionamiento automático, consulte [Supervisión de problemas de Agent Health](security-center-troubleshooting-guide.md#mon-agent).
 
 -  Para identificar los requisitos de red de agente de supervisión, consulte [Solución de problemas de los requisitos de red del agente de supervisión](security-center-troubleshooting-guide.md#mon-network-req).
--   Para identificar problemas de incorporación manual consulte [Cómo solucionar problemas de incorporación de Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-   Para identificar problemas de incorporación manual, consulte [Cómo solucionar problemas de incorporación de Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- Para identificar problemas de equipos y máquinas virtuales que no estén supervisados, consulte [Equipos y máquinas virtuales no supervisados](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- Para identificar problemas de equipos y máquinas virtuales que no estén supervisados, consulte [Equipos y máquinas virtuales no supervisados](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automático y una recopilación de datos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:

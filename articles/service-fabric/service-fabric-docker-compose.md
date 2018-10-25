@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 43845a55589be9550e64b4a491b7d3675fb22e8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ff846717287fb2b125b549f6ca0de6c7908d4c35
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641788"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344820"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Compatibilidad con la implementación de Docker Compose en Azure Service Fabric (versión preliminar)
 
@@ -122,6 +122,15 @@ Esta versión preliminar admite un subconjunto de las opciones de configuración
 * Volumen e implementación > Volumen
 
 Configure el clúster para exigir límites de recursos, como se describe en [Regulación de recursos de Service Fabric](service-fabric-resource-governance.md). El resto de directivas de Docker Compose no se admiten en esta versión preliminar.
+
+### <a name="ports-section"></a>Sección de puertos
+
+Especifique el protocolo HTTP o HTTPS en la sección de puertos que usará el agente de escucha del servicio de Service Fabric. Así se asegurará de que el protocolo de punto de conexión se publica correctamente con el servicio de nombres para permitir que el proxy inverso reenvíe las solicitudes:
+* Para enrutar a los servicios Compose de Service Fabric no seguros, especifique **/http**. Por ejemplo: **"80:80/http"**.
+* Para enrutar a los servicios Compose de Service Fabric seguros, especifique **/https**. Por ejemplo: **"443:443/https"**.
+
+> [!NOTE]
+> La sintaxis de la sección de puertos /http y /https es específica de Service Fabric a fin de registrar la dirección URL correcta para el agente de escucha de Service Fabric.  Se puede producir un error de validación si la sintaxis del archivo de Docker Compose se valida mediante programación.
 
 ## <a name="servicednsname-computation"></a>Cálculo de ServiceDnsName
 

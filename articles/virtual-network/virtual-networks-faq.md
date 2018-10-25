@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999875"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269486"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -230,7 +230,7 @@ El emparejamiento de VNet (o emparejamiento de redes virtuales) permite conectar
 Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. El emparejamiento de VNET global está disponible en todas las regiones públicas de Azure. No se puede emparejar globalmente desde las regiones públicas de Azure a las nubes nacionales. El emparejamiento global no está disponible actualmente en nubes nacionales.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>¿Puedo habilitar el emparejamiento de VNET si mis redes virtuales pertenecen a suscripciones de diferentes inquilinos de Azure Active Directory?
-Actualmente no es posible establecer el emparejamiento de VNET (ya sea local o global) si las suscripciones pertenecen a diferentes inquilinos de Azure Active Directory.
+Sí. No es posible establecer el emparejamiento de VNET (ya sea local o global) si las suscripciones pertenecen a diferentes inquilinos de Azure Active Directory. Puede hacerlo a través de PowerShell o CLI. Aún no se admite el Portal.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mi conexión de emparejamiento de VNET se encuentra en estado *Iniciado*, ¿por qué no puedo conectarme?
 Si la conexión de emparejamiento está en estado Iniciado, esto significa que ha creado un solo vínculo. Se debe crear un vínculo bidireccional con el fin de establecer una conexión correcta. Por ejemplo, para emparejar VNET A a VNET B, debe crearse un vínculo de VNET A a VNET B y de VNET B a VNET A. La creación de ambos vínculos cambiará el estado a *Conectado*.

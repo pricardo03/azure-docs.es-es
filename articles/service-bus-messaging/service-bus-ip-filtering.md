@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: ccb759a9151d734aa99a6f6b9c68e6072874dd84
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394835"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884810"
 ---
 # <a name="use-ip-filters"></a>Uso de filtros IP
 
@@ -48,6 +48,8 @@ Por ejemplo, si desea aceptar direcciones del intervalo 70.37.104.0/24 y rechaza
 > Rechazar direcciones IP puede evitar que otros servicios de Azure (por ejemplo, Azure Stream Analytics, Azure Virtual Machines o el Explorador de dispositivos del portal) interactúen con Service Bus.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Creación de una regla de red virtual con plantillas de Azure Resource Manager
+
+> [IMPORTANTE] Solo se admiten redes virtuales en el nivel **premium** de Service Bus.
 
 La siguiente plantilla de Resource Manager permite agregar una regla de red virtual a un espacio de nombres de Service Bus.
 
