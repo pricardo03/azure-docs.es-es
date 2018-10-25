@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 46be1c670002b584bac1d1a2d3e5e02e845027c7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018633"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312579"
 ---
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[Importar cuadernos de ejemplo en Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks).
-1.  Cree un área de trabajo y su archivo de configuración (**config.json**) mediante las instrucciones de [Configuración de un entorno de desarrollo para el servicio Azure Machine Learning](https://aka.ms/aml-how-to-configure-environment).
-2. Seleccione `+New` en la barra de herramientas para agregar el archivo **config.json** a la misma carpeta que el cuaderno.
-3. Abra el cuaderno.
+[Importar cuadernos de ejemplo en Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks). (Su organización puede requerir el [consentimiento del administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) para poder iniciar sesión).
+1. Consulte el archivo Léame en la biblioteca importada para obtener más instrucciones para ejecutar los cuadernos.

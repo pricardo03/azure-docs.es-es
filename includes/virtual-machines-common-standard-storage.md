@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060407"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312370"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage rentable y discos de máquina virtual de Azure administrados y no administrados
 
@@ -25,7 +25,7 @@ Este artículo se centra en el uso de discos SSD y HDD estándar. Para más info
 
 Hay dos maneras de crear discos estándar para máquinas virtuales de Azure:
 
-**Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se utilizan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las VM de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 256 PiB de almacenamiento por máquina virtual. Si usa los tamaños de disco de la versión preliminar, puede obtener hasta aproximadamente 2 PiB de almacenamiento por máquina virtual. 
+**Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se utilizan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las VM de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 256 TiB de almacenamiento por VM. Si usa los tamaños de disco de la versión preliminar, puede obtener hasta aproximadamente 2 PiB de almacenamiento por máquina virtual.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esta característica administra las cuentas de almacenamiento que se usan automáticamente para los discos de máquina virtual. Especifique el tipo (SSD premium, SSD estándar o HDD estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. No tiene que preocuparse de colocar los discos en varias cuentas de almacenamiento para estar seguro de que permanece dentro de los límites de escalabilidad de las cuentas de almacenamiento: Azure se encarga de ello.
 
@@ -146,9 +146,9 @@ El servicio Azure Backup también se puede usar con Managed Disks para crear un 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a Azure Storage](../articles/storage/common/storage-introduction.md)
+* [Introducción a Almacenamiento de Azure](../articles/storage/common/storage-introduction.md)
 
-* [crear una cuenta de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md)
+* [Cree una cuenta de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md)
 
 * [Introducción a Managed Disks](../articles/virtual-machines/linux/managed-disks-overview.md)
 

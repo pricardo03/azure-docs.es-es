@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283051"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312488"
 ---
 | Recurso | Destino | Límite máximo |
 |----------|--------------|------------|
@@ -30,3 +30,4 @@ ms.locfileid: "43283051"
 | Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 4 KiB | SÍ |
 | Tamaño de archivo | 100 GiB | Sin  |
 | Tamaño mínimo de un archivo que se va a organizar en niveles | 64 KiB | SÍ |
+| Sesiones sincronizadas simultáneas | 2 sesiones sincronizadas activas por procesador o un máximo de 8 sesiones sincronizadas activas por servidor | SÍ |
