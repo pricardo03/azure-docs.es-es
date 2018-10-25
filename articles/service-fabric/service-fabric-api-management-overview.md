@@ -27,7 +27,7 @@ Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end
 
 Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric. API Management se integra directamente con Service Fabric, lo que le permite publicar API con un amplio conjunto de reglas de enrutamiento para los servicios back-end de Service Fabric. 
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Arquitectura
 Una arquitectura de Service Fabric común usa una aplicación web de una página que realiza llamadas HTTP a servicios back-end que exponen API HTTP. La [aplicación de ejemplo de inicio de Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) presenta una muestra de esta arquitectura.
 
 En este escenario, un servicio web sin estado actúa como puerta de enlace en la aplicación de Service Fabric. Este enfoque precisa que escriba un servicio web que admita solicitudes HTTP proxy para servicios back-end, como se muestra en el siguiente diagrama:
