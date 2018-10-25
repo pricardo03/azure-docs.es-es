@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0784dffc48aeddc854aa540cba24f1834cd41827
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 566d5b047078b6e65b0c320027cc8c63c81a282b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952841"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986606"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
 
@@ -26,7 +26,7 @@ Para seguir esta guía, necesitará:
 ## <a name="configure-logging"></a>registro
 Configure el acceso al registro de consultas lentas. 
 
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. Seleccione un servidor de Azure Database for MariaDB.
 

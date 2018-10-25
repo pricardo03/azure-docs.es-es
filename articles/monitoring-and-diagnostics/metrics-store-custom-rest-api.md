@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c01440437eae3cb076627ab9f2221e33b833f472
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d36697e6b5765ecf35ed9b3add45cff6c33823a5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977249"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958232"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-using-a-rest-api"></a>Envío de métricas personalizadas de un recurso de Azure al almacén de métricas de Azure Monitor mediante la API de REST
 
@@ -25,7 +25,7 @@ En este artículo muestra cómo enviar métricas personalizadas de los recursos 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Creación y autorización de una entidad de servicio para la emisión de métricas 
 
-Cree una entidad de servicio en el inquilino de Azure Active Directory según las instrucciones que encontrará en [Creación de una entidad de servicio](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+Cree una entidad de servicio en el inquilino de Azure Active Directory según las instrucciones que encontrará en [Creación de una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md). 
 
 Tenga en cuenta lo siguiente al realizar este proceso: 
 
@@ -101,7 +101,7 @@ Si recibe un error con alguna parte del proceso, considere lo siguiente:
 
 1. Iniciar sesión en Azure Portal 
 
-1. En el menú de la izquierda, haga clic en **Monitor** (Supervisión). 
+1. En el menú de la izquierda, haga clic en **Monitor**. 
 
 1. En la página Supervisión, haga clic en **Métricas**. 
 

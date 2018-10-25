@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/27/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: cebbe532b5d1b13588604c61ac10bf3c56a85e07
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604971"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945661"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 Este artículo le guiará por los pasos de configuración de la copia de seguridad de bases de datos de SQL Server mediante Azure Backup.
@@ -27,7 +27,7 @@ La administración de la copia de seguridad de bases de datos de SQL Server en A
 3. Recuperación de la base de datos de Azure.
 
 ## <a name="before-you-start"></a>Antes de comenzar
-Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites) para usar Microsoft Azure Backup a fin de proteger las cargas de trabajo. Los requisitos previos cubren tareas como: crear un almacén de Backup, descargar las credenciales del almacén, instalar el agente de Azure Backup y registrar el servidor con el almacén.
+Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar Microsoft Azure Backup a fin de proteger las cargas de trabajo. Los requisitos previos cubren tareas como: crear un almacén de Backup, descargar las credenciales del almacén, instalar el agente de Azure Backup y registrar el servidor con el almacén.
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Crear una directiva de copia de seguridad para proteger las bases de datos SQL Server en Azure
 1. En el servidor DPM, haga clic en el espacio de trabajo **Protección**

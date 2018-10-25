@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5007e18db0af40621ab4b30a16d705d3a5b3915c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443824"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428500"
 ---
 # <a name="create-relationships"></a>Creación de relaciones
 
@@ -21,7 +21,7 @@ En esta lección, comprobará las relaciones que se crearon automáticamente cua
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 3: Marcado como tabla de fechas](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Revisión de las relaciones existentes e incorporación de nuevas relaciones  
@@ -54,11 +54,11 @@ Antes de continuar creando el modelo, debe comprobar que las relaciones entre ta
   
     |Active|Tabla|Tabla de búsquedas relacionadas|  
     |----------|---------|------------------------|  
-    |Sí|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |Sí|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |Sí|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |Sí|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |Sí|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |SÍ|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |SÍ|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |SÍ|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |SÍ|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |SÍ|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     Si falta alguna de las relaciones, compruebe que el modelo incluye las siguientes tablas: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory y FactInternetSales. Si las tablas de la misma conexión de origen de datos se importaron en momentos distintos, las relaciones entre esas tablas no se crearon y tendrá que crearlas manualmente. Si no aparece ninguna relación, significa que no la hay en el origen de datos. Puede crearlas manualmente en el modelo de datos.
 

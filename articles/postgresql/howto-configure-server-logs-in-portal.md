@@ -9,25 +9,25 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: be889d7b0bf6060b3b93244da6746fa6f13024da
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692171"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985512"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
 
 Puede configurar, enumerar y descargar los [registros del servidor Azure Database for PostgreSQL](concepts-server-logs.md) de Azure Portal.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
 - [Un servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="configure-logging"></a>registro
 Configure el acceso a los registros de consulta y los registros de errores. 
 
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. Seleccione su servidor de Azure Database for PostgreSQL.
 
@@ -67,7 +67,7 @@ Una vez que comience el registro, puede ver una lista de registros disponibles y
 
    ![Haga clic en el icono de descarga](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Configure and access server logs using Azure CLI](howto-configure-server-logs-using-cli.md) (Configuración y acceso a los registros del servidor con la CLI de Azure) para más información acerca de cómo descargar registros mediante programación.
 - Aprenda más sobre los [registros del servidor](concepts-server-logs.md) en Azure Database for PostgreSQL. 
 - Para más información sobre las definiciones de parámetros y el registro de PostgreSQL, consulte la documentación de PostgreSQL sobre [informes y registro de errores](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).

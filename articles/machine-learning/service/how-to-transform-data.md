@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999909"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945678"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformación de datos con Azure Machine Learning Data Prep SDK
 
 [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) ofrece varios métodos de transformación para limpiar los datos. Dichos métodos facilitan la adición de columnas, el filtrado de filas o columnas no deseadas, y la atribución de valores que faltan.
 
 Actualmente hay métodos para las siguientes tareas:
-- [Adición de una columna mediante una expresión](#add-column-using-expression)
+- [Adición de una columna mediante una expresión](#column)
 - [Atribución de valores que faltan](#impute-missing-values)
 - [Derivación de columnas por ejemplos](#derive-column-by-example)
 - [Filtrado](#filtering)
 - [Transformaciones personalizadas de Python](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>Adición de una columna mediante una expresión
 
 Azure Machine Learning Data Prep SDK incluye expresiones `substring` que puede usar para calcular un valor de las columnas existentes y, después, colocar ese valor en una columna nueva. En este ejemplo, se van a cargar los datos e intentar agregar columnas a los datos de entrada.
@@ -508,10 +509,10 @@ df.head(5)
 ```
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|1,017100e+10|None|
-|1|ALABAMA|Hale County|1,017100e+10|None|
-|2|ALABAMA|Hale County|1,017100e+10|None|
-|3|ALABAMA|Hale County|1,017100e+10|2|
+|0|ALABAMA|Hale County|1.017100e+10|None|
+|1|ALABAMA|Hale County|1.017100e+10|None|
+|2|ALABAMA|Hale County|1.017100e+10|None|
+|3|ALABAMA|Hale County|1.017100e+10|2|
 |4|ALABAMA|Hale County|1.017100e+10|None|
 
 Busque valores nulos mediante un filtro. Encontrará algunos, así que ahora rellene estos valores que faltan.
@@ -522,10 +523,10 @@ df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|1,017100e+10|None|
-|1|ALABAMA|Hale County|1,017100e+10|None|
-|2|ALABAMA|Hale County|1,017100e+10|None|
-|3|ALABAMA|Hale County|1,017100e+10|None|
+|0|ALABAMA|Hale County|1.017100e+10|None|
+|1|ALABAMA|Hale County|1.017100e+10|None|
+|2|ALABAMA|Hale County|1.017100e+10|None|
+|3|ALABAMA|Hale County|1.017100e+10|None|
 |4|ALABAMA|Hale County|1.017100e+10|None|
 
 ### <a name="transform-partition"></a>Transformar partición
@@ -543,10 +544,10 @@ h
 ```
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|1,017100e+10|0.0|
-|1|ALABAMA|Hale County|1,017100e+10|0.0|
-|2|ALABAMA|Hale County|1,017100e+10|0.0|
-|3|ALABAMA|Hale County|1,017100e+10|2.0|
+|0|ALABAMA|Hale County|1.017100e+10|0.0|
+|1|ALABAMA|Hale County|1.017100e+10|0.0|
+|2|ALABAMA|Hale County|1.017100e+10|0.0|
+|3|ALABAMA|Hale County|1.017100e+10|2.0|
 |4|ALABAMA|Hale County|1.017100e+10|0.0|
 
 ### <a name="new-script-column"></a>Nueva columna de script

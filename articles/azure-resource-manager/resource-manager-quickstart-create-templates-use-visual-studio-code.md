@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378697"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458146"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
 
@@ -57,12 +57,7 @@ La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta
 
 Para saber cómo editar una plantilla mediante Visual Studio Code, puede agregar más de un elemento en la sección `outputs`.
 
-1. En Visual Studio Code, compruebe el valor de la **variante**. Si el valor es **Almacenamiento**, actualice el valor a **StorageV2**.
-
-    ```json
-    "kind": "StorageV2",
-    ```
-2. Agregue una salida más a la plantilla exportada:
+1. Agregue una salida más a la plantilla exportada:
 
     ```json
     "storageUri": {
@@ -90,7 +85,7 @@ Para saber cómo editar una plantilla mediante Visual Studio Code, puede agregar
 
     ![Intellisense de Visual Studio Code de la plantilla de Resource Manager](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-3. Seleccione **File**>**Guardar** para guardar los cambios.
+2. Seleccione **File**>**Guardar** para guardar los cambios.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -128,7 +123,7 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
 7. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the name for this deployment:" &&
@@ -141,7 +136,7 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -171,7 +166,7 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
 7. Ejecute el siguiente comando de la CLI o de PowerShell para enumerar la cuenta de almacenamiento recién creada:
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the Storage Account name:" &&
@@ -181,7 +176,7 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
     Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName

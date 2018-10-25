@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: c01da1b667f5a57e9597b77e21dcd9cc95340cb1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 21c2c9ab0300ed5eac9ceebbd88627ea091b3389
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088233"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954477"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory
 En este tutorial, se usa Azure PowerShell para crear una canalización de Data Factory que transforma los datos mediante la actividad de Spark y un servicio vinculado a HDInsight a petición. En este tutorial, realizará los siguientes pasos:
@@ -135,7 +135,7 @@ Actualice los valores de las siguientes propiedades en la definición de servici
 
 - **hostSubscriptionId**. Reemplace &lt;subscriptionID&gt; con el identificador de la suscripción de Azure. El clúster de HDInsight a petición se crea en esta suscripción de Azure. 
 - **tenant**. Reemplace &lt;tenantID&gt; con el identificador de su inquilino de Azure. 
-- **servicePrincipalId**, **servicePrincipalKey**. Reemplace &lt;servicePrincipalID&gt; y &lt;servicePrincipalKey&gt; por el identificador y la clave de la entidad de servicio de Azure Active Directory. Esta entidad de servicio debe ser miembro del rol de colaborador de la suscripción o del grupo de recursos en el que se crea el clúster. Consulte [Creación de una aplicación de Azure Active Directory y una entidad de servicio](../azure-resource-manager/resource-group-create-service-principal-portal.md) para obtener detalles. 
+- **servicePrincipalId**, **servicePrincipalKey**. Reemplace &lt;servicePrincipalID&gt; y &lt;servicePrincipalKey&gt; por el identificador y la clave de la entidad de servicio de Azure Active Directory. Esta entidad de servicio debe ser miembro del rol de colaborador de la suscripción o del grupo de recursos en el que se crea el clúster. Consulte [Creación de una aplicación de Azure Active Directory y una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md) para obtener detalles. 
 - **clusterResourceGroup**. Reemplace &lt;resourceGroupOfHDICluster&gt; por el nombre del grupo de recursos en el que se debe crear el clúster de HDInsight. 
 
 > [!NOTE]

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423602"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956449"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -162,7 +162,7 @@ Es fundamental saber no solo quién está usando las aplicaciones, sino también
 
     >**Cuándo se usa**: si desea proporcionar una experiencia SSO, trabajar con datos basados en Graph o autenticar usuarios basados en dominio.
 
-    >**Para empezar**: para más información, consulte la [guía para desarrolladores de Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
+    >**Para empezar**: para más información, consulte la [guía para desarrolladores de Azure Active Directory](../../active-directory/develop/v1-overview.md).
 
 -   **Autenticación de App Service**: al elegir App Service para hospedar la aplicación, también obtiene compatibilidad con la autenticación para Azure AD, además de proveedores de identidad de redes sociales, como Facebook, Google, Microsoft y Twitter.
 
@@ -269,7 +269,7 @@ Además de definir identidades de cuenta de Azure individuales, también llamada
 
 ### <a name="manage-your-subscriptions"></a>Administración de suscripciones
 
-Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Para obtener una lista de las ofertas de suscripción disponibles por tipo, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción, y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para obtener información sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
+Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Para obtener una lista de las ofertas de suscripción disponibles por tipo, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Para saber más sobre los administradores de suscripción clásica, vea [Agregar o cambiar los administradores de la suscripción de Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Además de a los administradores, se puede conceder control detallado de los recursos de Azure con [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) a cuentas individuales.
 
 #### <a name="resource-groups"></a>Grupos de recursos
 
@@ -289,7 +289,7 @@ Al permitir el acceso a los recursos de Azure, siempre es recomendable proporcio
 
 -   **Objetos de entidad de servicio**: además de proporcionar acceso a las entidades de seguridad de usuarios y grupos, puede conceder el mismo acceso a una entidad de servicio.
 
-    > **Cuándo se usa**: para administrar los recursos de Azure o conceder acceso a las aplicaciones mediante programación. Para más información, consulte [Creación de aplicación de Active Directory y una entidad de servicio](../../resource-group-create-service-principal-portal.md).
+    > **Cuándo se usa**: para administrar los recursos de Azure o conceder acceso a las aplicaciones mediante programación. Para más información, consulte [Creación de aplicación de Active Directory y una entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Etiquetas
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bff6f00c67a2fa523113171855dce4e7b807f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4ce344292577dd286abcd7fbf9e067800da0e0b3
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734461"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958999"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de una API de REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 ## <a name="prerequisites"></a>Requisitos previos
 * Consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos** .
 * Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos. 
-* Siga las instrucciones de [este artículo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para: 
+* Siga las instrucciones de [este artículo](../../active-directory/develop/howto-create-service-principal-portal.md) para: 
   1. Cree una aplicación web denominada **ADFCopyTutorialApp** en Azure Active Directory.
   2. Obtenga el **Id. de cliente** y la **Clave secreta**. 
   3. Obtenga el **Identificador de inquilino**. 

@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843161"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988440"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
 ### <a name="test-with-node"></a>Prueba con Node
+
 Si no está utilizando Visual Studio, asegúrese de que el servidor web está activado.
+
 1. Configure el servidor para que escuche un puerto TCP que esté basado en la ubicación del archivo **index.html**. Para Node, inicie el servidor web para que escuche el puerto; para ello, ejecute los siguientes comandos desde la carpeta de la aplicación en un símbolo del sistema de la línea de comandos:
 
     ```bash
@@ -36,15 +38,14 @@ Si no está utilizando Visual Studio, asegúrese de que el servidor web está ac
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Pruebas con Visual Studio
-Si usa Visual Studio, asegúrese de seleccionar la solución del proyecto y presione **F5** para ejecutar el proyecto. El explorador se abre en la ubicación http://<span></span>localhost:{port}, donde verá el botón **Iniciar sesión**.
 
+Si usa Visual Studio, asegúrese de seleccionar la solución del proyecto y presione **F5** para ejecutar el proyecto. El explorador se abre en la ubicación http://<span></span>localhost:{port}, donde verá el botón **Iniciar sesión**.
 
 ## <a name="test-your-application"></a>Prueba de la aplicación
 
 Cuando el explorador haya cargado el archivo index.html, haga clic en **Iniciar sesión**. Se le pedirá que inicie sesión con el punto de conexión de Microsoft Azure Active Directory (Azure AD) v2.0:
 
 ![Inicie sesión en la cuenta de la aplicación SPA de JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Consentimiento para el acceso a la aplicación
 
@@ -53,6 +54,7 @@ La primera vez que inicie sesión en la aplicación, también se le pedirá que 
 ![Consentimiento para el acceso a la aplicación](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
+
 Una vez iniciada la sesión, podrá ver la información del perfil de usuario que se devolvió en la respuesta de Microsoft Graph API que se muestra en la página.
 
 ![Resultados esperados de la llamada a Microsoft Graph API](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297849"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955174"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integración continua de Azure DevOps Services con proyectos del grupo de recursos de Azure
 Para implementar una plantilla de Azure, se realizan tareas en diversas fases: compilación, prueba, copia en Azure (también denominada "almacenamiento provisional") y plantilla de implementación. Hay dos maneras distintas de implementar plantillas en Azure DevOps Services. Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
@@ -92,7 +92,7 @@ Los procedimientos siguientes le guiarán a través de los pasos necesarios para
       Para la CLI de Azure, utilice:
       
       `azure account show`
-   8. Para obtener un id. de entidad de servicio, una clave de entidad de servicio y un id. de inquilino, siga el procedimiento de [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](resource-group-create-service-principal-portal.md) o [Autenticación de una entidad de servicio con Azure Resource Manager](resource-group-authenticate-service-principal.md).
+   8. Para obtener un id. de entidad de servicio, una clave de entidad de servicio y un id. de inquilino, siga el procedimiento de [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](active-directory/develop/howto-create-service-principal-portal.md) o [Autenticación de una entidad de servicio con Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Agregue los valores del identificador de entidad de servicio, de la clave de entidad de servicio y del identificador de inquilino en el cuadro de diálogo **Agregar suscripción de Azure** y, después, elija el botón **Aceptar**.
       
       Ahora dispone de una entidad de servicio válida que puede utilizar para ejecutar el script de Azure PowerShell.
@@ -181,7 +181,7 @@ Los procedimientos siguientes le guiarán por los pasos necesarios para configur
 7. Cuando haya agregado todos los elementos requeridos, guarde la canalización de compilación y elija **Poner nueva compilación en cola** en la parte superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Información general sobre Azure Resource Manager](azure-resource-manager/resource-group-overview.md) para más información sobre Azure Resource Manager y los grupos de recursos de Azure.
+Lea [Información general del Administrador de recursos de Azure](azure-resource-manager/resource-group-overview.md) para obtener más información sobre el Administrador de recursos de Azure y los Grupos de recursos de Azure.
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
 [1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png

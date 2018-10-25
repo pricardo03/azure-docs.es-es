@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 61d9606ff14a48e6c224108596f0f01daa4813e1
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296930"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954298"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante el SDK de .NET
 > [!div class="op_single_selector"]
 > * [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Uso del SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Uso de SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Uso de Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Uso de la API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
@@ -97,7 +97,7 @@ El fragmento de código anterior utiliza una función auxiliar `GetCreds_SPI_Sec
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Autenticación entre servicios con un certificado
 
-Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación web de Azure AD (se enumera como un requisito previo). Este fragmento de código le permite autenticar su aplicación **de forma no interactiva** con Data Lake Storage Gen1 usando el certificado para una aplicación web de Azure AD. Para obtener instrucciones acerca de cómo crear una aplicación de Azure AD, consulte [Creación de una entidad de servicio con un certificado autofirmado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación web de Azure AD (se enumera como un requisito previo). Este fragmento de código le permite autenticar su aplicación **de forma no interactiva** con Data Lake Storage Gen1 usando el certificado para una aplicación web de Azure AD. Para obtener instrucciones acerca de cómo crear una aplicación de Azure AD, consulte [Creación de una entidad de servicio con un certificado autofirmado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
     
     private static void Main(string[] args)

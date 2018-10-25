@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: df1c19c0e16b9862b09dcc652ef2831e0c5bf3a5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802362"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426896"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático en el servicio Azure Machine Learning
 
@@ -52,7 +52,7 @@ Toda la configuración para el trabajo de desarrollo puede realizarse en el cuad
 * La configuración de un área de trabajo para habilitar la comunicación entre la máquina local y los recursos remotos
 * La creación de un directorio para almacenar los scripts de entrenamiento
 
-### <a name="import-packages"></a>Importación de paquetes
+### <a name="import-packages"></a>Importar paquetes
 Importe los paquetes de Python que necesite para este tutorial.
 
 
@@ -543,5 +543,5 @@ En este tutorial del servicio Azure Machine Learning, ha usado Python para:
 > * Revisar los resultados del entrenamiento
 > * Registro del mejor modelo
 
-Más información sobre [cómo configurar las opciones para el aprendizaje automático]() o [cómo usar el aprendizaje automático en un recurso remoto](how-to-auto-train-remote.md).  
+Más información sobre [cómo configurar las opciones para el aprendizaje automático](how-to-configure-auto-train.md) o [cómo usar el aprendizaje automático en un recurso remoto](how-to-auto-train-remote.md).  
 

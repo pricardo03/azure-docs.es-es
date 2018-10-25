@@ -12,14 +12,14 @@ ms.component: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/28/2018
+ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 43bfe3abcbe6a66f124565cde8ddb839ba76d045
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107257"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987267"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -27,12 +27,12 @@ ms.locfileid: "47107257"
 
 Un desafío común al compilar aplicaciones en la nube consiste en el modo de administrar las credenciales del código para autenticar los servicios en la nube. Proteger las credenciales es una tarea esencial. Lo ideal sería que nunca aparecieran en las estaciones de trabajo de los desarrolladores y que no se controlaran en el código fuente. Azure Key Vault proporciona una manera segura de almacenar credenciales, secretos y otras claves pero el código tiene que autenticarse en Key Vault para recuperarlos. 
 
-La característica Managed Identities for Azure Resources incluida en Azure Active Directory (Azure AD) soluciona este problema. Esta característica proporciona a los servicios de Azure una identidad de sistema administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de credenciales en el código.
+Las identidades administradas para recursos de Azure con las que cuenta Azure Active Directory (Azure AD) resuelven este problema. Esta característica proporciona a los servicios de Azure una identidad de sistema administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de credenciales en el código.
 
 La característica Managed Identities for Azure Resources se incluye gratuitamente en Azure AD con las suscripciones de Azure. No hay ningún costo adicional.
 
 > [!NOTE]
-> Managed Identities for Azure Resources es el nombre por el que ahora se conoce al servicio Managed Service Identity (MSI).
+> Identidades administradas para recursos de Azure es el nombre con el que ahora se conoce al servicio Managed Service Identity (MSI).
 
 ## ¿Cómo funciona la característica?<a name="how-does-it-work"></a>
 
@@ -116,9 +116,11 @@ Aprenda a usar una identidad administrada con otros servicios de Azure:
 
 * [Azure App Service](/azure/app-service/app-service-managed-service-identity)
 * [Azure Functions](/azure/app-service/app-service-managed-service-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
 ## ¿Qué servicios de Azure admiten la característica?<a name="which-azure-services-support-managed-identity"></a>
 

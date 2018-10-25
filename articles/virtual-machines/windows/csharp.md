@@ -3,7 +3,7 @@ title: Creación y administración de una máquina virtual de Azure con C# | Mic
 description: Use C# y Azure Resource Manager para implementar una máquina virtual y todos sus recursos de apoyo.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cynthn
-ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: 297eb95d435f1098a40c140b6ac451312bdb9d9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525948"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956722"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creación y administración de máquinas virtuales Windows en Azure mediante C# #
 
@@ -56,7 +56,7 @@ Los paquetes de NuGet son la manera más fácil de instalar las bibliotecas que 
 
 ## <a name="create-credentials"></a>Crear credenciales
 
-Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de servicio de Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). También debe registrar el identificador de aplicación, la clave de autenticación y el identificador del inquilino que necesitará en un paso posterior.
+Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de servicio de Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). También debe registrar el identificador de aplicación, la clave de autenticación y el identificador del inquilino que necesitará en un paso posterior.
 
 ### <a name="create-the-authorization-file"></a>Creación del archivo de autorización
 

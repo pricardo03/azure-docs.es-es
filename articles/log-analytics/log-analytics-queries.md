@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d7c006ca0be5e8db4b7ab02974ff029d3fe738e3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042349"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429486"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Análisis de los datos de Log Analytics en Azure Monitor
 
@@ -57,34 +57,42 @@ La estructura básica de una consulta consiste en una tabla de origen seguida de
 
 Por ejemplo, suponga que desea buscar los diez equipos con más eventos de error del día anterior.
 
-    Event
-    | where (EventLevelName == "Error")
-    | where (TimeGenerated > ago(1days))
-    | summarize ErrorCount = count() by Computer
-    | top 10 by ErrorCount desc
+```Kusto
+Event
+| where (EventLevelName == "Error")
+| where (TimeGenerated > ago(1days))
+| summarize ErrorCount = count() by Computer
+| top 10 by ErrorCount desc
+```
 
 O bien, quizá desee buscar los equipos que no han tenido un latido en el último día.
 
-    Heartbeat
-    | where TimeGenerated > ago(7d)
-    | summarize max(TimeGenerated) by Computer
-    | where max_TimeGenerated < ago(1d)  
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(7d)
+| summarize max(TimeGenerated) by Computer
+| where max_TimeGenerated < ago(1d)  
+```
 
 ¿Qué le parece un gráfico de líneas que muestre el uso del procesador por parte de cada equipo desde la semana pasada?
 
-    Perf
-    | where ObjectName == "Processor" and CounterName == "% Processor Time"
-    | where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-    | summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-    | render timechart    
+```Kusto
+Perf
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
+| render timechart    
+```
 
 En estos ejemplos rápidos se puede ver que, independientemente del tipo de datos con el que está trabajando, la estructura de la consulta es similar.  Puede dividirla en distintos pasos en los que los datos resultantes de un comando se envían a través de la canalización al siguiente comando.
 
 También puede consultar datos de distintas áreas de trabajo de Log Analytics de la suscripción.
 
-    union Update, workspace("contoso-workspace").Update
-    | where TimeGenerated >= ago(1h)
-    | summarize dcount(Computer) by Classification 
+```Kusto
+union Update, workspace("contoso-workspace").Update
+| where TimeGenerated >= ago(1h)
+| summarize dcount(Computer) by Classification 
+```
 
 ## <a name="how-log-analytics-data-is-organized"></a>Organización de los datos de Log Analytics
 Cuando compila una consulta, primero debe determinar las tablas que tienen los datos que está buscando. Los diferentes tipos de datos se dividen en tablas dedicadas en cada [área de trabajo de Log Analytics](log-analytics-quick-create-workspace.md).  La documentación de los distintos orígenes de datos incluye el nombre del tipo de datos que crea y una descripción de cada una de sus propiedades.  Muchas consultas solo necesitan datos de una sola tabla, pero otros usuarios pueden utilizar una variedad de opciones para incluir datos de varias tablas.

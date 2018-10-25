@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: c2696d5eb22443b565c48ef4f96d6e4a25827606
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295011"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404331"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de VNET para Azure Key Vault
 
@@ -62,7 +62,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Servicio de implementación de plantillas de Azure Resource Manager|[Paso de valores seguros durante la implementación](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Servicio de cifrado de volúmenes de Azure Disk Encryption|Permitir el acceso a BitLocker Key (máquina virtual de Windows) o a la frase de contraseña de DM (máquina virtual de Linux) y a la clave de cifrado durante la implementación de al máquina virtual para habilitar [Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
 |Azure Backup|Permitir la opción de copia de seguridad y restauración de claves y secretos importantes durante la copia de seguridad de la máquina virtual de Azure, mediante [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
-|Exchange Online y SharePoint Online|Permitir el acceso a la clave de cliente para Service Encryption con la [clave de cliente](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online y SharePoint Online|Permitir el acceso a la clave de cliente para Service Encryption con la [clave de cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Permitir el acceso a la clave de inquilino para [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Servicios de aplicaciones|[Implementar un certificado de Azure Web App mediante Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
 |Azure SQL|[Cifrado de datos transparente con compatibilidad con Bring Your Own Key para Azure SQL Database y Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|

@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263089"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957398"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Ahora, los servicios y las aplicaciones de Azure también se pueden supervisar desde [Grafana](https://grafana.com/) gracias al [complemento de origen de datos de Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). Este complemento recopila los datos de rendimiento de la aplicación recabados por el SDK de Application Insights, así como los datos de infraestructura proporcionados por Azure Monitor. De este modo, podrá ver estos datos en el panel de Grafana.
@@ -62,7 +62,7 @@ Tras haber iniciado sesión correctamente, deberá ver que el complemento de ori
 
 Grafana usa una entidad de servicio de Azure Active Directory para conectarse a las API de Azure Monitor y recopilar datos de métricas. Debe crear una entidad de servicio para administrar el acceso a los recursos de Azure.
 
-1. Vea [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md) para crear una entidad de servicio. Copie y guarde el identificador de inquilino, el identificador de cliente y un secreto de cliente.
+1. Vea [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md) para crear una entidad de servicio. Copie y guarde el identificador de inquilino, el identificador de cliente y un secreto de cliente.
 
 2. Vea [Asignación de aplicación a un rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para asignar el rol de lector a la aplicación Azure Active Directory.     
 

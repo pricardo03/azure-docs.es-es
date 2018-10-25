@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132526"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956381"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Protección de las llamadas a las API personalizadas desde Azure Logic Apps
 
@@ -104,7 +104,7 @@ Puede realizar esta tarea mediante Azure Resource Manager con PowerShell. En Pow
 
 4. Asegúrese de copiar el valor de **Identificador de inquilino** (GUID para el inquilino de Azure AD), el de **Id. de la aplicación** y la contraseña que usó.
 
-Para más información, consulte cómo [crear una entidad de servicio con PowerShell para acceder a recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Para más información, consulte cómo [crear una entidad de servicio con PowerShell para acceder a recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Creación de una identidad de aplicación de Azure AD para la aplicación web o de API
 

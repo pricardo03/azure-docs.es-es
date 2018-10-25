@@ -2,20 +2,20 @@
 title: 'Orquestaciones infinitas en Durable Functions: Azure'
 description: Aprenda a implementar orquestaciones infinitas mediante la extensión Durable Functions para Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 98504534332b6faa7a7019aea9ab7b534d4c3faa
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0e3a3476c3fca6329634c87f933f895ec582f364
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094457"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987546"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestaciones infinitas en Durable Functions (Azure Functions)
 
@@ -34,12 +34,11 @@ Cuando se llama a `ContinueAsNew`, la instancia pone en cola un mensaje para sí
 > [!NOTE]
 > Durable Task Framework mantiene el mismo identificador de instancia, pero internamente crea un nuevo *identificador de ejecución* para la función de orquestador que `ContinueAsNew` restablece. Por lo general, este identificador de ejecución no se expone externamente, pero puede ser útil conocerlo al depurar la ejecución de la orquestación.
 
-> [!NOTE]
-> El método `ContinueAsNew` todavía no está disponible en JavaScript.
-
 ## <a name="periodic-work-example"></a>Ejemplo de trabajo periódico
 
 Un caso práctico de orquestaciones infinitas es el del código que se necesita para realizar trabajo periódico indefinidamente.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -54,6 +53,23 @@ public static async Task Run(
 
     context.ContinueAsNew(null);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("DoCleanup");
+
+    // sleep for one hour between cleanups
+    const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
+    yield context.df.createTimer(nextCleanup);
+
+    context.df.continueAsNew(undefined);
+});
 ```
 
 La diferencia entre este ejemplo y una función desencadenada por temporizador es que aquí los tiempos del desencadenador de limpieza no se basan en una programación. Por ejemplo, una programación CRON que ejecuta una función cada hora lo hará a la 1:00, 2:00, 3:00, etc. y potencialmente podría encontrarse con problemas de superposición. Sin embargo, en este ejemplo, si la limpieza tarda 30 minutos, se programará a la 1:00, 2:30, 4:00, etc., de forma que no habrá posibilidad alguna de superposición.

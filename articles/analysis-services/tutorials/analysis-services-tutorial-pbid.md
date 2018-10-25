@@ -4,15 +4,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 4096b9f77ba841abfcb4f29f2827aefacf22103f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ad97fd7569690d0d199b0ce1a82f31f8dfa64c26
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446595"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426138"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: conexión con Power BI Desktop
 
@@ -23,7 +23,7 @@ En este tutorial, va a usar Power BI Desktop para conectarse a la base de datos 
 > * Conexión mediante Power BI Desktop
 > * Creación de un informe básico
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Agregar la base de datos del modelo de ejemplo de adventureworks](../analysis-services-create-sample-model.md) al servidor.
 - Tener permisos de [*lectura*](../analysis-services-server-admins.md) para la base de datos del modelo de ejemplo de adventureworks.

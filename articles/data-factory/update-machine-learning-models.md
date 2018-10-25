@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524437"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957470"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo. 
@@ -64,7 +64,7 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 | Propiedad                      | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
 | Nombre                          | Nombre de la actividad en la canalización     | SÍ      |
-| Descripción                   | Texto que describe para qué se usa la actividad.  | Sin        |
+| description                   | Texto que describe para qué se usa la actividad.  | Sin        |
 | Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | SÍ      |
 | linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | SÍ      |
 | trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | SÍ      |
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 Puede obtener valores para los marcadores de posición en la dirección URL al consultar el servicio web en el [Portal de servicios web Azure Machine Learning](https://services.azureml.net/). 
 
-El nuevo tipo de punto de conexión de actualización de recurso requiere autenticación de entidad de servicio. Para usar autenticación de entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale el rol **Colaborador** o **Propietario** de la suscripción o el grupo de recursos al que pertenece el servicio web. Consulte [Cómo crear una entidad de servicio y asignar permisos para administrar recursos de Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Anote los siguientes valores; los usará para definir el servicio vinculado:
+El nuevo tipo de punto de conexión de actualización de recurso requiere autenticación de entidad de servicio. Para usar autenticación de entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale el rol **Colaborador** o **Propietario** de la suscripción o el grupo de recursos al que pertenece el servicio web. Consulte [Cómo crear una entidad de servicio y asignar permisos para administrar recursos de Azure](../active-directory/develop/howto-create-service-principal-portal.md). Anote los siguientes valores; los usará para definir el servicio vinculado:
 
 - Identificador de aplicación
 - Clave de la aplicación 

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 775e098eb2a067e3e0446bccc223c1c54e082347
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435376"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957409"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -108,7 +108,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Hindi | hi | Devanagari | <--> | Latín |
 | Japonés | ja | Japonés | <--> | Latín |
 | Canarés | kn | Canarés | --> | Latín |
-| Malayo | ml | Malayalam | --> | Latín |
+| Malayalam | ml | Malayalam | --> | Latín |
 | Maratí | mr | Devanagari | --> | Latín |
 | Odia | o | Odia | <--> | Latín |
 | Punjabi | pa | Gurmukhi | <--> | Latín  |

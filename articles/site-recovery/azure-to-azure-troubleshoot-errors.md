@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143512"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945746"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -158,8 +158,8 @@ Para que la replicación de Site Recovery funcione, la máquina virtual debe dis
 
 - **Resolución**
    - Si usa un proxy de firewall para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que las direcciones URL o los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte las [instrucciones sobre el proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Si usa reglas de grupo de seguridad de red para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte la [instrucciones para los grupos de seguridad de red](https://aka.ms/a2a-nsg-guidance).
-   - Para incluir en la lista de permitidos [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
+   - Si usa reglas de grupo de seguridad de red para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte la [instrucciones para los grupos de seguridad de red](azure-to-azure-about-networking.md).
+   - Para incluir en la lista de permitidos [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga los pasos del [documento de instrucciones para redes](azure-to-azure-about-networking.md).
 
 ### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problema 2: error de configuración de Site Recovery (151072)
 - **Causa posible** </br>

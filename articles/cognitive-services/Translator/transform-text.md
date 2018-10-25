@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e5061e322b4f0edb416f321cefef73776b9165ff
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ccef55d56286cde47d23dbf2703c15fcf375e266
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123953"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646956"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Uso del método TransformText
 
 > [!NOTE]
 > Este método está obsoleto. No está disponible en la versión 3.0 de Translator Text API.
 
-El método TransformText es una función de normalización de texto para los medios sociales, que devuelve una forma normalizada de la entrada. El método se puede utilizar como un paso de preprocesamiento de traducción automática u otras aplicaciones que esperan un texto de entrada limpio que no se encuentra normalmente en el contenido de los medios sociales o generado por el usuario. La función actualmente solo funciona con texto en inglés. 
+El método TransformText es una función de normalización de texto para los medios sociales, que devuelve una forma normalizada de la entrada. El método se puede utilizar como un paso de preprocesamiento de traducción automática u otras aplicaciones que esperan un texto de entrada limpio que no se encuentra normalmente en el contenido de los medios sociales o generado por el usuario. La función actualmente solo funciona con texto en inglés.
 
 El método es un servicio RESTful que usa GET a través de HTTP. Admite la serialización de JSON y XML simple.
 
@@ -44,12 +44,12 @@ El valor devuelto proporciona la frase transformada.
 GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
 {
 int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message 
+string em;         // A descriptive error message
 string sentence;   // transformed text
 }
 ```
 
-## <a name="example"></a>Ejemplo 
+## <a name="example"></a>Ejemplo
 
 ```csharp
 using System;
@@ -72,9 +72,9 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             AdmAccessToken admToken;
             string headerValue;
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
-            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx) 
+            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx)
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
-            
+
             try
             {
                 admToken = admAuth.GetAccessToken();
@@ -216,7 +216,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
         }
         private AdmAccessToken HttpPost(string DatamarketAccessUri, string requestDetails)
         {
-            //Prepare OAuth request 
+            //Prepare OAuth request
             WebRequest webRequest = WebRequest.Create(DatamarketAccessUri);
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
@@ -235,6 +235,6 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             }
         }
     }
-} 
+}
 
 ```

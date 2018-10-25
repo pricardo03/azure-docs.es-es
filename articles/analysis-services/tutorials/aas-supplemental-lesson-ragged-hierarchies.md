@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdf332727c4d66af2d5394fb26e84f6ea9d963f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440772"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426342"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lección complementaria: Jerarquías desiguales
 
@@ -25,7 +25,7 @@ Los modelos tabulares en el nivel de compatibilidad 1400 tienen la propiedad adi
   
 Tiempo estimado para completar esta lección: **20 minutos**  
   
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Esta lección complementaria forma parte de un tutorial de modelado tabular. Antes de realizar las tareas de esta lección complementaria, debería haber finalizado todas las lecciones anteriores o haber completado un proyecto de modelo de ejemplo de ventas por Internet de Adventure Works. 
 
 Si ha creado el proyecto de ventas por Internet de AW como parte del tutorial, el modelo todavía no contendrá datos ni jerarquías desiguales. Para completar esta lección complementaria, primero debe crear el problema. Para ello, agregue algunas tablas y cree relaciones, columnas calculadas, una medida y una jerarquía de organización. Solo tardará unos 15 minutos en hacerlo. Después, podrá solucionar el problema en unos pocos minutos.  
@@ -44,11 +44,11 @@ Si ha creado el proyecto de ventas por Internet de AW como parte del tutorial, e
 
     | Tabla 1           | Columna       | Dirección del filtro   | Tabla 2     | Columna      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Valor predeterminado            | DimDate     | Date        | Sí    |
+    | FactResellerSales | OrderDateKey | Valor predeterminado            | DimDate     | Date        | SÍ    |
     | FactResellerSales | DueDate      | Valor predeterminado            | DimDate     | Date        | Sin      |
     | FactResellerSales | ShipDateKey  | Valor predeterminado            | DimDate     | Date        | Sin      |
-    | FactResellerSales | ProductKey   | Valor predeterminado            | DimProduct  | ProductKey  | Sí    |
-    | FactResellerSales | EmployeeKey  | A ambas tablas | DimEmployee | EmployeeKey | Sí    |
+    | FactResellerSales | ProductKey   | Valor predeterminado            | DimProduct  | ProductKey  | SÍ    |
+    | FactResellerSales | EmployeeKey  | A ambas tablas | DimEmployee | EmployeeKey | SÍ    |
 
 5. En la tabla **DimEmployee**, cree las siguientes [columnas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md): 
 

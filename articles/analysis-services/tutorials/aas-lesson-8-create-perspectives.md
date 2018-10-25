@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f72c1048a4bf2cb0a2f42db99bb35cf66563ae0f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e92e86f59058f1f226c67f873530cd9c06b5d5fc
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442107"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428341"
 ---
 # <a name="create-perspectives"></a>Creaci처n de perspectivas
 
@@ -25,7 +25,7 @@ Esta lecci처n tiene como objetivo describir c처mo se crean las perspectivas, as�
   
 Tiempo estimado para completar esta lecci처n: **cinco minutos**  
   
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas en esta lecci처n, debe haber completado la lecci처n anterior: [Lecci처n 7: Creaci처n de indicadores clave de rendimiento](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Creaci처n de perspectivas  

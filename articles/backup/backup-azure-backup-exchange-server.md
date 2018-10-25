@@ -2,18 +2,18 @@
 title: Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 description: Obtenga información acerca de cómo realizar una copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 services: backup
-author: MaanasSaran
+author: adigan
 manager: NKolli1
 ms.service: backup
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605107"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945984"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 En este artículo se describe cómo configurar un servidor de System Center 2012 R2 Data Protection Manager (DPM) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure Backup.  
@@ -26,8 +26,8 @@ Para registrar correctamente el servidor DPM con Copia de seguridad de Azure, de
 >
 >
 
-## <a name="prerequisites"></a>requisitos previos
-Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites) para usar Microsoft Azure Backup a fin de proteger las cargas de trabajo. Entre estos requisitos previos se incluyen los siguientes:
+## <a name="prerequisites"></a>Requisitos previos
+Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar Microsoft Azure Backup a fin de proteger las cargas de trabajo. Entre estos requisitos previos se incluyen los siguientes:
 
 * Se ha creado un almacén de Copia de seguridad en el sitio de Azure.
 * En el servidor DPM se han descargado las credenciales del almacén y del agente.

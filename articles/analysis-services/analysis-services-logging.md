@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d19e45710aca3e1e18be6c4529da6474a97bc59f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a8d6080b573cbad1004166f28a3e6596560241be
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449336"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426522"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
@@ -193,7 +193,7 @@ Para más información sobre cómo utilizar el nuevo lenguaje de consulta de Bú
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Tutorial: Activación del registro con PowerShell
 En este tutorial rápido, se crea una cuenta de almacenamiento en la misma suscripción y grupo de recursos que el servidor de Analysis Services. A continuación, se usa Set-AzureRmDiagnosticSetting para activar el registro y se envía la salida a la nueva cuenta de almacenamiento.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 Para realizar este tutorial, necesitará los recursos siguientes:
 
 * Un servidor de Azure Analysis Services. Para obtener instrucciones sobre cómo crear un recurso de servidor, consulte [Creación de un servidor en Azure Portal](analysis-services-create-server.md) o [Creación de un servidor de Azure Analysis Services mediante PowerShell](analysis-services-create-powershell.md).

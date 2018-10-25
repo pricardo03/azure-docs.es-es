@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30907286"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025776"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotación de las credenciales de inicio de sesión para entradas y salidas de un trabajo de Stream Analytics
 
@@ -34,7 +34,7 @@ En esta sección se le guía en la regeneración de credenciales para Blob Stora
 6. Busque el campo **Clave de cuenta de almacenamiento** y pegue la clave recién generada. A continuación, haga clic en **Guardar**.    
 7. Al guardar los cambios, se inicia una prueba de conexión automáticamente, que puede ver desde la pestaña de notificaciones. Hay dos notificaciones: una corresponde a guardar la actualización y la otra a probarla:  
    ![Notificaciones después de editar la clave](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. Continúe con la sección [Inicio del trabajo desde la última vez que se detuvo] (#start-your-job-from-the-last-stopped-time).
+8. Continúe con la sección [Inicio del trabajo desde la última vez que se detuvo](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Centros de eventos
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 54804867cfaf38965b3dbf5ceb51e08a731d4dd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966562"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457398"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -39,7 +39,7 @@ En este artículo, se usa un ejemplo de dispositivo simulado del [SDK de C para 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Complete el inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
+* Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -220,7 +220,7 @@ En esta sección, clonará el SDK de C para Azure IoT en cada máquina virtual. 
 1. Para ambas máquinas virtuales, ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo. 
 
     ```bash
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
 
     Una vez realizada la compilación, las últimas líneas de salida tendrán un aspecto similar al siguiente:
@@ -412,7 +412,7 @@ Para eliminar el grupo de recursos por nombre:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre el reaprovisionamiento, vea [IoT Hub Device reprovisoning concepts](concepts-device-reprovision.md) (Conceptos de reaprovisionamiento de dispositivos de IoT Hub). 
+- Para más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
 - Para obtener más información sobre el desaprovisionamiento, vea [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md). 
 
 

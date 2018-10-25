@@ -24,7 +24,7 @@ En ambos modos de recopilación, pueden especificarse carpetas de recopilación 
 * **SearchPattern**: el patrón de los nombres de archivos que se van a recopilar. El valor predeterminado es "\*"
 * **Recursive**: si los archivos que se van a recopilar están ubicados de forma recursiva en la ubicación especificada.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Tener una cuenta de almacenamiento como extensión para guardar los archivos zip generados.
 * Utilizar Cmdlets de Azure PowerShell v0.8.0 o superior. Para más información, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/).
 
@@ -437,7 +437,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

@@ -1,0 +1,122 @@
+items:
+- name: Documentos de Azure Database for MariaDB
+  href: index.yml
+- name: Información general
+  items:
+  - name: Azure Database for MariaDB
+    href: overview.md
+- name: Guías de inicio rápido
+  items:
+  - name: 'Creación de la base de datos: Azure Portal'
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: 'Creación de la base de datos: CLI de Azure'
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Conexión y consulta
+    items:
+    - name: MySQL Workbench
+      href: connect-workbench.md
+  expanded: true
+- name: Tutoriales
+  items:
+  - name: 1 - Diseño de una base de datos
+    items:
+    - name: Azure Portal
+      href: tutorial-design-database-using-portal.md
+- name: Conceptos
+  items:
+  - name: Bases de datos y servidores
+    items:
+    - name: Servidores
+      href: concepts-servers.md
+    - name: Versiones compatibles
+      href: concepts-supported-versions.md
+    - name: Registros del servidor
+      href: concepts-server-logs.md
+    - name: Alta disponibilidad
+      href: concepts-high-availability.md
+  - name: Recursos
+    items:
+    - name: Planes de tarifa
+      href: concepts-pricing-tiers.md
+    - name: límites
+      href: concepts-limits.md
+  - name: Seguridad y acceso a datos
+    items:
+    - name: Reglas de firewall
+      href: concepts-firewall-rules.md
+    - name: Configuración de SSL
+      href: concepts-ssl-connection-security.md
+  - name: Continuidad del negocio
+    items:
+    - name: Información general
+      href: concepts-business-continuity.md
+    - name: Copia de seguridad y restauración
+      href: concepts-backup.md
+  - name: Replicación
+    items:
+    - name: Replicación de datos internos
+      href: concepts-data-in-replication.md
+- name: Guías de procedimientos
+  items:
+  - name: Reglas de firewall
+    items:
+    - name: Azure Portal
+      href: howto-manage-firewall-portal.md
+  - name: Restauración de un servidor
+    items:
+    - name: Azure Portal
+      href: howto-restore-server-portal.md
+  - name: Migración de una base de datos
+    items:
+    - name: Volcado de memoria y restauración
+      href: howto-migrate-dump-restore.md
+  - name: Conexión de aplicaciones
+    items:
+    - name: Creación de usuarios
+      href: howto-create-users.md
+    - name: Cadenas de conexión
+      href: howto-connection-string.md
+    - name: Configuración de SSL
+      href: howto-configure-ssl.md
+  - name: Configuración de parámetros del servidor
+    items:
+    - name: Azure Portal
+      href: howto-server-parameters.md
+  - name: Acceso a registros de servidor
+    items:
+    - name: Azure Portal
+      href: howto-configure-server-logs-portal.md
+  - name: Replicación
+    items:
+    - name: Configuración de la replicación de datos internos
+      href: howto-data-in-replication.md
+- name: Referencia
+  items:
+  - name: API DE REST
+    href: /rest/api/mariadb
+  - name: Procedimientos almacenados de replicación de datos internos
+    href: reference-data-in-stored-procedures.md
+- name: Recursos
+  items:
+  - name: Plantillas de implementación
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: Foro de MSDN
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: Solicitud de una característica
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Disponibilidad en regiones
+    href: https://azure.microsoft.com/regions/services/
+  - name: Opciones de soporte técnico
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: 2ba86afb2bb0aeff5ab83cfb9e3ee1b27ce3b3f5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986365"

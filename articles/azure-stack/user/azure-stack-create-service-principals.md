@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628963"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958321"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Otorgue a las aplicaciones acceso a los recursos de Azure Stack mediante la creación de entidades de servicio
 
@@ -57,7 +57,7 @@ Los pasos para asignar una entidad de servicio a un rol son los mismos para Azur
 Si Azure Stack usa Azure AD como almacén de identidades, puede crear una entidad de servicio con los mismos pasos que en Azure, mediante Azure Portal.
 
 >[!NOTE]
-Compruebe que tiene los [permisos de Azure AD requeridos](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de empezar a crear una entidad de servicio.
+Compruebe que tiene los [permisos de Azure AD requeridos](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de empezar a crear una entidad de servicio.
 
 ### <a name="create-service-principal"></a>Creación de una entidad de servicio
 
