@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999518"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269537"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -84,7 +84,7 @@ En la tabla siguiente se describe cada propiedad de una búsqueda guardada.
 | query | La consulta que se ejecutará. |
 
 > [!NOTE]
-> Puede que necesite utilizar caracteres de escape en la consulta si incluye caracteres que puedan interpretarse como JSON.  Por ejemplo, si la consulta era **Type:AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, en el archivo de solución debe escribirse como **Type:AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> Puede que necesite utilizar caracteres de escape en la consulta si incluye caracteres que puedan interpretarse como JSON.  Por ejemplo, si la consulta era **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, en el archivo de solución debe escribirse como **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Alertas
 Las [alertas de registro de Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) se crean mediante reglas de alerta de Azure que ejecutan consultas de registro especificadas a intervalos regulares.  Si los resultados de la consulta coinciden con los criterios especificados, se crea un registro de alertas y se ejecutan una o varias acciones mediante [grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).  

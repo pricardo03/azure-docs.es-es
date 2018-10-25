@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162150"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115000"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -111,17 +111,33 @@ Antes de comenzar, tenga en cuenta las restricciones siguientes:
 * El límite de tamaño de archivo es 5 MB.
 * Los mensajes de autenticación deben durar menos de 20 segundos. Los mensajes que duren más de 20 segundos pueden hacer que la verificación cause error. El usuario podría no responder antes de que finalice el mensaje y se agote el tiempo de espera de la verificación.
 
+### <a name="custom-message-language-behavior"></a>Comportamiento de idioma de mensaje personalizado
+
+Cuando se reproduce un mensaje de voz personalizado para el usuario, el idioma del mensaje depende de estos factores:
+
+* El idioma del usuario actual.
+   * El idioma detectado en el explorador del usuario.
+   * Otros escenarios de autenticación pueden comportarse de manera diferente.
+* El idioma de otros mensajes personalizados disponibles.
+   * Este idioma lo elige el administrador, cuando se agrega un mensaje personalizado.
+
+Por ejemplo, si hay solo un mensaje personalizado en alemán:
+
+* Un usuario que se autentique en alemán oirá el mensaje personalizado en ese idioma.
+* Un usuario que se autentique en inglés oirá el mensaje personalizado en ese idioma.
+
 ### <a name="set-up-a-custom-message"></a>Configuración de un mensaje personalizado
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Vaya a **Azure Active Directory** > **Servidor MFA** > **Configuración de la llamada telefónica**.
+1. Vaya a **Azure Active Directory** > **Servidor MFA** > **Configuración de la llamada telefónica**.
 
    ![Grabar mensajes de teléfono personalizados](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Seleccione **Agregar saludo**.
-4. Elija el tipo de saludo. Elija el idioma.
-5. Seleccione un archivo de sonido. mp3 o .wav para cargar.
-6. Seleccione **Agregar**.
+1. Seleccione **Agregar saludo**.
+1. Elija el tipo de saludo. 
+1. Elija el idioma.
+1. Seleccione un archivo de sonido. mp3 o .wav para cargar.
+1. Seleccione **Agregar**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Almacenamiento en caché en Azure Multi-Factor Authentication
 
@@ -200,10 +216,10 @@ Independientemente de si la característica de la IP de confianza está habilita
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilite la característica de direcciones IP de confianza mediante la configuración del servicio
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En la izquierda, seleccione **Azure Active Directory** > **Usuarios y grupos** > **Todos los usuarios**.
+2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
-5. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las dos opciones siguientes:
+5. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las opciones siguientes (o ambas):
    
    * **Para solicitudes de usuarios federados en mi intranet**: para elegir esta opción, active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:<br/>
 
@@ -306,11 +322,11 @@ La característica _Recordar Multi-Factor Authentication_ para dispositivos y ex
 
 ### <a name="how-the-feature-works"></a>Cómo funciona la característica
 
-La característica Recordar Multi-Factor Authentication establece una cookie persistente en el explorador cuando un usuario selecciona la opción **No preguntar de nuevo durante X días** en el momento del inicio de sesión. Al usuario no se le volverá a solicitar Multi-Factor Authentication desde ese mismo explorador hasta que expire la cookie. Si el usuario abre un explorador diferente en el mismo dispositivo o borra sus cookies, se le pedirá de nuevo la verificación. 
+La característica Recordar Multi-Factor Authentication establece una cookie persistente en el explorador cuando un usuario selecciona la opción **No preguntar de nuevo durante X días** en el momento del inicio de sesión. Al usuario no se le volverá a solicitar Multi-Factor Authentication desde ese mismo explorador hasta que expire la cookie. Si el usuario abre un explorador diferente en el mismo dispositivo o borra sus cookies, se le pedirá de nuevo la verificación.
 
-La opción **No preguntar de nuevo durante X días** no está disponible en las aplicaciones sin explorador, independientemente de si la aplicación admite la autenticación moderna. Estas aplicaciones usan _tokens de actualización_ que proporcionan nuevos tokens de acceso cada hora. Cuando se valida un token de actualización, Azure AD comprueba que la última verificación en dos pasos estaba dentro del número de días especificado. 
+La opción **No preguntar de nuevo durante X días** no está disponible en las aplicaciones sin explorador, independientemente de si la aplicación admite la autenticación moderna. Estas aplicaciones usan _tokens de actualización_ que proporcionan nuevos tokens de acceso cada hora. Cuando se valida un token de actualización, Azure AD comprueba que la última verificación en dos pasos estaba dentro del número de días especificado.
 
-La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica aumenta el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 90 días.
+La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica aumenta el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 90 días. También se puede aumentar el número de autenticaciones cuando se combina con las directivas de acceso condicional.
 
 >[!IMPORTANT]
 >La característica **Recordar Multi-Factor Authentication** no es compatible con la característica **Mantener la sesión iniciada** de AD FS cuando los usuarios realizan la verificación en dos pasos para AD FS mediante el Servidor Azure Multi-Factor Authentication o una solución de terceros para la autenticación multifactor.

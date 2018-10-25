@@ -3,23 +3,19 @@ title: Información general sobre Durable Functions en Azure
 description: Introducción a la extensión Durable Functions de Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 79ffa541d16212b21d20a238465a846fad5e4902
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627413"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237932"
 ---
 # <a name="durable-functions-overview"></a>Introducción a Durable Functions
 
@@ -70,7 +66,7 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const x = yield ctx.df.callActivityAsync("F1");
     const y = yield ctx.df.callActivityAsync("F2", x);
     const z = yield ctx.df.callActivityAsync("F3", y);
@@ -118,7 +114,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
@@ -239,7 +235,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require("moment");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
@@ -304,7 +300,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require('moment');
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");
 
     const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
@@ -338,7 +334,7 @@ En segundo plano, la extensión Durable Functions se crea a partir de [Durable T
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Abastecimiento de eventos, puntos de control y reproducción
 
-La funciones del orquestador mantienen de forma confiable su estado de ejecución usando un patrón de diseño en la nube, conocido como [origen de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). En lugar de almacenar directamente el estado *actual* de una orquestación, la extensión durable utiliza un almacén de solo anexar para registrar la *serie completa de acciones* realizada por la orquestación de función. Esto tiene muchas ventajas, como mejorar el rendimiento, la escalabilidad y la capacidad de respuesta en comparación con el "volcado" del estado de tiempo de ejecución completo. Otras ventajas incluyen proporcionar coherencia ocasional para los datos transaccionales y mantener el historial y los seguimientos de auditoría completa. Los mismos seguimientos de auditoría habilitan acciones de compensación confiables.
+Las funciones del orquestador mantienen de forma confiable su estado de ejecución usando un patrón de diseño, conocido como [origen de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). En lugar de almacenar directamente el estado *actual* de una orquestación, la extensión durable utiliza un almacén de solo anexar para registrar la *serie completa de acciones* realizada por la orquestación de función. Esto tiene muchas ventajas, como mejorar el rendimiento, la escalabilidad y la capacidad de respuesta en comparación con el "volcado" del estado de tiempo de ejecución completo. Otras ventajas incluyen proporcionar coherencia ocasional para los datos transaccionales y mantener el historial y los seguimientos de auditoría completa. Los mismos seguimientos de auditoría habilitan acciones de compensación confiables.
 
 El uso de origen de eventos por esta extensión es transparente. En un segundo plano, el operador `await` en una función del orquestador devuelve el control del subproceso del orquestador al distribuidor de Durable Task Framework. El distribuidor, a continuación, confirma las nuevas acciones que la función de orquestador programó (como llamar a una o más funciones secundarias o programar un temporizador durable) al almacenamiento. Esta acción de confirmación transparente se anexa al *historial de ejecución* de la instancia de orquestación. El historial se guarda en una tabla de almacenamiento. La acción de confirmación, a continuación, agrega mensajes a una cola para programar el trabajo real. En este momento, la función del orquestador se puede descargar de la memoria. Su facturación se detiene si usa el Plan de consumo de Azure Functions.  Cuando hay más trabajo, la función se reinicia y se reconstruye su estado.
 
@@ -373,6 +369,8 @@ La extensión de Durable Functions usa blobs, tablas y colas de Azure Storage pa
 Las funciones del orquestador programan funciones de actividad y reciben sus respuestas a través de mensajes de la cola interna. Cuando una aplicación de la función se ejecuta en el Plan de consumo de Azure Functions, estas colas se supervisan mediante el [controlador de escala de Azure Functions](functions-scale.md#how-the-consumption-plan-works) y se agregan nuevas instancias de proceso según sea necesario. Al escalar horizontalmente a varias máquinas virtuales, una función de orquestador se puede ejecutar en una máquina virtual, mientras que las funciones de actividad a las que llama se ejecutan en varias máquinas virtuales diferentes. Puede encontrar más información sobre el comportamiento de la escala de Durable Functions en [Rendimiento y escala](durable-functions-perf-and-scale.md).
 
 Table Storage se utiliza para almacenar el historial de ejecución para las cuentas del orquestador. Cada vez que una instancia se rehidrata en una máquina virtual concreta, captura su historial de ejecución de Table Storage para poder volver a recompilar su estado local. Una de las cosas prácticas que supone tener el historial disponible en Table Storage es que se puede echar un vistazo y ver el historial de las orquestaciones usando herramientas como el [Explorador de Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+
+Los blobs de almacenamiento se utilizan principalmente como un mecanismo de concesiones para coordinar la escalabilidad horizontal de las instancias de orquestación en varias máquinas virtuales. También se usan para almacenar datos de mensajes de gran tamaño que no se puede almacenar directamente en las tablas o colas.
 
 ![Captura de pantalla del Explorador de Azure Storage](media/durable-functions-overview/storage-explorer.png)
 

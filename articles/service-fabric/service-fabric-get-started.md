@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 48e04d3bdd783d1dc04ac5cc77c4183ef5f87865
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f2795e2836dbb374d147b84d2ac91977659a1520
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818446"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883522"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
@@ -48,6 +48,8 @@ Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 >
 
 ## <a name="install-the-sdk-and-tools"></a>Instalación de SDK y herramientas
+El Instalador de plataforma Web (WebPI) es la manera recomendada para instalar el SDK y las herramientas. Si recibe errores en tiempo de ejecución utilizando WebPI, también puede encontrar vínculos directos a los instaladores en las notas de la versión para una versión específica de Service Fabric. Las notas de la versión se pueden encontrar en los anuncios de lanzamiento en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+
 ### <a name="to-use-visual-studio-2017"></a>Cómo usar Visual Studio 2017
 Las herramientas de Service Fabric forman parte de la carga de trabajo de Azure Development de Visual Studio 2017. Habilite esta carga de trabajo durante la instalación de Visual Studio.
 Además, debe instalar el SDK de Microsoft Azure Service Fabric y el entorno en tiempo de ejecución mediante el Instalador de plataforma web.
@@ -64,12 +66,15 @@ Si únicamente necesita el SDK, puede instalar este paquete:
 * [Instalación del SDK de Microsoft Azure Service Fabric][core-sdk]
 
 Las versiones actuales son:
-* SDK y herramientas de Service Fabric 3.2.176
-* Entorno de tiempo de ejecución de Service Fabric 6.3.176
+* SDK y herramientas de Service Fabric 3.2.187
+* Entorno de ejecución de Service Fabric 6.3.187
 * Herramientas de Service Fabric para Visual Studio 2015 2.3.10710.3
 * Visual Studio 2017 15.7 incluye Herramientas de Service Fabric para Visual Studio 2.3.10710.1 
 
 Para obtener una lista de las versiones admitidas, consulte [Compatibilidad con Service Fabric](service-fabric-support.md).
+
+> [!NOTE]
+> Los clústeres de máquina única (OneBox) no se admiten para las actualizaciones de aplicación o de clúster; elimine el clúster OneBox y vuelva a crearlo si necesita realizar una actualización de clúster, o tiene algún problema al realizar una actualización de la aplicación. 
 
 ## <a name="enable-powershell-script-execution"></a>Habilitar la ejecución del script de PowerShell
 Service Fabric usa scripts de Windows PowerShell para crear un clúster de desarrollo local e implementar aplicaciones desde Visual Studio. De forma predeterminada, Windows bloquea la ejecución de estos scripts. Para habilitarlos, debe modificar la directiva de ejecución de PowerShell. Abra PowerShell como administrador y escriba el siguiente comando:
@@ -88,12 +93,11 @@ Ahora que ha terminado la configuración del entorno de desarrollo, puede empeza
 * [Más información sobre los modelos de programación: Reliable Services y Reliable Actors](service-fabric-choose-framework.md)
 * [Consulta de los ejemplos de código de Service Fabric en GitHub](https://aka.ms/servicefabricsamples)
 * [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
-* [Siga la ruta de aprendizaje de Service Fabric para obtener una amplia introducción a la plataforma](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
-[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Página de campaña de Service Fabric"
-[2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Vínculo de WebPI de VS 2015"
-[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Vínculo de WebPI de Dev15"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Vínculo de WebPI de SDK de núcleo"
+[1]: https://azure.microsoft.com/campaigns/service-fabric/ "Página de campaña de Service Fabric"
+[2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
+[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Vínculo de WebPI de VS 2015"
+[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Vínculo de WebPI de Dev15"
+[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Vínculo de WebPI de SDK de núcleo"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395

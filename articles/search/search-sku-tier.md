@@ -7,53 +7,68 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576127"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785314"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
-En Azure Search, un [servicio se aprovisiona](search-create-service-portal.md) en un plan de tarifa específico o SKU. Las opciones incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades. 
+En Azure Search, un [servicio se aprovisiona](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para la duración del servicio. Los planes incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades. La mayoría de los clientes comienza con el nivel **Gratis** para la evaluación y, a continuación, ascienden al nivel **Estándar** para implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos. 
 
-La finalidad de este artículo es ayudarle a elegir un nivel. Complementa la [página de precios](https://azure.microsoft.com/pricing/details/search/) y la página de [Límites de servicio](search-limits-quotas-capacity.md) con un resumen de los conceptos de facturación y los patrones de consumo asociados con distintos niveles. También se recomienda un enfoque iterativo para comprender el nivel que mejor satisface sus necesidades. 
+Los niveles determinan la capacidad, no las características, y se diferencian por lo siguiente:
 
-Los niveles determinan la capacidad, no las características. Si la capacidad de un nivel resulta demasiado baja, debe aprovisionar un nuevo servicio en el nivel superior y, después, [volver a cargar los índices](search-howto-reindex.md). No hay ninguna actualización en marcha del mismo servicio desde una SKU a otra.
++ Número de índices que puede crear
++ Tamaño y velocidad de particiones (almacenamiento físico)
 
-La disponibilidad de las características no es una consideración de nivel principal. Todos los niveles, incluido el nivel **Gratis**, ofrecen características similares, con la excepción de la compatibilidad con el indexador para S3HD. Sin embargo, la indexación y las restricciones de recursos pueden limitar el alcance del uso de las características. Por ejemplo, la indexación de [Cognitive Search](cognitive-search-concept-intro.md) tiene funcionalidades de ejecución prolongada que agotan el tiempo de espera en un servicio gratis a menos que el conjunto de datos sea muy pequeño.
+Aunque todos los niveles, incluido el nivel **Gratis**, generalmente ofrecen paridad de características, las cargas de trabajo más grandes pueden dictar requisitos para niveles más altos. Por ejemplo, la indexación de [Cognitive Search](cognitive-search-concept-intro.md) tiene funcionalidades de ejecución prolongada que agotan el tiempo de espera en un servicio gratis a menos que el conjunto de datos sea muy pequeño.
 
-> [!TIP]
-> La mayoría de los clientes comienza con el nivel **Gratis** para la evaluación y, a continuación, ascienden al nivel **Estándar** para el desarrollo. Después de elegir un nivel y [aprovisionar un servicio de búsqueda](search-create-service-portal.md), puede [aumentar el número de réplicas y particiones](search-capacity-planning.md) para optimizar el rendimiento. Para más información acerca de cuándo y por qué debería ajustar la capacidad, consulte [Consideraciones de rendimiento y optimización](search-performance-optimization.md).
+> [!NOTE] 
+> La excepción a la paridad de características reside en los [indizadores](search-indexer-overview.md), que no están disponibles en S3HD.
 >
 
-## <a name="billing-concepts"></a>Conceptos de facturación
+Dentro de un nivel, también puede [ajustar los recursos de réplica y partición](search-capacity-planning.md) para optimizar el rendimiento. Aunque puede comenzar con dos o tres de cada uno, podría aumentar temporalmente su capacidad de proceso para una carga de trabajo con una elevada carga de trabajo de indexación. La posibilidad de ajustar los niveles de recursos dentro de un nivel agrega flexibilidad, pero también complica ligeramente su análisis. Es posible que tenga que experimentar para ver si un nivel inferior con mayores recursos/réplicas ofrece mejor valor y rendimiento que un nivel superior con menos recursos. Para obtener más información acerca de cuándo y por qué debería ajustar la capacidad, consulte [Consideraciones de rendimiento y optimización](search-performance-optimization.md).
 
-Entre los conceptos que debe conocer para realizar la selección de nivel, se incluyen las definiciones de capacidad, los límites de servicio y las unidades de servicio. 
+<!---
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+--->
 
-### <a name="capacity"></a>Capacity
+## <a name="how-billing-works"></a>Cómo funciona la facturación
 
-La capacidad se estructura como *réplicas* y *particiones*. 
+En Azure Search, el concepto de facturación más importante que se debe entender es la *unidad de búsqueda* (SU). Dado que Azure Search depende de las réplicas y las particiones para su funcionamiento, no tiene sentido facturar solo por una o la otra. En su lugar, la facturación se basa en una composición de ambas. 
+
+Una SU es el producto de las *réplicas* y las *particiones* utilizadas por un servicio: **`(R X P = SU)`**
+
+Cada servicio se inicia como mínimo con 1 SU (una réplica multiplicada por una partición). El máximo de cualquier servicio es de 36 SU, que se pueden lograr de varias maneras: 6 particiones por 6 réplicas, o 3 particiones por 12 réplicas, por nombrar algunas. 
+
+Es habitual usar menos de la capacidad total. Por ejemplo, un servicio de 3 réplicas y 3 particiones, que se factura como 9 SU. 
+
+La tarifa de facturación es **por hora y por SU**, y cada nivel aumenta progresivamente a una tarifa más elevada. Los niveles superiores incluyen particiones mayores y más rápidas, que contribuyen a un precio por hora total superior para ese nivel. Las tarifas de cada nivel pueden consultarse en [Buscar Precios](https://azure.microsoft.com/pricing/details/search/). 
+
+La mayoría de los clientes solo ponen en línea una parte de la capacidad total, manteniendo el resto en la reserva. En términos de facturación, es el número de particiones y réplicas que tiene en línea, calculado mediante la fórmula de la SU, lo que determina lo que paga realmente por hora.
+
+### <a name="tips-for-reducing-costs"></a>Sugerencias para reducir los costos
+
+No se puede apagar el servicio para disminuir la factura. Los recursos operativos están operativos constantemente y se asignan para su uso exclusivo mientras el servicio esté vigente. La única manera de reducir una factura es reducir las réplicas y particiones a un nivel bajo que siga proporcionando un rendimiento aceptable y [cumpla con el Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+Un medio para reducir costos es elegir un nivel con una tarifa por hora más baja. Las tarifas por hora de S1 son inferiores a las tarifas de S2 o S3. Podría aprovisionar un servicio dirigido al nivel mínimo de sus proyecciones de carga. Si supera el servicio, cree un segundo servicio con un mayor nivel, recompile los índices en ese segundo servicio y luego elimine el primero. Si ha realizado la planificación de la capacidad de los servidores locales, ya sabe que es común "seguir comprando" para poder asumir el crecimiento proyectado. Pero con un servicio en la nube, puede ahorrar de manera más significativa porque no está sujeto a una compra específica. Siempre puede cambiar a un servicio de nivel superior si el actual no es suficiente.
+
+### <a name="capacity-drill-down"></a>Profundización en la capacidad
+
+En Azure Search, la capacidad se estructura como *réplicas* y *particiones*. 
 
 + Las réplicas son instancias del servicio de búsqueda, donde cada réplica hospeda una copia con equilibrio de carga de un índice. Por ejemplo, un servicio con 6 réplicas tiene 6 copias de todos los índices cargados en el servicio. 
 
 + Las particiones almacenan índices y dividen automáticamente los datos de búsqueda: dos particiones dividen el índice en la mitad, tres particiones en tres tercios y así sucesivamente. En términos de capacidad, el *tamaño de partición* es la principal característica diferenciadora entre niveles.
 
 > [!NOTE]
-> Todos los niveles **Estándar** admiten [combinaciones flexibles de réplicas y particiones](search-capacity-planning.md#chart) para que pueda [optimizar el sistema para velocidad o para almacenamiento](search-performance-optimization.md) cambiando el balance. El nivel **Básico** ofrece hasta tres réplicas para alta disponibilidad, pero tiene solo una partición. Los niveles **Gratis** no proporcionan recursos dedicados: los recursos de cálculo se comparten entre varios servicios gratis.
+> Todos los niveles **Estándar** admiten [combinaciones flexibles de réplicas y particiones](search-capacity-planning.md#chart) para que pueda [optimizar el sistema para velocidad o para almacenamiento](search-performance-optimization.md) cambiando el balance. El nivel **Básico** ofrece hasta tres réplicas para alta disponibilidad, pero tiene solo una partición. Los niveles **Gratis** no proporcionan recursos dedicados: los recursos de cálculo se comparten entre varios suscriptores.
 
-### <a name="search-units"></a>Unidades de búsqueda
-
-El concepto de facturación más importante que se debe entender es la *unidad de búsqueda* (SU), que es la unidad de facturación de Azure Search. Dado que Azure Search depende de las réplicas y las particiones para su funcionamiento, no tiene sentido facturar por una o la otra. En su lugar, la facturación se basa en una composición de ambas. Como fórmula, una SU es el producto de las réplicas y las particiones utilizadas por un servicio: (R X P = SU). Como mínimo, cada servicio empieza por 1 SU (una réplica multiplicada por una partición), aunque un modelo más realista podría ser un servicio de 3 réplicas y 3 particiones, facturado como 9 SU. 
-
-Aunque cada nivel ofrece cada vez mayor capacidad, puede hacer que una parte de la capacidad total esté en línea, dejando el resto de reserva. En términos de facturación, es el número de particiones y réplicas que tiene en línea, calculado mediante la fórmula de la SU, lo que determina lo que paga realmente.
-
-La tarifa de facturación es por hora y por SU, con una tarifa diferente para cada nivel. Las tarifas de cada nivel pueden consultarse en [Buscar Precios](https://azure.microsoft.com/pricing/details/search/).
-
-### <a name="limits"></a>límites
+### <a name="more-about-service-limits"></a>Más información acerca de los límites de servicio
 
 Los servicios hospedan recursos, como los índices, los indexadores y otros. Cada nivel impone [límites de servicio](search-limits-quotas-capacity.md) en la cantidad de recursos que puede crear. Por lo tanto, un límite en el número de índices (y otros objetos) es la segunda característica diferenciadora entre niveles. Cuando revise cada opción en el portal, tenga en cuenta los límites en cuanto al número de índices. Otros recursos, como los indexadores, los orígenes de datos y los conjuntos de habilidades, están asociados a los límites de los índices.
 
@@ -79,7 +94,7 @@ Tanto el portal como las páginas de precios centran la atención en el tamaño 
 **S3** y **S3 HD** están respaldados por la misma infraestructura de alta capacidad, pero cada uno de ellos alcanza su límite máximo de maneras diferentes. **S3** se dirige a un menor número de índices muy grandes. Como tal, su límite máximo es el límite de recursos (2,4 TB para cada servicio). **S3 HD** se dirige a un gran número de índices muy pequeños. A los 1000 índices, **S3 HD** alcanza sus límites en forma de restricciones de índice. Si es un cliente de **S3 HD** que requiere más de 1 000 índices, póngase en contacto con el soporte técnico de Microsoft para obtener información sobre cómo proceder.
 
 > [!NOTE]
-> Anteriormente, los límites de documentos se debían tener en cuenta, pero ya no son aplicables para la mayoría de los servicios de Azure Search aprovisionados después de enero de 2018. Para más información acerca de las condiciones para la que se aplican todavía límites de documentos, consulte [Límites del servicio: límites de documentos](search-limits-quotas-capacity.md#document-limits).
+> Anteriormente, los límites de documentos se debían tener en cuenta, pero ya no son aplicables para la mayoría de los servicios nuevos. Para más información acerca de las condiciones para la que se aplican todavía límites de documentos, consulte [Límites del servicio: límites de documentos](search-limits-quotas-capacity.md#document-limits).
 >
 
 ## <a name="evaluate-capacity"></a>Evaluación de la capacidad
@@ -88,7 +103,11 @@ La capacidad y los costes de ejecutar el servicio están relacionados. Los nivel
 
 Los requisitos empresariales exigen normalmente el número de índices que se necesita. Por ejemplo, un índice global de un repositorio de documentos grande o quizás varios índices en función de la región, aplicación o nicho de negocios.
 
-Para determinar el tamaño de un índice, tendrá que [crear uno](search-create-index-portal.md). La estructura de datos de Azure Search es principalmente un [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tiene características diferentes que los datos de origen. Para un índice invertido, el tamaño y la complejidad se determinan por el contenido, no necesariamente por la cantidad de datos que se incorporan. Un origen de datos de gran tamaño con gran redundancia podría resultar en un índice más pequeño que un conjunto de datos más pequeño que incluye contenido muy variable.  Por lo tanto, es poco probable deducir el tamaño del índice en función del tamaño del conjunto de datos original.
+Para determinar el tamaño de un índice, tendrá que [crear uno](search-create-index-portal.md). La estructura de datos de Azure Search es principalmente un [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tiene características diferentes que los datos de origen. Para un índice invertido, el tamaño y la complejidad se determinan por el contenido, no necesariamente por la cantidad de datos que se incorporan. Un origen de datos de gran tamaño con gran redundancia podría resultar en un índice más pequeño que un conjunto de datos más pequeño que incluye contenido muy variable. Por lo tanto, es poco probable deducir el tamaño del índice en función del tamaño del conjunto de datos original.
+
+> [!NOTE] 
+> Aunque el cálculo de las necesidades futuras de índices y almacenamiento parte de suposiciones, vale la pena hacerlo. Si la capacidad de un nivel resulta demasiado baja, debe aprovisionar un nuevo servicio en el nivel superior y, después, [volver a cargar los índices](search-howto-reindex.md). No hay ninguna actualización en marcha del mismo servicio desde una SKU a otra.
+>
 
 ### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Paso 1: Desarrollo de estimaciones aproximadas con el nivel Gratis
 
