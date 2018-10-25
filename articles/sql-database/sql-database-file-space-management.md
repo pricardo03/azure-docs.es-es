@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159948"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377951"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Administración del espacio de archivo en Azure SQL Database
 En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
 
 ## <a name="overview"></a>Información general
 
-En Azure SQL Database, la mayoría de las métricas de espacio de almacenamiento mostradas en Azure Portal y las siguientes API miden el número de páginas de datos usadas en bases de datos y grupos elásticos:
+En Azure SQL Database, hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan. Esta condición puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos. El motivo es que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.
+
+Es posible que sea necesario supervisar el uso del espacio de archivo y reducir los archivos de datos en los escenarios siguientes:
+- Permitir el crecimiento de datos en un grupo elástico si el espacio de archivo asignado para sus bases de datos alcanza el tamaño máximo del grupo.
+- Permitir la reducción del tamaño máximo de una instancia única de base de datos o grupo elástico.
+- Permitir cambiar una instancia única de base de datos o grupo elástico a un nivel de servicio o un nivel de rendimiento diferente con un tamaño máximo inferior.
+
+### <a name="monitoring-file-space-usage"></a>Supervisión del uso del espacio de archivo
+La mayoría de las métricas de espacio de almacenamiento que aparecen en Azure Portal y en las API siguientes solo miden el tamaño de las páginas de datos que se usan:
 - API de métricas basadas en Azure Resource Manager, como [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) de PowerShell
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+Sin embargo, las siguientes API también miden el tamaño del espacio asignado para las bases de datos y los grupos elásticos:
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan.  Esto puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos.  Esto se debe a que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.  En tales escenarios, el espacio asignado para una base de datos o un grupo puede superar los límites admitidos e impedir el crecimiento de los datos o evitar cambios de nivel de servicio y de tamaño de proceso, y requieren la reducción de los archivos de datos para mitigar esta circunstancia.
+### <a name="shrinking-data-files"></a>Reducción de los archivos de datos
 
 El servicio SQL DB no reduce automáticamente los archivos de datos para reclamar el espacio asignado sin usar debido a las posibles repercusiones en el rendimiento de la base de datos.  Sin embargo, los clientes pueden reducir los archivos de datos a través de un autoservicio en el momento que estimen oportuno siguiendo los pasos descritos en [Reclamación del espacio asignado sin usar](#reclaim-unused-allocated-space). 
 
@@ -100,7 +110,7 @@ Comprender las cantidades de espacio de almacenamiento siguientes es importante 
 |**Espacio de datos usado**|La suma del espacio de datos utilizado por todas las bases de datos en el grupo elástico.||
 |**Espacio de datos asignado**|La suma del espacio de datos asignado por todas las bases de datos en el grupo elástico.||
 |**Espacio de datos asignado, pero no usado**|La diferencia entre la cantidad de espacio de datos asignado y el espacio de datos usado por todas las base de datos del grupo elástico.|Esta cantidad representa la cantidad máxima de espacio asignado para el grupo elástico que se puede reclamar mediante la reducción de archivos de datos de base de datos.|
-|**Tamaño máximo de datos**|La cantidad máxima de espacio de datos que puede usar el grupo elástico para todas sus bases de datos.|El espacio asignado para el grupo elástico no puede exceder el tamaño máximo del grupo elástico.  Si esto ocurre, el espacio asignado que no se usa se puede reclamar mediante la reducción de archivos de datos de base de datos.|
+|**Tamaño máximo de datos**|La cantidad máxima de espacio de datos que puede usar el grupo elástico para todas sus bases de datos.|El espacio asignado para el grupo elástico no puede exceder el tamaño máximo del grupo elástico.  Si se da esta condición, el espacio asignado que no se usa se puede reclamar mediante la reducción de archivos de datos de base de datos.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consulta de la información de espacio de almacenamiento en un grupo elástico
@@ -191,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Reclamación del espacio asignado sin usar
 
-Una vez que se han identificado las bases de datos para reclamar el espacio asignado sin usar, modifique el siguiente comando para reducir los archivos de datos para cada base de datos.
+### <a name="dbcc-shrink"></a>Reducción de DBCC
+
+Una vez que se han identificado las bases de datos para reclamar el espacio asignado sin usar, modifique el nombre de la base de datos en el siguiente comando para reducir los archivos de datos para cada base de datos.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Este comando puede afectar al rendimiento de la base de datos mientras se está ejecutando y, si es posible, se debe ejecutar durante períodos de poco uso.  
+
 Para más información sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Considere la posibilidad de recompilar los índices de base de datos después de reducir los archivos de datos de la base de datos; los índices se pueden fragmentar y perder su eficacia para la optimización del rendimiento. Si esto sucede, se deben recompilar. Para más información sobre la fragmentación y la recompilación de índices, consulte [Reorganizar y volver a generar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>Reducción automática
+
+Como alternativa, la reducción automática puede habilitarse para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que SHRINKDATABASE o SHRINKFILE.  La reducción automática puede resultar especialmente útil para administrar grupos elásticos con muchas bases de datos.  Sin embargo, la reducción automática es menos eficaz en la reclamación de espacio de archivo que SHRINKDATABASE y SHRINKFILE.
+Para habilitar la reducción automática, modifique el nombre de la base de datos en el siguiente comando.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Para más información sobre este comando, consulte las opciones de [DATABASE SET](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
+
+### <a name="rebuild-indexes"></a>Recompilación de índices
+
+Después de reducir los archivos de datos de la base de datos, los índices se pueden fragmentar y perder su eficacia para la optimización del rendimiento. Si se produce una degradación del rendimiento, considere la posibilidad de recompilar los índices de base de datos. Para más información sobre la fragmentación y la recompilación de índices, consulte [Reorganizar y volver a generar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

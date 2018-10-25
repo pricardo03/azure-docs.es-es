@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498256"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311344"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -113,7 +113,7 @@ Existen varias opciones para exigir la verificación en dos pasos. La mejor opci
 
 A continuación, se indican las opciones y ventajas para habilitar la verificación en dos pasos:
 
-**Opción 1**: [habilitar Multi-factor Authentication mediante el cambio de estado de usuario](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**Opción 1**: [habilitar Multi-factor Authentication mediante el cambio de estado de usuario](../active-directory/authentication/howto-mfa-userstates.md).   
 **Beneficio**: Este es el método tradicional para exigir la verificación en dos pasos. Funciona tanto con [Azure Multi-factor Authentication en la nube como en el Servidor Azure Multi-factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md). El uso de este método requiere que los usuarios realicen la verificación en dos pasos cada vez que inicien sesión e invalida las directivas de acceso condicional.
 
 **Opción 2**: [Habilitación de Multi-Factor Authentication con la directiva de acceso condicional](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ A continuación, se indican las opciones y ventajas para habilitar la verificaci
 
 Esta es la forma más flexible de habilitar la verificación en dos pasos para los usuarios. La habilitación de la directiva de acceso condicional solo funciona con Azure Multi-Factor Authentication en la nube y es una característica premium de Azure AD. Puede encontrar más información sobre este método en [Implementación de Azure Multi-factor Authentication en la nube](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Opción 3**: Habilitar Multi-Factor Authentication con directivas de acceso condicional mediante la evaluación de riesgo de usuario e inicio de sesión de [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md).   
+**Opción 3**: Habilitar Multi-Factor Authentication con directivas de acceso condicional mediante la evaluación de riesgo de usuario e inicio de sesión de [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Ventaja**: Esta opción le permite:
 
 - Detectar posibles vulnerabilidades que afectan a las identidades de la organización.
@@ -131,7 +131,7 @@ Esta es la forma más flexible de habilitar la verificación en dos pasos para l
 Este método utiliza la evaluación de riesgos de Azure AD Identity Protection para determinar si se requiere la verificación en dos pasos en función de los riesgos del usuario y el inicio de sesión para todas las aplicaciones en la nube. Este método requiere una licencia de Azure Active Directory P2. Para obtener más información sobre este método, consulte [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> La opción 1, en la que se habilita Multi-Factor Authentication al cambiar el estado del usuario, invalida las directivas condicionales. Dado que las opciones de 2 y 3 usan directivas de acceso condicional, no puede usar la opción 1 con ellas.
+> La opción 1, en la que se habilita Multi-Factor Authentication al cambiar el estado del usuario, invalida las directivas de acceso condicional. Dado que las opciones de 2 y 3 usan directivas de acceso condicional, no puede usar la opción 1 con ellas.
 
 Las organizaciones que no agregan capas de protección de la identidad adicionales, como la verificación en dos pasos, son más susceptibles a ataques de robo de credenciales. Un ataque de robo de credenciales puede poner en peligro la seguridad de los datos.
 
