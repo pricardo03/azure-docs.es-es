@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: df145ebe6276c911ef3064e3f8ff7a23a2faa870
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 9fa0df0bbf363a7c751de460fd98740b4314f996
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423041"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831201"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Cómo incorporar Azure Monitor para contenedores
 En este artículo se describe cómo configurar la solución para contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -39,8 +39,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 La capacidad para supervisar el rendimiento se basa en un agente de Log Analytics para Linux en contenedor, que recopila los datos de los eventos y del rendimiento de todos los nodos del clúster. El agente se implementa y registra automáticamente con el área de trabajo de Log Analytics especificada después de habilitar la supervisión del contenedor. 
 
 >[!NOTE] 
->Si ya ha implementado un clúster de AKS, puede habilitar la supervisión mediante la CLI de Azure o una plantilla de Azure Resource Manager que se proporciona, como se muestra más adelante en este artículo. No puede usar `kubectl` para actualizar, eliminar, volver a implementar o implementar el agente. 
->
+>Si ya ha implementado un clúster de AKS, puede habilitar la supervisión mediante la CLI de Azure o una plantilla de Azure Resource Manager que se proporciona, como se muestra más adelante en este artículo. No puede usar `kubectl` para actualizar, eliminar, volver a implementar o implementar el agente. La plantilla debe implementarse en el mismo grupo de recursos que el clúster.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 Inicie sesión en el [Azure Portal](https://portal.azure.com). 
@@ -71,6 +70,18 @@ El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI d
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+La salida será similar a la siguiente:
+
+```azurecli
+provisioningState       : Succeeded
+```
+
+Si, en su lugar, prefiere realizar la integración con un área de trabajo existente, use el comando siguiente para especificar esa área de trabajo.
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG --workspace-resource-id <ExistingWorkspaceResourceID> 
 ```
 
 La salida será similar a la siguiente:
@@ -124,6 +135,10 @@ Este método incluye dos plantillas JSON. Una plantilla especifica la configurac
 * El identificador del recurso del contenedor de AKS. 
 * El grupo de recursos en que se implementa el clúster.
 * El área de trabajo y la región de Log Analytics en la que se crea el área de trabajo. 
+
+>[!NOTE]
+>La plantilla debe implementarse en el mismo grupo de recursos que el clúster.
+>
 
 El área de trabajo de Log Analytics se debe crear manualmente. Para crear el área de trabajo, puede configurarla una mediante [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md).
 

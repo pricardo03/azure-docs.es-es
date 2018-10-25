@@ -11,26 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: bafc08eae4a32f803f485097401a586a662f64e9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7ce2e870be0178420d80682bd18adbef814c162f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700414"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857472"
 ---
 # <a name="message-browsing"></a>Exploración de mensajes
 
-La exploración de mensajes ("inspección") permite a un cliente de Service Bus enumerar todos los mensajes que residen en una cola o una suscripción, normalmente con fines de diagnóstico o depuración.
+La exploración de mensajes o inspección permite a un cliente de Service Bus enumerar todos los mensajes que residen en una cola o una suscripción, normalmente con fines de diagnóstico o depuración.
 
 Las operaciones de inspección devuelven todos los mensajes que existen en el registro de mensajes de la cola o suscripción, no solo aquellos disponibles para la adquisición inmediata con `Receive()` o el bucle `OnMessage()`. La propiedad `State` de cada mensaje indica si el mensaje está activo (disponible para su recepción), se ha [aplazado](message-deferral.md) o está [programado](message-sequencing.md).
 
 Los mensajes consumidos y expirados se limpian mediante una ejecución asincrónica de "recolección de elementos no utilizados" y no necesariamente justo cuando los mensajes expiran; por lo tanto, `Peek` puede devolver mensajes que ya han expirado y se eliminarán o se considerarán fallidos cuando se invoque una operación de recepción en la cola o la suscripción.
 
-Es especialmente importante tener esto en cuenta al intentar recuperar los mensajes aplazados de la cola. Un mensaje en el que el instante [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) ha pasado ya no es apto para la recuperación normal por algún otro medio, incluso cuando se devuelve mediante Peek. Estos mensajes se devuelven a propósito dado que Peek es una herramienta de diagnóstico que refleja el estado actual del registro.
+Es especialmente importante tener esto en cuenta al intentar recuperar los mensajes aplazados de la cola. Un mensaje en el que el instante [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) ha pasado ya no es apto para la recuperación normal mediante algún otro medio, incluso cuando se devuelve con Peek. Estos mensajes se devuelven a propósito dado que Peek es una herramienta de diagnóstico que refleja el estado actual del registro.
 
-Peek también devuelve los mensajes que estaban bloqueados y que actualmente están procesando otros receptores, pero que aún no se han completado. Sin embargo, como Peek devuelve una instantánea desconectada, el estado de bloqueo de un mensaje no se puede observar en los mensajes inspeccionados y las propiedades [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) y [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) producen una excepción [InvalidOperationException](/dotnet/api/system.invalidoperationexception) cuando la aplicación intenta leerlos.
+Peek también devuelve los mensajes que estaban bloqueados y que actualmente están procesando otros receptores, pero que aún no se han completado. Sin embargo, como Peek devuelve una instantánea desconectada, el estado de bloqueo de un mensaje no se puede observar en los mensajes inspeccionados y las propiedades [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) y [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) producen una excepción [InvalidOperationException](/dotnet/api/system.invalidoperationexception) cuando la aplicación intenta leerlos.
 
 ## <a name="peek-apis"></a>API de Peek
 
@@ -46,7 +46,6 @@ También puede inicializar una sobrecarga del método con un valor de [SequenceN
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 
-* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

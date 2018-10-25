@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 798b2b457016856662f392af25d987788f73c242
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 066aab598628701bf7a60b0f4f20d996348fa5ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036816"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406728"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Uso de Azure Batch con administradores de granja de representación
 
@@ -33,7 +33,7 @@ Los scripts y las instrucciones para habilitar las máquinas virtuales de grupos
 
 Render Royal tiene incorporada la integración de Azure y Azure Batch, lo que permite ampliar una granja de representaciones con las máquinas virtuales basadas en Azure. Para un resumen, consulte [los archivos de ayuda](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
-Para un ejemplo de un cliente de Royal Render que usa la integración de Azure, consulte la [historia de cliente Jellyfish Pictures](https://customers.microsoft.com/en-gb/story/jellyfishpictures).
+Para un ejemplo de un cliente de Royal Render que usa la integración de Azure, consulte la [historia de cliente Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Uso de Azure con Thinkbox Deadline
 
