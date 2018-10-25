@@ -11,12 +11,12 @@ ms.topic: article
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226898"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353365"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -76,6 +76,23 @@ En Visual Studio:
 
     ![Captura de pantalla del cuadro de diálogo Opciones de herramientas](media/common/VerbositySetting.PNG)
     
+Puede ver este error al intentar utilizar un archivo Dockerfile de varias etapas. El resultado detallado tendrá un aspecto similar al siguiente:
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+Esto se debe a que los nodos de AKS ejecutan una versión anterior de Docker que no es compatible con las compilaciones de varias etapas. Deberá volver a escribir el archivo Dockerfile para evitar las compilaciones de varias etapas.
+
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Se produce un error en la resolución de nombres DNS para una dirección URL pública asociada con un servicio Dev Spaces
 
 Cuando se produce un error de resolución de nombre de DNS, es posible que aparezca un error de tipo "No se puede mostrar la página" o "No se puede acceder a este sitio" en el explorador web al intentar conectarse a la URL pública asociada con un servicio Dev Spaces.
@@ -206,6 +223,14 @@ Un usuario con acceso de tipo Propietario o Colaborador a la suscripción de Azu
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>"Error: no se pudo encontrar un pod de Tiller listo" al iniciar Dev Spaces
+
+### <a name="reason"></a>Motivo
+Este error se produce si el cliente de Helm ya no puede comunicarse con el pod Tiller que se está ejecutando en el clúster.
+
+### <a name="try"></a>Pruebe lo siguiente:
+Reiniciar los nodos de agente en el clúster normalmente resuelve este problema.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces no parece usar mi Dockerfile existente para crear un contenedor 
 

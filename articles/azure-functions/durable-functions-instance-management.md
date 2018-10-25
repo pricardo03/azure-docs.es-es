@@ -3,23 +3,19 @@ title: 'Administración de instancias con Durable Functions: Azure'
 description: Aprenda a administrar instancias en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c9b3cd112cef7a34e0d475cdeb85b9e07d77f584
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341099"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352600"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Administración de instancias con Durable Functions (Azure Functions)
 
@@ -64,6 +60,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+En el código anterior se supone que, en el archivo function.json, ha definido un enlace de salida con el nombre "starter" y el tipo "orchestrationClient". Si el enlace no está definido, no se creará la instancia de función duradera.
+
+Para que la instancia de función duradera se invoque, el archivo function.json debe modificarse de forma que contenga un enlace para el cliente de orquestación, tal como se describe a continuación
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]
@@ -119,6 +128,32 @@ public static async Task Run(
     };
 }
 ```
+## <a name="querying-instances-with-filters"></a>Consulta de instancias con filtros
+
+También puede usar el método `GetStatusAsync` para obtener una lista de instancias de orquestación que coinciden con un conjunto de filtros predefinidos. Las opciones de filtro posibles incluyen la hora de creación de la orquestación y el estado en tiempo de ejecución de la orquestación.
+
+```csharp
+[FunctionName("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    TraceWriter log)
+{
+    IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
+        OrchestrationRuntimeStatus.Completed,
+        OrchestrationRuntimeStatus.Running
+    };
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
+        new DateTime(2018, 3, 10, 10, 1, 0),
+        new DateTime(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    ); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.Info(JsonConvert.SerializeObject(instance));
+    };
+}
+```
 
 ## <a name="terminating-instances"></a>Finalización de instancias
 
@@ -149,8 +184,6 @@ Los parámetros de [RaiseEventAsync](https://azure.github.io/azure-functions-dur
 * **EventData**: una carga que se puede serializar con JSON que enviar a la instancia.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -211,7 +244,8 @@ Dependiendo del tiempo necesario para obtener la respuesta de la instancia de or
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -232,12 +266,12 @@ El método devuelve una instancia de la carga [HttpManagementPayload](https://az
 * **StatusQueryGetUri**: la dirección URL del estado de la instancia de orquestación.
 * **SendEventPostUri**: la dirección URL de generación del evento de la instancia de orquestación.
 * **TerminatePostUri**: la dirección URL de generación del evento de la instancia de orquestación.
+* **RewindPostUri**: la dirección URL de "rebobinado" de la instancia de orquestación.
 
 Las funciones de la actividad pueden enviar una instancia de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) a sistemas externos para supervisar o generar eventos en una orquestación:
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -250,6 +284,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>Rebobinado de instancias (versión preliminar)
+
+Una instancia de orquestación con error se puede *rebobinar* de vuelta a un estado correcto anterior mediante la API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_). Funciona colocando la orquestación de nuevo en el estado *En ejecución* y ejecutando nuevamente los errores de la actividad o de la ejecución de suborquestación que produjeron el error en la orquestación.
+
+> [!NOTE]
+> Esta API no pretende ser un sustituto para el control de errores y las directivas de reintentos pertinentes. En su lugar, el objetivo es que se use solo en casos donde las instancias de orquestación producen un error por razones inesperadas. Para obtener más detalles sobre el control de errores y las directivas de reintento, consulte el tema sobre [control de errores](durable-functions-error-handling.md).
+
+Un ejemplo de caso de uso para el *rebobinado* es un flujo de trabajo que requiere de una serie de [aprobaciones realizadas por humanos](durable-functions-overview.md#pattern-5-human-interaction). Suponga que hay una serie de funciones de actividad que notifican a alguien cuando se requiere su aprobación y que esperan la respuesta en tiempo real. Después de que todas las actividades de aprobación han recibido respuestas o se ha agotado el tiempo de espera, otra actividad devuelve un error debido a un error de configuración en la aplicación (por ejemplo, una cadena de conexión de base de datos no válida). El resultado es un error de orquestación en el flujo de trabajo. Con la API `RewindAsync`, un administrador de aplicaciones puede corregir el error de configuración y *rebobinar* la orquestación con error de vuelta al estado inmediatamente anterior al error. Ninguno de los pasos de interacción humana deben volverse a aprobar, y la orquestación ahora se puede completar correctamente.
+
+> [!NOTE]
+> La característica para *rebobinar* no admite el rebobinado de instancias de orquestación que utilizan temporizadores durables.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

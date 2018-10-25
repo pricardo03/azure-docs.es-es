@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 10e8fb6ac5bcce278de3924ebd3a0d9f90392217
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528061"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352244"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -29,15 +29,24 @@ Para preparar las unidades de disco duro con la herramienta WAImportExport, se a
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
+## <a name="other-required-software-for-windows-client"></a>Otro software necesario para el cliente Windows
+
+|Plataforma |Versión |
+|---------|---------|
+|.NET Framework    | 4.5.1       |
+| BitLocker        |  _          |
+
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 
-El servicio Azure Import/Export admite las siguientes [cuentas de Azure Storage](storage-account-options.md).
+El servicio Azure Import/Export admite los siguientes tipos de cuentas de almacenamiento:
+
 - Cuentas de almacenamiento de uso general v1 (implementación clásica o de Azure Resource Manager)
 - Cuentas de Blob Storage
-- Cuentas de almacenamiento de uso general v2
 
-Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
+Para más información sobre las cuentas de almacenamiento, vea [Información general acerca de las cuentas de Azure Storage](storage-account-overview.md).
+
+Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > El servicio Azure Import/Export no admite cuentas de almacenamiento con la característica [Puntos de conexión del servicio Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) habilitada. 

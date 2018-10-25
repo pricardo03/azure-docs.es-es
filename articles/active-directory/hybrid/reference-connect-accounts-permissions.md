@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308864"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352929"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 
@@ -113,6 +113,12 @@ El siguiente es un resumen de las páginas del asistente para instalación perso
 | Página de cuenta de servicio de AD FS, "Usar una opción de cuenta de usuario de dominio" |Credenciales de cuenta de usuario de AD |Usuario de dominio |La cuenta de usuario de AD cuyas credenciales se proporcionan se usa como cuenta de inicio de sesión del servicio AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Creación de la cuenta del conector de AD DS
+
+>[!IMPORTANT]
+>Se introdujo un nuevo módulo de PowerShell denominado ADSyncConfig.psm1 con la compilación **1.1.880.0** (publicada en agosto de 2018) que incluye una colección de cmdlets que le ayudarán a configurar los permisos correctos de Active Directory para su cuenta de Azure AD DS.
+>
+>Para obtener más información, consulte [Azure AD Connect: configurar los permisos de cuenta del conector AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+
 La cuenta especificada en la página **Conectar sus directorios** debe estar presente en Active Directory antes de la instalación.  Azure AD Connect 1.1.524.0 y las versiones posteriores ofrecen la opción de permitir que el asistente de Azure AD Connect cree la **cuenta del conector de AD DS** utilizada para conectarse a Active Directory.  
 
 También debe tener los permisos necesarios concedidos. El asistente para instalación no comprueba los permisos y los problemas solo se encuentran durante la sincronización.

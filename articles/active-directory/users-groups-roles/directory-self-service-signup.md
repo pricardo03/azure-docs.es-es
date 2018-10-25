@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2018
+ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 99c5e99fa3bd33ef42e8df6ceba5be4be2cd1249
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871140"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394687"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 En este artículo se explica el registro de autoservicio y como admitirlo en Azure Active Directory (Azure AD). Si desea asumir un nombre de dominio de un inquilino de Azure AD no administrado, consulte [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Toma de control de un directorio no administrado como administrador).
@@ -44,32 +44,39 @@ Actualmente, los administradores tienen dos controles de autoservicio . Pueden c
 ### <a name="how-can-i-control-these-capabilities"></a>¿Cómo puedo controlar estas capacidades?
 Un administrador puede configurar estas capacidades con estos parámetros Set-MsolCompanySettings de cmdlet de Azure AD:
 
-* **AllowEmailVerifiedUsers** controla si un usuario puede crear o unirse a un directorio no administrado. Si establece este parámetro en $false, ningún usuario comprobado por correo electrónico se puede unir al directorio.
-* **AllowAdHocSubscriptions** controla la capacidad de los usuarios de realizar suscripciones de autoservicio. Si establece el parámetro en $false, ningún usuario puede realizar suscripciones de autoservicio. 
+* **AllowEmailVerifiedUsers** controla si un usuario puede crear un directorio o unirse a él. Si establece este parámetro en $false, ningún usuario verificado por correo electrónico podrá unirse al directorio.
+* **AllowAdHocSubscriptions** controla la capacidad de los usuarios de realizar suscripciones de autoservicio. Si establece el parámetro en $false, ningún usuario podrá realizar suscripciones de autoservicio.
   
-  > [!NOTE]
-  > Los registros de evaluación de Flow y PowerApps no están controlados por el valor **AllowAdHocSubscriptions**. Para más información, consulte los siguientes artículos.
-  > * [¿Cómo puedo impedir que mis usuarios existentes comiencen a utilizar Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-  > * [Preguntas y respuestas sobre Flow en su organización](https://docs.microsoft.com/flow/organization-q-and-a)
+AllowEmailVerifiedUsers y AllowAdHocSubscriptions son configuraciones de todo el directorio que se pueden aplicar a un directorio administrado o no administrado. A continuación, se muestra un ejemplo en el que:
+
+* Administra un directorio con un dominio verificado, como contoso.com.
+* Usa colaboración B2B de un directorio diferente para invitar a un usuario que ya no existe (userdoesnotexist@contoso.com) en el directorio principal de contoso.com.
+* El directorio principal tiene la opción AllowEmailVerifiedUsers activada.
+
+Si se cumplen las condiciones anteriores, a continuación, se crea un usuario miembro en el directorio principal y un usuario invitado B2B en el directorio que invita.
+
+Los registros de evaluación de Flow y PowerApps no están controlados por el valor **AllowAdHocSubscriptions**. Para más información, consulte los siguientes artículos.
+
+* [¿Cómo puedo impedir que mis usuarios existentes comiencen a utilizar Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+* [Preguntas y respuestas sobre Flow en su organización](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>¿Cómo funciona los controles conjuntamente?
 Estos dos parámetros se pueden usar juntos para definir un control más preciso de la suscripción de autoservicio. Por ejemplo, el comando siguiente permitirá a los usuarios realizar suscripciones de autoservicio pero solo si estos usuarios ya tienen una cuenta en Azure AD (en otras palabras, los usuarios que necesitan crear primero una cuenta comprobada por correo electrónico no pueden realizar suscripciones de autoservicio):
 
-````
+````powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
+
 En el siguiente diagrama se explican las distintas combinaciones de estos parámetros y las condiciones resultantes para el directorio y el registro de autoservicio.
 
-![][1]
+![controles de suscripción de autoservicio](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Para obtener más información y ejemplos de cómo usar estos parámetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../fundamentals/add-custom-domain.md)
 * [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Referencia de cmdlets de Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-
-<!--Image references-->
-[1]: ./media/directory-self-service-signup/SelfServiceSignUpControls.png

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394072"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345312"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -38,9 +38,9 @@ En un nivel alto, el proceso de migración de la base de datos es parecido a est
 
 ## <a name="assess-managed-instance-compatibility"></a>Evaluación de la compatibilidad de Instancia administrada
 
-En primer lugar, determine si Instancia administrada es compatible con los requisitos de base de datos de su aplicación. Instancia administrada se ha diseñado para poder migrar mediante lift-and-shit la mayoría de las aplicaciones existentes que usan instancias de SQL Server locales o en máquinas virtuales. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto. 
+En primer lugar, determine si Instancia administrada es compatible con los requisitos de base de datos de su aplicación. Instancia administrada se ha diseñado para poder migrar mediante lift-and-shit la mayoría de las aplicaciones existentes que usan instancias de SQL Server locales o en máquinas virtuales. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto.
 
-Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. DMA aún no admite Instancia administrada como destino de migración, pero se recomienda ejecutar la evaluación en Azure SQL Database y revisar atentamente la lista de problemas notificados sobre compatibilidad y paridad de las características con la documentación del producto. Consulte las [características de Azure SQL Database](sql-database-features.md) para comprobar si hay algún problema de bloqueo notificado que no bloquee la Instancia administrada, puesto que la mayoría de los problemas de bloqueo que evitaban el proceso de migración a Azure SQL Database se han eliminado con la Instancia administrada. Por ejemplo, características tales como consultas entre bases de datos, transacciones entre bases de datos dentro de la misma instancia, servidor vinculado a otros orígenes SQL, CLR, tablas temporales globales, vistas de nivel de instancia, Service Broker y similares están disponibles en Instancia administrada. 
+Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. DMA aún no admite Instancia administrada como destino de migración, pero se recomienda ejecutar la evaluación en Azure SQL Database y revisar atentamente la lista de problemas notificados sobre compatibilidad y paridad de las características con la documentación del producto. Consulte las [características de Azure SQL Database](sql-database-features.md) para comprobar si hay algún problema de bloqueo notificado que no bloquee la Instancia administrada, puesto que la mayoría de los problemas de bloqueo que evitaban el proceso de migración a Azure SQL Database se han eliminado con la Instancia administrada. Por ejemplo, características tales como consultas entre bases de datos, transacciones entre bases de datos dentro de la misma instancia, servidor vinculado a otros orígenes SQL, CLR, tablas temporales globales, vistas de nivel de instancia, Service Broker y similares están disponibles en Instancia administrada.
 
 Si se ha notificado algún problema de bloqueo que no se haya eliminado en la Instancia administrada de Azure SQL Database, quizá deba considerar una alternativa, como [SQL Server en Virtual Machines en Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estos son algunos ejemplos:
 
@@ -60,16 +60,16 @@ Puede seleccionar recursos de almacenamiento y proceso en el momento de la imple
 Para más información sobre la creación de la infraestructura de red virtual y una instancia administrada, consulte el artículo de [creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> Es importante que la red virtual y la subred de destino cumplan siempre los [requisitos de red virtual de Instancia administrada](sql-database-managed-instance-vnet-configuration.md#requirements). Cualquier incompatibilidad puede impedir crear nuevas instancias o usar las que ya ha creado.
+> Es importante que la red virtual y la subred de destino cumplan siempre los [requisitos de red virtual de instancia administrada de Azure SQL Database](sql-database-managed-instance-vnet-configuration.md#requirements). Cualquier incompatibilidad puede impedir crear nuevas instancias o usar las que ya ha creado.
 
 ## <a name="select-migration-method-and-migrate"></a>Selección del método de migración y migración
 
-Instancia administrada está diseñado para escenarios de usuario que requieren la migración masiva de bases de datos desde implementaciones locales o de base de datos de IaaS. Son la opción ideal si se necesita migrar mediante lift-and-shift las aplicaciones back-end que periódicamente usan funcionalidades del nivel de instancia o entre bases de datos. Si este es su escenario, puede mover una instancia completa al entorno correspondiente en Azure sin necesidad de rediseñar sus aplicaciones. 
+Instancia administrada está diseñado para escenarios de usuario que requieren la migración masiva de bases de datos desde implementaciones locales o de base de datos de IaaS. Son la opción ideal si se necesita migrar mediante lift-and-shift las aplicaciones back-end que periódicamente usan funcionalidades del nivel de instancia o entre bases de datos. Si este es su caso, puede mover una instancia completa al entorno correspondiente en Azure sin necesidad de rediseñar sus aplicaciones.
 
 Para mover las instancias de SQL, deberá planear cuidadosamente:
 
--   La migración de todas las bases de datos que deben situarse juntas (que se ejecutan en la misma instancia)
--   La migración de objetos de nivel de instancia de los que depende la aplicación, incluidos inicios de sesión, credenciales, trabajos y operadores del Agente SQL, y desencadenadores de nivel de servidor. 
+- La migración de todas las bases de datos que deben situarse juntas (que se ejecutan en la misma instancia)
+- La migración de objetos de nivel de instancia de los que depende la aplicación, incluidos inicios de sesión, credenciales, trabajos y operadores del Agente SQL, y desencadenadores de nivel de servidor.
 
 Instancia administrada es un servicio completamente administrado que permite delegar algunas de las actividades DBA regulares a la plataforma a medida que se crean. Por lo tanto, algunos datos de nivel de instancia no tienen que migrarse, por ejemplo, los trabajos de mantenimiento de copias de seguridad periódicas o la configuración Always On, porque integra [alta disponibilidad](sql-database-high-availability.md).
 
@@ -80,7 +80,7 @@ Instancia administrada admite las siguientes opciones de migración de base de d
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
-[Azure Database Migration Service (DMS)](../dms/dms-overview.md) es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover las bases de datos existentes de SQL Server y de terceros a Azure. En la versión preliminar pública, las opciones de implementación incluyen Azure SQL Database, Instancia administrada y SQL Server en una máquina virtual de Azure. DMS es el método recomendado de migración para las cargas de trabajo de la empresa. 
+[Azure Database Migration Service (DMS)](../dms/dms-overview.md) es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover las bases de datos existentes de SQL Server y de terceros a Azure. En la versión preliminar pública, las opciones de implementación incluyen Azure SQL Database, Instancia administrada y SQL Server en una máquina virtual de Azure. DMS es el método recomendado de migración para las cargas de trabajo de la empresa.
 
 Si usa SQL Server Integration Services (SSIS) en su servidor de SQL Server local, tenga en cuenta que el servicio DMS aún no admite la migración del catálogo de SSIS (SSISDB) que almacena paquetes SSIS; de todos modos, puede aprovisionar Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF), para crear un nuevo SSISDB en Azure SQL Database o la instancia administrada, y puede volver a implementar sus paquetes en esta opción. Para ello, consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
@@ -88,7 +88,7 @@ Para más información acerca de este escenario y los pasos de configuración pa
 
 ### <a name="native-restore-from-url"></a>Restauración de copias de seguridad nativas desde la dirección URL
 
-La restauración de copias de seguridad nativas (archivos .bak) realizadas desde instancias locales de SQL Server o [SQL Server en Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponible en [Azure Storage](https://azure.microsoft.com/services/storage/), es una de las principales funcionalidades de Instancia administrada de SQL DB que permite una migración rápida y sencilla de la base de datos sin conexión. 
+La restauración de copias de seguridad nativas (archivos .bak) realizadas desde instancias locales de SQL Server o [SQL Server en Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponible en [Azure Storage](https://azure.microsoft.com/services/storage/), es una de las principales funcionalidades de Instancia administrada de SQL DB que permite una migración rápida y sencilla de la base de datos sin conexión.
 
 El siguiente diagrama proporciona una introducción general del proceso:
 
@@ -121,6 +121,7 @@ Cuando ya esté en una plataforma completamente administrada, aproveche las vent
 Además, no es necesario preocuparse por la configuración de la alta disponibilidad porque la [alta disponibilidad](sql-database-high-availability.md) está integrada.
 
 Para reforzar la seguridad, considere la posibilidad de utilizar algunas de las características que hay disponibles:
+
 - Autenticación con Azure Active Directory en el nivel de base de datos
 - Use [características de seguridad avanzadas](sql-database-security-overview.md) como la [auditoría](sql-database-managed-instance-auditing.md), la [detección de amenazas](sql-advanced-threat-protection.md), la [seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), y el [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)) para proteger la instancia.
 

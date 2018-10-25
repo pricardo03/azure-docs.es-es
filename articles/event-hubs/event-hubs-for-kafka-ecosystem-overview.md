@@ -9,16 +9,16 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142629"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352580"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Azure Event Hubs para Apache Kafka (versión preliminar)
 
-Event Hubs proporciona un punto de conexión de Kafka que las aplicaciones basadas en Kafka existentes pueden usar como alternativa a la ejecución de su propio clúster de Kafka. Event Hubs admite [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) y versiones del cliente más recientes y funciona con las aplicaciones existentes de Kafka, incluida MirrorMaker. 
+Event Hubs proporciona un punto de conexión de Kafka que las aplicaciones basadas en Kafka existentes pueden usar como alternativa a la ejecución de su propio clúster de Kafka. Event Hubs admite el [protocolo de Apache Kafka 1.0 y versiones más recientes](https://kafka.apache.org/documentation/) y funciona con las aplicaciones existentes de Kafka, incluida MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>¿Qué proporciona Event Hubs para Kafka?
 
@@ -70,7 +70,8 @@ En este artículo se proporciona una introducción a Event Hubs para Kafka. Para
 
 * [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md) (Cómo crear Event Hubs habilitados para Kafka)
 * [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md) (Transmitir en Event Hubs desde sus aplicaciones de Kafka)
-* Empiece por un [tutorial de Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
+* [Vea más ejemplos en nuestro GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Empezar a trabajar con un [tutorial de Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 
  

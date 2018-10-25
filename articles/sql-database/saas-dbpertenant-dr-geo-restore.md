@@ -1,5 +1,5 @@
 ---
-title: Uso de copias de seguridad con redundancia geográfica de Azure SQL Database para la recuperación ante desastres de aplicaciones SaaS | Microsoft Docs
+title: 'Aplicaciones SaaS: Uso de copias de seguridad con redundancia geográfica de Azure SQL Database para la recuperación ante desastres | Microsoft Docs'
 description: Aprenda a usar copias de seguridad con redundancia geográfica de Azure SQL Database para recuperar una aplicación SaaS multiinquilino en caso de una interrupción.
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 784fd1797f2a4f85842666c9fa987a2decc933c2
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868724"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352955"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 

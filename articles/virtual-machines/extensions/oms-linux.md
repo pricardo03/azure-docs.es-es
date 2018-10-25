@@ -3,7 +3,7 @@ title: Extensión de máquina virtual de Azure Log Analytics para Linux | Micros
 description: Implemente el agente de Log Analytics en la máquina virtual Linux con una extensión de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 858c586151c8a0dd5378794a5057c22a423c43cf
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782746"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352383"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
@@ -53,7 +53,7 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 
 | Versión de extensión de máquina virtual Linux de Log Analytics | Versión del paquete del agente de Log Analytics | 
 |--------------------------------|--------------------------|
-| 1.7.7 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
+| 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
@@ -80,9 +80,9 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
 
 ```json
 {
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -101,11 +101,15 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
 }
 ```
 
+>[!NOTE]
+>En el esquema anterior se da por supuesto que se colocará en el nivel raíz de la plantilla. Si lo coloca en el recurso de máquina virtual en la plantilla, debe cambiar las propiedades `type` y `name` tal como se describe [a continuación](#template-deployment).
+>
+
 ### <a name="property-values"></a>Valores de propiedad
 
 | NOMBRE | Valor / ejemplo |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | Tipo | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
@@ -125,7 +129,7 @@ En el siguiente ejemplo se da por supuesto que la extensión de VM está anidada
 {
   "type": "extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -150,7 +154,7 @@ Al colocar la plantilla JSON de la extensión en la raíz de la plantilla, el no
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<parentVmResource>/OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
