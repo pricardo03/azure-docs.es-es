@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 063ca2bbb334c120e285d4b3eac8af00fafa7e5a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843103"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988286"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Llamada a Microsoft Graph API desde una aplicación iOS
 
@@ -28,6 +28,7 @@ En esta guía se muestra cómo una aplicación iOS nativa (Swift) puede llamar a
 Después de completar los ejercicios de esta guía, la aplicación puede llamar a una API protegida de cualquier empresa u organización que tenga Azure AD. La aplicación puede realizar llamadas API protegidas mediante el uso de cuentas personales, como outlook.com, live.com u otras, así como cuentas profesionales o educativas.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 - Para el ejemplo que se crea en esta guía, se requiere XCode versión 10.x. Puede descargar XCode desde [el sitio web de iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - El administrador de dependencias de [Carthage](https://github.com/Carthage/Carthage) es necesario para la administración del paquete.
 
@@ -37,7 +38,6 @@ Después de completar los ejercicios de esta guía, la aplicación puede llamar 
 
 En esta guía, la aplicación de ejemplo permite que una aplicación iOS realice consultas a Microsoft Graph API o a una API web que acepte tokens desde un punto de conexión v2.0 de Azure AD. En este escenario, se agrega un token a las solicitudes HTTP a través del encabezado de **autorización**. La adquisición y la renovación de los tokens se realizan por medio de la biblioteca de autenticación de Microsoft (MSAL).
 
-
 ### <a name="handle-token-acquisition-for-access-to-protected-web-apis"></a>Tratamiento de la adquisición de tokens para tener acceso a API web protegidas
 
 Una vez el usuario se autentique, la aplicación de ejemplo recibe un token. El token se usa para consultar Microsoft Graph API o una API web que está protegida por el punto de conexión v2.0 de Azure AD.
@@ -46,7 +46,6 @@ Las API, como Microsoft Graph, requieren un token de acceso para permitir el acc
 
 MSAL administra el almacenamiento en caché y la actualización de los tokens de acceso automáticamente, así que no tiene que preocuparse por ello.
 
-
 ## <a name="libraries"></a>Bibliotecas
 
 Esta guía utiliza la siguiente biblioteca:
@@ -54,4 +53,3 @@ Esta guía utiliza la siguiente biblioteca:
 |Biblioteca|DESCRIPCIÓN|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Versión preliminar de Biblioteca de autenticación de Microsoft para iOS|
-

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815875"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957996"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -96,7 +96,7 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 
 Para usar la autenticación de token de aplicación de Azure AD basada en la entidad de servicio, realice estos pasos:
 
-1. **[Cree una aplicación de Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** desde Azure Portal. Anote el nombre de la aplicación y los siguientes valores, que definen el servicio vinculado:
+1. **[Cree una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** desde Azure Portal. Anote el nombre de la aplicación y los siguientes valores, que definen el servicio vinculado:
 
     - Identificador de aplicación
     - Clave de la aplicación
@@ -146,7 +146,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 }
 ```
 
-### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
+### <a name="managed-identity"></a>Identidades administradas para la autenticación de recursos de Azure
 
 Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad de servicio se puede usar para Azure SQL Database. Con esta identidad la fábrica designada y puede acceder y copiar datos de su base de datos o en ella.
 

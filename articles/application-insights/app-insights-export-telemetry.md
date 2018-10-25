@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585482"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023520"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.  
@@ -39,7 +39,7 @@ Cuando la exportación continua copie sus datos en el almacenamiento (donde pued
 
 2. Elija los tipos de datos de telemetría que quiere exportar.
 
-3. Cree o seleccione una [cuenta de almacenamiento de Azure] (../storage/common/storage-introduction.md) donde quiera almacenar los datos. Para más información sobre las opciones de precios de almacenamiento, visite la [página oficial de precios](https://azure.microsoft.com/pricing/details/storage/).
+3. Cree o seleccione una [cuenta de almacenamiento de Azure](../storage/common/storage-introduction.md) donde quiera almacenar los datos. Para más información sobre las opciones de precios de almacenamiento, visite la [página oficial de precios](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > De forma predeterminada, la ubicación de almacenamiento se establecerá en la misma región geográfica que el recurso de Application Insights. Si los almacena en una región diferente, puede conllevar gastos de transferencia.

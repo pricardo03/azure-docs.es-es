@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803365"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429191"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Recepción de eventos de Azure Event Hubs mediante Node.js
 
@@ -57,7 +57,7 @@ El SDK que clonó contiene varios ejemplos que muestran cómo recibir eventos de
 
 1. Abra el proyecto en Visual Studio Code. 
 2. Cree un archivo llamado **.env** en la carpeta **processor**. Copie y pegue las variables de entorno de ejemplo desde **sample.env** en la carpeta raíz.
-3. Configure la cadena de conexión del centro de eventos, el nombre del centro de eventos y el punto de conexión de almacenamiento. Puede copiar la cadena de conexión para el centro de eventos desde la clave **Connection string-primary** en **RootManageSharedAccessKey** en la página del centro de eventos en Azure Portal. Para ver los pasos detallados, consulte [Obtención de la cadena de conexión](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Configure la cadena de conexión del centro de eventos, el nombre del centro de eventos y el punto de conexión de almacenamiento. Puede copiar la cadena de conexión para el centro de eventos desde la clave **Connection string-primary** en **RootManageSharedAccessKey** en la página del centro de eventos en Azure Portal. Para ver los pasos detallados, consulte [Obtención de la cadena de conexión](event-hubs-create.md#create-an-event-hubs-namespace).
 4. En la CLI de Azure, vaya a la ruta de acceso a la carpeta **processor**. Instale los paquetes de nodos y compile el proyecto mediante la ejecución de estos comandos:
 
     ```nodejs

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: 410ef936da7cf464dbef1698cf7019643cc1fb42
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249322"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024876"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
 
@@ -27,7 +27,7 @@ Terminaremos examinando de nuevo algunos de los temas tratados en artículos ant
 
 Todo lo que se describe en este artículo se basa en los ejemplos del SDK del **serializador** . Si desea continuar, consulte las aplicaciones **simplesample\_amqp** y **simplesample\_http** que se incluyen en el SDK de dispositivo IoT de Azure para C.
 
-Puede encontrar el [**SDK de dispositivo IoT de Azure para C**](https://github.com/Azure/azure-iot-sdk-c) en el repositorio de GitHub y ver los detalles de la API en la [referencia de la API de C](https://azure.github.io/azure-iot-sdk-c/index.html).
+Puede encontrar el [**SDK de dispositivo IoT de Azure para C**](https://github.com/Azure/azure-iot-sdk-c) en el repositorio de GitHub y ver los detalles de la API en la [referencia de la API de C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>El lenguaje de modelado
 
