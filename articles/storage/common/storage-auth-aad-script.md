@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 345e7c6985f03081048019912d636bba8e9a2361
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223617"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426488"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Uso de una identidad de Azure AD para acceder a Azure Storage con la CLI o PowerShell (versión preliminar).
 
-Azure Storage proporciona extensiones de versión preliminar para la CLI de Azure y PowerShell que le permiten iniciar sesión y ejecutar comandos de scripting en una identidad de Azure Active Directory (Azure AD). Una identidad de Azure AD puede ser un usuario, un grupo o una entidad de servicio de aplicación, o puede ser una [identidad de servicio administrada](../../active-directory/managed-identities-azure-resources/overview.md). Puede asignar permisos para acceder a recursos de almacenamiento en la identidad de Azure AD a través del control de acceso basado en rol (RBAC). Para más información sobre los roles de RBAC en Azure Storage, consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)](storage-auth-aad-rbac.md).
+Azure Storage proporciona extensiones de versión preliminar para la CLI de Azure y PowerShell que le permiten iniciar sesión y ejecutar comandos de scripting en una identidad de Azure Active Directory (Azure AD). La identidad de Azure AD puede ser un usuario, un grupo o una entidad de servicio de aplicación, o puede ser una [identidad administrada para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Puede asignar permisos para acceder a recursos de almacenamiento en la identidad de Azure AD a través del control de acceso basado en rol (RBAC). Para más información sobre los roles de RBAC en Azure Storage, consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)](storage-auth-aad-rbac.md).
 
 Cuando inicia sesión en la CLI de Azure o en PowerShell con una identidad de Azure AD, se devuelve un token de acceso para acceder a Azure Storage con esa identidad. Después, la CLI de Azure o PowerShell usan automáticamente ese token para autorizar operaciones en Azure Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 

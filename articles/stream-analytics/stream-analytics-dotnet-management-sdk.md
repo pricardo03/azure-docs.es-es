@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: b57e22b979d0e47d294a89d41a945a665beacdc0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d435199401f8ad52edfbfe820ba2c330242e0186
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525308"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984798"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK de .NET de administración: Configuración y ejecución de trabajos de análisis con la API de Azure Stream Analytics para .NET
 Aprenda a configurar y ejecutar trabajos de análisis con la API de Stream Analytics para .NET mediante el SDK de .NET de administración. Configure un proyecto, cree orígenes de entrada y salida, transformaciones, e inicie y detenga trabajos. En los trabajos de análisis puede transmitir datos desde el almacenamiento de blobs o desde un centro de eventos.
@@ -26,7 +26,7 @@ Azure Stream Analytics es un servicio totalmente administrado que proporciona un
 > [!NOTE]
 > El código de ejemplo de este artículo se ha actualizado con la versión v2.x del SDK de .NET de administración de Azure Stream Analytics. Para código de ejemplo con la versión heredada (1.x) del SDK, vea [Uso del SDK v1.x de .NET de administración para Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * Instale Visual Studio 2017 o 2015.
@@ -123,7 +123,7 @@ Agregue el siguiente código al comienzo del método **Main** :
 
 El valor de la variable **resourceGroupName** debe ser el mismo que el nombre del grupo de recursos que creó o eligió en los pasos de requisitos previos.
 
-Para automatizar el aspecto de la presentación de credenciales de creación del trabajo, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Para automatizar el aspecto de la presentación de credenciales de creación del trabajo, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 Las secciones restantes de este artículo suponen que este código se encuentra al comienzo del método **Main** .
 
@@ -292,18 +292,18 @@ Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecu
 
 
 <!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: https://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage.use]: https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs]: https://azure.microsoft.com/services/event-hubs/
+[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.forum]: https://go.microsoft.com/fwlink/?LinkId=512151
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

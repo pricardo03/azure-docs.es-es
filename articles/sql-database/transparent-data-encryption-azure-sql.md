@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: becczhang
+author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 07/09/2018
-ms.openlocfilehash: 50b433c65dec1f667f32aaf60148a6e393c67320
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165933"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353040"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
@@ -25,7 +25,7 @@ El cifrado de datos transparente (TDE) ayuda a proteger Azure SQL Database y Azu
 
 TDE tendrá que habilitarse manualmente para bases de datos anteriores o Azure SQL Data Warehouse.  
 
-El cifrado de datos transparente se encarga de cifrar el almacenamiento de toda una base de datos mediante una clave simétrica denominada clave de cifrado de base de datos. Esta clave de cifrado de base de datos está protegida por el protector de cifrado de datos transparente. El protector es un certificado administrado por el servicio (cifrado de datos transparentes administrado por el servicio) o una clave asimétrica almacenada en Azure Key Vault (Bring Your Own Key). El protector de cifrado de datos transparente se configura en el nivel de servidor. 
+El cifrado de datos transparente se encarga de cifrar el almacenamiento de toda una base de datos mediante una clave simétrica denominada clave de cifrado de base de datos. Esta clave de cifrado de base de datos está protegida por el protector de cifrado de datos transparente. El protector es un certificado administrado por el servicio (cifrado de datos transparentes administrado por el servicio) o una clave asimétrica almacenada en Azure Key Vault (Bring Your Own Key). El protector de cifrado de datos transparente se configura en el nivel de servidor.
 
 Durante el inicio de la base de datos, la clave de cifrado de base de datos cifrada se descifra y, a continuación, se usa para descifrar y volver a cifrar los archivos de base de datos en el proceso del motor de base de datos de SQL Server. El cifrado de datos transparente realiza el cifrado de E/S en tiempo real y el descifrado de los datos en el nivel de página. Todas las páginas se descifran cuando se leen en la memoria y, a continuación, se cifran antes de escribirse en el disco. Para consultar una descripción general del cifrado de datos transparente, consulte [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 
@@ -35,11 +35,10 @@ Las instancias de SQL Server que se ejecutan en una máquina virtual de Azure ta
 
 En Azure, la configuración predeterminada para el cifrado de datos transparente es aquella por la que la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor. Si una base de datos está en una relación de replicación geográfica, la base de datos principal y secundaria con replicación geográfica están protegidas por la clave de servidor principal de la base de datos principal. Si hay dos bases de datos conectadas al mismo servidor, comparten el mismo certificado integrado. Microsoft alterna automáticamente estos certificados al menos cada 90 días.
 
-Microsoft también mueve y administra con total fluidez las claves según sea necesario para la replicación geográfica y las restauraciones. 
+Microsoft también mueve y administra con total fluidez las claves según sea necesario para la replicación geográfica y las restauraciones.
 
 > [!IMPORTANT]
 > Todas las bases de datos SQL recién creadas se cifran de forma predeterminada mediante el uso de cifrado de datos transparente administrado por el servicio. Las bases de datos existentes antes de mayo de 2017 y las bases de datos creadas mediante restauración, replicación geográfica o copia de base de datos no se cifran de manera predeterminada.
->
 
 ## <a name="bring-your-own-key"></a>Bring Your Own Key
 
@@ -54,11 +53,12 @@ Para empezar a usar el cifrado de datos transparente con compatibilidad con Brin
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Traslado de una base de datos protegida por cifrado de datos transparente
 
 No es necesario descifrar las bases de datos para las operaciones dentro de Azure. La configuración del cifrado de datos transparente en la base de datos de origen o la base de datos principal se hereda de forma transparente en el destino. Entre las operaciones incluidas están las siguientes:
-- Restauración geográfica.
-- Restauración a un momento específico de autoservicio.
-- Restauración de una base de datos eliminada.
-- Replicación geográfica activa.
-- Creación de una copia de base de datos.
+
+- Restauración geográfica
+- Restauración a un momento específico de autoservicio
+- Restauración de una base de datos eliminada
+- Replicación geográfica activa
+- Creación de una copia de base de datos
 
 Al exportar una base de datos protegida por el cifrado de datos transparente, no se cifra el contenido exportado de la base de datos. Este contenido exportado se almacena en archivos BACPAC no cifrados. Asegúrese de proteger adecuadamente los archivos BACPAC y habilitar el cifrado de datos transparente una vez finalizada la importación de la nueva base de datos.
 
@@ -68,19 +68,19 @@ La única excepción es cuando se exporta a y desde una base de datos SQL. El ci
 
 ## <a name="manage-transparent-data-encryption-in-the-azure-portal"></a>Administración del cifrado de datos transparente en Azure Portal
 
-Para configurar el cifrado de datos transparente mediante Azure Portal, debe estar conectado como propietario o colaborador de Azure o administrador de seguridad SQL. 
+Para configurar el cifrado de datos transparente mediante Azure Portal, debe estar conectado como propietario o colaborador de Azure o administrador de seguridad SQL.
 
-Establezca el cifrado de datos transparente en el nivel de base de datos. Para habilitar el cifrado de datos transparente en una base de datos, vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de administrador o colaborador de Azure. Busque la configuración de cifrado de datos transparente en la base de datos de usuario. De forma predeterminada, se usa el cifrado de datos transparente administrado por el servicio. Se genera automáticamente un certificado de cifrado de datos transparente para el servidor que contiene la base de datos. 
+Establezca el cifrado de datos transparente en el nivel de base de datos. Para habilitar el cifrado de datos transparente en una base de datos, vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de administrador o colaborador de Azure. Busque la configuración de cifrado de datos transparente en la base de datos de usuario. De forma predeterminada, se usa el cifrado de datos transparente administrado por el servicio. Se genera automáticamente un certificado de cifrado de datos transparente para el servidor que contiene la base de datos.
 
 ![Cifrado de datos transparente administrado por el servicio](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
 
-Establezca la clave maestra del cifrado de datos transparente, también conocida como protector de cifrado de datos transparente, en el nivel de servidor. Para usar el cifrado de datos transparente con compatibilidad con Bring Your Own Key y proteger las bases de datos con una clave de Key Vault, consulte la configuración del cifrado de datos transparente en el servidor. 
+Establezca la clave maestra del cifrado de datos transparente, también conocida como protector de cifrado de datos transparente, en el nivel de servidor. Para usar el cifrado de datos transparente con compatibilidad con Bring Your Own Key y proteger las bases de datos con una clave de Key Vault, consulte la configuración del cifrado de datos transparente en el servidor.
 
-![Cifrado de datos transparente con compatibilidad con Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png) 
+![Cifrado de datos transparente con compatibilidad con Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
 ## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Administración del cifrado de datos transparente mediante PowerShell
 
-Para configurar el cifrado de datos transparente mediante PowerShell, debe estar conectado como propietario o colaborador de Azure o administrador de seguridad SQL. 
+Para configurar el cifrado de datos transparente mediante PowerShell, debe estar conectado como propietario o colaborador de Azure o administrador de seguridad SQL.
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
@@ -102,28 +102,28 @@ Conéctese a la base de datos mediante un inicio de sesión que sea un administr
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF cifra o descifra una base de datos |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Devuelve información sobre el estado de cifrado de una base de datos y sus claves de cifrado de base de datos asociadas |
-| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Devuelve información sobre el estado de cifrado de cada nodo de almacenamiento de datos y sus claves de cifrado de base de datos asociadas | 
+| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Devuelve información sobre el estado de cifrado de cada nodo de almacenamiento de datos y sus claves de cifrado de base de datos asociadas |
 |  | |
 
 No puede cambiar el protector de cifrado de datos transparente para una clave de Key Vault mediante Transact-SQL. Use PowerShell o Azure Portal.
 
 ## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>Administración del cifrado de datos transparente mediante la API REST
- 
-Para configurar el cifrado de datos transparente mediante la API REST, debe estar conectado como el propietario o colaborador de Azure o administrador de seguridad SQL. 
+
+Para configurar el cifrado de datos transparente mediante la API REST, debe estar conectado como el propietario o colaborador de Azure o administrador de seguridad SQL.
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |
-|[Create Or Update Server](/rest/api/sql/servers/createorupdate)|Agrega una identidad de Azure Active Directory a una instancia de SQL Server (que se usa para conceder acceso a Key Vault)|
-|[Create Or Update Server Key](/rest/api/sql/serverkeys/createorupdate)|Agrega una clave de Key Vault a una instancia de SQL Server|
-|[Delete Server Key](/rest/api/sql/serverkeys/delete)|Quita una clave de Key Vault de una instancia de SQL Server|
-|[Get Server Keys](/rest/api/sql/serverkeys/get)|Obtiene una clave específica de Key Vault de una instancia de SQL Server|
-|[List Server Keys By Server](/rest/api/sql/serverkeys/listbyserver)|Obtiene las claves de Key Vault para una instancia de SQL Server |
-|[Create Or Update Encryption Protector](/rest/api/sql/encryptionprotectors/createorupdate)|Establece el protector de cifrado de datos transparente para una instancia de SQL Server|
-|[Get Encryption Protector](/rest/api/sql/encryptionprotectors/get)|Obtiene el protector de cifrado de datos transparente para una instancia de SQL Server|
-|[List Encryption Protectors By Server](/rest/api/sql/encryptionprotectors/listbyserver)|Obtiene los protectores de cifrado de datos transparente para una instancia de SQL Server |
-|[Create Or Update Transparent Data Encryption Configuration](/rest/api/sql/transparentdataencryptions/createorupdate)|Habilita o deshabilita el cifrado de datos transparente para una base de datos|
-|[Get Transparent Data Encryption Configuration](/rest/api/sql/transparentdataencryptions/get)|Obtiene la configuración de cifrado de datos transparente para una base de datos|
-|[List Transparent Data Encryption Configuration Results](/rest/api/sql/transparentdataencryptionactivities/ListByConfiguration)|Obtiene el resultado de cifrado para una base de datos|
+|[Create Or Update Server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Agrega una identidad de Azure Active Directory a una instancia de SQL Server (que se usa para conceder acceso a Key Vault)|
+|[Create Or Update Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Agrega una clave de Key Vault a una instancia de SQL Server|
+|[Delete Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Quita una clave de Key Vault de una instancia de SQL Server|
+|[Get Server Keys](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Obtiene una clave específica de Key Vault de una instancia de SQL Server|
+|[List Server Keys By Server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Obtiene las claves de Key Vault para una instancia de SQL Server |
+|[Create Or Update Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Establece el protector de cifrado de datos transparente para una instancia de SQL Server|
+|[Get Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Obtiene el protector de cifrado de datos transparente para una instancia de SQL Server|
+|[List Encryption Protectors By Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Obtiene los protectores de cifrado de datos transparente para una instancia de SQL Server |
+|[Create Or Update Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Habilita o deshabilita el cifrado de datos transparente para una base de datos|
+|[Get Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Obtiene la configuración de cifrado de datos transparente para una base de datos|
+|[List Transparent Data Encryption Configuration Results](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Obtiene el resultado de cifrado para una base de datos|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

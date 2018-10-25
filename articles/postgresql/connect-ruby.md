@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 911dcd49273edb202c64d046424418b7db048291
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2d132ba1b901c45df79507a974ee8d4786c6311d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692426"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985036"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Ruby para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante una aplicación de [Ruby](https://www.ruby-lang.org). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Ruby, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI de Azure](quickstart-create-server-database-azure-cli.md)
@@ -30,7 +30,7 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 Instale Ruby en su propia máquina. 
 
 ### <a name="windows"></a>Windows
-- Descargue e instale la versión más reciente de [Ruby](http://rubyinstaller.org/downloads/).
+- Descargue e instale la versión más reciente de [Ruby](https://rubyinstaller.org/downloads/).
 - En la pantalla de finalización del instalador MSI, active la casilla que dice "Run 'ridk install' to install MSYS2 and development toolchain" (Ejecute "ridk install" para instalar MSYS2 y la cadena de herramientas de desarrollo). A continuación, haga clic en **Finalizar** para iniciar el programa de instalación siguiente.
 - Se iniciará el instalador de RubyInstaller2 para Windows. Escriba 2 para instalar la actualización del repositorio de MSYS2. Cuando haya finalizado y se vuelva al mensaje de instalación, cierre el símbolo del sistema.
 - Inicie un nuevo símbolo del sistema (cmd) desde el menú Inicio.
@@ -69,7 +69,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
 Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE**, seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
 
-El código usa un objeto [PG::Connection](http://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](http://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, realiza una llamada al método [exec()](http://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar los comandos DROP, CREATE TABLE e INSERT INTO. El código comprueba si hay errores mediante la clase [PG::Error](http://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](http://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, realiza una llamada al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar los comandos DROP, CREATE TABLE e INSERT INTO. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 ```ruby
@@ -111,7 +111,7 @@ end
 ## <a name="read-data"></a>Lectura de datos
 Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **SELECT**. 
 
-El código usa un objeto [PG::Connection](http://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](http://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](http://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando SELECT, conservando los resultados en un conjunto de resultados. La colección de resultados se repite con el bucle `resultSet.each do`, conservando los valores de fila actuales de la variable `row`. El código comprueba si hay errores mediante la clase [PG::Error](http://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](http://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando SELECT, conservando los resultados en un conjunto de resultados. La colección de resultados se repite con el bucle `resultSet.each do`, conservando los valores de fila actuales de la variable `row`. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 
@@ -145,7 +145,7 @@ end
 ## <a name="update-data"></a>Actualización de datos
 Use el código siguiente para conectarse y actualizar los datos mediante la instrucción SQL **UPDATE**.
 
-El código usa un objeto [PG::Connection](http://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](http://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](http://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](http://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](http://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 
@@ -179,7 +179,7 @@ end
 ## <a name="delete-data"></a>Eliminación de datos
 Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **DELETE**. 
 
-El código usa un objeto [PG::Connection](http://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](http://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](http://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](http://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](http://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 
@@ -209,6 +209,6 @@ ensure
 end
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

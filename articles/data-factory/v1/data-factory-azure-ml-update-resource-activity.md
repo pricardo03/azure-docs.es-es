@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3eb9f765b5ffe1118b3b25aff8ecdde327021a54
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046486"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954951"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 
@@ -90,7 +90,7 @@ Si el servicio web es el nuevo tipo de servicio web que expone un punto de conex
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Puede obtener valores para los marcadores de posición en la dirección URL al consultar el servicio web en el [Portal de servicios web Azure Machine Learning](https://services.azureml.net/). El nuevo tipo de punto de conexión del recurso de actualización requiere un token AAD (Azure Active Directory). Especifique **servicePrincipalId** y **servicePrincipalKey**en el servicio vinculado AzureML. Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Esta es la definición de un servicio vinculado AzureML de ejemplo: 
+Puede obtener valores para los marcadores de posición en la dirección URL al consultar el servicio web en el [Portal de servicios web Azure Machine Learning](https://services.azureml.net/). El nuevo tipo de punto de conexión del recurso de actualización requiere un token AAD (Azure Active Directory). Especifique **servicePrincipalId** y **servicePrincipalKey**en el servicio vinculado AzureML. Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). Esta es la definición de un servicio vinculado AzureML de ejemplo: 
 
 ```json
 {

@@ -15,12 +15,12 @@ ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540852"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404960"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -120,7 +120,7 @@ Para el registro inicial, permita el acceso a los siguientes puntos de conexión
 Si no puede permitir la conectividad mediante el FQDN y debe especificar intervalos de direcciones IP en su lugar, use estas opciones:
 
 * Permitir el acceso de salida del conector a todos los destinos.
-* Permitir el acceso de salida del conector a todos los [rangos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). El desafío de usar la lista de intervalos IP del centro de datos de Azure es que se actualiza semanalmente. Es necesario colocar un proceso para garantizar que las reglas de acceso se actualizan en consecuencia. Si se utiliza solo un subconjunto de las direcciones IP, se puede producir una interrupción de la configuración.
+* Permitir el acceso de salida del conector a todos los [rangos de direcciones IP del centro de datos de Azure](https://www.microsoft.com//download/details.aspx?id=41653). El desafío de usar la lista de intervalos IP del centro de datos de Azure es que se actualiza semanalmente. Es necesario colocar un proceso para garantizar que las reglas de acceso se actualizan en consecuencia. Si se utiliza solo un subconjunto de las direcciones IP, se puede producir una interrupción de la configuración.
 
 #### <a name="proxy-authentication"></a>La autenticación del proxy
 

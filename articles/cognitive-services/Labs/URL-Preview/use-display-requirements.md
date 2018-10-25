@@ -1,19 +1,21 @@
 ---
-title: 'Requisitos de uso y visualización de Project URL Preview: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Requisitos de uso y visualización: Project URL Preview'
+titlesuffix: Azure Cognitive Services
 description: Requisitos de uso y visualización del punto de conexión de Project URL Preview API.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: url-preview
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4aee9207c4f1bd4f0e36aae42985096544dc19d7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: e2c6eeb1b5f13ffea49c21c70a478ab42488b443
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381735"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468116"
 ---
 # <a name="project-url-preview-use-and-display-requirements"></a>Requisitos de uso y visualización de Project URL Preview
 

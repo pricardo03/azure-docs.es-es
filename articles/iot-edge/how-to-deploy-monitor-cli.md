@@ -9,29 +9,29 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998515"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394619"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge permite mover los análisis al perímetro y proporciona una interfaz en la nube para que pueda administrar y supervisar los dispositivos de IoT Edge sin tener que acceder físicamente a cada uno de ellos. La capacidad de administrar dispositivos de forma remota es cada vez más importante, ya que las soluciones de Internet de las cosas son cada vez más grandes y complejas. Azure IoT Edge está pensado para apoyar sus objetivos empresariales, sin importar cuántos dispositivos agregue.
+Azure IoT Edge permite mover los análisis al perímetro y proporciona una interfaz en la nube para que pueda administrar y supervisar los dispositivos IoT Edge de forma remota. La capacidad de administrar dispositivos de forma remota es cada vez más importante, ya que las soluciones de Internet de las cosas son cada vez más grandes y complejas. Azure IoT Edge está pensado para apoyar sus objetivos empresariales, sin importar cuántos dispositivos agregue.
 
 Puede administrar dispositivos individuales e implementarles módulos de uno en uno. Sin embargo, si desea realizar cambios en los dispositivos en a gran escala, puede crear una **implementación automática de IoT Edge**, que forma parte de la administración automática de dispositivos de IoT Hub. Las implementaciones son procesos dinámicos que permiten poner en marcha varios módulos en múltiples dispositivos a la vez, realizar un seguimiento del estado y del mantenimiento de los módulos y realizar cambios cuando sea necesario. 
 
-En este artículo, configuró la CLI de Azure y la extensión de IoT. A continuación, aprenderá a implementar módulos en un dispositivo de IoT Edg, y a supervisar el progreso mediante los comandos de la CLI disponibles.
+En este artículo, configuró la CLI de Azure y la extensión de IoT. A continuación, aprenderá a implementar módulos en un dispositivo IoT Edge y a supervisar el progreso mediante los comandos de la CLI disponibles.
 
 ## <a name="cli-prerequisites"></a>Requisitos previos de CLI
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
 * [Dispositivos de IoT Edge](how-to-register-device-cli.md) que tengan instalado el entorno de ejecución de IoT Edge.
-* [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
-* La [extensión de IoT de la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
+* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
+* La [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
 
@@ -128,7 +128,7 @@ Antes de crear una implementación, tendrá que especificar los dispositivos que
 }
 ```
 
-Para más información sobre los dispositivos gemelos y etiquetas, consulte [Información y uso de dispositivos gemelos en IoT Hub][lnk-device-twin].
+Para más información sobre dispositivos gemelos y etiquetas, consulte [Información y uso de dispositivos gemelos en IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>de una implementación
 
@@ -209,16 +209,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre cómo [implementar módulos en dispositivos de Edge][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Obtenga más información sobre cómo [implementar módulos en dispositivos Edge](module-deployment-monitoring.md).

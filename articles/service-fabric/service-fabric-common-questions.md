@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143434"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390183"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -96,6 +96,9 @@ Mientras trabajamos en una experiencia mejorada, por el momento, el usuario es e
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>¿Se pueden cifrar los discos de datos asociados en un tipo de nodo de clúster (conjunto de escalado de máquinas virtuales)?
 Sí.  Para más información, consulte [Creación de un clúster con discos de datos asociados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) (Cifrado de discos [PowerShell]) y [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md) (Cifrado de discos [CLI]).
 
+### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>¿Se pueden usar máquinas virtuales de prioridad baja en un tipo de nodo de clúster (conjunto de escalado de máquinas virtuales)?
+No. No se admiten máquinas virtuales de prioridad baja. 
+
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>¿Qué directorios y procesos es necesario excluir al ejecutar un programa antivirus en un clúster?
 
 | **Directorios excluidos del antivirus** |
@@ -123,7 +126,7 @@ Sí.  Para más información, consulte [Creación de un clúster con discos de d
 Los siguientes son medios para que la aplicación obtenga las credenciales de autenticación en KeyVault:
 
 A. Durante el trabajo de compilación/empaquetado de aplicaciones, puede extraer un certificado en el paquete de datos de la aplicación de Service Fabric y usarlo para autenticarse en KeyVault.
-B. Para hosts con MSI habilitado en el conjunto de escalado de máquinas virtuales, puede desarrollar un PowerShell SetupEntryPoint sencillo para que la aplicación de Service Fabric obtenga [un token de acceso del punto de conexión MSI](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token) y después [recuperar los secretos de KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0).
+B. Para hosts con MSI habilitado en el conjunto de escalado de máquinas virtuales, puede desarrollar un PowerShell SetupEntryPoint sencillo para que la aplicación de Service Fabric obtenga [un token de acceso del punto de conexión MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token) y después [recuperar los secretos de KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0).
 
 ## <a name="application-design"></a>Diseño de aplicaciones
 

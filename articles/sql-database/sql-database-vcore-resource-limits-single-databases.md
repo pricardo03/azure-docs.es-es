@@ -11,31 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166385"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353587"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única
 
 En este artículo se proporcionan los límites de recursos detallados para bases de datos únicas de Azure SQL Database que utilizan el modelo de compra basado en núcleos virtuales.
 
-Para información sobre los límites del modelo de compra basado en DTU, consulte [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) (Límites de recursos basados en DTU de SQL Database).
+Para conocer los límites del modelo de compra basado en DTU para las bases de datos en un servidor lógico, consulte la [información general de recursos en un servidor lógico](sql-database-resource-limits-logical-server.md).
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
+Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), la [CLI de Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) o la [API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de datos única: tamaños de almacenamiento y tamaños de proceso
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio de uso general: tamaños de almacenamiento y de proceso
 
-Para las bases de datos únicas, las siguientes tablas muestran los recursos disponibles para una base de datos única en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), la [CLI de Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) o la [API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
 
-### <a name="general-purpose-service-tier"></a>Nivel de servicio de uso general
-
-#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
 |Tamaño de proceso|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|4|
@@ -57,7 +55,8 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+
 |Tamaño de proceso|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
@@ -79,9 +78,10 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
-### <a name="business-critical-service-tier"></a>Nivel de servicio Crítico para la empresa
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio crítico para la empresa: tamaños de almacenamiento y de proceso
 
-#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+
 |Tamaño de proceso|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|4|
@@ -103,7 +103,8 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+
 |Tamaño de proceso|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|5|
@@ -125,9 +126,10 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>Nivel de servicio de hiperescala (versión preliminar)
+## <a name="hyperscale-service-tier-preview"></a>Nivel de servicio de hiperescala (versión preliminar)
 
-#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plataforma de procesos de generación 4: tamaños de almacenamiento y de proceso
+
 |Nivel de rendimiento|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
 |Almacenamiento de copia de seguridad incluido|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+
 |Nivel de rendimiento|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|5|

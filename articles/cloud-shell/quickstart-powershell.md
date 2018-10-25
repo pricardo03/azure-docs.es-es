@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0bce9f50bdc3ac8fb4675a7ac2a3fb300036973f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166219"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404366"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell
 
@@ -181,17 +181,17 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Consulte el artículo sobre la [solución de problemas de la administración remota de máquinas virtuales de Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
-  Supongamos que tiene una máquina virtual llamada MyVM1. Usemos entonces `Invoke-AzureRmVMCommand` para invocar un bloque de scripts de PowerShell en la máquina remota.
+  Supongamos que tiene una máquina virtual llamada MyVM1. Usemos entonces `Invoke-AzVMCommand` para invocar un bloque de scripts de PowerShell en la máquina remota.
 
   ```azurepowershell-interactive
-  Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
 
-  También puede ir primero al directorio VirtualMachines y ejecutar `Invoke-AzureRmVMCommand` de la manera siguiente.
+  También puede ir primero al directorio VirtualMachines y ejecutar `Invoke-AzVMCommand` de la manera siguiente.
 
   ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
 
   # You will see output similar to the following:
 
@@ -210,16 +210,16 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 #### <a name="interactively-log-on-to-a-remote-vm"></a>Inicio de sesión interactivo en una máquina virtual remota
 
-Puede usar `Enter-AzureRmVM` para iniciar sesión de manera interactiva en una máquina virtual que se ejecuta en Azure.
+Puede usar `Enter-AzVM` para iniciar sesión de manera interactiva en una máquina virtual que se ejecuta en Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-También puede navegar primero al directorio `VirtualMachines` y ejecute `Enter-AzureRmVM` de la siguiente manera
+También puede navegar primero al directorio `VirtualMachines` y ejecute `Enter-AzVM` de la siguiente manera
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
  ```
 
 ### <a name="discover-webapps"></a>Detección de WebApps

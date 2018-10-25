@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5fda0ac590e5faeaa8b6ec44a7d649d2c0122eeb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035205"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352992"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Los roles de entidad en los patrones son subtipos contextuales
 Los roles son subtipos contextuales con nombre de una entidad que solo se usa en [patrones](luis-concept-patterns.md).
@@ -28,6 +28,8 @@ Los roles dan un nombre a esas diferencias:
 |--|--|--|
 |Ubicación|origin|De dónde sale el avión|
 |Ubicación|de destino|En dónde aterriza el avión|
+|Entidad datetimeV2 creada previamente|to|fecha de finalización|
+|Entidad datetimeV2 creada previamente|De|fecha de inicio|
 
 ## <a name="how-are-roles-used-in-patterns"></a>¿Cómo se usan los roles en los patrones?
 En la expresión de plantilla de un patrón, los roles se usan dentro de la expresión: 
@@ -47,6 +49,14 @@ Las entidades jerárquicas proporcionan la misma información contextual que los
 |--|--|
 |entidades jerárquicas|intenciones|
 |roles|patrones|
+
+## <a name="roles-with-prebuilt-entities"></a>Roles con entidades creadas previamente
+
+Utilice roles con las entidades creadas previamente para dar sentido a distintas instancias de la entidad creada previamente dentro de una expresión. 
+
+### <a name="roles-with-datetimev2"></a>Roles con datetimeV2
+
+DatetimeV2, la entidad creada previamente, hace un gran trabajo al comprender una gran variedad de fechas y horas distintas en las expresiones. Puede especificar las fechas y los intervalos de fechas de manera diferente a la descripción predeterminada de la entidad creada previamente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

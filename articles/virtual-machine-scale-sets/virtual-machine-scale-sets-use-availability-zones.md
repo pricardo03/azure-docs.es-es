@@ -3,7 +3,7 @@ title: Creación de un conjunto de escalado de Azure que usa Zonas de disponibil
 description: Obtenga información sobre cómo crear conjuntos de escalado de máquinas virtuales de Azure que usan Zonas de disponibilidad para aumentar la redundancia contra las interrupciones
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: cynthn
-ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949679"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468881"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 

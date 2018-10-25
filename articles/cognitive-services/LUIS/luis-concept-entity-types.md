@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e6bb0735de94d0baaac3a8504ec1811cfbfff27f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042455"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353924"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -93,7 +93,7 @@ Las entidades <a name="mixed"></a>
 Consulte los [límites](luis-boundaries.md#model-boundaries) para saber cuántas entidades de cada tipo puede agregar a un modelo.
 
 ## <a name="entity-roles"></a>Roles de entidad
-Los [roles](luis-concept-roles.md) de entidad se usan solo en los patrones. 
+Los [roles](luis-concept-roles.md) de entidad se aplican a las entidades personalizadas y a las creadas previamente y solo se usan con patrones. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entidades compuestas frente a entidades jerárquicas
 Las entidades compuestas y las entidades jerárquicas tienen relaciones entre elementos primarios y secundarios, y se aprenden mediante el aprendizaje automático. Gracias al aprendizaje automático, LUIS puede comprender las entidades en función de otros contextos (organización de palabras). Las entidades compuestas son más flexibles porque admiten distintos tipos de entidad como elementos secundarios. Los elementos secundarios de una entidad jerárquica son solo entidades simples. 

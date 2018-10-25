@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238531"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945967"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>¿Qué es el servicio Azure Machine Learning (versión preliminar)?
 
@@ -54,7 +54,7 @@ Puede elegir entre muchos componentes de aprendizaje automático disponibles en 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://www.microsoft.com/cognitive-toolkit/" target="_blank">CNTK</a>
+- <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
 Cuando ya tiene un modelo, lo va a usar para crear un contenedor (como Docker) que puede implementarse localmente para pruebas, y después como un servicio web de producción en [Azure Container Instances](how-to-deploy-to-aci.md) o [Azure Kubernetes Service](how-to-deploy-to-aks.md).

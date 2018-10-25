@@ -1,25 +1,26 @@
 ---
-title: Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa en Azure Cosmos DB | Microsoft Docs
-description: Use la biblioteca de ejecutor en masa de Java de Azure Cosmos DB para importar y actualizar documentos en bloque a los contenedores de Azure Cosmos DB.
-keywords: Ejecutor en masa de Java
+title: Uso de la biblioteca Bulk Executor en Java para realizar operaciones de actualización e importación en masa en Azure Cosmos DB | Microsoft Docs
+description: Actualice e importe en masa documentos de Azure Cosmos DB mediante la biblioteca Bulk Executor en Java.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a22cd65ef5d4ef22038a8506359d1036e829db4d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050194"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362116"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
 En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos de Azure Cosmos DB. Para información sobre la biblioteca BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial, se va a compilar una aplicación de Java que genera documentos aleatorios que se importan en bloque en un contenedor de Azure Cosmos DB. Tras la importación, se actualizarán en masa algunas propiedades de un documento. 
+
+Actualmente, la biblioteca Bulk Executor solo es compatible con las cuentas de API de SQL de Azure Cosmos DB y Gremlin API. En este artículo se describe cómo usar la biblioteca Bulk Executor de .NET con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca Bulk Executor de .NET con Gremlin API, consulte [realizar operaciones en masa en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

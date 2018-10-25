@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053302"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362609"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introducción al escalado automático
 El escalado automático es una funcionalidad adicional de Service Fabric para escalar servicios de manera dinámica en función de la carga que notifican los servicios o del uso de recursos. El escalado automático proporciona una gran elasticidad y permite el aprovisionamiento de instancias o particiones adicionales del servicio a petición. Todo el proceso de escalado es automático y transparente. Además, una vez configuradas las directivas en un servicio, no es necesario realizar ninguna operación de escalado manual a nivel de servicio. El escalado automático se puede activar al crear el servicio o al actualizarlo en cualquier momento.
@@ -120,7 +120,7 @@ El segundo desencadenador se basa en la carga de todas las particiones de un ser
 * El _umbral superior de carga_ es un valor que determina si el servicio se **escalará horizontalmente**. Si la carga media de todas las particiones del servicio es superior a este valor, el servicio se escalará horizontalmente.
 * El _intervalo de escalado_ determina la frecuencia con la que se comprobará el desencadenador. Una vez comprobado el desencadenador, se aplicará el mecanismo si es necesario escalar. Si no es necesario escalar, no se realizará ninguna acción. En ambos casos, no se volverá a comprobar el desencadenador antes de que vuelva a expirar el intervalo de escalado.
 
-Este desencadenador se puede usar con servicios con y sin estado. El único mecanismo que se puede usar con este desencadenador es AddRemoveIncrementalNamedParitionScalingMechanism. Cuando el servicio se escala horizontalmente, se agrega una partición nueva, mientras que, cuando el servicio se reduce horizontalmente, se quita una de las particiones existentes. Hay restricciones que se comprobarán al crear o actualizar el servicio y no se podrá crear o actualizar el servicio si no se cumplen estas condiciones:
+Este desencadenador se puede usar con servicios con y sin estado. El único mecanismo que se puede usar con este desencadenador es AddRemoveIncrementalNamedPartitionScalingMechanism. Cuando el servicio se escala horizontalmente, se agrega una partición nueva, mientras que, cuando el servicio se reduce horizontalmente, se quita una de las particiones existentes. Hay restricciones que se comprobarán al crear o actualizar el servicio y no se podrá crear o actualizar el servicio si no se cumplen estas condiciones:
 * El esquema de partición con nombre se debe usar para el servicio.
 * Los nombres de la partición deben ser números enteros consecutivos, como "0", "1"...
 * El nombre de la primera partición debe ser "0".
@@ -137,7 +137,7 @@ Igual que el mecanismo que usa el escalado agregando o quitando instancias, hay 
 * El _recuento mínimo de instancias_ define el límite inferior para el escalado. Si el número de particiones del servicio alcanza este límite, el servicio no se reducirá horizontalmente, independientemente de la carga.
 
 > [!WARNING] 
-> Cuando se usa AddRemoveIncrementalNamedParitionScalingMechanism con servicios con estado, Service Fabric agregará o quitará las particiones **sin notificación o advertencia**. No se volverán a particionar los datos cuando se desencadene el mecanismo de escalado. En caso de una operación de escalado vertical, las nuevas particiones estarán vacías y en el caso de una operación de reducción vertical, la **partición se eliminará junto con todos los datos que contiene**.
+> Cuando se usa AddRemoveIncrementalNamedPartitionScalingMechanism con servicios con estado, Service Fabric agrega o quita las particiones **sin ninguna notificación o advertencia**. No se volverán a particionar los datos cuando se desencadene el mecanismo de escalado. En caso de una operación de escalado vertical, las nuevas particiones estarán vacías y en el caso de una operación de reducción vertical, la **partición se eliminará junto con todos los datos que contiene**.
 
 ## <a name="setting-auto-scaling-policy"></a>Configuración de la directiva de escalado automático
 
@@ -146,7 +146,7 @@ Igual que el mecanismo que usa el escalado agregando o quitando instancias, hay 
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Igual que el mecanismo que usa el escalado agregando o quitando instancias, hay 
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Uso de PowerShell
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

@@ -11,23 +11,23 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: effaa9b0b3fec36974a2bc850eeb1f36181ca0c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/19/2018
+ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166442"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470666"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Servidores lógicos de Azure SQL Database y su administración
 
-## <a name="what-is-an-azure-sql-logical-server"></a>¿Qué es un servidor lógico de Azure SQL?
+## <a name="what-is-an-azure-sql-logical-server"></a>Qué es un servidor lógico de Azure SQL
 
 Un servidor lógico funciona como punto de administración central para bases de datos únicas o [agrupadas](sql-database-elastic-pool.md), [inicios de sesión](sql-database-manage-logins.md), [reglas de firewall](sql-database-firewall-configure.md), [reglas de auditoría](sql-database-auditing.md), [directivas de detección de amenazas](sql-database-threat-detection.md) y [grupos de conmutación por error](sql-database-geo-replication-overview.md). Un servidor lógico puede estar en una región distinta a la de su grupo de recursos. El servidor lógico debe existir antes de crear la base de datos SQL de Azure. Todas las bases de datos de un servidor se crean dentro de la misma región que el servidor lógico.
 
 Un servidor lógico es una construcción lógica distinta de una instancia de SQL Server, con la que puede estar familiarizado en el mundo del entorno local. En concreto, el servicio SQL Database no ofrece ninguna garantía con respecto a la ubicación de las bases de datos con respecto a sus servidores lógicos y no expone ningún acceso de nivel de instancia ni características. En cambio, un servidor de Instancia administrada de SQL Database es similar a una instancia de SQL Server con la que pueda estar familiarizado en el entorno local.
 
-Al crear un servidor lógico, proporciona una cuenta y una contraseña para iniciar sesión en el servidor con derechos administrativos para la base de datos maestra de dicho servidor y todas las bases de datos creadas en dicho servidor. Esta cuenta inicial es una cuenta de inicio de sesión de SQL. Azure SQL Database admite la autenticación de SQL y la autenticación de Azure Active Directory. Para obtener información sobre inicios de sesión y autenticación, vea [Administrar bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md). La autenticación de Windows no es compatible. 
+Al crear un servidor lógico, proporciona una cuenta y una contraseña para iniciar sesión en el servidor con derechos administrativos para la base de datos maestra de dicho servidor y todas las bases de datos creadas en dicho servidor. Esta cuenta inicial es una cuenta de inicio de sesión de SQL. Azure SQL Database admite la autenticación de SQL y la autenticación de Azure Active Directory. Para obtener información sobre inicios de sesión y autenticación, vea [Administrar bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md). La autenticación de Windows no es compatible.
 
 Un servidor lógico de Azure Database:
 
@@ -38,19 +38,19 @@ Un servidor lógico de Azure Database:
 - Participa en el [control de acceso basado en rol (RBAC) de Azure](/azure/role-based-access-control/overview). Las bases de datos, los grupos elásticos y los almacenamientos de datos dentro de un servidor heredan los derechos de acceso del servidor.
 - Es un elemento de orden superior de la identidad de las bases de datos, los grupos elásticos y los almacenamientos de datos con fines de administración de recursos de Azure (vea el esquema de direcciones URL para bases de datos y grupos).
 - Coloca recursos en una región.
-- Proporciona un punto de conexión para el acceso a la base de datos (<serverName>. database.windows.net).
-- Proporciona acceso a los metadatos de recursos contenidos a través de las DMV conectándose a una base de datos maestra. 
-- Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicios de sesión, firewall, auditoría, detección de amenazas, etc. 
+- Proporciona un punto de conexión para el acceso a la base de datos (`<serverName>`. database.windows.net).
+- Proporciona acceso a los metadatos de recursos contenidos a través de las DMV conectándose a una base de datos maestra.
+- Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicios de sesión, firewall, auditoría y detección de amenazas, entre otros.
 - Está restringido por una cuota dentro de la suscripción primaria (seis servidores por suscripción de forma predeterminada; [consulte el artículo sobre los límites de la suscripción aquí](../azure-subscription-service-limits.md)).
 - Proporciona el ámbito de la cuota de la base de datos y la cuota de DTU o de núcleos virtuales para los recursos que contiene (por ejemplo, 45 000 DTU).
-- Es el ámbito de control de versiones para funciones que se habilitan en los recursos contenidos. 
+- Es el ámbito de control de versiones para funciones que se habilitan en los recursos contenidos.
 - Los inicios de sesión de la entidad de seguridad en el nivel de servidor pueden administrar todas las bases de datos en un servidor.
 - Puede contener inicios de sesión similares a los de las instancias de SQL Server en sus instalaciones que tienen acceso a una o más bases de datos en el servidor y puede ser concesionario de derechos administrativos limitados. Para obtener más información, consulte el artículo sobre [inicios de sesión](sql-database-manage-logins.md).
 - La intercalación predeterminada para todas las bases de datos de usuario creadas en un servidor lógico es `SQL_LATIN1_GENERAL_CP1_CI_AS`, donde `LATIN1_GENERAL` es inglés (Estados Unidos), `CP1` es la página de códigos 1252, `CI` distingue mayúsculas de minúsculas y `AS` distingue acentos.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Administración de servidores, bases de datos y firewalls de Azure SQL en Azure Portal
 
-Puede crear el grupo de recursos de la base de datos SQL de Azure con antelación o mientras crea el propio servidor. Existen varios métodos para obtener un nuevo formulario de servidor SQL, bien mediante la creación de un nuevo servidor SQL o como parte de la creación de una base de datos nueva. 
+Puede crear el grupo de recursos de la base de datos SQL de Azure con antelación o mientras crea el propio servidor. Existen varios métodos para obtener un nuevo formulario de servidor SQL, bien mediante la creación de un nuevo servidor SQL o como parte de la creación de una base de datos nueva.
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Creación de un servidor SQL en blanco (servidor lógico)
 
@@ -58,7 +58,7 @@ Para crear un servidor de Azure SQL Database (sin una base de datos) en [Azure P
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Creación de una base de datos SQL de ejemplo o en blanco
 
-Para crear una base de datos de Azure SQL Database en [Azure Portal](https://portal.azure.com), vaya al formulario en blanco de SQL Database y facilite la información requerida. Puede crear un servidor lógico y un grupo de recursos de Azure SQL Database con antelación o mientras crea la propia base de datos. Puede crear una base de datos en blanco o de ejemplo basada en Adventure Works LT. 
+Para crear una base de datos de Azure SQL Database en [Azure Portal](https://portal.azure.com), vaya al formulario en blanco de SQL Database y facilite la información requerida. Puede crear un servidor lógico y un grupo de recursos de Azure SQL Database con antelación o mientras crea la propia base de datos. Puede crear una base de datos en blanco o de ejemplo basada en Adventure Works LT.
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -69,19 +69,16 @@ Para crear una instancia administrada, consulte [Creación de una instancia admi
 
 ### <a name="manage-an-existing-sql-server"></a>Administración de un servidor SQL Server existente
 
-Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de SQL Database, la página de **Servidores SQL Server** o la página de **Todos los recursos**. 
+Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de SQL Database, la página de **Servidores SQL Server** o la página de **Todos los recursos**.
 
-Para administrar una base de datos existente, vaya a la página de **SQL Database** y haga clic en la base de datos que desea administrar. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor para una base de datos desde la página de **información general** de una base de datos. 
+Para administrar una base de datos existente, vaya a la página de **SQL Database** y haga clic en la base de datos que desea administrar. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor para una base de datos desde la página de **información general** de una base de datos.
 
-   ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > Para configurar las propiedades de rendimiento de una base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
->
-
 > [!TIP]
 > Para acceder a una guía de inicio rápido de Azure Portal, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](sql-database-get-started-portal.md).
->
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Administración de servidores, bases de datos y firewalls de Azure SQL con PowerShell
 
@@ -164,7 +161,6 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Devuelve información sobre la configuración del firewall de nivel de base de datos asociada a Microsoft Azure SQL Database. |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Quita las reglas de firewall de nivel de base de datos de la instancia de Azure SQL Database o SQL Data Warehouse. |
 
-
 > [!TIP]
 > Para acceder a una guía de inicio rápido sobre el uso de SQL Server Management Studio en Microsoft Windows, consulte [Azure SQL Database: uso de SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos](sql-database-connect-query-ssms.md). Para acceder a una guía de inicio rápido sobre el uso de Visual Studio Code en macOS, Linux o Windows, consulte [Azure SQL Database: uso de Visual Studio Code para conectar y consultar datos](sql-database-connect-query-vscode.md).
 
@@ -174,21 +170,22 @@ Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, us
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |
-|[Servers - Create Or Update](/rest/api/sql/servers/createorupdate)|Crea o actualiza un nuevo servidor.|
-|[Servers - Delete](/rest/api/sql/servers/delete)|Elimina un servidor de SQL Server.|
-|[Servers - Get](/rest/api/sql/servers/get)|Obtiene un servidor.|
-|[Servers - List](/rest/api/sql/servers/list)|Devuelve una lista de servidores.|
-|[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Devuelve una lista de servidores en un grupo de recursos.|
-|[Servers - Update](/rest/api/sql/servers/update)|Actualiza un servidor existente.|
-|[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
-|[Databases - Get](/rest/api/sql/databases/get)|Obtiene una base de datos.|
-|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
-|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
-|[Databases - Update](/rest/api/sql/databases/update)|Actualiza una base de datos existente.|
-|[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Crea o actualiza una regla de firewall.|
-|[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|Elimina una regla de firewall.|
-|[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|Obtiene una regla de firewall.|
-|[Firewall Rules - List By Server](/rest/api/sql/firewallrules/listbyserver)|Devuelve una lista de reglas de firewall.|
+|[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crea o actualiza un nuevo servidor.|
+|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina un servidor de SQL Server.|
+|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtiene un servidor.|
+|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Devuelve una lista de servidores.|
+|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Devuelve una lista de servidores en un grupo de recursos.|
+|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Actualiza un servidor existente.|
+|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
+|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Permite eliminar una base de datos.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtiene una base de datos.|
+|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
+|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Actualiza una base de datos existente.|
+|[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crea o actualiza una regla de firewall.|
+|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Elimina una regla de firewall.|
+|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtiene una regla de firewall.|
+|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devuelve una lista de reglas de firewall.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

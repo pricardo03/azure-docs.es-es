@@ -1,26 +1,21 @@
 ---
-title: Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía | Microsoft Docs
+title: Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía
 description: Plantilla de solución con Microsoft Cortana Intelligence que ayuda a prever la demanda de una empresa de suministro de energía.
 services: machine-learning
-documentationcenter: ''
 author: ilanr9
 manager: cgronlun
-editor: yijichen
-ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2016
-ms.author: yijichen
-ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.author: garye
+ms.openlocfilehash: 43a75c31c0f094bdcb7008a39140226815bda163
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842611"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390302"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía
 ## <a name="executive-summary"></a>Resumen ejecutivo

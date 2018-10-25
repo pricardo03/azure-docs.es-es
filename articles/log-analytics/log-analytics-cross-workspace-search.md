@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869507"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025810"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Realización de búsquedas de registros entre recursos en Log Analytics  
 
@@ -29,7 +29,7 @@ Anteriormente, con Azure Log Analytics, solo podía analizar datos desde dentro 
 Ahora puede consultar no solo a través de varias áreas de trabajo de Log Analytics, sino también datos desde una aplicación específica de Application Insights del mismo grupo de recursos, otro grupo de recursos u otra suscripción. Gracias a esto se consigue una vista total del sistema de datos.  Solo puede realizar estos tipos de consultas en [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). El número de recursos (áreas de trabajo de Log Analytics y aplicación de Application Insights) que se pueden incluir en una sola consulta se limita a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultas a través de áreas de trabajo de Log Analytics y desde Application Insights
-Para hacer referencia a otra área de trabajo en la consulta, use el identificador del [*área de trabajo*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()), y, para una aplicación de Application Insights, use el identificador de la [*aplicación*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
+Para hacer referencia a otra área de trabajo en la consulta, use el identificador del [*área de trabajo*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression), y, para una aplicación de Application Insights, use el identificador de la [*aplicación*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression).  
 
 ### <a name="identifying-workspace-resources"></a>Identificación de los recursos del área de trabajo
 En los ejemplos siguientes se muestran consultas en las áreas de trabajo de Log Analytics que devuelven recuentos de registros resumidos desde la tabla Update en un área de trabajo denominada *contosoretail-it*. 
@@ -104,4 +104,4 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise la [referencia sobre búsqueda de registros de Log Analytics](https://docs.loganalytics.io/docs/Language-Reference) para ver todas las opciones de sintaxis de consulta en Log Analytics.    
+Revise la [referencia sobre búsqueda de registros de Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) para ver todas las opciones de sintaxis de consulta en Log Analytics.    

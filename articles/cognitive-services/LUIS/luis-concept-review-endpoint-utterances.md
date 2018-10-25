@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4ef6f5022b3c38eab2cda20123f179811f46390f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038177"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637245"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión
 El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
@@ -36,7 +36,7 @@ Las expresiones de punto de conexión se obtienen de las consultas del usuario f
 No es necesario revisar las expresiones sugeridas todos los días, pero la revisión debe formar parte del mantenimiento periódico de LUIS. 
 
 ## <a name="delete-review-items-programmatically"></a>Eliminar los elementos de revisión mediante programación
-Si la aplicación es grande, puede optar por revisar algunas expresiones y eliminar el resto de la lista mediante programación. Para ello, primero se [obtiene](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) la lista y, después, se [eliminan](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) las expresiones por identificador.
+Use la API para **[eliminar expresiones sin etiquetar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)**. Realice una copia de seguridad de estas expresiones antes de eliminarlas mediante la **[exportación de los archivos de registro](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

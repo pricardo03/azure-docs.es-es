@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 47253fd05cb1df96841b30357ac6e7cfe75c12c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cefcad9c427770c083e6451c088ce5cfc10a68f2
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039691"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394486"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Windows en Azure
 
@@ -29,12 +29,12 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 
 | Escriba                     | Tamaños           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Uso general](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2 | Uso equilibrado de la CPU en proporción de memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. |
+| [Uso general](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC | Uso equilibrado de la CPU en proporción de memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. |
 | [Proceso optimizado](sizes-compute.md)        | Fsv2, Fs, F             | Uso elevado de la CPU en proporción de memoria. Bueno para servidores web de tráfico medio, aplicaciones de red, procesos por lotes y servidores de aplicaciones.        |
 | [Memoria optimizada](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Memoria alta en proporción de CPU. Excelente para servidores de bases de datos relacionales, memorias caché de capacidad media o grande y análisis en memoria.                 |
 | [Almacenamiento optimizado](../virtual-machines-windows-sizes-storage.md)        | LS                | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas específicas para la representación de gráficos pesados y la edición de vídeo, así como para el entrenamiento e inferencia de modelos (ND) con aprendizaje profundo. Están disponibles con uno o varios GPU.       |
-| [Proceso de alto rendimiento](sizes-hpc.md) | H       | Nuestras máquinas virtuales de CPU más rápidas y eficaces con interfaces de red de alto rendimiento opcionales (RDMA). 
+| [Proceso de alto rendimiento](sizes-hpc.md) | H       | Nuestras máquinas virtuales de CPU más rápidas y eficaces con interfaces de red de alto rendimiento opcionales (RDMA). |
 
 
 <br> 
@@ -49,9 +49,9 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 
 Para obtener información sobre el uso de la API de REST para consultar los tamaños de máquina virtual, consulte lo siguiente:
 
-- [Lista de tamaños de máquina virtual disponibles para cambio de tamaño](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Lista de tamaños de máquina virtual disponibles para una suscripción](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list)
-- [Lista de tamaños de máquina virtual disponibles en un conjunto de disponibilidad](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Lista de tamaños de máquina virtual disponibles para cambio de tamaño](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listavailablesizes)
+- [Lista de tamaños de máquina virtual disponibles para una suscripción](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listall)
+- [Lista de tamaños de máquina virtual disponibles en un conjunto de disponibilidad](https://docs.microsoft.com/rest/api/compute/availabilitysets/availabilitysets_listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161580"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354179"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para grupos elásticos
 
@@ -28,16 +28,15 @@ Para información sobre los límites del modelo de compra basado en DTU, consult
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Grupos elásticos: tamaños de almacenamiento y de proceso
-
-Para los grupos elásticos de SQL Database, las siguientes tablas muestran los recursos disponibles en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), la [CLI de Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o la [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), la [CLI de Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o la [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo tamaño de proceso. Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.
 
-### <a name="general-purpose-service-tier"></a>Nivel de servicio de uso general
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio de uso general: tamaños de almacenamiento y de proceso
 
-#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+
 |Tamaño de proceso|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|4|
@@ -61,7 +60,8 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+
 |Tamaño de proceso|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|5|
@@ -85,9 +85,10 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
-### <a name="business-critical-service-tier"></a>Nivel de servicio Crítico para la empresa
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio crítico para la empresa: tamaños de almacenamiento y de proceso
 
-#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+
 |Tamaño de proceso|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|4|
@@ -112,6 +113,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+
 |Tamaño de proceso|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|5|
@@ -137,7 +139,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 
 Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una de las bases de datos del grupo recibe la misma cantidad de recursos de proceso para procesar las consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de núcleos virtuales por base de datos se establece en un valor distinto de cero.
 
-### <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
+## <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 
 En la tabla siguiente se describen las propiedades de las bases de datos agrupadas.
 
@@ -147,9 +149,9 @@ En la tabla siguiente se describen las propiedades de las bases de datos agrupad
 | Número mínimo de núcleos virtuales por base de datos |El número mínimo de núcleos virtuales que se garantiza en cualquier base de datos del grupo. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. El número mínimo de núcleos virtuales por base de datos se puede establecer en 0, y también se trata del valor predeterminado. Esta propiedad se establece en cualquier valor entre 0 y el uso medio de núcleos virtuales por base de datos. El resultado de multiplicar el número de bases de datos del grupo y el número mínimo de núcleos virtuales por base de datos no puede superar el número de núcleos virtuales por grupo.|
 | Almacenamiento máximo por base de datos |El tamaño máximo de base de datos establecido por el usuario para una base de datos de un grupo. Las bases de datos agrupadas comparten el almacenamiento del grupo asignado, de modo que el tamaño que puede alcanzar una base de datos se limita a la menor cantidad de almacenamiento restante del grupo y el tamaño de la base de datos. El tamaño máximo de la base de datos hace referencia al tamaño máximo de los archivos de datos, y no incluye el espacio utilizado por los archivos de registro. |
 |||
- 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md) para conocer las respuestas a las preguntas más frecuentes.
-- Consulte [Información general de los límites de recursos de Azure SQL Database](sql-database-resource-limits.md) para información sobre los límites en los niveles de servidor y suscripción.
+- Consulte la [Información general de los límites de recursos en un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información sobre los límites en los niveles de servidor y suscripción.
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).

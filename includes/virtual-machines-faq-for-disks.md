@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47186254"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400334"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -146,7 +146,7 @@ Los discos SSD estándar son discos estándar respaldados por soportes físicos,
 Todas las regiones de Azure ahora admiten discos SSD estándar.
 
 **¿Azure Backup está disponible al usar SSD estándar?**
-No, Azure Backup aún no está disponible.
+Sí, Azure Backup ya está disponible.
 
 **¿Cómo creo discos SSD estándar?**
 Puede crear discos SSD estándar mediante plantillas de Azure Resource Manager, SDK, PowerShell o CLI. A continuación se muestran los parámetros necesarios de la plantilla de Resource Manager para crear discos SSD estándar:
@@ -171,7 +171,7 @@ El siguiente ejemplo muestra la sección *properties.storageProfile.osDisk* de u
 Para obtener un ejemplo de plantilla completa de cómo crear un disco SSD estándar con una plantilla, consulte [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/) (Creación de una máquina virtual a partir de una imagen de Windows con discos de datos SSD estándar).
 
 **¿Puedo convertir mis discos existentes a SSD estándar?**
-Sí, puede hacerlo. Consulte [Conversión de almacenamiento de Azure Managed Disks de estándar a premium, y viceversa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) para conocer las directrices generales de la conversión de Managed Disks. Y utilice el siguiente valor para actualizar el tipo de disco a SSD estándar.
+Sí, puede hacerlo. Consulte [Conversión de almacenamiento de Azure Managed Disks de estándar a premium, y viceversa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para conocer las directrices generales de la conversión de Managed Disks. Y utilice el siguiente valor para actualizar el tipo de disco a SSD estándar.
 -AccountType StandardSSD_LRS
 
 **¿Cuál es la ventaja de utilizar discos SSD estándar en lugar de unidades de disco duro?**

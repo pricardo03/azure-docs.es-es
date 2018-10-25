@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 59cfcc72abee100b95cf17033083827fbb30f9f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 66b2930e06cef1a31602df3d358c78f42c8cd2cf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986700"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406371"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -158,7 +158,7 @@ Los informes de mitigación de ataques usan los datos del protocolo Netflow que 
 
     - **Archivar en cuenta de almacenamiento**: los datos se escriben en una cuenta de Azure Storage. Para más información sobre esta opción, consulte [Archivo de registros de diagnósticos](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Transmitir a un centro de eventos**: permite que un receptor de registros seleccione los registros mediante una instancia de Azure Event Hub. Los centros de eventos habilitan la integración con Splunk y otros sistemas SIEM. Para más información sobre esta opción, consulte [Transmisión de registros de diagnóstico a un centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Enviar a Log Analytics**: escribe registros en el servicio Log Analytics de OMS de Azure. Para más información sobre esta opción, consulte [Recopilación de registros y métricas de Azure para servicios de Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Enviar a Log Analytics**: escribe registros en el servicio Azure Log Analytics. Para más información sobre esta opción, consulte [Recopilación de registros y métricas de Azure para servicios de Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Tanto los informes de mitigación incremental como los posteriores a los ataques incluyen los siguientes campos:
 - Vectores de ataque
@@ -180,8 +180,8 @@ Los registros de flujo de mitigación de ataques le permiten revisar casi en tie
 
     - **Archivar en cuenta de almacenamiento**: los datos se escriben en una cuenta de Azure Storage. Para más información sobre esta opción, consulte [Archivo de registros de diagnósticos](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Transmitir a un centro de eventos**: permite que un receptor de registros seleccione los registros mediante una instancia de Azure Event Hub. Los centros de eventos habilitan la integración con Splunk y otros sistemas SIEM. Para más información sobre esta opción, consulte [Transmisión de registros de diagnóstico a un centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Enviar a Log Analytics**: escribe registros en el servicio Log Analytics de OMS de Azure. Para más información sobre esta opción, consulte [Recopilación de registros y métricas de Azure para servicios de Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-7. Para ver los datos de registros de flujo en el panel de análisis de Azure, puede importar el panel de ejemplo desde https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip.
+    - **Enviar a Log Analytics**: escribe registros en el servicio Azure Log Analytics. Para más información sobre esta opción, consulte [Recopilación de registros y métricas de Azure para servicios de Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Para ver los datos de registros de flujo en el panel de análisis de Azure, puede importar el panel de ejemplo desde https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip.
 
 Los registros de flujo tienen los siguientes campos: 
 - IP de origen

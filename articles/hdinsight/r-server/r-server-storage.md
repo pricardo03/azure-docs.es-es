@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 5bd5919efa84f2dd22929075b806747b413ac346
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051800"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395101"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluciones de Azure Storage para ML Services en HDInsight
 
@@ -159,7 +159,7 @@ Los siguientes comandos se usan para configurar la cuenta de Data Lake Store con
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Uso de Azure File Storage con ML Services en HDInsight
 
-También hay una opción de almacenamiento de datos adecuada para su uso en el nodo perimetral llamada [Azure Files] (https://azure.microsoft.com/services/storage/files/). Con esta opción podrá montar un recurso compartido de archivos de Azure Storage en el sistema de archivos de Linux. Esta opción puede resultar práctica para almacenar archivos de datos, scripts de R y objetos de resultado que podría necesitar más adelante, en especial cuando sea conveniente usar el sistema de archivos nativo en el nodo perimetral en lugar de HDFS. 
+También hay una opción de almacenamiento de datos adecuada para su uso en el nodo perimetral llamada [Azure Files](https://azure.microsoft.com/services/storage/files/). Con esta opción podrá montar un recurso compartido de archivos de Azure Storage en el sistema de archivos de Linux. Esta opción puede resultar práctica para almacenar archivos de datos, scripts de R y objetos de resultado que podría necesitar más adelante, en especial cuando sea conveniente usar el sistema de archivos nativo en el nodo perimetral en lugar de HDFS. 
 
 Una ventaja importante de Archivos de Azure es que los recursos compartidos de archivos se pueden montar y utilizar en cualquier sistema que tenga un sistema operativo compatible, como Windows o Linux. Por ejemplo, puede utilizarse con otro clúster de HDInsight que sea suyo o de alguien de su equipo, con una máquina virtual de Azure, o incluso con un sistema local. Para más información, consulte:
 

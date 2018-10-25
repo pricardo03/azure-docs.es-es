@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6cf880cf132168d60ff49c2e7ea571cd8e89d36f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce38cac7a0b175004fbb670069ddbeefb53e96e7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446663"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428579"
 ---
 # <a name="create-measures"></a>Crear medidas
 
@@ -27,7 +27,7 @@ En esta lección creará medidas especificando una fórmula DAX en la barra de f
   
 Tiempo estimado para completar esta lección: **30 minutos**  
   
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de llevar a cabo las tareas de esta lección, debe haber finalizado la lección anterior: [Lección 5: Creación de columnas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Crear medidas  

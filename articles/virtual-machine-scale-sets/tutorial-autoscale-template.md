@@ -3,7 +3,7 @@ title: 'Tutorial: Escalado automático de un conjunto de escalado con plantillas
 description: Aprenda a usar plantillas de Azure Resource Manager para escalar automáticamente un conjunto de escalado de máquinas virtuales a medida que la demanda de la CPU aumenta y disminuye.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 4532355130fff987e25c5c804630fb6bdd7699df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1257cbe14d8d0fe9dc6d9b0f2a48dbb8b3cc6e4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959842"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466569"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Escalado automático de conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:
@@ -272,7 +272,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, aprendió a escalar y reducir horizontalmente un conjunto de escalado de forma automática con la CLI de Azure:
+En este tutorial, ha aprendido a escalar y reducir horizontalmente un conjunto de escalado de forma automática con la CLI de Azure:
 
 > [!div class="checklist"]
 > * Usar el escalado automático con un conjunto de escalado
@@ -283,4 +283,4 @@ En este tutorial, aprendió a escalar y reducir horizontalmente un conjunto de e
 Para más ejemplos de conjuntos de escalado de máquinas virtuales en acción, vea los siguientes scripts de ejemplo de la CLI de Azure:
 
 > [!div class="nextstepaction"]
-> [Ejemplos de la CLI de Azure para conjuntos de escalado de máquinas virtuales](cli-samples.md)
+> [Ejemplos de scripts de conjunto de escalado para la CLI de Azure](cli-samples.md)

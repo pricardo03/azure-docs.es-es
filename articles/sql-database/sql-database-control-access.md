@@ -11,21 +11,23 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 06/13/2018
-ms.openlocfilehash: a39e65d5a3aff6158c189f392e2db8bd8273ad1b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/05/2018
+ms.openlocfilehash: 49da7704c3b1c3c119528201f34f1352b0afbba4
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063796"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362133"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Control de acceso a Azure SQL Database y SQL Data Warehouse
+
 Para proporcionar seguridad, Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) controlan el acceso con reglas de firewall que limitan la conectividad por dirección IP, con mecanismos de autenticación que requieren a los usuarios que demuestren su identidad y con mecanismos de autorización que limitan a los usuarios el acceso a datos y acciones específicos. 
 
 > [!IMPORTANT]
 > Para obtener información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL). Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md). Para una información general de las características de seguridad de SQL Data Warehouse, consulte [Introducción a la seguridad de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall y reglas de firewall
+
 Microsoft Azure SQL Database ofrece un servicio de base de datos relacional para Azure y otras aplicaciones basadas en Internet. Para ayudar a proteger los datos, los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Introducción a las reglas de firewall de Azure SQL Database](sql-database-firewall-configure.md).
 
 El servicio Azure SQL Database solo está disponible a través del puerto TCP 1433. Para tener acceso a una instancia de SQL Database desde el equipo, asegúrese de que el firewall de equipos cliente permite la comunicación TCP saliente en el puerto TCP 1433. Si no es necesario para otras aplicaciones, bloquee las conexiones entrantes en el puerto TCP 1433. 
@@ -36,8 +38,12 @@ Como parte del proceso de conexión, las conexiones de máquinas virtuales de Az
 
 SQL Database admite dos tipos de autenticación:
 
-* **Autenticación de SQL**, que usa un nombre de usuario y una contraseña. Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo". 
-* **Autenticación de Azure Active Directory**, que usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). Si desea usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal. Consulte el tutorial [Conectar a la SQL Database mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md) , para obtener información acerca de cómo crear un administrador de Azure AD y así habilitar la autenticación de Azure Active Directory.
+- **Autenticación de SQL**:
+
+  Este método de autenticación usa un nombre de usuario y una contraseña. Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo". 
+- **Autenticación con Azure Active Directory**:
+
+  Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). Si desea usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal. Consulte el tutorial [Conectar a la SQL Database mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md) , para obtener información acerca de cómo crear un administrador de Azure AD y así habilitar la autenticación de Azure Active Directory.
 
 El motor de la base de datos cierra las conexiones que permanecen inactivas durante más de 30 minutos. La conexión debe volver a iniciar sesión para poder usarse. Las conexiones con SQL Database que están constantemente activas requieren volver a ser autorizadas (acción realizada por el motor de la base de datos) al menos cada 10 horas. El motor de la base de datos intenta repetir la autorización con la contraseña que se envió inicialmente y no se requiere ninguna acción del usuario. Por motivos de rendimiento, cuando se restablece una contraseña en SQL Database, la conexión no se vuelve a autenticar, incluso si esta se restablece debido a la agrupación de conexiones. Esto difiere del comportamiento del SQL Server local. Si se ha cambiado la contraseña desde que se autorizó la conexión inicialmente, deberá terminarse la conexión y establecerse una nueva conexión con la nueva contraseña. Los usuarios con el permiso `KILL DATABASE CONNECTION` pueden terminar explícitamente una conexión con SQL Database mediante el uso del comando [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
 
@@ -51,11 +57,12 @@ Autorización indica las acciones que pueden realizar los usuarios en Azure SQL 
 
 Normalmente, solo los administradores necesitan tener acceso a la base de datos `master`. El acceso rutinario a cada base de datos de usuario debe llevarse a cabo a través de los usuarios de la base de datos independiente que no son administradores creados en cada base de datos. Al utilizar los usuarios de la base de datos independiente, no es necesario que cree inicios de sesión en la base de datos `master`. Para obtener más información, vea [Usuarios de base de datos independiente - Conversión de la base de datos en portátil](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
-Debe familiarizarse con las siguientes características que pueden utilizarse para limitar o elevar los permisos:   
-* La [suplantación](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) y la [firma de módulos](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) se pueden usar para elevar los permisos temporalmente de forma segura.
-* [seguridad del nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite filtrar las filas que puede ver el usuario.
-* [enmascaramiento de datos](sql-database-dynamic-data-masking-get-started.md) puede utilizarse para limitar la exposición de información confidencial.
-* [procedimientos almacenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
+Debe familiarizarse con las siguientes características que pueden utilizarse para limitar o elevar los permisos:
+
+- La [suplantación](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) y la [firma de módulos](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) se pueden usar para elevar los permisos temporalmente de forma segura.
+- [seguridad del nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite filtrar las filas que puede ver el usuario.
+- [enmascaramiento de datos](sql-database-dynamic-data-masking-get-started.md) puede utilizarse para limitar la exposición de información confidencial.
+- [procedimientos almacenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

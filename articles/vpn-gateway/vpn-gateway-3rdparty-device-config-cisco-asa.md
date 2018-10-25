@@ -2,25 +2,17 @@
 title: Ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure | Microsoft Docs
 description: En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910765"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467232"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Ejemplo de configuración: dispositivo Cisco ASA (IKEv2/no BGP)
 En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco Adaptive Security Appliance (ASA) a puertas de enlace de VPN de Azure. El ejemplo se aplica a dispositivos Cisco ASA que ejecutan IKEv2 sin Border Gateway Protocol (BGP). 
@@ -308,5 +300,5 @@ Use los siguientes comandos de ASA para fines de depuración:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para configurar activo-activo entre entornos y las conexiones de red virtual a red virtual, consulte [Configuración de conexiones VPN activo-activo con puertas de enlace VPN](vpn-gateway-activeactive-rm-powershell.md).

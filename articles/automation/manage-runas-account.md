@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433708"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958166"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -32,10 +32,13 @@ Existen dos tipos de cuentas de ejecución:
 * **Cuenta de ejecución de Azure clásico**: esta cuenta se usa para administrar recursos del modelo de implementación clásico.
   * Crea un recurso de certificado de Automation llamado *AzureClassicRunAsCertificate* en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que usa el certificado de administración.
   * Crea un recurso de conexión de Automation llamado *AzureClassicRunAsConnection* en la cuenta de Automation especificada. El recurso de conexión contiene el nombre de la suscripción, el id. de suscripción y el nombre del recurso de certificado.
+  
+  > [!NOTE]
+  > Las suscripciones de Proveedor de soluciones en la nube de Azure (Azure CSP) solo admiten el modelo de Azure Resource Manager, los servicios que no sean de Azure Resource Manager no están disponibles en el programa. Cuando se usa una suscripción a CSP la Cuenta de ejecución de Azure clásico no se crea. Se sigue creando la Cuenta de ejecución de Azure. Para más información acerca de las suscripciones de CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="permissions"></a>Permisos para configurar cuentas de ejecución
 
-Para crear o actualizar una cuenta de ejecución, debe tener los permisos y privilegios específicos. Un administrador global o coadministrador pueden completar todas las tareas. Para una situación donde haya separación de tareas, en la tabla siguiente se muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
+Para crear o actualizar una cuenta de ejecución, debe tener los permisos y privilegios específicos. Un administrador global o coadministrador pueden completar todas las tareas. En una situación en la que tenga separación de tareas, la siguiente tabla muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
 
 |Task|Cmdlet  |Permisos mínimos  |
 |---|---------|---------|
@@ -47,20 +50,20 @@ Para crear o actualizar una cuenta de ejecución, debe tener los permisos y priv
 |Crear o quitar una conexión de Automation|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Colaborador en el grupo de recursos |
 
 * Una cuenta de usuario de AD con los permisos equivalentes a los del rol Colaborador para los recursos de Microsoft Automation, como se describe en el artículo [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md#contributor).  
-* Los usuarios que no son administradores en el inquilino de Azure AD pueden [registrar aplicaciones de AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) si la opción **Los usuarios pueden registrar aplicaciones** del inquilino de Azure AD en la página **Configuración de usuario** está establecida en **Sí**. Si se establecen en **No**, el usuario que realice esta acción debe ser administrador global de Azure AD.
+* Los usuarios que no son administradores en el inquilino de Azure AD pueden [registrar aplicaciones de AD](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) si la opción **Los usuarios pueden registrar aplicaciones** del inquilino de Azure AD en la página **Configuración de usuario** está establecida en **Sí**. Si se establecen en **No**, el usuario que realice esta acción debe ser administrador global de Azure AD.
 
-Si no es miembro de la instancia de Active Directory de la suscripción antes de que le agreguen al rol de administrador global/coadministrador de esta última, se le agregará a Active Directory como invitado. En este caso, recibirá una advertencia `You do not have permissions to create…` en la página **Agregar cuenta de Automation**. Los usuarios que primero se agregaron al rol de administrador global/coadministrador se pueden quitar de la instancia de Active Directory de la suscripción y volverse a agregar para convertirlos en usuarios completos en Active Directory. Para comprobar esta situación, en el panel de **Azure Active Directory** de Azure Portal, seleccione **Usuarios y grupos**, **All Users** y, después de seleccionar el usuario específico, seleccione **Perfil**. El valor del atributo **Tipo de usuario** del perfil de los usuarios no debería ser **Invitado**.
+Si no es miembro de la instancia de Active Directory de la suscripción antes de que se le agregue al rol de administrador global o coadministrador de esta última, se le agregará como invitado. En este caso, recibirá una advertencia `You do not have permissions to create…` en la página **Agregar cuenta de Automation**. Los usuarios que primero se agregaron al rol de administrador global/coadministrador se pueden quitar de la instancia de Active Directory de la suscripción y volverse a agregar para convertirlos en usuarios completos en Active Directory. Para comprobar esta situación, en el panel de **Azure Active Directory** de Azure Portal, seleccione **Usuarios y grupos**, **All Users** y, después de seleccionar el usuario específico, seleccione **Perfil**. El valor del atributo **Tipo de usuario** del perfil de los usuarios no debería ser **Invitado**.
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Creación de una cuenta de ejecución en el portal
 
 En esta sección, realizará los pasos que se describen a continuación para actualizar su cuenta de Azure Automation en Azure Portal. Las cuentas de ejecución y de ejecución clásica se crean de forma individual. Si no es necesario administrar los recursos clásicos, basta con crear la cuenta de ejecución de Azure.  
 
 1. Inicie sesión en Azure Portal con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de Automation**.
-1. En la página **Cuentas de Automation**, seleccione su cuenta de Automation en la lista Cuentas de Automation.
-1. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección **Configuración de la cuenta**.  
-1. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**. Después de seleccionar **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**, aparece el panel. Revise la información general y haga clic en **Crear** para continuar con la creación de la cuenta de ejecución.  
-1. Mientras Azure crea la cuenta de ejecución, se puede seguir el progreso en **Notificaciones** en el menú. También se muestra un banner que indica que se está creando la cuenta. Este proceso puede tardar unos minutos en completarse.  
+2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de Automation**.
+3. En la página **Cuentas de Automation**, seleccione su cuenta de Automation en la lista Cuentas de Automation.
+4. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección **Configuración de la cuenta**.  
+5. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**. Después de seleccionar **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**, aparece el panel. Revise la información general y haga clic en **Crear** para continuar con la creación de la cuenta de ejecución.  
+6. Mientras Azure crea la cuenta de ejecución, se puede seguir el progreso en **Notificaciones** en el menú. También se muestra un banner que indica que se está creando la cuenta. Este proceso puede tardar unos minutos en completarse.  
 
 ## <a name="create-run-as-account-using-powershell"></a>Creación de una cuenta de ejecución con PowerShell
 
@@ -73,7 +76,7 @@ En la lista siguiente se proporcionan los requisitos para crear una cuenta de ej
 * Una cuenta de Automation, a la que se hace referencia como el valor de los parámetros *–AutomationAccountName* y *-ApplicationDisplayName*.
 * Permisos equivalentes a lo que se muestra en [Permisos para configurar cuentas de ejecución](#permissions)
 
-Para obtener los valores de *SubscriptionID*, *ResourceGroup* y *AutomationAccountName*, que son parámetros necesarios para el script, haga lo siguiente:
+Para obtener los valores de *SubscriptionID*, *ResourceGroup* y *AutomationAccountName*, que son parámetros necesarios para el script, siga estos pasos:
 
 1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de Automation**.
 1. En la página Cuenta de Automation, seleccione su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Propiedades**.  
@@ -306,7 +309,7 @@ Una vez que el script se ejecuta correctamente, observe lo siguiente:
 
 * Si creó una cuenta de ejecución clásica con un certificado público autofirmado (formato .cer), el script lo crea y lo guarda en la carpeta de archivos temporales del equipo con el perfil de usuario *%USERPROFILE%\AppData\Local\Temp*, que se usa para ejecutar la sesión de PowerShell.
 
-* Si creó una cuenta de identificación clásica con un certificado público de empresa (archivo .cer) , use este certificado. Siga las instrucciones para [cargar un certificado de la API de administración en Azure Portal](../azure-api-management-certs.md) (automation-verify-runas-authentication.md#classic-run-as-authentication).
+* Si creó una cuenta de identificación clásica con un certificado público de empresa (archivo .cer) , use este certificado. Siga las instrucciones para [cargar un certificado de Management API en Azure Portal](../azure-api-management-certs.md).
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Eliminación de una cuenta de ejecución o de ejecución clásica
 
@@ -314,9 +317,9 @@ En esta sección se describe cómo eliminar y volver a crear una cuenta de ejecu
 
 1. Abra la cuenta de Automation en Azure Portal.
 
-1. En la página **Cuenta de Automation**, seleccione **Cuentas de ejecución**.
+2. En la página **Cuenta de Automation**, seleccione **Cuentas de ejecución**.
 
-1. En la página de propiedades **Cuentas de ejecución**, seleccione la cuenta de ejecución o la cuenta de ejecución clásica que quiere eliminar. A continuación, en el panel **Propiedades** de la cuenta seleccionada, haga clic en **Eliminar**.
+3. En la página de propiedades **Cuentas de ejecución**, seleccione la cuenta de ejecución o la cuenta de ejecución clásica que quiere eliminar. A continuación, en el panel **Propiedades** de la cuenta seleccionada, haga clic en **Eliminar**.
 
  ![Eliminación de una cuenta de ejecución](media/manage-runas-account/automation-account-delete-runas.png)
 
@@ -330,7 +333,7 @@ En esta sección se describe cómo eliminar y volver a crear una cuenta de ejecu
 
 En algún momento antes de que expire su cuenta de ejecución, debe renovar el certificado. Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla. En esta sección se describe cómo realizar estas operaciones.
 
-El certificado autofirmado que creó para la cuenta de ejecución expira un año a partir de la fecha de creación. Se puede renovar en cualquier momento antes de que expire. Cuando se renueva, el certificado válido actual se conserva para tener la seguridad de que los runbooks que están en cola o que se están ejecutando activamente y que se autentican con la cuenta de ejecución, no resultan afectados negativamente. El certificado es válido hasta la fecha de expiración.
+El certificado autofirmado que creó para la cuenta de ejecución expira un año a partir de la fecha de creación. Se puede renovar en cualquier momento antes de que expire. Cuando se renueva, se conserva el certificado válido actual para tener la seguridad de que los runbooks que se ponen en la cola o que se ejecutan activamente, y que se autentican con la cuenta de ejecución, no resultan afectados negativamente. El certificado es válido hasta la fecha de expiración.
 
 > [!NOTE]
 > Si ha configurado la cuenta de ejecución de Automation para usar un certificado emitido por una entidad de certificación de empresa y usa esta opción, ese certificado se reemplaza por otro autofirmado.
@@ -359,7 +362,7 @@ En Azure Portal, seleccione **Suscripciones** y elija la suscripción de su cuen
 
 ![Colaboradores de suscripción](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Para agregar la entidad de servicio a un grupo de recursos, seleccione el grupo de recursos en Azure Portal y elija **Control de acceso (IAM)**. Seleccione **Agregar**; se abre la página **Agregar permisos**. En **Rol**, seleccione **Colaborador**. En el cuadro de texto **Seleccionar**, escriba el nombre de la entidad de servicio de la cuenta de ejecución y selecciónela de la lista. Haga clic en **Guardar** para guardar los cambios. Realice esta operación con todos los grupos de recursos a los que quiere dar acceso a la entidad de servicio de ejecución de Azure Automation.
+Para agregar la entidad de servicio a un grupo de recursos, seleccione el grupo de recursos en Azure Portal y elija **Control de acceso (IAM)**. Seleccione **Agregar**; se abre la página **Agregar permisos**. En **Rol**, seleccione **Colaborador**. En el cuadro de texto **Seleccionar**, escriba el nombre de la entidad de servicio de la cuenta de ejecución y selecciónela de la lista. Haga clic en **Guardar** para guardar los cambios. Siga estos pasos con todos los grupos de recursos a los que desee dar acceso a la entidad de servicio de ejecución de Azure Automation.
 
 ## <a name="misconfiguration"></a>Error de configuración
 

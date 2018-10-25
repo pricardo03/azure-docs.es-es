@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161988"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362244"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -127,6 +127,8 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 
 -   No se admite la autenticación de Azure Active Directory.
 
+-   No se admiten las tablas con el mismo nombre y un esquema diferente (por ejemplo, dbo.customers y sales.customers).
+
 #### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
 
 -   Secuencia de archivos
@@ -150,7 +152,7 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 | **Dimensiones**                                                      | **Límite**              | **Solución alternativa**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Número máximo de grupos de sincronización a los que una base de datos puede pertenecer       | 5                      |                             |
-| Número máximo de puntos de conexión en un único grupo de sincronización              | 30                     | Crear varios grupos de sincronización |
+| Número máximo de puntos de conexión en un único grupo de sincronización              | 30                     |                             |
 | Número máximo de puntos de conexión locales en un único grupo de sincronización | 5                      | Crear varios grupos de sincronización |
 | Nombres de base de datos, tabla, esquema y columna                       | 50 caracteres por nombre |                             |
 | Tablas de un grupo de sincronización                                          | 500                    | Crear varios grupos de sincronización |
@@ -158,6 +160,8 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 | Tamaño de la fila de datos en una tabla                                        | 24 Mb                  |                             |
 | Intervalo de sincronización mínimo                                           | 5 minutos              |                             |
 |||
+> [!NOTE]
+> Puede haber hasta 30 puntos de conexión en un solo grupo de sincronización si hay un único grupo de sincronización. Si hay más de un grupo de sincronización, el número total de puntos de conexión en todos los grupos de sincronización no puede superar los 30. Si una base de datos pertenece a varios grupos de sincronización, se cuenta como varios puntos de conexión, no como uno.
 
 ## <a name="faq-about-sql-data-sync"></a>Preguntas frecuentes sobre SQL Data Sync
 

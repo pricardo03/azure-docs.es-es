@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831469"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955140"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos de copia de seguridad sin conexión en Azure.
@@ -43,7 +43,7 @@ Las características o cargas de trabajo de Azure Backup siguientes admiten el u
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
   > [!NOTE]
   > El flujo de trabajo y los requisitos previos siguientes solo se aplican a la copia de seguridad sin conexión de archivos y carpetas con el [agente MARS más reciente](https://aka.ms/azurebackup_agent). Para crear copias de seguridad sin conexión de las cargas de trabajo con System Center DPM o Azure Backup Server, consulte [este artículo](backup-azure-backup-server-import-export-.md). 
@@ -54,7 +54,7 @@ Antes de iniciar el flujo de trabajo de copia de seguridad sin conexión, comple
 * Se requiere Azure PowerShell 3.7.0 en el equipo donde se ejecuta el agente de Azure Backup. Se recomienda que descargue e [instale la versión 3.7.0 de Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * En el equipo donde se ejecuta el agente de Azure Backup, asegúrese de que esté instalado Microsoft Edge o Internet Explorer 11 y que JavaScript esté habilitado. 
 * Cree una cuenta de Azure Storage en la misma suscripción que el almacén de Recovery Services. 
-* Asegúrese de tener los [permisos necesarios](../azure-resource-manager/resource-group-create-service-principal-portal.md) para crear la aplicación de Azure Active Directory. El flujo de trabajo de la copia de seguridad sin conexión crea una aplicación de Azure Active Directory en la suscripción asociada con la cuenta de Azure Storage. El objetivo de la aplicación es proporcionar Azure Backup con el acceso seguro y limitado al servicio Azure Import que se requiere para el flujo de trabajo de la copia de seguridad sin conexión. 
+* Asegúrese de tener los [permisos necesarios](../active-directory/develop/howto-create-service-principal-portal.md) para crear la aplicación de Azure Active Directory. El flujo de trabajo de la copia de seguridad sin conexión crea una aplicación de Azure Active Directory en la suscripción asociada con la cuenta de Azure Storage. El objetivo de la aplicación es proporcionar Azure Backup con el acceso seguro y limitado al servicio Azure Import que se requiere para el flujo de trabajo de la copia de seguridad sin conexión. 
 * Registre el proveedor de recursos Microsoft.ImportExport con la suscripción que contiene la cuenta de Azure Storage. Para registrar el proveedor de recursos:
     1. En el menú principal, haga clic en **Suscripciones**.
     2. Si está suscrito a varias suscripciones, seleccione la suscripción que usa para la copia de seguridad sin conexión. Si solo usa una, aparecerá esa suscripción.
@@ -119,7 +119,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | . | DESCRIPCIÓN |
+    | Parámetro | DESCRIPCIÓN |
     | --- | --- |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; |Entrada obligatoria que se usa para proporcionar la ruta de acceso a la ubicación de ensayo especificada en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |
     | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso al archivo de **Configuración de publicación de Azure** especificado en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |

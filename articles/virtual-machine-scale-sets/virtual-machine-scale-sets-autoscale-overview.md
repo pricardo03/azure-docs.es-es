@@ -3,7 +3,7 @@ title: Introducción a los registros de escalado automático con conjuntos de es
 description: Obtenga información sobre los distintos modos en que puede escalar automáticamente un conjunto de escalado de máquinas virtuales de Azure en función del rendimiento o de una programación fija.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e6a897ed0606d8844f66e318b93449d7790e2be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c50e78fc7f4f5b6f779b696a3d16520d3ffccd5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963444"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465328"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
 Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.

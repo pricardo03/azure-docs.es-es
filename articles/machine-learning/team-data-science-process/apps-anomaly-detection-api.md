@@ -4,7 +4,7 @@ description: La API de detección de anomalías es un ejemplo integrado en Micro
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836473"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394500"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 ## <a name="overview"></a>Información general
@@ -122,7 +122,7 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 
 | Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | Escriba | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
+| detectors.historywindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
 | detectors.spikesdips | Si se deben detectar solo subidas, solo bajadas, o ambos |Ambos |enumerated |Ambos, subidas, bajadas |Ambos |
 | bileveldetector.sensitivity |Sensibilidad del detector de cambio de nivel bidireccional. |3.25 |double |None |3.25-5 (cuanto menores sean los valores, mayor es la sensibilidad) |
 | trenddetector.sensitivity |Sensibilidad del detector de tendencia positiva. |3.25 |double |None |3.25-5 (cuanto menores sean los valores, mayor es la sensibilidad) |
@@ -161,7 +161,7 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 | preprocess.aggregationInterval |Intervalo de agregación en segundos para agregar series temporales de entrada |0 (no se realiza ninguna agregación) |integer |0: omitir agregación, de lo contrario, > 0 |De 5 minutos a 1 día, dependiente de la serie temporal |
 | preprocess.aggregationFunc |Función que se usa para agregar datos al objeto AggregationInterval especificado |mean |enumerated |mean, sum, length |N/D |
 | preprocess.replaceMissing |Valores que se utiliza para atribuir los datos que faltan |lkv (último valor conocido) |enumerated |zero, lkv, mean |N/D |
-| detectors.historyWindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
+| detectors.historywindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
 | detectors.spikesdips | Si se deben detectar solo subidas, solo bajadas, o ambos |Ambos |enumerated |Ambos, subidas, bajadas |Ambos |
 | bileveldetector.sensitivity |Sensibilidad del detector de cambio de nivel bidireccional. |3.25 |double |None |3.25-5 (cuanto menores sean los valores, mayor es la sensibilidad) |
 | postrenddetector.sensitivity |Sensibilidad del detector de tendencia positiva. |3.25 |double |None |3.25-5 (cuanto menores sean los valores, mayor es la sensibilidad) |

@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 4537c0308ee587d921dc795054966f6a3dbb69c4
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 01ff5faa130bf1d6d5b89ac42d5664b13306c203
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093227"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956160"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Creación de aplicaciones .NET para HDInsight con autenticación no interactivas
 Puede ejecutar su aplicación Microsoft .NET para Azure HDInsight en la propia identidad de la aplicación (no interactiva) o en la identidad del usuario con sesión iniciada de la aplicación (interactiva). En este artículo se muestra cómo crear aplicaciones .NET de autenticación no interactivas para conectarse a Azure y administrar HDInsight. Para ver un ejemplo de una aplicación interactiva, consulte [Conexión a Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Desde su aplicación de .NET no interactiva, necesita:
 
-* El identificador de inquilino de su suscripción a Azure (también conocido como *identificador de directorio*). Consulte [Obtención del identificador de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* El id. de cliente de la aplicación de Azure Active Directory (Azure AD). Consulte [Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) (Creación de una aplicación de Azure Active Directory) y el apartado sobre cómo [conseguir un id. de aplicación](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* La clave secreta de la aplicación de Azure AD. Consulte [Obtención de la clave de autenticación](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* El identificador de inquilino de su suscripción a Azure (también conocido como *identificador de directorio*). Consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* El id. de cliente de la aplicación de Azure Active Directory (Azure AD). Consulte [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) (Creación de una aplicación de Azure Active Directory) y el apartado sobre cómo [conseguir un id. de aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* La clave secreta de la aplicación de Azure AD. Consulte [Obtención de la clave de autenticación](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Un clúster de HDInsight. Consulte el [tutorial de introducción](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -119,6 +119,6 @@ Asigne un [rol](../role-based-access-control/built-in-roles.md) a la aplicación
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de una aplicación de Azure Active Directory y una entidad de servicio mediante Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-* Aprenda a [autenticar una entidad de servicio con Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+* [Creación de una aplicación de Azure Active Directory y una entidad de servicio mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)
+* Aprenda a [autenticar una entidad de servicio con Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 * Aprenda sobre el [control de acceso basado en roles (RBAC) de Azure](../role-based-access-control/role-assignments-portal.md).

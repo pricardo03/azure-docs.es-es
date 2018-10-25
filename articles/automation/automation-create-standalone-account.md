@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 02ca9065107b999fa0182c89ae2b9d8ca0c8607a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146028"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362881"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
@@ -61,14 +61,15 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
    ![Busque y seleccione Automation & Control en Azure Marketplace.](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. En la pantalla siguiente, seleccione **Crear**.
+
   ![Agregar cuenta de Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > Si ve el mensaje siguiente en el panel **Agregar cuenta de Automation**, significa que su cuenta no es miembro del rol Administradores de la suscripción ni del rol de coadministrador de la suscripción.
   >
   > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. En el panel **Agregar cuenta de Automation**, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automation. Este nombre no puede cambiarse una vez que se elige.
+
+1. En el panel **Agregar cuenta de Automation**, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automation. Este nombre no puede cambiarse una vez que se elige. *Los nombres de la cuenta de Automation son únicos en cada región y grupo de recursos.*
 1. Si tiene más de una suscripción, en el cuadro **Suscripción**, especifique qué suscripción quiere usar para la cuenta nueva.
 1. Para **Grupo de recursos**, escriba o seleccione un grupo de recursos nuevo o existente.
 1. Para **Ubicación**, seleccione una ubicación del centro de datos de Azure.

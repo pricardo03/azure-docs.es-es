@@ -17,14 +17,16 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d94aaa93596a18cf92b745267a6be9966454e36f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b5f36bcce77ad0dac3a6e2e9da39493be6751539
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971559"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985852"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 La concesión de un código de autorización de OAuth 2.0 se puede usar en aplicaciones que se instalan en un dispositivo para obtener acceso a recursos protegidos, como las API web. Mediante la implementación de OAuth 2.0 del modelo de aplicaciones v2.0, puede agregar inicio de sesión y acceso a API a las aplicaciones móviles y de escritorio. En esta guía, que es independiente del lenguaje, se describe cómo enviar y recibir mensajes HTTP sin usar ninguna de las [bibliotecas de autenticación de código abierto de Azure](active-directory-authentication-libraries.md).
 
@@ -178,8 +180,10 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | expires_in    | Durante cuánto tiempo es válido el token de acceso (en segundos).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ámbito         | Los ámbitos para los que el access_token es válido.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | refresh_token | Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para adquirir tokens de acceso adicionales una vez que expire el token de acceso actual. Los refresh_tokens son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo. Para más información acerca de la actualización de un token de acceso, consulte la [siguiente sección](#refresh-the-access-token). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `offline_access`.                                               |
-| ID_token      | Un token web JSON (JWT) sin firmar. La aplicación puede decodificar los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. Para más información sobre los parámetros id_tokens, consulte [`id_token reference`](id-tokens.md). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `openid`. |
+| ID_token      | Un JSON Web Token (JWT). La aplicación puede decodificar los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. Para más información sobre los parámetros id_tokens, consulte [`id_token reference`](id-tokens.md). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `openid`. |
+
 #### <a name="error-response"></a>Respuesta de error
+
 Las respuestas de error tendrán un aspecto similar al siguiente:
 
 ```json
@@ -234,7 +238,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Actualización del token de acceso
 
-Los Access_tokens tienen una duración breve y debe actualizarlos una vez expiren para seguir teniendo acceso a los recursos. Puede hacerlo mediante el envío de otra solicitud `POST` al punto de conexión `/token`, esta vez proporcionando el `refresh_token` en lugar del `code`:
+Los Access_tokens tienen una duración breve y debe actualizarlos una vez expiren para seguir teniendo acceso a los recursos. Puede hacerlo mediante el envío de otra solicitud `POST` al punto de conexión `/token`, esta vez proporcionando el elemento `refresh_token` en lugar del elemento `code`.  Los tokens de actualización son válidos para todos los permisos para los que el cliente ya haya obtenido consentimiento; por tanto, un token de actualización emitido en una solicitud de `scope=mail.read` se puede usar para solicitar un nuevo token de acceso para `scope=api://contoso.com/api/UseResource`.  
+
+Los tokens de actualización no tienen una duración especificada. Normalmente, las duraciones de este tipo de tokens son relativamente largas. Sin embargo, en algunos casos, los tokens de actualización expiran, se revocan o carecen de privilegios suficientes para realizar la acción deseada. La aplicación debe esperar y controlar los [errores que devuelve el punto de conexión de emisión de tokens](#error-codes-for-token-endpoint-errors) correctamente. 
 
 ```
 // Line breaks for legibility only

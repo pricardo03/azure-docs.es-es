@@ -3,7 +3,7 @@ title: Implementación de una aplicación en un conjunto de escalado de máquina
 description: Obtenga información sobre cómo implementar aplicaciones en las instancias de máquinas virtuales Linux y Windows de un conjunto de escalado
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 22e035be27f16e7b73e545d75eb9cd108a919114
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979452"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471210"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En este artículo se presentan distintas formas de crear una imagen de máquina virtual personalizada para las instancias de un conjunto de escalado o de ejecutar automáticamente la instalación de scripts en instancias de máquinas virtuales existentes. También puede obtener información sobre cómo administrar actualizaciones del sistema operativo de la aplicación en un conjunto de escalado.

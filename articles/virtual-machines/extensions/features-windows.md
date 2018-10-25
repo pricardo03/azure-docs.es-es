@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452503"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025912"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -57,7 +57,8 @@ Para brindar la mejor experiencia posible, se requieren versiones mínimas del a
 
 #### <a name="supported-oses"></a>Sistemas operativos compatibles
 
-Windows Guest Agent se ejecuta en varios sistemas operativos, pero el marco de las extensiones tiene un límite para los sistemas operativos de esas extensiones. Para más información, consulte [este artículo] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+Windows Guest Agent se ejecuta en varios sistemas operativos, pero el marco de las extensiones tiene un límite para los sistemas operativos de esas extensiones. Para obtener más información, consulte [este artículo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Algunas extensiones no son compatibles con todos los sistemas operativos y puede aparecer el *código de error 51, "Sistema operativo no compatible"*. Revise la documentación de cada una de las extensiones para información sobre la compatibilidad.
 

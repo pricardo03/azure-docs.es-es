@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 362ee7e84229c421f69ff0db0c8cfb040b105c97
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406012"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394523"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Preguntas frecuentes sobre la API de uso de Azure Stack
 
@@ -128,102 +128,102 @@ Se informa del uso para los siguientes proveedores de recursos:
 
 **Id. de medidor**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nombre del medidor**: S4   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado estándar -32 GB 
 
 **Id. de medidor**: dc9fc6a9-0782-432a-b8dc-978130457494   
 **Nombre del medidor**: S6   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado estándar -64 GB 
 
 **Id. de medidor**: e5572fce-9f58-49d7-840c-b168c0f01fff   
 **Nombre del medidor**: S10   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado estándar -128 GB 
 
 **Id. de medidor**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
 **Nombre del medidor**: S15   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado estándar -256 GB 
 
 **Id. de medidor**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
 **Nombre del medidor**: S20   
-**Unidad**: recuento de discos      
+**Unidad**: recuento de discos\*horas      
 **Notas**: disco administrado estándar -512 GB 
 
 **Id. de medidor**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
 **Nombre del medidor**: S30   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado estándar -1024 GB 
 
 **Id. de medidor**: d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
 **Nombre del medidor**: S40   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado estándar -2048 GB 
 
 **Id. de medidor**: a54899dd-458e-4a40-9abd-f57cafd936a7   
 **Nombre del medidor**: S50   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado estándar -4096 GB 
 
 **Id. de medidor**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
 **Nombre del medidor**: P4   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado premium -32 GB 
 
 **Id. de medidor**: 518b412b-1927-4f25-985f-4aea24e55c4f   
 **Nombre del medidor**: P6   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado premium -64 GB 
 
 **Id. de medidor**: 5cfb1fed-0902-49e3-8217-9add946fd624   
 **Nombre del medidor**: P10   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado premium -128 GB  
 
 **Id. de medidor**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
 **Nombre del medidor**: P15  
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado premium -256 GB 
 
 **Id. de medidor**: c7e7839c-293b-4761-ae4c-848eda91130b   
 **Nombre del medidor**: P20   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado premium -512 GB 
 
 **Id. de medidor**: 9f502103-adf4-4488-b494-456c95d23a9f   
 **Nombre del medidor**: P30   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado premium -1024 GB 
 
 **Id. de medidor**: 043757fc-049f-4e8b-8379-45bb203c36b1   
 **Nombre del medidor**: P40   
-**Unidad**: recuento de discos    
+**Unidad**: recuento de discos\*horas    
 **Notas**: disco administrado premium -2048 GB 
 
 **Id. de medidor**: c0342c6f-810b-4942-85d3-6eaa561b6570   
 **Nombre del medidor**: P50   
-**Unidad**: recuento de discos   
+**Unidad**: recuento de discos\*horas   
 **Notas**: disco administrado premium -4096 GB 
 
 **Id. de medidor**: 8a409390-1913-40ae-917b-08d0f16f3c38   
 **Nombre del medidor**: ActualStandardDiskSize   
-**Unidad**: byte      
+**Unidad**: byte\*horas      
 **Notas**: tamaño real en disco del disco administrado estándar  
 
 **Id. de medidor**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
 **Nombre del medidor**: ActualPremiumDiskSize   
-**Unidad**: byte      
+**Unidad**: byte\*horas      
 **Notas**: tamaño real en disco del disco administrado premium 
 
 **Id. de medidor**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Nombre del medidor**: ActualStandardSnapshotSize   
-**Unidad**: byte   
+**Unidad**: byte\*horas   
 **Notas**: tamaño real en disco de la instantánea estándar administrada.  
 
 **Id. de medidor**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nombre del medidor**: ActualPremiumSnapshotSize   
-**Unidad**: byte   
+**Unidad**: byte\*horas   
 **Notas**: tamaño real en disco de la instantánea premium administrada.   
 
 ### <a name="sql-rp"></a>Proveedor de recursos de SQL

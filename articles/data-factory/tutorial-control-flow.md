@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: b492635da55ae08f92b18dcf9c030cb23d4fa48c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 422aa116b2d93dc2fffe16e6b0f1f36433d143df
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665073"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958965"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, será necesario que envíe los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, deberá enviar los detalles del error de la copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
@@ -47,7 +47,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 * **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Visual Studio** 2013, 2015 o 2017. En el tutorial de este artículo se usa Visual Studio 2017.
 * **Descargue e instale [SDK de .NET de Azure](http://azure.microsoft.com/downloads/)**.
-* **Cree una aplicación en Azure Active Directory**. Para hacerlo, siga [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
+* **Cree una aplicación en Azure Active Directory**. Para hacerlo, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
 
 ### <a name="create-blob-table"></a>Creación de la tabla de blobs
 

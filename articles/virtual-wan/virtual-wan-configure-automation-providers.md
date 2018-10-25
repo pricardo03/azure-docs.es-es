@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/23/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 7f70470880845fd4271ffdbb35af771ec433babc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961950"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958693"
 ---
-# <a name="virtual-wan-partners-preview"></a>Asociados de Virtual WAN (versión preliminar)
+# <a name="virtual-wan-partners"></a>Asociados de Virtual WAN
 
 Este artículo le ayudará a comprender cómo configurar el entorno de automatización para conectar y configurar un dispositivo de la rama (un dispositivo VPN de cliente en el entorno local o SDWAN CPE) para Azure Virtual WAN. Si es un proveedor que proporciona dispositivos de la rama que pueden dar cabida a la conectividad VPN a través de IPsec/IKEv2 o IPsec/IKEv1, este artículo es para usted.
 
@@ -46,7 +46,7 @@ Un dispositivo de la rama (un dispositivo VPN de cliente en el entorno local o S
 
 ###  <a name="access"></a>Control de acceso
 
-Los clientes deben poder configurar el control de acceso adecuado para la red Virtual WAN en la interfaz de usuario del dispositivo. Se recomienda usar una entidad de servicio de Azure. El acceso basado en la entidad de servicio proporciona la autenticación adecuada de controlador de dispositivo para cargar la información de rama. Para obtener más información, consulte [Create service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) (Creación de una entidad de servicio). Aunque esta funcionalidad no se incluye con la oferta de Azure Virtual WAN, a continuación se indican los pasos típicos para configurar el acceso en Azure, tras los cuales se especifican los detalles pertinentes en el panel de administración de dispositivos.
+Los clientes deben poder configurar el control de acceso adecuado para la red Virtual WAN en la interfaz de usuario del dispositivo. Se recomienda usar una entidad de servicio de Azure. El acceso basado en la entidad de servicio proporciona la autenticación adecuada de controlador de dispositivo para cargar la información de rama. Para obtener más información, consulte [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) (Creación de una entidad de servicio). Aunque esta funcionalidad no se incluye con la oferta de Azure Virtual WAN, a continuación se indican los pasos típicos para configurar el acceso en Azure, tras los cuales se especifican los detalles pertinentes en el panel de administración de dispositivos.
 
 * Cree una aplicación de Azure Active Directory para el controlador de dispositivos local.
 * Obtención del id. y la clave de autenticación de la aplicación

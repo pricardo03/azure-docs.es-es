@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 883d03b9ffebf85815da7ae62546f75b3d72442f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441461"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958676"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 Mediante el uso de cualquier lenguaje de programación que admita llamadas REST, puede realizar operaciones de actualización de datos asincrónicas en los modelos tabulares de Azure Analysis Services. Esto incluye la sincronización de réplicas de solo lectura para la escalabilidad horizontal de consultas. 
@@ -212,7 +212,7 @@ Este tipo de autenticación requiere que se cree una aplicación de Azure con lo
 
 2.  En **Crear**, escriba un nombre y seleccione **Nativa** en el tipo de aplicación. En **URI de redirección**, escriba **urn:ietf:wg:oauth:2.0:oob** y después haga clic en **Crear**.
 
-    ![Settings](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
+    ![Configuración](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
 
 3.  Seleccione la aplicación y después copie y guarde el **identificador de la aplicación**.
 
@@ -236,7 +236,7 @@ Este tipo de autenticación requiere que se cree una aplicación de Azure con lo
 
 #### <a name="service-principal"></a>Entidad de servicio
 
-Consulte [Creación de una entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [Adición de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md) para más información sobre cómo configurar una entidad de servicio y asignar los permisos necesarios en Azure AS. Una vez completados los pasos, siga estos pasos adicionales:
+Consulte [Creación de una entidad de servicio: Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) e [Adición de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md) para más información sobre cómo configurar una entidad de servicio y asignar los permisos necesarios en Azure AS. Una vez completados los pasos, siga estos pasos adicionales:
 
 1.  En el código de ejemplo, busque **string authority = …**, reemplace **common** por el identificador del inquilino de su organización.
 2.  Comente o quite la marca de comentario para que se use la clase ClientCredential para crear una instancia del objeto creado. Asegúrese de que se accede a los valores \<Id. de aplicación> y \<Clave de la aplicación> de forma segura o use una autenticación basada en certificado para las entidades de servicio.
@@ -246,6 +246,6 @@ Consulte [Creación de una entidad de servicio: Azure Portal](../azure-resource-
 ## <a name="see-also"></a>Otras referencias
 
 [Ejemplos](analysis-services-samples.md)   
-[API de REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[API DE REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

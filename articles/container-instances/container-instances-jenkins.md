@@ -2,18 +2,17 @@
 title: Uso de Azure Container Instances como agente de compilación de Jenkins
 description: Aprenda a usar Azure Container Instances como agente de compilación de Jenkins.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: marsma
-ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.author: danlep
+ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390660"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354196"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Uso de Azure Container Instances como agente de compilación de Jenkins
 
@@ -48,7 +47,7 @@ Para más información sobre Azure Container Instances, consulte el artículo [a
 
    ![Configuración adicional para implementar el portal de Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Para la integración de la entidad de servicio, seleccione **Auto(MSI)** para que [Azure Managed Service Identity][managed-service-identity] cree automáticamente una identidad de autenticación para la instancia de Jenkins. Seleccione **Manual** para obtener credenciales de entidad de servicio propias.
+4. Para la integración de la entidad de servicio, seleccione **Auto(MSI)** para que las [identidades administradas para los recursos de Azure][managed-identities-azure-resources] creen automáticamente una identidad de autenticación para la instancia de Jenkins. Seleccione **Manual** para obtener credenciales de entidad de servicio propias.
 
 5. Los agentes de la nube configuran una plataforma basada en la nube para los trabajos de compilación de Jenkins. Para este artículo, seleccione **ACI**. Con el agente en la nube ACI, cada trabajo de compilación de Jenkins se ejecuta en una instancia de contenedor.
 

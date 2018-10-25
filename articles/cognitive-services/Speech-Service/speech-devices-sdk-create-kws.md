@@ -1,20 +1,21 @@
 ---
 title: Creación de una palabra de reactivación personalizada
-description: Obtenga información sobre cómo crear una palabra de reactivación personalizada para el SDK de dispositivos de voz.
 titleSuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo crear una palabra de reactivación personalizada para el SDK de dispositivos de voz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165477"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469085"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creación de una palabra de reactivación personalizada mediante Speech Service
 
@@ -52,10 +53,6 @@ Antes de poder usar una palabra de reactivación personalizada con el dispositiv
 1. Cree una nueva cuenta con la dirección de correo electrónico en la que ha recibido la invitación para Azure Active Directory. 
 
     ![Creación de una nueva cuenta](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  Después de iniciar sesión, rellene el formulario y seleccione **Start my journey** (Iniciar mi recorrido).
-
-    ![Inicio de sesión correcto](media/speech-devices-sdk/wake-word-3.png)
  
 1. La página **Custom Wake Word** (Palabra de reactivación personalizada) no está disponible para el público, por lo que no hay ningún vínculo directo que le lleve allí. La característica Custom Speech requiere una suscripción de Azure, mientras que la característica de palabra de reactivación personalizada, no. Si recibe el mensaje de error **No Subscriptions found** (No se han encontrado suscripciones), simplemente sustituya **"Subscriptions?errorMessage=No%20Subscriptions%20found"** por "**customkws**" en la dirección URL y pulse Intro. La dirección URL debe ser una de las siguientes: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws o https://northeurope.cris.ai/customkws, dependiendo de dónde esté su región.
 

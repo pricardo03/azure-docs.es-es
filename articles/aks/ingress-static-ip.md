@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 71a2409f91927b7584aef629109a6da363857f62
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0ffa1541439890a0591b52c1fdbc717c7d5aa5ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036650"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362573"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Cree un controlador de entrada con una dirección IP pública estática en Azure Kubernetes Service (AKS)
 
@@ -49,13 +49,16 @@ A continuación, cree una dirección IP pública con método de asignación *est
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Ahora implemente el gráfico *nginx-ingress* con Helm. Agregue el parámetro `--set controller.service.loadBalancerIP` y especifique su propia dirección IP pública que creó en el paso anterior.
+Ahora implemente el gráfico *nginx-ingress* con Helm. Agregue el parámetro `--set controller.service.loadBalancerIP` y especifique su propia dirección IP pública que creó en el paso anterior. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
 
 > [!TIP]
 > En los ejemplos siguientes se instala el controlador de entrada y los certificados en el espacio de nombres `kube-system`. Si quiere, puede especificar otro espacio de nombres para su propio entorno. Además, si su clúster de AKS no tiene RBAC habilitado, agregue `--set rbac.create=false` a los comandos.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    --set controller.service.loadBalancerIP="40.121.63.72"  \
+    --set controller.replicaCount=2
 ```
 
 Cuando se crea el servicio del equilibrador de carga de Kubernetes para el controlador de entrada NGINX, se asigna la dirección IP estática, como se muestra en la salida del ejemplo siguiente:
@@ -268,6 +271,56 @@ La aplicación de demostración se muestra en el explorador web:
 A continuación, agregue la ruta de acceso */hello-world-two* al FQDN, como *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. Se muestra la segunda aplicación de demostración con el título personalizado:
 
 ![Segundo ejemplo de aplicación](media/ingress/app-two.png)
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+En este artículo, se usa Helm para instalar los componentes de entrada, los certificados y las aplicaciones de ejemplo. Al implementar un gráfico de Helm, se crean algunos recursos de Kubernetes. Estos recursos incluyen pods, implementaciones y servicios. Para eliminarlos, quite primero los recursos de certificado:
+
+```console
+kubectl delete -f certificates.yaml
+kubectl delete -f cluster-issuer.yaml
+```
+
+Ahora, despliegue una lista de las versiones de Helm con el comando `helm list`. Busque los gráficos denominados *nginx-ingress*, *cert-manager* y *aks-helloworld*, tal y como se muestra en la salida del ejemplo siguiente:
+
+```
+$ helm list
+
+NAME                    REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+waxen-hamster           1           Tue Oct 16 17:44:28 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+alliterating-peacock    1           Tue Oct 16 18:03:11 2018    DEPLOYED    cert-manager-v0.3.4     v0.3.2      kube-system
+mollified-armadillo     1           Tue Oct 16 18:04:53 2018    DEPLOYED    aks-helloworld-0.1.0                default
+wondering-clam          1           Tue Oct 16 18:04:56 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Elimine las versiones con el comando `helm delete`. En el ejemplo siguiente se elimina la implementación de entrada NGINX, así como el administrador de certificados y las dos aplicaciones Hola mundo de AKS de ejemplo.
+
+```
+$ helm delete waxen-hamster alliterating-peacock mollified-armadillo wondering-clam
+
+release "billowing-kitten" deleted
+release "loitering-waterbuffalo" deleted
+release "flabby-deer" deleted
+release "linting-echidna" deleted
+```
+
+A continuación, elimine el repositorio de Helm para la aplicación Hola mundo de AKS:
+
+```console
+helm repo remove azure-samples
+```
+
+Elimine la ruta de entrada que dirige el tráfico a las aplicaciones de ejemplo:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
+
+Por último, elimine la dirección IP pública estática que creó para el controlador de entrada. Proporcione su nombre del grupo de recursos de clúster *MC_* obtenido en el primer paso de este artículo; por ejemplo, *MC_miGrupoDeRecursos_miClusterAKS_eastus*:
+
+```azurecli
+az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

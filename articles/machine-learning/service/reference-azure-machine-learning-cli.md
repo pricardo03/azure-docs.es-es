@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158910"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393498"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>¿Qué es la CLI de Azure Machine Learning?
 
@@ -34,7 +34,7 @@ Esta CLI de aprendizaje automático es una extensión de [CLI de Azure](https://
 
 Puede instalar la CLI mediante este comando desde nuestro índice Pypi en versión preliminar:
 ```AzureCLI
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.50-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 Puede quitar la CLI con este comando:
@@ -65,7 +65,7 @@ Este es un ejemplo de comandos comunes:
 
 ### <a name="workspace-creation--compute-setup"></a>Creación del área de trabajo y configuración del proceso
 
-+ Cree un área de trabajo de Azure Machine Learning, el recurso de nivel superior para el aprendizaje automático.
++ Cree un área de trabajo de Azure Machine Learning Services, el recurso de nivel superior para el aprendizaje automático.
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```

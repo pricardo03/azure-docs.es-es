@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 40ed6105dca5ea14c64fb2b103c5623cd56333af
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0cd1d717189439d504232be1bc07885b12fa01bd
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393373"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649710"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -80,7 +80,7 @@ Vea el ejemplo específico del lenguaje:
 * [C#](#trigger---c-example)
 * [Script de C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -203,18 +203,17 @@ Este es el archivo *function.json*:
 Este es el código de Java:
 
 ```java
- @FunctionName("blobprocessor")
- public void run(
-    @BlobTrigger(name = "file",
-                  dataType = "binary",
-                  path = "myblob/filepath",
-                  connection = "myconnvarname") byte[] content,
-    @BindingName("name") String filename,
-     final ExecutionContext context
- ) {
-     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
- }
-
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
 ```
 
 
@@ -561,7 +560,7 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
 
 ## <a name="input---attributes"></a>Entrada: atributos
 
-En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
+En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
 El constructor del atributo toma la ruta de acceso al blob y un parámetro `FileAccess` que indica lectura o escritura, tal como se muestra en el ejemplo siguiente:
 
@@ -603,7 +602,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.|
 |**path** |**BlobPath** | Ruta de acceso al blob. | 
 |**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de Blob Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N/D | **Access** | Indica si va a leer o escribir. |
+|N/D | **Acceder** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -794,7 +793,7 @@ public String blobCopy(
 
 ## <a name="output---attributes"></a>Salida: atributos
 
-En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
+En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
 El constructor del atributo toma la ruta de acceso al blob y un parámetro `FileAccess` que indica lectura o escritura, tal como se muestra en el ejemplo siguiente:
 
@@ -835,7 +834,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.  Se establece en `$return` para hacer referencia al valor devuelto de la función.|
 |**path** |**BlobPath** | Ruta de acceso al blob. | 
 |**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de Blob Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N/D | **Access** | Indica si va a leer o escribir. |
+|N/D | **Acceder** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

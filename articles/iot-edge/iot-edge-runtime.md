@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97a2180aaf236d3541cff30d2151f26ce70b14af
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218791"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393481"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -23,13 +23,13 @@ La instancia de IoT Edge en tiempo de ejecución realiza las siguientes funcione
 
 * Instala y actualiza cargas de trabajo en el dispositivo.
 * Mantiene los estándares de seguridad de Azure IoT Edge en el dispositivo.
-* Garantiza que los [módulos de IoT Edge][lnk-modules] estén siempre en ejecución.
+* Garantiza que los [módulos de IoT Edge](iot-edge-modules.md) estén siempre en ejecución.
 * Informa del estado de los módulos a la nube para realizar la supervisión remota.
 * Facilita la comunicación entre los dispositivos de hoja de nivel inferior y los dispositivos IoT Edge.
 * Facilita la comunicación entre los módulos y el dispositivo IoT Edge.
 * Facilita la comunicación entre el dispositivo IoT Edge y la nube.
 
-![La instancia de IoT Edge en tiempo de ejecución comunica la información y el estado del módulo a IoT Hub][1]
+![La instancia de IoT Edge en tiempo de ejecución comunica la información y el estado del módulo a IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
 Las responsabilidades del entorno de ejecución de IoT Edge se dividen en dos categorías: comunicación y administración de los módulos. Estas dos funciones las realizan dos componentes que constituyen la instancia en tiempo de ejecución de IoT Edge. El centro de IoT Edge es responsable de la comunicación, mientras que el agente de IoT Edge administra la implementación y supervisión de los módulos. 
 
@@ -49,7 +49,7 @@ No se trata de una versión completa de IoT Hub que se ejecuta localmente. Hay a
 
 Para reducir el ancho de banda que usa la solución IoT Edge, el centro de Edge optimiza el número real de conexiones a la nube. El centro de Edge toma las conexiones lógicas de clientes, como módulos o dispositivos de hoja, y las combina para crear una sola conexión física a la nube. Los detalles de este proceso son transparentes para el resto de la solución. Los clientes creen que tienen su propia conexión a la nube, aunque todos los datos van a enviarse a través de la misma. 
 
-![El centro de Edge actúa como una puerta de enlace entre varios dispositivos físicos y la nube][2]
+![El centro de Edge actúa como una puerta de enlace entre varios dispositivos físicos y la nube](./media/iot-edge-runtime/Gateway.png)
 
 El centro de Edge puede determinar si está conectado a IoT Hub. Si se pierde la conexión, el centro de Edge guarda los mensajes o las actualizaciones gemelas localmente. Una vez que se vuelva a establecer una conexión, se sincronizan todos los datos. La ubicación que utiliza esta caché temporal viene determinada por una propiedad del módulo gemelo del centro de Edge. El tamaño de la caché no está limitado y aumentará siempre y cuando el dispositivo tenga capacidad de almacenamiento. 
 
@@ -57,7 +57,7 @@ El centro de Edge puede determinar si está conectado a IoT Hub. Si se pierde la
 
 El centro de Edge facilita la comunicación entre módulos. Al usar el centro de Edge como un agente de mensajes, los módulos seguirán siendo independientes entre sí. Los módulos solo necesitan especificar las entradas en las que aceptan mensajes y las salidas en las que los escriben. Después, un desarrollador de soluciones une estas entradas y salidas para que los módulos procesen los datos en el orden específico de esa solución. 
 
-![El centro de Edge facilita la comunicación entre módulos][3]
+![El centro de Edge facilita la comunicación entre módulos](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 Para enviar datos al centro de Edge, un módulo llama al método SendEventAsync. El primer argumento especifica en qué salida enviará el mensaje. El siguiente seudocódigo envía un mensaje a la salida output1:
 
@@ -77,7 +77,7 @@ El desarrollador de soluciones es responsable de especificar las reglas que dete
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Rutas entre módulos][4]
+![Rutas entre módulos](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## <a name="iot-edge-agent"></a>Agente de IoT Edge
 
@@ -117,13 +117,4 @@ Para obtener más información sobre el marco de seguridad de Azure IoT Edge, co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información sobre los certificados de Azure IoT Edge][lnk-certs]
-
-<!-- Images -->
-[1]: ./media/iot-edge-runtime/Pipeline.png
-[2]: ./media/iot-edge-runtime/Gateway.png
-[3]: ./media/iot-edge-runtime/ModuleEndpoints.png
-[4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
-
-<!-- Links -->
-[lnk-certs]: iot-edge-certs.md
+[Información sobre los certificados de Azure IoT Edge](iot-edge-certs.md)

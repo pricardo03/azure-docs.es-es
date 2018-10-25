@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387232"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945828"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -84,7 +84,7 @@ En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Window
 Abra su herramienta Git en la carpeta deseada y ejecute el siguiente comando para clonar el repositorio de git en el equipo local, usando para ello el comando incluido en Azure Portal.
 
 ```
-git clone https://bugbashdev4.scm.azure-api.net/
+git clone https://{name}.scm.azure-api.net/
 ```
 
 Proporcione el nombre de usuario y la contraseña cuando se le solicite.
@@ -92,7 +92,7 @@ Proporcione el nombre de usuario y la contraseña cuando se le solicite.
 Si recibe algún error, pruebe a modificar su comando `git clone` para incluir el nombre de usuario y la contraseña, como se muestra en el ejemplo siguiente.
 
 ```
-git clone https://username:password@bugbashdev4.scm.azure-api.net/
+git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
 Si de este modo aparece un error, pruebe a codificar como dirección URL la parte de la contraseña del comando. Una manera rápida de hacer esto es abrir Visual Studio y emitir el siguiente comando en la **Ventana Inmediato**. Para abrir la **Ventana Inmediato**, abra cualquier solución o proyecto en Visual Studio (o cree una aplicación de consola vacía) y elija **Ventanas**, **Inmediato** en el menú **Depurar**.
@@ -104,7 +104,7 @@ Si de este modo aparece un error, pruebe a codificar como dirección URL la part
 Utilice la contraseña codificada junto con su nombre de usuario y ubicación de repositorio para construir el comando git.
 
 ```
-git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
 Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para más información, consulte [Referencia de estructura de archivo y carpeta del repositorio local de Git](#file-and-folder-structure-reference-of-local-git-repository).
@@ -120,7 +120,7 @@ git pull
 Antes de ejecutar `git pull` , asegúrese de que se encuentra en la carpeta del repositorio local. Si acaba de completar el comando `git clone` , debe cambiar el directorio a su repositorio ejecutando un comando similar al siguiente.
 
 ```
-cd bugbashdev4.scm.azure-api.net/
+cd {name}.scm.azure-api.net/
 ```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Para insertar los cambios desde su repositorio local al repositorio del servidor

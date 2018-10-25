@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5b8e1d894a0f2b7868433cb25a097a4cfcdc1796
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1b6326f9b3d9565739d97b32b119a2f362f24e65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095792"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954630"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Creación de una factoría de datos y una canalización con Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
-* **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
+* **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
 
 ### <a name="create-and-upload-an-input-file"></a>Crear y cargar un archivo de entrada
 

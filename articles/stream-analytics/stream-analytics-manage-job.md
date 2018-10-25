@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433997"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985648"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creación de un trabajo de Stream Analytics para analizar los datos de llamadas de teléfono y visualizar los resultados en un panel de Power BI
  
@@ -37,7 +37,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).  
 * Inicie sesión en [Azure Portal](https://portal.azure.com/).  
-* Descargue la aplicación de generación de eventos de llamada telefónica [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) del Centro de descarga de Microsoft; o, también puede obtener el código fuente de [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Descargue la aplicación de generación de eventos de llamada telefónica [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) del Centro de descarga de Microsoft; o, también puede obtener el código fuente de [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
 
 ## <a name="create-an-azure-event-hub"></a>Crear un centro de eventos de Azure 
 
@@ -89,7 +89,7 @@ Para que una aplicación pueda enviar datos a Azure Event Hubs, el centro de eve
 
 Antes de iniciar la aplicación TelcoGenerator, debe configurarla para enviar datos a los centros de eventos de Azure que creó anteriormente.
 
-1. Extraiga el contenido del archivo [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
+1. Extraiga el contenido del archivo [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
 2. Abra el archivo `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` en un editor de texto de su elección (como hay más de un archivo de configuración, asegúrese de abrir el correcto).  
 
 3. Actualice el elemento <appSettings> en el archivo de configuración con los detalles siguientes:
@@ -260,7 +260,7 @@ Puede probar una consulta desde el editor de consultas, pero para ello necesita 
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Inserción del panel de PowerBI en una aplicación web
 
-En esta parte del tutorial, usará una aplicación web [ASP.NET](http://asp.net/) de ejemplo que ha creado el equipo de PowerBI para insertar el panel. Para más información sobre cómo insertar paneles, consulte el artículo [Inserción con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+En esta parte del tutorial, usará una aplicación web [ASP.NET](https://asp.net/) de ejemplo que ha creado el equipo de PowerBI para insertar el panel. Para más información sobre cómo insertar paneles, consulte el artículo [Inserción con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 En este tutorial, se seguirán los pasos del usuario propietario de la aplicación de datos. Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (use las direcciones URL de redireccionamiento y de página principal en la subsección **integrate-dashboard-web-app**). Dado que se está usando el ejemplo de panel, utilice el código de ejemplo integrate-dashboard-web-app que se encuentra en el [repositorio de GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Cuando esté satisfecho con la aplicación que se ejecuta en el explorador, siga estos pasos para insertar el panel que creó anteriormente en la página web:
