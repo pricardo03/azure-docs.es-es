@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353040"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469034"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
@@ -113,17 +113,17 @@ Para configurar el cifrado de datos transparente mediante la API REST, debe esta
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |
-|[Create Or Update Server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Agrega una identidad de Azure Active Directory a una instancia de SQL Server (que se usa para conceder acceso a Key Vault)|
-|[Create Or Update Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Agrega una clave de Key Vault a una instancia de SQL Server|
-|[Delete Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Quita una clave de Key Vault de una instancia de SQL Server|
-|[Get Server Keys](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Obtiene una clave específica de Key Vault de una instancia de SQL Server|
-|[List Server Keys By Server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Obtiene las claves de Key Vault para una instancia de SQL Server |
-|[Create Or Update Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Establece el protector de cifrado de datos transparente para una instancia de SQL Server|
-|[Get Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Obtiene el protector de cifrado de datos transparente para una instancia de SQL Server|
-|[List Encryption Protectors By Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Obtiene los protectores de cifrado de datos transparente para una instancia de SQL Server |
-|[Create Or Update Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Habilita o deshabilita el cifrado de datos transparente para una base de datos|
-|[Get Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Obtiene la configuración de cifrado de datos transparente para una base de datos|
-|[List Transparent Data Encryption Configuration Results](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Obtiene el resultado de cifrado para una base de datos|
+|[Create Or Update Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Agrega una identidad de Azure Active Directory a una instancia de SQL Server (que se usa para conceder acceso a Key Vault)|
+|[Create Or Update Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Agrega una clave de Key Vault a una instancia de SQL Server|
+|[Delete Server Key](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Quita una clave de Key Vault de una instancia de SQL Server|
+|[Get Server Keys](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Obtiene una clave específica de Key Vault de una instancia de SQL Server|
+|[List Server Keys By Server](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Obtiene las claves de Key Vault para una instancia de SQL Server |
+|[Create Or Update Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Establece el protector de cifrado de datos transparente para una instancia de SQL Server|
+|[Get Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Obtiene el protector de cifrado de datos transparente para una instancia de SQL Server|
+|[List Encryption Protectors By Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Obtiene los protectores de cifrado de datos transparente para una instancia de SQL Server |
+|[Create Or Update Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Habilita o deshabilita el cifrado de datos transparente para una base de datos|
+|[Get Transparent Data Encryption Configuration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Obtiene la configuración de cifrado de datos transparente para una base de datos|
+|[List Transparent Data Encryption Configuration Results](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtiene el resultado de cifrado para una base de datos|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

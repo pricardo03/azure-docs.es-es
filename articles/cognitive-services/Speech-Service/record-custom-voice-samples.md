@@ -1,20 +1,21 @@
 ---
 title: Grabación de muestras de voz para crear una voz personalizada
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Para crear una voz personalizada con calidad de producción, prepare un guion sólido, contrate un buen actor de voz y realice la grabación de manera profesional.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/5/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.author: erhopf
+ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165183"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471193"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -38,7 +39,7 @@ Ingeniero de grabación  |Supervisa los aspectos técnicos de la grabación y us
 Director            |Prepara el guion y prepara la sesión del actor de voz.
 Editor              |Finaliza los archivos de audio y los prepara para la carga en el portal Custom Voice.
 
-Un usuario individual puede desempeñar más de un rol. En esta guía se da por hecho que desempeñará principalmente el papel de director y que contratará un actor de voz y un ingeniero de grabación. Si quiere realizar las grabaciones usted mismo, en este artículo se incluye alguna información sobre el rol de ingeniero de grabación. El rol de editor no es necesario hasta después de la sesión, por lo que puede realizarlo el ingeniero de grabación jefe.
+Un usuario individual puede desempeñar más de un rol. En esta guía se da por hecho que desempeñará principalmente el papel de director y que contratará un actor de voz y un ingeniero de grabación. Si quiere realizar las grabaciones usted mismo, en este artículo se incluye alguna información sobre el rol de ingeniero de grabación. El rol de editor no es necesario hasta después de la sesión, por lo que puede realizarlo el director o el ingeniero de grabación.
 
 ## <a name="choose-your-voice-talent"></a>Elección del actor de voz
 

@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352975"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467048"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Clasificación y detección de datos de Azure SQL Database
 
@@ -140,10 +140,10 @@ Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así 
 
 También puede usar las API de REST para administrar las clasificaciones mediante programación. Las API de REST publicadas se admiten las siguientes operaciones:
 
-- [Crear o Actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate): crea o actualiza la etiqueta de confidencialidad de una columna determinada
-- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete): elimina la etiqueta de confidencialidad de una columna determinada
-- [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get): obtiene la etiqueta de confidencialidad de una columna determinada
-- [List By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) (Enumerar por base de datos): enumera las etiquetas de confidencialidad de una base de datos determinada
+- [Crear o Actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de una columna determinada
+- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de una columna determinada
+- [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de una columna determinada
+- [List By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) (Enumerar por base de datos): enumera las etiquetas de confidencialidad de una base de datos determinada
 
 ## <a id="subheading-5"></a>Pasos siguientes
 
