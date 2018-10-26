@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222461"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353873"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
@@ -61,7 +61,7 @@ En la siguiente sección se describen los patrones de rendimiento detectables co
 
 Este patrón de rendimiento detectable combina los problemas de rendimiento relacionados con el alcance de los límites de recursos disponibles, los límites de trabajo y los límites de sesión. Una vez que se detecta este problema de rendimiento, un campo de descripción del registro de diagnóstico indica si el problema de rendimiento está relacionado con el recurso, el trabajo o los límites de la sesión.
 
-Los recursos de SQL Database se conocen normalmente como recursos de [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) o [núcleo virtual](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
+Los recursos de SQL Database se conocen normalmente como recursos de [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) o [núcleo virtual](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
 
 El recurso de límites de sesión denota el número de inicios de sesión simultáneos disponibles en SQL Database. Este patrón de rendimiento se reconoce cuando las aplicaciones que se conectan a las bases de datos SQL han alcanzado el número de inicios de sesión simultáneos disponibles para la base de datos. Si las aplicaciones intenten usar más sesiones que las que hay disponibles en una base de datos, el rendimiento de consultas resultará afectado.
 
@@ -73,7 +73,7 @@ El registro de diagnóstico genera códigos hash de consultas que han afectado a
 
 Si se han alcanzado los límites de sesión disponibles, puede optimizar las aplicaciones mediante la reducción del número de inicios de sesión realizados en la base de datos. Si no puede reducir el número de inicios de sesión de las aplicaciones en la base de datos, considere la posibilidad de aumentar el plan de tarifa de la base de datos. O bien, puede mover la base de datos y dividirla en varias bases de datos para una distribución más uniforme de la carga de trabajo.
 
-Para más sugerencias sobre cómo resolver los límites de sesión, consulte [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) (Cómo abordar los límites del número máximo de inicios de sesión de Azure SQL Database). Para averiguar los límites de recursos disponibles para su nivel de suscripción, consulte [Límites de recursos de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Para más sugerencias sobre cómo resolver los límites de sesión, consulte [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) (Cómo abordar los límites del número máximo de inicios de sesión de Azure SQL Database). Consulte [Introducción a los límites de recursos de un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 
 ## <a name="workload-increase"></a>Aumento de la carga de trabajo
 
@@ -237,7 +237,7 @@ Para más información, consulte [Introducción a las tablas optimizadas para me
 
 Este patrón de rendimiento detectable indica una degradación del rendimiento actual de la carga de trabajo de la base de datos en comparación con la base de referencia de los últimos 7 días. El motivo es la escasez de DTU disponibles en el grupo elástico de su suscripción. 
 
-Normalmente, se hace referencia a los recursos de SQL Database como [recursos de DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), que consisten en una medida combinada de recursos de CPU y E/S (datos y registro de transacciones). Los [recursos del grupo elástico de Azure ](sql-database-elastic-pool.md) se usan como un grupo de recursos disponibles de eDTU que se comparten entre varias bases de datos con finalidades de escala. Cuando los recursos de eDTU disponibles en su grupo elástico no son lo suficientemente grandes como para admitir todas las bases de datos del grupo, el sistema detecta el problema de rendimiento por escasez de DTU en el grupo elástico.
+Normalmente, se hace referencia a los recursos de SQL Database como [recursos de DTU](sql-database-service-tiers.md#dtu-based-purchasing-model), que consisten en una medida combinada de recursos de CPU y E/S (datos y registro de transacciones). Los [recursos del grupo elástico de Azure ](sql-database-elastic-pool.md) se usan como un grupo de recursos disponibles de eDTU que se comparten entre varias bases de datos con finalidades de escala. Cuando los recursos de eDTU disponibles en su grupo elástico no son lo suficientemente grandes como para admitir todas las bases de datos del grupo, el sistema detecta el problema de rendimiento por escasez de DTU en el grupo elástico.
 
 ### <a name="troubleshooting"></a>solución de problemas
 

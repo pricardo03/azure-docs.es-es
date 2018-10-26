@@ -3,16 +3,17 @@ title: 'Contoso: configurar una infraestructura de migración | Microsoft Docs'
 description: Obtenga información acerca de cómo Contoso puede configurar una infraestructura de Azure para la migración a Azure.
 services: azure-migrate
 author: rayne-wiselman
+manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: bf2562f4772d20f099faec94794e0e908e6636d5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227544"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092988"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso: implementar una infraestructura de migración
 
@@ -38,7 +39,8 @@ Artículo 2: Implementación de una infraestructura de Azure | Contoso prepara l
 [Artículo 10: Refactorización de una aplicación de Linux en una aplicación web de Azure y en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varios sitios. La aplicación web está integrada con GitHub para la entrega continua. Migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible
 [Artículo 11: Refactorización de Team Foundation Server en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
 [Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure. A continuación, rediseña la capa de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos de la aplicación con Azure SQL Database. | Disponible    
-[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible 
+[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
+[Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible 
 
 En este artículo, Contoso configura todos los elementos de infraestructura necesarios para completar todos los escenarios de migración. 
 

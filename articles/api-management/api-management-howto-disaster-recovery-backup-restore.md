@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 683efc6f772337754fc21a1e486d35b7f92e8f81
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268536"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428256"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -122,7 +122,7 @@ Reemplace `{tentand id}`, `{application id}` y `{redirect uri}` mediante las sig
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Llamada a operaciones de copia de seguridad y restauración
 
-Las API REST son [servicio API Management: Copia de seguridad](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) y [servicio API Management: Restauración](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+Las API REST son [servicio API Management: Copia de seguridad](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) y [servicio API Management: Restauración](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore).
 
 Antes de llamar a las operaciones de "copia de seguridad y restauración" descritas en las secciones siguientes, establezca el encabezado de solicitud de autorización para la llamada REST.
 

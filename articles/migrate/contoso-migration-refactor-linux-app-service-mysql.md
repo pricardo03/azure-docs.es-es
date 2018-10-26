@@ -2,16 +2,17 @@
 title: Refactorizar la aplicación de consola de servicio Linux de Contoso en Azure App Service y Azure MySQL | Microsoft Docs
 description: Obtenga información sobre cómo Contoso refactoriza la aplicación Linux local mediante la migración a Azure App Service usando GitHub para el nivel web y Azure SQL Database.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3f85d9d18aa49a378c63fa1f1692c7dc665489be
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296537"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093008"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migración de Contoso: refactorización de una aplicación de consola de servicio de Linux en Contoso en varias regiones con Azure App Service, Traffic Manager y Azure MySQL
 
@@ -34,6 +35,7 @@ Artículo 10: Refactorización de una aplicación Linux en Azure Web Apps y Azur
 [Artículo 11: Refactorización de TFS en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
 [Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure. A continuación, rediseña el nivel de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos con Azure SQL Database. | Disponible
 [Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel360 mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
+[Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible
 
 En este artículo, Contoso migra una aplicación de consola de servicio de Linux Apache MySQL PHP (LAMP) de dos niveles (osTicket) a Azure. Si quiere usar esta aplicación de código abierto, puede descargarla desde [GitHub](https://github.com/osTicket/osTicket).
 
