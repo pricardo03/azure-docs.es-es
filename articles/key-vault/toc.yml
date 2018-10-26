@@ -88,12 +88,15 @@ items:
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+    items:
+    - name: Autenticación, solicitudes y respuestas
+      href: authentication-requests-and-responses.md
+    - name: Parámetros y encabezados comunes
+      href: common-parameters-and-headers.md
   - name: Desarrollo
     items:
-    - name: Guía del desarrollador de Key Vault
+    - name: Guía del desarrollador
       href: key-vault-developers-guide.md
-    - name: Límites de servicio
-      href: key-vault-service-limits.md
     - name: Claves protegidas con HSM
       href: key-vault-hsm-protected-keys.md
     - name: Migración a .NET 2.0
@@ -116,25 +119,33 @@ items:
         href: vs-key-vault-aspnet-core-what-happened.md
 - name: Recursos
   items:
-  - name: Introducción al servicio
-    href: https://azure.microsoft.com/services/key-vault/
-  - name: Autenticación, solicitudes y respuestas
-    href: authentication-requests-and-responses.md
-  - name: Parámetros y encabezados comunes
-    href: common-parameters-and-headers.md
+  - name: Desarrollo de aptitudes con Microsoft Learn
+    href: /learn/browse/?products=azure-key-vault
   - name: Datos del cliente
     href: key-vault-customer-data.md
-  - name: Blog
+  - name: Servicio
+    items:
+    - name: Precios
+      href: https://azure.microsoft.com/pricing/details/key-vault/
+    - name: Disponibilidad en regiones
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+    - name: Notas de la versión
+      href: key-vault-versions.md
+    - name: Contrato de nivel de servicio (SLA)
+      href: https://azure.microsoft.com/support/legal/sla/key-vault/
+    - name: Límites de servicio
+      href: key-vault-service-limits.md
+    - name: Estado del servicio
+      href: https://azure.microsoft.com/status/
+    - name: Actualizaciones del servicio
+      href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog del equipo
     href: http://blogs.technet.com/b/kv/
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/key-vault/
-- name: Notas de la versión
-  href: key-vault-versions.md
 - name: Comentarios sobre el producto
   href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: cd71269b2fe29c5cbc8889ddd5c77dd2d5d4b179
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 727a44d903d481974a95635f092468754085db1b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630228"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084975"
