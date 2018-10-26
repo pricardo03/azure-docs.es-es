@@ -6,6 +6,9 @@ items:
   - name: ¿Qué es el servicio Azure Machine Learning?
     displayName: AML, services
     href: overview-what-is-azure-ml.md
+  - name: Funcionamiento del servicio
+    displayName: architecture
+    href: concept-azure-machine-learning-architecture.md
   - name: ¿Qué le va a suceder a Workbench?
     href: overview-what-happened-to-workbench.md
   expanded: true
@@ -30,9 +33,6 @@ items:
     href: http://aka.ms/aml-notebooks
 - name: Conceptos
   items:
-  - name: Funcionamiento del servicio
-    displayName: architecture
-    href: concept-azure-machine-learning-architecture.md
   - name: Administración de modelos
     href: concept-model-management-and-deployment.md
   - name: Aceleración con FPGA
@@ -43,7 +43,7 @@ items:
   items:
   - name: Administración de áreas de trabajo
     href: how-to-manage-workspace.md
-  - name: 'Configuración del entorno de desarrollo '
+  - name: Configuración del entorno de desarrollo 
     items:
     - name: Selección de un entorno
       displayName: local, remote
@@ -347,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemas antiguos
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649251"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095082"

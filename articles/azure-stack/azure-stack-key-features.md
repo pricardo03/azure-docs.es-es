@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344692"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959033"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Características y conceptos clave de Azure Stack
 Si nunca ha usado Microsoft Azure Stack, estos términos y las descripciones de las características pueden resultar útiles.
@@ -154,14 +154,6 @@ RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de
 
 ## <a name="usage-data"></a>Datos de uso
 Microsoft Azure Stack recopila y agrega los datos de uso de todos los proveedores de recursos y los transmite a Azure para su procesamiento por parte de Comercio de Azure. Los datos de uso recopilados en Azure Stack pueden verse a través de una API de REST. Hay una API de inquilino coherente con Azure coherente, así como API de proveedor y de proveedor delegado para obtener datos de uso de todas las suscripciones del inquilino. Estos datos se pueden utilizar para realizar la integración con una herramienta o servicio externos con fines de facturación o contracargo. Una vez que Comercio de Azure ha procesado el uso, puede verse en el portal de facturación de Azure.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>Compilación en desarrollo del Kit de desarrollo de Azure Stack
-Las compilaciones en desarrollo permiten a los pioneros evaluar la versión más reciente del Kit de desarrollo de Azure Stack. Son compilaciones incrementales basadas en la versión principal más reciente. Mientras que las versiones principales se seguirán lanzando cada pocos meses, las compilaciones en desarrollo se lanzarán de forma intermitente entre las versiones principales.
-
-Las compilaciones en desarrollo proporcionarán las siguientes ventajas:
-- Corrección de errores
-- Nuevas características
-- Otra mejoras
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Conceptos básicos de administración](azure-stack-manage-basics.md)

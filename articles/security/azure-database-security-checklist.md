@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855942"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402514"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de comprobación de la seguridad de Azure Database
 
@@ -46,7 +46,7 @@ Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Az
 |Categoría de la lista de comprobación| DESCRIPCIÓN|
 | ------------ | -------- |
 |**Protección de datos**||
-| <br> Cifrado en movimiento o tránsito| <ul><li>[Seguridad de la capa de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para el cifrado de datos cuando los datos se pasan a las redes.</li><li>Las bases de datos requieren una comunicación segura desde los clientes basados en el protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) a través de TLS (Seguridad de la capa de transporte).</li></ul> |
+| <br> Cifrado en movimiento o tránsito| <ul><li>[Seguridad de la capa de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para el cifrado de datos cuando los datos se pasan a las redes.</li><li>Las bases de datos requieren una comunicación segura desde los clientes basados en el protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) a través de TLS (Seguridad de la capa de transporte).</li></ul> |
 |<br>Cifrado en reposo| <ul><li>[Cifrado de datos transparente](http://go.microsoft.com/fwlink/?LinkId=526242), cuando los datos inactivos se almacenan físicamente en cualquier formato digital.</li></ul>|
 |**Control de acceso**||  
 |<br> Acceso a la base de datos | <ul><li>[Autenticación](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Autenticación de Azure Active Directory). La autenticación de AD usa las identidades administradas por Azure Active Directory.</li><li>[Autorización](https://docs.microsoft.com/azure/sql-database/sql-database-control-access). Conceda a los usuarios los privilegios mínimos necesarios.</li></ul> |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829776"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954613"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Creación de conjuntos de registros y zonas DNS con el SDK de .NET
 
@@ -28,7 +28,7 @@ Puede automatizar las operaciones para crear, eliminar o actualizar zonas, conju
 
 Normalmente, el acceso a recursos de Azure mediante programación se concede mediante una cuenta dedicada en lugar de por medio de sus propias credenciales de usuario. Estas cuentas dedicadas se denominan cuentas de 'entidad de servicio'. Para usar el proyecto de ejemplo del SDK de DNS de Azure, primero debe crear una cuenta de entidad de servicio y asignarle los permisos correctos.
 
-1. Siga [estas instrucciones](../azure-resource-manager/resource-group-authenticate-service-principal.md) para crear una cuenta de entidad de servicio (en el proyecto de ejemplo del SDK de DNS de Azure se asume una autenticación basada en contraseña).
+1. Siga [estas instrucciones](../active-directory/develop/howto-authenticate-service-principal-powershell.md) para crear una cuenta de entidad de servicio (en el proyecto de ejemplo del SDK de DNS de Azure se asume una autenticación basada en contraseña).
 2. Cree un grupo de recursos ([aquí se explica cómo](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Use RBAC de Azure para conceder a la cuenta de entidad de servicio permisos de 'Colaborador de zona DNS' al grupo de recursos ([aquí le decimos cómo](../role-based-access-control/role-assignments-portal.md)).
 4. Si va a usar el proyecto de ejemplo del SDK de DNS de Azure, edite el archivo 'program.cs' de la manera siguiente:

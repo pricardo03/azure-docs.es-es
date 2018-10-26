@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: b450d2ca2af0c0f7598d74e2f07c0acc81b811f3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 45aa954d2f85267b2c7c9aa2a7ba04e436765433
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116460"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023938"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Canalizaciones y Azure Machine Learning
 
@@ -63,7 +63,7 @@ Con las dependencias de datos declarativas, puede optimizar sus tareas. El SDK i
 
 Las canalizaciones se pueden guardar como plantillas e implementar en un punto de conexión de REST, con la finalidad de que pueda programar trabajos de puntuación por lotes o reentrenamiento.
 
-Consulte los [documentos de referencia del SDK de Python para canalizaciones](http://aka.ms/aml-sdk) y el cuaderno de la sección siguiente para ver cómo crear las suyas propias.
+Consulte los [documentos de referencia del SDK de Python para canalizaciones](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) y el cuaderno de la sección siguiente para ver cómo crear las suyas propias.
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
  

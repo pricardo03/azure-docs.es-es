@@ -1,20 +1,21 @@
 ---
 title: Lenguaje de marcado de síntesis de voz
-description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
 titleSuffix: Azure Cognitive Services
+description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: bdcb206e092467703f0bd4404da47b334ea8ccaf
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165494"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469289"
 ---
 # <a name="speech-synthesis-markup-language"></a>Lenguaje de marcado de síntesis de voz
 
