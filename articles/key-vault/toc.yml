@@ -41,6 +41,10 @@ items:
     href: key-vault-ovw-throttling.md
   - name: Puntos de conexión del servicio de redes virtuales
     href: key-vault-overview-vnet-service-endpoints.md
+  - name: Autenticación, solicitudes y respuestas
+    href: authentication-requests-and-responses.md
+  - name: Parámetros y encabezados comunes
+    href: common-parameters-and-headers.md
   - name: Información acerca de claves, secretos y certificados
     href: about-keys-secrets-and-certificates.md
     items:
@@ -88,11 +92,6 @@ items:
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
-    items:
-    - name: Autenticación, solicitudes y respuestas
-      href: authentication-requests-and-responses.md
-    - name: Parámetros y encabezados comunes
-      href: common-parameters-and-headers.md
   - name: Desarrollo
     items:
     - name: Guía del desarrollador
@@ -123,14 +122,14 @@ items:
     href: /learn/browse/?products=azure-key-vault
   - name: Datos del cliente
     href: key-vault-customer-data.md
+  - name: Notas de la versión
+    href: key-vault-versions.md
   - name: Servicio
     items:
     - name: Precios
       href: https://azure.microsoft.com/pricing/details/key-vault/
     - name: Disponibilidad en regiones
       href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
-    - name: Notas de la versión
-      href: key-vault-versions.md
     - name: Contrato de nivel de servicio (SLA)
       href: https://azure.microsoft.com/support/legal/sla/key-vault/
     - name: Límites de servicio
@@ -143,9 +142,9 @@ items:
     href: http://blogs.technet.com/b/kv/
 - name: Comentarios sobre el producto
   href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: 727a44d903d481974a95635f092468754085db1b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 64b4f6cbb26da244898d46b8fd5250a2eeeef91e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084975"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140949"

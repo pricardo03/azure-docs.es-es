@@ -326,12 +326,6 @@
 
 ## [Solución de problemas](fundamentals/active-directory-troubleshooting-support-howto.md)
 
-## Implementación de la prueba de concepto (PoC) de Azure AD
-### [Guía de la prueba de concepto: Introducción](active-directory-playbook-intro.md)
-### [Guía de la prueba de concepto: Ingredientes](active-directory-playbook-ingredients.md)
-### [Guía de la prueba de concepto: Implementación](active-directory-playbook-implementation.md)
-### [Guía de la prueba de concepto: Bloques de creación](active-directory-playbook-building-blocks.md)
-
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [cmdlets de Azure PowerShell](/powershell/azure/overview)
