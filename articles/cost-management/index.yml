@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cad92cb36f3e5e038186e9b97f30bed9525e2fea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d65a593286ecd1ee394536033e85febb1dbc6f37
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978750"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229271"
 documentType: LandingData
 title: Documentación sobre Azure Cost Management
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/14/2019
+  ms.date: 10/29/2018
   ms.author: banders
 abstract:
   description: Azure Cost Management es una solución de administración de costos que le ayuda a supervisar y controlar el gasto de Azure y a optimizar el uso de los recursos. Aprenda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones con nuestras guías de inicio rápido y tutoriales.
@@ -42,7 +42,7 @@ sections:
     items:
     - html: <a href="tutorial-acm-create-budgets">Creación y administración de presupuestos</a>
     - html: <a href="tutorial-export-acm-data">Exportación de datos</a>
-    - html: <a href="tutorial-acm-opt-recommendations">Revisión y actuación sobre las recomendaciones de optimización</a>
+    - html: <a href="tutorial-acm-opt-recommendations">Consulta de las recomendaciones sobre optimización y medidas</a>
 - title: Desarrollo de aptitudes con Microsoft Learn
   items:
   - type: list
