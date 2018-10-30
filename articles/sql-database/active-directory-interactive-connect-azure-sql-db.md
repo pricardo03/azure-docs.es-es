@@ -124,13 +124,13 @@ El programa de C# se basa en el espacio de nombres **Microsoft.IdentityModel.Cli
 
 Uno de los espacios de nombres en los que se basa el ejemplo de C# es **System.Data.SqlClient**. De especial interés es la enumeración **SqlAuthenticationMethod**. Esta enumeración tiene los siguientes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp; use este valor con un nombre de usuario de Azure AD para conseguir la autenticación multifactor (MFA).
+- **SqlAuthenticationMethod.ActiveDirectory \*Interactive**\*:&nbsp; use este valor con un nombre de usuario de Azure AD para conseguir la autenticación multifactor (MFA).
     - Este valor es el enfoque del presente artículo. Produce una experiencia interactiva ya que se muestran los cuadros de diálogo de la contraseña de usuario y, luego, de la validación de MFA si MFA se ha impuesto sobre este usuario.
     - Este valor está disponible a partir de .NET Framework 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp; use este valor con cuentas *federadas*. En una cuenta federada, el nombre del usuario se conoce en el dominio de Windows. Este método no admite MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*Integrated**\*:&nbsp; use este valor con cuentas *federadas*. En una cuenta federada, el nombre del usuario se conoce en el dominio de Windows. Este método no admite MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp; use este valor si la autenticación requiere un usuario de Azure AD y la contraseña del usuario. Azure SQL Database realiza la autenticación. Este método no admite MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*Password**\*:&nbsp; use este valor si la autenticación requiere un usuario de Azure AD y la contraseña del usuario. Azure SQL Database realiza la autenticación. Este método no admite MFA.
 
 
 
