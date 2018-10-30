@@ -3,7 +3,7 @@ title: Importación y publicación de la primera API en Azure API Management | M
 description: Obtenga información sobre cómo importar y publicar la primera API con API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093409"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467402"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importación y publicación de la primera API 
 
@@ -73,9 +73,11 @@ Esta sección explica cómo importar y publicar una API de back-end de Especific
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Prueba de la nueva API APIM en Azure Portal
 
+![Prueba del mapa de API](./media/api-management-get-started/01-import-first-api-01.png)
+
 Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.  
 1. Seleccione la API que ha creado en los pasos anteriores (desde la pestaña **API**).
-2. Presione la pestaña **Prueba**.  ![Prueba de API](./media/api-management-get-started/test-api.png)
+2. Presione la pestaña **Prueba**.
 3. Haga clic en **GetSpeakers**.
     En la página se muestran los campos de los parámetros de consulta, que, en este caso, no tiene ninguno, y los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. La clave se rellena automáticamente.
 4. Presione **Enviar**.
@@ -87,7 +89,8 @@ Se puede llamar a las operaciones directamente desde Azure Portal, lo que propor
 También se pueden llamar a las operaciones desde el **portal para desarrolladores** para probar las API.
 
 1. Desplácese hasta el **portal para desarrolladores**.
-![Portal para desarrolladores](./media/api-management-get-started/developer-portal.png)
+
+ ![Portal para desarrolladores](./media/api-management-get-started/developer-portal.png)
 
 2. Seleccione **API**, haga clic en **Demo Conference API** y, después, en **GetSpeakers**.
     

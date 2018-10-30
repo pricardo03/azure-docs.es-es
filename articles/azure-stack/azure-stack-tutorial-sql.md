@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386390"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954919"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Oferta de bases de datos SQL de alta disponibilidad
 
@@ -63,30 +63,28 @@ Siga los pasos de esta sección para implementar el grupo de disponibilidad Alwa
 - Una máquina virtual (Windows Server 2016) configurada como el testigo de recurso compartido de archivos para el clúster
 - Un conjunto que disponibilidad que contiene las máquinas virtuales testigo del recurso compartido de archivos y SQL  
 
-1. Inicie sesión en el portal de administración:
-    - En el caso una implementación de sistema integrado, la dirección del portal variará en función de la región y el nombre de dominio externo de la solución. Estará en el formato https://adminportal.&lt;*región*&gt;.&lt;*nombre de dominio completo*&gt;.
-    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es [https://adminportal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seleccione **\+****Crear un recurso** > **Personalizar** y, a continuación, **Implementación de plantilla**.
 
-   ![Implementación de plantilla personalizada](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Implementación de plantilla personalizada](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. En la hoja **Implementación personalizada**, seleccione **Editar plantilla** > **Plantilla de inicio rápido** y, a continuación, use la lista desplegable de plantillas personalizadas disponibles para seleccionar la plantilla **sql-2016-alwayson**. Luego, haga clic en **Aceptar** y, a continuación, en **Guardar**.
 
-   ![Selección de plantilla de inicio rápido](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Selección de plantilla de inicio rápido")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. En la hoja **Implementación personalizada**, seleccione **Editar parámetros** y revise los valores predeterminados. Modifique los valores según sea necesario para proporcionar toda la información de los parámetros necesaria y, a continuación, haga clic en **Aceptar**.<br><br> Como mínimo:
 
     - Proporcione contraseñas complejas para los parámetros ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD y SQLAUTHPASSWORD.
     - Escriba el sufijo DNS para la búsqueda inversa todo en minúsculas para el parámetro DNSSUFFIX (**azurestack.external** para las instalaciones de ASDK).
     
-    ![Parámetros de implementación personalizada](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Edición de los parámetros de implementación personalizada")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. En la hoja **Implementación personalizada**, seleccione la suscripción de Azure que se usará y cree un nuevo grupo de recursos o seleccione un grupo de recursos existente para la implementación personalizada.<br><br> A continuación, seleccione la ubicación del grupo de recursos (**local** para las instalaciones de ASDK) y, a continuación, haga clic en **Crear**. Se validará la configuración de implementación personalizada y, a continuación, se iniciará la implementación.
 
-    ![Parámetros de implementación personalizada](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Creación de implementación personalizada")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. En el portal de administración, seleccione **Grupos de recursos** y, a continuación, el nombre del grupo de recursos que creó para la implementación personalizada (**resource-group** en este ejemplo). Vea el estado de la implementación para asegurarse de que todas las implementaciones se han completado correctamente.<br><br>A continuación, revise los elementos del grupo de recursos y seleccione el elemento de la dirección IP pública **SQLPIPsql\<nombre del grupo de recursos\>**. Anote la dirección IP pública y nombre de dominio completo de la dirección IP pública del equilibrador de carga. Deberá proporcionar esta información al operador de Azure Stack para que pueda crear un servidor de hospedaje SQL aprovechando este grupo de disponibilidad AlwaysOn de SQL.
@@ -94,16 +92,16 @@ Siga los pasos de esta sección para implementar el grupo de disponibilidad Alwa
    > [!NOTE]
    > La implementación de la plantilla tardará varias horas en completarse.
 
-   ![Parámetros de implementación personalizada](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Implementación personalizada completada](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Habilitación de la propagación automática
 Una vez que se ha implementado correctamente la plantilla y se ha configurado el grupo de disponibilidad AlwaysON de SQL, debe habilitar la [propagación automática](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) en cada instancia de SQL Server del grupo de disponibilidad. 
 
 Cuando se crea un grupo de disponibilidad con propagación automática, SQL Server crea automáticamente las réplicas secundarias para cada base de datos en el grupo sin que se requiera más intervención manual para garantizar una alta disponibilidad de bases de datos de AlwaysOn.
 
-Use estos comandos SQL para configurar la propagación automática para el grupo de disponibilidad AlwaysOn.
+Use estos comandos SQL para configurar la propagación automática para el grupo de disponibilidad AlwaysOn. Sustituya \<InstanceName\> por el nombre de la instancia de SQL Server principal y <availability_group_name> por el nombre del grupo de disponibilidad AlwaysOn según sea necesario. 
 
-En la instancia SQL principal (reemplace <InstanceName> por el nombre de SQL Server de la instancia principal):
+En la instancia de SQL principal:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ En la instancia SQL principal (reemplace <InstanceName> por el nombre de SQL Ser
 
 >  ![Script de la instancia de SQL principal](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-En las instancias SQL secundarias (sustituya <nombre_grupo_disponibilidad> por el nombre del grupo de disponibilidad AlwaysOn):
+En las instancias de SQL secundarias:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ Una vez que el grupo de disponibilidad AlwaysOn de SQL se ha creado, configurado
 > [!NOTE]
 > Ejecute estos pasos desde el portal de usuario de Azure Stack como un usuario inquilino con una suscripción que proporcione funciones de SQL Server (servicio Microsoft.SQLAdapter).
 
-1. Inicie sesión en el portal de usuario:
-    - En el caso una implementación de sistema integrado, la dirección del portal variará en función de la región y el nombre de dominio externo de la solución. Estará en el formato https://portal.&lt;*región*&gt;.&lt;*nombre de dominio completo*&gt;.
-    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Seleccione **\+** **Crear un recurso** > **Datos \+y almacenamiento** y, luego, **SQL Database**.<br><br>Proporcione la información de propiedad de base de datos requerida, incluidos el nombre, la intercalación, el tamaño máximo y la suscripción, así como el grupo de recursos y la ubicación que se usará para la implementación. 
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363011"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023564"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Guía de inicio rápido: Acceso a Azure Active Directory para crear un inquilino
 Puede hacer todas las tareas administrativas mediante el portal de Azure Active Directory (Azure AD), incluida la creación de un inquilino para su organización. 
@@ -24,13 +24,6 @@ Puede hacer todas las tareas administrativas mediante el portal de Azure Active 
 En este tutorial, obtendrá información sobre cómo acceder a Azure Portal y a Azure Active Directory y sobre cómo crear un inquilino básico para su organización.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="prerequisites"></a>Requisitos previos
-Antes de comenzar, deberá:
-
-- Asegurarse de que su organización tiene una licencia de Azure AD válida.
-
-- Asegurarse de que es un administrador global.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 Inicie sesión en [Azure Portal](https://portal.azure.com/) en su organización con una cuenta de administrador global.
@@ -76,3 +69,5 @@ Si no va a seguir usando esta aplicación, puede eliminar el inquilino mediante 
 - Para agrear grupos y miembros, vea [Creación de un grupo básico y adición de miembros](active-directory-groups-create-azure-portal.md).
 
 - Obtenga información sobre el [acceso basado en rol mediante Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) y el [acceso condicional](../../role-based-access-control/conditional-access-azure-management.md) para ayudar a administrar el acceso a aplicaciones y recursos de su organización.
+
+- Obtenga información sobre Azure AD, incluida la [información de licencia básica, terminología y características asociadas](active-directory-whatis.md).

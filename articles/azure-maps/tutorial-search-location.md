@@ -1,20 +1,20 @@
 ---
 title: Búsqueda con Azure Maps | Microsoft Docs
 description: Búsqueda de un punto cercano de interés mediante Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816827"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645821"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -116,11 +116,10 @@ Map Control API es una práctica biblioteca cliente que le permite integrar fác
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     Este segmento inicializa Map Control API para la clave de cuenta de Azure Maps. **Atlas** es el espacio de nombres que contiene la API y los componentes visuales relacionados. **Atlas.Map** proporciona el control para un mapa web visual e interactivo.
 
 4. Guarde los cambios en el archivo y abra la página HTML en un explorador. Este es el mapa más básico que puede crear con una llamada a **atlas.map** y una clave de cuenta.
@@ -148,14 +147,14 @@ En esta sección se muestra cómo usar Search API de Azure Maps para buscar un p
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Todas las funciones en el mapa se deben cargar una vez cargado el mapa. Para asegurarse de ello, coloque todas las funciones de mapa dentro del bloque eventListener del mapa. Agregue las siguientes líneas de código para agregar un elemento [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) al mapa a fin de asegurarse de que el mapa se carga totalmente antes de agregar funcionalidades.
+3. Todas las funciones en el mapa se deben cargar una vez cargado el mapa. Para asegurarse de ello, coloque todas las funciones de mapa dentro del bloque eventListener del mapa. Agregue las siguientes líneas de código para agregar un elemento [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) al mapa a fin de asegurarse de que el mapa se carga totalmente antes de agregar funcionalidades.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. Agregue el siguiente bloque de script **dentro del elemento eventListener de carga de mapas** para compilar la consulta. Este fragmento de código usa Fuzzy Search Service, que es una API de búsqueda básica de Search Service. Fuzzy Search Service controla la mayoría de las entradas aproximadas como, por ejemplo, cualquier combinación de tokens de dirección y puntos de interés (POI). Por ejemplo, busca gasolineras cercanas dentro del radio especificado. Después, se analiza la respuesta en formato GeoJSON y se convierte en características de puntos, que se agregan al mapa como chinchetas. La última parte del script agrega los límites de la cámara del mapa mediante la propiedad [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) del mapa.
+4. Agregue el siguiente bloque de script **en los elementos de carga del mapa** para compilar la consulta. Este fragmento de código usa Fuzzy Search Service, que es una API de búsqueda básica de Search Service. Fuzzy Search Service controla la mayoría de las entradas aproximadas como, por ejemplo, cualquier combinación de tokens de dirección y puntos de interés (POI). Por ejemplo, busca gasolineras cercanas dentro del radio especificado. Después, se analiza la respuesta en formato GeoJSON y se convierte en características de puntos, que se agregan al mapa como chinchetas. La última parte del script agrega los límites de la cámara del mapa mediante la propiedad [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) del mapa.
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ En esta sección se muestra cómo usar Search API de Azure Maps para buscar un p
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. Guarde el archivo **MapSearch.html** y actualice el explorador. Ahora verá que el mapa se centra en Seattle y que aparecen marcadas con chinchetas azules las ubicaciones de las gasolineras del área.
 

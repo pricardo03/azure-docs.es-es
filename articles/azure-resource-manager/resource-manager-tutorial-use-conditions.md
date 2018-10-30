@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 216e474f519e57352b017dc3e6bcdd74d48b03de
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238653"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456973"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Uso de condiciones en plantillas de Azure Resource Manager
 
 Aprenda a implementar recursos de Azure según condiciones. 
 
-El escenario que se usa en este tutorial es parecido al utilizado en el [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). En este tutorial, creará una cuenta de almacenamiento, una máquina virtual, una red virtual y algunos otros recursos dependientes. En lugar de crear una nueva cuenta de almacenamiento, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una cuenta de almacenamiento existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento.
+El escenario que se usa en este tutorial es parecido al utilizado en el [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). En este tutorial, creará una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de Herramientas de Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
@@ -59,7 +59,7 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 
 Realice dos cambios en la plantilla existente:
 
-* Agregue un parámetro que se usa para proporcionar un nombre de cuenta de almacenamiento. Este parámetro proporciona al usuario la opción de especificar un nombre de cuenta de almacenamiento existente. También se puede usar como el nuevo nombre de cuenta de almacenamiento.
+* Incorporación de un parámetro de nombre de cuenta de almacenamiento. Los usuarios pueden especificar un nuevo nombre de cuenta de almacenamiento o uno que ya exista.
 * Agregue un nuevo parámetro llamado **newOrExisting**. En la implementación se usa este parámetro para determinar dónde crear una cuenta de almacenamiento o usar una cuenta de almacenamiento existente.
 
 1. Abra **azuredeploy.json** en Visual Studio Code.
@@ -72,11 +72,15 @@ Realice dos cambios en la plantilla existente:
 4. Agregue los dos parámetros siguientes a la plantilla:
 
     ```json
-    "newOrExisting": {
-      "type": "string"
-    },
     "storageAccountName": {
       "type": "string"
+    },    
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
     },
     ```
     La definición de parámetros actualizada se parece a esta:
@@ -86,7 +90,7 @@ Realice dos cambios en la plantilla existente:
 5. Agregue la siguiente línea al principio de la definición de la cuenta de almacenamiento.
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     La condición comprueba el valor de un parámetro llamado **newOrExisting**. Si el valor del parámetro es **new**, en la implementación se crea la cuenta de almacenamiento.
@@ -94,8 +98,15 @@ Realice dos cambios en la plantilla existente:
     La definición de la cuenta de almacenamiento actualizada se parece a esta:
 
     ![Condición de uso de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+6. Actualice **storageUri** con el siguiente valor:
 
-6. Guarde los cambios.
+    ```json
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
+    ```
+
+    Este cambio es necesario cuando se usa una cuenta de almacenamiento existente en otro grupo de recursos.
+
+7. Guarde los cambios.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -103,19 +114,21 @@ Para implementar la plantilla, siga las instrucciones que se indican en [Impleme
 
 Al implementar la plantilla mediante Azure PowerShell, deberá especificar un parámetro adicional:
 
-```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$storageAccountName = "Enter the storage account name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password"
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting "new"
+New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin -adminPassword $vmPW `
+    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
 > [!NOTE]

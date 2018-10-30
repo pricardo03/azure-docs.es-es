@@ -1,20 +1,21 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz en C++ en Windows mediante el SDK de Voz de Cognitive Services'
-titleSuffix: Microsoft Cognitive Services
-description: Obtenga información sobre cómo reconocer voz en C++ en el escritorio de Windows con el SDK de Voz de Cognitive Services
+title: 'Guía de inicio rápido: Reconocimiento de voz en C++ para Windows mediante el SDK de Speech Service'
+titleSuffix: Azure Cognitive Services
+description: Aprenda a reconocer la voz en C++ para Windows mediante el SDK de Speech Service
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2adad78760c1d12da688106c45e86c91a8b13f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ddac12c6414365f8d20c42d324695be9855774dc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339362"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469874"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C++ en Windows mediante el SDK de Voz
 

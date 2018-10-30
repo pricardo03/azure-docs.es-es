@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066928"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456197"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicación de una máquina virtual de Azure en otra región de Azure
 
@@ -24,7 +24,8 @@ En esta guía de inicio rápido se describe cómo replicar una máquina virtual 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-
+> [!NOTE]
+> Este artículo está pensado para guiar a un nuevo usuario en la experiencia de Azure Site Recovery con la personalización mínima y las opciones predeterminadas. Si desea más información sobre las distintas configuraciones que se pueden personalizar, consulte [el tutorial para habilitar la replicación en máquinas virtuales de Azure](azure-to-azure-tutorial-enable-replication.md)
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -33,15 +34,12 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 ## <a name="enable-replication-for-the-azure-vm"></a>Habilitación de la replicación para la máquina virtual de Azure
 
 1. En Azure Portal, haga clic en **Máquinas virtuales** y seleccione la máquina virtual que desea replicar.
-
 2. En **Operaciones**, haga clic en **Recuperación ante desastres**.
 3. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
 4. En esta guía de inicio rápido, acepte los restantes valores predeterminados.
 5. Haga clic en **Habilitar replicación**. Esto inicia un trabajo para habilitar la replicación de la máquina virtual.
 
     ![habilitar replicación](media/azure-to-azure-quickstart/enable-replication1.png)
-
-
 
 ## <a name="verify-settings"></a>Comprobación de la configuración
 
@@ -68,7 +66,7 @@ Detenga la replicación como se indica a continuación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se replica una única máquina virtual en una región secundaria.
+En esta guía de inicio rápido, se replica una única máquina virtual en una región secundaria. Ahora puede explorar más opciones y probar la replicación de un conjunto de máquinas virtuales de Azure con un plan de recuperación.
 
 > [!div class="nextstepaction"]
 > [Configuración de la recuperación ante desastres para las máquinas virtuales de Azure](azure-to-azure-tutorial-enable-replication.md)

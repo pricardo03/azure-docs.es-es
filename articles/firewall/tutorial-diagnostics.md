@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991052"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987445"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Métricas y registros de Azure Firewall
 
@@ -51,11 +51,11 @@ Puede tardar algunos minutos en que los datos aparezcan en los registros despué
 5. En este ejemplo, Log Analytics almacena los registros, así que escriba **Análisis de registro de firewall** como nombre.
 6. Haga clic en **Enviar a Log Analytics** para configurar el área de trabajo. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
 7. En **Log Analytics**, haga clic en **Configurar**.
-8. En la página de áreas de trabajo de OMS, haga clic en **Crear área de trabajo nueva**.
-9. En la página **Área de trabajo de Log Analytics**, escriba **firewall-oms** como nombre de la nueva **Área de trabajo de OMS**.
+8. En la página de áreas de trabajo de Log Analytics, haga clic en **Crear área de trabajo nueva**.
+9. En la página **Área de trabajo de Log Analytics**, escriba **firewall-oms** como nombre de la nueva **área de trabajo de Log Analytics**.
 10. Seleccione su suscripción, use el grupo de recursos de firewall existente (**Test-FW-RG**), seleccione **Este de EE. UU.** como ubicación y seleccione el plan de tarifa **gratis**.
 11. Haga clic en **OK**.
-   ![Inicio del proceso de configuración][1]
+   ![Inicio del proceso de configuración][1] Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.  
 12. En **Registro**, haga clic en **AzureFirewallApplicationRule** y **AzureFirewallNetworkRule** para recopilar los registros de las reglas de aplicación y de red.
    ![Guardar la configuración de diagnóstico][2]
 13. Haga clic en **Save**(Guardar).
@@ -95,6 +95,8 @@ Puede ver y analizar los datos del registro de actividades con cualquiera de los
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver y analizar los registros de la regla de red y de aplicación
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) recopila los archivos de registro de contadores y eventos. Incluye visualizaciones y eficaces funciones de búsqueda para analizar los registros.
+
+Para las consultas de ejemplo de Log Analytics de Azure Firewall, consulte [Azure Firewall Log Analytics samples](log-analytics-samples.md) (Ejemplos de Log Analytics de Azure Firewall).
 
 También puede conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON de los registros de acceso y rendimiento. Después de descargar los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
 

@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 10/19/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 4729e08399132243543c6f4e1cadd537d185e9e3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ba77fc4596d9bb245b3cea2538804b1816e9ad14
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166260"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466979"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Tutorial: Transformación de datos con Azure Data Box Edge (versión preliminar)
 
 Este tutorial describe cómo configurar el rol de proceso en Data Box Edge. Una vez configurado el rol de proceso, Azure Data Box Edge puede transformar los datos antes de enviarlos a Azure.
 
-Este procedimiento tarda aproximadamente 30-45 minutos en completarse. 
+Este procedimiento tarda aproximadamente 30-45 minutos en completarse.
 
 En este tutorial, aprenderá a:
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la transformación y la transferencia de los datos
 
 > [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +48,8 @@ Para obtener instrucciones detalladas, vaya a [Crear un centro de IoT](https://d
 
 ![Crear un recurso de IoT Hub](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-Cuando el rol de proceso de Edge no está configurado, tenga en cuenta que 
+Cuando el rol de proceso de Edge no esté configurado, tenga en cuenta que:
+
 - El recurso de IoT Hub no tiene dispositivos IoT ni de IoT Edge.
 - No puede crear recursos compartidos locales de Edge. Cuando agrega un recurso compartido, no está habilitada la opción para crear un recurso compartido local para el proceso de Edge.
 
@@ -91,12 +92,12 @@ Para configurar el rol de proceso en el dispositivo, realice los pasos siguiente
 
     ![Configurar un rol de proceso](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-Sin embargo, no hay módulos personalizados en este dispositivo de Edge. Ahora puede agregar uno a este dispositivo.
+Sin embargo, no hay módulos personalizados en este dispositivo de Edge. Ahora puede agregar uno a este dispositivo. Para información sobre cómo crear un módulo personalizado, vaya a [Desarrollo de un módulo C# para Data Box Edge](data-box-edge-create-iot-edge-module.md).
 
 
 ## <a name="add-a-custom-module"></a>Incorporación de un módulo personalizado
 
-En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge. 
+En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Data Box Edge](data-box-edge-create-iot-edge-module.md). 
 
 Este procedimiento usa un ejemplo en el que el módulo personalizado que se usa toma archivos de un recurso compartido local del dispositivo de Edge y los mueve a un recurso compartido en la nube en el dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este. 
 
@@ -133,11 +134,26 @@ Este procedimiento usa un ejemplo en el que el módulo personalizado que se usa 
 
         ![Agregar un módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. Especifique la configuración para el módulo personalizado de IoT Edge. Proporcione el **nombre** del módulo y el **identificador URI de la imagen**. 
+    2. Especifique la configuración para el módulo personalizado de IoT Edge. Proporcione el **nombre** del módulo y la **URI de imagen** para la imagen de contenedor correspondiente. 
     
         ![Agregar un módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. En **Opciones de creación del contenedor**, proporcione los puntos de montaje locales para los módulos de Edge que se copiaron en los pasos anteriores para el recurso compartido en la nube y el recurso compartido local (es importante usar estas rutas de acceso en lugar de crear otras nuevas). Estos recursos compartidos se asignan a los puntos de montaje de contenedor correspondientes. También se proporcionan aquí todas las variables de entorno del módulo.
+    3. En **Opciones de creación del contenedor**, proporcione los puntos de montaje locales para los módulos de Edge que se copiaron en los pasos anteriores para el recurso compartido en la nube y el recurso compartido local (es importante usar estas rutas de acceso en lugar de crear otras nuevas). Los puntos de montaje locales se asignan a las rutas **InputFolderPath** y **OutputFolderPath** correspondientes que especificó en el módulo cuando [actualizó el módulo con código personalizado](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
+    
+        Puede copiar y pegue el ejemplo que se muestra a continuación, en **Opciones de creación del contenedor**: 
+        
+        ```
+        {
+         "HostConfig": {
+          "Binds": [
+           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+           "/home/hcsshares/mysmbshare1:/home/CloudShare"
+           ]
+         }
+        }
+        ```
+
+        También se proporcionan aquí todas las variables de entorno del módulo.
 
         ![Agregar un módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
@@ -146,6 +162,8 @@ Este procedimiento usa un ejemplo en el que el módulo personalizado que se usa 
         ![Agregar un módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
 6.  En **Especificar rutas**, defina las rutas entre módulos. En este caso, proporcione el nombre del recurso compartido local que insertará los datos en el recurso compartido en la nube. Haga clic en **Next**.
+
+    Puede reemplazar la ruta con la siguiente cadena de ruta:       "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
 
     ![Agregar un módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  

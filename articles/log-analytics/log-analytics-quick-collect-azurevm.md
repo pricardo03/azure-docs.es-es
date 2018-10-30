@@ -1,6 +1,6 @@
 ---
 title: Recopilación de datos acerca de máquinas virtuales de Azure | Microsoft Docs
-description: Aprenda a habilitar la extensión de VM Agente de OMS y habilite la recopilación de datos de VM de Azure con Log Analytics.
+description: Aprenda a habilitar la extensión de máquina virtual del Agente de Log Analytics y habilite la recopilación de datos de las máquinas virtuales de Azure con Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -16,12 +16,12 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: c7015eb346136130b9ffd3c23460cb8b9609dc9b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 141df44f62ddb4a62f6f5f6a8b67107aa2c58a29
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041013"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404501"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Recopilación de datos acerca de máquinas virtuales de Azure
 [Azure Log Analytics](log-analytics-overview.md) puede recopilar datos directamente de máquinas virtuales de Azure y otros recursos del entorno en un único repositorio para una correlación y análisis detallados.  Esta guía de inicio rápido muestra cómo configurar y recopilar datos de VM Linux o Windows en Azure con unos pasos sencillos.  
@@ -38,7 +38,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 2. Haga clic en **Crear** y, a continuación, seleccione opciones para los elementos siguientes:
 
-  * Proporcione un nombre para la nueva **Área de trabajo de OMS**, como *DefaultLAWorkspace*. 
+  * Proporcione el nombre de la nueva **área de trabajo de Log Analytics** como, por ejemplo, *DefaultLAWorkspace*. Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.  
   * Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
   * Para **Grupo de recursos**, seleccione un grupo de recursos existente que contenga una o más máquinas virtuales de Azure.  
   * Seleccione la **Ubicación** en que están implementadas las VM.  Para obtener más información, consulte en qué [regiones está disponible Log Analytics](https://azure.microsoft.com/regions/services/).
@@ -46,22 +46,25 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-3. Después de proporcionar la información necesaria en el panel **Área de trabajo de OMS**, haga clic en **Aceptar**.  
+3. Después de proporcionar la información necesaria en el panel **Área de trabajo de Log Analytics**, haga clic en **Aceptar**.  
 
 Mientras se comprueba la información y se crea el espacio de trabajo, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Habilitar la extensión de VM de Log Analytics
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+
 Para máquinas virtuales Windows y Linux ya implementadas en Azure, instale el agente de Log Analytics con la extensión de VM de Log Analytics.  El uso de una extensión simplifica el proceso de instalación y configura automáticamente el agente para enviar datos al área de trabajo de Log Analytics que especifique. El agente también se actualiza automáticamente, garantizando así que disponga de las características y correcciones más recientes.
 
 >[!NOTE]
->No se puede configurar el agente de OMS para Linux para informar a varias áreas de trabajo de Log Analytics. 
+>No se puede configurar el agente de Log Analytics para Linux para informar a varias áreas de trabajo de Log Analytics. 
 
 1. En Azure Portal, haga clic en **Todos los servicios**, en la esquina superior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. En la lista de áreas de trabajo de Log Analytics, seleccione *DefaultLAWorkspace* (creada antes).
 3. En el menú izquierdo, en Orígenes de datos del área de trabajo, haga clic en **Máquinas virtuales**.  
-4. En la lista de **Máquinas virtuales**, seleccione la máquina virtual en la que quiera instalar el agente. Tenga en cuenta que el **estado de la conexión de OMS** de la VM indica que **no está conectado**.
+4. En la lista de **Máquinas virtuales**, seleccione la máquina virtual en la que quiera instalar el agente. Tenga en cuenta que el **estado de la conexión de Log Analytics** de la máquina virtual indica que **no está conectada**.
 5. En los detalles de la máquina virtual, seleccione **Conectar**. El agente se instala y se configura automáticamente para el área de trabajo de Log Analytics. Este proceso tarda unos minutos, durante los que el **estado** indica que se está **conectando**.
-6. Cuando el agente esté instalado y conectado, el estado de la **conexión de OMS** se actualizará con **This workspace** (Esta área de trabajo).
+6. Cuando el agente esté instalado y conectado, el **estado de la conexión de Log Analytics** se actualizará con **This workspace** (Esta área de trabajo).
 
 ## <a name="collect-event-and-performance-data"></a>Recopilación de datos de eventos y rendimiento
 Log Analytics puede recopilar eventos de los registros de eventos de Windows o de Syslog de Linux, así como de los contadores de rendimiento que especifique para los informes y análisis a largo plazo, y actuar cuando se detecte una condición determinada.  Siga estos pasos para configurar la recopilación de eventos desde el registro del sistema de Windows y Syslog de Linux, así como desde varios contadores de rendimiento comunes, para empezar.  

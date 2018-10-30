@@ -1,23 +1,23 @@
 ---
-title: 'Inicio rápido: Python de API: Creación de la base de conocimientos: QnA Maker'
+title: 'Guía de inicio rápido: creación de la base de conocimiento: REST y Python en QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
+description: En esta guía de inicio rápido se explica de forma detallada cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker que aparecerá en el panel de Azure de su cuenta de API de Cognitive Services.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 2646cc39197145e797f61d0c2d9e6d944ed19351
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d8802f1d5188966d08ac6a5fc74d38a704925faf
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388466"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646337"
 ---
-# <a name="create-a-new-knowledge-base-in-python"></a>Creación de una base de conocimiento en Python
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guía de inicio rápido: creación de una base de conocimiento en QnA Maker mediante Python
 
 Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
 

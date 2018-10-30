@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Búsqueda de traducciones alternativas - Translator Text, Go'
+title: 'Guía de inicio rápido: Búsqueda de traducciones alternativas con Translator Text API en Go'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido buscará traducciones alternativas y ejemplos de términos en contexto mediante Translator Text API con Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0c4872aaf222110a0044095040db08d0180e37c4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128883"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649642"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Guía de inicio rápido: búsqueda de traducciones alternativas y usos con Go
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-go"></a>Guía de inicio rápido: Búsqueda de traducciones alternativas con la API REST Translator Text (Go)
 
 En esta guía de inicio rápido se buscan detalles de las posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante Translator Text API.
 

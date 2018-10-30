@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380138"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429599"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -61,7 +61,9 @@ El contenedor ahora está listo para compilarse y empaquetarse en una aplicació
 ## <a name="create-an-azure-sql-db"></a>Creación de una instancia de Azure SQL DB
 Cuando se ejecuta la aplicación de Fabrikam Fiber CallCenter en producción, los datos deben conservarse en una base de datos. Actualmente no hay ninguna forma de garantizar la persistencia de datos en un contenedor; por lo tanto, no se pueden almacenar datos de producción de SQL Server en un contenedor.
 
-Recomendamos [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Para configurar y ejecutar una base de datos de SQL Server en Azure, ejecute el script siguiente.  Modifique las variables del script según sea necesario. *clientIP* es la dirección IP del equipo de desarrollo.  Si está detrás de un firewall corporativo, la dirección IP del equipo de desarrollo puede no ser una dirección IP expuesta a Internet.  También puede establecer la regla del firewall del servidor para la base de datos SQL a través de [Azure Portal](https://portal.azure.com), que muestra la dirección IP de su equipo.
+Recomendamos [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Para configurar y ejecutar una base de datos de SQL Server en Azure, ejecute el script siguiente.  Modifique las variables del script según sea necesario. *clientIP* es la dirección IP del equipo de desarrollo.
+
+Si está detrás de un firewall corporativo, la dirección IP del equipo de desarrollo puede no ser una dirección IP expuesta a Internet. Para comprobar que la base de datos tiene la dirección IP correcta para la regla de firewall, vaya a [Azure Portal](https://portal.azure.com) y busque la base de datos en la sección de bases de datos SQL. Haga clic en su nombre y, a continuación, en la sección de información general, haga clic en "Establecer el firewall del servidor". La "dirección IP del cliente" es la dirección IP de la máquina de desarrollo. Asegúrese de que coincide con la dirección IP en la regla "AllowClient".
 
 ```powershell
 $subscriptionID="<subscription ID>"

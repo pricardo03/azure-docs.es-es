@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 96ed5c17501aeb195ee584ce6d41a84fc2118bac
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376659"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985716"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Análisis de vídeos con Azure Media Services 
 
@@ -33,9 +33,6 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > * Ejecución de la aplicación
 > * Examen de la salida
 > * Limpieza de recursos
-
-> [!Note]
-> Use Azure portal, como se describe en [Escalado de procesamiento de medios](../previous/media-services-scale-media-processing-overview.md) para establecer la cuenta de Media Services en 10 unidades reservadas de medios S3.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,6 +68,9 @@ Este ejemplo realiza las acciones siguientes:
 4. Envía el trabajo.
 5. Comprueba el estado del trabajo.
 6. Descarga los archivos resultantes de la ejecución del trabajo. 
+
+> [!NOTE]
+> Si usa los valores preestablecidos de un analizador de audio o de vídeo, utilice Azure Portal para establecer que su cuenta tenga 10 unidad reservada de multimedia S3. Para más información, consulte [Información general del escalado de procesamiento de medios](../previous/media-services-scale-media-processing-overview.md).
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Uso de las API de Media Services con SDK de .NET
 

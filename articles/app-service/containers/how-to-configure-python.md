@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901625"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406473"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configuración de una aplicación de Python para Azure App Service en Linux
 
@@ -74,10 +74,16 @@ Si el módulo de la aplicación principal está contenido en un archivo diferent
 
 ### <a name="custom-startup-command"></a>Comando de inicio personalizado
 
-Puede controlar el comportamiento de inicio del contenedor proporcionando un comando de inicio de Gunicorn personalizado. Por ejemplo, si tiene una aplicación de Flask cuyo módulo principal es *hello.py* y el objeto de aplicación de Flask se denomina `myapp`, el comando es como sigue:
+Puede controlar el comportamiento de inicio del contenedor proporcionando un comando de inicio de Gunicorn personalizado. Por ejemplo, si tiene una aplicación de Flask cuyo módulo principal es *hello.py* y el objeto de aplicación de Flask en ese archivo se denomina `myapp`, el comando es como sigue:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+Si el módulo principal está en una subcarpeta como, por ejemplo, `website` especifique esa carpeta con el argumento `--chdir`:
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 También puede agregar argumentos adicionales para Gunicorn al comando, como `--workers=4`. Para más información, consulte [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (Ejecución de Gunicorn) (docs.gunicorn.org).
@@ -105,9 +111,10 @@ Si el servicio de aplicación no encuentra un comando personalizado, una aplicac
 
 - **Ve la aplicación predeterminada después de implementar su propio código de aplicación.**  La aplicación predeterminada aparece porque no ha implementado realmente el código de la aplicación en App Service o porque este no pudo encontrar el código de la aplicación y ejecutó en su lugar la aplicación predeterminada.
   - Reinicie App Service, espere 15-20 segundos y vuelva a comprobar la aplicación.
-  - Use SSH o la consola de Kudu para conectarse directamente con App Service y compruebe que los archivos existen en *site/wwwroot*. Si no existen los archivos, revise el proceso de implementación y vuelva a implementar la aplicación.
+  - Asegúrese de que está utilizando App Service para Linux en lugar de una instancia basada en Windows. Desde la CLI de Azure, ejecute el comando `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, reemplazando `<resource_group_name>` y `<app_service_name>` en consecuencia. Debería ver `app,linux` como salida; en caso contrario, vuelva a crear la instancia de App Service y elija Linux.
+    - Use SSH o la consola de Kudu para conectarse directamente con App Service y compruebe que los archivos existen en *site/wwwroot*. Si no existen los archivos, revise el proceso de implementación y vuelva a implementar la aplicación.
   - Si existen los archivos, App Service no fue capaz de identificar el archivo de inicio específico. Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#custom-startup-command).
-
+  
 - **Ve el mensaje "Servicio no disponible" en el explorador.** El explorador ha superado el tiempo de espera mientras esperaba una respuesta de App Service, lo cual indica que App Service ha iniciado el servidor Gunicorn, pero los argumentos que especifica el código de la aplicación son incorrectos.
   - Actualice el explorador, especialmente si usa los planes de tarifa más bajos en su plan de App Service. Por ejemplo, la aplicación puede tardar más en iniciarse si usa niveles gratis, por ejemplo, y comienza a tener capacidad de respuesta después de actualizar el explorador.
   - Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#custom-startup-command).

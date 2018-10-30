@@ -17,14 +17,14 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4e0e28ff9ea14e42e1df7ce35bb90e8720a0d0b6
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 02b6823a46c94edb0ba28c7a2a8b9ae0efc44ae8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407304"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406099"
 ---
-# <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Creación de una canalización de CI/CD para el código existente con Azure DevOps Projects
+# <a name="tutorial--create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Tutorial: Creación de una canalización de CI/CD para el código existente con Azure DevOps Projects
 
 Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 
@@ -33,9 +33,9 @@ Podrá:
 > [!div class="checklist"]
 > * Crear un proyecto de Azure DevOps
 > * Configurar el acceso al repositorio de GitHub y elegir un marco de trabajo
-> * Configurar Azure DevOps Services y una suscripción de Azure 
+> * Configuración de Azure DevOps Services y una suscripción de Azure 
 > * Confirmar cambios en GitHub e implementarlos automáticamente en Azure
-> * Examinar la canalización de CI/CD de Azure DevOps Services
+> * Examen de la canalización de CI/CD de Azure DevOps Services
 > * Configurar la supervisión de Azure Application Insights
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -65,7 +65,7 @@ El proyecto de Azure DevOps crea una canalización de CI/CD en Azure DevOps Serv
 
 1. El marco de trabajo de la aplicación que eligió en los pasos anteriores, determina el tipo de destino de implementación del servicio de Azure disponible aquí.  Seleccione el **servicio de destino** de su elección.  Cuando termine, elija **Siguiente**.
 
-## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configurar Azure DevOps Services y una suscripción de Azure 
+## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configuración de Azure DevOps Services y una suscripción de Azure 
 
 1. Cree una **nueva** organización de Azure DevOps Services o elija una **existente**.  Elija un **nombre** para el proyecto de Azure DevOps.  Seleccione la **suscripción de Azure**, la **ubicación** y elija un **nombre** para la aplicación.  Cuando termine, elija **Listo**.
 
@@ -83,7 +83,7 @@ Ahora ya puede colaborar con un equipo en una aplicación de Java con un proceso
 2.  En unos instantes, se inicia una compilación en Azure DevOps Services.  Puede supervisar el estado de compilación con el panel del proyecto de Azure DevOps o en el explorador con la organización de Azure DevOps Services.
 3.  Una vez completada la compilación, **actualícela** en el explorador para comprobar que ve los cambios.
 
-## <a name="examine-the-azure-devops-services-cicd-pipeline"></a>Examinar la canalización de CI/CD de Azure DevOps Services
+## <a name="examine-the-azure-devops-services-cicd-pipeline"></a>Examen de la canalización de CI/CD de Azure DevOps Services
 
 El proyecto de Azure DevOps configuró automáticamente una canalización de CI/CD de Azure DevOps Services en la organización de Azure DevOps Services.  Explore y personalice la canalización según sea necesario.  Siga estos pasos para familiarizarse con la canalización de compilación de Azure DevOps Services y las canalizaciones de versión.
 
@@ -162,9 +162,9 @@ Cuando configuró el proceso de CI/CD en este tutorial, se creó automáticament
 > [!div class="checklist"]
 > * Crear un proyecto de Azure DevOps
 > * Configurar el acceso al repositorio de GitHub y elegir un marco de trabajo
-> * Configurar Azure DevOps Services y una suscripción de Azure 
+> * Configuración de Azure DevOps Services y una suscripción de Azure 
 > * Confirmar cambios en GitHub e implementarlos automáticamente en Azure
-> * Examinar la canalización de CI/CD de Azure DevOps Services
+> * Examen de la canalización de CI/CD de Azure DevOps Services
 > * Configurar la supervisión de Azure Application Insights
 
 Para más información sobre la canalización de CI/CD de Azure DevOps Services, consulte este tutorial:

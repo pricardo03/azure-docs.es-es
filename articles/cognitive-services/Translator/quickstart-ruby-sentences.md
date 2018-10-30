@@ -1,23 +1,23 @@
 ---
-title: 'Inicio rápido: Obtener longitudes de oración - Translator Text, Ruby'
+title: 'Guía de inicio rápido: obtención de las longitudes de frase (Ruby): Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API con Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: a39982555b281cfe0537a0033c9a67a7f5a1fe63
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 18ef4e20c28b783738d2be929e063e6dada412d4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122576"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644715"
 ---
-# <a name="quickstart-get-sentence-lengths-with-ruby"></a>Guía de inicio rápido: determinación de la longitud de las oraciones con Ruby
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Guía de inicio rápido: obtención de las longitudes de frase con Translator Text REST API (Ruby)
 
 En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API.
 

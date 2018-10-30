@@ -4,15 +4,15 @@ description: Describe cómo detectar y evaluar VM de VMware locales para la migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 10/24/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161886"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025895"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -57,7 +57,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Busque **Azure Migrate** y seleccione el servicio **Azure Migrate** en los resultados de búsqueda. A continuación, haga clic en **Crear**.
 3. Especifique un nombre de proyecto y la suscripción de Azure para el proyecto.
 4. Cree un nuevo grupo de recursos.
-5. Especifique la ubicación geográfica en la que desea crear el proyecto y haga clic en **Crear**. Los proyectos de Azure Migrate solo se pueden crear en la región geográfica de Estados Unidos. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales.
+5. Especifique la ubicación geográfica en la que desea crear el proyecto y haga clic en **Crear**. Los proyectos de Azure Migrate solo se pueden crear en la geografía de Estados Unidos. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales.
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -69,12 +69,18 @@ Azure Migrate crea una VM local conocida como el dispositivo de recopilador. Est
 1. En el proyecto de Azure Migrate, haga clic en **Introducción** > **Detectar y evaluar** > **Detectar máquinas**.
 2. En **Detectar máquinas**, hay dos opciones disponibles para el dispositivo. Haga clic en **Descargar** para descargar el dispositivo adecuado según sus preferencias.
 
-    a. **Detección de una sola vez:** el dispositivo para este modelo se comunica con vCenter Server para recopilar metadatos sobre las máquinas virtuales. Para la recopilación de datos de rendimiento de las máquinas virtuales, se basa en los datos de rendimiento históricos almacenados en vCenter Server y recopila el historial de rendimiento del último mes. En este modelo, Azure Migrate recopila el valor promedio de contador (a diferencia del valor máximo) para cada métrica, [Más información] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como se trata de una detección de una sola vez, no se reflejan los cambios en el entorno local una vez completada la detección. Si quiere que los cambios se reflejen, tendrá que realizar una nueva detección del mismo entorno para el mismo proyecto.
+    a. **Detección de una sola vez:** el dispositivo para este modelo se comunica con vCenter Server para recopilar metadatos sobre las máquinas virtuales. Para la recopilación de datos de rendimiento de las máquinas virtuales, se basa en los datos de rendimiento históricos almacenados en vCenter Server y recopila el historial de rendimiento del último mes. En este modelo, Azure Migrate recopila el valor promedio de contador (a diferencia del valor máximo) para cada métrica, [Más información](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como se trata de una detección de una sola vez, no se reflejan los cambios en el entorno local una vez completada la detección. Si quiere que los cambios se reflejen, tendrá que realizar una nueva detección del mismo entorno para el mismo proyecto.
 
     b. **Detección continua:** el dispositivo para este modelo genera perfiles continuamente del entorno local con el fin de recopilar datos de uso en tiempo real para cada máquina virtual. En este modelo, se recopilan contadores de número máximo de cada métrica (uso de la CPU, uso de memoria etc.). Este modelo no depende de la configuración de las estadísticas de vCenter Server para la recopilación de datos de rendimiento. Puede detener la generación de perfiles continua en cualquier momento desde el dispositivo.
 
+    Tenga en cuenta que el dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de máquina virtual, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
+
+    1. Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarlo de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
+
+    2. Eliminación de máquinas virtuales: debido a la forma en que está diseñado el dispositivo, la eliminación de las máquinas virtuales no se refleja incluso si se detiene e inicia la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede omitir simplemente la máquina virtual en el portal al eliminarla de su grupo y calcular de nuevo la valoración.
+
     > [!NOTE]
-    > La función de detección continua está en versión preliminar.
+    > La función de detección continua está en versión preliminar. Se recomienda utilizar este método ya que recopila datos pormenorizados de rendimiento y da como resultado un tamaño correcto y preciso.
 
 3. En **Copiar las credenciales del proyecto**, copie la clave y el identificador del proyecto. Los necesitará cuando configure el recopilador.
 
@@ -91,6 +97,14 @@ Compruebe que el archivo .OVA es seguro, antes de implementarlo.
 3. El código hash generado debe coincidir con esta configuración.
 
 #### <a name="one-time-discovery"></a>Detección de una sola vez
+
+  Para la versión 1.0.9.15 de OVA
+
+  **Algoritmo** | **Valor del código hash**
+  --- | ---
+  MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+  SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+  SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
   Para la versión 1.0.9.14 de OVA
 
@@ -174,7 +188,7 @@ Importe el archivo descargado en el servidor vCenter Server.
     - En **Ámbito del grupo**, seleccione un ámbito para la detección de VM. El recopilador solo puede detectar VM dentro del ámbito especificado. El ámbito se puede establecer en una carpeta, centro de datos o clúster específico. No debe contener más de 1500 máquinas virtuales. [Obtener más información](how-to-scale-assessment.md) acerca de cómo puede detectar un entorno mayor.
 
 7. En **Specify migration project** (Especificar proyecto de migración), especifique la clave y el identificador de proyecto de Azure Migrate que copió del portal. Si no los copió, abra Azure Portal desde la VM de recopilador. En la página **Introducción** del proyecto, haga clic en **Detectar máquinas** y copie los valores.  
-8. En **Ver el progreso de la recopilación**, supervise el estado de la detección. Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre qué datos reúne Azure Migrate Collector.
+8. En **Ver el progreso de la recopilación**, supervise el estado de la detección. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre qué datos reúne Azure Migrate Collector.
 
 > [!NOTE]
 > El recopilador solo admite "Inglés (Estados Unidos)" como el idioma del sistema operativo y el idioma de la interfaz del recopilador.
@@ -184,7 +198,7 @@ Importe el archivo descargado en el servidor vCenter Server.
 
 ### <a name="verify-vms-in-the-portal"></a>Comprobación de VM en el portal
 
-Para la detección de una sola vez, la hora de detección depende de cuántas máquinas virtuales desea detectar. Normalmente, para 100 máquinas virtuales, cuando el recopilador finaliza la ejecución, se necesita aproximadamente una hora para completar la recopilación de los datos de configuración y rendimiento. Puede crear las evaluaciones (tanto las basadas en rendimiento como las locales) inmediatamente después de que finalice la detección.
+Para la detección de una sola vez, el tiempo de detección depende de cuántas máquinas virtuales se están detectando. Normalmente, para 100 máquinas virtuales, cuando el recopilador finaliza la ejecución, se necesita aproximadamente una hora para completar la recopilación de los datos de configuración y rendimiento. Puede crear las evaluaciones (tanto las basadas en rendimiento como las locales) inmediatamente después de que finalice la detección.
 
 Para la detección continua (en versión preliminar), el recopilador generará perfiles del entorno local de forma continuada y seguirá enviando los datos de rendimiento en intervalos de una hora. Puede revisar las máquinas en el portal una hora después de que se inicie la detección. Se recomienda encarecidamente esperar al menos un día antes de crear evaluaciones basadas en el rendimiento para las máquinas virtuales.
 
@@ -265,7 +279,7 @@ Debido a uno de los siguientes motivos, puede que las valoraciones no tengan tod
 
 **Detección continua**
 
-- No generó un perfil de su entorno durante el tiempo que está creando la evaluación. Por ejemplo, si está creando la evaluación con la duración de rendimiento establecida en 1 día, debe esperar al menos un día después de comenzar la detección para que se recopilen todos los puntos de datos.
+- No generó un perfil de su entorno durante el tiempo que está creando la evaluación. Por ejemplo, si está creando la evaluación con la duración de rendimiento establecida en 1 día, debe esperar al menos un día después de empezar la detección para que se recopilen todos los puntos de datos.
 
 **Motivos comunes**  
 
@@ -273,7 +287,7 @@ Debido a uno de los siguientes motivos, puede que las valoraciones no tengan tod
 - Algunas máquinas virtuales se crearon en algún momento del período durante el cual se calcula la valoración. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En tales casos, el historial de rendimiento de las nuevas máquinas virtuales no permanecerá durante toda la duración.
 
 > [!NOTE]
-> Si la clasificación de confianza de cualquier valoración es inferior a 4 estrellas, para el modelo de detección de una sola vez, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que desee considerar para la valoración (un día, una semana o un mes) y, a continuación, realice la detección y la valoración. Para el modelo de detección continua, espere al menos un día para que el dispositivo genere el perfil del entorno y luego *recalcule* las evaluaciones. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
+> Si la clasificación de confianza de cualquier valoración es inferior a 4 estrellas, para el modelo de detección de una sola vez, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que quiera considerar para la valoración (un día, una semana o un mes) y, después, realice la detección y la valoración. Para el modelo de detección continua, espere al menos un día para que el dispositivo genere el perfil del entorno y luego *recalcule* las evaluaciones. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

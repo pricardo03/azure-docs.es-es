@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen - Face API, Java'
+title: 'Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Java'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se detectan caras de una imagen mediante Face API con Java.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 42a8b13b87623b92ee0fe92db4e6a0caff5c3a1b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df9490a3ee2af115b48dafd323e1afdec24b392d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339122"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956228"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-java"></a>Guía de inicio rápido: Detección de caras en una imagen con Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
 En esta guía de inicio rápido se detectan los rostros de personas en una imagen mediante Face API.
 

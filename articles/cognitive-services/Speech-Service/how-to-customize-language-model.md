@@ -1,19 +1,21 @@
 ---
-title: 'Creación de un modelo de lenguaje con Speech Service: Microsoft Cognitive Services'
-description: Aprenda a crear un modelo de lenguaje con Speech Service en Microsoft Cognitive Services.
+title: 'Tutorial: Creación de un modelo de lenguaje con Speech Service'
+titlesuffix: Azure Cognitive Services
+description: Aprenda a crear un modelo de lenguaje con Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364122"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469000"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Creación de un modelo de lenguaje personalizado
 

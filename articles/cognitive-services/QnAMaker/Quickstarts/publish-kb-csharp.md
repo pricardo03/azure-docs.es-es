@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Publicación de la base de conocimiento: REST y C# en QnA Maker'
+title: 'Guía de inicio rápido: publicación de la base de conocimiento con REST y C# en QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Esta guía de inicio rápido le explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente de la base de conocimiento probada en un índice de Azure Search dedicado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
+description: En esta guía de inicio rápido basada en REST se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search especializado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: f2aa73dacdffaebcddbf91b2f5c7c3db4a331431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ce027abb75423d0174a7175c3bbafe5c0fb3e157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883591"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646269"
 ---
-# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-c"></a>Guía de inicio rápido: Publicación de una base de conocimiento de QnA Maker en C#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Guía de inicio rápido: publicación de una base de conocimiento en QnA Maker con C#
 
 Esta guía de inicio rápido describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 

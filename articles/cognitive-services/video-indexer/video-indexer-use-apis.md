@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: uso de Video Indexer API'
+title: Uso de la API Video Indexer
 titlesuffix: Azure Cognitive Services
 description: En este artículo se muestra cómo empezar a usar Video Indexer API.
 services: cognitive services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 10/20/2018
 ms.author: juliako
-ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 401811ec8803f3ede5a829dc96edc1e7f15e5ee0
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985571"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637754"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: uso de Video Indexer API
+# <a name="use-the-video-indexer-api"></a>Uso de la API Video Indexer
 
 > [!Note]
 > Video Indexer API V1 ha quedado en desuso el 1 de agosto de 2018. A partir de esa fecha, debe usar Video Indexer API V2. <br/>Para desarrollar con Video Indexer API V2, consulte las instrucciones que encontrará [aquí](https://api-portal.videoindexer.ai/). 
@@ -51,6 +51,9 @@ En este artículo se muestra cómo los desarrolladores pueden sacar partido de [
     Después de suscribirse, podrá ver la suscripción y las claves principal y secundaria. Debe proteger las claves. Las claves solo debe usarlas el código del servidor. No deben estar disponibles en el lado cliente (.js, .html, etc.).
 
     ![Suscripción](./media/video-indexer-use-apis/video-indexer-api03.png)
+
+> [!TIP]
+> El usuario de Video Indexer puede usar una clave de suscripción única para conectarse a varias cuentas de Video Indexer. A continuación, puede vincular estas cuentas de Video Indexer a diferentes cuentas de Media Services.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Obtención del token de acceso mediante Authorization API
 

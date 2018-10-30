@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 442e8d425e60566df5ce919e3463235ef1d6e4f0
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 334b7aa3a3a174055c3741f20a4817063efd21f6
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078103"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456650"
 ---
 # <a name="about-site-recovery"></a>Acerca de Site Recovery
 
@@ -29,7 +29,7 @@ Azure Recovery Services colabora con su estrategia de BCDR:
 Site Recovery puede administrar la replicación de:
 
 - Máquinas virtuales de Azure que se replican entre regiones de Azure.
-- Máquinas virtuales locales y servidores físicos que se replican en Azure o en un sitio secundario.
+- Máquinas virtuales locales, máquinas virtuales de Azure Stack y servidores físicos.
 
 
 ## <a name="what-does-site-recovery-provide"></a>¿Qué ofrece Site Recovery?
@@ -56,10 +56,9 @@ Site Recovery puede administrar la replicación de:
 
 **Compatible** | **Detalles**
 --- | ---
-**Escenarios de replicación** | Replique las máquinas virtuales de Azure de una región de Azure a otra.<br/><br/>  Replique las máquinas virtuales VMware, máquinas virtuales de Hyper-V y servidores físicos (Windows y Linux) locales en Azure.<br/><br/> Replique las máquinas virtuales locales de VMware, de Hyper-V administradas por System Center VMM y los servidores físicos en un sitio secundario.
+**Escenarios de replicación** | Replique las máquinas virtuales de Azure de una región de Azure a otra.<br/><br/>  Replique las máquinas virtuales Hyper-V, los servidores físicos (Windows y Linux), las máquinas virtuales Azure4 Stack y las máquinas virtuales VMware locales en Azure.<br/><br/> Replique las máquinas virtuales locales de VMware, de Hyper-V administradas por System Center VMM y los servidores físicos en un sitio secundario.
 **Regiones** | Revise las [regiones admitidas](https://azure.microsoft.com/regions/services/) para Site Recovery. |
 **Máquinas replicadas** | Revise los requisitos de la replicación de [máquinas virtuales de Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions), [máquinas virtuales y servidores físicos de VMware locales](vmware-physical-azure-support-matrix.md#replicated-machines) y los [máquinas virtuales de Hyper-V locales](hyper-v-azure-support-matrix.md#replicated-vms).
-**Servidores o hosts de VMware** | Las máquinas virtuales de VMware que desea replicar se pueden ubicar en [servidores de virtualización y host compatibles](vmware-physical-azure-support-matrix.md).
 **Cargas de trabajo** | Puede replicar cualquier carga de trabajo que se ejecute en una máquina que se admita para la replicación. Además, el equipo de Site Recovery ha realizado pruebas específicas para [diversas aplicaciones](site-recovery-workload.md#workload-summary).
 
 

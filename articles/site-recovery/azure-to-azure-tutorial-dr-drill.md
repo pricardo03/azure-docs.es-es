@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066996"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458061"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -26,12 +26,13 @@ En este tutorial se muestra cómo ejecutar una exploración de recuperación ant
 > * Comprobar los requisitos previos
 > * Ejecutar una conmutación por error de prueba en una sola máquina virtual
 
-
+> [!NOTE]
+> Este tutorial está diseñado para guiar al usuario en los pasos para habilitar una exploración DR con los pasos mínimos; en caso de que desee obtener más información acerca de los diversos aspectos asociados con la realización de una exploración DR, incluidas las consideraciones de red, la automatización o la solución de problemas, consulte los documentos de procedimientos para las máquinas virtuales de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Antes de ejecutar una conmutación por error de prueba, se recomienda que compruebe las propiedades de la máquina virtual para asegurarse de que todo se ajusta a lo esperado.  Acceda a las propiedades de la máquina virtual en **Elementos replicados**. En la hoja **Información esencial** se detalla la configuración y el estado de las máquinas.
-- Se recomienda usar una red de máquina virtual de Azure independiente en la conmutación por error de prueba en lugar de la red predeterminada que se configuró cuando habilitó la replicación.
+- **Se recomienda usar una red de máquina virtual de Azure independiente en la conmutación por error de prueba** en lugar de la red predeterminada que se configuró cuando habilitó la replicación.
 
 
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba

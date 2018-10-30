@@ -1,0 +1,2 @@
+> [!TIP]
+> Cuando realiza una migración de bases de datos a Azure mediante Azure Database Migration Service, puede realizarla *sin conexión* o *en línea*. Con una migración sin conexión, el tiempo de inactividad de la aplicación se inicia cuando comienza la migración. Con una migración en línea, el tiempo de inactividad se limita al momento de la migración al final del proceso. Se recomienda que pruebe una migración sin conexión para determinar si el tiempo de inactividad es aceptable; si no es así, realice una migración en línea.

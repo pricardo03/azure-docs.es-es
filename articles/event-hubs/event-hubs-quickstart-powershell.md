@@ -11,23 +11,24 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 305776db1d3e0bacc266e514e0a59fe6b3fbd4b4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 25c64b3ac2d051aac5998d23f07e149a1dd57bc9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388534"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456242"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Guía de inicio rápido: Creación de un centro de eventos mediante Azure PowerShell
 
-Azure Event Hubs es una plataforma de streaming de datos y servicio de ingesta de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. En esta guía de inicio rápido se muestra cómo crear un centro de eventos mediante Azure PowerShell y, a continuación, enviar a un centro de eventos y recibir del mismo utilizando el SDK de .NET Standard.
+Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Información general detallada de Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
-Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
+En esta guía de inicio rápido se crea un centro de eventos mediante Azure PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos:
 
+- Suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
 - [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](http://www.visualstudio.com/vs) o posterior.
 - [SDK de .NET Standard](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
@@ -35,9 +36,7 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 
 Si está usando PowerShell localmente, tiene que ejecutar la versión más reciente de PowerShell para completar esta guía de inicio rápido. Si necesita instalarlo o actualizarlo, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-## <a name="provision-resources"></a>Aprovisionamiento de recursos
-
-### <a name="create-a-resource-group"></a>Creación de un grupo de recursos
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Un grupo de recursos es una recopilación lógica de recursos de Azure, para crear un centro de eventos necesita un grupo de recursos. 
 
@@ -47,7 +46,7 @@ En el siguiente ejemplo, se crea un grupo de recursos en la región Este de EE. 
 New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 ```
 
-### <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
 Una vez que se crea el grupo de recursos, cree un espacio de nombres de Event Hubs dentro de ese grupo de recursos. Un espacio de nombres de Event Hubs proporciona un nombre de dominio completo y exclusivo en el que puede crear el centro de eventos. Reemplace `namespace_name` por un nombre único para el espacio de nombres:
 
@@ -55,7 +54,7 @@ Una vez que se crea el grupo de recursos, cree un espacio de nombres de Event Hu
 New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
-### <a name="create-an-event-hub"></a>Creación de un centro de eventos
+## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 Ahora que ya tiene un espacio de nombres de Event Hubs, cree un centro de eventos dentro de ese espacio de nombres:
 
@@ -63,98 +62,14 @@ Ahora que ya tiene un espacio de nombres de Event Hubs, cree un centro de evento
 New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
 ```
 
-### <a name="create-a-storage-account-for-event-processor-host"></a>Creación de una cuenta de almacenamiento para el host de procesador de eventos
-
-El host de procesador de eventos simplifica la recepción de eventos desde Event Hubs mediante la administración de puntos de control y recepciones paralelas. Para los puntos de control, el host de procesador de eventos requiere una cuenta de almacenamiento. Para crear una cuenta de almacenamiento y obtener sus claves, ejecute los siguientes comandos:
-
-```azurepowershell-interactive
-# Create a standard general purpose storage account 
-New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storage_account_name -Location eastus -SkuName Standard_LRS 
-e
-# Retrieve the storage account key for accessing it
-Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name storage_account_name
-```
-
-### <a name="get-the-connection-string"></a>Obtención de la cadena de conexión
-
-Una cadena de conexión es necesaria para conectarse al centro de eventos y procesar eventos. Para obtener la cadena de conexión, ejecute:
-
-```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Name RootManageSharedAccessKey
-```
-
-## <a name="stream-into-event-hubs"></a>Transmisión a Event Hubs
-
-Ahora puede iniciar el streaming a las instancias de Event Hubs. Los ejemplos se pueden descargar o clonar de Git desde el [repositorio de Event Hubs](https://github.com/Azure/azure-event-hubs)
-
-### <a name="ingest-events"></a>Ingesta de eventos
-
-Para iniciar el streaming de eventos, descargue [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) desde GitHub o clone el [repositorio de GitHub de Event Hubs](https://github.com/Azure/azure-event-hubs) ejecutando el comando siguiente:
-
-```bash
-git clone https://github.com/Azure/azure-event-hubs.git
-```
-
-Vaya a la carpeta \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender y cargue el archivo SampleSender.sln en Visual Studio.
-
-A continuación, agregue el paquete NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) al proyecto.
-
-En el archivo Program.cs, reemplace los siguientes marcadores de posición con el nombre del centro de eventos y la cadena de conexión:
-
-```C#
-private const string EhConnectionString = "Event Hubs connection string";
-private const string EhEntityPath = "Event Hub name";
-
-```
-
-Ahora compile y ejecute el ejemplo. Puede ver los eventos que ingieren en el centro de eventos:
-
-![][3]
-
-### <a name="receive-and-process-events"></a>Recepción y procesamiento de eventos
-
-Descargue ahora el ejemplo de receptor del host de procesador de eventos, que recibe los mensajes que acaba de enviar. Descargue [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) desde GitHub o clone el [repositorio de GitHub de Event Hubs](https://github.com/Azure/azure-event-hubs) ejecutando el comando siguiente:
-
-```bash
-git clone https://github.com/Azure/azure-event-hubs.git
-```
-
-Vaya a la carpeta \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver y cargue el archivo de solución SampleEphReceiver.sln en Visual Studio.
-
-A continuación agregue los paquetes NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) y [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) al proyecto.
-
-En el archivo Program.cs, reemplace las siguientes constantes con sus valores correspondientes:
-
-```C#
-private const string EventHubConnectionString = "Event Hubs connection string";
-private const string EventHubName = "Event Hub name";
-private const string StorageContainerName = "Storage account container name";
-private const string StorageAccountName = "Storage account name";
-private const string StorageAccountKey = "Storage account key";
-```
-
-Ahora compile y ejecute el ejemplo. Puede ver los eventos que se reciben en la aplicación de ejemplo:
-
-![][4]
-
-En Azure Portal, puede ver la velocidad a la que se están procesando los eventos para un determinado espacio de nombres de Event Hubs como se muestra:
-
-![][5]
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando haya completado esta guía de inicio rápido, puede eliminar el grupo de recursos y la cuenta de almacenamiento de espacio de nombres, así como el centro de eventos dentro de él. Sustituya `myResourceGroup` por el nombre del grupo de recursos que ha creado. 
-
-```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
+Felicidades. Ha usado Azure PowerShell para crear un espacio de nombres de Event Hubs y un centro de eventos dentro de ese espacio de nombres. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado un espacio de nombres de Event Hubs y otros recursos necesarios para enviar y recibir eventos de su centro de eventos. Para más información, continúe con el siguiente tutorial:
+En este artículo, ha creado un espacio de nombres de Event Hubs y ha usado aplicaciones de ejemplo para enviar y recibir eventos de el centro de eventos. Para obtener instrucciones paso a paso para enviar a un centro de eventos o recibirlos, consulte los siguientes tutoriales: 
 
-> [!div class="nextstepaction"]
-> [Visualización de anomalías de datos en flujos de datos de Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
+- **Envío de eventos a un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Recepción de eventos desde un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [cree una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

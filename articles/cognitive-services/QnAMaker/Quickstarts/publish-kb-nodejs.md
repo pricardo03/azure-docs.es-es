@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: c70b90a6e465c72193f63afd7ab9106579e2c634
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e1e349f4ddbebdd9df38d7f0babf50d726241d4f
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886617"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648741"
 ---
-# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-nodejs"></a>Guía de inicio rápido: Publicación de una base de conocimiento de QnA Maker en Node.js
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guía de inicio rápido: Publicación de una base de conocimiento en QnA Maker mediante Node.js
 
 Esta guía de inicio rápido describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 

@@ -1,22 +1,23 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz en Objective-C en iOS con el SDK de Voz de Cognitive Services'
-titleSuffix: Microsoft Cognitive Services
-description: Obtenga información sobre cómo reconocer la voz en Objective-C en iOS con el SDK de Voz de Cognitive Services
+title: 'Inicio rápido: Reconocimiento de voz en Objective-C en iOS mediante el SDK de Speech Service'
+titleSuffix: Azure Cognitive Services
+description: Aprenda a reconocer la voz en Objective-C en iOS mediante el SDK de Speech Service
 services: cognitive-services
 author: chlandsi
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 10/12/2018
 ms.author: chlandsi
-ms.openlocfilehash: 3945bf0ae6edc0af0db90efca6811aeb22494592
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 8d6ecf251bb816eb0f41352af7c9d086c4aad751
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883439"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469782"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C en iOS con el SDK de Voz de Cognitive Services
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C en iOS mediante el SDK de Speech Service
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,11 +32,10 @@ En este artículo, obtendrá información sobre cómo crear una aplicación iOS 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versión actual del SDK de Speech de Cognitive Services es `1.0.0`.
+La versión actual del SDK de Speech de Cognitive Services es `1.0.1`.
 
 En la actualidad, el SDK de Voz de Cognitive Services para iOS y Mac se distribuye como marco de Cocoa.
 Se puede descargar desde https://aka.ms/csspeech/iosbinary. Descargue el archivo en el directorio principal.
-
 
 ## <a name="create-an-xcode-project"></a>Creación de un proyecto de Xcode 
 
@@ -60,10 +60,9 @@ En los cuadros de diálogo que aparecen después, realice las selecciones siguie
         1. Agregue el directorio `$(SRCROOT)/..` a *Rutas de búsqueda de marco* bajo el encabezado **Rutas de búsqueda**.
         ![Opción Ruta de búsqueda de marco](media/sdk/qs-objectivec-framework-search-paths.png)
 
-
 ## <a name="set-up-the-ui"></a>Configuración de la interfaz de usuario
 
-La aplicación de ejemplo tendrá una interfaz de usuario muy sencilla: un botón para iniciar el procesamiento del archivo y una etiqueta de texto para mostrar el resultado.
+La aplicación de ejemplo tendrá una interfaz de usuario muy simple: dos botones para iniciar el reconocimiento de voz desde un archivo o desde la entrada del micrófono y una etiqueta de texto para mostrar el resultado.
 La interfaz de usuario se configura en la parte `Main.storyboard` del proyecto.
 Para abrir la vista XML del guion gráfico, haga clic con el botón derecho en la entrada `Main.storyboard` del árbol del proyecto y seleccione **Abrir como...** > **Código fuente**.
 Reemplace el código XML generado automáticamente por esto:
@@ -77,23 +76,25 @@ Haga clic en **Finalizar** en el siguiente cuadro de diálogo sin cambiar la con
 1. Reemplace el contenido del archivo `ViewController.m` generado automáticamente por lo siguiente:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
-1. Agregue la solicitud de acceso de micrófono. Haga clic con el botón derecho en la entrada info.plist del árbol del proyecto y seleccione **Abrir como...** > **Código fuente**. Agregue las líneas siguientes en la sección `<dict>` y, después, guarde el archivo.
-    ```xml
-    <key>NSMicrophoneUsageDescription</key>
-
-    <string>Need microphone access for speech recognition from microphone.</string>
-    ```
 1. Reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
-
+1. Agregue la solicitud de acceso de micrófono. Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyecto y seleccione **Abrir como...** > **Código fuente**. Agregue las líneas siguientes en la sección `<dict>` y, después, guarde el archivo.
+    ```xml
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Need microphone access for speech recognition from microphone.</string>
+    ```
 
 ## <a name="building-and-running-the-sample"></a>Compilación y ejecución del ejemplo
 
 1. Haga visible la salida de depuración (**Ver** > **Área de depuración** > **Activar consola**).
-1. Para compilar y ejecutar el código de ejemplo en el simulador de iOS seleccione **Producto** -> **Ejecutar** en el menú o haga clic en el botón **Reproducir**. Para que se ejecute en un dispositivo iOS, conecte el dispositivo al equipo desarrollo y seleccione el dispositivo como destino de ejecución. En la actualidad, el SDK de Voz solo admite la plataforma iOS de 64 bits.
-1. Tras hacer clic en el botón "Recognize!" (Reconocer) de la aplicación, debería ver el contenido del archivo de audio "What's the weather like?" (¿Qué tiempo hace?) en la parte inferior de la pantalla.
+1. Elija el simulador de iOS o un dispositivo iOS conectado al equipo de desarrollo como destino para la aplicación desde la lista en el menú **Producto** -> **Destino**.
+1. Para compilar y ejecutar el código de ejemplo en el simulador de iOS seleccione **Producto** -> **Ejecutar** en el menú o haga clic en el botón **Reproducir**.
+En la actualidad, el SDK de Voz solo admite las plataformas iOS de 64 bits.
+1. Tras hacer clic en el botón "Recognize (File)" (Reconocer [Archivo]) de la aplicación, debería ver el contenido del archivo de audio "What's the weather like?" (¿Qué tiempo hace?). en la parte inferior de la pantalla.
 
  ![Aplicación de iOS simulada](media/sdk/qs-objectivec-simulated-app.png)
+
+1. Después haga clic en el botón "Recognize (Microphone)" (Reconocer [Micrófono]) de la aplicación y diga algunas palabras; debería ver el texto que ha dicho en la parte inferior de la pantalla.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Busque este ejemplo en la carpeta `quickstart/objectivec-ios`.
@@ -102,3 +103,4 @@ Busque este ejemplo en la carpeta `quickstart/objectivec-ios`.
 
 > [!div class="nextstepaction"]
 > [Obtener nuestros ejemplos](speech-sdk.md#get-the-samples)
+

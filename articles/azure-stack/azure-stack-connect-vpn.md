@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: dcbe222d8dd3d3c658e5778fdc4bc1cc01b5c12d
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078892"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024468"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Conectar Azure Stack a Azure mediante VPN
 
@@ -37,15 +37,13 @@ Para completar esta configuración de conexión, asegúrese de tener los element
 
 ### <a name="vpn-connection-diagram"></a>Diagrama de conexión de VPN
 
-El diagrama siguiente muestra el aspecto que debería tener la configuración de la conexión cuando haya terminado:
+La ilustración siguiente muestra el aspecto que debería tener la configuración de la conexión cuando haya terminado:
 
 ![Configuración de una conexión VPN de sitio a sitio](media/azure-stack-connect-vpn/image2.png)
 
 ### <a name="network-configuration-example-values"></a>Valores de ejemplo de configuración de la red
 
-La tabla de ejemplos de configuración de la red muestra los valores que se usan para los ejemplos de este artículo. Puede usar estos valores o hacer referencia a ellos para comprender mejor los ejemplos de este artículo.
-
-**Ejemplos de configuración de una red**
+La tabla de ejemplos de configuración de la red muestra los valores que se usan para los ejemplos de este artículo. Puede usar estos valores o hacer referencia a ellos para comprender mejor los ejemplos de este artículo:
 
 |   |Azure Stack|Azure|
 |---------|---------|---------|
@@ -57,17 +55,17 @@ La tabla de ejemplos de configuración de la red muestra los valores que se usan
 
 ## <a name="create-the-network-resources-in-azure"></a>Creación de recursos de red en Azure
 
-En primer lugar, cree los recursos de red para Azure. Las instrucciones siguientes muestran cómo crear los recursos mediante [Azure Portal](http://portal.azure.com/).
+En primer lugar, cree los recursos de red para Azure. Las instrucciones siguientes muestran cómo crear los recursos mediante [Azure Portal](https://portal.azure.com/).
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>Creación de la red virtual y la subred de la máquina virtual (VM)
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com/) con su cuenta de Azure.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de Azure.
 2. En el portal de usuario, seleccione **+ Crear un recurso**.
 3. Vaya a **Marketplace** y, a continuación, seleccione **Redes**.
 4. Seleccione **Red virtual**.
 5. Use la información de la tabla de configuración de red para identificar los valores de los campos **Nombre**, **Espacio de direcciones**, **Nombre de subred** e **Intervalo de direcciones de subred** de Azure.
 6. Para **Grupo de recursos**, cree un nuevo grupo de recursos o, si ya tiene uno, seleccione **Usar existente**.
-7. Seleccione la **Ubicación** de su VNet.  Si utiliza los valores del ejemplo, seleccione **Este de EE. UU.** o utilice otra ubicación si lo prefiere.
+7. Seleccione la **Ubicación** de su VNet.  Si utiliza los valores del ejemplo, seleccione **Este de EE. UU.** o utilice otra ubicación.
 8. Seleccione **Anclar al panel**.
 9. Seleccione **Crear**.
 
@@ -79,7 +77,7 @@ En primer lugar, cree los recursos de red para Azure. Las instrucciones siguient
 4. El nombre de la subred se establece como **GatewaySubnet** de forma predeterminada.
 
    >[!IMPORTANT]
-   >Las subredes de la puerta de enlace son especiales y **deben** tener este nombre específico para funcionar correctamente.
+   >Las subredes de puerta de enlace son especiales y tienen que tener este nombre específico para funcionar correctamente.
 
 5. En el campo **Intervalo de direcciones**, compruebe que la dirección sea **10.100.1.0/24**.
 6. Seleccione **Aceptar** para crear la subred de puerta de enlace.
@@ -116,10 +114,10 @@ En primer lugar, cree los recursos de red para Azure. Las instrucciones siguient
 6. En la sección **Configuración**, seleccione **Puerta de enlace de red virtual** y, a continuación, seleccione **Azure-GW**.
 7. Seleccione **Puerta de enlace de red local** y, a continuación, seleccione **Azs-GW**.
 8. En **Nombre de la conexión**, escriba **Azure-Azs**.
-9. En **Clave compartida (PSK)**, escriba **12345**. Seleccione **Aceptar**.
+9. En **Clave compartida (PSK)**, escriba **12345** y, después, seleccione **Aceptar**.
 
    >[!NOTE]
-   >Si usa otro valor diferente para la clave compartida, recuerde que *tiene que* coincidir con el valor de la clave compartida que creó en el otro extremo de la conexión.
+   >Si usa otro valor diferente para la clave compartida, recuerde que tiene que coincidir con el valor de la clave compartida que creó en el otro extremo de la conexión.
 
 10. Revise la sección **Resumen** y, a continuación, seleccione **Aceptar**.
 
@@ -131,10 +129,10 @@ Ahora, cree una máquina virtual en Azure y colóquela en la subred de máquina 
 2. Vaya a **Marketplace** y, a continuación, seleccione **Compute**.
 3. En la lista de imágenes de máquina virtual, seleccione la imagen **Windows Server 2016 Datacenter Oval**.
 4. En la sección **Conceptos básicos**, para **Nombre**, escriba **AzureVM**.
-5. Escriba un nombre de usuario y una contraseña válidos. Usará esta cuenta para iniciar sesión en la máquina virtual una vez creada.
+5. Escriba un nombre de usuario y una contraseña válidos. Use esta cuenta para iniciar sesión en la máquina virtual una vez creada.
 6. Proporcione una **Suscripción**, **Grupo de recursos** y **Ubicación** y, a continuación, seleccione **Aceptar**.
 7. En la sección **Tamaño**, seleccione un tamaño de máquina virtual para esta instancia y, a continuación, seleccione **Seleccionar**.
-8. En la sección **Configuración**, puede usar la configuración predeterminada. Antes de seleccionar Aceptar, confirme que:
+8. En la sección **Configuración**, puede usar la configuración predeterminada. Antes de seleccionar **Aceptar**, confirme que:
 
    * La red virtual **AzureVnet** está seleccionada.
    * La subred está establecida en **10.100.0.0/24**.
@@ -145,7 +143,7 @@ Ahora, cree una máquina virtual en Azure y colóquela en la subred de máquina 
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Creación de recursos de red en Azure Stack
 
-A continuación, cree los recursos de red en Azure Stack.
+Después, cree los recursos de red en Azure Stack.
 
 ### <a name="sign-in-as-a-user"></a>Inicio de sesión como usuario
 
@@ -156,7 +154,7 @@ Un administrador de servicios puede iniciar sesión como usuario para probar los
 1. Use una cuenta de usuario para iniciar sesión en el portal de usuario.
 2. En el portal de usuario, seleccione **+ Crear un recurso**.
 
-    ![Creación de una nueva red virtual](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![Creación de una nueva red virtual](media/azure-stack-connect-vpn/image3.png)
 
 3. Vaya a **Marketplace** y, a continuación, seleccione **Redes**.
 4. Seleccione **Red virtual**.
@@ -173,9 +171,9 @@ Un administrador de servicios puede iniciar sesión como usuario para probar los
 2. En la sección **Configuración**, seleccione **Subredes**.
 3. Seleccione **Subred de puerta de enlace** para agregar una subred de puerta de enlace a la red virtual.
 
-    ![Agregación de subred de puerta de enlace](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![Agregación de subred de puerta de enlace](media/azure-stack-connect-vpn/image4.png)
 
-4. El nombre de la subred se establece en **GatewaySubnet** de forma predeterminada. Las subredes de puerta de enlace son especiales. Para que funcione correctamente, deben utilizar el nombre *GatewaySubnet*.
+4. El nombre de la subred se establece en **GatewaySubnet** de forma predeterminada. Para que las subredes de puerta de enlace funcione correctamente, deben utilizar el nombre **GatewaySubnet**.
 5. En **Intervalo de direcciones**, compruebe que la dirección sea **10.1.1.0/24**.
 6. Seleccione **Aceptar** para crear la subred de puerta de enlace.
 
@@ -195,9 +193,9 @@ Un administrador de servicios puede iniciar sesión como usuario para probar los
 
 El concepto de una *puerta de enlace de red local* en Azure Stack es un algo diferente del de en una implementación de Azure.
 
-En una implementación de Azure, una puerta de enlace de red local representa un dispositivo físico local (en la ubicación del usuario) que se conecta a una puerta de enlace de red virtual en Azure. Pero en Azure Stack, ambos extremos de la conexión son puertas de enlace de red virtual.
+En una implementación de Azure, una puerta de enlace de red local representa un dispositivo físico local (en la ubicación del usuario) que se conecta a una puerta de enlace de red virtual en Azure. Sin embargo, en Azure Stack, ambos extremos de la conexión son puertas de enlace de red virtual.
 
-Una forma más genérica de ver esto de forma más genérica es que el recurso de la puerta de enlace de red local siempre indica la puerta de enlace remota en el otro extremo de la conexión.
+Una descripción más genérica es que el recurso de la puerta de enlace de red local siempre indica la puerta de enlace remota en el otro extremo de la conexión.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Creación del recurso de puerta de enlace de red local
 
@@ -206,9 +204,9 @@ Una forma más genérica de ver esto de forma más genérica es que el recurso d
 3. Vaya a **Marketplace** y, a continuación, seleccione **Redes**.
 4. En la lista de recursos, seleccione **Puerta de enlace de red local**.
 5. En **Nombre**, escriba **Azure-GW**.
-6. En **dirección IP**, escriba la dirección IP pública para la puerta de enlace de red virtual en Azure **Azure-GW-PiP**. Esta dirección aparece antes en la tabla de configuración de red.
+6. En **dirección IP**, escriba la dirección IP pública para la puerta de enlace de red virtual de Azure **Azure-GW-PiP**. Esta dirección aparece antes en la tabla de configuración de red.
 7. En **Espacio de direcciones**, para el espacio de direcciones de la red virtual de Azure que creó, escriba **10.100.0.0/24** y **10.100.1.0/24**.
-8. Compruebe que la **Suscripción**, **Grupo de recursos** y **Ubicación** son correctos y seleccione **Crear**.
+8. Compruebe que los valores de **Suscripción**, **Grupo de recursos** y **Ubicación** son correctos y seleccione **Crear**.
 
 ### <a name="create-the-connection"></a>Creación de la conexión
 
@@ -225,17 +223,17 @@ Una forma más genérica de ver esto de forma más genérica es que el recurso d
 
 ### <a name="create-a-virtual-machine-vm"></a>Creación de una máquina virtual (VM)
 
-Para comprobar la conexión VPN, es preciso crear dos máquinas virtuales, una en Azure y otra en Azure Stack. Después de crear estas máquinas virtuales, puede usarlas para enviar y recibir datos a través del túnel VPN.
+Para comprobar la conexión VPN, cree dos máquinas virtuales: una en Azure y otra en Azure Stack. Después de crear estas máquinas virtuales, puede usarlas para enviar y recibir datos a través del túnel VPN.
 
 1. En Azure Portal, seleccione **+ Crear un recurso**.
 2. Vaya a **Marketplace** y, a continuación, seleccione **Compute**.
 3. En la lista de imágenes de máquina virtual, seleccione la imagen **Windows Server 2016 Datacenter Oval**.
 4. En la sección **Conceptos básicos**, en **Nombre**, escriba **Azs-VM**.
-5. Escriba un nombre de usuario y una contraseña válidos. Usará esta cuenta para iniciar sesión en la máquina virtual una vez creada.
+5. Escriba un nombre de usuario y una contraseña válidos. Use esta cuenta para iniciar sesión en la máquina virtual una vez creada.
 6. Proporcione una **Suscripción**, **Grupo de recursos** y **Ubicación** y, a continuación, seleccione **Aceptar**.
 7. En la sección **Tamaño**, para esta instancia, seleccione un tamaño de máquina virtual y, a continuación, seleccione **Seleccionar**.
 8. En la sección **Configuración**, acepte los valores predeterminados. Asegúrese de que la red virtual **Azs-VNet** esté seleccionada. Compruebe que la subred esté establecida en **10.1.0.0/24**. Después seleccione **Aceptar**.
-9. En la sección **Resumen**, revise la configuración y luego seleccione **Aceptar**.
+9. En la sección **Resumen**, revise la configuración y luego seleccione *Aceptar**.
 
 ## <a name="test-the-connection"></a>Comprobación de la conexión
 
@@ -254,10 +252,10 @@ Después de que se establece la conexión de sitio a sitio, debe comprobar que p
 3. Encuentre la máquina **Azs-VM** que creó anteriormente en la lista de máquinas virtuales y selecciónela.
 4. En la sección de la máquina virtual, seleccione **Conectar** y, después, abra el archivo Azs-VM.rdp.
 
-     ![Botón Conectar](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![Botón Conectar](media/azure-stack-connect-vpn/image17.png)
 
 5. Inicie sesión con la cuenta que configuró al crear la máquina virtual.
-6. Abra una ventana de **Windows PowerShell** con privilegios elevados.
+6. Abra un símbolo del sistema de Windows PowerShell con privilegios elevados.
 7. Escriba **ipconfig/all**.
 8. En la salida, busque la **dirección IPv4** y, a continuación, guarde la dirección para su uso posterior. Esta es la dirección a la que hará ping desde Azure. En el entorno de ejemplo, la dirección es **10.1.0.4**, pero en su entorno puede ser diferente. Debe estar dentro de la subred **10.1.0.0/24** que se creó anteriormente.
 9. Para crear una regla de firewall que permita que la máquina virtual responda a los pings, ejecute el siguiente comando de PowerShell:
@@ -288,17 +286,17 @@ Después de que se establece la conexión de sitio a sitio, debe comprobar que p
 
 10. Desde la máquina virtual en Azure, haga ping a la máquina virtual en Azure Stack, a través del túnel. Para ello, haga ping a la DIP que registró de Azs-VM. En el entorno de ejemplo la dirección es **10.1.0.4**, pero asegúrese de hacer ping a la dirección que haya anotado en su laboratorio. Debe ver un resultado con un aspecto como la captura de pantalla siguiente:
 
-    ![Ping correcto](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+    ![Ping correcto](media/azure-stack-connect-vpn/image19b.png)
 
 11. Una respuesta de la máquina virtual remota indica que la prueba ha dado un resultado correcto. Puede cerrar la ventana de la máquina virtual.
 
-También debe hacer pruebas más rigurosas de la transferencia de datos. Por ejemplo, copiar archivos de distintos tamaños en ambas direcciones.
+También debe hacer pruebas más rigurosas de la transferencia de datos; por ejemplo, copiar archivos de distintos tamaños en ambas direcciones.
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Visualización de las estadísticas de transferencia de datos a través de la conexión de puerta de enlace
 
-Si desea saber qué cantidad de datos pasa a través de la conexión de sitio a sitio, esta información está disponible en la sección **Conexión**. Esta prueba también es otra forma de comprobar que el ping que acaba de enviar ha ido a través de la conexión VPN.
+Si desea saber qué cantidad de datos pasa mediante la conexión de sitio a sitio, esta información está disponible en la sección **Conexión**. Esta prueba también es otra forma de comprobar que el ping que acaba de enviar ha ido a través de la conexión VPN.
 
-1. Mientras ha iniciado sesión en la máquina virtual del usuario en Azure Stack, use la cuenta de usuario para iniciar sesión en el portal de usuario.
+1. Mientras se ha iniciado sesión en la máquina virtual del usuario en Azure Stack, use la cuenta de usuario para iniciar sesión en el portal de usuario.
 2. Vaya a **Todos los recursos** y, a continuación, seleccione la conexión **Azs-Azure**. Aparece **Conexiones**.
 3. En la sección **Conexión**, aparecen las estadísticas de **Datos de entrada** y **Datos de salida**. En la siguiente captura de pantalla, los números grandes se atribuyen a transferencias de archivos adicionales. Debería ver algunos valores distintos de cero.
 

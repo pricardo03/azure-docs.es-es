@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 249e286b16b78643c33b567f705a4c92991f5553
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996917"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404875"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Supervisión de un clúster de Azure Kubernetes con Log Analytics
 
@@ -149,7 +149,7 @@ Para instalar dicha solución desde el [portal de Log Analytics](https://mms.mic
 
 En el portal de Log Analytics, busque un icono de resumen de **Containers** en el panel. Haga clic en el icono para obtener la siguiente información: eventos de contenedor, errores, estado, inventario de la imagen y uso de la CPU y la memoria. Para obtener información más detallada, haga clic en una fila de cualquier icono o realice una [búsqueda de registros](../../log-analytics/log-analytics-log-searches.md).
 
-![Panel de contenedores en el Portal de OMS](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Panel de contenedores de Azure Portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 En Azure Portal, vaya a **Log Analytics** y seleccione el nombre de su área de trabajo. Para ver el icono de resumen de **Containers**, haga clic en **Soluciones** > **Containers**. Para ver los detalles, haga clic en el icono.
 

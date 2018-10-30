@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095926"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638250"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparación de Azure Data Factory con Azure Data Factory versión 1
 En este artículo se compara Data Factory con Data Factory versión 1. Para obtener una introducción a Data Factory, consulte [Introducción a Data Factory](introduction.md). Para obtener una introducción a Data Factory versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). 
@@ -62,7 +62,7 @@ La [actividad ForEach](control-flow-for-each-activity.md) define un flujo de con
 La actividad [Until](control-flow-until-activity.md) proporciona la misma funcionalidad que una estructura de bucle Do-Until en los lenguajes de programación. Ejecuta un conjunto de actividades en bucle hasta que la condición asociada a la actividad la evalúa como `true`. Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory.  
 
 ### <a name="trigger-based-flows"></a>Flujos basados en el desencadenador
-Las canalizaciones se pueden desencadenar a petición o por tiempo de reloj. El artículo [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md) tiene información detallada acerca de los desencadenadores. 
+Las canalizaciones se pueden desencadenar a petición (según eventos, es decir, por publicación en blob) o por tiempo de reloj. El artículo [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md) tiene información detallada acerca de los desencadenadores. 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>Invocación de una canalización desde otra
 La actividad [Execute Pipeline](control-flow-execute-pipeline-activity.md) permite que una canalización de Data Factory invoque otra.

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804436"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946120"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementación de un clúster de Service Fabric en Azure Stack
 
@@ -48,7 +48,7 @@ Se necesitan los siguientes requisitos para implementar el clúster de Service F
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Incorporación de un secreto a Key Vault
-Para implementar un clúster de Service Fabric, debe especificar el *identificador secreto* correcto de KeyVault o la dirección URL del clúster de Service Fabric. La plantilla de Azure Resource Manager toma una instancia de KeyVault como entrada y, después, recupera el certificado de clúster durante la instalación del clúster de Service Fabric. 
+Para implementar un clúster de Service Fabric, debe especificar el *identificador secreto* correcto de KeyVault o la dirección URL del clúster de Service Fabric. La plantilla de Azure Resource Manager, toma una instancia de KeyVault como entrada. Después, la plantilla recupera el certificado del clúster al instalar el clúster de Service Fabric.
 
 > [!IMPORTANT]  
 > Debe usar PowerShell para agregar un secreto a KeyVault para su uso con Service Fabric. No use el portal.  

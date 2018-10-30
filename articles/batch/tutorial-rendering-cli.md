@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 10/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392812"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024401"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
@@ -31,7 +31,7 @@ En este tutorial se representa una escena 3DS Max con Batch mediante el represen
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una suscripción de pago por uso u otra opción de compra de Azure para usar aplicaciones de representación en Batch sobre una base de pago por uso. Las licencias de pago por uso no se admiten si usa una oferta gratuita de Azure que proporciona un crédito monetario.
+Necesita una suscripción de pago por uso u otra opción de compra de Azure para usar aplicaciones de representación en Batch sobre una base de pago por uso. **Las licencias de pago por uso no se admiten si usa una oferta gratis de Azure que proporciona un crédito monetario.**
 
 La escena de 3DS Max de este tutorial se encuentra en [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto con un script de ejemplo de Bash y archivos de configuración JSON. La escena 3DS Max procede de los [archivos de ejemplo de Autodesk 3DS Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Los archivos de ejemplo de Autodesk 3DS Max están disponibles con licencias tipo Creative Commons Attribution-NonCommercial-Share. Copyright © Autodesk, Inc.).
 
@@ -175,7 +175,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 Tome nota del token que devuelve el comando, que tiene un aspecto similar al siguiente. Se usará en un paso posterior.

@@ -6,22 +6,25 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 361a1934a1e0cdcc0647c4c4f62af98f52b8c899
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915209"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456888"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
 [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
 
 - Este es el segundo tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware. En el primer tutorial, se [configuraron los componentes de Azure](tutorial-prepare-azure.md) necesarios para la recuperación ante desastres de VMware.
-- Los tutoriales están diseñados para mostrarle la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. 
+
+
+> [!NOTE]
+> Los tutoriales están diseñados para mostrarle la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para instrucciones detalladas, consulte la sección del **procedimiento** para el escenario correspondiente.
 
 En este artículo, se indica cómo preparar el entorno local de VMware cuando desea replicar máquinas virtuales de VMware en Azure mediante Azure Site Recovery. Aprenderá a:
 
@@ -101,11 +104,13 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 - [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual.
 - Puede comprobar los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual.
 
+
+## <a name="failback-requirements"></a>Requisitos de conmutación por recuperación
+Si va a conmutar por recuperación en su entorno local, también deberá asegurarse de que ciertos [requisitos previos se cumplen](vmware-azure-reprotect.md##before-you-begin). Sin embargo, **no se requiere empezar con la habilitación de la recuperación ante desastres** de las máquinas virtuales y también se puede realizar después de la conmutación por error a Azure.
+
 ## <a name="useful-links"></a>Vínculos útiles
 
 Si va a replicar varias máquinas virtuales, debe planear la capacidad y la implementación antes de empezar. [Más información](site-recovery-deployment-planner.md).
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

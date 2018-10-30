@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056444"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647279"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en el portal
 
@@ -42,7 +42,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    ![Creación de un plano técnico](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Proporcione un **nombre del plano técnico** como MiPlanoTécnico (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora.  En el cuadro **Definir ubicación**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) donde desea guardar el plano técnico y haga clic en **Seleccionar**.
+1. Proporcione un **nombre del plano técnico** como MiPlanoTécnico (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora.  En el cuadro **Ubicación de definición**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) donde desea guardar el plano técnico y haga clic en **Seleccionar**.
 
    > [!NOTE]
    > Solo se pueden guardar las definiciones del plano técnico en los grupos de administración. Para crear el primer grupo de administración, siga [estos pasos](../management-groups/create.md).
@@ -111,7 +111,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    ![Artefacto: plantilla de Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. El plano técnico completado debería tener una apariencia similar a esta. Observe que cada artefacto tiene '_x_ de _y_ parámetros rellenados bajo la columna _Parámetros_. Los **parámetros dinámicos** se establecerán durante cada asignación del plano técnico y el único **parámetro estático** en la asignación de roles ya se ha configurado.
+1. El plano técnico completado debería tener una apariencia similar a esta. Observe que cada artefacto tiene '_x_ de _y_ parámetros rellenados bajo la columna _Parámetros_. Los **parámetros dinámicos** se establecerán durante cada asignación del plano técnico.
 
    ![Plano técnico completado](./media/create-blueprint-portal/completed-blueprint.png)
 
@@ -224,9 +224,9 @@ Los planos técnicos se pueden quitar de una suscripción si ya no se necesitan 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida de los planos técnicos](./concepts/lifecycle.md).
+- Más información sobre el [ciclo de vida del plano técnico](./concepts/lifecycle.md)
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](./concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](./concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./concepts/resource-locking.md).
-- Más información sobre la [actualización de las asignaciones existentes](./how-to/update-existing-assignments.md).
+- Aprenda a [actualizar las asignaciones existentes](./how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](./troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

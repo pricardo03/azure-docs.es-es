@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Crear un proyecto de detección de objetos - Custom Vision API, Python'
+title: 'Tutorial: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Python (Custom Vision Service)'
 titlesuffix: Azure Cognitive Services
 description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción con el punto de conexión predeterminado.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363707"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958540"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutorial: Crear un proyecto de detección de objetos con Python
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Tutorial: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Python
 
 Explore un script de Python básico que usa Computer Vision API para crear un proyecto de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación mediante Custom Vision API.
 

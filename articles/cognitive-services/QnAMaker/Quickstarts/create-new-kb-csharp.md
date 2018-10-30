@@ -1,23 +1,23 @@
 ---
 title: 'Guía de inicio rápido: Creación de la base de conocimiento: REST y C# en QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
+description: En esta guía de inicio rápido se explica de forma detallada cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker que aparecerá en el panel de Azure de su cuenta de API de Cognitive Services.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: e6b8c769082b688b07bac78bca5e2dca59a2d9c2
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e1456cb0e7b7662cd460e51af3456fc496502798
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389418"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645095"
 ---
-# <a name="quickstart-create-a-qna-maker-knowledge-base-in-c"></a>Guía de inicio rápido: Creación de una base de conocimiento de QnA Maker en C#
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Guía de inicio rápido: creación de una base de conocimiento en QnA Maker mediante C#
 
 Esta guía de inicio rápido describe la creación mediante programación de una base de conocimiento de QnA Maker de ejemplo. QnA Maker extrae automáticamente preguntas y respuestas a partir de contenido semiestructurado, como las preguntas frecuentes, y de [orígenes de datos](../Concepts/data-sources-supported.md). El modelo para la base de conocimiento se define en el JSON que se envía en el cuerpo de la solicitud de API. 
 

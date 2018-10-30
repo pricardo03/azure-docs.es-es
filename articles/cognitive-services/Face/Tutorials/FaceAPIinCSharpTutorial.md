@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Detección y enmarcado de caras de una imagen (Face API, C#)'
+title: 'Tutorial: Detección y enmarcado de caras de una imagen mediante el SDK de .NET con C#'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, va a crear una aplicación Windows que use Face API para detectar y enmarcar caras en una imagen.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: pafarley
-ms.openlocfilehash: ba850c1d4f9d8018f333662eead56f8e91b3fbd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df5e46270275ca08a8499607fbad4c1161382fab
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340960"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956501"
 ---
-# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Creación de una aplicación WPF para detectar y enmarcar caras en una imagen
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image-using-the-net-sdk"></a>Tutorial: Creación de una aplicación WPF para detectar y enmarcar caras en una imagen mediante el SDK de .NET
 
 En este tutorial, se crea una aplicación de Windows Presentation Framework (WPF) que utiliza el servicio Face mediante su biblioteca clientes de .NET. La aplicación detecta caras en una imagen, dibuja un marco alrededor de cada cara y muestra una descripción de la cara en la barra de estado. El código de ejemplo completo está disponible en GitHub en [Detección y enmarcado de caras de una imagen en Windows](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample).
 

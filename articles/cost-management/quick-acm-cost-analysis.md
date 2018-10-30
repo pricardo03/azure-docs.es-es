@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079113"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471295"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guía de inicio rápido: Exploración y análisis de costos con el análisis de costos
 
@@ -34,21 +34,25 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
 El análisis de costos está disponible para todos los clientes con [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
 
-- El ámbito de la *cuenta de facturación* se define en https://ea.azure.com y requiere acceso de administrador de organización. No se requiere ninguna configuración de EA como requisito previo. La información de facturación en el análisis de costos se consolida para todas las suscripciones del contrato Enterprise. A menudo, la cuenta de facturación se denomina *contrato Enterprise* o *inscripción*.
 
-- El ámbito de *departamento* ámbito se define en https://ea.azure.com y requiere acceso de administrador de departamento. La opción **DA view charges** (El administrador del departamento ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todas las suscripciones que pertenecen a la cuenta de inscripción vinculadas al departamento.
+|**Ámbito**|**Definido en**|**Acceso requerido para analizar los costos en ámbito**|**Configuración de EA como requisito previo**|**Consolida los datos de facturación a**|
+|---                |---                  |---                   |---            |---           |
+|Cuenta de facturación<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Administrador de organización|None|Todas las suscripciones del contrato Enterprise|
+|department|[https://ea.azure.com ](https://ea.azure.com )|Administrador de departamento|DA view charges enabled (AD: ver los cargos habilitados)|Todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento|
+|Cuenta de inscripción<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Propietario de cuenta|AO view charges enabled (PC: ver los cargos habilitados)|Todas las suscripciones de la cuenta de inscripción|
+|Grupo de administración|[https://portal.azure.com ](https://portal.azure.com )|Lector de Cost Management (o lector)|AO view charges enabled (PC: ver los cargos habilitados)|Todas las suscripciones por debajo del grupo de administración|
+|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Lector de Cost Management (o lector)|AO view charges enabled (PC: ver los cargos habilitados)|Todos los grupos de recursos o recursos en la suscripción|
+|Grupos de recursos|[https://portal.azure.com ](https://portal.azure.com )|Lector de Cost Management (o lector)|AO view charges enabled (PC: ver los cargos habilitados)|Todos los recursos del grupo de recurso|
 
-- El ámbito de *cuenta de inscripción* se define en https://ea.azure.com y requiere acceso de propietario de la cuenta. La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todas las suscripciones que pertenecen a la cuenta de inscripción. La cuenta de inscripción a menudo se denomina el *propietario de la cuenta*.
+<sup>1</sup>La cuenta de facturación con frecuencia se conoce como inscripción o contrato Enterprise.
 
-- El ámbito de *grupo de administración* se define en https://portal.azure.com y requiere acceso de lector de administración de costos (o lector). La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todas las suscripciones debajo del grupo de administración.
-
-- El ámbito de *suscripción* se define en https://portal.azure.com y requiere acceso de lector de administración de costos (o lector). La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todos los recursos y grupos de recursos de la suscripción.
-
-- El ámbito de *grupo de recursos* se define en https://portal.azure.com y requiere acceso de lector de administración de costos (o lector). La opción **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitada en el portal de EA. La información de facturación en el análisis de costos se consolida para todos los recursos y grupos de recursos.
-
-
+<sup>2</sup>La cuenta de inscripción a menudo se conoce como la propietaria de la cuenta.
 
 Para más información acerca de cómo configurar los valores de **gastos de la vista de AD** y **gastos de la vista de PC**, consulte [Habilitación del acceso a los costos](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
+
+
+
+
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

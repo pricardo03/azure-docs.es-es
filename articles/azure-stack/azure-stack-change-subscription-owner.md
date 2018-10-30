@@ -12,62 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/12/2018
+ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: a784f169bfdf23255b27d50f0e135384db6b2b88
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077637"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468677"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Cambio del propietario de una suscripción de usuario de Azure Stack
 
-Los operadores de Azure Stack pueden usar PowerShell para cambiar el propietario de la facturación de una suscripción de usuario. Una razón para cambiar el propietario es reemplazar un usuario que deja la organización.   
+Los operadores de Azure Stack pueden usar PowerShell para cambiar el propietario de la facturación de una suscripción de usuario. Por ejemplo, una razón para cambiar el propietario es reemplazar un usuario que deja la organización.   
 
 Hay dos tipos de *propietarios* que se asignan a una suscripción:
 
-- **Propietario de la facturación**: de forma predeterminada, es la cuenta de usuario que obtiene la suscripción de una oferta y, a continuación, posee la relación de facturación para esa suscripción. Esta cuenta también es la del administrador de la suscripción.  Solo una cuenta de usuario puede tener esta designación en una suscripción. Un propietario de facturación a menudo es el responsable de una organización o equipo. 
+- **Propietario de la facturación**: de forma predeterminada, es la cuenta de usuario que obtiene la suscripción de una oferta y, a continuación, posee la relación de facturación para esa suscripción. Esta cuenta también es la del administrador de la suscripción. Solo una cuenta de usuario puede tener esta designación en una suscripción. Un propietario de facturación a menudo es el responsable de una organización o equipo. 
 
-  Use el cmdlet de PowerShell **Set-AzsUserSubscription** para cambiar el propietario de la facturación.  
+  Use el cmdlet de PowerShell [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) para cambiar el propietario de la facturación.  
 
-- **Propietarios agregados a través de roles RBAC**: se puede conceder el rol de propietario a otros usuarios con el sistema [Control de acceso basado en rol](azure-stack-manage-permissions.md) (RBAC).  Se puede agregar cualquier número de cuentas de usuario adicionales como propietarios para complementar al propietario de la facturación. Los propietarios adicionales también son administradores de la suscripción y tienen todos los privilegios para ella, excepto los permisos para eliminar al propietario de la facturación. 
+- **Propietarios agregados con roles RBAC**: se puede conceder el rol de **propietario** a otros usuarios con el sistema [Control de acceso basado en rol](azure-stack-manage-permissions.md) (RBAC). Se puede agregar cualquier número de cuentas de usuario adicionales como propietarios para complementar al propietario de la facturación. Los propietarios adicionales también son administradores de la suscripción y tienen todos los privilegios para ella, excepto los permisos para eliminar al propietario de la facturación. 
 
-  Puede usar PowerShell para administrar los propietarios adicionales; consulte [Azure PowerShell para administrar el control de acceso basado en rol]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-
+  Puede usar PowerShell para administrar los propietarios adicionales; consulte [Azure PowerShell para administrar el control de acceso basado en rol](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="change-the-billing-owner"></a>Cambio del propietario de la facturación
-Ejecute el script siguiente para cambiar el propietario de la facturación de una suscripción de usuario.  El equipo que se usa para ejecutar el script debe conectarse a Azure Stack y ejecutar el módulo de Azure Stack PowerShell 1.3.0 o posterior. Para más información, consulte [Instalación de Azure Stack PowerShell](azure-stack-powershell-install.md). 
+
+Ejecute el script siguiente para cambiar el propietario de la facturación de una suscripción de usuario. El equipo que se usa para ejecutar el script debe conectarse a Azure Stack y ejecutar el módulo de Azure Stack PowerShell 1.3.0 o posterior. Para más información, consulte [Instalación de Azure Stack PowerShell](azure-stack-powershell-install.md). 
 
 > [!Note]  
->  En una instancia de Azure Stack de varios inquilinos, el nuevo propietario debe estar en el mismo directorio que el actual. Para poder proporcionar la propiedad de la suscripción a un usuario que se encuentre en otro directorio, primero debe [invitar a ese usuario como invitado en su directorio](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator). 
-
+>  En una instancia de Azure Stack multiinquilino, el nuevo propietario debe estar en el mismo directorio que el actual. Para poder proporcionar la propiedad de la suscripción a un usuario que se encuentre en otro directorio, primero debe [invitar a ese usuario como invitado en su directorio](../active-directory/b2b/add-users-administrator.md). 
 
 Reemplace los valores siguientes en el script antes de que se ejecute: 
  
 - **$ArmEndpoint**: especifique el punto de conexión de Resource Manager para su entorno.  
 - **$TenantId**: especifique el identificador del inquilino. 
 - **$SubscriptionId**: especifique su identificador de suscripción.
-- **$OwnerUpn**: especifique una cuenta como *user@example.com*  para agregar como el nuevo propietario de la facturación.  
+- **$OwnerUpn**: especifique una cuenta como **user@example.com**  para agregar como el nuevo propietario de la facturación.  
 
-
-```PowerSHell   
-# Setup Azure Stack Admin Environment
+```PowerShell   
+# Set up Azure Stack admin environment
 Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
 Add-AzureRmAccount -Environment AzureStack-admin -TenantId $TenantId
 
-# Select Admin Subscriptionr
+# Select admin subscription
 $providerSubscriptionId = (Get-AzureRmSubscription -SubscriptionName "Default Provider Subscription").Id
-Write-Output "Setting context the Default Provider Subscription: $providerSubscriptionId" 
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId" 
 Set-AzureRmContext -Subscription $providerSubscriptionId
 
-# Change User Subscription owner
+# Change user subscription owner
 $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Administración del control de acceso basado en rol](azure-stack-manage-permissions.md)

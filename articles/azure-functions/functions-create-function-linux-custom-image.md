@@ -5,105 +5,137 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 11/15/2017
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: a77018d5ee1738f24518742c2386e6e261a7c6a8
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: aa3c72c7ff2aa5e25fbff9fc38c33fd2dda34ecd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901455"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985087"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Creación de una función en Linux con una imagen personalizada (versión preliminar)
 
 Azure Functions le permite hospedar sus funciones en Linux en su propio contenedor personalizado. También puede [hospedarlas en un contenedor de Azure App Service predeterminado](functions-create-first-azure-function-azure-cli-linux.md). Esta funcionalidad está actualmente en versión preliminar y requiere [el entorno de ejecución Functions 2.0](functions-versions.md).
 
-En este tutorial, aprenderá a implementar una aplicación de función como una imagen de Docker personalizada. Este patrón es útil cuando debe personalizar la imagen de contenedor integrada de App Service. Es posible que quiera usar una imagen personalizada cuando las funciones necesiten una versión de idioma determinada o requieran una dependencia o configuración específica que no se proporciona en la imagen integrada.
+En este tutorial, aprenderá a implementar funciones en Azure como una imagen de Docker personalizada. Este patrón es útil cuando debe personalizar la imagen de contenedor integrada de App Service. Es posible que quiera usar una imagen personalizada cuando las funciones necesiten una versión de idioma determinada o requieran una dependencia o configuración específica que no se proporciona en la imagen integrada.
 
-En este tutorial se explica cómo usar Azure Functions para crear e insertar una imagen personalizada en Docker Hub. A continuación, usará esta imagen como origen de implementación para una aplicación de función que se ejecuta en Linux. Usará Docker para crear e insertar la imagen. Usará la CLI de Azure para crear una aplicación de función e implementar la imagen desde Docker Hub. 
+En este tutorial se explica cómo usar Azure Functions Core Tools para crear una función en una imagen de Linux personalizada. Esta imagen se publica en una aplicación de función de Azure, que se creó mediante la CLI de Azure.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+> * Crear una aplicación de función y un archivo Dockerfile mediante Core Tools.
 > * Crear una imagen personalizada con Docker
-> * Publicar una imagen personalizada en un registro de contenedor 
-> * Cree una cuenta de Azure Storage. 
-> * Crear un plan de App Service de Linux 
+> * Publicar una imagen personalizada en un registro de contenedor
+> * Cree una cuenta de Azure Storage.
+> * Crear un plan de App Service de Linux
 > * Implementar una aplicación de función desde Docker Hub
-> * Agregar la configuración de aplicación a la aplicación de función 
+> * Agregar la configuración de aplicación a la aplicación de función
 
 Los pasos siguientes se admiten en equipos Mac, Windows o Linux.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesita:
+Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
-* [Git](https://git-scm.com/downloads)
-* Una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) activa
-* [Docker](https://docs.docker.com/install/)
-* Una [cuenta de Docker Hub](https://docs.docker.com/docker-id/)
+* Instale [la versión 2.x de Azure Core Tools](functions-run-local.md#v2).
 
-[!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
+* Instale la [CLI de Azure]( /cli/azure/install-azure-cli). En este artículo se necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene.  
+También puede usar [Azure Cloud Shell](https://shell.azure.com/bash).
 
-## <a name="download-the-sample"></a>Descarga del ejemplo
+* Una suscripción de Azure activa.
 
-En una ventana de terminal, ejecute el siguiente comando para clonar el repositorio de la aplicación de ejemplo en el equipo local y, luego, cambie al directorio que contiene el código de ejemplo.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="create-the-local-function-app-project"></a>Creación del proyecto de aplicación de función local
+
+Ejecute el comando siguiente desde la línea de comandos para crear un proyecto de aplicación de función en la carpeta `MyFunctionProj` del directorio local actual.
 
 ```bash
-git clone https://github.com/Azure-Samples/functions-linux-custom-image.git --config core.autocrlf=input
-cd functions-linux-custom-image
+func init MyFunctionProj --docker
 ```
+
+Al incluir la opción `--docker`, se genera un archivo Dockerfile para el proyecto. Dicho archivo se usa para crear un contenedor personalizado en el que se ejecuta el proyecto. La imagen base que se usa depende del lenguaje del runtime de trabajo que se elija.  
+
+Cuando se le solicite, elija un runtime de trabajo en los siguientes lenguajes:
+
+* `dotnet`: crea un proyecto de biblioteca de clases .NET (.csproj).
+* `node`: crea un proyecto JavaScript.
+
+Cuando se ejecute el comando, verá una salida similar a la siguiente:
+
+```output
+Writing .gitignore
+Writing host.json
+Writing local.settings.json
+Writing Dockerfile
+```
+
+Use el siguiente comando para ir a la nueva carpeta del proyecto `MyFunctionProj`.
+
+```bash
+cd MyFunctionProj
+```
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 ## <a name="build-the-image-from-the-docker-file"></a>Compilación de la imagen desde el archivo de Docker
 
-En este repositorio de Git, eche un vistazo al _Dockerfile_. Este archivo describe el entorno que es necesario para ejecutar la aplicación de función en Linux. 
+Eche un vistazo al archivo _Dockerfile_ en la carpeta raíz del proyecto. Este archivo describe el entorno que es necesario para ejecutar la aplicación de función en Linux. El ejemplo siguiente es un archivo Dockerfile que crea un contenedor que ejecuta una aplicación de función en el runtime de trabajo de JavaScript (Node.js): 
 
 ```docker
-# Base the image on the built-in Azure Functions Linux image.
-FROM microsoft/azure-functions-runtime:2.0.0-jessie
+FROM mcr.microsoft.com/azure-functions/node:2.0
+
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
-
-# Add files from this repo to the root site folder.
-COPY . /home/site/wwwroot 
+COPY . /home/site/wwwroot
 ```
->[!NOTE]
-> Al hospedar una imagen en un registro de contenedor privado, debe agregar la configuración de conexión a la aplicación de función mediante variables **ENV** en el Dockerfile. Como en este tutorial no se puede garantizar que se vaya a usar un registro privado, la configuración de conexión se [agrega después de la implementación mediante la CLI de Azure](#configure-the-function-app) como procedimiento recomendado de seguridad.   
 
-### <a name="run-the-build-command"></a>Ejecución del comando de compilación
-Para compilar la imagen de Docker, ejecute el comando `docker build` y proporcione un nombre, `mydockerimage`, y una etiqueta, `v1.0.0`. Reemplace `<docker-id>` por el identificador de su cuenta de Docker Hub.
+> [!NOTE]
+> Al hospedar una imagen en un registro de contenedor privado, debe agregar la configuración de conexión a la aplicación de función mediante variables **ENV** en el Dockerfile. Como en este tutorial no se puede garantizar que se vaya a usar un registro privado, la configuración de conexión se [agrega después de la implementación mediante la CLI de Azure](#configure-the-function-app) como procedimiento recomendado de seguridad.
+
+### <a name="run-the-build-command"></a>Ejecute el comando `build`.
+En la carpeta raíz, ejecute el comando [docker build](https://docs.docker.com/engine/reference/commandline/build/) y especifique un nombre, `mydockerimage`, y una etiqueta, `v1.0.0`. Reemplace `<docker-id>` por el identificador de su cuenta de Docker Hub. Este comando compila la imagen de Docker del contenedor.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-El comando genera una salida similar a la siguiente:
+Cuando el comando se ejecuta, verá una salida similar a la siguiente, que en este caso es para un runtime de trabajo de JavaScript:
 
 ```bash
-Sending build context to Docker daemon  169.5kB
-Step 1/3 : FROM microsoft/azure-functions-runtime:v2.0.0-jessie
-v2.0.0-jessie: Pulling from microsoft/azure-functions-runtime
-b178b12f7913: Pull complete
-2d9ce077a781: Pull complete
-4775d4ba55c8: Pull complete
-Digest: sha256:073f45fc167b3b5c6642ef4b3c99064430d6b17507095...
-Status: Downloaded newer image for microsoft/azure-functions-runtime:v2.0.0-jessie
- ---> 217799efa500
-Step 2/3 : ENV AzureWebJobsScriptRoot /home/site/wwwroot
- ---> Running in 528fa2077d17
- ---> 7cc6323b8ae0
-Removing intermediate container 528fa2077d17
+Sending build context to Docker daemon  17.41kB
+Step 1/3 : FROM mcr.microsoft.com/azure-functions/node:2.0
+2.0: Pulling from azure-functions/node
+802b00ed6f79: Pull complete
+44580ea7a636: Pull complete
+73eebe8d57f9: Pull complete
+3d82a67477c2: Pull complete
+8bd51cd50290: Pull complete
+7bd755353966: Pull complete
+Digest: sha256:480e969821e9befe7c61dda353f63298f2c4b109e13032df5518e92540ea1d08
+Status: Downloaded newer image for mcr.microsoft.com/azure-functions/node:2.0
+ ---> 7c71671b838f
+Step 2/3 : ENV AzureWebJobsScriptRoot=/home/site/wwwroot
+ ---> Running in ed1e5809f0b7
+Removing intermediate container ed1e5809f0b7
+ ---> 39d9c341368a
 Step 3/3 : COPY . /home/site/wwwroot
- ---> 5bdac9878423
-Successfully built 5bdac9878423
-Successfully tagged ggailey777/mydockerimage:v1.0.0
+ ---> 5e196215935a
+Successfully built 5e196215935a
+Successfully tagged <docker-id>/mydockerimage:v1.0.0
 ```
 
 ### <a name="test-the-image-locally"></a>Prueba de la imagen de manera local
-Compruebe que la imagen integrada funciona mediante la ejecución de la imagen de Docker en un contenedor local. Emita el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) y transmítale el nombre y la etiqueta de la imagen. Asegúrese de especificar el puerto con el argumento `-p`.
+Compruebe que la imagen que ha creado funciona mediante la ejecución de la imagen de Docker en un contenedor local. Emita el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) y transmítale el nombre y la etiqueta de la imagen. Asegúrese de especificar el puerto con el argumento `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
@@ -113,16 +145,20 @@ Una vez que la imagen personalizada ya se ejecuta en un contenedor de Docker loc
 
 ![Prueba de la aplicación de función de manera local](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
+Opcionalmente, puede volver a probar la función, esta vez en el contenedor local, con la dirección URL siguiente:
+
+`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+
 Después de haber comprobado la aplicación de función en el contenedor, detenga la ejecución. Ahora, puede insertar la imagen personalizada en su cuenta de Docker Hub.
 
 ## <a name="push-the-custom-image-to-docker-hub"></a>Inserción de la imagen personalizada en Docker Hub
 
-Un registro es una aplicación que hospeda imágenes y proporciona servicios de imágenes y servicios de contenedores. Si desea compartir una imagen, debe insertarla en un registro. Docker Hub es un registro para imágenes de Docker que le permite hospedar sus propios repositorios, ya sean públicos o privados. 
+Un registro es una aplicación que hospeda imágenes y proporciona servicios de imágenes y servicios de contenedores. Para compartir la imagen, debe insertarla en un registro. Docker Hub es un registro para imágenes de Docker que le permite hospedar sus propios repositorios, ya sean públicos o privados.
 
 Antes de poder insertar una imagen, debe iniciar sesión en Docker Hub mediante el comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Reemplace `<docker-id>` por el nombre de cuenta y escriba la contraseña en la consola en el símbolo del sistema. Para ver otras opciones de contraseña de Docker Hub, consulte la [documentación del comando docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ```bash
-docker login --username <docker-id> 
+docker login --username <docker-id>
 ```
 
 Un mensaje de inicio de sesión correcto confirmará que inició sesión. Cuando haya iniciado sesión, inserte la imagen en Docker Hub mediante el comando [docker push](https://docs.docker.com/engine/reference/commandline/push/).
@@ -136,17 +172,14 @@ Examine la salida del comando para comprobar que la inserción se realizó corre
 ```bash
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
 24d81eb139bf: Pushed
-fd9e998161c9: Mounted from microsoft/azure-functions-runtime
-e7796c35add2: Mounted from microsoft/azure-functions-runtime
-ae9a05b85848: Mounted from microsoft/azure-functions-runtime
-45c86e20670d: Mounted from microsoft/azure-functions-runtime
-v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
+fd9e998161c9: Mounted from <docker-id>/mydockerimage
+e7796c35add2: Mounted from <docker-id>/mydockerimage
+ae9a05b85848: Mounted from <docker-id>/mydockerimage
+45c86e20670d: Mounted from <docker-id>/mydockerimage
+v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
 ```
-Ahora, puede usar esta imagen como origen de implementación para una nueva aplicación de función en Azure. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Si decide instalar y usar la CLI de forma local, para este tema es preciso la CLI de Azure versión 2.0.21 o posterior. Ejecute `az --version` para encontrar la versión que tiene. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
+Ahora, puede usar esta imagen como origen de implementación para una nueva aplicación de función en Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -154,21 +187,21 @@ Si decide instalar y usar la CLI de forma local, para este tema es preciso la CL
 
 ## <a name="create-a-linux-app-service-plan"></a>Creación de un plan de App Service de Linux
 
-Actualmente, los planes de consumo no admiten el hospedaje de Functions en Linux. Se debe ejecutar en un plan de App Service de Linux. Para más información sobre el hospedaje, consulte [Comparación de los planes de hospedaje de Azure Functions](functions-scale.md). 
+Actualmente, los planes de consumo no admiten el hospedaje de Functions en Linux. Tiene que hospedar las aplicaciones de contenedor de Linux en un plan de App Service de Linux. Para obtener más información sobre el hospedaje, consulte [Comparación de los planes de hospedaje de Azure Functions](functions-scale.md).
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-
 ## <a name="create-and-deploy-the-custom-image"></a>Creación e implementación de la imagen personalizada
 
-La aplicación de función hospeda la ejecución de las funciones. Cree una aplicación de función a partir de una imagen de Docker Hub mediante el comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
+La aplicación de función hospeda la ejecución de las funciones. Cree una aplicación de función a partir de una imagen de Docker Hub mediante el comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
 En el siguiente comando, sustituya un nombre de aplicación de función único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. Al igual que antes, `<docker-id>` es el nombre de cuenta de Docker.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0 
+--plan myAppServicePlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
 ```
+
 Después de que se haya creado la Function App, la CLI de Azure muestra información similar al siguiente ejemplo:
 
 ```json
@@ -189,12 +222,11 @@ Después de que se haya creado la Function App, la CLI de Azure muestra informac
 }
 ```
 
-El parámetro _deployment-container-image-name_ indica la imagen hospedada en Docker Hub que se usará para crear la aplicación de función. 
-
+El parámetro _deployment-container-image-name_ indica la imagen hospedada en Docker Hub que se usará para crear la aplicación de función.
 
 ## <a name="configure-the-function-app"></a>Configuración de la Function App
 
-La función necesita la cadena de conexión para conectarse a la cuenta de almacenamiento predeterminada. Al publicar la imagen personalizada en una cuenta de contenedor privada, esta configuración de aplicación se debe definir en su lugar como variables de entorno en el Dockerfile mediante la [instrucción ENV](https://docs.docker.com/engine/reference/builder/#env), o equivalente. 
+La función necesita la cadena de conexión para conectarse a la cuenta de almacenamiento predeterminada. Al publicar la imagen personalizada en una cuenta de contenedor privada, debe establecer los valores de la aplicación como variables de entorno en Dockerfile mediante la [instrucción ENV](https://docs.docker.com/engine/reference/builder/#env), o algo similar.
 
 En este caso, `<storage_account>` es el nombre de la cuenta de almacenamiento que ha creado. Obtenga la cadena de conexión con el comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Agregue esta configuración de aplicación a la Function App con el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
@@ -217,13 +249,14 @@ Ahora puede probar cómo se ejecutan las funciones en Linux en Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial ha aprendido a:
 
 > [!div class="checklist"]
+> * Crear una aplicación de función y un archivo Dockerfile mediante Core Tools.
 > * Crear una imagen personalizada con Docker
-> * Publicar una imagen personalizada en un registro de contenedor 
-> * Cree una cuenta de Azure Storage. 
-> * Crear un plan de App Service de Linux 
+> * Publicar una imagen personalizada en un registro de contenedor
+> * Cree una cuenta de Azure Storage.
+> * Crear un plan de App Service de Linux
 > * Implementar una aplicación de función desde Docker Hub
 > * Agregar la configuración de aplicación a la aplicación de función
 

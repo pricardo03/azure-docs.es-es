@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4c3354786d7320caee0dfe2f0eca44909d77f2fe
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386858"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426879"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Guía de inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2 (versión preliminar)
 
@@ -87,7 +87,7 @@ Para crear un grupo de recursos en Azure Portal, siga estos pasos:
 Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga estos pasos:
 
 > [!NOTE]
-> El espacio de nombres jerárquico solo está habilitado en Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Europa del Norte, Sudeste Asiático y Este de Australia. No olvide especificar una de estas ubicaciones cuando cree la cuenta de almacenamiento.
+> El espacio de nombres jerárquico está actualmente disponible en todas las regiones públicas, pero en ninguna de las regiones privadas. No está disponible actualmente en las nubes soberanas.
 
 1. En Azure Portal, expanda el menú de la izquierda para abrir el menú de servicios y elija **Todos los servicios**. Desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 2. Escriba un nombre para la cuenta de almacenamiento.
@@ -135,7 +135,7 @@ Después, reinicie el shell.
 Para crear un grupo de recursos con PowerShell, use el comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 > [!NOTE]
-> El espacio de nombres jerárquico solo está habilitado en Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Europa del Norte, Sudeste Asiático y Este de Australia. No olvide especificar una de estas ubicaciones cuando cree la cuenta de almacenamiento.
+> > El espacio de nombres jerárquico está actualmente disponible en todas las regiones públicas, pero en ninguna de las regiones privadas. No está disponible actualmente en las nubes soberanas.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> El espacio de nombres jerárquico solo está habilitado en Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Europa del Norte, Sudeste Asiático y Este de Australia. No olvide especificar una de estas ubicaciones cuando cree la cuenta de almacenamiento.
+> > El espacio de nombres jerárquico está actualmente disponible en todas las regiones públicas, pero en ninguna de las regiones privadas. No está disponible actualmente en las nubes soberanas.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Creación de una cuenta de almacenamiento de uso general v2
 

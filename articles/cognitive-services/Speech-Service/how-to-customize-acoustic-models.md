@@ -1,19 +1,21 @@
 ---
-title: 'Creación de un modelo acústico con el servicio Voz: Azure Cognitive Services'
+title: 'Tutorial: Creación de un modelo acústico con Speech Service'
+titlesuffix: Azure Cognitive Services
 description: Aprenda a crear un modelo acústico con el servicio Voz en Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 39e591f6154573bb25fccc423ff63a82f282beaf
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017369"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466093"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Creación de un modelo acústico personalizado
 
@@ -151,6 +153,6 @@ En la tabla de modelos acústicos se muestra una nueva entrada que corresponde a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga su suscripción de evaluación gratuita del servicio Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtener la suscripción de evaluación gratuita del servicio Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconocer la voz en C#](quickstart-csharp-dotnet-windows.md)
 - [Datos de ejemplo de Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

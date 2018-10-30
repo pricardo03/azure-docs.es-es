@@ -11,12 +11,12 @@ ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5f7b8b98f97e020b4f6fb4b125d444df87f8d5a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967904"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025759"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: Clasificación de iris mediante la interfaz de línea de comandos
 
@@ -143,13 +143,13 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Creación de un nuevo proyecto asociado a un repositorio de Git de la nube
-Puede crear un nuevo proyecto asociado a un repositorio de Git de Azure DevOps. Cada vez que se envía un experimento, se confirma en el repositorio de Git remoto una instantánea de la carpeta de proyecto completa. Consulte [Uso del repositorio de Git con un proyecto de Azure Machine Learning Workbench](using-git-ml-project.md) para más detalles.
+Puede crear un nuevo proyecto asociado a un repositorio de Git de Azure Repos. Cada vez que se envía un experimento, se confirma en el repositorio de Git remoto una instantánea de la carpeta de proyecto completa. Consulte [Uso del repositorio de Git con un proyecto de Azure Machine Learning Workbench](using-git-ml-project.md) para más detalles.
 
 > [!NOTE]
-> Azure Machine Learning solo admite repositorios de Git vacíos creados en Azure DevOps.
+> Azure Machine Learning solo admite repositorios de Git vacíos creados en Azure Repos.
 
 ```azure-cli
-$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <repo URL>
 ```
 > [!TIP]
 > Si recibe un error "La dirección URL del repositorio puede no ser válida o puede que el usuario no tenga acceso", puede crear un token de seguridad en Azure DevOps (en el menú _Seguridad_, _Agregar tokens de acceso personal_) y usar el argumento `--vststoken` al crear el proyecto. 

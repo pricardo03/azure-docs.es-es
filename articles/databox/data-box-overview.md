@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090813"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955344"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -62,7 +62,7 @@ El dispositivo Data Box tiene las siguientes características en esta versión.
 | Dimensiones                                              | Dispositivo: ancho 309,0 mm; alto 430,4 mm; profundidad: 502,0 mm |            
 | Espacio en bastidor                                              | 7 U cuando se coloca en el bastidor en su lado (no se puede montar en bastidor)|
 | Se necesitan cables                                         | 1 cable de alimentación (incluido) <br> 2 cables RJ45 <br> 2 cables de cobre X SFP + Twinax|
-| Capacidad de almacenamiento                                        | 100 TB <br> 80 TB de capacidad utilizable tras aplicar la protección de RAID 5|
+| Capacidad de almacenamiento                                        | Dispositivo de 100 TB que tenga al menos 80 TB de capacidad utilizable tras aplicar la protección de RAID 5|
 | Interfaces de red                                      | Interfaz GbE de 2 X 1: MGMT y DATA 3. <br> MGMT: para la administración, no es configurable por el usuario y se usar para la configuración inicial <br> Data3: para los datos, es configurable por el usuario y es dinámico de forma predeterminada <br> MGMT y DATA 3 también pueden funcionar como 10 GbE <br> Interfaz GbE de 2 X 10: DATA 1 y DATA 2 <br> Ambas son para los datos, se pueden configurar como estáticas o dinámicas (valor predeterminado) |
 | Transferencia de datos multimedia                                     | Cable de cobre RJ45 SFP+ y Ethernet de 10 GbE  |
 | Seguridad                                                | Uso resistente de mayúsculas y minúsculas con tornillos personalizados a prueba de alteraciones <br> Adhesivos de alteración evidente colocados en la parte inferior del dispositivo|

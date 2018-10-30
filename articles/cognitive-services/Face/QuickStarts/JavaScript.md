@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen - Face API, JavaScript'
+title: 'Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y JavaScript'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, detectará las caras de una imagen mediante Face API con JavaScript en Cognitive Services.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: eb860c054ddb18d6c26cc4853e1bf230739aa51d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 355d3258392fa722fbdc3762a9125a22e8a69b67
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340195"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954311"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-javascript"></a>Guía de inicio rápido: Detección de caras en una imagen con JavaScript
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y JavaScript
 
 En esta guía de inicio rápido, se detectan las caras en una imagen mediante Face API.
 

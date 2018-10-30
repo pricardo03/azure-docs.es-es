@@ -1,26 +1,27 @@
 ---
 title: 'Guía de inicio rápido: Reconocimiento de voz en Java (Windows o Linux)'
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aprenda cómo utilizar el reconocimiento de voz en Java (Windows o Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339203"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467266"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Windows o Linux mediante el SDK de Voz
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en Java para Windows o Linux mediante el SDK de Speech Service
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo creará una aplicación de consola Java mediante el [SDK de Voz](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete de Maven del SDK de Voz y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits o Ubuntu Linux 16.04. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
+En este artículo creará una aplicación de consola Java mediante el [SDK de Speech Service](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete de Maven del SDK de Voz y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits o Ubuntu Linux 16.04. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
 > [!NOTE]
 > Para el SDK de dispositivos de Voz y el dispositivo Roobo, consulte [SDK de dispositivos de voz](speech-devices-sdk.md).

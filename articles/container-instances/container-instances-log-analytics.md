@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856044"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405606"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registro de instancias de contenedor con Azure Log Analytics
 
@@ -100,7 +100,7 @@ Debería recibir una respuesta de Azure con detalles de implementación poco des
 
 Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. Para ver los registros del grupo de contenedores, abra el área de trabajo de Log Analytics y:
 
-1. En la información general de **Área de trabajo de OMS**, seleccione **Búsqueda de registros**
+1. En la información general de **Área de trabajo de OMS**, seleccione **Búsqueda de registros**. Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.  
 1. En **A few more queries to try** (Intentar algunas consultas más), seleccione el vínculo **All collected data** (Todos los datos recopilados)
 
 Debería ver que la consulta `search *` muestra varios resultados. Si no ve ninguno, espere unos minutos y seleccione el botón **EJECUTAR** para volver a ejecutar la consulta. De forma predeterminada, las entradas del registro se muestran en la vista de "Lista" (seleccione **Tabla** para ver las entradas del registro en un formato más condensado). Luego puede expandir una fila para ver el contenido de una entrada de registro individual.

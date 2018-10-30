@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 9c7ac89d1f12e8ec033b201f2c2dd845c11486e2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077824"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984203"
 ---
 # <a name="validate-azure-identity"></a>Validación de la identidad de Azure 
 Use la herramienta Azure Stack Readiness Checker (AzsReadinessChecker) para validar que su instancia de Azure Active Directory (Azure AD) está lista para usarse con Azure Stack. Valide la solución de identidad de Azure antes de empezar la implementación de Azure Stack.  
@@ -62,10 +62,21 @@ Deben cumplirse los siguientes requisitos previos.
    - Especifique el valor de AzureEnvironment como *AzureCloud*, *AzureGermanCloud* o *AzureChinaCloud*.  
    - Especifique el nombre del inquilino de Azure Active Directory que quiere reemplazar *contoso.onmicrosoft.com*. 
 
-   > `Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
-4. Después de ejecutar la herramienta, revise el resultado. Confirme que el estado del inicio de sesión y los requisitos de instalación es **Correcto**. Una validación correcta tiene un aspecto similar al de la siguiente imagen: 
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+4. Después de ejecutar la herramienta, revise el resultado. Confirme que el estado es correcto para los requisitos de instalación. Una validación correcta tiene un aspecto similar al de la siguiente imagen: 
  
-![ejecución de la validación](./media/azure-stack-validate-identity/validation.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: OK
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 
 
 ## <a name="report-and-log-file"></a>Informe y archivo de registro
@@ -86,8 +97,22 @@ Los ejemplos siguientes ofrecen instrucciones sobre errores de validación comun
 
 ### <a name="expired-or-temporary-password"></a>Contraseña temporal o expirada 
  
-![contraseña expirada](./media/azure-stack-validate-identity/expired-password.png)
-**Causa**: no se pudo iniciar sesión en la cuenta porque la contraseña es temporal o ha expirado.     
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+The password for account  has expired or is a temporary password that needs to be reset before continuing. Run Login-AzureRMAccount, login with  credentials and follow the prompts to reset.
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
+**Causa**: la cuenta no puede iniciar sesión porque la contraseña es temporal o ha expirado.     
 
 **Resolución**: en PowerShell, ejecute el siguiente comando y siga las indicaciones para restablecer la contraseña.  
 > `Login-AzureRMAccount`
@@ -95,13 +120,41 @@ Los ejemplos siguientes ofrecen instrucciones sobre errores de validación comun
 O bien, inicie sesión en https://portal.azure.com con la cuenta y el usuario se verá obligados a cambiar la contraseña.
 ### <a name="unknown-user-type"></a>Tipo de usuario desconocido 
  
-![usuario desconocido](./media/azure-stack-validate-identity/unknown-user.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+Unknown user type detected. Check the account  is valid for AzureChinaCloud
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 **Causa**: la cuenta no puede iniciar sesión en el entorno de Azure Active Directory especificado (AADDirectoryTenantName). En este ejemplo, *AzureChinaCloud* se especifica como valor de *AzureEnvironment*.
 
 **Resolución**: confirme que la cuenta es válida para el entorno de Azure especificado. En PowerShell, ejecute el siguiente comando para comprobar que la cuenta es válida para un entorno concreto: Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>La cuenta no es de administrador 
  
-![no de administrador](./media/azure-stack-validate-identity/not-admin.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+The Service Admin account you entered 'admin@contoso.onmicrosoft.com' is not an administrator of the Azure Active Directory tenant 'contoso.onmicrosoft.com'.
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 
 **Causa**: aunque la cuenta puede iniciar sesión correctamente, la cuenta no es de administrador de Azure Active Directory (AADDirectoryTenantName).  
 

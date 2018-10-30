@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ab79201442fe9c7334525972c34eba86daf27e99
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069104"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457432"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -27,6 +27,9 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en una re
 > * Comprobación de la configuración de los recursos de destino
 > * Configuración del acceso de salida para las máquinas virtuales
 > * Habilitación de la replicación para una máquina virtual
+
+> [!NOTE]
+> Este tutorial está diseñado para guiar al usuario en los pasos para habilitar la replicación con la personalización mínima; en caso de que desee obtener más información acerca de los diversos aspectos asociados con la recuperación ante desastres, incluidas las consideraciones de red, la automatización o la solución de problemas, consulte los documentos de procedimientos para las máquinas virtuales de Azure.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -193,7 +196,7 @@ Haga clic en "Personalizar" junto a la configuración de cifrado para reemplazar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se configuró la recuperación ante desastres para una máquina virtual de Azure. El paso siguiente es probar la configuración.
+En este tutorial se configuró la recuperación ante desastres para una máquina virtual de Azure. El paso siguiente es probar la configuración; para ello inicie una exploración de DR.
 
 > [!div class="nextstepaction"]
 > [Exploración de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md)

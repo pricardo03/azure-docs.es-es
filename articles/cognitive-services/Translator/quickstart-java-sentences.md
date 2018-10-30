@@ -1,23 +1,23 @@
 ---
-title: 'Inicio rápido: Obtener longitudes de oración - Translator Text, Java'
+title: 'Guía de inicio rápido: obtención de las longitudes de frase con Java: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API con Java en Cognitive Services.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: d0459b04bbd0dbbda3dab80623a39742a6f843b2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 3ea4c3a6463b831fe960bf6aec9e4c1151f8424d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122629"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644885"
 ---
-# <a name="quickstart-get-sentence-lengths-with-java"></a>Guía de inicio rápido: determinación de la longitud de las oraciones con Java
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Guía de inicio rápido: obtención de las longitudes de frase con Translator Text REST API (Java)
 
 En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API.
 

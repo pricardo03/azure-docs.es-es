@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636994"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467436"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs
 En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
@@ -55,7 +55,7 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio 
 1. En la página **DevTest Lab**, seleccione **+ Agregar** en la barra de herramientas. 
 
     ![Botón Agregar](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. En la página **Elegir base de datos**, busque con la palabra clave **Ubuntu** y seleccione una de las imágenes de base de la lista. 
+1. En la página **Elegir base de datos**, busque con la palabra clave (por ejemplo, Windows, Ubuntu) y seleccione una de las imágenes de base de la lista. 
 1. En la página **Máquina virtual**, realice las acciones siguientes: 
     1. En **Nombre de máquina virtual**, escriba un nombre para la máquina virtual. 
     2. En **Nombre de usuario**, escriba un nombre para el usuario que tiene acceso a la máquina virtual. 
@@ -71,6 +71,9 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio 
 
         ![Estado de la creación de la máquina virtual](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. Después de crear la máquina virtual, puede verla en la lista **Máquinas virtuales que se pueden reclamar**. 
+
+    > [!NOTE] 
+    > Al agregar una máquina virtual de Linux a un laboratorio, puede habilitar el acceso RDP y SSH a la máquina virtual. Si no habilita el acceso al crear la máquina virtual, puede agregar manualmente reglas en el grupo de seguridad de red asociado a la máquina virtual para abrir puertos para SSH y RDP.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Adición de un usuario al rol de usuario de laboratorio
 

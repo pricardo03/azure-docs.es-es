@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920076"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465957"
 ---
 # <a name="create-and-publish-a-product"></a>Crear y publicar un producto  
 
@@ -31,19 +31,19 @@ En este tutorial, aprenderá a:
 > * Crear y publicar un producto
 > * Agregar una API al producto
 
-![agregar un producto](media/api-management-howto-add-products/added-product.png)
+![Incorporación de un tutorial del producto](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
 
-## <a name="create-and-publish-a-product"></a>Creación y publicación de un producto
+## <a name="create-and-publish-a-product"></a>Crear y publicar un producto
+
+![Add product](media/api-management-howto-add-products/02-create-publish-product-01.png)
 
 1. Haga clic en **Productos** en el menú de la izquierda para mostrar la página **Productos**.
 2. Haga clic en **+ Agregar**.
-
-    ![producto agregado](media/api-management-howto-add-products/add-product.png)
 
     Al agregar un producto, se debe proporcionar la siguiente información: 
 
@@ -77,7 +77,7 @@ Los desarrolladores tienen que suscribirse primero a un producto para acceder a 
 
 ### <a name="add-an-api-to-an-existing-product"></a>Adición de una API a un producto existente
 
-![agregar API de producto](media/api-management-howto-add-products/add-product-api.png)
+![agregar API de producto](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. En la pestaña **Productos**, seleccione un producto.
 2. Vaya a la pestaña **API**.

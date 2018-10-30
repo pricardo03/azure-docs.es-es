@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092617"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649404"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Box
 
@@ -217,7 +217,7 @@ A.  Una vez que se completa la copia de datos en Azure, los datos de los discos 
 ## <a name="audit-report"></a>Informe de auditoría
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>¿Cómo ayuda el servicio Azure Data Box a garantizar el procedimiento de cadena de custodia de los clientes?
-A.  El servicio Azure Data Box proporciona de forma nativa informes que puede utilizar para documentar su cadena de custodia. Los registros de auditoría y copia están disponibles en su cuenta de almacenamiento de Azure, y el historial de pedidos se puede descargar desde su pedido en Azure Portal después de completar el pedido en cuestión.
+A.  El servicio Azure Data Box proporciona de forma nativa informes que puede utilizar para documentar su cadena de custodia. Los registros de auditoría y copia están disponibles en su cuenta de almacenamiento de Azure, y el [historial de pedidos se puede descargar](data-box-portal-admin.md#download-order-history) en Azure Portal después de completar el pedido.
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>¿Qué tipo de informes está disponible para garantizar la cadena de custodia?
@@ -230,7 +230,7 @@ A.  Los siguientes informes están disponibles para garantizar la cadena de cust
 - Saneamiento del dispositivo Data Box (según los estándares NIST 800 88R1) después de copiar los datos en su cuenta de almacenamiento de Azure.
 
 ### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>¿Están disponibles los registros de seguimiento del transportista (de UPS / DHL)? 
-A.  Los registros de seguimiento del transportista se obtienen en el informe del registro de auditoría de Data Box. Podrá obtener acceso a este informe una vez que el dispositivo haya llegado al centro de datos de Azure, y se hayan borrado los datos de los discos del mismo. Si lo necesita de forma urgente, también puede ir directamente al sitio web del transportista con el número de seguimiento del pedido y obtener la información del seguimiento.
+A.  Los registros de seguimiento del transportista se obtienen en el historial de pedidos de Data Box. Podrá obtener acceso a este informe una vez que el dispositivo haya llegado al centro de datos de Azure, y se hayan borrado los datos de los discos del mismo. Si lo necesita de forma urgente, también puede ir directamente al sitio web del transportista con el número de seguimiento del pedido y obtener la información del seguimiento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>¿Puedo transportar Data Box al centro de datos de Azure? 
 A.  No. Actualmente, el centro de datos de Azure no acepta la entrega de Data Box de clientes o transportistas que no sean UPS o DHL.

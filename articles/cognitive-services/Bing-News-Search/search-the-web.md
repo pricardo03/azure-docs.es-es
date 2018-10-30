@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 787fdea047f9e7d77ca0a156f1c41fa50fd2fa48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801478"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023209"
 ---
 # <a name="what-is-bing-news-search"></a>¿Qué es Bing News Search API?
 
@@ -265,7 +265,7 @@ Si hay otros artículos relacionados con un artículo de prensa, el artículo de
 
 Para comenzar rápidamente con su primera solicitud, consulte [Making Your First Request](./quickstart.md) (Realizar su primera solicitud).
 
-Familiarícese con la referencia de [Bing News Search API v7] (https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)). La referencia contiene la lista de los puntos de conexión, encabezados y parámetros de consulta que se utilizan para solicitar los resultados de la búsqueda. También incluye definiciones de los objetos de respuesta.
+Familiarícese con la referencia de [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference). La referencia contiene la lista de los puntos de conexión, encabezados y parámetros de consulta que se utilizan para solicitar los resultados de la búsqueda. También incluye definiciones de los objetos de respuesta.
 
 Para mejorar la experiencia de usuario del cuadro de búsqueda, consulte [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md). A medida que el usuario escribe el término de consulta, puede llamar a esta API para obtener términos de consulta relacionados que fueron utilizados por otros usuarios.
 

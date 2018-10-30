@@ -1,24 +1,30 @@
 ---
-title: 'Inicio rápido: Base de conocimientos de actualización de Python: QnA Maker'
-description: Procedimientos para actualizar una base de conocimiento en Python para QnA Maker.
+title: 'Guía de inicio rápido: actualización de la base de conocimiento con REST y Python en QnA Maker'
+description: Esta guía de inicio rápido basada en REST le lleva por la actualización mediante programación de la base de conocimiento (KB) de QnA Maker de ejemplo. La definición JSON que se usa para actualizar una base de conocimiento le permite agregar, cambiar o eliminar pares de preguntas y respuestas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: d58e12df30ab1b45e460cf8a4ea098d350164ec3
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 35ef0222de6093e7bae3b41377db2ea3fd3c3d75
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031941"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645921"
 ---
-# <a name="update-a-knowledge-base-in-python"></a>Actualización de una base de conocimiento en Python
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-python"></a>Guía de inicio rápido: actualización de una base de conocimiento en QnA Maker mediante Python
 
-El siguiente código actualiza una base de conocimiento existente con el método [Actualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Esta guía de inicio rápido le lleva por la actualización mediante programación de una base de conocimiento (KB) existente de QnA Maker.  Este código JSON le permite actualizar una base de conocimiento mediante la incorporación de nuevos orígenes de datos y el cambio o la eliminación de orígenes de datos.
+
+Esta API es equivalente a editar y luego usar el botón **Save and train** (Guardar y entrenar) del portal de QnA Maker.
+
+En esta guía de inicio rápido se llama a las QnA Maker API:
+* [Actualización](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600): el modelo de la base de conocimiento se define en el código JSON enviado en el cuerpo de la solicitud de API. 
+* [Obtención de los detalles de la operación](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

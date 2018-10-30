@@ -1,23 +1,23 @@
 ---
-title: 'Inicio rápido: Obtener longitudes de oración - Translator Text, PHP'
+title: 'Guía de inicio rápido: obtención de las longitudes de frase (PHP): Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API con PHP.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 63c2822e7b61eb437a43fb394cfa3cc8172d9af3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 7c709c10d7944a53a557f6a1ce2a6d9b930cccce
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124752"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645401"
 ---
-# <a name="quickstart-get-sentence-lengths-with-php"></a>Guía de inicio rápido: determinación de la longitud de las oraciones con PHP
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Guía de inicio rápido: obtención de las longitudes de frase con Translator Text REST API (PHP)
 
 En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API.
 

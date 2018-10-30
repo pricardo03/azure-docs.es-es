@@ -1,23 +1,23 @@
 ---
-title: 'Inicio rápido: Obtener longitudes de oración - Translator Text, Go'
+title: 'Guía de inicio rápido: obtención de las longitudes de oración con Go: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API con Go.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: erhopf
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 34b30179d674a42f6c9c2c358c0feb6e083089f6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 92ea2291760edf16863dc58a00bac4389f818e72
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129461"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644936"
 ---
-# <a name="quickstart-get-sentence-lengths-with-go"></a>Guía de inicio rápido: determinación de la longitud de las oraciones con Go
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-go"></a>Guía de inicio rápido: obtención de las longitudes de frase con Translator Text REST API (Go)
 
 En esta guía de inicio rápido se determina la longitud de las oraciones del texto mediante Translator Text API.
 

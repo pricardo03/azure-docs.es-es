@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167263"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987314"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
@@ -90,7 +90,7 @@ Para cada tipo de alerta, deben definirse varias condiciones de alerta.
 
 #### <a name="log-analytics-query-alert"></a>Alerta de consulta de Log Analytics
 
-Para las implementaciones correctas puede crear una alerta basada en una consulta de Log Analytics. Para las implementaciones con errores, puede usar los pasos de [alerta de runbook](#runbook-alert) para alertarle cuando se produce un error en el runbook maestro que los orquestadores de implementaciones de actualizaciones. Puede escribir una consulta personalizada para alertas adicionales para abarcar varios escenarios diferentes.
+Para las implementaciones correctas puede crear una alerta basada en una consulta de Log Analytics. En las implementaciones con errores, puede usar los pasos de [Alerta de runbook](#runbook-alert) para enviar alertas cuando se produce un error en el runbook maestro que organiza las implementaciones de las actualizaciones. Puede escribir una consulta personalizada para alertas adicionales para abarcar varios escenarios diferentes.
 
 En Azure Portal, vaya a **Monitor** y, a continuación, seleccione **Crear alerta**.
 
@@ -159,7 +159,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 * **Sistema operativo**: seleccione el sistema operativo que es el destino de la implementación de actualizaciones.
 
-* **Grupos para actualizar (versión preliminar)**: defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure para incluir en la implementación. Para más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
+* **Grupos que se deben actualizar (versión preliminar)**: defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para obtener más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
 
 * **Equipos que se actualizan**: seleccione una búsqueda guardada, un grupo importado o elija Máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
@@ -174,7 +174,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
    Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-update-management.md#update-classifications).
 
-* **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para obtener más información sobre cómo se controla la inclusión, consulte [inclusion behavior](automation-update-management.md#inclusion-behavior) (comportamiento de la inclusión).
+* **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para obtener más información sobre cómo se controla la inclusión, consulte la sección [Inclusion behavior](automation-update-management.md#inclusion-behavior) (Comportamiento de la inclusión).
 
 * **Configuración de la programación**: abre la página **Configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 
@@ -194,6 +194,9 @@ Cuando haya terminado de configurar la programación, seleccione **Crear**.
 ![Panel de configuración de la programación de actualizaciones](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 Volverá al panel de estado. Seleccione **Implementaciones de actualizaciones programadas** para mostrar la programación de implementación que creó.
+
+> [!NOTE]
+> Update Management admite la implementación de actualizaciones de origen y la descarga previa de revisiones. Esto requiere cambios en los sistemas a los que se aplican revisiones. Para aprender a configurar estos valores en sus sistemas, consulte [soporte técnico para propios y para descargas previas](automation-update-management.md#firstparty-predownload).
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 
@@ -223,7 +226,7 @@ Una vez que la implementación de actualizaciones se realiza correctamente, se e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Incorporar máquinas virtuales a Update Management

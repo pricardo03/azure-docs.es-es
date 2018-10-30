@@ -1,6 +1,6 @@
 ---
-title: Creación de aplicaciones Azure Web Apps con Ansible (versión preliminar)
-description: Aprenda a usar Ansible para crear una aplicación web con Java 8 y el entorno de ejecución de contenedor de Tomcat en App Service en Linux.
+title: Creación de aplicaciones web de Azure con Ansible (versión preliminar)
+description: Aprenda a usar Ansible para crear una aplicación web con Java 8 y el entorno de ejecución de contenedores Tomcat en App Service en Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 author: tomarcher
@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 1899b1fc1e0a38d859fb3a7ce2153585579650f3
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586712"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426563"
 ---
-# <a name="create-azure-app-service-web-apps-using-ansible-preview"></a>Creación de Azure App Service Web Apps con Ansible (versión preliminar)
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (o simplemente Web Apps) es un servicio para hospedar aplicaciones web, API REST y servidores back-end para dispositivos móviles. Puede desarrollarlo en su lenguaje preferido, ya sea. NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
+# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Creación de aplicaciones web de Azure App Service con Ansible (versión preliminar)
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (o simplemente Web Apps) hospeda aplicaciones web, API REST y servidores back-end para dispositivos móviles. Puede desarrollar en su lenguaje preferido, ya sea .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
 
-Ansible permite automatizar la implementación y la configuración de recursos en un entorno. En este artículo se muestra cómo usar Ansible para crear una aplicación web con el entorno de ejecución de Java. 
+Ansible permite automatizar la implementación y la configuración de recursos en el entorno. En este artículo se muestra cómo usar Ansible para crear una aplicación web con el entorno de ejecución de Java. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 - **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial. Podría instalar la versión RC de Ansible 2.7 mediante la ejecución de `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 se publicará en octubre de 2018. Después de eso, no será necesario especificar aquí la versión porque la versión predeterminada será 2.7. 
+> Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial. Para instalar la versión 2.7 RC de Ansible, ejecute `sudo pip install ansible[azure]==2.7.0rc2`. Después del lanzamiento de Ansible 2.7, no tendrá que especificar la versión aquí porque la versión predeterminada será la 2.7. 
 
 ## <a name="create-a-simple-app-service"></a>Creación de un servicio de aplicación simple
 En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo que define los siguientes recursos:
-- El grupo de recursos, donde se implementará el plan de App Service y la aplicación web.
-- La aplicación web, una aplicación web con Java 8 y el entorno de ejecución de contenedor de Tomcat en App Service en Linux.
+- El grupo de recursos, en el que se implementarán el plan de App Service y la aplicación web
+- Una aplicación web con Java 8 y el entorno de ejecución de contenedores Tomcat en App Service en Linux
 
 ```
 - hosts: localhost
@@ -62,7 +62,7 @@ En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo qu
               java_container: tomcat
               java_container_version: 8.5
 ```
-Guarde el cuaderno de estrategias anterior como firstwebapp.yml.
+Guarde el cuaderno de estrategias anterior como **firstwebapp.yml**.
 
 Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
 ```bash
@@ -84,19 +84,19 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## <a name="create-app-service-with-traffic-manager"></a>Creación de App Service con Traffic Manager
-Puede usar [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) para controlar la manera en que se distribuyen solicitudes de clientes web a aplicaciones de Azure App Service. Cuando se agregan puntos de conexión de App Service a un perfil de Azure Traffic Manager, este hace un seguimiento del estado de las aplicaciones de App Service (en ejecución, detenidas o eliminadas) para decidir cuáles de esos puntos de conexión debe recibir tráfico.
+## <a name="create-an-app-service-by-using-traffic-manager"></a>Creación de un servicio de aplicaciones mediante Traffic Manager
+Puede usar [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) para controlar la manera en que se distribuyen solicitudes de clientes web a aplicaciones de Azure App Service. Cuando se agregan puntos de conexión de App Service a un perfil de Azure Traffic Manager, este realiza un seguimiento del estado de las aplicaciones de App Service. Los estados incluyen en ejecución, detenido y eliminado. Traffic Manager, a continuación, puede decidir cuál de esos puntos de conexión debe recibir el tráfico.
 
 En App Service, cada aplicación se ejecuta en un [plan de App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-). Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. Puede administrar el plan de App Service y la aplicación web en diferentes grupos.
+). Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. Puede administrar el plan de App Service y la aplicación web en grupos distintos.
 
 En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo que define los siguientes recursos:
 - Grupo de recursos, donde se implementará su plan de App Service.
-- Plan de servicio de aplicación
-- Grupo de recursos secundario, donde se implementará la aplicación web.
-- La aplicación web, una aplicación web con Java 8 y el entorno de ejecución de contenedor de Tomcat en App Service en Linux.
-- Perfil del Administrador de tráfico
-- Punto de conexión de Traffic Manager mediante el sitio web creado
+- Plan de App Service
+- Grupo de recursos secundario, donde se implementará la aplicación web
+- Una aplicación web con Java 8 y el entorno de ejecución de contenedores Tomcat en App Service en Linux
+- Perfil de Traffic Manager
+- Punto de conexión de Traffic Manager con el sitio web creado
 
 ```
 - hosts: localhost
@@ -179,7 +179,7 @@ En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo qu
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-Guarde el cuaderno de estrategias anterior como webapp.yml, o [descargue el cuaderno de estrategias](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
+Guarde el cuaderno de estrategias anterior como **webapp.yml** o [descargue el cuaderno de estrategias](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
 Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
 ```bash

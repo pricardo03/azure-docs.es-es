@@ -1,23 +1,23 @@
 ---
-title: 'Inicio rápido: Convertir script de texto - Translator Text, Node.js'
+title: 'Guía de inicio rápido: conversión de script de texto con Node.js: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se convierte texto en un idioma de un script en otro mediante Translator Text API con Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 53ebcd6c37141a783303dd71666d5c8d4805ca49
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 1980adb78a4ba457fd05f532cdd6e30bba7d9132
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127708"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646207"
 ---
-# <a name="quickstart-transliterate-text-with-nodejs"></a>Guía de inicio rápido: transliteración de texto con Node.js
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-nodejs"></a>Guía de inicio rápido: Transcripción de texto con la API REST Translator Text (Node.js)
 
 En esta guía de inicio rápido se convierte texto en un idioma de un script en otro mediante Translator Text API.
 

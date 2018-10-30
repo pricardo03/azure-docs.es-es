@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Compilar una aplicación de Windows para Custom Vision Service con C#'
+title: 'Tutorial: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para C#'
 titlesuffix: Azure Cognitive Services
 description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción mediante el punto de conexión predeterminado.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366648"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953050"
 ---
-# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Tutorial: Usar Custom Vision Service en una aplicación de C#
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Tutorial: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para C#
 
-Aprenda a usar el servicio Custom Vision Service en una aplicación de C#. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación para Windows con la API de Custom Vision Service.
+Aprenda a usar el SDK de Custom Vision Service en una aplicación de C#. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación para Windows con la API de Custom Vision Service.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

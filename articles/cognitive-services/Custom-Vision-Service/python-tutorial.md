@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de un proyecto de clasificación de imágenes - Custom Vision Service, Python'
+title: 'Tutorial: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para Python'
 titlesuffix: Azure Cognitive Services
 description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción con el punto de conexión predeterminado.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363384"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953119"
 ---
-# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Tutorial: Creación de un proyecto de clasificación de imágenes mediante Custom Vision Service con Python
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>Tutorial: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para Python
 
 Obtenga información sobre cómo crear un proyecto de clasificación de imágenes con Custom Vision Service y un script básico de Python. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación mediante Custom Vision API.
 

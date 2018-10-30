@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376812"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986465"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutorial: Oferta de bases de datos MySQL de alta disponibilidad
 
@@ -65,16 +65,15 @@ Siga los pasos de esta sección para implementar el clúster de MySQL Server con
 - Una dirección IP pública (para la VM del clúster de MySQL)
 - Tres VM de Linux para hospedar el clúster de MySQL
 
-1. Inicie sesión en el portal de administración:
-    - En el caso una implementación de sistema integrado, la dirección del portal variará en función de la región y el nombre de dominio externo de la solución. Estará en el formato https://adminportal.&lt;*región*&gt;.&lt;*nombre de dominio completo*&gt;.
-    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seleccione **\+** **Crear un recurso** > **Proceso** y, a continuación, **MySQL con replicación**.
 
-   ![Implementación de plantilla personalizada](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Implementación de plantilla personalizada](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Proporcione información básica sobre la implementación en la página **Aspectos básicos**. Revise los valores predeterminados, haga los cambios pertinentes y haga clic en **Aceptar**.<br><br>Como mínimo, proporcione lo siguiente:
-   - Nombre de la implementación (el valor predeterminado es mysql)
+   - Nombre de la implementación (el valor predeterminado es mymysql)
    - Contraseña raíz de la aplicación. Proporcione una contraseña de 12 caracteres alfanuméricos **sin caracteres especiales**
    - Nombre de la base de datos de aplicación (el valor predeterminado es bitnami)
    - Número de máquinas virtuales de réplica de base de datos de MySQL para crear (el valor predeterminado es 2)
@@ -82,22 +81,22 @@ Siga los pasos de esta sección para implementar el clúster de MySQL Server con
    - Seleccione el grupo de recursos o cree uno nuevo
    - Seleccione la ubicación (el valor predeterminado es local para el Kit de desarrollo de Azure Stack)
 
-   ![Conceptos básicos de la implementación](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Conceptos básicos de la implementación")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. En la página de **configuración del entorno**, proporcione la información siguiente y, después, haga clic en **Aceptar**: 
    - Contraseña o SSH de clave pública que se usará para la autenticación de Secure Shell (SSH). Si usa una contraseña, debe contener letras y números, y **puede** contener caracteres especiales
    - Tamaño de máquina virtual (el valor predeterminado es VM Standard D1 v2)
    - Tamaño del disco de datos en GB Haga clic en **Aceptar**
 
-   ![Configuración del entorno](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Configuración del entorno")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Revise el **resumen** de la implementación. Si lo desea, puede descargar la plantilla personalizada y los parámetros; a continuación, haga clic en **Aceptar**.
 
-   ![Resumen](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Resumen")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Haga clic en **Crear** en la página **Comprar** para iniciar la implementación.
 
-   ![Comprar](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Comprar](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > La implementación tardará aproximadamente una hora. Asegúrese de que ha terminado la implementación y el clúster de MySQL se ha configurado completamente antes de continuar. 
@@ -110,11 +109,11 @@ De forma predeterminada, no hay ningún acceso público configurado para MySQL e
 
 1. En el portal de administrador, vaya al grupo de recursos que creó al implementar el clúster de MySQL y seleccione el grupo de seguridad de red (**default-subnet-sg**):
 
-   ![abierto](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![abierto](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Seleccione **Reglas de seguridad de entrada** y luego haga clic en **Agregar**.<br><br>Escriba **3306** en el **Intervalo de puertos de destino** y, opcionalmente, proporcione una descripción en los campos **Nombre** y **Descripción**. Haga clic en Agregar para cerrar el cuadro de diálogo de regla de seguridad de entrada.
 
-   ![abierto](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![abierto](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Configuración del acceso externo al clúster de MySQL
 Para que el clúster de MySQL se pueda agregar como un host de servidor de MySQL de Azure Stack, debe habilitarse el acceso externo.
@@ -167,9 +166,8 @@ Una vez que el clúster de MySQL se ha creado, configurado y agregado como servi
 > [!NOTE]
 > Ejecute estos pasos desde el portal de usuario de Azure Stack como un usuario inquilino con una suscripción que proporcione funciones de MySQL Server (servicio Microsoft.MySQLAdapter).
 
-1. Inicie sesión en el portal de usuario:
-    - En el caso una implementación de sistema integrado, la dirección del portal variará en función de la región y el nombre de dominio externo de la solución. Estará en el formato https://portal.&lt;*región*&gt;.&lt;*nombre de dominio completo*&gt;.
-    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Seleccione **\+****Crear un recurso** > **Datos\+ y almacenamiento** y, a continuación, **Base de datos MySQL**.<br><br>Proporcione la información de propiedad de base de datos requerida, incluidos el nombre, la intercalación y la suscripción para utilizar y la ubicación que se emplearán en la implementación. 
 
@@ -189,7 +187,7 @@ Una vez que el clúster de MySQL se ha creado, configurado y agregado como servi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear un clúster de MySQL Server desde elementos de Marketplace

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419532"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945797"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Tutorial: Creación de una plantilla de Azure Resource Manager para la implementación de una cuenta de almacenamiento cifrada
 
@@ -40,8 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Extensión de herramientas de Resource Manager Para realizar la instalación, consulte [Instalación de la extensión de herramientas de Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
@@ -56,7 +55,7 @@ La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta
 3. Seleccione **Abrir** para abrir el archivo.
 4. Seleccione **Archivo**>**Guardar como** para guardar el archivo como **azuredeploy.json** en el equipo local.
 
-## <a name="understand-the-format"></a>Descripción del formato
+## <a name="understand-the-schema"></a>Información sobre el esquema
 
 En VS Code, contraiga la plantilla al nivel raíz. Tiene la estructura más sencilla con los siguientes elementos:
 
@@ -69,7 +68,7 @@ En VS Code, contraiga la plantilla al nivel raíz. Tiene la estructura más senc
 * **recursos**: especifique los tipos de recursos que se implementan o actualizan en un grupo de recursos.
 * **salidas**: especifique los valores que se devuelven después de la implementación.
 
-## <a name="use-parameters-in-template"></a>Uso de parámetros en la plantilla
+## <a name="use-parameters"></a>Uso de parámetros
 
 Los parámetros le permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto. Puede usar los parámetros definidos en la plantilla al establecer los valores de la cuenta de almacenamiento.
 
@@ -90,7 +89,7 @@ Para usar los parámetros definidos en la plantilla:
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>Uso de variables en la plantilla
+## <a name="use-variables"></a>Uso de variables
 
 Las variables le permiten crear valores que pueden usarse en toda la plantilla. Las variables ayudan a reducir la complejidad de las plantillas.
 
@@ -117,9 +116,7 @@ El objetivo de este tutorial es definir una plantilla para crear una cuenta de a
 
     ![Cuenta de almacenamiento de referencia de plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. Explore la información relacionada con el cifrado.  
-1. Dentro del elemento de propiedades de la definición de recursos de la cuenta de almacenamiento, agregue el siguiente json:
+4. Búsqueda de la información de definición relacionada con el cifrado.  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ El objetivo de este tutorial es definir una plantilla para crear una cuenta de a
         }
     }
     ```
-    Este elemento habilita la función de cifrado del servicio de almacenamiento de blobs.
-
-Desde Visual Studio Code, modifique la plantilla para que el elemento resources final sea parecido a:
-
-![Recursos de la cuenta de almacenamiento cifrada de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. Desde Visual Studio Code, modifique la plantilla para que el elemento resources final sea parecido a:
+    
+    ![Recursos de la cuenta de almacenamiento cifrada de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
