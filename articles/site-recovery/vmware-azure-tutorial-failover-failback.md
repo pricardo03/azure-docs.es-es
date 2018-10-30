@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391375"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457097"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure
 
@@ -93,13 +93,12 @@ Siga los pasos descritos [aquí](site-recovery-failover-to-azure-troubleshoot.md
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparación para volver a proteger la máquina virtual Azure
 
-### <a name="create-a-process-server-in-azure"></a>Creación de un servidor de procesos en Azure
+- Puede usar el servidor de procesos local (servidor de procesos integrado) que se instala automáticamente en el servidor de configuración como parte de la instalación **si tiene una conexión de Azure ExpressRoute**.
 
-El servidor de procesos recibe datos de la máquina virtual de Azure y los envía al sitio local. Se requiere una red de baja latencia entre el servidor de procesos y la máquina virtual protegida.
+> [!IMPORTANT]
+> Si tiene una conexión VPN entre el entorno local y Azure, debe configurar una máquina virtual de Azure como un servidor de procesos para la reprotección y la conmutación por recuperación. Para configurar un servidor de procesos en Azure, siga las instrucciones de [este artículo](vmware-azure-set-up-process-server-azure.md).
 
-- Para fines de prueba, si tiene una conexión de Azure ExpressRoute, puede usar el servidor de procesos local (servidor de procesos integrado) instalado automáticamente en el servidor de configuración.
-- Si tiene una conexión VPN o va a realizar una conmutación por recuperación en un entorno de producción, debe configurar una máquina virtual Azure como un servidor de procesos basado en Azure para la conmutación por recuperación.
-- Para configurar un servidor de procesos en Azure, siga las instrucciones de [este artículo](vmware-azure-set-up-process-server-azure.md).
+Para más información acerca de los requisitos previos para la reprotección y la conmutación por recuperación, consulte esta [sección] ](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configuración del servidor de destino maestro
 
