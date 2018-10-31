@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/11/2018
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452466"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320448"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -111,9 +111,22 @@ Estos son los límites de ejecución de una única aplicación lógica:
 
 Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus solicitudes.
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>Límites de FTP, SFTP y SFTP-SSH
+
+### <a name="file-size"></a>Tamaño de archivo
+
+| NOMBRE | Límite | Notas |
+|------|-------|-------|
+| FTP | 50 MB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+| SFTP | 50 MB | Para evitar este límite, use el [conector de SFTP-SSH](../connectors/connectors-sftp-ssh.md) o consulte [Control de mensajes grandes con la fragmentación ](../logic-apps/logic-apps-handle-large-messages.md). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+| SFTP-SSH | 1 GB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>Límites de solicitudes HTTP
+## <a name="http-limits"></a>Límites de HTTP
 
 Estos son los límites de una única solicitud HTTP o llamada de conector sincrónica:
 
@@ -156,6 +169,15 @@ Estos son los límites para los conectores personalizados que puede crear a part
 | Número de conectores personalizados | 1000 por cada suscripción de Azure | 
 | Número de solicitudes por minuto para cada conexión creada por un conector personalizado | 500 solicitudes por conexión |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>Identidades administradas
+
+| NOMBRE | Límite | 
+| ---- | ----- | 
+| Número de aplicaciones lógicas con identidades administradas asignadas por el sistema por suscripción de Azure | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 
@@ -306,11 +328,11 @@ Para admitir las llamadas que realizan los [conectores](../connectors/apis-list.
 > [!IMPORTANT]
 > Si ya tiene algunas opciones de configuración, actualícelas **tan pronto como le sea posible antes del 1 de septiembre de 2018** para que incluyan y coincidan con las direcciones IP de esta lista de las regiones donde están las aplicaciones lógicas. 
 > 
-> Logic Apps no admite la conexión directa a las cuentas de Azure Storage a través de firewalls. Para obtener acceso a estas cuentas de almacenamiento, use cualquiera de las opciones que le indicamos: 
+> Logic Apps no admite la conexión directa a las cuentas de Azure Storage a través de firewalls. Para acceder a estas cuentas de almacenamiento, use cualquiera de estas opciones: 
 >
-> * Cree un [entorno de servicio de integración](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que pueda conectarse a los recursos en una red virtual de Azure. 
+> * Cree un [entorno de servicio de integración](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que pueda conectarse a los recursos de una red virtual de Azure. 
 > 
-> * Si ya usa API Management, puede usar este servicio para este escenario. Para obtener más información, consulte [Arquitectura de integración empresarial sencilla](http://aka.ms/aisarch).
+> * Si ya usa API Management, puede usar este servicio para el escenario. Para obtener más información, vea [Arquitectura de integración empresarial sencilla](http://aka.ms/aisarch).
 
 | Región de Logic Apps | IP de salida | 
 |-------------------|-------------|  

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804181"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321740"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -27,7 +27,7 @@ En este artículo se describen las directivas de contraseña y los requisitos de
 
 Con una directiva de dos puertas, los **administradores no tienen posibilidad de usar preguntas de seguridad**.
 
- Una directiva de dos puertas requiere dos elementos de datos de autenticación, como una dirección de correo electrónico *y* un número de teléfono. Se aplica una directiva de dos puertas en las siguientes circunstancias:
+Una directiva de dos puertas requiere dos elementos de datos de autenticación, como una dirección de correo electrónico *y* un número de teléfono. Se aplica una directiva de dos puertas en las siguientes circunstancias:
 
 * Todos los roles de administrador siguientes se ven afectados:
   * Administrador del departamento de soporte técnico
@@ -50,29 +50,17 @@ Con una directiva de dos puertas, los **administradores no tienen posibilidad de
   * Administrador de servicios de CRM
   * Administrador de servicios de Power BI
 
-* Una vez transcurridos 30 días en una versión de prueba
-
-  o
-
-* Hay un dominio individualizado presente, como contoso.com
-
-  o
-
+* Una vez transcurridos 30 días en una suscripción de prueba
+* Con un dominio individualizado presente, como contoso.com
 * Azure AD Connect sincroniza identidades desde el directorio local
 
 ### <a name="exceptions"></a>Excepciones
 
 Una directiva de una puerta requiere un elemento de datos de autenticación, como una dirección de correo electrónico *o* un número de teléfono. Se aplica una directiva de una puerta en las siguientes circunstancias:
 
-* Está dentro de los primeros 30 días de una suscripción de prueba
-
-  o
-
-* No hay un dominio individualizado presente (*.onmicrosoft.com)
-
-  y
-
-  Azure AD Connect no sincroniza identidades
+* Se encuentra en los primeros 30 días de una suscripción de prueba; o
+* No hay un dominio individualizado presente (*.onmicrosoft.com); y
+* Azure AD Connect no sincroniza identidades
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Directivas de UserPrincipalName que se aplican a todas las cuentas de usuario
 
@@ -80,7 +68,7 @@ Cada cuenta de usuario que necesita iniciar sesión en Azure AD debe tener un va
 
 | Propiedad | Requisitos de UserPrincipalName |
 | --- | --- |
-| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
+| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Caracteres no permitidos |<ul> <li>Cualquier carácter "\@\" que no separa el nombre de usuario del dominio.</li> <li>No puede contener un carácter de punto "." inmediatamente antes del símbolo "\@\".</li></ul> |
 | Restricciones de longitud |<ul> <li>La longitud total no debe superar los 113 caracteres.</li><li>Puede haber hasta 64 caracteres antes del símbolo "\@\"</li><li>Puede haber hasta 48 caracteres después del símbolo "\@\"</li></ul> |
 
@@ -117,7 +105,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 ### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
 
 1. Conéctese a Windows PowerShell con sus credenciales de administrador de la compañía.
-2. Ejecute uno de los siguientes comandos:
+1. Ejecute uno de los siguientes comandos:
 
    * Para ver si la contraseña de un único usuario está establecida para que no expire nunca, ejecute el cmdlet siguiente con el UPN (por ejemplo, *aprilr@contoso.onmicrosoft.com*) o el identificador de usuario que quiere comprobar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`.
    * Para ver la configuración **La contraseña nunca expira** de todos los usuarios, ejecute el siguiente cmdlet`Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`.
@@ -125,7 +113,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 ### <a name="set-a-password-to-expire"></a>Configuración de una contraseña para que caduque
 
 1. Conéctese a Windows PowerShell con sus credenciales de administrador de la compañía.
-2. Ejecute uno de los siguientes comandos:
+1. Ejecute uno de los siguientes comandos:
 
    * Para establecer la contraseña de un usuario para que expire, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Para establecer las contraseñas de todos los usuarios de la organización de modo que caduquen, use el siguiente cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 ### <a name="set-a-password-to-never-expire"></a>Configure una contraseña para que no caduque nunca
 
 1. Conéctese a Windows PowerShell con sus credenciales de administrador de la compañía.
-2. Ejecute uno de los siguientes comandos:
+1. Ejecute uno de los siguientes comandos:
 
    * Para establecer la contraseña de un usuario para que no expire nunca, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

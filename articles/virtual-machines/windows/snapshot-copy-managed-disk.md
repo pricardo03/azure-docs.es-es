@@ -12,38 +12,38 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7d45fd749fea4036d944d740541d8b8607553835
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658162"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091307"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
-Tome una instantánea de un disco duro virtual de un disco de datos o del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual. Una instantánea es una copia completa de solo lectura de un disco duro virtual. 
+Una instantánea es una copia completa de solo lectura de un disco duro virtual (VHD). Tome una instantánea de un disco duro virtual de datos o del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual. 
 
-## <a name="use-azure-portal-to-take-a-snapshot"></a>Uso de Azure Portal para crear una instantánea 
+## <a name="use-the-azure-portal"></a>Uso de Azure Portal 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En la parte superior izquierda, haga clic en **Crear un recurso** y busque **instantánea**.
-3. En la hoja Instantánea, haga clic en **Crear**.
+2. En el menú izquierdo, seleccione **Crear un recurso** y, a continuación, busque y seleccione **instantánea**.
+3. En la ventana **Instantánea**, seleccione **Crear**. Aparece la ventana **Crear instantánea**.
 4. Escriba un **nombre** para la instantánea.
-5. Seleccione un valor de [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) existente o escriba el nombre para crear uno. 
-6. Seleccione una ubicación del centro de datos de Azure.  
+5. Seleccione un [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) existente o escriba el nombre de uno nuevo. 
+6. Seleccione una **ubicación** del centro de datos de Azure.  
 7. Como **disco de origen**, seleccione el disco administrado para la instantánea.
-8. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Se recomienda **Standard_LRS**, a menos que necesite almacenarla en un disco de alto rendimiento.
-9. Haga clic en **Create**(Crear).
+8. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Use **Standard_HDD**, a menos que necesite que la instantánea se almacene en un disco de alto rendimiento.
+9. Seleccione **Crear**.
 
-## <a name="use-powershell-to-take-a-snapshot"></a>Uso de PowerShell para crear una instantánea
+## <a name="use-powershell"></a>Uso de PowerShell
 
-Los pasos siguientes le muestran cómo obtener el disco duro virtual que se copiará, crear las configuraciones de instantánea y crear una instantánea del disco con el cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
+Los pasos siguientes muestran cómo copiar el disco duro virtual, crear la configuración de la instantánea y crear una instantánea del disco con el cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
 
-Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell. Para este artículo se requiere la versión 5.7.0 del módulo de AzureRM o una versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Antes de comenzar, asegúrese de que tiene la última versión del módulo de PowerShell AzureRM.Compute, que debe ser la versión 5.7.0 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, ejecute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para crear una conexión con Azure.
 
-Configure algunos parámetros. 
+1. Configure algunos parámetros: 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
@@ -52,39 +52,36 @@ $vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 ```
 
-Obtenga la máquina virtual.
+2. Obtenga la máquina virtual:
 
  ```azurepowershell-interactive
 $vm = get-azurermvm `
-   -ResourceGroupName $resourceGroupName `
+   -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
 
-Cree la configuración de la instantánea. En este ejemplo, vamos a crear la instantánea del disco del sistema operativo.
+3. Cree la configuración de la instantánea. En este ejemplo, es la instantánea del disco del sistema operativo:
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig `
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
-   -Location $location `
+$snapshot =  New-AzureRmSnapshotConfig 
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
+   -Location $location 
    -CreateOption copy
 ```
    
-> [!NOTE]
-> Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `-SkuName Standard_ZRS`.   
-
+   > [!NOTE]
+   > Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `-SkuName Standard_ZRS`.   
    
-Tome la instantánea.
+4. Tome la instantánea:
 
-```azurepowershell-interactive
-New-AzureRmSnapshot `
-   -Snapshot $snapshot `
-   -SnapshotName $snapshotName `
+ ```azurepowershell-interactive
+New-AzureRmSnapshot 
+   -Snapshot $snapshot 
+   -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
 ```
 
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cree una máquina virtual a partir de una instantánea; para ello, cree primero un disco administrado con la instantánea y conéctelo como disco del sistema operativo. Para más información, consulte el ejemplo [Creación de una máquina virtual a partir de una instantánea](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Cree una máquina virtual a partir de una instantánea; para ello, cree primero un disco administrado con la instantánea y conéctelo como disco del sistema operativo. Para más información, consulte el ejemplo de [Creación de una máquina virtual a partir de una instantánea con PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

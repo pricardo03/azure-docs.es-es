@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054348"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378126"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procedimiento de configuración de la directiva de riesgo del usuario
 
@@ -41,7 +41,7 @@ Todos los eventos de riesgo que se han detectado para un usuario y no se resuelv
 La directiva de riesgo de usuario es una respuesta automatizada que puede configurar para un nivel de riesgo de usuario específico. Con una directiva de riesgo de usuario, puede bloquear el acceso a los recursos o requerir un cambio de contraseña para que la cuenta de usuario vuelva a estar limpia.
 
 
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>¿Cómo puedo acceder a la directiva de riesgo de inicio de sesión?
+## <a name="how-do-i-access-the-user-risk-policy"></a>¿Cómo puedo acceder a la directiva de riesgo del usuario?
    
 En la hoja **Azure AD Identity Protection**, en la sección [Configurar](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy), está la directiva de riesgo de inicio de sesión.
    

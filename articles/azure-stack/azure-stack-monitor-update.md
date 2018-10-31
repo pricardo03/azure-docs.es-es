@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946472"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945610"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Supervisión de las actualizaciones en Azure Stack mediante el uso del punto de conexión con privilegios
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
-Puede usar el punto de conexión con privilegios para supervisar el progreso de la ejecución de una actualización de Azure Stack y para reanudar la ejecución de una actualización con errores desde el último paso correcto en caso de que el portal de Azure Stack no estuviera disponible.  Usar el portal de Azure Stack es el método recomendado para administrar las actualizaciones de Azure Stack.
+Puede usar el [punto de conexión con privilegios](azure-stack-privileged-endpoint.md) para supervisar el progreso de la ejecución de una actualización de Azure Stack y para reanudar la ejecución de una actualización con errores desde el último paso correcto, en caso de que el portal de Azure Stack no estuviera disponible.  Usar el portal de Azure Stack es el método recomendado para administrar las actualizaciones de Azure Stack.
 
 Los siguientes cmdlets nuevos de PowerShell para la administración de actualizaciones están incluidos en la actualización 1710 para sistemas integrados de Azure Stack.
 

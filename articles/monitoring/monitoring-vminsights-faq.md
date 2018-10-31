@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063462"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388370"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Azure Monitor para máquinas virtuales: preguntas más frecuentes
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para máquinas virtuales en Microsoft Azure. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -76,7 +76,7 @@ La característica de asignación de Azure Monitor para máquinas virtuales est�
 Esto puede ocurrir por varios motivos.  En los casos donde hay una discontinuidad en la recopilación de datos, las líneas se muestran punteadas.  Si ha modificado la frecuencia de muestreo de datos para los contadores de rendimiento habilitados (el valor predeterminado es recopilar datos cada 60 segundos), podrá ver líneas punteadas en el gráfico si elige un intervalo de tiempo reducido para el gráfico y su frecuencia de muestreo es menor que el tamaño de depósito utilizado en el gráfico (por ejemplo, la frecuencia de muestreo es cada 10 minutos y cada depósito en el gráfico es de 5 minutos).  En este caso, elegir un intervalo de tiempo más amplio para la visualización debe hacer que las líneas del gráfico sean sólidas en lugar de punteadas.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>¿Los grupos son compatibles con Azure Monitor para máquinas virtuales?
-La característica de rendimiento es compatible con los grupos que están basados en los recursos resaltados dentro de un área de trabajo específica, así como con la agrupación basada en un conjunto de escalado de máquinas virtuales de Azure determinado y un servicio en la nube.
+Sí, una vez que se instala Dependency Agent recopilamos información de las máquinas virtuales para mostrar los grupos por suscripción, grupo de recursos,conjunto de escalado de máquinas virtuales y servicios en la nube.  Si ha usado Service Map y ha creado grupos de máquinas, también se muestran.  Los grupos de equipos también aparecerán en el filtro de grupos si los ha creado para el área de trabajo que ve. 
 
 ## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>¿Cómo puedo ver los detalles de lo que está aumentando la línea del percentil 95 en los gráficos de rendimiento agregado?
 De forma predeterminada, la lista está ordenada para mostrar las máquinas virtuales con el valor de percentil 95 más alto de la métrica seleccionada, con la excepción del gráfico de memoria disponible, que muestra las máquinas con el valor más bajo de percentil 5.  Al hacer clic en el gráfico, se abrirá la vista **Top N List** (Lista de N más altos) con la métrica adecuada seleccionada.

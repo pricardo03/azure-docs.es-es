@@ -11,18 +11,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358768"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468694"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolución de los errores de no disponibilidad de la SKU
 
-Este artículo describe cómo resolver el error **SkuNotAvailable**.
+Este artículo describe cómo resolver el error **SkuNotAvailable**. Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga las necesidades de su negocio, envíe una [solicitud de SKU](https://aka.ms/skurestriction) al soporte técnico de Azure.
+
 
 ## <a name="symptom"></a>Síntoma
 
@@ -36,60 +37,61 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>Causa
 
-Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejemplo, el tamaño de máquina virtual) no está disponible para la ubicación seleccionada.
+Recibe este error si la SKU del recurso que ha seleccionado (como el tamaño de máquina virtual) no está disponible para la ubicación seleccionada.
 
 ## <a name="solution-1---powershell"></a>Solución 1: PowerShell
 
 Para determinar qué SKU están disponibles en una región, use el comando [Get AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Filtre los resultados por ubicación. Debe tener la versión más reciente de PowerShell para que funcione este comando.
 
-```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
+```azurepowershell-interactive
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Los resultados incluyen una lista de SKU para la ubicación y las restricciones de esas SKU.
+Los resultados incluyen una lista de SKU para la ubicación y las restricciones de esas SKU. Tenga en cuenta que una SKU debe aparecer como `NotAvailableForSubscription`.
 
 ```powershell
-ResourceType                Name      Locations Restriction                      Capability Value
-------------                ----      --------- -----------                      ---------- -----
-availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
-availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
-virtualMachines      Standard_A0 southcentralus
-virtualMachines      Standard_A1 southcentralus
-virtualMachines      Standard_A2 southcentralus
+ResourceType          Name        Locations   Restriction                      Capability           Value
+------------          ----        ---------   -----------                      ----------           -----
+virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
 ```
 
 ## <a name="solution-2---azure-cli"></a>Solución 2: CLI de Azure
 
-Para determinar qué SKU están disponibles en una región, use el comando `az vm list-skus`. Después, puede usar `grep` o una utilidad similar para filtrar la salida.
+Para determinar qué SKU están disponibles en una región, use el comando `az vm list-skus`. Use el parámetro `--location` para filtrar la salida a la ubicación que esté usando. Use el parámetro `--size` para buscar un nombre de tamaño parcial.
 
-```bash
-$ az vm list-skus --output table
-ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
-----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
-availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
-avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --output table
 ```
+
+El comando devuelve resultados como:
+
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  southcentralus  Standard_F1                ...             None
+virtualMachines  southcentralus  Standard_F2                ...             None
+virtualMachines  southcentralus  Standard_F4                ...             None
+...
+```
+
 
 ## <a name="solution-3---azure-portal"></a>Solución 3: Azure Portal
 
-Para determinar qué SKU están disponibles en una región, use el [portal](https://portal.azure.com). Inicie sesión en el portal y agregue un nuevo recurso a través de la interfaz. A medida que establezca los valores, verá las SKU disponibles para ese recurso. No tiene que completar la implementación.
+Para determinar qué SKU están disponibles en una región, use el [portal](https://portal.azure.com). Inicie sesión en el portal y agregue un recurso mediante la interfaz. A medida que establezca los valores, verá las SKU disponibles para ese recurso. No es necesario completar la implementación.
 
-![SKU disponibles](./media/resource-manager-sku-not-available-errors/view-sku.png)
+Por ejemplo, inicie el proceso de creación de una máquina virtual. Para ver otro tamaño disponible, seleccione **Cambiar tamaño**.
+
+![Creación de una máquina virtual](./media/resource-manager-sku-not-available-errors/create-vm.png)
+
+Puede filtrar y desplazarse por los tamaños disponibles.
+
+![SKU disponibles](./media/resource-manager-sku-not-available-errors/available-sizes.png)
 
 ## <a name="solution-4---rest"></a>Solución 4: REST
 
-Para determinar qué SKU están disponibles en una región, use la API REST para máquinas virtuales. Envíe la solicitud siguiente:
-
-```HTTP 
-GET
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
-```
+Para determinar qué SKU están disponibles en una región, use la operación [Resource Skus - List](/rest/api/compute/resourceskus/list).
 
 Se devuelven las SKU y las regiones disponibles en el formato siguiente:
 
@@ -121,4 +123,3 @@ Se devuelven las SKU y las regiones disponibles en el formato siguiente:
 }
 ```
 
-Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga las necesidades de su negocio, envíe una [solicitud de SKU](https://aka.ms/skurestriction) al soporte técnico de Azure.

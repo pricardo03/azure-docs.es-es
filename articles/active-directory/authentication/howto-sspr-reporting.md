@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627532"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025012"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -23,7 +23,7 @@ Tras la implementación, muchas organizaciones quieren saber cómo se usa (y si 
 
 ![Informes][Reporting]
 
-Las siguientes preguntas se pueden responder mediante informes existentes en [Azure Portal] (https://portal.azure.com/):
+Las siguientes preguntas se pueden responder mediante informes existentes en [Azure Portal](https://portal.azure.com/):
 
 > [!NOTE]
 > Debe ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) y habilitar la opción para que estos datos se recopilen en nombre de la organización. Para habilitarla, debe visitar la pestaña **Informes** o los registros de auditoría como mínimo una vez. Hasta entonces, no se recopilan datos para la organización.

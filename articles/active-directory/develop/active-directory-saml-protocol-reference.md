@@ -17,12 +17,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b9ae7cf9d6fd383c7cdfa3957b5d9b94c7207d50
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c560218bebd5399c85b9cebe11c7342e8d15a59
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900662"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945695"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Uso del protocolo SAML por parte de Azure AD
 
@@ -32,7 +32,7 @@ El protocolo SAML requiere que el proveedor de identidades (Azure AD) y el prove
 
 Cuando una aplicación se registra en Azure AD, el desarrollador de esta registra información relacionada con la federación en Azure AD. Esta información incluye el **URI de redireccionamiento** y de **metadatos** de la aplicación.
 
-Azure AD usa el **URI de metadatos** del servicio en la nube para recuperar la clave de firma y el URI de cierre de sesión. Si la aplicación no admite un URI de metadatos, el desarrollador debe ponerse en contacto con el servicio de soporte técnico de Microsoft para proporcionar el URI de cierre de sesión y la clave de firma.
+Azure AD usa el **URI de metadatos** del servicio en la nube para recuperar la clave de firma y el URI de cierre de sesión. El cliente puede abrir la aplicación en **Azure AD -> Registro de aplicaciones** y, a continuación, en **Configuración -> Propiedades**, puede actualizar la dirección URL de cierre de sesión. De este modo, Azure AD puede enviar la respuesta a la dirección URL correcta. 
 
 Azure Active Directory expone puntos de conexión de inicio y cierre de sesión único comunes y específicos del inquilino (independientes del inquilino). Estas direcciones URL representan ubicaciones direccionables; no se trata únicamente identificadores, así que puede acceder al punto de conexión para leer los metadatos.
 

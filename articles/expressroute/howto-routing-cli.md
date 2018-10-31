@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2017
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: cd7a6c43cb791ed607a763f10e781794ef513500
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7ffe51077c7152c52b9becd2318fa33eea055c20
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950410"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956875"
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute mediante la CLI
 
@@ -318,7 +318,7 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 Puede quitar la configuración de emparejamiento mediante la ejecución del ejemplo siguiente:
 
 > [!WARNING]
-> Debe asegurarse de que todas las redes virtuales estén desvinculadas del circuito ExpressRoute antes de ejecutar este ejemplo. 
+> Debe asegurarse de que todas las conexiones de redes virtuales y de ExpressRoute Global Reach se eliminan antes de ejecutar este ejemplo. 
 > 
 > 
 

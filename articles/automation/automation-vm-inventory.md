@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091413"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403617"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
@@ -114,6 +114,10 @@ Para dejar de administrar el inventario de la máquina virtual:
 1. En el panel izquierdo de Azure Portal, seleccione **Log Analytics** y, a continuación, el área de trabajo que usó durante la incorporación a la máquina virtual.
 2. En la ventana **Log Analytics**, en la categoría **Orígenes de datos del área de trabajo** del menú **Recurso**, seleccione **Máquinas virtuales**.
 3. En la lista, seleccione la máquina virtual que desee desconectar. La máquina virtual tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**.
+
+   >[!NOTE]
+   >OMS ahora se conoce como Log Analytics.
+   
 4. En la parte superior de la página siguiente, seleccione **Desconectar**.
 5. En la ventana de confirmación, seleccione **Sí**.
     Esta acción interrumpe la administración de la máquina.

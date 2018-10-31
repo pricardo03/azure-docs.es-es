@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/04/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: faa3ad2376935aee4508b814f1b67fdacb98cf6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 15db2192703971a8056df34343c427db11c8411a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843591"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988526"
 ---
 ## <a name="register-your-application"></a>Registrar su aplicación
 
@@ -30,18 +30,18 @@ Tiene dos opciones para registrar la aplicación y agregar la información de re
 Puede registrar rápidamente la aplicación mediante estos pasos:
 
 1. Registre la aplicación en el [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure).
-2.  Escriba el nombre de la aplicación y su correo electrónico.
-3.  Asegúrese de que está activada la opción de configuración paso a paso.
-4.  Siga las instrucciones para agregar una dirección URL de redireccionamiento a la aplicación.
+2. Escriba el nombre de la aplicación y su correo electrónico.
+3. Asegúrese de que está activada la opción Configuración guiada.
+4. Siga las instrucciones para agregar una dirección URL de redireccionamiento a la aplicación.
 
 ### <a name="option-2-advanced-mode"></a>Opción 2: Modo avanzado
 
 Para registrar la aplicación y agregar la información de registro de aplicación a la solución, siga estos pasos:
 
 1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar una aplicación.
-2. Escriba el nombre de la aplicación y su correo electrónico. 
+2. Escriba el nombre de la aplicación y su correo electrónico.
 3. Asegúrese de que está desactivada la opción de configuración paso a paso.
-4. Haga clic en `Add Platform` y luego en `Web`.
+4. Haga clic en `Add Platform` y seleccione `Web`.
 5. Vuelva a Visual Studio y, en el Explorador de soluciones, seleccione el proyecto y fíjese en la ventana de propiedades (si no ve una ventana de propiedades, presione F4).
 6. Cambie SSL habilitado a `True`.
 7. Haga clic con el botón derecho en el proyecto en Visual Studio y elija **Propiedades** y la pestaña **Web**. En la sección *Servidores*, cambie la *dirección URL del proyecto* para que sea la dirección URL de SSL.
@@ -57,4 +57,3 @@ Para registrar la aplicación y agregar la información de registro de aplicaci�
 
 10. Reemplace `ClientId` por el identificador de aplicación que acaba de registrar.
 11. Reemplace `redirectUri` por la dirección URL de SSL del proyecto.
-

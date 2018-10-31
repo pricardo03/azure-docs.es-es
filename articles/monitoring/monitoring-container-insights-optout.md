@@ -12,26 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 2b989fbebe237e4e3746ef2f237193587173dfe4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7cd2aecf21a86bb58452e48fcdf1d79f1d3a2104
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963413"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321231"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
 
-Si después de habilitar la supervisión del clúster de AKS decide que ya no desea supervisarlo, puede *descartarla* mediante las plantillas de Azure Resource Manager que proporcionan con el cmdlet **New-AzureRmResourceGroupDeployment** de PowerShell o la CLI de Azure. Una plantilla JSON especifica la configuración que se *descarta*. La otro contiene los valores de parámetro que se configuran para especificar el grupo de recursos y el identificador de recursos de AKS en que se implementa el clúster. 
+Si después de habilitar la supervisión del clúster de AKS decide ya no desea supervisarla, puede *no participar*.  En este artículo se muestra cómo realizar esta tarea mediante la CLI de Azure o con las plantillas de Azure Resource Manager proporcionadas.  
+
+
+## <a name="azure-cli"></a>Azure CLI
+Use el comando [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para deshabilitar Azure Monitor para contenedores. El comando quita el agente de los nodos del clúster, no la solución ni los datos ya recopilados y almacenados en el recurso de Log Analytics.  
+
+```azurecli
+az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
+```
+
+Para volver a habilitar la supervisión para el clúster, consulte [Habilitación de la supervisión mediante la CLI de Azure](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli).
+
+## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
+Se proporcionan dos plantillas de Azure Resource Manager para permitir la eliminación de los recursos de la solución de manera coherente y repetida en el grupo de recursos. Una es una plantilla JSON que especifica la configuración para *no participar* y la otra contiene valores de parámetros que debe configurar para especificar el identificador de recurso del clúster de AKS y el grupo de recursos en el que se implementa el clúster. 
 
 Si no conoce el concepto de implementación de recursos mediante una plantilla, consulte:
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
+>[!NOTE]
+>La plantilla debe implementarse en el mismo grupo de recursos que el clúster.
+>
+
 Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## <a name="create-template"></a>Creación de una plantilla
+### <a name="create-template"></a>Creación de una plantilla
 
 1. Copie y pegue la siguiente sintaxis JSON en el archivo:
 
@@ -101,7 +118,7 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
 5. Guarde este archivo como **OptOutParam.json** en una carpeta local.
 6. Está listo para implementar esta plantilla. 
 
-## <a name="remove-the-solution-using-azure-cli"></a>Eliminación de la solución mediante la CLI de Azure
+### <a name="remove-the-solution-using-azure-cli"></a>Eliminación de la solución mediante la CLI de Azure
 Ejecute el siguiente comando con la CLI de Azure en Linux para eliminar la solución y borrar la configuración en el clúster de AKS.
 
 ```azurecli
@@ -116,7 +133,7 @@ El cambio de configuración puede tardar unos minutos en completarse. Cuando ter
 ProvisioningState       : Succeeded
 ```
 
-## <a name="remove-the-solution-using-powershell"></a>Eliminación de la solución mediante PowerShell
+### <a name="remove-the-solution-using-powershell"></a>Eliminación de la solución mediante PowerShell
 
 Ejecute los siguientes comandos de PowerShell en la carpeta que contiene la plantilla para eliminar la solución y borrar la configuración del clúster de AKS.    
 

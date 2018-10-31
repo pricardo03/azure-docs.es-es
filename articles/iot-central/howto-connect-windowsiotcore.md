@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 12f7e466bdfd6d9b6cf1c36df4daf1e76cc417f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 88285ea658b194daf69b12116649e2389374c349
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729831"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025538"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central
 
@@ -44,7 +44,7 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Preparación del dispositivo Windows IoT Core
 
-Para configurar un dispositivo de Windows IoT Core, siga la guía paso a paso en [Set up a Windows IoT Core device] (Configuración de un dispositivo Windows IoT Core) (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Para configurar un dispositivo de Windows IoT Core, siga la guía detallada en [Set up a Windows IoT Core device](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device) (Configuración de un dispositivo Windows IoT Core).
 
 ### <a name="add-a-real-device"></a>Adición de un dispositivo real
 

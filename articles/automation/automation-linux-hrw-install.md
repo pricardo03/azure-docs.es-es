@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0c677b88228097efcaa30399160dfdafa1c01788
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: f32574dc0a3fd61c21e8c9a7c1ec93c7d366d384
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096349"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408853"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -69,7 +69,9 @@ Antes de continuar, anote el área de trabajo de Log Analytics que está vincula
          Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-1. Instale el agente de OMS para Linux con el comando siguiente. Reemplace \<WorkspaceID\> y \<WorkspaceKey\> por los valores correspondientes a su área de trabajo.
+1. Instale el agente de Log Analytics para Linux con el comando siguiente. Reemplace \<WorkspaceID\> y \<WorkspaceKey\> por los valores correspondientes a su área de trabajo.
+
+  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>

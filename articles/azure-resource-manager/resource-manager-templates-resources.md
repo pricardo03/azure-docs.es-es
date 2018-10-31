@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007168"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945202"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sección de recursos de plantillas de Azure Resource Manager
 
@@ -100,7 +100,9 @@ Defina recursos con la siguiente estructura:
 
 ## <a name="condition"></a>Condición
 
-Si durante la implementación debe decidir si crear o no un recurso, use el elemento `condition`. El valor de este elemento se resuelve como true o false. Cuando el valor sea true, el recurso se creará. Cuando el valor sea false, el recurso no se creará. Por lo general, este valor se usa cuando desea crear un nuevo recurso o usar uno existente. Por ejemplo, para especificar si se implementa una nueva cuenta de almacenamiento o se usa una cuenta de almacenamiento existente, use:
+Si durante la implementación debe decidir si crear o no un recurso, use el elemento `condition`. El valor de este elemento se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso.
+
+Por lo general, este valor se usa cuando desea crear un nuevo recurso o usar uno existente. Por ejemplo, para especificar si se implementa una nueva cuenta de almacenamiento o se usa una cuenta de almacenamiento existente, use:
 
 ```json
 {

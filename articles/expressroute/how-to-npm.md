@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128986"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404348"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 
@@ -43,7 +43,7 @@ Puede:
 
 Se instalan agentes de supervisión en varios servidores, tanto en el entorno local como en Azure. Los agentes se comunican entre sí, pero no envían datos, envían paquetes de protocolo de enlace TCP. La comunicación entre los agentes permite a Azure asignar la topología de red y la ruta de acceso que puede tomar el tráfico.
 
-1. Cree un área de trabajo de NPM. Es igual a un área de trabajo de OMS.
+1. Cree un área de trabajo de NPM. Es lo mismo que un área de trabajo de Log Analytics.
 2. Instalación y configuración de agentes de software: 
     * Instale agentes de supervisión en los servidores locales y las máquinas virtuales de Azure (para emparejamiento privado).
     * Configure las opciones en los servidores de agente de supervisión para permitir que estos agentes se comuniquen. (Por ejemplo, abrir puertos del firewall).
@@ -63,10 +63,10 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. En la parte inferior de la página **Network Performance Monitor** principal, haga clic en **Crear** para abrir la página **Network Performance Monitor - Crear nueva solución**. Haga clic en **Área de trabajo de OMS - Seleccionar un área de trabajo** para abrir la página Áreas de trabajo. Haga clic en **+Crear área de trabajo nueva** para abrir la página Área de trabajo.
-3. En la página **Área de trabajo de OMS**, seleccione **Crear nuevo** y configure las siguientes opciones:
+2. En la parte inferior de la página **Network Performance Monitor** principal, haga clic en **Crear** para abrir la página **Network Performance Monitor - Crear nueva solución**. Haga clic en **Área de trabajo de Log Analytics - Seleccionar un área de trabajo** para abrir la página Áreas de trabajo. Haga clic en **+Crear área de trabajo nueva** para abrir la página Área de trabajo.
+3. En la página **Área de trabajo de Log Analytics**, seleccione **Crear nuevo** y configure las siguientes opciones:
 
-  * Área de trabajo de OMS: escriba un nombre para el área de trabajo.
+  * Área de trabajo de Log Analytics: escriba un nombre para el área de trabajo.
   * Suscripción : si tiene varias suscripciones, elija la que desea asociar con el área de trabajo nueva.
   * Grupo de recursos: cree un grupo de recursos o use uno existente.
   * Ubicación: esta ubicación se utiliza para especificar la ubicación de la cuenta de almacenamiento que se usa para los registros de conexión del agente.
@@ -86,9 +86,9 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
 
 ### <a name="download"></a>2.1: Descarga del archivo de instalación del agente
 
-1. Vaya a la pestaña **Configuración común** de la página **Configuración de Monitor de rendimiento de red** del recurso. Haga clic en el agente que se corresponda con el procesador de su servidor en la sección **Instalar los agentes de OMS** y descargue el archivo de instalación.
+1. Vaya a la pestaña **Configuración común** de la página **Configuración de Monitor de rendimiento de red** del recurso. Haga clic en el agente que se corresponda con el procesador de su servidor en la sección **Instalar los agentes de Log Analytics** y descargue el archivo de instalación.
 2. Después, copie los valores de **Id. de área de trabajo** y **Clave principal** en el Bloc de notas.
-3. En la sección **Configuración de los agentes de OMS para la supervisión mediante el protocolo TCP**, descargue el script de Powershell. El script de PowerShell le ayuda a abrir el puerto de firewall pertinente para las transacciones TCP.
+3. En la sección **Configuración de los agentes de Log Analytics para la supervisión mediante el protocolo TCP**, descargue el script de Powershell. El script de PowerShell le ayuda a abrir el puerto de firewall pertinente para las transacciones TCP.
 
   ![Script de PowerShell](.\media\how-to-npm\7.png)
 
@@ -117,7 +117,7 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
     ![Cuenta](.\media\how-to-npm\10.png)
 6. En la página **Preparado para instalar**, revise las opciones seleccionadas y haga clic en **Instalar**.
 7. En la página **La configuración finalizó correctamente**, haga clic en **Finalizar**.
-8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Aquí puede revisar la configuración y verificar si el agente está conectado a Azure Log Analytics (OMS). Si está conectado, aparece un mensaje similar al siguiente en el agente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.
+8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Aquí puede revisar la configuración y verificar si el agente está conectado a Azure Log Analytics. Si está conectado, aparece un mensaje similar al siguiente en el agente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.
 
 9. Repita este procedimiento con cada red virtual que quiera que se supervise.
 

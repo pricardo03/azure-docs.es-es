@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241489"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405491"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Solución de problemas de Azure Blockchain Workbench
 
@@ -24,7 +24,7 @@ Está disponible un script de PowerShell para ayudar con la depuración del desa
 * Red de Blockchain, por ejemplo, Ethereum
 * Microservicios de Blockchain Workbench
 * Application Insights
-* Supervisión de Azure (OMS)
+* Supervisión de Azure (Log Analytics)
 
 Puede usar la información para determinar los próximos pasos y determinar la causa raíz de los problemas. 
 
@@ -52,9 +52,9 @@ El script acepta los siguientes parámetros:
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se haya implementado Blockchain Workbench. | SÍ |
 | OutputDirectory | Ruta de acceso para crear el archivo .ZIP de salida. Si no se especifica, tiene como valor predeterminado el directorio actual. | Sin  |
 | LookbackHours | Número de horas que se usará al extraer la telemetría. El valor predeterminado es 24 horas. El valor máximo es 90 horas. | Sin  |
-| OmsSubscriptionId | El identificador de la suscripción donde se ha implementado OMS. Pase este parámetro únicamente si se implementa OMS para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin  |
-| OmsResourceGroup |El grupo de recursos en el que se ha implementado OMS. Pase este parámetro únicamente si se implementa OMS para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin  |
-| OmsWorkspaceName | El nombre del área de trabajo de OMS. Pase este parámetro únicamente si se implementa OMS para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench | Sin  |
+| OmsSubscriptionId | El identificador de la suscripción donde se ha implementado Log Analytics. Pase este parámetro únicamente si se implementa Log Analytics para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin  |
+| OmsResourceGroup |El grupo de recursos en el que se ha implementado Log Analytics. Pase este parámetro únicamente si se implementa Log Analytics para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin  |
+| OmsWorkspaceName | Nombre del área de trabajo de Log Analytics. Pase este parámetro únicamente si se implementa Log Analytics para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench | Sin  |
 
 ## <a name="what-is-collected"></a>¿Qué información se recopila?
 

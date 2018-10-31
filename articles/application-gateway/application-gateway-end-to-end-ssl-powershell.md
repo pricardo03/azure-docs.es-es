@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 10/23/2018
 ms.author: victorh
-ms.openlocfilehash: 7e259936dce433683dd135171ee1c5626bf23739
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154201"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945338"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -127,20 +127,20 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 Se deben establecer todos los elementos de configuración antes de crear la puerta de enlace de aplicaciones. En los pasos siguientes, se crean los elementos de configuración necesarios para un recurso de puerta de enlace de aplicaciones.
 
-   1. Cree una configuración de dirección IP de la puerta de enlace de aplicaciones. Este valor configura qué subredes utiliza la puerta de enlace de aplicaciones. Cuando se inicia Application Gateway, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
+1. Cree una configuración de dirección IP de la puerta de enlace de aplicaciones. Este valor configura qué subredes utiliza la puerta de enlace de aplicaciones. Cuando se inicia Application Gateway, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
 
    ```powershell
    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
 
-   2. Cree una configuración de dirección IP de front-end. Esta configuración asigna una dirección IP pública o privada al front-end de la puerta de enlace de aplicaciones. El paso siguiente asocia la dirección IP pública del paso anterior con la configuración IP de front-end.
+2. Cree una configuración de dirección IP de front-end. Esta configuración asigna una dirección IP pública o privada al front-end de la puerta de enlace de aplicaciones. El paso siguiente asocia la dirección IP pública del paso anterior con la configuración IP de front-end.
 
    ```powershell
    $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
-   3. Configure el grupo de direcciones IP de back-end con las direcciones IP de los servidores web back-end. Estas direcciones IP son las direcciones que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplace las direcciones IP del ejemplo por sus propios puntos de conexión de direcciones IP de la aplicación.
+3. Configure el grupo de direcciones IP de back-end con las direcciones IP de los servidores web back-end. Estas direcciones IP son las direcciones que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplace las direcciones IP del ejemplo por sus propios puntos de conexión de direcciones IP de la aplicación.
 
    ```powershell
    $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
@@ -150,13 +150,13 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    > Un nombre de dominio completo (FQDN) es también un valor válido para utilizarlo en lugar de una dirección IP para los servidores back-end. Se habilita mediante el conmutador **-BackendFqdns**. 
 
 
-   4. Configure el puerto IP de front-end para el punto de conexión de IP pública. Este puerto es el puerto al que se conectan los usuarios finales.
+4. Configure el puerto IP de front-end para el punto de conexión de IP pública. Este puerto es el puerto al que se conectan los usuarios finales.
 
    ```powershell
    $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
-   5. Configure el certificado de la puerta de enlace de aplicaciones. Este certificado se usa para descifrar y volver a cifrar el tráfico de la puerta de enlace de aplicaciones.
+5. Configure el certificado de la puerta de enlace de aplicaciones. Este certificado se usa para descifrar y volver a cifrar el tráfico de la puerta de enlace de aplicaciones.
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
@@ -166,13 +166,13 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    > [!NOTE]
    > En este ejemplo se configura el certificado que se usa para la conexión SSL. Es preciso que el certificado tenga el formato .pfx, y que la contraseña tenga entre 4 y 12 caracteres.
 
-   6. Cree el agente de escucha HTTP para la puerta de enlace de aplicaciones. Asigne la configuración IP de front-end, el puerto y el certificado SSL que se usarán.
+6. Cree el agente de escucha HTTP para la puerta de enlace de aplicaciones. Asigne la configuración IP de front-end, el puerto y el certificado SSL que se usarán.
 
    ```powershell
    $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-   7. Cargue el certificado que se utilizará en los recursos del grupo de back-end habilitado para SSL.
+7. Cargue el certificado que se utilizará en los recursos del grupo de back-end habilitado para SSL.
 
    > [!NOTE]
    > El sondeo predeterminado obtiene la clave pública del enlace SSL *predeterminado* en la dirección IP del back-end y compara el valor de la clave pública que recibe con el valor de la clave pública que se proporciona aquí. 
@@ -186,27 +186,40 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    > [!NOTE]
    > El certificado proporcionado en este paso debe ser la clave pública del certificado .pfx presente en el back-end. Exporte el certificado (no el certificado raíz) instalado en el servidor back-end en formato Afirmación, Evidencia y Razonamiento (CER) y utilícelo en este paso. En este paso se coloca el back-end en la lista de permitidos con la puerta de enlace de aplicaciones.
 
-   8. Configure los valores HTTP para el back-end de la puerta de enlace de aplicaciones. Asigne el certificado cargado en el paso anterior a la configuración HTTP.
+   Si usa la SKU V2 de Application Gateway, cree un certificado raíz de confianza en lugar de un certificado de autenticación. Para obtener más información, consulte [Introducción a SSL de extremo a extremo con Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+
+   ```powershell
+   $trustedRootCert01 = New-AzureRmApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
+   ```
+
+8. Configure los valores HTTP para el back-end de la puerta de enlace de aplicaciones. Asigne el certificado cargado en el paso anterior a la configuración HTTP.
 
    ```powershell
    $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
-   9. Cree una regla de enrutamiento del equilibrador de carga que configure el comportamiento de este último. En este ejemplo, se crea una regla básica de round robin.
+
+   Para la SKU V2 de Application Gateway, use el siguiente comando:
+
+   ```powershell
+   $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+   ```
+
+9. Cree una regla de enrutamiento del equilibrador de carga que configure el comportamiento de este último. En este ejemplo, se crea una regla básica de round robin.
 
    ```powershell
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-   10. Configure el tamaño de la instancia de la Puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a **10**.
+10. Configure el tamaño de la instancia de la Puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a **10**.
 
-   ```powershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-   ```
+    ```powershell
+    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+    ```
 
-   > [!NOTE]
-   > Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el Acuerdo de Nivel de Servicio no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. Las puertas de enlace pequeñas se deben usar para pruebas de desarrollo, no con fines de producción.
+    > [!NOTE]
+    > Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el Acuerdo de Nivel de Servicio no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. Las puertas de enlace pequeñas se deben usar para pruebas de desarrollo, no con fines de producción.
 
-   11. Configure la directiva SSL que se usará en la puerta de enlace de aplicaciones. Application Gateway admite la posibilidad de establecer una versión mínima para las versiones del protocolo SSL.
+11. Configure la directiva SSL que se usará en la puerta de enlace de aplicaciones. Application Gateway admite la posibilidad de establecer una versión mínima para las versiones del protocolo SSL.
 
    Los valores siguientes son una lista de versiones de protocolo que se pueden definir:
 

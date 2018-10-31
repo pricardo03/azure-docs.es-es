@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298326"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321808"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -173,16 +173,14 @@ Para mayor granularidad, consulte la lista actualizada de [intervalos IP de cent
 
 Para más información, revise los requisitos previos de conectividad en el artículo [Requisitos previos para Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reinicio del servicio Azure AD Connect Sync
 
 Para resolver los problemas de conectividad y otros transitorios con el servicio, reinicie el servicio Azure AD Connect Sync:
 
    1. Como administrador, seleccione **Iniciar** en el servidor que ejecuta Azure AD Connect.
-   2. Escriba **services.msc** en el campo de búsqueda y seleccione **Entrar**.
-   3. Busque la entrada **Microsoft Azure AD Sync**.
-   4. Haga clic con el botón derecho en la entrada del servicio, haga clic en **Reiniciar** y espere a que se complete la operación.
+   1. Escriba **services.msc** en el campo de búsqueda y seleccione **Entrar**.
+   1. Busque la entrada **Microsoft Azure AD Sync**.
+   1. Haga clic con el botón derecho en la entrada del servicio, haga clic en **Reiniciar** y espere a que se complete la operación.
 
    ![Reinicio del servicio Azure AD Sync][Service restart]
 
@@ -193,15 +191,15 @@ Estos pasos restablecen la conexión con el servicio en la nube y resuelven las 
 Para resolver problemas de conectividad, deshabilite y vuelva a habilitar la característica de escritura diferida de contraseñas:
 
    1. Como administrador, abra el Asistente para configuración de Azure AD Connect.
-   2. En **Conectarse a Azure AD**, escriba las credenciales de administrador global de Azure AD.
-   3. En **Conectarse a AD DS**, escriba las credenciales de administrador de Azure AD Domain Services.
-   4. En **Identificación de forma exclusiva de usuarios**, seleccione el botón **Siguiente**.
-   5. En **Características opcionales**, desactive la casilla **Escritura diferida de contraseñas**.
-   6. Seleccione **Siguiente** en el resto de las páginas del cuadro de diálogo sin cambiar nada hasta llegar a la página **Listo para configurar**.
-   7. Asegúrese de que en la página **Listo para configurar** aparece la opción **Escritura diferida de contraseñas** como **deshabilitada** y, a continuación, seleccione el botón verde **Configurar** para confirmar los cambios.
-   8. En **Finalizado**, desactive la opción **Sincronizar ahora** y, a continuación, seleccione **Finalizar** para cerrar el asistente.
-   9. Vuelva a abrir el Asistente para configuración de Azure AD Connect.
-   10. Repita los pasos del 2 al 8, salvo que debe asegurarse de seleccionar la opción **Escritura diferida de contraseñas** en la pantalla **Características opcionales** para volver a habilitar el servicio.
+   1. En **Conectarse a Azure AD**, escriba las credenciales de administrador global de Azure AD.
+   1. En **Conectarse a AD DS**, escriba las credenciales de administrador de Azure AD Domain Services.
+   1. En **Identificación de forma exclusiva de usuarios**, seleccione el botón **Siguiente**.
+   1. En **Características opcionales**, desactive la casilla **Escritura diferida de contraseñas**.
+   1. Seleccione **Siguiente** en el resto de las páginas del cuadro de diálogo sin cambiar nada hasta llegar a la página **Listo para configurar**.
+   1. Asegúrese de que en la página **Listo para configurar** aparece la opción **Escritura diferida de contraseñas** como **deshabilitada** y, a continuación, seleccione el botón verde **Configurar** para confirmar los cambios.
+   1. En **Finalizado**, desactive la opción **Sincronizar ahora** y, a continuación, seleccione **Finalizar** para cerrar el asistente.
+   1. Vuelva a abrir el Asistente para configuración de Azure AD Connect.
+   1. Repita los pasos del 2 al 8, salvo que debe asegurarse de seleccionar la opción **Escritura diferida de contraseñas** en la pantalla **Características opcionales** para volver a habilitar el servicio.
 
 Estos pasos restablecen la conexión con el servicio en la nube y resuelven las interrupciones que pueda experimentar.
 
@@ -215,10 +213,11 @@ Se recomienda realizar este paso solo después de probar los dos primeros pasos 
 
 > [!WARNING]
 > Si ha personalizado las reglas de sincronización predefinidas, *realice una copia de seguridad de ellas antes de continuar con la actualización y, cuando haya terminado, vuelva a implementarlas manualmente*.
+>
 
-   1. Descargue la versión más reciente de AD Connect del [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Puesto que ya ha instalado Azure AD Connect, solo necesita realizar una actualización in situ para actualizar la instalación de Azure AD Connect a la versión más reciente.
-   3. Ejecute el paquete descargado y siga las instrucciones en pantalla para actualizar el equipo de Azure AD Connect.
+1. Descargue la versión más reciente de AD Connect del [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Puesto que ya ha instalado Azure AD Connect, solo necesita realizar una actualización in situ para actualizar la instalación de Azure AD Connect a la versión más reciente.
+1. Ejecute el paquete descargado y siga las instrucciones en pantalla para actualizar el equipo de Azure AD Connect.
 
 Los pasos anteriores restablecen la conexión con el servicio en la nube y resuelven las interrupciones que pueda experimentar.
 
@@ -228,34 +227,33 @@ Si con la instalación de la versión más reciente del servidor de Azure AD Con
 
 Azure AD Connect requiere el permiso de Active Directory **Restablecer contraseña** para realizar la escritura diferida de contraseñas. Para averiguar si Azure AD Connect tiene el permiso requerido para una cuenta de usuario de Active Directory local determinada, puede usar la característica Permiso efectivo de Windows:
 
-   1. Inicie sesión en el servidor Azure AD Connect e inicie **Synchronization Service Manager** seleccionando **Inicio**  > **Synchronization Service**.
-   2. En la pestaña **Conectores** seleccione el conector **Active Directory Domain Services** local y, a continuación, seleccione **Propiedades**.  
-
+1. Inicie sesión en el servidor Azure AD Connect e inicie **Synchronization Service Manager** seleccionando **Inicio**  > **Synchronization Service**.
+1. En la pestaña **Conectores** seleccione el conector **Active Directory Domain Services** local y, a continuación, seleccione **Propiedades**.  
    ![Permiso efectivo: paso 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. En la ventana emergente, seleccione **Connect to Active Directory Forest** (Conectar con el bosque de Active Directory) y anote el valor de la propiedad **Nombre de usuario**. Esta propiedad es la cuenta de AD DS que Azure AD Connect usa para realizar la sincronización de directorios. Para que Azure AD Connect realice la escritura diferida de contraseñas, la cuenta de AD DS debe tener permiso para restablecer la contraseña.  
+1. En la ventana emergente, seleccione **Connect to Active Directory Forest** (Conectar con el bosque de Active Directory) y anote el valor de la propiedad **Nombre de usuario**. Esta propiedad es la cuenta de AD DS que Azure AD Connect usa para realizar la sincronización de directorios. Para que Azure AD Connect realice la escritura diferida de contraseñas, la cuenta de AD DS debe tener permiso para restablecer la contraseña.  
    
    ![Permiso efectivo: paso 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Inicie sesión en un controlador de dominio local e inicie la aplicación **Usuarios y equipos de Active Directory**.
-   5. Seleccione **Vista** y asegúrese de que la opción **Características avanzadas** está habilitada.  
+1. Inicie sesión en un controlador de dominio local e inicie la aplicación **Usuarios y equipos de Active Directory**.
+1. Seleccione **Vista** y asegúrese de que la opción **Características avanzadas** está habilitada.  
    
    ![Permiso efectivo: paso 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Busque la cuenta de usuario de Active Directory que desee verificar. Haga clic con el botón derecho en el nombre de la cuenta y seleccione **Propiedades**.  
+1. Busque la cuenta de usuario de Active Directory que desee verificar. Haga clic con el botón derecho en el nombre de la cuenta y seleccione **Propiedades**.  
    
    ![Permiso efectivo: paso 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. En la ventana emergente, vaya a la pestaña **Seguridad** y seleccione **Avanzada**.  
+1. En la ventana emergente, vaya a la pestaña **Seguridad** y seleccione **Avanzada**.  
    
    ![Permiso efectivo: paso 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. En la ventana emergente **Advanced Security Settings for Administrator** (Configuración de seguridad avanzada para el administrador), vaya a la pestaña **Acceso efectivo**.
-   9. Seleccione **Seleccionar un usuario**, seleccione la cuenta de AD DS que usa Azure AD Connect (consulte el paso 3) y, a continuación, seleccione **Ver acceso efectivo**.  
-   
+1. En la ventana emergente **Advanced Security Settings for Administrator** (Configuración de seguridad avanzada para el administrador), vaya a la pestaña **Acceso efectivo**.
+1. Seleccione **Seleccionar un usuario**, seleccione la cuenta de AD DS que usa Azure AD Connect (consulte el paso 3) y, a continuación, seleccione **Ver acceso efectivo**.
+
    ![Permiso efectivo: paso 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Desplácese hacia abajo y busque **Restablecer contraseña**. Si la entrada está activada, significa que la cuenta de AD DS tiene permiso para restablecer la contraseña de la cuenta de usuario de Active Directory seleccionada.  
+1. Desplácese hacia abajo y busque **Restablecer contraseña**. Si la entrada está activada, significa que la cuenta de AD DS tiene permiso para restablecer la contraseña de la cuenta de usuario de Active Directory seleccionada.  
    
    ![Permiso efectivo: paso 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad
     * ¿Es un usuario solo de nube?
 * **Licencia**: ¿tiene el usuario asignada una licencia de Azure Active Directory Premium o Azure Active Directory Basic?
 * **Registro de eventos de aplicación**: si usa la escritura diferida de contraseñas y el error se produce en la infraestructura local, incluya una copia comprimida del registro de eventos de la aplicación desde el servidor de Azure AD Connect.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reinicio del servicio Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "El código de soporte técnico se encuentra en la parte inferior derecha de la ventana"

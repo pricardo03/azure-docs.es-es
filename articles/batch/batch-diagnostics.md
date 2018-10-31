@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965541"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409533"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
@@ -85,7 +85,7 @@ Otros destinos opcionales de los registros de diagnóstico:
 
 * Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real. 
 
-* Envíe los registros de diagnóstico a [Azure Log Analytics](../log-analytics/log-analytics-overview.md), donde puede analizarlos en el portal de Operations Management Suite (OMS), o bien exportarlos para su análisis en Power BI o Excel.
+* Envíe los registros de diagnóstico a [Azure Log Analytics](../log-analytics/log-analytics-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
 
 > [!NOTE]
 > Es posible que el almacenamiento o el procesamiento de datos de registro de diagnóstico con servicios de Azure conlleve costos adicionales. 

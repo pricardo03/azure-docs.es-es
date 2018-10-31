@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3ea95899d48b68c78af5fdc45167b08b5e0fc1ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b42ce119db2c435f05424cceb5bb90627668bece
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195352"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407204"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integración de System Center Configuration Manager con Update Management
 
@@ -22,7 +22,7 @@ Los clientes que han invertido en System Center Configuration Manager para admin
 
 Puede crear informes sobre los servidores Windows administrados y actualizarlos. Para hacerlo, cree y preconfigure implementaciones de actualizaciones de software en Configuration Manager y obtenga el estado detallado de las implementaciones de actualizaciones completadas mediante la [solución Update Management](automation-update-management.md). Si utiliza Configuration Manager para los informes de cumplimiento de las actualizaciones, pero no para administrar implementaciones de actualizaciones con los servidores de Windows, puede seguir notificando a Configuration Manager mientras se administran las actualizaciones de seguridad con la solución Update Management.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Debe tener la [solución Update Management](automation-update-management.md) agregada a su cuenta de Automation.
 * Los servidores de Windows que, actualmente, administra System Center Configuration Manager también deben informar al área de trabajo de Log Analytics que también tenga habilitada la solución Update Management.
@@ -40,7 +40,7 @@ Siga estos pasos si va a continuar administrando las implementaciones de actuali
 1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Configuration Manager mediante el proceso descrito en el [proceso de implementación de actualizaciones de software](/sccm/sum/deploy-use/deploy-software-updates). La única opción que se debe configurar de forma distinta de una implementación estándar es la opción **No instalar actualizaciones de software** para controlar el comportamiento de descarga del paquete de implementación. La solución Update Management administra este comportamiento mediante la creación de una implementación de actualizaciones programada en el paso siguiente.
 
 1. En Azure Automation, seleccione **Update Management**. Cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment) y seleccione **Grupos importados** en la lista desplegable **Tipo** para seleccionar la colección adecuada de Configuration Manager. Tenga en cuenta los siguientes puntos importantes: a. Si una ventana de mantenimiento se define en la colección de dispositivos de Configuration Manager, los miembros de la colección respetan sus condiciones, en lugar de la configuración **Duración** definida en la implementación programada.
-    b. Los miembros de la colección de destino deben tener una conexión a Internet (ya sea directamente, a través de un servidor proxy o a través de la puerta de enlace de OMS).
+    b. Los miembros de la colección de destino deben tener una conexión a Internet (ya sea directamente, a través de un servidor proxy o a través de la puerta de enlace de Log Analytics).
 
 Después de completar la implementación de actualizaciones mediante Azure Automation, los equipos de destino que son miembros del grupo de equipos seleccionado instalarán las actualizaciones a la hora programada desde la memoria caché del cliente local. También puede [ver el estado de implementación de actualizaciones](automation-tutorial-update-management.md#view-results-of-an-update-deployment) para supervisar los resultados de la implementación.
 

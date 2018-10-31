@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855007"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365635"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -44,17 +44,19 @@ Muchas soluciones de los asociados se implementan en una suscripción de cliente
 
 Para agregar un identificador único global (GUID), se realizas una modificación única en el archivo de plantilla principal:
 
-1. Cree un identificador único global (por ejemplo, eb7927c8 dd66 43e1 b0cf c346a422063).
+1. [Cree un GUID](#create-guids) (p. ej., eb7927c8 dd66 43e1 b0cf c346a422063) y [registre el GUID](#register-guids-and-offers).
 
 1. Abra la plantilla de Resource Manager.
 
 1. Agregue un nuevo recurso en el archivo de plantilla principal. El recurso solo debe estar en los archivos **mainTemplate.json** o **azuredeploy.json**, no en ninguna de las plantillas vinculadas o anidadas.
 
-1. Escriba el valor del identificador único global después del prefijo **pid -** (por ejemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Escriba el valor de GUID después del prefijo **pid -** (por ejemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Compruebe si la plantilla tiene errores.
 
 1. Vuelva a publicar la plantilla en los repositorios adecuados.
+
+1. [Compruebe que el GUID es correcto en la implementación de plantillas](#verify-the-guid-deployment).
 
 ### <a name="sample-template-code"></a>Código de la plantilla de ejemplo
 
@@ -99,6 +101,24 @@ Cuando use la CLI de Azure para anexar un identificador único global, establezc
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>Creación de los identificadores únicos globales
+
+Un GUID es un número de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. Se recomienda que aproveche el [formulario del generador de GUID de Azure Storage](https://aka.ms/StoragePartners). Sin embargo, si prefiere no usar el generador de GUID de Azure Storage, hay varios [generadores de GUID en línea](https://www.bing.com/search?q=guid%20generator) que puede usar.
+
+> [!Note]
+> Es muy recomendable usar el [formulario del generador de GUID de Azure Storage](https://aka.ms/StoragePartners) para crear su GUID. Para más información, consulte las [P+F](#faq).
+
+Cree un identificador único global único para todos los canales de distribución y ofertas. Si implementa dos soluciones mediante una plantilla y cada una de ellas está disponible en Azure Marketplace y en GitHub, deberá crear cuatro identificadores únicos globales:
+
+*   Oferta A en Azure Marketplace 
+*   Oferta A en GitHub
+*   Oferta B en Azure Marketplace 
+*   Oferta B en GitHub
+
+La creación de informes se realiza por valor de asociado comercial (Id. de Partner de Microsoft) e identificador único global. 
+
+Asimismo, si lo desea también puede realizar un seguimiento de los identificadores únicos globales a un nivel más detallado como el SKU donde las SKU son variantes de una oferta.
 
 ## <a name="register-guids-and-offers"></a>Registro de identificadores únicos globales y ofertas
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>Creación de los identificadores únicos globales
-
-Un GUID es un número de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. Hay varios [generadores de GUID en línea](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) que puede usar.
-
-Cree un identificador único global único para todos los canales de distribución y ofertas. Si implementa dos soluciones mediante una plantilla y cada una de ellas está disponible en Azure Marketplace y en GitHub, deberá crear cuatro identificadores únicos globales:
-
-*   Oferta A en Azure Marketplace 
-*   Oferta A en GitHub
-*   Oferta B en Azure Marketplace 
-*   Oferta B en GitHub
-
-La creación de informes se realiza por valor de asociado comercial (Id. de Partner de Microsoft) e identificador único global. 
-
-Asimismo, si lo desea también puede realizar un seguimiento de los identificadores únicos globales a un nivel más detallado como el SKU donde las SKU son variantes de una oferta.
-
 ## <a name="notify-your-customers"></a>Notificación a los clientes
 
 Los asociados deben informar a sus clientes de las implementaciones que usan el seguimiento de GUID de Resource Manager. Microsoft notifica al asociado el uso de Azure que está asociado con estas implementaciones. Los ejemplos siguientes incluyen contenido que puede usar para notificar a los clientes estas implementaciones. En los ejemplos, reemplace \<PARTNER > por el nombre de su empresa. Los asociados deben asegurarse de que la notificación es compatible con sus directivas de privacidad y recopilación de datos, incluyendo las opciones que permiten excluir a los clientes del seguimiento. 
@@ -275,3 +280,7 @@ Los clientes pueden realizar el seguimiento del uso tanto de recursos individual
 **¿Esta metodología de seguimiento es similar al asociado digital de registro (DPOR)?**
 
 Este nuevo método de conexión de la implementación y el uso en la solución de un asociado proporciona un mecanismo que permite vincular una solución de asociado al uso de Azure. DPOR está pensado para asociar un asociado de consultoría (integrador de sistemas) o de administración (proveedor de servicios administrados) con la suscripción de Azure de un cliente.   
+
+**¿Cuál es la ventaja de usar el formulario del generador de GUID de Azure Storage?**
+
+El formulario del generador de GUID de Azure Storage garantiza la generación de un GUID del formato necesario. Además, si usa alguno de los métodos de seguimiento de planos de datos de Azure Storage, puede aprovechar el mismo GUID para el seguimiento de planos de control de Marketplace. Esto le permite aprovechar un único GUID unificado para la atribución de asociado sin tener que mantener distintos GUID.

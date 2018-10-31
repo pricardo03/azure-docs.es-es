@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 8f5c33a63fd932bedd7f1de3d3ae47306b3ea3e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954490"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023567"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Acerca del almacenamiento de discos para máquinas virtuales Windows en Azure
 
@@ -34,7 +34,7 @@ Cada máquina virtual tiene un disco de sistema operativo acoplado. Está regist
 
 ### <a name="temporary-disk"></a>Disco temporal
 
-Cada máquina contiene un disco temporal. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o cuando [vuelva a implementar una máquina virtual](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. 
+Cada máquina contiene un disco temporal. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o cuando [vuelva a implementar una máquina virtual](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un reinicio estándar correcto de la máquina virtual, los datos de la unidad temporal se deben conservar. En cambio, hay casos donde los datos pueden no conservarse, como al moverse a un nuevo host. En consecuencia, todos los datos de la unidad temporal no deben ser datos que sean fundamentales para el sistema.
 
 El disco temporal está etiquetado de forma predeterminada como unidad D: y se usa para almacenar el archivo pagefile.sys. Para reasignar este disco a una letra de unidad diferente, consulte [Cambiar la letra de unidad de disco temporal de Windows](change-drive-letter.md). El tamaño del disco temporal varía, según el tamaño de la máquina virtual. Para más información, consulte [Tamaños de las máquinas virtuales Windows](sizes.md).
 

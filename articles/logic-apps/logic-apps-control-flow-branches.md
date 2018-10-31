@@ -3,19 +3,18 @@ title: Crear o combinar ramas paralelas - Azure Logic Apps | Microsoft Docs
 description: Cómo crear o combinar ramas paralelas de los flujos de trabajo en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/10/2018
+ms.openlocfilehash: 41823d697139e039703cd47e0bfe3380fd2d20d6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298862"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116093"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Crear o combinar ramas paralelas de las acciones de los flujos de trabajo en Azure Logic Apps
 
@@ -24,7 +23,7 @@ De forma predeterminada, las acciones en flujos de trabajo de aplicaciones lógi
 > [!TIP] 
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
 
@@ -32,33 +31,44 @@ De forma predeterminada, las acciones en flujos de trabajo de aplicaciones lógi
 
 <a name="parallel-branches"></a>
 
-## <a name="add-a-parallel-branch"></a>Incorporación de una rama paralela
+## <a name="add-parallel-branch"></a>Incorporación de una rama paralela
 
 Para ejecutar pasos independientes al mismo tiempo, puede agregar ramas paralelas junto a un paso existente. 
 
 ![Ejecución de pasos en paralelo](media/logic-apps-control-flow-branches/parallel.png)
 
-La aplicación lógica espera a que todas las ramas finalicen antes de continuar con el flujo de trabajo.
-Las ramas paralelas se ejecutan solo cuando sus valores de propiedad `runAfter` coinciden con estado del paso primario terminado. Por ejemplo, `branchAction1` y `branchAction2` están configuradas para ejecutarse solo cuando `parentAction` se completa con el estado `Succeded`.
+La aplicación lógica espera a que todas las ramas finalicen antes de continuar con el flujo de trabajo. Las ramas paralelas se ejecutan solo cuando sus valores de propiedad `runAfter` coinciden con estado del paso primario terminado. Por ejemplo, `branchAction1` y `branchAction2` están configuradas para ejecutarse solo cuando `parentAction` se completa con el estado `Succeded`.
 
 > [!NOTE]
 > Antes de empezar, la aplicación lógica tiene que tener un paso al que se puedan agregar ramas paralelas.
 
 1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, abra la aplicación lógica en Diseñador de aplicación lógica.
 
-2. Mueva el mouse sobre la flecha situada encima del paso donde desea agregar ramas paralelas.
-
-3. Elija el signo **más** (**+**), luego **Agregar una rama paralela** y seleccione el elemento que desea agregar.
+1. Mueva el puntero sobre la flecha situada encima del paso donde desea agregar ramas paralelas. Elija el signo **más** (**+**) que aparece y, luego, elija **Agregar una rama paralela**. 
 
    ![Incorporación de una rama paralela](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-   El elemento seleccionado aparece ahora en una rama paralela.
+1. En el cuadro de búsqueda, busque y seleccione la acción que desee.
 
-4. Para cada rama paralela, agregue los pasos que desee. Para agregar una acción secuencial a una rama paralela, mueva el mouse en la acción en la que desea agregar la acción secuencial. Elija el signo **más** (**+**) y el paso que desea agregar.
+   ![Búsqueda y selección de la acción deseada](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   ![Incorporación de un paso secuencial a una rama paralela](media/logic-apps-control-flow-branches/add-sequential-action-parallel-branch.png)
+   La acción seleccionada ahora aparece en la rama paralela, por ejemplo:
 
-5. Para volver a combinar ramas [una las ramas paralelas](#join-branches). 
+   ![Búsqueda y selección de la acción deseada](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+
+1. Ahora, en cada rama paralela, agregue los pasos que desee. Para agregar otra acción a una rama, mueva el puntero bajo la acción en la que desea agregar una acción secuencial. Elija el signo **más** (**+**) que aparece y, a continuación, seleccione **Agregar una acción**.
+
+   ![Incorporación de una acción secuencial a una rama paralela](media/logic-apps-control-flow-branches/add-sequential-action.png)
+
+1. En el cuadro de búsqueda, busque y seleccione la acción que desee.
+
+   ![Búsqueda y selección de la acción secuencial](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+
+   La acción seleccionada ahora aparece en la rama actual, por ejemplo:
+
+   ![Búsqueda y selección de la acción secuencial](media/logic-apps-control-flow-branches/added-sequential-action.png)
+
+Para volver a combinar ramas [una las ramas paralelas](#join-branches). 
 
 <a name="parallel-json"></a>
 
@@ -69,17 +79,17 @@ Si está trabajando en la vista de código, puede definir la estructura paralela
 ``` json
 {
   "triggers": {
-    "myTrigger": { }
+    "myTrigger": {}
   },
   "actions": {
     "parentAction": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {}
     },
     "branchAction1": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -88,7 +98,7 @@ Si está trabajando en la vista de código, puede definir la estructura paralela
     },
     "branchAction2": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -110,11 +120,17 @@ Para combinar ramas paralelas, simplemente agregue un paso en la parte inferior 
 
 1. En [Azure Portal](https://portal.azure.com), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas. 
 
-2. En las ramas paralelas que se desea unir, agregue el paso que desea realizar.
+1. En las ramas paralelas que desea combinar, elija **Nuevo paso**. 
 
-   ![Incorporación de un paso que une ramas paralelas](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Adición de un paso de combinación](media/logic-apps-control-flow-branches/add-join-step.png)
+
+1. En el cuadro de búsqueda, busque y seleccione la acción que desea como el paso que combina las ramas.
+
+   ![Búsqueda y selección de la acción que combina ramas paralelas](media/logic-apps-control-flow-branches/join-steps.png)
 
    Sus ramas paralelas están ahora combinadas.
+
+   ![Ramas combinadas](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 

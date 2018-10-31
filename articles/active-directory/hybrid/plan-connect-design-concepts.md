@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f85726f7058c783b6e369126532e40ceecc3c846
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308184"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946001"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceptos de diseño
 El propósito de este documento es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Este documento trata de una profundización en determinadas áreas y estos conceptos se describen también brevemente en otros documentos.

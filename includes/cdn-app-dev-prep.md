@@ -1,4 +1,4 @@
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de escribir el código de administración de la red CDN, tiene que realizar algunos preparativos para habilitar el código para que interactúe con Azure Resource Manager. Para hacer esta preparación, deberá:
 
 * Crear un grupo de recursos que contenga el perfil de CDN creado en este tutorial.
@@ -21,14 +21,14 @@ Antes de escribir el código de administración de la red CDN, tiene que realiza
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creación de la aplicación de Azure AD y aplicación de los permisos
 Existen dos enfoques para la autenticación de la aplicación con Azure Active Directory: usuarios individuales o una entidad de servicio. Una entidad de servicio se parece a una cuenta de servicio en Windows.  En lugar de conceder permisos a usuarios concretos para que interactúen con los perfiles de CDN, los permisos se conceden a la entidad de servicio.  Las entidades de servicio se suelen utilizar para procesos automatizados no interactivos.  Aunque en este tutorial escribimos una aplicación de consola interactiva, nos centraremos en el enfoque de entidad de servicio.
 
-Para crear una entidad de servicio, se siguen varios pasos, incluida la creación de una aplicación de Azure Active Directory.  Para crearlo, [complete este tutorial](../articles/resource-group-create-service-principal-portal.md).
+Para crear una entidad de servicio, se siguen varios pasos, incluida la creación de una aplicación de Azure Active Directory.  Para crearlo, [complete este tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> Asegúrese de seguir los pasos descritos en el [tutorial vinculado](../articles/resource-group-create-service-principal-portal.md).  Es *importante* que lo complete exactamente como se describe.  No se olvide de tomar nota del **identificador de inquilino**, el **nombre de dominio del inquilino** (por lo general, un dominio *.onmicrosoft.com*, a menos que haya especificado uno personalizado), el **identificador de cliente** y la **clave de autenticación de cliente**, ya que se necesitará esta información más adelante.  Tenga cuidado de proteger el **identificador de cliente** y la **clave de autenticación de cliente**, ya que cualquiera puede usar estas credenciales para ejecutar operaciones como entidad de servicio.
+> Asegúrese de seguir los pasos descritos en el [tutorial vinculado](../articles/active-directory/develop/howto-create-service-principal-portal.md).  Es *importante* que lo complete exactamente como se describe.  No se olvide de tomar nota del **identificador de inquilino**, el **nombre de dominio del inquilino** (por lo general, un dominio *.onmicrosoft.com*, a menos que haya especificado uno personalizado), el **identificador de cliente** y la **clave de autenticación de cliente**, ya que se necesitará esta información más adelante.  Tenga cuidado de proteger el **identificador de cliente** y la **clave de autenticación de cliente**, ya que cualquiera puede usar estas credenciales para ejecutar operaciones como entidad de servicio.
 >
 > Cuando llegue al paso denominado Configuración de aplicación multiinquilino, seleccione **No**.
 >
-> Cuando llegue al paso [Asignación de aplicación a un rol](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), use el grupo de recursos creado antes, *CdnConsoleTutorial*, pero en lugar del rol **Lector**, asigne el rol **Colaborador de perfil de CDN**.  Después de asignar la aplicación al rol **CDN Profile Contributor** (Colaborador de perfil de CDN) en el grupo de recursos, vuelva a este tutorial. 
+> Cuando llegue al paso [Asignación de aplicación a un rol](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), use el grupo de recursos que creó antes (*CdnConsoleTutorial*), pero en lugar del rol **Lector**, asigne el rol **Colaborador de perfil de CDN**.  Después de asignar la aplicación al rol **CDN Profile Contributor** (Colaborador de perfil de CDN) en el grupo de recursos, vuelva a este tutorial. 
 >
 >
 

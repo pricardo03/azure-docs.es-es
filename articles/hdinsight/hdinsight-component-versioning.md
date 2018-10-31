@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 5be239fd3c77872a59b37efc6de5fc42aca9bb0c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 170fd402770c091398a25784b18508ae57db6a38
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395821"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341861"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?
 
@@ -34,7 +34,7 @@ En la tabla siguiente se enumeran las versiones de componente asociadas a las ve
 | Componente | HDInsight 4.0 (versión preliminar) | HDInsight 3.6 (predeterminado) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
-| Apache Hadoop y YARN |2.9.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
+| Apache Hadoop y YARN |3.1.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
 | Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
 | Apache Pig |0.16.0 |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
 | Apache Hive y HCatalog |-|1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
@@ -82,7 +82,7 @@ En la tabla siguiente se enumeran las versiones de HDInsight que están disponib
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | | |SÍ |SÍ |
 | HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de septiembre de 2016 |13 de marzo de 2019 |13 de marzo de 2019 |SÍ |SÍ |
 
-*Se amplió la compatibilidad de HDInsight 3.5 solo para los tipos de clúster de Spark*
+*&ast;Se amplió la compatibilidad de HDInsight 3.5 solo para los tipos de clúster de Spark*
 
 > [!NOTE]
 > Cuando expira la compatibilidad de una versión, puede dejar de estar disponible en Microsoft Azure Portal. Sin embargo, las versiones de clúster seguirán estando disponibles con el parámetro `Version` en el comando [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) de Windows PowerShell y en el SDK de .NET hasta la fecha de retirada de la versión.

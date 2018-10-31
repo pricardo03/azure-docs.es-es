@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: b604782f917584d1ecec432c20de75f427176ed1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29132898"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025555"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimización del rendimiento de red en las máquinas virtuales de Azure
 
@@ -153,7 +153,7 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 
 Para más información sobre la versión 4.2 de Linux Integration Services para Hyper-V, vea la [página de descarga](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Vea el resultado con las [pruebas de ancho de banda y rendimiento de Azure VM](virtual-network-bandwidth-testing.md) para su escenario.
-* Obtenga información acerca de cómo [se asigna el ancho de banda a las máquinas virtuales] (virtual-machine-network-throughput.md)
+* Obtenga información acerca de cómo [se asigna el ancho de banda a las máquinas virtuales](virtual-machine-network-throughput.md)
 * Obtenga más información con las [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](virtual-networks-faq.md)

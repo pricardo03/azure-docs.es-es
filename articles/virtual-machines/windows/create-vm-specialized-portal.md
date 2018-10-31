@@ -12,64 +12,67 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 09/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 428003747b7c746a2849a042e54647e86361c562
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716567"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091256"
 ---
-# <a name="create-a-vm-from-a-vhd-using-the-azure-portal"></a>Creación de una VM desde un VHD en Azure Portal
+# <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creación de una máquina virtual a partir de un VHD mediante Azure Portal
 
+Hay varias maneras de crear una máquina virtual en Azure: 
 
-Hay varias maneras de crear VM en Azure. Si ya tiene un VHD que puede usar o quiere copiar el VHD de una VM existente para usarlo, puede crear una nueva VM adjuntando el VHD como disco del SO. Este proceso *conecta* el VHD a una nueva VM como disco del SO.
+- Si ya tiene un disco duro virtual (VHD) que puede usar o quiere copiar el VHD de una máquina virtual existente para usarlo, puede crear una nueva máquina virtual *adjuntando* el VHD a la nueva máquina virtual como disco del sistema operativo. 
 
-También puede crear una nueva VM desde el VHD de una VM que se eliminó. Por ejemplo, si tiene una VM de Azure que no funciona correctamente, puede eliminarla y usar el VHD para crear una nueva. Puede volver a usar el mismo VHD o crear una copia del VHD mediante la creación de una instantánea y, a continuación, de un disco administrado desde la instantánea. Se necesitan algunos pasos más para hacerlo, pero garantiza que pueda conservar el VHD original y también le proporciona una instantánea que puede revertir en caso necesario.
+- Puede crear una nueva máquina virtual desde el VHD de una máquina virtual que haya sido eliminada. Por ejemplo, si tiene una máquina virtual de Azure que no funciona correctamente, puede eliminarla y usar su VHD para crear una nueva. Puede volver a usar el mismo VHD o crear una copia del VHD mediante la creación de una instantánea y, a continuación, de un nuevo disco administrado desde la instantánea. Aunque la creación de una instantánea conlleva unos pocos pasos más, conserva el VHD original y le proporcionará una reserva.
+ 
+- Puede crear una máquina virtual de Azure desde un VHD local mediante la carga del VHD local y su conexión a una nueva máquina virtual. Puede utilizar PowerShell u otra herramienta para cargar el VHD a una cuenta de almacenamiento y, a continuación, crear un disco administrado a partir del VHD. Para más información, consulte [Carga de un VHD especializado](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-Tiene una VM local que quiere usar para crear una VM en Azure. Puede cargar el VHD y conectarlo a una nueva máquina virtual. Para cargar un VHD, tiene que usar PowerShell u otra herramienta para cargarlo en una cuenta de almacenamiento y, a continuación, crear un disco administrado desde el VHD. Para obtener más información, consulte [Cargar un VHD especializado](create-vm-specialized.md#option-2-upload-a-specialized-vhd).
-
-Si quiere usar una VM o un VHD para crear varias VM, no use este método. Para implementaciones más grandes, debe [crear una imagen](capture-image-resource.md) y, a continuación, [usarla para crear varias VM](create-vm-generalized-managed.md).
+No use un disco especializado si desea crear varias máquinas virtuales. En su lugar, para implementaciones más grandes, debe [crear una imagen](capture-image-resource.md) y, a continuación, [usarla para crear varias máquinas virtuales](create-vm-generalized-managed.md).
 
 
 ## <a name="copy-a-disk"></a>Copiar un disco
 
-Cree una instantánea y, a continuación, cree un disco a partir de la instantánea. De este modo, podrá conservar el VHD original como reserva.
+Cree una instantánea y, a continuación, cree un disco a partir de la instantánea. Esta estrategia le permite conservar el VHD original como reserva:
 
-1. En el menú izquierdo, haga clic en **Todos los recursos**.
-2. En el desplegable **Todos los tipos**, desactive **Seleccionar todo** y, a continuación, desplácese hacia abajo y seleccione **Discos** para buscar los discos disponibles.
-3. Haga clic en el disco que quiera usar. Se abrirá la página **Información general** para el disco.
-4. En la página Información general, en el menú situado en la parte superior, haga clic en **+ Crear instantánea**. 
-5. Escriba un nombre para la instantánea.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios** en el menú de la izquierda.
+2. En el cuadro de búsqueda **Todos los servicios**, escriba **discos** y, a continuación, seleccione **discos** para mostrar la lista de discos disponibles.
+3. Seleccione el disco que le gustaría utilizar. Aparece la página **Disco** de ese disco.
+4. En el menú de la parte superior, seleccione **Crear instantánea**. 
+5. Escriba un **nombre** para la instantánea.
 6. Elija un **Grupo de recursos** para la instantánea. Puede usar un grupo de recursos existente o crear uno nuevo.
-7. Elija si quiere usar almacenamiento estándar (HDD) o Premium (SDD).
-8. Cuando haya terminado, haga clic en **Crear** para crear la instantánea.
-9. Una vez creada la instantánea, haga clic en **+ Crear un recurso** en el menú izquierdo.
-10. En la barra de búsqueda, escriba **disco administrado** y seleccione **Discos administrados** en la lista.
-11. En la página **Discos administrados**, haga clic en **Crear**.
-12. Escriba un nombre para el disco.
-13. Elija un **Grupo de recursos** para el disco. Puede usar un grupo de recursos existente o crear uno nuevo. También será el grupo de recursos en el que creará la VM desde el disco.
-14. Elija si quiere usar almacenamiento estándar (HDD) o Premium (SDD).
-15. En **Tipo de origen**, asegúrese de que la opción **Instantánea** está seleccionada.
+7. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)**.
+8. Cuando haya terminado, seleccione **Crear** para crear la instantánea.
+9. Una vez creada la instantánea, seleccione **Crear un recurso** en el menú izquierdo.
+10. En el cuadro de búsqueda, escriba **disco administrado** y seleccione **Discos administrados** en la lista.
+11. En la página **Discos administrados**, seleccione **Crear**.
+12. Escriba un **Nombre** para el disco.
+13. Elija un **Grupo de recursos** para el disco. Puede usar un grupo de recursos existente o crear uno nuevo. Esta selección también se usará como el grupo de recursos donde crear la máquina virtual desde el disco.
+14. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)**.
+15. En **Tipo de origen**, asegúrese de que está seleccionada la opción **Instantánea**.
 16. En el desplegable **Instantánea de origen**, seleccione la instantánea que quiere usar.
-17. Realice cualquier otro ajuste que sea necesario y, a continuación, haga clic en **Crear** para crear el disco.
+17. Realice cualquier otro ajuste que sea necesario y, a continuación, seleccione **Crear** para crear el disco.
 
 ## <a name="create-a-vm-from-a-disk"></a>Creación de una VM desde un disco
 
-Una vez que tenga el VHD del disco administrado que quiere usar, puede crear la VM en el portal.
+Una vez que tenga el VHD del disco administrado que quiere usar, puede crear la máquina virtual en el portal:
 
-1. En el menú izquierdo, haga clic en **Todos los recursos**.
-2. En el desplegable **Todos los tipos**, desactive **Seleccionar todo** y, a continuación, desplácese hacia abajo y seleccione **Discos** para buscar los discos disponibles.
-3. Haga clic en el disco que quiera usar. Se abrirá la página **Información general** para el disco.
-En la página Información general, asegúrese de que **ESTADO DEL DISCO** aparezca como **Sin adjuntar**. Si no es el caso, es posible que tenga que desasociar el disco de la VM o eliminar la VM para liberar el disco.
-4. En el menú de la parte superior del panel, haga clic en **+ Crear VM**.
-5. En la página **Aspectos básicos** de la nueva VM, escriba un nombre y seleccione un grupo de recursos existente o cree uno nuevo.
-6. En la página **Tamaño**, seleccione una página de tamaño de VM y, a continuación, haga clic en **Seleccionar**.
-7. En la página **Configuración**, puede dejar que el portal cree todos los recursos nuevos o puede seleccionar una **Red virtual** y un **grupo de seguridad de red** existentes. El portal crea siempre una nueva NIC y una dirección IP pública para la nueva VM. 
-8. Realice cambios en las opciones de supervisión y agregue extensiones si es necesario.
-9. Cuando haya terminado, haga clic en **Aceptar**. 
-10. Si la configuración de la VM supera la validación, haga clic en **Aceptar** para iniciar la implementación.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios** en el menú de la izquierda.
+2. En el cuadro de búsqueda **Todos los servicios**, escriba **discos** y, a continuación, seleccione **discos** para mostrar la lista de discos disponibles.
+3. Seleccione el disco que le gustaría utilizar. Se abre la página **Disco** de ese disco.
+4. En la página **Información general**, asegúrese de que **ESTADO DEL DISCO** aparezca como **Sin adjuntar**. Si no es el caso, es posible que tenga que desasociar el disco de la VM o eliminar la VM para liberar el disco.
+4. En el menú de la parte superior de la página, seleccione **Crear máquina virtual**.
+5. En la página **Aspectos básicos** de la nueva máquina virtual, escriba un **Nombre de máquina virtual** y seleccione un **Grupo de recursos** existente o cree uno nuevo.
+6. En **Tamaño**, seleccione **Cambiar tamaño** para acceder a la página **Tamaño**.
+7. Seleccione una fila de tamaño de máquina virtual y, a continuación, elija **Seleccionar**.
+8. En la página **Redes**, puede dejar que el portal cree todos los recursos nuevos o puede seleccionar una **Red virtual** y un **Grupo de seguridad de red** existentes. El portal crea siempre una nueva interfaz de red y una dirección IP pública para la nueva máquina virtual. 
+9. En la página **Administración**, realice los cambios oportunos en las opciones de supervisión.
+10. En la página **Configuración de invitado**, agregue extensiones según sea necesario.
+11. Seleccione **Revisar y crear** cuando haya terminado. 
+12. Si la configuración de la máquina virtual supera la validación, seleccione **Crear** para iniciar la implementación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

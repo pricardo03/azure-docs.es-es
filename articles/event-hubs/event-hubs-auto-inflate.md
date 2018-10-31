@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004799"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987008"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs
 
@@ -27,6 +27,8 @@ Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo t
 
 * Velocidades de entrada de datos que superan las unidades de rendimiento establecidas.
 * Velocidades de solicitud de salida de datos que superan las unidades de rendimiento establecidas.
+
+El servicio Event Hubs aumenta el rendimiento cuando la carga aumenta más allá del umbral mínimo, sin que se produzca ningún problema de las solicitudes con errores de ServerBusy.
 
 ## <a name="how-auto-inflate-works"></a>Funcionamiento del inflado automático
 
@@ -54,6 +56,10 @@ Con esta opción habilitada, puede empezar poco a poco con las unidades de proce
 También puede habilitar el inflado automático mediante la opción **Escalar** del panel de configuración del portal:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> Al aplicar la configuración de inflado automático para aumentar las unidades de procesamiento, el servicio Event Hubs emite los registros de diagnóstico que le proporcionan información acerca de por qué y cuándo aumentó el rendimiento. Para habilitar el registro de diagnóstico para un centro de eventos, seleccione **configuración de diagnóstico** en el menú izquierdo de la página del centro de eventos en Azure Portal. Para más información, vea [Configuración de registros de diagnóstico de Azure Event Hubs](event-hubs-diagnostic-logs.md). 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Habilitación del inflado automático mediante una plantilla de Azure Resource Manager
 
@@ -101,6 +107,7 @@ Puede habilitar el inflado automático durante la implementación de una plantil
 ```
 
 Para ver la plantilla completa, consulte la plantilla [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) (Creación de un espacio de nombres de Event Hubs y habilitación del inflado) en GitHub.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,19 +2,19 @@
 title: Administrador de seguridad de Azure IoT Edge | Microsoft Docs
 description: Administra la posición de seguridad del dispositivo IoT Edge y la integridad de los servicios de seguridad.
 services: iot-edge
-keywords: seguridad, elemento, enclave, IoT Edge
+keywords: seguridad, elemento seguro, enclave, TEE, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126350"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321196"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
@@ -113,7 +113,7 @@ HSM PAL abstrae todo el hardware de raíz de confianza para aislar al desarrolla
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Hardware de raíz de confianza de silicio seguro
 
-El silicio seguro es necesario para delimitar la confianza dentro del hardware del dispositivo IoT Edge.  El silicio seguro viene en una gran variedad de formas que incluyen Módulo de plataforma segura (TPM), Elemento seguro integrado (eSM), ARM TrustZone, Intel SGX y tecnologías de silicio seguro.  Se recomienda usar la raíz de confianza de silicio seguro en dispositivos, dadas las amenazas asociadas con la accesibilidad física de los dispositivos IoT.
+El silicio seguro es necesario para delimitar la confianza dentro del hardware del dispositivo IoT Edge.  El silicio seguro viene en una gran variedad de formas que incluyen Módulo de plataforma segura (TPM), Elemento seguro integrado (eSE), ARM TrustZone, Intel SGX y tecnologías de silicio seguro.  Se recomienda usar la raíz de confianza de silicio seguro en dispositivos, dadas las amenazas asociadas con la accesibilidad física de los dispositivos IoT.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Mantenimiento e integración del administrador de seguridad de IoT Edge
 

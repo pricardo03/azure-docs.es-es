@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669014"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114165"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Funcionamiento: Azure Multi-Factor Authentication
 
@@ -35,21 +35,12 @@ Multi-Factor Authentication forma parte de las siguientes ofertas:
 
 * **Licencias de Azure Active Directory Premium**: uso completo del servicio Azure Multi-Factor Authentication (nube) o del servidor Azure Multi-Factor Authentication (local).
    * **Servicio Azure MFA (nube)** - **Esta opción es la ruta de acceso recomendada para las implementaciones nuevas**. Azure MFA en la nube no requiere ninguna infraestructura local y se puede utilizar tanto con los usuarios federados como los que están solo en la nube.
-   * **Servidor de Azure MFA**: si su organización desea administrar los elementos de la infraestructura asociada y ha implementado AD FS en su entorno local de este modo puede ser una opción.
+   * **Servidor de Azure MFA**: si la organización desea administrar los elementos de la infraestructura asociada y ha implementado AD FS en el entorno local de este modo puede ser una opción.
 * **Multi-Factor Authentication para Office 365**: un subconjunto de las funcionalidades de Azure Multi-Factor Authentication están disponibles como parte de la suscripción. Para más información acerca de MFA para Office 365, consulte el artículo [Plan de Multi-Factor Authentication para implementaciones de Office 365](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Administradores globales de Azure Active Directory**: un subconjunto de las funcionalidades de capacidades de Azure Multi-Factor Authentication está disponible como medio de protección de las cuentas de administrador global.
 
 > [!NOTE]
 > A partir del 1 de septiembre de 2018, los nuevos clientes ya no pueden comprar Azure Multi-factor Authentication como oferta independiente. La autenticación multifactor seguirá siendo una característica disponible en las licencias de Azure AD Premium.
-
-### <a name="auth-provider-or-mfa-license"></a>Licencia de proveedor de autenticación o MFA
-
-Si tiene Azure AD Premium u otros paquete de licencias que incluya Azure AD Premium, ya tiene Azure MFA. Su organización no necesita nada más para extender la funcionalidad de verificación en dos pasos a todos los usuarios. Solo tiene que asignar una licencia a un usuario y, luego, puede activar MFA.
-
-Si no tiene licencias que incluyan Azure MFA o no tienen suficientes licencias para cubrir todos los usuarios, puede crear un [proveedor de Multi-Factor Authentication](concept-mfa-authprovider.md) para ampliar las funcionalidades completas de MFA a los usuarios que lo necesiten.
-
-> [!IMPORTANT]
-> Si no tiene suficientes licencias para todos los usuarios, puede crear un Proveedor de Multi-Factor Auth por usuario para cubrir el resto de su organización. No cree un Proveedor de Multi-Factor Auth por autenticación. Si lo hace, puede acabar pagando por solicitudes de comprobación de usuarios que ya tienen licencias.
 
 ## <a name="supportability"></a>Compatibilidad
 
@@ -57,8 +48,7 @@ Dado que la mayoría de los usuarios están acostumbrados a usar solo las contra
 
 * Entrene al personal de soporte técnico para administrar escenarios en los que el usuario no puede iniciar sesión porque no tiene acceso a sus métodos de autenticación o porque estos no funcionan correctamente.
    * Mediante las directivas de acceso condicional del servicio Azure MFA, el personal de soporte técnico puede agregar un usuario a un grupo que se excluye de una directiva que requiere MFA.
-   * El personal de soporte técnico puede habilitar una omisión por única vez temporal para los usuarios del servidor de Azure MFA que permita que cualquier usuario se autentique sin la verificación en dos pasos. La omisión es temporal y expira una vez que ha pasado el número especificado de segundos.
-   * Mediante las directivas de acceso condicional del servicio Azure MFA, el personal de soporte técnico puede agregar un usuario a un grupo que se excluye de una directiva que requiere MFA.
+   * El personal de soporte técnico puede habilitar una omisión por única vez temporal para los usuarios del servidor de Azure MFA que permita que cualquier usuario se autentique sin la verificación en dos pasos. La omisión es temporal y expira una vez que ha pasado el número especificado de segundos.   
 * Considere el uso de direcciones IP de confianza o de ubicaciones con nombre como una forma de minimizar los mensajes de la verificación en dos pasos. Esta característica ofrece a los administradores de un inquilino administrado o federado la posibilidad de omitir la verificación en dos pasos para los usuarios que inician sesión desde una ubicación de red de confianza como la intranet de su organización.
 * Implemente [Azure AD Identity Protection](../active-directory-identityprotection.md) y desencadene la verificación en dos pasos en función de los eventos de riesgo.
 

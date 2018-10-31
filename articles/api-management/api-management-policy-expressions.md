@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 771ec7713c989025635e585b7bb511986e71cda9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597525"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024784"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 Este artículo describe la sintaxis de expresiones de directiva C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.  
@@ -52,15 +52,15 @@ Para obtener más información:
   
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
-@{   
-  string value;   
-  if (context.Request.Headers.TryGetValue("Authorization", out value))   
-  {   
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
-  }   
-  else   
-  {   
-    return null;  
+@{   
+  string value;   
+  if (context.Request.Headers.TryGetValue("Authorization", out value))   
+  {   
+    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
+  }   
+  else   
+  {   
+    return null;  
   }  
 }  
 ```  
@@ -74,18 +74,18 @@ Para obtener más información:
 ##  <a name="CLRTypes"></a>Tipos de .NET framework que se permiten en expresiones de directiva  
  En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en las expresiones de directiva y sus miembros.  
   
-|Tipos CLR|Métodos admitidos|  
+|Tipos CLR|Miembros compatibles|  
 |--------------|-----------------------|  
-|Newtonsoft.Json.Linq.Extensions|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JArray|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JConstructor|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JContainer|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JObject|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JProperty|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JRaw|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JToken|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JTokenType|Se admiten todos los métodos.|  
-|Newtonsoft.Json.Linq.JValue|Se admiten todos los métodos.|  
+|Newtonsoft.Json.Linq.Extensions|Todo|  
+|Newtonsoft.Json.Linq.JArray|Todo|  
+|Newtonsoft.Json.Linq.JConstructor|Todo|  
+|Newtonsoft.Json.Linq.JContainer|Todo|  
+|Newtonsoft.Json.Linq.JObject|Todo|  
+|Newtonsoft.Json.Linq.JProperty|Todo|  
+|Newtonsoft.Json.Linq.JRaw|Todo|  
+|Newtonsoft.Json.Linq.JToken|Todo|  
+|Newtonsoft.Json.Linq.JTokenType|Todo|  
+|Newtonsoft.Json.Linq.JValue|Todo|  
 |System.Collections.Generic.IReadOnlyCollection<T\>|Todo|  
 |System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|Todo|  
 |System.Collections.Generic.ISet<TKey, TValue>|Todo|  
@@ -105,9 +105,10 @@ Para obtener más información:
 |System.Int16|Todo|  
 |System.Int32|Todo|  
 |System.Int64|Todo|  
-|System.Linq.Enumerable<T\>|Se admiten todos los métodos.|  
+|System.Linq.Enumerable<T\>|Todo|  
 |System.Math|Todo|  
-|System.MidpointRounding|Todo|  
+|System.MidpointRounding|Todo|
+|System.Net.WebUtility|Todo|
 |System.Nullable<T\>|Todo|  
 |System.Random|Todo|  
 |System.SByte|Todo|  
@@ -146,23 +147,23 @@ Para obtener más información:
 |System.UInt32|Todo|  
 |System.UInt64|Todo|  
 |System.Uri|Todo|  
-|System.Xml.Linq.Extensions|Se admiten todos los métodos.|  
-|System.Xml.Linq.XAttribute|Se admiten todos los métodos.|  
-|System.Xml.Linq.XCData|Se admiten todos los métodos.|  
-|System.Xml.Linq.XComment|Se admiten todos los métodos.|  
-|System.Xml.Linq.XContainer|Se admiten todos los métodos.|  
-|System.Xml.Linq.XDeclaration|Se admiten todos los métodos.|  
-|System.Xml.Linq.XDocument|Se admiten todos los métodos.|  
-|System.Xml.Linq.XDocumentType|Se admiten todos los métodos.|  
-|System.Xml.Linq.XElement|Se admiten todos los métodos.|  
-|System.Xml.Linq.XName|Se admiten todos los métodos.|  
-|System.Xml.Linq.XNamespace|Se admiten todos los métodos.|  
-|System.Xml.Linq.XNode|Se admiten todos los métodos.|  
-|System.Xml.Linq.XNodeDocumentOrderComparer|Se admiten todos los métodos.|  
-|System.Xml.Linq.XNodeEqualityComparer|Se admiten todos los métodos.|  
-|System.Xml.Linq.XObject|Se admiten todos los métodos.|  
-|System.Xml.Linq.XProcessingInstruction|Se admiten todos los métodos.|  
-|System.Xml.Linq.XText|Se admiten todos los métodos.|  
+|System.Xml.Linq.Extensions|Todo|  
+|System.Xml.Linq.XAttribute|Todo|  
+|System.Xml.Linq.XCData|Todo|  
+|System.Xml.Linq.XComment|Todo|  
+|System.Xml.Linq.XContainer|Todo|  
+|System.Xml.Linq.XDeclaration|Todo|  
+|System.Xml.Linq.XDocument|Todo|  
+|System.Xml.Linq.XDocumentType|Todo|  
+|System.Xml.Linq.XElement|Todo|  
+|System.Xml.Linq.XName|Todo|  
+|System.Xml.Linq.XNamespace|Todo|  
+|System.Xml.Linq.XNode|Todo|  
+|System.Xml.Linq.XNodeDocumentOrderComparer|Todo|  
+|System.Xml.Linq.XNodeEqualityComparer|Todo|  
+|System.Xml.Linq.XObject|Todo|  
+|System.Xml.Linq.XProcessingInstruction|Todo|  
+|System.Xml.Linq.XText|Todo|  
 |System.Xml.XmlNodeType|Todo|  
   
 ##  <a name="ContextVariables"></a> Variable de contexto  

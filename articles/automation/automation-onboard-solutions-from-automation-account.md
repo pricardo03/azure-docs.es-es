@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033828"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352453"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -93,11 +93,11 @@ Seleccione **Administrar máquinas**. Se abrirá la página **Administrar máqui
 
 ### <a name="all-available-machines"></a>Todas las máquinas disponibles
 
-Para habilitar la solución para todas las máquinas disponibles, seleccione **Habilitar en todas las máquinas disponibles**. Esto deshabilita el control para agregar máquinas individualmente. Esta tarea agrega todos los nombres de las máquinas que informan al área de trabajo en la consulta de la búsqueda guardada de grupos de equipos.
+Para habilitar la solución para todas las máquinas disponibles, seleccione **Habilitar en todas las máquinas disponibles**. Esto deshabilita el control para agregar máquinas individualmente. Esta tarea agrega todos los nombres de las máquinas que informan al área de trabajo en la consulta de la búsqueda guardada de grupos de equipos. Cuando se selecciona, esto deshabilita el botón **Administrar máquinas**.
 
 ### <a name="all-available-and-future-machines"></a>Todas las máquinas disponibles y futuras
 
-Para habilitar la solución para todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina las configuraciones de ámbito y las búsquedas guardadas del área de trabajo. Se abrirá la solución para todas las máquinas de Azure y las que no son de Azure que notifican al área de trabajo.
+Para habilitar la solución para todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina las configuraciones de ámbito y las búsquedas guardadas del área de trabajo. Se abrirá la solución para todas las máquinas de Azure y las que no son de Azure que notifican al área de trabajo. Cuando se selecciona, esto deshabilita el botón **Administrar máquinas**.
 
 ### <a name="selected-machines"></a>Máquinas seleccionadas
 
@@ -120,13 +120,13 @@ Después de quitar estas soluciones, puede realizar los pasos siguientes para de
 
 1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
 
-1. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
+2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
 
    ![Página Desvincular área de trabajo](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    Recibirá un aviso para comprobar que desea continuar.
 
-1. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
+3. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
 
 Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 

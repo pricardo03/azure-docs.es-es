@@ -4,16 +4,16 @@ description: Obtenga información acerca de la solución de problemas relacionad
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42142483"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405236"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -110,6 +110,28 @@ Hybrid Runbook Worker no pudo generar un certificado autofirmado
 #### <a name="resolution"></a>Resolución
 
 Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
+
+### <a name="hresult"></a>Escenario: La máquina aparece como No evaluado y se muestra una excepción HResult
+
+#### <a name="issue"></a>Problema
+
+Tiene máquinas que aparecen como **No evaluado** en **Cumplimiento**, y verá un mensaje de excepción debajo de él.
+
+#### <a name="cause"></a>Causa
+
+Windows Update no está configurado correctamente en la máquina.
+
+#### <a name="resolution"></a>Resolución
+
+Haga doble clic en la excepción que se muestra en rojo para ver el mensaje de excepción completo. Revise la siguiente tabla para ver posibles soluciones o acciones que deben realizarse:
+
+|Excepción  |Acción o resolución  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Busque el código de error correspondiente en [Lista de códigos de error de Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) para buscar detalles adicionales sobre la causa de la excepción.        |
+|`0x8024402C` o `0x8024401C`     | Estos errores son problemas de conectividad de red. Asegúrese de que la máquina tenga la conectividad de red adecuada para Update Management. Consulte la sección sobre [planeamiento de red](../automation-update-management.md#ports) para obtener una lista de puertos y direcciones que se requieren.        |
+|`0x8024402C`     | Si usa un servidor WSUS, asegúrese de que los valores de registro de `WUServer` y `WUStatusServer` bajo la clave del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` tienen el servidor WSUS correcto.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Asegúrese de que el servicio Windows Update (wuauserv) se está ejecutando y no está deshabilitado.        |
+|Cualquier otra excepción genérica     | Realice una búsqueda en Internet para ver las soluciones posibles y colabore con el equipo de soporte técnico de TI local.         |
 
 ## <a name="linux"></a>Linux
 

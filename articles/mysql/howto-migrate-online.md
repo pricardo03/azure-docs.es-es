@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 55d5cf97225508d6c7c490347cfe21ced832300e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.date: 10/11/2018
+ms.openlocfilehash: cb2e1a34748875de9c7f8dd59be27c408ec82818
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091727"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090338"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migración con tiempo de inactividad mínimo a Azure Database for MySQL
 Puede realizar migraciones de MySQL a Azure Database for MySQL con un tiempo de inactividad mínimo mediante la **funcionalidad de sincronización continua** recién introducida para el [servicio Azure Database Migration Service](https://aka.ms/get-dms) (DMS). Esta funcionalidad limita la cantidad de tiempo de inactividad en el que incurre la aplicación.
@@ -28,4 +28,4 @@ DMS realiza una carga inicial de la base de datos local en Azure Database for My
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Vea el vídeo sobre [migración fácil de aplicaciones de MySQL/PostgreSQL a Azure Managed Service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), que contiene una demostración que muestra cómo migrar aplicaciones de MySQL a Azure Database for MySQL.
-- [Migración de MySQL a Azure Database for MySQL en línea mediante DMS] (https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).
+- Consulte el tutorial [Migración de MySQL a Azure Database for MySQL en línea mediante DMS](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).

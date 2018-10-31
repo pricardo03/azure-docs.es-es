@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498239"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985257"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -163,6 +163,9 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
    |Only reboot (solo reiniciar), no se instalarán las actualizaciones|Esta opción omite la instalación de actualizaciones y solo inicia un reinicio.|
 
 Cuando haya terminado de configurar la programación, seleccione el botón **Crear** para volver al panel de estado. En la tabla **Programada** se muestra la programación de implementaciones que ha creado.
+
+> [!NOTE]
+> Update Management admite la implementación de actualizaciones de origen y la descarga previa de revisiones. Esto requiere cambios en los sistemas a los que se aplican revisiones. Para aprender a configurar estos valores en sus sistemas, consulte [soporte técnico para aplicación de revisiones propias y para descargas previas](automation-update-management.md#firstparty-predownload).
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 

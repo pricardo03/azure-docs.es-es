@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 99d34d59bb9d55ff074d454fe4544917c4e91110
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205994"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113876"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaquetado e implementación de un ejecutable existente en Service Fabric
 Al empaquetar un ejecutable existente como [ejecutable invitado](service-fabric-guest-executables-introduction.md), puede elegir usar una plantilla de proyecto de Visual Studio o [crear el paquete de aplicación manualmente](#manually). Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante la plantilla para nuevos proyectos.
@@ -168,7 +168,9 @@ En el ejemplo anterior, SetupEntrypoint se ejecuta en un archivo por lotes llama
 </EntryPoint>
 ```
 
-El elemento `EntryPoint` del archivo de manifiesto de servicio se usa para especificar cómo se inicia el servicio. El elemento `ExeHost` especifica el archivo ejecutable (y los argumentos) que deben usarse para iniciar el servicio.
+El elemento `EntryPoint` del archivo de manifiesto de servicio se usa para especificar cómo se inicia el servicio.
+
+El elemento `ExeHost` especifica el archivo ejecutable (y los argumentos) que deben usarse para iniciar el servicio. Opcionalmente, puede agregar el atributo `IsExternalExecutable="true"` a `ExeHost` para indicar que el programa es un ejecutable externo fuera del paquete de código. Por ejemplo, `<ExeHost IsExternalExecutable="true">`.
 
 * `Program` especifica el nombre del ejecutable que debe iniciar el servicio.
 * `Arguments` especifica los argumentos que se deben pasar al archivo ejecutable. Puede ser una lista de parámetros con argumentos.

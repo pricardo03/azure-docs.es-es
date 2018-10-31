@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979409"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960297"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Copias de seguridad de discos de máquinas virtuales de Azure no administrados con instantáneas incrementales
 ## <a name="overview"></a>Información general
@@ -66,7 +66,7 @@ Cuando se emplea una estrategia de copia de seguridad personalizada en la que se
 Puede implementar la copia de instantáneas incrementales siguiendo estos pasos:
 
 * Realice una instantánea del blob de base mediante [Instantánea de blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copie la instantánea en una cuenta de almacenamiento de copia de seguridad de destino mediante [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Este es el blob en páginas de copia de seguridad. Realice una instantánea del blob en páginas de copia de seguridad y almacénela en la cuenta de copia de seguridad.
+* Copie la instantánea en una cuenta de almacenamiento de copia de seguridad de destino en la misma región de Azure (o en cualquier otra) mediante la opción [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Este es el blob en páginas de copia de seguridad. Realice una instantánea del blob en páginas de copia de seguridad y almacénela en la cuenta de copia de seguridad.
 * Realice otra instantánea del blob de base mediante Instantánea de blob.
 * Obtenga la diferencia entre la primera y la segunda instantánea del blob de base mediante [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Use el nuevo parámetro **prevsnapshot** para especificar el valor DateTime de la instantánea que quiere usar para obtener la diferencia. Cuando este parámetro está presente, la respuesta de REST solo incorpora las páginas que se cambiaron entre la instantánea de destino y la anterior, incluidas las borradas.
 * Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para aplicar estos cambios al blob en páginas de copia de seguridad.

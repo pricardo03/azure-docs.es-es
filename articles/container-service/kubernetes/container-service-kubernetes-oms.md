@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164326"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426420"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Supervisión de un clúster de Azure Container Service con Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que ha [creado un clúster de Kubernetes con Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 También se da por supuesto que tiene la CLI de Azure `az` y las herramientas de `kubectl` instaladas.
@@ -69,7 +69,7 @@ Para más información sobre la solución de contenedor, consulte [Solución Con
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obtención de la clave y el identificador de área de trabajo
 Para que el agente de Log Analytics se comunique con el servicio, tiene que configurarse con un identificador y una clave de área de trabajo. Para obtener el identificador y la clave del área de trabajo, tiene que crear una cuenta en <https://mms.microsoft.com>.
-Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, tendrá que obtener el identificador y la clave. Para ello, haga clic en **Configuración**, en **Orígenes conectados** y en **Servidores Linux**, tal y como se muestra a continuación.
+Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, puede obtener el identificador y la clave haciendo clic en la hoja **Log Analytics** y, a continuación, el nombre del área de trabajo. A continuación, en **Configuración avanzada**, **Orígenes conectados** y **Servidores Linux**, encontrará la información que necesita, como se muestra a continuación.
 
  ![](media/container-service-monitoring-oms/image5.png)
 

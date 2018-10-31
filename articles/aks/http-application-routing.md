@@ -8,18 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 8934852fe3d95d0a96af0283c30bba4b3bdb411b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345886"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385000"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
-La solución de enrutamiento de aplicación HTTP facilita el acceso a las aplicaciones implementadas en el clúster de Azure Kubernetes Service (AKS). Cuando se habilita la solución, configura un controlador de entrada en el clúster de AKS. A medida que se implementan aplicaciones, la solución también crea los nombres DNS accesibles públicamente para los puntos de conexión de aplicación.
+La solución de enrutamiento de aplicación HTTP facilita el acceso a las aplicaciones implementadas en el clúster de Azure Kubernetes Service (AKS). Cuando se habilita la solución, configura un controlador de entrada en el clúster de AKS. A medida que se implementan aplicaciones, la solución también crea nombres DNS accesibles públicamente para los puntos de conexión de aplicación.
 
 Cuando se habilita el complemento, crea una zona DNS en su suscripción. Para más información sobre el costo de DNS, consulte los [precios de DNS][dns-pricing].
+
+> [!CAUTION]
+> El complemento de enrutamiento de aplicaciones HTTP está diseñado para permitirle crear rápidamente un controlador de entrada y acceder a sus aplicaciones. Este complemento no se recomienda para su uso en producción. Para información sobre las implementaciones de entrada listas para producción, consulte [Creación de un controlador de entrada HTTPS](https://docs.microsoft.com/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>Introducción a la solución de enrutamiento HTTP
 
@@ -88,6 +91,13 @@ spec:
       containers:
       - image: r.j3ss.co/party-clippy
         name: party-clippy
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         tty: true
         command: ["party-clippy"]
         ports:

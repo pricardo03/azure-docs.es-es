@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9c353c9b34c3d4a2b21093cc0ae82e638f5ddd01
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 91bbbf6cced8dc3ade4906961d68a99f810d9fd9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355394"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956993"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Configuración del inicio de sesión único en una aplicación de proxy de aplicación
 
@@ -36,7 +36,7 @@ Para más información sobre los métodos de autenticación previa, consulte el 
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Configuración de modos de inicio de sesión únicos para aplicaciones de proxy de aplicación
 Configure el tipo específico de inicio de sesión único. Los métodos de inicio de sesión se clasifican en función del tipo de autenticación que la aplicación back-end use. Las aplicaciones de proxy de aplicación admiten tres tipos de inicio de sesión:
 
--   **Inicio de sesión con contraseña**: el inicio de sesión con contraseña sirve para cualquier aplicación que utilice los campos de nombre de usuario y contraseña para iniciar sesión. Los pasos de configuración están en la [documentación sobre la configuración de SSO con contraseña](../active-directory-enterprise-apps-whats-new-azure-portal.md#bring-your-own-password-sso-applications).
+-   **Inicio de sesión con contraseña**: el inicio de sesión con contraseña sirve para cualquier aplicación que utilice los campos de nombre de usuario y contraseña para iniciar sesión. Los pasos de configuración están disponibles en [Configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD](configure-password-single-sign-on-gallery-applications.md).
 
 -   **Autenticación de Windows integrada**: para las aplicaciones que utilizan la autenticación de Windows integrada (IWA), el inicio de sesión único se habilita a través de la delegación limitada de Kerberos (KCD). Este método concede permiso a los conectores de proxy de aplicación en Active Directory para suplantar a los usuarios, y para enviar y recibir tokens en su nombre. Puede ver más información sobre la configuración de KCD en la [documentación sobre el inicio de sesión único con KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 

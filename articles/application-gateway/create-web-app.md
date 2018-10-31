@@ -5,16 +5,16 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/1/2018
+ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: e4b69e6fa587a5d375a1684c982715f8a7ea8166
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579636"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353346"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Configuración de App Service Web Apps con Application Gateway 
+# <a name="configure-app-service-web-apps-with-application-gateway"></a>Configuración de App Service Web Apps con Application Gateway
 
 La puerta de enlace de aplicaciones le permite tener una instancia de Azure Web App u otro servicio multiinquilino como miembro del grupo de servidores back-end. En este artículo, aprenderá a configurar una aplicación web de Azure con Application Gateway. En el primer ejemplo se muestra cómo configurar una puerta de enlace de aplicaciones existente para usar una aplicación web como miembro del grupo de servidores back-end. En el segundo ejemplo se muestra cómo crear una nueva puerta de enlace de aplicaciones con una aplicación web como miembro del grupo de servidores back-end.
 
@@ -41,7 +41,7 @@ Add-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway 
 # Retrieve the newly added probe
 $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw
 
-# Configure an existing backend http settings 
+# Configure an existing backend http settings
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
@@ -116,7 +116,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Pu
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 # Define the application gateway SKU to use
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -141,7 +141,7 @@ Id                       : /subscriptions/<subscription_id>/resourceGroups/Conto
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
 ProvisioningState        : Succeeded
-Tags                     : 
+Tags                     :
 PublicIpAllocationMethod : Dynamic
 IpAddress                : xx.xx.xxx.xx
 PublicIpAddressVersion   : IPv4
@@ -154,6 +154,12 @@ DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
 ```
+
+## <a name="restrict-access"></a>Restricción del acceso
+
+Las aplicaciones web implementadas en estos ejemplos usan direcciones IP públicas a las que se puede acceder directamente desde Internet. Esto ayuda a solucionar los problemas cuando se está aprendiendo una nueva característica y se prueban cosas nuevas. Pero si va a implementar una característica en un entorno de producción, tendrá que agregar más restricciones.
+
+Una manera de restringir el acceso a las aplicaciones web es usar [Restricciones de IP estáticas de Azure App Service](../app-service/app-service-ip-restrictions.md). Por ejemplo, puede restringir la aplicación web para que solo recibe tráfico desde la puerta de enlace de aplicaciones. Use la característica de restricción de IP de servicio de aplicación para mostrar la dirección IP virtual de la puerta de enlace de aplicaciones como la única dirección con el acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

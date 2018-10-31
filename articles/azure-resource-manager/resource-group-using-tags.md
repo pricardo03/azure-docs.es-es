@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82a48c902b72b5aca546c45032a13e831533f9ee
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b6386f4a23a0ca6d0134f8c4e298a3f7100cc1d6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393475"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466960"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Uso de etiquetas para organizar los recursos de Azure
 
@@ -31,7 +31,7 @@ Para aplicar etiquetas a los recursos, el usuario debe tener acceso de escritura
 
 ## <a name="powershell"></a>PowerShell
 
-Los ejemplos de este artículo requieren la versión 6.0 o posterior de Azure PowerShell. Si no tiene la versión 6.0 o posterior, [actualice la versión](/powershell/azure/install-azurerm-ps).
+Los ejemplos de este artículo requieren la versión 6.0 o posterior de Azure PowerShell. Si no tiene la versión 6.0 o posterior, [actualice su versión](/powershell/azure/install-azurerm-ps).
 
 Para ver las etiquetas existentes de un *grupo de recursos*, use:
 
@@ -264,13 +264,11 @@ Tanto Azure Portal como PowerShell usan la [API de REST de Resource Manager](htt
 
 ## <a name="tags-and-billing"></a>Etiquetas y facturación
 
-Puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, si va a ejecutar varias máquinas virtuales para organizaciones diferentes, use etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
+Puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, si va a ejecutar varias máquinas virtuales para distintas organizaciones, use las etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
-Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](../billing/billing-usage-rate-card-overview.md) o mediante el archivo de valores separados por coma (CSV). Puede descargar el archivo de uso en el [Portal de cuentas de Azure](https://account.windowsazure.com/) o el [portal EA](https://ea.azure.com). Para obtener más información sobre el acceso a información de facturación mediante programación, vea [Obtención de información sobre el consumo de recursos de Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](../billing/billing-usage-rate-card-overview.md) o mediante el archivo de valores separados por coma (CSV). Puede descargar el archivo de uso del [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) o de Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../billing/billing-download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
 
-Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas** . Para más información, consulte [Comprender la factura de Microsoft Azure](../billing/billing-understand-your-bill.md).
-
-![Ver etiquetas en la facturación](./media/resource-group-using-tags/billing_csv.png)
+Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

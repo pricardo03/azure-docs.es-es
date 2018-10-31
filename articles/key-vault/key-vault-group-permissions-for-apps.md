@@ -12,27 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/01/2016
+ms.date: 10/12/2018
 ms.author: ambapat
-ms.openlocfilehash: 421ceca1453b9e3b97c5ede520ec92372baf2020
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4ad6a18f9937fcc7d24bebc3ac197e23990ff59e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299668"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309253"
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Concesión de permisos para que muchas aplicaciones tengan acceso a almacén de claves
+# <a name="grant-several-applications-access-to-a-key-vault"></a>Concesión de acceso a varias aplicaciones a un almacén de claves
 
-## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>P: Tengo varias aplicaciones que necesitan tener acceso a un almacén de claves. ¿Cómo puedo dar acceso a estas aplicaciones (máximo de 1024) a Key Vault?
+La directiva de control de acceso puede usarse para conceder acceso a varias aplicaciones a un almacén de claves. Una directiva de control de acceso puede admitir hasta 1024 aplicaciones y se configura como sigue:
 
-La directiva de control de acceso de Key Vault admite un máximo de 1024 entradas. Sin embargo, puede crear un grupo de seguridad de Azure Active Directory. Agregue todas las entidades de servicio asociadas a este grupo de seguridad y, luego, conceda acceso a este grupo de seguridad a Key Vault.
+1. Cree un grupo de seguridad de Azure Active Directory. 
+2. Agregue todas las entidades de servicio asociadas de las aplicaciones al grupo de seguridad.
+3. Conceda acceso al grupo de seguridad al almacén de claves.
 
 Instalación de los requisitos previos:
 * [Instale el módulo PowerShell de Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD).
 * [Instale Azure PowerShell](/powershell/azure/overview).
-* Para ejecutar los siguientes comandos, necesita permisos para crear y editar grupos en el inquilino de Azure Active Directory. Si no tiene permisos, debe ponerse en contacto con el administrador de Azure Active Directory.
+* Para ejecutar los siguientes comandos, necesita permisos para crear y editar grupos en el inquilino de Azure Active Directory. Si no tiene permisos, debe ponerse en contacto con el administrador de Azure Active Directory. Consulte [Información acerca de claves, secretos y certificados de Azure Key Vault](about-keys-secrets-and-certificates.md) para obtener más información sobre los permisos de directiva de acceso de Key Vault.
 
-Ejecute los siguientes comandos en PowerShell.
+Ejecute los siguientes comandos en PowerShell:
 
 ```powershell
 # Connect to Azure AD 
@@ -48,7 +50,11 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId -PermissionsToKeys all –PermissionsToSecrets all –PermissionsToCertificates all 
+Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+-PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
+–PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
+–PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `
+-PermissionsToStorage get,list,delete,set,update,regeneratekey,getsas,listsas,deletesas,setsas,recover,backup,restore,purge 
  
 # Of course you can adjust the permissions as required 
 ```

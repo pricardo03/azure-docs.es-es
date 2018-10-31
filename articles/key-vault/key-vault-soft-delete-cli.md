@@ -7,14 +7,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/15/2018
 ms.author: bryanla
-ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: af2d480e84ca69c0ecd795e38371375e6a71542b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951787"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363646"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -43,14 +43,14 @@ Para más información sobre los permisos y el control de acceso, consulte [Prot
 
 ## <a name="enabling-soft-delete"></a>Habilitar la eliminación temporal
 
-Para poder recuperar un almacén de claves eliminado o los objetos almacenados en un almacén de claves, primero debe habilitar la eliminación temporal para ese almacén de claves.
+La "eliminación temporal" se habilita para permitir la recuperación de un almacén de claves eliminado o de los objetos almacenados en un almacén de claves.
+
+> [!IMPORTANT]
+> La acción de habilitar la "eliminación temporal" en un almacén de claves es irreversible. Una vez que la propiedad de eliminación temporal se ha establecido en "true", no se puede modificar ni eliminar.  
 
 ### <a name="existing-key-vault"></a>Almacén de claves existente
 
 Para un almacén de claves existente denominado ContosoVault, habilite la eliminación temporal como se indica a continuación. 
-
->[!NOTE]
->Actualmente debe usar la manipulación de recursos de Azure Resource Manager para escribir directamente la propiedad *enableSoftDelete* en el recurso de Key Vault.
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
@@ -66,7 +66,7 @@ az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-
 
 ### <a name="verify-soft-delete-enablement"></a>Comprobación de la habilitación de la eliminación temporal
 
-Para comprobar que un almacén de claves tiene habilitada la eliminación temporal, ejecute el comando *show* y busque el atributo "Soft Delete Enabled?" y su valor, true o false.
+Para comprobar que un almacén de claves tiene habilitada la eliminación temporal, ejecute el comando *show* y busque el atributo "Soft Delete Enabled?" :
 
 ```azurecli
 az keyvault show --name ContosoVault
@@ -74,40 +74,41 @@ az keyvault show --name ContosoVault
 
 ## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Eliminación de un almacén de claves protegido por eliminación temporal
 
-El comando para eliminar (o quitar) un almacén de claves sigue siendo el mismo, pero su comportamiento cambia dependiendo de si ha habilitado la eliminación temporal o no.
+El comando para eliminar un almacén de claves cambia de comportamiento, según si está habilitada la eliminación temporal.
+
+> [!IMPORTANT]
+>Si ejecuta el comando anterior para un almacén de claves que no tiene habilitada la eliminación temporal, este almacén de claves y todo su contenido se eliminarán definitivamente sin ninguna oportunidad de recuperación.
 
 ```azurecli
 az keyvault delete --name ContosoVault
 ```
 
-> [!IMPORTANT]
->Si ejecuta el comando anterior para un almacén de claves que no tiene habilitada la eliminación temporal, se eliminará permanentemente este almacén de claves y todo su contenido sin ninguna opción de recuperación.
-
 ### <a name="how-soft-delete-protects-your-key-vaults"></a>Uso de la eliminación temporal para proteger los almacenes de claves
 
 Con la eliminación temporal habilitada:
 
-- Cuando se elimina un almacén de claves, se quita de su grupo de recursos y se coloca en un espacio de nombres reservado que solo está asociado a la ubicación donde se creó. 
-- Los objetos de un almacén de claves eliminado como, por ejemplo, las claves, los secretos y los certificados, son inaccesibles y permanecen así mientras que el almacén de claves que los contiene está en el estado eliminado. 
-- El nombre DNS de un almacén de claves en estado eliminado se reserva por lo que no se podrá crear ningún nuevo almacén de claves con ese mismo nombre.  
+- El almacén de claves eliminado se quita de su grupo de recursos y se coloca en un espacio de nombres reservado, asociado con la ubicación donde se creó. 
+- Los objetos eliminados, como las claves, los secretos y los certificados, son inaccesibles mientras el almacén de claves que los contenga esté en estado eliminado. 
+- El nombre DNS de un almacén de claves eliminado es reservado, así se impide que se cree un almacén de claves con el mismo nombre.  
 
 Puede ver los almacenes de claves en estado eliminado asociados a su suscripción con el comando siguiente:
 
 ```azurecli
 az keyvault list-deleted
 ```
-
-El *identificador de recurso* en la salida hace referencia al identificador de recurso original de este almacén. Puesto que este almacén de claves está ahora en estado eliminado, no existe ningún recurso con ese identificador de recurso. El campo *Identificador* se puede utilizar para identificar el recurso durante la recuperación o purga. El campo *Scheduled Purge Date* (Fecha de purga programada) indica si el almacén se eliminará permanentemente (se purgará) si no se realiza ninguna acción en ese almacén eliminado. El período de retención predeterminado que se utiliza para calcular la *fecha de purga programada* es de 90 días.
+- El campo *Id* (Id.) se puede usar para identificar el recurso durante la recuperación o purga. 
+- *Resource ID* (Identificador de recurso) es el identificador de recurso original de este almacén. Puesto que este almacén de claves está ahora en estado eliminado, no existe ningún recurso con ese identificador de recurso. 
+- *Scheduled Purge Date* (Fecha de purga programada) es la fecha en la que el almacén se eliminará definitivamente si no se realiza ninguna acción. El período de retención predeterminado que se utiliza para calcular la *fecha de purga programada* es de 90 días.
 
 ## <a name="recovering-a-key-vault"></a>Recuperación de un almacén de claves
 
-Para recuperar un almacén de claves, debe especificar el nombre del almacén de claves, el grupo de recursos y la ubicación. Anote la ubicación y el grupo de recursos del almacén de claves eliminado ya que los necesitará para un proceso de recuperación del almacén de claves.
+Para recuperar un almacén de claves, debe especificar el nombre del almacén de claves, el grupo de recursos y la ubicación. Anote la ubicación y el grupo de recursos del almacén de claves eliminado ya que los necesitará para un proceso de recuperación.
 
 ```azurecli
 az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
-Cuando se recupera un almacén de claves, el resultado es un nuevo recurso con el identificador de recurso original del almacén de claves. Si se ha quitado el grupo de recursos donde existía el almacén de claves, se deberá crear un nuevo grupo de recursos con el mismo nombre antes de poder recuperar el almacén de claves.
+Cuando se recupera un almacén de claves, se crea un recurso con el identificador de recurso original del almacén de claves. Si se quita el grupo de recursos original, se debe crear uno con el mismo nombre antes de intentar la recuperación.
 
 ## <a name="key-vault-objects-and-soft-delete"></a>Objetos de Key Vault y eliminación temporal
 
@@ -127,36 +128,34 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### <a name="transition-state"></a>Estado de transición 
 
-Cuando se elimina una clave de un almacén de claves con eliminación temporal habilitada, puede tardar unos segundos en completarse la transición. Durante este estado de transición, puede parecer que la clave no está ni en el estado activo ni en el estado eliminado. Este comando permite enumerar todas las claves eliminadas en el almacén de claves denominado "ContosoVault".
-
-```azurecli
-az keyvault key list-deleted --vault-name ContosoVault
-```
+Cuando se elimina una clave de un almacén de claves con eliminación temporal habilitada, puede tardar unos segundos en completarse la transición. Durante esta transición, puede parecer que la clave no está ni en estado activo ni en estado eliminado. 
 
 ### <a name="using-soft-delete-with-key-vault-objects"></a>Uso de la eliminación temporal con objetos de almacén de claves
 
-Al igual que con los almacenes de claves, una clave, secreto o certificado eliminados permanecerán en este estado durante 90 días a menos que los recupere o los purgue. 
+Al igual que con los almacenes de claves, una clave, secreto o certificado eliminados permanecerán en ese estado durante 90 días a menos que los recupere o los purgue.
 
 #### <a name="keys"></a>simétricas
 
-Para recuperar una clave eliminada:
+Para recuperar una clave eliminada temporalmente:
 
 ```azurecli
 az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Para eliminar permanentemente una clave:
+Para eliminar definitivamente (lo que se conoce también como purga) una clave eliminada temporalmente:
+
+> [!IMPORTANT]
+> Al purgar una clave se elimina definitivamente, lo que significa que no se podrá recuperar de nuevo. 
 
 ```azurecli
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
->[!NOTE]
->Si purga una clave se eliminará permanentemente, lo que significa que no se podrá recuperar de nuevo.
-
-Las acciones de **recuperación** y **purga** tienen sus propios permisos asociados en una directiva de acceso del almacén de claves. Para que un usuario o una entidad de servicio puedan ejecutar una acción de **recuperación** o **purga** deben tener el permiso correspondiente para ese objeto (clave o secreto) en la directiva de acceso del almacén de claves. De forma predeterminada, el permiso de **purga** no se agrega a la directiva de acceso del almacén de claves cuando se usa el acceso directo "all" para conceder todos los permisos a un usuario. Debe conceder el permiso de **purga** de forma explícita. Por ejemplo, el siguiente comando concede el permiso user@contoso.com para realizar varias operaciones en las claves de *ContosoVault* incluidas las operaciones de **purga**.
+Las acciones de **recuperación** y **purga** tienen sus propios permisos asociados en una directiva de acceso del almacén de claves. Para que un usuario o una entidad de servicio puedan ejecutar una acción de **recuperación** o **purga**, deben tener el permiso correspondiente para ese almacén o secreto. De forma predeterminada, el permiso de **purga** no se agrega a la directiva de acceso del almacén de claves cuando se usa el acceso directo "todos" para conceder todos los permisos. Debe conceder específicamente el permiso de **purga**. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Establecimiento de una directiva de acceso del almacén de claves
+
+El siguiente comando concede a user@contoso.com el permiso para realizar varias operaciones en las claves de *ContosoVault*, incluida la **purga**.
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
@@ -167,7 +166,7 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 
 #### <a name="secrets"></a>Secretos
 
-Al igual que con las claves, se trabaja con los secretos de un almacén de claves con sus propios comandos. A continuación, se muestran los comandos para eliminar, enumerar, recuperar y purgar secretos.
+Al igual que las claves, los secretos se administran con sus propios comandos:
 
 - Elimine un secreto llamado SQLPassword: 
 ```azurecli
@@ -185,39 +184,40 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 ```
 
 - Purgue un secreto en el estado eliminado: 
-```azurecli
-az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
-```
 
->[!NOTE]
->Si purga un secreto se eliminará permanentemente, lo que significa que no se podrá recuperar de nuevo.
+  > [!IMPORTANT]
+  > Si purga un secreto se eliminará definitivamente y no se podrá volver a recuperar. 
+
+  ```azurecli
+  az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
+  ```
 
 ## <a name="purging-and-key-vaults"></a>Purga y almacenes de claves
 
 ### <a name="key-vault-objects"></a>Objetos de almacén de claves
 
-Si purga una clave, un secreto o un certificado se eliminarán permanentemente, lo que significa que no se podrán recuperar de nuevo. No obstante, el almacén de claves que contenía el objeto eliminado permanecerá intacto al igual que el resto de objetos del almacén. 
+Al purgar una clave, un secreto o un certificado, se eliminan definitivamente y no se pueden volver a recuperar. No obstante, el almacén de claves que contenía el objeto eliminado permanecerá intacto al igual que el resto de objetos del almacén. 
 
 ### <a name="key-vaults-as-containers"></a>Almacenes de claves como contenedores
-Cuando se purga un almacén de claves, todo su contenido, incluidas las claves, los secretos y los certificados, se eliminan permanentemente. Para purgar un almacén de claves, use el comando `az keyvault purge`. Puede encontrar la ubicación de los almacenes de claves eliminados de la suscripción mediante el comando `az keyvault list-deleted`.
+Cuando se purga un almacén de claves, todo su contenido, incluidas las claves, los secretos y los certificados, se eliminan definitivamente. Para purgar un almacén de claves, use el comando `az keyvault purge`. Puede encontrar la ubicación de los almacenes de claves eliminados de la suscripción mediante el comando `az keyvault list-deleted`.
+
+>[!IMPORTANT]
+>Si purga un almacén de claves se eliminará definitivamente, lo que significa que no se podrá recuperar de nuevo.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
 ```
 
->[!NOTE]
->Si purga un almacén de claves se eliminará permanentemente, lo que significa que no se podrá recuperar de nuevo.
-
 ### <a name="purge-permissions-required"></a>Se requieren permisos de purga
-- Para purgar un almacén de claves eliminado, de forma que el almacén y todo su contenido se quite de forma permanente, el usuario necesita el permiso de RBAC para realizar una operación *Microsoft.KeyVault/locations/deletedVaults/purge/action*. 
-- Para que se muestre el almacén de claves eliminado, el usuario necesita el permiso de RBAC para realizar una operación *Microsoft.KeyVault/deletedVaults/read*. 
+- Para purgar un almacén de claves eliminado, el usuario debe tener el permiso de RBAC para la operación *Microsoft.KeyVault/locations/deletedVaults/purge/action*. 
+- Para mostrar un almacén de claves eliminado, el usuario necesita el permiso de RBAC para la operación *Microsoft.KeyVault/deletedVaults/read*. 
 - Solo un administrador de suscripción tiene estos permisos. 
 
 ### <a name="scheduled-purge"></a>Purga programada
 
-La enumeración de los objetos de almacén de claves eliminados muestra cuándo se han programado para que Key Vault efectúe la purga. El campo *Scheduled Purge Date* (Fecha de purga programada) indica cuándo se eliminará permanentemente un objeto de almacén de claves si no se realiza ninguna acción en ese almacén. De forma predeterminada, el período de retención para un objeto de almacén de claves eliminado es de 90 días.
+La lista de objetos del almacén de claves eliminado también muestra cuándo se han programado para su purga mediante Key Vault. El campo *Scheduled Purge Date* (Fecha de purga programada) indica cuándo se eliminará definitivamente un objeto de almacén de claves si no se realiza ninguna acción. De forma predeterminada, el período de retención para un objeto de almacén de claves eliminado es de 90 días.
 
->[!NOTE]
+>[!IMPORTANT]
 >Un objeto de almacén purgado, desencadenado por el valor de su campo de *fecha de purga programada*, se eliminará permanentemente. No se podrá volver a recuperar.
 
 ## <a name="other-resources"></a>Otros recursos:

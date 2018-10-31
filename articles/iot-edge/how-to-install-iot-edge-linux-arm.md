@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 9007ee95dc25854a55006284ce6fc574fd8e7968
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 874e72a0c76a5935f4a3451ba5ffbd6e9e3eecd6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948526"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393854"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)
 
@@ -29,7 +29,7 @@ En este artículo se enumeran los pasos para instalar el entorno de ejecución d
 
 ## <a name="install-the-container-runtime"></a>Instalación del entorno de ejecución del contenedor
 
-Azure IoT Edge utiliza un entorno de ejecución de contenedores [compatible con OCI][lnk-oci]. Para escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby][lnk-moby] que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de los contenedores Docker CE/EE son compatibles con el entorno de ejecución basado en Moby.
+Azure IoT Edge utiliza un runtime de contenedor [compatible con OCI](https://www.opencontainers.org/). En los escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby](https://mobyproject.org/) que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de los contenedores Docker CE/EE son compatibles con el entorno de ejecución basado en Moby.
 
 Los siguientes comandos instalan tanto el motor basado en Moby como la interfaz de la línea de comandos (CLI). La CLI es útil para el desarrollo pero opcional para implementaciones de producción.
 
@@ -78,7 +78,7 @@ Un único dispositivo de IoT Edge se puede aprovisionar manualmente mediante una
 
 ### <a name="option-1-manual-provisioning"></a>Opción 1: Aprovisionamiento manual
 
-Para aprovisionar manualmente un dispositivo, debe proporcionarle una [cadena de conexión de dispositivo][lnk-dcs] que puede crear mediante el registro de un nuevo dispositivo en su instancia de IoT Hub.
+Para aprovisionar manualmente un dispositivo, debe proporcionarle una [cadena de conexión](how-to-register-device-portal.md), que puede crear mediante el registro de un dispositivo nuevo en su instancia de IoT Hub.
 
 
 Abra el archivo de configuración. 
@@ -113,7 +113,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opción 2: Aprovisionamiento automático
 
-Para aprovisionar automáticamente un dispositivo, [configure el servicio Device Provisioning y recupere el identificador de registro del dispositivo][lnk-dps]. El aprovisionamiento automático solo funciona con dispositivos que tienen un chip de Módulo de plataforma segura (TPM). Por ejemplo, los dispositivos Raspberry Pi no incluyen TPM de forma predeterminada. 
+Para aprovisionar automáticamente un dispositivo, [configure el servicio Device Provisioning y recupere el identificador de registro del dispositivo](how-to-auto-provision-simulated-device-linux.md). El aprovisionamiento automático solo funciona con dispositivos que tienen un chip de Módulo de plataforma segura (TPM). Por ejemplo, los dispositivos Raspberry Pi no incluyen TPM de forma predeterminada. 
 
 Abra el archivo de configuración. 
 
@@ -171,17 +171,10 @@ sudo iotedge list
 
 Necesita privilegios elevados para ejecutar comandos `iotedge`. Después de instalar el entorno de ejecución, cierre la sesión en la máquina e iníciela de nuevo para actualizar sus permisos automáticamente. Hasta entonces, use **sudo** delante de los comandos `iotedge`.
 
-En dispositivos con recursos limitados, se recomienda encarecidamente que establezca la variable de entorno *OptimizeForPerformance* en *false* según las instrucciones de la [guía de resolución de problemas][lnk-trouble].
+En dispositivos con recursos limitados, se recomienda encarecidamente establecer la variable de entorno *OptimizeForPerformance* en *false*, tal como se indica en las instrucciones de la [guía para la solución de problemas](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
-Si la red tiene un servidor proxy, siga los pasos descritos en [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) (Configuración del dispositivo IoT Edge para comunicarse a través de un servidor proxy).
+Si la red tiene un servidor proxy, siga los pasos descritos en [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) (Configuración del dispositivo IoT Edge para comunicarse mediante un servidor proxy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene problemas con la instalación correcta del entorno de ejecución de IoT Edge, consulte la página de [solución de problemas][lnk-trouble].
-
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-trouble]: https://docs.microsoft.com/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
+Si tiene problemas con la instalación correcta del runtime de IoT Edge, consulte la página de [solución de problemas](troubleshoot.md#stability-issues-on-resource-constrained-devices).

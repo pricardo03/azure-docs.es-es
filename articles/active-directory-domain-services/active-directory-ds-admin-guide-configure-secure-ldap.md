@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: maheshu
-ms.openlocfilehash: 22c97da35416ba1ff593dfa5e41f557ea2ab1cc0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 42c27df658ae810ac31813ffb94f397a0070933f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182253"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429140"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services
 Este artículo muestra cómo puede habilitar el protocolo ligero de acceso a directorios seguro (LDAPS) para el dominio administrado con Servicios de dominio de Azure AD. LDAP seguro también se denomina "protocolo ligero de acceso a directorios (LDAP) en la Capa de sockets seguros (SSL)/Seguridad de la capa de transporte (TLS)".
@@ -86,7 +86,7 @@ New-SelfSignedCertificate -Subject contoso100.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-En el ejemplo anterior, reemplace "*.contoso100.com" por el nombre de dominio DNS de su dominio administrado. Por ejemplo, si ha creado un dominio administrado denominado "contoso100.onmicrosoft.com", reemplace "*.contoso100.com" en el script anterior por ".contoso100.onmicrosoft.com".
+En el ejemplo anterior, reemplace ".contoso100.com" por el nombre de dominio DNS de su dominio administrado. Por ejemplo, si ha creado un dominio administrado denominado "contoso100.onmicrosoft.com", reemplace "contoso100.com" en el atributo Subject por "contoso100.onmicrosoft.com" y "*.contoso100.com" en el atributo DnsName por "*.contoso100.onmicrosoft.com".
 
 ![Selección de un directorio de Azure AD](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

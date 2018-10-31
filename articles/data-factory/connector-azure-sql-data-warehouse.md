@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d3cddc729e40b5591922fc7b5c7d3d6a258219a7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842342"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955820"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -33,7 +33,7 @@ Puede copiar datos de Azure SQL Data Warehouse en cualquier almacén de datos re
 
 En concreto, este conector de Azure SQL Data Warehouse admite estas funciones:
 
-- Copiar datos mediante la autenticación SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o Managed Service Identity (MSI).
+- Copiar datos mediante la autenticación con SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o identidades administradas para recursos de Azure.
 - Como origen, la recuperación de datos mediante una consulta SQL o un procedimiento almacenado.
 - Como receptor, cargue los datos con PolyBase o una inserción masiva. Se recomienda PolyBase para mejorar el rendimiento de copia.
 
@@ -70,7 +70,7 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 
 - [Autenticación de SQL](#sql-authentication)
 - Autenticación de tokens de aplicaciones de Azure AD: [Entidad de servicio](#service-principal-authentication)
-- Autenticación de tokens de aplicaciones de Azure AD: [Managed Service Identity](#managed-service-identity-authentication)
+- Autenticación de tokens de aplicaciones de Azure AD: [identidades administradas para recursos de Azure](#managed-identity)
 
 >[!TIP]
 >Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
@@ -102,7 +102,7 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 
 Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una entidad de servicio, realice estos pasos:
 
-1. **[Cree una aplicación de Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** desde Azure Portal. Anote el nombre de la aplicación y los siguientes valores, que definen el servicio vinculado:
+1. **[Cree una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** desde Azure Portal. Anote el nombre de la aplicación y los siguientes valores, que definen el servicio vinculado:
 
     - Identificador de aplicación
     - Clave de la aplicación
@@ -152,9 +152,9 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticación de Managed Service Identity
+### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociar con una instancia de [Managed Service Identity](data-factory-service-identity.md) que represente esa factoría concreta. Esta identidad de servicio se puede usar para la autenticación de Azure SQL Data Warehouse. Con esta identidad, la fábrica designada puede obtener acceso y copiar datos de la base de datos o en ella.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa la factoría concreta. Esta identidad de servicio se puede usar para la autenticación de Azure SQL Data Warehouse. Con esta identidad, la fábrica designada puede obtener acceso y copiar datos de la base de datos o en ella.
 
 > [!IMPORTANT]
 > Tenga en cuenta que PolyBase no es compatible actualmente para la autenticación MSI.
@@ -210,7 +210,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en MSI, s
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services). En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Azure SQL Data Warehouse admite.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Azure SQL Data Warehouse admite.
 
 Para copiar datos desde una instancia de Azure SQL Data Warehouse o en ella, establezca la propiedad **type** del conjunto de datos en **AzureSqlDWTable**. Se admiten las siguientes propiedades:
 
@@ -383,7 +383,7 @@ En la siguiente sección obtendrá más información sobre cómo usar PolyBase p
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory
 
-Usar [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) es una manera eficaz de cargar grandes cantidades de datos en Azure SQL Data Warehouse con un alto rendimiento. Verá una gran mejora en el rendimiento mediante el uso de PolyBase en lugar del mecanismo BULKINSERT predeterminado. Consulte [Performance reference](copy-activity-performance.md#performance-reference) (Referencia de rendimiento) para obtener una comparación detallada. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse) (Carga de 1 TB en Azure SQL Data Warehouse).
+Usar [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) es una manera eficaz de cargar grandes cantidades de datos en Azure SQL Data Warehouse con un alto rendimiento. Verá una gran mejora en el rendimiento mediante el uso de PolyBase en lugar del mecanismo BULKINSERT predeterminado. Consulte [Performance reference](copy-activity-performance.md#performance-reference) (Referencia de rendimiento) para obtener una comparación detallada. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse) (Carga de 1 TB en Azure SQL Data Warehouse).
 
 * Si los datos de origen están en Azure Blob Storage o Azure Data Lake Store y el formato es compatible con PolyBase, puede realizar las copias directamente desde Azure SQL Data Warehouse con PolyBase. Consulte **[Copia directa con PolyBase](#direct-copy-by-using-polybase)** para obtener detalles.
 * Si el formato y el almacenamiento de datos de origen no es compatible originalmente con PolyBase, use en su lugar la característica **[Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase)**. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Convierte automáticamente los datos a formato compatible con PolyBase. Y almacena los datos en Azure Blob Storage. Luego los carga en SQL Data Warehouse.

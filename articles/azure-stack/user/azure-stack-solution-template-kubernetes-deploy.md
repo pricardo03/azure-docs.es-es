@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 62eb28c6cdb2dd6c1ddff1487826c01ef3bf6e3e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409361"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091596"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implementación de Kubernetes en Azure Stack
 
@@ -39,6 +39,8 @@ Puede utilizar Kubernetes para:
 - Desarrollar aplicaciones escalables de forma masiva y actualizables que se pueden implementar en segundos. 
 - Simplificar el diseño de la aplicación y mejorar la fiabilidad mediante distintas aplicaciones de Helm. [Helm](https://github.com/kubernetes/helm) es una herramienta de empaquetado de código abierto que ayuda a instalar y administrar el ciclo de vida de las aplicaciones de Kubernetes.
 - Supervisar y diagnosticar fácilmente el estado de las aplicaciones con una funcionalidad de escalado y actualización.
+
+Solo se le cobrará por el uso de proceso requerido por los nodos que forman el clúster. Para más información, consulte [Uso y facturación en Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -165,6 +167,9 @@ Dé a la entidad de servicio acceso a su suscripción para que la entidad pueda 
 2. Revise la configuración.
 
 3. Seleccione **Ok** (Aceptar) para implementar el clúster.
+
+> [!TIP]  
+>  Si tiene preguntas acerca de la implementación, puede publicarlas o ver si alguien ya ha respondido a las mismas preguntas en el [foro de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="connect-to-your-cluster"></a>Conexión al clúster
 

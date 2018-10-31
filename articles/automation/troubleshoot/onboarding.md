@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 044cb56b8991a1eb2dd6a1d35be621f2ffab3250
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 40a1955e88b23ecfb86412b388413b920dd2eb1a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064459"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407612"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
@@ -59,9 +59,11 @@ Compruebe las notificaciones en la esquina superior derecha de Azure Portal o de
 
 ## <a name="mma-extension-failures"></a>Errores de extensión MMA
 
-Al implementar una solución, se implementan varios recursos relacionados. Uno de esos recursos es la extensión Microsoft Monitoring Agent o el Agente de OMS para Linux. Estas son extensiones de máquina virtual que instala el agente invitado de la máquina virtual que es responsable de comunicarse con el área de trabajo de Operations Management Suite (OMS), con la finalidad de coordinar posteriormente la descarga de archivos binarios y de otro tipo de los que depende la solución que se va a incorporar una vez que comienza la ejecución.
-Lo normal es que primero sepa de los errores de instalación de MMA o del Agente de OMS para Linux por una notificación que aparece en el centro de notificaciones. Al hacer clic en esa notificación se proporciona más información sobre el error en concreto. Al navegar al recurso Grupos de recursos y luego al elemento Implementaciones que contiene, también se proporcionan detalles sobre los errores de implementación que se han producido.
-La instalación de MMA o del Agente de OMS para Linux puede generar errores por varias razones, y los pasos para solucionar estos errores varían en función del problema. Siga los pasos específicos de solución de problemas.
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+
+Al implementar una solución, se implementan varios recursos relacionados. Uno de esos recursos es la extensión Microsoft Monitoring Agent o el Agente de Log Analytics para Linux. Estas son extensiones de máquina virtual que instala el agente invitado de la máquina virtual que es responsable de comunicarse con el área de trabajo de Log Analytics, con la finalidad de coordinar posteriormente la descarga de archivos binarios y de otro tipo de los que depende la solución que se va a incorporar una vez que comienza la ejecución.
+Lo normal es que primero sepa de los errores de instalación de MMA o del Agente de Log Analytics para Linux por una notificación que aparece en el centro de notificaciones. Al hacer clic en esa notificación se proporciona más información sobre el error en concreto. Al navegar al recurso Grupos de recursos y luego al elemento Implementaciones que contiene, también se proporcionan detalles sobre los errores de implementación que se han producido.
+La instalación de MMA o del Agente de Log Analytics para Linux puede generar errores por varias razones, y los pasos para solucionar estos errores varían en función del problema. Siga los pasos específicos de solución de problemas.
 
 En la siguiente sección se describen diversos problemas con los que se puede encontrar al incorporar soluciones que pueden ocasionar errores en la implementación de la extensión MMA.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167688"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024501"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -69,7 +69,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite evaluaciones de actualización.         |
-|Windows Server 2008 R2 SP1 y posterior     |Se requiere .NET Framework 4.5 o posterior. ([Descargar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Se requiere Windows PowerShell 4.0 o posterior. ([Descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad.  ([Descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 y posterior     |Se requiere .NET Framework 4.5.1 o cualquier versión posterior. ([Descargar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Se requiere Windows PowerShell 4.0 o posterior. ([Descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad.  ([Descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere "yum" para devolver los datos de seguridad que CentOS no tiene de forma nativa.         |
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
@@ -264,7 +264,34 @@ sudo yum -q --security check-update
 
 Actualmente no hay ningún método admitido para habilitar la disponibilidad de datos de clasificación nativos en CentOS. En este momento, solo se proporciona soporte técnico a clientes que pueden haber habilitado esto por su cuenta.
 
-## <a name="ports"></a>Puertos
+## <a name="firstparty-predownload"></a>Aplicación de revisiones propia y descarga previa
+
+Update Management se basa en Windows Update para descargar e instalar las actualizaciones de Windows. Como resultado, se respetan muchas de las configuraciones usadas por Windows Update. Si usa la configuración para habilitar las actualizaciones que no son de Windows, Update Management también administrará dichas actualizaciones. Si desea habilitar la descarga de actualizaciones antes de que se lleve a cabo la implementación de la actualización, las implementaciones de las actualizaciones pueden ejecutarse más rápido con menos probabilidades de exceder la ventana de mantenimiento.
+
+### <a name="pre-download-updates"></a>Actualizaciones de descarga previa
+
+Para configurar la descarga automática de actualizaciones en la directiva de grupo, puede establecer la opción [Configurar actualizaciones automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) en **3**. De esta forma se descargan las actualizaciones necesarias en segundo plano, pero no se instalan. Esto permite que Update Management controle las programaciones, pero permite que las actualizaciones se descarguen fuera de la ventana de mantenimiento de Update Management. Esto puede evitar errores **Ventana de mantenimiento superada** en Update Management.
+
+También puede configurar esto con PowerShell, con la ejecución del siguiente comando de PowerShell en un sistema en el que desee descargar las actualizaciones automáticamente.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### <a name="enable-updates-for-other-microsoft-products"></a>Habilitar actualizaciones de otros productos de Microsoft
+
+De forma predeterminada, Windows Update solo proporciona actualizaciones para Windows. Si habilita **Ofrecerme actualizaciones para otros productos de Microsoft cuando actualice Windows**, se proporcionan las actualizaciones para otros productos, incluidas las revisiones de seguridad de SQL Server u otro software propio. Esta opción no se puede configurar mediante la directiva de grupo. Ejecute el siguiente comando de PowerShell en los sistemas en los que desea habilitar otras revisiones propias, y Update Management respetará esta configuración.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>Planeamiento de red
 
 Las direcciones siguientes se requieren específicamente para Update Management. La comunicación con estas direcciones se realiza a través del puerto 443.
 

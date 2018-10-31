@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078773"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958948"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acceso de Azure Active Directory
 
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Pruebe esta dirección URL en un explorador.
+> Pruebe esta [dirección URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) en un explorador.
 
 Este documento de metadatos:
 
@@ -187,7 +187,7 @@ Este documento de metadatos:
 * Incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. El documento JSON que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento concreto. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
 
 > [!NOTE]
-> El punto de conexión v1.0 devuelve las notificaciones `x5t` y `kid`. Falta la notificación `x5t` de los tokens v2.0. El punto de conexión v2.0 responde con la notificación `kid`. De cara al futuro, le recomendamos que utilice la notificación `kid` para validar su token.
+> El punto de conexión de v1.0 devuelve las notificaciones `x5t` y `kid`, mientras que el punto de conexión de v2.0 responde solo con la notificación `kid`. De cara al futuro, le recomendamos que utilice la notificación `kid` para validar su token.
 
 La realización de la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto disponibles para ayudarte a hacerlo si es necesario.
 
@@ -202,7 +202,7 @@ La lógica de negocio de la aplicación dictará este paso; a continuación se p
 * Compruebe que `tid` coincide con un inquilino al que se le permite llamar a la API.
 * Utilice la notificación `acr` para comprobar que el usuario ha realizado la autenticación multifactor. Tenga en cuenta que esto se debe aplicar con [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Si ha solicitado las notificaciones `roles` o `groups` en el token de acceso, compruebe que el usuario está en el grupo al que se permite realizar esta acción.
-  * Para los tokens recuperados utilizando el flujo implícito, es probable que necesite consultar el [grafo](https://developer.microsoft.com/graph/) de estos datos, ya que a menudo son demasiado grandes para adaptarse al token. 
+  * Para los tokens recuperados utilizando el flujo implícito, es probable que necesite consultar [Microsoft Graph](https://developer.microsoft.com/graph/) para estos datos, ya que a menudo son demasiado grandes para adaptarse al token. 
 
 ## <a name="user-and-application-tokens"></a>Tokens de usuario y de aplicación
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 190b7fff24c9d6b3dee86471b56ad68c962e51ce
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434082"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116885"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX y Azure Machine Learning: creación e implementación de modelos de inteligencia artificial interoperables
 
@@ -28,7 +28,7 @@ Microsoft admite ONNX en sus productos, incluidos Azure y Windows, para ayudarle
 ## <a name="why-choose-onnx"></a>¿Por qué elegir ONNX?
 La interoperabilidad que obtiene con ONNX le permite poner grandes ideas en producción con mayor rapidez. Con ONNX, los científicos de datos pueden elegir su marco preferido para el trabajo. De forma similar, los desarrolladores pueden dedicar menos tiempo a preparar los modelos para producción e implementar en la nube y el perímetro.  
 
-Puede exportar modelos de ONNX desde muchos marcos, incluidos PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet y ML.Net. Hay convertidores para otros marcos como TensorFlow, Keras, SciKit-Learn y más.
+Puede crear modelos de ONNX desde muchos marcos, incluidos PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras y SciKit-Learn, entre otros.
 
 También hay un ecosistema de herramientas para visualizar y acelerar modelos de ONNX. Además, hay disponibles varios modelos de ONNX previamente entrenados para escenarios comunes.
 
@@ -36,18 +36,17 @@ También hay un ecosistema de herramientas para visualizar y acelerar modelos de
 
 [ ![Diagrama de flujo de ONNX que muestra el aprendizaje, los convertidores y la implementación](media/concept-onnx/onnx.png) ] (./media/concept-onnx/onnx.png#lightbox)
 
-## <a name="create-onnx-models-in-azure"></a>Creación de modelos de ONNX en Azure
+## <a name="get-onnx-models"></a>Obtención de modelos de ONNX
 
-Puede crear modelos de ONNX de varias maneras:
-+ Entrene un modelo en el servicio Azure Machine Learning y conviértalo o expórtelo a ONNX (vea el ejemplo al final de este artículo).
+Puede obtener modelos de ONNX de varias maneras:
++ Obtenga un modelo previamente entrenado de ONNX desde [ONNX Model Zoo](https://github.com/onnx/models) (consulte el ejemplo al final de este artículo)
++ Genere un modelo de ONNX personalizado desde [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/). 
++ Convierta un modelo existente de otro formato a ONNX (consulte el ejemplo al final de este artículo) 
++ Entrene un nuevo modelo de ONNX en Azure Machine Learning Service (consulte el ejemplo al final de este artículo)
 
-+ Obtenga un modelo de ONNX entrenado previamente desde [ONNX Model Zoo](https://github.com/onnx/models).
+## <a name="saveconvert-your-models-to-onnx"></a>Guardado o conversión de modelos de ONNX
 
-+ Genere un modelo de ONNX personalizado desde [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/).
-
-## <a name="exportconvert-your-models-to-onnx"></a>Exportación o conversión de modelos de ONNX
-
-También puede convertir sus modelos existentes en ONNX.
+Puede convertir los modelos existentes a ONNX o guardarlos como ONNX al final del entrenamiento.
 
 |Plataforma para el modelo|Ejemplo o herramienta de conversión|
 |-----|-------|
@@ -101,7 +100,7 @@ Para obtener una referencia completa de la API, consulte [los documentos de refe
 
 Aquí tiene un ejemplo para implementar un modelo de ONNX:
 
-1. Inicialice el área de trabajo de Azure Machine Learning. Si aún no tiene uno, obtenga información sobre cómo crear un área de trabajo en [este inicio rápido](quickstart-get-started.md).
+1. Inicialice el área de trabajo de Azure Machine Learning Service. Si aún no tiene uno, obtenga información sobre cómo crear un área de trabajo en [este inicio rápido](quickstart-get-started.md).
 
    ```python
    from azureml.core import Workspace
@@ -172,10 +171,11 @@ Aquí tiene un ejemplo para implementar un modelo de ONNX:
 
    El archivo `myenv.yml` describe las dependencias necesarias para la imagen. Vea este [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) para obtener instrucciones sobre cómo crear un archivo de entorno, como este archivo de ejemplo:
 
-   ```
+   ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
    myenv = CondaDependencies()
+   myenv.add_pip_package("numpy")
    myenv.add_pip_package("azureml-core")
    myenv.add_pip_package("onnxruntime")
 
@@ -191,12 +191,16 @@ Aquí tiene un ejemplo para implementar un modelo de ONNX:
 
 ## <a name="examples"></a>Ejemplos
  
-En los siguientes cuadernos se muestra cómo implementar modelos de ONNX con Azure Machine Learning: 
-+ `/onnx/onnx-inference-mnist.ipynb`
+En los siguientes cuadernos se muestra cómo crear modelos de ONNX e implementarlos con Azure Machine Learning: 
++ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
++ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
++ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
+
+En los siguientes cuadernos se muestra cómo implementar modelos de ONNX existentes con Azure Machine Learning: 
++ [onnx/onnx-inference-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist.ipynb) 
++ [onnx/onnx-inference-emotion-recognition.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-emotion-recognition.ipynb)
  
-+ `/onnx/onnx-inference-emotion-recognition.ipynb`
- 
-Obtenga este cuaderno:
+Obtenga estos cuadernos:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

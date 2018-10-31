@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 77b19b708b32003edc4555745a233a01d6f60b71
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225266"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026286"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -299,9 +299,9 @@ subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
-plan | [Plan] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor | 2017-04-02
-publicKeys | Colección de claves públicas [https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] asignada a la máquina virtual y las rutas de acceso | 2017-04-02
-vmScaleSetName | [Nombre del conjunto de escalado de máquinas virtuales] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) del conjunto de escalado de máquinas virtuales | 2017-12-01
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor | 2017-04-02
+publicKeys | Colección de claves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] asignada a la máquina virtual y las rutas de acceso | 2017-04-02
+vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de conjunto de escalado de la máquina virtual | 2017-12-01
 zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02
 ipv4/publicIpAddress | Dirección IPv4 pública de la máquina virtual | 2017-04-02
@@ -310,7 +310,7 @@ subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02
 ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02 
 macAddress | Dirección de MAC de la VM | 2017-04-02 
 scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
-identidad | (Versión preliminar) Managed Service Identity. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
+identidad | (Versión preliminar) Identidades administradas para recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
 

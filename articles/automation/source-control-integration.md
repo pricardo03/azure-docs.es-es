@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785331"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023754"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -23,12 +23,12 @@ El control de código fuente permite mantener los runbooks de su cuenta de Autom
 Azure Automation admite 3 tipos de control de código fuente:
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (TFVC)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Requisitos previos
 
-* Un repositorio de control de código fuente (GitHub o Visual Studio Team Services)
+* Un repositorio de control de código fuente (GitHub o Azure DevOps)
 * Los [permisos](#personal-access-token-permissions) correctos en el repositorio de control de código fuente
 * Una [cuenta de ejecución y conexión](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ En la página **Resumen del control de código fuente**, rellene la información
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 |Nombre del control de código fuente     | Nombre descriptivo del control de código fuente.        |
-|Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repositorio     | Nombre del propietario del repositorio o proyecto. Este valor se extrae del repositorio de control de código fuente. Ejemplo: $/ContosoFinanceTFVCExample         |
 |Rama     | Rama de la que se van a extraer los archivos de código fuente. No se permite especificar una rama para el tipo de control de código fuente TFVC.          |
 |Ruta de acceso a la carpeta     | Carpeta que contiene los runbooks que se van a sincronizar. Ejemplo: /Runbooks         |

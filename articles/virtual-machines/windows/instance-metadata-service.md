@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 0ea9fbf8042c4d6ab3f9462c77ec5cf5106d1021
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 331ec4bd7e91e8283f6a44b0fd440a9d73e28710
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389554"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024178"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -299,7 +299,7 @@ subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
-plan | [Plan] (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor | 2017-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor | 2017-04-02
 publicKeys | Colección de claves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] asignada a la máquina virtual y las rutas de acceso | 2017-04-02
 vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de conjunto de escalado de la máquina virtual | 2017-12-01
 zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la máquina virtual | 2017-12-01 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721626"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956704"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución Supervisión remota mediante la CLI
 
@@ -81,14 +81,14 @@ Al crear una solución básica, se aprovisionarán los servicios de Azure siguie
 
 
 ### <a name="standard"></a>Estándar
-La implementación estándar es una implementación lista para producción que un desarrollador puede personalizar y ampliar para satisfacer sus necesidades. En cuanto a la confiabilidad y el escalado, los microservicios de aplicación se crean como contenedores de Docker y se implementan con un orquestador ([Kubernetes](https://kubernetes.io/), de forma predeterminada). El orquestador es responsable de la implementación, el escalado y la administración de la aplicación.
+La implementación estándar es una implementación lista para producción que un desarrollador puede personalizar y ampliar para satisfacer sus necesidades. La opción de implementación estándar debe usarse cuando esté listo para personalizar una arquitectura para entornos de producción, creada para fines de escalabilidad y extensibilidad. Los microservicios de aplicación se crean como contenedores de Docker y se implementan con Azure Kubernetes Service (AKS). El orquestador es responsable de la implementación, el escalado y la administración de la aplicación.
+
 
 Al crear una solución estándar, se aprovisionarán los servicios de Azure siguientes en su suscripción de Azure al costo de:
 
 | Recuento | Recurso                                     | SKU / Tamaño      | Se usa para |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Máquinas virtuales Linux](https://azure.microsoft.com/services/virtual-machines/)   | Estándar D2 V2  | 1 maestro y 3 agentes para hospedar microservicios con redundancia |
-| 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | Orquestador de [Kubernetes](https://kubernetes.io) |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Use un servicio de orquestación de contenedores de Kubernetes totalmente administrados, con un valor predeterminado de tres agentes.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2: nivel Estándar | Comando, control y administración de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Estándar        | Almacenar datos de configuración y telemetría de dispositivos como reglas, alarmas y mensajes |
 | 5     | [Cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Estándar        | 4 para el almacenamiento de máquina virtual y 1 para los puntos de comprobación de streaming |

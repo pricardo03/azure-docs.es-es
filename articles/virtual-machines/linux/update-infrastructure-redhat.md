@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: 4a8bc45b253def1130e5a02dfcd6d359f0e74506
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: ad28e30f7f31ec61332faac3ab3ee3c3e2fd67ca
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143330"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024161"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -76,7 +76,7 @@ Si experimenta problemas al conectarse a RHUI de Azure desde la máquina virtual
 
     b. Si apunta a una ubicación con el siguiente patrón `mirrorlist.*cds[1-4].cloudapp.net`, es necesario actualizar la configuración. Está usando la instantánea de máquina virtual anterior y tiene que actualizarla para dirigirla al nuevo RHUI de Azure.
 
-1. El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos de direcciones IP del centro de datos de Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
+1. El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
  
 1. Si está usando la configuración nueva y comprobó que la máquina virtual se conecta desde el intervalo IP de Azure pero sigue sin poder conectarse a RHUI de Azure, presente una incidencia de soporte técnico a Microsoft o Red Hat.
 

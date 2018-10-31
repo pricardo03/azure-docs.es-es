@@ -1,25 +1,25 @@
 ---
 title: Seguimiento del comportamiento del usuario mediante eventos en Application Insights desde Azure Active Directory B2C
-description: Guía paso a paso para habilitar los registros de eventos en Application Insights de recorridos del usuario de Azure AD B2C mediante directivas personalizadas (versión preliminar)
+description: Aprenda a habilitar registros de eventos en Application Insights a partir de recorridos de usuario de Azure AD B2C mediante directivas personalizadas (versión preliminar).
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c77feed3b86358c74f741b53aa03ecb454dc9a62
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ced100f0bdd20841648ca84dfcab1847bdcd3096
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337109"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362490"
 ---
-# <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Seguimiento del comportamiento del usuario dentro de los recorridos de Azure AD B2C mediante Application Insights
+# <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights
 
-Azure Active Directory B2C (Azure AD B2C) funciona bien con Azure Application Insights. Ambos proporcionan registros de eventos detallados y personalizados para los recorridos del usuario creados personalizados. En este artículo se muestra cómo empezar a trabajar para:
+Cuando se usa Azure Active Directory (Azure AD) B2C junto con Azure Application Insights, se pueden obtener registros de eventos detallados y personalizados para los recorridos de usuario. En este artículo, aprenderá a:
 
 * Obtener información detallada sobre el comportamiento del usuario.
 * Solucionar problemas con sus propias directivas durante la fase de desarrollo o producción.
@@ -31,9 +31,9 @@ Azure Active Directory B2C (Azure AD B2C) funciona bien con Azure Application In
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-El Marco de experiencia de identidad en Azure AD B2C ahora incluye el proveedor `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`.  Este proveedor envía los datos de eventos directamente a Application Insights mediante la clave de instrumentación proporcionada a Azure AD B2C.
+El marco de experiencia de identidad de Azure AD B2C incluye ahora el proveedor `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`. Este proveedor envía los datos de eventos directamente a Application Insights mediante la clave de instrumentación proporcionada a Azure AD B2C.
 
-Un perfil técnico usa este proveedor para definir un evento de B2C.  El perfil especifica el nombre del evento, las notificaciones que se registrarán y la clave de instrumentación.  Para publicar un evento, el perfil técnico se agrega entonces como `orchestration step` o `validation technical profile` en un recorrido del usuario personalizado.
+Un perfil técnico usa este proveedor para definir un evento desde Azure AD B2C. El perfil especifica el nombre del evento, las notificaciones que se registran y la clave de instrumentación. Para publicar un evento, el perfil técnico se agrega entonces como `orchestration step` o `validation technical profile` en un recorrido del usuario personalizado.
 
 Application Insights puede unificar los eventos por medio de un identificador de correlación para registrar una sesión de usuario. Application Insights permite que el evento y la sesión estén disponibles en cuestión de segundos y presenta muchas herramientas de visualización, exportación y análisis.
 
@@ -41,20 +41,25 @@ Application Insights puede unificar los eventos por medio de un identificador de
 
 Realice los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). En este artículo se da por supuesto que está usando el módulo de inicio de la directiva personalizada. Pero el módulo de inicio no es necesario.
 
-## <a name="step-1-create-an-application-insights-resource-and-get-the-instrumentation-key"></a>Paso 1. Creación de un recurso de Application Insights y obtención de la clave de instrumentación
+## <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
-Cuando usa Application Insights con Azure AD B2C, el único requisito es crear un recurso y obtener una clave de instrumentación. El recurso se crea en [Azure Portal](https://portal.azure.com).
+Cuando usa Application Insights con Azure AD B2C, todo lo que necesita hacer es crear un recurso y obtener la clave de instrumentación.
 
-1. En Azure Portal, dentro de su inquilino de suscripción, seleccione **+ Crear un recurso**. Este inquilino no es el inquilino de Azure AD B2C.  
-2. Busque y seleccione **Application Insights**.  
-3. Cree un recurso que use **aplicación web ASP.NET** como **tipo de aplicación**, en la suscripción que desee.
-4. Después de crear el recurso de Application Insights, ábralo y anote la clave de instrumentación.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Asegúrese de usar el directorio que contiene la suscripción de Azure. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene la suscripción. Este inquilino no es el inquilino de Azure AD B2C.
+3. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal y, a continuación, busque y seleccione **Application Insights**.
+4. Haga clic en **Create**(Crear).
+5. En **Nombre**, escriba un nombre para el recurso.
+6. En **Tipo de aplicación**, seleccione **Aplicación web ASP.NET**.
+7. En **Grupo de recursos**, seleccione un grupo existente o escriba un nombre para un nuevo grupo.
+8. Haga clic en **Create**(Crear).
+4. Después de crear el recurso de Application Insights, ábralo, expanda **Información esencial** y copie la clave de instrumentación.
 
-![Introducción a Application Insights y la clave de instrumentación](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
+![Introducción a Application Insights y la clave de instrumentación](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
-## <a name="step-2-add-new-claimtype-definitions-to-your-trust-framework-extension-file"></a>Paso 2. Adición de nuevas definiciones ClaimType al archivo de extensiones del marco de confianza
+## <a name="add-new-claimtype-definitions"></a>Incorporación de nuevas definiciones de ClaimType
 
-Abra el archivo de extensiones desde el módulo de inicio y agregue los siguientes elementos al nodo `<BuildingBlocks>`. El nombre de archivo suele ser `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`.
+Abra el archivo *TrustFrameworkExtensions.xml* desde el módulo de inicio y agregue los siguientes elementos al elemento [BuildingBlocks](buildingblocks.md):
 
 ```xml
 <ClaimsSchema>
@@ -101,34 +106,23 @@ Abra el archivo de extensiones desde el módulo de inicio y agregue los siguient
 </ClaimsSchema>
 ```
 
-## <a name="step-3-add-new-technical-profiles-that-use-the-application-insights-provider"></a>Paso 3. Adición de nuevos perfiles técnicos que usan el proveedor de Application Insights
+## <a name="add-new-technical-profiles"></a>Incorporación de nuevos perfiles técnicos
 
-Los perfiles técnicos pueden considerarse funciones en el Marco de experiencia de identidad de Azure AD B2C. En este ejemplo se definen cinco perfiles técnicos para abrir una sesión y publicar eventos:
+Los perfiles técnicos pueden considerarse funciones en el Marco de experiencia de identidad de Azure AD B2C. En esta tabla se definen los perfiles técnicos que se usan para abrir una sesión y publicar eventos.
 
 | Perfil técnico | Task |
 | ----------------- | -----|
-| AzureInsights-Common | Crea un conjunto común de parámetros que se incluirán en todos los perfiles técnicos de Azure Insights. | 
-| JourneyContextForInsights | Abre la sesión en Application Insights y envía un identificador de correlación. |
-| AzureInsights-SignInRequest | Crea un evento `SignIn` con un conjunto de notificaciones cuando se ha recibido una solicitud de inicio de sesión. | 
+| AzureInsights-Common | Crea un conjunto común de parámetros que se incluirán en todos los perfiles técnicos de AzureInsights. | 
+| AzureInsights-SignInRequest | Crea un evento de inicio de sesión con un conjunto de notificaciones cuando se ha recibido una solicitud de inicio de sesión. | 
 | AzureInsights-UserSignup | Crea un evento UserSignup cuando el usuario activa la opción de inicio de sesión en un recorrido de inicio de sesión y registro. | 
-| AzureInsights-SignInComplete | Registra la finalización correcta de una autenticación cuando se ha enviado un token a la aplicación de usuario autenticado. | 
+| AzureInsights-SignInComplete | Registra la finalización correcta de una autenticación cuando se ha enviado un token a la aplicación de usuario de confianza. | 
 
-Agregue los perfiles al archivo de extensiones desde el módulo de inicio mediante la adición de estos elementos al nodo `<ClaimsProviders>`.  El nombre de archivo suele ser `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`.
-
-> [!IMPORTANT]
-> Cambie la clave de instrumentación del perfil técnico de `ApplicationInsights-Common` por el GUID que su recurso de Application Insights proporciona.
+Agregue los perfiles al archivo *TrustFrameworkExtensions.xml* desde el módulo de inicio. Agregue estos elementos al elemento **ClaimsProviders**:
 
 ```xml
 <ClaimsProvider>
   <DisplayName>Application Insights</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="JourneyContextForInsights">
-      <DisplayName>Application Insights</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="CorrelationId" />
-      </OutputClaims>
-    </TechnicalProfile>
     <TechnicalProfile Id="AzureInsights-SignInRequest">
       <InputClaims>
         <!-- An input claim with a PartnerClaimType="eventName" is required. This is used by the AzureApplicationInsightsProvider to create an event with the specified value. -->
@@ -172,24 +166,16 @@ Agregue los perfiles al archivo de extensiones desde el módulo de inicio median
 </ClaimsProvider>
 ```
 
-## <a name="step-4-add-the-technical-profiles-for-application-insights-as-orchestration-steps-in-an-existing-user-journey"></a>Paso 4 Adición de los perfiles técnicos de Application Insights como pasos de orquestación en un recorrido del usuario existente
+> [!IMPORTANT]
+> Cambie la clave de instrumentación del perfil técnico de `ApplicationInsights-Common` por el GUID que su recurso de Application Insights proporciona.
 
-Llame a `JournyeContextForInsights` como paso de orquestación 1:
-
-```xml
-<!-- Initialize a session with Application Insights -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
-  <ClaimsExchanges>
-    <ClaimsExchange Id="JourneyContextForInsights" TechnicalProfileReferenceId="JourneyContextForInsights" />
-  </ClaimsExchanges>
-</OrchestrationStep>
-```
+## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Incorporación de los perfiles técnicos como pasos de orquestación
 
 Llame a `Azure-Insights-SignInRequest` como paso de orquestación 2 para realizar el seguimiento de que se ha recibido una solicitud de inicio de sesión o suscripción:
 
 ```xml
 <!-- Track that we have received a sign in request -->
-<OrchestrationStep Order="2" Type="ClaimsExchange">
+<OrchestrationStep Order="1" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AzureInsights-SignInRequest" />
   </ClaimsExchanges>
@@ -200,7 +186,7 @@ Inmediatamente *antes* del paso de orquestación `SendClaims`, agregue un nuevo 
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
-<OrchestrationStep Order="9" Type="ClaimsExchange">
+<OrchestrationStep Order="8" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
       <Value>newUser</Value>
@@ -215,13 +201,14 @@ Inmediatamente *antes* del paso de orquestación `SendClaims`, agregue un nuevo 
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackUserSignUp" TechnicalProfileReferenceId="AzureInsights-UserSignup" />
   </ClaimsExchanges>
+</OrchestrationStep>
 ```
 
-Inmediatamente después del paso de orquestación `SendClaims`, llame a `Azure-Insights-SignInComplete`. Este paso refleja un recorrido completado correctamente.
+Inmediatamente después del paso de orquestación `SendClaims`, llame a `Azure-Insights-SignInComplete`. Este paso muestra un recorrido completado correctamente.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
-<OrchestrationStep Order="11" Type="ClaimsExchange">
+<OrchestrationStep Order="10" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInComplete" TechnicalProfileReferenceId="AzureInsights-SignInComplete" />
   </ClaimsExchanges>
@@ -232,9 +219,9 @@ Inmediatamente después del paso de orquestación `SendClaims`, llame a `Azure-I
 > Después de agregar los nuevos pasos de orquestación, vuelva a enumerar los pasos de forma secuencial sin omitir los enteros de 1 a N.
 
 
-## <a name="step-5-upload-your-modified-extensions-file-run-the-policy-and-view-events-in-application-insights"></a>Paso 5. Carga del archivo de extensiones modificado, ejecución de la directiva y visualización de los eventos en Application Insights
+## <a name="upload-your-file-run-the-policy-and-view-events"></a>Carga del archivo, ejecución de la directiva y visualización de eventos
 
-Guarde y cargue el nuevo archivo de extensiones del marco de confianza. A continuación, llame a la directiva de usuario de confianza desde su aplicación o use `Run Now` en la interfaz de Azure AD B2C. En segundos, los eventos están disponibles en Application Insights.
+Cargue el archivo *TrustFrameworkExtensions.xml*. Luego, llame a la directiva de usuario de confianza desde su aplicación o use **Ejecutar ahora** en Azure Portal. En segundos, los eventos están disponibles en Application Insights.
 
 1. Abra el recurso de **Application Insights** en su inquilino de Azure Active Directory.
 2. Seleccione **Uso** > **Eventos**.
@@ -242,94 +229,17 @@ Guarde y cargue el nuevo archivo de extensiones del marco de confianza. A contin
 
 ![Hoja de eventos de uso de Application Insights](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 
-##  <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Agregue tipos de notificación y eventos a su recorrido del usuario según sus necesidades. Esta es una lista de posibles notificaciones con solucionadores de notificaciones adicionales.
+Agregue tipos de notificación y eventos a su recorrido del usuario según sus necesidades. Puede usar [solucionadores de notificaciones](claim-resolver-overview.md) o cualquier tipo de notificación de cadena y agregar las notificaciones mediante la incorporación de un elemento **Notificación de entrada** al evento de Application Insights o al perfil técnico AzureInsights-Common. 
 
-### <a name="culture-specific-claims"></a>Notificaciones específicas de la referencia cultural
+- **ClaimTypeReferenceId** es la referencia a un tipo de notificación.
+- **PartnerClaimType** es el nombre de la propiedad que aparece en Azure Insights. Use la sintaxis de `{property:NAME}`, donde `NAME` es la propiedad que se agrega al evento. 
+- **DefaultValue** usa cualquier valor de cadena o el solucionador de notificaciones. 
 
-```xml
-Referenced using: {Culture:One of the property names below}
-```
-
-| Notificación | Definición | Ejemplo |
-| ----- | -----------| --------|
-| LanguageName | Código ISO de dos letras para el idioma | en |
-| RegionName | Código ISO de dos letras para la región | US |
-| RFC5646 | Código de idioma RFC5646 | es-ES |
-| LCID   | El identificador de configuración regional del código de idioma | 1033 |
-
-### <a name="policy-specific-claims"></a>Notificaciones específicos de la directiva
-
-```xml
-Referenced using {Policy:One of the property names below}
-```
-
-| Notificación | Definición | Ejemplo |
-| ----- | -----------| --------|
-| TrustFrameworkTenantId | El identificador de inquilino de trustframework | N/D |
-| RelyingPartyTenantId | El identificador de inquilino del usuario de confianza | N/D |
-| PolicyId | El identificador de directiva de la directiva | N/D |
-| TenantObjectId | El identificador de inquilino de la directiva | N/D |
-
-### <a name="openid-connect-specific-claims"></a>Notificaciones específicas de OpenID Connect
-
-```xml
-Referenced using {OIDC:One of the property names below}
-```
-
-| Notificación | Parámetro OpenIdConnect | Ejemplo |
-| ----- | ----------------------- | --------|
-| Prompt | símbolo del sistema | N/D |
-| LoginHint |  login_hint | N/D |
-| DomainHint | domain_hint | N/D |
-|  MaxAge | max_age | N/D |
-| ClientId | client_id | N/D |
-| Nombre de usuario | login_hint | N/D |
-|  Recurso | resource| N/D |
-| AuthenticationContextReferences | acr_values | N/D |
-
-### <a name="non-protocol-parameters-included-with-oidc--oauth2-requests"></a>Parámetros sin protocolo incluidos con solicitudes OIDC y OAuth2
-
-```xml
-Referenced using { OAUTH-KV:Querystring parameter name }
-```
-
-Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth2 se puede asignar a una notificación en el recorrido del usuario. A continuación, puede registrar el evento. Por ejemplo, la solicitud de la aplicación puede incluir un parámetro de cadena de consulta con el nombre de `app_session`, `loyalty_number` o `any_string`.
-
-Este es un ejemplo de solicitud de la aplicación:
-
-```
-https://sampletenant.b2clogin.com/tfp/sampletenant.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
-
-```
-Puede agregar notificaciones mediante la agregación de un elemento `Input Claim` al evento de Application Insights. Las propiedades de un evento se agregan a través de la sintaxis {property:NAME}, donde NAME es la propiedad que se agrega al evento. Por ejemplo: 
-
-```
+```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
 <InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />
 ```
-
-### <a name="other-system-claims"></a>Otras notificaciones del sistema
-
-Algunas notificaciones del sistema se deben agregar al contenedor de notificaciones para que estén disponibles para registrarse como eventos. Se debe llamar al perfil técnico `SimpleUJContext` como paso de orquestación o perfil técnico de validación para que estas notificaciones estén disponibles.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>User Journey Context Provider</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="SimpleUJContext">
-      <DisplayName>User Journey Context Provide</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="IP-Address" />
-        <OutputClaim ClaimTypeReferenceId="CorrelationId" />
-        <OutputClaim ClaimTypeReferenceId="DateTimeInUtc" />
-        <OutputClaim ClaimTypeReferenceId="Build" />
-      </OutputClaims>
-    </TechnicalProfile>
-  </TechnicalProfiles>
-</ClaimsProvider>
-```
-
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984473"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026014"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
 
@@ -36,7 +36,7 @@ La combinación de servicios globales y regionales en la aplicación proporciona
 - Enrutamiento de rendimiento, para enviar al solicitante al back-end más cercano en términos de latencia.
 - Enrutamiento de prioridad, para dirigir todo el tráfico a un back-end, con otros servidores back-end como respaldo.
 - Enrutamiento round-robin ponderado, que distribuye el tráfico según la ponderación asignada a cada back-end.
-- Enrutamiento geográfico, para garantizar que los solicitantes ubicados en regiones geográficas específicas se dirigen a los servidores back-end asignados a esas regiones (por ejemplo, todas las solicitudes desde España deben dirigirse a la región de Azure Este de EE. UU.)
+- Enrutamiento geográfico, para garantizar que los solicitantes ubicados en regiones geográficas específicas se dirigen a los servidores back-end asignados a esas regiones (por ejemplo, todas las solicitudes desde España deben dirigirse a la región de Azure Centro de Francia).
 - Enrutamiento de subred, que permite asignar intervalos de direcciones IP a servidores back-end, de modo que las solicitudes que procedan de dichos servidores se enviarán al back-end especificado (por ejemplo, todos los usuarios que se conectan desde el intervalo de direcciones IP de la sede central corporativa obtendrán contenido web diferente al de los usuarios generales).
 
 El cliente se conecta directamente a ese back-end. Azure Traffic Manager detecta cuándo un back-end está en mal estado y redirige a los clientes a otra instancia en buen estado. Consulte la documentación de [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para más información sobre el servicio.

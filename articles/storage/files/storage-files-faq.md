@@ -4,15 +4,15 @@ description: Obtenga respuestas a algunas preguntas frecuentes sobre Azure Files
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949849"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387510"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -108,60 +108,23 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="sizeondisk-versus-size"></a>
  **¿Por qué la propiedad *Tamaño en disco* de un archivo no coincide con la propiedad *Tamaño* después de usar Azure File Sync?**  
-    El Explorador de archivos de Windows expone dos propiedades para representar el tamaño de un archivo: **Tamaño** y **Tamaño en disco**. Estas propiedades difieren ligeramente en significado. **Tamaño** representa el tamaño completo del archivo. **Tamaño en disco** representa el tamaño del flujo de archivos que se almacena en el disco. Los valores de estas propiedades pueden diferir por diversos motivos, como la compresión, el uso de la desduplicación de datos o los niveles en la nube con Azure File Sync. Si un archivo está organizado en niveles en un recurso compartido de archivos de Azure, el tamaño en disco será cero, ya que la secuencia de archivos se almacena en el recurso compartido de archivos de Azure, no en el disco. También es posible que un archivo se encuentre parcialmente organizado en niveles (o parcialmente recuperado). En el caso de un archivo parcialmente organizado en niveles, parte del archivo está en el disco. Esto puede ocurrir cuando aplicaciones como reproductores multimedia o utilidades zip leen parcialmente los archivos. 
+ Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
  **¿Cómo se puede saber si un archivo se ha organizado en niveles?**  
-    Hay varias maneras de comprobar si un archivo se ha organizado en niveles en el recurso compartido de archivos de Azure:
-    
-   *  **Compruebe los atributos de archivo en el archivo.**
-     Para ello, haga clic con el botón derecho en un archivo, vaya a **Detalles** y desplácese hacia abajo a la propiedad **Attributes**. Un archivo en niveles tendrá los siguientes atributos establecidos:     
-        
-        | Letra del atributo | Atributo | Definición |
-        |:----------------:|-----------|------------|
-        | Una  | Archivar | Indica que se debe realizar la copia de seguridad del archivo con un software de copia de seguridad. Este atributo siempre se establece, independientemente de si el archivo está organizado en niveles o está completamente almacenado en el disco. |
-        | P | Archivos dispersos | Indica que el archivo es un archivo disperso. Un archivo disperso es un tipo especializado de archivo que ofrece NTFS para un uso eficaz cuando el archivo en el flujo del disco está en gran parte vacío. Azure File Sync usa archivos dispersos porque un archivo o está completamente organizado en niveles o parcialmente recuperado. En un archivo completamente organizado en niveles, su flujo de archivos se almacena en la nube. En un archivo parcialmente recuperado, esa parte del archivo ya está en el disco. Si un archivo está totalmente recuperado en el disco, Azure File Sync lo convierte de un archivo disperso a un archivo normal. |
-        | L | Punto de repetición de análisis | Indica que el archivo tiene un punto de repetición de análisis. Un punto de repetición de análisis es un puntero especial para su uso en un filtro del sistema de archivos. Azure File Sync usa puntos de repetición de análisis a fin de definir para el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) la ubicación en la nube donde está almacenado el archivo. Esto permite el acceso sin problemas. Los usuarios no necesitan saber que se está usando Azure File Sync ni cómo obtener acceso al archivo en el recurso compartido de archivos de Azure. Cuando un archivo completo se recupera, Azure File Sync quita el punto de repetición de análisis del archivo. |
-        | O | Sin conexión | Indica que parte del contenido del archivo, o la totalidad, no se ha almacenado en el disco. Cuando un archivo completo se recupera, Azure File Sync quita este atributo. |
-
-        ![Cuadro de diálogo Propiedades de un archivo con la pestaña Detalles seleccionada](media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-        Puede ver los atributos de todos los archivos en una carpeta mediante la adición del campo **Atributos** a la presentación de la tabla del Explorador de archivos. Para ello, haga clic con el botón derecho en una columna existente (por ejemplo, **Tamaño**), seleccione **Más** y, después, **Atributos** en la lista desplegable.
-        
-   * **Use `fsutil` para buscar puntos de repetición de análisis en un archivo.**
-       Como se indica en la opción anterior, un archivo organizado en niveles siempre tiene establecido un punto de repetición de análisis. Un puntero de repetición de análisis es un puntero especial para el filtro del sistema de archivos de Azure File Sync (StorageSync.sys). Para comprobar si un archivo tiene un punto de repetición de análisis, en un símbolo del sistema con privilegios elevados o en una ventana de PowerShell, ejecute la utilidad `fsutil`:
-    
-        ```PowerShell
-        fsutil reparsepoint query <your-file-name>
-        ```
-
-        Si el archivo tiene un punto de repetición de análisis, debería ver **Valor de la etiqueta de análisis: 0x8000001e**. Este valor hexadecimal es el valor del punto de repetición de análisis que pertenece a Azure File Sync. La salida también contendrá los datos de repetición de análisis que representan la ruta de acceso al archivo en el recurso compartido de archivos de Azure.
-
-        > [!WARNING]  
-        > El comando de la utilidad `fsutil reparsepoint` también puede eliminar un punto de repetición de análisis. No ejecute este comando a menos que el equipo de ingeniería de Azure File Sync se lo indique. Si lo ejecuta, podría producirse una pérdida de datos. 
+ Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**Uno de los archivos que quiero usar se ha organizado en niveles. ¿Cómo puedo recuperarlo en el disco para usarlo de forma local?**  
-    La manera más fácil de recuperar un archivo en el disco es abrirlo. El filtro del sistema de archivos de Azure File Sync (StorageSync.sys) descarga sin problemas el archivo desde el recurso compartido de archivos de Azure de forma automática. Para los tipos de archivo que se pueden leer parcialmente, como los archivos multimedia o los archivos .zip, si se abre un archivo, este no se descargará entero.
+ Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-recall-file).
 
-    También puede usar PowerShell para forzar que se recupere un archivo. Esta opción puede resultar útil cuando se quiere recuperar muchos archivos a la vez, como todos los archivos de una carpeta. Abra una sesión de PowerShell en el nodo del servidor donde está instalado Azure File Sync y ejecute los siguientes comandos de PowerShell:
-    
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
 
 * <a id="afs-force-tiering"></a>
  **¿Cómo puedo forzar la organización en niveles de un archivo o directorio?**  
-    Cuando se habilita la característica de organización en niveles en la nube, se crean automáticamente niveles en los archivos según la última hora de acceso y de modificación a fin de conseguir el porcentaje de espacio libre en el volumen especificado en el punto de conexión en la nube. Aun así, en ocasiones podría querer forzar un archivo para organizarse en niveles de forma manual. Esto puede resultar útil cuando se guarda un archivo grande que no piensa volver a usar durante mucho tiempo y quiere espacio libre en el volumen ahora para usarlo para otros archivos o carpetas. Puede forzar la organización en niveles con los siguientes comandos de PowerShell:
-
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+ Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
  **¿Cómo se interpreta el *espacio disponible del volumen* cuando tengo varios puntos de conexión de servidor en un volumen?**  
-    Cuando hay más de un punto de conexión de servidor en un volumen, el umbral de espacio disponible del volumen efectivo es el mayor espacio disponible del volumen especificado en cualquier punto de conexión de servidor de ese volumen. Los archivos se pueden almacenar en capas según sus patrones de uso, independientemente de qué punto de conexión de servidor al que pertenezcan. Por ejemplo, si tiene dos puntos de conexión de servidor en un volumen, Endpoint1 y Endpoint2, donde Endpoint1 tiene un umbral de espacio disponible del volumen del 25 %, y Endpoint2 tiene un umbral de espacio disponible del volumen de 50 %, el umbral del volumen de espacio disponible para ambos puntos de conexión de servidor será el 50 %.
+ Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
  **¿Qué archivos o carpetas excluye automáticamente Azure File Sync?**  
@@ -186,7 +149,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
  **¿Por qué los archivos en capas se encuentran fuera del espacio de nombres del punto de conexión de servidor?**  
-    Antes de la versión 3 del agente de Azure File Sync, Azure File Sync bloqueaba el movimiento de archivos en capas fuera del punto de conexión del servidor, pero en el mismo volumen que el punto de conexión del servidor. Las operaciones de copia, los movimientos de archivos sin capas y los movimientos de capas a otros volúmenes no resultaban afectados. La razón de este comportamiento era la presunción implícita que tienen el Explorador de archivos y otras API de Windows de que las operaciones de movimiento en el mismo volumen son operaciones de cambio de nombre (casi) instantáneas. Esto significa que los movimientos que haga el Explorador de archivos u otros métodos de movimiento (como la línea de comandos o PowerShell) parecen no responder mientras Azure File Sync recupera los datos de la nube. A partir de la [versión 3.0.12.0 del agente de Azure File Sync](storage-files-release-notes.md#agent-version-30120), Azure File Sync le permitirá mover un archivo con capas fuera del punto de conexión del servidor. Evitamos los efectos negativos que se mencionaron anteriormente permitiendo que el archivo con capas exista como un archivo con capas fuera del punto de conexión del servidor y, a continuación, recuperando el archivo en segundo plano. Esto significa que los movimientos en el mismo volumen son instantáneos, y nosotros nos ocupamos por completo de recuperar el archivo en el disco una vez que el movimiento se ha completado. 
+    Antes de la versión 3 del agente de Azure File Sync, Azure File Sync bloqueaba el movimiento de archivos en capas fuera del punto de conexión del servidor, pero en el mismo volumen que el punto de conexión del servidor. Las operaciones de copia, los movimientos de archivos sin capas y los movimientos de capas a otros volúmenes no resultaban afectados. La razón de este comportamiento era la presunción implícita que tienen el Explorador de archivos y otras API de Windows de que las operaciones de movimiento en el mismo volumen son operaciones de cambio de nombre (casi) instantáneas. Esto significa que los movimientos que haga el Explorador de archivos u otros métodos de movimiento (como la línea de comandos o PowerShell) parecen no responder mientras Azure File Sync recupera los datos de la nube. A partir de la [versión 3.0.12.0 del agente de Azure File Sync](storage-files-release-notes.md#supported-versions), Azure File Sync le permitirá mover un archivo con capas fuera del punto de conexión del servidor. Evitamos los efectos negativos que se mencionaron anteriormente permitiendo que el archivo con capas exista como un archivo con capas fuera del punto de conexión del servidor y, a continuación, recuperando el archivo en segundo plano. Esto significa que los movimientos en el mismo volumen son instantáneos, y nosotros nos ocupamos por completo de recuperar el archivo en el disco una vez que el movimiento se ha completado. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Tengo un problema con Azure File Sync en mi servidor (sincronización, niveles en la nube, etc.). ¿Debería quitar y volver a crear el punto de conexión del servidor?**  
@@ -194,8 +157,11 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     
 * <a id="afs-resource-move"></a>
  **¿Puedo mover el servicio de sincronización del almacenamiento o la cuenta de almacenamiento a un grupo de recursos o suscripción diferentes?**  
-   Sí, el servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a un grupo de recursos o suscripción diferentes. Si se mueve la cuenta de almacenamiento, debe dar acceso al servicio File Sync híbrido a la cuenta de almacenamiento (consulte el apartado [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   El servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a otro grupo de recursos o suscripción del inquilino de Azure AD existente. Si se mueve la cuenta de almacenamiento, debe dar acceso al servicio File Sync híbrido a la cuenta de almacenamiento (consulte el apartado [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+    > [!Note]  
+    > Azure File Sync no permite mover la suscripción a un inquilino de Azure AD distinto.
+    
 * <a id="afs-ntfs-acls"></a>
  **¿Mantiene Azure File Sync las listas ACL de NTFS a nivel de directorio/archivo junto con los datos almacenados en Azure Files? **
 
@@ -216,7 +182,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="ad-support-regions"></a>
 ** ¿Está disponible la versión preliminar de Azure AD sobre SMB para Azure Files en todas las regiones de Azure?**
 
-    La versión preliminar está disponible en todas las regiones públicas, excepto en las siguientes: Oeste de Estados Unidos, Oeste de EE.UU. 2, Centro y Sur de EE. UU, Este de Estados Unidos 2, Centro de EE. UU., Norte y Centro de EE. UU., Este de Australia, Europa Occidental, Europa del Norte.
+    La versión preliminar está disponible en todas las regiones públicas, salvo para: Europa del Norte.
 
 * <a id="ad-support-on-premises"></a>
  **¿La autenticación de Azure AD sobre SMB para Azure Files (versión preliminar) admite la autenticación mediante Azure AD desde máquinas locales?**
@@ -276,7 +242,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="data-compliance-policies"></a>
  **¿Qué directivas de cumplimiento de datos admite Azure Files?**  
 
-   Azure Files se ejecuta sobre la misma arquitectura de almacenamiento que se usa en otros servicios de almacenamiento de Azure Storage. Azure Files aplica las mismas directivas de cumplimiento de datos que se usan en otros servicios de Azure Storage. Para obtener más información sobre el cumplimiento de datos de Azure Storage, puede consultar [Ofertas de cumplimiento de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings) e ir al [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure Files se ejecuta sobre la misma arquitectura de almacenamiento que se usa en otros servicios de almacenamiento de Azure Storage. Azure Files aplica las mismas directivas de cumplimiento de datos que se usan en otros servicios de Azure Storage. Para obtener más información sobre el cumplimiento de datos de Azure Storage, puede consultar [Ofertas de cumplimiento de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e ir al [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acceso local
 * <a id="expressroute-not-required"></a>
@@ -292,7 +258,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 ## <a name="backup"></a>Copia de seguridad
 * <a id="backup-share"></a>
  **¿Cómo puedo realizar una copia de seguridad de mi recurso compartido de archivos de Azure?**  
-    Puede usar [instantáneas periódicas de recursos compartidos](storage-snapshots-files.md) para evitar cualquier eliminación accidental. También puede usar AzCopy, Robocopy o una herramienta de copia de seguridad de terceros que pueda hacer una copia de seguridad de un recurso compartido de archivos montado. Azure Backup ofrece la copia de seguridad de Azure Files. Obtenga más información sobre la [copia de seguridad de recursos compartidos de archivos de Azure mediante Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    Puede usar [instantáneas periódicas de recursos compartidos](storage-snapshots-files.md) para evitar cualquier eliminación accidental. También puede usar AzCopy, Robocopy o una herramienta de copia de seguridad de terceros que pueda hacer una copia de seguridad de un recurso compartido de archivos montado. Azure Backup ofrece la copia de seguridad de Azure Files. Obtenga más información sobre la [copia de seguridad de recursos compartidos de archivos de Azure mediante Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Instantáneas de recursos compartido
 

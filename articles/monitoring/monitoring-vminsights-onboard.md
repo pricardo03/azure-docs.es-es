@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064363"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390251"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Cómo incorporar Azure Monitor para VM 
 En este artículo se describe cómo configurar Azure Monitor para VM para supervisar el estado del sistema operativo de las máquinas virtuales de Azure, y detectar y asignar las dependencias de aplicación que pueden hospedar.  
@@ -31,7 +31,7 @@ La habilitación de Azure Monitor para VM se logra mediante uno de los métodos 
 * Varias VM o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto mediante PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar, asegúrese de disponer de lo siguiente, como se describe en las subsecciones siguientes.
+Antes de empezar, asegúrese de disponer de los elementos que se describen en las subsecciones siguientes.
 
 ### <a name="log-analytics"></a>Log Analytics 
 
@@ -44,11 +44,22 @@ Actualmente, se admite un área de trabajo de Log Analytics en las siguientes re
 
 <sup>1</sup> Actualmente, esta región no admite la característica de estado de Azure Monitor para VM   
 
-Si no tiene ninguna área de trabajo, puede crearla desde [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md).  
+>[!NOTE]
+>Se pueden incorporar máquinas virtuales de Azure desde cualquier región y desaparece la limitación de las regiones admitidas en el área de trabajo de Log Analytics.
+>
+
+Si no tiene ninguna área de trabajo, puede crearla a través de la [CLI de Azure](../log-analytics/log-analytics-quick-create-workspace-cli.md), de [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md) en [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md) o con [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Si va a habilitar la supervisión en una sola máquina virtual de Azure desde Azure Portal, tiene la opción de crear un área de trabajo durante el proceso.  
 
 Para habilitar la solución, debe ser miembro del rol de colaborador de Log Analytics. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
+La habilitación de la solución del escenario a escala requiere, en primer lugar, la configuración de lo siguiente en el área de trabajo de Log Analytics:
+
+* Instale las soluciones **ServiceMap** e **InfrastructureInsights**
+* Configure el área de trabajo de Log Analytics para que recopile contadores de rendimiento
+
+Para configurar el área de trabajo para este escenario, consulte [Configuración del área de trabajo de Log Analytics](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 
@@ -138,7 +149,7 @@ La siguiente es una lista de los sistemas operativos Windows y Linux que son com
 |12 SP3 | 4.4.* |
 
 ### <a name="hybrid-environment-connected-sources"></a>Orígenes conectados del entorno híbrido
-La asignación de Azure Monitor para VM obtiene sus datos de Microsoft Dependency Agent. Dependency Agent depende del agente de Log Analytics en lo que respecta a sus conexiones a Log Analytics. Es decir, un sistema debe tener instalado y configurado el agente de Log Analytics con Dependency Agent.  En la tabla siguiente se describen los orígenes conectados que son compatibles con la característica Asignación en un entorno híbrido.
+La asignación de Azure Monitor para VM obtiene sus datos de Microsoft Dependency Agent. Dependency Agent usa el agente de Log Analytics para su conexión a Log Analytics y, por lo tanto, un sistema debe tenerlo instalado y configurado con Dependency Agent. En la tabla siguiente se describen los orígenes conectados que son compatibles con la característica Asignación en un entorno híbrido.
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 |:--|:--|:--|
@@ -150,7 +161,7 @@ En Windows, tanto System Center Operations Manager como Log Analytics usan Micro
 
 En Linux, el agente de Log Analytics para Linux recopila y envía datos de supervisión a Log Analytics.   
 
-Si los equipos Windows o Linux no pueden conectarse directamente al servicio, deberá configurar el agente de Log Analytics para conectarse a Log Analytics mediante la puerta de enlace de OMS. Para obtener más información sobre cómo implementar y configurar la puerta de enlace de OMS, vea [Conexión de equipos sin acceso a Internet mediante OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
+Si los equipos Windows o Linux no pueden conectarse directamente al servicio, deberá configurar el agente de Log Analytics para conectarse a Log Analytics mediante la puerta de enlace de OMS. Para más información acerca de cómo implementar y configurar OMS Gateway, consulte [Conexión de equipos sin acceso a Internet mediante OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 Dependency Agent se puede descargar desde la ubicación siguiente.
 
@@ -206,6 +217,9 @@ Azure Monitor para VM configura un área de trabajo de Log Analytics para recopi
 |Red |Número total de bytes transmitidos |  
 |Procesador |% de tiempo de procesador |  
 
+## <a name="sign-in-to-azure-portal"></a>Inicio de sesión en Azure Portal
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 
+
 ## <a name="enable-from-the-azure-portal"></a>Habilitar desde Azure Portal
 Para habilitar la supervisión de la VM de Azure en Azure Portal, siga estos pasos:
 
@@ -225,76 +239,183 @@ Después de habilitar la supervisión, pueden pasar unos 10 minutos hasta que pu
 
 ![Habilitar el procesamiento de implementación de supervisión de Azure Monitor para VM](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
-## <a name="enable-using-azure-policy"></a>Habilitar el uso de Azure Policy
-Para habilitar una solución para varias VM de Azure que garantice el cumplimiento coherente y la habilitación automática de nuevas VM aprovisionadas, se recomienda [Azure Policy](../azure-policy/azure-policy-introduction.md).  El uso de Azure Policy con las directivas proporcionadas proporciona los beneficios siguientes para VM nuevas:
 
-* Habilitar Azure Monitor para VM para cada máquina virtual del ámbito definido
-* Implementar el agente de Log Analytics 
-* Implementar Dependency Agent para detectar dependencias de aplicación y mostrarlas en la asignación
-* Auditar si la imagen del sistema operativo de la VM de Azure se encuentra en una lista predefinida en la definición de la directiva  
-* Auditar si la VM de Azure se registra en una área de trabajo distinta de la especificada
-* Informar sobre los resultados de cumplimiento 
-* Admitir correcciones en caso de VM no compatibles
+## <a name="on-boarding-at-scale"></a>Incorporación a escala
+En esta sección se ofrecen las instrucciones necesarias para realizar la implementación a escala de Azure Monitor para VM mediante Azure Policy o con Azure PowerShell.  El primer paso es configurar el área de trabajo de Log Analytics.  
 
-Para activarlo para el inquilino, este proceso requiere:
+### <a name="setup-log-analytics-workspace"></a>Configuración del área de trabajo de Log Analytics
+Si no tiene un área de trabajo de Log Analytics, revise los métodos disponibles que se sugieren en la sección [Requisitos previos](#log-analytics) para crearlo.  
 
-- Configurar una área de trabajo de Log Analytics mediante los pasos que se indican aquí
-- Importar la definición de iniciativa a su inquilino (en el nivel de suscripción o grupo de administración)
-- Asignar la directiva al ámbito deseado
-- Revisar los resultados de cumplimiento
+#### <a name="enable-performance-counters"></a>Activar los contadores de rendimiento
+Si el área de trabajo de Log Analytics a la que hace referencia la solución no está configurada para recopilar los contadores de rendimiento que requiere la solución, deben habilitarse. Se puede hacer manualmente, como se describe [aquí](../log-analytics/log-analytics-data-sources-performance-counters.md), o mediante la descarga y ejecución de un script de PowerShell disponible en la [galería de Powershell de Azure](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+ 
+#### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Instalación de las soluciones ServiceMap e InfrastructureInsights
+Este método incluye una plantilla JSON que especifica la configuración para habilitar los componentes de la solución en el área de trabajo de Log Analytics.  
 
-### <a name="add-the-policies-and-initiative-to-your-subscription"></a>Agregar las directivas y la iniciativa a la suscripción
-Para usar las directivas, puede usar un script de PowerShell proporcionado ([agregar VMInsightsPolicy.ps1](https://www.powershellgallery.com/packages/Add-VMInsightsPolicy/1.2)) disponible desde la Galería de Azure PowerShell para completar esta tarea. El script agrega las directivas y una iniciativa a la suscripción.  Realice los pasos siguientes para configurar Azure Policy en la suscripción. 
+Si no conoce el concepto de implementación de recursos mediante una plantilla, consulte:
+* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 
-1. Descargue el script de PowerShell en el sistema de archivos local.
+Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-2. Use el siguiente comando de PowerShell en la carpeta para agregar directivas. El script admite los siguientes parámetros opcionales: 
+1. Copie y pegue la siguiente sintaxis JSON en el archivo:
+
+    ```json
+    {
+
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "WorkspaceName": {
+            "type": "string"
+        },
+        "WorkspaceLocation": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-03-15-preview",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('WorkspaceName')]",
+            "location": "[parameters('WorkspaceLocation')]",
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+
+                    "plan": {
+                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                        "promotionCode": ""
+                    }
+                },
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                        "promotionCode": ""
+                    }
+                }
+            ]
+        }
+    ]
+    ```
+
+2. Guarde este archivo como **installsolutionsforvminsights.json** en una carpeta local.
+3. Edite los valores de **WorkspaceName**, **ResourceGroupName** y **WorkspaceLocation**.  El valor de **WorkspaceName** es el identificador de recurso completo de su área de trabajo de Log Analytics, que incluye el nombre del área de trabajo, y el valor de **WorkspaceLocation** es la región en que se define el área de trabajo.
+4. Puede implementar una plantilla mediante el siguiente comando de PowerShell:
 
     ```powershell
-    -UseLocalPolicies [<SwitchParameter>]
-      <Optional> Load the policies from a local folder instead of https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    ```
 
-    -SubscriptionId <String>
-      <Optional> SubscriptionId to add the Policies/Initiatives to
-    -ManagementGroupId <String>
-      <Optional> Management Group Id to add the Policies/Initiatives to
+    El cambio de configuración puede tardar unos minutos en completarse. Cuando se completa, se muestra un mensaje que incluye el resultado y que es similar al siguiente:
 
-    -Approve [<SwitchParameter>]
-      <Optional> Gives the approval to add the Policies/Initiatives without any prompt
-    ```  
+    ```powershell
+    provisioningState       : Succeeded
+    ```
+
+### <a name="enable-using-azure-policy"></a>Habilitar el uso de Azure Policy
+Para habilitar Azure Monitor para VM a una escala que garantice el cumplimiento consistente y la habilitación automática de las máquinas virtuales aprovisionadas, se recomienda [Azure Policy](../azure-policy/azure-policy-introduction.md). Estas directivas:
+
+* Implementan el agente de Log Analytics y Dependency Agent 
+* Informan sobre los resultados de cumplimiento 
+* Corrigen las máquinas virtuales no compatibles
+
+Habilite Azure Monitor para VM mediante la directiva que requiere el inquilino: 
+
+- Asigne la iniciativa a un ámbito (grupo de administración, suscripción o grupo de recursos) 
+- Revisión y corrección de los resultados del cumplimiento  
+
+Para más información acerca de la asignación de Azure Policy, consulte [Introducción a Azure Policy](../governance/policy/overview.md#policy-assignment) y consulte la [introducción a los grupos de administración](../governance/management-groups/index.md) antes de continuar.  
+
+En la tabla siguiente se enumeran las definiciones de directiva proporcionadas.  
+
+|Nombre |Descripción |Tipo |  
+|-----|------------|-----|  
+|[Versión preliminar]: Habilitar Azure Monitor para VM |Permitir habilitar Azure Monitor para las máquinas virtuales (VM) en el ámbito especificado (grupo de administración, suscripción o grupo de recursos). Usa el área de trabajo de Log Analytics como parámetro. |Iniciativa |  
+|[Versión preliminar]: Auditar implementación de Dependency Agent: imagen de la VM (SO) no está en la lista |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está en la lista definida y el agente no está instalado. |Directiva |  
+|[Versión preliminar]: Auditar la implementación del agente de Log Analytics: imagen de la VM (SO) no está en la lista |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está en la lista definida y el agente no está instalado. |Directiva |  
+|[Versión preliminar]: Implementar Dependency Agent en máquinas virtuales Linux |Implementar Dependency Agent en máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |  
+|[Versión preliminar]: Implementar Dependency Agent en máquinas virtuales Windows |Implemente Dependency Agent en máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |  
+|[Versión preliminar]: Implementar el agente de Log Analytics en máquinas virtuales Linux |Implementar el agente de Log Analytics en máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |  
+|[Versión preliminar]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Implementar el agente de Log Analytics en máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |  
+
+Directiva independiente (no se incluye con la iniciativa) 
+
+|Nombre |Descripción |Tipo |  
+|-----|------------|-----|  
+|[Versión preliminar]: auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe |Notificar que las máquinas virtuales no son compatibles si no se registran en el área de trabajo de Log Analytics especificada en la asignación de la directiva o iniciativa. |Directiva |
+
+#### <a name="assign-azure-monitor-initiative"></a>Asignación de una iniciativa de Azure Monitor
+Con esta versión inicial, solo se puede crear la asignación de directiva desde Azure Portal. Para saber cómo completar estos pasos, consulte  [Create a policy assignment from the Azure portal](../governance/policy/assign-policy-portal.md) (Creación de una asignación de directiva desde Azure Portal). 
+
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**. 
+2. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
+3. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones** (Directiva: asignaciones).
+4. En la página **Asignar iniciativa**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción o un grupo de administración y, opcionalmente, un grupo de recursos. Un ámbito limita la asignación de directiva en nuestro caso a una agrupación de máquinas virtuales para su aplicación. Para guardar los cambios, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
+5. Las **exclusiones** permiten omitir uno o varios recursos del ámbito, que es opcional. 
+6. Seleccione los puntos suspensivos de **Definición de iniciativa** para abrir la lista de definiciones disponibles, seleccione  **[Versión preliminar] Habilitar Azure Monitor para VM** en la lista y, después, haga clic en **Seleccionar**.
+7. **Nombre de asignación** se ha rellenado automáticamente con el nombre de la iniciativa que ha seleccionado, pero puede cambiarlo. También puede agregar una **Descripción** opcional. **Asignado por** se rellena automáticamente en función de quién haya iniciado sesión y este campo es opcional.
+8. Seleccione un **área de trabajo de Log Analytics** en la lista desplegable que está disponible en la región admitida.
 
     >[!NOTE]
-    >Nota: Si tiene previsto asignar la iniciativa/directiva a varias suscripciones, las definiciones se deben almacenar en el grupo de almacenamiento que contiene las suscripciones a las que asignará la directiva. Por lo tanto, debe usar el parámetro ManagementGroupID.
+    >Si el área de trabajo está fuera del ámbito de la asignación, debe conceder los permisos de **colaborador de Log Analytics** al identificador de la entidad de seguridad. de la asignación de la directiva. Si no lo hace, es posible que vea un error de implementación, como: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` Consulte [cómo configurar manualmente la identidad administrada](../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity) para conceder acceso.
     >
-   
-    Ejemplo sin parámetros:  `.\Add-VMInsightsPolicy.ps1`
 
-### <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
-Después de ejecutar el script `Add-VMInsightsPolicy.ps1` de PowerShell, se agregan la iniciativa y las directivas siguientes:
+9. Observe que la opción **Identidad administrada** está seleccionada. Se selecciona cuando la iniciativa que se asigna incluye una directiva con el efecto deployIfNotExists. En la lista desplegable **Ubicación de la identidad administrada**, seleccione la región adecuada.  
+10. Haga clic en **Asignar**.
 
-* **Deploy Log Analytics Agent for Windows VMs - Preview** (Implementar el agente de Log Analytics para VM Windows [versión preliminar])
-* **Deploy Log Analytics Agent for Linux VMs - Preview** (Implementar el agente de Log Analytics para VM Linux [versión preliminar])
-* **Deploy Dependency Agent for Windows VMs - Preview** (Implementar Dependency Agent para VM Windows [versión preliminar])
-* **Deploy Dependency Agent for Linux VMs - Preview** (Implementar Dependency Agent para VM Linux [versión preliminar])
-* **Implementación del agente de Log Analytics de auditoría: imagen de la VM (SO) no mostrada (versión preliminar)**
-* **Implementación de Dependency Agent de auditoría: imagen de la VM (SO) no mostrada (versión preliminar)**
+#### <a name="review-and-remediate-the-compliance-results"></a>Revisión y corrección de los resultados del cumplimiento 
 
-Se agrega el parámetro de iniciativa siguiente:
+Puede aprender a revisar los resultados de cumplimiento mediante la lectura de [identificación de los resultados de no cumplimiento](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Seleccione **Cumplimiento** en el lado izquierdo de la página y busque la iniciativa **[Versión preliminar] Habilitar Azure Monitor para VM** que no es compatible por la asignación que ha creado.
 
-- **Área de trabajo de Log Analytics** (tiene que proporcionar el valor de ResourceID del área de trabajo si aplica una asignación con PowerShell o CLI)
+![Cumplimiento de directivas en máquinas virtuales de Azure](./media/monitoring-vminsights-onboard/policy-view-compliance-01.png)
 
-    En el caso de las VM declaradas no compatibles con las directivas de auditoría de **VM fuera del ámbito del sistema operativo**, los criterios de la directiva de implementación solo incluyen las VM implementadas a partir de imágenes de VM conocidas. Consulte en la documentación si el sistema operativo de VM es compatible o no.  Si no lo es, necesitará duplicar la directiva de implementación, y actualizarla o modificarla para crear la imagen en el ámbito.
+En función de los resultados de las directivas incluidas con la iniciativa, las máquinas virtuales se notifican como no compatibles en los siguientes escenarios:  
+  
+1. Log Analytics o Dependency Agent no están implementados.  
+   Esto es típico de un ámbito con las máquinas virtuales existentes. Para mitigarlo, [cree tareas de corrección](../governance/policy/how-to/remediate-resources.md) en una directiva no compatible para implementar los agentes necesarios.    
+ 
+    - [Versión preliminar]: Deploy Dependency Agent for Linux VMs   
+    - [Versión preliminar]: Deploy Dependency Agent for Windows VMs  
+    - [Versión preliminar]: Deploy Log Analytics Agent for Linux VMs  
+    - [Versión preliminar]: Deploy Log Analytics Agent for Windows VMs  
 
-Se agrega la siguiente directiva opcional independiente:
+2. La imagen de la máquina virtual (SO) no está en la lista identificada en la definición de la directiva.  
+   Los criterios de la directiva de implementación solo incluyen las máquinas virtuales que se implementan a partir de imágenes de máquina virtual de Azure conocidas. Consulte en la documentación si el sistema operativo de VM es compatible o no. Si no lo es, tiene que duplicar la directiva de implementación y actualizarla o modificarla para que la imagen sea compatible. 
+  
+    - [Versión preliminar]: Auditar implementación de Dependency Agent: imagen de la VM (SO) no está en la lista  
+    - [Versión preliminar]: Auditar la implementación del agente de Log Analytics: imagen de la VM (SO) no está en la lista
 
-- **VM is configured for mismatched Log Analytics Workspace - Preview (VM configurada para área de trabajo de Log Analytics no coincidente [versión preliminar])**
+3. Las máquinas virtuales no se registran en el área de trabajo de Log Analytics especificada.  
+Es posible que algunas máquinas virtuales del ámbito de la iniciativa se registren en un área de trabajo de Log Analytics distinta de la que una se especificó en la asignación de la directiva. Esta directiva es una herramienta para identificar qué máquinas virtuales notifican a un área de trabajo no compatible.  
+ 
+    - [Versión preliminar]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
-    Esto se puede usar para identificar VM que ya se han configurado con la [extensión de VM de Log Analytics](../virtual-machines/extensions/oms-windows.md), pero se configuran con un área de trabajo distinta a la esperada (tal y como indica la asignación de directiva). Esto toma un parámetro para WorkspaceID.
-
-Con esta versión inicial, solo se puede crear la asignación de directiva desde Azure Portal. Para entender cómo completar estos pasos, consulte [Create a policy assignment from the Azure portal](../azure-policy/assign-policy-definition.md) (Crear una asignación de directiva desde Azure Portal).
-
-## <a name="enable-with-powershell"></a>Habilitar con PowerShell
-Para habilitar Azure Monitor para VM para varias máquinas virtuales o conjuntos de escalado de VM, puede usar un script de PowerShell proporcionado: [Install VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) disponible desde la Galería de Azure PowerShell para completar esta tarea.  Este script se iterará en cada máquina virtual y conjunto de escalado de VM de la suscripción, en el grupo de recursos con ámbito que especifica *ResourceGroup*, o en una sola VM o conjunto de escalado que especifique *Name*.  Para cada VM o conjunto de escalado de máquinas virtuales, el script comprueba si la extensión de VM ya está instalada y, si no, intenta reinstalarla.  En caso contrario, procede a instalar las extensiones de VM de Log Analytics y Dependency Agent.   
+### <a name="enable-with-powershell"></a>Habilitar con PowerShell
+Para habilitar Azure Monitor para VM en varias máquinas virtuales o conjuntos de escalado de máquinas virtuales, puede usar un script de PowerShell proporcionado: [Install VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) disponible en la Galería de Azure PowerShell para completar esta tarea.  Este script se repetirá en todas las máquinas virtuales y conjuntos de escalado de máquinas virtuales de la suscripción, en el grupo de recursos con ámbito que especifica *ResourceGroup* o en una sola máquina virtual o en un conjunto de escalado de máquinas virtuales especificado por *Nombre*.  En cada máquina virtual o conjunto de escalado de máquinas virtuales, el script comprueba si la extensión de la máquina virtual ya está instalada y, si no lo está, intenta reinstalarla.  En caso contrario, procede a instalar las extensiones de VM de Log Analytics y Dependency Agent.   
 
 Este script requiere la versión 5.7.0 o posterior del módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
@@ -588,7 +709,7 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
     ```
 
 2. Guarde este archivo como **installsolutionsforvminsights.json** en una carpeta local.
-3. Edite los valores de **WorkspaceName**, **ResourceGroupName** y **WorkspaceLocation**.  El valor de **WorkspaceName** es el identificador de recurso completo de su área de trabajo de Log Analytics, que incluye el nombre del área de trabajo y el valor de **WorkspaceLocation** es la región en que se define el área de trabajo.
+3. Edite los valores de **WorkspaceName**, **ResourceGroupName** y **WorkspaceLocation**.  El valor de **WorkspaceName** es el identificador de recurso completo de su área de trabajo de Log Analytics, que incluye el nombre del área de trabajo, y el valor de **WorkspaceLocation** es la región en que se define el área de trabajo.
 4. Puede implementar una plantilla mediante el siguiente comando de PowerShell:
 
     ```powershell

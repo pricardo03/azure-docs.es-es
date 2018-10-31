@@ -4,16 +4,16 @@ description: Aprenda sobre la solución de problemas relacionados con los runboo
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163909"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955455"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -38,8 +38,8 @@ Este error se produce si el nombre de activo de credencial no es válido o si el
 
 Para determinar cuál es el problema, siga estos pasos:  
 
-1. Asegúrese de que el nombre de activo de la credencial de Automation que use para conectarse a Azure no contenga caracteres especiales, incluido el carácter **@** .  
-2. Compruebe que puede utilizar el nombre de usuario y la contraseña que se almacenan en la credencial de Azure Automation en su editor local ISE de PowerShell. Puede hacerlo ejecutando los siguientes cmdlets en el ISE de PowerShell:  
+1. Asegúrese de que el nombre de activo de la credencial de Automation que use para conectarse a Azure no contenga caracteres especiales, incluido el carácter **@**.  
+2. Compruebe que puede utilizar el nombre de usuario y la contraseña que se almacenan en la credencial de Azure Automation en su editor local ISE de PowerShell. Puede comprobar si el nombre de usuario y la contraseña son correctos mediante la ejecución de los siguientes cmdlets en el ISE de PowerShell:  
 
    ```powershell
    $Cred = Get-Credential  
@@ -51,7 +51,7 @@ Para determinar cuál es el problema, siga estos pasos:
 
 3. Si la autenticación falla localmente, esto significa que no ha configurado correctamente las credenciales de Azure Active Directory. Vea la entrada de blog [Authenticating to Azure using Azure Active Directory (Autenticación en Azure mediante Azure Active Directory)](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) para conseguir configurar correctamente la cuenta de Active Directory.  
 
-4. Si aparentemente es un error transitorio, intente agregar lógica de reintento a su rutina de autenticación para hacer de la autenticación un proceso más sólido.
+4. Si parece un error transitorio, intente agregar lógica de reintento a su rutina de autenticación para hacer de la autenticación un proceso más sólido.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -122,7 +122,7 @@ Si dispone de autenticación multifactor en su cuenta de Azure, no puede usar un
 
 #### <a name="resolution"></a>Resolución
 
-Para usar un certificado con los cmdlets del modelo de implementación clásica de Azure, consulte el artículo sobre [cómo crear y agregar un certificado para administrar los servicios de Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar una entidad de servicio con los cmdlets de Azure Resource Manager, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) y [Autenticación de una entidad de servicio con Azure Resource Manager](../../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Para usar un certificado con los cmdlets del modelo de implementación clásica de Azure, consulte el artículo sobre [cómo crear y agregar un certificado para administrar los servicios de Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar una entidad de servicio con los cmdlets de Azure Resource Manager, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../../active-directory/develop/howto-create-service-principal-portal.md) y [Autenticación de una entidad de servicio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errores comunes al trabajar con runbooks
 
@@ -225,7 +225,7 @@ Este error puede deberse a las siguientes razones:
 
 1. Sockets de red. Los espacios aislados de Azure se limitan a 1000 sockets de red simultáneos como se describe en [Límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Módulo incompatible. Puede ocurrir si las dependencias del módulo no son correctas. En este caso, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
+1. Módulo incompatible. Este error puede ocurrir si las dependencias del módulo no son correctas. Si no lo son, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
 
 #### <a name="resolution"></a>Resolución
 
@@ -251,7 +251,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 #### <a name="cause"></a>Causa
 
-Si el runbook es un flujo de trabajo de PowerShell almacena objetos complejos en un formato deserializado, para conservar el estado del Runbook si se suspende el flujo de trabajo.
+Si el runbook es un flujo de trabajo de PowerShell, almacena objetos complejos en un formato deserializado para conservar el estado del Runbook si se suspende el flujo de trabajo.
 
 #### <a name="resolution"></a>Resolución
 
@@ -296,7 +296,7 @@ Se produce un error en el trabajo de runbook con el error:
 
 #### <a name="cause"></a>Causa
 
-Este error se produce cuando el motor de PowerShell no puede encontrar el cmdlet que está usando en su Runbook. Esto podría deberse a que el módulo que contiene el cmdlet no está presente en la cuenta, a que haya un conflicto de nombres con un nombre de runbook o a que el cmdlet también existe en otro módulo y Automation no puede resolver el nombre.
+Este error se produce cuando el motor de PowerShell no puede encontrar el cmdlet que está usando en su runbook. Esto podría deberse a que el módulo que contiene el cmdlet no está presente en la cuenta, a que haya un conflicto de nombres con un nombre de runbook o a que el cmdlet también existe en otro módulo y Automation no puede resolver el nombre.
 
 #### <a name="resolution"></a>Resolución
 
@@ -307,33 +307,35 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 * Si tiene un conflicto de nombres y el cmdlet está disponible en dos módulos diferentes, puede resolver este problema mediante el nombre completo del cmdlet. Por ejemplo, puede usar **NombreDeMódulo\NombredeCmdlet**.  
 * Si está ejecutando el runbook local en un grupo de trabajo híbrido, asegúrese de que el cmdlet o módulo está instalado en el equipo que hospeda el trabajo híbrido.
 
-### <a name="evicted-from-checkpoint"></a>Escenario: un runbook de larga duración presenta errores constantemente con la excepción: "El trabajo no se puede seguir ejecutando porque se expulsó repetidamente desde el mismo punto de control"
-
-#### <a name="issue"></a>Problema
-
-Por naturaleza, este comportamiento se debe a la supervisión de "reparto justo" de los procesos de Azure Automation, que suspende automáticamente un runbook si se ejecuta durante más de tres horas. Sin embargo, el mensaje de error devuelto no proporciona opciones para qué hacer a continuación.
-
-#### <a name="cause"></a>Causa
-
-Un runbook se puede suspender por varios motivos. Las suspensiones se producen principalmente debido a errores. Por ejemplo, una excepción no detectada en un runbook, un error de red o un bloqueo en el servicio Runbook Worker que ejecuta el runbook hará que el runbook se suspenda y se inicie desde su último punto de control cuando se reanude.
-
-#### <a name="resolution"></a>Resolución
-
-La solución documentada para evitar este problema consiste en usar puntos de control en un flujo de trabajo. Para más información, consulte el artículo con [información sobre los flujos de trabajo de PowerShell](../automation-powershell-workflow.md#checkpoints). Encontrará una explicación más completa del "reparto equitativo" y los puntos de control en este artículo de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)(Uso de puntos de control en los runbooks).
-
 ### <a name="long-running-runbook"></a>Escenario: un runbook de larga ejecución no se puede completar
 
 #### <a name="issue"></a>Problema
 
-Por naturaleza, este comportamiento en espacios aislados de Azure se debe a la supervisión de "distribución equilibrada" de los procesos de Azure Automation, que suspende automáticamente un runbook si se ejecuta durante más de tres horas.
+El runbook muestra un estado **Detenido** después de ejecutarse durante tres horas. También puede recibir el error:
+
+```
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+```
+
+Por naturaleza, este comportamiento en espacios aislados de Azure se debe a la supervisión de "distribución equilibrada" de los procesos de Azure Automation, que detiene automáticamente un runbook si se ejecuta durante más de tres horas. El estado de un runbook que va más allá del límite de tiempo de "distribución equilibrada" varía según el tipo de runbook. Runbooks de PowerShell y Python se establecen en un estado **Detenido**. Los runbooks del flujo de trabajo de PowerShell se establecen en **Error**.
 
 #### <a name="cause"></a>Causa
 
-El runbook se ejecutó por encima del límite de tres horas permitido por la distribución equilibrada en un espacio aislado de Azure
+El runbook se ejecutó por encima del límite de tres horas permitido por la distribución equilibrada en un espacio aislado de Azure.
 
 #### <a name="resolution"></a>Resolución
 
-La solución recomendada consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los Hybrid Worker no están limitados por el límite de runbook de tres horas de [distribución equilibrada](../automation-runbook-execution.md#fair-share) como los espacios aislados de Azure.
+La solución recomendada consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+Los Hybrid Worker no están limitados por el límite de runbook de tres horas de [distribución equilibrada](../automation-runbook-execution.md#fair-share) como los espacios aislados de Azure. Aunque los Hybrid Runbook Workers no están restringidos por el límite de distribución equilibrada de tres horas, los runbooks ejecutados en Hybrid Runbook Workers deben desarrollarse para admitir comportamientos de reinicio en caso de problemas inesperados con la infraestructura local.
+
+Otra opción es optimizar el runbook mediante la creación de [runbooks secundarios](../automation-child-runbooks.md). Si el runbook secundario recorre en bucle la misma función en varios recursos, como una operación de base de datos en varias bases de datos, la función se puede mover a un runbook secundario. Cada uno de estos runbooks secundarios se ejecutan en paralelo en procesos independientes, lo que reduce el tiempo que el runbook principal tarda en completarse.
+
+Los cmdlets de PowerShell que habilitan el escenario de runbook secundario son:
+
+[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook): este cmdlet permite iniciar un runbook y pasar parámetros al mismo.
+
+[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob): este cmdlet permite comprobar el estado del trabajo de cada elemento secundario si hay operaciones que deben realizarse después de que se complete el runbook secundario.
 
 ## <a name="common-errors-when-importing-modules"></a>Errores comunes al importar módulos
 
@@ -350,7 +352,7 @@ Algunas razones comunes por las que un módulo no se importa correctamente a Azu
 * La estructura no coincide con la estructura que Automation necesita.
 * El módulo depende de otro módulo que no se ha implementado en su cuenta de Automation.
 * Al módulo le faltan sus dependencias en la carpeta.
-* El cmdlet `New-AzureRmAutomationModule` se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una URL de acceso público.
+* El cmdlet `New-AzureRmAutomationModule` se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una dirección URL de acceso público.
 
 #### <a name="resolution"></a>Resolución
 

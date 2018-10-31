@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 02ca9065107b999fa0182c89ae2b9d8ca0c8607a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362881"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958812"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
 En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation del portal para evaluar y obtener información acerca de Automation sin usar soluciones de administración o integración adicionales con Azure Log Analytics. Puede agregar estas soluciones de administración o realizar la integración con Log Analytics para disfrutar de una supervisión avanzada de los trabajos de runbook en cualquier momento en el futuro.
 
-Con una cuenta de Automation, podrá autenticar runbooks mediante la administración de recursos en Azure Resource Manager o en el modelo de implementación clásica.
+Con una cuenta de Automation, podrá autenticar runbooks mediante la administración de recursos en Azure Resource Manager o en el modelo de implementación clásica. Una cuenta de Automation puede administrar los recursos de todas las regiones y suscripciones de un inquilino determinado.
 
 Al crear una cuenta de Automation en Azure Portal, estas cuentas se crean automáticamente:
 
@@ -37,7 +37,7 @@ Con estas cuentas que cree, podrá generar e implementar Runbooks que den soport
 Para crear o actualizar una cuenta de Automation, y completar las tareas que se describen en este artículo, debe tener los siguientes privilegios y permisos:
 
 * Para crear una cuenta de Automation, la cuenta de usuario de Azure AD debe agregarse a un rol con permisos equivalentes al rol de propietario para **Microsoft. Recursos de Automation**. Para más información, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
-* En Azure Portal, en **Azure Active Directory** > **ADMINISTRAR** > **Registros de aplicaciones**, si **Registros de aplicaciones** está establecido en **Sí**, los usuarios sin derechos administrativos del inquilino de Azure AD pueden [registrar aplicaciones de Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Registros de aplicaciones** está establecido en **No**, el usuario que realice esta acción debe ser administrador global de Azure AD.
+* En Azure Portal, en **Azure Active Directory** > **ADMINISTRAR** > **Registros de aplicaciones**, si **Registros de aplicaciones** está establecido en **Sí**, los usuarios sin derechos administrativos del inquilino de Azure AD pueden [registrar aplicaciones de Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Registros de aplicaciones** está establecido en **No**, el usuario que realice esta acción debe ser administrador global de Azure AD.
 
 Si no es miembro de la instancia de Active Directory de la suscripción antes de que le agreguen al rol de administrador global/coadministrador de esta última, se le agregará a Active Directory como invitado. En este escenario, verá este mensaje en la página **Agregar cuenta de Automation**: "No tiene permisos para crear".
 

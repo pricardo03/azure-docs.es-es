@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6262c7029a76deec2dc1169783e9cbf6311fc3f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958278"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165548"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Recopilación de seguimientos distribuidos en Go (versión preliminar)
 
@@ -182,47 +182,47 @@ En primer lugar, tiene que crear un recurso de Application Insights. Este recurs
             log.Fatal(http.ListenAndServe(":50030", &ochttp.Handler{Propagation: &tracecontext.HTTPFormat{}}))
         
         }
-        ```
+     ```
 
-3. Once the simple go app is running navigate to `http://localhost:50030`. Each refresh of the browser will generate the text "hello world" accompanied by corresponding span data that is picked up by the local forwarder.
+3. Una vez que se ejecuta la aplicación de go simple, vaya a `http://localhost:50030`. Cada actualización del explorador generará el texto "hello world" acompañado por los datos del intervalo correspondientes que recoge el reenviador local.
 
-4. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), it will be located in `C:\LF-WindowsServiceHost`.
+4. Para confirmar que el **reenviador local** recoge los seguimientos, compruebe el archivo `LocalForwarder.config`. Si ha seguido los pasos descritos en los [requisitos previos](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), estarán en `C:\LF-WindowsServiceHost`.
 
-    In the image below of the log file, you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
+    En la imagen siguiente del archivo de registro, puede ver que, antes de ejecutar el segundo script donde se ha agregado un exportador, `OpenCensus input BatchesReceived` era 0. Una vez que se empezó a ejecutar el script actualizado `BatchesReceived`, se incrementó en el número de valores que se escribió:
     
-    ![New App Insights resource form](./media/opencensus-go/0004-batches-received.png)
+    ![Formulario de nuevo recurso de Application Insights](./media/opencensus-go/0004-batches-received.png)
 
-## Start monitoring in the Azure portal
+## <a name="start-monitoring-in-the-azure-portal"></a>Inicio de la supervisión en Azure Portal
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
+1. Ahora puede volver a abrir la página **Información general** de Application Insights en Azure Portal para ver los detalles de la aplicación en ejecución. Seleccione **Live Metrics Stream**.
 
-   ![Screenshot of overview pane with live metric stream selected in red box](./media/opencensus-go/0005-overview-live-metrics-stream.png)
+   ![Captura de pantalla del panel de información general con Live Metrics Stream seleccionado en el cuadro rojo](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. If you run the second Go app again and start refreshing the browser for `http://localhost:50030`, you will see live trace data as it arrives in Application Insights from the local forwarder service.
+2. Si ejecuta la segunda aplicación de Go de nuevo y empieza a actualizar el explorador en `http://localhost:50030`, verá datos de seguimiento en tiempo real tal y como llegan a Application Insights desde el servicio de reenviador local.
 
-   ![Screenshot of live metric stream with performance data displayed](./media/opencensus-go/0006-stream.png)
+   ![Captura de pantalla de Live Metrics Stream con datos de rendimiento](./media/opencensus-go/0006-stream.png)
 
-3. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
+3. Vaya de nuevo a la página **Información general** y seleccione **Mapa de aplicación** para obtener un esquema visual de las relaciones de dependencia y la temporalización de las llamadas entre los componentes de la aplicación.
 
-    ![Screenshot of basic application map](./media/opencensus-go/0007-application-map.png)
+    ![Captura de pantalla del mapa de aplicación](./media/opencensus-go/0007-application-map.png)
 
-    Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
+    Puesto que solo estábamos realizando el seguimiento de una llamada a un método, el mapa de aplicación no resulta tan interesante. Pero puede escalarlo para visualizar más aplicaciones distribuidas:
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Mapa de aplicación](./media/app-insights-nodejs-quick-start/application-map.png)
 
-4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
+4. Seleccione **Investigar el rendimiento** para realizar el análisis detallado del rendimiento y determinar la causa de un rendimiento lento.
 
-    ![Screenshot of performance pane](./media/opencensus-go/0008-performance.png)
+    ![Captura de pantalla del panel de rendimiento](./media/opencensus-go/0008-performance.png)
 
-5. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
+5. Al seleccionar **Ejemplos** y, a continuación, hacer clic en alguno de los ejemplos que aparecen en el panel derecho, se iniciará la experiencia de los detalles de la transacción completa. Aunque nuestra aplicación de ejemplo solo nos mostrará un único evento, una aplicación más compleja podría permitirle explorar la transacción completa hasta el nivel de la pila de llamadas de un evento individual.
 
-     ![Screenshot of end-to-end transaction interface](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![Captura de pantalla de la interfaz de una transacción completa](./media/opencensus-go/0009-end-to-end-transaction.png)
 
-## OpenCensus trace for Go
+## <a name="opencensus-trace-for-go"></a>Seguimiento de OpenCensus para Go
 
-We only covered the basics of integrating OpenCensus for Go with the local forwarder and Application Insights. The [official OpenCensus Go usage guidance](https://godoc.org/go.opencensus.io) covers more advanced topics.
+Solo hemos tratado los conceptos básicos de la integración de OpenCensus para Go con el reenviador local y Application Insights. La [Guía de uso oficial de Go de OpenCensus](https://godoc.org/go.opencensus.io) trata más temas avanzados.
 
-## Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
-* [Application map](./app-insights-app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [Mapa de aplicación](./app-insights-app-map.md)
+* [Supervisión del rendimiento de un extremo a otro](./app-insights-tutorial-performance.md)

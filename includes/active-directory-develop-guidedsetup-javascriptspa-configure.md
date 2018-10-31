@@ -14,59 +14,66 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 038ea48bedeb31416627f99b38ebb083846747e4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843244"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988427"
 ---
 ## <a name="register-your-application"></a>Registrar su aplicación
 
-Hay numerosas maneras de crear una aplicación, seleccione una de ellas:
+Hay varias maneras de registrar una aplicación. Seleccione la opción que mejor se adapte a sus necesidades:
+* [Modo rápido: use la guía de inicio rápido de aplicación de página única para configurar la aplicación](#option-1-register-your-application-express-mode)
+* [Modo avanzado: configure manualmente las opciones de la aplicación](#option-2-register-your-application-advanced-mode)
 
 ### <a name="option-1-register-your-application-express-mode"></a>Opción 1: Registro de la aplicación (modo Rápido)
-Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
 
-1.  Registre su aplicación en el [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure).
-2.  Escriba el nombre de la aplicación y su correo electrónico.
-3.  Asegúrese de que está activada la opción **Configuración guiada**.
-4.  Siga las instrucciones para obtener el identificador de aplicación y péguelo en el código.
+1. Inicie sesión en el [Registro de aplicaciones de Azure Portal (versión preliminar)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) para registrar una aplicación.
+1. En la página **Registrar una aplicación**, escriba el nombre de su aplicación.
+1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
+1. Cuando termine, seleccione **Registrar**.
+1. Siga las instrucciones de inicio rápido para descargar y configurar automáticamente su nueva aplicación en un solo clic.
 
 ### <a name="option-2-register-your-application-advanced-mode"></a>Opción 2: Registro de la aplicación (modo Avanzado)
 
-1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar una aplicación.
-2. Escriba el nombre de la aplicación y su correo electrónico.
-3. Asegúrese de que la opción **Configuración guiada** está desactivada.
-4.  Haga clic en **Agregar plataforma** y, después, seleccione **Web**.
-5. Agregue la **URL de redireccionamiento** correspondiente a la dirección URL de la aplicación basada en el servidor web. Consulte las secciones siguientes para obtener instrucciones sobre cómo establecer y obtener la URL de redireccionamiento en Visual Studio y Node.
-6. Seleccione **Guardar**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) para registrar una aplicación.
+1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
+1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory**, y después **Registros de aplicaciones (versión preliminar) > Nuevo registro**.
+1. Cuando se muestre la página **Registrar una aplicación**, escriba el nombre de su aplicación.
+1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
+1. En la sección **URI de redirección**, seleccione la plataforma **Web** y establezca como su valor la dirección URL de la aplicación según su servidor web. Consulte las secciones siguientes para obtener instrucciones sobre cómo establecer y obtener la URL de redireccionamiento en Visual Studio y Node.
+1. Cuando termine, seleccione **Registrar**.
+1. En la página de **Información general** de la aplicación, anote el valor en **Id. de aplicación (cliente)**.
+1. Para esta guía, se requiere que habilite el [flujo de concesión implícita](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md). En el panel de navegación izquierdo de la aplicación registrada, seleccione **Autenticación**.
+1. En **Configuración avanzada**, vaya a **Concesión implícita** y habilite las casillas **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son necesarios, ya que esta aplicación debe iniciar la sesión de los usuarios y llamar a una API.
+1. Seleccione **Guardar**.
 
-> #### <a name="setting-redirect-url-for-node"></a>Configuración de la URL de redireccionamiento para Node
-> Para Node.js, puede establecer el puerto del servidor web en el archivo *server.js*. En este tutorial se usa el puerto 30662 como referencia, pero se puede usar cualquier otro puerto que esté disponible. Cualquiera sea el caso, siga las instrucciones siguientes para configurar una dirección URL de redireccionamiento en la información de registro de aplicación:<br/>
-> - Vuelva al *Portal de registro de aplicaciones* y establezca `http://localhost:30662/` como `Redirect URL`, o utilice `http://localhost:[port]/` si usa un puerto TCP personalizado (donde *[port]* es el número de puerto TCP personalizado) y haga clic en "Guardar".
+> #### <a name="setting-the-redirect-url-for-node"></a>Configuración de la URL de redirección para Node
+> Para Node.js, puede establecer el puerto del servidor web en el archivo *server.js*. En este tutorial se usa el puerto 30662 como referencia, pero puede usar cualquier otro puerto que esté disponible. Siga estas instrucciones para configurar una dirección URL de redireccionamiento en la información de registro de aplicación:<br/>
+> - Vuelva a *Registro de aplicaciones* y establezca `http://localhost:30662/` como `Redirect URL`, o utilice `http://localhost:[port]/` si usa un puerto TCP personalizado (donde *[port]* es el número de puerto TCP personalizado).
 
 <p/>
 
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Instrucciones en Visual Studio para obtener la dirección URL de redireccionamiento
 > Siga estos pasos para obtener la dirección URL de redireccionamiento:
-> 1.    En el **Explorador de soluciones**, seleccione el proyecto y fíjese en la ventana **Propiedades**. Si no ve una ventana **Propiedades**, presione **F4**.
-> 2.    Copie el valor de **URL** en el Portapapeles:<br/> ![Propiedades del proyecto](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.    Vuelva al *Portal de registro de aplicaciones* y pegue el valor como **URL de redireccionamiento**; a continuación, haga clic en **Guardar**.
-
+> 1. En el **Explorador de soluciones**, seleccione el proyecto y fíjese en la ventana **Propiedades**. Si no ve una ventana **Propiedades**, presione **F4**.
+> 2. Copie el valor de **URL** en el Portapapeles:<br/> ![Propiedades del proyecto](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3. Vuelva a *Registro de aplicaciones* y pegue el valor como **URL de redireccionamiento**.
 
 #### <a name="configure-your-javascript-spa"></a>Configuración de JavaScript SPA
 
-1.  En el archivo `index.html` creado durante la instalación del proyecto, agregue la información de registro de aplicación. Agregue el código siguiente en la parte superior, dentro de las etiquetas `<script></script>` en el cuerpo del archivo `index.html`:
+1. En el archivo `index.html` creado durante la instalación del proyecto, agregue la información de registro de aplicación. Agregue el código siguiente en la parte superior, dentro de las etiquetas `<script></script>` en el cuerpo del archivo `index.html`:
 
-```javascript
-var applicationConfig = {
-    clientID: "[Enter the application Id here]",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
-};
-```
-<ol start="3">
+    ```javascript
+    var applicationConfig = {
+        clientID: "[Enter the application Id here]",
+        graphScopes: ["user.read"],
+        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    };
+    ```
+
+<ol start="2">
 <li>
 Reemplace <code>Enter the application Id here</code> por el identificador de aplicación que acaba de registrar.
 </li>

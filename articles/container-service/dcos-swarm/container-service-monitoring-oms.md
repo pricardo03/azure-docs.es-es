@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: b326e5b686e14cefac4e6376bd3f26787ea1d10d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4576d9decc6ba1e01ef39abdb8a3ef89461196e8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164598"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407799"
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Supervisión de un clúster de DC/OS de Azure Container Service con Log Analytics
 
@@ -22,7 +22,7 @@ Log Analytics es la solución de administración de TI basada en la nube de Micr
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Para más información sobre la solución de contenedor, consulte [Solución Containers (versión preliminar) en Log Analytics](../../log-analytics/log-analytics-containers.md).
+Para obtener más información sobre la solución de contenedor, consulte [Solución Containers (versión preliminar) en Log Analytics](../../log-analytics/log-analytics-containers.md).
 
 ## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Configuración de Log Analytics desde el universo de DC/OS
 
@@ -30,44 +30,35 @@ Para más información sobre la solución de contenedor, consulte [Solución Con
 En este artículo se supone que ha configurado un DC/OS y ha implementado aplicaciones de contenedor web simples en el clúster.
 
 ### <a name="pre-requisite"></a>Requisito previo
-- [Suscripción de Microsoft Azure](https://azure.microsoft.com/free/) (se puede obtener de gratis).  
+- [Suscripción de Microsoft Azure](https://azure.microsoft.com/free/): se puede obtener gratis.  
 - Configuración de área de trabajo de Log Analytics (consulte el "paso 3" a continuación)
 - [CLI de DC/OS](https://dcos.io/docs/1.8/usage/cli/install/) instalada.
 
 1. En el panel de DC/OS, haga clic en Universo y busque ‘OMS’ tal y como se muestra a continuación.
 
-![](media/container-service-monitoring-oms/image2.png)
+   >[!NOTE]
+   >OMS ahora se conoce como Log Analytics.
+
+ ![](media/container-service-monitoring-oms/image2.png)
 
 2. Haga clic en **Instalar**. Verá un mensaje emergente con la información de versión y un botón **Instalar paquete** o **Advanced Installation** (Instalación avanzada). Al hacer clic en **Instalación avanzada**, se abre la página **OMS specific configuration properties** (Propiedades de configuración específicas de OMS).
 
-![](media/container-service-monitoring-oms/image3.png)
+ ![](media/container-service-monitoring-oms/image3.png)
 
-![](media/container-service-monitoring-oms/image4.png)
+ ![](media/container-service-monitoring-oms/image4.png)
 
 3. Aquí se le pedirá que escriba `wsid` (el identificador del área de trabajo de Log Analytics) y `wskey` (la clave principal para el identificador del área de trabajo). Para obtener tanto `wsid` como `wskey`, tiene que crear una cuenta en <https://mms.microsoft.com>.
 Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, deberá obtener su `wsid` y `wskey` haciendo clic en **Configuración**, luego en **Orígenes conectados** y, por último, en **Servidores Linux**, tal y como se muestra a continuación.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. Seleccione el número de instancias que desee y haga clic en el botón Revisar e instalar. Por lo general, querrá tener el mismo número de instancias que VM que hay en el clúster de agente. El agente de OMS para Linux se instala como contenedores individuales en cada VM que quiere para recopilar información de supervisión e inicio de sesión.
+4. Seleccione el número de instancias que desee y haga clic en el botón Revisar e instalar. Por lo general, querrá tener el mismo número de instancias que VM que hay en el clúster de agente. El agente de Log Analytics para Linux se instala como contenedores individuales en cada VM que quiere para recopilar información de supervisión e inicio de sesión.
 
-## <a name="setting-up-a-simple-oms-dashboard"></a>Configuración de un panel de OMS
+   [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Una vez que instalado al agente de OMS para Linux en las VM, el siguiente paso es configurar el panel de OMS. Hay dos maneras de hacerlo: mediante el portal de OMS o mediante Azure Portal.
+## <a name="setting-up-a-simple-log-analytics-dashboard"></a>Configuración de un panel de Log Analytics sencillo
 
-### <a name="oms-portal"></a>Portal de OMS 
-
-Inicie sesión en el portal de OMS (<https://mms.microsoft.com>) y vaya a la **Galería de soluciones**.
-
-![](media/container-service-monitoring-oms/image6.png)
-
-Cuando se encuentre en la **Galería de soluciones**, seleccione **Contenedores**.
-
-![](media/container-service-monitoring-oms/image7.png)
-
-Una vez que haya seleccionado la solución de contenedor, verá el icono en la página OMS Overview Dashboard (Panel de información general de OMS). Una vez indizador los datos de contenedor ingeridos, verá el icono rellenado con información sobre los iconos de vista de la solución.
-
-![](media/container-service-monitoring-oms/image8.png)
+Una vez que instalado al agente de Log Analytics para Linux en las VM, el siguiente paso es configurar el panel de Log Analytics. Puede configurar el panel a través de Azure Portal.
 
 ### <a name="azure-portal"></a>Azure Portal 
 
@@ -85,15 +76,15 @@ Una vez que haya seleccionado el área de trabajo, haga clic en **Crear**.
 
 Para más información sobre la solución de contenedor de Log Analytics, consulte [Solución de Supervisión de contenedores de Azure Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-### <a name="how-to-scale-oms-agent-with-acs-dcos"></a>Escalado del agente de OMS con ACS DC/OS 
+### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>Escalado del agente de Log Analytics con ACS DC/OS 
 
-En caso de que se necesite tener instalado el agente de OMS o esté escalando verticalmente VMSS mediante la incorporación de más VM, puede hacerlo mediante el escalado del servicio `msoms`.
+En caso de que se necesite tener instalado el agente de Log Analytics o esté escalando verticalmente VMSS mediante la incorporación de más conjuntos de escalado de máquinas virtuales, puede hacerlo mediante el escalado del servicio `msoms`.
 
 Puede ir a Marathon o la pestaña de servicios de IU de DC/OS y escalar verticalmente el número de nodos.
 
 ![](media/container-service-monitoring-oms/image12.PNG)
 
-Esto se implementará en otros nodos que aún no han implementado el agente de OMS.
+Esto se implementará en otros nodos que aún no han implementado el agente de Log Analytics.
 
 ## <a name="uninstall-ms-oms"></a>Desinstalación de MS OMS
 

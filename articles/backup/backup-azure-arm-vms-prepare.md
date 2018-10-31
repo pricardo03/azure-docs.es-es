@@ -2,26 +2,25 @@
 title: 'Azure Backup: Preparación para la copia de seguridad de máquinas virtuales'
 description: Asegúrese de que el entorno esté preparado para hacer la copia de seguridad de máquinas virtuales en Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: copias de seguridad; realizar copia de seguridad
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884940"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025946"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
+# <a name="prepare-to-back-up-azure-vms"></a>Preparación para copias de seguridad de máquinas virtuales de Azure
 
-En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure. Al hacer una copia de seguridad de una máquina virtual, los datos de copia de seguridad o los puntos de recuperación se almacenan en un almacén de Recovery Services. Los almacenes de Recovery Services contienen los datos de copia de seguridad para la máquina virtual implementada según el modelo clásico y la implementada por Resource Manager.
+En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure. Al hacer una copia de seguridad de una máquina virtual, los datos de copia de seguridad o los puntos de recuperación se almacenan en un almacén de copia de seguridad de Recovery Services. 
 
-> [!NOTE]
-> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Para proteger o realizar una copia de seguridad de una máquina virtual implementada mediante Resource Manager, asegúrese de cumplir los siguientes requisitos previos:
 
@@ -47,7 +46,6 @@ Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de segur
 Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 
 * No se admite la copia de seguridad de máquinas virtuales con más de 32 discos de datos.
-* No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
 * No se admite la copia de seguridad de máquinas virtuales Linux en las que se ha usado el cifrado LUKS (Linux Unified Key Setup).
 * No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Si hace esto, se espera un error de los escritores de CSV. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM.
 * Los datos de la copia de seguridad no incluyen unidades montadas de red conectadas a una máquina virtual.

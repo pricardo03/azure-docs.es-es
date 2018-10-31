@@ -1,27 +1,28 @@
 ---
-title: API REST del servicio Speech
-description: Referencia de las API REST del servicio Speech.
+title: API REST del servicio Voz
+description: Referencia de las API REST del servicio Voz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167637"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025844"
 ---
-# <a name="speech-service-rest-apis"></a>API REST del servicio Speech
+# <a name="speech-service-rest-apis"></a>API REST del servicio Voz
 
 Las API de REST del servicio de voz de Azure Cognitive Services son similares a las API que proporciona [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). Los puntos de conexión son distintos a los usados por el servicio Bing Speech. Hay puntos de conexión regionales disponibles, y debe usar una clave de suscripción que corresponda al punto de conexión que esté usando.
 
 ## <a name="speech-to-text"></a>Speech to Text
 
-Los puntos de conexión de la API de REST de conversión de voz en texto se muestran en la tabla siguiente. Use el que coincida con su región de suscripción. 
+Los puntos de conexión de la API de REST de conversión de voz en texto se muestran en la tabla siguiente. Use el que coincida con su región de suscripción.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -56,13 +57,13 @@ Los siguientes campos se envían en el encabezado de la solicitud HTTP.
 
 ### <a name="audio-format"></a>Formato de audio
 
-El audio se envía en el cuerpo de la solicitud HTTP `PUT`. Debe estar en formato WAV de 16 bits con canal único PCM (mono) a 16 kHz de los siguientes formatos/codificaciones.
+El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en formato WAV de 16 bits con canal único PCM (mono) a 16 kHz de los siguientes formatos/codificaciones.
 
 * Formato WAV con el códec PCM
 * Formato Ogg con el códec OPUS
 
 >[!NOTE]
->Se admiten los formatos anteriores a través de la API de REST y WebSocket en el servicio de voz. El [SDK de Voz](/index.yml) actualmente solo admite el formato WAV con el códec PCM. 
+>Se admiten los formatos anteriores a través de la API de REST y WebSocket en el servicio de voz. El [SDK de Voz](/index.yml) actualmente solo admite el formato WAV con el códec PCM.
 
 ### <a name="chunked-transfer"></a>Transferencia fragmentada
 
@@ -144,7 +145,7 @@ El campo `RecognitionStatus` puede contener los siguientes valores.
 | `Error` | El servicio de reconocimiento ha detectado un error interno y no ha podido continuar. Vuelva a intentarlo si es posible. |
 
 > [!NOTE]
-> Si el audio consta solo de palabras soeces y el parámetro de consulta `profanity` está establecido en `remove`, el servicio no devuelve ningún resultado de voz. 
+> Si el audio consta solo de palabras soeces y el parámetro de consulta `profanity` está establecido en `remove`, el servicio no devuelve ningún resultado de voz.
 
 
 El formato `detailed` incluye los mismos campos que el formato `simple`, además de un campo `NBest`. El campo `NBest` es una lista de interpretaciones alternativas de la misma de voz, clasificadas de la más a la menos probable. La primera entrada es la misma que el resultado de reconocimiento principal. Cada entrada contiene los siguientes campos:
@@ -206,7 +207,7 @@ El servicio de voz admite la salida de audio de 24 kHz además de la salida de 1
 
 Configuración regional | Idioma   | Sexo | Asignación de nombre de servicio
 -------|------------|--------|------------
-es-ES  | English (Estados Unidos) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+es-ES  | English (Estados Unidos) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
 es-ES  | English (Estados Unidos) | Hombre   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 Hay una lista completa de voces disponibles en [Idiomas admitidos](language-support.md#text-to-speech).
@@ -234,7 +235,7 @@ Los formatos de salida de audio disponibles (`X-Microsoft-OutputFormat`) incorpo
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Si la voz y el formato de salida seleccionados tienen velocidades de bits diferentes, se vuelve a muestrear el audio según sea necesario. Pero las voces de 24 kHz no admiten los formatos de salida `audio-16khz-16kbps-mono-siren` y `riff-16khz-16kbps-mono-siren`. 
+> Si la voz y el formato de salida seleccionados tienen velocidades de bits diferentes, se vuelve a muestrear el audio según sea necesario. Pero las voces de 24 kHz no admiten los formatos de salida `audio-16khz-16kbps-mono-siren` y `riff-16khz-16kbps-mono-siren`.
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -253,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -327,10 +328,10 @@ cURL es una herramienta de la línea de comandos disponible en Linux (y en el su
 > El comando se muestra en varias líneas por motivos de legibilidad, pero escríbalo en una única línea en el símbolo del sistema de Shell.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -410,7 +411,7 @@ Al igual que antes, asegúrese de que el valor `FetchTokenUri` coincida con su r
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -485,4 +486,3 @@ public class Authentication
 - [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
-

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348895"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407663"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Para más información acerca de la puerta de enlace, consulte [Puerta de enlace de datos local](analysis-services-gateway.md).
@@ -40,7 +40,7 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 * Al instalar la puerta de enlace, la cuenta de usuario con que ha iniciado sesión en el equipo debe tener Iniciar sesión como privilegios de servicio. Una vez completada la instalación, el servicio de puerta de enlace de datos local usa la cuenta de SERVICE\PBIEgwService para iniciar sesión como servicio. Puede especificar una cuenta diferente durante la instalación o en los servicios una vez completada la instalación. Asegúrese de que la configuración de la directiva de grupo permita tanto la cuenta con la que ha iniciado sesión al instalar como la cuenta de servicio que ha elegido que tenga Iniciar sesión como privilegios de servicio.
 * Inicie sesión en Azure con una cuenta de Azure AD que tenga el mismo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que la suscripción donde va a registrar la puerta de enlace. No se pueden utilizar cuentas B2B (invitadas) de Azure para instalar y registrar una puerta de enlace.
 * Si los orígenes de datos se encuentran en una red Azure Virtual Network (VNet) debe configurar la propiedad de servidor [AlwaysUseGateway](analysis-services-vnet-gateway.md).
-* La puerta de enlace (unificada) que se describe aquí no se admite en Azure Government ni en las regiones soberanas Azure Alemania y Azure China. Use una **puerta de enlace local específica para Azure Analysis Services**, instalada desde el **Inicio rápido** del servidor en el portal. 
+* La puerta de enlace (unificada) que se describe aquí no se admite en regiones de Azure Alemania. En su lugar, use una **puerta de enlace local específica para Azure Analysis Services**, instalada desde el **Inicio rápido** del servidor en el portal. 
 
 
 ## <a name="download"></a>Descarga

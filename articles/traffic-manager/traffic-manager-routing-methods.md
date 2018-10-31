@@ -4,7 +4,6 @@ description: Este artículo le ayudará a entender los distintos métodos de enr
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785416"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955225"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de enrutamiento del Administrador de tráfico
 
@@ -129,8 +128,11 @@ Como se explica en [Cómo funciona Traffic Manager](traffic-manager-how-it-works
 El método de enrutamiento de tráfico **Multivalor** permite obtener varios puntos de conexión correctos en una única respuesta de consulta de DNS. Esto permite al autor de la llamada hacer reintentos en el lado del cliente con otros puntos de conexión en el caso de que un punto de conexión devuelto no responda. Este patrón puede aumentar la disponibilidad de un servicio y reducir la latencia asociada a una nueva consulta de DNS para obtener un punto de conexión correcto. El método de enrutamiento Multivalor solo funciona si todos los puntos de conexión del tipo "Externo" están especificados como direcciones IPv4 o IPv6. Al recibirse una consulta relacionada con este perfil, se devuelven todos los puntos de conexión correctos y están sujetos a un número máximo de devoluciones configurado.
 
 ## <a name = "subnet"></a>Método de enrutamiento de tráfico de subred
-El método de enrutamiento de tráfico **Subred** permite asignar un conjunto de intervalos de direcciones IP de usuario final a puntos de conexión específicos en un perfil. Después de eso, si Traffic Manager recibe una consulta de DNS para ese perfil, inspeccionará la dirección IP de origen de esa solicitud (en la mayoría de los casos esta será la dirección IP saliente de la resolución DNS utilizada por el autor de la llamada), determinará a qué punto de conexión está asignada y devolverá ese punto de conexión en la respuesta de la consulta. La dirección IP que debe asignarse a un punto de conexión puede especificarse como intervalos CIDR (por ejemplo, 1.2.3.0/24) o como un intervalo de direcciones (por ejemplo, 1.2.3.4-5.6.7.8). Los intervalos IP asociados con un punto de conexión deben ser únicos dentro de ese perfil y no pueden tener una superposición con el conjunto de direcciones IP de un punto de conexión diferente en el mismo perfil.
-Si no hay puntos de conexión a los que se pueda asignar esa dirección IP, Traffic Manager enviará una respuesta NODATA. Por lo tanto, se recomienda encarecidamente que se asegure de que se especifican todos los rangos IP posibles en todos los puntos de conexión.
+El método de enrutamiento de tráfico **Subred** permite asignar un conjunto de intervalos de direcciones IP de usuario final a puntos de conexión específicos en un perfil. Después de eso, si Traffic Manager recibe una consulta de DNS para ese perfil, inspeccionará la dirección IP de origen de esa solicitud (en la mayoría de los casos esta será la dirección IP saliente de la resolución DNS utilizada por el autor de la llamada), determinará a qué punto de conexión está asignada y devolverá ese punto de conexión en la respuesta de la consulta. 
+
+La dirección IP que debe asignarse a un punto de conexión puede especificarse como intervalos CIDR (por ejemplo, 1.2.3.0/24) o como un intervalo de direcciones (por ejemplo, 1.2.3.4-5.6.7.8). Los intervalos IP asociados con un punto de conexión deben ser únicos dentro de ese perfil y no pueden tener una superposición con el conjunto de direcciones IP de un punto de conexión diferente en el mismo perfil.
+Si define un punto de conexión sin intervalo de direcciones, este funcionará como una reserva y tomará el tráfico de las subredes restantes. Si no se incluye ningún punto de conexión de reserva, Traffic Manager envía una respuesta NODATA para cualquier intervalo indefinido. Por lo tanto, se recomienda encarecidamente que defina un punto de conexión de reserva o que se asegure de que todos los intervalos de IP posibles estén especificados en sus puntos de conexión.
+
 El enrutamiento de subredes se puede utilizar para ofrecer una experiencia diferente a los usuarios que se conectan desde un espacio IP específico. Por ejemplo, mediante el enrutamiento de subredes, un cliente puede hacer que todas las solicitudes de su oficina corporativa se enruten a un punto de conexión diferente donde podría estar probando una versión interna de la aplicación. Otro escenario es si desea proporcionar una experiencia diferente a los usuarios que se conectan desde un ISP específico (por ejemplo, bloquear a los usuarios de un ISP determinado).
 
 ## <a name="next-steps"></a>Pasos siguientes

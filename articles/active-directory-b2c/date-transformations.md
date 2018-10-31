@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542776"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405827"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -138,17 +138,17 @@ Obtenga la fecha y la hora UTC actual y agregue el valor a ClaimType.
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Determine si un valor dateTime es mayor, menor o igual que otro. El resultado es un nuevo ClaimType booleano con un valor de verdadero o falso.
+Determine si un valor dateTime es mayor, menor o igual que otro. El resultado es un nuevo ClaimType booleano con un valor de `true` o `false`.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | dateTime | La primera dateTime para comparar. Un valor nulo inicia una excepción. |
-| InputClaim | secondDateTime | dateTime | La segunda dateTime para completarse. Un valor nulo se trata como dateTime actual. |
+| InputClaim | firstDateTime | dateTime | El primer valor de dateTime para comparar si es anterior o posterior al segundo valor de dateTime. Un valor nulo inicia una excepción. |
+| InputClaim | secondDateTime | dateTime | El segundo valor de dateTime para comparar si es anterior o posterior al primer valor de dateTime. El valor NULL se trata como el valor de dateTime actual. |
 | InputParameter | operator | string | Uno de los siguientes valores: same, later than o earlier than. |
 | InputParameter | timeSpanInSeconds | int | Agregue el intervalo de tiempo a la primera fecha y hora. |
 | OutputClaim | result | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
-Use esta transformación de notificaciones para determinar si dos ClaimType son iguales, mayores o menores entre sí. Por ejemplo, puede almacenar la última vez que un usuario ha aceptado los términos del servicio (TOS). Después de 3 meses, puede pedir al usuario que vuelva a acceder a los TOS.
+Use esta transformación de notificaciones para determinar si dos valores ClaimType son iguales, mayores o menores entre sí. Por ejemplo, puede almacenar la última vez que un usuario ha aceptado los términos del servicio (TOS). Después de 3 meses, puede pedir al usuario que vuelva a acceder a los TOS.
 Para ejecutar la transformación de notificaciones, primero deberá obtener el valor dateTime actual y la última vez que el usuario aceptó los TOS.
 
 ```XML
@@ -158,7 +158,7 @@ Para ejecutar la transformación de notificaciones, primero deberá obtener el v
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -173,7 +173,7 @@ Para ejecutar la transformación de notificaciones, primero deberá obtener el v
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Parámetros de entrada:
-    - **operator**: greater than
+    - **operator**: mayor que
     - **timeSpanInSeconds**: 7776000 (90 días)
 - Notificaciones de salida: 
     - **result**: true

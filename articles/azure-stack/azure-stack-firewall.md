@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604223"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343663"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integración del firewall de Azure Stack
 Se recomienda que use un dispositivo de firewall para ayudar a proteger Azure Stack. Aunque los firewalls pueden ayudar en el caso de ataques por denegación de servicio distribuido (DDOS), detección de intrusiones e inspección de contenidos, también pueden convertirse en un cuello de botella de rendimiento para servicios de almacenamiento de Azure como blobs, tablas y colas.
@@ -34,7 +34,7 @@ Para organizaciones empresariales, la red externa puede ser la red corporativa e
 ### <a name="network-address-translation"></a>Traducción de direcciones de red
 La traducción de direcciones de red (NAT) es el método recomendado para permitir que la máquina virtual de implementación (DVM) acceda a los recursos externos y a Internet durante la implementación, así como a las VM de la consola de recuperación de emergencia (ERCS) o al punto de conexión con privilegios (PEP) durante el registro y la solución de problemas.
 
-NAT también puede ser una alternativa a las direcciones IP públicas de la red externa o VIP públicas. Sin embargo, no se recomienda, ya que limita la experiencia del usuario inquilino y aumenta la complejidad. Las dos opciones serían una NAT de 1:1 que aún necesitaría una IP pública por IP de usuario en el grupo o una NAT muchos:1 que requeriría una regla NAT por VIP de usuario que contenga las asociaciones para todos los puertos que un usuario podría utilizar.
+NAT también puede ser una alternativa a las direcciones IP públicas de la red externa o VIP públicas. Sin embargo, no se recomienda, ya que limita la experiencia del usuario inquilino y aumenta la complejidad. Las dos opciones serían una NAT de 1:1 que aún necesitaría una IP pública por IP de usuario en el grupo, o una NAT de muchos:1 que requeriría una regla NAT por IP virtual de usuario que contenga las asociaciones para todos los puertos que un usuario podría utilizar.
 
 Algunas de las desventajas del uso de NAT para una VIP pública son:
 - NAT agrega sobrecarga al administrar las reglas de firewall, ya que los usuarios controlan sus propios puntos de conexión y sus propias reglas de publicación en la pila de redes definidas por software (SDN). Los usuarios deben ponerse en contacto con el operador de Azure Stack para que se publiquen sus VIP y para actualizar la lista de puertos.

@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064465"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309508"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
-La informática sin servidor se trata de la capacidad de centrarse en partes de lógica individuales repetibles y sin estado. Estas partes no requieren administración de la infraestructura y solo usan recursos durante los segundos o milisegundos durante los cuales se ejecutan. La base del movimiento de la informática sin servidor son las funciones, las que están disponibles en el ecosistema de Azure mediante [Azure Functions](https://azure.microsoft.com/services/functions).
+La informática sin servidor se trata de la capacidad de centrarse en partes de lógica individuales repetibles y sin estado. Estas partes no requieren administración de la infraestructura y solo usan recursos durante los segundos o milisegundos durante los cuales se ejecutan. La base del movimiento de la informática sin servidor son las funciones, las que están disponibles en el ecosistema de Azure mediante [Azure Functions](https://azure.microsoft.com/services/functions). Para información acerca de otros entornos de ejecución sin servidor en Azure, consulte la página [Informática sin servidor de Azure](https://azure.microsoft.com/solutions/serverless/). 
 
 Con la integración nativa entre [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) y Azure Functions, puede crear desencadenadores de base de datos, enlaces de entrada y enlaces de salida directamente desde la cuenta de Azure Cosmos DB. Con Azure Functions y Azure Cosmos DB, puede crear e implementar aplicaciones sin servidor basadas en eventos con acceso de baja latencia a los datos enriquecidos para una base de usuarios global.
 

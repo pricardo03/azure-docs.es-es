@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336811"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408071"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -63,9 +63,9 @@ App Service proporciona un almacén de tokens integrado, que es un repositorio d
 - publicar en la escala de tiempo de Facebook del usuario autenticado
 - leer los datos corporativos del usuario de Graph API de Azure Active Directory o incluso de Microsoft Graph
 
-Los tokens de identificador, los tokens de acceso y los tokens de actualización se almacenaron en caché durante la sesión autenticada y solamente el usuario asociado puede acceder a ellos.  
-
 Normalmente, debe escribir código para recopilar, almacenar y actualizar estos tokens en la aplicación. Con el almacén de tokens, simplemente [recupera los tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) cuando los necesita e [indica a App Service que los actualice](app-service-authentication-how-to.md#refresh-access-tokens) cuando dejan de ser válidos. 
+
+Los tokens de identificador, los tokens de acceso y los tokens de actualización se almacenaron en caché durante la sesión autenticada y solamente el usuario asociado puede acceder a ellos.  
 
 Si no necesita trabajar con tokens en la aplicación, puede deshabilitar el almacén de tokens.
 
@@ -80,7 +80,7 @@ App Service usa la [identidad federada](https://en.wikipedia.org/wiki/Federated_
 | Proveedor | Punto de conexión de inicio de sesión |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Cuenta Microsoft](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
+| [Cuenta Microsoft](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |

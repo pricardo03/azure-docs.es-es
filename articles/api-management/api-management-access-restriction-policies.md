@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269526"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092548"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -136,9 +136,6 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  La directiva `rate-limit-by-key` evita los picos de uso de la API según clave limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se deben contar para este límite. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.  
   
  Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
-  
-> [!IMPORTANT]
->  Esta directiva se puede usar una sola vez por documento de directiva.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
   
@@ -288,13 +285,10 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** producto  
   
 ##  <a name="SetUsageQuotaByKey"></a>Establecer cuota de uso por clave  
- La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
+ La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Si varias directivas incrementan el mismo valor de clave, se incrementa solo una vez por solicitud. Cuando se alcanza el límite de llamadas, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
   
  Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
-> [!IMPORTANT]
->  Esta directiva se puede usar una sola vez por documento de directiva.  
->   
 >  Las [expresiones de directiva](api-management-policy-expressions.md) no se pueden usar en ninguno de los atributos de esta directiva.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  

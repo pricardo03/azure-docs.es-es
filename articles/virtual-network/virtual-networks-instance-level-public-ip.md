@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430988"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024637"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Introducción a las direcciones IP públicas a nivel de instancia (clásica)
 Una IP pública de nivel de instancia (ILPIP) es una dirección IP pública que se puede asignar directamente a la máquina virtual o a la instancia de rol de Cloud Services, en lugar de a un servicio en la nube en el que reside la máquina virtual o la instancia de rol. Un ILPIP no reemplaza a la dirección IP virtual (VIP) que está asignada al servicio en la nube. Es más bien una dirección IP adicional que puede usar para conectarse directamente a la máquina virtual o instancia de rol.
@@ -47,7 +47,7 @@ Cuando se crea un servicio en la nube en Azure, los registros de DNS A correspon
 ## <a name="why-would-i-request-an-ilpip"></a>¿Por qué debo solicitar una ILPIP?
 Si desea poder conectarse a la máquina virtual o a la instancia de rol mediante una dirección IP asignada directamente a ella, en lugar de usar la VIP:&lt;número de puerto&gt; del servicio en la nube, solicite una ILPIP para la máquina virtual o la instancia de rol.
 
-* **FTP activo**: mediante la asignación de una ILPIP a una máquina virtual, puede recibir tráfico en cualquier puerto. Los puntos de conexión no son necesarios para que la máquina virtual reciba tráfico.  Consulte [Introducción al protocolo de FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) para obtener más información sobre el protocolo FTP.
+* **FTP activo**: mediante la asignación de una ILPIP a una máquina virtual, puede recibir tráfico en cualquier puerto. Los puntos de conexión no son necesarios para que la máquina virtual reciba tráfico.  Consulte la [información general sobre el protocolo FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) para obtener más información sobre el protocolo FTP.
 * **IP de salida**: el tráfico de salida procedente de la máquina virtual se asigna a la ILPIP como origen y, de esta forma, esta última identifica de forma exclusiva la máquina virtual ante entidades externas.
 
 > [!NOTE]

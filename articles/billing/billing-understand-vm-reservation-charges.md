@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 460cd3a5b05680563661e2f6519eaa3506eee03b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e43188459bf495748a054b0f24936c9141bd218c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392095"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025728"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aprenda cómo se aplica un descuento en la reserva de Azure a las máquinas virtuales
 
@@ -51,7 +51,7 @@ Para comprender y ver la aplicación de Azure Reservations en los informes de us
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicación del descuento de reserva a máquinas virtuales con Windows
 
-Cuando ejecuta instancias de máquina virtual Windows, la reserva se aplica para cubrir los costos de infraestructuras. La aplicación de la reserva a los costos de infraestructuras de máquinas virtuales con Windows es la misma que para las máquinas virtuales que no ejecutan Windows. Se le cobra por separado por el software de Windows según el número de vCPU. Consulte los [costos de software de Windows con Reservations](https://go.microsoft.com/fwlink/?linkid=862756). Puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)).
+Cuando ejecuta instancias de máquina virtual Windows, la reserva se aplica para cubrir los costos de infraestructuras. La aplicación de la reserva a los costos de infraestructuras de máquinas virtuales con Windows es la misma que para las máquinas virtuales que no ejecutan Windows. Se le cobra por separado por el software de Windows según el número de vCPU. Consulte los [costos de software de Windows con Reservations](https://go.microsoft.com/fwlink/?linkid=862756). Puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure para Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

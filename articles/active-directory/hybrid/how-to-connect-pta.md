@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 899aeeb994ca5c9bf30dfca876dff61c1ccf3ea7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320329"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637586"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory
 
@@ -48,8 +48,9 @@ Puede combinar la autenticación de paso a través con la característica de [in
   - Sin sobrecarga de administración. El agente recibe automáticamente las mejoras y las correcciones de errores.
 - *Protección*
   - Las contraseñas locales nunca se almacenan en la nube.
-  - El agente solo realiza conexiones salientes desde dentro de la red. Por lo tanto, no es necesario instalar el agente en una red perimetral, también conocida como DMZ.
   - Protege las cuentas de usuario y, para ello, trabaja sin problemas con [directivas de acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md), incluida la autenticación multifactor, el [bloqueo de autenticación heredada](../authentication/howto-password-smart-lockout.md) y el [filtrado de ataques por fuerza bruta](../conditional-access/conditions.md).
+  - El agente solo realiza conexiones salientes desde dentro de la red. Por lo tanto, no es necesario instalar el agente en una red perimetral, también conocida como DMZ.
+  - La comunicación entre un agente y Azure AD está protegida mediante la autenticación basada en certificados. Azure AD renueva estos certificados automáticamente cada pocos meses.
 - *Alta disponibilidad*
   - Se pueden instalar agentes adicionales en varios servidores locales para lograr una alta disponibilidad de las solicitudes de inicio de sesión.
 

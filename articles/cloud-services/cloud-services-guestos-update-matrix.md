@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 239482151384ff555d86e3d639bfe1d75b0d0ceb
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604899"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376676"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -43,6 +43,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
 
+###### <a name="october-12-2018"></a>**12 de octubre de 2018**
+Se ha publicado el SO invitado de septiembre.
+
 ###### <a name="september-12-2018"></a>**12 de septiembre de 2018**
 Se ha publicado el SO invitado de agosto.
 
@@ -58,28 +61,6 @@ Se ha publicado el SO invitado de mayo.
 ###### <a name="may-4-2018"></a>**4 de mayo de 2018**
 Se ha publicado el sistema operativo invitado de abril.
 
-###### <a name="april-6-2018"></a>**6 de abril de 2018**
-Se ha publicado el sistema operativo invitado de marzo.
-
-###### <a name="march-19-2018"></a>**19 de marzo de 2018**
-Se ha publicado el SO invitado de febrero.
-
-###### <a name="january-29-2018"></a>**29 de enero de 2018**
-El sistema operativo invitado de enero se ha publicado para las familias de SO 2 (WA-GUEST-OS-2.70_201801-01) y 3 (WA-GUEST-OS-3.57_201801-01).
-
-###### <a name="january-4-2018"></a>**4 de enero de 2018**
-El sistema operativo invitado de enero se ha publicado para cuatro familias de SO (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) y contiene revisiones de seguridad importantes.  
-
-###### <a name="january-4-2018"></a>**4 de enero de 2018**
-Se ha publicado el sistema operativo invitado de diciembre.
-
-###### <a name="december-14-2017"></a>**14 de diciembre de 2017**
-Se ha publicado el sistema operativo invitado de noviembre.
-
-###### <a name="november-8-2017"></a>**8 de noviembre de 2017**
-Se ha publicado el SO invitado de octubre.
-
-
 
 ## <a name="releases"></a>Lanzamientos
 ## <a name="family-5-releases"></a>Lanzamientos de la familia 5
@@ -88,23 +69,17 @@ Se ha publicado el SO invitado de octubre.
 Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> La contraseña de RDP para la Familia de SO 5 debe tener 10 caracteres como mínimo.
+> La contraseña de RDP de la familia 5 del SO debe tener 10 caracteres como mínimo.
 >
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-5.23_201809-01 |12 de octubre de 2018 |Post 5.25 |
 | WA-GUEST-OS-5.22_201808-01 |12 de septiembre de 2018 |Post 5.24 |
-| WA-GUEST-OS-5.21_201807-02 |3 de agosto de 2018 |Post 5.23 |
+|~~WA-GUEST-OS-5.21_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018 |
 |~~WA-GUEST-OS-5.18_201804-01~~ |4 de mayo de 2018 |3 de julio de 2018 |
-|~~WA-GUEST-OS-5.17_201803-01~~ |6 de abril de 2018 |1 de junio de 2018|
-|~~WA-GUEST-OS-5.16_201802-01~~ |12 de marzo de 2018 |4 de mayo de 2018 |
-|~~WA-GUEST-OS-5.15_201801-01~~ |4 de enero de 2018 |6 de abril de 2018 |
-|~~WA-GUEST-OS-5.14_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |
-|~~WA-GUEST-OS-5.13_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018|
-|~~WA-GUEST-OS-5.12_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |
-
 
 ## <a name="family-4-releases"></a>Lanzamientos de la familia 4
 **Windows Server 2012 R2**
@@ -113,18 +88,12 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-4.58_201809-01 |12 de octubre de 2018 |Post 4.60 |
 | WA-GUEST-OS-4.57_201808-01 |12 de septiembre de 2018 |Post 4.59 |
-| WA-GUEST-OS-4.56_201807-02 |3 de agosto de 2018 |Post 4.58 |
+|~~WA-GUEST-OS-4.56_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018 |
 |~~WA-GUEST-OS-4.53_201804-01~~ |4 de mayo de 2018 |3 de julio de 2018 |
-|~~WA-GUEST-OS-4.52_201803-01~~ |6 de abril de 2018 |1 de junio de 2018 |
-|~~WA-GUEST-OS-4.51_201802-01~~ |12 de marzo de 2018 |4 de mayo de 2018 |
-|~~WA-GUEST-OS-4.50_201801-01~~ |4 de enero de 2018 |6 de abril de 2018 |
-|~~WA-GUEST-OS-4.49_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |
-|~~WA-GUEST-OS-4.48_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018 |
-|~~WA-GUEST-OS-4.47_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |
-
 
 ## <a name="family-3-releases"></a>Lanzamientos de la familia 3
 **Windows Server 2012**
@@ -133,18 +102,12 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-3.65_201809-01 |12 de octubre de 2018 |Post 3.67 |
 | WA-GUEST-OS-3.64_201808-01 |12 de septiembre de 2018 |Post 3.66 |
-| WA-GUEST-OS-3.63_201807-02 |3 de agosto de 2018 |Post 3.65 |
+|~~WA-GUEST-OS-3.63_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018 |
 |~~WA-GUEST-OS-3.60_201804-01~~ |4 de mayo de 2018 |3 de julio de 2018 |
-|~~WA-GUEST-OS-3.59_201803-01~~ |6 de abril de 2018 |1 de junio de 2018 |
-|~~WA-GUEST-OS-3.58_201802-01~~ |19 de marzo de 2018 |4 de mayo de 2018 |
-|~~WA-GUEST-OS-3.57_201801-01~~ |29 de enero de 2018 |6 de abril de 2018 |
-|~~WA-GUEST-OS-3.56_201712-01~~ |4 de enero de 2018 |19 de marzo de 2018 |
-|~~WA-GUEST-OS-3.55_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |
-|~~WA-GUEST-OS-3.54_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |
-
 
 ## <a name="family-2-releases"></a>Lanzamientos de la familia 2
 **Windows Server 2008 R2 SP1**
@@ -153,20 +116,12 @@ Versión de .NET Framework instalada: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-2.78_201809-01 |12 de octubre de 2018 |Post 2.80 |
 | WA-GUEST-OS-2.77_201808-01 |12 de septiembre de 2018 |Post 2.79 |
-| WA-GUEST-OS-2.76_201807-02 |3 de agosto de 2018 |Post 2.78 |
+|~~WA-GUEST-OS-2.76_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018|
 |~~WA-GUEST-OS-2.73_201804-01~~ |4 de mayo de 2018 |3 de julio de 2018 |
-|~~WA-GUEST-OS-2.72_201803-01~~ |6 de abril de 2018 |1 de junio de 2018 |
-|~~WA-GUEST-OS-2.71_201802-01~~ |12 de marzo de 2018 |4 de mayo de 2018 |
-|~~WA-GUEST-OS-2.70_201801-01~~ |29 de enero de 2018 |6 de abril de 2018 |
-|~~WA-GUEST-OS-2.69_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |
-|~~WA-GUEST-OS-2.68_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |
-|~~WA-GUEST-OS-2.67_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |
-|~~WA-GUEST-OS-2.66_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |
-|~~WA-GUEST-OS-2.65_201708-01~~ |24 de agosto de 2017 |14 de diciembre de 2017 |
-
 
 ## <a name="msrc-patch-updates"></a>Actualizaciones de revisiones de MSRC
 La lista de revisiones que se incluyen con cada lanzamiento mensual del SO invitado está disponible [aquí][patches].
@@ -182,14 +137,14 @@ Aunque la [directiva de retirada para Azure SDK][retire policy sdk] indica que s
 | 2 |Versión 1.3 o superior |
 | 1 |Versión 1.0 o superior |
 
-## <a name="guest-os-release-information"></a>Información de los lanzamientos del SO invitado
+## <a name="guest-os-release-information"></a>Información de versión del SO invitado
 Hay tres fechas importantes para los lanzamientos de SO invitado: la de **lanzamiento**, la de **deshabilitación** y la de **expiración**. Se considera que un SO invitado se encuentra disponible cuando figura en el Portal y se puede seleccionar como el SO invitado de destino. Cuando un SO invitado llega a su fecha de **deshabilitación**, se quita de Azure, aunque todos los servicios en la nube que usen dicho SO invitado seguirán funcionando con normalidad.
 
 El período entre las fechas de **deshabilitación** y de **expiración** permite llevar a cabo la transición de un SO invitado a uno más reciente con tranquilidad. Si usa la opción *automática* para el SO invitado, siempre tendrá la versión más reciente, por lo que no tendrá que preocuparse de que expire.
 
 Una vez que pase la fecha de **expiración**, cualquier servicio en la nube que siga usando ese SO invitado se detendrá, eliminará o actualizará de forma obligada. Puede obtener más información sobre la directiva de retirada [aquí][retirepolicy].
 
-## <a name="guest-os-family-version-explanation"></a>Diferencias entre la versión y la familia de los SO invitados
+## <a name="guest-os-family-version-explanation"></a>Diferencias entre la versión y la familia del SO invitado
 Las familias del SO invitado se basan en versiones lanzadas de Microsoft Windows Server. El SO invitado es el sistema operativo subyacente en el que se ejecuta Azure Cloud Services. Cada SO invitado tiene un número de familia, versión y lanzamiento.
 
 * **Guest OS family**  
@@ -209,7 +164,7 @@ En el ejemplo siguiente, 2 es la familia, 12 es la versión y "rel2" es el lanza
 
 La cadena de configuración para un SO invitado incluye esta misma información incrustada, junto con una fecha que muestra qué revisiones de MSRC se tuvieron en cuenta para ese lanzamiento. En este ejemplo, las revisiones de MSRC generadas para Windows Server 2008 R2 hasta e incluido agosto de 2012 se tuvieron en cuenta para su inclusión. Solo se incluyen las revisiones que se aplican específicamente a esa versión de Windows Server. Por ejemplo, si una revisión de MSRC se aplica a Microsoft Office, no se incluirá porque este producto no forma parte de la imagen base de Windows Server.
 
-## <a name="guest-os-system-update-process"></a>Proceso de actualización del SO invitado
+## <a name="guest-os-system-update-process"></a>Proceso de actualización del sistema del SO invitado
 Esta página incluye información sobre los próximos lanzamientos del SO invitado. Los clientes han indicado que desean saber cuándo se produce un lanzamiento porque sus roles de servicio en la nube se reiniciarán si están establecidos en actualización "Automática". Las versiones del SO invitado suelen producirse de 2 a 3 semanas después de que tenga lugar la actualización de MSRC el segundo martes de cada mes. Los nuevos lanzamientos incluyen todas las revisiones de MSRC relevantes para cada familia del SO invitado.
 
 Microsoft Azure publica actualizaciones constantemente. El SO invitado es solo una de estas actualizaciones en la canalización. Un lanzamiento puede verse afectado por una cantidad de factores tal que no se puede enumerar aquí. Además, Azure se ejecuta literalmente en cientos de miles de máquinas. Esto significa que es imposible especificar una fecha y hora exacta de reinicio de los roles. Estamos trabajando en un plan para limitar o acotar los reinicios.

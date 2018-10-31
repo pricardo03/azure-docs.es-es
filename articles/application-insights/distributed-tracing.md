@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 47ea4fadba50fdbbd6d83531bd4eb40fc581d2ad
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950206"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638382"
 ---
 # <a name="what-is-distributed-tracing"></a>¿Qué es el seguimiento distribuido?
 

@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e42601646474ba986e75632af41d500e18b64021
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393905"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648781"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
-A medida que el desarrollo de la aplicación se ha dirigido hacia un enfoque basado en contenidos, la necesidad de organizar y administrar los recursos interconectados adquiere importancia. Kubernetes es la plataforma líder que ofrece la capacidad de proporcionar programación de confianza de cargas de trabajo de aplicación con tolerancia a errores. Azure Kubernetes Service (AKS) es un oferta de Kubernetes administrado que simplifica aún más la administración e implementación de aplicaciones basadas en contenedores.
+Dado que el desarrollo de aplicaciones ha evolucionado hacia un enfoque basado en contenidos, cobra importancia la necesidad de organizar y administrar los recursos interconectados. Kubernetes es la plataforma líder que ofrece la capacidad de proporcionar programación de confianza de cargas de trabajo de aplicación con tolerancia a errores. Azure Kubernetes Service (AKS) es un oferta de Kubernetes administrado que simplifica aún más la administración e implementación de aplicaciones basadas en contenedores.
 
 En este artículo se presentan los componentes principales de la infraestructura de Kubernetes, como el *patrón de clúster*, los *nodos* y los *grupos de nodos*. También se presentan los recursos de la carga de trabajo, como los *pods*, las *implementaciones* y los *conjuntos*, junto con información acerca de cómo agrupar los recursos en *espacios de nombres*.
 
@@ -194,7 +194,7 @@ En este artículo se tratan algunos de los componentes básicos de Kubernetes y 
 - [Kubernetes / AKS security][aks-concepts-security] (Seguridad de Kubernetes/AKS)
 - [Kubernetes / AKS virtual networks][aks-concepts-network] (Redes virtuales de Kubernetes/AKS)
 - [Kubernetes / AKS storage][aks-concepts-storage] (Almacenamiento de Kubernetes/AKS)
-- [Kubernetes / AKS scale][aks-concepts-scale] (Escalada de Kubernetes/AKS)
+- [Kubernetes / AKS scale][aks-concepts-scale] (Escala de Kubernetes/AKS)
 
 <!-- EXTERNAL LINKS -->
 [acs-engine]: https://github.com/Azure/acs-engine

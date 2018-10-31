@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41946464"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944943"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
@@ -31,7 +31,7 @@ Este artículo describe cómo ver el estado de una unidad de escalado y sus nodo
 > Todas las acciones de nodo que se describen en este artículo solo deben señalar a un nodo cada vez.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Visualización del estado de una unidad de escalado y sus nodos
+## <a name="view-the-node-status"></a>Ver el estado del nodo
 
 En el portal de administrador, puede ver fácilmente el estado de una unidad de escalado y sus nodos asociados.
 
@@ -44,23 +44,23 @@ Para ver el estado de una unidad de escalado:
 En este caso, puede ver la información siguiente:
 
 - Nombre de la región. Se hace referencia al nombre de la región con **-Location** en el módulo de PowerShell.
-- tipo de sistema
-- núcleos lógicos en total
-- memoria total
-- la lista de nodos individuales y su estado: **en ejecución** o **detenido**.
+- Tipo de sistema
+- Número total de núcleos lógicos
+- Memoria total
+- La lista de nodos individuales y su estado: **En ejecución** o **Detenido**.
 
 ![Icono de la unidad de escalado que muestra el estado En ejecución para cada nodo](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>Visualización de información sobre un nodo de unidad de escalado
+## <a name="view-node-information"></a>Ver la información del nodo
 
 Si selecciona un nodo individual, puede ver la información siguiente:
 
-- nombre de la región
-- modelo de servidor
+- Nombre de la región
+- Modelo de servidor
 - dirección IP del controlador de administración de placa base (BMC)
-- estado operativo
-- número total de núcleos
-- cantidad total de memoria
+- Estado operativo
+- Número total de núcleos
+- Cantidad total de memoria
  
 ![Icono de la unidad de escalado que muestra el estado En ejecución para cada nodo](media/azure-stack-node-actions/NodeActions.PNG)
 

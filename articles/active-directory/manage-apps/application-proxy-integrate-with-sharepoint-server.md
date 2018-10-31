@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fcd02e264d5e85b1bef7e75d2a6375d6bf5e18c0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363956"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456905"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar el acceso remoto a SharePoint con el proxy de aplicación de Azure AD
 
@@ -194,7 +194,7 @@ El último paso es asegurarse de que SharePoint puede encontrar el sitio en func
 
 3. En la lista desplegable situada junto a **Colección de asignaciones de acceso alternativas**, seleccione **Change Alternative Access Mapping Collection** (Cambiar colección de asignaciones de acceso alternativas).
 4. Seleccione el sitio, por ejemplo **SharePoint - 80**.
-5. Puede agregar la dirección URL publicada como una dirección URL interna o una dirección URL pública. En este ejemplo se usa una dirección URL pública como extranet.
+5. Puede agregar la dirección URL publicada como una dirección URL interna o una dirección URL pública. En este ejemplo se usa una dirección URL pública como extranet. Si usa un puerto personalizado, asegúrese de incluirlo en la dirección URL.
 6. Haga clic en **Editar direcciones URL públicas** en la ruta de acceso de **Extranet** y, a continuación, escriba la dirección URL externa que se creó cuando publicó la aplicación. Por ejemplo, escriba: **https://sharepoint-iddemo.msappproxy.net**.
 
   ![Escribir la ruta de acceso](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

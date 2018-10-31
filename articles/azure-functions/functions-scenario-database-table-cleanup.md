@@ -11,17 +11,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092876"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351922"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 En este tema se indica cómo usar Azure Functions para crear un trabajo programado que limpie hileras de una tabla en Azure SQL Database. La nueva función de script de C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Azure Portal. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Para que la función procese operaciones individuales de creación, lectura, actualización y eliminación (CRUD) en una tabla de Mobile Apps, debería usar en su lugar [enlaces de Mobile Apps](functions-bindings-mobile-apps.md).
+
+> [!IMPORTANT]
+> Los ejemplos de este documento son aplicables al tiempo de ejecución 1.x. Puede encontrar información sobre cómo crear una aplicación de función 1.x [aquí](./functions-versions.md#creating-1x-apps).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

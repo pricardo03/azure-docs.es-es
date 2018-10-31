@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e3770fe29d6f1073a0ca6507fdf57059cbd3727e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067547"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427406"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -200,7 +200,7 @@ Una condición evalúa si un **campo** cumple determinados criterios. Estas son 
 Cuando se usan las condiciones **like** y **notLike**, puede incluir un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para representar un dígito, `?` para una letra, y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para representar un dígito, `?` para una letra, `.` para que coincidan todos los caracteres y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fields
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 050ccff8501a22526e9382a620258b0f846efe5c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128728"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406779"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory? 
 
@@ -105,7 +105,7 @@ Con las aplicaciones cliente aprobadas, puede requerir que una aplicación clien
 Puede requerir a un usuario en el inquilino que consienta las condiciones de uso antes de concederle acceso a un recurso. Como administrador, puede configurar y personalizar las condiciones de uso mediante la carga de un documento PDF. Si un usuario se encuentra en el ámbito de control, el acceso a una aplicación solo se concede si se han aceptado las condiciones de uso. 
 
 
-### <a name="custom-controls"></a>Controles personalizados 
+### <a name="custom-controls-preview"></a>Controles personalizados (versión preliminar) 
 
 También puede crear controles personalizados en acceso condicional que redirigen a los usuarios a un servicio compatible para satisfacer más requisitos fuera de Azure Active Directory. Esto le permite utilizar ciertos proveedores externos de autenticación multifactor y comprobación para exigir reglas de acceso condicional o para crear su propio servicio personalizado. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación y validación necesarias y luego se vuelve a redirigir a Azure Active Directory. Si el usuario se autenticó o validó correctamente, dicho usuario continúa en el flujo de acceso condicional. 
 
@@ -118,13 +118,10 @@ Estos controles permiten el uso de ciertos servicios externos o personalizados c
 Los proveedores que actualmente ofrecen un servicio compatible incluyen:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-
+- [Identidad de ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
-
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
-
 
 Para más información sobre esos servicios, póngase en contacto con los proveedores directamente.
 

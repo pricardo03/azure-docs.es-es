@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870883"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959050"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -106,16 +106,17 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
 Cuando la instancia del servicio de API Management se hospeda en una red virtual, se usan los puertos de la tabla siguiente.
 
-| Puertos de origen/destino | Dirección          | Protocolo de transporte | Origen/destino                  | Propósito (*)                                                 | Tipo de red virtual |
+| Puertos de origen/destino | Dirección          | Protocolo de transporte |   [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags) <br> Origen/destino   | Propósito (*)                                                 | Tipo de red virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Entrada            | TCP                | INTERNET/VIRTUAL_NETWORK            | Comunicación de cliente con Administración de API                      | Externo             |
-| * / 3443                     | Entrada            | TCP                | APIMANAGEMENT/VIRTUAL_NETWORK       | Punto de conexión de administración para Azure Portal y Powershell         | Externa e interna  |
+| * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Punto de conexión de administración para Azure Portal y Powershell         | Externa e interna  |
 | * / 80, 443                  | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | **Dependencia de Azure Storage**                             | Externa e interna  |
-| * / 80, 443                  | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Azure Active Directory (si procede)                   | Externa e interna  |
+| * / 80, 443                  | Salida           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (si procede)                   | Externa e interna  |
 | * / 1433                     | Salida           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acceso a los puntos de conexión de Azure SQL**                           | Externa e interna  |
 | * / 5672                     | Salida           | TCP                | VIRTUAL_NETWORK/EventHub            | Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión | Externa e interna  |
 | * / 445                      | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | Dependencia del recurso compartido de archivos de Azure para Git                      | Externa e interna  |
 | * / 1886                     | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Se necesita para publicar el estado de mantenimiento en Resource Health          | Externa e interna  |
+| * / 443                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar registros de diagnóstico y métricas                        | Externa e interna  |
 | */25                       | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
 | */587                      | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
 | * / 25028                    | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |

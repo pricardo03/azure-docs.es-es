@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093033"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409261"
 ---
 # <a name="azure-diagnostic-logs"></a>Registros de diagnósticos de Azure
 
@@ -95,17 +95,23 @@ Para usar Log Analytics para almacenar los registros, siga estos pasos:
 
 2. Seleccione **Configurar** para configurar el registro de Log Analytics. 
 
-   Aparecerá la página **Áreas de trabajo de OMS**.
+   Se muestra la página **Áreas de trabajo de Log Analytics**.
+
+    >[!NOTE] 
+    >Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
 
     ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Seleccione **Crear nueva área de trabajo**.
 
-    Aparecerá la página **Área de trabajo de OMS**.
+    Se muestra la página **Área de trabajo de Log Analytics**.
+
+    >[!NOTE] 
+    >Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
 
     ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. En **Área de trabajo de OMS**, escriba un nombre del área de trabajo de OMS. El nombre del área de trabajo de OMS debe ser único y solo debe contener letras, números y guiones; no se permiten espacios ni guiones bajos. 
+4. En **Área de trabajo de Log Analytics**, escriba un nombre de área de trabajo de Log Analytics. El nombre del área de trabajo de Log Analytics debe ser único y contener solo letras, números y guiones; no se permiten espacios ni caracteres de subrayado. 
 
 5. En **Suscripción**, seleccione una suscripción existente de la lista desplegable. 
 

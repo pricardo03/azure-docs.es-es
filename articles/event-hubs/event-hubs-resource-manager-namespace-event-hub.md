@@ -12,38 +12,43 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 4feb75fd885efa86470f0e38e129eefe81c64271
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 48d41ef4df986f959dfabe04e07552e287fdfcd0
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145923"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457109"
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
+Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
-En este artículo se muestra cómo usar una plantilla de Azure Resource Manager para crea un espacio de nombres de tipo [Event Hubs](event-hubs-what-is-event-hubs.md), con un centro de eventos y un grupo de consumidores. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
-
-Para información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Authoring Azure Resource Manager templates].
+En esta guía de inicio rápido, creará un centro de eventos mediante una plantilla de Azure Resource Manager. Usará una plantilla de Azure Resource Manager para crear un espacio de nombres de tipo [Event Hubs](event-hubs-what-is-event-hubs.md), con un centro de eventos y un grupo de consumidores. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades. Para información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Para ver la plantilla completa, consulte la [plantilla de grupos de consumidores y un centro de eventos][Event Hub and consumer group template] en GitHub.
 
 > [!NOTE]
 > Para buscar las plantillas más recientes, visite la galería de [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque Event Hubs.
-> 
-> 
+
+## <a name="prerequisites"></a>Requisitos previos
+Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, cree una cuenta gratuita antes de comenzar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Si usa **Azure PowerShell** para implementar la plantilla de Resource Manager localmente, debe ejecutar la versión más reciente de PowerShell para realizar esta guía de inicio rápido. Si necesita instalarlo o actualizarlo, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+
+Si decide instalar y usar la **CLI de Azure** para implementar la plantilla de Resource Manager localmente, en este tutorial es preciso usar la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para comprobar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
 
 Con esta plantilla, implementará un espacio de nombres de Event Hubs con un grupo de consumidores y un centro de eventos.
 
-Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
+Para ejecutar automáticamente la implementación, seleccione el botón siguiente:
 
 [![Implementación en Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parámetros
-
+## <a name="define-parameters"></a>Definición de parámetros
 Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro de la plantilla define los recursos que se implementan.
 
 La plantilla define los parámetros siguientes:
@@ -88,7 +93,7 @@ La versión de API de la plantilla.
 }
 ```
 
-## <a name="resources-to-deploy"></a>Recursos para implementar
+## <a name="define-resources-to-deploy"></a>Definición de los recursos para implementar
 
 Crea un espacio de nombres de tipo **EventHubs** con un centro de eventos y un grupo de consumidores:
 
@@ -133,17 +138,15 @@ Crea un espacio de nombres de tipo **EventHubs** con un centro de eventos y un g
    ],
 ```
 
-## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
-
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
-
-## <a name="powershell"></a>PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
+Para implementar los recursos mediante Azure PowerShell, ejecute el siguiente comando:
 
 ```azurepowershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
+Para implementar los recursos mediante Azure PowerShell, ejecute el siguiente comando:
 
 ```azurecli
 azure config mode arm
@@ -151,13 +154,18 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
+Felicidades. Ha usado la plantilla de Azure Resource Manager para crear un espacio de nombres de Event Hubs y un centro de eventos dentro de ese espacio de nombres.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de Event Hubs, visite los vínculos siguientes:
+En este artículo, ha creado el espacio de nombres de Event Hubs y ha usado aplicaciones de ejemplo para enviar eventos al centro de eventos y recibirlos de este. Puede encontrar instrucciones paso a paso para enviar eventos a un centro de eventos o recibirlos de este en los siguientes tutoriales: 
 
-* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Creación de un centro de eventos](event-hubs-create.md)
-* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+- **Envío de eventos a un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Recepción de eventos desde un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+
+[3]: ./media/event-hubs-quickstart-powershell/sender1.png
+[4]: ./media/event-hubs-quickstart-powershell/receiver1.png
+[5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: f574203f31a21f945115296693f04cff649614c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165643"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649948"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo y versión de Ansible
 
@@ -128,7 +128,7 @@ En este artículo se enumeran los módulos de Ansible para Azure que pueden apro
 | azure_rm_autoscale_facts            | -            | -                         | -          | SÍ          | SÍ                                 | 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introducción al rol de cuaderno de estrategias de Azure
-El [rol de guion de procedimientos azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) es el rol más completo e incluye todos los módulos más recientes de Azure. Las actualizaciones y correcciones de errores se realizan de manera más oportuna que en la versión oficial de Ansible. Si usa Ansible para el aprovisionamiento de recursos de Azure, se recomienda instalar el rol azure_preview_module.
+El [rol de guion de procedimientos azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) es el rol más completo e incluye todos los módulos más recientes de Azure. Las actualizaciones y correcciones de errores se realizan de manera más oportuna que en la versión oficial de Ansible. Si usa Ansible para el aprovisionamiento de recursos de Azure, se recomienda instalar el rol de cuaderno de estrategias azure_preview_module.
 
 El rol de guion de procedimientos azure_preview_module se publica cada tres semanas.
 

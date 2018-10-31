@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966570"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353748"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
@@ -140,33 +140,21 @@ Si ve que ningún dato se envía a IoT Hub, hay un problema con la simulación. 
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>¿Cómo se habilita un mapa interactivo en una solución de factoría conectada?
 
-Para habilitar un mapa interactivo en una solución de factoría conectada, debe disponer de un plan de Bing Maps API for Enterprise.
+Para habilitar un mapa interactivo en la solución Connected Factory, debe tener una cuenta de Azure Maps.
 
-Cuando se implementa desde [www.azureiotsolutions.com](http://www.azureiotsolutions.com), el proceso de implementación comprueba que la suscripción tiene un plan de API de Mapas de Bing para empresas e implementa automáticamente un mapa interactivo en Factoría conectada. Si no es el caso, de todos modos puede habilitar un mapa interactivo en la implementación, tal como se indica a continuación:
+Cuando se implementa desde [www.azureiotsolutions.com](http://www.azureiotsolutions.com), el proceso de implementación agrega una cuenta de Azure Maps al grupo de recursos que contiene los servicios del acelerador de soluciones.
 
-Cuando realiza la implementación con el script `build.ps1` en el repositorio GitHub de Factoría conectada y tiene un plan de Bing Maps API for Enterprise, establezca la variable de entorno `$env:MapApiQueryKey` en la ventana de compilación a la clave de consulta del plan. El mapa interactivo se habilita de manera automática.
+Al realizar la implementación mediante el script `build.ps1` del repositorio de GitHub de Connected Factory, establezca la variable de entorno `$env:MapApiQueryKey` de la ventana de compilación como la [clave de la cuenta de Azure Maps](../azure-maps/how-to-manage-account-keys.md). El mapa interactivo se habilita de manera automática.
 
-Si no tiene un plan de API de Mapas de Bing para empresas, implemente la solución Factoría conectada desde [www.azureiotsolutions.com](http://www.azureiotsolutions.com) o con el script `build.ps1`. Luego, agregue un plan de Bing Maps API for Enterprise a la suscripción, tal como se explica en [¿Cómo se crea una cuenta de Bing Maps API for Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Busque la clave de consulta de esta cuenta como se explica en [Cómo obtener la clave de consulta de Bing Maps API for Enterprise](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) y guarde esta clave. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Factoría conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca el valor de **MapApiQueryKey** en la clave de consulta que obtuvo. Guarde la configuración, vaya a la **información general** y reinicie App Service.
+También puede agregar una clave de cuenta de Azure Maps al acelerador de soluciones después de la implementación. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Factoría conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca **MapApiQueryKey** como la [clave de la cuenta de Azure Maps](../azure-maps/how-to-manage-account-keys.md). Guarde la configuración, vaya a la **información general** y reinicie App Service.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>¿Cómo se crea una cuenta de Bing Maps API for Enterprise?
+### <a name="how-do-i-create-a-azure-maps-account"></a>¿Cómo se crea una cuenta de Azure Maps?
 
-Puede obtener un plan de *Bing Maps API for Enterprise de nivel 1 de transacciones internas* gratis. Sin embargo, solo puede añadir dos de estos planes a una suscripción de Azure. Si no dispone de una cuenta de Bing Maps API for Enterprise, cree una en Azure Portal haciendo clic en **+ Crear un recurso**. A continuación, busque **Bing Maps API for Enterprise** y siga las indicaciones para crearla.
+Consulte [Procedimientos de administración de la cuenta y las claves de Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 
-![Clave de Bing](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Obtención de la clave de cuenta de Azure Maps
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Obtención de la QueryKey de Bing Maps API for Enterprise
-
-Una vez creado el plan de Bing Maps API for Enterprise, añada un recurso de Bing Maps for Enterprise al grupo de recursos de la solución de factoría conectada en Azure Portal.
-
-1. En Azure Portal, vaya al grupo de recursos donde está el plan de Bing Maps API for Enterprise.
-
-1. Haga clic en **Toda la configuración** y después en **Administración de claves**.
-
-1. Verá dos claves: **MasterKey** y **QueryKey**. Copie el valor de **QueryKey**.
-
-1. Para que el script `build.ps1` seleccione la clave, establezca la variable de entorno `$env:MapApiQueryKey` del entorno de PowerShell en la **QueryKey** de su plan. A continuación, el script de compilación añadirá automáticamente el valor a la configuración de App Service.
-
-1. Ejecute una implementación local o en la nube mediante el script `build.ps1`.
+Consulte [Procedimientos de administración de la cuenta y las claves de Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>¿Cómo se habilita el mapa interactivo al depurar localmente?
 

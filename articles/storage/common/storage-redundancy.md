@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114199"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954494"
 ---
 # <a name="azure-storage-replication"></a>Replicación de Azure Storage
 
@@ -38,7 +38,7 @@ En la tabla siguiente se ofrece una rápida información general del ámbito de 
 | Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                               | SÍ                              | Sí                                  | SÍ                                  |
 | Una interrupción en toda la región                                                                                     | Sin                               | No                               | SÍ                                  | SÍ                                  |
 | Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | No                               | No                                   | SÍ                                  |
-| Diseñado para proporcionar una durabilidad de objetos ___ a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
+| Diseñado para proporcionar una \_\_ durabilidad de objetos a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
 | Tipos de cuenta de almacenamiento admitidos                                                                   | GPv2, GPv1, Blob                | GPv2, GPv1 (a través de PowerShell, la CLI de Azure o la API del proveedor de recursos)                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | SLA de disponibilidad para las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,99 % (99,9 % para el nivel de acceso esporádico) |
 | SLA de disponibilidad para las solicitudes de escritura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |

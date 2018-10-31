@@ -10,16 +10,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: b8c3270149c254898ad3180b92a4ff398f3efb6c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 29b5f877065029dc271e49c1afd6d547def58a6e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745916"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408139"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de Virtual Network con Azure Event Hubs
 
 La integración de Event Hubs con los [puntos de conexión de servicio de Virtual Network (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo tales como las máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos. 
+
+> [!IMPORTANT]
+> Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel básico. 
 
 Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Event Hubs ya solo aceptará el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería.
 
@@ -35,7 +38,7 @@ Esto significa que sus soluciones confidenciales en la nube no solo obtienen acc
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Enlazar Event Hubs a redes virtuales
 
-Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure Event Hubs acepta las conexiones de una subred determinada de una red virtual.
+Las *reglas de red virtual* son una característica de firewall que controla si el espacio de nombres de Azure Event Hubs acepta las conexiones de una subred determinada de una red virtual.
 
 Enlazar un espacio de nombres de Event Hubs a una red virtual es un proceso de dos pasos. Primero debe crear un **punto de conexión de servicio de Virtual Network** en una subred de Virtual Network y habilitarlo para "Microsoft.EventHub", tal como se explicó en la [introducción a los puntos de conexión de servicio][vnet-sep]. Una vez que haya agregado el punto de conexión de servicio, enlácelo con el espacio de nombres de Event Hubs con una *regla de red virtual*.
 

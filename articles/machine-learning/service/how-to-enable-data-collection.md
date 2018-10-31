@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 09/24/2018
-ms.openlocfilehash: 412871c0c692f60e690f61fa4e6f67f836cd3ef7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 70c023fc8fe996060d3eff3d5a700b5f910097b4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158214"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113638"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
@@ -50,7 +50,7 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 
 - Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-- Un área de trabajo de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
+- Un área de trabajo del servicio de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
 
 - Un modelo de aprendizaje automático entrenado para implementarse en Azure Kubernetes Service (AKS). Si no tiene uno, consulte el tutorial [Train an image classification model](tutorial-train-models-with-aml.md) (Entrenar un modelo de clasificación de imágenes).
 
@@ -161,7 +161,7 @@ Puede dejar de recopilar datos en cualquier momento. Use el código de Python o 
 
 ## <a name="example-notebook"></a>Cuaderno de ejemplo
 
-El cuaderno `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` demuestra los conceptos de este artículo.  
+El cuaderno [00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) muestra los conceptos de este artículo.  
 
 Obtenga este cuaderno:
  

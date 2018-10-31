@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452316"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394891"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selección y uso de un destino de proceso para entrenar el modelo
 
@@ -25,9 +25,12 @@ Un destino de proceso es el recurso que ejecuta el script de entrenamiento u hos
 
 Puede comenzar con ejecuciones locales en la máquina y, a continuación, escalar vertical y horizontalmente a otros entornos, como las instancias de Data Science Virtual Machine con GPU o Azure Batch AI. 
 
+>[!NOTE]
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168 
+
 ## <a name="supported-compute-targets"></a>Destinos de proceso admitidos
 
-Azure Machine Learning admite los siguientes destinos de proceso:
+El servicio Azure Machine Learning admite los siguientes destinos de proceso:
 
 |Destino de proceso| Aceleración de GPU | Ajuste automatizado de hiperparámetros | Selección automatizada del modelo | Se puede usar en las canalizaciones|
 |----|:----:|:----:|:----:|:----:|
@@ -41,8 +44,8 @@ __[Azure Container Instances (ACI)](#aci)__ también se puede usar para entrenar
 Los elementos diferenciadores clave entre los destinos de proceso son:
 * __Aceleración de GPU__: las GPU están disponibles con Data Science Virtual Machine y Azure Batch AI. Puede tener acceso a una GPU en el equipo local, según el hardware, los controladores y los marcos de trabajo instalados.
 * __Ajuste automatizado de hiperparámetros__: la optimización automatizada de hiperparámetros de Azure Machine Learning le ayuda a encontrar los mejores hiperparámetros para un modelo.
-* __Selección automatizada del modelo__: Azure Machine Learning puede recomendar de forma inteligente la selección de un algoritmo y de los hiperparámetros al generar un modelo. La selección automatizada del modelo le ayuda a converger en un modelo de alta calidad con más rapidez que si se prueban diferentes combinaciones de forma manual. Para más información, consulte [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: Entrenamiento automático de un modelo de clasificación con Azure Machine Learning).
-* __Canalizaciones__: Azure Machine Learning le permite combinar diferentes tareas, como el entrenamiento y la implementación, en una canalización. Las canalizaciones se pueden ejecutar en paralelo o en secuencia, y proporcionan un mecanismo de automatización confiable. Para más información, consulte el documento [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) (Creación de canalizaciones de aprendizaje automático con el servicio Azure Machine Learning).
+* __Selección automática del modelo__: el servicio Azure Machine Learning puede recomendar de forma inteligente la selección de algoritmos e hiperparámetros al generar un modelo. La selección automatizada del modelo le ayuda a converger en un modelo de alta calidad con más rapidez que si se prueban diferentes combinaciones de forma manual. Para más información, consulte [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: Entrenamiento automático de un modelo de clasificación con Azure Machine Learning).
+* __Canalizaciones__: el servicio Azure Machine Learning permite combinar diferentes tareas, como el aprendizaje y la implementación, en una canalización. Las canalizaciones se pueden ejecutar en paralelo o en secuencia, y proporcionan un mecanismo de automatización confiable. Para más información, consulte el documento [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) (Creación de canalizaciones de aprendizaje automático con el servicio Azure Machine Learning).
 
 Puede usar el SDK de Azure Machine Learning, la CLI de Azure o Azure Portal para crear los destinos de proceso. También puede usar destinos de proceso existentes si los agrega (asocia) en el área de trabajo.
 
@@ -106,7 +109,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 run_config_system_managed = RunConfiguration()
 
 run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.prepare_environment = True
+run_config_system_managed.auto_prepare_environment = True
 
 # Specify conda dependencies with scikit-learn
 
@@ -174,7 +177,7 @@ Los pasos siguientes utilizan el SDK para configurar una máquina virtual Data S
     # Use Docker in the remote VM
     run_config.environment.docker.enabled = True
 
-    # Use CPU base image from DockerHub
+    # Use CPU base image
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -206,30 +209,30 @@ En el ejemplo siguiente se busca en un clúster de Batch AI existente por su nom
 ```python
 from azureml.core.compute import BatchAiCompute
 from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = ws.name + "cpu"
+batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
+cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
+cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
+autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
 
-found = False
-# see if this compute target already exists in the workspace
-for ct in ws.compute_targets():
-    print(ct.name, ct.type)
-    if (ct.name == batchai_cluster_name and ct.type == 'BatchAI'):
-        found = True
-        print('found compute target. just use it.')
-        compute_target = ct
-        break
-        
-if not found:
+
+if batchai_cluster_name in ws.compute_targets():
+    compute_target = ws.compute_targets()[batchai_cluster_name]
+    if compute_target and type(compute_target) is BatchAiCompute:
+        print('found compute target. just use it. ' + batchai_cluster_name)
+else:
     print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", # for GPU, use "STANDARD_NC6"
-                                                                #vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = True,
-                                                                cluster_min_nodes = 1, 
-                                                                cluster_max_nodes = 4)
+    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                vm_priority = 'lowpriority', # optional
+                                                                autoscale_enabled = autoscale_enabled,
+                                                                cluster_min_nodes = cluster_min_nodes, 
+                                                                cluster_max_nodes = cluster_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws,batchai_cluster_name, provisioning_config)
+    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it will use the scale settings for the cluster
@@ -372,7 +375,7 @@ Desde Azure Portal puede ver qué destinos de proceso están asociados con el á
 1. Visite [Azure Portal](https://portal.azure.com) y vaya a su área de trabajo.
 2. Haga clic en el vínculo __Proceso__ en la sección __Aplicaciones__.
 
-    ![Pestaña en la que se ve el proceso](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![Pestaña en la que se ve el proceso](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### <a name="create-a-compute-target"></a>Creación de un destino de proceso
 
@@ -380,7 +383,7 @@ Siga los pasos anteriores para ver la lista de destinos de proceso y, a continua
 
 1. Haga clic en el signo __+__ para agregar un destino de proceso.
 
-    ![Agregar proceso ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![Agregar proceso ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Escriba un nombre para el destino de proceso.
 1. Seleccione el tipo de proceso que asociar a __Entrenamiento__. 
@@ -414,11 +417,11 @@ Siga los pasos anteriores para ver la lista de destinos de proceso y, a continua
 
 ## <a name="examples"></a>Ejemplos
 Los cuadernos siguientes muestran los conceptos de este artículo:
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
-* `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
-* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
-* `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
-* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
+* [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
+* [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
+* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
 Obtenga estos cuadernos: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

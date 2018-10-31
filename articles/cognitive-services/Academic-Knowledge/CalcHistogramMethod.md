@@ -1,20 +1,21 @@
 ---
-title: Método CalcHistogram de Academic Knowledge API | Microsoft Docs
-description: Utilice el método CalcHistogram para calcular la distribución de valores de atributo para un conjunto de entidades de documento en Microsoft Cognitive Services.
+title: 'Método CalcHistogram: Academic Knowledge API'
+titlesuffix: Azure Cognitive Services
+description: Con el método CalcHistogram se calcula la distribución de los valores de atributo para un conjunto de entidades de documento.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e0b773fb9791ee638c8cfdbbc9dca40543e50ec0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380042"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321299"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -27,17 +28,19 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
   
-## <a name="request-parameters"></a>Parámetros de la solicitud
+## <a name="request-parameters"></a>Parámetros de solicitud
 
 NOMBRE  |Valor | ¿Necesario?  |DESCRIPCIÓN
 -----------|----------|--------|----------
-**expr**    |Cadena de texto | Sí  |Una expresión de consulta que especifica las entidades en las que se deben calcular los histogramas.
+**expr**    |Cadena de texto | SÍ  |Una expresión de consulta que especifica las entidades en las que se deben calcular los histogramas.
 **model** |Cadena de texto | Sin  |Seleccione el nombre del modelo que quiere consultar.  Actualmente, el valor predeterminado es *latest*.
 **attributes** | Cadena de texto | Sin <br>valor predeterminado: | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
 **count** |Number | Sin <br>Valor predeterminado: 10 |Número de resultados que se van a devolver.
 **offset**  |Number | Sin <br>Valor predeterminado: 0 |Índice del primer resultado que se va a devolver.
-<br>
+**timeout**  |Number | Sin <br>Valor predeterminado: 1000 |Tiempo de espera en milisegundos. Se devuelven únicamente las interpretaciones encontradas antes de que haya transcurrido el tiempo de espera.
+
 ## <a name="response-json"></a>Respuesta (JSON)
+
 NOMBRE | DESCRIPCIÓN
 --------|---------
 **expr**  |El parámetro expr de la solicitud.
@@ -52,7 +55,7 @@ NOMBRE | DESCRIPCIÓN
 **histograms[x].histogram[y].count**  |Número de entidades coincidentes con este valor de atributo.
 **aborted** | True si la solicitud ha agotado el tiempo de espera.
 
- <br>
+
 #### <a name="example"></a>Ejemplo:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

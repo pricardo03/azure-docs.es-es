@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c66165c7a737c7eb0873ef3c6714e340716d6866
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b3ee62ec6b8155841121eed6c4ab9c12b08f0e9b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603476"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165228"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para la conexión a Azure Analysis Services
 
@@ -23,10 +23,10 @@ Se requieren bibliotecas de cliente para que las aplicaciones cliente y las herr
 
 |Descargar  |Versión del producto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.795      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.795      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.5.0.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.5.0.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.39      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.39      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.7.0.2    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.7.0.2     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO y ADOMD (paquetes NuGet)
 
@@ -34,8 +34,8 @@ Los objetos de administración de Analysis Services (AMO) y las bibliotecas clie
 
 |Paquete  | Versión del producto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.5.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.5.0     |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.7.0.2    |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.7.02     |
 
 Los ensamblados del paquete de NuGet AssemblyVersion siguen el control de versiones semántico: PRINCIPAL.SECUNDARIA.REVISIÓN. Las referencias de NuGet cargan la versión esperada, incluso si hay una versión diferente en la caché global de ensamblados (resultante de la instalación de MSI). El valor de REVISIÓN se incrementa para cada publicación. Las versiones de AMO y ADOMD se mantienen sincronizadas.
 

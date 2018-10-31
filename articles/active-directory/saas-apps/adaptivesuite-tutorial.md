@@ -4,22 +4,22 @@ description: Obtenga más información sobre cómo configurar el inicio de sesi�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 13af9d00-116a-41b8-8ca0-4870b31e224c
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 307c3cf258a74d1ddfb409f0d5b22d9e1fd6bf4b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213828"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integración de Azure Active Directory con Adaptive Insights
 
@@ -29,11 +29,11 @@ La integración de Adaptive Insights con Azure AD proporciona las siguientes ven
 
 - Puede controlar quién tiene acceso a Adaptive Insights en Azure AD.
 - Puede permitir que los usuarios inicien sesión automáticamente en Adaptive Insights (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Adaptive Insights, se necesita lo siguiente:
 
@@ -61,50 +61,55 @@ Para configurar la integración de Adaptive Insights con Azure AD, deberá agreg
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![imagen](./media/adaptivesuite-tutorial/selectazuread.png)
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-
+    ![imagen](./media/adaptivesuite-tutorial/a_select_app.png)
+    
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![APLICACIONES][3]
+    ![imagen](./media/adaptivesuite-tutorial/a_new_app.png)
 
 4. Para agregar la aplicación, escriba **Adaptive Insights** en el cuadro de búsqueda, seleccione **Adaptive Insights** en el panel de resultados y, luego, haga clic en el botón **Agregar**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
+     ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Adaptive Insights con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Adaptive Insights para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario asociado en Adaptive Insights.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Adaptive Insights, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Adaptive Insights](#creating-an-adaptive-insights-test-user)**: para tener un homólogo de Britta Simon en Adaptive Insights vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Adaptive Insights](#create-an-adaptive-insights-test-user)**: para tener un homólogo de Britta Simon en Adaptive Insights vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Adaptive Insights.
 
 **Para configurar el inicio de sesión único de Azure AD con Adaptive Insights, siga los pasos siguientes:**
 
-1. En Azure Portal, en la página de integración de la aplicación **Adaptive Insights**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Adaptive Insights**, seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![imagen](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
 
-    ![Configurar inicio de sesión único](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_samlbase.png)
+    ![imagen](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
 
-3. En la sección **Dominio y direcciones URL de Adaptive Insights**, lleve a cabo los pasos siguientes:
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![Configurar inicio de sesión único](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
+    ![imagen](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
+
+4. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
+
+    ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
     a. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
@@ -112,18 +117,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     >[!NOTE]
     > Puede obtener el identificador (id. de entidad) y los valores de URL en la página **Configuración de SSO de SAML** de Adaptive Insights.
+ 
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** y guárdelo en su equipo.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+    ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
 
-    ![Configurar inicio de sesión único](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certificate.png)
+6. En la sección **Configurar Adaptive Insights**, copie la dirección URL adecuada según sus necesidades.
 
-5. Haga clic en el botón **Guardar** .
+    Tenga en cuenta que en la dirección URL puede poner lo siguiente:
 
-    ![Configurar inicio de sesión único](./media/adaptivesuite-tutorial/tutorial_general_400.png)
+    a. URL de inicio de sesión
 
-6. En la sección **Configuración de Adaptive Insights**, haga clic en **Configurar Adaptive Insights** para abrir la ventana **Configurar inicio de sesión**. Copie los valores de **SAML Entity ID y SAML Single Sign-On Service URL** (Identificador de entidad de SAML y Dirección URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
+    b. Identificador de Azure AD
 
-    ![Configurar inicio de sesión único](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_configure.png) 
+    c. URL de cierre de sesión
+
+    ![imagen](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
 
 7. En otra ventana del explorador web, inicie sesión en el sitio de Adaptive Insights de la compañía como administrador.
 
@@ -141,11 +150,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     a. En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
 
-    b. Pegue el valor del **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades).
+    b. Pegue el valor del **Azure Ad Identifier** (Identificador de Azure AD) que ha copiado de Azure Portal en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades).
 
-    c. Pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal en el cuadro de texto **Identity provider SSO URL** (Dirección URL de SSO del proveedor de identidades).
+    c. Pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal en el cuadro de texto **Identity provider SSO URL** (URL de SSO de proveedor de identidades).
 
-    d. Pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal en el cuadro de texto **Custom logout URL** (Dirección URL de cierre de sesión personalizada).
+    d. Pegue el valor de **URL de cierre de sesión** que copió de Azure Portal en el cuadro de texto **Custom logout URL** (Dirección URL de cierre de sesión personalizada).
 
     e. Para cargar el certificado descargado, haga clic en **Choose file**(Elegir archivo).
 
@@ -163,38 +172,32 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     h. Haga clic en **Save**(Guardar).
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![imagen](./media/adaptivesuite-tutorial/d_users_and_groups.png)
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/adaptivesuite-tutorial/create_aaduser_01.png) 
+    ![imagen](./media/adaptivesuite-tutorial/d_adduser.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/adaptivesuite-tutorial/create_aaduser_02.png) 
+    ![imagen](./media/adaptivesuite-tutorial/d_userproperties.png)
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Creación de un usuario de prueba de Azure AD](./media/adaptivesuite-tutorial/create_aaduser_03.png) 
+    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
-
-    ![Creación de un usuario de prueba de Azure AD](./media/adaptivesuite-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
-
-    d. Haga clic en **Create**(Crear).
-
-### <a name="creating-an-adaptive-insights-test-user"></a>Creación de un usuario de prueba de Adaptive Insights
+    d. Seleccione **Crear**.
+ 
+### <a name="create-an-adaptive-insights-test-user"></a>Creación de un usuario de prueba de Adaptive Insights
 
 Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Insights, deben aprovisionarse en este último. En el caso de Adaptive Insights, el aprovisionamiento es una tarea manual.
 
@@ -204,9 +207,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Insights,
 2. Vaya a **Administración**.
 
    ![Administración](./media/adaptivesuite-tutorial/IC805644.png "Administración")
+
 3. En la sección **Users and Roles** (Usuarios y roles), haga clic en **Add User** (Agregar usuario).
 
    ![Agregar usuario](./media/adaptivesuite-tutorial/IC805648.png "Agregar usuario")
+   
 4. En la sección **Nuevo usuario** , lleve a cabo estos pasos:
 
    ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar")
@@ -221,57 +226,38 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Insights,
 >Para aprovisionar cuentas de usuario de AAD, puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Adaptive Insights ofrecida por Adaptive Insights.
 >
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, concederá acceso a Adaptive Insights a Britta Simon para permitirle usar el inicio de sesión único de Azure.
 
-![Asignar usuario][200]
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
-**Para asignar a Britta Simon a Adaptive Insights, realice los pasos siguientes:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201]
+    ![imagen](./media/adaptivesuite-tutorial/d_all_applications.png)
 
 2. En la lista de aplicaciones, seleccione **Adaptive Insights**.
 
-    ![Configurar inicio de sesión único](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
+    ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Asignar usuario][202]
+    ![imagen](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][203]
+    ![imagen](./media/adaptivesuite-tutorial/d_assign_user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
+    
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
-
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Microsoft Azure AD mediante el panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Adaptive Insights del Panel de acceso, debería iniciar sesión automáticamente en su aplicación Adaptive Insights.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/adaptivesuite-tutorial/tutorial_general_01.png
-[2]: ./media/adaptivesuite-tutorial/tutorial_general_02.png
-[3]: ./media/adaptivesuite-tutorial/tutorial_general_03.png
-[4]: ./media/adaptivesuite-tutorial/tutorial_general_04.png
-
-[100]: ./media/adaptivesuite-tutorial/tutorial_general_100.png
-
-[200]: ./media/adaptivesuite-tutorial/tutorial_general_200.png
-[201]: ./media/adaptivesuite-tutorial/tutorial_general_201.png
-[202]: ./media/adaptivesuite-tutorial/tutorial_general_202.png
-[203]: ./media/adaptivesuite-tutorial/tutorial_general_203.png

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1ddcbba4eacad040420efaf087f170e6c06ab2a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5f6ce3564cf4056dc9295e1885be425bbe3d7701
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182406"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165307"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Google mediante Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para usar una cuenta de Google como proveedor de identidades en Azure Active Dir
 3. Escriba un **Nombre de proyecto**, haga clic en **Crear** y asegúrese de que está usando el nuevo proyecto.
 3. Seleccione **Credentials** (Credenciales) en el menú izquierdo y, a continuación, seleccione **Create credentials** > **Oauth client ID** (Crear credenciales, Id. de cliente de Oauth).
 4. Seleccione **Configure consent screen** (Configurar pantalla de consentimiento).
-5. Seleccione o especifique una **Email address** (Dirección de correo electrónico), proporcione un **Product name shown to users** (Nombre de producto mostrado a los usuarios) y haga clic en **Save** (Guardar).
+5. Seleccione o especifique una **Dirección de correo electrónico** válida, proporcione un **Nombre de producto** para mostrar a los usuarios, agregue `b2clogin.com` en **Dominios autorizados** y, a continuación, haga clic en **Guardar**.
 6. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web).
 7. Escriba un **Name** (nombre) para la aplicación, escriba `https://your-tenant-name.b2clogin.com` en **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` en **Authorized redirect URIs** (URI de redirección autorizados). Reemplace `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
 8. Haga clic en **Create**(Crear).

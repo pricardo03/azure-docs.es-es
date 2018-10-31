@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978087"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344765"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas en Azure Monitor
 
@@ -31,7 +31,7 @@ Al enviar las métricas personalizadas a Azure Monitor, cada punto de datos (o v
 
 ### <a name="authentication"></a>Autenticación
 Para enviar métricas personalizadas a Azure Monitor, la entidad que envía la métrica debe tener un token de Azure Active Directory válido en el encabezado de "portador" de la solicitud. Existen algunas formas admitidas para adquirir un token de portador válido:
-1. [MSI (Managed Service Identity)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview): proporciona una identidad a un recurso de Azure mismo (por ejemplo, una VM). MSI se ha diseñado para otorgar permisos a los recursos para llevar a cabo ciertas operaciones, por ejemplo, permitir a un recurso emitir métricas sobre sí mismo. Un recurso (o su MSI) puede obtener permisos de "Supervisión del publicador de métricas" en otro recurso, lo que permite a MSI emitir métricas para los otros recursos también.
+1. [Identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview): proporciona una identidad a un recurso de Azure (por ejemplo, una máquina virtual). MSI se ha diseñado para otorgar permisos a los recursos para llevar a cabo ciertas operaciones, por ejemplo, permitir a un recurso emitir métricas sobre sí mismo. Un recurso (o su MSI) puede obtener permisos de "Supervisión del publicador de métricas" en otro recurso, lo que permite a MSI emitir métricas para los otros recursos también.
 2. [Entidad de servicio de AAD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals): el escenario aquí es que pueden asignarse permisos a una aplicación (servicio) de AAD para que emita métricas sobre un recurso de Azure.
 Para autenticar la solicitud, Azure Monitor valida el token de aplicación mediante las claves públicas de AAD. El rol "Supervisión del publicador de métricas" existente ya tiene este permiso, que está disponible en Azure Portal. La entidad de servicio, según para qué recursos emitirá métricas personalizadas, puede recibir el rol "Supervisión del publicador de métricas" en el ámbito necesario (suscripción, grupo de recursos o recurso específico).
 
@@ -194,6 +194,6 @@ Usar métricas personalizadas de distintos servicios
  - [Conjunto de escalado de máquinas virtuales](metrics-store-custom-guestos-resource-manager-vmss.md)
  - [Máquina virtual (clásica)](metrics-store-custom-guestos-classic-vm.md)
  - [Máquina virtual Linux que usa el agente Telegraf](metrics-store-custom-linux-telegraf.md)
- - [API de REST](metrics-store-custom-rest-api.md)
+ - [API DE REST](metrics-store-custom-rest-api.md)
  - [Servicio en la nube (clásico)](metrics-store-custom-guestos-classic-cloud-service.md)
  

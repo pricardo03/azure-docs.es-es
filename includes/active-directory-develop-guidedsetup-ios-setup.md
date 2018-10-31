@@ -14,38 +14,38 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cf064be5f723651d571b2db619782f50225e5ade
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 4f820a95759d16a9b6ac1eb1e442ae0bc8d681a3
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843136"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988281"
 ---
 ## <a name="setting-up-your-ios-application"></a>Configuración de la aplicación de iOS
 
-En esta sección se proporcionan instrucciones paso a paso sobre cómo crear un nuevo proyecto a fin de mostrar cómo integrar una aplicación de iOS (Swift) con *Iniciar sesión en Microsoft*, de manera que pueda consultar las API web que requieran un token.
+En esta sección se proporcionan instrucciones paso a paso para crear un nuevo proyecto a fin de mostrar cómo integrar una aplicación de iOS (Swift) con *Iniciar sesión en Microsoft*, de manera que pueda consultar las API web que requieran un token.
 
 > ¿Prefiere descargar este proyecto de XCode de ejemplo en su lugar? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) y vaya al [paso de configuración](#register-your-application) para configurar el código de ejemplo antes de ejecutar.
 
-
 ## <a name="install-carthage-to-download-and-build-msal"></a>Instalación de Carthage para descargar y compilar MSAL
+
 Se utiliza el administrador de paquetes Carthage durante el período de versión preliminar de MSAL: se integra con XCode manteniendo la capacidad de Microsoft para realizar cambios en la biblioteca.
 
-- Descargue e instale la versión más reciente de Carthage [aquí](https://github.com/Carthage/Carthage/releases "Dirección URL de descarga de Carthage")
+- Descargue e instale la versión más reciente de Carthage [aquí](https://github.com/Carthage/Carthage/releases "Dirección URL de descarga de Carthage").
 
 ## <a name="creating-your-application"></a>Creación de la aplicación
 
-1.  Abra Xcode y seleccione `Create a new Xcode project`.
-2.  Seleccione `iOS` > `Single view Application` y haga clic en *Siguiente*
-3.  Asigne un nombre al producto y haga clic en *Siguiente*
-4.  Seleccione una carpeta para crear la aplicación y haga clic en *Crear*.
+1. Abra Xcode y seleccione **Create a new Xcode project** (Crear un nuevo proyecto en Xcode).
+2. Seleccione **iOS > Single view Application** (Aplicación de vista sencilla) y luego **Next** (Siguiente).
+3. Asigne un nombre al producto y seleccione **Next** (Siguiente).
+4. Seleccione una carpeta para crear la aplicación y haga clic en *Crear*.
 
 ## <a name="build-the-msal-framework"></a>Compilación del marco MSAL
 
 Siga las instrucciones siguientes para extraer y, después, generar la versión más reciente de las bibliotecas MSAL mediante Carthage:
 
-1.  Abra el terminal de Bash y vaya a la carpeta raíz de la aplicación.
-2.  Copie lo siguiente y péguelo en el terminal de Bash para crear un archivo 'Cartfile':
+1. Abra el terminal de Bash y vaya a la carpeta raíz de la aplicación.
+2. Copie lo siguiente y péguelo en el terminal de Bash para crear un archivo 'Cartfile':
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -61,15 +61,16 @@ Copie y pegue lo siguiente. Este comando recupera las dependencias en una carpet
 carthage update
 ```
 
-> El proceso descrito anteriormente se utiliza para descargar y compilar la Biblioteca de autenticación de Microsoft (MSAL). MSAL controla la adquisición, el almacenamiento en caché y la actualización de los tokens de usuario que se utilizan para tener acceso a las API protegidas por el Azure Active Directory v2.
+> El proceso descrito anteriormente se utiliza para descargar y compilar la Biblioteca de autenticación de Microsoft (MSAL). MSAL controla la adquisición, el almacenamiento en caché y la actualización de los tokens de usuario que se utilizan para tener acceso a las API protegidas por Azure Active Directory v2.0.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Adición del marco MSAL a la aplicación
-1.  En Xcode, abra la pestaña `General`.
-2.  Vaya a la sección `Linked Frameworks and Libraries` y haga clic en `+`.
-3.  Seleccionar `Add other…`
-4.  Seleccione: `Carthage` > `Build` > `iOS` > `MSAL.framework` y haga clic en *Abrir*. Debería ver `MSAL.framework` agregado a la lista.
-5.  Vaya a la pestaña `Build Phases`, haga clic en el icono `+` y elija `New Run Script Phase`.
-6.  Agregue el contenido siguiente al *área del script*:
+
+1. En Xcode, abra la pestaña **General**.
+2. Vaya a la sección **Linked Frameworks and Libraries** (Bibliotecas y marcos vinculados) y haga clic en **+**.
+3. Seleccione **Add other...** (Agregar otro...).
+4. Seleccione **Carthage > Build (Compilar) > iOS > MSAL.framework** y, a continuación, seleccione **Open** (Abrir). Debería ver `MSAL.framework` agregado a la lista.
+5. Vaya a la pestaña **Build Phases** (Fases de compilación), seleccione el icono **+** y, a continuación, seleccione **New Run Script Phase** (Nueva fase para ejecutar script).
+6. Agregue el contenido siguiente al *área del script*:
 
 ```text
 /usr/local/bin/carthage copy-frameworks
@@ -87,6 +88,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
 ## <a name="creating-your-applications-ui"></a>Creación de la interfaz de usuario de la aplicación
+
 Debe crearse un archivo Main.storyboard automáticamente como parte de la plantilla de proyecto. Siga las instrucciones siguientes para crear la interfaz de usuario de la aplicación:
 
 1.  Presione Control y haga clic en `Main.storyboard` para mostrar el menú contextual y, a continuación, haga clic en: `Open As` > `Source Code`

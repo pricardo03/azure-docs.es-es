@@ -4,7 +4,7 @@ description: Tecnología y procesos de análisis avanzado en acción
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
 ms.service: machine-learning
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 23766598b1af4e05b007e5ba844190f1fe03a660
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433725"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394381"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
 
 ## <a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trip
-El conjunto de datos NYC Taxi Trips consiste en aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente, 48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
+El conjunto de datos NYC Taxi Trips consiste en aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente, 48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. El registro de cada carrera incluye la hora y la ubicación de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (identificador único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
 1. El archivo CSV 'trip_data' contiene información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
    
@@ -70,7 +70,7 @@ En este tutorial se mostrará la importación paralela en bloque de los datos en
 
 Para configurar el entorno de ciencia de datos de Azure:
 
-1. [crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md)
+1. [Cree una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md)
 2. [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
 3. [Aprovisione una máquina virtual de ciencia de datos](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que proporcionará un servidor de SQL Server y un servidor de Notebook de IPython.
    

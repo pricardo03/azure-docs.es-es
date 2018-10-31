@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024662"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309662"
 ---
 # <a name="manage-credentials"></a>Administración de credenciales
 
@@ -66,11 +66,11 @@ Tenga en cuenta también su identificador de región para el punto de conexión 
 
 ### <a name="resource-id"></a>Id. de recurso
 
-Esta sección se ha descrito en la sección [Uso de la cuenta de Azure con la API y la herramienta de revisión](credentials.md#how-to-use-your-azure-account-with-the-review-tool). Este campo normalmente está en blanco a menos que se agregue el identificador de recursos de Azure, como se explicó en la sección anterior.
+Este conjunto de campos se trata en la sección anterior, [Uso de la cuenta de Azure con la herramienta de revisión y la API](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Este campo normalmente está en blanco a menos que se agregue el identificador de recursos de Azure, como se explicó en la sección anterior.
 
 ### <a name="workflows"></a>Flujos de trabajo
 
-Este conjunto de campos se ha descrito en la sección anterior sobre el [uso de la clave de Azure para ejecutar los flujos de trabajo](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). De forma predeterminada, la herramienta de revisión usa su clave de prueba generada automáticamente para ejecutar los flujos de trabajo,y eso es lo que se muestra para comenzar. Los otros dos campos permiten usar listas de términos e imágenes en las operaciones de texto de la pantalla y evaluación de imagen respectivamente.
+Este conjunto de campos se trata en la sección anterior, [Uso de la cuenta de Azure con los flujos de trabajo en la herramienta de revisión](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). De forma predeterminada, la herramienta de revisión usa su clave de prueba generada automáticamente para ejecutar los flujos de trabajo,y eso es lo que se muestra para comenzar. Los otros dos campos permiten usar listas de términos e imágenes en las operaciones de texto de la pantalla y evaluación de imagen respectivamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: Supervisión del rendimiento de muchas bases de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs
+title: 'Aplicación de SaaS: Supervisión del rendimiento de muchas bases de datos SQL de Azure | Microsoft Docs'
 description: Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: b0e1cf976552754070b939a1463d033d66a0119c
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830046"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353907"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144548"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378761"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -93,7 +93,7 @@ Puede conectar una red virtual a otras redes virtuales mediante el emparejamient
 
 ### <a name="peering"></a>Emparejamiento
 
-Al usar [el emparejamiento de redes virtuales](virtual-network-peering-overview.md), las redes virtuales pueden estar en las mismas regiones de Azure compatibles o en diferentes regiones. Las redes virtuales pueden estar en la misma suscripción de Azure o en suscripciones diferentes, siempre y cuando ambas suscripciones estén asignadas al mismo inquilino de Azure Active Directory. Le recomendamos que se familiarice con los [requisitos y restricciones](virtual-network-manage-peering.md#requirements-and-constraints) de emparejamiento antes de crear un emparejamiento. El ancho de banda entre recursos de redes virtuales emparejadas en la misma región es el mismo que si los recursos estuvieran en la misma red virtual.
+Al usar [el emparejamiento de redes virtuales](virtual-network-peering-overview.md), las redes virtuales pueden estar en las mismas regiones de Azure compatibles o en diferentes regiones. Las redes virtuales pueden estar en las mismas suscripciones de Azure (incluso suscripciones que pertenezcan a diferentes inquilinos de Azure Active Directory), o en otras diferentes. Le recomendamos que se familiarice con los [requisitos y restricciones](virtual-network-manage-peering.md#requirements-and-constraints) de emparejamiento antes de crear un emparejamiento. El ancho de banda entre recursos de redes virtuales emparejadas en la misma región es el mismo que si los recursos estuvieran en la misma red virtual.
 
 ### <a name="vpn-gateway"></a>puerta de enlace de VPN
 

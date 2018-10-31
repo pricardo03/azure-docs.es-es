@@ -1,31 +1,31 @@
 ---
-title: Personalización de una interfaz de usuario mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
-description: Información acerca de cómo personalizar una interfaz de usuario (IU) con directivas personalizadas en Azure AD B2C.
+title: Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
+description: Obtenga información acerca de cómo personalizar una interfaz de usuario mediante una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446170"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945067"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configuración de la interfaz de usuario personalizada en una directiva personalizada
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Después de completar este artículo, tendrá una directiva personalizada de registro e inicio de sesión con su marca y apariencia. Con Azure Active Directory B2C (Azure AD B2C), controlará prácticamente todo el contenido HTML y CSS que se presenta a los usuarios. Cuando se usa una directiva personalizada, la personalización de la interfaz del usuario se configura en XML en lugar de con controles de Azure Portal. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-Antes de continuar, lea el artículo de [introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
+Siga los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
 
 ## <a name="page-ui-customization"></a>Personalización de la interfaz de usuario de la página
 
@@ -119,27 +119,44 @@ Para comprobar que está listo, haga lo siguiente:
 2. Haga clic en **Send Request** (Enviar solicitud).  
     Si recibe un error, asegúrese de que la [configuración de CORS](#configure-cors) sea correcta. Puede que también deba borrar la caché del explorador o abrir una sesión de navegación privada, para ello, presione Ctrl + Mayús + P.
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modificación de la directiva de inicio de sesión o de registro
+## <a name="modify-the-extensions-file"></a>Modificación del archivo de extensiones
 
-En la etiqueta *\<TrustFrameworkPolicy\>* superior, debería encontrar la etiqueta *\<BuildingBlocks\>*. Dentro de las etiquetas *\<BuildingBlocks\>*, agregue una etiqueta *\<ContentDefinitions\>*; para ello, copie el ejemplo siguiente. Reemplace *your_storage_account* por el nombre de la cuenta de almacenamiento.
+Para configurar la personalización de la interfaz de usuario, se copia **ContentDefinition** y sus elementos secundarios del archivo base al archivo de extensiones.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. Abra el archivo base de la directiva. Por ejemplo, *TrustFrameworkBase.xml*.
+2. Busque y copie todo el contenido del elemento **ContentDefinitions**.
+3. Abra el archivo de extensión. Por ejemplo, *TrustFrameworkExtensions.xml*. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
+4. Pegue todo el contenido del elemento **ContentDefinitions** que ha copiado como elemento secundario del elemento **BuildingBlocks**. 
+5. Busque el elemento **ContentDefinition** que contenga `Id="api.signuporsignin"` en el XML que ha copiado.
+6. Cambie el valor de **LoadUri** a la dirección URL del archivo HTML que cargó en el almacenamiento. Por ejemplo: https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    La directiva personalizada debería ser similar a la siguiente:
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. Guarde el archivo de extensiones.
 
 ## <a name="upload-your-updated-custom-policy"></a>Carga de la directiva personalizada actualizada
 
-1. En [Azure Portal](https://portal.azure.com), [cambie al contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y abra la hoja **Azure AD B2C**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+4. Seleccione **Marco de experiencia de identidad**.
 2. Haga clic en **Todas las directivas**.
 3. Haga clic en **Cargar directiva**.
-4. Cargue `SignUpOrSignin.xml` con la etiqueta *\<ContentDefinitions\>* que agregó anteriormente.
+4. Cargue el archivo de extensiones que cambió anteriormente.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Prueba de la directiva personalizada con **Ejecutar ahora**
 

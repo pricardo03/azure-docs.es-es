@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: c9629611544efe248b1b343ac1ba26740b9ce7e0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091696"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026235"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Tutorial: Habilitar la telemetría para Microsoft Dynamics CRM Online con Application Insights
 En este artículo se muestra cómo obtener datos de telemetría de [Microsoft Dynamics CRM Online](https://www.dynamics.com/) con [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Analizaremos el proceso completo para agregar scripts de Application Insights a la aplicación, capturar datos y visualizar datos.
@@ -39,11 +39,7 @@ Para supervisar la aplicación, agregue un SDK de Application Insights a la apli
     ![Haga clic en +, Servicios para desarrolladores, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Elija ASP.NET como el tipo de aplicación.
-3. Abra la página de inicio y abra "Supervisar y diagnosticar la aplicación del lado cliente".
-
-    ![Fragmento de código para inserción en la página web](./media/app-insights-sample-mscrm/03.png)
-
-**Mantenga abierta la página de códigos** mientras lleva a cabo el siguiente paso en otra ventana del explorador. Necesitará el código pronto. 
+3. Siga las instrucciones para [obtener el script del SDK de JavaScript para la aplicación](app-insights-javascript.md#set-up-application-insights-for-your-web-page), copie el fragmento de código de JavaScript y no olvide reemplazar la clave de instrumentación con el valor correcto para el recurso de AppInsights.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Creación de un recurso web de JavaScript en Microsoft Dynamics CRM
 1. Abra la instancia de CRM Online e inicie sesión con privilegios de administrador.
@@ -60,7 +56,7 @@ Para supervisar la aplicación, agregue un SDK de Application Insights a la apli
     Asígnele un nombre, seleccione **Script (JScript)** y abra el editor de texto.
 
     ![Abrir el editor de texto](./media/app-insights-sample-mscrm/00004.png)
-2. Copie el código de Application Insights. Al copiar, asegúrese de que ignora las etiquetas de script. Consulte la siguiente captura de pantalla:
+2. Copie el código del SDK de JavaScript de AppInsights en el que ha configurado antes la clave de instrumentación. Al copiar, asegúrese de que ignora las etiquetas de script. Consulte la captura de pantalla siguiente:
 
     ![Establecer la clave de instrumentación](./media/app-insights-sample-mscrm/000005.png)
 

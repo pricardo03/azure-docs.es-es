@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902032"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466723"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimiento: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -49,21 +49,38 @@ También puede quitar notificaciones (distintas de NameIdentifier) mediante el m
 ![Editar atributo de usuario][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>Edición de la notificación NameIdentifier
-Para solucionar el problema en el que la aplicación se ha implementado con un nombre de usuario diferente, haga clic en la lista desplegable **UserIdentifier** de la sección **Atributos de usuario**. Con esta acción se mostrará un cuadro de diálogo con varias opciones:
+
+Para solucionar el problema en el que la aplicación se ha implementado con un nombre de usuario diferente, seleccione la lista desplegable **Identificador de usuario** de la sección **Atributos de usuario**. Con esta acción se mostrará un cuadro de diálogo con varias opciones:
 
 ![Editar atributo de usuario][4]
 
-En la lista desplegable, seleccione **user.mail** a fin de establecer la notificación NameIdentifier para que sea la dirección de correo electrónico del usuario en el directorio. O bien, seleccione **user.onpremisessamaccountname** para su establecimiento en el nombre de cuenta SAM del usuario que se ha sincronizado desde Azure AD local.
+### <a name="attributes"></a>Atributos
 
-También puede usar la función **ExtractMailPrefix()** para quitar el sufijo de dominio de la dirección de correo electrónico, el nombre de cuenta SAM o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com).
+Seleccione el origen que desee para la notificación `NameIdentifier` (o NameID). Puede seleccionar entre las opciones siguientes:
 
-![Editar atributo de usuario][5]
+| NOMBRE | DESCRIPCIÓN |
+|------|-------------|
+| Email | La dirección de correo electrónico del usuario. |
+| userprincipalName | El nombre principal de usuario (UPN) del usuario. |
+| onpremisessamaccount | Nombre de cuenta SAM que se ha sincronizado desde Azure AD local. |
+| objectID | El valor de objectID del usuario en Azure AD. |
+| EmployeeID | El valor de EmployeeID del usuario. |
+| Sincronización de Azure AD Connect: Extensiones de directorio | Extensiones de directorio [sincronizadas desde Active Directory local con Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Atributos de extensión 1-15 | Los atributos de extensión locales usados para extender el esquema de AD Azure. |
 
-Ahora también hemos agregado la función **join()** para combinar el dominio comprobado con el valor del identificador de usuario. Al seleccionar la función join() en **UserIdentifier**, seleccione primero el identificador de usuario como dirección de correo electrónico o nombre principal de usuario y, a continuación, en la segunda lista desplegable, seleccione el dominio comprobado. Si selecciona la dirección de correo electrónico con el dominio comprobado, Azure AD extrae el nombre de usuario del primer valor joe_smith de joe_smith@contoso.com y lo anexa con contoso.onmicrosoft.com. Consulte el ejemplo siguiente:
+### <a name="transformations"></a>Transformaciones
 
-![Editar atributo de usuario][6]
+También puede usar las funciones especiales de transformación de notificaciones.
+
+| Función | DESCRIPCIÓN |
+|----------|-------------|
+| **ExtractMailPrefix()** | Quita el sufijo de dominio de la dirección de correo electrónico, el nombre de cuenta SAM o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com). |
+| **join()** | Combina un atributo con un dominio comprobado. Si el valor de identificador de usuario seleccionado tiene un dominio, extraerá el nombre de usuario para anexar el dominio comprobado seleccionado. Por ejemplo, si selecciona el correo electrónico (joe_smith@contoso.com) como valor de identificador de usuario y selecciona contoso.onmicrosoft.com como dominio comprobado, el resultado será joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Convierte los caracteres del atributo seleccionado en caracteres en minúscula. |
+| **ToUpper()** | Convierte los caracteres del atributo seleccionado en caracteres en mayúscula. |
 
 ## <a name="adding-claims"></a>Incorporación de notificaciones
+
 Al agregar una notificación, puede especificar el nombre del atributo (que no tiene que seguir de forma estricta un patrón de identificador URI según la especificación SAML). Establezca el valor en cualquier atributo de usuario que se almacene en el directorio.
 
 ![Agregar atributo de usuario][7]
@@ -132,8 +149,8 @@ Hay algunas notificaciones restringidas en SAML. Si agrega estas notificaciones,
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Administración de aplicaciones en Azure AD](../manage-apps/what-is-application-management.md)
-* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](howto-v1-debug-saml-sso-issues.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Solución de problemas del inicio de sesión único basado en SAML](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

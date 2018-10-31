@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886185"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408156"
 ---
 # <a name="use-ip-filters"></a>Uso de filtros IP
 
@@ -47,12 +47,12 @@ Por ejemplo, si desea aceptar direcciones del intervalo 70.37.104.0/24 y rechaza
 > [!NOTE]
 > Rechazar direcciones de IP puede impedir que otros servicios de Azure (por ejemplo, Azure Stream Analytics, Azure Virtual Machines o Device Explorer del portal) interactúen con Event Hubs.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Creación de una regla de red virtual con plantillas de Azure Resource Manager
+### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Creación de una regla de filtro de IP con plantillas de Azure Resource Manager
 
 > [!IMPORTANT]
-> Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admite en el nivel básico. 
+> Las redes virtuales se admiten en los niveles **estándar** y **dedicado** de Event Hubs. No se admiten en el nivel básico. 
 
-La siguiente plantilla de Resource Manager permite agregar una regla de red virtual a un espacio de nombres de Event Hubs.
+La siguiente plantilla de Resource Manager permite agregar una regla de filtro de IP a un espacio de nombres de Event Hubs.
 
 Parámetros de plantilla:
 

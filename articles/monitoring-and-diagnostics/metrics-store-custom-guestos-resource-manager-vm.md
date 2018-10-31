@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984087"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345193"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
 
@@ -64,7 +64,7 @@ Agregue un identificador de cuenta de almacenamiento a la sección de **variable
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Agregue esta extensión de Managed Service Identity (MSI) a la plantilla en la parte superior de la sección "resources".  La extensión garantiza que Azure Monitor acepte las métricas que se emiten.  
+Agregue estas identidades administradas para la extensión de recursos de Azure a la plantilla en la parte superior de la sección "resources".  La extensión garantiza que Azure Monitor acepte las métricas que se emiten.  
 
 ```json
 //Find this code 

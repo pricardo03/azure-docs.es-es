@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: c99ad77bba60a4573faae1c857b3e6dc0203c4ab
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d79a57db6f56264d4070debbca83de4192f7f503
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434694"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987093"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -89,7 +89,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para acceder a los [metadatos del evento](#trigger---event-metadata) en el código de función, cree un enlace a un objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requiere el uso de una instrucción para `Microsoft.ServiceBus.Messaging`). También puede acceder a las mismas propiedades mediante el uso de expresiones de enlace en la firma del método.  El ejemplo siguiente se muestran las dos maneras de obtener los mismos datos:
+Para acceder a los [metadatos del evento](#trigger---event-metadata) en el código de función, cree un enlace a un objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requiere el uso de una instrucción para `Microsoft.Azure.EventHubs`). También puede acceder a las mismas propiedades mediante el uso de expresiones de enlace en la firma del método.  El ejemplo siguiente se muestran las dos maneras de obtener los mismos datos:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -100,27 +100,31 @@ public static void Run(
     string offset,
     TraceWriter log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
     // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
-    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.SystemProperties.Offset}");
+    // Metadata accessed by using binding expressions in method parameters
     log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
     log.Info($"SequenceNumber={sequenceNumber}");
     log.Info($"Offset={offset}");
 }
 ```
 
-Para recibir eventos en un lote, convierta `string` o `EventData` en una matriz:
+Para recibir eventos en un lote, convierta `string` o `EventData` en una matriz.  
+
+> [!NOTE]
+> Cuando se reciben en un lote, no se puede establecer un enlace a parámetros de método como en el ejemplo anterior con `DateTime enqueuedTimeUtc` y debe recibirlos desde cada objeto `EventData`.  
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
-        log.Info($"C# Event Hub trigger function processed a message: {message}");
+        log.Info($"C# Event Hub trigger function processed a message: {Encoding.UTF8.GetString(message.Body)}");
+        log.Info($"EnqueuedTimeUtc={message.SystemProperties.EnqueuedTimeUtc}");
     }
 }
 ```
@@ -162,29 +166,30 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Para acceder a los [metadatos del evento](#trigger---event-metadata) en el código de función, cree un enlace a un objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requiere el uso de una instrucción para `Microsoft.ServiceBus.Messaging`). También puede acceder a las mismas propiedades mediante el uso de expresiones de enlace en la firma del método.  El ejemplo siguiente se muestran las dos maneras de obtener los mismos datos:
+Para acceder a los [metadatos del evento](#trigger---event-metadata) en el código de función, cree un enlace a un objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requiere el uso de una instrucción para `Microsoft.Azure.EventHubs`). También puede acceder a las mismas propiedades mediante el uso de expresiones de enlace en la firma del método.  El ejemplo siguiente se muestran las dos maneras de obtener los mismos datos:
 
 ```cs
-#r "Microsoft.ServiceBus"
+#r "Microsoft.Azure.EventHubs"
+
 using System.Text;
 using System;
-using Microsoft.ServiceBus.Messaging;
+using Microsoft.Azure.EventHubs;
 
 public static void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc, 
     Int64 sequenceNumber,
     string offset,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
-    // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
+    log.LogInformation($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
+    log.LogInformation($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.LogInformation($"Offset={myEventHubMessage.SystemProperties.Offset}");
+
     // Metadata accessed by using binding expressions
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"SequenceNumber={sequenceNumber}");
-    log.Info($"Offset={offset}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={sequenceNumber}");
+    log.LogInformation($"Offset={offset}");
 }
 ```
 

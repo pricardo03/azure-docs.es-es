@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/3/2018
+ms.date: 10/23/2018
 ms.author: osamaz, jaredr80
-ms.openlocfilehash: d4f8f0e6c8fab5dfb4efcc4f1659ba90336c8bf0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dc67f4a4e2189a63cfd4adbb5c1b7eace23acad5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593889"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957537"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute mediante PowerShell
 
@@ -310,7 +310,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Puede quitar la configuración de emparejamiento mediante la ejecución del ejemplo siguiente:
 
 > [!WARNING]
-> Debe asegurarse de que todas las redes virtuales estén desvinculadas del circuito ExpressRoute antes de ejecutar este ejemplo. 
+> Debe asegurarse de que todas las conexiones de redes virtuales y de ExpressRoute Global Reach se eliminan antes de ejecutar este ejemplo. 
 > 
 > 
 

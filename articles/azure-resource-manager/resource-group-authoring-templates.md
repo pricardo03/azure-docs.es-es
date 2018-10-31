@@ -12,19 +12,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542251"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945882"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para obtener instrucciones detalladas sobre cómo crear una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
 
+## <a name="quickstarts-and-tutorials"></a>Guías de inicio rápido y tutoriales
+
+Use las siguientes guías de inicio rápido y tutoriales para aprender a desarrollar plantillas de Resource Manager:
+
+- Guías de inicio rápido
+
+  	|Título|DESCRIPCIÓN|
+  	|------|-----|
+  	|[Uso de Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Genere una plantilla mediante el portal y el proceso de edición e implementación de la plantilla.|
+  	|[Usar Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Use Visual Studio Code para crear y editar plantillas y use Azure Cloud Shell para implementar plantillas.|
+  	|[Usar Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Use Visual Studio para crear, editar e implementar plantillas.|
+
+- Tutoriales
+
+  	|Título|DESCRIPCIÓN|
+  	|------|-----|
+  	|[Utilización de la referencia de la plantilla](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Use la documentación de referencia de la plantilla para desarrollar las plantillas. En el tutorial, busque el esquema de la cuenta de almacenamiento y use la información para crear una cuenta de almacenamiento cifrada.|
+  	|[Creación de varias instancias](./resource-manager-tutorial-create-multiple-instances.md)|Cree varias instancias de recursos de Azure. En el tutorial, puede crear varias instancias de la cuenta de almacenamiento.|
+  	|[Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Defina las dependencias de recursos. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes de Azure. Aprenderá cómo se definen las dependencias.|
+  	|[Condiciones de uso](./resource-manager-tutorial-use-conditions.md)|Implemente recursos basados en algunos valores de parámetro. En el tutorial, definirá una plantilla para crear una nueva cuenta de almacenamiento o usará una cuenta de almacenamiento ya existente basada en el valor de un parámetro.|
+  	|[Integración de Key Vault](./resource-manager-tutorial-use-key-vault.md)|Recupere los secretos o contraseñas de Azure Key Vault. En el tutorial, creará una máquina virtual.  La contraseña del administrador de la máquina virtual se recupera de Key Vault.|
+  	|[Creación de plantillas vinculadas](./resource-manager-tutorial-create-linked-templates.md)|Modularice las plantillas y llame a otras plantillas desde una plantilla. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes.  La cuenta de almacenamiento dependiente se define en una plantilla vinculada. |
+  	|[Uso de procedimientos de implementación seguros](./deployment-manager-tutorial.md)|Use Azure Deployment Manager. |
+
 ## <a name="template-format"></a>Formato de plantilla
+
 En la estructura más simple, una plantilla tiene los siguientes elementos:
 
 ```json
@@ -279,7 +304,7 @@ En la sección de recursos, se define que los recursos se implementan o se actua
 ],
 ```
 
-Para obtener más información, consulte [Sección de recursos de plantillas de Azure Resource Manager](resource-manager-templates-resources.md).
+Para incluir o excluir condicionalmente un recurso durante la implementación, use el [elemento Condition](resource-manager-templates-resources.md#condition). Para obtener más información sobre la sección de recursos, consulte [Sección de recursos de plantillas de Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Salidas
 En la sección de salidas, especifique valores que se devuelven de la implementación. Por ejemplo, podría devolver el URI para acceder a un recurso implementado.

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127353"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167501"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalización del acelerador de la solución de supervisión remota
 
@@ -460,9 +460,15 @@ Para modificar aún más la capa de presentación y visualizaciones en la soluci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarlo a personalizar la interfaz de usuario web en el acelerador de la solución de supervisión remota.
+En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarlo a personalizar la interfaz de usuario web en el acelerador de la solución de supervisión remota. Para más información acerca de la personalización de la IU, consulte los siguientes artículos:
+
+* [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-page.md)
+* [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
+* [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Adición de un control flotante personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Adición de un panel personalizado al panel de la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
 
-Para más información sobre cómo personalizar la solución de supervisión remota, consulte [Personalización y nueva implementación de un microservicio](iot-accelerators-microservices-example.md)
-<!-- Next tutorials in the sequence -->.
+Para más información sobre cómo personalizar los microservicios de la solución de supervisión remota, consulte [Personalización y reimplementación de un microservicio](iot-accelerators-microservices-example.md).
+<!-- Next tutorials in the sequence -->

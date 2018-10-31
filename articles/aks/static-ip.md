@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 8aab091ed992a946cd78ecf4f0c8fdfff4185a08
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b51da8c5e5e113cdb7e449206f7137386b278be4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407559"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025929"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar una dirección IP pública estática con el equilibrador de carga de Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo crear una dirección IP pública estática y 
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-a-static-ip-address"></a>Crear una dirección IP estática
 
@@ -59,10 +59,10 @@ Se muestra la dirección IP, como se indica en esta salida de ejemplo reducido:
   }
 ````
 
-Después puede obtener la dirección IP pública mediante el comando [az network public-ip list][az-network-public-ip-list]. Especifique el nombre del grupo de recursos del nodo y, después, envíe una consulta para *ipAddress*, como se muestra en este ejemplo:
+Después puede obtener la dirección IP pública mediante el comando [az network public-ip list][az-network-public-ip-list]. Especifique el nombre del grupo de recursos del nodo y la dirección IP pública creados y envíe una consulta para *ipAddress*, como se muestra en este ejemplo:
 
 ```azurecli
-$ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```

@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: d524555330653a90f52505c22f50f4d677ab6632
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3254f0c26e21bc7ba71fc23362f263cb126ea3b0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387266"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026371"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
 
@@ -73,7 +73,7 @@ Después de crear la red virtual, puede agregar la dirección IP de un servidor 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->La SKU básica no admite la autenticación de IKEv2 o RADIUS.
+>La SKU básica no admite la autenticación de IKEv2 o RADIUS. Si planea que clientes Mac se conecten a su red virtual, no use la SKU de nivel Básico.
 >
 
 ## <a name="generatecert"></a>5. Generación de certificados
@@ -172,7 +172,7 @@ Los archivos de configuración del cliente VPN contienen opciones para configura
 
 En el cuadro de diálogo Red, localice el perfil de cliente que desea utilizar, especifique la configuración de [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) y, después, haga clic en **Conectar**.
 
-Pata obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac).
+Pata obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac). Si tiene problemas para conectarse, compruebe que la puerta de enlace de red virtual no está usando una SKU de nivel Básico. La SKU de nivel Básico no es compatible con los clientes Mac.
 
   ![Conexión de Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

@@ -12,40 +12,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2018
+ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 784213531c061912dded8e7776e79bea5adb217b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597980"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466059"
 ---
-# <a name="optional-claims-in-azure-ad-preview"></a>Notificaciones opcionales en Azure AD (versión preliminar)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Cómo proporcionar notificaciones opcionales a la aplicación de Azure AD (versión preliminar pública)
 
 Esta característica la usan los desarrolladores de aplicaciones para especificar las notificaciones que desean que los tokens envíen a las aplicaciones. Estas notificaciones opcionales sirven para:
--   Seleccionar las notificaciones adicionales que se incluirán en los tokens para la aplicación.
--   Cambiar el comportamiento de ciertas notificaciones que Azure AD devuelve en tokens.
--   Agregar notificaciones personalizadas para la aplicación y acceder a ellas. 
+- Seleccionar las notificaciones adicionales que se incluirán en los tokens para la aplicación.
+- Cambiar el comportamiento de ciertas notificaciones que Azure AD devuelve en tokens.
+- Agregar notificaciones personalizadas para la aplicación y acceder a ellas. 
 
 > [!Note]
 > Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica estará disponible en cualquier suscripción de Azure AD durante el período de versión preliminar pública. Pero cuando ya esté disponible con carácter general, algunos aspectos podrían requerir una suscripción Premium de Azure AD.
 
 Para la lista de notificaciones estándares y cómo se utilizan en los tokens, consulte los [conceptos básicos de los tokens que emite Azure AD](v1-id-and-access-tokens.md). 
 
-Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](active-directory-appmodel-v2-overview.md) es conseguir tamaños de token menores para garantizar el rendimiento óptimo de los clientes.  Como resultado, varias notificaciones que antes se incluían en los tokens de identificación y acceso ya no aparecen en los de la versión 2.0 y deben solicitarse específicamente para cada aplicación.  
+Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](active-directory-appmodel-v2-overview.md) es conseguir tamaños de token menores para garantizar el rendimiento óptimo de los clientes.  Como resultado, varias notificaciones que antes se incluían en los tokens de identificación y acceso ya no aparecen en los de la versión 2.0 y deben solicitarse específicamente para cada aplicación.
+
+  
 
 **Tabla 1. Aplicabilidad**
 
-| Tipo de cuenta | Versión 1.0 del punto de conexión                      | Versión 2.0 del punto de conexión  |
-|--------------|------------------------------------|----------------|
+| Tipo de cuenta | Versión 1.0 del punto de conexión | Versión 2.0 del punto de conexión  |
+|--------------|---------------|----------------|
 | Cuenta personal de Microsoft  | N/D: se usan vales de RPS en su lugar | En breve habrá compatibilidad |
-| Cuenta de Azure AD          | Compatible                          | Compatible      |
+| Cuenta de Azure AD          | Compatible                          | Compatible con advertencias      |
+
+> [!Important]
+> En este momento, las aplicaciones que admiten cuentas personales y cuentas de Azure AD (registradas mediante el [portal de registro de aplicaciones](https://apps.dev.microsoft.com)) no pueden usar notificaciones opcionales.  Sin embargo, las aplicaciones registradas solo para Azure AD mediante el punto de conexión v2.0 pueden obtener las notificaciones opcionales que han solicitado en el manifiesto.
 
 ## <a name="standard-optional-claims-set"></a>Conjunto de notificaciones opcionales estándar
-El conjunto de notificaciones opcionales disponibles de forma predeterminada para que las usen las aplicaciones se enumeran a continuación.  Para agregar notificaciones opcionales personalizadas para la aplicación, consulte las [extensiones de directorio](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) a continuación. 
+El conjunto de notificaciones opcionales disponibles de forma predeterminada para que las usen las aplicaciones se enumeran a continuación.  Para agregar notificaciones opcionales personalizadas para la aplicación, consulte las [extensiones de directorio](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) a continuación.  Tenga en cuenta que al agregar notificaciones al **token de acceso**, esto se aplicará a los tokens de acceso solicitados *para* la aplicación (una API web), no *por* la aplicación.  Esto garantiza que, independientemente del cliente que accede a la API, los datos correctos están presentes en el token de acceso que usan para autenticarse en la API.
 
 > [!Note]
 >La mayoría de estas notificaciones puede incluirse en los JWT para los tokens v1.0 y v2.0, pero no en los tokens SAML, excepto donde se indique en la columna Tipo de token.  Además, aunque actualmente solo se admiten las notificaciones opcionales para los usuarios de AAD, se va a agregar compatibilidad con MSA.  Cuando MSA sea compatible con las notificaciones opcionales en la versión 2.0 del punto de conexión, la columna Tipo de usuario indicará si hay una notificación disponible para los usuarios de AAD o de MSA.  
@@ -76,6 +81,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `upn`                      | Notificación UserPrincipalName.  | JWT, SAML  |           | Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  <br> Propiedades adicionales: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>Notificaciones opcionales de la versión 2.0
+
 Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero no en los tokens de la versión 2.0, a menos que se solicite.  Estas notificaciones solo se aplican a los JWT (tokens de identificación y de acceso).  
 
 **Tabla 3. Notificaciones opcionales exclusivas de la versión 2.0**
@@ -106,8 +112,7 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
 > [!Note]
 >Especificar que la notificación opcional upn sin propiedades adicionales no cambia el comportamiento: para ver una nueva notificación emitida en el token, se debe agregar al menos una de las propiedades adicionales. 
 
-
-#### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales:
+#### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales
 
 ```json
  "optionalClaims": 
@@ -171,7 +176,6 @@ Indica las notificaciones opcionales solicitadas por una aplicación. Una aplica
 | `accessToken` | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de acceso de JWT. |
 | `saml2Token`  | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token SAML de JWT.       |
 
-
 ### <a name="optionalclaim-type"></a>Tipo OptionalClaim
 
 Contiene una notificación opcional asociada a una aplicación o una entidad de servicio. Las propiedades idToken, accessToken y saml2Token del tipo [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) son una colección de OptionalClaim.
@@ -185,7 +189,6 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 | `source`               | Edm.String              | Origen (objeto de directorio) de la notificación. Hay unas notificaciones predefinidas y otras definidas por el usuario desde las propiedades de extensión. Si el valor de origen es null, es una notificación opcional predefinida. Si el valor de origen es user, el valor de la propiedad name es la propiedad de extensión del objeto de usuario. |
 | `essential`            | Edm.Boolean             | Si el valor es true, la notificación especificada por el cliente es necesaria garantizar una experiencia de autorización sin problemas para la tarea concreta solicitada por el usuario final. El valor predeterminado es false.                                                                                                                 |
 | `additionalProperties` | Colección (Edm.String) | Propiedades adicionales de la notificación. Si existe una propiedad en esta colección, modifica el comportamiento de la notificación opcional especificada en la propiedad name.                                                                                                                                                   |
-
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>Configuración de notificaciones personalizadas mediante las extensiones de directorio
 
 Además del conjunto de notificaciones opcionales estándar, los tokens también pueden configurarse para incluir extensiones de esquema de directorio (consulte el [artículo sobre las extensiones de esquema de directorio](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) para más información).  Esta característica es útil para adjuntar información de usuario adicional que puede usar la aplicación, por ejemplo, un identificador adicional o la opción de configuración importante que el usuario haya establecido. 
@@ -193,7 +196,7 @@ Además del conjunto de notificaciones opcionales estándar, los tokens también
 > [!Note]
 > Las extensiones de esquema de directorio son una característica exclusiva de AAD, por lo que si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán. 
 
-### <a name="values-for-configuring-additional-optional-claims"></a>Valores de configuración de notificaciones opcionales adicionales 
+### <a name="values-for-configuring-additional-optional-claims"></a>Valores de configuración de notificaciones opcionales adicionales
 
 Para los atributos de extensión, utilice el nombre completo de la extensión (con el formato `extension_<appid>_<attributename>`) en el manifiesto de aplicación. `<appid>` debe coincidir con el identificador de la aplicación que solicita la notificación. 
 
@@ -209,12 +212,13 @@ Hay varias opciones disponibles para actualizar las propiedades de configuració
 -   También es posible escribir una aplicación que use [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para actualizarla. La [referencia de tipos complejos y entidades](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) de la guía de referencia de Graph API puede ayudarle con la configuración de las notificaciones opcionales.
 
 **Ejemplo:** en el ejemplo siguiente, modificará un manifiesto de aplicación para agregar notificaciones a los tokens de acceso, de identificación y SAML destinadas a la aplicación.
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2.  Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
-3.  Seleccione la **extensión de Azure Active Directory** en el panel de navegación izquierdo y haga clic en **Registros de aplicaciones**.
-4.  Busque la aplicación para la que desea configurar notificaciones opcionales en la lista y haga clic en ella.
-5.  En la página de la aplicación, haga clic en **Manifiesto** para abrir el editor de manifiestos en línea. 
-6.  Puede editar directamente el manifiesto mediante este editor. El manifiesto sigue el esquema de la [entidad de la aplicación](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) y da formato al manifiesto automáticamente al guardarlo. Se agregarán los elementos nuevos a la propiedad `OptionalClaims`.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
+1. Seleccione **Registros de aplicaciones** en el lado izquierdo.
+1. Busque la aplicación para la que desea configurar notificaciones opcionales en la lista y haga clic en ella.
+1. En la página de la aplicación, haga clic en **Manifiesto** para abrir el editor de manifiestos en línea. 
+1. Puede editar directamente el manifiesto mediante este editor. El manifiesto sigue el esquema de la [entidad de la aplicación](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) y da formato al manifiesto automáticamente al guardarlo. Se agregarán los elementos nuevos a la propiedad `OptionalClaims`.
 
       ```json
       "optionalClaims": 
@@ -241,10 +245,13 @@ Hay varias opciones disponibles para actualizar las propiedades de configuració
             ]
       }
       ```
-      En este caso, se agregaron distintas notificaciones opcionales para cada tipo de token que la aplicación puede recibir. Los tokens de identificación contendrán el nombre principal de usuario de los usuarios federados en la forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Los tokens de acceso ahora recibirán la notificación auth_time. Los tokens SAML contendrán ahora la extensión del esquema de directorio skypeId (en este ejemplo, el identificador de esta aplicación es ab603c56068041afb2f6832e2a17e237).  Los tokens SAML expondrán el identificador de Skype como `extension_skypeId`.
+      En este caso, se agregaron distintas notificaciones opcionales para cada tipo de token que la aplicación puede recibir. Los tokens de identificación contendrán el nombre principal de usuario de los usuarios federados en la forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Ahora, los tokens de acceso que soliciten otros clientes para esta aplicación incluirán la notificación auth_time. Los tokens SAML contendrán ahora la extensión del esquema de directorio skypeId (en este ejemplo, el identificador de esta aplicación es ab603c56068041afb2f6832e2a17e237).  Los tokens SAML expondrán el identificador de Skype como `extension_skypeId`.
 
-7.  Cuando haya terminado de actualizar el manifiesto, haga clic en **Guardar** para guardarlo.
+1. Cuando haya terminado de actualizar el manifiesto, haga clic en **Guardar** para guardarlo.
 
+## <a name="next-steps"></a>Pasos siguientes
 
-## <a name="related-content"></a>Contenido relacionado
-* Más información sobre las [notificaciones estándares](v1-id-and-access-tokens.md) que proporciona Azure AD. 
+Más información sobre las notificaciones estándares que proporciona Azure AD.
+
+- [Tokens de identificador](id-tokens.md)
+- [Tokens de acceso](access-tokens.md)

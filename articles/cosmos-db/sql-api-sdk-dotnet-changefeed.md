@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/21/2018
+ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716560"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023958"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -42,6 +42,14 @@ ms.locfileid: "44716560"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Cálculo del estimador fijo para las cuentas Multi Master y formato de token de sesión nuevo.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Compatibilidad agregada para las colecciones de concesión con particiones. La clave de partición debe definirse como /id.
+* Cambios importantes menores: los métodos de la interfaz IChangeFeedDocumentClient y la clase ChangeFeedDocumentClient se cambiaron para incluir los parámetros RequestOptions y CancellationToken. IChangeFeedDocumentClient es un punto de extensibilidad avanzado que le permite proporcionar una implementación personalizada del cliente de documentos para usarla con procesadores de fuente de cambios; por ejemplo, decore DocumentClient e intercepte todas las llamadas a él para realizar un seguimiento adicional, un control de errores, etc. Con esta actualización, el código que implementa IChangeFeedDocumentClient debe cambiarse para incluir nuevos parámetros en la implementación.
+* Mejoras de diagnósticos menores.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Se agregó una nueva API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Esto puede usarse para obtener el trabajo estimado para cada partición.
@@ -134,6 +142,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 de octubre de 2018 |--- |
 | [1.3.3](#1.3.3) |8 de mayo de 2018 |--- |
 | [1.3.2](#1.3.2) |18 de abril de 2018 |--- |
 | [1.3.1](#1.3.1) |13 de marzo de 2018 |--- |

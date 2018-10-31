@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 ms.author: rithorn
-ms.openlocfilehash: c2d4317bcbf70a0cebf6ab1915968eeb9ef8b4c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992634"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956415"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
@@ -48,7 +48,7 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 
 ### <a name="create-in-powershell"></a>Crear en PowerShell
 
-En PowerShell, use los cmdlets Add-AzureRmManagementGroups:
+En PowerShell, use el cmdlet New-AzureRmManagementGroup:
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -69,7 +69,7 @@ Use el parámetro **ParentId** para que este grupo de administración se cree en
 En al CLI de Azure, usará el comando az account management-group create.
 
 ```azurecli-interactive
-az account management-group create --group-name 'Contoso'
+az account management-group create --name 'Contoso'
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -78,6 +78,6 @@ Para más información sobre los grupos de administración, consulte:
 
 - [Organización de los recursos con grupos de administración de Azure](overview.md)
 - [Cambio, eliminación y administración de los grupos de administración](manage.md)
-- [Instalación del módulo de Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
+- [Instalación del módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
 - [Revisión de las especificaciones de API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Instalación de la extensión de la CLI de Azure](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

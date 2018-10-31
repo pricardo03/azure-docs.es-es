@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362915"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637872"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -83,6 +83,10 @@ Sí. Si la Detección automática de proxy web (WPAD) está habilitada en el ent
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>¿Puedo instalar dos o más agentes de autenticación de paso a través en el mismo servidor?
 
 No, solo se puede instalar un agente de autenticación de paso a través en un único servidor. Si desea configurar la autenticación de paso a través para alta disponibilidad, [siga las instrucciones aquí](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>¿Es necesario renovar manualmente los certificados usados por los agentes de autenticación de paso a través?
+
+La comunicación entre cada agente de autenticación de paso a través y Azure AD está protegida mediante la autenticación basada en certificados. [Azure AD renueva estos certificados automáticamente cada pocos meses](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). No hay ninguna necesidad de renovarlos manualmente. Puede eliminar los certificados expirados anteriores según sea necesario.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>¿Cómo quito un agente de autenticación de paso a través?
 

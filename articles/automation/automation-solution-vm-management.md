@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/1/2018
+ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f990f22d762c5f95d3274b740caf30691ded90e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409851"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376710"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -24,7 +24,7 @@ Esta solución proporciona una opción de automatización descentralizada de baj
 
 - Programar el inicio y la detención de las máquinas virtuales.
 - Programar el inicio y la detención de las máquinas virtuales mediante etiquetas de Azure (no se admite en las máquinas virtuales clásicas).
-- Detener automáticamente las máquinas virtuales si se detecta un bajo uso de la CPU.
+- Detener automáticamente las máquinas virtuales si se detecta un bajo uso de la CPU
 
 Las siguientes son limitaciones a la solución actual:
 
@@ -33,6 +33,8 @@ Las siguientes son limitaciones a la solución actual:
 
 > [!NOTE]
 > Si usa la solución para las máquinas virtuales clásicas, todas las máquinas virtuales se procesarán secuencialmente por servicio en la nube. El procesamiento de trabajos en paralelo aún se admite en varios servicios en la nube.
+>
+> Las suscripciones de Proveedor de soluciones en la nube de Azure (Azure CSP) solo admiten el modelo de Azure Resource Manager, los servicios que no sean de Azure Resource Manager no están disponibles en el programa. Cuando se ejecuta la solución Start/Stop, puede recibir errores porque contiene cmdlets para administrar los recursos clásicos. Para más información sobre CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,7 +44,7 @@ Los runbooks para esta solución funcionan con una [cuenta de ejecución de Azur
 
 Realice los siguientes pasos para agregar la solución Start/Stop VMs during off-hours a su cuenta de Automation y, después, configure las variables para personalizar la solución.
 
-1. En una cuenta de Automation, seleccione **Start/Stop VM** en **Recursos relacionados**. Desde aquí, puede hacer clic en **Más información acerca de la solución y cómo habilitarla**. Si ya tiene una solución de Start/Stop VM implementada, haga clic en **Administrar la solución** para acceder a una lista de las soluciones implementadas y seleccionarla desde allí.
+1. En una cuenta de Automation, seleccione **Start/Stop VM** en **Recursos relacionados**. Desde aquí, puede hacer clic en **Más información acerca de la solución y cómo habilitarla**. Si ya tiene una solución Start/Stop VM implementada, puede seleccionarla; para ello, haga clic en **Administrar la solución** y búsquela en la lista.
 
    ![Habilitación desde una cuenta de Automation](./media/automation-solution-vm-management/enable-from-automation-account.png)
 
@@ -64,7 +66,7 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    - Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)**. Log Analytics ha actualizado [precios](https://azure.microsoft.com/pricing/details/log-analytics/) y el nivel Por GB es la única opción.
 
 5. Después de proporcionar la información necesaria en la página **Área de trabajo de Log Analytics**, haga clic en **Crear**. Se puede realizar un seguimiento de su progreso en la opción **Notificaciones** del menú, que le devuelve a la página **Agregar solución** cuando haya finalizado.
-6. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si está creando una nueva área de trabajo de Log Analytics, puede crear una nueva cuenta de Automation para asociarla, o seleccionar una cuenta de Automation existente que no esté ya vinculada a un área de trabajo de Log Analystics. Seleccione una cuenta de Automation existente o haga clic en **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
+6. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si va a crear una nueva área de trabajo de Log Analytics, puede crear una cuenta de Automation para asociarla, o seleccionar una cuenta de Automation existente que no esté ya vinculada a un área de trabajo de Log Analytics. Seleccione una cuenta de Automation existente o haga clic en **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
    - En el campo **Nombre**, escriba el nombre de la cuenta de Automation.
 
     Las restantes opciones se rellenan automáticamente en función del área de trabajo de Log Analytics seleccionada. Dichas opciones no se pueden modificar. Una cuenta de ejecución de Azure es el método de autenticación predeterminado para los Runbooks incluidos en esta solución. Después de hacer clic en **Aceptar**, se validan las opciones de configuración y se crea la cuenta de Automation. Puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
@@ -74,9 +76,9 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    ![Página Parámetros para la solución](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
    En este caso, se le pedirá que:
-   - Especifique los **nombres del grupo de recursos de destino**. Estos son los nombres de los grupos de recursos que contienen máquinas virtuales que se administrarán mediante esta solución. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se puede usar un carácter comodín si quiere dirigirse a las máquinas virtuales de todos los grupos de recursos de la suscripción. Este valor se almacena en las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames**.
-   - Especifique el **lista de exclusiones de máquinas virtuales (cadena)**. Es el nombre de una o varias máquinas virtuales del grupo de recursos de destino. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se admite el uso de un carácter comodín. Este valor se almacena en la variable **External_ExcludeVMNames**.
-   - Seleccione una **programación**. Se trata de la fecha y hora recurrentes para iniciar y detener las máquinas virtuales en los grupos de recursos de destino. De forma predeterminada, la programación se configura para 30 minutos a partir de entonces. No se puede seleccionar otra región. Para configurar su zona horaria concreta después de configurar la solución, consulte el siguiente artículo [Modificación de la programación de inicio y apagado](#modify-the-startup-and-shutdown-schedule).
+   - Especifique los **nombres del grupo de recursos de destino**. Estos valores son nombres de grupos de recursos que contienen máquinas virtuales que se administrarán mediante esta solución. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se puede usar un carácter comodín si quiere dirigirse a las máquinas virtuales de todos los grupos de recursos de la suscripción. Este valor se almacena en las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames**.
+   - Especifique el **lista de exclusiones de máquinas virtuales (cadena)**. Este valor es el nombre de una o varias máquinas virtuales del grupo de recursos de destino. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se admite el uso de un carácter comodín. Este valor se almacena en la variable **External_ExcludeVMNames**.
+   - Seleccione una **programación**. Este valor es la fecha y hora recurrentes para iniciar y detener las máquinas virtuales en los grupos de recursos de destino. De forma predeterminada, la programación se configura para 30 minutos a partir de entonces. No se puede seleccionar otra región. Para configurar su zona horaria concreta después de configurar la solución, consulte el siguiente artículo [Modificación de la programación de inicio y apagado](#modify-the-startup-and-shutdown-schedule).
    - Para recibir **notificaciones por correo electrónico** de un grupo de acciones, acepte el valor predeterminado **Sí** y proporcione una dirección de correo electrónico válida. Si selecciona **No** pero decide en un momento posterior que desea recibir notificaciones por correo electrónico, puede actualizar el [grupo de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md) que se crea con las direcciones de correo electrónico válidas separadas por un punto y coma. También deberá habilitar las reglas de alerta siguientes:
 
      - AutoStop_VM_Child
@@ -94,7 +96,7 @@ La solución contiene tres escenarios diferentes. Dichos escenarios son:
 
 ### <a name="scenario-1-startstop-vms-on-a-schedule"></a>Escenario 1: Iniciar o detener las máquinas virtuales según una programación
 
-Se trata de la configuración predeterminada cuando se implementa la solución por primera vez. Por ejemplo, puede configurarla para que detenga todas las máquinas virtuales de una suscripción por la noche, cuando salga del trabajo, e iniciarlas por la mañana cuando vuelva a la oficina. Al configurar las programaciones **Scheduled-StartVM** y **Scheduled-StopVM** durante la implementación, inician y detienen las máquinas virtuales de destino. Se admite la configuración de esta solución para simplemente detener las máquinas virtuales. Consulte [Modificación de las programaciones de inicio y apagado](#modify-the-startup-and-shutdown-schedules) para información sobre cómo configurar una programación personalizada.
+Este escenario es la configuración predeterminada cuando se implementa la solución por primera vez. Por ejemplo, puede configurarla para que detenga todas las máquinas virtuales de una suscripción por la noche, cuando salga del trabajo, e iniciarlas por la mañana cuando vuelva a la oficina. Al configurar las programaciones **Scheduled-StartVM** y **Scheduled-StopVM** durante la implementación, inician y detienen las máquinas virtuales de destino. Se admite la configuración de esta solución para simplemente detener las máquinas virtuales. Consulte [Modificación de las programaciones de inicio y apagado](#modify-the-startup-and-shutdown-schedules) para información sobre cómo configurar una programación personalizada.
 
 > [!NOTE]
 > La zona horaria es su zona horaria actual cuando configura el parámetro de hora de la programación. Sin embargo, en Azure Automation se almacena en formato UTC. No es necesario realizar ninguna conversión de zona horaria ya que se controla durante la implementación.
@@ -112,7 +114,7 @@ Puede habilitar que el destino de la acción sea una suscripción y un grupo de 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Destino de las acciones de inicio y detención por lista de máquinas virtuales
 
 1. Ejecute el runbook **ScheduledStartStop_Parent** con el parámetro ACTION establecido en **start**, agregue una lista separada por comas de máquinas virtuales en el parámetro *VMList* y establezca el parámetro WHATIF en **True**. Obtenga una vista previa de los cambios.
-1. Configure el parámetro **External_ExcludeVMNames** con una lista separada por comas de máquinas virtuales (VM1,VM2,VM3).
+1. Configure el parámetro **External_ExcludeVMNames** con una lista separada por comas de máquinas virtuales (VM1, VM2, VM3).
 1. Este escenario no respeta las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupnames**. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](../automation/automation-schedules.md).
 
 > [!NOTE]
@@ -120,20 +122,20 @@ Puede habilitar que el destino de la acción sea una suscripción y un grupo de 
 
 ### <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a>Escenario 2: Iniciar o detener las máquinas virtuales en secuencia mediante el uso de etiquetas
 
-En un entorno que incluya dos, o más, componentes de varias máquinas virtuales que admitan una carga de trabajo distribuida, es importante que se pueda decidir la secuencia en que los componentes se inician o detienen en orden. Para ello, puede seguir estos pasos:
+En un entorno que incluya dos, o más, componentes de varias máquinas virtuales que admitan una carga de trabajo distribuida, es importante que se pueda decidir la secuencia en que los componentes se inician o detienen en orden. Para realizar este escenario, lleve a cabo los siguientes pasos:
 
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Destino de las acciones de inicio y detención a un grupo de recursos y una suscripción
 
-1. Agregue unas etiquetas **SequenceStart** y **SequenceStop** con un valor entero positivo a las máquinas virtuales cuyo destino se establece en las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames**. Las acciones de inicio y detención se realizan en orden ascendente. Para aprender a etiquetar una máquina virtual, consulte [Etiquetado de una máquina virtual en Azure](../virtual-machines/windows/tag.md) y [Etiquetado de una máquina virtual Linux en Azure](../virtual-machines/linux/tag.md).
+1. Agregue una etiqueta **sequencestart** y **sequencestop** con un valor entero positivo a las máquinas virtuales cuyo destino se establece en las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames**. Las acciones de inicio y detención se realizan en orden ascendente. Para aprender a etiquetar una máquina virtual, consulte [Etiquetado de una máquina virtual en Azure](../virtual-machines/windows/tag.md) y [Etiquetado de una máquina virtual Linux en Azure](../virtual-machines/linux/tag.md).
 1. Modifique las programaciones de **Sequenced-StartVM** y **Sequenced-StopVM** a una fecha y hora que cumplan sus requisitos, y habilite la programación.
 1. Ejecute el runbook **SequencedStartStop_Parent** con el parámetro ACTION establecido en **start** y el parámetro WHATIF establecido en **True** para obtener una vista previa de los cambios.
 1. Obtenga una vista previa de la acción y realice los cambios necesarios antes de implementarla en las máquinas virtuales de producción. Cuando esté preparado, ejecute manualmente el runbook con el parámetro establecido en **False** o deje que la programación de Automation **Sequenced-StartVM** y **Sequenced-StopVM** se ejecuten automáticamente siguiendo su programación prescrita.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Destino de las acciones de inicio y detención por lista de máquinas virtuales
 
-1. Agregue una etiqueta **SequenceStart** y **SequenceStop** con un valor entero para las máquinas virtuales que pretende agregar a la variable **VMList**. 
+1. Agregue una etiqueta **sequencestart** y **sequencestop** con un valor entero positivo para las máquinas virtuales que pretende agregar a la variable **VMList**. 
 1. Ejecute el runbook **SequencedStartStop_Parent** con el parámetro ACTION establecido en **start**, agregue una lista separada por comas de máquinas virtuales en el parámetro *VMList* y establezca el parámetro WHATIF en **True**. Obtenga una vista previa de los cambios.
-1. Configure el parámetro **External_ExcludeVMNames** con una lista separada por comas de máquinas virtuales (VM1,VM2,VM3).
+1. Configure el parámetro **External_ExcludeVMNames** con una lista separada por comas de máquinas virtuales (VM1, VM2, VM3).
 1. Este escenario no respeta las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupnames**. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](../automation/automation-schedules.md).
 1. Obtenga una vista previa de la acción y realice los cambios necesarios antes de implementarla en las máquinas virtuales de producción. Cuando esté preparado, ejecute manualmente el runbook monitoring-and-diagnostics/monitoring-action-groups con el parámetro establecido en **False** o deje que la programación de Automation **Sequenced-StartVM** y **Sequenced-StopVM** se ejecuten automáticamente siguiendo su programación prescrita.
 
@@ -141,7 +143,7 @@ En un entorno que incluya dos, o más, componentes de varias máquinas virtuales
 
 Esta solución puede ayudarle a administrar el costo de la ejecución de máquinas virtuales en su suscripción mediante la evaluación de las máquinas virtuales de Azure que no se utilizan durante los períodos de poca actividad, por ejemplo, las horas no laborables, y apagarlas automáticamente si el uso del procesador es menor de un porcentaje concreto.
 
-De forma predeterminada, la solución está preconfigurada para evaluar la métrica de CPU en porcentaje, con el fin de ver si la utilización media es del 5 %, o menos. Esto se controla mediante las siguientes variables y puede modificarse si los valores predeterminados no satisfacen sus requisitos:
+De forma predeterminada, la solución está preconfigurada para evaluar la métrica de CPU en porcentaje, con el fin de ver si la utilización media es del 5 %, o menos. Este escenario se controla mediante las siguientes variables y puede modificarse si los valores predeterminados no satisfacen sus requisitos:
 
 - External_AutoStop_MetricName
 - External_AutoStop_Threshold
@@ -159,7 +161,7 @@ Puede habilitar que el destino de la acción sea una suscripción y un grupo de 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Destino de las acciones de inicio y detención por lista de máquinas virtuales
 
 1. Ejecute el runbook **AutoStop_CreateAlert_Parent** con el parámetro ACTION establecido en **start**, agregue una lista separada por comas de máquinas virtuales en el parámetro *VMList* y establezca el parámetro WHATIF en **True**. Obtenga una vista previa de los cambios.
-1. Configure el parámetro **External_ExcludeVMNames** con una lista separada por comas de máquinas virtuales (VM1,VM2,VM3).
+1. Configure el parámetro **External_ExcludeVMNames** con una lista separada por comas de máquinas virtuales (VM1, VM2, VM3).
 1. Este escenario no respeta las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupnames**. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](../automation/automation-schedules.md).
 
 Ahora que tiene una programación para detener las máquinas virtuales en función del uso de la CPU, debe habilitar una de las programaciones siguientes para iniciarlas.
@@ -173,7 +175,7 @@ Esta solución incluye runbooks preconfigurados, programaciones e integración c
 
 ### <a name="runbooks"></a>Runbooks
 
-En la tabla siguiente se enumeran los runbooks implementados en su cuenta de Automation por esta solución. No debe realizar cambios en el código del runbook. En su lugar, escriba un runbook que aporte una nueva funcionalidad.
+En la tabla siguiente se enumeran los runbooks implementados en su cuenta de Automation por esta solución. No realice cambios en el código del runbook. En su lugar, escriba un runbook que aporte una nueva funcionalidad.
 
 > [!IMPORTANT]
 > No ejecute directamente ningún runbook cuyo nombre tenga anexado "child".
@@ -183,17 +185,17 @@ Todos los runbooks primarios incluyen el parámetro All _WhatIf_. Cuando se esta
 |Runbook | Parámetros | DESCRIPCIÓN|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Se llama desde el runbook primario. Este runbook crea alertas según el recurso para el escenario de AutoStop.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True o False  | Crea o actualiza las reglas de alerta de Azure en las máquinas virtuales de los grupos de recursos o la suscripción de destino. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1,vm2,vm3_.<br> *WhatIf* valida la lógica de runbook sin ejecución.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True o False  | Crea o actualiza las reglas de alerta de Azure en las máquinas virtuales de los grupos de recursos o la suscripción de destino. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_.<br> *WhatIf* valida la lógica de runbook sin ejecución.|
 |AutoStop_Disable | None | Deshabilita la programación predeterminada y las alertas de AutoStop.|
 |AutoStop_StopVM_Child | WebHookData | Se llama desde el runbook primario. Las reglas de alertas llaman a este runbook para detener la máquina virtual.|
 |Bootstrap_Main | None | Se usa una vez para realizar configuraciones de arranque como webhookURI, a las que normalmente no se puede acceder desde Azure Resource Manager. Este runbook se quita automáticamente tras la implementación correcta.|
 |ScheduledStartStop_Child | VMName <br> Action: Start o Stop <br> ResourceGroupName | Se llama desde el runbook primario. Ejecuta una acción de inicio o detención para la detención programada.|
-|ScheduledStartStop_Parent | Action: Start o Stop <br>VMList <br> WhatIf: True o False | Esto afecta a todas las máquinas virtuales de la suscripción. Edite **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** para que se ejecute solo en estos grupos de recursos de destino. También puede excluir máquinas virtuales específicas si actualiza la variable **External_ExcludeVMNames**.<br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1,vm2,vm3_.<br> _WhatIf_ valida la lógica de runbook sin ejecución.|
-|SequencedStartStop_Parent | Action: Start o Stop <br> WhatIf: True o False<br>VMList| Crear etiquetas denominadas **SequenceStart** y **SequenceStop** en todas las máquinas virtuales en las que desee secuenciar la actividad de inicio y detención. El valor de la etiqueta debe ser un entero positivo (1, 2, 3) que se corresponda con el orden en que se desee que se realice el inicio o la detención. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1,vm2,vm3_. <br> _WhatIf_ valida la lógica de runbook sin ejecución. <br> **Nota**: Las máquinas virtuales deben estar en grupos de recursos definidos como External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames, en las variables de Azure Automation. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
+|ScheduledStartStop_Parent | Action: Start o Stop <br>VMList <br> WhatIf: True o False | Este valor afecta a todas las máquinas virtuales de la suscripción. Edite **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** para que se ejecute solo en estos grupos de recursos de destino. También puede excluir máquinas virtuales específicas si actualiza la variable **External_ExcludeVMNames**.<br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida la lógica de runbook sin ejecución.|
+|SequencedStartStop_Parent | Action: Start o Stop <br> WhatIf: True o False<br>VMList| Cree etiquetas denominadas **sequencestart** y **sequencestop** en todas las máquinas virtuales en las que quiera secuenciar la actividad de inicio y detención. Estos nombres de etiqueta distinguen entre mayúsculas y minúsculas. El valor de la etiqueta debe ser un entero positivo (1, 2, 3) que se corresponda con el orden en que se desee que se realice el inicio o la detención. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida la lógica de runbook sin ejecución. <br> **Nota**: Las máquinas virtuales deben estar en grupos de recursos definidos como External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames, en las variables de Azure Automation. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
 
 ### <a name="variables"></a>variables
 
-En la tabla siguiente se enumeran las variables creadas en su cuenta de Automation. Solo se deben modificar las variables cuyo prefijo sea **External**. La modificación de variables con el prefijo **Internal** produce efectos no deseados.
+En la tabla siguiente se enumeran las variables creadas en su cuenta de Automation. Modifique solo las variables cuyo prefijo sea **External**. La modificación de variables con el prefijo **Internal** produce efectos no deseados.
 
 |Variable | DESCRIPCIÓN|
 |---------|------------|
@@ -215,17 +217,17 @@ En todos los escenarios, las variables **External_Start_ResourceGroupNames**, **
 
 ### <a name="schedules"></a>Programaciones
 
-En la tabla siguiente se enumera cada una de las programaciones predeterminadas que se crean en su cuenta de Automation. Puede modificarlas o crear sus propias programaciones personalizadas. De forma predeterminada, se deshabilitan todas ellas, excepto **Scheduled_StartVM** y **Scheduled-StopVM**.
+En la tabla siguiente se enumera cada una de las programaciones predeterminadas que se crean en su cuenta de Automation. Puede modificarlas o crear sus propias programaciones personalizadas. De forma predeterminada, todas las programaciones están deshabilitadas, excepto **Scheduled_StartVM** y **Scheduled_StopVM**.
 
 No se deben habilitar todas las programaciones, ya que ello podría crear acciones de programación que se superpongan. Lo mejor es determinar las optimizaciones que se desean y realizar las modificaciones oportunas. Vea los escenarios de ejemplo en la sección de información general para obtener una explicación.
 
 |Nombre de programación | Frecuencia | DESCRIPCIÓN|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Cada ocho horas | Ejecuta el runbook AutoStop_CreateAlert_Parent cada ocho horas, que a su vez detiene los valores basados en la máquina virtual en External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames en las variables de Azure Automation. Como alternativa, puede especificar una lista separada por comas de las máquinas virtuales mediante el parámetro VMList.|
-|Scheduled_StopVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de _Stop_ cada día a la hora especificada. Detiene automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables de los recursos. Debe habilitar la programación relacionada, **Scheduled-StartVM**.|
-|Scheduled_StartVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de _Start_ cada día a la hora especificada. Inicia automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables adecuadas. Debe habilitar la programación relacionada, **Scheduled-StopVM**.|
-|Sequenced-StopVM | 1:00 AM (UTC), todos los viernes | Ejecuta el runbook Sequenced_Parent con un parámetro de _Stop_ todos los viernes a la hora especificada. Detiene secuencialmente (de forma ascendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStop** definida por las variables adecuadas. Para más información acerca de los valores de las etiquetas y las variables de los recursos, consulte la sección Runbooks. Debe habilitar la programación relacionada, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 1:00 PM (hora UTC), todos los lunes | Ejecuta el runbook Sequenced_Parent con un parámetro de _Start_ cada lunes a la hora determinada. Inicia secuencialmente (de forma descendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStart** definida por las variables adecuadas. Para más información acerca de los valores de las etiquetas y las variables de los recursos, consulte la sección Runbooks. Debe habilitar la programación relacionada, **Sequenced-StopVM**.|
+|Scheduled_StopVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de _Stop_ cada día a la hora especificada. Detiene automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables de los recursos. Habilite la programación relacionada, **Scheduled-StartVM**.|
+|Scheduled_StartVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de _Start_ cada día a la hora especificada. Inicia automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables adecuadas. Habilite la programación relacionada, **Scheduled-StopVM**.|
+|Sequenced-StopVM | 1:00 AM (UTC), todos los viernes | Ejecuta el runbook Sequenced_Parent con un parámetro de _Stop_ todos los viernes a la hora especificada. Detiene secuencialmente (de forma ascendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStop** definida por las variables adecuadas. Para más información sobre los valores de etiqueta y las variables de recurso, consulte la sección Runbooks. Habilite la programación relacionada, **Sequenced-StartVM**.|
+|Sequenced-StartVM | 1:00 PM (hora UTC), todos los lunes | Ejecuta el runbook Sequenced_Parent con un parámetro de _Start_ cada lunes a la hora determinada. Inicia secuencialmente (de forma descendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStart** definida por las variables adecuadas. Para más información sobre los valores de etiqueta y las variables de recurso, consulte la sección Runbooks. Habilite la programación relacionada, **Sequenced-StopVM**.|
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 
@@ -279,8 +281,8 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 
 |Consultar | DESCRIPCIÓN|
 |----------|----------|
-|Búsqueda de trabajos del runbook ScheduledStartStop_Parent que hayan finalizado correctamente | search Category == "JobLogs" &#124; where ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc|
-|Búsqueda de trabajos del runbook SequencedStartStop_Parent que hayan finalizado correctamente | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
+|Búsqueda de trabajos del runbook ScheduledStartStop_Parent que hayan finalizado correctamente | ```search Category == "JobLogs" | donde ( RunbookName_s == "ScheduledStartStop_Parent" ) | donde ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Búsqueda de trabajos del runbook SequencedStartStop_Parent que hayan finalizado correctamente | ```search Category == "JobLogs" | donde ( RunbookName_s == "SequencedStartStop_Parent" ) | donde ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Visualización de la solución
 
@@ -295,6 +297,9 @@ Desde aquí puede realizar más análisis de los registros de trabajos. Para ell
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 
 Para cambiar las notificaciones de correo electrónico después de implementar la solución, modifique el grupo de acciones creado durante la implementación.  
+
+> [!NOTE]
+> Las suscripciones en la nube de Azure Government no admiten la funcionalidad de correo electrónico de esta solución.
 
 En Azure Portal, vaya a Monitor -> Grupos de acciones. Seleccione el grupo de acciones denominado **StartStop_VM_Notication**.
 
@@ -317,10 +322,10 @@ La administración de las programaciones de inicio y apagado en esta solución s
 Se admite la configuración de la solución para simplemente detener las máquinas virtuales en un momento determinado. Para ello, necesita lo siguiente:
 
 1. Asegúrese de que ha agregado los grupos de recursos para que las máquinas virtuales se cierren en la variable **External_Start_ResourceGroupNames**.
-1. Cree su propia programación para el tiempo que desea apagar las máquinas virtuales.
-1. Navegue hasta el runbook **ScheduledStartStop_Parent** y haga clic en **Programación**. Esto le permite seleccionar la programación que creó en el paso anterior.
-1. Seleccione **Parameters and run settings** (Parámetros y configuración de ejecución) y establezca el parámetro ACTION en "Stop".
-1. Haga clic en **Aceptar** para guardar los cambios.
+2. Cree su propia programación para el tiempo que desea apagar las máquinas virtuales.
+3. Navegue hasta el runbook **ScheduledStartStop_Parent** y haga clic en **Programación**. Esto le permite seleccionar la programación que creó en el paso anterior.
+4. Seleccione **Parameters and run settings** (Parámetros y configuración de ejecución) y establezca el parámetro ACTION en "Stop".
+5. Haga clic en **Aceptar** para guardar los cambios.
 
 ## <a name="update-the-solution"></a>Actualización de la solución
 

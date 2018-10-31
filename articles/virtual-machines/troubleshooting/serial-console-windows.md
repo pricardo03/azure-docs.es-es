@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413199"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024433"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola serie de máquinas virtuales
 
@@ -28,8 +28,8 @@ La consola serie de máquina virtual en Azure ofrece acceso a una consola basada
 
 Para obtener documentación de la consola serie para VM Linux, [haga clic aquí](serial-console-linux.md).
 
-> [!Note] 
-> La consola serie para máquinas virtuales suele estar disponible en las regiones globales de Azure. En este momento, la consola serie no está disponible en las nubes de Azure Government ni Azure China.
+> [!NOTE] 
+> La consola serie para máquinas virtuales suele estar disponible en las regiones globales de Azure. En este momento, la consola serie no está disponible aún en las nubes de Azure Government ni Azure China.
 
  
 
@@ -53,7 +53,6 @@ La consola serie para las máquinas virtuales solo es accesible mediante [Azure 
   3. Haga clic en la máquina virtual en la lista. Se abrirá la página de información general de la máquina virtual.
   4. Desplácese hacia abajo hasta la sección de Soporte técnico y solución de problemas, y haga clic en la opción "Consola de serie". Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
 
-
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Habilitación de la consola serie en imágenes personalizadas o antiguas
 Las imágenes más nuevas de Windows Server en Azure tendrán la [consola de administración especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitada de forma predeterminada. SAC se admite en versiones de servidor de Windows, pero no está disponible en versiones de cliente (por ejemplo, Windows 10, Windows 8 o Windows 7). Para habilitar la consola serie en máquinas virtuales de Windows creadas con imágenes anteriores a febrero de 2018, siga estos pasos: 
 
@@ -74,7 +73,7 @@ Si es necesario SAC también puede habilitarse sin conexión:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>¿Cómo se puede saber si SAC está habilitada o no?
 
-Si [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) no está habilitada la consola serie no mostrará el símbolo del sistema de SAC. En algunos casos, se mostrará la información de estado de la máquina virtual y, en otros casos, se quedará en blanco. Si utiliza una imagen de Windows Server creada antes de febrero de 2018, es probable que SAC no se habilite.
+Si [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) no está habilitada, la consola serie no mostrará el símbolo del sistema de SAC. En algunos casos, se mostrará la información de estado de la máquina virtual y, en otros casos, se quedará en blanco. Si utiliza una imagen de Windows Server creada antes de febrero de 2018, es probable que SAC no se habilite.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Habilitación del menú de arranque de Windows en la consola serie 
 
@@ -83,9 +82,12 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para mos
 1. Conéctese a la máquina virtual Windows mediante Escritorio remoto
 2. Ejecute los siguientes comandos como administrador en un símbolo del sistema 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reinicie el sistema para que el menú de arranque se habilite
+
+> [!NOTE] 
+> El tiempo de espera que seleccione para que el menú del administrador de arranque aparezca afectará al tiempo de arranque del sistema operativo en el futuro. Aunque para algunas personas pueda ser aceptable agregar un tiempo de expiración de 10 segundos para asegurarse de que el administrador de arranque es visible a través de la consola serie, otras podrían querer un tiempo de expiración mayor o menor. Establezca el valor del tiempo de expiración con el que se sienta cómodo.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Uso de la consola serie para llamadas NMI en máquinas virtuales de Windows
 Una interrupción no enmascarable (NMI) está diseñada para crear una señal que el software de una máquina virtual no pasará por alto. Históricamente, las NMI se han usado para supervisar problemas de hardware en sistemas que necesitaban tiempos de respuesta específicos.  En la actualidad, los administradores del sistema y programadores suelen usar NMI como mecanismo para depurar o solucionar los problemas de sistemas que se han bloqueado.
@@ -96,10 +98,25 @@ La consola serie se puede usar para enviar una NMI a una máquina virtual de Azu
 
 Para obtener información sobre cómo configurar Windows para crear un archivo de volcado cuando recibe una NMI, consulte: [Cómo generar un archivo de volcado completo o un archivo de volcado del núcleo utilizando un NMI en un sistema basado en Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>Apertura de CMD o Powershell en la consola serie
+
+1. Conéctese a la consola serie. Si se conecta correctamente a la consola serie, aparecerá la cadena **SAC>**, tal como muestra la captura de pantalla siguiente:
+
+    ![Conectarse a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Escriba `cmd` para crear un canal que contenga una instancia CMD. 
+4.  Escriba `ch -si 1` para cambiar al canal que está ejecutando la instancia CMD. 
+5.  Presione ENTRAR y, a continuación, escriba sus credenciales de inicio de sesión con permisos administrativos.
+6.  Después de escribir las credenciales válidas, se abre la instancia CMD.
+7.  Para iniciar una instancia de PowerShell, escriba `PowerShell` en la instancia de CMD y, a continuación, presione ENTRAR. 
+
+    ![Abrir una instancia de PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>Deshabilitación de la consola serie
 De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado para todas las VM. Puede deshabilitar la consola serie en el nivel de suscripción o el nivel de VM.
 
-> [!Note]       
+> [!NOTE]       
 > Para habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura en la suscripción. Esto incluye, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
 
 ### <a name="subscription-level-disable"></a>Deshabilitación a nivel de supervisión
@@ -107,7 +124,7 @@ La consola serie puede deshabilitarse para toda una suscripción a través de la
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Como alternativa, puede usar el conjunto de comandos siguiente en Cloud Shell (comandos de bash que se muestran) para deshabilitar, habilitar y ver el estado deshabilitado de la consola serie para una suscripción. 
+Como alternativa, puede usar el conjunto de comandos siguiente en Cloud Shell (comandos de Bash que se muestran) para deshabilitar, habilitar y ver el estado deshabilitado de la consola serie para una suscripción. 
 
 * Para obtener el estado deshabilitado de la consola serie para una suscripción:
     ```azurecli-interactive
@@ -193,11 +210,11 @@ Somos conscientes de que la consola serie presenta algunos problemas. Esta es un
 
 Problema                             |   Mitigación 
 :---------------------------------|:--------------------------------------------|
-Al pulsar Entrar tras un banner de conexión no aparece la solicitud de inicio de sesión | Consulte esta página: [Pulsar Entrar no hace nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esto puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo reforzado o una configuración de GRUB que hace que Windows no pueda conectarse correctamente al puerto serie.
+Al pulsar Entrar tras un banner de conexión no aparece la solicitud de inicio de sesión | Consulte esta página: [Pulsar Entrar no hace nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esto puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo reforzado o una configuración de arranque que hace que Windows no pueda conectarse correctamente al puerto serie. Esto también sucederá si está ejecutando una máquina virtual cliente de Windows 10, ya que únicamente las máquinas virtuales de Windows Server están configuradas para tener habilitada la opción EMS.
 No se puede escribir en el símbolo del sistema de SAC si la depuración del kernel está habilitada | Conéctese mediante RDP a la máquina virtual y ejecute `bcdedit /debug {current} off` desde un símbolo del sistema con privilegios elevados. Si no puede conectarse mediante RDP, en su lugar puede asociar el disco del sistema operativo a otra máquina virtual de Azure y modificarlo mientras está asociado como un disco de datos mediante `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`. Luego, puede volver a intercambiar el disco.
 Pegar en PowerShell en SAC da como resultado un tercer carácter si el contenido original tenía un carácter repetido | Una solución alternativa es descargar el módulo PSReadLine de la sesión actual. Ejecute `Remove-Module PSReadLine` para descargar el módulo PSReadLine de la sesión actual (esta acción no eliminará ni desinstalará el módulo).
 Algunas entradas de teclado generan resultados extraños de SAC (por ejemplo: `[A`, `[3~`) | Las secuencias de escape [VT100](https://aka.ms/vtsequences) no son compatibles con el símbolo del sistema de SAC.
-La opción de pegar cadenas muy largas no funciona | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres, con el fin de evitar sobrecargar el ancho de banda del puerto de serie.
+La opción de pegar cadenas muy largas no funciona | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres. Con el fin de evitar sobrecargar el ancho de banda del puerto de serie.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
 
@@ -219,7 +236,7 @@ A. Para acceder a la consola serie de la máquina virtual es preciso tener acces
 
 **P. La consola serie no muestra nada, ¿qué hago?**
 
-A. Es probable que la imagen esté mal configurada para el acceso a la consola serie. Para más información acerca de cómo configurar una imagen para habilitar la consola serie, consulte [Enable Serial Console in custom or older images](#Enable-Serial-Console-in-custom-or-older-images) (Habilitación de la consola serie en imágenes personalizadas o antiguas).
+A. Es probable que la imagen esté mal configurada para el acceso a la consola serie. Para más información acerca de cómo configurar una imagen para habilitar la consola serie, consulte [Enable Serial Console in custom or older images](#enable-serial-console-in-custom-or-older-images) (Habilitación de la consola serie en imágenes personalizadas o antiguas).
 
 **P. ¿Está disponible la consola serie en Virtual Machine Scale Sets?**
 

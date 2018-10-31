@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/19/2018
-ms.openlocfilehash: 211e683e3a52099add27a47084d82f773c755a02
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 10/04/2018
+ms.openlocfilehash: 8439998e0919dd22665e3e4d4e9c0e04f0703056
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498375"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310766"
 ---
 #  <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS de Windows (versión anterior)
 
@@ -228,7 +228,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 También puede [agregar un nuevo disco a una máquina virtual Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md) o [mediante Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Habilitación del cifrado en un disco recién agregado con Azure PowerShell
- Al usar PowerShell para cifrar un nuevo disco para máquinas virtuales Windows, se debe especificar una nueva versión de secuencia. La versión de secuencia debe ser única. El siguiente script genera un GUID para la versión de secuencia. En algunos casos, un disco de datos recién agregado se podría cifrar automáticamente mediante la extensión Azure Disk Encryption. Si esto sucede, se recomienda volver a ejecutar el cmdlet Set-AzureRmVmDiskEncryptionExtension con la nueva versión de secuencia.
+ Al usar PowerShell para cifrar un nuevo disco para máquinas virtuales Windows, se debe especificar una nueva versión de secuencia. La versión de secuencia debe ser única. El siguiente script genera un GUID para la versión de secuencia. En algunos casos, un disco de datos recién agregado se podría cifrar automáticamente mediante la extensión Azure Disk Encryption. El cifrado automático suele producirse cuando se reinicia la máquina virtual después de que el nuevo disco se pone en línea. Esto se suele producir porque se especificó "All" para el tipo de volumen cuando el cifrado de disco se ejecutó anteriormente en la máquina virtual. Si el cifrado automático se produce en un disco de datos recién agregado, se recomienda volver a ejecutar el Set-AzureRmVmDiskEncryptionExtension con la nueva versión de secuencia. Si el nuevo disco de datos es de cifrado automático y no desea cifrarlo, descifre todas las unidades en primer lugar y, a continuación, vuelva a cifrarlas con una nueva versión de secuencia que especifique el sistema operativo para el tipo de volumen. 
  
 
 -  **Cifrar una máquina virtual en ejecución mediante un secreto de cliente:** el siguiente script inicializa las variables y ejecuta el cmdlet Set-AzureRmVMDiskEncryptionExtension. Ya se deben haber satisfecho los requisitos previos de crear el grupo de recursos, la máquina virtual, el almacén de claves, la aplicación de AAD y el secreto de cliente. Reemplace MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID y My-AAD-client-secret por sus propios valores. Este ejemplo utiliza "All" para el parámetro -VolumeType, que incluye los volúmenes de sistema operativo y de datos. Si solo quiere cifrar el volumen del sistema operativo, use "OS" para el parámetro VolumeType. 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407916"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362065"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Incorporación de servidores de hospedaje para el proveedor de recursos SQL
 
@@ -173,23 +173,24 @@ Use estos comandos para establecer la opción del servidor de autenticación de 
    > No puede mezclar servidores independientes con instancias de Always On en la misma SKU. Si se intentan combinar tipos después de agregar los primeros resultados del servidor de hospedaje, se produce un error.
 
 ## <a name="sku-notes"></a>Notas de la SKU
-
-Puede usar las SKU para diferenciar las ofertas de servicio. Por ejemplo, puede tener una instancia de SQL Enterprise que tenga las siguientes características:
+Use un nombre de SKU que describa las capacidades de los servidores de la SKU, como la capacidad y el rendimiento. El nombre sirve de ayuda para que los usuarios implementen sus bases de datos en la SKU adecuada. Por ejemplo, puede usar nombres de SKU para diferenciar las ofertas de servicio mediante las características siguientes:
   
 * alta capacidad
 * alto rendimiento
 * alta disponibilidad
 
-Las SKU no se pueden asignar a usuarios o grupos específicos en esta versión.
-
- Las SKU pueden tardar hasta una hora en estar visibles en el portal. Los usuarios no pueden crear una base de datos hasta que se cree totalmente la SKU.
-
->[!TIP]
->Use un nombre de SKU que describa las capacidades de los servidores de la SKU, como la capacidad y el rendimiento. El nombre sirve de ayuda para que los usuarios implementen sus bases de datos en la SKU adecuada.
-
 Como procedimiento recomendado, todos los servidores de hospedaje de una SKU deben tener las mismas características de rendimiento y recursos.
 
-## <a name="make-the-sql-databases-available-to-users"></a>Poner las bases de datos SQL a disposición de los usuarios
+Las SKU no se pueden asignar a usuarios o grupos específicos.
+
+Las SKU pueden tardar hasta una hora en estar visibles en el portal. Los usuarios no pueden crear una base de datos hasta que se cree totalmente la SKU.
+
+Para editar una SKU, vaya a **All services** > **MySQL Adapter** > **SKUs** (Todos los servicios > Adaptador de MySQL > SKU). Seleccione la SKU que quiere modificar, realice los cambios necesarios y haga clic en **Guardar** para guardar los cambios. Para eliminar una SKU que ya no es necesaria, vaya a **All services** > **MySQL Adapter** > **SKUs** (Todos los servicios > Adaptador de MySQL > SKU). Haga clic en el nombre de la SKU y seleccione **Eliminar** para eliminarla.
+
+> [!TIP]
+> Puede editar o eliminar las cuotas del proveedor de recursos de MySQL en la misma ubicación.
+
+## <a name="make-sql-databases-available-to-users"></a>Bases de datos SQL disponibles para los usuarios
 
 Cree planes y ofertas para poner las bases de datos SQL a disposición de los usuarios. Agregue el servicio **Microsoft.SqlAdapter** al plan y cree una cuota nueva.
 

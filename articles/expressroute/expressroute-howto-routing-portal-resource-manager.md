@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b96417140bea581aeb106e45c3c93a19858dfe7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7acfb71dd3edd798095472b8f863a658dccaa51b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310888"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955193"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute
 
@@ -156,6 +156,11 @@ Puede seleccionar la fila del emparejamiento y modificar las propiedades del mis
 ### <a name="deleteprivate"></a>Eliminación del emparejamiento privado de Azure
 
 Para quitar la configuración de emparejamiento, seleccione el icono de eliminación, como se muestra a continuación:
+
+> [!WARNING]
+> Debe asegurarse de que todas las conexiones de redes virtuales y de ExpressRoute Global Reach se eliminan antes de ejecutar este ejemplo. 
+> 
+> 
 
 ![eliminar emparejamiento privado](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 

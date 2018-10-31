@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093296"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955243"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
 
@@ -71,28 +71,28 @@ Esta opción es la más simple y solo usa un único token de SAS, que se pasa de
  
 Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon**. Con esta opción, puede proteger el almacenamiento de blobs en el servidor de origen. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de Azure CDN. Cualquiera que acceda a los archivos en el contenedor especificado del servidor de origen requiere el token de SAS, que es desconocido para el usuario. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN.
  
-1. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL. Las reglas nuevas tardan unos 10 minutos en propagarse.
+1. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL. Las nuevas reglas tardan hasta cuatro horas en propagarse.
 
    ![Botón de administración de CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![Botón del motor de reglas de CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión de nombre *storagedemo*:
+   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión denominado *sasstoragedemo*:
    
    Origen:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Destino:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Regla de reescritura de direcciones URL de CDN - izquierda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regla de reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![Regla de reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. Una vez que la nueva regla esté activa, cualquiera puede acceder a los archivos del contenedor especificado en el punto de conexión de CDN, con independencia de si usan un token de SAS en la dirección URL. Este es el formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por ejemplo:    
-   `https://demoendpoint.azureedge.net/container1/demo.jpg`
+   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. Ajuste la duración de la caché mediante las reglas de caché o al agregar los encabezados `Cache-Control` en el servidor de origen. Debido a que Azure CDN trata el token de SAS como cadena de consulta sin formato, el procedimiento recomendado que debe seguirse es configurar una duración de la caché con la misma hora de expiración que la SAS o una anterior. De lo contrario, si un archivo se almacena en caché más tiempo que el que está activa la SAS, es posible acceder al archivo desde el servidor de origen de Azure CDN una vez que haya transcurrido la hora de expiración de la SAS. Si esto ocurre y quiere que el archivo en caché no sea accesible, debe realizar una operación de purga en el archivo para eliminarlo de la memoria caché. Para obtener información sobre cómo establecer la duración de la caché en Azure CDN, vea [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché](cdn-caching-rules.md).
@@ -108,24 +108,24 @@ Para usar la autenticación de token de seguridad de Azure CDN, debe tener un pe
  
    Por ejemplo:    
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    Las opciones de parámetro de una autenticación de token de seguridad son distintas a las opciones de parámetro de un token de SAS. Si al crear un token de seguridad decide usar una hora de expiración, establézcala en el mismo valor que la hora de expiración del token de SAS. De este modo se garantiza que la hora de expiración sea predecible. 
  
-2. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL a fin de habilitar el acceso del token de SAS a todos los blobs del contenedor. Las reglas nuevas tardan unos 10 minutos en propagarse.
+2. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL a fin de habilitar el acceso del token de SAS a todos los blobs del contenedor. Las nuevas reglas tardan hasta cuatro horas en propagarse.
 
-   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión de nombre *storagedemo*:
+   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión denominado *sasstoragedemo*:
    
    Origen:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Destino:   
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Regla de reescritura de direcciones URL de CDN - izquierda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regla de reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![Regla de reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Si renueva la SAS, actualice la regla de reescritura de direcciones URL con el nuevo token de SAS. 
 

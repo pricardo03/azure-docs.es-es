@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802124"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025029"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -52,7 +52,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-Hay un archivo [host.json] (functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.java) y archivo de configuración de enlace (function.json).
+Hay un archivo [host.json](functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.java) y archivo de configuración de enlace (function.json).
 
 Puede colocar más de una función en un proyecto. Evite colocar las funciones en archivos JAR independientes. La aplicación de función del directorio de destino es lo que se implementa en la aplicación de función en Azure.
 

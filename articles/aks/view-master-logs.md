@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068832"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406048"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,12 @@ Log Analytics se habilita y administra en Azure Portal. Para habilitar la recopi
 1. En la lista de registros disponibles, seleccione los registros que quiere habilitar, como *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede volver y cambiar los registros recopilados una vez que Log Analytics está habilitado.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
 
-La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Configuración de diagnóstico* y luego la opción para crear un área de trabajo de OMS:
+La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Configuración de diagnóstico* y luego la opción para crear un área de trabajo de Log Analytics:
 
-![Habilitación del área de trabajo de OMS para el clúster de AKS de Log Analytics](media/view-master-logs/enable-oms-log-analytics.png)
+![Habilitación del área de trabajo de Log Analytics para el clúster de AKS de Log Analytics](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics. 
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Programación de un pod de prueba en el clúster de AKS
 
@@ -75,7 +78,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualización de los datos recopilados
 
-Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer en el área de trabajo de OMS. En Azure Portal, seleccione el grupo de recursos para el área de trabajo de Log Analytics, como *myResourceGroup* y luego elija el recurso de Log Analytics, como *myAKSLogs*.
+Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer en el área de trabajo de Log Analytics. En Azure Portal, seleccione el grupo de recursos para el área de trabajo de Log Analytics, como *myResourceGroup* y luego elija el recurso de Log Analytics, como *myAKSLogs*.
 
 ![Selección del área de trabajo de Log Analytics para el clúster de AKS](media/view-master-logs/select-log-analytics-workspace.png)
 

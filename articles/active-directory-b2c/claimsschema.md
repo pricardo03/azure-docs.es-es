@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6c41890922e2235190d8844a573522846b42c779
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434507"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637738"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -67,7 +67,7 @@ PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateVali
 | ------- | ----------- | ----------- |
 | Protocolo | 0:n | Lista de protocolos con su nombre de tipo de notificación de partner predeterminado. |
 
-El elemento **Protocol** contiene los siguientes atributos:
+El elemento **Protocol** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
@@ -88,7 +88,7 @@ En el ejemplo siguiente, cuando el marco de experiencia de identidad interactúa
 </ClaimType>
 ```
 
-Como resultado, el token JWT emitido por Azure AD B2C omite `family_name` en lugar del nombre **surname** de ClaimType.
+Como resultado, el token JWT emitido por Azure AD B2C emite `family_name` en lugar del nombre **surname** de ClaimType.
  
 ```JSON
 {

@@ -2,7 +2,7 @@
 title: Ejecución de una prueba de validación en Azure Stack | Microsoft Docs
 description: Recopilación de archivos de registro de diagnósticos en Azure Stack
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: mabrigg
-ms.reviewer: hectorl
-ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/24/2018
+ms.author: jeffgilb
+ms.reviewer: adshar
+ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340858"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024634"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Ejecución de una prueba de validación para Azure Stack
 
@@ -39,7 +39,7 @@ Si hay algún problema, póngase en contacto con el Soporte de servicio al clien
     3. Abra PowerShell como administrador.
     4. Ejecute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Ejecute: `Test-AzureStack`
-4. Si ninguna de las pruebas notifica error, ejecute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>`. El cmdlet recopilará los registros de Test-AzureStack. Para más información sobre los registros de diagnóstico, consulte [Registros de diagnóstico de Azure Stack](azure-stack-diagnostics.md).
+4. Si ninguna de las pruebas notifica error, ejecute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>`. El cmdlet recopilará los registros de Test-AzureStack. Para más información sobre los registros de diagnóstico, consulte [Registros de diagnóstico de Azure Stack](azure-stack-diagnostics.md). No debe recopilar registros ni ponerse en contacto con el Soporte técnico y el servicio al cliente de Microsoft (CSS) si las pruebas devuelven WARN.
 5. Envíe los registros **SeedRing** al Soporte de servicio de Microsoft. Este le ayudará a resolver el problema.
 
 ## <a name="reference-for-test-azurestack"></a>Referencia de Test-AzureStack

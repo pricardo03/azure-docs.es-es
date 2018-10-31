@@ -2,20 +2,20 @@
 title: 'Enlaces para Durable Functions: Azure'
 description: Aprenda a utilizar desencadenadores y enlaces en la extensión Durable Functions para Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29cc7982dbe9991e6b0e3363cd636ac88881fc7b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f9bf42e5e20a7d9e861d0c3354040e981bf3ef21
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237288"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987756"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces para Durable Functions (Azure Functions)
 
@@ -112,7 +112,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivityAsync("SayHello", name);
+    const result = yield context.df.callActivity("SayHello", name);
     return result;
 });
 ```
@@ -123,7 +123,7 @@ El desencadenador de actividad le permite crear funciones que las funciones del 
 
 Si usa Visual Studio, el desencadenador de actividad se configura mediante el atributo [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) de .NET. 
 
-Si utiliza Azure Portal para el desarrollo, el desencadenador de actividad está definido por el objeto JSON siguiente en el `bindings` matriz de *function.json*:
+Si utiliza VS Code o Azure Portal para el desarrollo, el desencadenador de actividad está definido por el objeto JSON siguiente en la matriz `bindings` de *function.json*:
 
 ```json
 {
@@ -249,7 +249,7 @@ El enlace del cliente de orquestación le permite escribir funciones que interac
 
 Si está utilizando Visual Studio, puede enlazar al cliente de orquestación mediante el atributo. NET [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html).
 
-Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx*) para desarrollar, el desencadenador de orquestación está definido por el objeto JSON siguiente en la matriz `bindings` de *function.json*:
+Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx* o *.js*) para desarrollar, el desencadenador de orquestación está definido por el objeto JSON siguiente en la matriz `bindings` de *function.json*:
 
 ```json
 {

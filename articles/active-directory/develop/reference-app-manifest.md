@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 74bcd1e795186eba652d2da986c290e1989dd1d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041581"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115117"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
@@ -43,7 +43,7 @@ Las aplicaciones que se integran con Azure Active Directory (Azure AD) deben reg
 | `appId` | Cadena de identificador | Especifica el identificador único de la aplicación que Azure AD asigna a una aplicación. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Tipo de matriz | Especifica la colección de roles que una aplicación puede declarar. Dichos roles se pueden asignar a usuarios, grupos o entidades de servicio. Para ver más ejemplos e información, consulte [Procedimiento para agregar roles de aplicación en la aplicación y recibirlos en el token](howto-add-app-roles-in-azure-ad-apps.md). | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | string | Una máscara de bits que configura la notificación `groups` emitida en un token de acceso OAuth 2.0 o de usuario que la aplicación espera. Los valores de máscara de bits son:<br>0: Ninguno<br>1: Grupos de seguridad y roles de Azure AD<br>2: Reservado<br>4: Reservado<br>Si la máscara de bits se establece en 7, se obtendrán todos los grupos de seguridad, grupos de distribución y los roles de directorio de Azure AD a los que pertenezca el usuario que inició sesión. | `1` |
-| `optionalClaims` | string | Las notificaciones opcionales que el servicio de token de seguridad devuelve en el token para esta aplicación específica. Para más información, consulte las [notificaciones opcionales](active-directory-optional-claims.md). | `null` |
+| `optionalClaims` | string | Las notificaciones opcionales que el servicio de token de seguridad devuelve en el token para esta aplicación específica.<br>En este momento, las aplicaciones que admiten cuentas personales y cuentas de Azure AD (registradas mediante el portal de registro de aplicaciones) no pueden usar notificaciones opcionales. Sin embargo, las aplicaciones registradas solo para Azure AD mediante el punto de conexión v2.0 pueden obtener las notificaciones opcionales que han solicitado en el manifiesto. Para más información, consulte las [notificaciones opcionales](active-directory-optional-claims.md). | `null` |
 | `id` | Cadena de identificador | El identificador único de la aplicación en el directorio. Este identificador no es el que se usa para identificar la aplicación en cualquier transacción del protocolo. Se usa para hacer referencia al objeto en las consultas del directorio. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | Matriz de cadena | Los URI definidos por el usuario que identifican de manera única una aplicación web en su inquilino de Azure AD o en un dominio personalizado comprobado si la aplicación tiene varios inquilinos. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
 | `informationalUrls` | string | Especifica los vínculos a los términos del servicio y la declaración de privacidad de la aplicación. Las condiciones del servicio y la declaración de privacidad se exponen a los usuarios mediante la experiencia de consentimiento del usuario. Para más información, consulte [Condiciones del servicio y declaración de privacidad de las aplicaciones registradas de Azure Active Directory](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |

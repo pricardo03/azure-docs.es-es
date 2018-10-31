@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: ganesr
-ms.openlocfilehash: 525d75264ecb54d42d920cacb0712397f4d8c3a8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43304364"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650135"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -211,7 +211,11 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | SharePoint Online | 12076:5020 |
 | Skype Empresarial Online | 12076:5030 |
 | Dynamics 365 | 12076:5040 |
+| Servicios globales de Azure* | 12076:5050 |
 | Otros servicios en línea de Office 365 | 12076:5100 |
+
+***Servicios globales de Azure incluye Azure DevOps**
+
 
 > [!NOTE]
 > Microsoft no admite los valores de las comunidades de BGP que defina en las rutas anunciadas a Microsoft.

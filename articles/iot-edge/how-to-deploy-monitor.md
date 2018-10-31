@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258440"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393464"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -39,11 +39,11 @@ Antes de crear una implementación, tendrá que especificar los dispositivos que
 }
 ```
 
-Para más información sobre los dispositivos gemelos y etiquetas, consulte [Información y uso de dispositivos gemelos en IoT Hub][lnk-device-twin].
+Para más información sobre dispositivos gemelos y etiquetas, consulte [Información y uso de dispositivos gemelos en IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>de una implementación
 
-1. En [Azure Portal][lnk-portal], vaya hasta su instancia de IoT Hub. 
+1. En [Azure Portal](https://portal.azure.com), vaya hasta su instancia de IoT Hub. 
 1. Seleccione **IoT Edge**.
 1. Seleccione **Agregar implementación de IoT Edge**.
 
@@ -77,7 +77,7 @@ Para agregar código personalizado como un módulo, o para agregar manualmente u
 1. Seleccione **Módulo IoT Edge**.
 1. Asigne un **nombre** al módulo.
 1. En el campo **URI de imagen**, introduzca la imagen de contenedor para el módulo. 
-1. Especifique cualquier **opción de creación de contenedor** que deba pasarse al contenedor. Para más información, consulte [docker create][lnk-docker-create].
+1. Especifique cualquier **opción de creación de contenedor** que deba pasarse al contenedor. Para más información, consulte [docker create](https://docs.docker.com/engine/reference/commandline/create/).
 1. Use el menú desplegable para seleccionar una **directiva de reinicio**. Elija entre las siguientes opciones: 
    * **Always** (Siempre): el módulo siempre se reinicia si se cierra por cualquier razón.
    * **Never** (Nunca): el módulo nunca se reinicia si se cierra por cualquier razón.
@@ -117,11 +117,11 @@ Revise la información de implementación y seleccione **Enviar**.
 
 Para ver los detalles de una implementación y supervisar los dispositivos que la ejecutan, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal][lnk-portal] y vaya a IoT Hub. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a IoT Hub. 
 1. Seleccione **IoT Edge**.
 1. Seleccione **IoT Edge deployments** (Implementaciones de IoT Edge). 
 
-   ![Visualización de las implementaciones de IoT Edge][1]
+   ![Visualización de las implementaciones de IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Examine la lista de implementaciones. Para cada implementación, puede ver los detalles siguientes:
    * **ID**: nombre de la implementación.
@@ -144,11 +144,11 @@ Si actualiza la condición de destino, se producen las siguientes actualizacione
 
 Para modificar una implementación, siga estos pasos: 
 
-1. Inicie sesión en [Azure Portal][lnk-portal] y vaya a IoT Hub. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a IoT Hub. 
 1. Seleccione **IoT Edge**.
 1. Seleccione **IoT Edge deployments** (Implementaciones de IoT Edge). 
 
-   ![Visualización de las implementaciones de IoT Edge][1]
+   ![Visualización de las implementaciones de IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Seleccione la implementación que desea modificar. 
 1. Realice las actualizaciones en los campos siguientes: 
@@ -156,17 +156,17 @@ Para modificar una implementación, siga estos pasos:
    * Etiquetas 
    * Prioridad 
 1. Seleccione **Guardar**.
-1. Siga los pasos de [Supervisión de una implementación][anchor-monitor] para observar la implementación de los cambios. 
+1. Siga los pasos de [Supervisión de una implementación](#monitor-a-deployment) para observar la implementación de los cambios. 
 
 ## <a name="delete-a-deployment"></a>Eliminación de una implementación
 
 Cuando se elimina una implementación, los dispositivos adoptan la siguiente implementación de prioridad más alta. Si los dispositivos no cumplen la condición de destino de alguna implementación, los módulos no se quitan cuando se elimina la implementación. 
 
-1. Inicie sesión en [Azure Portal][lnk-portal] y vaya a IoT Hub. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a IoT Hub. 
 1. Seleccione **IoT Edge**.
 1. Seleccione **IoT Edge deployments** (Implementaciones de IoT Edge). 
 
-   ![Visualización de las implementaciones de IoT Edge][1]
+   ![Visualización de las implementaciones de IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Utilice la casilla de verificación para seleccionar la implementación que desea eliminar. 
 1. Seleccione **Eliminar**.
@@ -174,16 +174,4 @@ Cuando se elimina una implementación, los dispositivos adoptan la siguiente imp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre cómo [implementar módulos en dispositivos de Edge][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Obtenga más información sobre cómo [implementar módulos en dispositivos Edge](module-deployment-monitoring.md).

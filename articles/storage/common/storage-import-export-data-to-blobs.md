@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737063"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353178"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -96,7 +96,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
     - Seleccione **Import into Azure** (Importar en Azure).
     - Escriba un nombre descriptivo para el trabajo de importación. Utilice el nombre para realizar un seguimiento del progreso de los trabajos.
-        - El nombre puede contener solo letras minúsculas, números, guiones y caracteres de subrayado.
+        - El nombre solo pueden contener letras minúsculas, números y guiones.
         - El nombre tiene que empezar por una letra y no puede contener espacios.
     - Seleccione una suscripción.
     - Escriba o seleccione un grupo de recursos.  

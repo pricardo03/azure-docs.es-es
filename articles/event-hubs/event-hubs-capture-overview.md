@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 603a5dfcf2137c15ae19ea248f3e0f4f136c22f1
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42143066"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408431"
 ---
 # <a name="azure-event-hubs-capture"></a>Azure Event Hubs Capture
 
@@ -104,6 +104,10 @@ Apache Avro tiene guías de introducción para [Java][Java] y [Python][Python] m
 ## <a name="how-event-hubs-capture-is-charged"></a>Cómo se factura Event Hubs Capture
 
 Event Hubs Capture se mide de forma similar a las unidades de procesamiento, por hora. El cargo es directamente proporcional al número de unidades de procesamiento que se adquirieron para el espacio de nombres. A medida que las unidades de procesamiento se incrementan y reducen, las mediciones de Event Hubs Capture aumentan y disminuyen, con el fin de proporcionar un rendimiento coincidente. Los medidores se ejecutan de manera simultánea. Para conocer los precios detallados, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+## <a name="integration-with-event-grid"></a>Integración con Event Grid 
+Puede crear una suscripción de Azure Event Grid con un espacio de nombres de Event Hubs como origen. El siguiente tutorial muestra cómo crear una suscripción de Event Grid con un centro de eventos como origen y una aplicación de Azure Functions como receptor: [Procesamiento y migración de datos de Event Hubs capturados a SQL Data Warehouse mediante Event Grid y Azure Functions](store-captured-data-data-warehouse.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
