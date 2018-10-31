@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/19/2018
+ms.openlocfilehash: deadbc8186d80b050fdb40879ecf29fd229c8709
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158709"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465467"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura (versión preliminar)
 
-El **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de Azure SQL Database mediante la capacidad de las réplicas de solo lectura. 
+El **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de Azure SQL Database mediante la capacidad de una réplica de solo lectura.
 
 ## <a name="overview-of-read-scale-out"></a>Introducción al escalado horizontal de lectura
 
@@ -31,7 +31,7 @@ Cada base de datos del nivel Premium ([modelo de compra basado en la unidad de t
 
 Estas réplicas se aprovisionan con el mismo tamaño de proceso que la réplica de lectura-escritura usada en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de solo escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está destinada a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
 
-Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También puede habilitarla más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager. 
+Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También puede habilitarla más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager.
 
 Después de habilitar el escalado horizontal de lectura en una base de datos, las aplicaciones que se conecten a ella se dirigirán a la réplica de lectura-escritura o a la réplica de solo lectura de esa base de datos, en función de la propiedad `ApplicationIntent` configurada en la cadena de conexión de la aplicación. Para más información sobre la propiedad `ApplicationIntent`, consulte [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) (Especificación de la intención de la aplicación).
 
@@ -42,11 +42,10 @@ Si está deshabilitado el escalado de lectura o establece la propiedad ReadScale
 
 ## <a name="data-consistency"></a>Coherencia de datos
 
-Una de las ventajas de Always On es que las réplicas están siempre en estado de coherencia transaccional, pero en diferentes momentos en el tiempo puede haber una pequeña latencia entre las distintas réplicas. El escalado horizontal de lectura admite la coherencia en el nivel de sesión. Esto significa que, si la sesión de solo lectura se vuelve a conectar después de un error de conexión debido a la falta de disponibilidad de las réplicas, se puede redirigir a una réplica que no esté actualizada al 100 % con la réplica de lectura-escritura. Del mismo modo, si una aplicación escribe datos mediante una sesión de lectura-escritura y los lee inmediatamente mediante una sesión de solo lectura, es posible que las actualizaciones más recientes no sean visibles inmediatamente. El motivo es que la fase de puesta al día del registro de transacciones con las réplicas es asincrónico.
+Una de las ventajas de las réplicas es que siempre se encuentran en estado de coherencia transaccional, pero es posible que en diferentes momentos pueda haber una pequeña latencia entre las distintas réplicas. El escalado horizontal de lectura admite la coherencia en el nivel de sesión. Esto significa que, si la sesión de solo lectura se vuelve a conectar después de un error de conexión debido a la falta de disponibilidad de las réplicas, se puede redirigir a una réplica que no esté actualizada al 100 % con la réplica de lectura-escritura. Del mismo modo, si una aplicación escribe datos mediante una sesión de lectura-escritura y los lee inmediatamente mediante una sesión de solo lectura, es posible que las actualizaciones más recientes no sean visibles inmediatamente. El motivo es que la fase de puesta al día del registro de transacciones con las réplicas es asincrónico.
 
 > [!NOTE]
 > Las latencias de replicación en la región son bajas y esta situación es poco frecuente.
-
 
 ## <a name="connecting-to-a-read-only-replica"></a>Conexión a una réplica de solo lectura
 
@@ -68,14 +67,18 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 Puede comprobar si está conectado a una réplica de solo lectura mediante la ejecución de la consulta siguiente. Si está conectado a una réplica de solo lectura, se devolverá READ_ONLY.
 
-
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
+
 > [!NOTE]
 > En un momento dado, las sesiones de solo lectura solo pueden acceder a una de las réplicas de Always On.
 
-## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Habilitación y deshabilitación del escalado horizontal de lectura mediante Azure PowerShell
+## <a name="enable-and-disable-read-scale-out"></a>Habilitar y deshabilitar el escalado horizontal de lectura
+
+El escalado horizontal de lectura está habilitado de forma predeterminada en el nivel Crítico para la empresa de [Instancia administrada](sql-database-managed-instance.md) (versión preliminar). Debe habilitarse explícitamente en los niveles Premium y Crítico para la empresa de la [base de datos situada en el servidor lógico](sql-database-logical-servers.md). Aquí se describen los métodos para habilitar y deshabilitar el escalado horizontal de lectura.
+
+### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Habilitación y deshabilitación del escalado horizontal de lectura mediante Azure PowerShell
 
 Para administrar el escalado horizontal de lectura en Azure PowerShell se requiere la versión de Azure PowerShell de diciembre de 2016 u otra posterior. Para saber dónde encontrar la versión más reciente de PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -99,7 +102,7 @@ Para crear una nueva base de datos con el escalado horizontal de lectura habilit
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Habilitación y deshabilitación del escalado horizontal de lectura mediante la API REST de Azure SQL Database
+### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Habilitación y deshabilitación del escalado horizontal de lectura mediante la API REST de Azure SQL Database
 
 Para crear una base de datos que tenga habilitado el escalado de lectura, o para habilitar o deshabilitar esta característica en una base de datos existente, cree o actualice la entidad correspondiente de la base de datos con la propiedad `readScale` establecida en `Enabled` o `Disabled`, como en la siguiente solicitud de ejemplo.
 
@@ -112,20 +115,19 @@ Body:
    {
       "readScale":"Enabled"
    }
-} 
+}
 ```
 
-Para más información, consulte [Databases - Create or Update](/rest/api/sql/databases/createorupdate).
+Para más información, consulte [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Uso del escalado horizontal de lectura con las bases de datos con replicación geográfica
 
 Si usa el escalado horizontal de lectura para equilibrar la carga de cargas de trabajo de solo lectura en una base de datos con replicación geográfica (por ejemplo, como miembro de un grupo de conmutación por error), asegúrese de que el escalado horizontal de lectura esté habilitado en las bases de datos principal y secundaria con replicación geográfica. Esto garantizará el mismo efecto de equilibrio de carga cuando la aplicación se conecte a la nueva base de datos principal después de la conmutación por error. Si se conecta a la base de datos secundaria con replicación geográfica con el escalado de lectura habilitado, las sesiones con `ApplicationIntent=ReadOnly` se enrutarán a una de las réplicas del mismo modo que se enrutan las conexiones en la base de datos principal.  Las sesiones sin `ApplicationIntent=ReadOnly` se enrutarán a la réplica principal de la secundaria con replicación geográfica, que también es de solo lectura. Dado que una base de datos secundaria con replicación geográfica tiene un punto de conexión diferente que la base de datos principal, históricamente para tener acceso a la base de datos secundaria no era necesario establecer `ApplicationIntent=ReadOnly`. Para garantizar la compatibilidad con versiones anteriores, la DMV de `sys.geo_replication_links` muestra `secondary_allow_connections=2` (se permite cualquier conexión de cliente).
 
 > [!NOTE]
-> Durante la versión preliminar, no se admite round-robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas locales de la base de datos secundaria. 
-
+> Durante la versión preliminar, no se admite round-robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas locales de la base de datos secundaria.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información sobre el uso de PowerShell para establecer el escalado horizontal de lectura, consulte los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
-- Para información sobre el uso de la API REST para establecer el escalado horizontal de lectura, consulte [Databases - Create or Update](/rest/api/sql/databases/createorupdate) (Bases de datos: creación o actualización).
+- Para información sobre el uso de la API REST para establecer el escalado horizontal de lectura, consulte [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Bases de datos: creación o actualización).

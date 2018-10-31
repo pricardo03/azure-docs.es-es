@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163365"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409686"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Supervisión de SQL Data Sync con Log Analytics 
 
@@ -97,7 +97,7 @@ Para más información sobre cómo crear un runbook, vea [Mi primer runbook de P
 
     2.  Información del grupo de sincronización
 
-    3.  Información de OMS Encontrará esta información en Portal de OMS | Configuración | Orígenes conectados. Para más información sobre cómo enviar datos a Log Analytics, vea [Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Información de Log Analytics. Encontrará esta información en Azure Portal | Configuración | Orígenes conectados. Para más información sobre cómo enviar datos a Log Analytics, vea [Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Ejecute el runbook en el panel de prueba y confirme que se ha realizado correctamente.
 
@@ -117,7 +117,7 @@ Para programar un runbook:
 
 4.  Seleccione **Crear una nueva programación**.
 
-5.  Establezca la opción **Periodicidad** en Periódico y defina el intervalo que quiera. Use el mismo intervalo de aquí, en el script, y en OMS.
+5.  Establezca la opción **Periodicidad** en Periódico y defina el intervalo que quiera. Use el mismo intervalo aquí, en el script y en Log Analytics.
 
 6.  Seleccione **Crear**.
 
@@ -129,7 +129,7 @@ Para averiguar si la automatización funciona según lo previsto, en la sección
 
 Haga lo siguiente para crear una alerta que usa Log Analytics. Como requisito previo, Log Analytics debe estar vinculado a un área de trabajo de este.
 
-1.  En el portal de OMS, seleccione **Búsqueda de registros**.
+1.  En Azure Portal, seleccione **Búsqueda de registros**.
 
 2.  Crear una consulta para seleccionar los errores y las advertencias por grupo de sincronización dentro del intervalo seleccionado. Por ejemplo: 
 
@@ -147,9 +147,9 @@ Haga lo siguiente para crear una alerta que usa Log Analytics. Como requisito pr
 
 6.  Haga clic en **Save**(Guardar). Ahora, los destinatarios especificados recibirán notificaciones por correo electrónico cuando se produzcan errores.
 
-## <a name="create-an-oms-view-for-monitoring"></a>Crear una vista de OMS para la supervisión
+## <a name="create-a-log-analytics-view-for-monitoring"></a>Cree una vista de Log Analytics para supervisión.
 
-Con este paso crearemos una vista de OMS que nos permita supervisar visualmente todos los grupos de sincronización especificados. La vista engloba varios componentes:
+En este paso se crea una vista de Log Analytics que permite supervisar visualmente todos los grupos de sincronización especificados. La vista engloba varios componentes:
 
 -   Un icono de información general que refleja el número de errores, operaciones correctas y advertencias que tienen todos los grupos de sincronización.
 
@@ -157,9 +157,9 @@ Con este paso crearemos una vista de OMS que nos permita supervisar visualmente 
 
 -   Un icono para cada grupo de sincronización que muestra el número de errores, operaciones correctas y advertencias, además de los mensajes de error recientes.
 
-Haga lo siguiente para configurar la vista de OMS:
+Haga lo siguiente para configurar la vista de Log Analytics:
 
-1.  En la página principal de OMS, seleccione el signo más a la izquierda para abrir el **Diseñador de vistas**.
+1.  En la página principal de Log Analytics, seleccione el signo más a la izquierda para abrir el **Diseñador de vistas**.
 
 2.  Seleccione **Importar** en la barra superior del diseñador de vistas. Luego, seleccione el archivo de ejemplo "DataSyncLogOMSView".
 

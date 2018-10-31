@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6a2a72f46c4d5faacb7d5871f4c917a5cd578e96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: f5ba6a001f8933283e0867367ef7bd8d3918c3fd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809172"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405385"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: aplicación web IaaS para FedRAMP
 
@@ -72,7 +72,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Operations Management Suite (OMS)
+- Log Analytics
 - Azure Monitor
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
@@ -81,7 +81,7 @@ En la siguiente sección se detallan los elementos de desarrollo e implementaci�
 
 **Host de tipo bastión**: el host de tipo bastión es el único punto de entrada que proporciona una conexión segura para que los administradores accedan a los recursos implementados. El NSG del host de tipo bastión solo permite conexiones en el puerto TCP 3389 para RDP. Los clientes pueden seguir configurando el host de tipo bastión para cumplir con los requisitos de protección del sistema de la organización.
 
-### <a name="virtual-network"></a>Red virtual
+### <a name="virtual-network"></a>Virtual network
 La arquitectura define una red virtual privada con un espacio de direcciones de 10.200.0.0/16.
 
 **Grupos de seguridad de red**: esta solución implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración dentro de una red virtual. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente según sea necesario para la funcionalidad de administración y del sistema.
@@ -128,7 +128,7 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 
 **Administración de revisiones**: las máquinas virtuales Windows que implementó esta instancia de Azure Security and Compliance Blueprint Automation se configuran de forma predeterminada para recibir actualizaciones automáticas del servicio Windows Update. Esta solución también implementa la solución Azure Automation mediante la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario.
 
-**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para Virtual Machines proporciona una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar en caso de que un software malintencionado o no deseado conocido se intente instalar o ejecutar en máquinas virtuales protegidas.
+**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para máquinas virtuales proporciona una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar en caso de que un software malintencionado o no deseado conocido se intente instalar o ejecutar en máquinas virtuales protegidas.
 
 **Application Gateway**: la arquitectura reduce el riesgo de sufrir vulnerabilidades de seguridad, ya que usa Application Gateway con el firewall de aplicaciones web (WAF) y tiene el conjunto de reglas OWASP habilitado. Entre estas funcionalidades, cabe destacar:
 
@@ -148,13 +148,13 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
 
-OMS proporciona un registro completo de la actividad de usuario y del sistema, así como mantenimiento del sistema. La solución [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) de OMS recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
+Log Analytics ofrece un registro completo de la actividad de usuario y del sistema, además de mantenimiento del sistema. La solución [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
 
 - **Registros de actividad:** los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico:** [los registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway.
 - **Archivado de registros**: todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. El usuario puede configurar la retención hasta 730 días para cumplir los requisitos de retención específicos de una organización. Esos registros se conectan a Azure Log Analytics para el procesamiento, el almacenamiento y la creación de informes de panel.
 
-Además, como parte de esta arquitectura, se instalan las siguientes soluciones de OMS. Tenga en cuenta que es responsabilidad del cliente configurar estas soluciones para alinearlas con los controles de seguridad de FedRAMP:
+Además, como parte de esta arquitectura, se instalan las siguientes soluciones de supervisión. Tenga en cuenta que es responsabilidad del cliente configurar estas soluciones para alinearlas con los controles de seguridad de FedRAMP:
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
 -   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la solución de antimalware notifica sobre el estado de malware, las amenazas y la protección.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la solución Azure Automation almacena, ejecuta y administra runbooks.

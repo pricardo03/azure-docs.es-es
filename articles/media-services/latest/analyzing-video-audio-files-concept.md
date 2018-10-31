@@ -9,20 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 36c30e11e8b7bd8b3e8ae3e424649998dcfff5bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380711"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987620"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Análisis de archivos de audio y vídeo
 
 Azure Media Services v3 también permite extraer la información de los archivos de audio y vídeo con Video Indexer a través de los valores preestablecidos del analizador de AMS v3 (que se describe en este artículo). Si desea información más detallada, use Video Indexer directamente. Para saber cuándo se recomienda utilizar los valores preestablecidos del analizador de Video Indexer, en lugar de los del de Media Services, consulte el [documento en que se realiza una comparación de ambos](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 Para analizar el contenido mediante los valores preestablecidos de Media Services v3, cree una **transformación** y envíe un **trabajo** que use uno de estos valores preestablecidos: **AudioAnalyzerPreset** o **VideoAnalyzerPreset**. En el siguiente artículo se muestra cómo usar **VideoAnalyzerPreset**: [Tutorial: Análisis de vídeos con Azure Media Services](analyze-videos-tutorial-with-api.md).
+
+> [!NOTE]
+> Si usa los valores preestablecidos de un analizador de audio o de vídeo, emplee Azure Portal para establecer que la cuenta tenga diez unidades reservadas de multimedia S3. Para obtener más información, vea [Información general del escalado de procesamiento de medios](../previous/media-services-scale-media-processing-overview.md).
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

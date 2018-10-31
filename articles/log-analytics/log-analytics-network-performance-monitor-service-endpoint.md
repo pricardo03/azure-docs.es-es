@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 04e348d2b144bdb8fd626c52f990a560d76c08a2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044678"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406626"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -44,7 +44,7 @@ Para abrir la configuración de Network Performance Monitor, abra la [solución 
 ![Configuración de Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Configuración de agentes de Operations Management Suite para la supervisión
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes de Log Analytics para la supervisión
 Habilite las reglas de firewall siguientes en los nodos que se usan para la supervisión de manera que la solución pueda detectar la topología desde los nodos al punto de conexión de servicio: 
 
 ```

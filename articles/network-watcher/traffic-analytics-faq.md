@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578317"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402767"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -77,9 +77,9 @@ Sí.
 
 Sí. Si selecciona un área de trabajo existente, asegúrese de que se ha migrado al nuevo lenguaje de consulta. Si no quiere actualizar el área de trabajo, debe crear una nueva. Para más información acerca del nuevo lenguaje de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>¿La cuenta de Azure Storage y el área de trabajo de Operations Management Suite pueden estar en suscripciones diferentes?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>¿La cuenta de Azure Storage y el área de trabajo de Log Analytics pueden estar en suscripciones diferentes?
 
-Sí, la cuenta de Azure Storage y el área de trabajo de Operations Management Suite pueden estar en suscripciones diferentes.
+Sí, la cuenta de Azure Storage puede estar en una suscripción y el área de trabajo de Log Analytics puede estar en otra suscripción.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>¿Puedo almacenar registros sin formato en una cuenta diferente?
 
@@ -115,7 +115,7 @@ Si el problema persiste, comparta su experiencia en el [foro de UserVoice](https
 
 Puede que aparezca este mensaje porque:
 - Análisis de tráfico se ha habilitado hace poco tiempo y todavía no se han agregado datos suficientes para inferir información detallada relevante.
-- Está utilizando la versión gratis del área de trabajo de Operations Management Suite y superó los límites de cuota. Puede que necesite usar un área de trabajo con una mayor capacidad.
+- Está utilizando la versión gratuita del área de trabajo de Log Analytics, que ha superado los límites de cuota. Puede que necesite usar un área de trabajo con una mayor capacidad.
     
 Si el problema persiste, comparta su experiencia en el [foro de UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

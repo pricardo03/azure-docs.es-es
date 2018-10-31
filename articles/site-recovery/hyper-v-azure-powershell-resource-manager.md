@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: b71c381c3ebc2b36c36b862c00de02144f94bd0f
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 1d72d56188c3b787ab335ced554eb7c1dc74e0b7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043678"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427440"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -69,7 +69,7 @@ Además, en el ejemplo específico que se describe en este artículo verá que n
 
 1. Cree un grupo de recursos de Azure Resource Manager en el que pueda crear el almacén, o bien use un grupo de recursos existente. Cree un nuevo grupo de recursos tal y como se indica a continuación. La variable $ResourceGroupName contiene el nombre del grupo de recursos que quiere crear y la variable $Geo contiene la región de Azure en la que se va a crear el grupo de recursos (por ejemplo: "Sur de Brasil").
 
-    `New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo` 
+    `New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo`
 
 2. Para obtener una lista de grupos de recursos de la suscripción, use el cmdlet **Get-AzureRmResourceGroup**.
 2. Cree un nuevo almacén de Azure Recovery Services como sigue:
@@ -83,22 +83,22 @@ Además, en el ejemplo específico que se describe en este artículo verá que n
 
 Establezca el contexto de almacén de la manera siguiente:
 
-`Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault`
+`Set-AsrVaultSettings -Vault $vault`
 
 ## <a name="step-4-create-a-hyper-v-site"></a>Paso 4: crear un sitio de Hyper-V
 
 1. Cree un nuevo sitio de Hyper-V como sigue:
 
         $sitename = "MySite"                #Specify site friendly name
-        New-AzureRmSiteRecoverySite -Name $sitename
+        New-AsrFabric -Type HyperVSite -Name $sitename
 
 2. Este cmdlet inicia un trabajo de Site Recovery para crear el sitio y devuelve un objeto de trabajo de Site Recovery. Espere a que el trabajo se complete y compruebe que se ha hecho correctamente.
-3. Para recuperar el objeto de trabajo y comprobar el estado actual del trabajo, use el **cmdlet Get-AzureRmSiteRecoveryJob**.
+3. Para recuperar el objeto de trabajo y comprobar el estado actual del trabajo, use el **cmdlet Get-AsrJob**.
 4. Genere y descargue una clave de registro para el sitio; para ello, proceda como sigue:
 
     ```
-    $SiteIdentifier = Get-AzureRmSiteRecoverySite -Name $sitename | Select -ExpandProperty SiteIdentifier
-        Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
+    $SiteIdentifier = Get-AsrFabric -Name $sitename | Select -ExpandProperty SiteIdentifier
+    $path = Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename
     ```
 
 5. Copie la clave descargada en el host de Hyper-V. Necesita la clave para registrar el host de Hyper-V en el sitio
@@ -111,7 +111,7 @@ Establezca el contexto de almacén de la manera siguiente:
 4. Cuando se le solicite, proporcione la clave descargada y complete el registro del host de Hyper-V.
 5. Compruebe que el host de Hyper-V se registró en el sitio tal como se indica a continuación:
 
-        $server =  Get-AzureRmSiteRecoveryServer -FriendlyName $server-friendlyname
+        $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
 ## <a name="step-6-create-a-replication-policy"></a>Paso 6: crear una directiva de replicación
 
@@ -124,33 +124,33 @@ Antes de comenzar, recuerde que la cuenta de almacenamiento especificada debe es
         $Recoverypoints = 6                    #specify the number of recovery points
         $storageaccountID = Get-AzureRmStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
 
-        $PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
+        $PolicyResult = New-AsrPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
 2. Compruebe el trabajo devuelto para asegurarse de que la creación de la directiva de replicación se realiza correctamente.
 
 3. Obtenga el contenedor de protección correspondiente al sitio; para ello, proceda como sigue:
 
-        $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer
+        $protectionContainer = Get-AsrProtectionContainer
 3. Asocie el contenedor de protección con la directiva de replicación tal como se indica:
 
-     $Policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $PolicyName   $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy $Policy -PrimaryProtectionContainer $protectionContainer
+     $Policy = Get-AsrPolicy -FriendlyName $PolicyName $associationJob = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 
 4. Espere a que finalice el trabajo de asociación.
 
 ## <a name="step-7-enable-vm-protection"></a>Paso 7: habilitar la protección de máquina virtual
 
-1. Obtenga la entidad de protección correspondiente a la máquina virtual que desea proteger, tal como se indica a continuación:
+1. Recupere el elemento protegible correspondiente a la máquina virtual que quiere proteger, tal y como se indica a continuación:
 
         $VMFriendlyName = "Fabrikam-app"                    #Name of the VM
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
+        $ProtectableItem = Get-AsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 2. Proteja la máquina virtual. Si la máquina virtual que se protege tiene más de un disco conectado, especifique el disco del sistema operativo con el parámetro *OSDiskName* .
 
         $Ostype = "Windows"                                 # "Windows" or "Linux"
-        $DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
+        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS Windows -RecoveryResourceGroupId
 
-3. Espere a que las máquinas virtuales lleguen a un estado protegido después de la replicación inicial. Esta operación puede tardar unos minutos en función de factores, como el volumen de datos que se van a replicar y el ancho de banda del canal de subida disponible en Azure. Cuando se alcanza un estado protegido, los valores State y StateDescription del trabajo se actualizan tal como se indica a continuación: 
+3. Espere a que las máquinas virtuales lleguen a un estado protegido después de la replicación inicial. Esta operación puede tardar unos minutos en función de factores, como el volumen de datos que se van a replicar y el ancho de banda del canal de subida disponible en Azure. Cuando se alcanza un estado protegido, los valores State y StateDescription del trabajo se actualizan tal como se indica a continuación:
 
-        PS C:\> $DRjob = Get-AzureRmSiteRecoveryJob -Job $DRjob
+        PS C:\> $DRjob = Get-AsrJob -Job $DRjob
 
         PS C:\> $DRjob | Select-Object -ExpandProperty State
         Succeeded
@@ -163,31 +163,16 @@ Antes de comenzar, recuerde que la cuenta de almacenamiento especificada debe es
 
         PS C:\> $VMFriendlyName = "Fabrikam-App"
 
-        PS C:\> $VM = Get-AzureRmSiteRecoveryVM -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
+        PS C:\> $rpi = Get-AsrReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 
-        PS C:\> $UpdateJob = Set-AzureRmSiteRecoveryVM -VirtualMachine $VM -PrimaryNic $VM.NicDetailsList[0].NicId -RecoveryNetworkId $nw1.Id -RecoveryNicSubnetName $nw1.Subnets[0].Name
+        PS C:\> $UpdateJob = Set-AsrReplicationProtectedItem --InputObject $rpi -PrimaryNic $VM.NicDetailsList[0].NicId -RecoveryNetworkId $nw1.Id -RecoveryNicSubnetName $nw1.Subnets[0].Name
 
-        PS C:\> $UpdateJob = Get-AzureRmSiteRecoveryJob -Job $UpdateJob
+        PS C:\> $UpdateJob = Get-AsrJob -Job $UpdateJob
 
-        PS C:\> $UpdateJob
+        PS C:\> $UpdateJob| select -ExpandProperty state
+        Get-AsrJob -Job $job | select -ExpandProperty state
 
-        Name             : b8a647e0-2cb9-40d1-84c4-d0169919e2c5
-        ID               : /Subscriptions/a731825f-4bf2-4f81-a611-c331b272206e/resourceGroups/MyRG/providers/Microsoft.RecoveryServices/vault
-                           s/MyVault/replicationJobs/b8a647e0-2cb9-40d1-84c4-d0169919e2c5
-        Type             : Microsoft.RecoveryServices/vaults/replicationJobs
-        JobType          : UpdateVmProperties
-        DisplayName      : Update the virtual machine
-        ClientRequestId  : 805a22a3-be86-441c-9da8-f32685673112-2015-12-10 17:55:51Z-P
-        State            : Succeeded
-        StateDescription : Completed
-        StartTime        : 10-12-2015 17:55:53 +00:00
-        EndTime          : 10-12-2015 17:55:54 +00:00
-        TargetObjectId   : 289682c6-c5e6-42dc-a1d2-5f9621f78ae6
-        TargetObjectType : ProtectionEntity
-        TargetObjectName : Fabrikam-App
-        AllowedActions   : {Restart}
-        Tasks            : {UpdateVmPropertiesTask}
-        Errors           : {}
+        Succeeded
 
 
 
@@ -196,13 +181,13 @@ Antes de comenzar, recuerde que la cuenta de almacenamiento especificada debe es
 
         $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMFriendlyName -ProtectionContainer $protectionContainer
+        $rpi = Get-AsrReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 
-        $TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
+        $TFjob =Start-AsrTestFailoverJob -ReplicationProtectedItem $VM -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
 2. Compruebe que la prueba de la máquina virtual se crea en Azure. El trabajo de conmutación por error de prueba se suspende después de crear la máquina virtual de prueba en Azure.
 3. Para limpiar y completar la conmutación por error de prueba, ejecute:
 
-        $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
+        $TFjob = Start-AsrTestFailoverCleanupJob -ReplicationProtectedItem $rpi -Comment "TFO done"
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) sobre Azure Site Recovery con los cmdlets de PowerShell de Azure Resource Manager.

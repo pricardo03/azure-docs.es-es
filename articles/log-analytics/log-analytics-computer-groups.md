@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044304"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408547"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de equipos en búsquedas de registros en Log Analytics
 
@@ -62,7 +62,7 @@ Utilice el procedimiento siguiente para crear un grupo de equipos a partir de un
 
 
 ### <a name="active-directory"></a>Active Directory
-Al configurar Log Analytics para importar pertenencias a grupos de Active Directory, analiza la pertenencia al grupo de todos los equipos unidos al dominio con el agente de OMS.  En Log Analytics se crea un grupo de equipos para cada grupo de seguridad de Active Directory y cada equipo se agrega a los grupos de equipos correspondientes a los grupos de seguridad de los que son miembros.  Esta pertenencia se actualiza continuamente cada 4 horas.  
+Al configurar Log Analytics para importar pertenencias a grupos de Active Directory, se analiza la pertenencia a grupos de todos los equipos unidos al dominio con el agente de Log Analytics.  En Log Analytics se crea un grupo de equipos para cada grupo de seguridad de Active Directory y cada equipo se agrega a los grupos de equipos correspondientes a los grupos de seguridad de los que son miembros.  Esta pertenencia se actualiza continuamente cada 4 horas.  
 
 Configure Log Analytics para importar los grupos de seguridad de Active Directory en **Configuración avanzada** de Log Analytics en Azure Portal.  Seleccione **Grupos de equipos**, **Active Directory** y, a continuación, **Importar pertenencias a grupos de Active Directory de los equipos**.  No es necesario realizar ninguna configuración más.
 
@@ -71,7 +71,7 @@ Configure Log Analytics para importar los grupos de seguridad de Active Director
 Una vez importados los grupos, el menú muestra el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Services
-Al configurar Log Analytics para importar pertenencias a grupos de WSUS, analiza la pertenencia al grupo de destino de todos los equipos con el agente de OMS.  Si utiliza destinatarios del lado cliente, se importará a Log Analytics la pertenencia a grupos de todos los equipos conectados a Log Analytics que formen parte de cualquier grupo de destino de WSUS. Si usa destinatarios del lado servidor, le recomendamos que instale el agente de OMS en el servidor WSUS para que se importe la información de pertenencia a grupos a Log Analytics.  Esta pertenencia se actualiza continuamente cada 4 horas. 
+Al configurar Log Analytics para importar pertenencias a grupos de WSUS, se analiza la pertenencia a grupos de destino de todos los equipos con el agente de Log Analytics.  Si utiliza destinatarios del lado cliente, se importará a Log Analytics la pertenencia a grupos de todos los equipos conectados a Log Analytics que formen parte de cualquier grupo de destino de WSUS. Si usa destinatarios del lado servidor, le recomendamos que instale el agente de Log Analytics en el servidor WSUS para que se importe la información de pertenencia a grupos en Log Analytics.  Esta pertenencia se actualiza continuamente cada 4 horas. 
 
 Configure Log Analytics para importar los grupos de WSUS en **Configuración avanzada** de Log Analytics en Azure Portal.  Seleccione **Grupos de equipos**, **WSUS** y, a continuación, **Importar pertenencias a grupos de WSUS**.  No es necesario realizar ninguna configuración más.
 

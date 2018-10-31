@@ -9,30 +9,33 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: ced10a54d569531b06ee47b646130f43cedd2963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984609"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649999"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Seguimiento de experimentos y métricas de entrenamiento en Azure Machine Learning
 
 Con el servicio Azure Machine Learning, puede realizar un seguimiento de sus experimentos y supervisar las métricas para mejorar el proceso de creación de modelos. En este artículo, aprenderá sobre las distintas maneras de agregar el registro al script de entrenamiento, enviar el experimento con **start_logging** y **ScriptRunConfig**, comprobar el progreso de un trabajo en ejecución y ver los resultados de una ejecución. 
 
+>[!NOTE]
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168. 
+
 ## <a name="list-of-training-metrics"></a>Lista de métricas de entrenamiento 
 
-Las siguientes métricas se pueden agregar a una ejecución durante el entrenamiento de un experimento. Para ver una lista más detallada de aquello de lo que puede realizar el seguimiento en una ejecución, consulte la [documentación de referencia del SDK](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+Las siguientes métricas se pueden agregar a una ejecución durante el entrenamiento de un experimento. Para ver una lista más detallada de aquello de lo que puede realizar el seguimiento en una ejecución, consulte la [documentación de referencia del SDK](https://aka.ms/aml-sdk).
 
-|Escriba| Función de Python | Notas|
-|----|:----:|:----:|
-|Valores escalares | `run.log(name, value, description='')`| Registra un valor de métrica en la ejecución con el nombre especificado. Al registrar una métrica en una ejecución, esa métrica se almacena en el registro de ejecución en el experimento.  Puede registrar la misma métrica varias veces dentro de una ejecución y el resultado se considerará un vector de esa métrica.|
-|Listas| `run.log_list(name, value, description='')`|Registra un valor de métrica de lista en la ejecución con el nombre especificado.|
-|Fila| `run.log_row(name, description=None, **kwargs)`|El uso de *log_row* crea una métrica de tabla con columnas, como se describe en argumentos kwargs. Cada parámetro con nombre genera una columna con el valor especificado.  Se puede llamar una vez a *log_row* para registrar una tupla arbitraria, o varias veces en un bucle para generar una tabla completa.|
-|Tabla| `run.log_table(name, value, description='')`| Registra una métrica de tabla en la ejecución con el nombre especificado. |
-|Imágenes| `run.log_image(name, path=None, plot=None)`|Registra una métrica de imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
-|Etiquetar una ejecución| `run.tag(key, value=None)`|Etiqueta la ejecución con una clave de cadena y un valor de cadena opcional.|
-|Cargar archivo o directorio|`run.upload_file(name, path_or_stream)`|Carga un archivo en el registro de ejecución. Las ejecuciones capturan automáticamente el archivo en el directorio de salida especificado, cuyo valor predeterminado es "./outputs" para la mayoría de tipos de ejecución.  Use upload_file solo cuando sea necesario cargar archivos adicionales o no se especifique un directorio de salida. Se recomienda agregar `outputs` al nombre, para que se cargue en el directorio de salida. Puede enumerar todos los archivos que están asociados con este registro de ejecución por el parámetro `run.get_file_names()` invocado.|
+|Escriba| Función de Python | Ejemplo | Notas|
+|----|:----|:----|:----|
+|Valores escalares | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Registra un valor numérico o de cadena en la ejecución con el nombre especificado. Al registrar una métrica en una ejecución, esa métrica se almacena en el registro de ejecución en el experimento.  Puede registrar la misma métrica varias veces dentro de una ejecución y el resultado se considerará un vector de esa métrica.|
+|Listas| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Registra una lista de valores en la ejecución con el nombre especificado.|
+|Fila| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Al usar *log_row* se crea una métrica de varias columnas, tal y como se describe en los argumentos kwargs. Cada parámetro con nombre genera una columna con el valor especificado.  Se puede llamar una vez a *log_row* para registrar una tupla arbitraria, o varias veces en un bucle para generar una tabla completa.|
+|Tabla| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Registra un objeto de diccionario en la ejecución con el nombre especificado. |
+|Imágenes| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Registra una imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
+|Etiquetar una ejecución| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Etiqueta la ejecución con una clave de cadena y un valor de cadena opcional.|
+|Cargar archivo o directorio|`run.upload_file(name, path_or_stream)`| run.upload_file("best_model.pkl", "./model.pkl") | Carga un archivo en el registro de ejecución. Las ejecuciones capturan automáticamente el archivo en el directorio de salida especificado, cuyo valor predeterminado es "./outputs" para la mayoría de tipos de ejecución.  Use upload_file solo cuando sea necesario cargar archivos adicionales o no se especifique un directorio de salida. Se recomienda agregar `outputs` al nombre, para que se cargue en el directorio de salida. Puede enumerar todos los archivos que están asociados con este registro de ejecución por el parámetro `run.get_file_names()` invocado.|
 
 > [!NOTE]
 > Las métricas de valores escalares, listas, filas y tablas pueden tener el tipo: float, integer o string.
@@ -141,14 +144,14 @@ En este ejemplo se amplía el modelo sklearn Ridge básico anterior. Se realiza 
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},
           "test": {"X": X_test, "y": y_test}}
 
   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = np.arange(0.0, 1.0, 0.05)
+  alphas = mylib.get_alphas()
 
   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
@@ -232,6 +235,7 @@ El entrenamiento y la supervisión de modelos tienen lugar en segundo plano, de 
 
 Puede ver las métricas de un modelo entrenado con ```run.get_metrics()```. Ahora puede obtener todas las métricas que se registraron en el ejemplo anterior para determinar el mejor modelo.
 
+<a name='view-the-experiment-in-the-web-portal'/>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>Visualización del experimento en Azure Portal
 
 Cuando un experimento ha terminado de ejecutarse, puede ir al registro de ejecución del experimento grabado. Puede hacerlo de dos maneras:
@@ -247,8 +251,8 @@ También puede ver las salidas o los registros de la ejecución, o descargar la 
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
 Los cuadernos siguientes muestran los conceptos de este artículo:
-* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
+* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 
 Obtenga estos cuadernos: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

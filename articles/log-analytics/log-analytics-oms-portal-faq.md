@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223838"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404569"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Preguntas comunes para la transición desde el portal de OMS a Azure Portal para los usuarios de Log Analytics
 Log Analytics inicialmente usaba su propio portal denominado portal de OMS para administrar su configuración y analizar los datos recopilados.  Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose.
@@ -113,7 +113,7 @@ En el portal de OMS, las soluciones de administración se instalan desde la Gale
 Las reglas de alerta basadas en consultas de Log Analytics ahora se administran en la [experiencia de alertas unificada](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Consulte [cómo extender alertas desde Log Analytics en alertas de Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) para detalles sobre cómo configurar y usar las alertas en Azure Portal.
 
 ## <a name="how-do-i-access-my-dashboards"></a>¿Cómo accedo a mis paneles?
-Los [paneles](../log-analytics/log-analytics-dashboards.md) de Log Analytics han quedado en desuso.  Puede visualizar datos de Log Analytics mediante el [Diseñador de vistas](../log-analytics/log-analytics-view-designer.md), que tiene una funcionalidad adicional, y anclar la consulta y las vistas en los paneles de Azure.
+La característica [Mi panel](../log-analytics/log-analytics-dashboards.md) de Log Analytics ha quedado en desuso. Esta característica le permitía tener una colección privada de elementos del Diseñador de vistas y se ha reemplazado por la funcionalidad integrada del panel de Azure. Puede seguir visualizando datos en Log Analytics con [Diseñador de vistas](../log-analytics/log-analytics-view-designer.md) para vistas compartidas. También puede anclar visualizaciones de estas vistas o, en el caso de [consultas individuales](../log-analytics/log-analytics-tutorial-dashboards.md), en paneles de Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>¿Cómo puedo comprobar el uso?
 Ahora puede ver y administrar fácilmente su uso y el costo de Log Analytics seleccionando **Uso y costos estimados** en el área de trabajo.

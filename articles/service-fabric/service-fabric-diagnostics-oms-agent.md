@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 21c9441e2b3d3ad54d491834e6de097a8880b5b7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311123"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406218"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Supervisión del rendimiento con Log Analytics
 
-En este artículo se describen los pasos para agregar el Agente de Log Analytics como una extensión del conjunto de escalado de máquinas virtuales al clúster y cómo conectarlo a su área de trabajo de Azure Log Analytics existente. Esto permite recopilar datos de diagnóstico sobre los contenedores, las aplicaciones y la supervisión de rendimiento. Si lo agrega como una extensión al recurso del conjunto de escalado de máquinas virtuales, Azure Resource Manager garantiza la instalación en todos los nodos, incluso cuando se ajusta la escala del clúster.
+En este artículo se describen los pasos para agregar el agente de Log Analytics como una extensión del conjunto de escalado de máquinas virtuales al clúster y conectarlo al área de trabajo de Azure Log Analytics existente. Esto permite recopilar datos de diagnóstico sobre los contenedores, las aplicaciones y la supervisión de rendimiento. Si lo agrega como una extensión al recurso del conjunto de escalado de máquinas virtuales, Azure Resource Manager garantiza la instalación en todos los nodos, incluso cuando se ajusta la escala del clúster.
 
 > [!NOTE]
 > En este artículo se da por supuesto que tiene un área de trabajo de Azure Log Analytics que ya ha configurado. De lo contrario, vea [Configuración de Azure Log Analytics](service-fabric-diagnostics-oms-setup.md).
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Incorporación de la extensión del Agente mediante la CLI de Azure
 
-La mejor manera de agregar el Agente de Log Analytics al clúster es a través de las API del conjunto de escalado de máquinas virtuales disponibles con la CLI de Azure. Si no tiene la CLI de Azure configurada aún, diríjase a Azure Portal y abra una instancia de [Cloud Shell](../cloud-shell/overview.md) o [instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+La mejor manera de agregar el agente de Log Analytics al clúster es a través de las API del conjunto de escalado de máquinas virtuales disponibles con la CLI de Azure. Si no tiene la CLI de Azure configurada aún, diríjase a Azure Portal y abra una instancia de [Cloud Shell](../cloud-shell/overview.md) o [instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Tras solicitar Cloud Shell, asegúrese de que trabaja en la misma suscripción que el recurso. Compruébelo con `az account show` y asegúrese de que el valor "nombre" coincide con el de la suscripción del clúster.
 
@@ -54,7 +54,7 @@ La mejor manera de agregar el Agente de Log Analytics al clúster es a través d
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
-    Este es un ejemplo de incorporación del Agente de Log Analytics a un clúster con Windows.
+    Este es un ejemplo de incorporación del agente de Log Analytics a un clúster con Windows.
 
     ![Comando de la CLI del agente de Log Analytics](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  

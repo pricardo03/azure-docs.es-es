@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3429917fcee520ae932253f1fdfead4ffb6535e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807142"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024823"
 ---
 <a name="retrieve-offers"></a>Recuperación de ofertas
 ===============
@@ -34,8 +34,8 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 
 | ** Nombre**        |  **Descripción**                         |  **Tipo de datos** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador del anunciante, por ejemplo, `contoso` |   string    |
-|  api-version     | Última versión de la API                    |    Date        |
+|  publisherId     | Identificador del publicador, por ejemplo `contoso`. |   string    |
+|  api-version     | Última versión de la API.                    |    Date        |
 |  |  |
 
 
@@ -80,7 +80,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 |  status         | Estado de la oferta. Para obtener la lista de valores posibles, consulte la sección [Estado de la oferta](#offer-status) a continuación.                         |
 |  id             | GUID que identifica de forma exclusiva a la oferta del espacio de nombres del anunciante.                                                    |
 |  version        | Versión actual de la oferta. El cliente no puede modificar la propiedad de versión. Se incrementa después de cada publicación. |
-|  definición     | Contiene una vista resumida de la definición real de la carga de trabajo. Para obtener una definición detallada, use la API [Recuperación de oferta específica] (./cloud-partner-portal-api-retrieve-specific-offer.md). |
+|  definición     | Contiene una vista resumida de la definición real de la carga de trabajo. Para obtener una definición detallada, use la API de [Recuperación de una oferta específica](./cloud-partner-portal-api-retrieve-specific-offer.md). |
 |  changedTime    | Hora UTC en la que se modificó por última vez la oferta                                                                              |
 |  |  |
 

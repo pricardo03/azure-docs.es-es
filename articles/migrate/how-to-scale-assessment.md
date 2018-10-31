@@ -4,14 +4,14 @@ description: Se describe cómo evaluar un número elevado de máquinas locales m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325029"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025885"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -31,7 +31,7 @@ Azure Migrate necesita acceso a los servidores de VMware para detectar automáti
 - Tipo de usuario: al menos un usuario de solo lectura.
 - Permisos: Data Center -> Propagate to Child Object, role=Read-only (Centro de datos -> Propagar a objeto secundario, rol = Solo lectura).
 - Detalles: el usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.
-- Para restringir el acceso, asigne el rol Sin acceso con Propagar al objeto secundario, a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
+- Para restringir el acceso, asigne el rol Sin acceso con Propagar a objetos secundarios a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
 
 Si va a implementar en un entorno de inquilinos, esta es una manera de configurar esta opción:
 
@@ -120,9 +120,9 @@ Azure Migrate crea una VM local conocida como el dispositivo de recopilador. Est
 Si tiene varios proyectos, tiene que descargar la aplicación del recopilador solo una vez en vCenter Server. Después de descargar y configurar la aplicación, ejecútela en cada proyecto y especifique el identificador de proyecto exclusivo y la clave.
 
 1. En el proyecto de Azure Migrate, haga clic en **Introducción** > **Detectar y evaluar** > **Detectar máquinas**.
-2. En **Detectar máquinas**, hay dos opciones disponibles para el dispositivo, haga clic en **Descargar** para descargar el dispositivo adecuado según sus preferencias.
+2. En **Detectar máquinas**, hay dos opciones disponibles para el dispositivo. Haga clic en **Descargar** para descargar el dispositivo adecuado según sus preferencias.
 
-    a. **Detección de una sola vez:** el dispositivo para este modelo se comunica con el servidor vCenter para recopilar metadatos sobre las máquinas virtuales. Para la recopilación de datos de rendimiento de las máquinas virtuales, se basa en los datos de rendimiento históricos almacenados en el servidor vCenter y recopila el historial de rendimiento del último mes. En este modelo, Azure Migrate recopila el valor promedio de contador (a diferencia del valor máximo) para cada métrica, [Más información] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como se trata de una detección de una sola vez, no se reflejan los cambios en el entorno local una vez completada la detección. Si quiere que los cambios se reflejen, tendrá que realizar una nueva detección del mismo entorno para el mismo proyecto.
+    a. **Detección de una sola vez:** el dispositivo para este modelo se comunica con vCenter Server para recopilar metadatos sobre las máquinas virtuales. Para la recopilación de datos de rendimiento de las máquinas virtuales, se basa en los datos de rendimiento históricos almacenados en vCenter Server y recopila el historial de rendimiento del último mes. En este modelo, Azure Migrate recopila los valores medios de contador (a diferencia del valor máximo) de cada métrica; obtenga [más información](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como se trata de una detección de una sola vez, no se reflejan los cambios en el entorno local una vez completada la detección. Si quiere que los cambios se reflejen, tendrá que realizar una nueva detección del mismo entorno para el mismo proyecto.
 
     b. **Detección continua:** el dispositivo para este modelo genera perfiles continuamente del entorno local con el fin de recopilar datos de uso en tiempo real para cada máquina virtual. En este modelo, se recopilan contadores de número máximo de cada métrica (uso de la CPU, uso de memoria etc.). Este modelo no depende de la configuración de las estadísticas de vCenter Server para la recopilación de datos de rendimiento. Puede detener la generación de perfiles continua en cualquier momento desde el dispositivo.
 
@@ -148,7 +148,17 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo:
 
 #### <a name="one-time-discovery"></a>Detección de una sola vez
 
-Para la versión 1.0.9.14 de OVA
+<<<<<<< HEAD para la versión 1.0.9.15 de OVA (lanzada el 23/10/2018)
+
+ <a name="algorithm--hash-value"></a>**Algoritmo** | **Valor del código hash**
+=======
+Para la versión 1.0.9.15 de OVA
+
+**Algoritmo** | **Valor del código hash**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37 --- | --- MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< HEAD para la versión 1.0.9.14 de OVA (lanzada el 24/8/2018) ======= Para la versión 1.0.9.14 de OVA
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Algoritmo** | **Valor del código hash**
 --- | ---

@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 75094ad17474cd07039724fb0b5e5e377808b51f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/11/2018
+ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956684"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457149"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Supervisar y obtener información sobre ejecuciones de aplicación lógica con Log Analytics
 
@@ -31,71 +31,82 @@ Antes de empezar, necesita un área de trabajo de Log Analytics. Aprenda a [crea
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Activación del registro de diagnóstico al crear aplicaciones lógicas
 
-1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica. Elija **Crear un recurso** > **Integración empresarial** > **Logic App**.
+1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica. Seleccione **Crear un recurso** > **Integración** > **Aplicación lógica**.
 
    ![Creación de una aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
-2. En la página **Crear aplicación lógica**, realice estas tareas de la manera siguiente:
+1. En **Crear aplicación lógica**, realice estas tareas:
 
    1. Asigne un nombre a la aplicación lógica y seleccione su suscripción de Azure. 
-   2. Cree o seleccione un grupo de recursos de Azure.
-   3. Establezca **Log Analytics** en **Activado**. 
-   Seleccione el área de trabajo de Log Analytics donde desea enviar los datos de las ejecuciones de la aplicación lógica. 
-   4. Cuando esté listo, elija **Anclar al panel** > **Crear**.
+
+   1. Cree o seleccione un grupo de recursos de Azure.
+
+   1. Establezca **Log Analytics** en **Activado**. 
+
+   1. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo donde quiera enviar los datos de las ejecuciones de aplicación lógica. 
 
       ![Creación de la aplicación lógica](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
       Después de realizar este paso, Azure crea la aplicación lógica, que ahora está asociada al área de trabajo de Log Analytics. 
       Además, este paso también instala automáticamente la solución Logic Apps Management en el área de trabajo.
 
-3. Para ver las ejecuciones de aplicación lógica, [continúe con estos pasos](#view-logic-app-runs-oms).
+   1. Cuando termine, seleccione **Crear**.
+
+1. Para ver las ejecuciones de aplicación lógica, [continúe con estos pasos](#view-logic-app-runs-oms).
 
 ## <a name="install-the-logic-apps-management-solution"></a>Instalación de la solución Logic Apps Management
 
 Si ya activó Log Analytics cuando creó su aplicación lógica, omita este paso. Ya tiene instalada la solución Logic Apps Management.
 
-1. En [Azure Portal](https://portal.azure.com), elija **Más servicios**. Busque "log analytics" como filtro y elija **Log Analytics** como se muestra:
+1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba “Log Analytics” como el filtro y, después, seleccione **Log Analytics**.
 
-   ![Selección de "Log Analytics"](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
+   ![Selección de “Log Analytics”](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. En **Log Analytics**, busque y seleccione el área de trabajo de Log Analytics. 
+1. En **Log Analytics**, busque y seleccione el área de trabajo de Log Analytics. 
 
-   ![Selección del área de trabajo de Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Selección del área de trabajo de Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-3. En **Administración**, elija **Información general**.
+1. En **Configurar soluciones de supervisión**, seleccione **Ver soluciones**.
 
-   ![Selección de "Portal de OMS"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
+   ![Selección de “Ver soluciones”](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
-4. En la página Información general, elija **Agregar** para abrir el icono de Soluciones de administración. 
+1. En la página Información general, seleccione **Agregar** para abrir la lista **Soluciones de administración**. En la lista, seleccione **Logic Apps Management**. 
 
-   ![Selección de "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Selección de “Logic Apps Management”](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Desplácese por la lista de **Soluciones de administración**, elija la solución **Administración de Logic Apps** y elija **Crear** para instalar en la página Información general.
+   Si no encuentra la solución, en la parte inferior de la lista, seleccione **Cargar más** hasta que se muestre la solución.
 
-   ![Selección de "Agregar" en "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+1. Seleccione **Crear** para instalar la solución.
+
+   ![Selección de "Agregar" en "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-your-logic-app-runs-in-your-log-analytics-workspace"></a>Visualización de ejecuciones de aplicación lógica en el área de trabajo de Log Analytics
+## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Ver ejecuciones de aplicación lógica en el área de trabajo de Log Analytics
 
-1. Para ver el recuento y el estado de las ejecuciones de aplicación lógica, vaya a la página de información general del área de trabajo de Log Analytics. Revise los detalles del icono **Logic Apps Management**.
+1. Para ver el recuento y el estado de las ejecuciones de aplicación lógica, vaya al área de trabajo de Log Analytics y abra la página Información general. 
+
+   En el icono de **Logic Apps Management**, se muestran detalles sobre las ejecuciones de aplicación lógica. Para ver un resumen con más detalles sobre las ejecuciones de aplicación lógica, elija el icono **Logic Apps Management**. 
 
    ![Icono de información general que muestra el recuento y el estado de la ejecución de aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
-2. Para ver un resumen con más detalles sobre las ejecuciones de aplicación lógica, elija el icono **Logic Apps Management**.
-
-   En este caso, las ejecuciones de aplicación lógica se agrupan por nombre y estado de ejecución. También puede ver detalles sobre los errores en acciones o desencadenadores de las ejecuciones de aplicaciones lógicas.
+   En este caso, las ejecuciones de aplicación lógica se agrupan por nombre y estado de ejecución. 
+   En esta página, también se muestran detalles sobre errores en acciones o desencadenadores de las ejecuciones de aplicación lógica.
 
    ![Resumen de estado de las ejecuciones de aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
-3. Para ver todas las ejecuciones de una aplicación lógica específica o el estado, seleccione la fila correspondiente a la aplicación lógica o el estado.
+1. Para ver todas las ejecuciones de una aplicación lógica específica o el estado, seleccione la fila correspondiente a la aplicación lógica o el estado.
 
    A continuación se muestra un ejemplo con todas las ejecuciones de una aplicación lógica específica:
 
    ![Visualización de las ejecuciones de una aplicación lógica o el estado](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   Existen dos opciones avanzadas en esta página:
-   * **Propiedades controladas:** esta columna muestra propiedades controladas agrupadas por acciones para la aplicación lógica. Para ver las propiedades controladas, elija **ver**. Puede buscar las propiedades controladas mediante el filtro de columna.
+   Esta página contiene las siguientes opciones avanzadas:
+
+   * **Propiedades controladas:**
+
+     En esta columna, se muestran propiedades controladas agrupadas por acciones para la aplicación lógica. Para ver las propiedades controladas, elija **ver**. 
+     Para buscar las propiedades controladas, use el filtro de columna.
    
      ![Ver propiedades controladas de una aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
@@ -105,41 +116,39 @@ Si ya activó Log Analytics cuando creó su aplicación lógica, omita este paso
 
      ![Reenviar ejecuciones de aplicaciones lógicas](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-4. Para filtrar estos resultados, puede realizar un filtrado en el cliente y en el servidor.
+1. Para filtrar estos resultados, puede realizar un filtrado en el cliente y en el servidor.
 
-   * Filtro en el cliente: para cada columna, elija los filtros que prefiera. 
-   Estos son algunos ejemplos:
+   * **Filtro del lado cliente**: por cada columna, seleccione los filtros que prefiera, por ejemplo:
 
      ![Ejemplo de filtros de columna](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * Filtro en el servidor: para elegir una ventana de tiempo específica o para limitar el número de ejecuciones que aparecen, use el control de ámbito de la parte superior de la página. 
-   De forma predeterminada, solo aparecen 1000 registros a la vez. 
+   * **Filtro del lado servidor**: para seleccionar un intervalo de tiempo específico o limitar el número de ejecuciones que se muestran, use el control de ámbito de la parte superior de la página. De forma predeterminada, solo aparecen 1000 registros a la vez.
    
      ![Cambio de la ventana de tiempo](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. Para ver todas las acciones y sus detalles de una ejecución concreta, seleccione una fila de una ejecución de aplicación lógica.
+1. Para ver todas las acciones y sus detalles de una ejecución concreta, seleccione una fila de una ejecución de aplicación lógica.
 
    A continuación se muestra un ejemplo que muestra todas las acciones de una ejecución de aplicación lógica específica:
 
    ![Ver acciones de una ejecución de aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
    
-6. En cualquier página de resultados, para ver la consulta subyacente a los resultados o para ver todos los resultados, elija **Ver todo**, que abre la página de búsqueda de registros.
+1. En cualquier página de resultados, para ver la consulta subyacente a los resultados o para ver todos los resultados, elija **Ver todo**, que abre la página de búsqueda de registros.
    
    ![Ver todo en las páginas de resultados](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
    
    En la página de búsqueda de registros,
+
    * Para ver los resultados de consulta en una tabla, elija **Tabla**.
+
    * Para cambiar la consulta, puede modificar la cadena de consulta en la barra de búsqueda. 
    Para una mejor experiencia, elija **Análisis avanzado**.
 
      ![Visualización de las acciones y los detalles de una ejecución de aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     Aquí, en la página de Azure Log Analytics, puede actualizar las consultas y ver los resultados de la tabla. 
-     En esta consulta se usa el [lenguaje de consulta de Kusto](https://aka.ms/LogAnalyticsLanguageReference), que puede modificar si quiere ver resultados diferentes. 
+     En la página de Azure Log Analytics, puede actualizar las consultas y ver los resultados de la tabla. En esta consulta se usa el [lenguaje de consulta de Kusto](https://aka.ms/LogAnalyticsLanguageReference), que puede modificar si quiere ver resultados diferentes. 
 
      ![Azure Log Analytics: vista de consultas](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Supervisión de mensajes B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
-

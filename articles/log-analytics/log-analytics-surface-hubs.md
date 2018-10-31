@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041496"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407174"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Supervisión de Surface Hubs con Log Analytics para realizar un seguimiento de su estado
 
@@ -51,7 +51,7 @@ Intune es un producto de Microsoft que permite administrar de forma centralizada
 1. Inicie sesión en Intune.
 2. Vaya a **Configuración** > **Orígenes conectados**.
 3. Cree o edite una directiva basada en la plantilla de Surface Hub.
-4. Vaya a la sección de OMS (Azure Operational Insights) de la directiva y agregue el *identificador de área de trabajo* y la *clave de área de trabajo* de Log Analytics a la directiva.
+4. Vaya a la sección Azure Operational Insights de la directiva y agregue el *identificador de área de trabajo* y la *clave de área de trabajo* de Log Analytics a la directiva.
 5. Guarde la directiva.
 6. Asocia la directiva con el grupo de dispositivos adecuado.
 
@@ -66,9 +66,9 @@ Si no usa Intune para administrar su entorno, puede inscribir dispositivos manua
 
 1. En Surface Hub, abra **Configuración**.
 2. Escriba las credenciales de administrador de dispositivos cuando se le solicite.
-3. Haga clic en **Este dispositivo** y, en **Supervisión**, haga clic en **Configure OMS Settings** (Configuración de OMS).
+3. Haga clic en **Este dispositivo** y, en **Supervisión**, haga clic en **Configuración de Log Analytics**.
 4. Seleccione **Habilitar supervisión**.
-5. En el cuadro de diálogo de configuración de OMS, escriba el **identificador de área de trabajo** y la **clave de área de trabajo** de Log Analytics.  
+5. En el cuadro de diálogo de configuración de Log Analytics, escriba el **identificador de área de trabajo** y la **clave de área de trabajo** de Log Analytics.  
    ![settings](./media/log-analytics-surface-hubs/settings.png)
 6. Haga clic en **Aceptar** para completar la configuración.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833335"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465634"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
 **¿En qué consisten las competiciones de Cortana Intelligence?**
@@ -55,11 +55,11 @@ Los participantes de la competición usan Azure Machine Learning Studio, un serv
 
 **¿Es necesario ser un experto en datos para participar?**
 
-Nº De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. El público de destino es el siguiente:
+No. De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. El público de destino es el siguiente:
 
 * **Desarrolladores de datos**, **científicos de datos**, **profesionales de BI** y **de análisis**: los responsables de producir el contenido de datos y análisis para que otros usuarios lo consuman.
 * **Administradores de datos**: los usuarios que tengan conocimientos sobre los datos, lo que significan y cómo están diseñados para usarse y con qué propósito.
-* **Estudiantes** & e**investigadores:** los usuarios que estén aprendiendo y adquiriendo habilidades relacionadas con los datos a través de programas académicos en universidades o participantes de los cursos en línea abiertos y masivos (MOOC).
+* **Estudiantes** e **investigadores**: usuarios que estén aprendiendo y adquiriendo aptitudes relacionadas con los datos mediante programas académicos en universidades o participantes de cursos MOOC.
 
 **¿Puedo participar con mis compañeros y formar un equipo?**
 
@@ -106,7 +106,7 @@ La hora de envío es el factor de desempate. La entrada que se haya enviado ante
 
 **¿Puedo participar usando el área de trabajo de invitado?**
 
-Nº Debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una participación válida para su envío desde dicha área. 
+No. Debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una participación válida para su envío desde dicha área. 
 
 **¿Puedo participar mediante un área de trabajo de cualquier región de Azure?**
 

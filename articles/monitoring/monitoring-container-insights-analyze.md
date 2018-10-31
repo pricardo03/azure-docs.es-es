@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956689"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638008"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores
 El rendimiento de sus clústeres de Azure Kubernetes Service (AKS) puede observarse desde dos perspectivas con Azure Monitor para contenedores, directamente desde un clúster AKS o ver todos los clústeres de AKS en una suscripción de Azure Monitor. 
 
 En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y cómo evaluar, investigar y resolver rápidamente los problemas detectados.
@@ -109,6 +109,10 @@ Al cambiar a la pestaña **Nodos**, la jerarquía de filas sigue el modelo de ob
 
 ![Ejemplo de jerarquía de nodos de Kubernetes en la vista de rendimiento](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+En un nodo expandido, puede explorar en profundidad desde el pod o contenedor que se ejecuta en el nodo hasta el controlador para ver los datos de rendimiento filtrados por ese controlador o pod. Haga clic en el valor de la columna de **controladores** del nodo específico.   
+
+![Ejemplo de exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 Puede seleccionar los controladores o los contenedores en la parte superior de la página y revisar el estado y el uso de recursos de dichos objetos.  Si prefiere revisar el uso de memoria, en la lista desplegable **Metric** (Métrica), seleccione **Memory RSS** (RSS de memoria) o **Memory working set** (Espacio de trabajo de memoria). **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable. 
 
 ![Vista de rendimiento de los nodos del contenedor](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Aquí puede ver el mantenimiento del rendimiento de los controladores.
 
 ![Vista de rendimiento de los controladores <nombre>](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-La jerarquía de filas comienza con un controlador y expande el controlador. Se ven uno o varios contenedores. Expanda un pod, en la última fila se muestra el contenedor agrupado al pod.  
+La jerarquía de filas comienza con un controlador y, al expandir un controlador, se ven uno o varios pods.  Expanda un pod y la última fila mostrará el contenedor agrupado en el pod. Desde un controlador expandido, puede explorar en profundidad hasta el nodo en que se ejecuta para ver los datos de rendimiento filtrados por ese nodo. Haga clic en el valor de la columna de **nodos** del nodo específico.   
+
+![Ejemplo de exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 La información que se muestra al ver los controladores se describe en la siguiente tabla:
 
@@ -178,6 +184,10 @@ En el selector, elija **Containers** (Contenedores).
 Aquí puede ver el mantenimiento del rendimiento de los contenedores de Azure Kubernetes.  
 
 ![Vista de rendimiento de los controladores <nombre>](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+En un contenedor, puede explorar en profundidad un pod o un nodo para ver los datos de rendimiento filtrados por ese objeto. Haga clic en el valor de la columna de **pods** o de **nodos** del contenedor específico.   
+
+![Ejemplo de exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 La información que se muestra al ver los contenedores se describe en la siguiente tabla:
 

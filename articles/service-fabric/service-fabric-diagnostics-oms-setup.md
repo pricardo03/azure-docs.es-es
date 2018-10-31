@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220473"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408088"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configuración de Log Analytics para un clúster
 
@@ -51,7 +51,7 @@ Si usa Windows, continúe con los siguientes pasos para conectar Log Analytics a
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conexión del área de trabajo de Log Analytics al clúster 
 
-1. El área de trabajo debe conectarse a los datos de diagnóstico que proceden del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfWorkspace\>** y vaya a su página de información general. Desde allí, puede cambiar la configuración de la solución y la configuración del área de trabajo, además de acceder al área de trabajo de Log Analytics.
+1. El área de trabajo debe conectarse a los datos de diagnóstico que proceden del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfWorkspace\>** y vaya a su página de información general. Desde allí, puede cambiar la configuración de la solución y la configuración del área de trabajo, además tener acceso al área de trabajo de Log Analytics.
 
 2. En el menú de navegación izquierdo, haga clic en **Orígenes de datos del área de trabajo**, seleccione **Registros de las cuentas de almacenamiento**.
 
@@ -80,7 +80,7 @@ Puede usar y modificar [esta plantilla de ejemplo](https://github.com/Azure-Samp
 
 * Crea un clúster de 5 nodos de Service Fabric
 * Crea un área de trabajo de Log Analytics y una solución de Service Fabric
-* Configura el agente de OMS para recopilar y enviar 2 contadores de rendimiento de ejemplo al área de trabajo
+* Configura el agente de Log Analytics para recopilar y enviar dos contadores de rendimiento de ejemplo al área de trabajo
 * Configura WAD para recopilar datos de Service Fabric y los envía a tablas de almacenamiento de Azure (WADServiceFabric*EventTable)
 * Configura el área de trabajo de Log Analytics para leer los eventos de estas tablas
 
@@ -126,6 +126,6 @@ Cuando haya terminado, siga los pasos descritos en la sección anterior para con
 También puede agregar otras soluciones o realizar otras modificaciones al área de trabajo de Log Analytics mediante PowerShell. Para más información, consulte [Administración de Log Analytics mediante PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implemente el Agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar los contadores de rendimiento y recopilar estadísticas de Docker y registros para los contenedores.
+* [Implemente el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar contadores de rendimiento, así como estadísticas y registros de Docker de sus contenedores.
 * Familiarícese con las funciones de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de Log Analytics
 * [Uso del Diseñador de vistas para crear vistas personalizadas en Log Analytics](../log-analytics/log-analytics-view-designer.md)

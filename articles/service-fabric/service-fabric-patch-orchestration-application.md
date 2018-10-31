@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746904"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409363"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -29,7 +29,9 @@ ms.locfileid: "42746904"
 >
 >
 
-La aplicación de orquestación de revisiones es una aplicación de Azure Service Fabric que automatiza la aplicación de revisiones de sistema operativo en un clúster de Service Fabric sin tiempo de inactividad.
+Usar [actualizaciones automáticas de imágenes del SO del conjunto de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) es el procedimiento recomendado para mantener los sistemas operativos con las revisiones instaladas en Azure, y Patch Orchestration Application (POA) es un contenedor del servicio del sistema Administrador de reparaciones de Service Fabric que permite programar la instalación de revisiones del SO basada en configuración para clústeres hospedados en ubicaciones distintas de Azure. Aunque no se necesita POA para clústeres hospedados en ubicaciones distintas de Azure, es necesario programar la instalación de revisiones mediante Dominios de actualización para aplicar revisiones en los hosts de clústeres de Service Fabric sin tiempo de inactividad.
+
+POA es una aplicación de Azure Service Fabric que automatiza la instalación de revisiones de sistema operativo en un clúster de Service Fabric sin tiempo de inactividad.
 
 La aplicación de orquestación de revisiones ofrece las siguientes características:
 

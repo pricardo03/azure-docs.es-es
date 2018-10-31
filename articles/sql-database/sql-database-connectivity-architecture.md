@@ -1,34 +1,33 @@
 ---
 title: Arquitectura de conectividad de Azure SQL Database | Microsoft Docs
-description: En este documento se explica la arquitectura de conectividad de Azure SQLDB, desde dentro o desde fuera de Azure.
+description: En este documento, se explica la arquitectura de conectividad de Azure SQL Database desde dentro o desde fuera de Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dhruv
+author: oslake
+ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/24/2018
-ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064159"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986328"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
+# <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database
 
-En este artículo se explica la arquitectura de conectividad de Azure SQL Database y cómo funcionan los distintos componentes para dirigir el tráfico a una instancia de Azure SQL Database. La funcionalidad de estos componentes de la conectividad de Azure SQL Database consiste en dirigir el tráfico de red a la base de datos de Azure con clientes que se conectan desde dentro y desde fuera de Azure. En este artículo también se proporcionan ejemplos de script para cambiar cómo se establece la conectividad y, además, se incluyen consideraciones sobre la modificación de la configuración predeterminada de la conectividad. 
+En este artículo se explica la arquitectura de conectividad de Azure SQL Database y cómo funcionan los distintos componentes para dirigir el tráfico a una instancia de Azure SQL Database. La funcionalidad de estos componentes de la conectividad de Azure SQL Database consiste en dirigir el tráfico de red a la base de datos de Azure con clientes que se conectan desde dentro y desde fuera de Azure. En este artículo también se proporcionan ejemplos de script para cambiar cómo se establece la conectividad y, además, se incluyen consideraciones sobre la modificación de la configuración predeterminada de la conectividad.
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 
 En el siguiente diagrama se proporciona una descripción general de la arquitectura de conectividad de Azure SQL Database.
 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/architecture-overview.png)
-
 
 En los pasos siguientes se describe cómo se establece una conexión a una base de datos SQL de Azure a través del equilibrador de carga de software (SLB) de Azure SQL Database y de la puerta de enlace de Azure SQL Database.
 
@@ -39,7 +38,6 @@ En los pasos siguientes se describe cómo se establece una conexión a una base 
 
 > [!IMPORTANT]
 > Cada uno de estos componentes integra protección frente a ataques de denegación de servicio distribuido (DDoS) en la red y en el nivel de aplicación.
->
 
 ## <a name="connectivity-from-within-azure"></a>Conectividad desde dentro de Azure
 
@@ -54,7 +52,9 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen una directiva de 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Proxy**. Para habilitar la conectividad desde dentro de la red virtual, debe permitir las conexiones salientes a las direcciones IP de puerta de enlace de Azure SQL Database especificadas en la lista siguiente. Al usar los puntos de conexión de servicio se recomienda cambiar la directiva de conexión a **Redirigir** para habilitar un mejor rendimiento. Si cambia la directiva de conexión a **Redirigir**, no será suficiente permitir el tráfico saliente en el NSG a las direcciones IP de puerta de enlace de Azure SQLDB que se enumeran a continuación; debe permitir tráfico saliente a todas las direcciones IP de Azure SQLDB. Esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Proxy**. Para habilitar la conectividad desde dentro de la red virtual, debe permitir las conexiones salientes a las direcciones IP de puerta de enlace de Azure SQL Database especificadas en la lista siguiente.
+
+Al usar los puntos de conexión de servicio se recomienda cambiar la directiva de conexión a **Redirigir** para habilitar un mejor rendimiento. Si cambia la directiva de conexión a **Redirigir**, no es suficiente permitir el tráfico saliente en el NSG a las direcciones IP de puerta de enlace de Azure SQL Database que se indican abajo, ya que también necesita permitir el tráfico saliente a todas las direcciones IP de Azure SQL Database. Esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure SQL Database
 
@@ -73,11 +73,18 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | Centro de Canadá | 40.85.224.249 | |
 | Este de Canadá | 40.86.226.166 | |
 | Centro de EE. UU. | 23.99.160.139 | 13.67.215.62 |
+| Este de China 1 | 139.219.130.35 | |
+| Este de China 2 | 40.73.82.1 | |
+| Norte de China 1 | 139.219.15.17 | |
+| Norte de China 2 | 40.73.50.0 | |
 | Asia oriental | 191.234.2.139 | 52.175.33.150 |
 | Este de EE. UU. 1 | 191.238.6.43 | 40.121.158.30 |
 | Este de EE. UU. 2 | 191.239.224.107 | 40.79.84.180 * |
-| India central | 104.211.96.159  | |
-| Sur de India | 104.211.224.146  | |
+| Centro de Francia | 40.79.137.0 | 40.79.129.1 |
+| Centro de Alemania | 51.4.144.100 | |
+| Nordeste de Alemania | 51.5.144.179 | |
+| India central | 104.211.96.159 | |
+| Sur de India | 104.211.224.146 | |
 | India occidental | 104.211.160.80 | |
 | Este de Japón | 191.237.240.43 | 13.78.61.196 |
 | Oeste de Japón | 191.238.68.11 | 104.214.148.156 |
@@ -90,11 +97,11 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | Norte del Reino Unido | 13.87.97.210 | |
 | Sur de Reino Unido 1 | 51.140.184.11 | |
 | Sur del Reino Unido 2 | 13.87.34.7 | |
-| Oeste de Reino Unido | 51.141.8.11  | |
+| Oeste de Reino Unido | 51.141.8.11 | |
 | Centro occidental de EE.UU. | 13.78.145.25 | |
 | Europa occidental | 191.237.232.75 | 40.68.37.158 |
 | Oeste de EE. UU. 1 | 23.99.34.75 | 104.42.238.205 |
-| Oeste de EE. UU. 2 | 13.66.226.202  | |
+| Oeste de EE. UU. 2 | 13.66.226.202 | |
 ||||
 
 \* **NOTA:** La zona del *Este de EE. UU. 2* también tiene una dirección IP terciaria de `52.167.104.0`.
@@ -170,10 +177,10 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 > [!IMPORTANT]
 > Este script requiere la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
->
 
 El siguiente script de CLI muestra cómo cambiar la directiva de conexión.
 
+```azurecli-interactive
 <pre>
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
@@ -181,13 +188,14 @@ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-grou
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
 
-# Get current connection policy 
+# Get current connection policy
 az resource show --ids $id
 
-# Update connection policy 
+# Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43faf1b29f602d2930a2b5764dd83ea4ce1fc9ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043650"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407731"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Log Analytics
 
@@ -86,7 +86,7 @@ Utilice la siguiente información para establecer la cuenta de ejecución de Ope
 >
 
 1. En Operations Manager, abra la Consola del operador y haga clic en **Administración**.
-2. En **Run As Configuration** (Configuración de ejecución), haga clic en **Perfiles** y abra **OMS SQL Assessment Run As Profile** (Perfil de ejecución de evaluación de SQL para OMS).
+2. En **Configuración de ejecución**, haga clic en **Perfiles** y abra el **Perfil de identificación de SQL Assessment**.
 3. En la página **Cuentas de ejecución**, haga clic en **Agregar**.
 4. Seleccione una cuenta de ejecución de Windows que contenga las credenciales necesarias para SQL Server o haga clic en **Nuevo** para crear una.
 
@@ -123,7 +123,7 @@ Abra una ventana de PowerShell y ejecute el siguiente script después de actuali
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```

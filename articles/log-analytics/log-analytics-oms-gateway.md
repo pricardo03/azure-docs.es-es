@@ -1,6 +1,6 @@
 ---
-title: Conexión de equipos mediante OMS Gateway | Microsoft Docs
-description: Conecte los dispositivos y los equipos supervisados por Operations Manager con OMS Gateway para enviar datos al servicio de Azure Automation y Log Analytics cuando no tienen acceso a Internet.
+title: Conectar equipos mediante la puerta de enlace de Log Analytics | Microsoft Docs
+description: Conecte los dispositivos y los equipos supervisados por Operations Manager con la puerta de enlace de Log Analytics para enviar datos al servicio de Log Analytics y Azure Automation cuando no tengan acceso a Internet.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ac1b04d0b8c50939ff04a87a11fd1a315c2266ff
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 463af7fc77b1f8e7d58e0dc8acbfdad336301269
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042839"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404688"
 ---
-# <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Conexión de equipos sin acceso a Internet mediante OMS Gateway
-Este documento describe cómo configurar la comunicación con Azure Automation y Log Analytics usando OMS Gateway cuando equipos que están directamente conectados o están supervisados por Operations Manager no tienen acceso a Internet.  OMS Gateway, que es un proxy de reenvío de HTTP que admite la tunelización de HTTP con el comando HTTP CONNECT, puede recopilar datos y enviarlos a Azure Automation y Log Analytics en su nombre.  
+# <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Conectar equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics
+En este documento, se describe cómo configurar la comunicación con Azure Automation y Log Analytics mediante la puerta de enlace de Log Analytics cuando los equipos conectados directamente o supervisados por Operations Manager no tengan acceso a Internet.  La puerta de enlace de Log Analytics, que es un proxy de reenvío HTTP que admite la tunelización de HTTP con el comando HTTP CONNECT, puede recopilar datos y enviarlos a Azure Automation y Log Analytics en su nombre.  
 
-OMS Gateway admite:
+La puerta de enlace de Log Analytics admite lo siguiente:
 
 * Hybrid Runbook Workers de Azure Automation  
 * Equipos Windows con Microsoft Monitoring Agent directamente conectado a un área de trabajo de Log Analytics
-* Equipos Linux con el Agente de OMS para Linux directamente conectado a un área de trabajo de Log Analytics  
+* Equipos con Linux con el agente de Log Analytics para Linux conectado directamente a un área de trabajo de Log Analytics  
 * System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3, Operations Manager 2016 y el grupo de administración de Operations Manager versión 1801 integrado en Log Analytics.  
 
-Si las directivas de seguridad de TI no permiten a los equipos de la red conectarse a Internet, como dispositivos de punto de venta (PDV) o servidores que admiten servicios de TI, pero necesita conectarlos a Azure Automation o Log Analytics para administrarlos y supervisarlos, se pueden configurar para que se comuniquen directamente con OMS Gateway a fin de recibir la configuración y reenviar los datos en su nombre.  Si estos equipos están configurados con el agente de OMS para conectarse directamente a un área de trabajo de Log Analytics, todos los equipos se comunicarán en su lugar con OMS Gateway.  La puerta de enlace transfiere los datos de los agentes al servicio directamente, sin analizar ninguno de los datos en tránsito.
+Si las directivas de seguridad de TI no permiten a los equipos de la red conectarse a Internet (como dispositivos de punto de venta [PDV] o servidores que admiten servicios de TI), pero necesita conectarlos a Azure Automation o Log Analytics para administrarlos y supervisarlos, se pueden configurar de forma que se comuniquen directamente con la puerta de enlace de Log Analytics para recibir la configuración y reenviar los datos en su nombre.  Si estos equipos están configurados con el agente de Log Analytics para conectarse directamente a un área de trabajo de Log Analytics, todos los equipos se comunicarán en su lugar con la puerta de enlace de Log Analytics.  La puerta de enlace transfiere los datos de los agentes al servicio directamente, sin analizar ninguno de los datos en tránsito.
 
-Cuando un grupo de administración de Operations Manager se integra en Log Analytics, se pueden configurar los servidores de administración para que se conecten a OMS Gateway a fin de recibir información de configuración y enviar los datos recopilados según la solución que haya habilitado.  Los agentes de Operations Manager envían algunos datos, como las alertas, la evaluación de la configuración, el espacio de las instancias y los datos de capacidad de Operations Manager, al servidor de administración. Otros datos de gran volumen, como registros, rendimiento y eventos de seguridad de IIS se envían directamente a OMS Gateway.  Si dispone de uno o más servidores de puerta de enlace de Operations Manager implementados en una red perimetral u otra red aislada para supervisar sistemas no confiables, no puede comunicarse con OMS Gateway.  Los servidores de puerta de enlace de Operations Manager solo pueden informar a un servidor de administración.  Cuando se configura un grupo de administración de Operations Manager para comunicarse con OMS Gateway, la información de configuración de proxy se distribuye automáticamente a todos los equipos administrados por agente que están configurados para recopilar datos para Log Analytics, incluso si la configuración está vacía.    
+Cuando un grupo de administración de Operations Manager se integra en Log Analytics, se pueden configurar los servidores de administración para que se conecten a la puerta de enlace de Log Analytics para recibir información de configuración y enviar los datos recopilados según la solución que haya habilitado.  Los agentes de Operations Manager envían algunos datos, como las alertas, la evaluación de la configuración, el espacio de las instancias y los datos de capacidad de Operations Manager, al servidor de administración. Otros datos de gran volumen (como registros, rendimiento y eventos de seguridad de IIS) se envían directamente a la puerta de enlace de Log Analytics.  Si ha implementado uno o más servidores de puerta de enlace de Operations Manager en una red perimetral u otra red aislada para supervisar sistemas no confiables, no puede comunicarse con la puerta de enlace de Log Analytics.  Los servidores de puerta de enlace de Operations Manager solo pueden informar a un servidor de administración.  Cuando se configura un grupo de administración de Operations Manager para comunicarse con la puerta de enlace de Log Analytics, la información de configuración de proxy se distribuye automáticamente a todos los equipos administrados por agente y configurados para recopilar datos para Log Analytics, incluso si la configuración está vacía.    
 
 Para proporcionar alta disponibilidad a grupos directamente conectados o grupos de Operations Management que se comunican con Log Analytics mediante la puerta de enlace, puede utilizar el equilibrio de carga de red para redirigir y distribuir el tráfico entre varios servidores de puerta de enlace.  Si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otro nodo disponible.  
 
-El agente de OMS se requiere en el equipo que ejecuta la puerta de enlace de OMS para que identifique el servicio y los puntos que necesita para establecer la comunicación y supervisar la puerta de enlace de OMS para analizar su rendimiento o sus datos de eventos.
+El agente de Log Analytics se necesita en el equipo que ejecute la puerta de enlace de Log Analytics con el fin de identificar los puntos de conexión de servicio con los que se tiene que comunicar, así como para supervisar la puerta de enlace de Log Analytics para analizar sus datos de eventos o de rendimiento.
 
 Cada agente debe tener conectividad de red a su puerta de enlace para que los agentes puedan transferir automáticamente datos a la puerta de enlace y recibirlos de esta. No se recomienda instalar la puerta de enlace en un controlador de dominio.
 
-El siguiente diagrama muestra el flujo de datos desde los agentes directos a Azure Automation y Log Analytics mediante el servidor de puerta de enlace.  Los agentes tienen que hacer que su configuración de proxy coincida con el mismo puerto que tiene configurado OMS Gateway para comunicarse con el servicio.  
+El siguiente diagrama muestra el flujo de datos desde los agentes directos a Azure Automation y Log Analytics mediante el servidor de puerta de enlace.  Los agentes tienen que hacer coincidir su configuración de proxy con el mismo puerto configurado en la puerta de enlace de Log Analytics para comunicarse con el servicio.  
 
 ![diagrama de comunicación de agente directo con los servicios](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -52,17 +52,17 @@ El siguiente diagrama muestra el flujo de datos de un grupo de administración d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Al designar un equipo para que ejecute OMS Gateway, debe tener lo siguiente:
+Al designar un equipo para que ejecute la puerta de enlace de Log Analytics, necesita lo siguiente:
 
 * Windows 10, Windows 8.1, Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .Net Framework 4.5
 * Procesador de 4 núcleos y 8 GB de memoria como mínimo 
-* Agente de OMS para Windows 
+* Agente de Log Analytics para Windows 
 
 ### <a name="language-availability"></a>Disponibilidad de idiomas
 
-OMS Gateway está disponible en los idiomas siguientes:
+La puerta de enlace de Log Analytics está disponible en los idiomas siguientes:
 
 - Chino (simplificado)
 - Chino (tradicional)
@@ -82,7 +82,7 @@ OMS Gateway está disponible en los idiomas siguientes:
 - Español (internacional)
 
 ### <a name="supported-encryption-protocols"></a>Protocolos de cifrado admitidos
-La puerta de enlace de OMS solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de los datos en tránsito a Log Analytics, se recomienda encarecidamente configurar la puerta de enlace para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
+La puerta de enlace de Log Analytics solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de los datos en tránsito a Log Analytics, se recomienda encarecidamente configurar la puerta de enlace para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número admitido de conexiones del agente
 En la siguiente tabla se resalta el número admitido de agentes que se comunican con un servidor de puerta de enlace.  Esta compatibilidad se basa en los agentes que cargan aproximadamente 200 KB de datos cada 6 segundos. El volumen de datos por agente de prueba es de unos 2,7 GB por día.
@@ -92,9 +92,9 @@ En la siguiente tabla se resalta el número admitido de agentes que se comunican
 |- CPU: Intel XEON E5-2660 v3 \@ 2,6 GHz 2 núcleos<br> - Memoria: 4 GB<br> - Ancho de banda de red: 1 Gbps| 600|  
 |- CPU: Intel XEON E5-2660 v3 \@ 2,6 GHz 4 núcleos<br> - Memoria: 8 GB<br> - Ancho de banda de red: 1 Gbps| 1000|  
 
-## <a name="download-the-oms-gateway"></a>Descarga de OMS Gateway
+## <a name="download-the-log-analytics-gateway"></a>Descargar la puerta de enlace de Log Analytics
 
-Hay dos maneras de obtener la versión más reciente del archivo de instalación de OMS Gateway.
+Hay dos maneras de descargar la versión más reciente del archivo de instalación de la puerta de enlace de Log Analytics.
 
 1. Descargarla del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=54443).
 
@@ -104,18 +104,18 @@ Hay dos maneras de obtener la versión más reciente del archivo de instalación
    1. Seleccione un área de trabajo.
    1. En su hoja de área de trabajo, en **General**, haga clic en **Inicio rápido**.
    1. En **Elegir un origen de datos para conectarse al área de trabajo**, haga clic en **Equipos**.
-   1. En la hoja **Agente directo**, haga clic en **Descargar OMS Gateway**.<br><br> ![descargar OMS Gateway](./media/log-analytics-oms-gateway/download-gateway.png)
+   1. En la hoja **Agente directo**, haga clic en **Descargar puerta de enlace de Log Analytics**.<br><br> ![descargar puerta de enlace de Log Analytics](./media/log-analytics-oms-gateway/download-gateway.png)
 
 o 
 
    1. En la hoja de área de trabajo en **Configuración**, haga clic en **Configuración avanzada**.
-   1. Vaya a **Orígenes conectados** > **Servidores de Windows** y haga clic en **Descargar puerta de enlace de OMS**.
+   1. Vaya a **Orígenes conectados** > **Servidores de Windows** y haga clic en **Descargar puerta de enlace de Log Analytics**.
 
-## <a name="install-the-oms-gateway"></a>Instalación de OMS Gateway
+## <a name="install-the-log-analytics-gateway"></a>Instalar la puerta de enlace de Log Analytics
 
 Para instalar una puerta de enlace, realice los pasos siguientes.  Si tiene instalada una versión anterior, anteriormente denominada *Reenviador de Log Analytics*, se actualizará a esta versión.  
 
-1. En la carpeta de destino, haga doble clic en **OMS Gateway.msi**.
+1. En la carpeta de destino, haga doble clic en **Log Analytics gateway.msi**.
 1. En la página **principal**, haga clic en **Siguiente**.<br><br> ![Asistente para la instalación de la puerta de enlace](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 1. En la página del **contrato de licencia**, seleccione **I accept the terms in the License Agreement** (Acepto los términos del Contrato de licencia) para aceptar el CLUF y, después, haga clic en **Siguiente**.
 1. En la página de **dirección del proxy y puerto**:
@@ -126,23 +126,23 @@ Para instalar una puerta de enlace, realice los pasos siguientes.  Si tiene inst
 1. Si Microsoft Update no está habilitado, aparecerá la página de Microsoft Update, donde puede elegir habilitarlo. Elija la opción que desee y haga clic en **Siguiente**. De lo contrario, continúe con el paso siguiente.
 1. En la página de la **carpeta de destino**, deje la carpeta predeterminada C:\Archivos de programa\OMS Gateway o escriba la ubicación en la que desea instalar la puerta de enlace y haga clic en **Siguiente**.
 1. En la página **Preparado para instalar...**, haga clic en **Instalar**. Puede aparecer un Control de cuentas de usuario que solicite permiso para realizar la instalación. Si aparece, haga clic en **Sí**.
-1. Una vez completada la instalación, haga clic en **Finalizar**. Para comprobar que el servicio se está ejecutando, abra el complemento services.msc y compruebe que **OMS Gateway** aparece en la lista de servicios y que su estado sea **En ejecución**.<br><br> ![Servicios: OMS Gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
+1. Una vez completada la instalación, haga clic en **Finalizar**. Para comprobar que el servicio se está ejecutando, abra el complemento services.msc y asegúrese de que la **puerta de enlace de Log Analytics** aparezca en la lista de servicios y que su estado sea **En ejecución**.<br><br> ![Servicios: puerta de enlace de Log Analytics](./media/log-analytics-oms-gateway/gateway-service.png)  
 
 ## <a name="configure-network-load-balancing"></a>Configuración de equilibrio de carga de red 
-Puede configurar la puerta de enlace para lograr alta disponibilidad con equilibrio de carga de red (NLB) mediante Equilibrio de carga de red de Microsoft (NLB) o equilibradores de carga basados en hardware.  El equilibrador de carga administra el tráfico mediante el redireccionamiento de las conexiones solicitadas desde los agentes de OMS o los servidores de administración de Operations Manager a través de sus nodos. Si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otros nodos.
+Puede configurar la puerta de enlace para lograr alta disponibilidad con equilibrio de carga de red (NLB) mediante Equilibrio de carga de red de Microsoft (NLB) o equilibradores de carga basados en hardware.  El equilibrador de carga administra el tráfico al redirigir las conexiones solicitadas desde los agentes de Log Analytics o los servidores de administración de Operations Manager mediante sus nodos. Si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otros nodos.
 
 Para más información sobre cómo diseñar e implementar un clúster de equilibrio de carga de red de Windows Server 2016, consulte [Equilibrio de carga de red](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Los pasos siguientes describen cómo configurar un clúster de equilibrio de carga de red de Microsoft.  
 
 1. Inicie sesión en el servidor Windows que sea miembro del clúster NLB con una cuenta administrativa.  
 1. Abra el Administrador de equilibrio de carga de red en el Administrador del servidor, haga clic en **Herramientas** y, luego, en **Administrador de equilibrio de carga de red**.
-1. Para conectar un servidor de OMS Gateway con Microsoft Monitoring Agent instalado, haga clic con el botón derecho en la dirección IP del clúster y, luego, haga clic en **Agregar host al clúster**.<br><br> ![Administrador de equilibrio de carga de red – Agregar host al clúster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
+1. Para conectar un servidor de puerta de enlace de Log Analytics con Microsoft Monitoring Agent instalado, haga clic con el botón derecho en la dirección IP del clúster y, después, seleccione **Agregar host al clúster**.<br><br> ![Administrador de equilibrio de carga de red – Agregar host al clúster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 1. Escriba la dirección IP del servidor de la puerta de enlace al que desea conectarse.<br><br> ![Administrador de equilibrio de carga de red – Agregar host al clúster: Conectar](./media/log-analytics-oms-gateway/nlb03.png) 
     
-## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configuración de agentes de OMS y de un grupo de administración de Operations Manager
-La sección siguiente incluye pasos sobre cómo configurar directamente los agentes de OMS conectados, un grupo de administración de Operations Manager o Hybrid Runbook Workers de Azure Automation con la puerta de enlace de OMS para comunicarse con Azure Automation o Log Analytics.  
+## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Configurar el agente de Log Analytics y el grupo de administración de Operations Manager
+En la sección siguiente, se indican los pasos para configurar los agentes de Log Analytics conectados directamente, un grupo de administración de Operations Manager o Hybrid Runbook Workers de Azure Automation con la puerta de enlace de Log Analytics para comunicarse con Azure Automation o Log Analytics.  
 
-### <a name="configure-standalone-oms-agent"></a>Configuración de agentes de OMS de forma independiente
-Para entender los requisitos y los pasos sobre cómo instalar el agente de OMS en equipos Windows conectados directamente a Log Analytics, consulte [Conexión de equipos Windows al servicio Log Analytics](log-analytics-windows-agents.md) o para equipos Linux, consulte [Conexión de equipos Linux a Log Analytics](log-analytics-quick-collect-linux-computer.md). En lugar de especificar un servidor proxy al configurar al agente, sustituya ese valor por la dirección IP del servidor de puerta de enlace de OMS y su número de puerto.  Si ha implementado varios servidores de puerta de enlace detrás de un equilibrador de carga de red, la configuración de proxy del agente de OMS es la dirección IP virtual de NLB.  
+### <a name="configure-standalone-log-analytics-agent"></a>Configurar el agente de Log Analytics independiente
+Para obtener información sobre los requisitos y pasos para instalar el agente de Log Analytics en equipos con Windows mediante una conexión directa a Log Analytics, vea [Conectar equipos con Windows al servicio Log Analytics](log-analytics-windows-agents.md); o bien, para equipos con Linux, vea [Conectar equipos con Linux a Log Analytics](log-analytics-quick-collect-linux-computer.md). En lugar de especificar un servidor proxy al configurar el agente, cambie ese valor por la dirección IP del servidor de puerta de enlace de Log Analytics y el número de puerto.  Si ha implementado varios servidores de puerta de enlace detrás de un equilibrador de carga de red, la configuración de proxy del agente de Log Analytics es la dirección IP virtual de NLB.  
 
 Para información relacionada con el Hybrid Runbook Worker de Automation, consulte la [Implementación de Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
@@ -167,24 +167,24 @@ Si se trata de la primera vez que se registra el grupo de administración de Ope
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Después de completar la integración con Log Analytics, puede quitar el cambio mediante la ejecución de `netsh winhttp reset proxy` y luego usar la opción **Configurar servidor proxy** en la consola del operador para especificar el servidor de OMS Gateway. 
+Después de completar la integración con Log Analytics, puede quitar el cambio; para hacerlo, ejecute `netsh winhttp reset proxy` y use la opción **Configurar servidor proxy** en la Consola del operador para especificar el servidor de puerta de enlace de Log Analytics. 
 
 1. Abra la consola de Operations Manager y en **Operations Management Suite**, haga clic en **Conexión** y en **Configurar servidor proxy**.<br><br> ![Operations Manager: Configurar servidor proxy](./media/log-analytics-oms-gateway/scom01.png)<br> 
-1. Seleccione **Use un servidor proxy para obtener acceso al servicio Operations Management Suite** y, a continuación, escriba la dirección IP del servidor de OMS Gateway o la dirección IP virtual de NLB. Asegúrese de que su prefijo es `http://`.<br><br> ![Operations Manager: dirección de servidor proxy](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. Seleccione **Use un servidor proxy para obtener acceso al servicio Operations Management Suite** y, después, escriba la dirección IP del servidor de puerta de enlace de Log Analytics o la dirección IP virtual de NLB. Asegúrese de que su prefijo es `http://`.<br><br> ![Operations Manager: dirección de servidor proxy](./media/log-analytics-oms-gateway/scom02.png)<br> 
 1. Haga clic en **Finalizar** El grupo de administración de Operations Manager está ahora configurado para comunicarse mediante el servidor de puerta de enlace con el servicio Log Analytics.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Configuración de Operations Manager: determinados agentes usan el servidor proxy
-En entornos grandes o complejos, es posible que desee tener solo determinados servidores (o grupos) que utilicen el servidor de OMS Gateway.  En estos servidores, no se puede actualizar el agente Operations Manager directamente, ya que el valor global para el grupo de administración sobrescribe este valor.  En su lugar, debe invalidar la regla utilizada para insertar estos valores.  
+En entornos grandes o complejos, puede que solo quiera tener determinados servidores (o grupos) que usen el servidor de puerta de enlace de Log Analytics.  En estos servidores, no se puede actualizar el agente Operations Manager directamente, ya que el valor global para el grupo de administración sobrescribe este valor.  En su lugar, debe invalidar la regla utilizada para insertar estos valores.  
 
 > [!NOTE] 
-> Esta misma técnica de configuración se puede utilizar para permitir el uso de varios servidores de OMS Gateway en su entorno.  Por ejemplo, puede requerir que se especifiquen determinados servidores de OMS Gateway en cada región.
+> Esta misma técnica de configuración se puede usar para permitir el uso de varios servidores de puerta de enlace de Log Analytics en su entorno.  Por ejemplo, puede exigir que se especifiquen determinados servidores de puerta de enlace de Log Analytics en cada región.
 >  
 
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Creación**.  
 1. En el área de trabajo Creación, seleccione **Reglas** y haga clic en el botón **Ámbito** de la barra de herramientas de Operations Manager. Si este botón no está disponible, compruebe que tiene un objeto, y no una carpeta, seleccionado en el panel Supervisión. El cuadro de diálogo **Objetos de módulo de administración de ámbito** muestra una lista de clases, grupos u objetos de destino comunes. 
 1. Escriba **Servicio de mantenimiento** en el campo **Buscar** y selecciónelo en la lista.  Haga clic en **OK**.  
 1. Busque la regla **Advisor Proxy Setting Rule** (Regla de configuración de proxy de Advisor) y en la barra de herramientas de la consola de operaciones, haga clic en **Invalidaciones**, seleccione **Override the Rule\For a specific object of class: Health Service** (Invalidar la regla\Para un objeto de clase específico: servicio de mantenimiento) y, luego, un objeto específico de la lista.  Si lo desea, puede crear un grupo personalizado que incluya el objeto de servicio de mantenimiento de los servidores a los que desea aplicar esta invalidación y, después, aplicar la invalidación para ese grupo.
-1. En el cuadro de diálogo **Propiedades de invalidación**, haga clic para poner una marca de verificación en la columna **Invalidar** junto al parámetro **WebProxyAddress**.  En el campo **Valor de invalidación**, escriba la dirección URL del servidor de OMS Gateway y asegúrese de que el prefijo sea `http://`.  
+1. En el cuadro de diálogo **Propiedades de invalidación**, haga clic para poner una marca de verificación en la columna **Invalidar** junto al parámetro **WebProxyAddress**.  En el campo **Valor de invalidación**, escriba la dirección URL del servidor de puerta de enlace de Log Analytics y asegúrese de que el prefijo sea `http://`.  
 
     >[!NOTE]
     > No es necesario habilitar la regla, porque ya se administra automáticamente con una invalidación incluida en el módulo de administración de reemplazo de referencia segura de Microsoft System Center Advisor dirigido al grupo de servidores de supervisión de Microsoft System Center Advisor.
@@ -237,20 +237,20 @@ Utilice las siguientes tablas para identificar la dirección URL de cada ubicaci
 
 Si el equipo se registra automáticamente como Hybrid Runbook Worker para que las revisiones se apliquen mediante la solución de administración de actualizaciones, siga estos pasos:
 
-1. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de OMS Gateway. Por ejemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Reinicie el servicio de OMS Gateway mediante el siguiente cmdlet de PowerShell: `Restart-Service OMSGatewayService`
+1. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de puerta de enlace de Log Analytics. Por ejemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Reinicie el servicio de puerta de enlace de Log Analytics mediante el siguiente cmdlet de PowerShell: `Restart-Service OMSGatewayService`
 
 Si el equipo está incorporado en Azure Automation mediante el cmdlet de registro de Hybrid Runbook Worker, siga estos pasos:
 
-1. Agregue la dirección URL del registro del servicio Agente en la lista de hosts permitidos de OMS Gateway. Por ejemplo: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de OMS Gateway. Por ejemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Reinicie el servicio de OMS Gateway.
+1. Agregue la dirección URL de registro del servicio Agente a la lista de hosts permitidos de la puerta de enlace de Log Analytics. Por ejemplo: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de puerta de enlace de Log Analytics. Por ejemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Reinicie el servicio de puerta de enlace de Log Analytics.
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>Cmdlets de PowerShell útiles
-Los cmdlets pueden ayudarle a completar las tareas necesarias para actualizar la configuración de la OMS Gateway. Antes de usarlos, asegúrese de:
+Los cmdlets pueden ayudarle a completar las tareas necesarias para actualizar las opciones de configuración de la puerta de enlace de Log Analytics. Antes de usarlos, asegúrese de:
 
-1. Instalar OMS Gateway (MSI).
+1. Instalar la puerta de enlace de Log Analytics (MSI).
 1. Abra una ventana de la consola de PowerShell.
 1. Para importar el módulo, escriba este comando: `Import-Module OMSGateway`
 1. Si no se ha producido ningún error en el paso anterior, el módulo se ha importado correctamente y se pueden usar los cmdlets. Escriba `Get-Module OMSGateway`
@@ -272,11 +272,11 @@ Un error en el paso 3 indica que el módulo no se ha importado. El error puede p
 | `Get-OMSGatewayAllowedClientCertificate` | |Obtiene los asuntos de certificado de cliente permitidos actualmente (solo los asuntos permitidos configurados localmente, no se incluyen los asuntos permitidos que se descargan automáticamente) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>solución de problemas
-Para recopilar eventos registrados por la puerta de enlace, debe tener también instalado el agente de OMS.<br><br> ![Visor de eventos: registro de OMS Gateway](./media/log-analytics-oms-gateway/event-viewer.png)
+Para recopilar eventos registrados por la puerta de enlace, también necesita tener instalado el agente de Log Analytics.<br><br> ![Visor de eventos: registro de la puerta de enlace de Log Analytics](./media/log-analytics-oms-gateway/event-viewer.png)
 
-**Identificadores de evento y descripciones de OMS Gateway**
+**Identificadores de evento y descripciones de la puerta de enlace de Log Analytics**
 
-La siguiente tabla muestra los identificadores de evento y las descripciones de los eventos del registro de la OMS Gateway.
+En la tabla siguiente, se muestran los identificadores de evento y las descripciones de los eventos de registro de la puerta de enlace de Log Analytics.
 
 | **Id** | **Descripción** |
 | --- | --- |
@@ -291,24 +291,24 @@ La siguiente tabla muestra los identificadores de evento y las descripciones de 
 | 104 |No es un comando HTTP CONNECT |
 | 105 |El servidor de destino no está en la lista de permitidos o el puerto de destino no es un puerto seguro (443) <br> <br> Asegúrese de que el agente MMA del servidor de puerta de enlace y los agentes que se comunican con la puerta de enlace están conectados a la misma área de trabajo de Log Analytics. |
 | 105 |ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Asegúrese de que: <br>    <br> - Utiliza una puerta de enlace con el número de versión 1.0.395.0, o uno superior. <br> - Tanto el agente MMA del servidor de puerta de enlace como los agentes que se comunican con la puerta de enlace están conectados a la misma área de trabajo de Log Analytics. |
-| 106 |La puerta de enlace de OMS solo admite TLS 1.0, TLS 1.1 y 1.2.  No admite SSL. Para las versiones de protocolo TLS/SSL no admitidas, la puerta de enlace de OMS genera el identificador de evento 106.|
+| 106 |La puerta de enlace de Log Analytics solo admite TLS 1.0, 1.1 y 1.2.  No admite SSL. Para las versiones de protocolo TLS/SSL no admitidas, la puerta de enlace de Log Analytics genera el identificador de evento 106.|
 | 107 |Se ha comprobado la sesión de TLS |
 
 **Contadores de rendimiento que se recopilan**
 
-La siguiente tabla muestra los contadores de rendimiento disponibles para OMS Gateway. Los contadores se pueden agregar mediante el Monitor de rendimiento.
+En la tabla siguiente, se muestran los contadores de rendimiento disponibles para la puerta de enlace de Log Analytics. Los contadores se pueden agregar mediante el Monitor de rendimiento.
 
 | **Nombre** | **Descripción** |
 | --- | --- |
-| OMS Gateway/Conexión de cliente activa |Número de conexiones de red (TCP) de cliente activas |
-| OMS Gateway/Recuento de errores |Número de errores |
-| OMS Gateway/Cliente conectado |Número máximo de clientes conectados |
-| OMS Gateway/Recuento de rechazos |Número de rechazos debido a un error de validación de TLS |
+| Puerta de enlace de Log Analytics/conexión de cliente activa |Número de conexiones de red (TCP) de cliente activas |
+| Puerta de enlace de Log Analytics/número de errores |Número de errores |
+| Puerta de enlace de Log Analytics/cliente conectado |Número máximo de clientes conectados |
+| Puerta de enlace de Log Analytics/número de rechazos |Número de rechazos debido a un error de validación de TLS |
 
-![Contadores de rendimiento de OMS Gateway](./media/log-analytics-oms-gateway/counters.png)
+![Contadores de rendimiento de la puerta de enlace de Log Analytics](./media/log-analytics-oms-gateway/counters.png)
 
 ## <a name="get-assistance"></a>Obtención de ayuda
-Cuando haya iniciado sesión en Azure Portal, puede crear una solicitud de asistencia con OMS Gateway o cualquier otro servicio o característica de un servicio de Azure.
+Después de iniciar sesión en Azure Portal, puede crear una solicitud de asistencia con la puerta de enlace de Log Analytics o con cualquier otro servicio o característica de Azure.
 Para solicitar asistencia, haga clic en el signo de interrogación en la esquina superior derecha del portal y, después, en **Nueva solicitud de soporte técnico**. A continuación, complete el formulario de solicitud de soporte técnico nuevo.
 
 ![Nueva solicitud de soporte](./media/log-analytics-oms-gateway/support.png)

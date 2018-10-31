@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/8/2018
+ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883965"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637569"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 
@@ -84,7 +84,7 @@ Use el siguiente parámetro para asignar 10 000 puertos SNAT por VM (configuraci
 
           "allocatedOutboundPorts": 10000
 
-Cada dirección IP pública de todos los servidores front-end de una regla de salida contribuye a hasta 64 000 puertos efímeros para nosotros como puertos SNAT.  Load Balancer asigna puertos SNAT en múltiplos de 8. Si proporciona un valor que no se puede dividir por 8, se rechaza la operación de configuración.  Si intenta asignar más puertos SNAT de los disponibles en función del número de direcciones IP públicas, se rechaza la operación de configuración.  Por ejemplo, si asigna 10 000 puertos por VM y 7 VM de un grupo de back-end tienen que compartir una única dirección IP pública, la configuración se rechaza (7 x 10 000 puertos SNAT > 64 000 puertos SNAT).  Puede agregar más direcciones IP públicas al front-end de la regla de salida para habilitar el escenario.
+Cada dirección IP pública de todos los servidores front-end de una regla de salida aporta hasta 64 000 puertos efímeros para su uso como puertos SNAT.  Load Balancer asigna puertos SNAT en múltiplos de 8. Si proporciona un valor que no se puede dividir por 8, se rechaza la operación de configuración.  Si intenta asignar más puertos SNAT de los disponibles en función del número de direcciones IP públicas, se rechaza la operación de configuración.  Por ejemplo, si asigna 10 000 puertos por VM y 7 VM de un grupo de back-end tienen que compartir una única dirección IP pública, la configuración se rechaza (7 x 10 000 puertos SNAT > 64 000 puertos SNAT).  Puede agregar más direcciones IP públicas al front-end de la regla de salida para habilitar el escenario.
 
 Puede volver a la [asignación de puertos SNAT automática basada en el tamaño del grupo de back-end](load-balancer-outbound-connections.md#preallocatedports). Para hacerlo, especifique 0 como número de puertos.
 

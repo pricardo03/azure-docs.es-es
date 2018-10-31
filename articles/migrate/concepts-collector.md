@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434439"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986787"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -109,7 +109,7 @@ El recopilador se conecta a vCenter Server y consulta los metadatos de la máqui
 
 #### <a name="account-permissions"></a>Permisos de la cuenta
 
-**Cuenta** | **permisos**
+**Cuenta** | **Permisos**
 --- | ---
 Al menos una cuenta de usuario de solo lectura | Objeto de centro de datos  –> Propagar al objeto secundario, rol = solo lectura   
 
@@ -179,11 +179,11 @@ El recopilador se comunica una sola vez con vCenter Server para recopilar metada
 - Para este método de detección, deberá establecer la configuración de estadísticas en vCenter Server en el nivel tres.
 - Después de establecer el nivel a tres, se tarda hasta un día en generar los contadores de rendimiento. Por tanto, se recomienda ejecutar la detección después de un día.
 - Cuando se recopilan datos de rendimiento para una máquina virtual, el dispositivo se basa en los datos de rendimiento históricos almacenados en vCenter Server. Recopila el historial de rendimiento del mes pasado.
-- Azure Migrate recopila el valor promedio de contador (en lugar de un valor máximo) para cada métrica.
+- Azure Migrate recopila los valores medios de contador (en lugar del valor máximo) de cada métrica, lo que puede provocar un cálculo inferior.
 
 ### <a name="continuous-discovery"></a>Detección continua
 
-El dispositivo del recopilador no está conectado continuamente al proyecto de Azure Migrate.
+El dispositivo del recopilador está conectado constantemente al proyecto de Azure Migrate y recopila continuamente datos de rendimiento de las máquinas virtuales.
 
 - El recopilador realiza un perfil del entorno local continuamente para recopilar datos de uso en tiempo real cada 20 segundos.
 - Este modelo no depende de la configuración de estadísticas de vCenter Server para la recopilación de datos de rendimiento.
@@ -191,8 +191,14 @@ El dispositivo del recopilador no está conectado continuamente al proyecto de A
 - Para crear el punto de datos, el dispositivo selecciona el valor máximo de los ejemplos de 20 segundos y lo envía a Azure.
 - Puede detener la generación de perfiles continua en cualquier momento desde el recopilador.
 
+Tenga en cuenta que el dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de máquina virtual, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
+
+1. Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
+
+2. Eliminación de máquinas virtuales: debido a la forma en que está diseñado el dispositivo, la eliminación de las máquinas virtuales no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
+
 > [!NOTE]
-> La función de detección continua está en versión preliminar. Si la configuración de estadísticas de vCenter Server no está establecida en el nivel 3, se recomienda que use este método.
+> La función de detección continua está en versión preliminar. Se recomienda utilizar este método ya que recopila datos pormenorizados de rendimiento y da como resultado un tamaño correcto y preciso.
 
 
 ## <a name="discovery-process"></a>Proceso de detección
@@ -241,8 +247,8 @@ virtualDisk.read.average | 2 | 2 | Calcula el tamaño del disco, el costo de alm
 virtualDisk.write.average | 2 | 2  | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-net.received.average | 2 | 3 |  Calcula el tamaño de máquina virtual y el costo de la red                        |
-net.transmitted.average | 2 | 3 | Calcula el tamaño de máquina virtual y el costo de la red    
+net.received.average | 2 | 3 |  Calcula el tamaño de la máquina virtual                          |
+net.transmitted.average | 2 | 3 | Calcula el tamaño de la máquina virtual     
 
 ## <a name="next-steps"></a>Pasos siguientes
 

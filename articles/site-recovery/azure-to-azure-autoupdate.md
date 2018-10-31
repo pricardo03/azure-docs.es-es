@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574410"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456497"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility Service en Azure para la replicación de Azure
 
@@ -61,6 +61,19 @@ Cuando habilite la replicación de una máquina virtual, ya sea comenzando [desd
 
 > [!Note] 
 > Ambas opciones le indicarán la cuenta de Automation que se usará para administrar las actualizaciones. Si va a habilitar esta característica por primera vez en un almacén, se creará una nueva cuenta de Automation. Todas las replicaciones habilitadas en el mismo almacén usarán la que se creó anteriormente.
+
+### <a name="manage-manually"></a>Administrar manualmente
+
+1. Si hay nuevas actualizaciones disponibles para el servicio de movilidad instalado en las máquinas virtuales de Azure, verá una notificación que dice "Hay una nueva actualización del agente de replicación de Site Recovery disponible. Haga clic para instalar".
+
+     ![Ventana Elementos replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Seleccione la notificación para abrir la página de selección de la máquina virtual.
+4. Seleccione las máquinas virtuales en las que quiere actualizar Mobility Service y seleccione **Aceptar**.
+
+     ![Lista de máquinas virtuales de elementos replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+Se iniciar el trabajo de actualización de Mobility Service para cada una de las máquinas virtuales seleccionadas.
+
 
 ## <a name="common-issues--troubleshooting"></a>Problemas habituales y soluciones
 

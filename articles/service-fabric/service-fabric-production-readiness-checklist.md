@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7557e2b993a5059df8aea63c7394539acc28c110
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295877"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403531"
 ---
 # <a name="production-readiness-checklist"></a>Lista de comprobación sobre la preparación de producción
 
@@ -36,7 +36,7 @@ ms.locfileid: "44295877"
 6. Comprenda y seleccione el [nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) del tipo de nodo. Se recomienda el nivel de confiabilidad Silver o superior.
 7. Cargue las cargas de trabajo y pruebe de escalarlas para identificar [los requisitos de capacidad](service-fabric-cluster-capacity.md) para el clúster. 
 8. Mediante las alertas, se supervisan los servicios y las aplicaciones y se generan y almacenan registros de aplicaciones. Por ejemplo, consulte [Adición del registro a la aplicación de Service Fabric](service-fabric-how-to-diagnostics-log.md) y [Supervisión de contenedores con Log Analytics](service-fabric-diagnostics-oms-containers.md).
-9. El clúster se supervisa mediante las alertas (por ejemplo, con [OMS](service-fabric-diagnostics-event-analysis-oms.md)). 
+9. El clúster se supervisa mediante las alertas (por ejemplo, con [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)). 
 10. La infraestructura subyacente del conjunto de escalado de máquinas virtuales se supervisa mediante las alertas (por ejemplo, con [Log Analytics](service-fabric-diagnostics-oms-agent.md).
 11. El clúster siempre tiene [certificados principales y secundarios](service-fabric-cluster-security-update-certs-azure.md) (para que no experimente bloqueos).
 12. Mantenga clústeres independientes para el desarrollo, el ensayo y la producción. 

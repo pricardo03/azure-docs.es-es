@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948016"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404791"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Supervisión de mensajes B2B y configuración del registro para las cuentas de integración de Azure Logic Apps
 
@@ -58,7 +58,9 @@ Puede activar el registro directamente desde la cuenta de integración o [median
 
    1. Seleccione **Enviar a Log Analytics**. 
    2. En **Log Analytics**, elija **Configurar**. 
-   3. En **Áreas de trabajo de OMS**, seleccione el área de trabajo de Log Analytics que va a usar para el registro.
+   3. En **Áreas de trabajo de OMS**, seleccione el área de trabajo de Log Analytics que usará para el registro. 
+   > [!NOTE]
+   > Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics. 
    4. En **Registro**, seleccione la categoría **IntegrationAccountTrackingEvents**.
    5. Elija **Guardar**.
 
@@ -92,7 +94,9 @@ Puede activar el registro directamente desde la cuenta de integración o [median
 
    1. Seleccione **Enviar a Log Analytics**. 
    2. En **Log Analytics**, elija **Configurar**. 
-   3. En **Áreas de trabajo de OMS**, seleccione el área de trabajo de Log Analytics que va a usar para el registro.
+   3. En **Áreas de trabajo de OMS**, seleccione el área de trabajo de Log Analytics que usará para el registro.
+   > [!NOTE]
+   > Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
    4. En **Registro**, seleccione la categoría **IntegrationAccountTrackingEvents**.
    5. Cuando termine, seleccione **Guardar**.
 
@@ -129,6 +133,6 @@ Azure admite los siguientes tipos de esquema de seguimiento, de los que todos, s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Seguimiento de mensajes B2B en Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Seguimiento de mensajes B2B en OMS")
+* [Seguimiento de mensajes B2B en Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Seguimiento de mensajes B2B en Azure Log Analytics")
 * [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 

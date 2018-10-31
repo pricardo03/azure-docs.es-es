@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225169"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402156"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para máquinas virtuales para conocer los componentes de una aplicación
-Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en su entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para máquinas virtuales: directamente desde la máquina virtual o a través de grupos de máquinas virtuales en Azure Monitor. 
+Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
 
 En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y a usar la característica de asignación. Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md) (Habilitar Azure Monitor para máquinas virtuales).
 
@@ -107,7 +107,9 @@ Desde Azure Monitor, la característica de asignación proporciona una visión g
 
 ![Visión general de una asignación de varias máquinas virtuales en Azure Monitor](./media/monitoring-vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Desde el selector de **Área de trabajo** en la parte superior de la página, si tiene más de un área de trabajo de Log Analytics, elija la que esté integrada con la solución y tenga máquinas virtuales que dependan de ella.  Después, en el selector de **Grupo**, seleccione una suscripción o grupo de recursos para visualizar al conjunto de máquinas virtuales y sus dependencias que coincida con el grupo durante un intervalo de tiempo determinado.  De forma predeterminada, la asignación muestra los últimos 30 minutos.  Mediante el selector **Intervalo de tiempo**, se pueden consultar intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio).   
+Desde el selector de **áreas de trabajo** en la parte superior de la página, si tiene más de un área de trabajo de Log Analytics, elija el área de trabajo que esté habilitada con la solución y tenga máquinas virtuales que dependan de ella. El selector de **grupos** devolverá las suscripciones, los grupos de recursos, los [grupos de equipos](../log-analytics/log-analytics-computer-groups.md) y los conjuntos de escalado de máquinas virtuales de los equipos relacionados con el área de trabajo seleccionada. La selección solo se aplica a la característica de asignación y no se aplica a las secciones de rendimiento o asignación.
+
+De forma predeterminada, la asignación muestra los últimos 30 minutos. Mediante el selector **Intervalo de tiempo**, se pueden consultar intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio).   
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo usar la característica de mantenimiento, consulte el artículo sobre cómo [ver el estado de una máquina virtual de Azure](monitoring-vminsights-health.md) o bien, para identificar los cuellos de botella y el uso general con el rendimiento de las máquinas virtuales, consulte cómo [ver el rendimiento de Azure Monitor para máquinas virtuales](monitoring-vminsights-performance.md). 

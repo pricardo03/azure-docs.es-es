@@ -4,32 +4,32 @@ description: En este tema se explica cómo usar la autenticación de Azure Activ
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: b8f58f4010590dc40d5e8dc7ac1b634f161a807d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784574"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945576"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Uso de la autenticación de Azure AD para acceder a la API de Azure Media Services con .NET
 
 A partir de windowsazure.mediaservices 4.0.0.4, Azure Media Services admite la autenticación basada en Azure Active Directory (Azure AD). En este tema se explica cómo usar la autenticación de Azure AD para acceder a la API de Azure Media Services con Microsoft .NET.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Una cuenta de Media Services. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
 - El último paquete [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices).
-- Familiarícese con el tema de [información general sobre el acceso a la API de Azure Media Services con la autenticación de AAD](media-services-use-aad-auth-to-access-ams-api.md). 
+- Familiarícese con el tema de [información general sobre el acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 Si usa la autenticación de Azure AD con Azure Media Services, puede autenticarse de alguna de estas dos formas:
 
@@ -97,14 +97,14 @@ En el ejemplo de código siguiente se crea una instancia de **CloudMediaContext*
 
 En el ejemplo siguiente se muestra cómo crear el token de Azure AD y el contexto:
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
         class Program
         {
             static void Main(string[] args)
             {
                 // Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
-                var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
+                var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
     
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
     
@@ -158,7 +158,7 @@ En el ejemplo de código siguiente se crea una instancia de **CloudMediaContext*
     
 En el ejemplo siguiente se muestra cómo crear el token de Azure AD y el contexto:
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
     
         class Program

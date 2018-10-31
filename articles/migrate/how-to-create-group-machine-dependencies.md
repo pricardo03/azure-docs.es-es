@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: de093976a318b2658ff4009f4c5e314851f66b81
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163433"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403816"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupación de máquinas con asignación de dependencias de máquina
 
@@ -35,7 +35,7 @@ Si quiere aprovechar la visualización de dependencias, necesita asociar un áre
 > No se puede cambiar el área de trabajo asociada a un proyecto de migración.
 
 ### <a name="download-and-install-the-vm-agents"></a>Descarga e instalación de los agentes en máquinas virtuales
-Después de configurar un área de trabajo, tiene que descargar e instalar agentes en cada máquina local que vaya a evaluar. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de OMS](../log-analytics/log-analytics-oms-gateway.md).
+Después de configurar un área de trabajo, tiene que descargar e instalar agentes en cada máquina local que vaya a evaluar. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
 
 1. En **Introducción**, haga clic en **Administrar** > **Máquinas**y seleccione la máquina requerida.
 2. En la columna **Dependencias**, haga clic en **Instalar agentes**.

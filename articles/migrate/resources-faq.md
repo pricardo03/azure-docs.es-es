@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239224"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407068"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -98,7 +98,7 @@ Hemos introducido la generación de perfiles continua de datos de rendimiento (q
 
 Los datos que recopila el dispositivo recopilador se almacenan en la ubicación de Azure especificada al crear el proyecto de migración. Los datos se almacenan de forma segura en una suscripción de Microsoft y se eliminan cuando el usuario elimina el proyecto de Azure Migrate.
 
-Para la visualización de dependencias, si instala a agentes en las máquinas virtuales, los datos que recopilan los agentes de dependencias se almacenan en los Estados Unidos en un área de trabajo de OMS creada en la suscripción del usuario. Estos datos se eliminan al eliminar el área de trabajo OMS en su suscripción. [Más información](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Para la visualización de dependencias, si instala agentes en las máquinas virtuales, los datos que recopilan los Dependency Agent se almacenan en los Estados Unidos en un área de trabajo de Log Analytics creada en la suscripción del usuario. Estos datos se eliminan al eliminar el área de trabajo de Log Analytics en su suscripción. [Más información](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>¿Los datos se cifran en reposo y mientras están en tránsito?
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406047"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637804"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Datos de supervisión recopilados por Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) es un servicio que le ayuda a supervisar sus aplicaciones y los recursos de los que dependen. Lo fundamental de esta función es el almacenamiento de datos de telemetría y otros datos de los recursos supervisados. En este artículo se proporciona una descripción completa de cómo Azure Monitor almacena y usa estos datos.
@@ -108,7 +108,7 @@ Entre las tareas que puede realizar con las métricas se incluyen:
 
 
 ### <a name="viewing-metrics"></a>Visualización de métricas
-Las métricas en Azure se recopilan en el almacén de métricas de Azure Monitor. Se trata de una base de datos de serie temporal optimizada para la recuperación rápida y almacena los valores de métricas durante 93 días. Copie las métricas en Log Analytics para obtener tendencias y análisis a largo plazo.
+Las métricas en Azure se recopilan en la base de datos de métricas de Azure Monitor. Se trata de una base de datos de serie temporal optimizada para la recuperación rápida y almacena los valores de métricas durante 93 días. Copie las métricas en Log Analytics para obtener tendencias y análisis a largo plazo.
 
 Los datos métricos se usan de distintas formas, como se ha descrito anteriormente. Use el [Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md) para analizar los datos en el almacén de métricas directamente y representar los valores de varias métricas con el tiempo. Puede ver los gráficos de forma interactiva o anclarlos a un panel para verlos con otras visualizaciones. También puede recuperar las métricas con la [API REST de supervisión de Azure](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
@@ -173,7 +173,7 @@ Puede copiar las métricas en Log Analytics para realizar un análisis complejo 
 Puede obtener instrucciones para recopilar métricas de recursos de Azure en [Recopilación de registros y métricas de Azure para servicios de Log Analytics](../log-analytics/log-analytics-azure-storage.md). Obtenga instrucciones para recopilar métricas de los recursos de PaaS de Azure en [Configuración de la recopilación de métricas de recursos de PaaS de Azure con Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Registros a métricas
-Tal y como se ha descrito anteriormente, las métricas tienen una capacidad de respuesta mayor que los registros, lo que permite crear alertas con una latencia y un costo menores. Log Analytics recopila una cantidad significativa de datos numéricos que son adecuados para las métricas, pero que no se almacenan en el almacén de métricas de Azure.  Un ejemplo común son los datos de rendimiento recopilados de los agentes y las soluciones de administración. Algunos de estos valores se pueden copiar en el almacén de métricas, donde están disponibles para las alertas y para realizar análisis con el Explorador de métricas.
+Tal y como se ha descrito anteriormente, las métricas tienen una capacidad de respuesta mayor que los registros, lo que permite crear alertas con una latencia y un costo menores. Log Analytics recopila una cantidad significativa de datos numéricos que serían adecuados para las métricas, pero que no se almacenan en la base de datos de métricas de Azure.  Un ejemplo común son los datos de rendimiento recopilados de los agentes y las soluciones de administración. Algunos de estos valores se pueden copiar en la base de datos de métricas, donde están disponibles para las alertas y para realizar análisis con el Explorador de métricas.
 
 La explicación de esta característica está disponible en [Creación de alertas de métricas para registros en Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). La lista de compatibilidad de los valores está disponible en [Métricas compatibles con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 

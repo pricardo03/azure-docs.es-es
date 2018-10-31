@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733198"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404042"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solución Agent Health en Azure
 La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de Log Analytics o a un grupo de administración de System Center Operations Manager conectado a Log Analytics, cuáles no responden y cuáles envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
@@ -65,7 +65,7 @@ Haga clic en el icono **Agent Health** para abrir el panel **Agent Health**.  El
 | Distribution by Agent Category (Distribución por categoría del agente) | Una división de las diferentes categorías de agentes que envían eventos de latido: agentes directos, agentes de OpsMgr o el servidor de administración de OpsMgr.|
 | Distribution by Management Group (Distribución por grupo de administración) | Una división de los diferentes grupos de administración de SCOM en su entorno.|
 | Geo-location of Agents (Geolocalización de los agentes) | Una división de los diferentes países donde haya agentes y el número total de agentes instalados en cada país.|
-| Count of Gateways Installed (Número de puertas de enlace instaladas) | El número de servidores que tienen instalada la puerta de enlace de Log Analytics y una lista de estos servidores.|
+| Count of Gateways Installed (Número de puertas de enlace instaladas) | Número de servidores que tienen instalada la puerta de enlace de Log Analytics y una lista de estos servidores.|
 
 ![Ejemplo de panel de la solución Agent Health](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
@@ -85,7 +85,7 @@ Se crea un registro del tipo **Heartbeat**.  Estos registros tienen las propieda
 | OSMinorVersion | Versión secundaria del sistema operativo.|
 | Versión | Versión del agente de Log Analytics o de Operations Manager.|
 | SCAgentChannel | El valor es *Direct* o *SCManagementServer*.|
-| IsGatewayInstalled | Si está instalada la puerta de enlace de Log Analytics, el valor es *true*; en caso contrario, es *false*.|
+| IsGatewayInstalled | Si la puerta de enlace de Log Analytics está instalada, el valor es *true*; en caso contrario, es *false*.|
 | ComputerIP | Dirección IP del equipo.|
 | RemoteIPCountry | Ubicación geográfica donde el equipo está implementado.|
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager.|

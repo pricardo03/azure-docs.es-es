@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856885"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408836"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
-Azure ofrece funcionalidades de detección de amenazas avanzada integradas en servicios como Azure Active Directory (Azure AD), Azure Operations Management Suite (OMS) y Azure Security Center. Esta colección de servicios de seguridad y funcionalidades ofrece una manera sencilla y rápida de comprender lo que ocurre en las implementaciones de Azure.
+Azure ofrece funciones de detección de amenazas avanzada integradas en servicios como Azure Active Directory (Azure AD), Azure Log Analytics y Azure Security Center. Esta colección de servicios de seguridad y funcionalidades ofrece una manera sencilla y rápida de comprender lo que ocurre en las implementaciones de Azure.
 
 Azure proporciona una amplia gama de opciones para configurar y personalizar la seguridad para que cumpla los requisitos de las implementaciones de la aplicación. En este artículo se explica cómo cumplir estos requisitos.
 
@@ -75,21 +75,21 @@ PIM ayuda a:
 
 -   Obtener alertas sobre el acceso a un rol con privilegios.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es una solución de administración de TI basada en la nube de Microsoft que ayuda a administrar y proteger infraestructuras locales y en la nube. Puesto que OMS se implementa como un servicio basado en la nube, puede hacer que funcione rápidamente con una inversión mínima en servicios de infraestructura. Las características nuevas de seguridad se entregan de forma automática, lo que supone un ahorro en costos permanentes de mantenimiento y actualización.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es una solución de administración de TI basada en la nube de Microsoft que lo ayuda a administrar y proteger su infraestructura local y en la nube. Como Log Analytics se implementa como un servicio basado en la nube, puede ponerlo en funcionamiento rápidamente con una inversión mínima en servicios de infraestructura. Las características nuevas de seguridad se entregan de forma automática, lo que supone un ahorro en costos permanentes de mantenimiento y actualización.
 
-Además de proporcionar servicios valiosos por sí mismo, OMS se puede integrar con componentes de System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/) para ampliar las inversiones existentes en la administración de la seguridad en la nube. System Center y OMS pueden trabajar juntos para proporcionar una experiencia de administración totalmente híbrida.
+Además de proporcionar servicios útiles, Log Analytics se puede integrar con componentes de System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para ampliar a la nube las inversiones de administración de seguridad existentes. System Center y Log Analytics pueden funcionar de forma conjunta para ofrecer una experiencia de administración híbrida completa.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Seguridad integral y postura de cumplimiento
 
-En el [panel Seguridad y auditoría de OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) se proporciona una vista completa de la postura de seguridad de TI de la organización, con consultas de búsqueda integradas para problemas importantes que requieren su atención. El panel Seguridad y auditoría es la pantalla principal para todo lo relacionado con la seguridad en OMS. Proporciona información detallada sobre el estado de seguridad de los equipos. También se pueden ver todos los eventos de las últimas 24 horas, siete días o cualquier otro intervalo personalizado.
+En el [panel Seguridad y auditoría de Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started), se muestra una vista completa de la posición de seguridad de TI de la organización, con consultas de búsqueda integradas para problemas relevantes que necesiten su atención. El panel “Seguridad y auditoría” es la pantalla principal para todo lo relacionado con la seguridad en Log Analytics. Proporciona información detallada sobre el estado de seguridad de los equipos. También se pueden ver todos los eventos de las últimas 24 horas, siete días o cualquier otro intervalo personalizado.
 
-Los paneles de OMS ayudan a comprender de forma rápida y sencilla la postura de seguridad global de cualquier entorno, todo ello en el contexto de las operaciones de TI, por ejemplo: la evaluación de actualizaciones de software, la evaluación de antimalware y las líneas básicas de configuración. Los datos del registro de seguridad son accesibles en todo momento para simplificar los procesos de auditoría de seguridad y cumplimiento.
+Los paneles de Log Analytics permiten comprender de forma rápida y sencilla la posición de seguridad global de cualquier entorno, todo ello en el contexto de las operaciones de TI, como la evaluación de actualizaciones de software, la evaluación de antimalware y las líneas base de configuración. Los datos del registro de seguridad son accesibles en todo momento para simplificar los procesos de auditoría de seguridad y cumplimiento.
 
-![El panel Seguridad y auditoría de OMS](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![Panel Seguridad y auditoría de Log Analytics](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-El panel Seguridad y auditoría de OMS se organiza en cuatro categorías principales:
+El panel Seguridad y auditoría de Log Analytics se divide en cuatro categorías principales:
 
 -   **Dominios de seguridad**: permite explorar más los registros de seguridad a lo largo del tiempo, acceder a evaluaciones de malware, actualizar las evaluaciones, ver información de seguridad de la red, identidad y acceso, ver equipos con eventos de seguridad y acceder rápidamente al panel Azure Security Center.
 
@@ -102,25 +102,25 @@ El panel Seguridad y auditoría de OMS se organiza en cuatro categorías princip
 -   **Consultas comunes de seguridad**: enumera las consultas de seguridad más comunes que se pueden usar para supervisar el entorno. Al seleccionar cualquier consulta, se abre el panel de búsqueda y se muestran los resultados para esa consulta.
 
 ### <a name="insight-and-analytics"></a>Insight y Analytics
-En el centro de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) se encuentra el repositorio de OMS, que está hospedado en Azure.
+En el centro de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), se encuentra el repositorio de OMS, que está hospedado en Azure.
 
 ![Diagrama de Insight y Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Los datos se recopilan en el repositorio desde los orígenes conectados mediante la configuración de orígenes de datos y la incorporación de soluciones a la suscripción.
 
-![El panel de OMS ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Panel de Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Cada uno de los orígenes de datos y soluciones crea tipos de registros distintos con su propio conjunto de propiedades, pero se pueden seguir analizando de forma conjunta en consultas al repositorio. Se pueden usar las mismas herramientas y métodos para trabajar con una variedad de datos que se recopilan mediante diversos orígenes.
 
 
-La mayor parte de la interacción con Log Analytics se realiza a través del portal de OMS que se ejecuta en cualquier explorador y proporciona acceso a las opciones de configuración y a varias herramientas para analizar y realizar acciones sobre los datos recopilados. Desde el portal, puede usar:
+La mayor parte de la interacción con Log Analytics se realiza mediante Azure Portal, que se ejecuta en cualquier explorador y proporciona acceso a opciones de configuración y a herramientas para analizar los datos recopilados y realizar acciones en estos. Desde el portal, puede usar:
 * [Búsquedas de registros](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) donde se crean consultas para analizar los datos recopilados.
 * [Paneles](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que se pueden personalizar con vistas gráficas de las búsquedas más valiosas.
 * [Soluciones](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que proporcionan herramientas de análisis y funcionalidad adicionales.
 
 ![Herramientas de análisis](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Las soluciones agregan funcionalidad a Log Analytics. Se ejecutan principalmente en la nube y proporcionan el análisis de los datos recopilados en el repositorio de OMS. Es posible que las soluciones también definan tipos de registros nuevos para recopilar y que se pueden analizar con las búsquedas de registros o mediante una interfaz de usuario adicional que la solución proporciona en el panel de OMS.
+Las soluciones agregan funcionalidad a Log Analytics. Se ejecutan principalmente en la nube y proporcionan el análisis de los datos recopilados en el repositorio de Log Analytics. Puede que las soluciones también definan nuevos tipos de registro para recopilar que se pueden analizar con las búsquedas de registros o mediante una interfaz de usuario adicional que la solución proporciona en el panel de Log Analytics.
 
 El panel Seguridad y auditoría es un ejemplo de estos tipos de solución.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465816"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986430"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Supervisar los grupos de recursos con Azure Monitor (versión preliminar)
 
@@ -113,7 +113,12 @@ En este caso, si selecciona Edición verá que este conjunto de visualizaciones 
 ## <a name="troubleshooting"></a>solución de problemas
 
 ### <a name="enabling-access-to-alerts"></a>Habilitación del acceso a las alertas
-Azure Monitor para grupos de recursos necesita determinados permisos para acceder al estado de alerta de los recursos del grupo de recursos. Si ve un mensaje de error al cargar las alertas, no tiene permisos suficientes. Pida al administrador que le conceda el rol de **propietario** o **colaborador** para la suscripción que contiene el grupo de recursos.
+
+Para ver las alertas en Azure Monitor para grupos de recursos, un usuario con un rol de propietario o colaborador en esta suscripción debe abrir Azure Monitor para grupos de recursos para cualquier grupo de recursos de la suscripción. Esto permitirá a cualquier usuario con acceso de lectura ver alertas en Azure Monitor para grupos de recursos en todos los grupos de recursos de la suscripción. Si tiene un rol de propietario o colaborador, dedique unos minutos a actualizar esta página.
+
+Azure Monitor para grupos de recursos se basa en el sistema de administración de alertas de Azure Monitor para recuperar el estado de alerta. La administración de alertas no se configura de forma predeterminada para todos los grupos de recursos y las suscripciones, y solo puede habilitarla un usuario con un rol de propietario o colaborador. Se puede habilitar de dos maneras:
+* Abriendo Azure Monitor para grupos de recursos con cualquier grupo de recursos de la suscripción.
+* O bien, yendo a la suscripción, haciendo clic en **Proveedores de recursos** y luego en **Register for Alerts.Management** (Registrarse con Alerts.Management).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

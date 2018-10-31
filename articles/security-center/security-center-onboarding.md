@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380002"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405453"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Incorporación a Azure Security Center Estándar para una seguridad mejorada
 Actualice a Security Center Estándar para sacar partido de la administración de seguridad mejorada y protección contra amenazas en las cargas de trabajo de la nube híbrida.  Puede probar la version Estándar de forma gratuita durante 60 días. Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -82,6 +82,8 @@ Si tiene áreas de trabajo existentes, se enumerarán en **Add new Non-Azure com
    ![Agregar una nueva área de trabajo][4]
 
 2. En **Security and Audit**, seleccione **Área de trabajo de OMS** para crear un área de trabajo.
+> [!NOTE]
+> Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
 3. En **Área de trabajo de OMS**, escriba la información del área de trabajo.
 4. En **Área de trabajo de OMS**, haga clic en **Aceptar**.  Tras hacer clic en Aceptar, obtendrá un vínculo para descargar un agente de Windows o de Linux, y las claves de su identificador de área de trabajo que usará para configurar el agente.
 5. En **Seguridad y auditoría**, haga clic en **Aceptar**.

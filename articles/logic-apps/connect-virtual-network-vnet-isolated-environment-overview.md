@@ -1,6 +1,6 @@
 ---
-title: Acceder a las redes virtuales de Azure desde Azure Logic Apps
-description: En esta introducción se muestra cómo las aplicaciones lógicas aisladas pueden conectarse a redes virtuales de Azure desde entornos del servicio de integración (ISE) que usan recursos privados y dedicados.
+title: Acceso a instancias de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
+description: En esta introducción se describe cómo los entornos de servicio de integración (ISE) facilitan el acceso de las aplicaciones lógicas a las redes virtuales de Azure.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f21af23cf0b7b121441b1433f382db60ef7f13fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393163"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408666"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>Acceso a los recursos de Azure Virtual Network desde instancias de Azure Logic Apps aisladas.
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
 > [!NOTE]
 > Esta funcionalidad está en *versión preliminar privada*. Para solicitar acceso, [cree su solicitud para unirse aquí](https://aka.ms/iseprivatepreview).
 
-A veces, sus cuentas de integración y aplicaciones lógicas necesitan obtener acceso a recursos protegidos, como máquinas virtuales y otros sistemas o servicios dentro de una red de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para proporcionar este acceso, puede [crear un *entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) como ubicación para crear sus aplicaciones lógicas y cuentas de integración. 
+A veces, sus cuentas de integración y aplicaciones lógicas necesitan obtener acceso a recursos protegidos, como máquinas virtuales y otros sistemas o servicios dentro de una red de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para configurar este acceso, puede [crear un *entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) que utilice como ubicación de las aplicaciones lógicas y las cuentas de integración. 
 
 ![Selección del entorno de servicio de integración](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -64,7 +64,7 @@ La diferencia entre los conectores de ISE y de otro tipo radica en las ubicacion
 
 ## <a name="permissions-for-virtual-network-access"></a>Permisos de acceso para la red virtual
 
-Cuando crea un entorno del servicio de integración (ISE), puede seleccionar una red virtual de Azure como un *elemento del mismo nivel* para el entorno. Sin embargo, *solo* puede crear esta relación, o *emparejamiento*, al crear la instancia de ISE. Esta relación proporciona a la instancia de ISE acceso a los recursos de la red virtual, lo que permite a las aplicaciones lógicas de esa instancia de ISE conectarse directamente a los recursos de la red virtual. En lo que respecta a los sistemas locales de una red virtual que esté vinculada a una instancia de ISE, las aplicaciones lógicas pueden acceder directamente a esos sistemas mediante cualquiera de estos elementos: 
+Cuando crea un entorno del servicio de integración (ISE), puede seleccionar una red virtual de Azure como un *elemento del mismo nivel* para el entorno. Sin embargo, *solo* puede crear esta relación, o *emparejamiento*, al crear la instancia de ISE. Esta relación proporciona a la instancia de ISE acceso a los recursos de la red virtual, lo que permite a las aplicaciones lógicas de esa instancia de ISE conectarse directamente a los recursos de la red virtual. En lo que respecta a los sistemas locales de una red virtual que está vinculada a un ISE, las aplicaciones lógicas pueden acceder directamente a esos sistemas mediante cualquiera de estos elementos: 
 
 * Conector de ISE para ese sistema (por ejemplo, SQL Server)
 

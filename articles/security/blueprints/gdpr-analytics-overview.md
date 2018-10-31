@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4f40dfced7060dd01df7410d07ac5b7cfdf3176
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f744a1126e12766980727e31d5c50ce4aa17934c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580708"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408785"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Plano técnico de seguridad y cumplimiento de Azure: análisis para RGPD
 
@@ -43,7 +43,7 @@ Cuando se cargan los datos a la instancia de Azure SQL Database y se entrenan co
 
 Toda la solución se basa en el servicio Azure Storage que los clientes configuran desde Azure Portal. Azure Storage cifra todos los datos con Storage Service Encryption para mantener la confidencialidad de los datos en reposo. El almacenamiento con redundancia geográfica garantiza que un evento adverso en el centro de datos principal del cliente no tendrá como resultado una pérdida de datos, ya que una segunda copia se almacenará en una ubicación separada a cientos de kilómetros de distancia.
 
-Para mejorar la seguridad, esta arquitectura administra los recursos con Azure Active Directory y Azure Key Vault. El estado del sistema se supervisa mediante Operations Management Suite (OMS) y Azure Monitor. Los clientes configuran ambos servicios de monitorización para capturar registros y mostrar el estado del sistema en un único panel de fácil navegación.
+Para mejorar la seguridad, esta arquitectura administra los recursos con Azure Active Directory y Azure Key Vault. El mantenimiento del sistema se supervisa mediante Log Analytics y Azure Monitor. Los clientes configuran ambos servicios de monitorización para capturar registros y mostrar el estado del sistema en un único panel de fácil navegación.
 
 Azure SQL Database se administra comúnmente mediante SQL Server Management Studio (SSMS), que se ejecuta desde una máquina local configurada para acceder a Azure SQL Database mediante una conexión segura VPN o ExpressRoute. **Azure recomienda configurar una conexión VPN o de Azure ExpressRoute para la administración y la importación de datos en el grupo de recursos de la arquitectura de referencia.**
 
@@ -56,7 +56,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Azure Machine Learning
 - Azure Active Directory
 - Azure Key Vault
-- Operations Management Suite (OMS)
+- Log Analytics
 - Azure Monitor
 - Azure Storage
 - Panel de Power BI
@@ -89,7 +89,7 @@ La arquitectura de referencia define una red virtual privada con un espacio de d
 
 Cada uno de los grupos de seguridad de red tiene puertos y protocolos específicos abiertos para que la solución pueda funcionar de forma segura y correcta. Además, las siguientes opciones de configuración están habilitadas para cada NSG:
   - Los [eventos y registros de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) están habilitados y se almacenan en la cuenta de almacenamiento.
-  - Log Analytics de OMS está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - Log Analytics está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
 **Subredes**: asegúrese de que cada subred esté asociada a su grupo de seguridad de red correspondiente.
 
@@ -138,12 +138,12 @@ Las siguientes tecnologías proporcionan funcionalidades de administración del 
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) proporciona un registro completo de la actividad de usuario y del sistema, así como mantenimiento del sistema. La solución [Log Analytics](https://azure.microsoft.com/services/log-analytics/) de OMS recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) ofrece un registro completo de la actividad de usuario y del sistema, además de mantenimiento del sistema. La solución [Log Analytics](https://azure.microsoft.com/services/log-analytics/) recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
 - **Registros de actividad:** [los registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico:** [los registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluyen todos los registros emitidos por todos los recursos. Estos incluyen los registros del sistema de eventos de Windows y los registros de Azure Blob Storage, tablas y cola.
 - **Archivado de registros:** todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para que queden archivados durante un período de retención definido de dos días. Esos registros se conectan a Azure Log Analytics para el procesamiento, el almacenamiento y la creación de informes de panel.
 
-Además, como parte de esta arquitectura, se incluyen las siguientes soluciones de OMS:
+Además, como parte de esta arquitectura, se incluyen las siguientes soluciones de supervisión:
 -   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
 -   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la solución de antimalware notifica sobre el estado de malware, las amenazas y la protección.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la solución Azure Automation almacena, ejecuta y administra runbooks.

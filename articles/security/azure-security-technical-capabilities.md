@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721337"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405572"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 
@@ -199,7 +199,7 @@ Se debe admitir al menos uno de los modelos de cifrado recomendados que se detal
 
 **Identificación de todas las ubicaciones de los almacenes de datos**
 
-El objetivo del cifrado en reposo consiste en cifrar todos los datos. Si lo hace, elimina la posibilidad de que se pierdan datos importantes o todas las ubicaciones persistentes. Enumere todos los datos almacenados por la aplicación. 
+El objetivo del cifrado en reposo consiste en cifrar todos los datos. Si lo hace, elimina la posibilidad de que se pierdan datos importantes o todas las ubicaciones persistentes. Muestre todos los datos almacenados por la aplicación. 
 
 > [!Note] 
 > No solo los datos de la aplicación o la información de identificación personal, sino todos los datos relacionados con la aplicación, incluidos los metadatos de la cuenta (asignaciones de suscripción, información contractual, información de identificación personal).
@@ -398,17 +398,17 @@ Con [seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azu
 
 La seguridad operativa de Azure se basa en una plataforma que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
 
-### <a name="microsoft-operations-management-suiteoms"></a>Microsoft Operations Management Suite (OMS)
+### <a name="microsoft-azure-log-analytics"></a>Log Analytics de Microsoft Azure
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es la solución de administración de TI para la nube híbrida. Utilizada por sí sola o para extender la implementación existente de System Center, OMS ofrece la máxima flexibilidad y control para la administración basada en la nube de su infraestructura.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es la solución de administración de TI para la nube híbrida. Si se usa de forma independiente o para extender la implementación existente de System Center, Log Analytics ofrece la máxima flexibilidad y control para la administración basada en la nube de su infraestructura.
 
-![Microsoft Operations Management Suite (OMS)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Con OMS, puede administrar cualquier instancia en cualquier nube, incluidas las locales o de Azure, AWS, Windows Server, Linux, VMware y OpenStack, con un costo menor que las soluciones de la competencia. Diseñada para el mundo que prefiere la nube, OMS ofrece un nuevo enfoque a la administración de la empresa que es la manera más rápida y rentable de enfrentarse a los nuevos desafíos de negocio y adaptarse a nuevas cargas de trabajo, aplicaciones y entornos de nube.
+Con Log Analytics, puede administrar cualquier instancia en cualquier nube, incluidas instancias en entornos locales, Azure, AWS, Windows Server, Linux, VMware y OpenStack, con un costo menor que las soluciones de la competencia. Diseñada para el mundo que da prioridad a la nube, Log Analytics ofrece un nuevo enfoque para la administración empresarial que es la forma más rápida y rentable de enfrentarse a los nuevos retos empresariales y adaptarse a nuevas cargas de trabajo, aplicaciones y entornos de nube.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) proporciona servicios de supervisión para OMS recopilando datos de los recursos administrados en un repositorio central. Estos datos podrían incluir eventos, datos de rendimiento o datos personalizados proporcionados a través de la API. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) proporciona servicios de supervisión al recopilar datos de los recursos administrados en un repositorio central. Estos datos podrían incluir eventos, datos de rendimiento o datos personalizados proporcionados a través de la API. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

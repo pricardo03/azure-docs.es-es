@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: f08b9e60a632428a120f9cfa50d29f1454e0b1d5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041176"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402551"
 ---
 # <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
 
@@ -36,7 +36,7 @@ Puede usar la funcionalidad de Supervisión de Azure ExpressRoute en [Network Pe
 Para abrir la configuración de Network Performance Monitor, abra la [solución de Network Performance Monitor](log-analytics-network-performance-monitor.md) y seleccione **Configurar**.
 
 ### <a name="configure-network-security-group-rules"></a>Configuración de las reglas del grupo de seguridad de red 
-En el caso de los servidores de Azure que se utilizan para la supervisión a través de Network Performance Monitor, configure las reglas del grupo de seguridad de red (NSG) para permitir el tráfico TCP en un puerto utilizado por Network Performance Monitor para las transacciones sintéticas. El puerto predeterminado es 8084. Esta configuración permite al agente de Operations Management Suite instalado en máquinas virtuales de Azure comunicarse con un agente de supervisión local. 
+En el caso de los servidores de Azure que se utilizan para la supervisión a través de Network Performance Monitor, configure las reglas del grupo de seguridad de red (NSG) para permitir el tráfico TCP en un puerto utilizado por Network Performance Monitor para las transacciones sintéticas. El puerto predeterminado es 8084. Esta configuración permite al agente de Log Analytics instalado en máquinas virtuales de Azure comunicarse con un agente de supervisión local. 
 
 Para más información sobre NSG, consulte  [Grupos de seguridad de red](../virtual-network/manage-network-security-group.md). 
 

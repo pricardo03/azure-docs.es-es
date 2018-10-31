@@ -1,6 +1,6 @@
 ---
-title: Recopilar el rendimiento de las aplicaciones de Linux en Log Analytics de OMS | Microsoft Docs
-description: En este artículo se proporciona información para configurar el agente de OMS para Linux a fin de recopilar los contadores de rendimiento para MySQL y el servidor HTTP de Apache.
+title: Recopilar datos de rendimiento de aplicaciones de Linux en Log Analytics | Microsoft Docs
+description: En este artículo, se proporciona información sobre cómo configurar el agente de Log Analytics para Linux con el fin de recopilar los contadores de rendimiento de MySQL y el servidor HTTP de Apache.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044576"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406167"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recopilar los contadores de rendimiento para aplicaciones de Linux en Log Analytics 
-En este artículo se proporciona información para configurar el [agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) a fin de recopilar los contadores de rendimiento para aplicaciones específicas.  Las aplicaciones incluidas en este artículo son las siguientes:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+En este artículo, se proporciona información sobre cómo configurar el [agente de Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) con el fin de recopilar los contadores de rendimiento para aplicaciones específicas.  Las aplicaciones incluidas en este artículo son las siguientes:  
 
 - [MySQL](#MySQL)
 - [Servidor HTTP de Apache](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Si se detecta en el equipo un servidor de MySQL o de MariaDB cuando se instala el agente de OMS, se instalará automáticamente un proveedor de supervisión de rendimiento para el servidor MySQL. Este proveedor se conecta al servidor MySQL o MariaDB local para exponer las estadísticas de rendimiento. Debe configurar las credenciales de usuario de MySQL para que el proveedor pueda tener acceso al servidor de MySQL.
+Si en el equipo se detecta un servidor de MySQL o de MariaDB al instalar el agente de Log Analytics, se instalará automáticamente un proveedor de supervisión de rendimiento para el servidor MySQL. Este proveedor se conecta al servidor MySQL o MariaDB local para exponer las estadísticas de rendimiento. Debe configurar las credenciales de usuario de MySQL para que el proveedor pueda tener acceso al servidor de MySQL.
 
 ### <a name="configure-mysql-credentials"></a>Configurar las credenciales de MySQL
 El proveedor de MySQL para OMI necesita un usuario de MySQL preconfigurado y bibliotecas de cliente de MySQL instaladas para consultar la información de rendimiento y mantenimiento de la instancia de MySQL.  Estas credenciales se almacenan en un archivo de autenticación que se almacena en el agente de Linux.  El archivo de autenticación especifica la dirección de enlace y el puerto que usa la instancia de MySQL para escuchar y las credenciales que tiene que usar para recopilar métricas.  
 
-Durante la instalación del agente de OMS para Linux, el proveedor de MySQL para OMI examinará los archivos de configuración my.cnf de MySQL (ubicaciones predeterminadas) para encontrar la dirección de enlace y el puerto, y establecer parcialmente el archivo de autenticación de MySQL para OMI.
+Durante la instalación del agente de Log Analytics para Linux, el proveedor de MySQL para OMI examinará los archivos de configuración my.cnf de MySQL (ubicaciones predeterminadas) para identificar la dirección de enlace y el puerto, y establecer parcialmente el archivo de autenticación de MySQL para OMI.
 
 El archivo de autenticación de MySQL se almacena en `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -115,7 +116,7 @@ Estos privilegios se pueden conceder ejecutando los siguientes comandos de conce
 
 ### <a name="define-performance-counters"></a>Definir contadores de rendimiento
 
-Una vez configurado el agente de OMS para Linux de modo que envíe datos a Log Analytics, debe configurar los contadores de rendimiento para que recopilen.  Use el procedimiento descrito en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](log-analytics-data-sources-windows-events.md) con los contadores de la tabla siguiente.
+Después de configurar el agente de Log Analytics para Linux de forma que envíe datos a Log Analytics, necesita configurar los contadores de rendimiento para que recopilen datos.  Use el procedimiento descrito en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](log-analytics-data-sources-windows-events.md) con los contadores de la tabla siguiente.
 
 | Nombre de objeto | Nombre del contador |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definir contadores de rendimiento
 
-Una vez configurado el agente de OMS para Linux de modo que envíe datos a Log Analytics, debe configurar los contadores de rendimiento para que recopilen.  Use el procedimiento descrito en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](log-analytics-data-sources-windows-events.md) con los contadores de la tabla siguiente.
+Después de configurar el agente de Log Analytics para Linux de forma que envíe datos a Log Analytics, necesita configurar los contadores de rendimiento para que recopilen datos.  Use el procedimiento descrito en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](log-analytics-data-sources-windows-events.md) con los contadores de la tabla siguiente.
 
 | Nombre de objeto | Nombre del contador |
 |:--|:--|

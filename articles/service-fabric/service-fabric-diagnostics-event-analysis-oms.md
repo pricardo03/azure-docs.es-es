@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302189"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404484"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Análisis y visualización de eventos con Log Analytics
 Log Analytics recopila y analiza la telemetría de las aplicaciones y los servicios hospedados en la nube y proporciona herramientas de análisis para ayudarle a maximizar su disponibilidad y rendimiento. En este artículo se describe cómo ejecutar consultas en Log Analytics para obtener información de lo que está sucediendo en el clúster y solucionar problemas. Se tratan las siguientes preguntas habituales:
@@ -105,7 +105,7 @@ El lenguaje de consulta Kusto es eficaz. Otra consulta valiosa que puede ejecuta
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para habilitar la supervisión de la infraestructura, es decir, los contadores de rendimiento, vea cómo [agregar el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md). El agente recopila los contadores de rendimiento y los agrega al área de trabajo existente.
-* Si se trata de clústeres locales, Log Analytics ofrece una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a Log Analytics. Obtenga más información en [Conexión de equipos sin acceso a Internet a Log Analytics mediante OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).
-* Configure [alertas automáticas](../log-analytics/log-analytics-alerts.md) que ayuden en la detección y el diagnóstico.
-* Familiarícese con las funciones de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de Log Analytics
-* Para obtener información general más detallada sobre Log Analytics y lo que ofrece, vea [¿Qué es Azure Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)
+* Si se trata de clústeres locales, Log Analytics ofrece una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a Log Analytics. Para obtener más información, vea [Conexión de equipos sin acceso a Internet a Log Analytics mediante la puerta de enlace de Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
+* Configure [alertas automáticas](../log-analytics/log-analytics-alerts.md) para facilitar la detección y el diagnóstico.
+* Familiarícese con las funciones de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de Log Analytics.
+* Para obtener más información sobre Log Analytics y lo que ofrece, vea [¿Qué es Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

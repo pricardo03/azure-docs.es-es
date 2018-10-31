@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344139"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430030"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Ajuste de los hiperparámetros de un modelo
 
@@ -141,8 +141,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> El muestreo bayesiano no admite ninguna directiva de terminación anticipada (consulte [especificación de una directiva de terminación anticipada](#specify-an-early-termination-policy)). Al utilizar el muestreo de parámetros bayesiano, establezca el valor en `early_termination_policy = None`, o no añada el parámetro `early_termination_policy`.
-`
+> El muestreo bayesiano no admite ninguna directiva de terminación anticipada (consulte [especificación de una directiva de terminación anticipada](#specify-early-termination-policy)). Al utilizar el muestreo de parámetros bayesiano, establezca el valor en `early_termination_policy = None`, o no añada el parámetro `early_termination_policy`.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>Especificación de la métrica principal
 
@@ -158,9 +159,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Optimice las ejecuciones para maximizar la "precisión".  Asegúrese de registrar este valor en el script de entrenamiento.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>Registrar métricas para el ajuste de hiperparámetros
 
-El script de entrenamiento para el modelo debe registrar las métricas pertinentes durante el entrenamiento del modelo. Cuando se configura el ajuste de hiperparámetros, debe especificar la métrica principal que se utilizará para evaluar el rendimiento de las ejecuciones. (Consulte [especificación de una métrica principal para optimizar](#specify-a-primary-metric-to-optimize)).  En el script de entrenamiento, debe registrar esta métrica de modo que esté disponible para el proceso de ajuste de hiperparámetros.
+El script de entrenamiento para el modelo debe registrar las métricas pertinentes durante el entrenamiento del modelo. Cuando se configura el ajuste de hiperparámetros, debe especificar la métrica principal que se utilizará para evaluar el rendimiento de las ejecuciones. (Consulte [especificación de una métrica principal para optimizar](#specify-primary-metric-to-optimize)).  En el script de entrenamiento, debe registrar esta métrica de modo que esté disponible para el proceso de ajuste de hiperparámetros.
 
 Registre la métrica del script de entrenamiento mediante el siguiente fragmento de código de ejemplo:
 
@@ -171,6 +174,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 El script de entrenamiento calcula el valor `val_accuracy` y lo registra como "precisión", que se usa como métrica principal. Cada vez que se registra la métrica, el servicio de ajuste de hiperparámetros la recibe. Es el desarrollador del modelo quien debe determinar la frecuencia con que se notifica esta métrica.
+
+<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a>Especificación de una directiva de terminación anticipada
 
@@ -297,7 +302,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` es el nombre que quiere asignar a su experimento de ajuste de hiperparámetros y `workspace` es el área de trabajo en la que quiere crear el experimento (para más información sobre los experimentos, consulte [¿Cómo funciona el servicio Azure Machine Learning?](/concept-azure-machine-learning-architecture.md)).
+`experiment_name` es el nombre que quiere asignar a su experimento de ajuste de hiperparámetros y `workspace` es el área de trabajo en la que quiere crear el experimento (para más información sobre los experimentos, consulte [¿Cómo funciona el servicio Azure Machine Learning?](concept-azure-machine-learning-architecture.md)).
 
 ## <a name="visualize-experiment"></a>Visualización del experimento
 
@@ -320,7 +325,7 @@ Además, puede identificar visualmente la correlación entre el rendimiento y lo
 
 ![coordenadas paralelas de ajuste de hiperparámetros](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-Puede visualizar todas las ejecuciones de ajuste de hiperparámetros en el portal web de Azure. Para obtener más información sobre cómo ver un experimento en el portal web, consulte [cómo realizar el seguimiento de experimentos](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+Puede visualizar todas las ejecuciones de ajuste de hiperparámetros en el portal web de Azure. Para más información sobre cómo ver un experimento en el portal web, vea [cómo realizar el seguimiento de experimentos](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![portal de ajuste de hiperparámetros](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 

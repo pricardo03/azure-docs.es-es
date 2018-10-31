@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: 17354891b50138911f36314620f0c826db4b5dac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: dcf4e9fa9435d8f20784b20f3873d408adb78c20
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833672"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469833"
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Creación de varios modelos de Machine Learning y puntos de conexión de servicio web a partir de un experimento mediante PowerShell
 Este es un problema común del aprendizaje automático: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio simplemente con un solo experimento.
@@ -61,7 +61,7 @@ Hay otras maneras de hacer esto. Puede utilizar una consulta SQL con un parámet
 Ahora, vamos a ejecutar este experimento de entrenamiento utilizando el valor predeterminado *rental001.csv* como el conjunto de datos de entrenamiento. Si ve los resultados del módulo **Evaluar**, después de hacer clic en los resultados y seleccionar **Visualizar**, verá que obtiene un rendimiento aceptable de *AUC* = 0,91. En este momento, está listo para implementar un servicio web fuera de este experimento de entrenamiento.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Implementación del entrenamiento y puntuación de servicios web
-Para implementar el servicio web de entrenamiento, haga clic en el botón **Set Up Web Service** (Configurar servicio web) situado debajo del lienzo del experimento y seleccione **Deploy Web Service** (Implementar servicio web). Llame a este servicio web "Bike Rental Training" (Entrenamiento para alquiler de bicicletas).
+Para implementar el servicio web de entrenamiento, haga clic en el botón **Set Up Web Service** (Configurar servicio web) situado debajo del lienzo del experimento y seleccione **Deploy Web Service** (Implementar servicio web). Asigne el nombre “Bike Rental Training” al servicio web.
 
 Ahora debe implementar el servicio web de puntuación.
 Para ello, haga clic en **Set Up Web Service** (Configurar servicio web) bajo el lienzo y seleccione **Predictive Web Service** (Servicio web predictivo). Esto crear un experimento de puntuación.
@@ -69,7 +69,7 @@ Debe realizar algunos ajustes menores para que funcione como un servicio web. Qu
 
 Para ahorrarse ese trabajo, puede abrir el [experimento predictivo](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) en la galería que ya se ha preparado.
 
-Para implementar el servicio web, ejecute el experimento predictivo y luego haga clic en el botón **Deploy Web Service** (Implementar servicio web) bajo el lienzo. Asigne el nombre "Bike Rental Scoring" (Puntuación de alquiler de bicicletas) al servicio web de puntuación.
+Para implementar el servicio web, ejecute el experimento predictivo y luego haga clic en el botón **Deploy Web Service** (Implementar servicio web) bajo el lienzo. Asigne el nombre “Bike Rental Scoring” al servicio web de puntuación.
 
 ## <a name="create-10-identical-web-service-endpoints-with-powershell"></a>Creación de 10 puntos de conexión de servicio web idénticos con PowerShell
 Este servicio web incluye un punto de conexión predeterminado. Pero el interés no está en el punto de conexión predeterminado, ya que no se puede actualizar. Lo que necesita hacer es crear diez puntos de conexión adicionales, uno para cada ubicación. Puede hacer esto con PowerShell.

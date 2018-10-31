@@ -1,7 +1,7 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: Uso de sinónimos para expandir el ámbito de una consulta de búsqueda
-authors: mhko
+author: mhko
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093221"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468558"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos en Azure Search
 
@@ -148,6 +148,8 @@ La característica Sinónimos reescribe la consulta original con sinónimos con 
 La característica Sinónimos se aplica a consultas de búsquedas y no se aplica a filtros o facetas. De forma similar, las sugerencias se basan solo en el término original; las coincidencias de sinónimos no aparecen en la respuesta.
 
 Las expansiones de sinónimos no se aplican a los términos de búsqueda de carácter comodín; los prefijos, las coincidencias parciales y las regex no se expanden.
+
+Si tiene que realizar una consulta única que aplique la expansión de sinónimos y búsquedas aproximadas, de expresiones regulares y con comodines, puede combinar las consultas utilizando la sintaxis OR. Por ejemplo, para combinar sinónimos con caracteres comodín en la sintaxis de consulta única, el término sería `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Consejos para crear un asignación de sinónimos
 

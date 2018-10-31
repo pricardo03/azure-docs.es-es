@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 110ce131286f437e051dd859eb4d2baa29f106f6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 727c76dc62c054baff24f0e3e7a3b677450a4070
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206718"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404841"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure Security and Compliance Blueprint: Data Warehouse para la automatización de FedRAMP
 
@@ -35,7 +35,7 @@ En Azure SQL Data Warehouse, los datos se almacenan en tablas relacionales con a
 
 Un equilibrador de carga de SQL administra el tráfico SQL, lo cual garantiza un rendimiento alto. Todas las máquinas virtuales de esta arquitectura de referencia se implementan en un conjunto de disponibilidad con instancias de SQL Server configuradas en un grupo de disponibilidad AlwaysOn para las funcionalidades de alta disponibilidad y recuperación ante desastres.
 
-Esta arquitectura de referencia de almacén de datos también incluye un nivel de Active Directory (AD) para la administración de recursos dentro de la arquitectura. La subred de Active Directory permite la fácil adopción en una estructura de bosque de AD mayor, lo que permite un funcionamiento continuo del entorno, aunque no esté disponible el acceso al bosque mayor. Todas las máquinas virtuales implementadas están unidas mediante dominio al nivel de Active Directory y usan directivas de grupo de Active Directory para aplicar configuraciones de seguridad y cumplimiento a nivel del sistema operativo.
+Esta arquitectura de referencia de almacenamiento de datos también incluye un nivel de Active Directory (AD) para la administración de recursos dentro de la arquitectura. La subred de Active Directory permite la fácil adopción en una estructura de bosque de AD mayor, lo que permite un funcionamiento continuo del entorno, aunque no esté disponible el acceso al bosque mayor. Todas las máquinas virtuales implementadas están unidas mediante dominio al nivel de Active Directory y usan directivas de grupo de Active Directory para aplicar configuraciones de seguridad y cumplimiento a nivel del sistema operativo.
 
 Una máquina virtual sirve de host de tipo bastión de administración, lo cual proporciona una conexión segura para que los administradores accedan a los recursos implementados. Los datos se cargan en el área de ensayo a través de este host de tipo bastión de administración. **Azure recomienda configurar una conexión VPN o de Azure ExpressRoute para la administración y la importación de datos de en la subred de la arquitectura de referencia.**
 
@@ -69,7 +69,7 @@ Almacén de Recovery Services
 
 Azure Key Vault
 
-Operations Management Suite (OMS)
+Log Analytics
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 
@@ -83,7 +83,7 @@ En la siguiente sección se detallan los elementos de desarrollo e implementaci�
 
 Se ha creado una máquina virtual unidas mediante dominio como host de tipo bastión con las siguientes configuraciones:
 -   [Extensión antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Extensión de OMS](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Extensión de Log Analytics](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Extensión de Diagnósticos de Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) mediante Azure Key Vault (cumple los requisitos de Azure Government, PCI DSS, HIPAA y otros).
 -   Una [directiva de apagado automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reducir el consumo de recursos de la máquina virtual cuando no esté en uso.
@@ -100,7 +100,7 @@ La arquitectura de referencia define una red virtual privada con un espacio de d
 
 Cada uno de los grupos de seguridad de red tiene puertos y protocolos específicos abiertos para que la solución pueda funcionar de forma segura y correcta. Además, las siguientes opciones de configuración están habilitadas para cada NSG:
   - Los [eventos y registros de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) están habilitados y se almacenan en la cuenta de almacenamiento.
-  - Log Analytics de OMS está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - Log Analytics está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
 **Subredes**: asegúrese de que cada subred esté asociada a su grupo de seguridad de red correspondiente.
 
@@ -127,21 +127,21 @@ La arquitectura protege los datos en reposo mediante el cifrado, la auditoría d
 **Almacén de Recovery Services**: el [almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) aloja datos de copia de seguridad y protege todas las configuraciones de Azure Virtual machines en esta arquitectura. Con los almacenes de Recovery Services, los clientes pueden restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual, lo que permite unos tiempos de restauración más rápidos.
 
 ### <a name="logging-and-audit"></a>Registro y auditoría
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) proporciona un registro completo de la actividad de usuario y del sistema, así como mantenimiento del sistema. La solución [Log Analytics](https://azure.microsoft.com/services/log-analytics/) de OMS recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) ofrece un registro completo de la actividad de usuario y del sistema, además de mantenimiento del sistema. La solución [Log Analytics](https://azure.microsoft.com/services/log-analytics/) recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
 - **Registros de actividad:** los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción.
 - **Registros de diagnóstico:** los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluyen todos los registros emitidos por todos los recursos. Estos incluyen los registros del sistema de eventos de Windows y los registros de Azure Blob Storage, tablas y cola.
 - **Registros de firewall:** Application Gateway proporciona registros de diagnóstico y acceso completos. Los registros de firewall están disponibles para los recursos de Application Gateway con WAF habilitado.
 - **Archivado de registros**: todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para que queden archivados durante un período de retención definido de dos días. Esos registros se conectan a Azure Log Analytics para el procesamiento, el almacenamiento y la creación de informes de panel.
 
-Además, como parte de esta arquitectura, se incluyen las siguientes soluciones de OMS:
+Además, como parte de esta arquitectura, se incluyen las siguientes soluciones de supervisión:
 -   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
 -   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la solución de antimalware notifica sobre el estado de malware, las amenazas y la protección.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la solución Azure Automation almacena, ejecuta y administra runbooks.
 -   [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): el panel Security and Audit proporciona una visión de alto nivel del estado de seguridad de los recursos al proporcionar información sobre métricas de los dominios de seguridad, problemas importantes, detecciones, inteligencia sobre amenazas y consultas comunes de seguridad.
 -   [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la solución SQL Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona a los clientes una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
--   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): la solución Update Management permite la administración de cliente de las actualizaciones de seguridad del sistema operativo, que incluye el estado de las actualizaciones disponibles y el proceso de instalación de las actualizaciones necesarias.
+-   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): la solución Update Management permite la administración de cliente de las actualizaciones de seguridad del sistema operativo, incluido el estado de las actualizaciones disponibles y el proceso de instalación de las actualizaciones necesarias.
 -   [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la solución Agent Health notifica el número de agentes implementados y su distribución geográfica, así como el número de agentes que no responden y el de agentes que envían datos operativos.
--   [Registros de actividad de Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la solución Activity Log Analytics ayuda a los clientes a analizar los registros de actividad de todas las suscripciones de Azure.
+-   [Registros de actividad de Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la solución Activity Log Analytics ayuda a los clientes a analizar los registros de actividad de todas las suscripciones de Azure para un cliente.
 -   [Change Tracking](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la solución Change Tracking permite a los clientes identificar fácilmente los cambios en el entorno.
 
 ### <a name="identity-management"></a>Administración de identidades
@@ -156,9 +156,9 @@ Para obtener más información sobre el uso de las características de seguridad
 ### <a name="security"></a>Seguridad
 **Administración de secretos**: la solución utiliza [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves y secretos. Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube.
 
-**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para Virtual Machines proporciona una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar en caso de que un software malintencionado o no deseado conocido se intente instalar o ejecutar en máquinas virtuales protegidas.
+**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para máquinas virtuales proporciona una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar en caso de que un software malintencionado o no deseado conocido se intente instalar o ejecutar en máquinas virtuales protegidas.
 
-**Administración de revisiones**: las máquinas virtuales Windows implementadas como parte de esta arquitectura de referencia se configuran de forma predeterminada para recibir actualizaciones automáticas desde Windows Update Service. Esta solución también incluye el servicio [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) de OMS, mediante el cual se pueden crear implementaciones actualizadas de las máquinas virtuales cuando sea necesario.
+**Administración de revisiones**: las máquinas virtuales Windows implementadas como parte de esta arquitectura de referencia se configuran de forma predeterminada para recibir actualizaciones automáticas desde Windows Update Service. Esta solución también incluye el servicio [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro), mediante el cual se pueden crear implementaciones actualizadas para aplicar revisiones a las máquinas virtuales cuando sea necesario.
 
 
 ## <a name="guidance-and-recommendations"></a>Instrucciones y recomendaciones
@@ -180,7 +180,7 @@ El entorno comercial de Azure ofrece una amplia variedad de servicios que usan a
 
 ## <a name="threat-model"></a>Modelo de amenazas
 
-El diagrama de flujo de datos (DFD) de esta arquitectura de referencia está disponible para [descarga](https://aka.ms/blueprintdwthreatmodel) y se encuentra a continuación:
+El diagrama de flujo de datos (DFD) de esta arquitectura de referencia está disponible para su [descarga](https://aka.ms/blueprintdwthreatmodel) y se encuentra a continuación:
 
 ![Data Warehouse para el modelo de amenazas de FedRAMP](images/fedramp-datawarehouse-threat-model.png?raw=true "Data Warehouse para el modelo de amenazas de FedRAMP")
 

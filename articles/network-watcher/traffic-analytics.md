@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333401"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457415"
 ---
 # <a name="traffic-analytics"></a>Análisis del tráfico
 
@@ -53,9 +53,11 @@ Análisis de tráfico examina los registros de flujo sin formato del grupo de se
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Puede usar Análisis de tráfico para grupos de seguridad de red en cualquiera de las siguientes regiones: Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro y norte de EE. UU., Centro y Sur de EE. UU., Centro de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Australia, Sudeste de Australia y Sudeste Asiático. El área de trabajo de Log Analytics debe encontrarse en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sur de Reino Unido, Sudeste de Australia o Sudeste Asiático.
+Puede usar Análisis de tráfico para grupos de seguridad de red en cualquiera de las siguientes regiones: Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro y norte de EE. UU., Centro y Sur de EE. UU., Centro de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro de Canadá, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Japón, Centro de la India, Este de Australia, Sudeste de Australia y Sudeste Asiático. 
 
-## <a name="prerequisites"></a>requisitos previos
+El área de trabajo de Log Analytics debe encontrarse en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sur de Reino Unido, Centro de Canadá, Este de Japón, Centro de la India, Sudeste de Australia o Sudeste Asiático.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="user-access-requirements"></a>Requisitos del acceso de usuario
 
@@ -135,7 +137,7 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 2. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento.
 3. Establezca **Retención** en el número de días que desea almacenar los datos.
 4. Seleccione *Activo* en **Estado de Análisis de tráfico**.
-5. Seleccione un área de trabajo de Log Analytics (OMS) existente o seleccione **Crear área de trabajo nueva** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#traffic-analytics-supported-regions) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Seleccione un área de trabajo de Log Analytics existente o seleccione **Crear nueva área de trabajo** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#traffic-analytics-supported-regions) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     No es necesario que el área de trabajo de Log Analytics que hospeda la solución Análisis de tráfico y los grupos de seguridad de red estén en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Europa Occidental y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
 6. Seleccione **Guardar**.

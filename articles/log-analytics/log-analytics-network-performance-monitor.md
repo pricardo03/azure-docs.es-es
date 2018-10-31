@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044100"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638224"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -65,17 +65,17 @@ Use los procesos básicos para instalar agentes en [Conexión de equipos Windows
 
 ### <a name="where-to-install-the-agents"></a>Dónde instalar los agentes 
 
-* **Monitor de rendimiento**: instale agentes de Operations Management Suite en al menos un nodo conectado a cada subred desde la que va a supervisar la conectividad de red a otras subredes.
+* **Monitor de rendimiento:** instale agentes de Log Analytics como mínimo en un nodo conectado a cada subred desde la que supervisará la conectividad de red a otras subredes.
 
     Para supervisar un vínculo de red, instale agentes en ambos puntos de conexión del vínculo en cuestión. Si no está seguro de la topología de la red, instale los agentes en servidores con cargas de trabajo críticas entre las que desee supervisar el rendimiento de red. Por ejemplo, si quiere supervisar la conexión de red entre un servidor web y un servidor que ejecuta SQL, instale un agente en ambos servidores. Los agentes supervisan la conectividad de red (vínculos) entre los hosts, no los hosts propiamente dichos. 
 
-* **Monitor de conectividad de servicio**: instale un agente de Operations Management Suite en cada nodo desde el que va a supervisar la conectividad de red al punto de conexión de servicio. Un ejemplo es si desea supervisar la conectividad de red a Office 365 desde sus oficinas etiquetadas O1, O2 y O3. Instale al agente de Operations Management Suite en al menos un nodo de O1, O2 y O3. 
+* **Monitor de conectividad de servicio**: instale un agente de Log Analytics en cada nodo desde el que supervisará la conectividad de red al punto de conexión de servicio. Un ejemplo es si desea supervisar la conectividad de red a Office 365 desde sus oficinas etiquetadas O1, O2 y O3. Instale el agente de Log Analytics como mínimo en un nodo en O1, O2 y O3. 
 
-* **Supervisión de ExpressRoute**: instale al menos un agente de Operations Management Suite en su red virtual de Azure. Asimismo, instale al menos un agente en la subred local, que se conecta mediante el emparejamiento privado de ExpressRoute.  
+* **Monitor de ExpressRoute**: instale como mínimo un agente de Log Analytics en la red virtual de Azure. Asimismo, instale al menos un agente en la subred local, que se conecta mediante el emparejamiento privado de ExpressRoute.  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Configuración de agentes de Operations Management Suite para la supervisión 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes de Log Analytics para la supervisión 
 
-Network Performance Monitor usa transacciones sintéticas para supervisar el rendimiento de red entre los agentes de origen y de destino. Puede elegir entre los protocolos TCP e ICMP para la supervisión en las funcionalidades de Monitor de rendimiento y Monitor de conectividad de servicio. Solo TCP está disponible como el protocolo de supervisión para Supervisión de ExpressRoute. Asegúrese de que el firewall permita la comunicación entre los agentes de Operations Management Suite que se usan para supervisar en el protocolo que ha elegido. 
+Network Performance Monitor usa transacciones sintéticas para supervisar el rendimiento de red entre los agentes de origen y de destino. Puede elegir entre los protocolos TCP e ICMP para la supervisión en las funcionalidades de Monitor de rendimiento y Monitor de conectividad de servicio. Solo TCP está disponible como el protocolo de supervisión para Supervisión de ExpressRoute. Asegúrese de que el firewall permita la comunicación entre los agentes de Log Analytics usados para supervisar en el protocolo que ha elegido. 
 
 * **Protocolo TCP**: si ha elegido el protocolo TCP para la supervisión, abra el puerto de firewall en los agentes que se usan en Network Performance Monitor y Supervisión de ExpressRoute, para asegurarse de que estos pueden conectarse entre sí. Para abrir el puerto, ejecute el script de PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sin parámetros en una ventana de PowerShell con privilegios administrativos.
 
@@ -109,7 +109,7 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
    ![Icono Monitor de rendimiento de red](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. En la página **Setup** (Configuración), verá la opción para instalar agentes de Operations Management Suite y configurar los agentes para la supervisión en la vista **Common Settings** (Configuración común). Tal como se explicó anteriormente, si ha instalado y configurado los agentes de Operations Management Suite, seleccione la vista **Setup** (Configuración) para configurar la funcionalidad que desea usar. 
+4. En la página **Configuración**, verá la opción para instalar agentes de Log Analytics y configurar los agentes para la supervisión en la vista **Configuración común**. Como se ha explicado anteriormente, si ha instalado y configurado los agentes de Log Analytics, seleccione la vista **Configuración** para configurar la función que quiere usar. 
 
    **Performance Monitor** (Monitor de rendimiento): elija el protocolo que se va a usar para las transacciones sintéticas en la regla de monitor de rendimiento **Default** (Predeterminada) y seleccione **Save & Continue** (Guardar y continuar). Esta selección de protocolo contiene únicamente para la regla predeterminada generada por el sistema. Debe elegir el protocolo cada vez que cree explícitamente una regla de monitor de rendimiento. Siempre puede mover la configuración de reglas **Default** (Predeterminada) en la pestaña **Performance Monitor** (Monitor de rendimiento) (que aparece después de completar la configuración del día 0) y cambiar el protocolo más adelante. Si no desea la funcionalidad Monitor de rendimiento, puede deshabilitar la regla predeterminada en la configuración de reglas **Default** (Predeterminada) de la pestaña **Performance Monitor** (Monitor de rendimiento).
 
@@ -135,7 +135,7 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
     
 La supervisión en estos emparejamientos está inicialmente en estado deshabilitado. Seleccione cada emparejamiento que desee supervisar y configure su supervisión en la vista de detalles de la derecha. Para guardar la configuración, seleccione **Save** (Guardar). Para más información, consulte el artículo "Configure ExpressRoute monitoring" (Configuración de la supervisión de ExpressRoute). 
 
-Una vez finalizada la configuración, se tarda entre 30 minutos y una hora en rellenar los datos. Mientras la solución agrega datos de la red, verá el mensaje *Solution requires additional configuration* (La solución necesita una configuración adicional) en el icono **Overview** (Información general) de Network Performance Monitor. Después de que los datos se recopilen e indexen, el icono **Overview** (Información general) cambia y le informa sobre el mantenimiento de la red en un resumen. Puede elegir entonces editar la supervisión de los nodos en los que están instalados los agentes de Operations Management Suite, así como las subredes detectadas desde el entorno.
+Una vez finalizada la configuración, se tarda entre 30 minutos y una hora en rellenar los datos. Mientras la solución agrega datos de la red, verá el mensaje *Solution requires additional configuration* (La solución necesita una configuración adicional) en el icono **Overview** (Información general) de Network Performance Monitor. Después de que los datos se recopilen e indexen, el icono **Overview** (Información general) cambia y le informa sobre el mantenimiento de la red en un resumen. Puede editar la supervisión de los nodos donde se han instalado los agentes de Log Analytics, así como las subredes detectadas desde el entorno.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Edición de la configuración de supervisión de subredes y nodos 
 
@@ -144,7 +144,7 @@ Todas las subredes que tienen instalado al menos un agente se muestran en la pes
 
 Para habilitar o deshabilitar la supervisión de subredes determinadas, siga estos pasos:
 
-1. Active o desactive la casilla junto a  **Subnetwork ID** (Identificador de subred). A continuación, asegúrese de que  **Use for Monitoring**  (Usar para la supervisión) está seleccionado o desactivado, según corresponda. Puede seleccionar o borrar varias subredes. Cuando esta casilla está desactivada, no se supervisan las subredes y los agentes se actualizan para que dejen de hacer ping a los demás agentes. 
+1. Active o desactive la casilla junto a **Identificador de subred**. Después, asegúrese de que la opción **Usar para la supervisión** esté activada o desactivada, según corresponda. Puede seleccionar o borrar varias subredes. Cuando esta casilla está desactivada, no se supervisan las subredes y los agentes se actualizan para que dejen de hacer ping a los demás agentes. 
 2. Elija los nodos que desea supervisar en una subred determinada. Seleccione la subred de la lista y mueva los nodos necesarios entre las listas que contienen nodos no supervisados y supervisados. Puede agregar una descripción personalizada a la subred.
 3. Para guardar la configuración, seleccione **Guardar**. 
 
@@ -176,7 +176,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
  
 
  
-La solución usa transacciones sintéticas para evaluar el estado de la red. Los agentes de Operations Management Suite instalados en diversos puntos de la red intercambian entre sí paquetes TCP o ICMP Echo. El hecho de que los agentes utilicen paquetes TCP o ICMP Echo depende del protocolo seleccionado para la supervisión. En el proceso, los agentes conocen el tiempo de ida y vuelta y se enteran de la pérdida de paquetes, si la hay. Periódicamente, cada agente también realiza un seguimiento de la ruta hasta los demás agentes para descubrir las diversas rutas de la red que se deben comprobar. Con estos datos, los agentes pueden deducir la latencia de red y las cifras de pérdida de paquetes. Las pruebas se repiten cada cinco segundos. Los agentes agregan los datos durante aproximadamente tres minutos antes de que se carguen en el servicio de Log Analytics.
+La solución usa transacciones sintéticas para evaluar el estado de la red. Los agentes de Log Analytics instalados en diversos puntos de la red intercambian entre sí paquetes TCP o eco ICMP. El hecho de que los agentes utilicen paquetes TCP o ICMP Echo depende del protocolo seleccionado para la supervisión. En el proceso, los agentes conocen el tiempo de ida y vuelta y se enteran de la pérdida de paquetes, si la hay. Periódicamente, cada agente también realiza un seguimiento de la ruta hasta los demás agentes para descubrir las diversas rutas de la red que se deben comprobar. Con estos datos, los agentes pueden deducir la latencia de red y las cifras de pérdida de paquetes. Las pruebas se repiten cada cinco segundos. Los agentes agregan los datos durante aproximadamente tres minutos antes de que se carguen en el servicio de Log Analytics.
 
 
 
@@ -257,9 +257,9 @@ Todos los datos expuestos mediante gráficos en las páginas de exploración en 
 
 Network Performance Monitor usa las capacidades de alerta de [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Esto significa que todas las alertas se administran con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Esto quiere decir que todas las notificaciones se administran con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Si es un usuario NPM que crea una alerta a través de OMS: 
+Si es un usuario de NPM que crea una alerta mediante Log Analytics: 
 1. Verá un vínculo que le redirigirá a Azure Portal. Haga clic en él para obtener acceso al portal.
 2. Haga clic en el icono de la solución Network Performance Monitor. 
 3. Navegue hasta Configurar.  
@@ -271,7 +271,11 @@ Si es un usuario NPM que crea una alerta a través de Azure Portal:
 3. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Puede aprender a crear un grupo de acciones [aquí.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Una vez que se ha creado correctamente la alerta, puede usar el vínculo Administrar alertas para administrar las alertas. 
 
-##<a name="pricing"></a>Precios
+Cada vez que cree una alerta, NPM creará una regla de alertas de registro basada en consultas en Azure Monitor. Esta consulta se desencadena de forma predeterminada cada cinco minutos. Azure Monitor no realiza ningún cargo por las primeras 250 reglas de alertas de registro creadas; pero las reglas de alertas por encima del límite de 250 reglas de alertas de registro se facturan según los [Precios de alertas en la página de precios de Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Las notificaciones se cobran por separado según los [Precios de notificaciones en la página de precios de Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+
+
+## <a name="pricing"></a>Precios
 
 La información sobre los precios está disponible [en línea](log-analytics-network-performance-monitor-pricing-faq.md).
 

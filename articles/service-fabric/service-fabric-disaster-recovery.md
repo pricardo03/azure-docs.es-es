@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b22d18408d040d564d6220e74e8b8a893fe41ae9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161587"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646252"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperación ante desastres en Service Fabric de Azure
 Una parte fundamental de la entrega de alta disponibilidad es garantizar que los servicios sobreviven a cualquier tipo de error. Esto es especialmente importante para los errores imprevistos y que se encuentran fuera de control. En este artículo se describen algunos modos de error comunes que podrían ser desastres si no hubieran modelado y administrado correctamente. También se explican las mitigaciones y las acciones que deben realizarse en caso de desastre. El objetivo es limitar o eliminar el riesgo de pérdida de datos o de tiempo de inactividad cuando se produzcan errores, tanto planeados como de otro tipo.
@@ -133,7 +133,7 @@ Hay dos estrategias diferentes para sobrevivir al error permanente o duradero de
 ### <a name="random-failures-leading-to-cluster-failures"></a>Errores aleatorios que dan lugar a errores en el clúster
 Service Fabric tiene el concepto de los nodos raíz. Se trata de nodos que conservan la disponibilidad del clúster subyacente. Estos nodos ayudan a garantizar que el clúster permanece activo, al establecer concesiones con otros nodos y servir de elemento diferenciador durante ciertos tipos de errores de red. Si los errores aleatorios eliminan la mayoría de los nodos raíz del clúster y no se recuperan, el clúster se cierra automáticamente. En Azure, los nodos raíz se administran automáticamente: se distribuyen entre los dominios de actualización y error disponibles y, si se quita un solo nodo raíz del clúster, se crea otro en su lugar. 
 
-En los clústeres independientes de Service Fabric y Azure, el "tipo de nodo principal" es el que ejecuta los nodos raíz. Al definir un tipo de nodo principal, Service Fabric aprovechará automáticamente el número de nodos proporcionado mediante la creación de hasta 9 nodos raíz y 9 réplicas de cada servicio de sistema. Si un conjunto de errores aleatorios deshabilita la mayoría de las réplicas del servicio de sistema al mismo tiempo, los servicios de sistema entran en pérdida del cuórum, tal y como se ha descrito anteriormente. Si se pierde la mayoría de los nodos raíz, el clúster se apaga poco después.
+En los clústeres independientes de Service Fabric y Azure, el "tipo de nodo principal" es el que ejecuta los nodos raíz. Al definir un tipo de nodo principal, Service Fabric aprovechará automáticamente el número de nodos proporcionado mediante la creación de hasta nueve nodos raíz y siete réplicas de cada servicio del sistema. Si un conjunto de errores aleatorios deshabilita la mayoría de las réplicas del servicio de sistema al mismo tiempo, los servicios de sistema entran en pérdida del cuórum, tal y como se ha descrito anteriormente. Si se pierde la mayoría de los nodos raíz, el clúster se apaga poco después.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre cómo simular varios errores mediante la [plataforma de comprobación](service-fabric-testability-overview.md)

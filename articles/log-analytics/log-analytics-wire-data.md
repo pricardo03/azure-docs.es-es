@@ -1,6 +1,6 @@
 ---
 title: Solución Datos de conexión en Log Analytics | Microsoft Docs
-description: Datos de conexión son datos consolidados de red y rendimiento de los equipos con agentes de OMS, como agentes conectados con Windows y Operations Manager. Los datos de red se combinan con los datos de registro para ayudar a correlacionar datos.
+description: Los datos de conexión son datos consolidados de rendimiento y de red procedentes de equipos con agentes de Log Analytics. Los datos de red se combinan con los datos de registro para ayudar a correlacionar datos.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 9ee388e8d33d293240e70ccf79ec8d3c445dffd1
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 61ceea60962acc2e1ec032df49683e8a28381dd7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269164"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405368"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solución Wire Data 2.0 (versión preliminar) en Log Analytics
 
 ![Símbolo de Wire Data](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Wire Data son datos consolidados de red y de rendimiento recopilados de los equipos conectados de Windows y Linux con el agente de OMS, incluidos los que supervisa Operations Manager. Los datos de red se combinan con otros datos de registro para ayudar a correlacionar datos.
+Los datos de conexión son datos consolidados de rendimiento y de red recopilados de equipos conectados a Windows y Linux con el agente de Log Analytics, incluidos los que supervisa Operations Manager en el entorno. Los datos de red se combinan con otros datos de registro para ayudar a correlacionar datos.
 
-Además del agente de OMS, la solución Wire Data usa los agentes de dependencia de Microsoft que instale en los equipos de su infraestructura de TI. Los agentes de dependencia supervisan los datos de red enviados a los equipos y desde estos para los niveles 2 y 3 de la red en el [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), incluidos los distintos protocolos y puertos que se usan. Después, los datos se envían a Log Analytics mediante agentes.  
+Además del agente de Log Analytics, la solución Wire Data usa las instancias de Microsoft Dependency Agent que instale en los equipos de su infraestructura de TI. Los agentes de dependencia supervisan los datos de red enviados a los equipos y desde estos para los niveles 2 y 3 de la red en el [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), incluidos los distintos protocolos y puertos que se usan. Después, los datos se envían a Log Analytics mediante agentes.  
 
 >[!NOTE]
 >Si ya ha implementado Service Map, o está pensando en Service Map o [Azure Monitor para máquinas virtuales](../monitoring/monitoring-vminsights-overview.md), hay un nuevo conjunto de datos de métricas de conexión que recopilan y almacenan en Log Analytics que proporciona información comparable a la de Wire Data.
@@ -65,20 +65,20 @@ Wire Data obtiene sus datos de Microsoft Dependency Agent. Dependency Agent depe
 | Grupo de administración de System Center Operations Manager | SÍ | Wire Data analiza y recopila datos de los agentes de Windows y Linux en un [grupo de administración de System Center Operations Manager](log-analytics-om-agents.md) conectado. <br><br> Se requiere una conexión directa desde el equipo agente de System Center Operations Manager a Log Analytics. |
 | Cuenta de almacenamiento de Azure | Sin  | Wire Data recopila datos de equipos de agente, por lo que no hay ningún dato en él que recopilar desde Azure Storage. |
 
-En Windows, tanto System Center Operations Manager como Log Analytics usan Microsoft Monitoring Agent (MMA) para recopilar y enviar los datos. Dependiendo del contexto, el agente se denomina agente de System Center Operations Manager, Agente de OMS, agente de Log Analytics, MMA o agente directo. System Center Operations Manager y Log Analytics proporcionan versiones ligeramente diferentes de MMA. Cada una de estas versiones puede informar a System Center Operations Manager, a Log Analytics o a ambos.
+En Windows, tanto System Center Operations Manager como Log Analytics usan Microsoft Monitoring Agent (MMA) para recopilar y enviar los datos. En función del contexto, el agente se denomina agente de System Center Operations Manager, agente de Log Analytics, MMA o agente directo. System Center Operations Manager y Log Analytics proporcionan versiones ligeramente diferentes de MMA. Cada una de estas versiones puede informar a System Center Operations Manager, a Log Analytics o a ambos.
 
 En Linux, el agente de Log Analytics para Linux recopila y envía datos a Log Analytics. Puede usar Wire Data en servidores con agentes directamente conectados a Log Analytics o en servidores que se conecten a Log Analytics a través de los grupos de administración de System Center Operations Manager.
 
-Dependency Agent no transmite los datos por sí mismo y no requiere ningún cambio en los firewalls o puertos. Los datos de Wire Data siempre se transmiten mediante el agente de Log Analytics a Log Analytics, ya sea directamente o a través de la puerta de enlace de OMS.
+Dependency Agent no transmite los datos por sí mismo y no requiere ningún cambio en los firewalls o puertos. Los datos de Wire Data siempre se transmiten mediante el agente de Log Analytics a Log Analytics, ya sea directamente o a través de la puerta de enlace de Log Analytics.
 
 ![diagrama de agente](./media/log-analytics-wire-data/agents.png)
 
 Si es un usuario de System Center Operations Manager con un grupo de administración conectado a Log Analytics:
 
 - No se requiere ninguna configuración adicional cuando los agentes de System Center Operations Manager pueden obtener acceso a Internet para conectarse a Log Analytics.
-- Si los agentes de System Center Operations Manager no pueden obtener acceso a Log Analytics a través de Internet, es necesario configurar la puerta de enlace de OMS para que funcione con System Center Operations Manager.
+- Si los agentes de System Center Operations Manager no pueden obtener acceso a Log Analytics a través de Internet, es necesario configurar la puerta de enlace de Log Analytics para que funcione con System Center Operations Manager.
 
-Si los equipos Windows o Linux no pueden conectarse directamente al servicio, deberá configurar el agente de Log Analytics para conectarse a Log Analytics mediante la puerta de enlace de OMS. Puede descargar la nueva versión de la puerta de enlace de OMS en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
+Si los equipos Windows o Linux no pueden conectarse directamente al servicio, deberá configurar el agente de Log Analytics para conectarse a Log Analytics mediante la puerta de enlace de Log Analytics. Puede descargar la nueva versión de la puerta de enlace de Log Analytics en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -211,7 +211,7 @@ Dependency Agent se instala en equipos que ejecutan Windows mediante InstallDepe
 
 Use los pasos siguientes para instalar Dependency Agent en cada equipo que ejecute Windows:
 
-1. Instale el agente de OMS siguiendo los pasos descritos de [Collect data from Windows computers hosted in your environment](log-analytics-windows-agent.md) (Recopilación de datos de equipos Windows hospedados en su entorno).
+1. Instale el agente de Log Analytics siguiendo los pasos descritos en [Collect data from Windows computers hosted in your environment](log-analytics-windows-agent.md) (Recopilar datos de equipos Windows hospedados en el entorno).
 2. Descargue Dependency Agent de Windows mediante el vínculo de la sección anterior y, después, ejecútelo mediante el comando siguiente: `InstallDependencyAgent-Windows.exe`.
 3. Siga el asistente para instalar el agente.
 4. Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Windows, el directorio de registro es %Programfiles%\Microsoft Dependency Agent\logs.
@@ -237,7 +237,7 @@ Dependency Agent se instala en equipos Linux con InstallDependencyAgent-Linux64.
 
 Utilice los pasos siguientes para instalar el agente de dependencia en cada equipo de Linux:
 
-1. Instale el agente de OMS siguiendo los pasos descritos de [Collect data from Linux computers hosted in your environment](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) (Recopilación de datos de equipos Linux hospedados en su entorno).
+1. Instale el agente de Log Analytics siguiendo los pasos descritos en [Collect data from Linux computers hosted in your environment](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) (Recopilar datos de equipos Linux hospedados en el entorno).
 2. Descargue Dependency Agent de Linux mediante el vínculo de la sección anterior y, después, instálelo como raíz mediante el comando siguiente: sh InstallDependencyAgent-Linux64.bin
 3. Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Linux, el directorio de registro es: /var/opt/microsoft/dependency-agent/log.
 

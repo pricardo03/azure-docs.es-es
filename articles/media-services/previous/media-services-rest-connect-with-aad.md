@@ -3,22 +3,22 @@ title: Usar autenticación de Azure AD para acceder a la API de Azure Media Serv
 description: Aprenda a acceder a la API de Azure Media Services con la autenticación de Azure Active Directory mediante REST.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984664"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945084"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar autenticación de Azure AD para acceder a la API de Azure Media Services con REST
 
@@ -60,7 +60,7 @@ Para obtener acceso a la API de Media Services, debe recopilar los siguientes pu
 
 |Configuración|Ejemplo|DESCRIPCIÓN|
 |---|-------|-----|
-|Dominio del inquilino de Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como punto de conexión de servicio de token seguro (STS) se crea con el siguiente formato: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emite un JWT para tener acceso a los recursos (un token de acceso).|
+|Dominio del inquilino de Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como punto de conexión de servicio de token seguro (STS) se crea con el siguiente formato: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emite un JWT para tener acceso a los recursos (un token de acceso).|
 |Punto de conexión de la API de REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Este es el punto de conexión en el que se realizan todas las llamadas API de REST de Media Services en la aplicación.|
 |Identificador de cliente (identificador de aplicación)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Identificador de aplicación de Azure AD (cliente). El identificador de cliente es necesario para obtener el token de acceso. |
 |Secreto del cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Claves de aplicación de Azure AD (secreto del cliente). El secreto de cliente es necesario para obtener el token de acceso.|
@@ -144,8 +144,8 @@ Esta sección muestra cómo usar **Postman** para ejecutar una API de REST que d
     También puede hacer clic en **Edición en masa** a la derecha de la ventana de Postman y pegar el siguiente cuerpo (reemplace los valores de identificador y secreto del cliente):
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. Presione **Enviar**.

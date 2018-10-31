@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e00ccc4d55da805538801a0a8f3ee5502d871fab
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eaf6aa538a4733528b52b1417c2d53318064e068
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042315"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405403"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
@@ -34,7 +34,7 @@ Después de la implementación inicial del agente de Windows o Linux para Log An
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 2. Abra el **Panel de control**.
-3. Seleccione **Microsoft Monitoring Agent** y haga clic en la pestaña **Azure Log Analytics (OMS)**.
+3. Seleccione **Microsoft Monitoring Agent** y haga clic en la pestaña **Azure Log Analytics**.
 4. Si quiere eliminar un área de trabajo, selecciónela y, después, haga clic en **Quitar**. Repita este paso para cualquier otra área de trabajo de la que quiera que el agente deje de informar.
 5. Si agrega un área de trabajo, haga clic en **Agregar** y en el cuadro de diálogo **Agregar área de trabajo de Log Analytics**, pegue el identificador del área de trabajo y la clave del área de trabajo (clave principal). Si el equipo tiene que notificar a un área de trabajo de Log Analytics en Azure Government Cloud, seleccione Azure Gobierno de EE.UU. de la lista desplegable Azure Cloud. 
 6. Haga clic en **Aceptar** para guardar los cambios.
@@ -101,7 +101,7 @@ En los pasos siguientes se muestra cómo volver a configurar el agente de Linux 
 El servicio del agente no tiene que reiniciarse para que los cambios surtan efecto.
 
 ## <a name="update-proxy-settings"></a>Actualizar la configuración de proxy 
-Para configurar el agente para comunicarse con el servicio a través de un servidor proxy o [puerta de enlace de OMS](log-analytics-oms-gateway.md) después de la implementación, use uno de los métodos siguientes para completar esta tarea.
+Si quiere configurar el agente para comunicarse con el servicio a través de un servidor proxy o la [puerta de enlace de Log Analytics](log-analytics-oms-gateway.md) después de la implementación, use uno de los métodos siguientes para completar esta tarea.
 
 ### <a name="windows-agent"></a>Agente de Windows
 
@@ -110,7 +110,7 @@ Para configurar el agente para comunicarse con el servicio a través de un servi
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 2. Abra el **Panel de control**.
 3. Seleccione **Microsoft Monitoring Agent** y haga clic en la pestaña **Configuración de proxy**.
-4. Haga clic en **Usar un servidor proxy** y proporcione la dirección URL y el número de puerto del servidor proxy o puerta de enlace. Si el servidor proxy o la puerta de enlace de OMS requiere autenticación, escriba el nombre de usuario y la contraseña para autenticar y, después, haga clic en **Aceptar**. 
+4. Haga clic en **Usar un servidor proxy** y proporcione la dirección URL y el número de puerto del servidor proxy o puerta de enlace. Si el servidor proxy o la puerta de enlace de Log Analytics requiere autenticación, escriba el nombre de usuario y la contraseña para autenticarse y luego haga clic en **Aceptar**. 
 
 #### <a name="update-settings-using-powershell"></a>Actualizar la configuración con PowerShell 
 
@@ -141,7 +141,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agente Linux
-Siga estos pasos si los equipos Linux necesitan comunicarse a través de un servidor proxy o puerta de enlace de OMS con Log Analytics.  El valor de configuración de proxy tiene la siguiente sintaxis: `[protocol://][user:password@]proxyhost[:port]`.  La propiedad *proxyhost* acepta un nombre de dominio completo o la dirección IP del servidor proxy.
+Siga estos pasos si los equipos Linux necesitan comunicarse a través de un servidor proxy o la puerta de enlace de Log Analytics.  El valor de configuración de proxy tiene la siguiente sintaxis: `[protocol://][user:password@]proxyhost[:port]`.  La propiedad *proxyhost* acepta un nombre de dominio completo o la dirección IP del servidor proxy.
 
 1. Edite el archivo `/etc/opt/microsoft/omsagent/proxy.conf`. Para ello, ejecute los comandos siguientes y cambie los valores según su configuración específica.
 
@@ -185,7 +185,9 @@ Para quitar el agente, ejecute el siguiente comando en el equipo Linux.  El argu
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Configurar el agente para que envíe notificaciones a un grupo de administración de Operations Manager
 
 ### <a name="windows-agent"></a>Agente de Windows
-Realice los pasos siguientes para configurar al agente OMS para Windows para informar a un grupo de administración de System Center Operations Manager. 
+Siga estos pasos para configurar al agente de Log Analytics para Windows para informar a un grupo de administración de System Center Operations Manager.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 2. Abra el **Panel de control**. 
@@ -199,7 +201,9 @@ Realice los pasos siguientes para configurar al agente OMS para Windows para inf
 10. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar un grupo de administración** y después haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de Microsoft Monitoring Agent**.
 
 ### <a name="linux-agent"></a>Agente Linux
-Realice los pasos siguientes para configurar al agente OMS para Linux para informar a un grupo de administración de System Center Operations Manager. 
+Siga estos pasos para configurar al agente de Log Analytics para Linux para informar a un grupo de administración de System Center Operations Manager. 
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 1. Edite el archivo `/etc/opt/omi/conf/omiserver.conf`
 2. Asegúrese de que la línea que comienza con `httpsport=` define el puerto 1270. Por ejemplo: `httpsport=1270`

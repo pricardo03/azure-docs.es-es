@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: b9372c806eab1b0ca69ba078d972b076c8a7d6f6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ca63d67f6d7c19b4ca6928c4cc0f9ccb06eace2b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212728"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402988"
 ---
 # <a name="service-fabric-events"></a>Eventos de Service Fabric 
 
@@ -45,7 +45,7 @@ Estos son algunos ejemplos de escenarios importantes en los que puede ver los ev
 ## <a name="how-to-access-events"></a>Cómo obtener acceso a eventos
 
 Hay varias maneras mediante las cuales se puede obtener acceso a eventos de Service Fabric:
-* a través del canal operativo. Los eventos se pueden recopilar a través de la extensión de Azure Diagnostics y enviarse a una tabla de Storage para su consumo o ingesta en una herramienta como Log Analytics de OMS. Cuando se habilitan los diagnósticos en un clúster, el agente de Azure Diagnostics se implementa en el clúster y se configura de forma predeterminada para leer los registros del canal operativo. Obtenga más información sobre la configuración del [agente de Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para modificar la configuración de diagnósticos del clúster para seleccionar más registros o contadores de rendimiento. 
+* a través del canal operativo. Estos eventos se pueden recopilar a través de la extensión de Azure Diagnostics y enviarse a una tabla de Storage para su consumo o ingesta en una herramienta como Azure Log Analytics. Cuando se habilitan los diagnósticos en un clúster, el agente de Azure Diagnostics se implementa en el clúster y se configura de forma predeterminada para leer los registros del canal operativo. Obtenga más información sobre la configuración del [agente de Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para modificar la configuración de diagnósticos del clúster para seleccionar más registros o contadores de rendimiento. 
 * a través de las API de Rest del servicio EventStore que le permiten consultar el clúster directamente o a través de la biblioteca cliente de Service Fabric. Consulte [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md) (Consultar las API del servicio EventStore para obtener eventos de clúster).
 
 ## <a name="next-steps"></a>Pasos siguientes

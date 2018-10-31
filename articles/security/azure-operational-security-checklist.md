@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 481fcb869004a6fca83fdf19c32c41010057de32
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008202"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403992"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de comprobación de seguridad operativa de Azure
 La implementación de una aplicación en Azure es un procedimiento rápido, sencilla y rentable. Antes de implementar la aplicación en la nube en producción, es útil disponer de una lista de comprobación que ayude en la evaluación de la aplicación en relación con una lista de acciones de seguridad operativas esenciales y recomendadas que tener en cuenta.
@@ -51,8 +51,7 @@ Esta lista de comprobación se ha creado para ayudar a las empresas a pensar en 
 Muchas organizaciones han implementado y puesto en funcionamiento correctamente sus aplicaciones en la nube en Azure. Las listas de comprobación proporcionadas destacan algunas listas de comprobación que son fundamentales y le ayudan a mejorar la probabilidad de implementaciones correctas y operaciones sin frustraciones. Recomendamos fehacientemente estas consideraciones operativas y estratégicas para las implementaciones de aplicaciones nuevas y existentes en Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, se presentó la solución Seguridad y auditoría de OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
+Para obtener más información sobre Seguridad, vea los artículos siguientes:
 
-- [Información general de Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 - [Diseño y seguridad operativa](https://www.microsoft.com/trustcenter/security/designopsecurity)
 - [Guía de planeamiento y operaciones de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)

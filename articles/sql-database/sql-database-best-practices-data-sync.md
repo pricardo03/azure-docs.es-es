@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063664"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646317"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedimientos recomendados para SQL Data Sync 
 
@@ -70,6 +70,10 @@ No deben incluir en un grupo de sincronización todas las tablas que se encuentr
 Cada tabla de un grupo de sincronización debe tener una clave principal. El servicio SQL Data Sync no puede sincronizar una tabla que no tiene una clave principal.
 
 Antes de usar SQL Data Sync en producción, compruebe el rendimiento de la sincronización inicial y en curso.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>Las tablas vacías proporcionan el mejor rendimiento.
+
+Las tablas vacías ofrecen el mejor rendimiento en el momento de la inicialización. Si la tabla de destino está vacía, las sincronización de datos utiliza la inserción masiva para cargar los datos. En caso contrario, la sincronización de datos realiza una comparación fila a fila y la inserción para comprobar si hay conflictos. Aunque, si el rendimiento no es un problema, puede configurar la sincronización entre tablas que ya contengan datos.
 
 ### <a name="provisioning-destination-databases"></a> Aprovisionamiento de bases de datos de destino
 

@@ -1,6 +1,6 @@
 ---
-title: Recopilación de datos JSON personalizados en Log Analytics de OMS | Microsoft Docs
-description: Los orígenes de datos JSON personalizados se pueden recopilar en Log Analytics mediante el agente de OMS para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como curl o uno de los más de 300 complementos de FluentD. En este artículo se describe la configuración necesaria para esta recopilación de datos.
+title: Recopilar datos JSON personalizados en Log Analytics de OMS | Microsoft Docs
+description: Los orígenes de datos JSON personalizados se pueden recopilar en Log Analytics mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como curl o uno de los más de 300 complementos de FluentD. En este artículo se describe la configuración necesaria para esta recopilación de datos.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9725a3df04ef28fc3a076c3c6ca6663e36b186a8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 69338e438ced8871de1e994ee8b816f9dc40b13a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040275"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402359"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Recopilación de orígenes de datos JSON personalizados con el agente de OMS para Linux en Log Analytics
-Los orígenes de datos JSON personalizados se pueden recopilar en Log Analytics mediante el agente de OMS para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como [curl](https://curl.haxx.se/) o uno de los más de [300 complementos de FluentD](http://www.fluentd.org/plugins/all). En este artículo se describe la configuración necesaria para esta recopilación de datos.
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Recopilar orígenes de datos JSON personalizados con el agente de Log Analytics para Linux en Log Analytics
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Los orígenes de datos JSON personalizados se pueden recopilar en Log Analytics mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como [curl](https://curl.haxx.se/) o uno de los más de [300 complementos de FluentD](http://www.fluentd.org/plugins/all). En este artículo se describe la configuración necesaria para esta recopilación de datos.
 
 > [!NOTE]
-> El agente de OMS para Linux v1.1.0-217+ es necesario para los datos JSON personalizados.
+> El agente de Log Analytics para Linux (versión v1.1.0-217 y posteriores) es necesario para los datos JSON personalizados.
 
 ## <a name="configuration"></a>Configuración
 
@@ -80,8 +81,8 @@ Agregue la siguiente configuración de complemento de salida a la configuración
 </match>
 ```
 
-### <a name="restart-oms-agent-for-linux"></a>Reinicio del agente de OMS para Linux
-Reinicie el servicio de agente de OMS para Linux con el siguiente comando.
+### <a name="restart-log-analytics-agent-for-linux"></a>Reiniciar el agente de Log Analytics para Linux
+Reinicie el servicio del agente de Log Analytics para Linux con el siguiente comando.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 

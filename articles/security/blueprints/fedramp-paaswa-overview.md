@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: eb8db75a8ff5af11b98ee2c61628f923a8422153
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bad808455ebb35523a04e07edd22f4e6ce9473e6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299940"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407306"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: aplicación web de PaaS para FedRAMP
 
@@ -26,7 +26,7 @@ Esta arquitectura de referencia, las guías de implementación de los controles 
 - Los clientes tienen la responsabilidad de realizar las evaluaciones de seguridad y cumplimiento adecuadas de cualquier solución integrada mediante esta arquitectura, ya que los requisitos pueden variar en función de las características de implementación de cada cliente.
 
 ## <a name="architecture-diagram-and-components"></a>Componentes y diagrama de la arquitectura
-Esta solución proporciona una arquitectura de referencia para una aplicación web de PaaS con un back-end de Azure SQL Database. La aplicación web está hospedada en una instancia de Azure App Service Environment aislada, que es un entorno privado y dedicado en un centro de datos de Azure. La carga del entorno equilibra el tráfico para la aplicación web en máquinas virtuales administradas por Azure. Esta arquitectura también incluye grupos de seguridad de red, una instancia de Application Gateway, Azure DNS y Load Balancer. Además, Operations Management Suite proporciona análisis en tiempo real del mantenimiento y la seguridad del sistema. **Azure recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en la subred de la arquitectura de referencia.**
+Esta solución proporciona una arquitectura de referencia para una aplicación web de PaaS con un back-end de Azure SQL Database. La aplicación web está hospedada en una instancia de Azure App Service Environment aislada, que es un entorno privado y dedicado en un centro de datos de Azure. La carga del entorno equilibra el tráfico para la aplicación web en máquinas virtuales administradas por Azure. Esta arquitectura también incluye grupos de seguridad de red, una instancia de Application Gateway, Azure DNS y Load Balancer. Además, Azure Monitor proporciona análisis en tiempo real del mantenimiento del sistema. **Azure recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en la subred de la arquitectura de referencia.**
 
 ![Diagrama de arquitectura de referencia de aplicación web de PaaS para FedRAMP](images/fedramp-paaswa-architecture.png?raw=true "Diagrama de arquitectura de referencia de aplicación web de PaaS para FedRAMP")
 
@@ -44,7 +44,6 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Grupos de seguridad de red
 - Azure DNS
 - Azure Storage
-- Operations Management Suite
 - Azure Monitor
 - App Service Environment v2
 - Azure Load Balancer
@@ -85,7 +84,7 @@ La arquitectura define una red virtual privada con un espacio de direcciones de 
 
 Cada uno de los grupos de seguridad de red tiene puertos y protocolos específicos abiertos para que la solución pueda funcionar de forma segura y correcta. Además, las siguientes opciones de configuración están habilitadas para cada NSG:
   - Los [eventos y registros de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) están habilitados y se almacenan en la cuenta de almacenamiento.
-  - Log Analytics de OMS está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - Log Analytics está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
 **Subredes**: asegúrese de que cada subred esté asociada a su grupo de seguridad de red correspondiente.
 
@@ -143,12 +142,12 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) y [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) que proporcionan protección adicional y notificaciones. Asimismo, Azure Security Center también proporciona un sistema de reputación.
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
-Operations Management Suite proporciona un registro completo de la actividad del usuario y del sistema, así como del mantenimiento del sistema. La solución [Log Analytics](https://azure.microsoft.com/services/log-analytics/) de Operations Management Suite recopila y analiza los datos generados por los recursos en los entornos local y de Azure.
+Azure Monitor ofrece un registro completo de la actividad de usuario y del sistema, además de mantenimiento del sistema. Recopila y analiza los datos generados por los recursos en Azure y en los entornos locales.
 - **Registros de actividad:** [los registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico:** [los registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluyen todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway.
 - **Archivado de registros**: todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. El usuario puede configurar la retención hasta 730 días para cumplir los requisitos de retención específicos de una organización. Esos registros se conectan a Azure Log Analytics para el procesamiento, el almacenamiento y la creación de informes de panel.
 
-Además, las siguientes soluciones de Operations Management Suite se incluyen como parte de esta arquitectura:
+Además, como parte de esta arquitectura, se incluyen las siguientes soluciones de supervisión:
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista clasificada por orden de prioridad de recomendaciones específicas para la infraestructura de servidor implementada.
 -   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la solución de antimalware notifica sobre el estado de malware, las amenazas y la protección.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la solución Azure Automation almacena, ejecuta y administra runbooks. En esta solución, los runbooks ayudan a recopilar registros de Application Insights y Azure SQL Database.
