@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405995"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638230"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -56,7 +56,10 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 ## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitación de la característica
 
-Habilite el SSO de conexión directa a través de [Azure AD Connect](whatis-hybrid-identity.md).
+Habilite el SSO de conexión directa mediante [Azure AD Connect](whatis-hybrid-identity.md).
+
+>[!NOTE]
+> También puede [habilitar el SSO de conexión directa con PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) si Azure AD Connect no cumple sus requisitos. Utilice esta opción si tiene más de un dominio por cada bosque de Active Directory y desea ser más específico sobre el dominio para el que quiere habilitar SSO de conexión directa.
 
 Si va a realizar una instalación nueva de Azure AD Connect, elija la [ruta de acceso de instalación personalizada](how-to-connect-install-custom.md). En la página **Inicio de sesión de usuario**, active la opción **Habilitar el inicio de sesión único**.
 

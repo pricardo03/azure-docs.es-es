@@ -1,6 +1,6 @@
 ---
 title: Referencia para desarrolladores de F# de Azure Functions | Microsoft Docs
-description: Cómo desarrollar Azure Functions usando F#.
+description: Obtenga información sobre cómo desarrollar Azure Functions mediante scripts de F#.
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,18 +10,21 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125262"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025436"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referencia para desarrolladores de F# de Azure Functions
 
-F# para Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Los datos fluyen en la función de F# a través de los argumentos de función. Los nombres de los argumentos se especifican en `function.json`, y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación.
+F# para Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Los datos fluyen en la función de F# a través de los argumentos de función. Los nombres de los argumentos se especifican en `function.json`, y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación. 
+
+>[!IMPORTANT]
+>El script de F# (.fsx) solo es compatible con la [versión 1.x](functions-versions.md#creating-1x-apps) del tiempo de ejecución de Azure Functions. Si desea usar F# con el tiempo de ejecución de la versión 2.x, debe usar un proyecto de la biblioteca de clases (.fs) de F# precompilado. Cree, administre y publique un proyecto de la biblioteca de clases de F# con Visual Studio como lo haría con un [proyecto de la biblioteca de clases de C#](functions-dotnet-class-library.md). Para más información sobre las versiones de Functions, vea [Introducción a las versiones de tiempo de ejecución de Azure Functions](functions-versions.md).
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
@@ -49,7 +52,7 @@ FunctionsProject
  | - bin
 ```
 
-Hay un archivo [host.json] (functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.fsx) y archivo de configuración de enlace (function.json).
+Hay un archivo [host.json](functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.fsx) y archivo de configuración de enlace (function.json).
 
 Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 

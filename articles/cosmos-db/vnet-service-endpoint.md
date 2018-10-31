@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 6d9d05a56376c07013fdea1c94b0a3262d2397c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378092"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026303"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de Azure Virtual Network
 
@@ -56,8 +56,8 @@ Ahora, la cuenta de Azure Cosmos DB solo admitirá el tráfico desde esta subred
 
 1. En la hoja **Todos los recursos**, busque la cuenta de Azure Cosmos DB que desea proteger.  
 
-> [!NOTE]
-> Si tiene un firewall para direcciones IP existente configurado para la cuenta de Azure Cosmos DB, tenga en cuenta la configuración del firewall, quite el firewall para direcciones IP y luego habilite el punto de conexión de servicio. Si habilita el punto de conexión de servicio sin deshabilitar el firewall, el tráfico de ese rango de IP perderá la identidad de IP virtual y caerá con un mensaje de error de filtro de IP. Para evitar este error debe siempre deshabilitar las reglas del firewall, copiarlas, habilitar el punto de conexión de servicio de la subred y, finalmente, obtener la lista de control de acceso de Cosmos DB. Una vez configurado el punto de conexión de servicio y agregada la lista de control de acceso, puede volver a habilitar el firewall de direcciones IP si es necesario.
+   > [!NOTE]
+   > Si tiene un firewall para direcciones IP existente configurado para la cuenta de Azure Cosmos DB, tenga en cuenta la configuración del firewall, quite el firewall para direcciones IP y luego habilite el punto de conexión de servicio. Si habilita el punto de conexión de servicio sin deshabilitar el firewall, el tráfico de ese rango de IP perderá la identidad de IP virtual y caerá con un mensaje de error de filtro de IP. Para evitar este error debe siempre deshabilitar las reglas del firewall, copiarlas, habilitar el punto de conexión de servicio de la subred y, finalmente, obtener la lista de control de acceso de Cosmos DB. Una vez configurado el punto de conexión de servicio y agregada la lista de control de acceso, puede volver a habilitar el firewall de direcciones IP si es necesario.
 
 2. Antes de habilitar el punto de conexión de servicio de Virtual Network, copie la información del firewall para las direcciones IP asociada con la cuenta de Azure Cosmos DB para su futuro uso. Puede volver a habilitar el firewall para las direcciones IP después de configurar el punto de conexión de servicio.  
 
@@ -97,9 +97,8 @@ Use los pasos siguientes para configurar el punto de conexión de servicio de un
 
 1. Instale la última versión de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) e [inicie sesión](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Asegúrese de anotar la configuración del firewall para las direcciones IP y elimine el firewall por completo antes de habilitar el punto de conexión de servicio para la cuenta.
 
-
-> [!NOTE]
-> Si tiene un firewall para direcciones IP existente configurado para la cuenta de Azure Cosmos DB, tenga en cuenta la configuración del firewall, quite el firewall para direcciones IP y luego habilite el punto de conexión de servicio. Si habilita el punto de conexión de servicio sin deshabilitar el firewall, el tráfico de ese rango de IP perderá la identidad de IP virtual y caerá con un mensaje de error de filtro de IP. Para evitar este error debe siempre deshabilitar las reglas del firewall, copiarlas, habilitar el punto de conexión de servicio de la subred y, finalmente, obtener la lista de control de acceso de Cosmos DB. Una vez configurado el punto de conexión de servicio y agregada la lista de control de acceso, puede volver a habilitar el firewall de direcciones IP si es necesario.
+  > [!NOTE]
+  > Si tiene un firewall para direcciones IP existente configurado para la cuenta de Azure Cosmos DB, tenga en cuenta la configuración del firewall, quite el firewall para direcciones IP y luego habilite el punto de conexión de servicio. Si habilita el punto de conexión de servicio sin deshabilitar el firewall, el tráfico de ese rango de IP perderá la identidad de IP virtual y caerá con un mensaje de error de filtro de IP. Para evitar este error debe siempre deshabilitar las reglas del firewall, copiarlas, habilitar el punto de conexión de servicio de la subred y, finalmente, obtener la lista de control de acceso de Cosmos DB. Una vez configurado el punto de conexión de servicio y agregada la lista de control de acceso, puede volver a habilitar el firewall de direcciones IP si es necesario.
 
 2. Antes de habilitar el punto de conexión de servicio de Virtual Network, copie la información del firewall para las direcciones IP asociada con la cuenta de Azure Cosmos DB para su futuro uso. Volverá a habilitar el firewall para las direcciones IP después de configurar el punto de conexión de servicio.  
 
@@ -132,7 +131,7 @@ Use los pasos siguientes para configurar el punto de conexión de servicio de un
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -174,7 +173,7 @@ Use los pasos siguientes para configurar el punto de conexión de servicio de un
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
    Set-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName -Properties $CosmosDBProperties
@@ -184,7 +183,7 @@ Use los pasos siguientes para configurar el punto de conexión de servicio de un
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -270,7 +269,7 @@ Si los puntos de conexión de servicio de Virtual Network están habilitados, la
 
 Azure Cosmos DB es un servicio multiinquilino con direcciones IP públicas. Al restringir el acceso a una subred de una instancia de Azure Virtual Network con el uso de la característica del punto de conexión de servicio, se restringe el acceso para la cuenta de Azure Cosmos DB a través de una instancia determinada de Azure Virtual Network y su subred.  La cuenta de Azure Cosmos DB no reside en dicha instancia de Azure Virtual Network. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>¿Qué ocurre si se registra algo en Log Analytics/OMS si está habilitado?  
+### <a name="what-if-anything-will-be-logged-in-log-analytics-if-it-is-enabled"></a>¿Qué ocurre si se registra algo en Log Analytics si está habilitado?  
 
 Azure Cosmos DB insertará los registros con la dirección IP (sin el último octeto) con el estado 403 para la solicitud bloqueada por la ACL.  
 

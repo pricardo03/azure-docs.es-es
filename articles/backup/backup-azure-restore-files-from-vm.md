@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616916"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638314"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -45,7 +45,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 4. En el menú desplegable **Seleccionar punto de recuperación**, elija el punto de recuperación que contiene los archivos que desee. De forma predeterminada, el punto de recuperación más reciente ya está seleccionado.
 
-5. Para descargar el software para copiar archivos del punto de recuperación, haga clic en **Download Executable** (Descargar ejecutable) para máquinas virtuales Windows de Azure o **Download Script** (Descargar script) para máquinas virtuales Linux de Azure.
+5. Si desea descargar el software para copiar archivos del punto de recuperación, haga clic en **Descargar ejecutable** (para máquinas virtuales Windows de Azure) o en **Descargar script** (para máquinas virtuales Linux de Azure). Se genera un script de Python.
 
     ![Contraseña generada](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

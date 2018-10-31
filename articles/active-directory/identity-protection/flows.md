@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 10/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3c1c681e2c7ccd6b5fd3eaa3639853d99cb1e0b7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 397aa000da7ea70c12883622b60c0e3e6dded811
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005218"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025324"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiencias de inicio de sesión con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection, puede:
@@ -33,7 +33,7 @@ La respuesta del sistema a estos problemas tiene un impacto en la experiencia de
 
 En este artículo se ofrece información general sobre la experiencia de inicio de sesión de usuario para todos los casos posibles.
 
-**Multi-Factor Authentication**
+**Multi-factor Authentication**
 
 * Registro de la autenticación multifactor
 
@@ -57,13 +57,18 @@ Los administradores pueden establecer una directiva que requiere que los usuario
 
 1. En el primer paso, el usuario recibe una notificación sobre la necesidad de configurar la cuenta para la autenticación multifactor. 
    
-    ![Corrección](./media/flows/140.png "Corrección")
+    ![Corrección](./media/flows/301.png "Corrección")
+
 2. Para configurar la autenticación multifactor, debe indicar al sistema cómo quiere que se pongan en contacto con usted.
    
-    ![Corrección](./media/flows/141.png "Corrección")
-3. El sistema envía una comprobación que debe responder.
-   
-    ![Corrección](./media/flows/142.png "Corrección")
+    ![Corrección](./media/flows/302.png "Corrección")
+
+3. Proporcione al sistema su número de teléfono e indique cómo desea que se pongan en contacto con usted.
+
+    ![Corrección](./media/flows/303.png "Corrección")
+
+Para completar el registro, debe responder a una llamada de teléfono o escribir un código. 
+
 
 ## <a name="risky-sign-in-recovery"></a>Recuperación de inicios de sesión peligrosos
 Cuando un administrador ha configurado una directiva de riesgo de inicio de sesión, se notifica a los usuarios afectados cuando intentan iniciar sesión. 

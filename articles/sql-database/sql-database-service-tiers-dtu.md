@@ -11,26 +11,28 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162379"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955268"
 ---
-# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Elección de un nivel de servicio basado en DTU, tamaño de proceso y recursos de almacenamiento 
+# <a name="dtu-based-service-tiers"></a>Niveles de servicio basados en DTU
 
-Los niveles de servicio se diferencian por una variedad de tamaños de proceso con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio proporcionan la flexibilidad de cambiar los tamaños de proceso sin tiempo de inactividad. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el tamaño de proceso.
+Los niveles de servicio basados en DTU se diferencian por una variedad de tamaños de proceso con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio proporcionan la flexibilidad de cambiar los tamaños de proceso sin tiempo de inactividad. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el tamaño de proceso.
 
 > [!IMPORTANT]
-> Instancia administrada de Azure SQL Database, actualmente en versión preliminar pública, no admite un modelo de compra basado en DTU. Para más información, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). 
+> Instancia administrada de Azure SQL Database, actualmente en versión preliminar pública, no admite un modelo de compra basado en DTU. Para más información, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
+> [!NOTE]
+> Para obtener información sobre los niveles de servicio basados en núcleos virtuales, consulte el artículo sobre [niveles de servicio basados en núcleos virtuales](sql-database-service-tiers-vcore.md). Para obtener información acerca de cómo distinguir los niveles de servicio basados en DTU y los niveles de servicio basados en núcleos virtuales, consulte [Modelos de compra de Azure SQL Database](sql-database-service-tiers.md).
 
-## <a name="choosing-a-dtu-based-service-tier"></a>Elección de un nivel de servicio basado en DTU
+## <a name="compare-the-dtu-based-service-tiers"></a>Comparación de los niveles de servicio basados en DTU
 
 La selección de un nivel de servicio depende sobre todo de los requisitos de continuidad del negocio, de almacenamiento y de rendimiento.
 ||Básica|Estándar|Premium|
-| :-- | --: |--:| --:| --:| 
+| :-- | --: |--:| --:| --:|
 |Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción||
 |Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|N/D en versión preliminar|
 |Retención de copias de seguridad|7 días|35 días|35 días|
@@ -41,13 +43,16 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |OLTP en memoria (optimización en memoria|N/D|N/D|Compatible|
 |||||
 
+> [!NOTE]
+> Si quiere explorar Azure, puede obtener una instancia gratuita de Azure SQL Database en el nivel de servicio Básico junto con una cuenta gratuita de Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
+
 ## <a name="single-database-dtu-and-storage-limits"></a>Límites de DTU de una sola base de datos y almacenamiento
 
-Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)
+Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para obtener más información sobre DTU y eDTU, consulte [Modelo de compra basado en DTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
 
 ||Básica|Estándar|Premium|
 | :-- | --: | --: | --: | --: |
-| Tamaño máximo de almacenamiento | 2 GB | 1 TB | 4 TB  | 
+| Tamaño máximo de almacenamiento | 2 GB | 1 TB | 4 TB  |
 | Cantidad máxima de DTU | 5 | 3000 | 4000 | |
 ||||||
 
@@ -56,18 +61,17 @@ Los tamaños de proceso se expresan como unidades de transacción de base de dat
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Límites de eDTU de grupo elástico, almacenamiento y base de datos agrupada
 
-| | **Básico** | **Estándar** | **Premium** | 
+| | **Básico** | **Estándar** | **Premium** |
 | :-- | --: | --: | --: | --: |
-| Tamaño máximo de almacenamiento por base de datos  | 2 GB | 1 TB | 1 TB | 
-| Tamaño máximo de almacenamiento por grupo | 156 GB | 4 TB | 4 TB | 
-| Cantidad máxima de eDTU por base de datos | 5 | 3000 | 4000 | 
-| Cantidad máxima de eDTU por grupo | 1600 | 3000 | 4000 | 
-| Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 | 
+| Tamaño máximo de almacenamiento por base de datos  | 2 GB | 1 TB | 1 TB |
+| Tamaño máximo de almacenamiento por grupo | 156 GB | 4 TB | 4 TB |
+| Cantidad máxima de eDTU por base de datos | 5 | 3000 | 4000 |
+| Cantidad máxima de eDTU por grupo | 1600 | 3000 | 4000 |
+| Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones, excepto en las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), US Gov (suroeste), USGov Iowa, Nordeste de Alemania, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
@@ -76,14 +80,17 @@ Los tamaños de proceso se expresan como unidades de transacción de base de dat
 Las características físicas (CPU, memoria, E/S) asociadas a cada medida de DTU se calibran con una prueba comparativa que simula la carga de trabajo de base de datos real.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlación de los resultados de la prueba comparativa con el rendimiento real de la base de datos
+
 Es importante comprender que todas las pruebas comparativas solo son representativas e indicativas. Las velocidades de transacción logradas con la aplicación de la prueba comparativa no serán iguales que las que se podrían lograr con otras aplicaciones. La prueba comparativa comprende un conjunto de diferentes tipos de transacción ejecutados en un esquema que contiene una variedad de tipos de datos y tablas. Si bien la prueba comparativa ejerce las mismas operaciones básicas que son comunes para todas las cargas de trabajo OLTP, no representa ninguna clase específica de base de datos o aplicación. El objetivo de la prueba comparativa es proporcionar una orientación razonable del rendimiento relativo de una base de datos que se puede esperar al aumentar o reducir el tamaño de proceso. En realidad, las bases de datos son de distintos tamaños y complejidad, tienen distintas combinaciones de cargas de trabajo y responden de maneras diferentes. Por ejemplo, una aplicación que haga un uso intensivo de ES podría alcanzar antes el umbral de ES, o una que haga un uso intensivo de la CPU podría alcanzar antes los límites de CPU. No se garantiza que una base de datos concreta se escale de la misma manera que la prueba comparativa bajo una carga creciente.
 
 La prueba comparativa y su metodología se describen a continuación de forma más detallada.
 
 ### <a name="benchmark-summary"></a>Resumen de la prueba comparativa
+
 El ASDB mide el rendimiento de una mezcla de operaciones de bases de datos básicas que se producen con mayor frecuencia en las cargas de trabajo de procesamiento de transacciones en línea (OLTP). Aunque la prueba comparativa está diseñada teniendo en cuenta la computación en la nube, el esquema de la base de datos, el rellenado de datos y las transacciones se diseñaron para representar ampliamente los elementos básicos usados con mayor frecuencia en las cargas de trabajo OLTP.
 
 ### <a name="schema"></a>Esquema
+
 El esquema se ha diseñado para que presente una variedad y complejidad suficientes como para permitir una amplia gama de operaciones. La prueba comparativa se ejecuta en una base de datos formada por seis tablas. Las tablas pertenecen a tres categorías: de tamaño fijo, de escalado y de crecimiento. Existen dos tablas de tamaño fijo, tres tablas de escalado y una tabla de crecimiento. Las tablas de tamaño fijo tienen un número de filas constante. Las tablas de escalado presentan una cardinalidad proporcional al rendimiento de la base de datos, pero no cambian durante la prueba comparativa. La tabla de crecimiento tiene un tamaño igual que la tabla de escalado en la carga inicial, pero después la cardinalidad cambia durante el transcurso de la prueba comparativa según se van insertando y eliminando filas.
 
 El esquema incluye una combinación de tipos de datos que incluyen valores enteros, numéricos, caracteres y fecha/hora. El esquema incluye claves principales y secundarias, pero no claves externas; es decir, no hay restricciones de integridad referenciales entre las tablas.
@@ -93,6 +100,7 @@ Un programa de generación de datos genera los datos para la base de datos inici
 La base de datos se dimensiona basándose en un “factor de escala”. El factor de escala (abreviado SF) determina la cardinalidad de las tablas de escalado y de crecimiento. Como se describe a continuación en la sección Usuarios y velocidad, el tamaño de la base de datos, el número de usuarios y el rendimiento máximo se escalan de modo proporcional entre sí.
 
 ### <a name="transactions"></a>Transacciones
+
 La carga de trabajo consta de nueve tipos de transacciones, como se muestra en la tabla siguiente. Cada transacción se diseño para destacar un conjunto determinado de características del sistema en el motor de la base de datos y en el hardware del sistema, con un elevado contraste con respecto a las otras transacciones. Este enfoque facilita la evaluación del impacto de diferentes componentes sobre el rendimiento global. Por ejemplo, la transacción “Lectura intensa” produce un número significativo de operaciones de lectura de disco.
 
 | Tipo de transacción | DESCRIPCIÓN |
@@ -108,6 +116,7 @@ La carga de trabajo consta de nueve tipos de transacciones, como se muestra en l
 | CPU intensa |SELECT; en memoria; carga en CPU relativamente intensa; solo lectura |
 
 ### <a name="workload-mix"></a>Combinación de cargas de trabajo
+
 Las transacciones se seleccionan aleatoriamente de una distribución ponderada con la siguiente combinación global. La combinación global presenta una relación de lectura/escritura aproximadamente de 2:1.
 
 | Tipo de transacción | % de combinación |
@@ -123,38 +132,41 @@ Las transacciones se seleccionan aleatoriamente de una distribución ponderada c
 | CPU intensa |10 |
 
 ### <a name="users-and-pacing"></a>Usuarios y velocidad
+
 La carga de trabajo de la prueba comparativa está dirigida a partir de una herramienta que envía transacciones a través de un conjunto de conexiones para simular el comportamiento de numerosos usuarios simultáneos. Aunque todas las conexiones y transacciones son generadas a máquina, para simplificar nos referiremos a estas conexiones como “usuarios”. Aunque cada usuario opera independientemente de todos los demás usuarios, todos los usuarios realizan el mismo ciclo de pasos mostrado a continuación:
 
 1. Establecer una conexión de base de datos.
 2. Repetir hasta que se señale la salida:
-   * Seleccionar una transacción aleatoriamente (a partir de una distribución ponderada).
-   * Realizar la transacción seleccionada y medir el tiempo de respuesta.
-   * Esperar un retraso de velocidad.
+   - Seleccionar una transacción aleatoriamente (a partir de una distribución ponderada).
+   - Realizar la transacción seleccionada y medir el tiempo de respuesta.
+   - Esperar un retraso de velocidad.
 3. Cerrar la conexión de la base de datos.
 4. Salir.
 
 El retraso de velocidad (en el paso 2c) se selecciona aleatoriamente, pero con una distribución que tenga un promedio de 1,0 segundos. De este modo, cada usuario puede, en promedio, generar como máximo una transacción por segundo.
 
 ### <a name="scaling-rules"></a>Reglas de escalado
+
 El número de usuarios viene determinado por el tamaño de la base de datos (en unidades de factor de escala). Hay un usuario por cada cinco unidades de factor de escala. Debido al retraso de velocidad, un usuario puede, en promedio, generar como máximo una transacción por segundo.
 
 Por ejemplo, una base de datos que tenga un factor de escala 500 (SF=500) tendrá 100 usuarios y podrá alcanzar una velocidad máxima de 100 TPS. Para generar una velocidad de TPS mayor, son necesarios más usuarios y una base de datos mayor.
 
 ### <a name="measurement-duration"></a>Duración de la medición
+
 Una ejecución válida de la prueba comparativa precisa una duración de medición en estado fijo de al menos una hora.
 
 ### <a name="metrics"></a>Métricas
+
 Las métricas clave de la prueba comparativa son rendimiento y tiempo de respuesta.
 
-* El rendimiento es la medición de rendimiento esencial en la prueba comparativa. El rendimiento se indica en transacciones por unidad de tiempo, contando todos los tipos de transacciones.
-* El tiempo de respuesta es una medición de la previsibilidad del rendimiento. La restricción del tiempo de respuesta varía con la clase de servicio, presentando las clases de servicio mayores un requisito de tiempo de respuesta más estricto, como se muestra a continuación.
+- El rendimiento es la medición de rendimiento esencial en la prueba comparativa. El rendimiento se indica en transacciones por unidad de tiempo, contando todos los tipos de transacciones.
+- El tiempo de respuesta es una medición de la previsibilidad del rendimiento. La restricción del tiempo de respuesta varía con la clase de servicio, presentando las clases de servicio mayores un requisito de tiempo de respuesta más estricto, como se muestra a continuación.
 
 | Clase de servicio | Medición del rendimiento | Requisito del tiempo de respuesta |
 | --- | --- | --- |
 | Premium |Transacciones por segundo |Percentil 95 en 0,5 segundos |
 | Estándar |Transacciones por minuto |Percentil 90 en 1,0 segundo |
 | Básica |Transacciones por hora |Percentil 80 en 2,0 segundos |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

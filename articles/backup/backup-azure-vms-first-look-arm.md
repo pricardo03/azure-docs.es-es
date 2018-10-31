@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: copias de seguridad; copia de seguridad de máquina virtual
-ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717920"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985901"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 
@@ -96,11 +96,11 @@ Siga estos pasos para configurar el trabajo de copia de seguridad desde el menú
 
   Hasta que se haya completado la copia de seguridad inicial, el **estado de la última copia de seguridad** se muestra como **Advertencia (copia de seguridad inicial pendiente)**. Para ver cuándo se produce el siguiente trabajo de copia de seguridad programado, en **Resumen**, haga clic en el nombre de la directiva. Se abre el menú Directiva de copia de seguridad y muestra la hora de la copia de seguridad programada.
 
-10. Para proteger la máquina virtual, haga clic en **Realizar copia de seguridad ahora**. 
+10. Para proteger la máquina virtual, haga clic en **Realizar copia de seguridad ahora**.
 
   ![Haga clic en Realizar copia de seguridad ahora para ejecutar la copia de seguridad inicial.](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Se abrirá el menú Realizar copia de seguridad ahora. 
+  Se abrirá el menú Realizar copia de seguridad ahora.
 
   ![muestra la hoja Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Para editar la configuración de replicación de almacenamiento:
   ![Vista de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. En el menú Administración de máquina virtual del nuevo almacén, desplácese con el control deslizante vertical hasta la sección Administrar y haga clic en **Infraestructura de Backup** para abrir el menú Infraestructura de Backup.
- 
+
    ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. En el menú Infraestructura de Backup, haga clic en **Configuración de copia de seguridad** para abrir el menú **Configuración de copia de seguridad**.
@@ -291,6 +291,11 @@ Para ejecutar el trabajo de copia de seguridad inicial:
   ![establece el último día en que se mantiene el punto de recuperación de Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Las notificaciones de implementación le permiten saber si se ha desencadenado el trabajo de copia de seguridad y que puede supervisar el progreso del trabajo en la página de trabajos de copia de seguridad. Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar un tiempo.
+
+  > [!NOTE]
+  > Todos los datos de los que Azure Backup realiza una copia de seguridad se cifran en reposo mediante [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. Para ver o realizar el seguimiento del estado de la copia de seguridad inicial, en el panel del almacén, en el icono **Trabajos de Backup**, haga clic en **En curso**.
 
