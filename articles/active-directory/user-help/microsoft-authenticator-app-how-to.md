@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 590f9e2a9cf531a1124f9cb132791f2956227d9c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046584"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393259"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introducción a la aplicación Microsoft Authenticator
 
@@ -25,7 +25,7 @@ La aplicación Microsoft Authenticator ayuda a prevenir el acceso no autorizado 
 
 Cuando se usa la aplicación para la verificación en dos pasos, puede funcionar de dos formas:
 
-- **Notificación.** La aplicación envía una notificación al dispositivo. Asegúrese de que la notificación es correcta y luego seleccione **Verificar**. Si no reconoce la notificación, seleccione **Denegar**.
+- **Notificación.** La aplicación envía una notificación al dispositivo. Asegúrese de que la notificación es correcta y luego seleccione **Verificar**. Si no reconoce la notificación, seleccione **Denegar**. Tras hacer clic en **Denegar**, también puede marcar la solicitud como fraudulenta.
 
 - **Código de verificación.** Después de escribir su nombre de usuario y contraseña, puede abrir la aplicación y copiar el código de verificación proporcionado en la pantalla **Cuentas** de la ventana de inicio de sesión. El código de verificación actúa como una forma adicional de autenticación.
 

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
-ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: cd9792881182fbe90d9c210130ae8a34b12da363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: jeconnoc
+ms.openlocfilehash: 9433cbaba774237bc739106af410dd8d3dd7308f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26366011"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025729"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Realización de una llamada telefónica con Twilio en un rol web en Azure
 En esta guía se describe cómo usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante pide al usuario que llame a un determinado número y deje un mensaje, como se muestra en la siguiente captura de pantalla.
@@ -29,7 +29,7 @@ En esta guía se describe cómo usar Twilio para realizar una llamada desde una 
 ## <a name="twilio-prereqs"></a>Requisitos previos
 Tendrá que hacer lo siguiente para usar el código de este tema:
 
-1. Adquiera una cuenta de Twilio y un token de autenticación desde la [Consola de Twilio][twilio_console]. Para empezar con Twilio, regístrese en [https://www.twilio.com/try-twilio][try_twilio]. Puede estudiar los precios en [http://www.twilio.com/pricing][twilio_pricing]. Para más información sobre la API proporcionada por Twilio, vea [http://www.twilio.com/voice/api][twilio_api].
+1. Adquiera una cuenta de Twilio y un token de autenticación desde la [Consola de Twilio][twilio_console]. Para empezar a trabajar con Twilio, regístrese en [https://www.twilio.com/try-twilio][try_twilio]. Puede evaluar los precios en [http://www.twilio.com/pricing][twilio_pricing]. Para más información sobre la API proporcionada por Twilio, vea [http://www.twilio.com/voice/api][twilio_api].
 2. Agregue la *biblioteca .NET de Twilio*  al rol web. Vea **Para agregar las bibliotecas de Twilio al proyecto de rol web**, más adelante en este tema.
 
 Debe saber cómo crear un [rol web básico en Azure][azure_webroles_get_started].
@@ -148,17 +148,17 @@ Se realiza la llamada y se muestran el extremo de Twilio, la versión de la API 
 
 ![Respuesta de llamada de Azure con Twilio y ASP.NET][twilio_dotnet_basic_form_output]
 
-Encontrará más información sobre TwiML en [http://www.twilio.com/docs/api/twiml][twiml]. Encontrará más información sobre &lt;Say&gt; y otros verbos de Twilio en [http://www.twilio.com/docs/api/twiml/say][twilio_say].
+Encontrará más información acerca de TwiML en [http://www.twilio.com/docs/api/twiml][twiml]. Encontrará más información sobre &lt;Say&gt; y otros verbos de Twilio en [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 
 ## <a id="nextsteps"></a>Pasos siguientes
-Este código se proporciona para mostrar la funcionalidad básica del uso de Twilio en un rol web de ASP.NET en Azure. Antes de implementarlo en Azure en producción, es posible que desee agregar más controles de errores u otras características. Por ejemplo:
+Este código se proporciona para mostrar la funcionalidad básica del uso de Twilio en un rol web de ASP.NET en Azure. Antes de implementarlo en Azure en producción, es posible que desee agregar más controles de errores u otras características. Por ejemplo: 
 
 * En lugar de usar un formulario web, puede usar Azure Blob Storage o una instancia de Azure SQL Database para almacenar los números de teléfono y el texto de llamada. Para más información sobre cómo usar blobs en Azure, vea [Introducción al servicio Azure Blob Storage en .NET][howto_blob_storage_dotnet]. Para más información sobre cómo usar SQL Database, vea [Azure SQL Database: uso de .NET (C#) para conectar y consultar datos][howto_sql_azure_dotnet].
 * Puede usar `RoleEnvironment.getConfigurationSettings` para recuperar el identificador de la cuenta de Twilio y el token de autenticación desde los ajustes de configuración de su implementación, en vez de codificar de forma rígida los valores en el formulario. Para más información sobre la clase `RoleEnvironment`, vea el tema sobre el [espacio de nombres Microsoft.WindowsAzure.ServiceRuntime][azure_runtime_ref_dotnet].
 * Lea las directrices de seguridad de Twilio en [https://www.twilio.com/docs/security][twilio_docs_security].
-* Obtenga más información sobre Twilio en [https://www.twilio.com/docs][twilio_docs].
+* Obtenga más información acerca de Twilio en [https://www.twilio.com/docs][twilio_docs].
 
-## <a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Consulte también
 * [Uso de Twilio para funciones de voz y SMS desde Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

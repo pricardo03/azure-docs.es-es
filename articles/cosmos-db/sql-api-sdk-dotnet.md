@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452401"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389776"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>API de SQL para el SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -50,6 +50,14 @@ ms.locfileid: "47452401"
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* System.Net.Security actualizada a 4.3.2.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Mejoras en el seguimiento de diagnósticos
+
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
 * Se agregó más resistencia a errores transitorios de solicitud de varias regiones.
@@ -327,6 +335,8 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 de octubre de 2018 |--- |
+| [2.1.2](#2.1.2) |04 de octubre de 2018 |--- |
 | [2.1.1](#2.1.1) |27 de septiembre de 2018 |--- |
 | [2.1.0](#2.1.0) |21 de septiembre de 2018 |--- |
 | [2.0.0](#2.0.0) |07 de septiembre de 2018 |--- |

@@ -1,6 +1,6 @@
 ---
-title: Integración e implementación continuas en Azure Data Factory | Microsoft Docs
-description: Obtenga información acerca de cómo utilizar la integración y la implementación continuas para mover canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro.
+title: Integración y entrega continuas en Azure Data Factory | Microsoft Docs
+description: Aprenda a usar la integración y la entrega continuas para mover canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144451"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457224"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integración e implementación continuas en Azure Data Factory
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
 
-La integración continua es la práctica de probar cada cambio realizado en el código base automáticamente y tan pronto como sea posible. La implementación continua sigue a las pruebas realizadas durante la integración continua y envía los cambios a un sistema de ensayo o de producción.
+La integración continua es la práctica de probar cada cambio realizado en el código base automáticamente y tan pronto como sea posible. La entrega continua sigue a las pruebas realizadas durante la integración continua y envía los cambios a un sistema de ensayo o producción.
 
-Para Azure Data Factory, la integración y la implementación continuas implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Para realizar la implementación y la integración continuas, puede usar la integración de la interfaz de usuario de Data Factory con plantillas de Azure Resource Manager. La interfaz de usuario de Data Factory puede generar una plantilla de Resource Manager al seleccionar las opciones de la **plantilla de ARM**. Al seleccionar **Export ARM template** (Exportar plantilla de ARM), el portal genera la plantilla de Resource Manager de la factoría de datos y un archivo de configuración que incluye todas las cadenas de conexión y otros parámetros. A continuación, debe crear un archivo de configuración para cada entorno (desarrollo, prueba o producción). El archivo de plantilla de Resource Manager principal sigue siendo el mismo para todos los entornos.
+En Azure Data Factory, la integración y la entrega continuas implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Para realizar la integración y la entrega continuas, puede usar la integración de la interfaz de usuario de Data Factory con plantillas de Azure Resource Manager. La interfaz de usuario de Data Factory puede generar una plantilla de Resource Manager al seleccionar las opciones de la **plantilla de ARM**. Al seleccionar **Export ARM template** (Exportar plantilla de ARM), el portal genera la plantilla de Resource Manager de la factoría de datos y un archivo de configuración que incluye todas las cadenas de conexión y otros parámetros. A continuación, debe crear un archivo de configuración para cada entorno (desarrollo, prueba o producción). El archivo de plantilla de Resource Manager principal sigue siendo el mismo para todos los entornos.
 
 Si desea ver una introducción y una demostración de esta característica, vea el siguiente vídeo de nueve minutos de duración:
 
@@ -53,9 +53,9 @@ Seleccione **Cargar archivo** para seleccionar la plantilla de Resource Manager 
 ![Apertura de la vista de código para ver la cadena de conexión](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de la integración continua
-El siguiente es el ciclo de vida completo de la integración y la implementación continuas que puede utilizar después de habilitar la integración de GIT de VSTS en la interfaz de usuario de Data Factory:
+Este es el ciclo de vida completo de la integración y la entrega continuas que puede usar después de habilitar la integración de GIT de Azure Repos en la interfaz de usuario de Data Factory:
 
-1.  Configure una factoría de datos de desarrollo con VSTS en la que todos los desarrolladores puedan crear recursos de Data Factory como canalizaciones, conjuntos de datos, etc.
+1.  Configure una factoría de datos de desarrollo con Azure Repos en la que todos los desarrolladores puedan crear recursos de Data Factory, como canalizaciones, conjuntos de datos, etc.
 
 1.  A continuación, los desarrolladores podrán modificar recursos, como las canalizaciones. A medida que realicen modificaciones, podrán seleccionar **Depurar** para ver cómo se ejecuta la canalización con los cambios más recientes.
 
@@ -67,25 +67,25 @@ El siguiente es el ciclo de vida completo de la integración y la implementació
 
 1.  La plantilla de Resource Manager exportada se puede implementar con archivos de parámetros distintos en la factoría de pruebas y la de producción.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatización de integración continua con versiones de VSTS
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Automatización de la integración continua con versiones de Azure Pipelines
 
-Estos son los pasos para configurar una versión de VSTS para que pueda automatizar la implementación de una factoría de datos en varios entornos.
+Estos son los pasos para configurar una versión de Azure Pipelines para que pueda automatizar la implementación de una factoría de datos en varios entornos.
 
-![Diagrama de integración continua con VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagrama de integración continua con Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Requisitos
 
--   Una suscripción de Azure vinculada a Team Foundation Server o VSTS que use el [*punto de conexión de servicio de Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Una suscripción a Azure vinculada a Team Foundation Server o Azure Repos que use el [*punto de conexión de servicio de Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Una instancia de Data Factory con Git de VSTS configurado.
+-   Una factoría de datos que tenga configurada la integración de GIT de Azure Repos.
 
 -   Una instancia de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contenga los secretos.
 
-### <a name="set-up-a-vsts-release"></a>Configuración de una versión de VSTS
+### <a name="set-up-an-azure-pipelines-release"></a>Configuración de una versión de Azure Pipelines
 
-1.  Vaya a la página de VSTS en el mismo proyecto que el configurado con la instancia de Data Factory.
+1.  Vaya a la página de Azure Repos en el mismo proyecto que el configurado con Data Factory.
 
-1.  Haga clic en el menú superior **Compilación y versión** &gt; **Versiones** &gt; **Crear definición de versión**.
+1.  Haga clic en el menú superior **Azure Pipelines** &gt; **Releases** (Versiones) &gt; **Create release definition** (Crear definición de versión).
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,20 @@ Estos son los pasos para configurar una versión de VSTS para que pueda automati
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Guarde la definición de versión.
+    g. Seleccione el modo de implementación **Incremental**.
 
-1.  Cree una nueva versión a partir de esta definición de versión.
+    > [!WARNING]
+    > Si selecciona el modo de implementación **Complete** (Completo), se pueden eliminar los recursos existentes, lo que incluye todos los recursos del grupo de recursos de destino que no están definidos en la plantilla de Resource Manager.
+
+1.  Guarde la canalización de versión.
+
+1.  Cree una versión a partir de esta canalización de versión.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional: Obtenga los secretos de Azure Key Vault
 
-Si tiene secretos para pasar una plantilla de Azure Resource Manager, se recomienda usar Azure Key Vault con la versión VSTS.
+Si tiene secretos para pasar en una plantilla de Azure Resource Manager, se recomienda usar Azure Key Vault con la versión de Azure Pipelines.
 
 Hay dos formas de administrar los secretos:
 
@@ -148,7 +153,7 @@ Hay dos formas de administrar los secretos:
 
     -   El archivo de parámetros también debe estar en la rama de publicación.
 
-1.  Agregue una [tarea de Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes de la implementación de Azure Resource Manager que se describió en la sección anterior:
+1.  Agregue una [tarea de Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes de la implementación de Azure Resource Manager que se describió en la sección anterior:
 
     -   Seleccione la pestaña **Tareas**, cree una nueva tarea, busque **Azure Key Vault** y añádalo.
 
@@ -156,13 +161,13 @@ Hay dos formas de administrar los secretos:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Concesión de permisos al agente de VSTS
-Puede que se produzca un error de acceso denegado la primera vez que se ejecute la tarea de Azure Key Vault. Descargue los registros para la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de VSTS. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal (*Get* y *List* son los permisos mínimos necesarios).
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concesión de permisos al agente de Azure Pipelines
+Puede que se produzca un error de acceso denegado la primera vez que se ejecute la tarea de Azure Key Vault. Descargue los registros de la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal (*Get* y *List* son los permisos mínimos necesarios).
 
 ### <a name="update-active-triggers"></a>Actualización de desencadenadores activos
 Puede producirse un error en la implementación si intenta actualizar desencadenadores activos. Para actualizar desencadenadores activos, debe detenerlos manualmente e iniciarlos después de la implementación. Puede añadir una tarea de Azure Powershell para este propósito, como se muestra en el ejemplo siguiente:
 
-1.  En la ficha Tareas de la versión de VSTS, busque **Azure Powershell** y añádalo.
+1.  En la pestaña de tareas de la versión, busque **Azure PowerShell** y agréguelo.
 
 1.  Elija **Azure Resource Manager** como tipo de conexión y seleccione su suscripción.
 
@@ -178,9 +183,12 @@ Puede producirse un error en la implementación si intenta actualizar desencaden
 
 Puede seguir los mismos pasos y utilizar un código similar (con la función `Start-AzureRmDataFactoryV2Trigger`) para reiniciar los desencadenadores después de la implementación.
 
+> [!IMPORTANT]
+> En escenarios de integración e implementación continuas, el tipo de entorno de ejecución de integración entre distintos entornos debe ser el mismo. Por ejemplo, si tiene un entorno de ejecución de integración (IR) *autohospedado* en el entorno de desarrollo, el mismo IR debe ser también de tipo *autohospedado* en otros entornos, como prueba y producción. De igual forma, si va a compartir los entornos de ejecución de integración entre varias fases, tiene que configurar los IR como *autohospedado vinculado* en todos los entornos: desarrollo, prueba y producción.
+
 ## <a name="sample-deployment-template"></a>Plantilla de implementación de ejemplo
 
-La siguiente es una plantilla de implementación de ejemplo que se puede importar en VSTS.
+Esta es una plantilla de implementación de ejemplo que se puede importar en Azure Pipelines.
 
 ```json
 {
@@ -720,7 +728,7 @@ La siguiente es una plantilla de implementación de ejemplo que se puede importa
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script de ejemplo para detener y reiniciar los desencadenadores y limpiar
 
-Este es un script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos después. El script también incluye código para eliminar recursos que se han quitado.
+Este es un script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos después. El script también incluye código para eliminar recursos que se han quitado. Para instalar la versión más reciente de Azure PowerShell, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param
@@ -732,7 +740,6 @@ param
     [parameter(Mandatory = $false)] [Bool] $predeployment=$true
 
 )
-
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
 $resources = $templateJson.resources
@@ -749,13 +756,12 @@ $triggerstostop = $triggerNames | where { ($triggersADF | Select-Object name).na
 if ($predeployment -eq $true) {
     #Stop all triggers
     Write-Host "Stopping deployed triggers"
-    $triggerstostop | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
+    $triggerstostop | ForEach-Object { 
+        Write-host "Disabling trigger " $_
+        Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    }
 }
 else {
-
-    #start Active triggers
-    Write-Host "Starting active triggers"
-    $activeTriggerNames | ForEach-Object { Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
 
     #Deleted resources
     #pipelines
@@ -785,23 +791,49 @@ else {
 
     #delte resources
     Write-Host "Deleting triggers"
-    $deletedtriggers | ForEach-Object { Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedtriggers | ForEach-Object { 
+        Write-Host "Deleting trigger "  $_.Name
+        $trig = Get-AzureRmDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+        if ($trig.RuntimeState -eq "Started") {
+            Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
+        }
+        Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting pipelines"
-    $deletedpipelines | ForEach-Object { Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedpipelines | ForEach-Object { 
+        Write-Host "Deleting pipeline " $_.Name
+        Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting datasets"
-    $deleteddataset | ForEach-Object { Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deleteddataset | ForEach-Object { 
+        Write-Host "Deleting dataset " $_.Name
+        Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting linked services"
-    $deletedlinkedservices | ForEach-Object { Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedlinkedservices | ForEach-Object { 
+        Write-Host "Deleting Linked Service " $_.Name
+        Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting integration runtimes"
-    $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedintegrationruntimes | ForEach-Object { 
+        Write-Host "Deleting integration runtime " $_.Name
+        Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
+
+    #Start Active triggers - After cleanup efforts (moved code on 10/18/2018)
+    Write-Host "Starting active triggers"
+    $activeTriggerNames | ForEach-Object { 
+        Write-host "Enabling trigger " $_
+        Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    }
 }
 ```
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parámetros personalizados con la plantilla de Resource Manager
 
-Puede definir parámetros personalizados para la plantilla de Resource Manager. Basta con tener un archivo denominado `arm-template-parameters-definition.json` en la carpeta raíz del repositorio. (El nombre de archivo debe coincidir exactamente con el nombre que se muestra a continuación). Data Factory intenta leer el archivo de la rama en la que esté trabajando actualmente, no solo de la rama de colaboración. Si no se encuentra ningún archivo, Data Factory usa las definiciones predeterminadas.
+Puede definir parámetros personalizados para la plantilla de Resource Manager. Basta con tener un archivo denominado `arm-template-parameters-definition.json` en la carpeta raíz del repositorio. (El nombre de archivo debe coincidir exactamente con el nombre que se muestra a continuación). Data Factory intenta leer el archivo de la rama en la que esté trabajando actualmente, no solo de la rama de colaboración. Si no encuentra ningún archivo, Data Factory usa los valores y parámetros predeterminados.
 
-En el ejemplo siguiente se muestra un archivo de parámetros de ejemplo. Use este ejemplo como referencia para crear su propio archivo de parámetros personalizado. Si el archivo que proporciona no está en el formato JSON correcto, Data Factory muestra un mensaje de error en la consola del explorador y vuelve a las definiciones predeterminadas que se muestran en la interfaz de usuario de Data Factory.
+En el ejemplo siguiente se muestra un archivo de parámetros de ejemplo. Use este ejemplo como referencia para crear su propio archivo de parámetros personalizado. Si el archivo que proporciona no está en el formato JSON correcto, Data Factory muestra un mensaje de error en la consola del explorador y vuelve a los parámetros y valores predeterminados mostrados en la interfaz de usuario de Data Factory.
 
 ```json
 {

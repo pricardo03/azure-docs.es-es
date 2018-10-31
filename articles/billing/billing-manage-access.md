@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392097"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429650"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Administrar el acceso a la información de facturación de Azure mediante el control de acceso basado en roles
 
@@ -67,7 +67,7 @@ El rol Lector de facturación tiene acceso de solo lectura a información de fac
     ![Captura de pantalla que muestra lo que puede ver el Lector de facturación en Azure Portal](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> La característica Lector de facturación está en versión preliminar y aún no admite suscripciones de Enterprise (EA) ni nubes no globales.
+> La característica Lector de facturación está en versión preliminar y aún no admite nubes no globales. Las suscripciones de Enterprise pueden ver los costos si el administrador de la empresa ha habilitado la visualización de cargos.
 
 ## <a name="adding-users-to-other-roles"></a>Agregar usuarios a los demás roles
 

@@ -11,25 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 6110773ecaba0ad333e4cfc9f9cc6014bd29a7a6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 10/24/2018
+ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249526"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026184"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
 
 Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de carácter empresarial que requieren que se conserven copias de seguridad de las bases de datos más allá de entre los 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de Azure SQL Database. Con la característica Retención a largo plazo, puede almacenar copias de seguridad completas de SQL Database en Blob Storage de [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva.
 
 > [!NOTE]
-> LTR puede habilitarse en las bases de datos hospedadas en los servidores lógicos de Azure SQL Database. Todavía no está disponible en las instancias administradas.
+> LTR puede habilitarse en las bases de datos hospedadas en los servidores lógicos de Azure SQL Database. Aún no está disponible para las bases de datos hospedadas en Instancias administradas.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funcionamiento de la retención a largo plazo de SQL Database
 
-La retención a largo plazo aprovecha las [copias de seguridad automáticas de SQL Database](sql-database-automated-backups.md) creadas para la restauración a un momento dado (PITR). Puede configurar una directiva de retención a largo plazo para cada base de datos SQL y especificar con qué frecuencia debe copiar las copias de seguridad en el almacenamiento a largo plazo. Para habilitar la flexibilidad, puede definir la directiva mediante una combinación de cuatro parámetros: retención de copia de seguridad semanal (W), retención de copia de seguridad mensual (M), retención de copia de seguridad anual (Y) y la semana del año (WeekOfYear). Si especifica W, se copiará una copia de seguridad cada semana en el almacenamiento a largo plazo. Si especifica M, se copiará una copia de seguridad durante la primera semana de cada mes en el almacenamiento a largo plazo. Si especifica Y, se copiará una copia de seguridad durante la semana especificada en WeekOfYear en el almacenamiento a largo plazo. Cada copia de seguridad se mantendrá en el almacenamiento a largo plazo durante el período especificado por estos parámetros. 
+La retención a largo plazo (LTR) aprovecha las copias de seguridad de base de datos completas que se [crean automáticamente](sql-database-automated-backups.md) para hacer posible la restauración a un momento dado (PITR). Estas copias de seguridad se copian en blobs de almacenamiento distintos si se configura la directiva de LTR.
+Puede configurar una directiva de LTR para cada base de datos SQL y especificar con qué frecuencia debe copiar las copias de seguridad en los blobs de almacenamiento a largo plazo. Para habilitar la flexibilidad, puede definir la directiva mediante una combinación de cuatro parámetros: retención de copia de seguridad semanal (W), retención de copia de seguridad mensual (M), retención de copia de seguridad anual (Y) y la semana del año (WeekOfYear). Si especifica W, se copiará una copia de seguridad cada semana en el almacenamiento a largo plazo. Si especifica M, se copiará una copia de seguridad durante la primera semana de cada mes en el almacenamiento a largo plazo. Si especifica Y, se copiará una copia de seguridad durante la semana especificada en WeekOfYear en el almacenamiento a largo plazo. Cada copia de seguridad se mantendrá en el almacenamiento a largo plazo durante el período especificado por estos parámetros. 
 
 Ejemplos:
 

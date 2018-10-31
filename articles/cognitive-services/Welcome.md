@@ -9,12 +9,12 @@ ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901438"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025402"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -74,11 +74,11 @@ Azure Cognitive Services son las API, SDK y servicios disponibles para ayudar a 
 
 ## <a name="use-free-trials"></a>Uso de evaluaciones gratuitas
 
-[El registro para las evaluaciones gratuitas] (https://azure.microsoft.com/try/cognitive-services/ "Ayuda para el registro") solo requiere un correo electrónico y unos pocos pasos sencillos. Necesita una cuenta de Microsoft si aún no tiene una. Recibirá un par de claves único para cada API solicitada. El segundo par es tan solo de reserva. No comparta las claves secretas con nadie. Las versiones de evaluación tienen un límite de velocidad, transacciones por segundo o minuto, y un límite de uso mensual. Una transacción es simplemente una llamada API. Puede actualizar a un plan de pago para desbloquear las restricciones.
+[El registro para las evaluaciones gratuitas](https://azure.microsoft.com/try/cognitive-services/ "Ayuda para el registro") solo requiere un correo electrónico y unos pocos pasos sencillos. Necesita una cuenta de Microsoft si aún no tiene una. Recibirá un par de claves único para cada API solicitada. El segundo par es tan solo de reserva. No comparta las claves secretas con nadie. Las versiones de evaluación tienen un límite de velocidad, transacciones por segundo o minuto, y un límite de uso mensual. Una transacción es simplemente una llamada API. Puede actualizar a un plan de pago para desbloquear las restricciones.
 
 ## <a name="subscription-management"></a>Administración de suscripciones
 
-Una vez que ha iniciado sesión con la cuenta Microsoft, puede acceder a [Mis suscripciones] (https://www.microsoft.com/cognitive-services/en-us/subscriptions "Mis suscripciones") para mostrar los productos que está usando, la cuota restante y la posibilidad de agregar productos adicionales a la suscripción.
+Una vez que ha iniciado sesión con la cuenta Microsoft, puede acceder a [Mis suscripciones](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Mis suscripciones") para mostrar los productos que está usando, la cuota restante y la posibilidad de agregar productos adicionales a la suscripción.
 
 ## <a name="upgrade-to-unlock-limits"></a>Actualización para desbloquear los límites
 

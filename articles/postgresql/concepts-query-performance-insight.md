@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: cc041104169ca8c4344b9d3de597283d122e63db
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfac8932859db7daa76e831372c97d97f0b24c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394767"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376318"
 ---
 # <a name="query-performance-insight"></a>Información de rendimiento de consultas 
 
 **Se aplica a:** Azure Database for PostgreSQL 9.6 y 10
 
 > [!IMPORTANT]
-> La característica Query Performance Insight está en versión preliminar pública en un número limitado de regiones. 
+> La característica Información de rendimiento de consultas está en versión preliminar pública. 
 
 Query Performance Insight le ayuda a identificar rápidamente cuáles son las consultas que más tardan en ejecutarse, cómo cambian con el tiempo y qué esperas están afectándoles.
 
@@ -47,6 +47,6 @@ Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones 
 ![Estadísticas de espera de Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.
+- Más información acerca de la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.
 
 

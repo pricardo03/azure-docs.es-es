@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309371"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429395"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -71,23 +71,26 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 | **Elemento de JSON** | **Descripción** | **Tipo** | **Valores permitidos** | **Obligatorio** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **scope** | El identificador de recursos de Azure Resource Manager de la cuenta de almacenamiento. | string | Identificador de Azure Resource Manager | SÍ |
-| **eventos** | El tipo de eventos que provocan la activación de este desencadenador. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sí, cualquier combinación. |
-| **blobPathBeginsWith** | La ruta de acceso del blob debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, "/records/blobs/december/" solo activará el desencadenador de los blobs de la carpeta december del contenedor records. | string   | | Se debe proporcionar al menos una de estas propiedades: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, "december/boxes.csv" solo activará el desencadenador de blobs llamado boxes de la carpeta december. | string   | | Se debe proporcionar al menos una de estas propiedades: blobPathBeginsWith, blobPathEndsWith. |
+| **eventos** | El tipo de eventos que provocan la activación de este desencadenador. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sí, cualquier combinación de estos valores. |
+| **blobPathBeginsWith** | La ruta de acceso del blob debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `/records/blobs/december/` solo activa el desencadenador de blobs en la carpeta `december` bajo el contenedor `records`. | string   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `december/boxes.csv` solo activa el desencadenador de blobs denominado "`boxes`" en una carpeta `december`. | string   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Ejemplos de desencadenadores basados en eventos
 
 En esta sección encontrará ejemplos de configuración de desencadenadores basados en eventos.
 
--   **Blob path begins with**('/NombreDeContenedor/'): recibe eventos de cualquier blob del contenedor.
--   **Blob path begins with**('/NombreDeContenedor/blobs/NombreDeCarpeta'): recibe eventos de los blobs del contenedor NombreDeContenedor de la carpeta NombreDeCarpeta. También puede hacer referencia a una subcarpeta; por ejemplo, "/containername/blobs/foldername/subfoldername/".
--   **Blob path begins with**('/NombreDeContenedor/blobs/NombreDeCarpeta/archivo.txt'): recibe eventos de un blob llamado archivo.txt de la carpeta NombreDeCarpeta del contenedor NombreDeContenedor.
--   **Blob path ends with**('Archivo.txt'): recibe eventos de un blob llamado Archivo.txt en cualquier ruta de acceso.
--   **Blob path ends with**('/NombreDeContenedor/blobs/Archivo.txt'): recibe eventos de un blob llamado archivo.txt del contenedor NombreDeContenedor.
--   **Blob path ends with**('NombreDeCarpeta/Archivo.txt') – recibe eventos de un blob llamado Archivo.txt de la carpeta NombreDeCarpeta de cualquier contenedor.
+> [!IMPORTANT]
+> Debe incluir el segmento `/blobs/` de la ruta de acceso, tal como se muestra en los siguientes ejemplos, siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo.
 
-> [!NOTE]
-> Debe incluir el segmento `/blobs/` de la ruta de acceso siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo.
+| Propiedad | Ejemplo | DESCRIPCIÓN |
+|---|---|---|
+| **Ruta de acceso de blobs que empieza con** | `/containername/` | Recibe eventos de cualquier blob del contenedor. |
+| **Ruta de acceso de blobs que empieza con** | `/containername/blobs/foldername/` | Recibe eventos de los blobs en el contenedor `containername` y la carpeta `foldername`. |
+| **Ruta de acceso de blobs que empieza con** | `/containername/blobs/foldername/subfoldername/` | También puede hacer referencia a una subcarpeta. |
+| **Ruta de acceso de blobs que empieza con** | `/containername/blobs/foldername/file.txt` | Recibe eventos de un blob denominado `file.txt` en la carpeta `foldername`, en el contenedor `containername`. |
+| **Ruta de acceso de blobs que termina con** | `file.txt` | Recibe eventos de un blob denominado `file.txt` en cualquier ruta de acceso. |
+| **Ruta de acceso de blobs que termina con** | `/containername/blobs/file.txt` | Recibe eventos de un blob denominado `file.txt` en el contenedor `containername`. |
+| **Ruta de acceso de blobs que termina con** | `foldername/file.txt` | Recibe eventos de un blob denominado `file.txt` en la carpeta `foldername` en cualquier contenedor. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) (Ejecución de canalizaciones y desencadenadores).

@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 74d521f1890f8ff6567802c1a16f4169dbf4a53f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: kivenkat
+ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946467"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945899"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tamaños de máquinas virtuales admitidos en Azure Stack
 
@@ -29,7 +28,7 @@ En este artículo se incluyen los tamaños de máquinas virtuales que están dis
 
 ## <a name="general-purpose"></a>Uso general
 
-Los tamaños de máquina virtual de uso general proporcionan una relación equilibrada entre CPU y memoria. Estas máquinas se usan para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio.
+Los tamaños de máquina virtual de uso general proporcionan una relación equilibrada entre la CPU y la memoria. Estas máquinas se usan para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio.
 
 ### <a name="basic-a"></a>A básico
 |Tamaño - Tamaño\nombre |vCPU     |Memoria | Tamaño máximo del disco temporal | Rendimiento de discos del SO máx.: (IOPS) | Rendimiento máximo de almacenamiento temporal (IOPS) | Rendimiento de discos de datos máx. (IOPS) | Nº máx. NIC |    

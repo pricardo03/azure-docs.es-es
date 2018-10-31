@@ -4,28 +4,28 @@ description: En este tema se proporciona información general de streaming en vi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972186"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378143"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
 Cuando se proporcionan eventos de streaming en vivo con Azure Media Services normalmente participan los siguientes componentes:
 
 * Una cámara que se usa para difundir un evento.
-* Un codificador de vídeo en vivo convierte las señales de la cámara o de otro dispositivo, como un portátil, en secuencias que se envían al servicio de streaming en vivo de Media Services. Las señales también pueden incluir publicidad con SCTE-35 y señales de anuncios. 
+* Un codificador de vídeo en vivo convierte las señales de la cámara o de otro dispositivo, como un portátil, en secuencias que se envían al servicio de streaming en vivo. Las señales también pueden incluir publicidad con SCTE-35 y señales de anuncios. 
 * El servicio de streaming en vivo de Media Services permite ingerir, previsualizar, empaquetar, registrar, cifrar y difundir contenido a los clientes o a una red CDN para una futura distribución.
 
 En este artículo se proporciona una descripción detallada y se incluyen diagramas de los componentes principales que intervienen en el streaming en vivo con Media Services.
@@ -40,6 +40,17 @@ Media Services permite entregar el contenido cifrado de forma dinámica (**cifra
 
 Si lo desea, también puede aplicar el **filtro dinámico**, que puede utilizarse para controlar el número de pistas, formatos y velocidades de bits, que se envían a los reproductores. Media Services también admite la inserción de anuncios.
 
+### <a name="new-live-encoding-improvements"></a>Nuevas mejoras de codificación en vivo
+
+En la última versión se han realizado las siguientes nuevas mejoras.
+
+- Nuevo modo en vivo de baja latencia (10 segundos de principio a fin).
+- Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
+- Ingesta segura de RTMPS.
+
+    Cuando se crea un evento en directo ahora obtiene 4 direcciones URL de ingesta. Las 4 direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId), solo la parte del número de puerto es diferente. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
+- Soporte técnico de transcodificación las 24 horas. 
+- Mejor compatibilidad con señalización de anuncios en RTMP a través de SCTE35.
 
 ## <a name="liveevent-types"></a>Tipos de objetos LiveEvent
 
@@ -73,18 +84,18 @@ En la tabla siguiente se comparan las características de dos tipos de objetos L
 
 | Característica | LiveEvent con paso a través | LiveEvent básico |
 | --- | --- | --- |
-| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |Sí |
+| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |SÍ |
 | Resolución máxima, número de capas |4Kp30  |720p, 6 capas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Precio |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo" |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tiempo de ejecución máximo |24x7 |24x7 |
-| Compatibilidad con inserción de tabletas táctiles |Sin  |Sí |
-| Compatibilidad con señalización de anuncios mediante API|Sin  |Sí |
-| Compatibilidad con señalización de anuncios mediante SCTE-35 en banda|Sí |Sí |
-| Títulos CEA 608/708 de paso a través |Sí |Sí |
-| Capacidad para la recuperación de breves pausas en la fuente de contribución |Sí |No (LiveEvent comenzará a usar la tableta táctil transcurridos más de 6 segundos sin datos de entrada)|
-| Compatibilidad con GOP de entrada no uniformes |Sí |No: la entrada debe ser GOP de 2 s fijos |
-| Compatibilidad con la entrada de la velocidad de fotogramas variable |Sí |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
+| Compatibilidad con inserción de tabletas táctiles |Sin  |SÍ |
+| Compatibilidad con señalización de anuncios mediante API|Sin  |SÍ |
+| Compatibilidad con señalización de anuncios mediante SCTE-35 en banda|SÍ |SÍ |
+| Títulos CEA 608/708 de paso a través |SÍ |SÍ |
+| Capacidad para la recuperación de breves pausas en la fuente de contribución |SÍ |No (LiveEvent comenzará a usar la tableta táctil transcurridos más de 6 segundos sin datos de entrada)|
+| Compatibilidad con GOP de entrada no uniformes |SÍ |No: la entrada debe ser GOP de 2 s fijos |
+| Compatibilidad con la entrada de la velocidad de fotogramas variable |SÍ |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
 | Apagado automático de LiveEvent cuando se pierde la fuente de entrada |Sin  |Después de 12 horas, si no hay ningún objeto LiveEvent en ejecución |
 
 ## <a name="liveevent-states"></a>Estados de LiveEvent 

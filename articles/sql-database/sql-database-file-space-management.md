@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377951"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954773"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Administración del espacio de archivo en Azure SQL Database
 En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
@@ -216,7 +216,7 @@ Para más información sobre este comando, consulte [SHRINKDATABASE](https://doc
 
 ### <a name="auto-shrink"></a>Reducción automática
 
-Como alternativa, la reducción automática puede habilitarse para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que SHRINKDATABASE o SHRINKFILE.  La reducción automática puede resultar especialmente útil para administrar grupos elásticos con muchas bases de datos.  Sin embargo, la reducción automática es menos eficaz en la reclamación de espacio de archivo que SHRINKDATABASE y SHRINKFILE.
+Como alternativa, la reducción automática puede habilitarse para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que SHRINKDATABASE o SHRINKFILE.  La reducción automática puede resultar especialmente útil para administrar grupos elásticos con muchas bases de datos.  Sin embargo, la reducción automática es menos eficaz al reclamar espacio de archivo que con SHRINKDATABASE y SHRINKFILE.
 Para habilitar la reducción automática, modifique el nombre de la base de datos en el siguiente comando.
 
 
@@ -225,7 +225,7 @@ Para habilitar la reducción automática, modifique el nombre de la base de dato
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Para más información sobre este comando, consulte las opciones de [DATABASE SET](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
+Para más información sobre este comando, consulte las opciones de [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
 
 ### <a name="rebuild-indexes"></a>Recompilación de índices
 

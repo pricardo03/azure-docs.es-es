@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222795"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318969"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -55,7 +55,9 @@ Los administradores de Servicios de federación de Active Directory (AD FS) pued
 
 Para agregar un vínculo a la página de inicio de sesión de AD FS, use el siguiente comando en el servidor de AD FS. Los usuarios pueden usar esta página para especificar el flujo de trabajo de SSPR.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personalizar la apariencia del panel de acceso y la página de inicio de sesión
 
@@ -65,8 +67,8 @@ Los gráficos que elija se muestran en los siguientes casos:
 
 * Después de que un usuario escriba su nombre de usuario.
 * Si el usuario accede a la dirección URL personalizada:
-    * Pasando el parámetro *whr* a la página de restablecimiento de contraseña, como "https://login.microsoftonline.com/?whr=contoso.com".
-    * Pasando el parámetro *username* a la página de restablecimiento de contraseña, como "https://login.microsoftonline.com/?username=admin@contoso.com".
+    * Pasando el parámetro `whr` a la página de restablecimiento de contraseña, como "https://login.microsoftonline.com/?whr=contoso.com".
+    * Pasando el parámetro `username` a la página de restablecimiento de contraseña, como "https://login.microsoftonline.com/?username=admin@contoso.com".
 
 Obtenga información detallada sobre cómo configurar la personalización de marca de empresa en el artículo [Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md).
 

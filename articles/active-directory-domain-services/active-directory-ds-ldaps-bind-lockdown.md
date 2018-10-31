@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502959"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456412"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Enlace a un dominio administrado de Azure AD Domain Services con LDAP seguro (LDAPS)
 
@@ -38,8 +38,8 @@ Después, enlace al dominio administrado. Haga clic en **Conexión** y haga clic
 Seleccione **Ver** y, después, seleccione **Árbol** en el menú. Deje en blanco el campo DN Base y haga clic en Aceptar. Vaya al contenedor en el que desea buscar, haga clic con el botón derecho en el contenedor y seleccione Buscar.
 
 > [!TIP]
-> - Los usuarios y grupos sincronizados desde Azure AD se almacenan en el contenedor **AADDC\ Users**. La ruta de acceso de búsqueda para este contenedor es similar a ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Las cuentas de equipo para los equipos unidos al dominio administrado se almacenan en el contenedor **AADDC Computers**. La ruta de acceso de búsqueda para este contenedor es similar a ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Los usuarios y grupos sincronizados desde Azure AD se almacenan en la unidad organizativa **AADDC Users**. La ruta de acceso de búsqueda de esta unidad organizativa se parece a ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - Las cuentas de equipo de los equipos unidos al dominio administrado se almacenan en la unidad organizativa **AADDC Computers**. La ruta de acceso de búsqueda de esta unidad organizativa se parece a ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

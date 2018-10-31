@@ -4,9 +4,6 @@ description: Este artículo ofrece respuestas a las preguntas más frecuentes so
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129546"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987246"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -32,7 +29,7 @@ Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager
 Por lo tanto, este servicio no proporciona un punto de conexión o una dirección IP para que los clientes puedan conectarse. Si desea una dirección IP estática para el servicio, esta debe configurarse en el servicio y no en Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>¿Qué tipos de tráfico se pueden enrutar mediante Traffic Manager?
-Como se explica en [Funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un punto de conexión de Traffic Manager puede ser cualquier servicio con acceso a Internet que esté hospedado dentro o fuera de Azure. Por lo tanto, Traffic Manager puede redirigir el tráfico que se origina desde la red pública de Internet hacia un conjunto de puntos de conexión que también tienen acceso a Internet. Si tiene puntos de conexión que están dentro de una red privada (por ejemplo, una versión interna de [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o tiene usuarios que realizan solicitudes DNS desde estas redes internas, Traffic Manager no se puede utilizar para ese tipo de tráfico.
+Como se explica en [Funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un punto de conexión de Traffic Manager puede ser cualquier servicio con acceso a Internet que esté hospedado dentro o fuera de Azure. Por lo tanto, Traffic Manager puede redirigir el tráfico que se origina desde la red pública de Internet hacia un conjunto de puntos de conexión que también tienen acceso a Internet. Si tiene puntos de conexión que están dentro de una red privada (por ejemplo, una versión interna de [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o tiene usuarios que realizan solicitudes DNS desde estas redes internas, no puede usar Traffic Manager para enrutar este tráfico.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>¿Admite Traffic Manager sesiones temporales?
@@ -87,7 +84,7 @@ Cuando una consulta de DNS llega a Traffic Manager, establece un valor en la res
 Puede establecer, en un nivel de perfil, el TTL de DNS tan bajo como 0 segundos y tan alto como 2 147 483 647 segundos (el intervalo máximo compatible con [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). Un TTL de 0 significa que las resoluciones DNS de bajada no almacenan en caché las respuestas de las consultas y se espera que todas las consultas lleguen a los servidores DNS de Traffic Manager para su resolución.
 
 ### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>¿Cómo puedo comprender el volumen de las consultas que llegan a mi perfil? 
-Una de las métricas que proporciona Traffic Manager es el número de consultas a las que un perfil responde. Puede obtener esta información en una agregación de nivel de perfil o dividirla aún más para ver el volumen de consultas en las que se devolvieron puntos de conexión específicos. Además, puede configurar alertas para recibir una notificación si el volumen de respuestas de consulta supera las condiciones que haya configurado. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).
+Una de las métricas que proporciona Traffic Manager es el número de consultas a las que responde un perfil. Puede obtener esta información en una agregación de nivel de perfil o dividirla aún más para ver el volumen de consultas en las que se devolvieron puntos de conexión específicos. Además, puede configurar alertas para recibir una notificación si el volumen de respuestas de consulta supera las condiciones que haya configurado. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Método de enrutamiento del tráfico geográfico de Traffic Manager
 
@@ -128,7 +125,7 @@ Todos los puntos de conexión en un perfil con una necesidad de enrutamiento geo
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>¿Por qué se recomienda encarecidamente que los clientes creen perfiles anidados en lugar de puntos de conexión en un perfil con el enrutamiento geográfico habilitado? 
 
-Una región puede asignarse a un único punto de conexión dentro de un perfil si está utilizando el tipo de enrutamiento geográfico. Si ese punto de conexión no es un tipo anidado con un perfil secundario asociado a él, si ese punto de conexión es incorrecto, Traffic Manager le sigue enviando tráfico ya que la alternativa de no enviar ningún tráfico es peor. Traffic Manager no realiza la conmutación por error a otro punto de conexión, incluso cuando la región asignada es la "principal" de la región asignada al punto de conexión con estado incorrecto (por ejemplo, si un punto de conexión con la región España tiene el estado incorrecto, no se realizará la conmutación por error a otro punto de conexión que tenga asignada la región Europa). Esto se hace para asegurarse de que Traffic Manager respeta los límites geográficos que un cliente ha configurado en su perfil. Para obtener el beneficio de la conmutación por error a otro punto de conexión cuando un punto de conexión es incorrecto, se recomienda que las regiones geográficas se asignen a perfiles anidados con varios puntos de conexión dentro de ellos en lugar de a puntos de conexión individuales. De este modo, si se produce un error en un punto de conexión del perfil secundario anidado, el tráfico puede conmutar por error a otro punto de conexión en el mismo perfil secundario anidado.
+Una región puede asignarse a un único punto de conexión dentro de un perfil si está utilizando el método de enrutamiento geográfico. Si ese punto de conexión no es un tipo anidado con un perfil secundario asociado a él, si ese punto de conexión es incorrecto, Traffic Manager le sigue enviando tráfico ya que la alternativa de no enviar ningún tráfico es peor. Traffic Manager no realiza la conmutación por error a otro punto de conexión, incluso cuando la región asignada es la "principal" de la región asignada al punto de conexión con estado incorrecto (por ejemplo, si un punto de conexión con la región España tiene el estado incorrecto, no se realizará la conmutación por error a otro punto de conexión que tenga asignada la región Europa). Esto se hace para asegurarse de que Traffic Manager respeta los límites geográficos que un cliente ha configurado en su perfil. Para obtener el beneficio de la conmutación por error a otro punto de conexión cuando un punto de conexión es incorrecto, se recomienda que las regiones geográficas se asignen a perfiles anidados con varios puntos de conexión dentro de ellos en lugar de a puntos de conexión individuales. De este modo, si se produce un error en un punto de conexión del perfil secundario anidado, el tráfico puede conmutar por error a otro punto de conexión en el mismo perfil secundario anidado.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>¿Existen restricciones en la versión de API que admite este tipo de enrutamiento?
 
@@ -146,23 +143,23 @@ Los dispositivos de usuario final suelen utilizar una resolución DNS para reali
 ### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>¿Cómo se pueden especificar direcciones IP al usar el enrutamiento de subredes?
 Las direcciones IP para asociar a un punto de conexión se pueden especificar de dos maneras. En primer lugar, puede utilizar la notación octeto decimal de cuatro puntos con direcciones de inicio y final para especificar el intervalo (por ejemplo, 1.2.3.4-5.6.7.8 o 3.4.5.6-3.4.5.6). En segundo lugar, puede usar la notación CIDR para especificar el intervalo (por ejemplo, 1.2.3.0/24). Puede especificar varios intervalos y puede usar ambos tipos de notación en un conjunto de intervalos. Sin embargo, se aplican algunas restricciones.
 -   No puede haber superposición de intervalos de direcciones, ya que cada IP solo puede mapearse a un único punto de conexión.
--   La dirección de inicio no puede superar la dirección final
--   En el caso de la notación CIDR, la dirección IP antes de "/" debe ser la dirección de inicio de ese intervalo (por ejemplo, 1.2.3.0/24 es válido, pero 1.2.3.4.4/24 no es válido)
+-   La dirección de inicio no puede superar la dirección final.
+-   En el caso de la notación CIDR, la dirección IP antes de "/" debe ser la dirección de inicio de ese intervalo (por ejemplo, 1.2.3.0/24 es válido, pero 1.2.3.4.4/24 no es válido).
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>¿Cómo se puede especificar un punto de conexión de reserva al usar el enrutamiento de subredes?
 En un perfil con el enrutamiento de subredes, si tiene un punto de conexión sin ninguna subred asignada, cualquier solicitud que no coincida con otros puntos de conexión se dirigirá aquí. Se recomienda encarecidamente tener este punto de conexión de reserva en el perfil, ya que Traffic Manager devolverá una respuesta NXDOMAIN si llega una solicitud y no está asignado a ningún punto de conexión o si se asigna a un punto de conexión dañado.
 
 ### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>¿Qué ocurre si se deshabilita un punto de conexión en un perfil de tipo de enrutamiento de subredes?
-En un perfil con enrutamiento de subredes, si tiene un punto de conexión deshabilitado, Traffic Manager se comportará como si no existieran ese punto de conexión ni las asignaciones de subredes. Si se recibe una consulta que hubiera coincidido con su asignación de direcciones IP y el punto de conexión está deshabilitado, Traffic Manager devolverá un punto de conexión de reserva (uno sin asignaciones); o bien, si dicho punto de conexión no está presente, devolverá una respuesta NXDOMAIN.
+En un perfil con enrutamiento de subredes, si tiene un punto de conexión deshabilitado, Traffic Manager se comportará como si no existieran ese punto de conexión ni las asignaciones de subredes. Si se recibe una consulta que habría coincidido con su asignación de direcciones IP y el punto de conexión está deshabilitado, Traffic Manager devolverá un punto de conexión de reserva (uno sin asignaciones); o bien, si dicho punto de conexión no existe, devolverá una respuesta NXDOMAIN.
 
 ## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Método de enrutamiento del tráfico de varios valores de Traffic Manager
 
 ### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>¿En qué casos de uso el enrutamiento multivalor resulta útil?
-El enrutamiento de varios valores devuelve múltiples puntos de conexión válidos en una sola respuesta de consulta. La principal ventaja de esto es que, si un punto de conexión está dañado, el cliente tiene más opciones para volver a intentarlo sin hacer otra llamada DNS (lo que podría devolver el mismo valor desde una caché ascendente). Esto es aplicable para aplicaciones sensibles a la disponibilidad que desean minimizar el tiempo de inactividad.
+El enrutamiento de varios valores devuelve múltiples puntos de conexión válidos en una sola respuesta de consulta. La principal ventaja de esto es que, si un punto de conexión está dañado, el cliente tiene más opciones para volver a intentarlo sin hacer otra llamada DNS (lo que podría devolver el mismo valor desde una caché ascendente). Esto se aplica a aplicaciones sensibles a la disponibilidad que desean minimizar el tiempo de inactividad.
 Otro uso del método de enrutamiento de varios valores es si un punto de conexión tiene doble conexión a direcciones IPv4 e IPv6 y desea dar al llamador ambas opciones para que elija cuando iniciar una conexión con el punto de conexión.
 
 ### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>¿Cuántos puntos de conexión se devuelven cuando se usa el enrutamiento de varios valores?
-Puede especificar el número máximo de puntos de conexión que se devolverán y Varios valores devolverá no más que esos puntos de conexión en buen estado cuando se reciba una consulta. El valor máximo posible para esta configuración es 10.
+Puede especificar el número máximo de puntos de conexión que se devolverán y MultiValue devolverá no más que esos puntos de conexión en buen estado cuando se reciba una consulta. El valor máximo posible para esta configuración es 10.
 
 ### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>¿Obtendré el mismo conjunto de puntos de conexión cuando se use el enrutamiento de varios valores?
 No podemos garantizar la devolución del mismo conjunto de puntos de conexión en cada consulta. Esto también se ve afectado por el hecho de que algunos de los puntos de conexión podrían estar dañados y no se incluirían en la respuesta
@@ -170,13 +167,13 @@ No podemos garantizar la devolución del mismo conjunto de puntos de conexión e
 ## <a name="real-user-measurements"></a>Real User Measurements
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>¿Cuáles son las ventajas de usar Real User Measurements?
-Cuando se usa el método de enrutamiento de rendimiento, Traffic Manager selecciona la mejor región de Azure para que se conecte el usuario final, para lo cual inspecciona la IP de origen y la subred de cliente EDNS (si se pasa) y vuelve a comprobar la latencia de red que mantiene el servicio de inteligencia. Real User Measurements mejora esta operación para la base de usuarios finales ya que su experiencia contribuye a esta tabla de latencia, además de garantizar que esta tabla abarca adecuadamente las redes de usuario final desde donde los usuarios finales se conectan a Azure. De este modo, los usuarios finales se enrutan con una mayor precisión.
+Cuando se usa el método de enrutamiento de rendimiento, Traffic Manager selecciona la mejor región de Azure para que se conecte el usuario final, para lo cual inspecciona la IP de origen y la subred de cliente EDNS (si se pasa) y vuelve a comprobar la latencia de red que mantiene el servicio de inteligencia. Real User Measurements mejora esta operación para la base de usuarios finales ya que su experiencia contribuye a esta tabla de latencia, además de garantizar que esta tabla abarca adecuadamente las redes de usuario final desde donde los usuarios finales se conectan a Azure. De este modo, el usuario final realiza enrutamientos con una mayor precisión.
 
 ### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>¿Se puede usar Real User Measurements con regiones que no son de Azure?
 Real User Measurements mide la latencia para llegar a las regiones de Azure e informa únicamente a este respecto. Si va a usar el enrutamiento basado en el rendimiento con puntos de conexión hospedados en regiones que no son de Azure, también puede beneficiarse de esta característica al disponer de una mayor información sobre la latencia de la región de Azure representativa que había seleccionado para asociarse con este punto de conexión.
 
 ### <a name="which-routing-method-benefits-from-real-user-measurements"></a>¿Qué método de enrutamiento se beneficia de Real User Measurements?
-La información adicional obtenida mediante Real User Measurements solo es aplicable a perfiles que usan el método de enrutamiento de rendimiento. Tenga en cuenta que el vínculo Real User Measurements está disponible en todos los perfiles cuando se visualiza a través de Azure Portal.
+La información adicional obtenida mediante Real User Measurements solo es aplicable a perfiles que usan el método de enrutamiento de rendimiento. El vínculo Mediciones de usuario reales está disponible en todos los perfiles cuando se visualiza a través de Azure Portal.
 
 ### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>¿Es necesario habilitar Real User Measurements para cada perfil por separado?
 No, solo es necesario habilitarla una vez por suscripción y toda la información de latencia medida y notificada estará disponible para todos los perfiles.
@@ -190,12 +187,12 @@ También puede eliminar la clave para desactivar las Mediciones de usuario reale
 Sí, Real User Measurements está diseñada para ingerir datos recopilados a través de diferentes tipos de clientes de usuario final. Esta pregunta frecuente se actualizará a medida que se admitan nuevos tipos de aplicaciones cliente.
 
 ### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>¿Cuántas medidas se realizan cada vez que se representa la página web habilitada para Real User Measurements?
-Cuando se usa Real User Measurements con el código JavaScript de medida proporcionado, cada representación de página da lugar a la realización de seis medidas. Estas se notifican luego al servicio Traffic Manager. Tenga en cuenta que esta característica se cobra en función del número de medidas notificadas al servicio Traffic Manager. Por ejemplo, si el usuario navega fuera de su página web mientras se está realizando la medida, pero antes de que se notifique, esas medidas no se tienen en cuenta en la facturación.
+Cuando se usa Real User Measurements con el código JavaScript de medida proporcionado, cada representación de página da lugar a la realización de seis medidas. Estas se notifican luego al servicio Traffic Manager. Esta característica se cobra en función del número de medidas notificadas al servicio Traffic Manager. Por ejemplo, si el usuario navega fuera de su página web mientras se está realizando la medida, pero antes de que se notifique, esas medidas no se tienen en cuenta en la facturación.
 
 ### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>¿Existe un retraso antes de que el script de Real User Measurements se ejecute en la página web?
 No, no hay ningún retraso programado antes de invocar el script.
 
-### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>¿Se puede usar Real User Measurements solo con las regiones que se quieren medir?
+### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>¿Se pueden usar las Mediciones de usuario reales solo con las regiones que se quieren medir?
 No, cada vez que se invoque, el script de Real User Measurements mide un conjunto de seis regiones de Azure, según determina el servicio. Este conjunto varía entre distintas invocaciones y, cuando se producen muchas de estas invocaciones, la cobertura de medida se distribuye entre distintas regiones de Azure.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>¿Se puede limitar el número de medidas realizadas a un número específico?
@@ -211,7 +208,7 @@ Mientras se tiene el control de lo que está insertado en la página web, se rec
 Cuando se inserta el script de medida en una página web, otros usuarios podrán ver el script y la clave de Real User Measurements (RUM). Sin embargo, es importante saber que esta clave es diferente del identificador de suscripción y que la genera Traffic Manager con este único fin. El hecho de conocer la clave RUM no pone en peligro la seguridad de la cuenta de Azure.
 
 ### <a name="can-others-abuse-my-rum-key"></a>¿Pueden otros usuarios hacer un uso inapropiado de la clave RUM?
-Aunque otras personas pueden usar su clave para enviar información incorrecta a Azure, sepa que unas cuantas medidas erróneas no cambiarán el enrutamiento, dado que es algo que se tiene en cuenta junto con todas las demás medidas que se reciben. Si necesita cambiar las claves, puede volver a generarlas. En ese momento, la clave antigua se descarta.
+Aunque otras personas pueden usar su clave para enviar información incorrecta a Azure, unas cuantas medidas erróneas no cambiarán el enrutamiento, dado que es algo que se tiene en cuenta junto con todas las demás medidas que se reciben. Si necesita cambiar las claves, puede volver a generarlas. En ese momento, la clave antigua se descarta.
 
 ###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>¿Es necesario poner el código JavaScript de medida en todas las páginas web?
 Real User Measurements ofrece más valor conforme aumenta el número de medidas. Dicho esto, es decisión suya ponerlo en todas las páginas web o en unas cuantas. Nuestra recomendación es comenzar a ponerlo en la página más visitada, donde se espera que un usuario permanezca cinco o más segundos.
@@ -223,7 +220,7 @@ Cuando se usa el código JavaScript de medida proporcionado, Traffic Manager pue
 No, no es necesario que use Traffic Manager. El lado de enrutamiento de Traffic Manager funciona de forma independiente de la parte Real User Measurement y, aunque es una buena idea tenerlos a ambos en la misma propiedad web, no es necesario que lo estén.
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>¿Es necesario hospedar algún servicio en regiones de Azure para usar Real User Measurements?
-No, no es necesario hospedar ningún componente del lado servidor en Azure para que funcione Mediciones de usuario reales. Azure hospeda y administra la imagen de píxel único descargada por el código JavaScript de medida y el servicio que lo ejecuta en diferentes regiones de Azure. 
+No, no es necesario hospedar ningún componente del lado servidor en Azure para que funcionen las Mediciones de usuario reales. Azure hospeda y administra la imagen de píxel único descargada por el código JavaScript de medida y el servicio que lo ejecuta en diferentes regiones de Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>¿Aumentará el uso de ancho de banda de Azure debido a la utilización de Real User Measurements?
 Como se mencionó en la respuesta anterior, Azure es propietario de los componentes del lado servidor de Real User Measurements, y también los administra. Esto significa que el uso de ancho de banda de Azure no aumentará porque use Real User Measurements. Tenga en cuenta que aquí no se incluye el uso de ancho de banda al margen de los cargos de Azure. Para reducir el ancho de banda usado, se descarga una imagen de un único píxel para medir la latencia a una región de Azure. 
@@ -290,7 +287,7 @@ Sí. Los espacios de ensayo de servicio en la nube se pueden configurar en Traff
 
 Traffic Manager no proporciona actualmente servidores de nombres que admitan direcciones IPv6. Sin embargo, aún se puede usar Traffic Manager con clientes IPv6 que se conecten a puntos de conexión IPv6. Un cliente no envía solicitudes de DNS directamente a Traffic Manager. En su lugar, el cliente usa un servicio DNS recursivo. Un cliente solo IPv6 envía solicitudes al servicio DNS recursivo por medio de IPv6. Después, el servicio recursivo debería poder entrar en contacto con los servidores de nombres de Traffic Manager mediante IPv4.
 
-Traffic Manager responde con el nombre DNS o la dirección IP del punto de conexión. Para admitir un punto de conexión IPv6, hay dos opciones. Puede agregar el punto de conexión como un nombre de DNA que tenga asociado un registro AAAA y Traffic Manager comprobará su estado y lo devolverá como un tipo de registro CNAME en la respuesta de la consulta. También puede agregar ese punto de conexión directamente con la dirección IPv6 y Traffic Manager devolverá un registro de tipo AAAA en la respuesta de la consulta. 
+Traffic Manager responde con el nombre DNS o la dirección IP del punto de conexión. Para admitir un punto de conexión IPv6, hay dos opciones. Puede agregar el punto de conexión como un nombre de DNS que tenga asociado un registro AAAA y Traffic Manager comprobará su estado y lo devolverá como un tipo de registro CNAME en la respuesta de la consulta. También puede agregar ese punto de conexión directamente con la dirección IPv6 y Traffic Manager devolverá un registro de tipo AAAA en la respuesta de la consulta. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>¿Puedo usar el Administrador de tráfico con más de una aplicación web en la misma región?
 
@@ -334,7 +331,7 @@ Traffic Manager no puede proporcionar ninguna validación de certificado, inclui
 * No se admiten certificados de cliente
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>¿Uso una dirección IP o un nombre DNS al agregar un punto de conexión?
-Traffic Manager admite la adición de puntos de conexión mediante tres formas de referencia: como nombre DNS, como una dirección IPv4 y como una dirección IPv6. Si el punto de conexión se agrega como una dirección IPv4 o IPv6, la respuesta de la consulta será, respectivamente, de tipo de registro A o AAAA. Si el punto de conexión se agregó como un nombre DNS, la respuesta de la consulta será de tipo de registro CNAME. Tenga en cuenta que solo está permitido agregar puntos de conexión como direcciones IPv4 o IPv6 si el punto de conexión es de tipo "Externo".
+Traffic Manager admite la adición de puntos de conexión mediante tres formas de referencia: como nombre DNS, como una dirección IPv4 y como una dirección IPv6. Si el punto de conexión se agrega como una dirección IPv4 o IPv6, la respuesta de la consulta será, respectivamente, de tipo de registro A o AAAA. Si el punto de conexión se agregó como un nombre DNS, la respuesta de la consulta será de tipo de registro CNAME. Solo está permitido agregar puntos de conexión como direcciones IPv4 o IPv6 si el punto de conexión es de tipo **Externo**.
 Todos los métodos de enrutamiento y la configuración de supervisión son compatibles con los tres tipos de direcciones de punto de conexión.
 
 ### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>¿Qué tipos de direcciones IP puedo usar al agregar un punto de conexión?

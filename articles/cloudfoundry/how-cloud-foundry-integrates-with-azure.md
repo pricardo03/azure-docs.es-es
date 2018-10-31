@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627447"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406150"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integración de Cloud Foundry con Azure
 
@@ -70,9 +70,9 @@ El agente de servicio de Azure ofrece una interfaz coherente para administrar el
 
 ## <a name="6-metrics-and-logging"></a>6. Métricas y registro
 El inyector de Azure Log Analytics es un componente de Cloud Foundry que reenvía las métricas desde el [conjunto predeterminado de resultados Loggregator de Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) a [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Con el inyector, puede recopilar, ver y analizar las métricas de rendimiento y estado de sistema de CF entre varias implementaciones.
-Haga clic [aquí](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) para obtener información sobre cómo implementar el inyector de Azure Log Analytics en los entornos de código abierto y Pivotal Cloud Foundry y, después, obtener acceso a los datos desde la consola de Azure Log Analytics OMS. 
+Haga clic [aquí](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) para obtener información sobre cómo implementar el inyector de Azure Log Analytics en los entornos de código abierto y Pivotal Cloud Foundry y, después, obtener acceso a los datos desde la consola de Azure Log Analytics. 
 > [!NOTE]
-> A partir de PCF 2.0, las métricas de mantenimiento de BOSH para las máquinas virtuales se reenvían al conjunto predeterminado de resultados de Loggregator de forma predeterminada y se integran en la consola de Azure Log Analytics OMS.
+> A partir de PCF 2.0, las métricas de mantenimiento de BOSH para las máquinas virtuales se reenvían al conjunto predeterminado de resultados de Loggregator de forma predeterminada y se integran en la consola de Azure Log Analytics.
 
 ## <a name="7-cost-saving"></a>7. Ahorro de costos
 ### <a name="cost-saving-for-devtest-environments"></a>Ahorro para entornos de desarrollo y pruebas
