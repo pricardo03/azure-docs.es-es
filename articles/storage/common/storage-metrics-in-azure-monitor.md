@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363442"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637989"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -23,13 +23,13 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 ## <a name="access-metrics"></a>Acceso a la métrica
 
-Azure Monitor proporciona varias maneras de tener acceso a las métricas. Se puede acceder a ellas desde [Azure Portal](https://portal.azure.com), las API de Azure Monitor (REST y .NET) y soluciones de análisis como Operation Management Suite y Event Hubs. Para más información, consulte [Información general sobre las métricas en Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor proporciona varias maneras de tener acceso a las métricas. Se puede acceder a ellas desde [Azure Portal](https://portal.azure.com), las API de Azure Monitor (REST y .NET) y soluciones de análisis, como Event Hubs. Para más información, consulte [Información general sobre las métricas en Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 93 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Esto se configura en la [configuración de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Métricas de Azure en Azure Portal
 
-Una vez transcurrido un tiempo, las métricas se pueden supervisar en Azure Portal. A continuación puede ver un ejemplo en el que se muestra cómo ver **UsedCapacity** a nivel de cuenta.
+Una vez transcurrido un tiempo, las métricas se pueden supervisar en Azure Portal. A continuación puede ver un ejemplo en el que se muestra cómo ver **Transacciones** a nivel de cuenta.
 
 ![captura de pantalla de acceso a métricas desde Azure Portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ca9823a76064e504ee04bf5896f1362b5187bc34
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8d573b5a0dafaab5eea98f05163ff99e7ccd3760
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042043"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409091"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Ejemplos de la CLI de Azure para máquinas virtuales Linux
 
@@ -49,7 +49,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 |**Protección de máquinas virtuales**||
 | [Cifrado de una máquina virtual y discos de datos](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una instancia de Azure Key Vault, una clave de cifrado y una entidad de servicio, y luego cifra una máquina virtual. |
 |**Supervisión de máquinas virtuales**||
-| [Supervisión de una máquina virtual con Operations Management Suite](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una máquina virtual, instala el agente de Operations Management Suite e inscribe la máquina virtual en un área de trabajo de OMS.  |
+| [Supervisión de una máquina virtual con Azure Log Analytics](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una máquina virtual, instala el agente de Log Analytics e inscribe la máquina virtual en un área de trabajo de Log Analytics.  |
 |**Solución de problemas de máquinas virtuales**||
 | [Solución de problemas de un disco de sistema operativo de máquina virtual](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fcli%2fazure%2ftoc.json) | Permite montar el disco del sistema operativo a partir de una máquina virtual como un disco de datos en una segunda máquina virtual. |
 | | |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 02fa19cad56f1a31ad60c597df1b004710cb5b50
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 12f7c52f916f385ddf95cf16aa89c4848ab7c118
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452095"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406609"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -41,7 +41,7 @@ La extensión del agente de Log Analytics para Windows requiere que la máquina 
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-El siguiente JSON muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el identificador y la clave de área de trabajo del área de trabajo de destino de Log Analytics. Se pueden encontrar en la configuración del área de trabajo en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
+En el siguiente JSON se muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el identificador y la clave de área de trabajo del área de trabajo de destino de Log Analytics. Se pueden encontrar en la configuración del área de trabajo en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
 
 ```json
 {

@@ -1,27 +1,35 @@
 ---
 title: API de transcripción de Azure Batch
-description: Ejemplos
+titlesuffix: Azure Cognitive Services
+description: Ejemplos de transcripción de grandes volúmenes de contenido de audio.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884466"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648809"
 ---
 # <a name="batch-transcription"></a>Transcripción de Azure Batch
 
-La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio. Puede apuntar a archivos de audio por URI y obtener transcripciones de ellos en modo asincrónico.
+La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio en almacenamiento. Con nuestra API de REST, puede apuntar a archivos de audio por URI de SAS y recibir transcripciones de forma asincrónica.
 
 ## <a name="batch-transcription-api"></a>API de transcripciones de Azure Batch
 
-La API de transcripción de Batch ofrece la transcripción asincrónica de voz a texto junto con otras características.
+La API de transcripción de Batch ofrece la transcripción asincrónica de voz a texto junto con otras características. Es una API de REST que expone métodos para:
+
+1. Crear solicitudes de procesamiento por lotes
+
+2. Consultar el estado 
+
+3. Descargar transcripciones
 
 > [!NOTE]
 > Esta API resulta muy adecuada para centros de llamadas que suelen acumular miles de horas de audio. Una filosofía "dispara y olvida" guía la API, lo que permite la transcripción fácil de grandes volúmenes de registros de audio.
@@ -95,78 +103,77 @@ Personalice el siguiente código de ejemplo con una clave de suscripción y una 
         }
 ```
 
-Después de obtener el token, debe especificar el URI de SAS que apunta al archivo de audio que requiere transcripción. El resto del código procesa una iteración en el estado y muestra los resultados.
+Después de obtener el token, debe especificar el URI de SAS que apunta al archivo de audio que requiere transcripción. El resto del código procesa una iteración en el estado y muestra los resultados. Inicialmente, uno podría configurar la clave, la región, los modelos para usar y la asociación de seguridad. como se muestra en el siguiente fragmento de código. Esto va seguido de la creación de instancias del cliente y la solicitud POST. 
 
 ```cs
-   static async Task TranscribeAsync()
-        { 
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
+            // SAS URI 
+            private const string RecordingsBlobUri = "some SAS URI";
+
+            // adapted model Ids
+            private static Guid AdaptedAcousticId = new Guid("some guid");
+            private static Guid AdaptedLanguageId = new Guid("some guid");
+
             // Creating a Batch transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+```
 
-            // get the transcription Id from the location URI
-            var createdTranscriptions = new List<Guid>();
-            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
+Ahora que se ha hecho la solicitud, el usuario puede consultar y descargar los resultados de transcripción a medida que aparece el fragmento de código.
 
-            while (true)
+```cs
+  
+            // get all transcriptions for the user
+            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+
+            // for each transcription in the list we check the status
+            foreach (var transcription in transcriptions)
             {
-                // get all transcriptions for the user
-                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-                completed = 0; running = 0; notStarted = 0;
-
-                // for each transcription in the list we check the status
-                foreach (var transcription in transcriptions)
+                switch(transcription.Status)
                 {
-                    switch(transcription.Status)
-                    {
-                        case "Failed":
-                        case "Succeeded":
+                    case "Failed":
+                    case "Succeeded":
 
                             // we check to see if it was one of the transcriptions we created from this client.
-                            if (!createdTranscriptions.Contains(transcription.Id))
-                            {
-                                // not creted form here, continue
-                                continue;
-                            }
+                        if (!createdTranscriptions.Contains(transcription.Id))
+                        {
+                            // not creted form here, continue
+                            continue;
+                        }
                             
-                            completed++;
+                        completed++;
                             
-                            // if the transcription was successfull, check the results
-                            if (transcription.Status == "Succeeded")
-                            {
-                                var resultsUri = transcription.ResultsUrls["channel_0"];
-                                WebClient webClient = new WebClient();
-                                var filename = Path.GetTempFileName();
-                                webClient.DownloadFile(resultsUri, filename);
-                                var results = File.ReadAllText(filename);
-                                Console.WriteLine("Transcription succedded. Results: ");
-                                Console.WriteLine(results);
-                            }
-                            break;
-                        case "Running":
-                            running++;
-                            break;
-                        case "NotStarted":
-                            notStarted++;
-                            break;
+                        // if the transcription was successfull, check the results
+                        if (transcription.Status == "Succeeded")
+                        {
+                            var resultsUri = transcription.ResultsUrls["channel_0"];
+                            WebClient webClient = new WebClient();
+                            var filename = Path.GetTempFileName();
+                            webClient.DownloadFile(resultsUri, filename);
+                            var results = File.ReadAllText(filename);
+                            Console.WriteLine("Transcription succedded. Results: ");
+                            Console.WriteLine(results);
+                        }
+                    
+                    break;
+                    case "Running":
+                    running++;
+                     break;
+                    case "NotStarted":
+                    notStarted++;
+                    break;
+                    
                     }
                 }
-
-                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
-
-                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
-
-            Console.WriteLine("Press any key...");
         }
 ```
+
+Nuestro [documento de Swagger](https://westus.cris.ai/swagger/ui/index) proporciona detalles completos acerca de las llamadas anteriores. El ejemplo completo mostrado aquí está en [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > En el código anterior, la clave de suscripción es del recurso Speech que crea en Azure Portal. Las claves obtenidas del recurso Custom Speech Service no sirven.

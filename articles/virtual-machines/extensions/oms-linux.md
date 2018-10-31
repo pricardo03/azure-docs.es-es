@@ -15,18 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352383"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404858"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
 ## <a name="overview"></a>Información general
 
 Log Analytics proporciona funcionalidades de corrección, supervisión y envío de alertas a todos los recursos locales y en la nube. Microsoft, como editor de la extensión de máquina virtual del agente de Log Analytics para Linux, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de Log Analytics para Linux.
+
+>[!NOTE]
+>Como parte de la transición en curso de Microsoft Operations Management Suite (OMS) a Azure Monitor, se hará referencia al agente de OMS para Windows o Linux como el agente de Log Analytics para Windows y el agente de Log Analytics para Linux.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -210,13 +213,13 @@ El resultado de la ejecución de las extensiones se registra en el archivo sigui
 | 9 | Habilitar llamado antes de tiempo | [Actualice el agente de Linux de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) a la versión más reciente disponible. |
 | 10 | La máquina virtual ya está conectada a un área de trabajo de Log Analytics | Para conectar la máquina virtual al área de trabajo especificada en el esquema de extensión, establezca stopOnMultipleConnections en false en la configuración pública o quite esta propiedad. Esta máquina virtual se factura una vez por cada área de trabajo a la que se conecta. |
 | 11 | Configuración no válida proporcionada a la extensión | Siga los ejemplos anteriores para configurar todos los valores de propiedad necesarios para la implementación. |
-| 17 | Error al instalar el paquete de OMS | 
+| 17 | Error al instalar el paquete de Log Analytics | 
 | 19 | Error al instalar el paquete de OMI | 
 | 20 | Error al instalar el paquete de SCX |
 | 51 | Esta extensión no se admite en el sistema operativo de la máquina virtual | |
-| 55 | No se puede conectar al servicio OMS o faltan los paquetes necesarios o el administrador de paquetes dpkg está bloqueado| Compruebe que el sistema tiene acceso a Internet o que se ha proporcionado un servidor proxy HTTP válido. Además, compruebe la validez del identificador del área de trabajo y compruebe que las utilidades curl y tar está instaladas. |
+| 55 | No se puede conectar al servicio Log Analytics, faltan los paquetes necesarios o el administrador de paquetes dpkg está bloqueado| Compruebe que el sistema tiene acceso a Internet o que se ha proporcionado un servidor proxy HTTP válido. Además, compruebe la validez del identificador del área de trabajo y compruebe que las utilidades curl y tar está instaladas. |
 
-Puede encontrar información adicional de solución de problemas en la [Guía de solución de problemas del agente de OMS para Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Puede encontrar información adicional para solucionar problemas en la [Guía de solución de problemas del agente de Log Analytics para Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Soporte técnico
 

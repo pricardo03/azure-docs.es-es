@@ -1,22 +1,23 @@
 ---
-title: Uso de Text to Speech mediante los servicios Speech
+title: Uso de Text to Speech en el servicio Voz
+titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo usar Text to Speech en Speech Service.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165052"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469926"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>Uso de "Text to Speech" en el servicio Speech
+# <a name="use-text-to-speech-in-speech-service"></a>Uso de "Text to Speech" en el servicio Voz
 
 El servicio Speech proporciona funcionalidad Text to Speech mediante una sencilla solicitud HTTP. El texto que se habla se `POST` en el punto de conexión adecuado y el servicio devuelve un archivo de audio (`.wav`) que contiene la voz sintetizada. La aplicación puede usar a continuación este audio de la forma deseada.
 

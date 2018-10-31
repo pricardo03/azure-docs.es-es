@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888295"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645566"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adición de expresiones de ejemplo y etiquetas con entidades
 
@@ -159,6 +159,36 @@ En la expresión `Book 2 tickets from Seattle to Cairo`, Seattle es la ubicació
     >Los nombres de entidad secundaria deben ser únicos en todas las entidades en una sola aplicación. Dos entidades jerárquicas diferentes no pueden contener entidades secundarias con el mismo nombre. 
 
     Consulte [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) (Extracción de datos) para obtener más información acerca de cómo extraer la entidad jerárquica a partir de la respuesta a la consulta JSON del punto de conexión. Pruebe el [inicio rápido](luis-quickstart-intent-and-hier-entity.md) de la entidad jerárquica para obtener más información sobre cómo usar una entidad jerárquica.
+
+## <a name="entity-status-predictions"></a>Predicciones de estado de entidad
+
+Cuando indica una nueva expresión en el portal de LUIS, la expresión puede tener errores de predicción de entidad. El error de predicción es una diferencia entre cómo una entidad se etiqueta en comparación con cómo LUIS ha predicho la entidad. 
+
+Esta diferencia se representa visualmente en el portal de LUIS con un subrayado rojo en la expresión. El subrayado rojo puede aparecer entre corchetes de la entidad o fuera de los corchetes. 
+
+![Captura de pantalla de la discrepancia de predicción del estado de entidad](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Seleccione las palabras que se hayan subrayado en rojo en la expresión. 
+
+El cuadro de la entidad muestra el **Estado de entidad** con un signo de exclamación rojo si hay una discrepancia de predicción. Para ver el Estado de entidad con información sobre la diferencia entre las entidades etiquetadas y previstas, seleccione **Estado de entidad** y seleccione el elemento a la derecha.
+
+![Captura de pantalla de la discrepancia de predicción del estado de entidad](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+La línea roja puede aparecer en cualquiera de los momentos siguientes:
+
+    * Cuando se declara una expresión, pero antes de que se etiquete la entidad
+    * Cuando se aplica la etiqueta de la entidad
+    * Cuando se quita la etiqueta de la entidad
+    * Cuando se predice más de una etiqueta de entidad para ese texto 
+
+Las siguientes soluciones ayudan a resolver la discrepancia de predicción de la entidad:
+
+|Entidad|Indicador visual|Predicción|Solución|
+|--|--|--|--|
+|Expresión declarada, la entidad no está etiquetada aún.|subrayado rojo|La predicción es correcta.|Etiquete la entidad con el valor predicho.|
+|Texto sin etiquetar|subrayado rojo|Predicción incorrecta|Las expresiones actuales con esta entidad incorrecta tienen que revisarse en todas las intenciones. Las expresiones actuales han enseñado mal a LUIS que este texto es la entidad predicha.
+|Texto etiquetado correctamente|resaltado azul de la entidad, subrayado rojo|Predicción incorrecta|Proporcione más expresiones con la entidad etiquetada correctamente en una variedad de lugares y usos. Las expresiones actuales no son suficientes para enseñar a LUIS que se trata de la entidad o aparecen entidades similares en el mismo contexto. La entidad similar debe combinarse en una única entidad de modo que LUIS no se confunda. Otra solución es agregar una lista de frases para aumentar la significación de las palabras. |
+|Texto etiquetado incorrectamente|resaltado azul de la entidad, subrayado rojo|Predicción correcta| Proporcione más expresiones con la entidad etiquetada correctamente en una variedad de lugares y usos. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>Eliminación de etiquetas de entidad de las expresiones

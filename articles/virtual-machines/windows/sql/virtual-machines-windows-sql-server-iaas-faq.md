@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes sobre SQL Server en Microsoft Azure Virtual Machines | Microsoft Docs
+title: Preguntas más frecuentes sobre SQL Server en Windows Virtual Machines de Azure | Microsoft Docs
 description: Este artículo brinda respuestas a las preguntas más frecuentes sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 48df858095cb867954460ec858567e41ed330063
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012073"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427185"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Preguntas más frecuentes para SQL Server en Microsoft Azure Virtual Machines
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales de Windows en Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-En este artículo se ofrecen respuestas a algunas de las preguntas más comunes sobre la ejecución de [SQL Server en Microsoft Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+En este artículo se ofrecen respuestas a algunas de las preguntas más comunes sobre la ejecución de [SQL Server en máquinas virtuales de Windows en Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [!NOTE]
 > Este artículo se centra en los problemas específicos de SQL Server en máquinas virtuales Windows. Si ejecuta SQL Server en máquinas virtuales Linux, consulte las [preguntas más frecuentes sobre Linux](../../linux/sql/sql-server-linux-faq.md).

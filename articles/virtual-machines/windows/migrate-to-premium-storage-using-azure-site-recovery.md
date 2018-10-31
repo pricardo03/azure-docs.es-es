@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.component: disks
-ms.openlocfilehash: 5d3c2f09a6e4c45aa477cd85911147eab6de7a2c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714713"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404144"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -77,8 +77,10 @@ Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Paso 1: Creación de un almacén de Recovery Services
 
 1. Abra [Azure Portal](https://portal.azure.com).
-2. Seleccione **Crear un recurso** > **Administración** > **Backup and Site Recovery (OMS)**. También puede seleccionar **Examinar** > **Almacén de Recovery Services** > **Agregar**. 
-3. Especifique la región en la que se van a replicar las máquinas virtuales. A efectos de la migración en la misma región, seleccione la región donde están máquinas virtuales de origen y las cuentas de almacenamiento de origen. 
+2. Seleccione **Crear un recurso** > **Administración** > **Backup and Site Recovery (OMS)**. También puede seleccionar **Examinar** > **Almacén de Recovery Services** > **Agregar**.
+   >[!NOTE]
+   >Anteriormente, Backup y Site Recovery formaban parte de ![OMS Suite](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+1. Especifique la región en la que se van a replicar las máquinas virtuales. A efectos de la migración en la misma región, seleccione la región donde están máquinas virtuales de origen y las cuentas de almacenamiento de origen. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Paso 2: Elección de objetivos de protección 
 

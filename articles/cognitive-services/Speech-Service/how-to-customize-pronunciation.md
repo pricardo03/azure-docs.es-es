@@ -1,19 +1,21 @@
 ---
-title: Personalización de la pronunciación con Servicios de voz en Azure Cognitive Services
-description: Obtenga información sobre cómo personalizar la pronunciación con Servicios de voz en Azure Cognitive Services.
+title: Personalización de la pronunciación con servicio Voz
+titlesuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo personalizar la pronunciación con el servicio Voz.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: a608d1e48112fbb2adb56191eeb7f168de507e77
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423211"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466178"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar la pronunciación personalizada
 Con el uso de la pronunciación personalizada, puede definir el formato fonético y mostrar una palabra o un término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple).

@@ -1,33 +1,33 @@
 ---
-title: ¿Qué es la voz personalizada? Azure Cognitive Services
-description: En este artículo se ofrece una visión general de la personalización de voz de Microsoft Text to Speech, que permite crear una voz de marca reconocible y única.
+title: Cómo crear una fuente de voz personalizada
+titlesuffix: Azure Cognitive Services
+description: En este artículo se ofrece una visión general de la personalización de voz de Text to Speech, que permite crear una voz de marca reconocible y única.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 5e99e7e376a020f845816fb38e31dd727d87a4cb
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423432"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467725"
 ---
 # <a name="creating-custom-voice-fonts"></a>Crear fuentes de voz personalizada
 
-La personalización de voz de Microsoft Text to Speech (TTS) permite crear una voz única y reconocible para su marca: una *fuente de voz*. 
+La personalización de voz de Text to Speech (TTS) permite crear una voz única y reconocible para su marca: una *fuente de voz*. 
 
 Para crear su fuente de voz, haga que un estudio grabe y cargue los scripts asociados como datos de aprendizaje. A continuación, el servicio crea un modelo de voz único ajustado a la grabación. Asimismo, puede usar esta fuente de voz para sintetizar la voz. 
 
 Puede comenzar con una pequeña cantidad de datos para realizar una prueba de concepto. De todos modos, cuantos más datos proporcione, más natural y profesional será la voz.
 
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-La característica de personalización de voz **Text to Speech** se encuentra actualmente en versión preliminar privada. [Complete el formulario de solicitud](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) para poder obtener acceso.
-
-También necesita una cuenta de Azure y una suscripción a Speech Service. [Cree una suscripción](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) si todavía no lo ha hecho. Conecte su suscripción al portal de voz personalizada, tal como se indica a continuación:
+Necesita una cuenta de Azure y una suscripción al servicio Voz. [Cree una suscripción](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) si todavía no lo ha hecho. Conecte su suscripción al portal de voz personalizada, tal como se indica aquí.
 
 1. Inicie sesión en el [portal de voz personalizada](https://customvoice.ai) con la misma cuenta Microsoft que usa para acceder.
 
@@ -37,7 +37,6 @@ También necesita una cuenta de Azure y una suscripción a Speech Service. [Cree
 
 3. En la página Suscripciones, elija **Conectar suscripción existente**. Tenga en cuenta que Speech Services admite diferentes regiones. Compruebe la región donde se creó la clave de suscripción y asegúrese de conectar su clave al subportal correcto.  
 
-     
 4. Pegue su clave de suscripción en la tabla, tal como se muestra en el ejemplo siguiente. Cada suscripción tiene dos claves; puede usar cualquiera de ellas.
 
      ![Agregar suscripción](media/custom-voice/add-subscription.png)
@@ -56,7 +55,7 @@ Para crear una voz que se vaya a usar en una producción, le recomendamos que us
 
 ### <a name="audio-files"></a>Archivos de audio
 
-Cada archivo de audio debe consistir en una sola expresión (por ejemplo, una sola frase o un solo giro de un sistema de diálogo). Todos los archivos deben estar en el mismo idioma. (No se admiten las voces personalizadas en varios idiomas). Los archivos de audio también deben tener un nombre de archivo numérico exclusivo con la extensión de nombre de archivo `.wav`.
+Cada archivo de audio debe consistir en una sola expresión (por ejemplo, una sola frase o un solo giro de un sistema de diálogo). Todos los archivos deben estar en el mismo idioma. (No se admiten voces multilingües personalizadas). Los archivos de audio también deben tener un nombre de archivo numérico exclusivo con la extensión de nombre de archivo `.wav`.
 
 Los archivos de audio deben prepararse de la siguiente manera. Otros formatos no son compatibles y serán rechazados.
 

@@ -12,39 +12,39 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 10/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 62057d3041aa83e0097b688b48386b80f5c4f87e
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974551"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637296"
 ---
-# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una máquina virtual Linux mediante la CLI de Azure
+# <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una VM Linux con la CLI de Azure
 
-Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir un disco de datos existente. En este artículo se explica cómo expandir discos administrados para una máquina virtual Linux o con la CLI de Azure. 
+En este artículo se describe cómo expandir discos administrados para una máquina virtual (VM) Linux con la CLI de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, y también puede expandir un disco de datos existente. Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una VM Linux en Azure. 
 
 > [!WARNING]
 > Asegúrese siempre de realizar una copia de seguridad de los datos antes de cambiar el tamaño de los discos. Para más información, consulte [Copia de seguridad de máquinas virtuales Linux en Azure](tutorial-backup-vms.md).
 
-## <a name="expand-azure-managed-disk"></a>Expandir el disco administrado de Azure
-Asegúrese de que ha instalado la última versión de la [CLI de Azure](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
+## <a name="expand-an-azure-managed-disk"></a>Expansión de un disco administrado de Azure
+Asegúrese de que tiene instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az-login).
 
 En este artículo se requiere una máquina virtual existente en Azure con al menos un disco de datos adjunto y preparado. Si no dispone de una máquina virtual que pueda usar, consulte la sección sobre la [creación y preparación de máquinas virtuales con discos de datos](tutorial-manage-disks.md#create-and-attach-disks).
 
-En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen *myResourceGroup* y *myVM*.
+En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo, como *myResourceGroup* y *myVM*, con sus propios valores.
 
-1. No se pueden realizar operaciones en los discos duros virtuales con la máquina virtual en ejecución. Desasigne la máquina virtual con [az vm deallocate](/cli/azure/vm#az_vm_deallocate). En el ejemplo siguiente se desasigna la máquina virtual denominada "*myVM*" en el grupo de recursos *myResourceGroup*:
+1. No se pueden realizar operaciones en los discos duros virtuales con la VM en ejecución. Desasigne la máquina virtual con [az vm deallocate](/cli/azure/vm#az-vm-deallocate). En el ejemplo siguiente se desasigna la máquina virtual denominada "*myVM*" en el grupo de recursos *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > Debe desasignar la máquina virtual para expandir el disco duro virtual. `az vm stop` no libera los recursos de proceso. Para liberar los recursos de proceso, use `az vm deallocate`.
+    > Debe desasignar la máquina virtual para expandir el disco duro virtual. Detener la VM con `az vm stop` no libera los recursos de proceso. Para liberar los recursos de proceso, use `az vm deallocate`.
 
-1. Vea la lista de discos administrados de un grupo de recursos con [az disk list](/cli/azure/disk#az_disk_list). En el ejemplo siguiente se muestra una lista de discos administrados del grupo de recursos denominado *myResourceGroup*:
+1. Vea la lista de discos administrados de un grupo de recursos con [az disk list](/cli/azure/disk#az-disk-list). En el ejemplo siguiente se muestra una lista de discos administrados del grupo de recursos denominado *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -53,7 +53,7 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
         --output table
     ```
 
-    Expanda el disco necesario con [az disk update](/cli/azure/disk#az_disk_update). En el ejemplo siguiente se expande el disco administrado llamado *myDataDisk* para cambiar su tamaño a *200* GB:
+    Expanda el disco necesario con [az disk update](/cli/azure/disk#az-disk-update). En el ejemplo siguiente se expande el disco administrado llamado *myDataDisk* a *200* GB:
 
     ```azurecli
     az disk update \
@@ -63,27 +63,27 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     ```
 
     > [!NOTE]
-    > Si expande un disco administrado, el tamaño actualizado se asigna al tamaño de disco administrado más próximo. Para consultar una tabla de los tamaños y las capas disponibles para discos administrados, vea [Introducción a Azure Managed Disks: precios y facturación](../windows/managed-disks-overview.md#pricing-and-billing).
+    > Si expande un disco administrado, el tamaño actualizado se redondea al tamaño de disco administrado más próximo. Para consultar una tabla de los tamaños y las capas disponibles para discos administrados, vea [Introducción a Azure Managed Disks: precios y facturación](../windows/managed-disks-overview.md#pricing-and-billing).
 
-1. Inicie la máquina virtual con [az vm start](/cli/azure/vm#az_vm_start). En el ejemplo siguiente se inicia la máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
+1. Inicie la máquina virtual con [az vm start](/cli/azure/vm#az-vm-start). En el ejemplo siguiente se inicia la máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 
-## <a name="expand-disk-partition-and-filesystem"></a>Expandir el sistema de archivos y la partición del disco
-Para usar el disco ampliado, necesita expandir la partición y el sistema de archivos subyacentes.
+## <a name="expand-a-disk-partition-and-filesystem"></a>Expansión de una partición de disco y del sistema de archivos
+Para usar el disco expandido, expanda la partición y el sistema de archivos subyacentes.
 
-1. SSH en la máquina virtual con las credenciales adecuadas. Puede obtener la dirección IP pública de la máquina virtual con [az vm show](/cli/azure/vm#az_vm_show):
+1. SSH en la máquina virtual con las credenciales adecuadas. Puede obtener la dirección IP pública de la VM con [az vm show](/cli/azure/vm#az-vm-show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-1. Para usar el disco ampliado, necesita expandir la partición y el sistema de archivos subyacentes.
+1. Expanda la partición de disco y el sistema de archivos subyacentes.
 
-    a. Si está montado, desmonte el disco:
+    a. Si el disco ya está montado, desmóntelo:
 
     ```bash
     sudo umount /dev/sdc1
@@ -95,7 +95,7 @@ Para usar el disco ampliado, necesita expandir la partición y el sistema de arc
     sudo parted /dev/sdc
     ```
 
-    Consulte la información del diseño de partición existente con `print`. El resultado es similar al ejemplo siguiente, que muestra que el disco subyacente de 215 GB:
+    Consulte la información del diseño de partición existente con `print`. El resultado es similar al ejemplo siguiente, que muestra que el disco subyacente es de 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -120,7 +120,7 @@ Para usar el disco ampliado, necesita expandir la partición y el sistema de arc
     End?  [107GB]? 215GB
     ```
 
-    d. Para salir, escriba `quit`
+    d. Para salir, escriba `quit`.
 
 1. Una vez cambiado el tamaño de la partición, compruebe la coherencia de esta con `e2fsck`:
 
@@ -128,7 +128,7 @@ Para usar el disco ampliado, necesita expandir la partición y el sistema de arc
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Ahora cambie el tamaño del sistema de archivos con `resize2fs`:
+1. Cambie el tamaño del sistema de archivos con `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
@@ -140,7 +140,7 @@ Para usar el disco ampliado, necesita expandir la partición y el sistema de arc
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Para comprobar que se ha cambiado el tamaño de disco del sistema operativo, use `df -h`. La siguiente salida de ejemplo muestra que la unidad de datos, */dev/sdc1*, es ahora de 200 GB:
+1. Para comprobar que se ha cambiado el tamaño de disco del sistema operativo, use `df -h`. La siguiente salida de ejemplo muestra que la unidad de datos, */dev/sdc1*, tiene ahora 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -148,4 +148,5 @@ Para usar el disco ampliado, necesita expandir la partición y el sistema de arc
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si necesita almacenamiento adicional, también puede [agregar discos de datos a una máquina virtual Linux](add-disk.md). Para más información acerca del cifrado de disco, consulte [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](encrypt-disks.md).
+* Si necesita almacenamiento adicional, también puede [agregar discos de datos a una VM Linux](add-disk.md). 
+* Para más información acerca del cifrado de disco, consulte [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](encrypt-disks.md).

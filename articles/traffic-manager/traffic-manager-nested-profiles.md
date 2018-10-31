@@ -4,22 +4,19 @@ description: En este artículo se explica la característica "Perfiles anidados"
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111703"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648605"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfiles anidados del Administrador de tráfico
 
@@ -66,9 +63,7 @@ En la siguiente ilustración, se muestra esta configuración:
 
 ## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Ejemplo 3: Regiones de conmutación por error en orden de prioridad en el enrutamiento de tráfico de "rendimiento"
 
-El comportamiento predeterminado del método de enrutamiento de tráfico de "rendimiento" está diseñado para evitar sobrecargar el siguiente punto de conexión más cercano y provocar una serie de errores en cascada. Cuando se produce un error en un punto de conexión, todo el tráfico que se habría dirigido a ese punto de conexión se distribuye uniformemente a los demás puntos de conexión de todas las regiones.
-
-![Enrutamiento de tráfico de "rendimiento" con conmutación por error predeterminada][5]
+El comportamiento predeterminado para el método de enrutamiento de tráfico de "rendimiento" es que, cuando tenga puntos de conexión en diferentes ubicaciones geográficas, se dirija a los usuarios finales al punto de conexión "más cercano" según la latencia de red más baja.
 
 Sin embargo, suponga que prefiere que el tráfico de Europa Occidental conmute por error a la región oeste de EE. UU. y únicamente dirigirlo a otras regiones si ambos puntos de conexión no están disponibles. Puede crear esta solución mediante un perfil secundario con el método de enrutamiento de tráfico por "prioridad".
 
@@ -102,7 +97,7 @@ La configuración de supervisión en un perfil de Traffic Manager se aplica a to
 
 Más información sobre los [perfiles de Traffic Manager](traffic-manager-overview.md)
 
-Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
+Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

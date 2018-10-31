@@ -1,24 +1,25 @@
 ---
-title: Documentación del SDK de Voz de Cognitive Services | Microsoft Docs
+title: Documentación del SDK del servicio Voz
+titlesuffix: Azure Cognitive Services
 description: 'Notas de la versión: qué ha cambiado en las versiones más recientes'
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340008"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471148"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
-## <a name="cognitive-services-speech-sdk-101"></a>SDK de Voz 1.0.1 de Cognitive Services
+## <a name="speech-service-sdk-101"></a>SDK del servicio Voz 1.0.1
 
 Mejoras en la confiabilidad y correcciones de errores:
 
@@ -26,8 +27,8 @@ Mejoras en la confiabilidad y correcciones de errores:
 * Corrección de un potencial error grave en el caso de propiedades sin establecer.
 * Comprobación adicional de errores y parámetros.
 * Objective-C: corrección de posibles errores graves causados por la invalidación de nombres en NSString.
-* Objective-C: ajuste de visibilidad en la API
-* JavaScript: correcciones con respecto a los eventos y sus cargas.
+* Objective-C: ajuste de visibilidad en la API.
+* JavaScript: corrección con respecto a los eventos y sus cargas.
 * Mejoras en la documentación.
 
 Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplos](https://aka.ms/csspeech/samples).

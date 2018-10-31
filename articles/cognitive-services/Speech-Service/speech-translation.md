@@ -1,26 +1,27 @@
 ---
 title: Acerca de la traducción de voz
+titlesuffix: Azure Cognitive Services
 description: Información general sobre las funcionalidades de Translator Speech
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165444"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469153"
 ---
 # <a name="about-the-speech-translation-api"></a>Introducción a Translator Speech API
 
-Microsoft Speech API le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz de varios idiomas de un extremo a otro en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
+Speech Service API le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz de varios idiomas de un extremo a otro en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
 
-Con Microsoft Translator Speech API, las aplicaciones cliente transmiten audio de voz al servicio y reciben de nuevo una secuencia de resultados. Estos resultados incluyen el texto reconocido en el idioma de origen y su traducción en el idioma de destino. Se pueden proporcionar traducciones provisionales hasta que se complete una expresión, momento en el que se proporciona una traducción final.
+Con Translator Speech API, las aplicaciones cliente transmiten audio de voz al servicio y reciben de nuevo una secuencia de resultados. Estos resultados incluyen el texto reconocido en el idioma de origen y su traducción en el idioma de destino. Se pueden proporcionar traducciones provisionales hasta que se complete una expresión, momento en el que se proporciona una traducción final.
 
 También puede prepararse una versión de audio sintetizada de la traducción final, habilitando la auténtica traducción de voz a voz.
 

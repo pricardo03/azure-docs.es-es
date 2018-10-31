@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51711e3cb0a2e26e8e10590e98414d4d72cc4d59
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320584"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430347"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -541,7 +541,7 @@ Microsoft Azure Virtual Machines usa varios tipos de almacenamiento. Al implemen
 * Almacenamiento volátil, no persistente.
 * Almacenamiento persistente.
 
-Las máquinas virtuales de Azure ofrecen discos no persistentes después de implementar una máquina virtual. En el caso de un reinicio de máquina virtual, se borrará todo el contenido de esas unidades. Por tanto, es evidente que los archivos de datos y los archivos de registro y fase de puesta al día de las bases de datos no se deben colocar bajo ninguna circunstancia en esas unidades de disco no persistentes. Es posible que haya excepciones para algunas de las bases de datos, donde estas unidades de disco no persistentes podrían ser adecuadas para tempdb y los espacios de tablas temporales. Pero evite usar esas unidades de disco para las máquinas virtuales de la serie A, ya que esas unidades no persistentes tienen un límite de rendimiento con esa familia de máquinas virtuales. Para obtener más información, lea el artículo [Understanding the temporary drive on Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Descripción de la unidad temporal en Microsoft Azure Virtual Machines).
+Las máquinas virtuales de Azure ofrecen discos no persistentes después de implementar una máquina virtual. En el caso de un reinicio de máquina virtual, se borrará todo el contenido de esas unidades. Por tanto, es evidente que los archivos de datos y los archivos de registro y fase de puesta al día de las bases de datos no se deben colocar bajo ninguna circunstancia en esas unidades de disco no persistentes. Es posible que haya excepciones para algunas de las bases de datos, donde estas unidades de disco no persistentes podrían ser adecuadas para tempdb y los espacios de tablas temporales. Pero evite usar esas unidades de disco para las máquinas virtuales de la serie A, ya que esas unidades no persistentes tienen un límite de rendimiento con esa familia de máquinas virtuales. Para obtener más información, lea el artículo [Understanding the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Descripción de la unidad temporal en máquinas virtuales de Windows en Azure).
 
 - - -
 > ![Windows][Logo_Windows] Windows

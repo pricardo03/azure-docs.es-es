@@ -1,5 +1,5 @@
 ---
-title: 'Preguntas más frecuentes: Language Understanding (LUIS)'
+title: 'P+F: Preguntas más frecuentes: Language Understanding (LUIS)'
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene respuestas a las preguntas más frecuentes sobre Language Understanding (LUIS).
 author: diberry
@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432471"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649319"
 ---
 # <a name="language-understanding-faq"></a>P+F sobre Language Understanding
 
@@ -113,6 +113,10 @@ Consulte el tutorial sobre [Pruebas en lote](luis-tutorial-batch-testing.md).
 
 Consulte las [diferencias de predicción entre las copias de la misma aplicación](luis-concept-prediction-score.md#differences-with-predictions).
 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Después de haber hecho cambios en la aplicación, algunas expresiones van a la intención incorrecta. El problema parece desaparecer de forma aleatoria. ¿Cómo puedo corregirlo? 
+
+Vea [Entrenamiento con todos los datos](luis-how-to-train.md#train-with-all-data).
+
 ## <a name="app-publishing"></a>Publicación de la aplicación
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>¿Qué es el identificador de inquilino de la ventana Add a key to your app (Agregar una clave a la aplicación)?
@@ -135,7 +139,7 @@ Si la aplicación ya existía antes de que LUIS estuviera disponible con caráct
 Para transferir una aplicación de LUIS a otra suscripción de Azure, exporte la aplicación de LUIS e impórtela con una cuenta nueva. Actualice el id. de aplicación de LUIS en la aplicación cliente que lo llama. La aplicación nueva puede devolver puntuaciones de LUIS ligeramente distintas a las de la aplicación original.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>¿Cómo puedo descargar un registro de las expresiones de los usuarios?
-De forma predeterminada, la aplicación de LUIS registra las expresiones de los usuarios. Para descargar un registro de las expresiones que los usuarios envían a su aplicación de LUIS, vaya a **Mis aplicaciones** y haga clic en los tres puntos (***...***) en la entrada de la aplicación. Haga clic en **Export Endpoint Logs** (Exportar registros de punto de conexión). El registro está en un archivo con formato de valores separados por comas (CSV).
+De forma predeterminada, la aplicación de LUIS registra las expresiones de los usuarios. Para descargar un registro de las expresiones que los usuarios envían a su aplicación de LUIS, vaya a **Mis aplicaciones** y seleccione la aplicación. En la barra de herramientas contextual, seleccione **Export Endpoint Logs** (Exportar registros de punto de conexión). El registro está en un archivo con formato de valores separados por comas (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>¿Cómo puedo deshabilitar el registro de expresiones?
 Puede desactivar el registro de expresiones de usuario si establece `log=false` en la dirección URL del punto de conexión que la aplicación cliente usa para consultar a LUIS. Sin embargo, desactivar el registro deshabilita la capacidad de la aplicación de LUIS para sugerir expresiones o mejorar su rendimiento basada en el [aprendizaje activo](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Si establece `log=false` por motivos de privacidad de los datos, no puede descargar un registro de esas expresiones de usuario desde LUIS ni usar esas expresiones para mejorar su aplicación.
@@ -153,11 +157,9 @@ Si utiliza el registro para el análisis de predicción, no capture las expresio
 * Puede eliminar expresiones de la lista de expresiones de usuario que LUIS sugiere en la página **Review endpoint utterances** (Revisar expresiones de punto de conexión). Eliminar la expresiones de esta lista evita que se sugieran, pero no las elimina de los registros.
 * Si elimina una cuenta, se eliminan todas las aplicaciones, incluso las expresiones de ejemplo y los registros. Los datos se conservan en los servidores durante 60 días antes de eliminarse permanentemente.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>¿Microsoft tiene acceso a los datos de la aplicación de LUIS para sus propios fines, por ejemplo, para mejorar LUIS o Microsoft en general?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>¿Cómo administra Microsoft los datos que envío a LUIS?
 
-No. El modelo de datos de la aplicación de LUIS no es utilizado por LUIS para su mejora como una plataforma ni utilizado por Microsoft de ninguna manera. Los datos de cada aplicación son independientes y pertenecen solo al usuario y los colaboradores.
-
-Más información sobre la [privacidad del usuario](luis-user-privacy.md), el [cumplimiento de seguridad adicional](luis-concept-security.md#security-compliance) y el [almacenamiento de datos](luis-concept-data-storage.md).
+En el [Centro de confianza](https://www.microsoft.com/trustcenter) se explican nuestros compromisos y sus opciones para la administración y el acceso a los datos en los servicios de Azure.
 
 ## <a name="language-and-translation-support"></a>Compatibilidad de idioma y traducción
 

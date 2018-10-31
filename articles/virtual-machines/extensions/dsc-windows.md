@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630946"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407714"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 
@@ -130,7 +130,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de VM del agente de OMS en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de VM del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
 
 La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. 
 
@@ -139,7 +139,7 @@ Cuando se anidan los recursos de extensión, la plantilla JSON se coloca en el o
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
 
-La CLI de Azure puede utilizarse para implementar la extensión de máquina virtual del agente de OMS en una máquina virtual. Reemplace la clave OMS y el identificador de OMS por los de su área de trabajo OMS. 
+La CLI de Azure puede utilizarse para implementar la extensión de máquina virtual del agente de Log Analytics en una máquina virtual. Reemplace la clave y el identificador de Log Analytics con los de su área de trabajo de Log Analytics. 
 
 ```azurecli
 az vm extension set \

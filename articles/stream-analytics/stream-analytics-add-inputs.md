@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 219fe9e8f91f9b02e64b3b44ab4301f77820561f
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665830"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648962"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Información sobre las entradas de Azure Stream Analytics
 
@@ -38,7 +38,7 @@ Un flujo de datos es una secuencia ilimitada de eventos a lo largo del tiempo. L
 Para obtener más información sobre las entradas de streaming, vea [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md) (Datos de flujo como entrada en Stream Analytics).
 
 ### <a name="reference-data-input"></a>Entrada de datos de referencia
-Stream Analytics también admite la entrada de *datos de referencia*. Los datos de referencia son completamente estáticos o cambian lentamente. Se utilizan normalmente para realizar la correlación y las búsquedas. Por ejemplo, es posible combinar datos de la entrada de flujo de datos con datos de los datos de referencia, de la misma forma que ejecutaría una instrucción SQL JOIN para buscar valores estáticos. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia. El tamaño de los blobs de origen de datos de referencia se limita a 100 MB.
+Stream Analytics también admite la entrada de *datos de referencia*. Los datos de referencia son completamente estáticos o cambian lentamente. Se utilizan normalmente para realizar la correlación y las búsquedas. Por ejemplo, es posible combinar datos de la entrada de flujo de datos con datos de los datos de referencia, de la misma forma que ejecutaría una instrucción SQL JOIN para buscar valores estáticos. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia. Los blobs de origen de datos de referencia tienen un tamaño límite de 300 MB, según la complejidad de la consulta y las unidades de streaming asignadas.
 
 Para obtener más información sobre las entradas de datos de referencia, vea [Uso de datos de referencia para las búsquedas en Stream Analytics](stream-analytics-use-reference-data.md)
 

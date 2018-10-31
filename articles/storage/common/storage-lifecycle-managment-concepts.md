@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983674"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429565"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -37,7 +37,7 @@ La directiva de administración del ciclo de vida está disponible con la cuenta
 La característica de administración del ciclo de vida es gratuita en la versión preliminar. A los clientes se les cobra el costo operativo habitual para las llamadas API [Mostrar blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) y [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Vea los [precios de blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/) para obtener más información sobre los precios.
 
 ## <a name="register-for-preview"></a>Registro en la versión preliminar 
-Para inscribirse en la versión preliminar pública, debe enviar una solicitud para registrar esta característica en la suscripción. Una vez aprobada su solicitud (en el plazo de unos días), cualquier cuenta existente o nueva de GPv2 o Blob Storage de las regiones Oeste de EE. UU. 2, Centro-oeste de EE. UU. y Europa Occidental tendrá la característica habilitada. Durante la versión preliminar, solo se admiten los blobs en bloques. Como sucede con la mayoría de las versiones preliminares, esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la disponibilidad general.
+Para inscribirse en la versión preliminar pública, debe enviar una solicitud para registrar esta característica en la suscripción. Una vez aprobada su solicitud (en el plazo de unos días), cualquier cuenta existente o nueva de GPv2 o Blob Storage de las regiones Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de EE. UU. 2 y Europa Occidental tendrá la característica habilitada. Durante la versión preliminar, solo se admiten los blobs en bloques. Como sucede con la mayoría de las versiones preliminares, esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la disponibilidad general.
 
 Para enviar una solicitud, ejecute los siguientes comandos de PowerShell o de la CLI.
 
@@ -69,7 +69,7 @@ Si la característica se aprueba y registra correctamente, debe recibir el estad
 
 ## <a name="add-or-remove-policies"></a>Adición o eliminación de directivas 
 
-Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -316,6 +316,10 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
   ]
 }
 ```
+## <a name="faq"></a>Preguntas más frecuentes
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>He creado una directiva nueva, ¿por qué las acciones especificadas no se ejecutan inmediatamente? 
+
+La plataforma ejecuta las directivas de ciclo de vida una vez al día. Una vez que se establece una nueva directiva, las acciones, como la organización en niveles o la eliminación, pueden tardar hasta 24 horas en iniciarse o ejecutarse.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

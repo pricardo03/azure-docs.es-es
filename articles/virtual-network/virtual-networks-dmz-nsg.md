@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23126683"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457296"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Ejemplo 1: Crear una red perimetral simple mediante NSG con una plantilla de Azure Resource Manager
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
@@ -99,7 +99,7 @@ Cada regla se explica con más detalle a continuación:
     ``` 
 
 2. En este ejemplo, la primera regla permite el tráfico DNS entre todas las redes internas al servidor DNS en la subred back-end. La regla tiene algunos parámetros importantes:
-  * Las reglas "destinationAddressPrefix" pueden usar un tipo especial de prefijo de dirección denominado "Etiqueta predeterminada". Estas etiquetas son identificadores que proporciona el sistema para incluir de manera más sencilla una categoría mayor de prefijos de dirección. Esta regla utiliza la etiqueta predeterminada "Internet" para indicar cualquier dirección fuera de la red virtual. Otras etiquetas de prefijo son VirtualNetwork y AzureLoadBalancer.
+  * "destinationAddressPrefix": el prefijo de dirección de destino se establece en "10.0.2.4" para que el tráfico DNS puede llegar al servidor DNS.
   * "Direction" indica en qué dirección del flujo de tráfico esta entrada surte efecto. La dirección se entiende desde la perspectiva de la subred o máquina virtual (depende de donde esté enlazado este NSG). Por lo tanto, si Direction es "Inbound" y el tráfico está entrando en la subred, la regla se aplicará y tráfico que sale de la subred no se vería afectado por esta regla.
   * "Priority" establece el orden de evaluación de un flujo de tráfico. Cuanto menor sea el número de prioridad, mayor será la prioridad de la regla. En cuanto se aplica una regla a un flujo de tráfico específico, no se procesa ninguna otra regla. Por tanto, si una regla con prioridad 1 permite el tráfico y una regla de prioridad 2 deniega el tráfico y ambas reglas se aplican al tráfico, se permitirá que el tráfico fluya (como la regla 1 tenía una prioridad más alta, entró en vigor y no se aplicó ninguna otra regla).
   * "Access" indica si se bloquea ("Deny") o se permite ("Allow") el tráfico al que afecta esta regla.
@@ -180,7 +180,7 @@ Cada regla se explica con más detalle a continuación:
     },
      ```
 
-6. Esta regla deniega el tráfico desde Internet a cualquiera de los servidores de la red. Con las reglas con prioridad 110 y 120, se permite solo el tráfico entrante de Internet al firewall y los puertos RDP en servidores, y se bloquea todo lo demás. Esta regla está configurada "a prueba de errores" para bloquear todos los flujos inesperados.
+6. Las reglas pueden usar un tipo especial de prefijo de dirección denominado "Etiqueta predeterminada". Estas etiquetas son identificadores que proporciona el sistema para incluir de manera más sencilla una categoría mayor de prefijos de dirección. Esta regla usa la etiqueta predeterminada "VirtualNetwork" para que el prefijo de dirección de destino indique cualquier dirección dentro de la red virtual. Otras etiquetas de prefijo son Internet y AzureLoadBalancer. Esta regla deniega el tráfico desde Internet a cualquiera de los servidores de la red. Con las reglas con prioridad 110 y 120, se permite solo el tráfico entrante de Internet al firewall y los puertos RDP en servidores, y se bloquea todo lo demás. Esta regla está configurada "a prueba de errores" para bloquear todos los flujos inesperados.
 
     ```JSON
     {

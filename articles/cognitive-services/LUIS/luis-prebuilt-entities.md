@@ -8,99 +8,52 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041564"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647602"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades precompiladas para reconocer tipos de datos comunes
 
-LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes de información, como fechas, horas, números, medidas y moneda. La compatibilidad de entidades precompiladas varía según la referencia cultural de la aplicación LUIS. Para ver una lista completa de las entidades precompiladas que LUIS admite, incluso la compatibilidad por referencia cultural, consulte la [referencia de entidades precompiladas](./luis-reference-prebuilt-entities.md).
-
-> [!NOTE]
-> **builtin.datetime** está en desuso. Se sustituye por [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), que permite reconocer los intervalos de fechas y horas, así como mejorar el reconocimiento de las fechas y horas ambiguas.
+LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes de información, como fechas, horas, números, medidas y moneda. 
 
 ## <a name="add-a-prebuilt-entity"></a>Adición de una entidad precompilada
 
 1. Haga clic en la aplicación para abrirla desde la página **Mis aplicaciones** y, después, haga clic en **Entidades** a la izquierda. 
-2. En la página **Entities** (Entidades), haga clic en **Manage prebuilt entities** (Administrar entidades precompiladas).
 
-3. En el cuadro de diálogo **Add prebuilt entities** (Agregar entidades precompiladas), haga clic en la entidad precompilada que desea agregar (por ejemplo, "datetimeV2"). A continuación, haga clic en **Guardar**.
+1. En la página **Entities** (Entidades), haga clic en **Manage prebuilt entities** (Administrar entidades precompiladas).
+
+1. En el cuadro de diálogo **Add prebuilt entities** (Agregar entidades precompiladas), seleccione la entidad precompilada datetimeV2. 
 
     ![Cuadro de diálogo Add prebuilt entity (Agregar entidades precompiladas)](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
 
-## <a name="use-a-prebuilt-number-entity"></a>Uso de una entidad numérica precompilada
-Cuando una entidad precompilada se incluye en la aplicación, sus predicciones se incluyen en la aplicación publicada. El comportamiento de las entidades precompiladas ya está entrenado y **no** se puede modificar. Siga estos pasos para ver cómo funciona una entidad precompilada:
+1. Seleccione **Listo**.
 
-1. Agregue una entidad de **número** a la aplicación, y después [entrene](luis-interactive-test.md) y [publique](luis-how-to-publish-app.md) la aplicación.
-2. Haga clic en la dirección URL del punto de conexión en la página **Publicar aplicación** para abrir el punto de conexión de LUIS en un explorador web. 
-3. Agregue una expresión a la dirección URL que contenga una expresión numérica. Por ejemplo, puede escribir `buy two plane ticktets` y ver que LUIS identifica `two` como una entidad `builtin.number`, e identifica `2` como su valor en el campo `resolution`. El campo `resolution` le ayuda a resolver números y fechas en forma canónica que es más fácil de usar para la aplicación cliente. 
+## <a name="publish-the-app"></a>Publicación de la aplicación
 
-    ![expresión en el explorador que contiene una entidad numérica](./media/luis-use-prebuilt-entity/browser-query.png)
+La manera más fácil de ver el valor de una entidad creada previamente es consultar desde el punto de conexión publicado. 
 
-LUIS puede reconocer inteligentemente números que no están en forma no estándar. Pruebe diferentes expresiones numéricas en sus expresiones y vea lo que LUIS devuelve.
+1. En la barra de herramientas superior, seleccione **Publish** (Publicar). Realice la publicación en **Production** (Producción). 
 
-En el siguiente ejemplo, se muestra una respuesta JSON de LUIS, que incluye la resolución del valor 24, para la expresión "dos docenas".
+1. Cuando aparezca la notificación de éxito en verde, seleccione el vínculo **Refer to the list of endpoints** (Consultar la lista de puntos de conexión) para ver los puntos de conexión.
 
-```json
-{
-  "query": "order two dozen tickets for group travel",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.905443209
-  },
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "value": "24"
-      }
-    }
-  ]
-}
-```
-## <a name="use-a-prebuilt-datetimev2-entity"></a>Uso de una entidad precompilada datetimeV2
-La entidad **datetimeV2** precompilada reconoce fechas, horas, rangos de fechas y duraciones de tiempo. Siga estos pasos para ver cómo funciona la entidad precompilada `datetimeV2`:
+1. Seleccione un extremo. Se abre una nueva pestaña del explorador en ese punto de conexión. Mantenga abierta la pestaña del explorador y vaya a la sección **Test** (Prueba).
 
-1. Agregue una entidad **datetimeV2** a la aplicación, y después [entrene](luis-interactive-test.md) y [publique](luis-how-to-publish-app.md) la aplicación.
-2. Haga clic en la dirección URL del punto de conexión en la página **Publicar aplicación** para abrir el punto de conexión de LUIS en un explorador web. 
-3. Agregue una expresión a la dirección URL que contenga un rango de fechas. Por ejemplo, puede escribir `book a flight tomorrow` y ver que LUIS identifica `tomorrow` como una entidad `builtin.datetimeV2.date`, e identifica la fecha del día siguiente como su valor en el campo `resolution`. 
+## <a name="test"></a>Prueba
+Después de agregar la entidad, no es necesario entrenar la aplicación. 
 
-El siguiente ejemplo muestra cómo sería la respuesta de JSON de LUIS si la fecha de hoy fuera el 31 de octubre de 2017.
+Pruebe la nueva intención en el punto de conexión agregando un valor para el parámetro **q**. Use la siguiente tabla para expresiones sugeridas para **q**:
 
-```json
-{
-  "query": "book a flight tomorrow",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9063408
-  },
-  "entities": [
-    {
-      "entity": "tomorrow",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 14,
-      "endIndex": 21,
-      "resolution": {
-        "values": [
-          {
-            "timex": "2017-11-01",
-            "type": "date",
-            "value": "2017-11-01"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
+|Probar expresión|Valor de la entidad|
+|--|:--|
+|Reservar un vuelo mañana|19-10-2018|
+|Cancelar la cita del 3 de marzo|LUIS devuelve el 3 de marzo más reciente pasado (03-03-2018) y el 3 de marzo próximo (03-03-2019) porque la expresión no especificó un año.|
+|Programar una reunión a las 10:00|10:00:00|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

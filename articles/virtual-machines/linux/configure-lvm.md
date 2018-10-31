@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 81ee7957c0b26440c064b7f39bc4cfb32b2abd15
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912236"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648350"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configuración del LVM en una máquina virtual Linux en Azure
-Este documento describe cómo configurar el administrador de volúmenes lógicos (LVM, Logical Volume Manager) en una máquina virtual de Azure. Aunque el LVM se puede configurar en cualquier disco conectado a la máquina virtual, de forma predeterminada, la mayoría de las imágenes de nube no tendrá el LVM configurado en el disco del sistema operativo. El motivo es evitar problemas con los grupos de volúmenes duplicados si el disco del sistema operativo se conecta en algún momento a otra máquina virtual de la misma distribución y tipo, es decir, durante un escenario de recuperación. Por lo tanto, se recomienda usar el LVM únicamente en los discos de datos.
+Este documento describe cómo configurar el administrador de volúmenes lógicos (LVM, Logical Volume Manager) en una máquina virtual de Azure. LVM se puede usar en el disco del sistema operativo o en discos de datos en VM de Azure; sin embargo, de forma predeterminada la mayoría de las imágenes de nube no tendrá LVM configurado en el disco del sistema operativo. Los pasos siguientes se centrarán en la configuración de LVM para los discos de datos.
 
 ## <a name="linear-vs-striped-logical-volumes"></a>Volúmenes lógicos lineales frente a seccionados
-El LVM se puede utilizar para combinar diversos discos físicos en un único volumen de almacenamiento. De forma predeterminada, el LVM suele crear volúmenes lógicos lineales, lo que significa que el almacenamiento físico se concatena todo junto. En este caso, las operaciones de lectura y escritura normalmente solo se enviarán a un único disco. En cambio, también podemos crear volúmenes lógicos seccionados en los que las lecturas y escrituras se distribuyan en varios discos del grupo de volúmenes (es decir, similar a RAID0). Por motivos de rendimiento, es probable que deba seccionar los volúmenes lógicos para que las lecturas y escrituras utilicen todos los discos de datos conectados.
+El LVM se puede utilizar para combinar diversos discos físicos en un único volumen de almacenamiento. De forma predeterminada, el LVM suele crear volúmenes lógicos lineales, lo que significa que el almacenamiento físico se concatena todo junto. En este caso, las operaciones de lectura y escritura normalmente solo se enviarán a un único disco. En cambio, también podemos crear volúmenes lógicos seccionados en los que las lecturas y escrituras se distribuyan en varios discos del grupo de volúmenes (similar a RAID0). Por motivos de rendimiento, es probable que deba seccionar los volúmenes lógicos para que las lecturas y escrituras utilicen todos los discos de datos conectados.
 
-Este documento describe cómo combinar varios discos de datos en un único grupo de volúmenes y crear un volumen lógico seccionado. Los pasos siguientes están en cierto modo generalizados para que funcionen con la mayoría de las distribuciones. En la mayoría de los casos, las utilidades y los flujos de trabajo para la administración de LVM en Azure no se diferencian en esencia de los de otros entornos. Como de costumbre, consulte a su proveedor de Linux con el fin de obtener la documentación y los procedimientos recomendados para usar el LVM en una distribución en particular.
+Este documento describe cómo combinar varios discos de datos en un único grupo de volúmenes y crear un volumen lógico seccionado. Los pasos siguientes están generalizados para que funcionen con la mayoría de las distribuciones. En la mayoría de los casos, las utilidades y los flujos de trabajo para la administración de LVM en Azure no se diferencian en esencia de los de otros entornos. Como de costumbre, consulte a su proveedor de Linux con el fin de obtener la documentación y los procedimientos recomendados para usar el LVM en una distribución en particular.
 
 ## <a name="attaching-data-disks"></a>Conexión de discos de datos
 Normalmente, cuando utilice el LVM, conviene comenzar al menos dos discos de datos vacíos. Según sus requisitos de E/S, puede decidir asociar discos que estén almacenados en Standard Storage con hasta 500 E/S por segundo por disco o Premium Storage con hasta 5000 E/S por segundo por disco. En este artículo no entramaremos en detalles sobre cómo asociar discos de datos a una máquina virtual Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener instrucciones detalladas sobre cómo conectar un disco de datos vacío a una máquina virtual Linux en Azure.
@@ -66,7 +66,7 @@ Normalmente, cuando utilice el LVM, conviene comenzar al menos dos discos de dat
     ```
 
 ## <a name="configure-lvm"></a>Configuración del LVM
-En esta guía, se presupone la conexión de tres discos de datos, a los que se llamará `/dev/sdc`, `/dev/sdd` y `/dev/sde`. Tenga en cuenta que estos podrían no presentar siempre los mismos nombres de ruta de acceso en la máquina virtual. Puede ejecutar`sudo fdisk -l`o un comando similar para ver la lista de los discos disponibles.
+En esta guía, se presupone la conexión de tres discos de datos, a los que se llamará `/dev/sdc`, `/dev/sdd` y `/dev/sde`. Estas rutas de acceso no pueden coincidir con los nombres de ruta de acceso de disco en la VM. Puede ejecutar`sudo fdisk -l`o un comando similar para ver la lista de los discos disponibles.
 
 1. Prepare los volúmenes físicos:
 

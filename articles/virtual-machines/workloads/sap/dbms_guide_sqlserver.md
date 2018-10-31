@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406930"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430177"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -418,7 +418,7 @@ El segundo método se describe con más detalle en el artículo [Copia de seguri
 
 
 ### <a name="automated-backup-for-sql-server"></a>Copia de seguridad automatizada para SQL Server
-Copia de seguridad automatizada proporciona un servicio de copia de seguridad automático para las ediciones de SQL Server Standard y Enterprise que se ejecutan en una VM de Microsoft Azure. Este servicio se proporciona por la [extensión del agente de IaaS de SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), que se instala automáticamente en las imágenes de máquina virtual de Windows de SQL Server en Azure Portal. Si implementa sus propias imágenes de sistema operativo con SQL Server instalado, deberá instalar las extensiones de máquina virtual por separado. Los pasos necesarios están documentados en este [artículo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Copia de seguridad automatizada proporciona un servicio de copia de seguridad automático para las ediciones de SQL Server Standard y Enterprise que se ejecutan en una VM de Windows en Azure. Este servicio se proporciona por la [extensión del agente de IaaS de SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), que se instala automáticamente en las imágenes de máquina virtual de Windows de SQL Server en Azure Portal. Si implementa sus propias imágenes de sistema operativo con SQL Server instalado, deberá instalar las extensiones de máquina virtual por separado. Los pasos necesarios están documentados en este [artículo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 En estos artículos encontrará más información detallada sobre las capacidades de este método:
 

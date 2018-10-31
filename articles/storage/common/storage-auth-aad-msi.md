@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090362"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427423"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>Autenticación del acceso a blobs y colas con identidades administradas de Azure para los recursos de Azure (versión preliminar)
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autenticación del acceso a blobs y colas con identidades administradas para los recursos de Azure (versión preliminar)
 
-El almacenamiento de blobs y colas de Azure admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Puede usar identidades administradas para los recursos de Azure para autenticar el acceso a blobs y colas desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros. Si usa identidades administradas para los recursos de Azure y aprovecha la capacidad de autenticación de Azure AD, puede evitar el almacenamiento de las credenciales en las aplicaciones que se ejecutan en la nube.  
+El almacenamiento de blobs y colas de Azure admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas para recursos de Azure permiten autenticar el acceso a blobs y colas con las credenciales de Azure AD desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros. Si usa identidades administradas para los recursos de Azure y aprovecha la capacidad de autenticación de Azure AD, puede evitar el almacenamiento de las credenciales en las aplicaciones que se ejecutan en la nube.  
 
 Para conceder permisos a una identidad administrada a un contenedor de blobs o cola, se asigna un rol de control de acceso basado en rol (RBAC) a la identidad administrada que abarca los permisos para ese recurso en el ámbito adecuado. Para más información sobre los roles RBAC en el almacenamiento, consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)](storage-auth-aad-rbac.md). 
 
@@ -34,6 +34,10 @@ Para poder usar las identidades administradas para los recursos de Azure para au
 - [CLI de Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Plantilla de Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [SDK de Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Asignar un rol RBAC a una identidad administrada de Azure AD
+
+Para autenticar una identidad administrada desde la aplicación Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) para esa identidad administrada. Azure Storage define los roles RBAC que abarcan los permisos para los contenedores y las colas. Cuando se asigna el rol de RBAC a una identidad administrada, se le concede acceso a ese recurso. Para más información, consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Obtención de un token de acceso de identidad administrada
 

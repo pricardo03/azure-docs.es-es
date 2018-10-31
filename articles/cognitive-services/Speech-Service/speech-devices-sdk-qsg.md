@@ -1,20 +1,21 @@
 ---
 title: Introducción al SDK de dispositivos de voz
-description: Requisitos previos e instrucciones para comenzar a usar el SDK de dispositivos de voz.
 titleSuffix: Azure Cognitive Services
+description: Requisitos previos e instrucciones para comenzar a usar el SDK de dispositivos de voz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: erhopf
-ms.openlocfilehash: 300e2d593dfe00b2d7348c7eaf15b0f26ec7e0dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e035e1bdedefc8e327b0179006b45f3bad4c41ee
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389894"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470207"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introducción al SDK de dispositivos de voz
 
@@ -144,11 +145,10 @@ Para ejecutar las pruebas de ROOBO y validar la configuración del kit de desarr
         exit
         ```
 
-    * Copie los archivos kws.table, kws_g.fst, kws_k.fst y words_kw.txt a la carpeta \data\keyword del dispositivo. Ejecute los siguientes comandos en la ventana del símbolo del sistema. Si creó una [palabra de activación personalizada](speech-devices-sdk-create-kws.md), el archivo kws.table que se creó en la web estará en el mismo directorio que los archivos kws.table, kws_g.fst, kws_k.fst y words_kw.txt. Para obtener una palabra de activación personalizada, use el comando `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` para insertar el archivo kws.table en el kit de desarrollo:
+    * Copie los archivos kws.table, kws_k.fst y words_kw.txt a la carpeta \data\keyword del dispositivo. Ejecute los siguientes comandos en la ventana del símbolo del sistema. Si creó una [palabra de activación personalizada](speech-devices-sdk-create-kws.md), el archivo kws.table que se creó en la web estará en el mismo directorio que los archivos kws.table, kws_k.fst y words_kw.txt. Para obtener una palabra de activación personalizada, use el comando `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` para insertar el archivo kws.table en el kit de desarrollo:
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_g.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```

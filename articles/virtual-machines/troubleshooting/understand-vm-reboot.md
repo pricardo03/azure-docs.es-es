@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413092"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429157"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Descripción de un reinicio del sistema de una máquina virtual de Azure
 
@@ -73,7 +73,7 @@ Otros escenarios que suelen provocar el reinicio de la máquina virtual incluyen
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center y Windows Update
 Azure Security Center supervisa diariamente las máquinas virtuales Windows y Linux por si faltan actualizaciones del sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en una máquina virtual Windows. Security Center también comprueba las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual, Security Center le recomienda que aplique las actualizaciones del sistema. Este proceso se controla a través de Security Center en Azure Portal. Tras la aplicación de algunas actualizaciones, puede ser necesario reiniciar la máquina virtual. Para más información, consulte [Aplicar actualizaciones del sistema en Azure Security Center](../../security-center/security-center-apply-system-updates.md).
 
-Al igual que los servidores locales, Azure no inserta las actualizaciones de Windows Update en las máquinas virtuales de Microsoft Azure, ya que estas máquinas están diseñadas para que las administren los usuarios. No obstante, se recomienda dejar habilitada la configuración automática de Windows Update. La instalación automática de actualizaciones de Windows Update también puede provocar el reinicio tras su aplicación. Para más información, consulte [Windows Update: preguntas frecuentes](https://support.microsoft.com/help/12373/windows-update-faq).
+Al igual que los servidores locales, Azure no inserta las actualizaciones de Windows Update en las máquinas virtuales de Windows, ya que estas máquinas están diseñadas para que las administren los usuarios. No obstante, se recomienda dejar habilitada la configuración automática de Windows Update. La instalación automática de actualizaciones de Windows Update también puede provocar el reinicio tras su aplicación. Para más información, consulte [Windows Update: preguntas frecuentes](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Otras situaciones que afectan a la disponibilidad de la máquina virtual
 Hay otros casos en los que Azure puede suspender activamente el uso de una máquina virtual. Antes de que se realice esta acción, se le notificará para que pueda resolver los problemas subyacentes. La vulneración de la seguridad y la expiración de las formas de pago son ejemplos de problemas que afectan a la disponibilidad de las máquinas virtuales.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: ea312002a9a1a39505cd4748864ca9dfc1da43dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060387"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437002"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
 
@@ -51,7 +51,7 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede seleccionar entre ocho tamaños de disco de GA: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2048 GiB) y P50 (4095 GiB). También cuenta con tres tamaños de disco de versión preliminar: P60 de 8192 GiB (8 TiB), P70 de 16 348 GiB (16 TiB) y P80 de 32 767 GiB (32 TiB). Los tamaños de disco P4, P6, P60, P70 y P80 solo se admiten actualmente para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede seleccionar entre ocho tamaños de disco de GA: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2048 GiB) y P50 (4095 GiB). También cuenta con tres tamaños de disco de versión preliminar: P60 de 8192 GiB (8 TiB), P70 de 16 348 GiB (16 TiB) y P80 de 32 767 GiB (32 TiB). Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 
@@ -149,9 +149,13 @@ Para más información, consulte [Objetivos de escalabilidad y rendimiento de Az
 Si usa cuentas de Premium Storage para los discos no administrados y la aplicación supera los objetivos de escalabilidad de una cuenta de almacenamiento individual, es posible que quiera migrar a Managed Disks. Si no desea migrar a Managed Disks, compile la aplicación para que use varias cuentas de almacenamiento. A continuación, divida los datos en esas cuentas de almacenamiento. Por ejemplo, si desea asociar discos de 51 TB entre varias VM, distribúyalos entre dos cuentas de almacenamiento. 35 TB es el límite de una cuenta de Premium Storage única. Asegúrese de que una sola cuenta de Premium Storage nunca tenga más de 35 TB de discos aprovisionados.
 
 ### <a name="premium-storage-disk-limits"></a>Límites de discos de Premium Storage
-Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece ocho tipos de discos de Premium Storage: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P15, P20, P30, P40 y P50. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
+Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece ocho tipos de discos GA de Premium Storage: P4 (solo discos administrados), P6 (solo discos administrados), P10, P15 (solo discos administrados), P20, P30, P40 y P50. Así como vista previa de tres tamaños de disco: P60 P70 y P80. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | Tamaño de disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 TiB)    | | IOPS por disco       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20 000              | | Rendimiento por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
+| Tipo de discos Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| Tamaño del disco           | 32 GiB| 64 GiB| 128 GB| 256 GiB| 512 GB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16 384 GiB (16 TiB)| 32 767 GiB (32 TiB)|
+| IOPS por disco       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12 500          | 15 000             | 20.000             |
+| Rendimiento de disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
 > Asegúrese de que haya ancho de banda suficiente disponible en la VM para el tráfico de disco de unidad, como se describe en [Máquinas virtuales compatibles con Premium Storage](#premium-storage-supported-vms). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
@@ -280,7 +284,7 @@ sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
 ```
 
-Para activar los nuevos controladores, reinicie el equipo.
+Para activar los nuevos controladores, reinicie la máquina virtual.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 

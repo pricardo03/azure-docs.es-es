@@ -1,21 +1,21 @@
 ---
 title: Autenticación con Azure Active Directory para acceder a los datos de blob y cola desde las aplicaciones (versión preliminar) | Microsoft Docs
-description: Use Azure Active Directory para autenticar desde dentro de una aplicación y luego autorizar las solicitudes a recursos de Azure Storage (versión preliminar).
+description: Use Azure Active Directory para autenticar desde dentro de una aplicación y luego autorizar las solicitudes a colas y blobs (versión preliminar).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816385"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427100"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Autenticación con Azure Active Directory desde una aplicación de Azure Storage (versión preliminar)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autenticación con Azure Active Directory desde una aplicación para acceder a blobs y colas (versión preliminar)
 
 Una ventaja clave del uso de Azure Active Directory (Azure AD) con Azure Storage es que ya no necesita almacenar las credenciales en el código. En su lugar, puede solicitar a Azure AD un token de acceso de OAuth 2.0. Azure AD controla la autenticación de la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve el token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar las solicitudes de Azure Storage.
 
@@ -26,6 +26,10 @@ Antes de poder autenticar a una entidad de seguridad de la aplicación de Azure 
 Para información general sobre el flujo de concesión de código OAuth 2.0, consulte [Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Asignar un rol RBAC a una entidad de seguridad de Azure AD
+
+Para autenticar a una entidad de seguridad de la aplicación de Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) para esa entidad de seguridad. Azure Storage define los roles RBAC que abarcan los permisos para los contenedores y las colas. Cuando el rol RBAC se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para más información, consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registro de la aplicación con un inquilino de Azure AD
 

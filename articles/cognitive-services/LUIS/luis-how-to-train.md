@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182049"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426114"
 ---
 # <a name="train-your-luis-app-version"></a>Entrenamiento de la versión de la aplicación de LUIS
 
@@ -26,8 +26,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 El entrenamiento y la [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo. 
 
-## <a name="how-to-train"></a>Cómo se realiza el entrenamiento
-Para iniciar el proceso iterativo, primero debe entrenar la aplicación de LUIS al menos una vez. Asegúrese de que cada intención tiene al menos una expresión antes del entrenamiento.
+El entrenamiento se aplica a la versión activa en el portal de LUIS. 
+
+## <a name="how-to-train-interactively"></a>Cómo entrenar interactivamente
+
+Para iniciar el proceso iterativo en el [portal de LUIS](https://www.luis.ai), primero debe entrenar la aplicación de LUIS al menos una vez. Asegúrese de que cada intención tiene al menos una expresión antes del entrenamiento.
 
 1. Acceda a la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**. 
 
@@ -41,7 +44,18 @@ Para iniciar el proceso iterativo, primero debe entrenar la aplicación de LUIS 
 >Si tiene uno o varios intentos en la aplicación que no contienen expresiones de ejemplo, no podrá entrenar la aplicación. Agregue expresiones para todas las intenciones. Para más información, consulte [Add example utterances](luis-how-to-add-example-utterances.md) (Adición de expresiones de ejemplo).
 
 ## <a name="train-with-all-data"></a>Entrenamiento con todos los datos
+
 El entrenamiento usa un pequeño porcentaje de muestreo negativo. Si quiere usar todos los datos en lugar del pequeño muestreo negativo, use la [API de configuración de la versión](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con `UseAllTrainingData` establecido como verdadero para desactivar esta característica. 
+
+## <a name="unnecessary-training"></a>Entrenamiento innecesario
+
+No es necesario entrenar después de realizar un cambio. El entrenamiento debe realizarse después de que se aplique un grupo de cambios al modelo y el siguiente paso que debe hacer es probar o publicar. Si no necesita probar ni publicar, el entrenamiento no es necesario. 
+
+## <a name="training-with-the-rest-apis"></a>Entrenamiento con las API REST
+
+Para el entrenamiento en el portal de LUIS, solo debe pulsar el botón **Entrenar**. El proceso de entrenamiento con las API REST consta de dos pasos. El primero consiste en [solicitar entrenamiento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) con HTTP POST. A continuación, debe solicitar el [estado del entrenamiento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) con HTTP Get. 
+
+Para saber cuando concluirá el entrenamiento, debe sondear el estado hasta que todos los modelos estén completamente entrenados. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

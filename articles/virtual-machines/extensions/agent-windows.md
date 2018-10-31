@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ae2458b6fc650961c63da2f7644dbd54d27fc2a8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452112"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428562"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de máquina virtual habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y la configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de máquina virtual de Azure, no se pueden ejecutar extensiones de máquina virtual.
@@ -100,7 +100,8 @@ foreach ($vm in $vms) {
 ```
 
 ### <a name="manual-detection"></a>Detección manual
-Cuando inicia sesión en una máquina virtual de Microsoft Azure, el Administrador de tareas se puede usar para examinar los procesos en ejecución. Para comprobar el agente de máquina virtual de Azure, abra el Administrador de tareas, haga clic en la pestaña *Detalles* y busque el nombre de proceso **WindowsAzureGuestAgent.exe**. La presencia de este proceso indica que el agente de VM está instalado.
+
+Cuando inicia sesión en una máquina virtual de Windows, el Administrador de tareas se puede usar para examinar los procesos en ejecución. Para comprobar el agente de máquina virtual de Azure, abra el Administrador de tareas, haga clic en la pestaña *Detalles* y busque el nombre de proceso **WindowsAzureGuestAgent.exe**. La presencia de este proceso indica que el agente de VM está instalado.
 
 
 ## <a name="upgrade-the-vm-agent"></a>Actualización del agente de VM

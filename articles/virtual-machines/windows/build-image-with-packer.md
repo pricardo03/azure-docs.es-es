@@ -1,5 +1,5 @@
 ---
-title: Creación de imágenes de VM de Microsoft Azure con Packer | Microsoft Docs
+title: Creación de imágenes de VM de Windows con Packer en Azure | Microsoft Docs
 description: Aprenda a usar Packer para crear imágenes de máquinas virtuales Windows en Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2cef9673469020d56e549709d6084f37d3a64b87
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f848c6b654f3378df04d1320d957e76ac5384465
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341097"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427831"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Windows en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Windows y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y sistemas operativos más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.

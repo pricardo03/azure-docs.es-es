@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968993"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428018"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Copias de seguridad y restauración para SQL Server en Azure Virtual Machines
 
-En este artículo se proporciona orientación acerca de las opciones de copia de seguridad y restauración para SQL Server que se ejecuta en Microsoft Azure Virtual Machines. Azure Storage mantiene tres copias de cada disco de máquina virtual de Azure para garantizar la protección contra la pérdida de datos o los daños de los datos físicos. Por lo tanto, a diferencia de lo que ocurriría en un entorno local, no tiene que centrarse en los errores de hardware. Sin embargo, debe seguir haciendo una copia de seguridad de las bases de datos de SQL Server para protegerse frente a errores de la aplicación o un usuario, como las inserciones o eliminaciones accidentales de datos. En esta situación, es importante que pueda restaurar a un momento concreto en el tiempo.
+En este artículo se proporciona orientación acerca de las opciones de copia de seguridad y restauración para SQL Server que se ejecuta en una máquina virtual de Windows en Azure. Azure Storage mantiene tres copias de cada disco de máquina virtual de Azure para garantizar la protección contra la pérdida de datos o los daños de los datos físicos. Por lo tanto, a diferencia de lo que ocurriría en un entorno local, no tiene que centrarse en los errores de hardware. Sin embargo, debe seguir haciendo una copia de seguridad de las bases de datos de SQL Server para protegerse frente a errores de la aplicación o un usuario, como las inserciones o eliminaciones accidentales de datos. En esta situación, es importante que pueda restaurar a un momento concreto en el tiempo.
 
 En la primera parte de este artículo se proporciona información general de las opciones de copia de seguridad y restauración disponibles. A continuación se presentan secciones que proporcionan más información acerca de cada estrategia.
 
@@ -42,7 +42,7 @@ En las siguientes secciones se describe cada opción con más detalle. La secci�
 
 ## <a id="autoamted"></a> Copia de seguridad automatizada
 
-Copia de seguridad automatizada proporciona un servicio de copia de seguridad automático para las ediciones de SQL Server Standard y Enterprise que se ejecutan en una VM de Microsoft Azure. Este servicio se proporciona por la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md), que se instala automáticamente en las imágenes de máquina virtual de Windows de SQL Server en Azure Portal.
+Copia de seguridad automatizada proporciona un servicio de copia de seguridad automático para las ediciones de SQL Server Standard y Enterprise que se ejecutan en una VM de Windows en Azure. Este servicio se proporciona por la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md), que se instala automáticamente en las imágenes de máquina virtual de Windows de SQL Server en Azure Portal.
 
 Se hace una copia de seguridad de todas las bases de datos en una cuenta de Azure Storage que configure. Las copias de seguridad pueden cifrarse y conservarse durante 30 días.
 
@@ -130,23 +130,23 @@ En la tabla siguiente se resumen las capacidades de cada opción de copia de seg
 
 || **Automated Backup** | **Azure Backup para SQL** | **Copia de seguridad manual** |
 |---|---|---|---|
-| Requiere servicio adicional de Azure |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Configurar la directiva de copia de seguridad en Azure Portal | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Restaurar bases de datos en Azure Portal |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Administrar varios servidores en un panel |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Restauración a un momento dado | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Objetivo de punto de recuperación (RPO) de 15 minutos | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Directiva de retención de copia de seguridad a corto plazo (días) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Directiva de retención de copia de seguridad a largo plazo (meses, años) |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Compatibilidad integrada para SQL Server Always On |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Copia de seguridad en cuentas de Azure Storage | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(administrado por el cliente) |
-| Administración de archivos de copia de seguridad y almacenamiento | | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
-| Copia de seguridad en discos conectados en la VM |   |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Informes de copia de seguridad personalizables centrales |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Alertas por correo electrónico consolidadas de errores |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Personalización de supervisión basada en OMS |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Supervisión de trabajos de copia de seguridad con SSMS o scripts de Transact-SQL | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Restauración de bases de datos con SSMS o scripts de Transact-SQL | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Requiere servicio adicional de Azure |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Configurar la directiva de copia de seguridad en Azure Portal | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Restaurar bases de datos en Azure Portal |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Administrar varios servidores en un panel |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Restauración a un momento dado | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Objetivo de punto de recuperación (RPO) de 15 minutos | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Directiva de retención de copia de seguridad a corto plazo (días) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Directiva de retención de copia de seguridad a largo plazo (meses, años) |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Compatibilidad integrada para SQL Server Always On |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Copia de seguridad en cuentas de Azure Storage | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(administrado por el cliente) |
+| Administración de archivos de copia de seguridad y almacenamiento | | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| Copia de seguridad en discos conectados en la VM |   |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Informes de copia de seguridad personalizables centrales |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Alertas por correo electrónico consolidadas de errores |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Personalización de supervisión basada en Log Analytics |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Supervisión de trabajos de copia de seguridad con SSMS o scripts de Transact-SQL | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sí](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Restauración de bases de datos con SSMS o scripts de Transact-SQL | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![SÍ](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

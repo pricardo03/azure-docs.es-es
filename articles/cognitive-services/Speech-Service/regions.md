@@ -1,19 +1,21 @@
 ---
-title: Regiones del servicio Speech
+title: Regiones del servicio Voz
+titlesuffix: Azure Cognitive Services
 description: Referencia de las regiones del servicio Voz.
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 01c76d80d6b2fd64165b126df01c391d7e18292f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887554"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468133"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiones del servicio Voz
 
@@ -29,7 +31,7 @@ Consulte las [API REST](rest-apis.md) para más información.
 
 ## <a name="speech-sdk"></a>SDK de voz
 
-En las regiones de [SDK de Voz](speech-sdk.md), las regiones se especifican como una cadena (por ejemplo, como un parámetro `SpeechConfig.FromSubscription` en el SDK de Voz para C#).
+En el [SDK del servicio Voz](speech-sdk.md), las regiones se especifican como una cadena (por ejemplo, como un parámetro `SpeechConfig.FromSubscription` en el SDK de Voz para C#).
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regiones con reconocimiento y traducción de voz
 

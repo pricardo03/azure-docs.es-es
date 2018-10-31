@@ -1,19 +1,21 @@
 ---
 title: Opciones de ayuda y soporte técnico
-description: Infórmese sobre cómo obtener ayuda y soporte técnico para preguntas y problemas relacionados con la creación de aplicaciones que se integran con el servicio Voz de Azure Cognitive Services
+titlesuffix: Azure Cognitive Services
+description: Cómo obtener ayuda y soporte técnico para preguntas y problemas relacionados con la creación de aplicaciones que se integran con el servicio Voz
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 58fb5d4be2137eed7d62e702f08bdd66c80be347
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364164"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468065"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
 
@@ -74,8 +76,41 @@ Si no encuentra una respuesta a su problema a través de la búsqueda, envíe un
 
 A menudo se envían ejemplos como código abierto. Para preguntas y problemas, cree un *problema* en el repositorio de GitHub correspondiente. También puede enviar una solicitud de incorporación de cambios. La lista siguiente contiene vínculos a los repositorios de ejemplos:
 
-* [Speech SDK](https://aka.ms/csspeech/samples)
-* [Device SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+
+Puede crear un informe de errores, solicitar una característica o formular una pregunta general y compartir procedimientos recomendados. Para los informes de errores, siga la plantilla proporcionada:
+
+**Describa el error**
+
+Proporcione una descripción clara y concisa de lo que es el error.
+
+**Pasos de reproducción**
+
+Pasos para reproducir el comportamiento:
+1. ...
+2. ...
+
+**Comportamiento esperado**
+
+Proporcione una descripción clara y concisa de lo que esperaba que sucediera.
+
+**Versión del SDK de Voz de Cognitive Services**
+
+¿Qué versión del SDK está usando?
+
+**Plataforma, sistema operativo y lenguaje de programación**
+
+ - SO: sea específico; por ejemplo, Windows, Linux, Android, iOS, etc.
+ - Hardware: x64, x86, ARM, etc.
+ - Explorador: sea específico; por ejemplo, Chrome, Safari (si procede)
+
+**Contexto adicional**
+
+ - Mensajes de error, información de registro, seguimiento de la pila, etc.
+ - Si informa de un error de interacción de un determinado servicio, indique los valores de SessionId y time (incluido timezone) de los incidentes notificados. SessionId se indica en todas las llamadas y eventos que recibe.
+ - Cualquier otra información adicional
+
 
 ## <a name="uservoice-forum"></a>Foro de UserVoice
 

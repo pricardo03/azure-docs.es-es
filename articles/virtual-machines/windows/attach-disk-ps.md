@@ -1,6 +1,6 @@
 ---
-title: Conexión de un disco de datos a una VM con Windows en Azure mediante PowerShell | Microsoft Docs
-description: Cómo conectar un disco de datos nuevo o existente a una VM con Windows mediante PowerShell con el modelo de implementación de Resource Manager.
+title: Conexión de un disco de datos a una VM Windows en Azure con PowerShell | Microsoft Docs
+description: Cómo conectar un disco de datos nuevo o existente a una VM Windows mediante PowerShell con el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: 384203134d1588053f91b66d32e9b0bf1ec69306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38680922"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637092"
 ---
-# <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Conexión de un disco a una VM con Windows mediante PowerShell
+# <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Conexión de un disco a una VM Windows con PowerShell
 
-En este artículo se explica cómo conectar discos nuevos y existentes a una máquina virtual con Windows mediante PowerShell. 
+En este artículo se explica cómo conectar discos nuevos y existentes a una máquina virtual Windows con PowerShell. 
 
-Antes de hacerlo, revise estas sugerencias:
-* El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para usar Premium Storage, necesitará una VM con Premium Storage habilitado con un tamaño como el de las VM de las series DS o GS. Para obtener más información, consulte [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+En primer lugar, revise estas sugerencias:
+* El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para usar Premium Storage, necesitará una VM con Premium Storage habilitado con un tipo como el de las VM de las series DS o GS. Para más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 6.0.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Para instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 6.0.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también deberá ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Incorporación de un disco de datos vacío a una máquina virtual
@@ -80,7 +80,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Initialize the disk
 
-Después de agregar un disco vacío, debe inicializarlo. Para hacerlo, puede iniciar sesión en una VM y usar la administración de discos. Si habilitó WinRM y un certificado en la VM cuando la creó, puede usar PowerShell remoto para inicializar el disco. También puede utilizar una extensión de script personalizada: 
+Después de agregar un disco vacío, debe inicializarlo. Para hacerlo, puede iniciar sesión en una VM y usar la administración de discos. Si habilitó [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) y un certificado en la VM cuando la creó, puede usar PowerShell remoto para inicializar el disco. También puede utilizar una extensión de script personalizada: 
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -89,7 +89,7 @@ Después de agregar un disco vacío, debe inicializarlo. Para hacerlo, puede ini
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
         
-El archivo de script puede tener un contenido parecido a este código para inicializar los discos:
+El archivo de script puede contener código para inicializar los discos, por ejemplo:
 
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number

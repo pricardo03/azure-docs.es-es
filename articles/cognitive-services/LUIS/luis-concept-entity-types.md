@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: e6bb0735de94d0baaac3a8504ec1811cfbfff27f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353924"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650118"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -60,6 +60,10 @@ En la expresión "Resérvame un billete a París", "París" es una entidad de ti
 
 ## <a name="assign-entities-in-none-intent"></a>Asignar entidades en la intención None
 Todas las intenciones, incluida **None** (Ninguno), deben tener entidades etiquetadas. De esta manera, LUIS puede obtener más información sobre la ubicación de las entidades dentro de las expresiones y las palabras que hay alrededor de las entidades. 
+
+## <a name="entity-status-for-predictions"></a>Estado de la entidad para predicciones
+
+Para más información, consulte [Predicciones de estado de entidad](luis-how-to-add-example-utterances.md#entity-status-predictions). 
 
 ## <a name="types-of-entities"></a>Tipos de entidades
 LUIS ofrece muchos tipos de entidades: entidades creadas previamente, entidades personalizadas de aprendizaje automático y entidades de lista.

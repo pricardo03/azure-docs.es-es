@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166974"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466161"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -81,15 +81,18 @@ Si ejecuta el cambio de secretos mediante las instrucciones que aparecen a conti
 
    > [!IMPORTANT]  
    > Asegúrese de que la rotación de secretos no se haya ejecutado correctamente en el entorno. Si ya se ha realizado la rotación de secretos, actualice Azure Stack a la versión 1807 o posterior antes de ejecutar la rotación de secretos. 
+
 1.  Los operadores pueden notar que las alertas se abren y cierran automáticamente durante la rotación de los secretos de Azure Stack.  Este comportamiento es el esperado y puede hacerse caso omiso de las alertas.  Los operadores pueden comprobar la validez de estas alertas mediante la ejecución de Test-AzureStack.  Para los operadores que usan SCOM para supervisar los sistemas de Azure Stack, poner un sistema en modo de mantenimiento evitará que estas alertas lleguen a sus sistemas ITSM, pero continuarán alertando si no se puede acceder al sistema de Azure Stack. 
 2. Avise a los usuarios de cualquier operación de mantenimiento. Programe ventanas de mantenimiento normales, en la medida de lo posible, durante horas no laborables. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
     > [!note]  
     > Los pasos siguientes solo se aplican al cambiar secretos externos de Azure Stack.
-3. Prepare un nuevo conjunto de certificados externos de reemplazo. El nuevo conjunto coincide con las especificaciones de certificado que se describen en [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-4.  Guarde una copia de seguridad de los certificados usados para el cambio en una ubicación segura. Si se ejecuta el cambio y, después, se produce un error, reemplace los certificados del recurso compartido de archivos por las copias de seguridad antes de volver a ejecutar el cambio. Conserve las copias de seguridad en la ubicación segura.
-5.  Cree un recurso compartido de archivos al que pueda acceder desde las máquinas virtuales de ERCS. El recurso compartido de archivos debe ser de lectura y escritura para la identidad **CloudAdmin**.
-6.  Abra una consola de PowerShell ISE desde un equipo que tenga acceso al recurso compartido de archivos. Vaya al recurso compartido de archivos. 
-7.  Ejecute **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para crear los directorios necesarios para los certificados externos.
+
+3. Ejecute **[Test-AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** y compruebe que todos los resultados de prueba están en buen estado antes cambiar los secretos.
+4. Prepare un nuevo conjunto de certificados externos de reemplazo. El nuevo conjunto coincide con las especificaciones de certificado que se describen en [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+5.  Guarde una copia de seguridad de los certificados usados para el cambio en una ubicación segura. Si se ejecuta el cambio y, después, se produce un error, reemplace los certificados del recurso compartido de archivos por las copias de seguridad antes de volver a ejecutar el cambio. Conserve las copias de seguridad en la ubicación segura.
+6.  Cree un recurso compartido de archivos al que pueda acceder desde las máquinas virtuales de ERCS. El recurso compartido de archivos debe ser de lectura y escritura para la identidad **CloudAdmin**.
+7.  Abra una consola de PowerShell ISE desde un equipo que tenga acceso al recurso compartido de archivos. Vaya al recurso compartido de archivos. 
+8.  Ejecute **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para crear los directorios necesarios para los certificados externos.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Cambio de secretos externos e internos
 

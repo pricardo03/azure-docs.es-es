@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432892"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638433"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -25,9 +25,9 @@ Para obtener información sobre cómo crear una cuenta de Azure Storage, consult
 
 Azure Storage proporciona tres tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
 
-* Cuentas de **uso general v2** (recomendadas para la mayoría de los escenarios)
-* Cuentas de **uso general v1**
-* Cuentas de **almacenamiento de blobs**
+* **[Cuentas de uso general v2](#general-purpose-v2-accounts)** (recomendadas para la mayoría de los escenarios)
+* **[Cuentas de uso general v1](#general-purpose-v1-accounts)**
+* **[Cuentas de almacenamiento de blobs](#blob-storage-accounts)** 
 
 En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus capacidades:
 
@@ -41,7 +41,7 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 <sup>2</sup>Todas las cuentas de almacenamiento se encriptan mediante Storage Service Encryption (SSE) para los datos en reposo. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](storage-service-encryption.md).
 
-<sup>3</sup>El nivel de archivo está disponible solo en el nivel de un blob individual, y no en el nivel de la cuenta de almacenamiento. Solo se pueden archivar los blobs en bloques y los blocs adjuntos. Para obtener más información, consulte [Azure Blob Storage: niveles de almacenamiento de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md).
+<sup>3</sup>El nivel de archivo está disponible solo en el nivel de un blob individual, y no en el nivel de la cuenta de almacenamiento. Solo se pueden archivar los blobs en bloques y los blocs adjuntos. Para más información, consulte [Azure Blob Storage: niveles de almacenamiento de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md).
 
 <sup>4</sup>El almacenamiento con redundancia de zona (ZRS) solo está disponible para las cuentas de almacenamiento de uso general estándar v2. Para obtener más información sobre ZRS, consulte[Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md). Para obtener más información acerca de otras opciones de replicación, consulte [Replicación de Azure Storage](storage-redundancy.md).
 
@@ -49,13 +49,16 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas características de Azure Storage, e incorporan todas las funcionalidades de las cuentas de Blob Storage y de uso general v1. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector. Las cuentas de almacenamiento de uso general v2 son compatibles con estos servicios de Azure Storage:
 
-- Blobs (todos los tipos)
+- Blobs (todos los tipos: en bloques, adjuntos, en páginas)
 - Archivos
 - Discos
 - Colas
 - Tablas
 
-Microsoft recomienda usar cuentas de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad ni reescritura de la aplicación, y sin la necesidad de copiar datos. Para obtener más información sobre la actualización a una cuenta de uso general v2, consulte [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Actualizar a una cuenta de almacenamiento de uso general v2). 
+> [!NOTE]
+> Microsoft recomienda usar cuentas de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad y sin la necesidad de copiar datos.
+>
+> Para obtener más información sobre la actualización a una cuenta de uso general v2, consulte [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Actualizar a una cuenta de almacenamiento de uso general v2). 
 
 Las cuentas de almacenamiento de uso general v2 ofrecen varios niveles de acceso para almacenar datos según sus patrones de uso. Para obtener más información, consulte [Access tiers for block blob data](#access-tiers-for-block-blob-data) (Niveles de acceso para los datos del blob en bloques).
 
@@ -103,19 +106,20 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 
 Los niveles de acceso disponibles son:
 
+> [!NOTE]
+> El [Nivel de acceso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponible en su versión preliminar limitada, como una cuenta de almacenamiento con redundancia local (LRS) en las regiones del Europa del Norte, Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU. Para saber cómo registrarse para obtener la versión preliminar, consulte [ Introducción a Azure Premium Blob Storage ](http://aka.ms/premiumblob).
+
 * El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son algo más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
 * El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que acceder a los datos del nivel de acceso frecuente.
 * El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. Este nivel está destinado a los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico. 
 
-> [!NOTE]
-> El [Nivel de acceso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponible en su versión preliminar limitada, como una cuenta de almacenamiento con redundancia local (LRS) en las regiones del Europa del Norte, Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU. Para saber cómo registrarse para obtener la versión preliminar, consulte [ Introducción a Azure Premium Blob Storage ](http://aka.ms/premiumblob).
 
-Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. 
+Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información sobre los niveles de acceso, consulte [Azure Blob storage: Premium (preview), hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md) (Azure Blob Storage: niveles de almacenamiento premium [versión preliminar], esporádico, frecuente y de archivo).
 
 > [!IMPORTANT]
-> Si cambia el nivel de acceso de una cuenta de almacenamiento o blob existente es posible que deba pagar cargos adicionales.
+> Si cambia el nivel de acceso de una cuenta de almacenamiento o blob existente es posible que deba pagar cargos adicionales. Para más información, consulte la sección [Facturación de la cuenta de almacenamiento](#storage-account-billing).
 
-Para obtener más información sobre los niveles de acceso, consulte [Azure Blob storage: Premium (preview), hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md) (Azure Blob Storage: niveles de almacenamiento premium (versión preliminar), esporádico, frecuente y de archivo).
+
 
 ## <a name="replication"></a>Replicación
 
@@ -158,7 +162,7 @@ Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquier
 - **Firma de acceso compartido:** use una Firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autenticación de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Si autentica a los usuarios o las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso específico a los recursos en su cuenta de almacenamiento, pero Azure AD ofrece capacidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. 
+> Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. 
 >
 > Microsoft recomienda usar autenticación de Azure AD para las aplicaciones de Azure Storage Blob y Queue cuando sea posible.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c9837ae7b218fd4fdf6d0b97c0218fdfc9de3c53
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6861399b63b7f06bac7599704a6dd1aa87800ebf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726200"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403345"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Ejemplos de la CLI de Azure para máquinas virtuales Windows
 
@@ -40,5 +40,5 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 |**Protección de máquinas virtuales**||
 | [Cifrado de una máquina virtual y discos de datos](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una instancia de Azure Key Vault, una clave de cifrado y una entidad de servicio, y luego cifra una máquina virtual. |
 |**Supervisión de máquinas virtuales**||
-| [Supervisión de una máquina virtual con Operations Management Suite](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una máquina virtual, instala el agente de Operations Management Suite e inscribe la máquina virtual en un área de trabajo de OMS.  |
+| [Supervisión de una máquina virtual con Log Analytics](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una máquina virtual, instala el agente de Log Analytics e inscribe la máquina virtual en un área de trabajo de Log Analytics.  |
 | | |

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128186"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645241"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrar Translator Text API V2 a V3
 
@@ -32,29 +32,29 @@ El final de este documento contiene vínculos útiles para que pueda obtener má
 * Transliterar: se ha agregado un método de transliteración a la API. Este método convertirá las palabras y oraciones de un script (por ejemplo, en árabe) en otro script (por ejemplo, en latín).
 * Idiomas: un nuevo método denominado "idiomas" ofrece información sobre el idioma en formato JSON, y se puede usar con los métodos "traducir", "diccionario" y "transliterar".
 * Novedades en Traducir: se han agregado nuevas capacidades al método "traducir" para admitir algunas de las características que se encontraban en la API V2 como métodos separados. Un ejemplo es TranslateArray.
-* Método leer: la funcionalidad de conversión de texto a voz ya no se admite en la API de Microsoft Translator. La funcionalidad de texto a voz está disponible en Bing Speech API de los servicios de Azure Cognitive.
+* Método leer: la funcionalidad de conversión de texto a voz ya no se admite en la API de Microsoft Translator. La funcionalidad de texto a voz está disponible en el [servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que proporcionarán la funcionalidad de V2.
 
 | Método de API V2   | Compatibilidad de API V3 |
 |:----------- |:-------------|
-| Traducir     | Traducir          |
-| TranslateArray      | Traducir          |
-| GetLanguageNames      | Lenguajes          |
-| GetLanguagesForTranslate     | Lenguajes        |
-| GetLanguagesForSpeak      | Speech API de Cognitive Services         |
-| Leer     | Speech API de Cognitive Services          |
-| Detección     | Detección         |
-| DetectArray     | Detección         |
-| AddTranslation     | Microsoft Translator HUB API         |
-| AddTranslationArray    | Microsoft Translator HUB API          |
-| BreakSentences      | BreakSentence         |
+| Traducir     | [Traducir](reference/v3-0-translate.md)          |
+| TranslateArray      | [Traducir](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [Idiomas](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [Idiomas](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Leer     | [Servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detección     | [Detectar](reference/v3-0-detect.md)         |
+| DetectArray     | [Detectar](reference/v3-0-detect.md)         |
+| AddTranslation     | [Microsoft Translator HUB API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Microsoft Translator HUB API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | Esta característica ya no se admite.         |
 | GetTranslationsArray      | Esta característica ya no se admite.         |
 
 ## <a name="move-to-json-format"></a>Cambiar al formato JSON
 
-Microsoft Translator Text Translation V2 aceptaba y devolvía datos en formato XML. En V3, todos los datos que se envían y se reciben mediante la API están en formato JSON. XML ya no se aceptará ni devolverá datos en V3. 
+Microsoft Translator Text Translation V2 aceptaba y devolvía datos en formato XML. En V3, todos los datos que se envían y se reciben mediante la API están en formato JSON. XML ya no se aceptará ni devolverá datos en V3.
 
 Este cambio afectará a varios aspectos de una aplicación escrita para la versión V2 de Text Translation API. Por ejemplo, la API de idiomas devuelve información del idioma que se usará en la traducción de texto, la transliteración y los dos métodos de diccionario. Puede solicitar toda la información del idioma para todos los métodos en una sola llamada o solicitarlos individualmente.
 

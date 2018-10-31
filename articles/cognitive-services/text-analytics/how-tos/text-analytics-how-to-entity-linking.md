@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248081"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645804"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Cómo usar el reconocimiento de entidades con nombre en Text Analytics (versión preliminar)
 
@@ -28,12 +28,12 @@ El punto de conexión `entities` de Text Analytics admite el reconocimiento de e
 ### <a name="entity-linking"></a>Entity Linking
 La vinculación de entidad es la capacidad de identificar y desambiguar la identidad de una entidad que se encuentra en el texto (por ejemplo, determinar si se está usando "Marte" como el planeta o como el dios romano de la guerra). Este proceso requiere la presencia de una knowledge base a la que se vinculan las entidades reconocidas (Wikipedia se usa como knowledge base del punto de conexión `entities` de Text Analytics).
 
-En Text Analytics [2.1 versión preliminar](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)solo está disponible la vinculación de entidad.
+En Text Analytics [versión 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), solo está disponible la vinculación de entidad.
 
 ### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases predefinidas. Las clases de entidades admitidas se enumeran a continuación.
 
-En Text Analytics 2.1 versión preliminar (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), están disponibles la vinculación de entidad y el reconocimiento de entidades con nombre (NER).
+En Text Analytics [versión preliminar 2.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidad y el reconocimiento de entidades con nombre (NER).
 
 ### <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -74,7 +74,7 @@ Debe tener documentos JSON en este formato: identificador, texto, idioma
 
 Para conocer los idiomas admitidos actualmente, consulte [esta lista](../text-analytics-supported-languages.md).
 
-El tamaño del documento debe ser inferior a 5000 caracteres por documento y puede tener hasta 1000 elementos (ID) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar al extremo de la vinculación de entidad.
+El tamaño del documento debe ser inferior a 5000 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar al extremo de la vinculación de entidad.
 
 ```
 {"documents": [{"id": "1",

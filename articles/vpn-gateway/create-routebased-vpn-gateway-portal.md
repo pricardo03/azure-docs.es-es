@@ -1,26 +1,18 @@
 ---
 title: 'Creación de una instancia VPN Gateway basada en rutas: Azure Portal | Microsoft Docs'
-description: Creación rápida de una instancia de VPN Gateway basada en rutas mediante Azure Portal
+description: Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391800"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470309"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal
 
@@ -74,33 +66,19 @@ La subred de puerta de enlace contiene las direcciones IP reservadas que usan lo
   - **SKU**: VpnGw1
   - **Ubicación**: Este de EE. UU.
   - **Red virtual**: haga clic en **Red virtual/Elegir una red virtual** para abrir la página **Elegir una red virtual**. Seleccione **VNet1**.
+  - **Dirección IP pública**: esta configuración especifica el objeto de dirección IP pública que se asocia a la puerta de enlace de VPN. La dirección IP pública se asigna dinámicamente a este objeto cuando se crea la puerta de enlace de VPN. Actualmente, VPN Gateway solo admite la asignación de direcciones IP públicas *dinámicas*. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. No cambia cuando se cambia el tamaño, se restablece o se realizan actualizaciones u otras operaciones de mantenimiento interno de una puerta de enlace VPN.
 
-  ![Configuración de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "Configure gateway settings")
+    - Mantenga **Crear nueva** seleccionado.
+    - En el cuadro de texto, escriba un **Nombre** para la dirección IP pública. Para este ejercicio, use **VNet1GWIP**.<br>
 
-## <a name="pip"></a>Creación de una dirección IP pública
-
-Una instancia de VPN Gateway debe tener una dirección IP pública asignada de forma dinámica. Cuando crea una conexión a una instancia de VPN Gateway, esta es la dirección IP a la que se conecta el dispositivo local.
-
-1. Seleccione **Primera configuración de IP - Crear configuración de IP de puerta de enlace** para solicitar una dirección IP pública.
-
-  ![Primera configuración de IP](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "First IP configuration")
-2. En la página **Elegir dirección IP pública** haga clic en **+Crear nuevo** para abrir la página **Crear dirección IP pública**.
-3. Defina la configuración con los siguientes valores:
-
-  - **Nombre**: **VNet1GWIP**
-  - **SKU**: **Basic**
-
-  ![Crear dirección IP pública](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "Crear PIP")
-4. Para guardar los cambios, haga clic en **Aceptar** en la parte inferior de la página.
+    ![Configuración de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/gw.png "Configure gateway settings")
 
 ## <a name="creategw"></a>Creación de la puerta de enlace de VPN
 
 1. Compruebe la configuración en la página **Crear puerta de enlace de red virtual**. Ajuste los valores si es necesario.
-
-  ![Crear instancia de VPN Gateway](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "Create VPN gateway")
 2. En la parte inferior de la página, haga clic en **Crear**.
 
-Después de hacer clic en **Crear**, la configuración se validará y el icono **Implementado puerta de enlace de red virtual** aparecerá en el panel. Una instancia de VPN Gateway puede tardar hasta 45 minutos. Es posible que tenga que actualizar la página de portal para ver el estado completado.
+  Después de hacer clic en **Crear**, la configuración se validará y el icono **Implementado puerta de enlace de red virtual** aparecerá en el panel. Una instancia de VPN Gateway puede tardar hasta 45 minutos. Es posible que tenga que actualizar la página de portal para ver el estado completado.
 
 ## <a name="viewgw"></a>Visualización de VPN Gateway
 

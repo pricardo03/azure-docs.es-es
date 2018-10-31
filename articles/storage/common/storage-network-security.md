@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972563"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470071"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
 
 > [!IMPORTANT]
-> La activación de las reglas de firewall para la cuenta de almacenamiento bloqueará el acceso a las solicitudes entrantes de datos, incluidas las de otros servicios de Azure.  Esto incluye el uso del portal, la escritura de registros, etc.  Para los servicios participantes, puede volver a habilitar la funcionalidad a través de la sección [Excepciones](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) que hay más adelante.  Para acceder al portal, deberá hacer lo mismo desde una máquina situada dentro del límite de confianza (IP o red virtual) que haya configurado.
+> La activación de las reglas de firewall para la cuenta de almacenamiento bloqueará el acceso a las solicitudes entrantes de datos, incluidas las de otros servicios de Azure.  Esto incluye el uso del portal, la escritura de registros, etc.  Se puede conceder acceso a los servicios de Azure que operan desde el interior de una red virtual permitiendo la subred de la instancia de servicio.  El firewall bloqueará los servicios de Azure que no operan en una red virtual.  Mediante del mecanismo [Excepciones](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) que se describe a continuación, pueden darse un número de escenarios limitados.  Para acceder al portal, deberá hacer lo mismo desde una máquina situada dentro del límite de confianza (IP o red virtual) que haya configurado.
 >
 
 ## <a name="scenarios"></a>Escenarios
@@ -188,7 +188,11 @@ Los intervalos de dirección de Internet pueden proporcionarse mediante la [nota
 > Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles.  Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales.
 >
 
-Las reglas de red IP solo se permiten para direcciones IP de **Internet público**.  No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP.  Las redes privadas incluyen direcciones que comienzan por *10.\**, *172.16.\** y *192.168\**.
+Las reglas de red IP solo se permiten para direcciones IP de **Internet público**.  No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas IP.  Las redes privadas incluyen direcciones que comienzan por *10.\**, *172.16.\** - *172.31.\** y *192.168.\**.
+
+> [!NOTE]
+> Las reglas de red IP no tendrán ningún efecto en las solicitudes que procedan de la misma región de Azure que la cuenta de almacenamiento.  Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región.
+>
 
 Solo se admiten direcciones IPV4 en este momento.
 
