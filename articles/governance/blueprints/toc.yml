@@ -4,35 +4,46 @@ items:
 - name: Información general
   items:
   - name: Introducción a Azure Blueprint
+    displayName: templates, policy, definition, assignment, rbac
     href: overview.md
   expanded: true
 - name: Guías de inicio rápido
   items:
   - name: 'Creación de un plano técnico: portal'
+    displayName: publish, assign, track, unassign, delete
     href: create-blueprint-portal.md
   - name: 'Creación de un plano técnico: API de REST'
+    displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
   expanded: true
 - name: Conceptos
   items:
   - name: Ciclo de vida de un plano técnico
+    displayName: publish, edit, delete, assignments
     href: ./concepts/lifecycle.md
   - name: Parámetros dinámicos en un plano técnico
+    displayName: secureString, secureObject, static
     href: ./concepts/parameters.md
   - name: Orden de secuencia de implementación de un plano técnico
+    displayName: customize
     href: ./concepts/sequencing-order.md
   - name: Bloqueo de recursos en planos técnicos
+    displayName: mode, state, read only, edit, denyAssignments
     href: ./concepts/resource-locking.md
   expanded: true
 - name: Guías de procedimientos
   items:
   - name: Actualización de las asignaciones existentes
+    displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
   expanded: true
 - name: Solución de problemas
+  displayName: errors, violation
   href: ./troubleshoot/general.md
 - name: Referencias
   items:
+  - name: API DE REST
+    href: /rest/api/blueprints/
   - name: PowerShell (comunidad)
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
   expanded: true
@@ -44,9 +55,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: bd28123bbf7c26fc8bc510936d8c3a71afc16d80
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f836c2202822d5a13bbb0aba98c8cea0a4a96124
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378845"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248632"

@@ -4,7 +4,6 @@
 ## [¿Qué es Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [Acerca de la administración de identidades de Azure](fundamentals/identity-fundamentals.md)
 ## [Información acerca de las soluciones de identidades de Azure](fundamentals/understand-azure-identity-solutions.md)
-## [Elección de una solución de identidad híbrida](choose-hybrid-identity-solution.md)
 ## [Asociación de suscripciones de Azure](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Consideraciones sobre residencia y datos](fundamentals/active-directory-data-storage-eu.md)
 ## [Preguntas más frecuentes](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Adición de nuevos usuarios a Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Administrar perfiles de usuario](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Restablecimiento de contraseñas de los usuarios](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Uso compartido de cuentas](active-directory-sharing-accounts.md)
 ### [Asignación de usuarios a roles de administración](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Adición de usuarios invitados de otro directorio (B2B)](b2b/what-is-b2b.md)
 #### [Adición de usuarios de B2B por los administradores](b2b/add-users-administrator.md)
@@ -320,11 +318,15 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Implementación de AD FS en Azure](hybrid/how-to-connect-fed-azure-adfs.md)
-### [Alta disponibilidad](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [Cambio de algoritmo hash de firma](active-directory-federation-sha256-guidance.md)
+
 
 ## [Solución de problemas](fundamentals/active-directory-troubleshooting-support-howto.md)
+
+## Implementación de la prueba de concepto (PoC) de Azure AD
+### [Guía de la prueba de concepto: Introducción](active-directory-playbook-intro.md)
+### [Guía de la prueba de concepto: Ingredientes](active-directory-playbook-ingredients.md)
+### [Guía de la prueba de concepto: Implementación](active-directory-playbook-implementation.md)
+### [Guía de la prueba de concepto: Bloques de creación](active-directory-playbook-building-blocks.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
