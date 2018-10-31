@@ -90,11 +90,11 @@ Los algoritmos de regresión lineal suponen que las tendencias de datos siguen u
 
 ![Límite de clase no lineal][1]
 
-***Límite de clase no lineal****: la dependencia de un algoritmo de clasificación lineal se traduciría en baja precisión*.
+***Límite de clase no lineal*** *: la dependencia de un algoritmo de clasificación lineal se traduciría en baja precisión*.
 
 ![Datos con tendencia no lineal][2]
 
-***Datos con tendencia no lineal****: el uso de un método de regresión lineal generaría errores mucho mayores que los necesarios*
+***Datos con tendencia no lineal*** *: el uso de un método de regresión lineal generaría errores mucho mayores que los necesarios*
 
 A pesar de los riesgos, los algoritmos lineales son muy populares como primera línea de ataque. Tienden a ser algorítmicamente sencillos y rápidos para entrenar.
 
@@ -226,7 +226,7 @@ Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de
 
 ![Detección de anomalías basada en PCA][8]
 
-***Detección de anomalías basada en PCA****: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
+***Detección de anomalías basada en PCA*** *: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
 
 ![Conjunto de datos agrupados mediante K-Means][9]
 
