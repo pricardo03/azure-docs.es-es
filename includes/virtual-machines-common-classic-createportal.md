@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 127ade3b37380c50461c5b648265b431a2f4467e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227489"
+---
 Una máquina virtual *personalizada* significa simplemente una máquina virtual que se crea mediante una **aplicación destacada** de **Marketplace** porque gran parte del trabajo lo hace ella. Aun así, puede elegir opciones de configuración que incluyan los siguientes elementos:
 
 * Conectar la máquina virtual a una red virtual.
@@ -20,7 +31,7 @@ Una máquina virtual *personalizada* significa simplemente una máquina virtual 
 
 > * Dos de las ventajas de usar una red virtual son la conexión directa a la máquina virtual y la configuración de conexiones entre locales.
 
-> * Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener detalles sobre las redes virtuales, consulte [Información general sobre redes virtuales de Azure](../articles/virtual-network/virtual-networks-overview.md).
+> * Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener detalles sobre las redes virtuales, consulte [Información general sobre Azure Virtual Network](../articles/virtual-network/virtual-networks-overview.md).
 >
 >
 

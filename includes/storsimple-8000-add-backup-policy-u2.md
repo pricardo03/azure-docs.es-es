@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 0541b15743cff16ec0d19f8b450150c5430afb8d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166150"
+---
 <!--author=alkohli last changed: 02/10/17-->
 
 #### <a name="to-add-a-storsimple-backup-policy"></a>Para agregar una directiva de copia de seguridad de StorSimple
@@ -6,7 +19,7 @@
 
 2. En la hoja **Directiva de copia de seguridad**, haga clic en **+ Agregar directiva** en la barra de comandos.
    
-    ![Incorporación de una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Agregar una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
 
 3. En la hoja **Crear directiva de copia de seguridad**, realice los siguientes pasos:
    
@@ -20,7 +33,7 @@
 
    4. Para definir una programación para esta directiva de copia de seguridad, haga clic en la **primera programación** y luego modifique los parámetros siguientes:
 
-       ![Incorporación de una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Agregar una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
        1. En **Tipo de instantánea**, seleccione **Nube** o **Local**.
 
@@ -34,9 +47,9 @@
 
    5. Haga clic en **Crear** para crear una directiva de copia de seguridad.
 
-       ![Incorporación de una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Agregar una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
    6. Cuando la directiva de copia de seguridad se haya creado, recibirá una notificación. La directiva recién agregada se muestra en la vista tabular en la hoja **Directiva de copia de seguridad**.
 
-       ![Incorporación de una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Agregar una directiva de copia de seguridad](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
 

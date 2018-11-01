@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226453"
+---
 Las extensiones de VM pueden ayudarle a:
 
 * Modificar las características de seguridad e identidad, como el restablecimiento de valores de cuenta y el uso de antimalware

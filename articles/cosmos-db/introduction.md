@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696455"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242297"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Al igual que un servicio de base de datos de varios modelos y distribuido global
 * **Disponibilidad "siempre activa" garantizada**
     * Contrato de nivel de servicio con disponibilidad del 99,99 % para todas las cuentas de bases de datos de una sola región y disponibilidad de lectura del 99,999 % para todas las cuentas de base de datos de varias regiones.
     * Impleméntela en cualquier número de [regiones de Azure](https://azure.microsoft.com/regions) para obtener una mayor disponibilidad y un mejor rendimiento.
-    * Establezca de forma dinámica las prioridades para las regiones y [simule un error](regional-failover.md) de una o más regiones sin pérdida de datos garantizada para probar la disponibilidad completa en toda la aplicación (más allá de la base de datos). 
+    * Establezca de forma dinámica las prioridades para las regiones y [simule un error](high-availability.md) de una o más regiones sin pérdida de datos garantizada para probar la disponibilidad completa en toda la aplicación (más allá de la base de datos). 
 
 * **Escritura de aplicaciones de distribución global de la forma correcta**
     * Cinco [modelos de coherencia](consistency-levels.md) bien definidos, prácticos e intuitivos ofrecen un espectro de coherencia fuerte similar a SQL hasta la coherencia final relajada similar a NoSQL, y en todo lo intermedio. 

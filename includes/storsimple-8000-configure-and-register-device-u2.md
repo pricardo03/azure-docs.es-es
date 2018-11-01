@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: afb702a883606557c3ceaaaf2c2bd27073bab835
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165661"
+---
 <!--author=alkohli last changed: 01/18/2017-->
 
 
@@ -9,7 +22,7 @@
 
 3. Se le pedirá que elija el idioma que desee establecer para el dispositivo. Especifique el idioma y, a continuación, presione **Entrar**.
 
-4. En el menú de la consola serie que se muestra, elija la opción 1 para **iniciar sesión con acceso completo**.
+4. En el menú de la consola serie que se muestra, elija la opción 1, **Iniciar sesión con acceso completo**.
      Complete los pasos 5-12 para configurar las opciones de red necesarias mínimas para el dispositivo. **Estos pasos de configuración deben realizarse en el controlador activo del dispositivo.** El menú de la consola serie indica el estado del controlador en el mensaje del banner. Si no está conectado al controlador activo, desconéctese y, a continuación, conéctese al controlador activo.
 
 5. En el símbolo del sistema, escriba su contraseña. La contraseña predeterminada del dispositivo es **Password1**.

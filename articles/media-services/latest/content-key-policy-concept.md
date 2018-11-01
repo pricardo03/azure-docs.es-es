@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985869"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085969"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
@@ -28,16 +28,16 @@ En Azure Media Services v3, las directivas de clave de contenido permiten especi
 
 En la tabla siguiente se muestran las propiedades de las directivas de clave de contenido y se proporcionan sus definiciones.
 
-|NOMBRE|Escriba|DESCRIPCIÓN|
-|---|---|---|
-|id|string|Identificador de recurso completo del recurso.|
-|Nombre|string|Nombre del recurso.|
-|properties.created |string|Fecha de creación de la directiva|
-|properties.description |string|Descripción de la directiva.|
-|properties.lastModified    |string|Fecha de la última modificación de la directiva|
-|properties.options |ContentKeyPolicyOption[]|Opciones de la directiva de clave.|
-|properties.policyId    |string|Identificador de directiva heredado.|
-|Tipo   |string|Tipo de recurso.|
+|NOMBRE|Descripción|
+|---|---|
+|id|Identificador de recurso completo del recurso.|
+|Nombre|Nombre del recurso.|
+|properties.created |Fecha de creación de la directiva|
+|properties.description |Descripción de la directiva.|
+|properties.lastModified|Fecha de la última modificación de la directiva|
+|properties.options |Opciones de la directiva de clave.|
+|properties.policyId    |Identificador de directiva heredado.|
+|Tipo   |Tipo de recurso.|
 
 Para obtener la definición completa, vea [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies) (Directivas de clave de contenido).
 

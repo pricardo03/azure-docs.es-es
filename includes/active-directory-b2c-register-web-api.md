@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 9d5af21fb3b329623b14cb8742d9ec9c5d1bad46
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133251"
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Para registrar la API web, use la configuración que se especifica en la tabla.
@@ -6,9 +19,9 @@ Para registrar la API web, use la configuración que se especifica en la tabla.
 
 | Configuración      | Valor de ejemplo  | DESCRIPCIÓN                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Name** | API de B2C de Contoso | Escriba un **Nombre** para la aplicación que describa la API a los consumidores. | 
-| **Incluir aplicación web o API web** | Sí | Seleccione **Sí** para una API web. |
-| **Permitir flujo implícito** | Sí | Seleccione **Sí** si su aplicación usa el [inicio de sesión de OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
+| **Nombre** | API de B2C de Contoso | Escriba un **Nombre** para la aplicación que describa la API a los consumidores. | 
+| **Incluir aplicación web o API web** | SÍ | Seleccione **Sí** para una API web. |
+| **Permitir flujo implícito** | SÍ | Seleccione **Sí** si su aplicación usa el [inicio de sesión de OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
 | **URL de respuesta** | `https://localhost:44316/` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su aplicación solicite. Escriba una **dirección URL de respuesta** [adecuada](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url). En este ejemplo, la API web es local y la escucha se realiza en el puerto 44316. |
 | **URI de id. de aplicación** | api | Este es el identificador utilizado para la API web. Se genera el identificador URI completo, incluido el dominio. |
 

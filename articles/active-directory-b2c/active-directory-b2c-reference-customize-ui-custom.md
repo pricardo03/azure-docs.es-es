@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442362"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139516"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalización de la IU de un recorrido de usuario con directivas personalizadas
 
@@ -41,7 +41,7 @@ En comparación con la antigua forma tradicional, donde las páginas de plantill
 Puede proporcionar tantas páginas de contenido como quiera mediante la creación de archivos HTML5/CSS según sea adecuado.
 
 > [!NOTE]
-> Por motivos de seguridad, el uso de JavaScript está bloqueado para la personalización. Para desbloquear JavaScript, es necesario el uso de un nombre de dominio personalizado para su inquilino de Azure AD B2C.
+> Por motivos de seguridad, el uso de JavaScript está bloqueado para la personalización. 
 
 En cada una de las plantillas HTML5/CSS, se proporciona un elemento *anchor*, que corresponde al elemento `<div id=”api”>` necesario en el código HTML o en la página de contenido como se ilustra a continuación. Azure AD B2C requiere que todas las páginas de contenido tengan este div específico.
 

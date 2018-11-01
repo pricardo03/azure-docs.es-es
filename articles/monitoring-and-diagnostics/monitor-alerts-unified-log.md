@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365069"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421091"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en [Alertas de Azure](monitoring-overview-unified-alerts.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
@@ -93,7 +93,7 @@ Considere la posibilidad de un escenario en el que desearía tener una alerta en
 
 La consulta crearía un valor medio para cada equipo a intervalos de cinco minutos.  Esta consulta se ejecutaría cada 5 minutos para los datos recopilados en los 30 minutos anteriores.  A continuación se muestran datos de ejemplo para tres equipos.
 
-![Resultados de la consulta de ejemplo](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Resultados de la consulta de ejemplo](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 En este ejemplo, se crearán alertas independientes para srv02 y srv03 porque han incumplido el umbral del 90 % tres veces en el período de tiempo.  Si se cambiara **Desencadenar alerta según:** a **Consecutivo**, entonces se crearía una alerta solo para srv03, ya que incumplió el umbral para tres ejemplos consecutivos.
 

@@ -3,20 +3,20 @@ title: Desencadenadores y enlaces en Azure Functions
 description: Obtenga información sobre cómo usar desencadenadores y enlaces en Azure Functions para conectar la ejecución del código a los eventos en línea y servicios basados en la nube.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
-ms.author: glenga
-ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: cshoe
+ms.openlocfilehash: 5e529953d06c37f382bdd5e65c23fe16d9928008
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801312"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250910"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -75,11 +75,12 @@ Este es el código de script de C# que funciona con este enlace y este desencade
 ```cs
 #r "Newtonsoft.Json"
 
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
 // The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
+public static Person Run(JObject order, ILogger log)
 {
     return new Person() { 
             PartitionKey = "Orders", 
@@ -124,7 +125,7 @@ En una biblioteca de clases, los atributos proporcionan la misma información &m
      [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
      public static Person Run(
          [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
+         ILogger log)
      {
          return new Person() {
                  PartitionKey = "Orders",
@@ -238,10 +239,10 @@ Este es el código de C# que utiliza el valor devuelto de un enlace de salida, s
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
@@ -249,10 +250,10 @@ public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -273,19 +274,19 @@ Este es el enlace de salida del archivo *function.json*:
 Este es el código de script de C#, seguido de un ejemplo asincrónico:
 
 ```cs
-public static string Run(WorkItem input, TraceWriter log)
+public static string Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
 
 ```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
+public static Task<string> Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -306,9 +307,9 @@ Este es el enlace de salida del archivo *function.json*:
 Este es el código de F#:
 
 ```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
+let Run(input: WorkItem, log: ILogger) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json
 ```
 
@@ -401,9 +402,9 @@ Puede usar el mismo enfoque con las bibliotecas de clases:
 [FunctionName("QueueTrigger")]
 public static void Run(
     [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
 ```
 
@@ -445,9 +446,9 @@ El código de función tiene acceso a este mismo valor usando `filename` como no
 
 ```csharp
 // C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+public static void Run(Stream image, string filename, Stream imageSmall, ILogger log)  
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 } 
 ```
@@ -463,9 +464,9 @@ public static void Run(
     [BlobTrigger("sample-images/{filename}")] Stream image,
     [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
     string filename,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 }
 
@@ -544,19 +545,20 @@ Para que funcione en C# y F#, necesita una clase que defina los campos que se de
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public class BlobInfo
 {
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, ILogger log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
 
-    log.Info($"Processing: {info.BlobName}");
+    log.LogInformation($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

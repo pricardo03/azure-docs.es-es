@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc4a1a7f99de657a6199985dd0c963eed741ac97
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037480"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210030"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Guía de inicio rápido: uso de la aplicación de automatización del hogar pregenerada
 
@@ -23,7 +23,7 @@ En esta guía de inicio rápido, creará una aplicación de LUIS que utiliza el 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para este artículo, necesita una cuenta gratuita de LUIS creada en el portal de LUIS en [http://www.luis.ai](http://www.luis.ai). 
+Para este artículo, necesita una cuenta gratuita de LUIS creada en el portal de LUIS en [https://www.luis.ai](https://www.luis.ai). 
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 Las aplicaciones se pueden crear y administrar en **My Apps** (Mis aplicaciones). 

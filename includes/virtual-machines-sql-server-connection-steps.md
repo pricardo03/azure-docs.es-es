@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: c7c3aea53a1bbdbfc39bad568b2879311e365acd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226611"
+---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Apertura de puertos TCP en el firewall de Windows para la instancia predeterminada del motor de base de datos
 1. Conéctese a la máquina virtual con Escritorio remoto. Para obtener instrucciones detalladas acerca de cómo conectarse a la máquina virtual, consulte [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop)(Apertura de una VM de SQL con Escritorio remoto).
 2. Una vez que haya iniciado sesión, en la pantalla Inicio, escriba **WF.msc**y presione ENTRAR.

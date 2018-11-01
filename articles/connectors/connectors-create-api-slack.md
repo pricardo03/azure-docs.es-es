@@ -11,12 +11,12 @@ ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 7af2db528866d687064e854e00e43e81d2601b2b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042332"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230359"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Supervisión y administración de Slack con Azure Logic Apps
 
@@ -70,12 +70,12 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Slack y perm
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para conocer los detalles técnicos sobre desencadenadores, acciones y límites, que se incluyen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/slack/) del conector.
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/slack/) del conector.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

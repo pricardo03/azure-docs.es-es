@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227024"
+---
 En este paso, se probará el agente de escucha del grupo de disponibilidad mediante una aplicación de cliente que se ejecuta en la misma red.
 
 La conectividad del cliente tiene los requisitos siguientes:

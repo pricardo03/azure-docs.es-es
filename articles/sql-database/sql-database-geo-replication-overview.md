@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471482"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233861"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Información general: grupos de conmutación por error automática y replicación geográfica activa
 
@@ -281,18 +281,18 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 | --- | --- |
 | [Crear o actualizar base de datos (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crea, actualiza o restaura una base de datos principal o secundaria. |
 | [Obtener el estado de creación o actualización de la base de datos](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Devuelve el estado durante una operación de creación. |
-| [Establecer la base de datos secundaria como principal (conmutación por error planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. |
-| [Establecer la base de datos secundaria como principal (conmutación por error no planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. Esta operación puede ocasionar pérdida de datos. |
-| [Obtener vínculo de replicación](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Obtiene un vínculo de replicación específico para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
-| [Vínculos de replicación: lista por base de datos](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Obtiene todos los vínculos de replicación para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
-| [Eliminar vínculo de replicación](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Elimina un vínculo de replicación de base de datos. No se puede realizar durante la conmutación por error. |
-| [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Crea o actualiza un grupo de conmutación por error. |
-| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Quita el grupo de conmutación por error del servidor. |
-| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Conmuta por error desde el servidor principal actual en este servidor. |
-| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |Conmuta por error desde el servidor principal actual en este servidor. Esta operación puede ocasionar pérdida de datos. |
-| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Obtiene un grupo de conmutación por error. |
-| [Enumerar grupos de conmutación por error por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Enumera los grupos de conmutación por error de un servidor. |
-| [Actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Actualiza un grupo de conmutación por error. |
+| [Establecer la base de datos secundaria como principal (conmutación por error planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. |
+| [Establecer la base de datos secundaria como principal (conmutación por error no planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener vínculo de replicación](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Obtiene un vínculo de replicación específico para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
+| [Vínculos de replicación: lista por base de datos](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Obtiene todos los vínculos de replicación para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
+| [Eliminar vínculo de replicación](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina un vínculo de replicación de base de datos. No se puede realizar durante la conmutación por error. |
+| [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o actualiza un grupo de conmutación por error. |
+| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Quita el grupo de conmutación por error del servidor. |
+| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Conmuta por error desde el servidor principal actual en este servidor. |
+| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |Conmuta por error desde el servidor principal actual en este servidor. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Obtiene un grupo de conmutación por error. |
+| [Enumerar grupos de conmutación por error por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Enumera los grupos de conmutación por error de un servidor. |
+| [Actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Actualiza un grupo de conmutación por error. |
 |  | |
 
 ## <a name="next-steps"></a>Pasos siguientes
