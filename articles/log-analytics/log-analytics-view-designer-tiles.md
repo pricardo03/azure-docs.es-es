@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042196"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413067"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guía de referencia de los iconos del Diseñador de vistas en Log Analytics
 Mediante el Diseñador de vistas de Azure Log Analytics, puede crear vistas personalizadas en Azure Portal que presenten diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
@@ -47,7 +47,7 @@ Las siguientes secciones describen los tipos de icono y sus propiedades en detal
 ## <a name="number-tile"></a>Icono de Número
 El icono de **Número** muestra tanto el número de registros de una consulta de registro como una etiqueta.
 
-![Icono de Número](media/log-analytics-view-designer/tile-number.png)
+![Icono de Número](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -65,7 +65,7 @@ El icono de **Número** muestra tanto el número de registros de una consulta de
 ## <a name="two-numbers-tile"></a>Icono de Dos números
 El icono muestra el número de registros de dos consultas de registro diferentes y una etiqueta en cada uno de ellos.
 
-![Icono de Dos números](media/log-analytics-view-designer/tile-two-numbers.png)
+![Icono de Dos números](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -86,7 +86,7 @@ El icono muestra el número de registros de dos consultas de registro diferentes
 ## <a name="donut-tile"></a>Icono Anillo
 El icono **Anillo** muestra un solo número que resume una columna de valor de una consulta de registro. El anillo muestra gráficamente los resultados de los tres registros principales.
 
-![Icono Anillo](media/log-analytics-view-designer/tile-donut.png)
+![Icono Anillo](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -110,7 +110,7 @@ El icono **Anillo** muestra un solo número que resume una columna de valor de u
 ## <a name="line-chart-tile"></a>Icono de Gráfico de líneas
 El icono es un gráfico de líneas que muestra varias series de una consulta de registro en un período. 
 
-![Icono de gráfico de líneas y llamada](media/log-analytics-view-designer/tile-line-chart.png)
+![Icono de gráfico de líneas y llamada](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -131,7 +131,7 @@ El icono es un gráfico de líneas que muestra varias series de una consulta de 
 ## <a name="line-chart-and-callout-tile"></a>Icono de gráfico de líneas y llamada
 Este icono tiene tanto un gráfico de líneas que muestra varias series de una consulta de registro en un período como una llamada con un valor resumido. 
 
-![Icono de gráfico de líneas y llamada](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Icono de gráfico de líneas y llamada](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Este icono tiene tanto un gráfico de líneas que muestra varias series de una c
 ## <a name="two-timelines-tile"></a>Icono de Dos escalas de tiempo
 El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de registro en un periodo como gráficos de columnas. Para cada serie, se muestra una llamada. 
 
-![Icono de Dos escalas de tiempo](media/log-analytics-view-designer/tile-two-timelines.png)
+![Icono de Dos escalas de tiempo](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |

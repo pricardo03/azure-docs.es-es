@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 96cba4e077be8b7658c270b09b177a845e16c8b0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165925"
+---
 En este artículo se supone que
 
 1. Ya se ha establecido una **VPN de sitio a sitio** o una conexión de **Express Route** entre su red local y Azure Virtual Network.

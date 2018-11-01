@@ -1,7 +1,20 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 752c43604349a2361a8f5b26cd6d0bce7b516bc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133881"
+---
 ### <a name="prerequisites"></a>Requisitos previos
 * Una cuenta de [MailChimp](https://www.MailChimp.com/). 
 
-Para poder usar su cuenta de MailChimp en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure. 
+Para poder usar su cuenta de MailChimp en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en Azure Portal. 
 
 Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de MailChimp:
 

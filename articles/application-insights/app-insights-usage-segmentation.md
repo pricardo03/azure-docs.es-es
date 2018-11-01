@@ -3,7 +3,7 @@ title: Análisis de usuarios, sesiones y evento en Azure Application Insights | 
 description: Este artículo trata sobre el análisis de los usuarios de su aplicación web.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 2bc10a292855832b7ddb9b8e3a59fbe0f17d8dc6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093815"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140339"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análisis de usuarios, sesiones y eventos en Application Insights
 
@@ -48,10 +49,10 @@ Explore distintos grupos de usuarios mediante ajustando las opciones de consulta
 * que usaron: elija eventos personalizados y vistas de página.
 * Durante: elija un intervalo de tiempo.
 * Por: elija cómo se desglosarán los datos, por un periodo u otra propiedad como un explorador o una ciudad.
-* Dividir por: elija una propiedad por la que dividir o segmentar los datos. 
-* Agregar filtros: limite la consulta a determinados usuarios, sesiones o eventos en función de sus propiedades, como un explorador o una ciudad. 
- 
-## <a name="saving-and-sharing-reports"></a>Guardado e intercambio de informes 
+* Dividir por: elija una propiedad por la que dividir o segmentar los datos. 
+* Agregar filtros: limite la consulta a determinados usuarios, sesiones o eventos en función de sus propiedades, como un explorador o una ciudad. 
+ 
+## <a name="saving-and-sharing-reports"></a>Guardado e intercambio de informes 
 Puede guardar los informes de Usuarios, de forma privada (solo para usted) en la sección Mis informes, o bien con todos aquellos que tengan acceso a este recurso de Application Insights en la sección Informes compartidos.
 
 Para compartir un vínculo con un informe de usuarios, sesiones o eventos, haga clic en **Recurso compartido** en la barra de herramientas y, después, copie el vínculo.

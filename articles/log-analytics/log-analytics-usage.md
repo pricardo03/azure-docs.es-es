@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409142"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415269"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
 
@@ -49,12 +49,12 @@ El panel **Uso de Log Analytics** muestra la siguiente información:
     - Time taken to collect and index data (Tiempo dedicado a recopilar e indexar datos)  
 - Lista de consultas
 
-![Panel de uso y costo](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![Panel de uso y costo](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### <a name="to-work-with-usage-data"></a>Para trabajar con datos de uso, siga estos pasos:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. En la lista de áreas de trabajo de Log Analytics, seleccione un área de trabajo.
 4. Seleccione **Uso y costos estimados** en la lista del panel izquierdo.
 5. En el panel **Uso y costos estimados**, puede modificar el intervalo de tiempo seleccionando la opción **Tiempo: Últimas 24 horas** y cambiar el intervalo de tiempo.<br><br> ![Intervalo de tiempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

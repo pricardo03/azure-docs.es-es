@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164246"
+---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Preparación de una instalación de inserción en un equipo Windows
 
 1. Asegúrese de que hay conectividad de red entre el equipo Windows y el servidor de procesos.

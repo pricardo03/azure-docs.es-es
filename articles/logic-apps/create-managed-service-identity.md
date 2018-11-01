@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 2964869933dd096b96e892cf08b8d4b66a8f210c
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817065"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229646"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticación y acceso a los recursos con identidades administradas en Azure Logic Apps
 
@@ -193,5 +193,5 @@ Si ha creado la identidad administrada asignada por el sistema de la aplicación
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 

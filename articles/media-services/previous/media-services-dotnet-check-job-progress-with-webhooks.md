@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo usar Azure WebHooks para supervisa
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 564fc25699c3ae627804d49bfdc40ae9dd559269
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784494"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238665"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services con .NET
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede supervisar las notificaciones de trabajo de Media Services con Azure WebHooks o con [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md). En este artículo se explica cómo trabajar con webhooks.
@@ -38,7 +38,7 @@ Este artículo le muestra cómo
 
 Puede encontrar las definiciones de diversas instancias de Azure Functions con .NET para Media Services (incluidas las que se muestran en este artículo) [aquí](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Estos son los requisitos previos para completar el tutorial.
 

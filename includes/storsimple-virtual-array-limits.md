@@ -1,5 +1,16 @@
-
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165481"
+---
 | **Identificador de límites** | **Límite** | **Comentarios** |
 | --- | --- | --- |
 | Capacidad total (incluida la nube) |Hasta 64 TB por dispositivo virtual |Puede conmutar por error una matriz virtual de StorSimple completa en otra matriz vacía. Si intenta restaurar al mismo dispositivo, asegúrese de que tiene suficiente espacio en el dispositivo para completar esta operación. Después de haber excedido 32 TB, no puede realizar la restauración en el mismo dispositivo. |

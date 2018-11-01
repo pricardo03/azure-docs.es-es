@@ -1,15 +1,27 @@
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 3ad1f0638284ad1d9b65a5bb6f2d2b03e9c51e04
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227256"
+---
 ## <a name="planning-and-implementation"></a>Planeamiento e implementación
-Título: SAP NetWeaver en máquinas virtuales de Azure: guía de planeación e implementación
+Título: SAP NetWeaver en Azure Virtual Machines: guía de planeación e implementación
 
-Resumen: Este es el documento por donde debe empezar si está pensando en ejecutar SAP NetWeaver en máquinas virtuales de Azure. Esta guía de planeación e implementación le ayudará a evaluar si un sistema basado SAP NetWeaver planeado o existente puede implementarse en un entorno de máquinas virtuales de Azure. Cubre varios escenarios de implementación de SAP NetWeaver e incluye configuraciones SAP específicas para Azure. Este documento enumera y describe toda la información de configuración necesaria que deberá tener al lado de SAP/Azure para ejecutar un entorno SAP híbrido. También cubre las medidas que se pueden tomar para garantizar una alta disponibilidad de los sistemas basados en SAP NetWeaver en IaaS.
+Resumen: Este es el documento por donde debe empezar si está pensando en ejecutar SAP NetWeaver en Azure Virtual Machines. Esta guía de planeación e implementación le ayudará a evaluar si un sistema basado SAP NetWeaver planeado o existente puede implementarse en un entorno de Azure Virtual Machines. Cubre varios escenarios de implementación de SAP NetWeaver e incluye configuraciones SAP específicas para Azure. Este documento enumera y describe toda la información de configuración necesaria que deberá tener al lado de SAP/Azure para ejecutar un entorno SAP híbrido. También cubre las medidas que se pueden tomar para garantizar una alta disponibilidad de los sistemas basados en SAP NetWeaver en IaaS.
 
 Actualizado: agosto de 2015
 
 [Descargar esta guía ahora](http://go.microsoft.com/fwlink/?LinkId=397963)
 
 ## <a name="deployment"></a>Implementación
-Título: SAP NetWeaver en máquinas virtuales de Azure: Guía de implementación
+Título: SAP NetWeaver en Azure Virtual Machines: Guía de implementación
 
 Resumen: Este documento proporciona una guía de los procedimientos necesarios para implementar el software SAP NetWeaver en máquinas virtuales de Azure Este documento se centra en tres escenarios de implementación específicos, con énfasis en la habilitación de las Extensiones de supervisión de Azure para SAP, incluidas las recomendaciones para la solución de problemas de las Extensiones de supervisión de Azure para SAP. Este documento supone que ha leído la guía de planeación e implementación.
 

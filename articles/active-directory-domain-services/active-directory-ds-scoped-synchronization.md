@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: sincronización con ámbito | Mi
 description: Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: maheshu
-ms.openlocfilehash: a6f56a9c855e296fb49b1c24d09189177175c9d6
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.author: ergreenl
+ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041873"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242201"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
 En este artículo se muestra cómo configurar solo cuentas de usuario específicas para sincronizarlas entre el directorio de Azure AD y el dominio administrado de Azure AD Domain Services.
@@ -65,7 +65,7 @@ Lleva a cabo los pasos siguientes para configurar la sincronización de ámbito 
 3. Guarde el [script en la sección siguiente](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) en un archivo llamado ```Select-GroupsToSync.ps1```. Ejecute el script como se muestra a continuación:
 
   ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", “GroupName1”, “GroupName2”)
+  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
   ```
 
   > [!WARNING]

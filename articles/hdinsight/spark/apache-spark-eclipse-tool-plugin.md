@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: jasonh
-ms.openlocfilehash: 836bdccbf3f8887a47da38b47b414722c878be04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ab3f4dcdc5a5ad8528080c90fa6c17f9493d19ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046019"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420309"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark para un clúster de HDInsight
 
@@ -32,7 +32,7 @@ Use las herramientas de HDInsight en el kit de herramientas de Azure para Eclips
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
-* Kit de desarrollo de Oracle Java versión 8, que se usa para el tiempo de ejecución del IDE de Eclipse. Puede descargarlo desde el [sitio web de Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Kit de desarrollo de Oracle Java versión 8, que se usa para el tiempo de ejecución del IDE de Eclipse. Puede descargarlo desde el [sitio web de Oracle](https://aka.ms/azure-jdks).
 * IDE de Eclipse. En este artículo se utiliza Eclipse Neon. Puede instalarlo desde el [sitio web de Eclipse](https://www.eclipse.org/downloads/).
 
 

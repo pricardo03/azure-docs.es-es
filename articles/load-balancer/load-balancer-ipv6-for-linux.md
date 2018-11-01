@@ -4,10 +4,7 @@ description: Cómo configurar DHCPv6 para VM de Linux.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
 keywords: IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot
-ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 6248ed2f55fb5bbcc2061af6ce1dedf2bd31ccad
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7ef376c044bceb14614388a72c11942869dbde07
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261854"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741630"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurar DHCPv6 para VM de Linux
 

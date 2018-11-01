@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ae5a720ce6ddd6b773229d0968bc283aa5cfa5ba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413146"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413169"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Solución de problemas de conectividad de aplicaciones en una máquina virtual en Azure
 
@@ -142,7 +142,7 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
-[Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md)
+[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](troubleshoot-rdp-connection.md)
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](troubleshoot-ssh-connection.md)
 

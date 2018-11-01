@@ -2,18 +2,18 @@
 title: Guía de seguridad de Azure Storage | Microsoft Docs
 description: Detalles de los distintos métodos de seguridad de Azure Storage incluidos, entre otros, el control de acceso basado en rol, el cifrado del servicio Storage, el cifrado del lado cliente, SMB 3.0 y Azure Disk Encryption.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341878"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138198"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 

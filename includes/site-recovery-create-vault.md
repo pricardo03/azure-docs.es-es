@@ -1,4 +1,16 @@
-
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165933"
+---
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
 2. Haga clic en **Crear un recurso** > **Supervisión y administración** > **Backup and Site Recovery**.
 3. En **Nombre**, especifique un nombre descriptivo para identificar el almacén. Si tiene más de una suscripción, seleccione la apropiada.

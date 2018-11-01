@@ -3,7 +3,7 @@ title: Solución de problemas de las herramientas de análisis de comportamiento
 description: 'Guía de solución de problemas: análisis de uso del sitio y las aplicaciones con Application Insights'
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992543"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138518"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
 ¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](app-insights-usage-overview.md): [usuarios, sesiones, eventos](app-insights-usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuarios](app-insights-usage-flows.md), [retención](app-insights-usage-retention.md) o cohortes? Estas son algunas respuestas.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3972dd7031e25f20a2ef6bfb66b63fe3f3b0290b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5d490b195f2e8fd58ca331b3e68ed451d92932f0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732489"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241844"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Tenga en cuenta los siguientes puntos:
 
 * El nombre de Azure Data Factory debe ser único de forma global. Si recibe el error: **El nombre de la factoría de datos "FirstDataFactoryPSH" no está disponible**, cambie el nombre (por ejemplo, suNombreFirstDataFactoryPSH). Use este nombre en lugar de ADFTutorialFactoryPSH mientras lleva a cabo los pasos de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 * Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
-* El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+* El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
 * Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
 
   * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory:

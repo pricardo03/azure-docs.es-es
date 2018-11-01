@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: bfeee293dfb86db2be8e799f60b5e025477293d5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465566"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242065"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
@@ -49,7 +49,7 @@ Para usar la extensión de script personalizado con la CLI de Azure, puede crear
 ## <a name="create-custom-script-extension-definition"></a>Creación de una definición de extensión de script personalizado
 Para ver la extensión de script personalizado en acción, vamos a crear un conjunto de escalado que instala el servidor web de NGINX y genera el nombre de host de la instancia de máquina virtual del conjunto de escalado. La siguiente definición de extensión de script personalizado descarga un script de ejemplo de GitHub, instala los paquetes necesarios y, luego, escribe el nombre de host de la instancia de máquina virtual en una página HTML básica.
 
-En el shell actual, cree un archivo denominado *customConfig.json* y pegue la siguiente configuración. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor cloudConfig.json` en Cloud Shell para crear el archivo y ver una lista de editores disponibles.
+En el shell actual, cree un archivo denominado *customConfig.json* y pegue la siguiente configuración. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor customConfig.json` en Cloud Shell para crear el archivo y ver una lista de editores disponibles.
 
 ```json
 {

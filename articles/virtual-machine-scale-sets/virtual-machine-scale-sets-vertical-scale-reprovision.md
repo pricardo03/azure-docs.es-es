@@ -3,7 +3,7 @@ title: Escalado vertical de conjuntos de escalado de máquinas virtuales de Azur
 description: Cómo escalar verticalmente una máquina virtual en respuesta a las alertas de supervisión con Azure Automation
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: negat
-ms.openlocfilehash: 6e4733e023d1dc27fb099216f9afea07fe07446c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781826"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741579"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales
 Este artículo describe cómo escalar verticalmente [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/) de Azure con o sin reaprovisionamiento. Para el escalado vertical de máquinas virtuales que no están en conjuntos de escalado, consulte [Escalado vertical de máquinas virtuales con Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -56,7 +56,7 @@ Puede configurar el escalado vertical para que se desencadene en función de las
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Creación de una cuenta de Azure Automation con funciones de ejecución
-Lo primero que debe hacer es crear una cuenta de Azure Automation que hospedará los runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, [Azure Automation](https://azure.microsoft.com/services/automation/) presentó la característica "Cuenta de ejecución", que permite realizar la configuración de la entidad de servicio para ejecutar los runbooks automáticamente en nombre de un usuario. Para obtener más información, consulte 
+Lo primero que debe hacer es crear una cuenta de Azure Automation que hospedará los runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, [Azure Automation](https://azure.microsoft.com/services/automation/) presentó la característica "Cuenta de ejecución", que permite realizar la configuración de la entidad de servicio para ejecutar los runbooks automáticamente en nombre de un usuario. Para más información, consulte:
 
 * [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
 

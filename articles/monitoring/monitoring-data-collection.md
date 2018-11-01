@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637804"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248717"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Datos de supervisión recopilados por Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) es un servicio que le ayuda a supervisar sus aplicaciones y los recursos de los que dependen. Lo fundamental de esta función es el almacenamiento de datos de telemetría y otros datos de los recursos supervisados. En este artículo se proporciona una descripción completa de cómo Azure Monitor almacena y usa estos datos.
 
 Todos los datos recopilados por Azure Monitor pueden clasificarse como uno de los dos tipos fundamentales: [métricas](#metrics) y [registros](#logs). Las métricas son valores numéricos que describen algunos aspectos de un sistema en un momento dado en el tiempo. Las métricas son ligeras y capaces de admitir escenarios de tiempo casi real. Los registros contienen distintos tipos de datos organizados en registros con diferentes conjuntos de propiedades para cada tipo. Los datos de telemetría, como los eventos y los seguimientos, se almacenan como registros junto con los datos de rendimiento para poder analizarlos de forma combinada.
 
-![Introducción a Azure Monitor](../azure-monitor/media/overview/overview.png)
+![Introducción a Azure Monitor](media/monitoring-data-collection/overview.png)
 
 ## <a name="metrics"></a>Métricas
 Las métricas son valores numéricos que describen algunos aspectos de un sistema en un momento dado. Las métricas son ligeras y capaces de admitir escenarios de tiempo casi real. Las métricas se recopilan a intervalos regulares independientemente de si cambia el valor o no. Son útiles para las alertas, dado que se pueden muestrear con frecuencia y se puede activar una alerta con rapidez con una lógica relativamente sencilla. 

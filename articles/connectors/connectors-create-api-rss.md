@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: c8d1122572764dda1fc550a06ae254109e3bf033
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 01573871700bbeeb653ce3efdbf6c6aca88fd454
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885805"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233062"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Administración de fuentes RSS mediante Azure Logic Apps
 
@@ -51,16 +51,16 @@ Puede utilizar un desencadenador RSS que obtiene respuestas de una fuente RSS y 
 
    * Para las aplicaciones lógicas existentes, en el paso donde desea agregar una acción, elija **Nuevo paso**. En el cuadro de búsqueda, escriba "rss" como filtro. En la lista de acciones, seleccione la que desee.
 
-1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la creación del flujo de trabajo de la aplicación lógica.
+1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos sobre desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/rss/) del conector.
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/rss/) del conector.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 0b2e0ff800ab80a2c638293ce23fc1911390f2dd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 79a02115a449c710778e4c69f470efc3ebebae53
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221125"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087056"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -100,6 +100,7 @@ Functions proporciona una excelente manera de descargar tareas de procesamiento 
     using System;
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
     
@@ -128,7 +129,7 @@ Functions proporciona una excelente manera de descargar tareas de procesamiento 
     ```
     El código de la función devuelve una clasificación de color basada en la puntuación de la opinión recibida en la solicitud. 
 
-4. Para probar la función, haga clic en **Probar** a la derecha para expandir la pestaña de pruebas. Escriba un valor de `0.2` en el **Cuerpo de la solicitud** y, a continuación, haga clic en **Ejecutar**. Devuelve un valor **RED** (rojo) en el cuerpo de la respuesta. 
+4. Para probar la función, haga clic en **Probar** a la derecha para expandir la pestaña de pruebas. Escriba un valor de  en el Cuerpo de la solicitud`0.2` y, a continuación, haga clic en **Ejecutar**. Devuelve un valor **RED** (rojo) en el cuerpo de la respuesta. 
 
     ![Prueba de la función en Azure Portal](./media/functions-twitter-email/test.png)
 

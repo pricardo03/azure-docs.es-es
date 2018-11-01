@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7d4deb0618b0e0802306e344fea6d259c0597fe2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412959"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417402"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solución de problemas de mensajes de error específicos de RDP en una máquina virtual Windows en Azure
 Puede recibir un mensaje de error específico al usar la conexión Escritorio remoto a una máquina virtual (VM) Windows en Azure. Este artículo describe algunos de los mensajes de error más comunes que se pueden obtener, junto con los pasos de solución de problemas para resolverlos. Si tiene problemas para conectarse a la máquina virtual mediante RDP, pero no ve un mensaje de error específico, consulte la [Guía de solución de problemas de Escritorio remoto](troubleshoot-rdp-connection.md).

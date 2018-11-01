@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 2eacb55eaf355a4eef17b9e16075d8d12167266d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164665"
+---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepararse para autenticar solicitudes de Azure Resource Manager
 Debe autenticar todas las operaciones que se realizan en los recursos mediante [Azure Resource Manager][lnk-authenticate-arm] con Azure Active Directory (AD). La manera más sencilla de configurar esto es usar PowerShell o CLI de Azure.
 
@@ -53,7 +66,7 @@ Ahora ha terminado de crear la aplicación de Azure AD que le permitirá autenti
 * TenantId
 * SubscriptionId
 * ApplicationId
-* Password
+* Contraseña
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

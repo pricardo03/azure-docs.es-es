@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 677cd65b011ed69868564617ff79b7a57947c230
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404450"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412965"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 
@@ -42,7 +42,7 @@ Antes de instalar Microsoft Monitoring Agent para Windows, necesita la clave y e
 
 1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que quiera configurar para informar al agente.
-3. Seleccione **Configuración avanzada**.<br><br> ![Configuración avanzada de Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Seleccione **Configuración avanzada**.<br><br> ![Configuración avanzada de Log Analytics](media/log-analytics-agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Seleccione **Orígenes conectados** y **Servidores Windows**.   
 5. En su editor favorito, copie y pegue **Id. del área de trabajo** y **Clave principal**.    
    
@@ -58,7 +58,7 @@ Los siguientes pasos permiten la instalación y configuración de Log Analytics 
 6. En la página **Azure Log Analytics**, realice lo siguiente:
    1. Pegue el **Id. del área de trabajo** y la **clave del área de trabajo (clave principal)** que copió anteriormente.  Si el equipo tiene que notificar a un área de trabajo de Log Analytics en Azure Government Cloud, seleccione **Azure Gobierno de EE.UU.** desde la lista desplegable **Azure Cloud**.  
    2. Si el equipo necesita comunicarse a través de un servidor proxy con el servicio de Log Analytics, haga clic en **Avanzado** y proporcione la dirección URL y el número de puerto del servidor proxy.  Si el servidor proxy requiere autenticación, escriba el nombre de usuario y la contraseña para autenticar con el servidor proxy y, luego, haga clic en **Siguiente**.  
-7. Haga clic en **Siguiente** cuando haya terminado de proporcionar las opciones de configuración necesarias.<br><br> ![pegar identificador del área de trabajo y clave principal](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Haga clic en **Siguiente** cuando haya terminado de proporcionar las opciones de configuración necesarias.<br><br> ![pegar identificador del área de trabajo y clave principal](media/log-analytics-agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. En la página **Preparado para instalar**, revise las opciones seleccionadas y haga clic en **Instalar**.
 9. En la página **La configuración finalizó correctamente**, haga clic en **Finalizar**.
 
@@ -160,7 +160,7 @@ Para recuperar el código de producto del paquete para instalar el agente direct
 
 Una vez completada la instalación del agente, compruebe que se ha conectado correctamente y que la creación de informes puede realizarse desde ambos lados.  
 
-En el **Panel de control** del equipo, busque el elemento **Microsoft Monitoring Agent**.  Selecciónelo y, en la pestaña **Azure Log Analytics**, el agente mostrará un mensaje similar al siguiente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite.**<br><br> ![Estado de la conexión de MMA en Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+En el **Panel de control** del equipo, busque el elemento **Microsoft Monitoring Agent**.  Selecciónelo y, en la pestaña **Azure Log Analytics**, el agente mostrará un mensaje similar al siguiente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite.**<br><br> ![Estado de la conexión de MMA en Log Analytics](media/log-analytics-agent-windows/log-analytics-mma-laworkspace-status.png)
 
 También puede realizar una búsqueda de registros simple en Azure Portal.  
 

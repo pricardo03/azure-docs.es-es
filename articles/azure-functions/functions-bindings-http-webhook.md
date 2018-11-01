@@ -3,20 +3,20 @@ title: Enlaces y desencadenadores HTTP de Azure Functions
 description: Aprenda a usar desencadenadores y enlaces HTTP en Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: e989152ece19168138597a96d1246ec64498ce69
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: cshoe
+ms.openlocfilehash: 333e73af3578cdc363e7ede08ca52207cfd0fdb0
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227561"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248922"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -44,7 +44,7 @@ Los enlaces HTTP se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Ex
 
 El desencadenador HTTP permite invocar una función con una solicitud HTTP. Puede usar un desencadenador HTTP para crear API sin servidor y responder a webhooks. 
 
-De forma predeterminada, un desencadenador HTTP devuelve HTTP 200 OK con un cuerpo vacío en Functions 1.x, o HTTP 204 No Content con un cuerpo vacío en Functions 2.x. Para modificar la respuesta, configure un [enlace de salida HTTP](#http-output-binding).
+De forma predeterminada, un desencadenador HTTP devuelve HTTP 200 OK con un cuerpo vacío en Functions 1.x, o HTTP 204 No Content con un cuerpo vacío en Functions 2.x. Para modificar la respuesta, configure un [enlace de salida HTTP](#output).
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
@@ -64,9 +64,9 @@ En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-l
 [FunctionName("HttpTriggerCSharp")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -121,10 +121,11 @@ Este es el código de script de C# que se enlaza a `HttpRequestMessage`:
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 {
-    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -148,8 +149,9 @@ Puede enlazar a un objeto personalizado en lugar de `HttpRequestMessage`. Este o
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, TraceWriter log)
+public static string Run(CustomObject req, ILogger log)
 {
     return "Hello " + req?.name;
 }
@@ -388,7 +390,7 @@ Esto permite que el código de la función admita dos parámetros en la direcci�
 
 ```csharp
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
-                                                TraceWriter log)
+                                                ILogger log)
 {
     if (id == null)
         return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");

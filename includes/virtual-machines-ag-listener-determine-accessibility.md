@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226775"
+---
 Es importante saber que hay dos formas de configurar un agente de escucha del grupo de disponibilidad en Azure. Estos métodos se diferencian en el tipo de equilibrador de carga de Azure que se usa al crear el agente de escucha. La siguiente tabla muestra las diferencias:
 
 | Tipo de equilibrador de carga | Implementación | Se debe utilizar si: |

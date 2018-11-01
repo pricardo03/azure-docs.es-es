@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986906"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086852"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 
@@ -26,20 +26,20 @@ Para proporcionar a los clientes una dirección URL que pueden usar para reprodu
 
 En la tabla siguiente se muestran las propiedades de StreamingLocator y se proporcionan sus definiciones.
 
-|NOMBRE|Escriba|DESCRIPCIÓN|
-|---|---|---|
-|id |string|Identificador de recurso completo del recurso.|
-|Nombre   |string|Nombre del recurso.|
-|properties.alternativeMediaId  |string|Id. de medios alternativo de este localizador de streaming.|
-|properties.assetName   |string|Nombre de recurso|
-|properties.contentKeys |StreamingLocatorContentKey[]|Claves de contenido que usa este localizador de streaming.|
-|properties.created |string|Hora de creación del localizador de streaming.|
-|properties.defaultContentKeyPolicyName |string|Nombre del elemento ContentKeyPolicy predeterminado que usa este localizador de streaming.|
-|properties.endTime |string|Hora de finalización del localizador de streaming.|
-|properties.startTime   |string|Hora de inicio del localizador de streaming.|
-|properties.streamingLocatorId  |string|Elemento StreamingLocatorId del localizador de streaming.|
-|properties.streamingPolicyName |string|Nombre de la directiva de streaming que usa este localizador de streaming. Especifique el nombre de la directiva de streaming que creó o use una de las directivas de streaming predefinidas. Las directivas de streaming predefinidas que están disponibles son: "Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming".|
-|Tipo   |string|Tipo de recurso.|
+|NOMBRE|Descripción|
+|---|---|
+|id |Identificador de recurso completo del recurso.|
+|Nombre   |Nombre del recurso.|
+|properties.alternativeMediaId|Id. de medios alternativo de este localizador de streaming.|
+|properties.assetName   |Nombre de recurso|
+|properties.contentKeys |Claves de contenido que usa este localizador de streaming.|
+|properties.created |Hora de creación del localizador de streaming.|
+|properties.defaultContentKeyPolicyName|Nombre del elemento ContentKeyPolicy predeterminado que usa este localizador de streaming.|
+|properties.endTime |Hora de finalización del localizador de streaming.|
+|properties.startTime|Hora de inicio del localizador de streaming.|
+|properties.streamingLocatorId|Elemento StreamingLocatorId del localizador de streaming.|
+|properties.streamingPolicyName |Nombre de la directiva de streaming que usa este localizador de streaming. Especifique el nombre de la directiva de streaming que creó o use una de las directivas de streaming predefinidas. Las directivas de streaming predefinidas que están disponibles son: "Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming".|
+|Tipo|Tipo de recurso.|
 
 Para conocer la definición completa, consulte [Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators).
 

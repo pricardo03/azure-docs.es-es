@@ -9,12 +9,12 @@ ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 8d6f2ecaec7bf7ae7e4415ccd60fc6ec3ff487f3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126179"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231617"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Escenario: Desencadenamiento de aplicaciones lógicas con Azure Functions y Azure Service Bus
 
@@ -134,5 +134,5 @@ A continuación, cree la función que actúa como desencadenador y escuche la co
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 

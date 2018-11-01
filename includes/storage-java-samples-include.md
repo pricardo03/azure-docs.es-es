@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 578c1eda476dccf798cd80b933fdc521450f29b2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165334"
+---
 ## <a name="java-sample-code-repositories"></a>Repositorios de código de ejemplo de Java
 
 Esta es una lista de todos nuestros repositorios de ejemplo para la biblioteca de cliente de Azure Storage para Java.

@@ -3,7 +3,7 @@ title: Identificadores de instancia de máquinas virtuales del conjunto de escal
 description: Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
-ms.author: negat
-ms.openlocfilehash: 3a43dc86f1fb53dfde4bce3938faaa30e18f5a6d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: manayar
+ms.openlocfilehash: f15b2154c1bac4d699af91980a4bc2a7192bb0c9
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29742896"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740882"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
 En este artículo se describen los identificadores de instancia de los conjuntos de escalado y las distintas formas en que se muestran.

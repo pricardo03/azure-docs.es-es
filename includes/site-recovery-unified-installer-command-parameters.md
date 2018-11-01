@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 4b0c8ad227b9aa8a0692ff453c3751aaa38a4849
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165383"
+---
 |Nombre de parámetro| Escriba | DESCRIPCIÓN| Valores posibles|
 |-|-|-|-|
 | /ServerMode|Obligatorio|Especifica si se deben instalar los servidores de configuración y de procesos, o solo el servidor de procesos|CS<br>PS|

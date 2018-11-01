@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248336"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415277"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -43,11 +43,11 @@ Utilice el siguiente procedimiento:
 1. En Azure Portal, seleccione **Supervisar** > **Alertas**.
 2. Haga clic en **Nueva regla de alertas** que se encuentra en la parte superior de la ventana **Alertas**.
 
-     ![nueva regla de alertas](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![nueva regla de alertas](media/alert-activity-log/AlertsPreviewOption.png)
 
      Aparece la ventana **Crear regla**.
 
-      ![opciones de la nueva regla de alertas](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![opciones de la nueva regla de alertas](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. **En la condición Definir alerta**, proporcione la siguiente información y haga clic en **Hecho**.
 
@@ -57,7 +57,7 @@ Utilice el siguiente procedimiento:
 
     > puede seleccionar un recurso, un grupo de recursos o una suscripción completa para la señal del registro de actividad.
 
-    **Vista de ejemplo de la alerta de destino** ![Seleccione destino](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **Vista de ejemplo de la alerta de destino** ![Seleccione destino](media/alert-activity-log/select-target.png)
 
     - En **Criterios de destino**, haga clic en **Agregar criterio** y verá todas las señales disponibles para el destino (incluidas las de categorías tales como **Registro de actividad**), con el nombre de la categoría agregado en el nombre de **Servicio de supervisión**.
 
@@ -67,7 +67,7 @@ Utilice el siguiente procedimiento:
 
     **Pantalla para agregar criterios**
 
-    ![agregar criterios](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![agregar criterios](media/alert-activity-log/add-criteria.png)
 
     **Hora del historial**: los eventos disponibles para la operación seleccionada se pueden trazar en las últimas 6/12/24 horas (o) durante la última semana.
 
@@ -79,7 +79,7 @@ Utilice el siguiente procedimiento:
 
         Gráfico de señal de ejemplo con la lógica de alerta aplicada:
 
-        ![ criterios seleccionados](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ criterios seleccionados](media/alert-activity-log/criteria-selected.png)
 
 4. En la opción que permite **definir los detalles de las reglas de alertas**, proporcione los datos siguientes:
 
@@ -99,20 +99,20 @@ Utilice el siguiente procedimiento:
 
 Alternativamente, una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad, es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal ](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). En "Azure Monitor: registro de actividad", se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**; a continuación, siga del paso 4 en adelante, tal como se indica en el tutorial anterior.
     
- ![ agregar alerta del registro de actividad](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ agregar alerta del registro de actividad](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>Visualización y administración en Azure Portal
 
 1. En Azure Portal, haga clic en **Supervisar** > **Alertas** y haga clic en **Administrar reglas** en la parte superior izquierda de la ventana.
 
-    ![ administración de reglas de alerta](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ administración de reglas de alerta](media/alert-activity-log/manage-alert-rules.png)
 
     Aparece la lista de reglas disponibles.
 
 2. Busque la regla del registro de actividad que quiera modificar.
 
-    ![ buscar las reglas de alertas del registro de actividad](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ buscar las reglas de alertas del registro de actividad](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     Puede usar los filtros disponibles: _Suscripción_, _Grupo de recursos_, _Recursos_, _Tipo de señal_ o _Estado_ para buscar la regla de actividad que quiera editar.
 
@@ -122,7 +122,7 @@ Alternativamente, una simple analogía para comprender las condiciones en las qu
 
 3.  Seleccione la regla y haga doble clic para editar las opciones. Haga los cambios que sean necesarios y haga clic en **Guardar**.
 
-    ![ administración de reglas de alerta](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ administración de reglas de alerta](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  Puede deshabilitar, habilitar o eliminar una regla. Seleccione la opción adecuada en la parte superior de la ventana, después de seleccionar la regla tal como se detalla en el paso 2.
 

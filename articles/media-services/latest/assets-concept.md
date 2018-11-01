@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985240"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085846"
 ---
 # <a name="assets"></a>Recursos
 
@@ -34,19 +34,19 @@ Además, lea sobre las [cuentas de almacenamiento en Media Services](storage-acc
 
 En la tabla siguiente se muestran las propiedades de los recursos y se proporcionan sus definiciones.
 
-|NOMBRE|Escriba|DESCRIPCIÓN|
-|---|---|---|
-|id|string|Identificador de recurso completo del recurso.|
-|Nombre|string|Nombre del recurso.|
-|properties.alternateId |string|Id. alternativo del recurso.|
-|properties.assetId |string|Identificador del recurso.|
-|properties.container |string|Nombre del contenedor de blobs del recurso.|
-|properties.created |string|Fecha de creación del recurso.|
-|properties.description |string|Descripción del recurso.|
-|properties.lastModified |string|Fecha de última modificación del recurso.|
-|properties.storageAccountName |string|El nombre de la cuenta de almacenamiento.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Formato de cifrado del recurso. Uno entre Ninguno y MediaStorageEncryption.|
-|Tipo|string|Tipo de recurso.|
+|NOMBRE|Descripción|
+|---|---|
+|id|Identificador de recurso completo del recurso.|
+|Nombre|Nombre del recurso.|
+|properties.alternateId |Id. alternativo del recurso.|
+|properties.assetId |Identificador del recurso.|
+|properties.container |Nombre del contenedor de blobs del recurso.|
+|properties.created |Fecha de creación del recurso.|
+|properties.description|Descripción del recurso.|
+|properties.lastModified |Fecha de última modificación del recurso.|
+|properties.storageAccountName |El nombre de la cuenta de almacenamiento.|
+|properties.storageEncryptionFormat |Formato de cifrado del recurso. Uno entre Ninguno y MediaStorageEncryption.|
+|Tipo|Tipo de recurso.|
 
 Para conocer la definición completa, consulte [Assets](https://docs.microsoft.com/rest/api/media/assets) (Recursos).
 

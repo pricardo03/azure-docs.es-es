@@ -6,15 +6,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 4e825317cd7faf75e024e92393585e7d9812c7e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d7e8571c0b8301da953d84893ac48934a2392d55
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958856"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230010"
 ---
 # <a name="audit-sql-database-encryption"></a>Auditar cifrado de base de datos SQL
 
@@ -24,37 +24,7 @@ Esta directiva integrada audita si la base de datos SQL no tiene un cifrado de d
 
 ## <a name="sample-template"></a>Plantilla de ejemplo
 
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Sql/servers/databases"
-      },
-      {
-        "field": "name",
-        "notEquals": "master"
-      }
-    ]
-  },
-  "then": {
-    "effect": "AuditIfNotExists",
-    "details": {
-      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-      "name": "current",
-      "existenceCondition": {
-        "allOf": [
-          {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "enabled"
-          }
-        ]
-      }
-    }
-  }
-}
-```
+[!code-json[main](../../../../policy-templates/samples/SQL/audit-sql-db-tde-status/azurepolicy.json "Audit TDE for SQL Database")]
 
 Puede implementar esta plantilla mediante [Azure Portal](#deploy-with-the-portal), con [PowerShell](#deploy-with-powershell) o con la [CLI de Azure](#deploy-with-azure-cli). Para obtener la directiva integrada, use el identificador `17k78e20-9358-41c9-923c-fb736d382a12`.
 

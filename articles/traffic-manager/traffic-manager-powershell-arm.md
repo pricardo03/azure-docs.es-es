@@ -4,8 +4,6 @@ description: Uso de PowerShell para Traffic Manager con Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
 author: kumudd
-manager: timlt
-ms.assetid: bc247448-1d2e-4104-ac03-42b59ebde065
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 951e845e23a1ed0cbdc83fc24a97a545f00c52ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526648"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139482"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso de PowerShell para administrar Traffic Manager
 
@@ -36,7 +34,7 @@ Cada perfil de Traffic Manager se representa mediante un recurso de tipo "Traffi
 
 En estas instrucciones se usa PowerShell para Microsoft Azure. En el siguiente artículo se explica cómo instalar y configurar Azure PowerShell.
 
-* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
+* [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview)
 
 En los ejemplos de este artículo se da por supuesto que ya tiene un grupo de recursos. Puede crear uno mediante el siguiente comando:
 
@@ -57,7 +55,7 @@ $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 
 En la siguiente tabla se describen los parámetros:
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | NOMBRE |Nombre del recurso del perfil de Traffic Manager. Los perfiles del mismo grupo de recursos deben tener nombres únicos. Este nombre es independiente del nombre DNS que se utiliza para las consultas de DNS. |
 | ResourceGroupName |Nombre del grupo de recursos que contiene el recurso de perfil. |
