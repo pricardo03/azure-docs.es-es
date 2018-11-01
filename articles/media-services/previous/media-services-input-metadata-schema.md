@@ -2,7 +2,7 @@
 title: Esquema de metadatos de entrada de Azure Media Services | Microsoft Docs
 description: En este tema se proporciona información general sobre el esquema de metadatos de entrada de Azure Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfdee82a289d3b966510281305dc45a451c35f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783824"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249023"
 ---
 # <a name="input-metadata"></a>Metadatos de entrada
 Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación.  Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas, un manifiesto, etc. El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: &lt;id_de_recurso&gt;_metadata.xml (por ejemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), donde &lt;id_de_recurso&gt; es el valor AssetId del recurso de entrada.  
@@ -50,7 +50,7 @@ Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-service
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Name**<br /><br /> Obligatorio |**xs:string** |Nombre del archivo de recursos. |
+| **Nombre**<br /><br /> Obligatorio |**xs:string** |Nombre del archivo de recursos. |
 | **Tamaño**<br /><br /> Obligatorio |**xs:long** |Tamaño del archivo de recursos en bytes. |
 | **Duration**<br /><br /> Obligatorio |**xs:duration** |Duración de la reproducción del contenido. Ejemplo: Duration="PT25M37.757S". |
 | **NumberOfStreams**<br /><br /> Obligatorio |**xs:int** |Número de transmisiones en el archivo de recursos. |

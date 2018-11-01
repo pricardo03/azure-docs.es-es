@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976846"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419374"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor  
 
@@ -34,26 +34,26 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Creación de una regla de alertas de registro en Azure Portal
 1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección SUPERVISAR, elija **Alertas**.  
-    ![Supervisión](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Supervisión](media/alert-log/AlertsPreviewMenu.png)
 
 1. Seleccione el botón **Nueva regla de alertas** para crear una alerta en Azure.
-    ![Adición de una alerta](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Adición de una alerta](media/alert-log/AlertsPreviewOption.png)
 
 1. La sección Crear alerta se divide en tres partes: *Definir condición de la alerta*, *Definir detalles de la alerta* y *Definir grupo de acciones*.
 
-    ![Creación de una regla](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Creación de una regla](media/alert-log/AlertsPreviewAdd.png)
 
 1.  Para definir la condición de la alerta, use primero el vínculo **Seleccionar recurso** y especifique el destino mediante la selección de un recurso. Para filtrar, elija la _Suscripción_, el _Tipo de recurso_ y el _Recurso_ necesario. 
 
     >[!NOTE]
 
     > Para crear una alerta de registro, compruebe la señal de **registro** disponible para el recurso seleccionado antes de continuar.
-    ![Seleccionar recurso](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Seleccionar recurso](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Alertas de registro*: asegúrese de que la opción **Tipo de recurso** sea un origen de análisis como *Log Analytics* o *Application Insights* y el tipo de señal sea **Registro**; después, una vez elegido el **recurso** apropiado, haga clic en *Listo*. A continuación, use el botón **Agregar criterios** para ver la lista de opciones de señal disponibles para el recurso y, de la lista de señales, la opción **Búsqueda de registros personalizada** para el servicio de supervisión del registro, como *Log Analytics* o *Application Insights*.
 
-   ![Selección de un recurso: búsqueda de recursos personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Selección de un recurso: búsqueda de recursos personalizada](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
 1.  *Alertas de registro*: una vez seleccionada esta opción, la consulta de alertas se puede indicar en el campo **Consulta de búsqueda**; si la sintaxis de la consulta es incorrecta, en el campo aparece el error en ROJO. Si la sintaxis de consulta es correcta, como referencia, se muestran los datos históricos de la consulta indicada en formato de gráfico con la opción de retocar la ventana de tiempo desde las últimas seis horas hasta la última semana.
 
- ![Configuración de la regla de alertas](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Configuración de la regla de alertas](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
     >  Para el tipo Unidades métricas de Alertas de registro con Application Insights, puede especificar por cuál variable concreta desea agrupar los datos mediante la opción **Agregado en**, tal y como se ilustra a continuación:
 
-    ![agregar una opción](./media/monitor-alerts-unified/aggregate-on.png)
+    ![agregar una opción](media/alert-log/aggregate-on.png)
 
 1.  *Alertas de registro*: con la visualización activada, se puede seleccionar la **Lógica de alerta** de entre las opciones mostradas de Condición, Agregación y, por último, Umbral. Por último, especifique en la lógica el tiempo para evaluar la condición especificada mediante la opción **Periodo**. Además, especifique la frecuencia con que debe ejecutarse la alerta seleccionando la opción adecuada en el campo **Frecuencia**.
 Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
@@ -83,7 +83,7 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 
     - **Desactivar alertas**: al activar la supresión de la regla de alertas, las acciones de la regla se deshabilitan durante un período de tiempo definido después de crear una alerta. La regla se sigue ejecutando y crea registros de alerta si se cumplen los criterios. De esta forma, dispone de tiempo para corregir el problema sin ejecutar acciones duplicadas.
 
-        ![Desactivar las alertas de registro](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Desactivar las alertas de registro](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Especifique un valor de desactivar las alertas mayor que la frecuencia de alertas para garantizar que las notificaciones se detengan sin superposición
@@ -98,19 +98,19 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
     - **Notificación por correo electrónico**: invalida el *asunto del correo electrónico* en el correo electrónico, enviado a través del grupo de acciones, si existen una o más acciones de correo electrónico en dicho grupo de acciones. No se puede modificar el cuerpo del mensaje de correo y este campo **no** es para la dirección de correo electrónico.
     - **Incluir carga JSON personalizada**: invalida el webhook JSON usado por los grupos de acciones si una o varias acciones de webhook existen en el grupo de acciones mencionado. El usuario puede especificar el formato JSON que se usará para todos los webhooks configurados en el grupo de acciones asociado; para más información sobre los formatos de webhook, consulte [Acciones de webhook para alertas de registro](monitor-alerts-unified-log-webhook.md). La opción de vista de webhook se proporciona para comprobar el formato con datos JSON de ejemplo.
 
-        ![Invalidaciones de acciones para alertas de registro](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Invalidaciones de acciones para alertas de registro](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Si todos los campos son válidos y tienen una marca verde, se puede hacer clic en el botón **Crear regla de alertas** y se crea la alerta en Azure Monitor: Alertas. Todas las alertas pueden verse en el panel de las alertas.
 
-    ![Creación de reglas](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Creación de reglas](media/alert-log/AlertsPreviewCreate.png)
 
     En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
 
 Los usuarios también pueden finalizar la consulta de análisis en la [página Log Analytics de Azure Portal](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ) e insertarla para crear una alerta a través del botón "Establecer alerta" y, a continuación, seguir las instrucciones del paso 6 en adelante del tutorial anterior.
 
- ![Log Analytics: Establecer alerta](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics: Establecer alerta](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Visualización y administración de las alertas de registro en Azure Portal
 
@@ -122,7 +122,7 @@ Los usuarios también pueden finalizar la consulta de análisis en la [página L
 
 
 1. Seleccione el botón **Administrar reglas** situado en la barra superior para navegar hasta la sección de administración de reglas, donde se enumeran todas las reglas de alerta creadas, incluidas las alertas que se han deshabilitado.
-    ![Administrar reglas de alertas](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![Administrar reglas de alertas](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Administración de alertas de registro mediante la plantilla de recursos de Azure
 Actualmente, se pueden crear alertas de registro con dos plantillas de recursos diferentes, según en qué plataforma de análisis se debe basar la alerta, es decir, Log Analytics o Application Insights.

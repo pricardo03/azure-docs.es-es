@@ -10,12 +10,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: orkostak
-ms.openlocfilehash: 0bf8891e28897321dbfbad4486dd11c0b5ee4264
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 8679da0dfe92b1d611fd0b61b9f7404256b2b688
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043162"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239872"
 ---
 # <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Expiración de datos en la API de MongoDB de Azure Cosmos DB
 
@@ -43,7 +43,8 @@ El comando del ejemplo anterior creará un índice con la funcionalidad TTL. Una
 >
     
 Además, un ejemplo de C#: 
-```C# 
+
+```csharp
 var options = new CreateIndexOptions {ExpireAfter = TimeSpan.FromSeconds(10)}; 
 var field = new StringFieldDefinition<BsonDocument>("_ts"); 
 var indexDefinition = new IndexKeysDefinitionBuilder<BsonDocument>().Ascending(field); 

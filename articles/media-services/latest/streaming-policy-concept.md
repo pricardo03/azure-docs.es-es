@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984305"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085502"
 ---
 # <a name="streaming-policies"></a>Directivas de streaming
 
@@ -29,17 +29,17 @@ En Azure Media Services v3, las directivas de streaming permiten definir los pro
 
 En la tabla siguiente se muestran las propiedades de StreamingPolicy y se proporcionan sus definiciones.
 
-|NOMBRE|Escriba|DESCRIPCIÓN|
-|---|---|---|
-|id|string|Identificador de recurso completo del recurso.|
-|Nombre|string|Nombre del recurso.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|Configuración de CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|Configuración de CommonEncryptionCenc|
-|properties.created |string|Hora de creación de la directiva de streaming|
-|properties.defaultContentKeyPolicyName |string|ContentKey predeterminada que utiliza la directiva de streaming actual|
-|properties.envelopeEncryption  |EnvelopeEncryption|Configuración de EnvelopeEncryption|
-|properties.noEncryption|NoEncryption|Configuraciones de NoEncryption|
-|Tipo|string|Tipo de recurso.|
+|NOMBRE|Descripción|
+|---|---|
+|id|Identificador de recurso completo del recurso.|
+|Nombre|Nombre del recurso.|
+|properties.commonEncryptionCbcs|Configuración de CommonEncryptionCbcs|
+|properties.commonEncryptionCenc|Configuración de CommonEncryptionCenc|
+|properties.created |Hora de creación de la directiva de streaming|
+|properties.defaultContentKeyPolicyName |ContentKey predeterminada que utiliza la directiva de streaming actual|
+|properties.envelopeEncryption  |Configuración de EnvelopeEncryption|
+|properties.noEncryption|Configuraciones de NoEncryption|
+|Tipo|Tipo de recurso.|
 
 Para conocer la definición completa, consulte [Directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 

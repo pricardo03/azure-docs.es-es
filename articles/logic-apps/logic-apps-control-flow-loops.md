@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5ba5e5abef4ebdc58c44cbe7f5ba584efe8abfc7
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298192"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233113"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
@@ -26,7 +26,7 @@ Para iterar las matrices de la aplicación lógica, puede usar un [bucle "Foreac
   
 Para repetir acciones hasta que se cumpla una condición o cambie algún estado, use un [bucle "Until"](#until-loop). La aplicación lógica realiza primero todas las acciones dentro del bucle y, después, comprueba la condición como último paso. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número máximo de bucles "Until" en una única ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
 
@@ -177,7 +177,7 @@ Por ejemplo, a las 8:00 a. m. cada día, esta aplicación lógica incrementa una
 
    | Propiedad | Valor | DESCRIPCIÓN |
    | -------- | ----- | ----------- |
-   | **Name** | Límite | El nombre de la variable | 
+   | **Nombre** | Límite | El nombre de la variable | 
    | **Tipo** | Entero | El tipo de datos de la variable | 
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
@@ -311,7 +311,7 @@ En otro ejemplo, este bucle "Until" llama a un punto de conexión HTTP que crea 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar características y sugerencias o votar las que ya se han enviado, visite el [sitio web de comentarios de los usuarios de Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar características y sugerencias o votar las que ya se han enviado, visite el [sitio web de comentarios de los usuarios de Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

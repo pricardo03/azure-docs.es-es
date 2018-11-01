@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371903e1ee080d2b98fd46ac4d6d9838416e1335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b1b4e3e19adb38a69e16aaa98300972df3bb71a8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973429"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093656"
 ---
 # <a name="build-and-deploy-image-similarity-models-with-azure-machine-learning"></a>Compilar e implementar modelos de similitud de imágenes con Azure Machine Learning
 
@@ -38,7 +38,7 @@ Al compilar e implementar este modelo con AMLPCV, realiza los pasos siguientes:
 7. Implementación del servicio web
 8. Pruebas de carga del servicio web
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) se usa como el marco de aprendizaje profundo, el entrenamiento se realiza de manera local en una máquina con tecnología GPU, como la máquina virtual de ciencia de datos de aprendizaje profundo ([Deep learning Data Science VM ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) y la implementación usa la CLI de operacionalización de Azure ML.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) se usa como el marco de aprendizaje profundo, el entrenamiento se realiza de manera local en una máquina con tecnología GPU, como la máquina virtual de ciencia de datos de aprendizaje profundo ([Deep learning Data Science VM ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) y la implementación usa la CLI de operacionalización de Azure ML.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

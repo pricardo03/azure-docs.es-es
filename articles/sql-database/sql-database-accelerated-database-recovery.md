@@ -2,7 +2,7 @@
 title: 'Recuperación de base de datos acelerada: Azure SQL Database | Microsoft Docs'
 description: Azure SQL Database tiene una nueva característica que proporciona recuperación de bases de datos rápida y coherente, reversión de transacción instantánea y truncamiento de registros agresivo para Azure SQL Data Warehouse, grupos elásticos y bases de datos únicas.
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: 49ef31996cb9c55ed244202a85e123faf52fbd2a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 20ad792ffa1c06e75cd39e4549b8d897a663db3e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649795"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239974"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Recuperación de base de datos acelerada (versión preliminar)
 

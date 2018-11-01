@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c37abe709559fc0628b94ba50634673c08af375
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: cda21c5b0d06335b13ba1aff0e9113544ca11c80
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051574"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414206"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Procesamiento de eventos de Azure Event Hubs con Storm en HDInsight (C#)
 
@@ -119,7 +119,7 @@ Puede descargar una versión completa del proyecto creado en este tutorial desde
 
 * Las [herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 o posterior en el entorno de desarrollo. Las descargas de JDK están disponibles en [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* Java JDK 1.8 o posterior en el entorno de desarrollo. Las descargas de JDK están disponibles en [Oracle](https://aka.ms/azure-jdks).
 
   * La variable de entorno **JAVA_HOME** debe señalar al directorio que contiene Java.
   * El directorio **%JAVA_HOME%/bin** debe estar en la ruta de acceso.

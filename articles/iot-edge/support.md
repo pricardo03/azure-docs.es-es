@@ -4,16 +4,16 @@ description: Plataformas compatibles con Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 6/21/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286369"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248571"
 ---
 # <a name="azure-iot-edge-support"></a>Compatibilidad de Azure IoT Edge
 Hay varias maneras de buscar compatibilidad para el producto de Azure IoT Edge.
@@ -65,6 +65,3 @@ Los sistemas de nivel 2 se pueden considerar como compatible con Azure IoT Edge 
 ## <a name="container-engines"></a>Motores de contenedor
 Azure IoT Edge necesita un motor de contenedor para iniciar módulos, independientemente del sistema operativo en el que se esté ejecutando. Microsoft ofrece un motor de contenedor, moby-engine, para satisfacer este requisito. Se basa en el proyecto de código abierto de Moby. Docker CE y Docker EE son otros motores de contenedores conocidos. También están basados en el proyecto de código abierto de Moby y son compatibles con Azure IoT Edge. Microsoft proporciona el mejor soporte técnico posible para los sistemas que usan esos motores de contenedores pero, sin embargo, no puede proporcionar soluciones para los problemas de ellos. Por esta razón, Microsoft recomienda el uso de moby-engine en sistemas de producción.
 
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 
