@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ec2e31ae3127d27e0f494222385e7f6d456aa65
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698167"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231872"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a Chrome con los Centros de notificaciones de Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "38698167"
 Este tutorial le guía a través de la creación de un Centro de notificaciones y del envío notificaciones de inserción a una aplicación de Google Chrome de ejemplo mediante [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). La aplicación de Chrome se ejecuta en el contexto de un explorador Google Chrome y se registra en el Centro de notificaciones. 
 
 > [!NOTE]
-> Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Chrome Apps Overview] (Información general sobre las aplicaciones de Chrome) para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Para más información, consulte cómo ejecutar [Chrome Apps en dispositivos móviles].
+> Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Chrome Apps Overview] (Información general sobre las aplicaciones de Chrome) para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Para más información, consulte cómo ejecutar [Aplicaciones de Chrome en dispositivos móviles].
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -328,7 +328,7 @@ La aplicación Chrome se crea con JavaScript y puede usar su editor de texto pre
           client.onload = function () {
             if (client.readyState == 4) {
               if (client.status == 200) {
-                updateLog("Notification Hub Registration succesful!");
+                updateLog("Notification Hub Registration successful!");
                 updateLog(client.responseText);
               } else {
                 updateLog("Notification Hub Registration did not succeed!");
@@ -362,7 +362,7 @@ La aplicación Chrome se crea con JavaScript y puede usar su editor de texto pre
    * **registerWithGCM** es el primer controlador de clic de botón que hace que la llamada de `chrome.gcm.register` a GCM registre la instancia actual de la aplicación de Chrome.
    * **registerCallback** es la función de devolución de llamada que se invoca cuando se devuelve la llamada de registro de GCM anterior.
    * **registerWithNH** es el segundo controlador de clic de botón, que se registra con los Centros de notificaciones. Obtiene los valores de `hubName` y `connectionString` (que el usuario ha especificado) y elabora la llamada a la API de REST de registro en los Centros de notificaciones.
-   * **splitConnectionString** y **generateSaSToken** son los objetos auxiliares que representan la implementación de Javascript del proceso de creación de un token SaS, que debe usarse en todas las llamadas de la API de REST. Para más información, vea [Conceptos comunes](http://msdn.microsoft.com/library/dn495627.aspx).
+   * **splitConnectionString** y **generateSaSToken** son los asistentes que representan la implementación de Javascript del proceso de creación de un token SaS, que debe usarse en todas las llamadas de la API de REST. Para más información, vea [Conceptos comunes](http://msdn.microsoft.com/library/dn495627.aspx).
    * **sendNHRegistrationRequest** es la función que realiza una llamada HTTP REST a Azure Notification Hubs.
    * **registrationPayload** define la carga XML del registro. Para obtener más información, consulte [Crear registro]. Actualice el identificador de registro en ella con el valor recibido de GCM.
    * **client** es una instancia de **XMLHttpRequest** que la aplicación usa para realizar la solicitud HTTP POST. Actualice el encabezado `Authorization` con `sasToken`. La finalización correcta de esta llamada registra esta instancia de la aplicación Chrome en Azure Notification Hubs.
@@ -467,7 +467,7 @@ En este tutorial ha difundido notificaciones de difusión a todos los clientes r
 [Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
 [ejemplo de GCM de la aplicación de Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
-[Chrome Apps en dispositivos móviles]: https://developer.chrome.com/apps/chrome_apps_on_mobile
+[Aplicaciones de Chrome en dispositivos móviles]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [Crear registro]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [biblioteca crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging

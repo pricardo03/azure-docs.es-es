@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778518"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251029"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones push en Azure Notification Hubs: preguntas más frecuentes
 ## <a name="general"></a>General
@@ -75,7 +75,7 @@ Las notificaciones push son compatibles con [iOS](notification-hubs-ios-apple-pu
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>¿Se admiten notificaciones por mensaje de texto, correo electrónico o web?
 Notification Hubs está diseñado principalmente para enviar notificaciones a aplicaciones móviles. No ofrece funcionalidades de correo electrónico ni mensaje de texto. Sin embargo, se pueden integrar plataformas de terceros que proporcionan estas funcionalidades junto con Notification Hubs para enviar notificaciones push nativas mediante [Mobile Apps].
 
-Notification Hubs tampoco proporciona un servicio de entrega de notificaciones push en el explorador listo para usarse. Los clientes pueden implementar esta característica con SignalR sobre las plataformas de servidor admitidas. Si desea enviar notificaciones a aplicaciones de explorador en el espacio aislado de Chrome, consulte el [tutorial de aplicaciones Chrome].
+Notification Hubs tampoco proporciona un servicio de entrega de notificaciones push en el explorador listo para usarse. Los clientes pueden implementar esta característica con SignalR sobre las plataformas de servidor admitidas. Si desea enviar notificaciones a aplicaciones de explorador en el espacio aislado de Chrome, consulte el [Introducción a Centros de notificaciones para aplicaciones Chrome].
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>¿Cómo se relacionan Mobile Apps y Azure Notification Hubs y cuándo las uso?
 Si tiene un back-end de aplicación móvil existente y desea agregar solo la funcionalidad de enviar notificaciones push, puede usar Azure Notification Hubs. Si desea configurar su back-end de aplicación móvil desde cero, considere usar la característica Mobile Apps de Azure App Service. Una aplicación móvil proporciona un centro de notificaciones para que pueda enviar fácilmente notificaciones push desde el back-end de aplicación móvil. Los precios de Mobile Apps incluyen los gastos base de un centro de notificaciones. Solo se paga cuando se superan las inserciones incluidas. Para más detalles sobre los costos, vaya a la página [Precios de App Service].
@@ -171,7 +171,7 @@ Hay dos recomendaciones para los back-ends de aplicación:
 * Use un back-end de aplicación que obtiene un volcado habitual de registros desde el centro de notificaciones principal como copia de seguridad. Luego puede realizar una inserción masiva en el centro de notificaciones secundario.
 
 > [!NOTE]
-> La funcionalidad de exportación/importación de registros disponible en el nivel Estándar se describe en el documento sobre [exportación e importación de registros].
+> La funcionalidad de exportación/importación de registros disponible en el nivel Estándar se describe en el documento sobre [Procedimiento: cómo exportar y modificar registros en bloque].
 > 
 > 
 
@@ -206,16 +206,16 @@ También proporciona la funcionalidad de exportar los datos de telemetría media
 [Caso práctico: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [API de REST de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Tutoriales de introducción a Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[tutorial de aplicaciones Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Introducción a Centros de notificaciones para aplicaciones Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Registro desde el back-end de la aplicación]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Administración de registro]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[modelo de seguridad de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[tutorial sobre inserciones seguras de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[solución de problemas de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Métricas de Notification Hubs]: https://msdn.microsoft.com/library/dn458822.aspx
-[ejemplo de métricas de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-[exportación e importación de registros]: https://msdn.microsoft.com/library/dn790624.aspx
+[Modelo de seguridad de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[Tutorial sobre inserciones seguras de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Solución de problemas de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Métricas de Notification Hubs]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Ejemplo de métricas de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Procedimiento: cómo exportar y modificar registros en bloque]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
