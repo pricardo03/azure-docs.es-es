@@ -4,9 +4,6 @@ description: Este artículo le puede ayudar a comprender la forma en que el Admi
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221101"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138147"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -140,7 +137,7 @@ Cuando un punto de conexión tiene un estado Degradado, ya no se devuelve en res
 * **Rendimiento**. Se devuelve el punto de conexión más cercano al usuario final. Si ese punto de conexión no está disponible, Traffic Manager moverá el tráfico a los puntos de conexión de la región de Azure siguiente más cercana. Puede configurar planes de conmutación por error alternativos para el enrutamiento del tráfico de rendimiento mediante los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfico**. Se devuelve el punto de conexión asignado para dar servicio a la ubicación geográfica en función de la dirección IP de la solicitud de consulta. Si ese punto de conexión no está disponible, no se seleccionará otro punto de conexión para la conmutación por error, ya que una ubicación geográfica se puede asignar solo a un punto de conexión en un perfil (puede encontrar más detalles en el artículo [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como práctica recomendada al usar enrutamiento geográfico, se recomienda que los clientes usen perfiles de Traffic Manager anidados con más de un punto de conexión como puntos de conexión del perfil.
 * **Multivalor**. Se devuelven varios puntos de conexión asignados a direcciones IPv4/IPv6. Al recibirse una consulta relacionada con este perfil, se devuelven los puntos de conexión correctos en función del valor de **Maximum record count in response** (Máximo de registros por respuesta) especificado. El número predeterminado de respuestas es dos puntos de conexión.
-* **Subred**. Se devuelve el punto de conexión asignado a un conjunto de intervalos de direcciones IP. Al recibirse una solicitud de esa dirección IP, se devuelve el punto de conexión asignado a ella. 
+* **Subred**. Se devuelve el punto de conexión asignado a un conjunto de intervalos de direcciones IP. Al recibirse una solicitud de esa dirección IP, se devuelve el punto de conexión asignado a ella. 
 
 Para más información, consulte [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md).
 

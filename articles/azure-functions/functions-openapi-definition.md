@@ -12,12 +12,12 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 70eda1d69bdbdc969c5d6bc1774820b50ddc7c83
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 62c04e5893eaefcc5eb7272eb9a99cf932086205
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093399"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086882"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Creación de una definición de OpenAPI para una función
 Las API de REST a menudo se describen con una definición de OpenAPI (anteriormente conocida como el archivo [Swagger](http://swagger.io/)). Esta definición contiene información sobre las operaciones que están disponibles en una API y cómo se deben estructurar los datos de la solicitud y la respuesta para la API.
@@ -65,6 +65,7 @@ En este tutorial se usa una función desencadenada por HTTP que toma dos paráme
 
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
 

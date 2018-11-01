@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 360fd9247684fea483d744d9be77d095b667d66d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165946"
+---
 <!--author=alkohli last changed: 07/05/2017-->
 
 > [!NOTE] 
@@ -19,7 +32,7 @@
       
        ![Cambiar la configuración de ancho de banda](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
-   2.  Haga clic en **Aceptar**.
+   2.  Haga clic en **OK**.
 4. En la página siguiente del cuadro de diálogo **Modificar contenedor de volúmenes** :
    
    1. En la lista desplegable, elija una plantilla de ancho de banda existente.

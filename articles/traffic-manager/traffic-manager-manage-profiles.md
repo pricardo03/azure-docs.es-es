@@ -4,9 +4,6 @@ description: La información contenida en este artículo le ayuda a crear, desha
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: f06e0365-0a20-4d08-b7e1-e56025e64f66
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: hero-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: e19f8f373fed8c7e9ab64f2fc9e34eba182af717
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 19f8f1f89031ba392b8d986fbcb0725c5c8f212f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29398063"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138495"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil del Administrador de tráfico de Azure
 
@@ -32,9 +29,9 @@ Puede crear un perfil de Traffic Manager mediante el portal de Azure. Después d
 ### <a name="to-create-a-traffic-manager-profile"></a>Para crear un perfil de Traffic Manager
 
 1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free/). 
-2. Haga clic en **Crear un recurso** > **Redes** > **Perfil del Administrador de tráfico** > **Crear**.
+2. Haga clic en **Crear un recurso** > **Redes** > **Perfil del Traffic Manager** > **Crear**.
 4. En **Crear perfil de Traffic Manager**, complete los campos de la manera siguiente:
-    1. En **Nombre**, proporcione un nombre para el perfil. Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS <name>, trafficmanager.net que se usa para acceder al perfil de Traffic Manager.
+    1. En **Nombre**, proporcione un nombre para el perfil. Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS <name>,trafficmanager.net que se usa para acceder al perfil de Traffic Manager.
     2. En **Método de enrutamiento**, seleccione el método de enrutamiento por **prioridad**.
     3. En **Suscripción**, seleccione la suscripción en la que desea crear este perfil.
     4. En **Grupo de recursos**, cree un grupo de recursos nuevo en el cual colocar este perfil.
@@ -70,7 +67,7 @@ Puede deshabilitar un perfil existente para que Traffic Manager no refiera solic
 3. Haga clic en **Información general** > **Eliminar**.
 4. Confirme para eliminar el perfil de Traffic Manager.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Agregación de un extremo](traffic-manager-endpoints.md)
 * [Configuración del método de enrutamiento por prioridad](traffic-manager-configure-priority-routing-method.md)

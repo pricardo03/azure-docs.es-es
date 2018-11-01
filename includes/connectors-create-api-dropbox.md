@@ -1,7 +1,20 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 3f4430631a664f81f53f9df1f46ebc27c635de36
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134088"
+---
 ### <a name="prerequisites"></a>Requisitos previos
 * Una cuenta de [Dropbox](https://www.Dropbox.com/). 
 
-Para poder usar su cuenta de Dropbox en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure. 
+Para poder usar su cuenta de Dropbox en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en Azure Portal. 
 
 Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de Dropbox:
 

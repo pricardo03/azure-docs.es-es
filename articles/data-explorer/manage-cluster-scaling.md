@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046737"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209214"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>Administración del escalado de clústeres para ajustarse a los cambios en la demanda
 
@@ -63,4 +63,4 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. A continua
 
 Ha configurado una operación de escalado horizontal para el clúster del Explorador de datos de Azure. Agregue otra regla para una operación de reducción horizontal. Esto permite que el clúster se escale dinámicamente en función de las métricas de uso que especifique.
 
-Si necesita ayuda por problemas relacionados con el estado de un clúster, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com).
+Si necesita ayuda por problemas relacionados con el estado de un clúster, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

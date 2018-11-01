@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b09ebbb358b909c98df4eb05154c29b4b3cb7ee9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888261"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138334"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Agregar formatos comunes de expresiones
 
@@ -50,7 +50,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creación de intenciones nuevas y sus expresiones
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. En la página **Intents** (Intenciones), seleccione **Create new intent** (Crear intención). 
 
@@ -90,7 +90,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
 ## <a name="caution-about-example-utterance-quantity"></a>Precaución sobre la cantidad de expresiones de ejemplo
 
-[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
+[!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
 ## <a name="train"></a>Train
 

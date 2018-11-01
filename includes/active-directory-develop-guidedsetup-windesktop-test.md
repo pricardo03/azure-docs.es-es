@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842936"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035313"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -32,11 +32,13 @@ La primera vez que ejecute la aplicación y seleccione el botón **Llamar a Micr
 ![Inicie sesión en la aplicación.](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
 ### <a name="provide-consent-for-application-access"></a>Consentimiento para el acceso a la aplicación
-La primera vez que inicie sesión en su aplicación, también se le pedirá que dé su consentimiento para permitir que la aplicación acceda a su perfil e inicie sesión, como se muestra a continuación: 
+
+La primera vez que inicie sesión en su aplicación, también se le pedirá que dé su consentimiento para permitir que la aplicación acceda a su perfil e inicie sesión, como se muestra a continuación:
 
 ![Consentimiento para el acceso a la aplicación](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
 ### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
+
 Después de iniciar sesión, verá la información del perfil de usuario que devuelve la llamada a Microsoft Graph API. Los resultados se muestran en el cuadro **API Call Results** (Resultados de la llamada a la API). La información básica sobre el token que se ha adquirido a través de la llamada a `AcquireTokenAsync` o a `AcquireTokenSilentAsync` debe estar visible en el cuadro **Información de token**. Los resultados contienen las siguientes propiedades:
 
 |Propiedad  |Formato  |DESCRIPCIÓN |
@@ -51,7 +53,7 @@ Después de iniciar sesión, verá la información del perfil de usuario que dev
 
 Microsoft Graph API requiere el ámbito *user.read* para leer el perfil del usuario. Este ámbito se agrega automáticamente de forma predeterminada en todas las aplicaciones que se van a registrar en el Portal de registro de aplicaciones. Otras API de Microsoft Graph, así como las API personalizadas para el servidor back-end, pueden requerir ámbitos adicionales. Microsoft Graph API requiere el ámbito *Calendars.read* para mostrar los calendarios del usuario.
 
-Para tener acceso a los calendarios del usuario en el contexto de una aplicación, agregue el permiso delegado *Calendars.Read* a la información del registro de la aplicación. A continuación, agregue el ámbito *Calendars.Read* a la llamada `acquireTokenSilent`. 
+Para tener acceso a los calendarios del usuario en el contexto de una aplicación, agregue el permiso delegado *Calendars.Read* a la información del registro de la aplicación. A continuación, agregue el ámbito *Calendars.Read* a la llamada `acquireTokenSilent`.
 
 >[!NOTE]
 >Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043651"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412829"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solución de Azure Key Vault Analytics en Log Analytics
 
-![Símbolo de Key Vault](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Símbolo de Key Vault](media/log-analytics-azure-key-vault/key-vault-analytics-symbol.png)
 
 Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros AuditEvents de Azure Key Vault.
 
@@ -46,10 +46,10 @@ Para instalar y configurar la solución de Azure Key Vault, siga estas instrucci
 1. En Azure Portal, navegue hasta el recurso de Key Vault que se va a supervisar.
 2. Seleccione *Registros de diagnósticos* para abrir la página siguiente.
 
-   ![imagen del icono de Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![imagen del icono de Azure Key Vault](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Haga clic en *Activar diagnósticos* para abrir la página siguiente.
 
-   ![imagen del icono de Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![imagen del icono de Azure Key Vault](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Para activar los diagnósticos, haga clic en *Activar* en *Estado*.
 5. Haga clic en la casilla *Send to Log Analytics* (Enviar a Log Analytics).
 6. Seleccione un área de trabajo de Log Analytics existente o cree un área de trabajo.
@@ -81,7 +81,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 ## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
 Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), vea los datos de Key Vault haciendo clic en icono de **Azure Key Vault** desde la página **Introducción** de Log Analytics.
 
-![imagen del icono de Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![imagen del icono de Azure Key Vault](media/log-analytics-azure-key-vault/log-analytics-keyvault-tile.png)
 
 Tras hacer clic en el icono de **Overview** (Información general), puede ver resúmenes de los registros y desplazarse hasta los detalles de las categorías siguientes:
 
@@ -90,9 +90,9 @@ Tras hacer clic en el icono de **Overview** (Información general), puede ver re
 * Promedio de latencia operacional por operación
 * Calidad de servicio para las operaciones con el número de operaciones que requieren más de 1000 ms y una lista de las operaciones que tardan más de 1000 ms
 
-![imagen del panel de Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
+![imagen del panel de Azure Key Vault](media/log-analytics-azure-key-vault/log-analytics-keyvault01.png)
 
-![imagen del panel de Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
+![imagen del panel de Azure Key Vault](media/log-analytics-azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Visualización de detalles de cualquier operación
 1. En la página **Overview** (Información general), haga clic en el icono de **Azure Key Vault**.

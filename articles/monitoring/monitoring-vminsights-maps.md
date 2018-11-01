@@ -44,7 +44,7 @@ En el lado derecho del panel, haga clic en el icono **Eventos de registro** para
 
 ![Lista de búsqueda de registros en el panel Propiedades](./media/monitoring-vminsights-maps/properties-pane-logs-01.png)
 
-Cierre la página *Registros**, vuelva al panel **Propiedades** y seleccione **Alertas** para ver las alertas que Alertas generó para la máquina virtual a partir de los criterios de mantenimiento. La asignación se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de alertas del equipo enumera las alertas. 
+Cierre la página *Registros*\*, vuelva al panel **Propiedades** y seleccione **Alertas** para ver las alertas que Alertas generó para la máquina virtual a partir de los criterios de mantenimiento. La asignación se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de alertas del equipo enumera las alertas. 
 
 ![Alertas de equipo en el panel Propiedades](./media/monitoring-vminsights-maps/properties-pane-alerts-01.png)
 

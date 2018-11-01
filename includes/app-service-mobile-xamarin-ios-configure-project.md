@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133563"
+---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>Configuración del proyecto de iOS en Xamarin Studio
 1. En Xamarin.Studio, abra **Info.plist** y actualice el **identificador de agrupación** de trabajos con el identificador que ha creado antes con su nuevo identificador de la aplicación.
 

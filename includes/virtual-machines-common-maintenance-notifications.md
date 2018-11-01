@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166081"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035228"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visualización de las máquinas virtuales programadas para mantenimiento en el portal
 
@@ -49,7 +49,7 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificaciones y alertas en el portal
 
-Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Supervisión de la actividad de suscripción con el registro de actividad de Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Supervise la actividad de suscripción con Azure Activity Log](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú de la izquierda, seleccione **Monitor**. 

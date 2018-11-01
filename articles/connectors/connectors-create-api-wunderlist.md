@@ -11,12 +11,12 @@ ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 7226b59504c7112c039061ab0c184fe14f6e59d0
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918678"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230176"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Supervisión y administración de Wunderlist con Azure Logic Apps
 
@@ -39,7 +39,7 @@ Con Azure Logic Apps y el conector Wunderlist, puede crear tareas y flujos de tr
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* La aplicación lógica desde donde quiere acceder a la cuenta de Wunderlist. Para comenzar con un desencadenador de Wunderlist, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de Wunderlist, inicie la aplicación lógica con otro desencadenador, por ejemplo, **Recurrence**.
+* La aplicación lógica desde donde quiere acceder a la cuenta de Yammer. Para comenzar con un desencadenador de Wunderlist, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de Wunderlist, inicie la aplicación lógica con otro desencadenador, por ejemplo, **Recurrence**.
 
 ## <a name="connect-to-wunderlist"></a>Conexión a Wunderlist
 
@@ -72,12 +72,12 @@ Con Azure Logic Apps y el conector Wunderlist, puede crear tareas y flujos de tr
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para conocer los detalles técnicos sobre desencadenadores, acciones y límites, que se incluyen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/wunderlist/) del conector.
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/wunderlist/) del conector.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

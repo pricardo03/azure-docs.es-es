@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0efce9fbbbd241f335f08bb258b6ba343982fdb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299195"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231634"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Crear variables para guardar y administrar valores en Azure Logic Apps
 
@@ -30,9 +30,9 @@ Puede crear variables para tipos de datos como, por ejemplo, "entero", "float", 
 
 Las variables solo existen y son globales en la instancia de la aplicación lógica que las crea. Además, persisten en todas las iteraciones de bucle de una instancia de esa aplicación lógica. Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción.
 
-Si aún no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para poder seguir los pasos de este artículo, estos son los elementos que necesita:
 
@@ -71,8 +71,8 @@ Puede crear una variable y declarar el tipo de datos y el valor inicial de la mi
 
    | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | NOMBRE | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
-   | Escriba | Sí | <*variable-type*> | El tipo de datos de la variable | 
+   | NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
+   | Escriba | SÍ | <*variable-type*> | El tipo de datos de la variable | 
    | Valor | Sin  | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. | 
    ||||| 
 
@@ -207,7 +207,7 @@ Para aumentar o *incrementar* una variable con un valor constante, agregue la ac
 
    | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | NOMBRE | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
+   | NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
    | Valor | Sin  | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
    |||| 
 
@@ -286,7 +286,7 @@ Las variables se usan habitualmente para contar el número de veces que se ejecu
 
 1. Si la aplicación lógica aún no está habilitada, en el menú de aplicación lógica, elija **Introducción**. En la barra de herramientas, elija **Habilitar**. 
 
-2. En la barra de herramientas del Diseñador de aplicaciones lógicas, elija **Ejecutar**. Con este paso, se inicia manualmente la aplicación lógica.
+2. En la barra de herramientas del Diseñador de aplicación lógica, elija **Ejecutar**. Con este paso, se inicia manualmente la aplicación lógica.
 
 3. Envíe un correo electrónico con uno o varios datos adjuntos a la cuenta de correo electrónico que usó en este ejemplo.
 
@@ -327,7 +327,7 @@ Estas son las propiedades para la acción **Reducir variable**:
 
 | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
 |----------|----------|-------|--------------|
-| NOMBRE | Sí | <*variable-name*> | El nombre de la variable que se va a reducir | 
+| NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a reducir | 
 | Valor | Sin  | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
 ||||| 
 
@@ -362,8 +362,8 @@ Estas son las propiedades para la acción **Establecer variable**:
 
 | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
-| NOMBRE | Sí | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Valor | Sí | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
+| NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
+| Valor | SÍ | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
 ||||| 
 
 > [!NOTE]
@@ -420,8 +420,8 @@ Estas son las propiedades para la acción **Anexar a...**:
 
 | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
-| NOMBRE | Sí | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Valor | Sí | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
+| NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
+| Valor | SÍ | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
 |||||  
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Anexar a la variable de la matriz** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.
@@ -456,7 +456,7 @@ En este ejemplo se crea una variable de matriz y se agrega otro valor como el ú
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

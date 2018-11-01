@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068710"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158863"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -87,7 +87,7 @@ No se puede tener más de un servidor de Azure AD Connect Sync conectado a un ú
 ### <a name="multiple-forests-separate-topologies"></a>Varios bosques: topologías independientes
 ![Opción para representar los usuarios una sola vez en todos los directorios](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Representación de varios bosques y topologías independientes](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Representación de varios bosques y topologías independientes](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 En este entorno, todos los bosques locales se tratan como entidades independientes. Ningún usuario está presente en ningún otro bosque. Cada bosque tiene su propia organización de Exchange y no se produce la sincronización de las GAL entre los bosques. Esta topología podría darse después de una fusión o adquisición, o en una organización donde cada unidad de negocio funciona de forma independiente. En Azure AD, estos bosques estarán en la misma organización y aparecerán con una GAL unificada. En la imagen anterior, todos los objetos de cada bosque se representan una vez en el metaverso y se agregan al inquilino de Azure AD de destino.
 

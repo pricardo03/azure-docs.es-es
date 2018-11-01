@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 9ba2476ccf2601f5d7d2c0e93c7661f740f32145
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818882"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231770"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Administración de recursos de IBM DB2 con Azure Logic Apps
 
@@ -65,7 +65,7 @@ Los ejemplos de este artículo usan el desencadenador de **periodicidad**.
 
 ## <a name="add-db2-action---get-tables"></a>Adición de acción de DB2: Obtener tablas
 
-1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en el Diseñador de aplicación lógica, si aún no la ha abierto.
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
 1. En el desencadenador, elija **New step** (Nuevo paso).
 
@@ -361,7 +361,7 @@ Para obtener datos técnica, como los desencadenadores, las acciones y los lími
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262144"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416700"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights
 Cloud Services, Virtual Machines, los conjuntos de escalado de máquinas virtuales y Service Fabric usan la extensión Azure Diagnostics para recopilar datos.  Esta extensión envía los datos a las tablas de Azure Storage.  Sin embargo, también puede canalizar todos los datos o un subconjunto de ellos a otras ubicaciones mediante la versión 1.5 o una posterior de la extensión Azure Diagnostics.
@@ -69,7 +69,7 @@ Ejemplo de configuración de un receptor para Application Insights:
     - Con el atributo *loglevel* se puede especificar el nivel de registro que permitirá el canal. Estos son los niveles de registro disponibles, en orden de más a menos información:
         - Detallado
         - Información
-        - Warning (Advertencia)
+        - Advertencia
         - Error
         - Crítico
 
@@ -77,11 +77,11 @@ El canal actúa como filtro y permite seleccionar los niveles de registro espec�
 
 En el gráfico siguiente se muestra esta relación.
 
-![Configuración pública de diagnósticos](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![Configuración pública de diagnósticos](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
 El gráfico siguiente resume los valores de configuración y cómo funcionan. Puede incluir varios receptores en la configuración en distintos niveles de la jerarquía. El receptor del nivel superior de la jerarquía actúa como una configuración global y el especificado en los elementos individuales como una invalidación de esa configuración global.
 
-![Receptores de diagnósticos: configuración con Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![Receptores de diagnósticos: configuración con Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## <a name="complete-sink-configuration-example"></a>Ejemplo completo de configuración de receptor
 Este es un ejemplo completo del archivo de configuración público que

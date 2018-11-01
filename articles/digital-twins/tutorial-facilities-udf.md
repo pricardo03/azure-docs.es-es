@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364242"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156687"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionamiento del edificio y supervisión de las condiciones de trabajo con Azure Digital Twins
 
@@ -21,10 +21,10 @@ En este tutorial se muestra cómo usar Azure Digital Twins para supervisar las c
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Definir las condiciones que se van a supervisar
+> * Definición de las condiciones que se van a supervisar
 > * Crear una función definida por el usuario
 > * Simular los datos de los sensores
-> * Obtener los resultados de una función definida por el usuario
+> * Obtención de los resultados de una función definida por el usuario
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -161,7 +161,7 @@ En el archivo *provisionSample.yaml* del ejemplo, busque un sección que comienc
             }
         ```
         
-        La UDF modificada buscará una condición en la que una sala esté disponible y tenga el dióxido de carbono y la temperatura dentro de unos límites tolerables. Cuando dicha condición se cumpla, generará una notificación con la instrucción `parentSpace.Notify(JSON.stringigy(alert));`. Establece el valor del espacio supervisado, independientemente de si se cumple la condición, con el mensaje correspondiente.
+        La UDF modificada buscará una condición en la que una sala esté disponible y tenga el dióxido de carbono y la temperatura dentro de unos límites tolerables. Cuando dicha condición se cumpla, generará una notificación con la instrucción `parentSpace.Notify(JSON.stringify(alert));`. Establece el valor del espacio supervisado, independientemente de si se cumple la condición, con el mensaje correspondiente.
     
     1. Guarde el archivo. 
     

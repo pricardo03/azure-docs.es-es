@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122253"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233521"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
@@ -41,7 +41,7 @@ Puede hospedar las API en [Azure App Service](../app-service/app-service-web-ove
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Para ver ejemplos de aplicaciones de API creadas para aplicaciones lógicas, visite el [repositorio de GitHub de Azure Logic Apps](http://github.com/logicappsio) o el [blog](http://aka.ms/logicappsblog).
+> Para ver ejemplos de aplicaciones de API creadas para aplicaciones lógicas, visite el [repositorio de GitHub de Azure Logic Apps](http://github.com/logicappsio) o el [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>¿Cómo se diferencia las API personalizadas de los conectores personalizados?
 
@@ -230,7 +230,7 @@ Para que las API personalizadas estén disponibles para todos los usuarios de Lo
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](http://aka.ms/logicapps-wish). 
+* Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](https://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

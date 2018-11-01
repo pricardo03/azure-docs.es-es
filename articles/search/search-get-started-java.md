@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124158"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419306"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introducción a Azure Search en Java
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Para ejecutar este ejemplo, debe tener un servicio Azure Search, al que puede su
 Hemos usado el siguiente software para compilar y probar este ejemplo:
 
 * [IDE de Eclipse para desarrolladores de Java EE](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Asegúrese de descargar la versión EE. Uno de los pasos de comprobación requiere una característica que solo se encuentra en esta edición.
-* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 8u181](https://aka.ms/azure-jdks)
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Acerca de los datos

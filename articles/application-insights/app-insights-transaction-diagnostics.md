@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819477"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419238"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnósticos de transacción entre componentes unificados
 
@@ -38,7 +38,7 @@ Los componentes son partes que se pueden implementar independientemente de su ap
 ## <a name="transaction-diagnostics-experience"></a>Experiencia de diagnósticos de la transacción
 Esta vista tiene cuatro partes principales: una lista de resultados, un gráfico de transacción entre componentes, una lista de secuencia de tiempo de todos los datos de telemetría relacionados con esta operación y el panel de detalles de cualquier elemento de telemetría seleccionado a la izquierda.
 
-![Elementos clave](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![Elementos clave](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Gráfico de transacciones entre componentes
 
@@ -57,19 +57,19 @@ Las llamadas a otros componentes tienen dos filas: una fila representa la llamad
 
 En esta sección se muestra la vista de lista plana en una secuencia de tiempo de todos los datos de telemetría relacionados con esta transacción. También se muestran los eventos personalizados y los seguimientos que no se muestran en el gráfico de transacciones. Puede filtrar esta lista por los datos de telemetría generados por una llamada o componente específicos. Puede seleccionar cualquier elemento de telemetría en esta lista para ver sus [detalles a la derecha](#details-of-the-selected-telemetry).
 
-![Secuencia de tiempo de todos los datos de telemetría](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![Secuencia de tiempo de todos los datos de telemetría](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Detalles de la telemetría seleccionada
 
 En este panel contraíble se muestran los detalles de cualquier elemento seleccionado del gráfico de transacciones o de la lista. "Mostrar todo" enumera todos los atributos estándares recopilados. Los atributos personalizados se muestran por separado después del conjunto estándar. Haga clic en "..." debajo de la ventana de seguimiento de la pila para obtener una opción para copiar el seguimiento. Las opciones "Open profiler traces" (Abrir seguimientos de Profiler) o "Abrir instantánea de depuración" muestran los diagnósticos de nivel de código en los paneles de detalles correspondientes.
 
-![Detalle de la excepción](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Detalle de la excepción](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Search Results
 
 En este panel contraíble se muestran los otros resultados que cumplen los criterios de filtro. Haga clic en cualquier resultado para actualizar los detalles correspondientes en las tres secciones enumeradas anteriormente. Intentamos buscar ejemplos con más probabilidades de tener detalles disponibles de todos los componentes, aunque el muestreo esté activo en cualquiera de ellos. Se muestran como ejemplos "sugeridos".
 
-![Search Results](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![Search Results](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler y Snapshot Debugger
 
@@ -79,7 +79,7 @@ Si no pudo conseguir que funcionara Profiler, póngase en contacto con **service
 
 Si no pudo conseguir que funcionara Snapshot Debugger, póngase en contacto con **snapshothelp@microsoft.com**.
 
-![Integración del generador de perfiles](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![Integración del generador de perfiles](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

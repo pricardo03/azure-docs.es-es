@@ -1,23 +1,19 @@
 ---
 title: Protección de un servidor de archivos mediante Azure Site Recovery
 description: En este artículo se describe cómo proteger un servidor de archivos mediante Azure Site Recovery
-services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 0b6d5dccbce30c55e259e4bb3f8ae4194a02b646
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0eed8179396c80e4ea26ff90b53324b9a2891df0
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916890"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214909"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -58,7 +54,7 @@ El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su ent
 
 ### <a name="factors-to-consider-in-your-decisions-about-disaster-recovery-to-azure"></a>Factores que hay que tener en cuenta en sus decisiones acerca de la recuperación ante desastres en Azure
 
-|Environment  |Recomendación  |Puntos que se deben tener en cuenta |
+|Entorno  |Recomendación  |Puntos que se deben tener en cuenta |
 |---------|---------|---------|
 |Entorno de servidor de archivos con o sin DFSR|   [Uso de Site Recovery para la replicación](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery no es compatible con los clústeres de discos compartidos ni con el almacenamiento conectado a la red (NAS). Si su entorno usa estas configuraciones, utilice cualquiera de los demás enfoques según corresponda. <br> Site Recovery no es compatible con SMB 3.0. La máquina virtual replicada incorpora los cambios solo cuando se actualizan los cambios realizados en los archivos en la ubicación original de los archivos.
 |Entorno de servidor de archivos con DFSR     |  [Extensión de DFSR a una máquina virtual de IaaS de Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR funciona correctamente en entornos con el ancho de banda muy restringido. Este enfoque requiere una máquina virtual de Azure activa y en ejecución todo el tiempo. Debe tener en cuenta el costo de la máquina virtual en la planeación.         |
@@ -69,10 +65,10 @@ El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su ent
 Dado que la replicación de Site Recovery no depende de la aplicación, se espera que estas recomendaciones sirvan también para los escenarios siguientes.
 | Origen    |En un sitio secundario    |En Azure
 |---------|---------|---------|
-|Azure| -|Sí|
-|Hyper-V|   Sí |Sí
-|VMware |Sí|   Sí
-|Servidor físico|   Sí |Sí
+|Azure| -|SÍ|
+|Hyper-V|   SÍ |SÍ
+|VMware |SÍ|   SÍ
+|Servidor físico|   SÍ |SÍ
  
 
 > [!IMPORTANT]

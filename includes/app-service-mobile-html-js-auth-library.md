@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134215"
+---
 ### <a name="server-auth"></a>Autenticación con un proveedor (flujo de servidor)
 Para que Mobile Apps administre el proceso de autenticación en su aplicación, debe registrar esta última en el proveedor de identidades. A continuación, en Azure App Service, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor.
 Para obtener más información, consulte el tutorial [Incorporación de la autenticación a su aplicación](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).

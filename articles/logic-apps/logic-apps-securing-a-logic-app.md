@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377401"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232603"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Protección del acceso en Azure Logic Apps
 
@@ -168,7 +168,7 @@ Puede desear parametrizar algunos aspectos de una definición de flujo de trabaj
 
 ### <a name="using-parameters-and-secure-parameters"></a>Uso de parámetros y parámetros seguros
 
-Para acceder al valor de un parámetro de recurso en tiempo de ejecución, el [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) proporciona una operación `@parameters()`. Además, puede [especificar parámetros en la plantilla de implementación de recursos](../azure-resource-manager/resource-group-authoring-templates.md#parameters). No obstante, si especifica el tipo de parámetro como `securestring`, el parámetro no se devolverá con el resto de la definición de recurso, lo que significa que no será accesible al visualizar el recurso después de la implementación.
+Para acceder al valor de un parámetro de recurso en tiempo de ejecución, el [lenguaje de definición de flujo de trabajo](https://aka.ms/logicappsdocs) proporciona una operación `@parameters()`. Además, puede [especificar parámetros en la plantilla de implementación de recursos](../azure-resource-manager/resource-group-authoring-templates.md#parameters). No obstante, si especifica el tipo de parámetro como `securestring`, el parámetro no se devolverá con el resto de la definición de recurso, lo que significa que no será accesible al visualizar el recurso después de la implementación.
 
 > [!NOTE]
 > Si el parámetro se usa en los encabezados o en el cuerpo de una solicitud, el parámetro se puede ver al acceder al historial de ejecución y a la solicitud HTTP saliente. Asegúrese de configurar las directivas de acceso al contenido en consecuencia.

@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133788"
+---
 Si desea habilitar la edición del perfil en la aplicación, debe seguir una directiva de **edición de perfil**. Esta directiva describe las experiencias de los consumidores durante la edición del perfil y el contenido de los tokens que recibirá la aplicación al finalizarla correctamente.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
@@ -28,7 +41,7 @@ Para abrir la directiva, haga clic en **B2C_1_SiPe**. Compruebe la configuració
 
 | Configuración      | Valor  |
 | ------------ | ------ |
-| **Applications** | Aplicación B2C de Contoso |
+| **Aplicaciones** | Aplicación B2C de Contoso |
 | **Seleccionar dirección URL de respuesta** | `https://localhost:44316/` |
 
 Se abrirá una nueva pestaña del explorador y podrá comprobar la experiencia del consumidor de edición de perfiles que configuró.
