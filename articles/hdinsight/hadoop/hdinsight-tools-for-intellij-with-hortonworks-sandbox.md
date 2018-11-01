@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: 9e87392ad7730571b973dbec809f64487eefa849
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 02adeb46ad7533f3668f5a46ffc19b6ce5b86b6f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048598"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420734"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox
 
@@ -31,7 +31,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
     > [!NOTE]
     > Las herramientas de HDInsight para IntelliJ solo se han probado con HDP 2.4. Para obtener HDP 2.4, expanda **Hortonworks Sandbox Archive** en [el sitio de descarga de Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) para obtenerlo.
 
-- [Kit de desarrolladores de Java (JDK) versión 1.8 o posterior](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). El kit de herramientas de Azure para IntelliJ requiere JDK.
+- [Kit de desarrolladores de Java (JDK) versión 1.8 o posterior](https://aka.ms/azure-jdks). El kit de herramientas de Azure para IntelliJ requiere JDK.
 
 - [Edición de la comunidad de IntelliJ IDEA](https://www.jetbrains.com/idea/download) con el complemento [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) y el complemento [Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij). Las herramientas de HDInsight para IntelliJ están disponibles como parte del kit de herramientas de Azure para IntelliJ. 
 

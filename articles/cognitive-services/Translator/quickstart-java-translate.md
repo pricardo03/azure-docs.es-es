@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 5a2b478d39f14b993a389fc48e037e1980d83e52
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f9f9b6758a74ac846e7b44ab9024620e6176218d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646151"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414631"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-java"></a>Guía de inicio rápido: traducción de texto con la API REST Translator Text (Java)
 
@@ -23,7 +23,7 @@ En esta guía de inicio rápido se traduce texto de un idioma a otro mediante Tr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere [JDK 7 u 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar y ejecutar este código. Puede utilizar un entorno de desarrollo de Java si tiene uno favorito, pero también basta con un editor de texto.
+Se requiere [JDK 7 u 8](https://aka.ms/azure-jdks) para compilar y ejecutar este código. Puede utilizar un entorno de desarrollo de Java si tiene uno favorito, pero también basta con un editor de texto.
 
 Para usar Translator Text API, también necesita una clave de suscripción; consulte [Cómo suscribirse a Translator Text API](translator-text-how-to-signup.md).
 

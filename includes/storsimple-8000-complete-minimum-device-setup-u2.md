@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 879241b56ddb3be76b1b54d7a3bb5429facf148a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165156"
+---
 <!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Para completar la instalación mínima del dispositivo StorSimple
@@ -25,7 +38,7 @@
 
             ![Test-HcsmConnection que muestra direcciones IP enrutables](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 
-1. Haga clic en **Aceptar**. Se inicia la configuración del dispositivo. Cuando finalice, recibirá una notificación. El estado del dispositivo cambia a **En línea** en la hoja **Dispositivos**.
+1. Haga clic en **OK**. Se inicia la configuración del dispositivo. Cuando finalice, recibirá una notificación. El estado del dispositivo cambia a **En línea** en la hoja **Dispositivos**.
 
     ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 

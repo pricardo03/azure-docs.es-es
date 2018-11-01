@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957398"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413152"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Ahora, los servicios y las aplicaciones de Azure también se pueden supervisar desde [Grafana](https://grafana.com/) gracias al [complemento de origen de datos de Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). Este complemento recopila los datos de rendimiento de la aplicación recabados por el SDK de Application Insights, así como los datos de infraestructura proporcionados por Azure Monitor. De este modo, podrá ver estos datos en el panel de Grafana.
@@ -37,13 +37,13 @@ Haga lo siguiente para configurar un servidor de Grafana desde Azure Marketplace
 ## <a name="log-in-to-grafana"></a>Iniciar sesión en Grafana
 1. Una vez finalizada la implementación, seleccione **Ir al grupo de recursos**. Verá una lista de los recursos recién creados.
 
-    ![Objetos del grupo de recursos de Grafana](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Objetos del grupo de recursos de Grafana](media/monitor-send-to-grafana/grafana1.png)
 
     Si selecciona el grupo de seguridad de red (*grafana-nsg* en este caso), verá que se usa el puerto 3000 para tener acceso al servidor Grafana.
 
 2. Vuelva a la lista de recursos y seleccione **Dirección IP pública**. Usando los valores que aparecen en esta pantalla, escriba *http://<IP address>: 3000* o *<DNSName>:3000* en el explorador. Debería aparecer una página de inicio de sesión del servidor de Grafana que acaba de crear.
 
-    ![Pantalla de inicio de sesión de Grafana](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Pantalla de inicio de sesión de Grafana](media/monitor-send-to-grafana/grafana2.png)
 
 3. Inicie sesión con el nombre de usuario *admin* y la contraseña de administrador del servidor de Grafana que creó anteriormente.
 
@@ -51,7 +51,7 @@ Haga lo siguiente para configurar un servidor de Grafana desde Azure Marketplace
 
 Tras haber iniciado sesión correctamente, deberá ver que el complemento de origen de datos de Azure Monitor ya aparece incluido.
 
-![Grafana muestra el complemento de Azure Monitor](.\media\monitor-how-to-grafana\grafana3.png)
+![Grafana muestra el complemento de Azure Monitor](media/monitor-send-to-grafana/grafana3.png)
 
 1. Seleccione **Agregar origen de datos** para configurar Azure Monitor y Application Insights.
 
@@ -70,7 +70,7 @@ Grafana usa una entidad de servicio de Azure Active Directory para conectarse a 
 
 4. Tras haber especificado toda de esta información, seleccione **Guardar**. Grafana comprobará la API. Debería aparecer un mensaje similar al siguiente.  
 
-    ![Grafana muestra el complemento de Azure Monitor](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![Grafana muestra el complemento de Azure Monitor](media/monitor-send-to-grafana/grafana4-1.png)
 
 > [!NOTE]
 > Al configurar el complemento, puede indicar para qué nube de Azure (pública, Azure Gobierno de EE. UU., Azure Alemania o Azure China) quiere configurar el complemento.
@@ -83,7 +83,7 @@ Grafana usa una entidad de servicio de Azure Active Directory para conectarse a 
 
 2. En el nuevo panel, seleccione el **gráfico**. Puede probar con otras opciones de gráfico, pero en este artículo usaremos *Gráfico* como ejemplo.
 
-    ![Nuevo panel de Grafana](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Nuevo panel de Grafana](media/monitor-send-to-grafana/grafana5.png)
 
 3. Se abre un gráfico en blanco en el panel.
 
@@ -93,14 +93,14 @@ Grafana usa una entidad de servicio de Azure Active Directory para conectarse a 
 
 Este es un sencillo panel con dos gráficos. El de la izquierda muestra el porcentaje de CPU de dos máquinas virtuales. El de la derecha muestra las transacciones de una cuenta de almacenamiento de Azure desglosadas por el tipo de la API de transacción.
 
-![Ejemplo de dos gráficos en Grafana](.\media\monitor-how-to-grafana\grafana6.png)
+![Ejemplo de dos gráficos en Grafana](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## <a name="optional-create-dashboard-playlists"></a>Opcional: Crear listas de reproducción de panel
 
 Una de las muchas características útiles de Grafana es la lista de reproducción de panel. Puede crear varios paneles y agregarlos a una lista de reproducción, configurando un intervalo para que cada panel se muestre. Seleccione **Reproducir** para ir viendo los paneles uno a uno. Puede que quiera que se muestren en un monitor de pared de grandes dimensiones a modo de "panel de estado" del grupo.
 
-![Ejemplo de lista de reproducción de Grafana](.\media\monitor-how-to-grafana\grafana7.png)
+![Ejemplo de lista de reproducción de Grafana](media/monitor-send-to-grafana/grafana7.png)
 
 
 ## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: Supervisar las métricas personalizadas en el mismo servidor de Grafana
@@ -117,7 +117,7 @@ Aquí tiene algunos artículos de referencia interesantes sobre cómo usar Teleg
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/) (Solución de supervisión para hosts, contenedores y servicios en contenedores de Docker)
 
 Esta es una imagen de un panel de Grafana completo con métricas de Azure Monitor y Application Insights.
-![Métricas de ejemplo de Grafana](.\media\monitor-how-to-grafana\grafana8.png)
+![Métricas de ejemplo de Grafana](media/monitor-send-to-grafana/grafana8.png)
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

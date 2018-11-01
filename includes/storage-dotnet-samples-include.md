@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 15ed78095cf3ff465b24d181d2fb2d4c4dde2f69
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165895"
+---
 ## <a name="net-sample-code-repositories"></a>Repositorios de código de ejemplo de .NET
 
 Esta es una lista de todos nuestros repositorios de ejemplo para la biblioteca cliente .NET de Azure Storage.

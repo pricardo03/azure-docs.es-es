@@ -4,7 +4,7 @@ description: En este tema se proporciona información general y una comparación
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: f44f5cffd105d958c7d6552a170150623a0701ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6695e17ec3dd9bf9ebeeb44b34e9688d3e5a1625
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34638465"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249754"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Información general y comparación de codificadores multimedia a petición de Azure
 ## <a name="encoding-overview"></a>Información general sobre la codificación
@@ -36,7 +36,7 @@ Media Services proporciona empaquetado dinámico que permite entregar contenido 
 Media Services admite los siguientes codificadores a petición que se describen en este artículo:
 
 * [Media Encoder Estándar](media-services-encode-asset.md#media-encoder-standard)
-* [Flujo de trabajo de Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 En este artículo se ofrece una breve introducción a los codificadores multimedia a petición y se proporcionan vínculos a artículos con información más detallada. También se proporciona una comparación de los codificadores.
 

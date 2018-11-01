@@ -1,20 +1,20 @@
 ---
 title: Búsqueda de mapa interactiva con Azure Maps | Microsoft Docs
 description: 'Guía de inicio rápido de Azure: iniciar una búsqueda de mapa interactiva de demostración con Azure Maps'
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/10/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/26/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf39ad460d163a996bd2e0aa522d634cf485d83a
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: d2aa3385dd7556cfc169b42b36d94a3e1d9ee3dd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541558"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209979"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Inicio de un mapa de búsqueda interactiva mediante Azure Maps
 

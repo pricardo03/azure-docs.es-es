@@ -4,20 +4,20 @@ description: Se proporcionan instrucciones generales para controlar los errores 
 services: functions
 cloud: ''
 documentationcenter: ''
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: glenga; cfowler
-ms.openlocfilehash: 5a8dae73c164b319b4c291685deff402f9798364
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: bf54d312de5625a7fa44cea4d5107e83cf15583c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091853"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248258"
 ---
 # <a name="azure-functions-error-handling"></a>Control de errores de Azure Functions
 
@@ -33,14 +33,14 @@ Cuando se realizan integraciones con los servicios de Azure, pueden surgir error
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Blob storage](functions-bindings-storage-blob.md#exceptions-and-return-codes)
++ [Blob Storage](functions-bindings-storage-blob.md#exceptions-and-return-codes)
 
 + [Event Hubs](functions-bindings-event-hubs.md#exceptions-and-return-codes)
 
-+ [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
++ [Centros de notificaciones](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
-+ [Queue storage](functions-bindings-storage-queue.md#exceptions-and-return-codes)
++ [Queue Storage](functions-bindings-storage-queue.md#exceptions-and-return-codes)
 
 + [Service Bus](functions-bindings-service-bus.md#exceptions-and-return-codes)
 
-+ [Almacenamiento de tablas](functions-bindings-storage-table.md#exceptions-and-return-codes)
++ [Table storage](functions-bindings-storage-table.md#exceptions-and-return-codes)

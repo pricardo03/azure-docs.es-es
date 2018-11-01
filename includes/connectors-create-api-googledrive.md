@@ -1,7 +1,20 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: fe726986b3f93ab3bb447b8973727a658ac1c706
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132862"
+---
 ### <a name="prerequisites"></a>Requisitos previos
 * Una cuenta de [GoogleDrive](https://www.google.com/drive/).  
 
-Antes de poder usar la cuenta de GoogleDrive en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto se puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.  
+Antes de poder usar la cuenta de GoogleDrive en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto se puede hacer fácilmente dentro de la aplicación lógica en Azure Portal.  
 
 Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de GoogleDrive:  
 

@@ -2,7 +2,7 @@
 title: Esquema de metadatos de salida de Azure Media Services | Microsoft Docs
 description: En este tema se proporciona información general sobre el esquema de metadatos de salida de Azure Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4babceb9454a229903c54aab7083c5e5ed138b8e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783834"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250893"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 ## <a name="overview"></a>Información general
@@ -48,7 +48,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Name**<br/><br/> Obligatorio |**xs:string** |Nombre del archivo de recursos multimedia. |
+| **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre del archivo de recursos multimedia. |
 | **Tamaño**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:long** |Tamaño del archivo de recursos en bytes. |
 | **Duration**<br/><br/> Obligatorio |**xs:duration** |Duración de la reproducción del contenido. |
 
@@ -77,7 +77,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Name**<br/><br/> Obligatorio |**xs:string** |Nombre de archivo de origen de entrada. |
+| **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre de archivo de origen de entrada. |
 
 ## <a name="VideoTracks "></a> Elemento VideoTracks
 Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. El elemento **VideoTracks** representa una colección de todas las pistas de vídeo.  

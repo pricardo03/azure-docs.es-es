@@ -3,7 +3,7 @@ title: 'Creación y administración de grupos elásticos: Azure SQL Database | M
 description: Cree y administre grupos elásticos de Azure SQL.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466076"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243102"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creación y administración de grupos elásticos en Azure SQL Database
 
@@ -99,11 +99,11 @@ Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Dat
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |
-|[Grupos elásticos: creación o actualización](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Crea un nuevo grupo elástico o actualiza uno ya existente.|
-|[Grupos elásticos: eliminación](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Elimina el grupo elástico.|
-|[Grupos elásticos: obtención](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Obtiene un grupo elástico.|
-|[Grupos elásticos: enumeración por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Devuelve una lista de grupos elásticos de un servidor.|
-|[Grupos elásticos: actualización](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Actualiza un grupo elástico ya existente.|
+|[Grupos elásticos: creación o actualización](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crea un nuevo grupo elástico o actualiza uno ya existente.|
+|[Grupos elásticos: eliminación](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Elimina el grupo elástico.|
+|[Grupos elásticos: obtención](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Obtiene un grupo elástico.|
+|[Grupos elásticos: enumeración por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Devuelve una lista de grupos elásticos de un servidor.|
+|[Grupos elásticos: actualización](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Actualiza un grupo elástico ya existente.|
 |[Actividades de los grupos elásticos](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devuelve las actividades de los grupos elásticos.|
 |[Actividades de las bases de datos de grupos elásticos](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devuelve la actividad de las bases de datos de un grupo elástico.|
 |[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|

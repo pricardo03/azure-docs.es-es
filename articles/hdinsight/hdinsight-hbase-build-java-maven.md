@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: fc2bd03156d6005f1e10252583b4a13451f66dbf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c10fcb8e45dc163629186cfb48408e8734bc5a56
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092634"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418218"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Windows (Hadoop)
 Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache.org/) en Java con Apache Maven. Luego use la aplicación con Azure HDInsight (Hadoop).
@@ -25,7 +25,7 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
 > Los pasos de este documento requieren un clúster de HDInsight que use Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Requisitos
-* [JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior
+* [JDK de la plataforma Java 7](https://aka.ms/azure-jdks) o posterior
 * [Maven](http://maven.apache.org/)
 * Un clúster de HDInsight basado en Windows con HBase
 

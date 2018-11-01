@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Unión de una máquina virtual C
 description: Unión de una máquina virtual CentOS Linux a Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 581e2b361cf7133df369e7c8c3062c19fbe77d5c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: cfa0ab1fdf72e3d363b5845c8602b0bea7ff6a12
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504886"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155191"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual CentOS Linux en Azure a un dominio administrado de Azure AD Domain Services.

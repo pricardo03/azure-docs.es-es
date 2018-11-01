@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6009953ece78eefd52fca9f12e3db80a6d2cc3eb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0edf9ebcde2df7e639666f8fe7472baacdeb8640
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953215"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212189"
 ---
 # <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>Solución de problemas: Error al crear un clúster en el Explorador de datos de Azure
 
@@ -27,4 +27,4 @@ En el improbable caso de que la creación de un clúster en el Explorador de dat
 
     Si el estado no es **Bueno** (marca de verificación verde), pruebe a crear el clúster una vez que mejore el estado.
 
-1. Si aún necesita ayuda para solucionar el problema, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com).
+1. Si aún necesita ayuda para solucionar el problema, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: b9f5e5d0b774d3875999fa5337f41040c4217c8b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164648"
+---
 <!--author=alkohli last changed: 11/07/16 -->
 
 #### <a name="to-install-updates-via-the-azure-portal"></a>Para instalar actualizaciones mediante Azure Portal
@@ -22,7 +35,7 @@
 
     ![actualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
 
-5. En la hoja **Nuevas actualizaciones**, revise la información y, una vez descargadas las actualizaciones, debe confirmar la instalación. Haga clic en **Aceptar**.
+5. En la hoja **Nuevas actualizaciones**, revise la información y, una vez descargadas las actualizaciones, debe confirmar la instalación. Haga clic en **OK**.
 
     ![actualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
 

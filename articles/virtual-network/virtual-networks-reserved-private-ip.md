@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 661d2f789ace8da68b6d65609d4584a11967a01f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d5d75c25d03c02d6d49fc2fd8aeec995cea52314
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366620"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414274"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Establecimiento de una dirección IP privada interna estática mediante PowerShell (modelo clásico)
 En la mayoría de los casos, no necesitará especificar una dirección IP interna estática para la máquina virtual. Las máquinas virtuales de una red virtual recibirán automáticamente una dirección IP interna dentro de un intervalo que especifique. Pero en algunos casos, tiene sentido especificar una dirección IP estática para una máquina virtual concreta. Por ejemplo, si la máquina virtual va a ejecutar DNS o será un controlador de dominio. Una dirección IP interna estática permanece con la máquina virtual incluso a través de un estado de detención o desaprovisionamiento. 

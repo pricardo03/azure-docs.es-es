@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166274"
+---
 Si posee una dirección URL de firma de acceso compartido (SAS) que le concede acceso a los recursos de una cuenta de almacenamiento, puede utilizar la SAS en una cadena de conexión. Dado que SAS incluye la información necesaria para autenticar la solicitud, una cadena de conexión con un SAS proporciona el protocolo, el punto de conexión de servicio y las credenciales necesarias para acceder al recurso.
 
 Para crear una cadena de conexión que incluya una firma de acceso compartido, especifique la cadena con el siguiente formato:

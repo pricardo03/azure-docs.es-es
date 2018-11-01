@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 6c461fe06e1a869d0495551ab014452c03dc60b2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 75a6466578808cb5c0dd8d2e32d9445a6e5a5bf8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038537"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140543"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Etiquetado de una máquina virtual en Azure
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual Windows en Azure por medio del modelo de implementación de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solo son compatibles con los recursos creados mediante el modelo de implementación de Resource Manager. Si desea etiquetar una máquina virtual Linux, consulte [How to tag a Linux virtual machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Etiquetado de una máquina virtual Linux en Azure).
@@ -51,22 +51,20 @@ Este primer cmdlet establece todas las etiquetas colocadas en *MyTestVM* en la v
 
 El segundo comando muestra las etiquetas de la variable especificada.
 
-        PS C:\> $tags
-
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
+```
+    PS C:\> $tags
+    
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+```
 
 El tercer comando agrega una etiqueta adicional a la variable *tags* . Observe el uso de **+=** para anexar el nuevo par de clave-valor a la lista de *tags* .
 
-        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Location="MyLocation"}
 
 El cuarto comando establece todas las etiquetas definidas en la variable *tags* en el recurso especificado. En este caso, es MyTestVM.
 
@@ -74,20 +72,17 @@ El cuarto comando establece todas las etiquetas definidas en la variable *tags* 
 
 El quinto comando muestra todas las etiquetas en el recurso. Como puede ver, *Location* está definido como una etiqueta, con *MyLocation* como valor.
 
-        PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
+    PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
-        Value        MyLocation
-        Name        Location
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+    Location      MyLocation
+```
 
 Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][Azure Resource Cmdlets].
 

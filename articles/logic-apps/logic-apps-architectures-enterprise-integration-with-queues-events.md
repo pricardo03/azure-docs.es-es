@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855381"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093673"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Arquitectura de integración empresarial con colas y eventos
 
@@ -26,7 +26,7 @@ Esta serie describe los componentes reutilizables que se pueden aplicar para com
 
 ## <a name="architecture-components"></a>Componentes de la arquitectura
 
-Esta arquitectura se basa en la arquitectura descrita en el artículo [Arquitectura de referencia: integración empresarial sencilla](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Las [recomendaciones](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) de ese artículo también se aplican aquí, pero por motivos de brevedad, este artículo las omite de la sección [Recomendaciones](#recommendations). Esta arquitectura de integración empresarial incluye estos componentes:
+Esta arquitectura se basa en la arquitectura descrita en el artículo [Arquitectura de referencia: integración empresarial sencilla](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). Las [recomendaciones](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) de ese artículo también se aplican aquí, pero por motivos de brevedad, este artículo las omite de la sección [Recomendaciones](#recommendations). Esta arquitectura de integración empresarial incluye estos componentes:
 
 - **Grupo de recursos**: un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) es un contenedor lógico de recursos de Azure.
 
@@ -143,4 +143,4 @@ El servicio Event Grid protege la entrega de eventos con un código de validaci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [integración empresarial sencilla](logic-apps-architectures-simple-enterprise-integration.md).
+* Obtenga más información sobre la [integración empresarial sencilla](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration).

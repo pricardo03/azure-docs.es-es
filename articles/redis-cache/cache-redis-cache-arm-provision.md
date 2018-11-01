@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c4c95218ca88ce1fe832fda4fabaf957fdd69dc1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452590"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140373"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Creación de una Caché en Redis mediante una plantilla
 En este tema, aprenderá a crear una plantilla de Azure Resource Manager que implementa Azure Redis Cache. La memoria caché se puede usar con una cuenta de almacenamiento existente para mantener los datos de diagnóstico. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
@@ -106,7 +106,7 @@ Crea Azure Redis Cache.
       },
       "resources": [
         {
-          "apiVersion": "2015-07-01",
+          "apiVersion": "2017-05-01-preview",
           "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
           "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
           "location": "[parameters('redisCacheLocation')]",

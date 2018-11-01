@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 93aa77edaedbd3984e9e83ccfb7374422952e83a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227188"
+---
 El agente de escucha del grupo de disponibilidad es un nombre de red y una dirección IP en los que escucha el grupo de disponibilidad de SQL Server. Para crear el agente de escucha del grupo de disponibilidad, haga lo siguiente:
 
 1. <a name="getnet"></a>Obtenga el nombre del recurso de red del clúster.

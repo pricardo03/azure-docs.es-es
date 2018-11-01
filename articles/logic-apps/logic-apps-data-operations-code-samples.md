@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/25/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8ac3d4ba9b9ae1268cef9d4ee255021004924377
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39393022"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229970"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Ejemplos de código de operaciones de datos para Azure Logic Apps
 
@@ -370,7 +370,7 @@ Para probar la acción de ejemplo [ **Seleccionar**](../logic-apps/logic-apps-pe
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

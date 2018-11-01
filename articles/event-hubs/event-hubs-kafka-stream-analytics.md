@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e7d140f212dd2506f48b23fe99db5ba2be91dac9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319326"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421040"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
 En este artículo se muestra cómo transmitir datos a Event Hubs habilitado para Kafka y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
@@ -35,7 +35,7 @@ No es necesario cambiar a los clientes de protocolo ni ejecutar sus propios clú
 Para completar esta guía de inicio rápido, asegúrese de cumplir los siguientes requisitos previos:
 
 * Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-* [Kit de desarrollo de Java (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Kit de desarrollo de Java (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Descargue](http://maven.apache.org/download.cgi) e [instale](http://maven.apache.org/install.html) un archivo binario de Maven.
 * [Git](https://www.git-scm.com/)
 * Una **cuenta de Azure Storage**. Si no tiene, [cree una](../storage/common/storage-quickstart-create-account.md) antes de continuar. El trabajo de Stream Analytics en este tutorial almacena los datos de salida en Azure Blob Storage. 

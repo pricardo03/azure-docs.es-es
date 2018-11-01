@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: e08e6ca4f6413b475bd8a0e5ff30b74921c2f0e6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227160"
+---
 La CLI de Azure le permite crear y administrar los recursos de Azure en Mac OS, Linux y Windows. En este artículo se detallan algunos de los comandos más comunes para crear y administrar máquinas virtuales (VM).
 
 En este artículo se requiere la CLI de Azure versión 2.0.4 o versiones posteriores. Ejecute `az --version` para encontrar la versión. Si debe actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). También puede usar [Cloud Shell](/azure/cloud-shell/quickstart) desde el explorador.

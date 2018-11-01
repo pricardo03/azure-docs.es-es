@@ -1,7 +1,16 @@
-
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226705"
+---
 En función del entorno y las opciones, el script puede crear toda la infraestructura del clúster, como la red virtual de Azure, las cuentas de almacenamiento, los servicios en la nube, los controladores de dominio, las bases de datos SQL locales o remotas, el nodo principal y los nodos de clúster adicionales. Como alternativa, el script puede usar la infraestructura de Azure ya existente y crear solo los nodos del clúster HPC.
 
 Para más información general acerca de cómo planear un clúster de HPC Pack, consulte el contenido de [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) (Planeamiento y evaluación del producto) y de [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) (Introducción) en la Biblioteca de TechNet de HPC Pack 2012 R2.
@@ -21,7 +30,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 > 
 > 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 * **ConfigFile**: especifica la ruta de acceso del archivo de configuración para describir el clúster de HPC. Puede leer más sobre el archivo de configuración en este tema, o en el archivo Manual.rtf de la carpeta que contiene el script.
 * **AdminUserName**: especifica el nombre de usuario. Si el script crea el bosque de dominio, esto se convierte en el nombre de usuario del administrador local para todas las máquinas virtuales, así como el nombre del administrador de dominio. Si ya existe un bosque de dominio, esto especifica el usuario de dominio como nombre de usuario del administrador local para instalar HPC Pack.
 * **AdminPassword**: especifica la contraseña del administrador. Si no se especifica en la línea de comandos, el script solicitará que escriba la contraseña.

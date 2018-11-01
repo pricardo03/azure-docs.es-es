@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395016"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093218"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -414,7 +414,6 @@ En la parte final de esta guía se proporciona una lista de plantillas de soluci
 
 | # | Título | DESCRIPCIÓN |
 |--:|:------|-------------|
-| 1 | [Ejemplo de aprendizaje automático del mantenimiento predictivo de Azure](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Ejemplo de mantenimiento predictivo para predecir errores durante las próximas N unidades de tiempo. Este ejemplo se escribe como un proyecto de Azure Machine Learning Workbench, ideal para usuarios principiantes en el mantenimiento predictivo. [Documentación adicional](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) relacionada con este ejemplo.|
 | 2 | [Plantilla de soluciones de mantenimiento predictivo de Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Una plantilla de solución de código abierto que demuestra el modelado de aprendizaje automático y una infraestructura completa de Azure que es capaz de admitir escenarios de mantenimiento predictivo en el contexto de supervisión remota de IoT. |
 | 3 | [Aprendizaje profundo para mantenimiento predictivo](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook de Azure con una solución de demostración sobre el uso de redes con memoria a corto y largo plazo (LSTM) (una clase de redes neuronales recurrentes) para el mantenimiento predictivo, con una [entrada de blog sobre este ejemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guía de modelado de mantenimiento predictivo en R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guía de modelado de mantenimiento predictivo con scripts en R.|

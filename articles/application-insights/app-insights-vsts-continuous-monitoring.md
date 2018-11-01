@@ -9,12 +9,12 @@ ms.date: 11/13/2017
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 75401614b6892402083af5192b691f00d82c8d05
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301638"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413628"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Incorporación de supervisión continua a la canalización de versión
 
@@ -28,13 +28,13 @@ Azure DevOps Services admite ahora la supervisión continua mediante la cual las
 
 2. Mantenga el mouse sobre **Compilación y lanzamiento** > Seleccione **Versiones** > haga clic en el **signo más** > **Crear definición de versión**  > Busque **Supervisión** > **Azure App Service Deployment with Continuous Monitoring** (implementación de Azure App Service Deployment con supervisión continua)
 
-   ![Nueva canalización de versión de Azure DevOps Services](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nueva canalización de versión de Azure DevOps Services](media/app-insights-vsts-continuous-monitoring/001.png)
 
 3. Haga clic en **Aplicar.**
 
 4. Junto al punto rojo con la exclamación, seleccione el texto en azul para **Ver tareas de entorno.**
 
-   ![Ver tareas de entorno](.\media\app-insights-continuous-monitoring\002.png)
+   ![Ver tareas de entorno](media/app-insights-vsts-continuous-monitoring/002.png)
 
    Aparecerá un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
@@ -60,7 +60,7 @@ Azure DevOps Services admite ahora la supervisión continua mediante la cual las
 
 3. Modifique el **umbral** de disponibilidad para satisfacer sus necesidades de nivel de servicio.
 
-   ![Modificación de alerta](.\media\app-insights-continuous-monitoring\003.png)
+   ![Modificación de alerta](media/app-insights-vsts-continuous-monitoring/003.png)
 
 4. Seleccione **Aceptar** > **Guardar** > escriba un comentario descriptivo > haga clic en **Aceptar.**
 
@@ -68,13 +68,13 @@ Azure DevOps Services admite ahora la supervisión continua mediante la cual las
 
 1. Haga clic en **Canalización** > seleccione el símbolo de las **Condiciones anteriores** o **posteriores** a la implementación según el escenario que requiera una puerta de supervisión continua.
 
-   ![Condiciones anteriores a la implementación](.\media\app-insights-continuous-monitoring\004.png)
+   ![Condiciones anteriores a la implementación](media/app-insights-vsts-continuous-monitoring/004.png)
 
 2. Establezca **Gates** (Puertas) en **Habilitado** > **Approval gates** (Puertas de aprobación) > haga clic en **Agregar.**
 
 3. Seleccione **Azure Monitor** (esta opción le permite el acceso a las alertas tanto de Azure Monitor como de Application Insights)
 
-    ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
+    ![Azure Monitor](media/app-insights-vsts-continuous-monitoring/005.png)
 
 4. Escriba un valor de **tiempo de expiración de la puerta**.
 
@@ -86,7 +86,7 @@ Una vez que haya agregado puertas de implementación, una alerta en Application 
 
 Para observar este comportamiento, seleccione **Versiones** > haga clic con el botón derecho en el nombre de la versión **abrir** > **registros.**
 
-![Registros](.\media\app-insights-continuous-monitoring\006.png)
+![Registros](media/app-insights-vsts-continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: a29fd161e788a0c10e5fcb5cd5cd735e1f2cf1b4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d90844cabeed787f0084dde09ede0fc389819c08
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343588"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420369"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API REST y Java en Computer Vision
 
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener instalados la plataforma de [Java&trade;, y el kit de desarrollo de edición estándar 7 u 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 u 8).
+- Debe tener instalados la plataforma de [Java&trade;, y el kit de desarrollo de edición estándar 7 u 8](https://aka.ms/azure-jdks) (JDK 7 u 8).
 - Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample-application"></a>Creación y ejecución de la aplicación de ejemplo

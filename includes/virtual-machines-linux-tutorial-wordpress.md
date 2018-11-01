@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227218"
+---
 ## <a name="install-wordpress"></a>Instalación de WordPress
 
 Si desea probar la pila, instale una aplicación de ejemplo. Por ejemplo, los pasos siguientes instalan la plataforma de código abierto [WordPress](https://wordpress.org/), que permite crear sitios web y blogs. Otras cargas de trabajo para probar podrían ser [Drupal](http://www.drupal.org) y [Moodle](https://moodle.org/). 
@@ -24,7 +37,7 @@ En un directorio de trabajo, cree un archivo de texto `wordpress.sql` para confi
 sudo sensible-editor wordpress.sql
 ```
 
-Agregue los siguientes comandos, sustituyendo la contraseña de una base de datos de su elección por *su_contraseña* (deje otros valores sin modificar). Si anteriormente configuró una directiva de seguridad de MySQL para validar la seguridad de la contraseña, asegúrese de que esta cumple los requisitos de seguridad. Guarde el archivo .
+Agregue los siguientes comandos, sustituyendo la contraseña de una base de datos de su elección por *su_contraseña* (deje otros valores sin modificar). Si anteriormente configuró una directiva de seguridad de MySQL para validar la seguridad de la contraseña, asegúrese de que esta cumple los requisitos de seguridad. Guarde el archivo.
 
 ```sql
 CREATE DATABASE wordpress;

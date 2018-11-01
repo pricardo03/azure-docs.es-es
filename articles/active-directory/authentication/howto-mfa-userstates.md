@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 302cf047ee1ffea685a939bddee84551de7042ec
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 4726383d96b0bd17f346f7391ed968c5f96bef1e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166770"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239260"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 Puede utilizar uno de estos dos métodos para requerir la verificación en dos pasos, los cuales requieren el uso de una cuenta de administrador global. La primera opción consiste en habilitar a cada usuario para Azure Multi-factor Authentication (MFA). Cuando los usuarios se habilitan de forma individual, realizan la verificación en dos pasos cada vez que inician sesión (con algunas excepciones, como cuando inician sesión desde direcciones IP de confianza o si se activa la característica _recordar dispositivos_). La segunda opción consiste en configurar una directiva de acceso condicional que requiere la verificación en dos pasos en determinadas condiciones.
@@ -99,7 +99,7 @@ El uso de PowerShell es una buena opción cuando necesite habilitar usuarios de 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
-        $st.State = “Enabled”
+        $st.State = "Enabled"
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
@@ -110,7 +110,7 @@ El script siguiente es un ejemplo:
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
-        $st.State = “Enabled”
+        $st.State = "Enabled"
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }

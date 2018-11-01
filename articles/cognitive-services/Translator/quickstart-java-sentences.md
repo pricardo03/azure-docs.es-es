@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ea4c3a6463b831fe960bf6aec9e4c1151f8424d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 59d3c194f08a8ede6ea2a56f95f7000eafe6c479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644885"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413254"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Guía de inicio rápido: obtención de las longitudes de frase con Translator Text REST API (Java)
 
@@ -23,7 +23,7 @@ En esta guía de inicio rápido se determina la longitud de las oraciones del te
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere [JDK 7 u 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar y ejecutar este código. Puede utilizar un entorno de desarrollo de Java si tiene uno favorito, pero también basta con un editor de texto.
+Se requiere [JDK 7 u 8](https://aka.ms/azure-jdks) para compilar y ejecutar este código. Puede utilizar un entorno de desarrollo de Java si tiene uno favorito, pero también basta con un editor de texto.
 
 Para usar Translator Text API, también necesita una clave de suscripción; consulte [Cómo suscribirse a Translator Text API](translator-text-how-to-signup.md).
 

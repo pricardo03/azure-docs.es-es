@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 792589f4aa2a80c05378224ffe4e4d1dad2f935c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164733"
+---
 <!--author=alkohli last changed:02/22/16-->
 
 #### <a name="to-attach-the-sas-cables"></a>Conexión de los cables SAS
@@ -7,7 +20,7 @@
    
     **Vista posterior del alojamiento principal y de EBOD**
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    |:--- |:--- |
    | 1 |Receptáculo principal |
    | 2 |Receptáculo EBOD |
@@ -17,7 +30,7 @@
    
     **Ubicación de la etiqueta del número de serie**
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    |:--- |:--- |
    | 1 |Dispositivo de escucha del receptáculo |
 3. Después utiliza los cables SAS proporcionados para conectar el alojamiento de EBOD al alojamiento principal de esta manera:
@@ -30,10 +43,10 @@
       
       **Cableado de SAS**
       
-      | Etiqueta | Descripción |
+      | Etiqueta | DESCRIPCIÓN |
       |:--- |:--- |
       | Encontrará |Receptáculo principal |
-      | B |Receptáculo EBOD |
+      | b |Receptáculo EBOD |
       | 1 |Controlador 0 |
       | 2 |Controlador 1 |
       | 3 |Controlador EBOD 0 |

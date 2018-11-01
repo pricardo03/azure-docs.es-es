@@ -1,10 +1,23 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227198"
+---
 1. En el Administrador de clústeres de conmutación por error, expanda **Roles** y, a continuación, resalte el grupo de disponibilidad.  
 
 2. En la pestaña **Recursos**, haga clic con el botón derecho en el nombre del agente de escucha y, a continuación, haga clic en **Propiedades**.
 
 3. Haz clic en la pestaña **Dependencias** . Si aparecen varios recursos, compruebe que las direcciones IP tienen dependencias OR y no AND.  
 
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
 5. Haga clic con el botón derecho en el nombre del agente de escucha y luego haga clic en **Poner en línea**.
 

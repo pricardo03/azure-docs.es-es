@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 16e78784337771d1e31d826f475c92c86fe20411
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954222"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212325"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. Azure Resource Manager permite trabajar con los recursos de la solución como un grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación. 
@@ -65,29 +65,7 @@ Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Man
 
 Para recomendaciones sobre cómo crear plantillas de Resource Manager que puede usar en todo Azure, nubes soberanas de Azure y Azure Stack, consulte [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).
 
-## <a name="quickstarts-and-tutorials"></a>Guías de inicio rápido y tutoriales
-
-Use las siguientes guías de inicio rápido y tutoriales para aprender a desarrollar plantillas de Resource Manager:
-
-- Guías de inicio rápido
-
-    |Título|DESCRIPCIÓN|
-    |------|-----|
-    |[Uso de Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Genere una plantilla mediante el portal y el proceso de edición e implementación de la plantilla.|
-    |[Usar Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Use Visual Studio Code para crear y editar plantillas y use Azure Cloud Shell para implementar plantillas.|
-    |[Usar Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Use Visual Studio para crear, editar e implementar plantillas.|
-
-- Tutoriales
-
-    |Título|DESCRIPCIÓN|
-    |------|-----|
-    |[Utilización de la referencia de la plantilla](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Use la documentación de referencia de la plantilla para desarrollar las plantillas. En el tutorial, busque el esquema de la cuenta de almacenamiento y use la información para crear una cuenta de almacenamiento cifrada.|
-    |[Creación de varias instancias](./resource-manager-tutorial-create-multiple-instances.md)|Cree varias instancias de recursos de Azure. En el tutorial, puede crear varias instancias de la cuenta de almacenamiento.|
-    |[Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Defina las dependencias de recursos. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes de Azure. Aprenderá cómo se definen las dependencias.|
-    |[Condiciones de uso](./resource-manager-tutorial-use-conditions.md)|Implemente recursos basados en algunos valores de parámetro. En el tutorial, definirá una plantilla para crear una nueva cuenta de almacenamiento o usará una cuenta de almacenamiento ya existente basada en el valor de un parámetro.|
-    |[Integración de Key Vault](./resource-manager-tutorial-use-key-vault.md)|Recupere los secretos o contraseñas de Azure Key Vault. En el tutorial, creará una máquina virtual.  La contraseña del administrador de la máquina virtual se recupera de Key Vault.|
-    |[Creación de plantillas vinculadas](./resource-manager-tutorial-create-linked-templates.md)|Modularice las plantillas y llame a otras plantillas desde una plantilla. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes.  La cuenta de almacenamiento dependiente se define en una plantilla vinculada. |
-    |[Uso de procedimientos de implementación seguros](./deployment-manager-tutorial.md)|Use Azure Deployment Manager. |
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="resource-groups"></a>Grupos de recursos
 Hay algunos factores importantes que se deben tener en cuenta al definir el grupo de recursos:

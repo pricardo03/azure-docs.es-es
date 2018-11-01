@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: 79fb8517ec6880e8a3eae0e74275567a24644b87
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133141"
+---
 ## <a name="deployment-customization"></a>Personalización de la implementación
 
 En el proceso de implementación se da por supuesto que el archivo .zip que se inserta contiene una aplicación lista para ejecutarse. No se ejecuta ninguna personalización de forma predeterminada. Para habilitar los mismos procesos de compilación que se obtienen con la integración continua, agregue los siguientes elementos a la configuración de la aplicación:

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043301"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419782"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guía de referencia de los elementos de visualización del Diseñador de vistas en Log Analytics
 Mediante el Diseñador de vistas de Azure Log Analytics, puede crear vistas personalizadas en Azure Portal que presenten diversas visualizaciones de datos del área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
@@ -50,7 +50,7 @@ Las siguientes secciones describen los tipos de icono y sus propiedades en detal
 ## <a name="list-of-queries-part"></a>Elemento Lista de consultas
 El elemento Lista de consultas muestra una lista de las consultas de búsqueda de registros. Puede seleccionar cada una de las consultas para mostrar los resultados. La vista incluye una sola consulta de forma predeterminada y puede seleccionar **+ Query** (+ Consulta) para agregar más.
 
-![Vista Lista de consultas](media/log-analytics-view-designer/view-list-queries.png)
+![Vista Lista de consultas](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -66,7 +66,7 @@ El elemento Lista de consultas muestra una lista de las consultas de búsqueda d
 ## <a name="number-and-list-part"></a>Elemento Number and list (Número y lista)
 El encabezado presenta un solo número que muestra la cantidad de registros de una consulta de búsqueda de registros. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
 
-![Vista Lista de consultas](media/log-analytics-view-designer/view-number-list.png)
+![Vista Lista de consultas](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -95,7 +95,7 @@ El encabezado presenta un solo número que muestra la cantidad de registros de u
 ## <a name="two-numbers-and-list-part"></a>Elemento Two numbers and list (Dos números y lista)
 El encabezado tiene dos números que presentan la cantidad de registros de consultas de búsqueda de registros independientes. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
 
-![Vista Dos números y lista](media/log-analytics-view-designer/view-two-numbers-list.png)
+![Vista Dos números y lista](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -126,7 +126,7 @@ El encabezado tiene dos números que presentan la cantidad de registros de consu
 ## <a name="donut-and-list-part"></a>Elemento Donut and list (Anillo y lista)
 El encabezado muestra un solo número que resume una columna de valor de una consulta de registro. El anillo muestra gráficamente los resultados de los tres registros principales.
 
-![Vista Donut and list (Anillo y lista)](media/log-analytics-view-designer/view-donut-list.png)
+![Vista Donut and list (Anillo y lista)](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -167,7 +167,7 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 ## <a name="two-timelines-and-list-part"></a>Elemento Two timelines and list (Dos escalas de tiempo y lista)
 El encabezado presenta los resultados de dos consultas de registro en un período como gráficos de columnas con una llamada que muestra un solo número que resume una columna de valor de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
 
-![Vista Two timelines and list (Dos escalas de tiempo y lista)](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Vista Two timelines and list (Dos escalas de tiempo y lista)](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -199,7 +199,7 @@ El encabezado presenta los resultados de dos consultas de registro en un períod
 ## <a name="information-part"></a>Elemento Información
 El encabezado muestra texto estático y un vínculo opcional. La lista muestra uno o varios elementos con texto y título estáticos.
 
-![Vista Información](media/log-analytics-view-designer/view-information.png)
+![Vista Información](media/log-analytics-view-designer-parts/view-information.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -220,7 +220,7 @@ El encabezado muestra texto estático y un vínculo opcional. La lista muestra u
 ## <a name="line-chart-callout-and-list-part"></a>Elemento Line chart, callout, and list (Gráfico de líneas, llamada y lista)
 El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un período y una llamada con un valor resumido. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
 
-![Vista Line chart, callout, and list (Gráfico de líneas, llamada y lista)](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vista Line chart, callout, and list (Gráfico de líneas, llamada y lista)](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -260,7 +260,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 ## <a name="line-chart-and-list-part"></a>Elemento Line chart and list (Gráfico de líneas y lista)
 El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un período. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
 
-![Vista Line chart and list (Gráfico de líneas y lista)](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vista Line chart and list (Gráfico de líneas y lista)](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |
@@ -296,7 +296,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 ## <a name="stack-of-line-charts-part"></a>Elemento Stack of line charts (Pila de gráficos de líneas)
 La pila del gráfico de líneas muestra tres gráficos de líneas independientes con varias series de una consulta de registro en un período, tal como se muestra aquí:
 
-![Stack of line charts (Pila de gráficos de líneas)](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Stack of line charts (Pila de gráficos de líneas)](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Configuración | DESCRIPCIÓN |
 |:--- |:--- |

@@ -2,18 +2,18 @@
 title: Cifrado del lado de cliente con .NET para el Microsoft Azure Storage | Microsoft Docs
 description: La biblioteca de cliente de Azure Storage para .NET ofrece compatibilidad para el cifrado de cliente e integración con Azure Key Vault para obtener una seguridad máxima para sus aplicaciones de Azure Storage.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4d94096c82f56254c1cd40a2192b4309ce0c9f30
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 857ab3ad9870407b91b0fdc9c552a89fd1f4ccd4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521737"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140526"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]

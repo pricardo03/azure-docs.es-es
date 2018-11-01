@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: cb23c21fd22a35a3e8a5920a94aa5a89fe966cfa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934952"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414036"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Ejecución de trabajos de Apache Spark en AKS
 
 [Apache Spark][apache-spark] es un motor rápido para el procesamiento de datos a gran escala. Desde la [versión de Spark 2.3.0][spark-latest-release], Apache Spark admite la integración nativa con clústeres de Kubernetes. Azure Kubernetes Service (AKS) es un entorno de Kubernetes administrado que se ejecuta en Azure. Este documento detalla la preparación y ejecución de trabajos de Apache Spark en un clúster de Azure Kubernetes Service (AKS).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, necesita lo siguiente.
 
@@ -325,7 +325,7 @@ Consulte la documentación de Spark para más detalles.
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[java-install]: https://aka.ms/azure-jdks
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html

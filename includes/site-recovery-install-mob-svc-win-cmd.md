@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 65477f62af80511a73307204c2a6f4b5e0f409d6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166393"
+---
 1. Copie el instalador en una carpeta local (por ejemplo, C:\Temp) del servidor que desea proteger. Ejecute los siguientes comandos como administrador en un símbolo del sistema:
 
   ```
@@ -25,7 +38,7 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| .|type|DESCRIPCIÓN|Valores posibles|
+| Parámetro|Escriba|DESCRIPCIÓN|Valores posibles|
 |-|-|-|-|
 |/Role|Obligatorio|Especifica si se debe instalar Mobility Service (MS) o MasterTarget(MT).|MS </br> MT|
 |/InstallLocation|Opcional|Ubicación en que se instala Mobility Service.|Cualquier carpeta del equipo|
@@ -42,7 +55,7 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | .|type|DESCRIPCIÓN|Valores posibles|
+  | Parámetro|Escriba|DESCRIPCIÓN|Valores posibles|
   |-|-|-|-|
   |/CSEndPoint |Obligatorio|Dirección IP del servidor de configuración| Cualquier dirección IP válida|
   |/PassphraseFilePath|Obligatorio|Ubicación de la frase de contraseña |Cualquier ruta de acceso local o UNC válida|

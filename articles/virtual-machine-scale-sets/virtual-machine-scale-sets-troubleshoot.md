@@ -3,7 +3,7 @@ title: Solución de problemas de escalado automático de conjuntos de escalado d
 description: Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales. Descripción de los problemas habituales y cómo resolverlos.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: negat
-ms.openlocfilehash: ea634ea8bcb4fed1ed63dc8d1e17d215a00758c6
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.author: manayar
+ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161029"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739556"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
 **Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales (por ejemplo, mediante la implementación de una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale), tiene sus reglas de escalado definidas y funciona perfectamente, salvo que sin importar la cantidad de carga que coloque en las máquinas virtuales, no se escala automáticamente.

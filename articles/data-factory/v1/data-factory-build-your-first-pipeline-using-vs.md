@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5b6c0938fce928f2141eac1a03d43005a2247e74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b152ea46c9d744f557157b2dac7478c8513d97fd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730826"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243153"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una instancia de Data Factory mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -335,7 +335,7 @@ Puntos importantes que hay que tener en cuenta:
         Get-AzureRmResourceProvider
         ```
     - Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
-- El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+- El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
 - Para crear instancias de Data Factory, es preciso ser administrador o coadministrador de la suscripción de Azure
 
 ### <a name="monitor-pipeline"></a>Supervisión de la canalización

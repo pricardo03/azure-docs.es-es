@@ -2,18 +2,18 @@
 title: 'Inicio rápido: Carga, descarga y enumeración de blobs mediante Node.js - Azure Storage'
 description: Cree una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de almacenamiento para Node.js a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/20/2018
-ms.author: cshoe
-ms.openlocfilehash: 1c62dbd6856ec7bf2663f0b70a47357b52528899
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: tamram
+ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040819"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140594"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Node.js
 

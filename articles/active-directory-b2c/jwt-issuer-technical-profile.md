@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cb004745cfbc6af185a06c4787fb34326eccc69a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 25352d12e578c289ccb4ab8aab60dc55a444762e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382834"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413509"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico para un emisor de tokens JWT en una directiva personalizada de Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C emite varios tipos de tokens de seguridad 
 
 ## <a name="protocol"></a>Protocolo
 
-El atributo **Name** del elemento **Protocol** se debe establecer en `None`. Establezca el elemento **OutputTokenFormat** en `JWT`.
+El atributo **Name** del elemento **Protocol** tiene que establecerse en `None`. Establezca el elemento **OutputTokenFormat** en `JWT`.
 
 En el ejemplo siguiente se muestra un perfil técnico de `JwtIssuer`:
 
@@ -52,7 +52,7 @@ Los elementos **InputClaims**, **OutputClaims** y **PersistClaims** están vací
 | id_token_lifetime_secs | Sin  | Vigencia del token de identificador. El valor predeterminado es 3600 segundos (1 hora). El mínimo (incluido) es de 300 segundos (5 minutos). El máximo (incluido) es de 86 400 segundos (24 horas). | 
 | refresh_token_lifetime_secs | Sin  | Vigencia del token de actualización. El período máximo en que un token de actualización se puede utilizar para adquirir un nuevo token de acceso, si se hubiera concedido el ámbito offline_access a la aplicación. El valor predeterminado es 1 209 600 segundos (14 días). El mínimo (incluido) es de 86 400 segundos (24 horas). El máximo (incluido) es de 7 776 000 segundos (90 días). | 
 | rolling_refresh_token_lifetime_secs | Sin  | Vigencia de la ventana deslizante del token de actualización. Una vez que haya transcurrido este período de tiempo, el usuario está obligado a volver a autenticarse, independientemente del período de validez del token de actualización más reciente que haya adquirido la aplicación. Si no desea aplicar una duración de ventana deslizante, establezca el valor de allow_infinite_rolling_refresh_token en `true`. El valor predeterminado es 7 776 000 segundos (90 días). El mínimo (incluido) es de 86 400 segundos (24 horas). El máximo (incluido) es de 31 536 000 segundos (365 días). | 
-| rolling_refresh_token_lifetime_secs | Sin  | Si se establece en `true`, la vigencia de la ventana deslizante del token de actualización es permanente. |
+| allow_infinite_rolling_refresh_token | Sin  | Si se establece en `true`, la vigencia de la ventana deslizante del token de actualización es permanente. |
 | IssuanceClaimPattern | SÍ | Controla la notificación del emisor (iss). Uno de los valores:<ul><li>AuthorityAndTenantGuid: la notificación de emisor incluye el nombre de dominio, como `login.microsoftonline` o `tenant-name.b2clogin.com`, así como el identificador de inquilino https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/.</li><li>AuthorityWithTfp: la notificación de emisor incluye el nombre de dominio, como `login.microsoftonline` o `tenant-name.b2clogin.com`, su identificador de inquilino y el nombre de directiva de usuario de confianza. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
 | AuthenticationContextReferenceClaimPattern | Sin  | Controla el valor de notificación `acr`.<ul><li>None: Azure AD B2C no emite la notificación de acr</li><li>PolicyId: la notificación `acr` contiene el nombre de directiva</li></ul>Las opciones para configurar este valor son TFP (directiva de marco de confianza) y ACR (referencia de contexto de autenticación). Se recomienda establecer este valor en TFP, para establecer el valor, asegúrese de que existe `<Item>` con `Key="AuthenticationContextReferenceClaimPattern"` y el valor es `None`. En la directiva de usuario de confianza, agregue el elemento <OutputClaims> y `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. También asegúrese de que la directiva contiene el tipo de notificación `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>`. | 
 

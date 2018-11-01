@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040598"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414130"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solución Network Performance Monitor: supervisión del rendimiento
 
@@ -33,12 +33,12 @@ La funcionalidad Monitor de rendimiento de [Network Performance Monitor](log-ana
 - Supervisar el mantenimiento de la red, sin necesidad de SNMP.
 
 
-![Monitor de rendimiento de red](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![Monitor de rendimiento de red](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Configuración
 Para abrir la configuración de Network Performance Monitor, abra la [solución Network Performance Monitor](log-analytics-network-performance-monitor.md) y seleccione **Configurar**.
 
-![Configuración de Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configuración de Network Performance Monitor](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Creación de nuevas redes
 
@@ -120,21 +120,21 @@ En la página de exploración en profundidad se muestra que el vínculo de red *
 
 En la página de exploración en profundidad se muestran todos los vínculos de subred del vínculo de red **DMZ2-DMZ1**. En el caso de ambos vínculos de subred, la latencia ha superado el umbral, lo que provoca que el vínculo de red esté incorrecto. También puede ver las tendencias de latencia de ambos vínculos de subred. Utilice el control de selección de tiempo del grafo para centrarse en el intervalo de tiempo pertinente. Puede ver la hora del día en la que la latencia ha alcanzado su punto máximo. Después, busque en los registros este período para investigar el problema. Seleccione **Ver vínculos de nodo** para profundizar aún más. 
  
- ![Página de vínculos de subred](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Página de vínculos de subred](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 Como sucedía en la página anterior, en la página de exploración en profundidad del vínculo de subred concreto se enumeran los vínculos de nodo que lo componen. Aquí puede efectuar acciones similares a las realizadas en el paso anterior. Seleccione **Ver topología** para ver la topología entre los dos nodos. 
  
- ![Página de vínculos de nodo](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Página de vínculos de nodo](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 Todas las rutas de acceso entre los dos nodos seleccionados estarán trazadas en el mapa de topología. Puede visualizar la topología de salto a salto de las rutas entre dos nodos en el mapa de topología. Ofrece una perspectiva clara de cuántas rutas existen entre los dos nodos y qué rutas de acceso emplean los paquetes de datos. Los cuellos de botella de rendimiento de red aparecen en rojo. Para encontrar una conexión o dispositivo de red defectuosos, examine los elementos de color rojo presentes en el mapa de topología. 
 
- ![Panel de topología con el mapa de topología](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Panel de topología con el mapa de topología](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 Puede consultar la pérdida, la latencia y el número de saltos de cada ruta de acceso en el panel **Acción**. Utilice la barra de desplazamiento para ver los detalles de las rutas de acceso incorrectas. Use los filtros para seleccionar las rutas de acceso con el salto incorrecto de modo que se pueda trazar la topología únicamente de las rutas de acceso seleccionadas. Para acercar o alejar el mapa de topología, utilice la rueda del mouse. 
 
 En la siguiente imagen, la causa principal de las áreas problemáticas de la sección específica de la red aparecen en las rutas de acceso de red y los saltos. Seleccione un nodo en el mapa de topología t se mostrarán las propiedades del nodo, incluido el nombre de dominio completo y la dirección IP. Al seleccionar un salto, se muestra su dirección IP. 
  
-![Mapa de topología con propiedades del nodo seleccionadas](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Mapa de topología con propiedades del nodo seleccionadas](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Buscar registros](log-analytics-log-searches.md) para ver datos detallados de rendimiento de red.

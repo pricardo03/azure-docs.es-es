@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 511b05e6cae769a5b39ae81a3e67efd05d374511
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133268"
+---
 Si solo desea habilitar el registro en su aplicación, deberá crear una directiva de **registro**. Esta directiva describe las experiencias de los consumidores durante el registro y el contenido de los tokens que recibe la aplicación al completarse el registro correctamente.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]

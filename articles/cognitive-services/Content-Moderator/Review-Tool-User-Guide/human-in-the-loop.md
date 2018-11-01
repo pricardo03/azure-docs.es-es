@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023940"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212206"
 ---
 # <a name="human-in-the-loop"></a>Revisión humana en bucle
 
@@ -31,3 +31,5 @@ La herramienta de revisión humana, cuando se usa en combinación con las API de
 5. Agregue revisión humana a cualquier API o proceso de negocio con solo compilar un conector.
 6. Use los conectores predeterminados para revisar los resultados de Microsoft PhotoDNA, Text Analytics y Face API.
 7. Obtenga métricas clave de rendimiento de los procesos de moderación de contenido.
+
+![Herramienta de revisión de vídeos de Content Moderator](../images/video-review-default-view.png)
