@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4834e21b5e9f1cbdd931b59e2b693e45ddfd8876
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b7b8734e648e79ab22a6783e7fab31e942f08eb4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043318"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418439"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creación de un área de trabajo de Log Analytics con Azure PowerShell
 
@@ -123,7 +123,7 @@ Los siguientes parámetros establecen un valor predeterminado:
 
 La implementación puede demorar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:
 
-![Resultado de ejemplo cuando se completa la implementación](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![Resultado de ejemplo cuando se completa la implementación](media/log-analytics-quick-create-workspace-posh/template-output-01.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que tiene un área de trabajo disponible, puede configurar la recopilación de datos de telemetría de supervisión, realizar búsquedas en el registro para analizar dichos datos y agregar una solución de administración que proporcione datos adicionales e información de los análisis.  

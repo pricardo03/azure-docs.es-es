@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978189"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420564"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
@@ -29,7 +29,7 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 1. Implemente un nuevo conjunto de escala con un valor de escalado automático básico. Este artículo utiliza uno de la Galería de inicio rápido de Azure, que tiene un conjunto de escala de Windows con una plantilla básica de escalado automático. Los conjuntos de escala de Linux funcionan del mismo modo.
 2. Una vez creado el conjunto de escala, navegue al recurso del mismo desde el Explorador de recursos de Azure. En el nodo de Microsoft.Insights aparece lo siguiente.
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     La ejecución de la plantilla crea un valor de escalado automático predeterminado con el nombre **'autoscalewad'**. En el lado derecho puede ver la definición completa de este valor de escalado automático. En este caso, el valor de escalado automático predeterminado viene con una regla de escalado horizontal y otra de reducción horizontal, ambas basadas en el % de CPU.  
 
@@ -58,11 +58,11 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 
 5. Asegúrese de que se encuentra en el modo de **lectura y escritura** en el Explorador de recursos.
 
-    ![Autoscalewad, valor de escalado automático predeterminado](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, valor de escalado automático predeterminado](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Haga clic en Editar. **Reemplace** el elemento "perfiles" en la configuración de escalado automático por la siguiente configuración:
 
-    ![perfiles](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![perfiles](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
