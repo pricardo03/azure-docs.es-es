@@ -19,16 +19,24 @@ items:
     href: quickstart-device-simulation-deploy.md
 - name: Tutoriales
   items:
-  - name: Supervisión de dispositivos de IoT
-    href: iot-accelerators-remote-monitoring-monitor.md
-  - name: Detección de problemas de dispositivos
-    href: iot-accelerators-remote-monitoring-automate.md
-  - name: Configuración y administración de dispositivos
-    href: iot-accelerators-remote-monitoring-manage.md
-  - name: Realización de un análisis de causas principales en una alerta
-    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-  - name: Uso de alertas y corrección de problemas de los dispositivos
-    href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Supervisión remota
+    items:
+    - name: Supervisión de dispositivos de IoT
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Detección de problemas de dispositivos
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Configuración y administración de dispositivos
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Realización de un análisis de causas principales en una alerta
+      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+    - name: Uso de alertas y corrección de problemas de los dispositivos
+      href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Simulación de dispositivo
+    items:
+    - name: Creación y ejecución de una simulación
+      href: iot-accelerators-device-simulation-create-simulation.md
+    - name: Creación de dispositivo simulado personalizado
+      href: iot-accelerators-device-simulation-create-custom-device.md
 - name: Conceptos
   items:
   - name: Supervisión remota
@@ -47,12 +55,6 @@ items:
     items:
     - name: Arquitectura
       href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Simulación de dispositivo
-    items:
-    - name: Esquema del modelo de dispositivo
-      href: iot-accelerators-device-simulation-device-schema.md
-    - name: Comportamiento del modelo del dispositivo
-      href: iot-accelerators-device-simulation-device-behavior.md
   - name: Permisos en azureiotsolutions.com
     href: iot-accelerators-permissions.md
 - name: Guías de procedimientos
@@ -124,14 +126,10 @@ items:
     items:
     - name: Uso de una instancia de IoT Hub existente
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Uso de un modelo de dispositivo personalizado
-      href: iot-accelerators-device-simulation-custom-model.md
+    - name: Creación de dispositivo simulado avanzado
+      href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualización de telemetría con Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: 'Cree un dispositivo simulado:'
-      href: iot-accelerators-device-simulation-create-simulated-device.md
-    - name: Implementación de un dispositivo simulado
-      href: iot-accelerators-device-simulation-deploy-simulated-device.md
 - name: Referencia
   items:
   - name: Supervisión remota
@@ -212,9 +210,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Ruta de aprendizaje sobre los aceleradores de soluciones de IoT
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: e28f7e30378291c3384ddbd90af6fe02d1aa365b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f9b92b06850668f0f92fa77a67ac640e4c245c37
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165342"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754025"

@@ -64,6 +64,7 @@
 
 ## Integración continua e implementación continua
 ### [Información general](data-lake-analytics-cicd-overview.md)
+### [Registro de ensamblados](data-lake-analytics-cicd-manage-assemblies.md)
 ### [Configuración de pruebas](data-lake-analytics-cicd-test.md)
 ### [SDK DE U-SQL](data-lake-analytics-u-sql-sdk.md)
 

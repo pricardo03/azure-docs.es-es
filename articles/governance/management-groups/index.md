@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017660"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748177"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -73,7 +73,7 @@ Cuando algún usuario comienza usando grupos de administración, se produce un p
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas las suscripciones
 
-Algunos de los directorios que empezaron a usar grupos de administración durante la versión preliminar (antes del 25 de junio de 2018) podrían experimentar un problema por el cual no se aplican todas las suscripciones a la jerarquía.  Esto se debe a que los procesos para aplicar suscripciones en la jerarquía se implementaron después de realizar una asignación de roles o directivas en el grupo de administración raíz del directorio.
+Algunos de los directorios que empezaron a usar grupos de administración durante la versión preliminar (antes del 25 de junio de 2018) podrían experimentar el problema de que no se apliquen todas las suscripciones a la jerarquía.  Esto se debe a que los procesos para aplicar suscripciones en la jerarquía se implementaron después de realizar una asignación de roles o directivas en el grupo de administración raíz del directorio.
 
 ### <a name="how-to-resolve-the-issue"></a>Cómo resolver el problema
 

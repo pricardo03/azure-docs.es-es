@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/20/2018
+ms.date: 10/29/2018
 ms.author: mtillman
-ms.openlocfilehash: 864240e45a616aa8c2e7f2d6b65f5c7550f0e50e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 836204694fff6f39305e3ead4f85ddd47f447e10
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466416"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413084"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -55,7 +55,8 @@ ms.locfileid: "49466416"
                                                                         <a href="fundamentals/active-directory-access-create-new-tenant.md">Acceso a Azure AD y creación de un inquilino</a><br>
                                                                         <a href="fundamentals/add-users-azure-active-directory.md">Creación de un grupo e incorporación de miembros</a><br>
                                                                         <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Asignación de roles a usuarios</a><br>
-                                                                        <a href="fundamentals/license-users-groups.md">Asignación de licencias a usuarios</a>
+                                                                        <a href="fundamentals/license-users-groups.md">Asignación de licencias a usuarios</a><br>
+                                                                        <a href="fundamentals/index.yml"><i>Más información &gt;</i></a>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -77,7 +78,7 @@ ms.locfileid: "49466416"
                                                                     <h3><a href="/learn/">Desarrollo de aptitudes con Microsoft Learn</a></h3> 
                                                                     <p>
                                                                         <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Protección de recursos de Azure con el acceso condicional</a><br>
-                                                                        <a href="/learn/browse/?products=azure-active-directory">Más aprendizaje interactivo...</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory"><i>Más aprendizaje interactivo&gt;</i></a><br>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -97,35 +98,40 @@ ms.locfileid: "49466416"
                                                             <a href="manage-apps/add-application-portal.md">Agregar una aplicación</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Configuración del inicio de sesión único (SSO)</a><br>
                                                             <a href="manage-apps/application-proxy.md">Application Proxy para aplicaciones locales</a><br>
+                                                            <a href="manage-apps/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="authentication/index.yml">Autenticación</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Habilitar Multi-Factor Authentication para Azure Portal</a><br>
                                                             <a href="authentication/quickstart-sspr.md">Habilitar el autoservicio de restablecimiento de contraseña</a><br>
-                                                            <a href="authentication/concept-registration-mfa-sspr-converged.md">Registro convergido para MFA y SSPR</a>
-                                                        </p>
+                                                            <a href="authentication/concept-registration-mfa-sspr-converged.md">Registro convergente de MFA y SSPR</a><br>
+                                                            <a href="authentication/index.yml"><i>Más información &gt;</i></a>
+                                                            </p>
                                                         <br><br>
                                                         <h3><a href="b2b/index.yml">Negocio a negocio (B2B)</a></h3>
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Incorporación de usuarios invitados en el portal</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">Invitación masiva a usuarios invitados</a><br>
-                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Requerir MFA para usuarios invitados</a>
-                                                        </p>
+                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Requerir MFA a usuarios invitados</a><br>
+                                                            <a href="b2b/index.yml"><i>Más información &gt;</i></a>
+                                                            </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">Negocio a cliente (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Creación de un inquilino de Azure AD B2C</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Habilitar una aplicación web para autenticar</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Concesión de acceso a una API web de ASP.NET</a>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Concesión de acceso a una API web de ASP.NET</a><br>
+                                                            <a href="/azure/active-directory-b2c/index"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="conditional-access/index.yml">Acceso condicional</a></h3>
                                                         <p>
                                                             <a href="conditional-access/app-based-mfa.md">Requerir MFA para aplicaciones específicas</a><br>
                                                             <a href="conditional-access/require-tou.md">Solicitar la aceptación de los términos de uso</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Bloqueo del acceso si se detecta un riesgo de sesión</a>
-                                                        </p>
+                                                            <a href="conditional-access/app-sign-in-risk.md">Bloqueo del acceso si se detecta un riesgo de sesión</a><br>
+                                                            <a href="conditional-access/index.yml"><i>Más información &gt;</i></a>
+                                                            </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,35 +146,40 @@ ms.locfileid: "49466416"
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Acerca de la plataforma de identidad de Microsoft</a><br>
                                                             <a href="develop/azure-ad-developers-guide.md">Plataforma v1.0</a><br>
-                                                            <a href="develop/v2-overview.md">Plataforma v2.0</a>
-                                                        </p>
+                                                            <a href="develop/v2-overview.md">Plataforma v2.0</a><br>
+                                                            <a href="develop/index.yml"><i>Más información &gt;</i></a>
+                                                            </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">Administración de dispositivos</a></h3>
                                                         <p>
                                                             <a href="devices/hybrid-azuread-join-managed-domains.md">Configuración de la combinación híbrida para dominios administrados</a><br>
                                                             <a href="devices/hybrid-azuread-join-federated-domains.md">Configuración de la combinación híbrida para dominios federados</a><br>
-                                                            <a href="devices/azuread-joined-devices-frx.md">Configuración de la primera ejecución de Windows 10</a>
+                                                            <a href="devices/azuread-joined-devices-frx.md">Configuración de la primera ejecución de Windows 10</a><br>
+                                                            <a href="devices/index.yml"><i>Más información &gt;</i></a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Servicios de dominio</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Habilitación de Azure AD Domain Services</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Unión de una máquina virtual Windows Server a un dominio administrado</a><br>
-                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Configuración de LDAP seguro</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Configuración de LDAP seguro</a><br>
+                                                            <a href="/azure/active-directory-domain-services/index"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Usuarios de empresa</a></h3>
                                                         <p>
                                                             <a href="users-groups-roles/directory-assign-admin-roles.md">Asignación de roles de administrador</a><br>
                                                             <a href="users-groups-roles/licensing-groups-assign.md">Asignación de licencias a grupos</a><br>
-                                                            <a href="users-groups-roles/groups-create-rule.md">Creación de un grupo dinámico</a>
+                                                            <a href="users-groups-roles/groups-create-rule.md">Creación de un grupo dinámico</a><br>
+                                                            <a href="users-groups-roles/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="hybrid/index.yml">Identidad híbrida</a></h3>
                                                         <p>
                                                             <a href="hybrid/how-to-connect-install-roadmap.md">Instalación de Azure AD Connect</a><br>
                                                             <a href="hybrid/how-to-connect-sso.md">Inicio de sesión único con Azure AD Connect</a><br>
-                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect y la federación</a>
+                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect y la federación</a><br>
+                                                            <a href="hybrid/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -185,34 +196,39 @@ ms.locfileid: "49466416"
                                                             <a href="governance/manage-user-access-with-access-reviews.md">Administración del acceso de los usuarios</a><br>
                                                             <a href="governance/manage-guest-access-with-access-reviews.md">Administración del acceso de los invitados</a><br>
                                                             <a href="governance/active-directory-tou.md">Condiciones de uso</a><br>
+                                                            <a href="governance/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="identity-protection/index.yml">Identity Protection</a></h3>
                                                         <p>
                                                             <a href="identity-protection/enable.md">Habilitación</a><br>
                                                             <a href="identity-protection/playbook.md">Simulación de eventos de riesgo</a><br>
-                                                            <a href="identity-protection/howto-unblock-user.md">Desbloqueo de usuarios</a>
+                                                            <a href="identity-protection/howto-unblock-user.md">Desbloqueo de usuarios</a><br>
+                                                            <a href="identity-protection/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identidades administradas de recursos de Azure</a></h3>
+                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identidades administradas para recursos de Azure</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Uso de una máquina virtual Windows para acceder a Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Uso de una máquina virtual de Azure para la adquisición de tokens</a><br>
-                                                            <a href="managed-identities-azure-resources/services-support-msi.md">Servicios que admiten identidades administradas</a>
+                                                            <a href="managed-identities-azure-resources/services-support-msi.md">Servicios que admiten la identidad administrada</a><br>
+                                                            <a href="managed-identities-azure-resources/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="privileged-identity-management/index.yml">Privileged Identity Management (PIM)</a></h3>
                                                         <p>
                                                             <a href="privileged-identity-management/pim-getting-started.md">Primer uso de PIM</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-activate-role.md">Activación de mis roles de directorio</a><br>
-                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Asignación de roles de directorio</a>
+                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Asignación de roles de directorio</a><br>
+                                                            <a href="privileged-identity-management/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="reports-monitoring/index.yml">Informes y supervisión</a></h3>
                                                         <p>
                                                             <a href="reports-monitoring/howto-find-activity-reports.md">Búsqueda de informes de actividad</a><br>
                                                             <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Uso de registros de Azure AD en Azure Monitor</a><br>
-                                                            <a href="reports-monitoring/concept-reporting-api.md">Acceso mediante programación</a>
+                                                            <a href="reports-monitoring/concept-reporting-api.md">Acceso mediante programación</a><br>
+                                                            <a href="reports-monitoring/index.yml"><i>Más información &gt;</i></a>
                                                         </p>
                                                     </div>
                                                 </div>

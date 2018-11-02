@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 3052d856d83a7bf7cbb41a90f92b598c8c24cd5e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50669156"
+documentType: LandingData
+title: Documentación de Avere vFXT for Azure
+metadata:
+  title: Documentación de Avere vFXT for Azure
+  description: Avere vFXT se usa como una capa de almacenamiento en caché para tareas de informática de alto rendimiento en las que se realiza mucha lectura
+  services: avere-vfxt
+  author: ekpgh
+  ms.service: avere-vfxt
+  ms.topic: landing-page
+  ms.date: 10/31/2018
+  ms.author: v-erkell
+abstract:
+  description: Avere vFXT para Azure proporciona una capa de caché en la nube para tareas de informática de alto rendimiento en las que se usan muchos datos. Al almacenar los archivos en la caché cerca de los nodos de proceso, Avere vFXT reduce los tiempos de lectura y permite trabajar más fácilmente, incluso en los momentos de máxima carga. Avere vFXT funciona de forma idónea con sistemas que tienen entre 1000 y 40 000 núcleos de clientes. <p>Avere vFXT puede trabajar con su espacio de almacenamiento de datos local existente para proporcionar a los recursos informáticos basados en Azure acceso local a los archivos activos que se almacenan a largo plazo en un centro de datos.
+sections:
+- title: Primeros pasos con Avere vFXT for Azure
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="avere-vfxt-deploy-plan">Planeamiento de un sistema de Avere vFXT para Azure</a>
+    - html: <a href="avere-vfxt-deploy-overview">Información acerca de la implementación de Avere vFXT</a>
+    - html: <a href="avere-vfxt-prereqs">Cumplimiento de requisitos previos</a>
+    - html: <a href="avere-vfxt-deploy">Implementación del clúster Avere de vFXT</a>

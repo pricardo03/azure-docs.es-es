@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: bff078b73834308742bbdaa9ba98e62ca067a7ff
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748808"
+documentType: LandingData
+title: Documentación de Bing Local Business Search API
+titleSuffix: Azure Cognitive Services
+metadata:
+  title: Documentación de Bing Local Business Search API
+  description: Bing Local Business Search API es un servicio RESTful que permite a las aplicaciones buscar información acerca de lugares y empresas locales en función de las consultas de búsquedas.
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.component: bing-local-business
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/02/2018
+  ms.author: rosh, v-gedod
+abstract:
+  description: Bing Local Business Search API permite a las aplicaciones buscar información acerca de la ubicación y forma de contacto de lugares y empresas locales en función de las consultas de búsquedas.
+sections:
+- title: Guías de inicio rápido
+  items:
+  - type: paragraph
+    text: 'Empiece a usar Bing Local Business Search API mediante el envío de consultas de búsqueda y la visualización de la respuesta JSON:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_csharp.svg
+      href: quickstarts/local-quickstart.md
+      text: C#
+    - image:
+        src: media/logo_java.svg
+      href: quickstarts/local-search-java-quickstart.md
+      text: Java
+    - image:
+        src: media/logo_nodejs.svg
+      href: quickstarts/local-search-node-quickstart.md
+      text: Nodo
+    - image:
+        src: media/logo_python.svg
+      href: quickstarts/local-search-python-quickstart.md
+      text: Python
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API DE REST
+      html: >
+        <p><a href="local-search-reference.md">Referencia de API de REST</a></p>
+    - title: PowerShell
+      html: >
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">CLI de Azure</a></p>
