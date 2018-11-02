@@ -75,7 +75,7 @@ Con el cifrado habilitado de forma predeterminada, cualquier dato almacenado en 
 La característica Storage Service Encryption se habilita de forma predeterminada en el momento de crear cualquier cuenta de almacenamiento (clásica o de Resource Manager). Puede comprobar las propiedades de la cuenta con Azure PowerShell y la CLI de Azure.
 
 **Mi cuenta de almacenamiento está configurada para la replicación con redundancia geográfica. Con el Cifrado del servicio Storage, ¿también se cifra mi copia redundante?**  
-Sí, se cifran todas las copias de la cuenta de almacenamiento. Se admiten todas las opciones de redundancia: almacenamiento con redundancia local, almacenamiento con redundancia geográfica y almacenamiento con redundancia geográfica con acceso de lectura.
+Sí, se cifran todas las copias de la cuenta de almacenamiento. Se admiten todas las opciones con redundancia de zona: almacenamiento con redundancia local, almacenamiento con redundancia de zona y almacenamiento con redundancia geográfica con acceso de lectura.
 
 **¿Se permite Storage Service Encryption únicamente en determinadas regiones?**  
 La característica Storage Service Encryption está disponible en todas las regiones.

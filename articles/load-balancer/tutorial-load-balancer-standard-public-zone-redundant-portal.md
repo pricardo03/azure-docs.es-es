@@ -55,7 +55,7 @@ La versión Estándar de Load Balancer solo admite direcciones IP públicas est�
 2. En la página **Crear equilibrador de carga** especifique estos valores para el equilibrador de carga:
     - *myLoadBalancer*: como nombre del equilibrador de carga.
     - **Pública**: como tipo de equilibrador de carga.
-     - *myPublicIP*: para la dirección IP pública nueva que crea. Para ello, haga clic en **Elegir una dirección IP pública** y, a continuación, en **Crear nueva**. En nombre, escriba *myPublicIP*, la SKU es Estándar de forma predeterminada y seleccione **Redundancia de zona** en **Zona de disponibilidad**.
+     - *myPublicIP*: para la dirección IP pública nueva que crea. Para ello, haga clic en **Elegir una dirección IP pública** y, a continuación, en **Crear nueva**. En nombre, escriba *myPublicIP*, la SKU es Estándar de forma predeterminada y seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
     - *myResourceGroupLBAZ*: como nombre del nuevo grupo de recursos que crea.
     - **Oeste de Europa**: como ubicación.
 3. Haga clic en **Crear** para crear el equilibrador de carga.

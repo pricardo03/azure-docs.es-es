@@ -29,7 +29,7 @@ En este artículo se usa el modelo de aplicaciones de ISV de SaaS canónico sigu
 En este artículo se describen las estrategias de recuperación ante desastres que abarcan una variedad de escenarios que va desde las aplicaciones de inicio sensibles al costo a aquellas con requisitos estrictos de disponibilidad.
 
 > [!NOTE]
-> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa, puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona. Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
+> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa, puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona. Consulte [Bases de datos con redundancia de zona](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Escenario 1. Inicio sensible al costo
 <i>Acabo de crear una startup y me preocupan sobremanera los costos.  Quiero simplificar la implementación y administración de la aplicación y puedo tener un Acuerdo de Nivel de Servicio limitado para clientes individuales. Sin embargo, quiero garantizar que nunca se quede sin conexión toda la aplicación.</i>

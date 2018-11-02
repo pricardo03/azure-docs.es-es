@@ -25,7 +25,7 @@ ms.locfileid: "47064278"
 Al crear e implementar servicios en la nube con Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a interrupciones regionales y errores graves. La misma característica permite crear aplicaciones distribuidas globalmente optimizadas para el acceso local a los datos. En este artículo se describen patrones de aplicación comunes, incluidas las ventajas y desventajas de cada opción. 
 
 > [!NOTE]
-> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa, puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona. Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).  
+> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa, puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona. Consulte [Bases de datos con redundancia de zona](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Escenario 1: Utilizar dos regiones de Azure para la continuidad empresarial con un tiempo de inactividad mínimo
 En este escenario, las aplicaciones tienen las siguientes características: 
