@@ -169,7 +169,7 @@ Aunque la inclusión de la palabra “regresión” en el nombre se preste a con
 
 ![Regresión logística a datos de dos clases con una sola característica][4]
 
-***Regresión logística a datos de dos clases con una sola característica****: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
+***Regresión logística a datos de dos clases con una sola característica*** *: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
 
 ### <a name="trees-forests-and-jungles"></a>Árboles, bosques y selvas
 

@@ -114,10 +114,10 @@ En casos donde no se pueden usar herramientas, las siguientes instrucciones paso
 1. Calcule las eDTU o los núcleos virtuales necesarios para el grupo de la siguiente forma:
 
    Para el modelo de compra basado en DTU: MAX(<*número total de bases de datos* X *promedio de uso de DTU por base de datos* >.<br>
-   < *Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos* )
+   <*Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos*)
 
    Para el modelo de compra basado en núcleos virtuales: MAX (<*número total de bases de datos* X *promedio de utilización de núcleos virtuales por base de datos* >.<br>
-   < *número de bases de datos con picos simultáneos* X *uso máximo de núcleos virtuales por base de datos* )
+   <*número de bases de datos con picos simultáneos* X *uso máximo de núcleos virtuales por base de datos*)
 
 2. Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento.
 3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleos virtuales toma la estimación de núcleos virtuales del paso 1.
