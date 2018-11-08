@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: acb3297b8d7af1a91563fb2f519e06bc49c65695
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ae6964b36f837931f2278ceef0b330f9badb1d71
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309704"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282720"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: limitaciones actuales
 
@@ -54,7 +54,7 @@ Si habilita la sincronización de hash de contraseña, tiene la opción de auten
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Inicio rápido](how-to-connect-pta-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
-- [Migración de AD FS a la autenticación de paso a través](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
+- [Migración de AD FS a la autenticación de paso a través](https://aka.ms/ADFSTOPTADPDownload): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Profundización técnica](how-to-connect-pta-how-it-works.md): conozca cómo funciona la característica de autenticación de paso a través.
 - [Preguntas más frecuentes](how-to-connect-pta-faq.md): encuentre respuesta a las preguntas más frecuentes sobre la característica de autenticación de paso a través.

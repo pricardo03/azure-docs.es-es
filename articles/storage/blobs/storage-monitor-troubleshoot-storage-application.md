@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ff4d39a69df90c31186153c077b1b6183a08dd34
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397223"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259996"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Supervisión de una aplicación de almacenamiento en la nube y solución de sus problemas
 
@@ -83,7 +83,7 @@ La siguiente imagen es una alerta de ejemplo que se basa en el error simulado ej
 
 Los registros de almacenamiento guardan datos en un conjunto de blobs en un contenedor de blobs denominado **$logs** en su cuenta de almacenamiento. Este contenedor no se muestra si enumera todos los contenedores de blobs de su cuenta, pero puede ver su contenido si se accede a él directamente.
 
-En este escenario, se utiliza [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) para interactuar con su cuenta de almacenamiento de Azure.
+En este escenario, se utiliza [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) para interactuar con su cuenta de almacenamiento de Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Descarga de Microsoft Message Analyzer
 

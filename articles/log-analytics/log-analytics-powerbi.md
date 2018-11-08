@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7610fcfc144e4337f8556c8824dc7d104265bcc4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044559"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277655"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importación de datos de Azure Log Analytics en Power BI
 
@@ -33,7 +33,7 @@ Para importar datos desde un área de trabajo de Log Analytics en Power BI, debe
 ![Log Analytics a Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>Exportación de consultas
-Empiece por crear una [búsqueda de registros](log-analytics-log-search-new.md) que devuelva los datos de Log Analytics con los que desea rellenar el conjunto de datos de Power BI.  Después, exporte dicha consulta al [lenguaje de Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx), que es el que Power BI Desktop puede utilizar.
+Empiece por crear una [búsqueda de registros](log-analytics-queries.md) que devuelva los datos de Log Analytics con los que desea rellenar el conjunto de datos de Power BI.  Después, exporte dicha consulta al [lenguaje de Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx), que es el que Power BI Desktop puede utilizar.
 
 1. Cree la búsqueda de registros en Log Analytics para extraer los datos para el conjunto de datos.
 2. Si usa el portal de la búsqueda de registros, haga clic en **Power BI**.  Si usa el portal de Analytics portal, seleccione **Exportar** > **Power BI Query (M)** [Consulta de Power BI (M)].  Ambas opciones exportan la consulta a un archivo de texto con nombre **PowerBIQuery.txt**. 
@@ -81,5 +81,5 @@ El conjunto de datos creado en Power BI tendrá los mismos datos que vio anterio
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre de las [búsquedas de registro](log-analytics-log-searches.md) para crear consultas que se puedan exportar a Power BI.
-* Obtenga más información sobre [Power BI](http://powerbi.microsoft.com) para generar visualizaciones basadas en exportaciones de Log Analytics.
+* Obtenga información sobre de las [búsquedas de registro](log-analytics-queries.md) para crear consultas que se puedan exportar a Power BI.
+* Obtenga más información sobre [Power BI](https://powerbi.microsoft.com) para generar visualizaciones basadas en exportaciones de Log Analytics.

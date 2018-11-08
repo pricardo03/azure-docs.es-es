@@ -1,6 +1,6 @@
 ---
 title: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Python | Microsoft Docs
-description: 'Guía de inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning'
+description: 'Guía de inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos para Python para IoT Hub Device Provisioning Service. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/21/2017
@@ -10,19 +10,25 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: b2346276def178461a04eed008cc21fb22dc8464
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 04fbbbf0f1ecd280153c5b23fff681808be51998
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040557"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259588"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 En estos pasos se muestra cómo simular un dispositivo X.509 en la máquina de desarrollo que ejecuta el sistema operativo Windows, y usar un código de ejemplo de Python para conectar este dispositivo simulado con el servicio Device Provisioning e IoT Hub. 
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
+Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [Conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
+
+Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
+- [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un único dispositivo.
+
+En este artículo se mostrarán las inscripciones individuales.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -110,7 +116,7 @@ Usará código de ejemplo del SDK para C de Azure IoT para crear el certificado 
 2. Descargue e instale [Python 2.x o 3.x](https://www.python.org/downloads/). Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Cuando se le solicite durante la instalación, asegúrese de agregar Python a las variables de entorno específicas de la plataforma. Si usa Python 2.x, puede que necesite [instalar o actualizar *pip*, el sistema de administración de paquetes de Python](https://pip.pypa.io/en/stable/installing/).
     
     > [!NOTE] 
-    > Si usa Windows, instale también [Visual C++ Redistributable para Visual Studio 2015](http://www.microsoft.com/download/confirmation.aspx?id=48145). Los paquetes de pip requieren el paquete redistribuible para cargar y ejecutar los archivos DLL de C.
+    > Si usa Windows, instale también [Visual C++ Redistributable para Visual Studio 2015](https://www.microsoft.com/download/confirmation.aspx?id=48145). Los paquetes de pip requieren el paquete redistribuible para cargar y ejecutar los archivos DLL de C.
 
 3. Siga [estas instrucciones](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) para compilar los paquetes de Python.
 
