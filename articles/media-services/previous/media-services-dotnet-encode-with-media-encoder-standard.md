@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247799"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241096"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificación de un recurso mediante Estándar de codificador multimedia 
 Los trabajos de Encoding son una de las operaciones de procesamiento más habituales en Media Services. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar Media Encoder, el codificador integrado de Media Services. También puede usar un codificador proporcionado por un asociado de Media Services; hay codificadores de terceros disponibles en Azure Marketplace. 
 
-En este tema se muestra cómo usar .NET para codificar sus recursos con Media Encoder Standard (MES). Media Encoder Standard se configura mediante uno de los valores preestablecidos de codificador descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+En este tema se muestra cómo usar .NET para codificar sus recursos con Media Encoder Standard (MES). Media Encoder Standard se configura mediante uno de los valores preestablecidos de codificador descritos [aquí](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Se recomienda codificar siempre los archivos de origen en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](media-services-dynamic-packaging-overview.md). 
 
@@ -39,7 +39,7 @@ Si el recurso de salida tiene el almacenamiento cifrado, asegúrese de configura
 [Códecs y formatos](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>Valores preestablecidos de MES
-Media Encoder Standard se configura mediante uno de los valores preestablecidos de codificador descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard se configura mediante uno de los valores preestablecidos de codificador descritos [aquí](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadatos de entrada y salida
 Al codificar un recurso de entrada (o recursos) con MES, obtendrá un recurso de salida en la correcta realización de dicha tarea de codificación. El recurso de salida contiene vídeo, audio, miniaturas, manifiestos, etc., basados en el valor predeterminado de codificación que utilice.

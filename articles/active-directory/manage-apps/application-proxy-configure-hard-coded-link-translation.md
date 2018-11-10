@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982279"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230070"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
 
@@ -97,6 +97,7 @@ Para mejorar el rendimiento y la seguridad, no se traducen algunos vínculos:
 
 - Los vínculos que no están dentro de las etiquetas de código. 
 - Vínculos que no son de HTML o CSS. 
+- Vínculos en formato con código de dirección URL.
 - Los vínculos internos que se abren desde otros programas. No se traducirán los vínculos que se envían a través de correos electrónicos o mensajes instantáneos o que se incluyen en otros documentos. Los usuarios deben saber ir a la dirección URL externa.
 
 Si necesita admitir uno de estos dos escenarios, use las mismas direcciones URL internas y externas en lugar de la traducción de vínculos.  

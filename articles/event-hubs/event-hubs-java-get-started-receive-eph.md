@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128173"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240639"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Recepción de eventos desde Azure Event Hubs mediante Java
 
@@ -50,7 +50,7 @@ Para usar EventProcessorHost, debe tener una [cuenta de Azure Storage][Azure Sto
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Copie el valor key1 en una ubicación temporal para utilizarla más adelante en este tutorial.
+    Copie el valor key1 en una ubicación temporal. Lo usará más adelante en este tutorial.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Creación de un proyecto de Java mediante EventProcessorHost
 
@@ -247,7 +247,7 @@ Este tutorial usa una sola instancia de EventProcessorHost. Para aumentar la cap
 
 Antes de que los consumidores puedan recuperar los mensajes, los editores tienen que publicarlos primero en las particiones. Merece la pena destacar que cuando los mensajes se publican en el centro de eventos de manera sincrónica con el método sendSync() en el objeto com.microsoft.azure.eventhubs.EventHubClient, se podrían enviar a una partición específica o distribuirse a todas las particiones disponibles en modo round-robin, según si se especifica o no la clave de partición.
 
-Cuando se especifica una cadena que representa la clave de partición, se aplica un algoritmo hash a la clave para determinar la partición a la que desea enviar el evento.
+Cuando se especifica una cadena que representa la clave de partición, se aplicará un algoritmo hash a la clave para determinar la partición a la que desea enviar el evento.
 
 Cuando no se establece la clave de partición, los mensajes se envían en modo round-robin a todas las particiones disponibles
 
@@ -273,7 +273,7 @@ La API proporciona un mecanismo para implementar el administrador de puntos de c
 
 El administrador de puntos de control predeterminado usa el almacenamiento de blobs, pero si reemplaza el administrador de puntos de control que usa EPH por su propia implementación, puede usar cualquier almacén que quiera para respaldar la implementación del administrador de puntos de control.
 
-Deberá crear una clase que implemente la interfaz com.microsoft.azure.eventprocessorhost.ICheckpointManager.
+Cree una clase que implemente la interfaz com.microsoft.azure.eventprocessorhost.ICheckpointManager.
 
 Use la implementación personalizada del administrador de puntos de control (com.microsoft.azure.eventprocessorhost.ICheckpointManager).
 
@@ -284,12 +284,7 @@ Puede usar cualquier almacén de datos que esté disponible en su entorno.
 La clase com.microsoft.azure.eventprocessorhost.EventProcessorHost proporciona dos constructores que le permiten reemplazar el administrador de puntos de control por EventProcessorHost.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para más información acerca de Event Hubs, visite los vínculos siguientes:
-
-* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Creación de un centro de eventos](event-hubs-create.md)
-* [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+En esta guía de inicio rápido, ha creado la aplicación de Java que recibe mensajes desde un centro de eventos. Para obtener información acerca de cómo enviar eventos a un centro de eventos mediante Java, consulte [Envío de eventos desde el centro de eventos con Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

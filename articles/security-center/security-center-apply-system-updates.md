@@ -3,7 +3,7 @@ title: Aplicación de actualizaciones del sistema en Azure Security Center | Mic
 description: En este documento se muestra cómo implementar las recomendaciones **Aplicar actualizaciones del sistema** y **Reiniciar tras actualizar el sistema** de Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
-ms.author: terrylan
-ms.openlocfilehash: 5f6747629139e85f1ae50364da807636937a464a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 7b5f4415351ad5b51b874e5dc17349160f65e9ef
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301939"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240382"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar actualizaciones del sistema en Azure Security Center
 Azure Security Center supervisa diariamente los equipos y máquinas virtuales de Windows y Linux por si faltan actualizaciones de sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en un equipo con Windows. Security Center comprueba también las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual o en el equipo, Security Center le recomendará que aplique las actualizaciones del sistema.
@@ -90,7 +90,7 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : busque las preguntas más frecuentes sobre cómo usar el servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) : encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/missing-system-updates.png

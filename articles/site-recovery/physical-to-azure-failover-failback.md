@@ -1,18 +1,18 @@
 ---
-title: Conmutación por error y conmutación por recuperación de servidores físicos replicados en Azure con Site Recovery | Microsoft Docs
-description: Obtenga información sobre cómo realizar una conmutación por error de servidores físicos en Azure y una conmutación por recuperación en el sitio local con Azure Site Recovery.
+title: Conmutación por error y conmutación por recuperación de servidores físicos para recuperación ante desastres en Azure con Site Recovery | Microsoft Docs
+description: Obtenga información sobre cómo realizar una conmutación por error de servidores físicos en Azure y una conmutación por recuperación en el sitio local para la recuperación ante desastres con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 1a818d37efd370ce0b3e27bff73a153544763ebb
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 309da6f7753d95bc6830d61ecca7d86e002ddedf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456633"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214845"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos replicados en Azure
 

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366733"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244056"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Consideraciones de la plantilla de Azure Resource Manager
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Al desarrollar la aplicación, es importante garantizar la portabilidad de las plantillas entre Azure y Azure Stack. Este artículo proporciona consideraciones para el desarrollo de [plantillas](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) de Azure Resource Manager, por lo que puede crear un prototipo de la implementación de prueba y la aplicación en Azure sin acceder a un entorno de Azure Stack.
+Al desarrollar la aplicación, es importante garantizar la portabilidad de las plantillas entre Azure y Azure Stack. Este artículo proporciona consideraciones para el desarrollo de [plantillas](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) de Azure Resource Manager, por lo que puede crear un prototipo de la implementación de prueba y la aplicación en Azure sin acceder a un entorno de Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Disponibilidad del proveedor de recursos
 

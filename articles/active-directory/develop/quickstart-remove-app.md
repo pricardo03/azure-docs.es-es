@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: c10aa28dc83d96a99da40b7d95d8e7051108d4c0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 916d34a0af1490404cb9f7851b3117f1967c54d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988863"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240909"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Guía de inicio rápido: Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft (versión preliminar)
 
@@ -58,7 +58,7 @@ Las aplicaciones que el usuario o la empresa han registrado están representadas
 
 Si está viendo **Registros de aplicaciones** en el contexto de un inquilino, un subconjunto de las aplicaciones que aparecen en la pestaña **Todas las aplicaciones** son de otro inquilino y se registraron en su inquilino durante el proceso de consentimiento. Más específicamente, se representan solo mediante un objeto de entidad de servicio en su inquilino, sin un objeto aplicación correspondiente. Para más información sobre las diferencias entre objetos de aplicación y objetos de entidad de servicio, consulte [Objetos de aplicación y de entidad de servicio en Azure AD](active-directory-application-objects.md).
 
-Para quitar el acceso de una aplicación a su directorio (después de concederle consentimiento), el administrador de la compañía debe eliminar su entidad de servicio. El administrador debe tener acceso de administrador global y puede quitar la aplicación mediante Azure Portal o usar los [cmdlets de PowerShell de Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) para eliminarlo.
+Para quitar el acceso de una aplicación a su directorio (después de concederle consentimiento), el administrador de la compañía debe eliminar su entidad de servicio. El administrador debe tener acceso de administrador global y puede quitar la aplicación mediante Azure Portal o usar los [cmdlets de PowerShell de Azure AD](https://go.microsoft.com/fwlink/?LinkId=294151) para eliminarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

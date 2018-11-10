@@ -1,30 +1,27 @@
 ---
-title: Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure | Microsoft Docs
+title: Matriz de compatibilidad de Azure Site Recovery para la recuperación ante desastres de máquinas virtuales de IaaS de Azure entre regiones de Azure con Azure Site Recovery | Microsoft Docs
 description: Se resumen los sistemas operativos compatibles y las configuraciones para la replicación de Azure Site Recovery de máquinas virtuales (VM) de Azure de una región a otra en caso de que sea necesario realizar una recuperación ante desastres.
 services: site-recovery
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2018
-ms.author: sujayt
-ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: f8f529ecc21e8d9ecf149edb8bdf45e8b20dc283
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378625"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241263"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
+# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
+En este artículo se resumen las configuraciones y los componentes admitidos cuando implementa la recuperación ante desastres con replicación, conmutación por error y recuperación de máquinas virtuales de Azure de una región de Azure a otra mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
 
+## <a name="deployment-method-support"></a>Compatibilidad de método de implementación
 
-En este artículo se resumen las configuraciones y los componentes admitidos al replicar y recuperar máquinas virtuales de Azure de una región a otra usando el servicio [Azure Site Recovery](site-recovery-overview.md).
-
-## <a name="user-interface-options"></a>Opciones de la interfaz de usuario
-
-**Interfaz de usuario** |  **Se admite/no se admite**
+**Método de implementación** |  **Se admite/no se admite**
 --- | ---
 **Azure Portal** | Compatible
 **PowerShell** | [Replicación de Azure a Azure con PowerShell](azure-to-azure-powershell.md)
@@ -34,90 +31,15 @@ En este artículo se resumen las configuraciones y los componentes admitidos al 
 
 ## <a name="resource-support"></a>Compatibilidad de recursos
 
-**Tipo de movimiento de recursos** | **Detalles**
---- | --- | ---
-**Mover el almacén entre grupos de recursos** | No compatible<br/><br/> No se puede mover un almacén de servicios de recuperación entre grupos de recursos.
-**Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como almacenamiento o la red, una vez que está replicando, tendrá que deshabilitar la replicación y volver a habilitar la replicación para la máquina virtual.
-**Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory. No se admite para máquinas virtuales clásicas.
-**Migración de máquinas virtuales entre regiones dentro de los clústeres geográficos admitidos (dentro y entre suscripciones)** | Se admite en el mismo inquilino de Azure Active Directory para las máquinas virtuales de "Modelo de implementación de Resource Manager". No se admite para las máquinas virtuales del "Modelo de implementación clásica".
+**Acción de recursos** | **Detalles**
+--- | --- | --- 
+**Mover el almacén entre grupos de recursos** | No compatible
+**Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como el almacenamiento o la red, después de la replicación de esta, tendrá que deshabilitar la replicación y volver a habilitarla para la máquina virtual.
+**Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory. 
+**Migración de máquinas virtuales entre regiones dentro de los clústeres geográficos admitidos (dentro y entre suscripciones)** | Se admite en el mismo inquilino de Azure Active Directory.
 **Migrar máquinas virtuales dentro de la misma región** | No compatible.
 
-
-## <a name="support-for-replicated-machine-os-versions"></a>Compatibilidad con las versiones de SO de las máquinas replicadas
-
-Esta compatibilidad es aplicable a cualquier carga de trabajo que se ejecute en el SO mencionado.
-
-#### <a name="windows"></a>Windows
-
-- Windows Server 2016 (Server Core y Server con Experiencia de escritorio)*
-- Windows Server 2012 R2
-- Windows Server 2012
-- Windows Server 2008 R2 con al menos SP1
-
->[!NOTE]
->
-> \* No se admite Windows Server 2016 Nano Server.
-
-#### <a name="linux"></a>Linux
-
-- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5   
-- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3,7.4, 7.5
-- Servidor Ubuntu 14.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Servidor Ubuntu 16.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Debian 7 [ (versiones de kernel admitidas)](#supported-debian-kernel-versions-for-azure-virtual-machines)
-- Debian 8 [ (versiones de kernel admitidas)](#supported-debian-kernel-versions-for-azure-virtual-machines)
-- SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versiones de kernel admitidas)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
-- SUSE Linux Enterprise Server 11 SP3
-- SUSE Linux Enterprise Server 11 SP4
-- Oracle Linux 6.4, 6.5, 6.6 y 6.7 que ejecutan el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3)
-
-(No se admite la actualización de máquinas de replicación de SLES 11 SP3 a SLES 11 SP4. Si una máquina replicada se ha actualizado de SLES 11 SP3 a SLES 11 SP4, es preciso deshabilitar la replicación y volver a proteger la máquina después de la actualización).
-
->[!NOTE]
->
-> Los servidores Ubuntu que utilizan inicio de sesión y autenticación mediante contraseña y que utilizan el paquete de inicialización en la nube para configurar máquinas virtuales en la nube, pueden tener el inicio de sesión mediante contraseña deshabilitado tras una conmutación por error (en función de la configuración de dicha inicialización). Para volver a habilitar el inicio de sesión mediante contraseña en la máquina virtual, restablezca la contraseña desde el menú de configuración (en la sección Soporte y solución de problemas) de la máquina virtual conmutada por error en Azure Portal.
-
-### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Ubuntu admitidas para máquinas virtuales de Azure
-
-**Versión** | **Versión de Mobility service** | **Versión de kernel** |
---- | --- | --- |
-14.04 LTS | 9.19 | 3.13.0-24-generic a 3.13.0-153-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-131-generic |
-14.04 LTS | 9.18 | 3.13.0-24-generic a 3.13.0-151-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-128-generic |
-14.04 LTS | 9.17 | 3.13.0-24-generic a 3.13.0-147-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-124-generic |
-14.04 LTS | 9.16 | 3.13.0-24-generic a 3.13.0-144-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-119-generic |
-|||
-16.04 LTS | 9.19 | 4.4.0-21-generic a 4.4.0-131-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-30-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1019-azure|
-16.04 LTS | 9.18 | 4.4.0-21-generic a 4.4.0-128-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure |
-16.04 LTS | 9.17 | 4.4.0-21-generic a 4.4.0-124-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-41-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1016-azure |
-16.04 LTS | 9.16 | 4.4.0-21-generic a 4.4.0-119-generic<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-38-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1012-azure |
-
-
-### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Debian admitidas para máquinas virtuales de Azure
-
-**Versión** | **Versión de Mobility service** | **Versión de kernel** |
---- | --- | --- |
-Debian 7 | 9.17,9.18,9.19 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.16 | 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
-|||
-Debian 8 | 9.19 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.7-amd64 |
-Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.16 | 3.16.0-4-amd64 a 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
-
-### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel admitidas de SUSE Linux Enterprise Server 12 para máquinas virtuales de Azure
-
-**Versión** | **Versión de Mobility service** | **Versión de kernel** |
---- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default a 4.4.126-94.22-default |
-
-## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de archivos y configuraciones de almacenamiento de invitado admitidos en máquinas virtuales de Azure que ejecutan el sistema operativo Linux
-
-* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
-* Administrador de volúmenes: LVM2
-* Software de múltiples rutas: asignador de dispositivos
-
-## <a name="region-support"></a>Regiones admitidas
+# <a name="region-support"></a>Regiones admitidas
 
 Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera dentro del mismo clúster geográfico.
 
@@ -133,85 +55,165 @@ China | China (Este) y China (Norte)
 
 >[!NOTE]
 >
-> En la región Sur de Brasil, solo puede replicar y conmutar por error a las regiones Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU., y conmutar por recuperación.
+> En la región Sur de Brasil, puede replicar y conmutar por error a las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
 
-## <a name="support-for-vmdisk-management"></a>Compatibilidad para la administración de máquina virtual/disco
+## <a name="cache-storage"></a>Almacenamiento en caché
+
+Esta tabla resume la compatibilidad con la cuenta de almacenamiento de la memoria caché que usa Site Recovery durante la replicación.
+
+**Configuración** | **Detalles**
+--- | ---
+Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | No compatible. | Existe la limitación para el almacenamiento en caché ya que los costos de las transacciones para V2 son significativamente más altos que los de las cuentas de almacenamiento V1.
+Firewalls de Azure Storage para redes virtuales  | Sin  | No se permite el acceso a determinadas redes virtuales de Azure en cuentas de almacenamiento en caché usadas para almacenar datos replicados.
+
+
+
+## <a name="replicated-machine-operating-systems"></a>Sistemas operativos de máquinas replicadas
+
+Site Recovery admite la replicación de máquinas virtuales de Azure que ejecutan los sistemas operativos enumerados en esta sección.
+
+### <a name="windows"></a>Windows
+
+**Sistema operativo** | **Detalles**
+--- | ---
+Windows Server 2016  | Server Core y Server con Experiencia de escritorio
+Windows Server 2012 R2 | 
+Windows Server 2012 | 
+Windows Server 2008 R2 | Con ejecución de SP1 o posterior
+
+#### <a name="linux"></a>Linux
+
+**Sistema operativo** | **Detalles**
+--- | ---
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5   
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3,7.4, 7.5
+Servidor Ubuntu 14.04 LTS | [Versiones de kernel admitidas](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+Servidor Ubuntu 16.04 LTS | [Versión de kernel admitida](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Los servidores Ubuntu que utilizan inicio de sesión y autenticación mediante contraseña y que utilizan el paquete cloud-init para configurar máquinas virtuales en la nube, pueden tener el inicio de sesión mediante contraseña deshabilitado tras una conmutación por error (en función de la configuración de cloudinit). Para volver a habilitar el inicio de sesión mediante contraseña en la máquina virtual, restablezca la contraseña desde el menú Soporte > Solución de problemas > Configuración (de la máquina virtual conmutada por error en Azure Portal).
+Debian 7 | [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
+Debian 8 | [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3. [Versiones de kernel admitidas](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 11 | SP3<br/><br/> No se admite la actualización de máquinas de replicación de SP3 a SP4. Si se ha actualizado una máquina replicada, deberá deshabilitar la replicación y volverla a habilitar después de la actualización.
+SUSE Linux Enterprise Server 11 | SP4
+Oracle Linux | 6.4, 6.5, 6.6, 6.7<br/><br/> Ejecutan el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3).
+
+
+#### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Ubuntu admitidas para máquinas virtuales de Azure
+
+**Versión** | **Versión de Mobility service** | **Versión de kernel** |
+--- | --- | --- |
+14.04 LTS | 9.19 | 3.13.0-24-generic a 3.13.0-153-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-131-generic |
+14.04 LTS | 9.18 | 3.13.0-24-generic a 3.13.0-151-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-128-generic |
+14.04 LTS | 9.17 | 3.13.0-24-generic a 3.13.0-147-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-124-generic |
+14.04 LTS | 9.16 | 3.13.0-24-generic a 3.13.0-144-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-119-generic |
+|||
+16.04 LTS | 9.19 | 4.4.0-21-generic a 4.4.0-131-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-30-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1019-azure|
+16.04 LTS | 9.18 | 4.4.0-21-generic a 4.4.0-128-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure |
+16.04 LTS | 9.17 | 4.4.0-21-generic a 4.4.0-124-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-41-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1016-azure |
+16.04 LTS | 9.16 | 4.4.0-21-generic a 4.4.0-119-generic<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-38-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1012-azure |
+
+
+#### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Debian admitidas para máquinas virtuales de Azure
+
+**Versión** | **Versión de Mobility service** | **Versión de kernel** |
+--- | --- | --- |
+Debian 7 | 9.17,9.18,9.19 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.16 | 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+|||
+Debian 8 | 9.19 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.7-amd64 |
+Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.16 | 3.16.0-4-amd64 a 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
+
+#### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel admitidas de SUSE Linux Enterprise Server 12 para máquinas virtuales de Azure
+
+**Versión** | **Versión de Mobility service** | **Versión de kernel** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default a 4.4.126-94.22-default |
+
+## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas: Sistema de archivos o almacenamiento de invitado de Linux 
+
+* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
+* Administrador de volúmenes: LVM2
+* Software de múltiples rutas: asignador de dispositivos
+
+
+## <a name="replicated-machines---compute-settings"></a>Máquinas replicadas: Configuración de proceso
+
+**Configuración** | **Soporte técnico** | **Detalles**
+--- | --- | ---
+Tamaño | Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM | Compruebe los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md).
+Conjuntos de disponibilidad | Compatible | Si habilita la replicación de una máquina virtual de Azure con las opciones predeterminadas, se creará automáticamente un conjunto de disponibilidad en función de la configuración de la región de origen. Puede modificar estos valores. 
+Zonas de disponibilidad | No compatible | Actualmente no se pueden replicar las máquinas virtuales implementadas en las zonas de disponibilidad.
+Ventaja de uso híbrido (HUB) | Compatible | Si la máquina virtual de origen tiene habilitada una licencia HUB, en la conmutación por error de prueba o la máquina virtual de conmutación por error también se usa la licencia HUB.
+VM Scale Sets | No compatible |
+Imágenes de la galería de Azure (publicadas por Microsoft) | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
+Imágenes de la Galería de Azure (publicadas por terceros) | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
+Imágenes personalizadas (publicados de terceros) | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
+Máquinas virtuales migradas con Site Recovery | Compatible | Si se migró una máquina virtual de VMware o una física a Azure mediante Site Recovery, deberá desinstalar la versión antigua de Mobility Service que se ejecuta en la máquina y reiniciarla antes de replicarla en otra región de Azure.
+
+## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas: acciones de disco
 
 **Acción** | **Detalles**
 -- | ---
 Cambiar el tamaño de disco en una máquina virtual replicada | Compatible
-Agregar un disco a una máquina virtual replicada | No compatible. Tiene que deshabilitar la replicación para la máquina virtual, agregar el disco y volver a habilitar la replicación.
+Agregar un disco a una máquina virtual replicada | No compatible.<br/><br/> Tiene que deshabilitar la replicación para la máquina virtual, agregar el disco y volver a habilitar la replicación.
 
+## <a name="replicated-machines---storage"></a>Máquinas replicadas: almacenamiento
 
-## <a name="support-for-compute-configuration"></a>Compatibilidad con la configuración de Compute
+Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco de datos y el disco temporal de Azure VM.
 
-**Configuración** | **No admite/no se admite** | **Comentarios:**
+- Es importante respetar los límites y destinos de los discos de máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) y [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar cualquier problema de rendimiento.
+- Si implementa con la configuración predeterminada, Site Recovery creará automáticamente las cuentas de almacenamiento y los discos necesarios en función de la configuración de origen. 
+- Si desea personalizar, asegúrese de que sigue las directrices. 
+
+**Componente** | **Soporte técnico** | **Detalles**
 --- | --- | ---
-Tamaño | Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
-Conjuntos de disponibilidad | Compatible | Si usa la opción predeterminada durante el paso para habilitar la replicación en el portal, el conjunto de disponibilidad se crea automáticamente en función de la configuración de la región de origen. Puede cambiar el conjunto de disponibilidad de destino en "Elemento replicado > Configuración > Compute and Network (Proceso y red) > Conjunto de disponibilidad" en cualquier momento.
-Zonas de disponibilidad | No compatible | Actualmente no se admiten las máquinas virtuales implementadas en las zonas de disponibilidad.
-Máquinas virtuales con ventaja de uso híbrido (HUB) | Compatible | Si la máquina virtual de origen tiene habilitada una licencia HUB, en la conmutación por error de prueba o la máquina virtual de conmutación por error también se usa la licencia HUB.
-Conjuntos de escalado de máquinas virtuales | No compatible |
-Imágenes de la galería de Azure (publicadas por Microsoft) | Compatible | Se admiten siempre y cuando la máquina virtual se ejecute en un sistema operativo compatible con Site Recovery
-Imágenes de la Galería de Azure (publicadas por terceros) | Compatible | Se admiten siempre y cuando la máquina virtual se ejecute en un sistema operativo compatible con Site Recovery.
-Imágenes personalizadas (publicados de terceros) | Compatible | Se admiten siempre y cuando la máquina virtual se ejecute en un sistema operativo compatible con Site Recovery.
-Máquinas virtuales migradas con Site Recovery | Compatible | Si es una máquina de VMware o física que se migra a Azure mediante Site Recovery, deberá desinstalar la versión antigua del servicio de movilidad y reiniciar la máquina antes de replicarla en otra región de Azure.
-
-## <a name="support-for-storage-configuration"></a>Compatibilidad con la configuración de Storage
-
-**Configuración** | **No admite/no se admite** | **Comentarios:**
---- | --- | ---
-Tamaño de disco máximo del sistema operativo | 2048 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
-Tamaño máximo del disco de datos | 4095 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
-Número de discos de datos | Hasta 64, que es el admitido por un tamaño de máquina virtual específico de Azure | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
-Disco temporal | Siempre se excluyen de la replicación | El disco temporal se excluye de la replicación siempre. Como recomienda Azure, no se deben colocar los datos persistentes en los discos temporales. Consulte [Discos temporales en máquinas virtuales de Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para más información.
-Velocidad de cambio de datos en el disco | Máximo de 10 MBps por disco de almacenamiento premium y 2 MBps por disco de almacenamiento estándar | Si la velocidad media de cambio de los datos en el disco supera los 10 MBps (para premium) y 2 MBps (para estándar) de forma continua, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 10 MBps (para premium) y 2 MBps (para estándar) durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
-Discos en cuentas de almacenamiento estándar | Compatible |
-Discos en cuentas de almacenamiento premium | Compatible | Si una máquina virtual tiene discos repartidas entre cuentas de almacenamiento estándar y premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
-Discos administrados estándar | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |  
-Discos administrados premium | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |
+Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) sobre discos de máquina virtual.
+Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No guarde los datos persistentes en el disco temporal. [Más información](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Tamaño máximo del disco de datos | 4095 GB | 
+Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/windows/sizes.md) sobre tamaños de máquina virtual.
+Tasa de cambio de disco de datos | Máximo de 10 MBps por disco para el almacenamiento Premium. Máximo de 2 MBps por disco para el almacenamiento Estándar. | Si la tasa media de cambio de los datos en el disco sobrepasa el máximo continuamente, la replicación no mantendrá el ritmo.<br/><br/>  Sin embargo, si se supera el máximo esporádicamente, la replicación podrá mantenerlo, aunque podría ver puntos de recuperación ligeramente retrasados.
+Disco de datos: cuenta de almacenamiento Estándar | Compatible |
+Disco de datos: cuenta de almacenamiento Premium | Compatible | Si una máquina virtual tiene discos repartidos entre cuentas de almacenamiento Estándar y Premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
+Disco administrado: estándar | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |  
+Disk administrado: premium | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |
+Redundancia | Se admiten LRS y GRS.<br/><br/> No se admite ZRS.
+Almacenamiento esporádico y almacenamiento frecuente | No compatible | Los discos de máquina virtual no admiten el almacenamiento esporádico ni el frecuente
 Espacios de almacenamiento | Compatible |         
 Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.   
-Azure Disk Encryption (ADE) para sistemas operativos Windows | Se admiten las máquinas virtuales habilitadas para [cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app) |
-Azure Disk Encryption (ADE) para sistemas operativos Linux | No compatible |
-Agregar/quitar disco en caliente | No compatible | Si agrega o quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo para la máquina virtual.
-Excluir el disco | No compatible|   El disco temporal se excluye de forma predeterminada.
-Espacios de almacenamiento directo  | No compatible|
-Servidor de archivos de escalado horizontal  | No compatible|
-LRS | Compatible |
-GRS | Compatible |
-RA-GRS | Compatible |
-ZRS | No compatible |  
-Almacenamiento en frío y en caliente | No compatible | Los discos de máquina virtual no admiten el almacenamiento temporal y permanente.
-Firewalls de Azure Storage para redes virtuales  | Sin  | No se permite el acceso a determinadas redes virtuales de Azure en cuentas de almacenamiento en caché usadas para almacenar datos replicados.
-Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | Sin  | Los costos de transacción aumentan considerablemente en comparación con las cuentas de almacenamiento de uso general V1
+Azure Disk Encryption (ADE) para Windows | Se admiten las máquinas virtuales habilitadas para [cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app). |
+Azure Disk Encryption (ADE) para Linux | No compatible |
+Incorporación y extracción de disco frecuente    | No compatible | Si agrega o quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo para la máquina virtual.
+Excluir el disco | No compatible | El disco temporal se excluye de forma predeterminada.
+Espacios de almacenamiento directo  | No compatible 
+Servidor de archivos de escalado horizontal  | No compatible 
 
->[!IMPORTANT]
-> Asegúrese de tener en cuenta los objetivos de escalabilidad y rendimiento del disco de la máquina virtual para máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar cualquier problema de rendimiento. Si sigue la configuración predeterminada, Site Recovery creará las cuentas de almacenamiento y discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, asegúrese de seguir los objetivos de escalabilidad y rendimiento del disco para las máquinas virtuales de origen.
 
-## <a name="support-for-network-configuration"></a>Compatibilidad con la configuración de red
-**Configuración** | **No admite/no se admite** | **Comentarios:**
+
+
+## <a name="replicated-machines---networking"></a>Máquinas replicadas: redes
+**Configuración** | **Soporte técnico** | **Detalles**
 --- | --- | ---
-Tarjeta de interfaz de red (NIC) | Hasta el número máximo de NIC admitidas por un tamaño específico de máquina virtual de Azure | Las NIC se crean cuando la máquina virtual se crea como parte de la operación de conmutación por error o conmutación por error de prueba. El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. El hecho de agregar o quitar tarjetas NIC después de habilitar la replicación, no influye sobre el número de tarjetas NIC en la máquina virtual de conmutación por error.
-Equilibrador de carga de Internet | Compatible | Deberá asociar el equilibrador de carga configurado previamente con un script de automatización de Azure de un plan de recuperación.
-Equilibrador de carga interno | Compatible | Deberá asociar el equilibrador de carga configurado previamente con un script de automatización de Azure de un plan de recuperación.
-Dirección IP pública| Compatible | Deberá asociar a la NIC una IP pública ya existente o una nueva mediante un script de automatización de Azure de un plan de recuperación.
-NSG en NIC (Resource Manager)| Compatible | Deberá asociar el NSG a la NIC con un script de automatización de Azure de un plan de recuperación.  
-NSG en una subred (Resource Manager y modelo clásico)| Compatible | Deberá asociar el NSG al subconjunto con un script de automatización de Azure en un plan de recuperación.
-NSG en una máquina virtual (modelo clásico)| Compatible | Deberá asociar el NSG a la NIC con un script de automatización de Azure de un plan de recuperación.
-IP reservada (IP estática)/retener la IP de origen | Compatible | Si la NIC de la máquina virtual de origen tiene una configuración de IP estática y la subred de destino tiene la misma IP disponible, se asigna a la máquina virtual de conmutación por error. Si la subred de destino no tiene la misma IP disponible, una de las direcciones IP disponibles de la subred se reserva para esta máquina virtual. Puede especificar una IP fija de su elección en "Elemento replicado > Configuración > Compute and Network (Proceso y red) > Interfaces de red". Puede seleccionar la NIC y especificar la subred y la dirección IP de su elección.
-IP dinámica| Compatible | Si la NIC de la máquina virtual de origen tiene una configuración de IP dinámica, la NIC de la máquina virtual de conmutación por error es también dinámica de forma predeterminada. Puede especificar una IP fija de su elección en "Elemento replicado > Configuración > Compute and Network (Proceso y red) > Interfaces de red". Puede seleccionar la NIC y especificar la subred y la dirección IP de su elección.
-Integración de Traffic Manager | Compatible | Puede configurar previamente Traffic Manager de forma que el tráfico se dirija regularmente al punto de conexión de la región de origen y al punto de conexión de la región de destino en caso de conmutación por error.
-DNS administrado por Azure | Compatible |
+NIC | Número máximo admitido para un tamaño específico de máquina virtual de Azure | Las NIC se crean cuando se crea la máquina virtual durante la conmutación por error.<br/><br/> El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. Si agrega o quita una tarjeta NIC después de habilitar la replicación, esto no influirá en el número de NIC de la máquina virtual replicada después de la conmutación por error.
+Equilibrador de carga de Internet | Compatible | Asocie el equilibrador de carga configurado previamente con un script de Azure Automation de un plan de recuperación.
+Equilibrador de carga interno | Compatible | Asocie el equilibrador de carga configurado previamente con un script de Azure Automation de un plan de recuperación.
+Dirección IP pública | Compatible | Asocie una dirección IP pública existente a la NIC. O bien, cree una dirección IP pública y asóciela con la NIC mediante un script de Azure Automation de un plan de recuperación.
+Grupo de seguridad de red en una tarjeta NIC | Compatible | Asocie el grupo de seguridad de red a la NIC con un script de Azure Automation de un plan de recuperación.  
+Grupo de seguridad de red en la subred | Compatible | Asocie el grupo de seguridad de red a la subred con un script de Azure Automation de un plan de recuperación.
+Dirección IP (estática) reservada | Compatible | Si la NIC de la máquina virtual de origen tiene una dirección IP estática y la subred de destino tiene la misma dirección IP disponible, esta se asigna a la máquina virtual de conmutación por error.<br/><br/> Si la subred de destino no tiene la misma dirección IP disponible, una de las direcciones IP disponibles de la subred se reserva para esta máquina virtual.<br/><br/> También puede especificar una dirección IP fija y una subred en **Elementos replicados** > **Configuración** > **Proceso y red** > **Interfaces de red**. 
+Dirección IP dinámica | Compatible | Si la NIC de origen tiene una dirección IP dinámica, la NIC de la máquina virtual de conmutación por error será también dinámica de forma predeterminada.<br/><br/> Puede modificar esta a una dirección IP fija si es necesario. 
+Traffic Manager     | Compatible | Puede configurar previamente Traffic Manager de forma que el tráfico se dirija regularmente al punto de conexión de la región de origen y al punto de conexión de la región de destino en caso de conmutación por error.
+Azure DNS | Compatible |
 DNS personalizado  | Compatible |    
-Proxy no autenticado | Compatible | Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).    
-Proxy autenticado | No compatible | Si la máquina virtual usa un proxy autenticado para la conectividad saliente, no se puede replicar mediante Azure Site Recovery.    
-VPN de sitio a sitio local (con o sin ExpressRoute)| Compatible | Asegúrese de que los UDR y NSG estén configurados de manera que el tráfico de Site Recovery no se dirija al entorno local. Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).  
-Conexión de red virtual a red virtual | Compatible | Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).  
-Puntos de conexión del servicio de redes virtuales | Compatible | No se admiten firewalls de Azure Storage para redes virtuales. No se permite el acceso a determinadas redes virtuales de Azure en cuentas de almacenamiento en caché usadas para almacenar datos replicados.
+Proxy no autenticado | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md).   
+Proxy autenticado | No compatible | No se puede replicar una máquina virtual que esté usando un proxy autenticado para la conectividad saliente     
+VPN de sitio a sitio | Compatible con o sin ExpressRoute | Asegúrese de que los UDR y NSG estén configurados de manera que el tráfico de Site Recovery no se dirija al entorno local. [Más información](site-recovery-azure-to-azure-networking-guidance.md).
+Conexión de red virtual a red virtual | Compatible |[Más información](site-recovery-azure-to-azure-networking-guidance.md). 
+Puntos de conexión del servicio Virtual Network | Compatible | Tenga en cuenta que no se admiten los firewalls de Azure Storage para redes virtuales. Además, no se permite el acceso a determinadas redes virtuales de Azure en cuentas de almacenamiento en caché usadas para almacenar datos replicados.
 Redes aceleradas | Compatible | Se deben habilitar las redes aceleradas en una máquina virtual de origen. [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Aprenda más en las [instrucciones sobre redes para replicar máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).
-- Comience a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).
+- Aprenda más información en las [instrucciones sobre redes para replicar máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).
+- Implemente la recuperación ante desastres mediante [la replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).

@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 9d4ede9aee5261903a814cc2f29c788a2ba377f3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869776"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244089"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar la autenticación de Azure Active Directory para autenticación con SQL
 
@@ -35,7 +35,7 @@ Con la autenticación de Azure AD puede administrar centralmente las identidades
 - Puede eliminar el almacenamiento de contraseñas mediante la habilitación de la autenticación integrada de Windows y otras formas de autenticación compatibles con Azure Active Directory.
 - La autenticación de Azure AD utiliza usuarios de base de datos independiente para autenticar las identidades en el nivel de base de datos.
 - Azure AD admite la autenticación basada en token para las aplicaciones que se conectan a SQL Database.
-- La autenticación de Azure AD es compatible con ADFS (federación de dominio) o la autenticación nativa de usuario y contraseña para una instancia de Azure Active Directory local sin sincronización de dominios.  
+- La autenticación de Azure AD es compatible con ADFS (federación de dominio) o la autenticación nativa de usuario y contraseña para una instancia de Azure Active Directory local sin sincronización de dominios.  
 - Azure AD admite conexiones de SQL Server Management Studio que usan la autenticación universal de Active Directory, lo cual incluye Multi-Factor Authentication (MFA).  MFA incluye una sólida autenticación con una gama de sencillas opciones de comprobación: llamada de teléfono, mensaje de texto, tarjetas inteligentes con PIN o notificación de aplicación móvil. Para obtener más información, consulte [Compatibilidad de SSMS con Azure AD MFA con SQL Database y SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
 
 > [!NOTE]  
@@ -118,10 +118,10 @@ La autenticación de Azure Active Directory admite los siguientes métodos de co
 - Se recomienda establecer el tiempo de espera de conexión a 30 segundos.   
 - SQL Server 2016 Management Studio y SQL Server Data Tools para Visual Studio 2015 (versión 14.0.60311.1 abril de 2016 o posterior) admiten la autenticación de Azure Active Directory. (La autenticación de Azure AD es compatible con el **proveedor de datos .NET Framework para SqlServer**; al menos la versión 4.6 de .NET Framework). Por lo tanto, las versiones más recientes de estas herramientas y aplicaciones de capa de datos (DAC y .BACPAC) pueden usar la autenticación de Azure AD.   
 - [La versión 13.1 de ODBC](https://www.microsoft.com/download/details.aspx?id=53339) es compatible con la autenticación de Azure Active Directory; sin embargo, `bcp.exe` no se puede conectar mediante la autenticación de Azure Active Directory porque usa un proveedor de ODBC anterior.   
-- `sqlcmd` admite la autenticación de Azure Active Directory a partir de la versión 13.1, disponible en el [Centro de descarga](http://go.microsoft.com/fwlink/?LinkID=825643).
-- SQL Server Data Tools para Visual Studio 2015 requiere al menos la versión de abril de 2016 de Data Tools (versión 14.0.60311.1). Actualmente, los usuarios de Azure AD no se muestran en el explorador de objetos de SSDT. Como solución alternativa, vea los usuarios de [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+- `sqlcmd` admite la autenticación de Azure Active Directory a partir de la versión 13.1, disponible en el [Centro de descarga](https://go.microsoft.com/fwlink/?LinkID=825643).
+- SQL Server Data Tools para Visual Studio 2015 requiere al menos la versión de abril de 2016 de Data Tools (versión 14.0.60311.1). Actualmente, los usuarios de Azure AD no se muestran en el explorador de objetos de SSDT. Como solución alternativa, vea los usuarios de [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) es compatible con la autenticación de Azure AD. Consulte también [Configurar las propiedades de conexión](https://msdn.microsoft.com/library/ms378988.aspx).   
-- PolyBase no se puede autenticar mediante la autenticación de Azure AD.   
+- PolyBase no se puede autenticar mediante la autenticación de Azure AD.   
 - La autenticación de Azure AD se admite para SQL Database con las hojas **Importar base de datos** y **Exportar base de datos de Azure Portal**. La importación y exportación mediante la autenticación de Azure AD también se admite desde el comando de PowerShell.   
 - La autenticación de Azure AD se admite para SQL Database, Instancia administrada y SQL Data Warehouse mediante el uso de la CLI. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md) y [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 

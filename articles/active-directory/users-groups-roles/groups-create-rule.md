@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040608"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249684"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
@@ -39,8 +39,9 @@ En este artículo se describe cómo configurar una regla en Azure Portal para la
 
    ![Adición de una regla de pertenencia dinámica](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Después de crear la regla, seleccione **Agregar consulta** en la parte superior de la hoja.
-6. Seleccione **Crear** on the **Grupo** para crear el grupo.
+5. Para ver la lista completa de las propiedades de extensión personalizada que se pueden agregar a la consulta de pertenencia, seleccione **Obtener las propiedades de extensión personalizadas**, escriba el identificador de aplicación y, a continuación, seleccione **Actualizar propiedades**. Ya podrá seleccionar en la lista completa de propiedades.
+6. Después de crear la regla, seleccione **Agregar consulta** en la parte superior de la hoja.
+7. Seleccione **Crear** on the **Grupo** para crear el grupo.
 
 > [!TIP]
 > Se produce un error al crear el grupo si la regla que escribió no tiene el formato correcto o no es válida. Se muestra una notificación en la esquina superior derecha del portal, con una explicación de por qué no se pudo procesar la regla. Léala con cuidado para saber cómo debe ajustar la regla para que sea válida.
@@ -71,7 +72,7 @@ Si se produce un error al procesar la regla de pertenencia para un grupo especí
 
 En estos artículos se proporciona información adicional sobre los grupos en Azure Active Directory.
 
-* [Ver los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Crear un nuevo grupo y agregar miembros](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Administrar la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)

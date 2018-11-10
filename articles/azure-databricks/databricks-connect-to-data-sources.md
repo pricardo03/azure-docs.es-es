@@ -1,30 +1,26 @@
 ---
-title: Conectarse a diferentes orígenes de datos de Azure Databricks | Microsoft Docs
+title: 'Conexión a diferentes orígenes de datos de Azure Databricks '
 description: Obtenga información acerca de cómo conectarse a diferentes orígenes de datos de Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 865313a7c6eabd847529b88ff5fff0b7db438fa5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: mamccrea
+ms.openlocfilehash: 8055b5d7e6c53abc385a99d9190a38603ebb968b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174039"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417453"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Conectarse a orígenes de datos de Azure Databricks
 
 En este artículo se proporcionan vínculos a todos los diferentes orígenes de datos de Azure que pueden conectarse a Azure Databricks. Siga los ejemplos que se muestran en estos vínculos para extraer datos de los orígenes de datos de Azure (por ejemplo, Azure Blob Storage, Azure Event Hubs, etc.) en un clúster de Azure Databricks, y ejecutar trabajos analíticos en ellos. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Debe disponer de un área de trabajo de Azure Databricks y de un clúster de Spark. Siga las instrucciones que se muestran en [Introducción a Azure Databricks](quickstart-create-databricks-workspace-portal.md).
 

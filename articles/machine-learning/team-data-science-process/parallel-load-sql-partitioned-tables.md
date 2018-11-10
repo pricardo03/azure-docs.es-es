@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214349"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243427"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante *tablas y vistas con particiones*. 
@@ -102,7 +102,7 @@ Para obtener más información, consulte [Crear tablas e índices con particione
 * [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK_LOGGED y así minimizar la sobrecarga de registros; por ejemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de big data en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de big data en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 El siguiente script de PowerShell es un ejemplo de carga paralela de datos mediante BCP.
 

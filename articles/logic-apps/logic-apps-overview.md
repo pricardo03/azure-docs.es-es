@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f9a59187b8de994e9ebfcab01ae2f3046f8f7971
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023990"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231209"
 ---
 # <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 
@@ -139,7 +139,7 @@ Si tiene una suscripción de Azure, pruebe la siguiente [guía de inicio rápido
 ## <a name="support-and-feedback"></a>Soporte y comentarios
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

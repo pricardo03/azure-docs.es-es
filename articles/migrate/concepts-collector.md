@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986787"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241198"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986787"
 
 Azure Migrate Collector es un dispositivo ligero que sirve para detectar un entorno de vCenter local a efectos de evaluación con el servicio [Azure Migrate](migrate-overview.md) antes de realizar la migración a Azure.  
 
+## <a name="discovery-methods"></a>Métodos de detección
+
+El dispositivo del recopilador puede usar dos opciones: detección de una sola vez o detección continua.
+
+### <a name="one-time-discovery"></a>Detección de una sola vez
+
+El dispositivo del recopilador se comunica una sola vez con vCenter Server para recopilar metadatos sobre las máquinas virtuales. Con este método:
+
+- El dispositivo no está conectado continuamente al proyecto de Azure Migrate.
+- Los cambios en el entorno local no se reflejan Azure Migrate una vez terminada la detección. Para reflejar los cambios, deberá detectar el mismo entorno en el mismo proyecto de nuevo.
+- Cuando se recopilan datos de rendimiento para una máquina virtual, el dispositivo se basa en los datos de rendimiento históricos almacenados en vCenter Server. Recopila el historial de rendimiento del mes pasado.
+- Para la recopilación del historial de datos de rendimiento, deberá establecer la configuración de estadísticas en vCenter Server en el nivel tres. Después de establecer el nivel en tres, deberá esperar al menos un día para que vCenter recopile los contadores de rendimiento. Por tanto, se recomienda ejecutar la detección después de un día como mínimo. Si desea evaluar el entorno según los datos de rendimiento de 1 semana o 1 mes, deberá esperar en consecuencia.
+- En este método de detección, Azure Migrate recopila los valores medios de contador (en lugar de los valores máximos) de cada métrica, lo que puede provocar un cálculo inferior. Se recomienda que utilice la opción de detección continua para obtener unos resultados de tamaño más adecuados.
+
+### <a name="continuous-discovery"></a>Detección continua
+
+El dispositivo del recopilador está conectado constantemente al proyecto de Azure Migrate y recopila continuamente datos de rendimiento de las máquinas virtuales.
+
+- El recopilador realiza un perfil del entorno local continuamente para recopilar datos de uso en tiempo real cada 20 segundos.
+- El dispositivo acumula ejemplos de 20 segundos y crea un único punto de datos cada 15 minutos.
+- Para crear el punto de datos, el dispositivo selecciona el valor máximo de los ejemplos de 20 segundos y lo envía a Azure.
+- Este modelo no depende de la configuración de estadísticas de vCenter Server para la recopilación de datos de rendimiento.
+- Puede detener la generación de perfiles continua en cualquier momento desde el recopilador.
+
+Tenga en cuenta que el dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de máquina virtual, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
+
+- Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
+
+- Eliminación de máquinas virtuales: debido a la forma en que está diseñado el dispositivo, la eliminación de las máquinas virtuales no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
+
+> [!NOTE]
+> La función de detección continua está en versión preliminar. Se recomienda utilizar este método ya que recopila datos pormenorizados de rendimiento y da como resultado un tamaño correcto y preciso.
 
 ## <a name="deploying-the-collector"></a>Implementar el recopilador
 
@@ -163,43 +195,6 @@ Puede actualizar el recopilador a la versión más reciente sin tener que descar
 3. Copie el archivo zip en la máquina virtual del recopilador de Azure Migrate (aplicación del recopilador).
 4. Haga clic con el botón derecho en el archivo ZIP y seleccione Extraer todo.
 5. Haga clic con el botón derecho en Setup.ps1, seleccione Ejecutar con PowerShell y siga las instrucciones en pantalla para instalar la actualización.
-
-
-## <a name="discovery-methods"></a>Métodos de detección
-
-El dispositivo del recopilador puede usar dos métodos para la detección: detección de una sola vez o detección continua.
-
-
-### <a name="one-time-discovery"></a>Detección de una sola vez
-
-El recopilador se comunica una sola vez con vCenter Server para recopilar metadatos sobre las máquinas virtuales. Con este método:
-
-- El dispositivo no está conectado continuamente al proyecto de Azure Migrate.
-- Los cambios en el entorno local no se reflejan Azure Migrate una vez terminada la detección. Para reflejar los cambios, deberá detectar el mismo entorno en el mismo proyecto de nuevo.
-- Para este método de detección, deberá establecer la configuración de estadísticas en vCenter Server en el nivel tres.
-- Después de establecer el nivel a tres, se tarda hasta un día en generar los contadores de rendimiento. Por tanto, se recomienda ejecutar la detección después de un día.
-- Cuando se recopilan datos de rendimiento para una máquina virtual, el dispositivo se basa en los datos de rendimiento históricos almacenados en vCenter Server. Recopila el historial de rendimiento del mes pasado.
-- Azure Migrate recopila los valores medios de contador (en lugar del valor máximo) de cada métrica, lo que puede provocar un cálculo inferior.
-
-### <a name="continuous-discovery"></a>Detección continua
-
-El dispositivo del recopilador está conectado constantemente al proyecto de Azure Migrate y recopila continuamente datos de rendimiento de las máquinas virtuales.
-
-- El recopilador realiza un perfil del entorno local continuamente para recopilar datos de uso en tiempo real cada 20 segundos.
-- Este modelo no depende de la configuración de estadísticas de vCenter Server para la recopilación de datos de rendimiento.
-- El dispositivo acumula ejemplos de 20 segundos y crea un único punto de datos cada 15 minutos.
-- Para crear el punto de datos, el dispositivo selecciona el valor máximo de los ejemplos de 20 segundos y lo envía a Azure.
-- Puede detener la generación de perfiles continua en cualquier momento desde el recopilador.
-
-Tenga en cuenta que el dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de máquina virtual, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
-
-1. Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
-
-2. Eliminación de máquinas virtuales: debido a la forma en que está diseñado el dispositivo, la eliminación de las máquinas virtuales no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
-
-> [!NOTE]
-> La función de detección continua está en versión preliminar. Se recomienda utilizar este método ya que recopila datos pormenorizados de rendimiento y da como resultado un tamaño correcto y preciso.
-
 
 ## <a name="discovery-process"></a>Proceso de detección
 

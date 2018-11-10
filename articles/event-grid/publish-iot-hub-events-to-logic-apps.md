@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 43b317cd9d1c9384a58e9d525fdd15d18eb63968
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246643"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242526"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps
 
@@ -28,7 +28,7 @@ En este artículo se ofrece orientación mediante una configuración de ejemplo 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de correo electrónico de cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. Esta cuenta de correo electrónico se usa para enviar las notificaciones de eventos. Para obtener una lista completa de los conectores compatibles de Logic Apps, consulte la [información general sobre los conectores](https://docs.microsoft.com/connectors/).
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede [crear una gratis](http://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede [crear una gratis](https://azure.microsoft.com/pricing/free-trial/).
 * Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md). 
 
 ## <a name="create-a-logic-app"></a>Creación de una aplicación lógica

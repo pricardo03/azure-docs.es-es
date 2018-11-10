@@ -7,17 +7,17 @@ ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
-ms.date: 03/19/2017
-ms.openlocfilehash: 0cc215d6643c86460a1d5471aa1eed8fdf18e028
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 10/30/2018
+ms.openlocfilehash: 2786de150307b21b06b624914d5fea55ded6e3c7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194740"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249829"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creación de tareas de monitor de Azure Automation para realizar un seguimiento de los cambios de archivo en un equipo local
 
-Azure Automation usa tareas de monitor para inspeccionar los eventos y desencadenar acciones. Este tutorial lo guía en la creación de una tarea de monitor para supervisar cuándo se agrega un nuevo archivo a un directorio.
+Azure Automation usa tareas de monitor para inspeccionar los eventos y desencadenar acciones con runbooks de PowerShell. Este tutorial lo guía en la creación de una tarea de monitor para supervisar cuándo se agrega un nuevo archivo a un directorio.
 
 En este tutorial, aprenderá a:
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Desencadenar un monitor
 > * Inspeccionar la salida
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los siguientes requisitos son necesarios para completar este tutorial:
 
@@ -42,15 +42,15 @@ Los siguientes requisitos son necesarios para completar este tutorial:
 Este tutorial usa un runbook de monitor denominado **Watch-NewFile** para buscar nuevos archivos en un directorio. El runbook de monitor recupera la última hora de escritura conocida en los archivos de una carpeta y examina los archivos más recientes que esa marca de agua. En este paso, importe este runbook en la cuenta de Automation.
 
 1. Abra la cuenta de Automation y haga clic en la página **Runbooks**.
-1. Haga clic en el botón **Examinar galería**.
-1. Busque "Runbook de monitor", seleccione **Watcher runbook that looks for new files in a directory** (Runbook de monitor que busca archivos nuevos en un directorio) y seleccione **Importar**.
+2. Haga clic en el botón **Examinar galería**.
+3. Busque "Runbook de monitor", seleccione **Watcher runbook that looks for new files in a directory** (Runbook de monitor que busca archivos nuevos en un directorio) y seleccione **Importar**.
   ![Importación de un runbook de Automation desde la interfaz de usuario](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. Asigne al runbook un nombre y una descripción y seleccione **Aceptar** para importar el runbook en su cuenta de Automation.
 1. Seleccione **Editar** y luego haga clic en **Publicar**. Cuando se le pida, seleccione **Sí** para publicar el runbook.
 
 ## <a name="create-an-automation-variable"></a>Creación de una variable de Automation
 
-Se usa una [variable de Automation](automation-variables.md) para almacenar las marcas de tiempo que el runbook anterior lee y almacena de cada archivo. 
+Se usa una [variable de Automation](automation-variables.md) para almacenar las marcas de tiempo que el runbook anterior lee y almacena de cada archivo.
 
 1. Seleccione **Variables** en **RECURSOS COMPARTIDOS** y seleccione **+ Agregar una variable**.
 1. Escriba "Watch-NewFileTimestamp" para el nombre.
@@ -59,7 +59,7 @@ Se usa una [variable de Automation](automation-variables.md) para almacenar las 
 
 ## <a name="create-an-action-runbook"></a>Crear un runbook de acción
 
-Un runbook de acción se usa en una tarea de monitor para actuar sobre los datos transferidos a él desde un runbook de monitor. En este paso, va a actualizar la importación de un runbook de acción predefinido denominado "Process-NewFile".
+Un runbook de acción se usa en una tarea de monitor para actuar sobre los datos transferidos a él desde un runbook de monitor. Los runbooks de flujo de trabajo de PowerShell no son compatibles con las tareas de monitor, debe usar runbooks de PowerShell. En este paso, va a actualizar la importación de un runbook de acción predefinido denominado "Process-NewFile".
 
 1. Vaya a la cuenta de Automation y seleccione **Runbooks** en la categoría **AUTOMATIZACIÓN DE PROCESOS**.
 1. Haga clic en el botón **Examinar galería**.
@@ -89,8 +89,8 @@ La tarea de monitor consta de dos partes. El monitor y la acción. El monitor se
 1. Seleccione **Configurar acción** y el runbook "Process-NewFile".
 1. Escriba los siguientes valores para los parámetros:
 
-   *    **EVENTDATA**: deje este valor en blanco. Los datos se pasan desde el runbook de monitor.  
-   *    **Run Settings**: déjelo como Azure porque este runbook se ejecuta en el servicio Automation.
+   ***EVENTDATA**: deje este valor en blanco. Los datos se pasan desde el runbook de monitor.  
+   ***Run Settings**: déjelo como Azure porque este runbook se ejecuta en el servicio Automation.
 
 1. Haga clic en **Aceptar** y, después, seleccione esta opción para volver a la página de monitor.
 1. Haga clic en **Aceptar** para crear la tarea de monitor.

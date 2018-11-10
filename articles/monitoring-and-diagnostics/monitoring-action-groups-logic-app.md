@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74607f61482d4a96931e307e77b4a6d4c45e4c30
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576030"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420938"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
 
@@ -38,25 +38,25 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 1.  En Azure Portal, seleccione **Crear un recurso** en la esquina superior izquierda.
 
-2.  Busque y seleccione **Aplicación lógica** y luego seleccione **Crear**.
+2.  Busque y seleccione  **Aplicación lógica** y luego seleccione  **Crear**.
 
 3.  Asigne un **Nombre** a la aplicación lógica, elija un **Grupo de recursos**, etc.
 
-    ![Crear una aplicación de lógica](media/monitoring-action-groups/create-logic-app-dialog.png "Crear una aplicación de lógica")
+    ![Crear una aplicación de lógica](media/monitoring-action-groups-logic-app/create-logic-app-dialog.png "Crear una aplicación de lógica")
 
 4.  Seleccione **Crear** para crear la aplicación lógica. Un mensaje emergente indica que se ha creado la aplicación lógica. Seleccione **Launch Resource** (Iniciar recurso) para abrir el **diseñador de Logic Apps**.
 
 5.  Seleccione el desencadenador **Cuando se recibe una solicitud HTTP**.
 
-    ![Desencadenadores de aplicación lógica](media/monitoring-action-groups/logic-app-triggers.png "Desencadenadores de aplicación lógica")
+    ![Desencadenadores de aplicación lógica](media/monitoring-action-groups-logic-app/logic-app-triggers.png "Desencadenadores de aplicación lógica")
 
 6.  Seleccione **Editar** para cambiar el desencadenador de solicitud HTTP.
 
-    ![Desencadenadores de solicitud HTTP](media/monitoring-action-groups/http-request-trigger-shape.png "Desencadenadores de solicitud HTTP")
+    ![Desencadenadores de solicitud HTTP](media/monitoring-action-groups-logic-app/http-request-trigger-shape.png "Desencadenadores de solicitud HTTP")
 
 7.  Seleccione **Usar una carga de ejemplo para generar el esquema**.
 
-    ![Usar una carga de ejemplo](media/monitoring-action-groups/use-sample-payload-button.png "Usar una carga de ejemplo")
+    ![Usar una carga de ejemplo](media/monitoring-action-groups-logic-app/use-sample-payload-button.png "Usar una carga de ejemplo")
 
 8.  Copie y pegue el esquema de ejemplo siguiente en el cuadro de diálogo:
 
@@ -99,15 +99,15 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 9. El **diseñador de Logic App** mostrará una ventana emergente para recordarle que la solicitud enviada a la aplicación lógica debe establecer el encabezado **Content-Type** en **application/json**. Cierre la ventana emergente. La alerta de Azure Monitor establece el encabezado.
 
-    ![Establecer el encabezado Content-Type](media/monitoring-action-groups/content-type-header.png "Establecer el encabezado Content-Type")
+    ![Establecer el encabezado Content-Type](media/monitoring-action-groups-logic-app/content-type-header.png "Establecer el encabezado Content-Type")
 
 10. Seleccione **+** **Nuevo paso** y luego elija **Agregar una acción**.
 
-    ![Agregar una acción](media/monitoring-action-groups/add-action.png "Agregar una acción")
+    ![Agregar una acción](media/monitoring-action-groups-logic-app/add-action.png "Agregar una acción")
 
 11. Busque y seleccione el conector de Microsoft Teams. Elija la acción **Microsoft Teams – Post message** (Microsoft Teams: publicar mensaje).
 
-    ![Acciones de Microsoft Teams](media/monitoring-action-groups/microsoft-teams-actions.png "Acciones de Microsoft Teams")
+    ![Acciones de Microsoft Teams](media/monitoring-action-groups-logic-app/microsoft-teams-actions.png "Acciones de Microsoft Teams")
 
 12. Configure la acción de Microsoft Teams. El **diseñador de Logic Apps** le pide que se autentique en su cuenta de Office 365. Elija el **Id. de equipo** y el **Id. de canal** para enviar el mensaje.
 
@@ -125,13 +125,13 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
     > [!NOTE]
     > Hay dos campos dinámicos denominados **status**. Agregue ambos campos al mensaje. Use el campo del contenedor de propiedades **activityLog** y elimine el otro. Si pasa el puntero sobre el campo **status**, verá la referencia de campo completa como se muestra en la captura de pantalla siguiente:
 
-    ![Acción de Microsoft Teams: publicar un mensaje](media/monitoring-action-groups/teams-action-post-message.png "Acción de Microsoft Teams: publicar un mensaje")
+    ![Acción de Microsoft Teams: publicar un mensaje](media/monitoring-action-groups-logic-app/teams-action-post-message.png "Acción de Microsoft Teams: publicar un mensaje")
 
 14. En la parte superior del **diseñador de Logic Apps**, seleccione **Guardar** para guardar la aplicación lógica.
 
 15. Abra el grupo de acciones existente y agregue una acción para hacer referencia a la aplicación lógica. Si no existe un grupo de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para crear uno. No olvide guardar los cambios.
 
-    ![Actualizar el grupo de acciones](media/monitoring-action-groups/update-action-group.png "Actualizar el grupo de acciones")
+    ![Actualizar el grupo de acciones](media/monitoring-action-groups-logic-app/update-action-group.png "Actualizar el grupo de acciones")
 
 La próxima vez que una alerta llame al grupo de acciones, se llamará a la aplicación lógica.
 
@@ -192,7 +192,7 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      !["Condición de la carga de Service Health"](media/monitoring-action-groups/service-health-payload-condition.png "Condición de la carga de Service Health")
+      !["Condición de la carga de Service Health"](media/monitoring-action-groups-logic-app/service-health-payload-condition.png "Condición de la carga de Service Health")
 
    1. En la condición **if true**, siga las instrucciones que aparecen en los pasos 11 a 13 de [Creación de una alerta del registro de actividad](#create-an-activity-log-alert-administrative) para agregar la acción de Teams de Microsoft.
 
@@ -209,7 +209,7 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
        <p>[communication]</p>
        ```
 
-       !["Acción posterior a la condición true de Service Health"](media/monitoring-action-groups/service-health-true-condition-post-action.png "Acción posterior a la condición true de Service Health")
+       !["Acción posterior a la condición true de Service Health"](media/monitoring-action-groups-logic-app/service-health-true-condition-post-action.png "Acción posterior a la condición true de Service Health")
 
    1. Para la condición **If false**, proporcione un mensaje útil:
 
@@ -219,7 +219,7 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       !["Acción posterior a la condición false de Service Health"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Acción posterior a la condición false de Service Health")
+       !["Acción posterior a la condición false de Service Health"](media/monitoring-action-groups-logic-app/service-health-false-condition-post-action.png "Acción posterior a la condición false de Service Health")
 
 - El paso 15 es igual. Siga las instrucciones para guardar la aplicación lógica y actualizar el grupo de acciones.
 
@@ -279,15 +279,15 @@ El proceso de creación de una alerta de métrica es similar a la [creación de 
        - `schemaId == AzureMonitorMetricAlert`
        - `version == "2.0"`
        
-       !["Condición de carga de la alerta métrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condición de carga de la alerta métrica")
+       !["Condición de carga de la alerta métrica"](media/monitoring-action-groups-logic-app/metric-alert-payload-condition.png "Condición de carga de la alerta métrica")
 
    1. En la condición **if true**, agregue un bucle **For each** y la acción de Microsoft Teams. Defina el mensaje con una combinación de HTML y contenido dinámico.
 
-       !["Acción posterior a la condición true de la alerta de métrica"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "Acción posterior a la condición true de la alerta de métrica")
+       !["Acción posterior a la condición true de la alerta de métrica"](media/monitoring-action-groups-logic-app/metric-alert-true-condition-post-action.png "Acción posterior a la condición true de la alerta de métrica")
 
    1. En la condición **If false**, defina una acción de Microsoft Teams que comunique que la alerta de métrica no coincide con las expectativas de la aplicación lógica. Incluya la carga de JSON. Observe cómo hacer referencia al contenido dinámico de `triggerBody` en la expresión `json()`.
 
-       !["Acción posterior a la condición false de la alerta de métrica"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Acción posterior a la condición false de la alerta de métrica")
+       !["Acción posterior a la condición false de la alerta de métrica"](media/monitoring-action-groups-logic-app/metric-alert-false-condition-post-action.png "Acción posterior a la condición false de la alerta de métrica")
 
 - El paso 15 es igual. Siga las instrucciones para guardar la aplicación lógica y actualizar el grupo de acciones.
 

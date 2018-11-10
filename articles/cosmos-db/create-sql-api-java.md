@@ -9,16 +9,16 @@ ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
-ms.author: sngun
-ms.openlocfilehash: 85a7a6f5b1224c732f5a385789aef13e1d7bd1db
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/24/2018
+ms.author: moderakh
+ms.openlocfilehash: 399db2d7ed5d1c94fe359cb55e9b90df3d99e003
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961253"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421295"
 ---
-# <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de documentos mediante Java y Azure Portal
+# <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Creación y administración de recursos de una cuenta de SQL API de Azure Cosmos DB con una aplicación Java
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -26,11 +26,8 @@ ms.locfileid: "46961253"
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Utilice Azure Cosmos DB para crear y consultar rápidamente las bases de datos de gráficos, tablas y documentos administradas.
-
-En esta guía de inicio rápido se crea una base de datos de documentos mediante las herramientas de Azure Portal para la [API de SQL](sql-api-introduction.md) de Azure Cosmos DB. En esta guía de inicio rápido también se muestra cómo crear rápidamente una aplicación de consola Java mediante [SQL API de Java](sql-api-sdk-java.md). Las instrucciones que se indican en este tutorial rápido se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. Al completar este tutorial rápido aprenderá a crear y modificar los recursos de base de datos de documentos en la interfaz de usuario o mediante programación, lo que prefiera.
+Esta guía de inicio rápido muestra cómo crear y administrar recursos de una cuenta de [SQL API](sql-api-introduction.md) para Azure Cosmos DB con una aplicación Java En primer lugar, creará una cuenta de SQL API de Azure Cosmos DB mediante Azure Portal, creará una aplicación Java con [SQL Java SDK](sql-api-sdk-async-java.md), agregará recursos a la cuenta de Cosmos DB mediante la aplicación Java. Las instrucciones que se indican en este tutorial rápido se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. Después de completar esta guía de inicio rápido, ya sabrá cómo crear y modificar las base de datos de Cosmos DB, colecciones en la interfaz de usuario o mediante programación, lo que prefiera.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,7 +36,7 @@ En esta guía de inicio rápido se crea una base de datos de documentos mediante
 
 Además: 
 
-* [Kit de desarrollo de Java (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Kit de desarrollo de Java (JDK) 1.8+](https://aka.ms/azure-jdks)
     * En Ubuntu, ejecute `apt-get install default-jdk` para instalar el JDK.
     * Asegúrese de establecer la variable de entorno JAVA_HOME para que apunte a la carpeta donde está instalado el JDK.
 * [Descargar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) un archivo binario de [Maven](http://maven.apache.org/)
@@ -70,151 +67,133 @@ Para poder crear una base de datos de documentos, debe crear una cuenta de SQL A
 
 Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación de SQL API desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
-1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
+1. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
 
     ```bash
-    md "C:\git-samples"
-    ```
-
-2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo. 
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
-3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
-
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
     ```
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Ejecutar la aplicación](#run-the-app). 
 
-Los siguientes fragmentos de código se toman del archivo C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java.
-
-* Inicialización de `DocumentClient`. [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) proporciona representación lógica del cliente para el servicio de base de datos de Azure Cosmos DB. Este cliente se usa para configurar y ejecutar solicitudes en el servicio. Las partes de `FILLME` de este código se actualizarán más adelante en la guía de inicio rápido.
+* Inicialización de `AsyncDocumentClient`. [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) proporciona una representación lógica del cliente para el servicio de base de datos de Azure Cosmos DB. Este cliente se usa para configurar y ejecutar solicitudes en el servicio.
 
     ```java
-    this.client = new DocumentClient("https://FILLME.documents.azure.com",
-            "FILLME", 
-            new ConnectionPolicy(),
-            ConsistencyLevel.Session);
+    client = new AsyncDocumentClient.Builder()
+             .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
+             .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
+             .withConnectionPolicy(ConnectionPolicy.GetDefault())
+             .withConsistencyLevel(ConsistencyLevel.Eventual)
+             .build();
     ```
 
-* Creación de [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database).
+* Creación de [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database).
 
     ```java
-    Database database = new Database();
-    database.setId(databaseName);
+    Database databaseDefinition = new Database();
+    databaseDefinition.setId(databaseName);
     
-    this.client.createDatabase(database, null);
+    client.createDatabase(databaseDefinition, null)
+            .toCompletable()
+            .await();
     ```
 
-* Creación de [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection).
+* Creación de [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection).
 
     ```java
-    DocumentCollection collectionInfo = new DocumentCollection();
-    collectionInfo.setId(collectionName);
+    DocumentCollection collectionDefinition = new DocumentCollection();
+    collectionDefinition.setId(collectionName);
 
-    ...
+    //...
 
-    this.client.createCollection(databaseLink, collectionInfo, requestOptions);
+    client.createCollection(databaseLink, collectionDefinition, requestOptions)
+            .toCompletable()
+            .await();
     ```
 
-* Creación de documentos mediante el método [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument).
+* Creación de documentos mediante el método [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document).
 
     ```java
-    // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
+    // Any Java object within your code
+    // can be serialized into JSON and written to Azure Cosmos DB
     Family andersenFamily = new Family();
     andersenFamily.setId("Andersen.1");
     andersenFamily.setLastName("Andersen");
     // More properties
 
     String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    this.client.createDocument(collectionLink, family, new RequestOptions(), true);
+    client.createDocument(collectionLink, family, null, true)
+            .toCompletable()
+            .await();
+
     ```
 
-* Las consultas SQL a través de JSON se realizan con el método [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
+* Las consultas SQL a través de JSON se realizan con el método [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable).
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
     queryOptions.setPageSize(-1);
     queryOptions.setEnableCrossPartitionQuery(true);
+    queryOptions.setMaxDegreeOfParallelism(-1);
 
-    String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    FeedResponse<Document> queryResults = this.client.queryDocuments(
-        collectionLink,
-        "SELECT * FROM Family WHERE Family.lastName = 'Andersen'", queryOptions);
+    String collectionLink = String.format("/dbs/%s/colls/%s",
+            databaseName,
+            collectionName);
+    Iterator<FeedResponse<Document>> it = client.queryDocuments(
+            collectionLink,
+            "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+            queryOptions).toBlocking().getIterator();
 
     System.out.println("Running SQL query...");
-    for (Document family : queryResults.getQueryIterable()) {
-        System.out.println(String.format("\tRead %s", family));
+    while (it.hasNext()) {
+        FeedResponse<Document> page = it.next();
+        System.out.println(
+                String.format("\tRead a page of results with %d items",
+                        page.getResults().size()));
+        for (Document doc : page.getResults()) {
+            System.out.println(String.format("\t doc %s", doc));
+        }
     }
     ```    
 
-## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
-
-Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada.
-
-1. En [Azure Portal](http://portal.azure.com/), haga clic en **Claves**. 
-
-    Utilice los botones de copia en el lado derecho de la pantalla para copiar el valor superior, el URI.
-
-    ![Visualización y copia de una clave de acceso en Azure Portal, página Claves](./media/create-sql-api-java/keys.png)
-
-2. Abra el archivo `Program.java` desde la carpeta C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. 
-
-3. Pegue el valor del URI desde el portal en `https://FILLME.documents.azure.com` en la línea 45.
-
-4. Vuelva al portal y copie el valor de clave principal, como se muestra en la captura de pantalla. Pegue el valor de clave principal desde el porta en `FILLME` en la línea 46.
-
-    El método getStartedDemo debe tener un aspecto similar a este: 
-    
-    ```java
-    private void getStartedDemo() throws DocumentClientException, IOException {
-        this.client = new DocumentClient("https://youraccountname.documents.azure.com:443/",
-                "your-primary-key...RJhQrqQ5QQ==", 
-                new ConnectionPolicy(),
-                ConsistencyLevel.Session);
-    ```
-
-5. Guarde el archivo Program.java.
-
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 
-1. En la ventana del terminal de git, use `cd` para cambiar a la carpeta azure-cosmos-db-documentdb-java-getting-started.
+Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión e iniciar la aplicación con la información del punto de conexión. Esto permite que la aplicación se comunique con la base de datos hospedada.
 
-    ```git
-    cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
+
+1. En la ventana de terminal de GIT, `cd` a la carpeta del código de ejemplo.
+
+    ```bash
+    cd azure-cosmos-db-sql-api-async-java-getting-started/azure-cosmosdb-get-started
     ```
 
 2. En la ventana del terminal de GIT, use el comando siguiente para instalar los paquetes Java necesarios.
 
-    ```
+    ```bash
     mvn package
     ```
 
-3. En la ventana de terminal de GIT, use el siguiente comando para iniciar la aplicación de Java.
+3. En la ventana del terminal de GIT, use el siguiente comando para iniciar la aplicación Java (reemplace YOUR_COSMOS_DB_HOSTNAME por el valor del identificador URI del portal, y reemplace YOUR_COSMOS_DB_MASTER_KEY por la clave principal del portal)
 
-    ```
-    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```bash
+    mvn exec:java -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
+
     ```
 
     La ventana del terminal muestra una notificación de que se ha creado la base de datos FamilyDB. 
     
 4. Presione una tecla para crear la base de datos y otra para crear la colección. 
 
-    Al final del programa que se eliminan todos los recursos, así que debe volver al Explorador de datos del explorador para ver que ahora contiene la base de datos FamilyDB y la colección FamilyCollection.
+    Vuelva al Explorador de datos del explorador para ver que ahora contiene la base de datos FamilyDB y la colección FamilyCollection.
 
 5. Cambie a la ventana de consola y presione una tecla para crear el primer documento y, después, otra tecla para crear el segundo. Luego, vuelva al Explorador de datos para verlos. 
 
 6. Presione una tecla para ejecutar una consulta y ver los resultados en la ventana de consola. 
 
-7. La siguiente tecla que presiona elimina los recursos. Si desea conservar los recursos puede presionar CTRL+C en la ventana de consola para finalizar el programa. De lo contrario, presione cualquier tecla para eliminar los recursos de su cuenta para que no se le realice ningún cargo. 
+7. La aplicación no elimina los recursos creados. Vuelva al portal para [limpiar los recursos](#clean-up-resources).  desde su cuenta para que no incurrir en gastos.
 
-    ![Salida de consola](./media/create-sql-api-java/console-output.png)
+    ![Salida de consola](./media/create-sql-api-java/rxjava-console-output.png)
 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
@@ -231,5 +210,3 @@ En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos
 
 > [!div class="nextstepaction"]
 > [Importación de datos a Azure Cosmos DB](import-data.md)
-
-

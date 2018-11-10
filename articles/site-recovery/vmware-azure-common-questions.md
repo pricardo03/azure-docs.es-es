@@ -1,23 +1,22 @@
 ---
-title: 'Preguntas frecuentes: replicación de VMware en Azure con Azure Site Recovery | Microsoft Docs'
-description: En este artículo se resumen las preguntas frecuentes al replicar máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery
-services: site-recovery
+title: 'Preguntas comunes: recuperación ante desastres de VMware a Azure con Azure Site Recovery | Microsoft Docs'
+description: En este artículo se resumen las preguntas comunes al configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388449"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215453"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
-En este artículo se responden las preguntas frecuentes que vemos al replicar máquinas virtuales de VMware locales en Azure. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+En este artículo se proporcionan respuestas a preguntas comunes que podemos observar al implementar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="general"></a>General

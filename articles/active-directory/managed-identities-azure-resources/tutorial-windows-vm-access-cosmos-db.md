@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: d5a0bbabc69bd4d8c347aa07ff2bb41c8f6e09ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b0115d26937f291ca096c6d12ad7c0c4daea578d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967802"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420632"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Cosmos DB
 
@@ -68,13 +68,12 @@ A continuación, agregue una colección de datos en la cuenta de Cosmos DB que p
 
 Cosmos DB no admite la autenticación de Azure AD de forma nativa. No obstante, puede usar una identidad administrada asignada por el sistema para recuperar una clave de acceso de Cosmos DB desde Resource Manager y usar dicha clave para acceder a Cosmos DB. En este paso, va a conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a las claves de la cuenta de Cosmos DB.
 
-Para conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a la cuenta de Cosmos DB en Azure Resource Manager mediante PowerShell, actualice los valores de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<COSMOS DB ACCOUNT NAME>` para su entorno. Reemplace `<PRINCIPALID>` por la propiedad `principalId` que devuelve el comando `az resource show` en [Recuperación de principalID de la identidad administrada asignada por el sistema de la máquina virtual Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB admite dos niveles de granularidad en las claves de acceso: acceso de lectura y escritura a la cuenta y acceso de solo lectura a la cuenta.  Asigne el rol `DocumentDB Account Contributor` si desea obtener claves de lectura y escritura para la cuenta o bien asigne el rol `Cosmos DB Account Reader Role` si desea obtener claves de solo lectura para la cuenta:
+Para conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a la cuenta de Cosmos DB en Azure Resource Manager mediante PowerShell, actualice los valores de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<COSMOS DB ACCOUNT NAME>` para su entorno. Cosmos DB admite dos niveles de granularidad en las claves de acceso: acceso de lectura y escritura a la cuenta y acceso de solo lectura a la cuenta.  Asigne el rol `DocumentDB Account Contributor` si desea obtener claves de lectura y escritura para la cuenta o bien asigne el rol `Cosmos DB Account Reader Role` si desea obtener claves de solo lectura para la cuenta.  Para este tutorial, asigne `Cosmos DB Account Reader Role`:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
-New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
+New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
-
 ## <a name="get-an-access-token-using-the-windows-vm-system-assigned-managed-identity-to-call-azure-resource-manager"></a>Obtener un token de acceso mediante una identidad administrada asignada por el sistema de la máquina virtual Windows para llamar a Azure Resource Manager
 
 En el resto del tutorial, vamos a trabajar desde la máquina virtual que se creó anteriormente. 
@@ -88,30 +87,30 @@ También necesitará instalar la versión más reciente de la [CLI de Azure](htt
 3. Ahora que ha creado una **conexión a Escritorio remoto** con la máquina virtual, abra PowerShell en la sesión remota.
 4. Mediante el comando Invoke-WebRequest de Powershell, realice una solicitud al punto de conexión local de Managed Identities for Azure Resources y obtenga un token de acceso para Azure Resource Manager.
 
-    ```powershell
-        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
-    ```
+   ```powershell
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
+   ```
 
-    > [!NOTE]
-    > El valor del parámetro "resource" debe coincidir exactamente con el que Azure AD espera. Al usar el id. de recurso de Azure Resource Manager, debe incluir la barra diagonal final en el URI.
+   > [!NOTE]
+   > El valor del parámetro "resource" debe coincidir exactamente con el que Azure AD espera. Al usar el id. de recurso de Azure Resource Manager, debe incluir la barra diagonal final en el URI.
     
-    A continuación, extraiga el elemento "Content", que se almacena como una cadena con formato de notación de objetos JavaScript (JSON) en el objeto $response. 
+   A continuación, extraiga el elemento "Content", que se almacena como una cadena con formato de notación de objetos JavaScript (JSON) en el objeto $response. 
     
-    ```powershell
-    $content = $response.Content | ConvertFrom-Json
-    ```
-    Luego, extraiga el token de acceso de la respuesta.
+   ```powershell
+   $content = $response.Content | ConvertFrom-Json
+   ```
+   Luego, extraiga el token de acceso de la respuesta.
     
-    ```powershell
-    $ArmToken = $content.access_token
-    ```
+   ```powershell
+   $ArmToken = $content.access_token
+   ```
 
 ## <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
 
 Ahora, utilice PowerShell para llamar a Resource Manager mediante el token de acceso que se recuperó en la sección anterior, para recuperar la clave de acceso de la cuenta de Cosmos DB. Una vez que tenemos la clave de acceso, podemos realizar consultas en Cosmos DB. Asegúrese de reemplazar los valores de los parámetros `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<COSMOS DB ACCOUNT NAME>` con sus propios valores. Reemplace el valor de `<ACCESS TOKEN>` por el token de acceso que se recuperó anteriormente.  Si quiere recuperar claves de lectura y escritura, use el tipo de operación de claves `listKeys`.  Si quiere recuperar claves de solo lectura, use el tipo de operación de claves `readonlykeys`:
 
 ```powershell
-Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
+Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
 La respuesta proporciona la lista de claves.  Por ejemplo, si obtiene las claves de solo lectura:
 

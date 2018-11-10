@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632832"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421261"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -47,7 +47,7 @@ Haga clic en **Todos los recursos** para abrir la hoja Información general del 
 ## <a name="setup"></a>Creación de una prueba de ping de la dirección URL
 Abra la hoja Disponibilidad y agregue una prueba.
 
-![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **La dirección URL** puede ser cualquier página web que desee probar, pero debe ser visible desde la red pública de Internet. La dirección URL puede incluir una cadena de consulta. Así, por ejemplo, se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguimos, hasta 10 redirecciones.
 * **Analizar solicitudes dependientes**: si se activa esta opción, la prueba solicitará imágenes, scripts, archivos de estilo y otros archivos que forman parte de la página web en pruebas. El tiempo de respuesta registrado incluye el tiempo dedicado a obtener estos archivos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera. Si la opción no está activada, la prueba solo solicita el archivo en la dirección URL que especificó.
@@ -56,10 +56,10 @@ Abra la hoja Disponibilidad y agregue una prueba.
 
 * **Frecuencia de prueba**: establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia predeterminada de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.
 
-* **ubicaciones de prueba** son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. Elija más de una de tal forma que pueda distinguir los problemas del sitio web a partir de los problemas de red. Puede seleccionar hasta 16 ubicaciones.
+* **ubicaciones de prueba** son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. El número mínimo de ubicaciones de prueba recomendadas es cinco con el fin de asegurarse de que puede distinguir los problemas del sitio web de los problemas de la red. Puede seleccionar hasta 16 ubicaciones.
 
-> [!NOTE] 
-> * Se recomienda probar varias ubicaciones para evitar falsas alarmas que sean resultado de problemas transitorios con una ubicación específica.
+> [!NOTE]
+> * Se recomienda probar desde varias ubicaciones con un mínimo de cinco ubicaciones. Esto es para evitar falsas alarmas que pueden deberse a problemas transitorios con una ubicación específica. Además, hemos descubierto que la configuración óptima es que el número de ubicaciones de prueba sea igual que el umbral de ubicación de la alerta + 2. 
 > * Al habilitar la opción "Analizar solicitudes dependientes", se realiza una comprobación más estricta. Podría producirse un error en la prueba para los casos que puede que no sean evidentes al examinar el sitio de forma manual.
 
 * **Criterios de éxito**:
@@ -70,10 +70,12 @@ Abra la hoja Disponibilidad y agregue una prueba.
 
     **Coincidencia de contenido**: una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
 
+* **Umbral de ubicación de la alerta**: se recomienda un mínimo de entre tres y cinco ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba** - 2, con un mínimo de cinco ubicaciones de prueba.
+
 ## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.
 
-> [!NOTE] 
+> [!NOTE]
 > Las pruebas web de varios pasos conllevan un coste. [Esquema de precios](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 

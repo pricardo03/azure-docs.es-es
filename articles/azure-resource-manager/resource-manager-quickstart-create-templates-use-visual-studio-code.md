@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 092b6f2c3267a2c2cd2cc6304133134825bb7261
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458146"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230162"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
 
@@ -81,15 +81,15 @@ Para saber cómo editar una plantilla mediante Visual Studio Code, puede agregar
     }
     ```
 
-    Si ha copiado y pegado el código dentro de Visual Studio Code, intente volver a escribir el elemento **value** para probar la funcionalidad de Intellisense de la extensión de herramientas de Resource Manager.
+    Si ha copiado y pegado el código en Visual Studio Code, intente volver a escribir el elemento **value** para probar la funcionalidad IntelliSense de la extensión de herramientas de Resource Manager.
 
-    ![Intellisense de Visual Studio Code de la plantilla de Resource Manager](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![Plantilla de Resource Manager visual studio code IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Seleccione **File**>**Guardar** para guardar los cambios.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Existen muchos métodos para la implementación de plantillas.  En esta guía de inicio rápido, va a utilizar Azure Cloud Shell. Cloud Shell es compatible con la CLI de Azure y Azure PowerShell. 
+Existen muchos métodos para la implementación de plantillas.  En esta guía de inicio rápido, va a utilizar Azure Cloud Shell. Cloud Shell es compatible con la CLI de Azure y Azure PowerShell.
 
 1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
