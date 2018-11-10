@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142596"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227984"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -77,7 +77,7 @@ Tiene varias opciones si desea copiar una instancia de API Management a una nuev
 Sí, puede administrar API Management mediante programación utilizando:
 
 * La [API de REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
-* El [SDK de la biblioteca de administración del servicio Microsoft Azure ApiManagement](http://aka.ms/apimsdk).
+* El [SDK de la biblioteca de administración del servicio Microsoft Azure ApiManagement](https://aka.ms/apimsdk).
 * Los cmdlets de [implementación del servicio](https://docs.microsoft.com/powershell/module/wds) y [administración del servicio](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) de PowerShell.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>¿Cómo se puede agregar un usuario al grupo de administradores?
@@ -104,7 +104,7 @@ Para configurar varios entornos; por ejemplo, un entorno de prueba y un entorno 
 * Hospedar las mismas API en diferentes inquilinos.
 
 ### <a name="can-i-use-soap-with-api-management"></a>¿Se puede usar SOAP con API Management?
-Ahora se admite el [paso a través de SOAP](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/). Los administradores pueden importar el WSDL de su servicio SOAP, y Azure API Management creará un front-end SOAP. Ahora hay documentación del portal para desarrolladores, la consola de prueba, las directivas y el análisis disponible para los servicios SOAP.
+Ahora se admite el [paso a través de SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/). Los administradores pueden importar el WSDL de su servicio SOAP, y Azure API Management creará un front-end SOAP. Ahora hay documentación del portal para desarrolladores, la consola de prueba, las directivas y el análisis disponible para los servicios SOAP.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>¿Es constante la dirección IP de la puerta de enlace de API Management? ¿Puedo usarla en las reglas de firewall?
 En todos los niveles de API Management, la dirección IP pública (VIP) del inquilino de API Management es estática para la vigencia del inquilino, con algunas excepciones. La dirección IP cambia en estas circunstancias:
@@ -126,7 +126,7 @@ Para más información sobre cómo configurar un servidor de autorización de OA
 API Management usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance) en las implementaciones en varias ubicaciones geográficas. El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Aprenda más acerca de los métodos de enrutamiento en [Métodos de enrutamiento de tráfico de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?
-Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management Service](http://aka.ms/apimtemplate).
+Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management Service](https://aka.ms/apimtemplate).
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>¿Se puede usar un certificado SSL autofirmado para un back-end?
 Sí. Puede hacerse a través de PowerShell o enviando el certificado directamente a la API. Esta operación deshabilitará la validación de la cadena de certificados y le permitirá usar certificados autofirmados o firmados de forma privada cuando se comunique con los servicios back-end desde API Management.

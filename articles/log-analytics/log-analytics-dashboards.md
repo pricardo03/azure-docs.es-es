@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: bf5b37bfa2cb103ef8151203359041fa4bd10f0b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d906515214e042a09d434f02be1778c275f214a8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043337"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958141"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Creación de un panel personalizado para usarse en Log Analytics
 
@@ -88,4 +88,4 @@ Para quitar un icono, vaya a la vista Mi panel y haga clic en **Personalizar** p
 ![Quitar un mosaico](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Cree [alertas](log-analytics-alerts.md) en Log Analytics para generar notificaciones y solucionar problemas.
+* Cree [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) en Log Analytics para generar notificaciones y solucionar problemas.

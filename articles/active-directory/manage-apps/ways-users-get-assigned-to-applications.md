@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 2301c2eee2853617251053713b50f9915962027b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355445"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226858"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Asignación de usuarios a las aplicaciones
 
@@ -51,9 +51,9 @@ Para que un usuario tenga acceso a una aplicación, se le debe primero asignar a
 
 6.  Un administrador habilita [Administración de grupos de autoservicio](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) para permitir que un usuario se una a un grupo al que se ha asignado una aplicación pero solo **con la aprobación anterior de un conjunto seleccionado de aprobadores de la empresa**
 
-7.  Un administrador asigna una licencia a un usuario directamente para una aplicación original de Microsoft, como [Microsoft Office 365](http://products.office.com/)
+7.  Un administrador asigna una licencia a un usuario directamente para una aplicación original de Microsoft, como [Microsoft Office 365](https://products.office.com/)
 
-8.  Un administrador asigna una licencia a un grupo del que el usuario forma parte para una aplicación original de Microsoft, como [Microsoft Office 365](http://products.office.com/)
+8.  Un administrador asigna una licencia a un grupo del que el usuario forma parte para una aplicación original de Microsoft, como [Microsoft Office 365](https://products.office.com/)
 
 9.  Un [administrador da su consentimiento a una aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) para que la usen todos los usuarios y, a continuación, un usuario inicia sesión en ella
 

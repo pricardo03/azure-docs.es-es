@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 88537c8579a3acb2fd89a43bfcfa50be89cac5cc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e10c80f658a7297a6642e34d8f5d0abe13b0881d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114097"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748194"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -356,4 +356,4 @@ En este tutorial, ha creado un módulo de Azure Functions que contiene código p
 Puede continuar con los siguientes tutoriales para aprender otras formas en las que Azure IoT Edge puede ayudarle a convertir los datos en información empresarial en el perímetro.
 
 > [!div class="nextstepaction"]
-> [Búsqueda de promedios mediante una ventana flotante en Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Filtrado de los datos de sensor mediante código C#](tutorial-csharp-module.md)

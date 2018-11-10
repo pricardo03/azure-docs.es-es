@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853528"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741069"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 
@@ -40,7 +40,7 @@ Las reglas de filtro complejas requieren capacidad de procesamiento. En concreto
 
 ## <a name="actions"></a>Acciones
 
-Con las condiciones de filtro SQL puede definir una acción que puede anotar el mensaje mediante la adición, eliminación o sustitución de propiedades y sus valores. La acción [usa una expresión de tipo SQL](service-bus-messaging-sql-filter.md) que se basa ligeramente en la sintaxis de la instrucción UPDATE de SQL. La acción se realiza en el mensaje después de que se haya correspondido y antes de que el mensaje se seleccione en el tema. Los cambios en las propiedades del mensaje son privados para el mensaje copiado en la suscripción.
+Con las condiciones de filtro SQL puede definir una acción que puede anotar el mensaje mediante la adición, eliminación o sustitución de propiedades y sus valores. La acción [usa una expresión de tipo SQL](service-bus-messaging-sql-filter.md) que se basa ligeramente en la sintaxis de la instrucción UPDATE de SQL. La acción se realiza en el mensaje después de que se haya correspondido y antes de que el mensaje se seleccione en la suscripción. Los cambios en las propiedades del mensaje son privados para el mensaje copiado en la suscripción.
 
 ## <a name="usage-patterns"></a>Patrones de uso
 

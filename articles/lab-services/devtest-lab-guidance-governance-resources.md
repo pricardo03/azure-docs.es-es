@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2edfa84530c147e1f716aef10c967ac36eadc922
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250840"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740389"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gobierno de la infraestructura de Azure DevTest Labs: recursos
 Este artículo aborda la alineación y la administración de recursos de DevTest Labs dentro de su organización. 
@@ -67,7 +67,7 @@ Se recomienda que las unidades de negocio y los grupos de desarrollo que están 
 
 También debe tener en cuenta los límites geográficos. Por ejemplo, los desarrolladores del Nordeste de Estados Unidos (EE. UU.) pueden usar un laboratorio aprovisionado en el Este de EE. UU. 2. Además, los desarrolladores de Dallas (Texas) y Denver (Colorado) pueden ser remitidos a usar un recurso en Centro y Sur de EE. UU. Si existe algún trabajo de colaboración con un tercero externo, se les podría asignar a un laboratorio que no utilizan los desarrolladores internos. 
 
-También puede usar un laboratorio para un proyecto específico en el proyecto de equipo de Visual Studio Team Services. A continuación, aplique seguridad en un grupo específico de Azure Active Directory, lo que permite acceder a ambos conjuntos de recursos. La red virtual asignada al laboratorio puede ser otro límite para consolidar a los usuarios.
+También puede usar un laboratorio para un proyecto específico en los proyectos de Azure DevOps. A continuación, aplique seguridad en un grupo específico de Azure Active Directory, lo que permite acceder a ambos conjuntos de recursos. La red virtual asignada al laboratorio puede ser otro límite para consolidar a los usuarios.
 
 ## <a name="deletion-of-resources"></a>Eliminación de recursos
 

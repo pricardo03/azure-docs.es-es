@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091737"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228443"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ Entre los escenarios descritos se incluye el envío de notificaciones push a apl
 Para obtener más información acerca de los centros de notificaciones, consulte la sección [Pasos siguientes](#next) .
 
 ## <a name="what-are-notification-hubs"></a>¿Qué son Notification Hubs?
-Azure Notification Hubs proporciona una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones push a los dispositivos móviles. Para más información sobre la infraestructura del servicio, consulte la página de [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
+Azure Notification Hubs proporciona una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones push a los dispositivos móviles. Para más información sobre la infraestructura del servicio, consulte la página de [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, vea [Creación de una aplicación web de Node.js en Azure][nodejswebsite], [Servicio en la nube de Node.js][Node.js Cloud Service] (con Windows PowerShell) o [Sitio web con WebMatrix][webmatrix].
@@ -141,11 +141,11 @@ El objeto **MpnsService** proporciona un método **send** que se puede usar para
 * **Tags** : identificador de etiqueta. Si no se proporciona ninguna etiqueta, la notificación se envía a todos los clientes.
 * **Payload** : carga útil XML del mensaje.
 * **TargetName** - `toast` para notificaciones del sistema. `token` para notificaciones de icono.
-* **NotificationClass** : prioridad de la notificación. Consulte la sección sobre **elementos de encabezados HTTP** del documento [Pushing Notifications from a Server (Windows Phone)](http://msdn.microsoft.com/library/hh221551.aspx) (Inserción de notificaciones desde un servidor) para obtener los valores válidos.
+* **NotificationClass** : prioridad de la notificación. Consulte la sección sobre **elementos de encabezados HTTP** del documento [Pushing Notifications from a Server (Windows Phone)](https://msdn.microsoft.com/library/hh221551.aspx) (Inserción de notificaciones desde un servidor) para obtener los valores válidos.
 * **Options** : encabezados de solicitud opcionales.
 * **Callback** : función de devolución de llamada.
 
-Para obtener una lista de valores **TargetName**, **NotificationClass** y opciones de encabezado que sean válidos, consulte la página [Pushing Notifications from a Server (Windows Phone)](http://msdn.microsoft.com/library/hh221551.aspx) (Inserción de notificaciones desde un servidor para Windows Phone).
+Para obtener una lista de valores **TargetName**, **NotificationClass** y opciones de encabezado que sean válidos, consulte la página [Pushing Notifications from a Server (Windows Phone)](https://msdn.microsoft.com/library/hh221551.aspx) (Inserción de notificaciones desde un servidor para Windows Phone).
 
 En el ejemplo siguiente se usa la instancia **MpnsService** expuesta por **NotificationHubService** para enviar una notificación de inserción del sistema:
 
@@ -165,7 +165,7 @@ El objeto **WnsService** proporciona un método **send** que se puede usar para 
 * **Options** : encabezados de solicitud opcionales.
 * **Callback** : función de devolución de llamada.
 
-Para obtener una lista de tipos y encabezados de solicitud válidos, consulte [Encabezados de respuesta y solicitud del servicio de notificaciones de inserción (aplicaciones de Windows en tiempo de ejecución)](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Para obtener una lista de tipos y encabezados de solicitud válidos, consulte [Encabezados de respuesta y solicitud del servicio de notificaciones de inserción (aplicaciones de Windows en tiempo de ejecución)](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 El código siguiente usa la instancia **WnsService** expuesta por **NotificationHubService** para enviar una notificación de inserción del sistema a una aplicación para UWP:
 

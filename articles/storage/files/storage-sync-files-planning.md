@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237911"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914335"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -62,7 +62,7 @@ Un punto de conexión de nube es un recurso compartido de archivos de Azure que 
 > Azure File Sync admite realizar cambios directamente en el recurso compartido de archivos de Azure. Sin embargo, los cambios realizados en el recurso compartido de archivos de Azure primero deben ser detectados por un trabajo de detección de cambios de Azure File Sync. Se inicia un trabajo de detección de cambios para un punto de conexión en la nube solo una vez cada 24 horas. Además, los cambios realizados en un recurso compartido de archivos de Azure a través del protocolo de REST no actualizarán la hora de la última modificación de SMB y no se verán como cambios derivados de la sincronización. Para obtener más información, consulte [Preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Niveles de nube 
-Nube por niveles es una característica opcional de Azure File Sync que almacena en caché los archivos a los que se accede con frecuencia de forma local en el servidor, y organiza el resto de archivos por niveles en Azure Files, en función de la configuración de la directiva. Para saber más, vea [Cloud Tiering Overview](storage-sync-cloud-tiering.md) (Introducción a nube por niveles).
+La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Para saber más, vea [Cloud Tiering Overview](storage-sync-cloud-tiering.md) (Introducción a nube por niveles).
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos del sistema de Azure File Sync e interoperabilidad 
 En esta sección se tratan los requisitos del sistema del agente de Azure File Sync y la interoperabilidad con las características y roles de Windows Server y las soluciones de terceros.
@@ -242,7 +242,9 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Asia oriental | Hong Kong |
 | Este de EE. UU | Virginia |
 | Este de EE. UU. 2 | Virginia |
+| Centro-Norte de EE. UU | Illinois |
 | Europa del Norte | Irlanda |
+| Centro-Sur de EE. UU | Texas |
 | Sur de la India | Chennai |
 | Sudeste asiático | Singapur |
 | Sur de Reino Unido 2 | Londres |
@@ -269,6 +271,7 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | Este de EE. UU             | Oeste de EE. UU.            |
 | Este de EE. UU. 2           | Centro de EE. UU.         |
 | Europa del Norte        | Europa occidental        |
+| Centro-Norte de EE. UU    | Centro-Sur de EE. UU   |
 | Sur de la India         | India Central      |
 | Sudeste asiático      | Asia oriental          |
 | Sur de Reino Unido 2            | Oeste de Reino Unido            |

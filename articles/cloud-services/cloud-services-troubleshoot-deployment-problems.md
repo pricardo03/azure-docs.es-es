@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095004"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226947"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Solución de problemas de implementación de servicios en la nube
 Al implementar un paquete de aplicación del servicio en la nube en Azure, puede obtener información sobre la implementación en el panel **Propiedades** del Portal de Azure. Puede usar los detalles de este panel para ayudarle a solucionar problemas con el servicio en la nube y proporcionar esta información al soporte técnico de Azure al abrir una nueva solicitud de soporte técnico.
@@ -50,7 +50,7 @@ Se produce automáticamente una recuperación del servicio cuando Azure detecta 
 2. En el panel **Propiedades** del Portal de Azure, revise la información y determine si la recuperación del servicio se produjo mientras observaba el reciclaje de roles.
 
 Los roles también se reciclarán aproximadamente una vez al mes durante las actualizaciones del sistema operativo del host y del sistema operativo invitado.  
-Para obtener más información, consulte la entrada del blog [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Para obtener más información, consulte la entrada del blog [Role Instance Restarts Due to OS Upgrades](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: No puedo realizar un intercambio de VIP y recibo un error
 No se permite un intercambio de VIP si una actualización de implementación está en curso. Las actualizaciones de implementación pueden ocurrir automáticamente cuando:
@@ -68,14 +68,14 @@ Para averiguar si alguna actualización automática impide la realización de un
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Una instancia de rol entra en un bucle entre Iniciado, Inicializando, Ocupado y Detenido
 Esta condición puede indicar un problema con el código de la aplicación, el paquete o el archivo de configuración. En ese caso, podría ver que el estado cambia cada pocos minutos y en Azure Portal puede aparecer algo como **Reciclando**, **Ocupado** o **Inicializando**. Esto indica que hay algún problema con la aplicación que impide que la instancia de rol se ejecute.
 
-Para más información acerca de cómo solucionar este problema, consulte la entrada de blog [Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) (Datos de diagnóstico de proceso de PaaS de Azure) y [Problemas comunes que causan el reciclaje de los roles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Para más información acerca de cómo solucionar este problema, consulte la entrada de blog [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) (Datos de diagnóstico de proceso de PaaS de Azure) y [Problemas comunes que causan el reciclaje de los roles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## <a name="problem-my-application-stopped-working"></a>Problema: Mi aplicación dejó de funcionar
 1. En el Portal de Azure, haga clic en la instancia de rol.
 2. En el panel **Propiedades** del Portal de Azure, tenga en cuenta las condiciones siguientes para resolver el problema:
    * Si la instancia de rol se detuvo recientemente (puede comprobar el valor de **Recuento de anulados**), la implementación puede estar actualizándose. Espere para ver si la instancia de rol reanuda el funcionamiento por sí misma.
    * Si la instancia de rol está en estado **Ocupado**, compruebe el código de aplicación para ver si se controla el evento [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) . Debe agregar o corregir el código que controla este evento.
-   * Revise los datos de diagnóstico y los escenarios de solución de problemas en la entrada del blog [Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)(Datos de diagnóstico de proceso de PaaS de Azure).
+   * Revise los datos de diagnóstico y los escenarios de solución de problemas en la entrada del blog [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)(Datos de diagnóstico de proceso de PaaS de Azure).
 
 > [!WARNING]
 > Si recicla el servicio en la nube, se restablecen las propiedades de la implementación, con lo que se elimina eficazmente la información del problema original.
@@ -85,4 +85,4 @@ Para más información acerca de cómo solucionar este problema, consulte la ent
 ## <a name="next-steps"></a>Pasos siguientes
 Vea más [artículos de solución de problemas](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) para servicios en la nube.
 
-Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

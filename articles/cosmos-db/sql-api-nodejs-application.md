@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación web de Node.js para Azure Cosmos DB | Microsoft Docs
+title: Creación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB | Microsoft Docs
 description: Este tutorial de Node.js explora cómo usar Microsoft Azure Cosmos DB para almacenar datos de una aplicación web Node.js Express hospedada en Azure Websites y acceder a ellos.
 services: cosmos-db
 author: SnehaGunda
@@ -9,14 +9,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 82711ea96f6b3f8544a411ed1b6636c8473ed7e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c99b7d1ef774e20a49564db269555bab95789a3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957353"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741798"
 ---
-# <a name="_Toc395783175"></a>Compilación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar los datos de API DE SQL de Azure Cosmos DB
+# <a name="tutorial-build-a-nodejs-web-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Creación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,27 +26,33 @@ ms.locfileid: "46957353"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-En este tutorial de Node.js se muestra cómo usar la cuenta API de SQL de Azure Cosmos DB para almacenar y acceder a los datos de una aplicación Node.js Express hospedada en Azure Websites. En este tutorial, creará una sencilla aplicación basada en web (aplicación Todo), que le permite crear, recuperar y completar tareas. Las tareas se almacenan como documentos JSON en Azure Cosmos DB. La imagen a continuación muestra una captura de pantalla de la aplicación Todo:
+En este tutorial de Node.js se muestra cómo almacenar a los datos, y acceder a ellos, en la cuenta de SQL API de Azure Cosmos DB mediante una aplicación Node.js Express hospedada en Azure Websites. En este tutorial, creará una aplicación basada en web (aplicación Todo), que le permite crear, recuperar y completar tareas. Las tareas se almacenan como documentos JSON en Azure Cosmos DB. 
 
-![Captura de pantalla de la aplicación My Todo List creada en este tutorial de Node.js](./media/sql-api-nodejs-application/cosmos-db-node-js-mytodo.png)
+En este tutorial se muestra cómo crear una cuenta de SQL API de Azure Cosmos DB con Azure Portal. A continuación se compila y ejecuta una aplicación web que se basa en el SDK de Node.js para crear la base de datos, el contenedor y agregar elementos al contenedor. Este tutorial utiliza la versión 2.0 del SDK de JavaScript.
 
-En este tutorial se muestra cómo crear una cuenta API de SQL de Azure Cosmos DB con Azure Portal. A continuación se compila y ejecuta una aplicación web que se basa en el SDK de Node.js para crear la base de datos, el contenedor y agregar elementos al contenedor. En este tutorial se usa la versión 2.0 del SDK de JavaScript.
+También puede obtener el ejemplo completo de [GitHub][GitHub] y ver el archivo [Léame](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) para obtener instrucciones sobre cómo ejecutar la aplicación.
 
-También puede obtener el ejemplo completo en [GitHub][GitHub]. Solo tiene que leer el archivo [Léame](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) para obtener instrucciones sobre cómo ejecutar la aplicación.
+En este tutorial se describen las tareas siguientes:
+
+> [!div class="checklist"]
+> * Creación de una cuenta de Azure Cosmos DB
+> * Creación de una aplicación Node.js
+> * Conexión de una aplicación a Azure Cosmos DB
+> * Ejecución e implementación de la aplicación en Azure
 
 ## <a name="_Toc395783176"></a>Requisitos previos
 
-Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
+Antes de seguir las instrucciones del presente artículo, asegúrese de tener los siguientes recursos:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js], versión 6.10 o posterior.
-* [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalarlo mediante `npm install express-generator -g`)
-* [Git][Git].
+* [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalar Express mediante `npm install express-generator -g`)
+* Instale [Git][Git] en la estación de trabajo local.
 
-## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de Azure Cosmos DB
+## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
 Para comenzar, creemos una cuenta de Azure Cosmos DB. Si ya tiene una cuenta o si usa el Emulador de Azure Cosmos DB en este tutorial, puede ir directamente al [Paso 2: Creación de una nueva aplicación Node.js](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -57,33 +63,37 @@ Para comenzar, creemos una cuenta de Azure Cosmos DB. Si ya tiene una cuenta o s
 Ahora aprendamos a crear un proyecto Node.js básico de Hello World usando el marco [Express](http://expressjs.com/) .
 
 1. Abra su terminal favorito como, por ejemplo, el símbolo del sistema de Node.js.
-2. Navegue hasta el directorio en el que desea almacenar la nueva aplicación.
-3. Use Express Generator para generar una nueva aplicación denominada **todo**.
+
+1. Navegue hasta el directorio en el que desea almacenar la nueva aplicación.
+
+1. Use Express Generator para generar una nueva aplicación denominada **todo**.
 
    ```bash
    express todo
    ```
-4. Abra el nuevo directorio **todo** e instale las dependencias.
+
+1. Abra el directorio **todo** e instale las dependencias.
 
    ```bash
    cd todo
    npm install
    ```
-5. Ejecute la nueva aplicación.
+
+1. Ejecute la nueva aplicación.
 
    ```bash
    npm start
    ```
 
-6. Para ver la nueva aplicación, vaya a [http://localhost:3000](http://localhost:3000) desde el explorador.
+1. Para ver la nueva aplicación, vaya a [http://localhost:3000](http://localhost:3000) desde el explorador.
    
-    ![Aprendizaje de Node.js - Captura de pantalla de la aplicación Hello World en una ventana del explorador](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
+   ![Aprendizaje de Node.js - Captura de pantalla de la aplicación Hello World en una ventana del explorador](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Para detener la aplicación utilice CTRL+C en la ventana del terminal y haga clic en **y** para finalizar el trabajo por lotes.
+ Para detener la aplicación utilice CTRL+C en la ventana del terminal y seleccione **y** para finalizar el trabajo por lotes.
 
 ## <a name="_Toc395783179"></a>Paso 3: Instalación de los módulos necesarios
 
-El archivo **package.json** es uno de los archivos creados en la raíz del proyecto. Este archivo contiene una lista de módulos adicionales necesarios para una aplicación Node.js. Posteriormente, cuando implemente esta aplicación en Azure Websites, este archivo se usará para determinar qué módulos se deben instalar en Azure para ofrecer respaldo a su aplicación. Tiene que instalar dos paquetes más para este tutorial.
+El archivo **package.json** es uno de los archivos creados en la raíz del proyecto. Este archivo contiene una lista de módulos adicionales necesarios para una aplicación Node.js. Cuando implemente esta aplicación en Azure, este archivo se usará para determinar qué módulos se deben instalar en Azure para ofrecer respaldo a su aplicación. Instale dos paquetes más para este tutorial.
 
 1. Abra el terminal, instale el módulo **async** mediante npm.
 
@@ -97,7 +107,7 @@ El archivo **package.json** es uno de los archivos creados en la raíz del proye
    npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>Paso 4: Uso del servicio Azure Cosmos DB en una aplicación de Node
+## <a name="_Toc395783180"></a>Paso 4: Conexión a la aplicación Node.js en Azure Cosmos DB
 Ahora que ha completado la instalación y configuración iniciales, a continuación escribirá código que la aplicación de tareas pendientes (Todo) necesita para comunicarse con Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Crear el modelo
@@ -185,7 +195,7 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
 
 1. En el directorio **routes** del nuevo proyecto, cree un nuevo archivo denominado **tasklist.js**.  
 
-2. Agregue el siguiente código a **tasklist.js**. Esto carga los módulos CosmosClient y async, que utiliza **tasklist.js**. También define la clase **TaskList**, que pasa como una instancia del objeto **TaskDao** que definimos anteriormente:
+2. Agregue el siguiente código a **tasklist.js**. Este código carga los módulos CosmosClient y async, que utiliza **tasklist.js**. Este código también define la clase **TaskList**, que pasa como una instancia del objeto **TaskDao** que definimos anteriormente:
    
    ```nodejs
    const TaskDao = require("../models/TaskDao");
@@ -272,9 +282,10 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
 4. Guarde y cierre el archivo **config.js** .
 
 ### <a name="modify-appjs"></a>Modificar app.js
+
 1. En el directorio del proyecto, abra el archivo **app.js** . Este archivo se creó anteriormente, cuando se creó la aplicación web de Express.  
 
-2. Agregue el código siguiente al archivo **app.js**. Este código determina el archivo de configuración que se debe usar. Además, lee los valores de este archivo en algunas variables que usaremos pronto. 
+2. Agregue el código siguiente al archivo **app.js**. Este código define el archivo de configuración que se va a utilizar y carga los valores en algunas variables que se utilizarán en las secciones siguientes. 
    
    ```nodejs
    const CosmosClient = require("@azure/cosmos").CosmosClient;
@@ -347,14 +358,15 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
    module.exports = app;
    ```
 
-3. Por último, guarde y cierre el archivo **app.js**. Estamos a punto de terminar.
+3. Por último, guarde y cierre el archivo **app.js**.
 
 ## <a name="_Toc395783181"></a>Paso 5: Creación de una interfaz de usuario
-Ahora dirijamos nuestra atención a la generación de la interfaz de usuario para que un usuario pueda realmente interactuar con nuestra aplicación. La aplicación Express que hemos creado utiliza **Jade** como motor de vistas. Para obtener más información sobre Jade, consulte [http://jade-lang.com/](http://jade-lang.com/).
 
-1. El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap](https://github.com/twbs/bootstrap), un kit de herramientas que facilita el diseño de un sitio web atractivo.  
+Ahora vamos a crear la interfaz de usuario para que un usuario pueda interactuar con la aplicación. La aplicación Express que hemos creado en las secciones anteriores utiliza **Jade** como motor de vistas. Para más información sobre Jade, consulte [Lenguaje Jade](http://jade-lang.com/).
 
-2. Abra el archivo **layout.jade** que se encuentra en la carpeta **views** y reemplace el contenido con lo siguiente:
+1. El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap](https://github.com/twbs/bootstrap), que es un kit de herramientas que se utiliza para diseñar un sitio web.  
+
+2. Abra el archivo **layout.jade** que se encuentra en la carpeta **views** y reemplace el contenido por el código siguiente:
 
    ```html
    doctype html
@@ -372,11 +384,9 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    Esto indica al motor **Jade** que represente HTML de nuestra aplicación y que cree un **block** llamado **content** donde podemos especificar el diseño de nuestras páginas de contenido.
+    Este código indica al motor **Jade** que represente HTML de nuestra aplicación y que cree un **block** llamado **content** donde podemos especificar el diseño de nuestras páginas de contenido. Guarde y cierre este archivo **layout.jade**.
 
-    Guarde y cierre este archivo **layout.jade** .
-
-3. Ahora abra el archivo **index.jade** , la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por lo siguiente:
+3. Ahora abra el archivo **index.jade**, la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por el código siguiente:
 
    ```html
    extends layout
@@ -420,52 +430,58 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
           button.btn(type="submit") Add item
    ```
 
-Esto amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**.
-   
-En este diseño hemos creado dos formularios HTML.
+Este código amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**. En este diseño hemos creado dos formularios HTML.
 
-El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completeTask** de nuestro controlador.
+El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos mediante la publicación en el método **/completeTask** de nuestro controlador.
     
-El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
-
-Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
+El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador. Eso es todo lo que necesitamos para que funcione la aplicación.
 
 ## <a name="_Toc395783181"></a>Paso 6: Ejecución de la aplicación de forma local
-1. Para probar la aplicación en el equipo local, ejecute `npm start` en el terminal para iniciar la aplicación y, a continuación, actualice la página del explorador [http://localhost:3000](http://localhost:3000). La página se debería parecer a la de la imagen siguiente:
+
+1. Para probar la aplicación en el equipo local, ejecute `npm start` en el terminal para iniciar la aplicación y, a continuación, actualice la página del explorador [http://localhost:3000](http://localhost:3000). La página debe parecerse a lo que se muestra en la siguiente captura de pantalla:
    
     ![Captura de pantalla de la aplicación MyTodo List en una ventana del explorador](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > Si recibe un error acerca de la sangría en el archivo layout.jade o el archivo index.jade, asegúrese de que las dos primeras líneas de los dos archivos están justificadas a la izquierda, sin espacios en blanco. Si hay espacios delante de las dos primeras líneas, quítelos, guarde ambos archivos y, a continuación, actualice la ventana del explorador. 
 
-2. Utilice los campos Elemento, Nombre del elemento y Categoría para especificar una nueva tarea y, a continuación, haga clic en **Agregar elemento**. Esto crea un documento en Azure Cosmos DB con esas propiedades. 
+2. Utilice los campos Elemento, Nombre del elemento y Categoría para especificar una nueva tarea y, a continuación, seleccione **Agregar elemento**. Esto crea un documento en Azure Cosmos DB con esas propiedades. 
+
 3. La página debería actualizarse para mostrar el elemento recién creado en la lista ToDo.
    
     ![Captura de pantalla de la aplicación con un nuevo elemento en la lista de tareas pendientes](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Para completar una tarea, simplemente marque la casilla en la columna Complete y, a continuación, haga clic en **Actualizar tareas**. Con ello, se actualizará el documento que ya haya creado y lo quitará de la vista.
 
-5. Para detener la aplicación, presione CTRL+C en la ventana de terminal y, a continuación, haga clic en **Y** para finalizar el trabajo por lotes.
+4. Para completar una tarea, active la casilla en la columna Completo y, a continuación, seleccione **Actualizar tareas**. Se actualizará el documento que ya haya creado y lo quitará de la vista.
 
-## <a name="_Toc395783182"></a>Paso 7: Implementación del proyecto de desarrollo de aplicación en Azure Websites
-1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. En el tema [Implementación de Git local en Azure App Service](../app-service/app-service-deploy-local-git.md) puede encontrar instrucciones para hacerlo.
+5. Para detener la aplicación, presione CTRL+C en la ventana de terminal y, después, seleccione **Y** para finalizar el trabajo por lotes.
+
+## <a name="_Toc395783182"></a>Paso 7: Implementación de la aplicación en Azure Websites
+
+1. Si todavía no lo ha hecho, habilite un repositorio Git para el sitio web de Azure. En el tema [Implementación de Git local en Azure App Service](../app-service/app-service-deploy-local-git.md) puede encontrar instrucciones sobre cómo habilitar un repositorio Git.
+
 2. Agregue el sitio web de Azure como un git remoto.
    
-        git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
-3. Efectúe la implementación enviando los cambios al equipo remoto.
+   ```bash
+   git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
+   ```
+
+3. Implemente la aplicación llevándola al servidor remoto.
    
-        git push azure master
-4. En pocos segundos, git terminará de publicar su aplicación web y ejecutará un explorador donde podrá ver su útil trabajo ejecutándose en Azure.
+   ```bash
+   git push azure master
+   ```
 
-    Felicidades. Acaba de generar su primera aplicación web Express de Node.js mediante Azure Cosmos DB y de publicarla en Azure Websites.
+4. En unos segundos, la aplicación web se publica y se inicia en un explorador.
 
-    Si desea descargar o hacer referencia a la aplicación de referencia completa de este tutorial, la puede descargar desde [GitHub][GitHub].
+Si desea descargar o hacer referencia a la aplicación de referencia completa de este tutorial, la puede descargar desde [GitHub][GitHub].
 
 ## <a name="_Toc395637775"></a>Pasos siguientes
 
-* ¿Desea realizar pruebas de escala y de rendimiento con Azure Cosmos DB? Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md)
-* Obtenga información acerca de cómo [supervisar una cuenta de Azure Cosmos DB](monitor-accounts.md).
-* Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
-* Explore la [documentación de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
+En este tutorial, ha aprendido a crear una aplicación web de Node.js mediante el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB. Avance al siguiente artículo:
+
+> [!div class="nextstepaction"]
+> [Creación de aplicaciones móviles con Xamarin y Azure Cosmos DB](mobile-apps-with-xamarin.md)
+
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

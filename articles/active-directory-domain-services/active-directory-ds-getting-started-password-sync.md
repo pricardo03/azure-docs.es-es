@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 332ad288230654eb70e7b6ead862ed57a1cf52f7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9c37eb064fb12ff548763a9c70a2e79219113b67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155140"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227372"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Habilitación de la sincronización de los valores hash de las contraseñas con Azure Active Directory Domain Services
 En las tareas anteriores, habilitó Azure Active Directory Domain Services para su inquilino de Azure Active Directory (Azure AD). La siguiente tarea consiste en habilitar la sincronización de los valores hash de las contraseñas necesarios para la autenticación NT LAN Manager (NTLM) y Kerberos en Azure AD Domain Services. Una vez configurada la sincronización de los valores hash de las contraseñas, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
@@ -53,7 +53,7 @@ Este proceso de cambio de contraseña hace que los valores hash de las contrase�
 ### <a name="enable-ntlm-and-kerberos-password-hash-generation-for-a-cloud-only-user-account"></a>Habilitación de la generación de hash de los valores hash de las contraseñas de NTLM y Kerberos para una cuenta de usuario solo de nube
 Estas son las instrucciones que tiene que proporcionar a los usuarios finales para que puedan cambiar sus contraseñas:
 
-1. Vaya a la página [Panel de acceso de Azure AD](http://myapps.microsoft.com) para su organización.
+1. Vaya a la página [Panel de acceso de Azure AD](https://myapps.microsoft.com) para su organización.
 
     ![Inicio del panel de acceso de Azure AD](./media/active-directory-domain-services-getting-started/access-panel.png)
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418898"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958345"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Administración de los costos mediante el control del volumen de datos y la retención en Log Analytics
 
@@ -78,7 +78,7 @@ Los pasos siguientes describen cómo configurar un límite para administrar el v
 5. El límite diario está en **OFF** (Desactivado) de manera predeterminada, haga clic en **ON** (Activado) para habilitarlo y luego establezca el límite de volumen de datos en GB/día.<br><br> ![Configuración del límite de datos con Log Analytics](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Alerta cuando se alcanza el límite
-Aunque Azure Portal presenta una indicación visual cuando se alcanza el umbral de límite de datos, este comportamiento no tiene que alinearse necesariamente con la forma en la que el usuario administra los problemas de funcionamiento que requieren atención inmediata.  Para recibir una notificación de alerta, puede crear una nueva regla de alerta en Azure Monitor.  Para más información, consulte [cómo crear, ver y administrar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
+Aunque Azure Portal presenta una indicación visual cuando se alcanza el umbral de límite de datos, este comportamiento no tiene que alinearse necesariamente con la forma en la que el usuario administra los problemas de funcionamiento que requieren atención inmediata.  Para recibir una notificación de alerta, puede crear una nueva regla de alerta en Azure Monitor.  Para más información, consulte [cómo crear, ver y administrar alertas](../monitoring-and-diagnostics/alert-metric.md).      
 
 Para comenzar, esta es la configuración recomendada para la alerta:
 

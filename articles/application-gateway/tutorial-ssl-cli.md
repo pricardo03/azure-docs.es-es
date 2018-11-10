@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7fa581610e007c583dfbad512f74ad335dc21a1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3364df360926f2065af8650076e129de75934c1a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974449"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741021"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Tutorial: crear una puerta de enlace de aplicaciones con terminación SSL mediante la CLI de Azure
 
@@ -155,15 +155,17 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show).
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
 ```
+
+Copie la dirección IP pública y péguela en la barra de direcciones del explorador. En este ejemplo, la dirección URL es **https://52.170.203.149**.
 
 ![Advertencia de seguridad](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -180,14 +182,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Creación de un certificado autofirmado
-> * Configurar una red
-> * Crear una puerta de enlace de aplicaciones con el certificado
-> * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
 > [!div class="nextstepaction"]
 > [Crear una puerta de enlace de aplicaciones que hospede varios sitios web](./tutorial-multiple-sites-cli.md)

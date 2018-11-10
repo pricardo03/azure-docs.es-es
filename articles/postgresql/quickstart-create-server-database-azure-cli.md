@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 99acf6fef8ed3981ccec551a558a0b306db8a15e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fa7fca18d52d4853bd31f0bddc3a3cd6ec930664
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987841"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961040"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL con la CLI de Azure
 Azure Database for PostgreSQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra cómo crear una base de datos de Azure para el servidor PostgreSQL en un [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mediante la CLI de Azure.
@@ -132,16 +132,16 @@ El resultado está en formato JSON. Tome nota de los valores de **administratorL
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>Conectarse a la base de datos de PostgreSQL mediante psql
 
-Si el equipo cliente tiene PostgreSQL instalado, puede usar una instancia local de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) para conectarse a un servidor Azure PostgreSQL. Ahora vamos a usar la utilidad de línea de comandos psql para conectarnos al servidor Azure PostgreSQL.
+Si el equipo cliente tiene PostgreSQL instalado, puede usar una instancia local de [psql](https://www.postgresql.org/docs/current/static/app-psql.html) para conectarse a un servidor Azure PostgreSQL. Ahora vamos a usar la utilidad de línea de comandos psql para conectarnos al servidor Azure PostgreSQL.
 
 1. Ejecute el comando psql siguiente para conectarse a un servidor de Azure Database for PostgreSQL
-```azurecli-interactive
+```bash
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
   Por ejemplo, el siguiente comando se conecta a la base de datos predeterminada llamada **postgres** en el servidor PostgreSQL **mydemoserver.postgres.database.azure.com** con las credenciales de acceso. Escriba el valor de `<server_admin_password>` que eligió cuando se le solicitó una contraseña.
   
-  ```azurecli-interactive
+  ```bash
 psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 

@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307915"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748126"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -34,11 +34,11 @@ Varios factores podrían contribuir a la ralentización del rendimiento de la ap
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>¿Cómo puedo solucionar problemas en un escenario de consumo elevado de CPU?
 
-En algunos escenarios de consumo elevado de CPU, es probable que la aplicación realmente requiera más recursos informáticos. En ese caso, considere la posibilidad de escalar a un mayor nivel de servicio para que la aplicación obtenga todos los recursos necesarios. En otras ocasiones, el consumo elevado de CPU podría deberse a un bucle incorrecto o una práctica de codificación. Obtener una visión general de lo que está desencadenando ese mayor consumo de CPU es un proceso de dos partes. En primer lugar, cree un volcado de proceso y, después, analice el volcado de memoria del proceso. Para más información, consulte la entrada de blog [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/) (Captura y análisis de un archivo de volcado de memoria para un consumo elevado de CPU para Web Apps).
+En algunos escenarios de consumo elevado de CPU, es probable que la aplicación realmente requiera más recursos informáticos. En ese caso, considere la posibilidad de escalar a un mayor nivel de servicio para que la aplicación obtenga todos los recursos necesarios. En otras ocasiones, el consumo elevado de CPU podría deberse a un bucle incorrecto o una práctica de codificación. Obtener una visión general de lo que está desencadenando ese mayor consumo de CPU es un proceso de dos partes. En primer lugar, cree un volcado de proceso y, después, analice el volcado de memoria del proceso. Para más información, consulte la entrada de blog [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/) (Captura y análisis de un archivo de volcado de memoria para un consumo elevado de CPU para Web Apps).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>¿Cómo puedo solucionar problemas en un escenario de consumo elevado de memoria?
 
-En algunos escenarios de consumo elevado de memoria, es probable que la aplicación realmente requiera más recursos informáticos. En ese caso, considere la posibilidad de escalar a un mayor nivel de servicio para que la aplicación obtenga todos los recursos necesarios. En otras ocasiones, un error del código podría producir una pérdida de memoria. Una práctica de codificación también podría aumentar el consumo de memoria. Obtener una visión general de lo que está desencadenando ese mayor consumo de memoria es un proceso de dos partes. En primer lugar, cree un volcado de proceso y, después, analice el volcado de memoria del proceso. El diagnóstico de bloqueos de la galería de extensión de sitios de Azure puede realizar de manera eficaz estos dos pasos. Para más información, consulte la entrada de blog [How to capture and analyze dump for intermittent High Memory on Azure Web App](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/) (Captura y análisis de un archivo de volcado de memoria para un consumo elevado intermitente de memoria para Web Apps).
+En algunos escenarios de consumo elevado de memoria, es probable que la aplicación realmente requiera más recursos informáticos. En ese caso, considere la posibilidad de escalar a un mayor nivel de servicio para que la aplicación obtenga todos los recursos necesarios. En otras ocasiones, un error del código podría producir una pérdida de memoria. Una práctica de codificación también podría aumentar el consumo de memoria. Obtener una visión general de lo que está desencadenando ese mayor consumo de memoria es un proceso de dos partes. En primer lugar, cree un volcado de proceso y, después, analice el volcado de memoria del proceso. El diagnóstico de bloqueos de la galería de extensión de sitios de Azure puede realizar de manera eficaz estos dos pasos. Para más información, consulte la entrada de blog [How to capture and analyze dump for intermittent High Memory on Azure Web App](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/) (Captura y análisis de un archivo de volcado de memoria para un consumo elevado intermitente de memoria para Web Apps).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>¿Cómo se puede automatizar App Service Web Apps mediante PowerShell?
 

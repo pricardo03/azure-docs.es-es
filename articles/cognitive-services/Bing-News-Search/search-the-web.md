@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227865"
 ---
 # <a name="what-is-bing-news-search"></a>¿Qué es Bing News Search API?
 
@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 
 Si es la primera vez que llama a cualquiera de las API de Bing, no incluya el encabezado de identificador de cliente. Solo debe incluir el identificador de cliente si se ha llamado previamente a una API de Bing y Bing ha devuelto un identificador de cliente para esa combinación de usuario y dispositivo.
 
-Para obtener noticias de un dominio específico, utilice el operador de consulta [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Para obtener noticias de un dominio específico, utilice el operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140915"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228409"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure
 
@@ -569,6 +569,6 @@ El proceso de destrucción puede tardar varios minutos en finalizar.
 En este artículo, ha aprendido cómo usar Terraform para crear un conjunto de escalado de máquinas virtuales de Azure. Aquí tiene algunos recursos adicionales donde encontrará más información acerca de Terraform en Azure: 
 
  [Centro de Terraform en Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentación del proveedor de Azure para Terraform](http://aka.ms/terraform)  
- [Origen del proveedor de Azure para Terraform](http://aka.ms/tfgit)  
- [Módulos de Azure para Terraform](http://aka.ms/tfmodules)
+ [Documentación del proveedor de Azure para Terraform](https://aka.ms/terraform)  
+ [Origen del proveedor de Azure para Terraform](https://aka.ms/tfgit)  
+ [Módulos de Azure para Terraform](https://aka.ms/tfmodules)

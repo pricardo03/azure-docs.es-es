@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b8a758923f0e3e287da4a377d140f1f659cef46f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306954"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913811"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticación de paso a través de Azure Active Directory: información técnica detallada
 En este artículo se ofrece información general sobre el funcionamiento de la autenticación de paso a través de Azure Active Directory (Azure AD). Si desea información técnica y de seguridad detallada, consulte el artículo [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md).
@@ -52,7 +52,7 @@ En el diagrama siguiente se ilustran todos los componentes y los pasos implicado
 ## <a name="next-steps"></a>Pasos siguientes
 - [Limitaciones actuales](how-to-connect-pta-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
 - [Inicio rápido](how-to-connect-pta-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
-- [Migración de AD FS a la autenticación de paso a través](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
+- [Migración de AD FS a la autenticación de paso a través](https://aka.ms/adfstoPTADP): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Preguntas más frecuentes](how-to-connect-pta-faq.md): encuentre respuestas a las preguntas más frecuentes.
 - [Solución de problemas](tshoot-connect-pass-through-authentication.md): obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.

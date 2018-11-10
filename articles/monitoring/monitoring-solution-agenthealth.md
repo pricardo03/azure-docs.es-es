@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404042"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914165"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solución Agent Health en Azure
 La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de Log Analytics o a un grupo de administración de System Center Operations Manager conectado a Log Analytics, cuáles no responden y cuáles envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
@@ -39,7 +39,7 @@ Si el grupo de administración de System Center Operations Manager está conecta
 Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Configuración
-Agregue la solución Agent Health al área de trabajo de Log Analytics mediante el proceso descrito en [Incorporación de soluciones](../log-analytics/log-analytics-add-solutions.md). No es necesario realizar ninguna configuración más.
+Agregue la solución Agent Health al área de trabajo de Log Analytics mediante el proceso descrito en [Incorporación de soluciones](monitoring-solutions.md). No es necesario realizar ninguna configuración más.
 
 
 ## <a name="data-collection"></a>Colección de datos
@@ -118,4 +118,4 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre [alertas en Log Analytics](../log-analytics/log-analytics-alerts.md) para más detalles sobre la generación de alertas desde Log Analytics.
+* Obtenga información sobre [alertas en Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para más detalles sobre la generación de alertas desde Log Analytics.

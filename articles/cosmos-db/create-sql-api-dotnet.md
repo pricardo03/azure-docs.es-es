@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 36265685b9bc43e95c6d7bc1e7a9ad3c52835b36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 506d21589ee8c5d284bd9ffc430d8b1d40afb910
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978002"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741732"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Inicio rápido: Compilación de una aplicación web de .NET con Azure Cosmos DB y la API de SQL en Azure Portal
 
@@ -120,7 +120,7 @@ Los fragmentos de código siguientes se han tomado del archivo DocumentDBReposit
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Claves** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo web.config en el paso siguiente.
+1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, seleccione **Claves** y, después, **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo web.config en el paso siguiente.
 
     ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-sql-api-dotnet/keys.png)
 
@@ -139,15 +139,15 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
     `<add key="database" value="Tasks" />`    
     
 ## <a name="run-the-web-app"></a>Ejecución de la aplicación web
-1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
+1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, después, seleccione en **Administrar paquetes NuGet**. 
 
 2. En el cuadro **Examinar** de NuGet, escriba *DocumentDB*.
 
 3. En los resultados, instale la biblioteca **Microsoft.Azure.DocumentDB**. De este modo, se instalan el paquete Microsoft.Azure.DocumentDB y todas las dependencias.
 
-4. Haga clic en CTRL + F5 para ejecutar la aplicación. La aplicación se muestra en el explorador. 
+4. Seleccione CTRL+F5 para ejecutar la aplicación. La aplicación se muestra en el explorador. 
 
-5. Haga clic en **Crear nuevo** en el explorador y cree algunas tareas en la aplicación de tareas pendientes.
+5. Seleccione **Crear nuevo** en el explorador y cree algunas tareas en la aplicación de tareas pendientes.
 
    ![Aplicación de tareas pendientes con datos de ejemplo](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 

@@ -3,7 +3,7 @@ title: Administración de alertas de seguridad en Azure Security Center | Micros
 description: Este documento le ayuda a usar las capacidades del Centro de seguridad de Azure para administrar y responder a las alertas de seguridad.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/3/2018
-ms.author: yurid
-ms.openlocfilehash: f139f2f967edc03419f41f8c903c71b9ab9e6fcb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.author: rkarlin
+ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044440"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227797"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
 Este documento le ayuda a usar Azure Security Center para administrar las alertas de seguridad y responder a ellas.
@@ -95,4 +95,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 * [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md)
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.

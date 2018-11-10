@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415269"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006505"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
 
@@ -58,7 +58,7 @@ El panel **Uso de Log Analytics** muestra la siguiente información:
 3. En la lista de áreas de trabajo de Log Analytics, seleccione un área de trabajo.
 4. Seleccione **Uso y costos estimados** en la lista del panel izquierdo.
 5. En el panel **Uso y costos estimados**, puede modificar el intervalo de tiempo seleccionando la opción **Tiempo: Últimas 24 horas** y cambiar el intervalo de tiempo.<br><br> ![Intervalo de tiempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Vea las hojas de categoría de uso que muestren áreas que le interesen. Elija una hoja y haga clic en un elemento en ella para ver más detalles en [Búsqueda de registros](log-analytics-log-searches.md).<br><br> ![KPI de uso de datos de ejemplo](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Vea las hojas de categoría de uso que muestren áreas que le interesen. Elija una hoja y haga clic en un elemento en ella para ver más detalles en [Búsqueda de registros](log-analytics-queries.md).<br><br> ![KPI de uso de datos de ejemplo](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. En el panel Búsqueda de registros, revise los resultados devueltos por la búsqueda.<br><br> ![Búsqueda de registros de uso de ejemplo](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creación de una alerta cuando la colección de datos es mayor de lo esperado
@@ -78,7 +78,7 @@ La consulta siguiente utiliza una fórmula simple para predecir cuándo se envia
 
 Para generar una alerta en un volumen de datos diferente, cambie el 100 de las consultas por el número de GB sobre el que desea alertar.
 
-Siga los pasos explicados en [crear una nueva regla de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para recibir una notificación cuando la colección de datos sea mayor de lo previsto.
+Siga los pasos explicados en [crear una nueva regla de alerta](../monitoring-and-diagnostics/alert-metric.md) para recibir una notificación cuando la colección de datos sea mayor de lo previsto.
 
 Al crear la alerta en la primera consulta; cuando hay más de 100 GB de datos en 24 horas, establezca los siguientes valores:  
 
@@ -163,19 +163,19 @@ Use los pasos siguientes para reducir el volumen de registros recopilados:
 | Registros de eventos                 | Cambie la [configuración del registro de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reducir el número de registros de eventos recopilados <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información*. |
 | syslog                     | Cambie la [configuración de syslog](log-analytics-data-sources-syslog.md) para: <br> - Reducir el número de instalaciones recopiladas <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información* y *depuración*. |
 | AzureDiagnostics           | Cambie la colección de registros de recursos para: <br> - Reducir el número de registros de recursos enviados a Log Analytics <br> - Recopilar solo los registros necesarios |
-| Datos de la solución procedentes de equipos que no necesitan la solución | Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios. |
+| Datos de la solución procedentes de equipos que no necesitan la solución | Use la [selección de destino de solución](../monitoring/monitoring-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Comprobar si hay más nodos de lo esperado
 Si está en el plan de tarifa *por nodo (Log Analytics)*, se le cobrará según el número de nodos y soluciones que use. Puede ver cuántos nodos de cada oferta se usan en la sección de *ofertas* del panel de uso.<br><br> ![panel de uso](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Haga clic en **Ver todos...**  para ver la lista completa de los equipos que envían datos a la oferta seleccionada.
 
-Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
+Use la [selección de destino de solución](../monitoring/monitoring-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Búsquedas de registro en Log Analytics](log-analytics-log-searches.md) para obtener información sobre cómo usar el lenguaje de búsqueda. Puede utilizar las consultas de búsqueda para realizar análisis adicionales sobre los datos de uso.
-* Siga los pasos explicados en [Crear una nueva alerta de registro](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para recibir una notificación cuando se cumplan los criterios de búsqueda.
-* Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
+* Consulte [Búsquedas de registro en Log Analytics](log-analytics-queries.md) para obtener información sobre cómo usar el lenguaje de búsqueda. Puede utilizar las consultas de búsqueda para realizar análisis adicionales sobre los datos de uso.
+* Siga los pasos explicados en [Crear una nueva alerta de registro](../monitoring-and-diagnostics/alert-metric.md) para recibir una notificación cuando se cumplan los criterios de búsqueda.
+* Use la [selección de destino de solución](../monitoring/monitoring-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
 * Para configurar una directiva eficaz de recopilación de eventos de seguridad, revise la [Directiva de filtrado de Azure Security Center](../security-center/security-center-enable-data-collection.md).
 * Cambie la [configuración de los contadores de rendimiento](log-analytics-data-sources-performance-counters.md).
 * Para modificar la configuración de recopilación de eventos, revise la [configuración de registros de eventos](log-analytics-data-sources-windows-events.md).

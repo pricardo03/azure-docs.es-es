@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423398"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741681"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Información sobre los módulos de Azure IoT Edge
 
@@ -31,7 +31,7 @@ Las imágenes se encuentran en la nube y pueden actualizarse, cambiarse e implem
 
 Cada vez que una imagen de módulo se implementa en un dispositivo y se inicia mediante la instancia de IoT Edge en tiempo de ejecución, se crea una instancia de ese módulo. Dos dispositivos en distintas partes del mundo pudieron utilizar la misma imagen de módulo; sin embargo, cada uno tendría su propia instancia de módulo cuando el módulo se inició en el dispositivo. 
 
-![Imágenes de módulo en la nube e instancias de módulo en dispositivos][1]
+![Imágenes de módulo en la nube e instancias de módulo en dispositivos](./media/iot-edge-modules/image_instance.png)
 
 En la implementación, las imágenes de módulos actúan como imágenes de contenedor en un repositorio y las instancias de módulo son contenedores en dispositivos. 
 
@@ -46,23 +46,23 @@ La identidad asociada con una instancia de módulo depende de la identidad del d
 
 Obviamente, en escenarios cuando necesite implementar una imagen de módulo varias veces en el mismo dispositivo, puede implementar la misma imagen varias veces con nombres diferentes.
 
-![Las identidades de módulo son únicas][2]
+![Las identidades de módulo son únicas](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Módulos gemelos
 
 Cada instancia de módulo también tiene un módulo gemelo correspondiente que puede usar para configurar la instancia de módulo. La instancia y el módulo gemelo se asocian entre sí a través de la identidad de módulo. 
 
-Un módulo gemelo es un documento JSON que almacena las propiedades de configuración e información de los módulos. Este concepto se asemeja al del [dispositivo gemelo][lnk-device-twin] de IoT Hub. La estructura de un módulo gemelo es exactamente igual que la de un dispositivo gemelo. La API que se usa para interactuar con los dos tipos de gemelos también es la misma. La única diferencia entre ambas es la identidad utilizada para crear una instancia del SDK del cliente. 
+Un módulo gemelo es un documento JSON que almacena las propiedades de configuración e información de los módulos. Este concepto se asemeja al del [dispositivo gemelo](../iot-hub/iot-hub-devguide-device-twins.md) de IoT Hub. La estructura de un módulo gemelo es exactamente igual que la de un dispositivo gemelo. La API que se usa para interactuar con los dos tipos de gemelos también es la misma. La única diferencia entre ambas es la identidad utilizada para crear una instancia del SDK del cliente. 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>Funcionalidades sin conexión
@@ -79,15 +79,8 @@ Los módulos de IoT Edge pueden permanecer sin conexión durante largos período
 Hay capacidades sin conexión adicionales disponibles en la versión preliminar pública. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
 
 ## <a name="next-steps"></a>Pasos siguientes
- - [Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge][lnk-mod-dev]
- - [Información de la instancia de Azure IoT Edge en tiempo de ejecución y su arquitectura][lnk-runtime]
+ - [Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge](module-development.md)
+ - [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415709"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957428"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Extensión de alertas de Log Analytics a Alertas de Azure
 Alertas de Azure está reemplazando la característica de alertas de Azure Log Analytics. Como parte de esta transición, las alertas que ha configurado originalmente en Log Analytics se extenderán a Azure. Si no quiere esperar a que se trasladen automáticamente a Azure, puede iniciar el proceso:
@@ -470,7 +470,7 @@ Aquí se indican los pasos para corregir cada error:
 
 - **Error: Policy is present at subscription/resource group level** (Error: Directiva presente en el nivel de grupo de recursos/suscripción): ![captura de pantalla de la página de configuración de alertas del portal de Operations Management Suite con un mensaje de error de directiva resaltado](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    Cuando se aplica [Azure Policy](../azure-policy/azure-policy-introduction.md), restringe cualquier recurso nuevo en una suscripción o grupo de recursos que contiene el área de trabajo de Log Analytics (Operations Management Suite). El sistema no puede ampliar las alertas en Azure y crear grupos de acciones necesarias.
+    Cuando se aplica [Azure Policy](../governance/policy/overview.md), restringe cualquier recurso nuevo en una suscripción o grupo de recursos que contiene el área de trabajo de Log Analytics (Operations Management Suite). El sistema no puede ampliar las alertas en Azure y crear grupos de acciones necesarias.
     
     Para resolver este problema, edite la directiva que provoca el error *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, que impide la creación de nuevos recursos en la suscripción o el grupo de recursos que contiene el área de trabajo. Para ello, puede usar Azure Portal, PowerShell, CLI de Azure o la API. Puede auditar las acciones para encontrar la directiva adecuada que está produciendo el error. Para más información, consulte el artículo sobre la [visualización de registros de actividad para auditar las acciones](../azure-resource-manager/resource-group-audit.md). 
     

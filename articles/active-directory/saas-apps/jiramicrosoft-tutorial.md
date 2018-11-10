@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 10/31/2018
 ms.author: jeedes
-ms.openlocfilehash: cc87985404ef8c9ee625f32b359e6ac1a29e73ae
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 7d25b072ffc41608bca9e0b23116b2eb453dd160
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143187"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integración de Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -32,7 +32,7 @@ La integración de JIRA SAML SSO by Microsoft con Azure AD le proporciona las si
 - Puede permitir que los usuarios inicien sesión automáticamente en JIRA SAML SSO by Microsoft (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="description"></a>DESCRIPCIÓN
 
@@ -61,11 +61,12 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 ## <a name="supported-versions-of-jira"></a>Versiones compatibles de JIRA
 
-*   JIRA Core y Software: de la versión 6.0 a la 7.8
-*   JIRA Service Desk versiones de 3.0 a 3.2
-*   JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
+* JIRA Core y Software: de la versión 6.0 a la 7.12
+* JIRA Service Desk: de la versión 3.0.0 a la 3.5.0
+* JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
 
 ## <a name="scenario-description"></a>Descripción del escenario
+
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
 El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
@@ -73,6 +74,7 @@ El escenario descrito en este tutorial consta de dos bloques de creación princi
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-jira-saml-sso-by-microsoft-from-the-gallery"></a>Agregar JIRA SAML SSO by Microsoft desde la galería
+
 Para configurar la integración de JIRA SAML SSO by Microsoft en Azure AD, deberá agregar JIRA SAML SSO by Microsoft desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar JIRA SAML SSO by Microsoft desde la galería, siga estos pasos:**
@@ -101,13 +103,13 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 
 Para configurar y probar el inicio de sesión único de Azure AD con JIRA SAML SSO by Microsoft, es necesario completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de JIRA SAML SSO by Microsoft](#create-a-jira-saml-sso-by-microsoft-test-user)**: para tener un homólogo de Britta Simon en JIRA SAML SSO by Microsoft que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de JIRA SAML SSO by Microsoft](#creating-jira-saml-sso-by-microsoft-test-user)**: Para tener un homólogo de Britta Simon en JIRA SAML SSO by Microsoft que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación JIRA SAML SSO by Microsoft.
 
@@ -117,11 +119,15 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, haga clic en **Seleccionar** para el modo **SAML** para habilitar el inicio de sesión único.
 
-    ![Cuadro de diálogo Inicio de sesión único](./media/jiramicrosoft-tutorial/tutorial_singlesign-onforjira_samlbase.png)
+    ![Configurar inicio de sesión único](common/tutorial_general_301.png)
 
-3. En la sección **Dominio y direcciones URL de JIRA SAML SSO by Microsoft**, siga estos pasos:
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+
+    ![Configurar inicio de sesión único](common/editconfigure.png)
+
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de JIRA SAML SSO by Microsoft](./media/jiramicrosoft-tutorial/tutorial_singlesign-onforjira_url.png)
 
@@ -134,13 +140,9 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. En caso de que sea una dirección URL con nombre, el puerto es opcional. Estos valores se reciben durante la configuración del complemento de Jira, que se explica más adelante en el tutorial.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+5. En la página **Certificado de firma de SAML** de la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/tutorial_metadataurl.png)
-
-5. Haga clic en el botón **Guardar** .
-
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/tutorial_general_400.png)
+    ![Vínculo de descarga del certificado](./media/jiramicrosoft-tutorial/tutorial_metadataurl.png) 
 
 6. En otra ventana del explorador web, inicie sesión en la instancia de JIRA como administrador.
 
@@ -187,39 +189,32 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
     > [!NOTE]
     > Para más información sobre la instalación y la solución de problemas, visite [MS JIRA SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md) (Guía de administración del conector SSO de MS JIRA), que contiene una sección de [preguntas frecuentes](../ms-confluence-jira-plugin-faq.md) para ayudarle.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Creación de un usuario de Azure AD][100]
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/jiramicrosoft-tutorial/create_aaduser_01.png)
+    ![Creación de un usuario de prueba de Azure AD](common/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/jiramicrosoft-tutorial/create_aaduser_02.png)
+    ![Creación de un usuario de prueba de Azure AD](common/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/jiramicrosoft-tutorial/create_aaduser_03.png)
+    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+    d. Seleccione **Crear**.
 
-    ![Cuadro de diálogo Usuario](./media/jiramicrosoft-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-
-    d. Haga clic en **Create**(Crear).
-
-### <a name="create-a-jira-saml-sso-by-microsoft-test-user"></a>Creación de un usuario de prueba de JIRA SAML SSO by Microsoft
+### <a name="creating-jira-saml-sso-by-microsoft-test-user"></a>Creación de un usuario de prueba de JIRA SAML SSO by Microsoft
 
 Para permitir que los usuarios de Azure AD inicien sesión en el servidor local de JIRA, se deben aprovisionar en JIRA SAML SSO by Microsoft. Para JIRA SAML SSO by Microsoft, el aprovisionamiento es una tarea manual.
 
@@ -253,42 +248,36 @@ Para permitir que los usuarios de Azure AD inicien sesión en el servidor local 
 
     e. Haga clic en **Crear usuario**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a JIRA SAML SSO by Microsoft.
 
-![Asignación de rol de usuario][200] 
-
-**Para asignar a Britta Simon a JIRA SAML SSO by Microsoft, siga estos pasos:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
     ![Asignar usuario][201]
 
 2. En la lista de aplicaciones, seleccione **JIRA SAML SSO by Microsoft**.
 
-    ![El enlace de JIRA SAML SSO by Microsoft se encuentra en la lista de aplicaciones](./media/jiramicrosoft-tutorial/tutorial_singlesign-onforjira_app.png)
+    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/tutorial_singlesign-onforjira_app.png)
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Asignar usuario][202]
 
 4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Panel Agregar asignación][203]
+    ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+6. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de JIRA SAML SSO by Microsoft en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación JIRA SAML SSO by Microsoft.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -297,14 +286,13 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 
 <!--Image references-->
 
-[1]: ./media/msaadssojira-tutorial/tutorial_general_01.png
-[2]: ./media/msaadssojira-tutorial/tutorial_general_02.png
-[3]: ./media/msaadssojira-tutorial/tutorial_general_03.png
-[4]: ./media/msaadssojira-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/msaadssojira-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/msaadssojira-tutorial\tutorial_general_200.png
-[201]: ./media/msaadssojira-tutorial\tutorial_general_201.png
-[202]: ./media/msaadssojira-tutorial\tutorial_general_202.png
-[203]: ./media/msaadssojira-tutorial\tutorial_general_203.png
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

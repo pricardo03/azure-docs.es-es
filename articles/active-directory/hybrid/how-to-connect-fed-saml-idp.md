@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 08d9566c3ce8f486465f0ed7fb5aab4419e592d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243119"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228596"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -167,7 +167,7 @@ Deberá habilitar la comunicación entre el proveedor de identidades de SAML 2.0
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Instalación de Windows PowerShell para el inicio de sesión con el proveedor de identidades de SAML 2.0
 Después de que ha configurado el proveedor de identidades de SAML 2.0 para su uso con el inicio de sesión de Azure AD, el siguiente paso consiste en descargar e instalar el Módulo Azure Active Directory para Windows PowerShell. Una vez instalado, usará estos cmdlets para configurar los dominios de Azure AD como dominios federados.
 
-El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para instrucciones sobre cómo descargar e instalar los cmdlets, consulte [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
+El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para instrucciones sobre cómo descargar e instalar los cmdlets, consulte [http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Configuración de una relación de confianza entre el proveedor de identidades de SAML y Azure AD
 Antes de configurar la federación en un dominio de Azure AD, debe tener configurado un dominio personalizado. No se puede federar el dominio predeterminado proporcionado por Microsoft. El dominio predeterminado de Microsoft finaliza con "onmicrosoft.com".
@@ -190,12 +190,12 @@ En el procedimiento siguiente se explica cómo convertir un dominio estándar ex
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Para más información sobre "Set-MsolDomainAuthentication", consulte: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
+Para más información sobre "Set-MsolDomainAuthentication", consulte: [http://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Solo debe ejecutar "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" si configura una extensión ECP para el proveedor de identidades. Los clientes de Exchange Online, excepto Outlook Web Application (OWA), dependen de un punto de conexión activo basado en POST. Si el STS de SAML 2.0 implementa un punto de conexión activo de forma similar a ECP de Shibboleth, es posible que estos clientes enriquecidos puedan interactuar con el servicio Exchange Online.
 
-Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para más información sobre la conversión de dominios, consulte: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para más información sobre la conversión de dominios, consulte: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Aprovisionamiento de entidades de seguridad de usuario en Azure AD y Office 365
 Antes de poder autenticar a los usuarios en Office 365, debe aprovisionar Azure AD con entidades de seguridad de usuario que correspondan a la aserción en la notificación de SAML 2.0. Si Azure AD no conoce estas entidades de seguridad de usuario de antemano, no se podrán usar para el inicio de sesión federado. Se puede usar Azure AD Connect o Windows PowerShell para aprovisionar a las entidades de seguridad de usuario.
@@ -218,7 +218,7 @@ Este procedimiento muestra cómo agregar un único usuario a Azure AD.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" `. 
 
-Para obtener más información sobre "New-MsolUser", consulte [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx).
+Para obtener más información sobre "New-MsolUser", consulte [http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx).
 
 >[!NOTE]
 >El valor "UserPrinciplName" debe coincidir con el valor que se enviará para "IDPEmail" en la notificación de SAML 2.0, y el valor "ImmutableID" debe coincidir con el valor enviado en la aserción "NameID".

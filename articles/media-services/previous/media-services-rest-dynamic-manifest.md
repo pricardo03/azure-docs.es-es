@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 396abe0801d76af3820d302d40d2fc076754741b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 50becbe517e98802c9a3af91b86f845df05378a7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785734"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227525"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creación de filtros con la API de REST de Azure Media Services
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Al crear filtros, se usan los siguientes tipos:
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="create-filters"></a>Crear filtros
+## <a name="create-filters"></a>Creación de filtros
 ### <a name="create-global-filters"></a>Crear filtros globales
 Para crear un filtro global, use las siguientes solicitudes HTTP:  
 
@@ -195,7 +195,7 @@ Para enumerar filtros, use las siguientes solicitudes HTTP:
 
 
 ## <a name="update-filters"></a>Actualizar filtros
-Use PATCH, PUT o MERGE para actualizar un filtro con nuevos valores de propiedad.  Para obtener más información acerca de estas operaciones, vea [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+Use PATCH, PUT o MERGE para actualizar un filtro con nuevos valores de propiedad.  Para obtener más información acerca de estas operaciones, vea [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 Si actualiza un filtro, se pueden tardar hasta 2 minutos en que el punto de conexión de streaming actualice las reglas. Si el contenido se proporcionó con este filtro (y se almacenó en caché en los servidores proxy y cachés de CDN), la actualización de este filtro puede generar errores del reproductor. Borre la memoria caché después de actualizar el filtro. Si esta opción no es posible, piense en usar un filtro diferente.  
 

@@ -11,12 +11,12 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 4aa3509fcdfc6fd1bccb4db95a8c916a42ce23d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125279"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739250"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Cómo navegar por los resultados de Bing Web Search API
 
@@ -61,4 +61,7 @@ Host: api.cognitive.microsoft.com
 
 Web Search API devuelve resultados que incluyen páginas web y pueden incluir imágenes, vídeos y noticias. Al paginar los resultados de búsqueda, lo que hace es paginar la respuesta [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer), y no las otras respuestas, como imágenes o noticias. Por ejemplo, si establece `count` en 50, obtendrá 50 resultados de página web, pero la respuesta puede incluir también resultados de las otras respuestas. Por ejemplo, la respuesta puede incluir 15 imágenes y 4 artículos de noticias. Los resultados pueden incluir también noticias en la primera página, pero no en la segunda página o viceversa.   
 
-Si especifica el parámetro de consulta `responseFilter` y no incluye páginas web en la lista de filtros, no use los parámetros `count` y `offset`.  
+Si especifica el parámetro de consulta `responseFilter` y no incluye páginas web en la lista de filtros, no use los parámetros `count` y `offset`. 
+
+> [!NOTE]
+> El campo `TotalEstimatedAnswers` es una estimación del número total de resultados de la búsqueda que puede recuperar de la consulta actual.  Al establecer los parámetros `count` y `offset`, el número `TotalEstimatedAnswers` puede cambiar. 

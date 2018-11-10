@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006535"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219906"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -21,7 +21,7 @@ ms.locfileid: "47006535"
 | --- | --- | --- |
 | Redes virtuales |50 |100 |
 | Sitios de red local |20 |ponerse en contacto con el servicio de soporte técnico |
-| Servidores DNS por red virtual |20 |100 |
+| Servidores DNS por red virtual |20 |20 |
 | Direcciones IP privadas por red virtual |4096 |4096 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 KB |500 KB |
 | Grupos de seguridad de red (NSG) |100 |200 |

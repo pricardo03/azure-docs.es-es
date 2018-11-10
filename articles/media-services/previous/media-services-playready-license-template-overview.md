@@ -2,7 +2,7 @@
 title: Información general de plantillas de licencias de PlayReady de Media Services
 description: En este tema se ofrece información general sobre la plantilla de licencia de PlayReady que se usa para configurar las licencias de PlayReady.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 74a2eb579f38cfc885234fac7fd3ad4be1747ad7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 780fa37351ec590beff6fd2d9e80ec8f22afa84d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783664"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228511"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Información general de plantillas de licencias de PlayReady de Media Services
 Azure Media Services proporciona un servicio para entregar licencias de PlayReady. Cuando el reproductor (por ejemplo, Silverlight) intenta reproduce el contenido protegido de PlayReady, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se usa para descifrar y reproducir el contenido especificado.
@@ -81,7 +81,7 @@ Como la clase de "nivel superior" en la jerarquía de plantillas, la plantilla d
 > 
 > 
 
-Para un ejemplo de los niveles de protección que admite Silverlight, consulte [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
+Para un ejemplo de los niveles de protección que admite Silverlight, consulte [Silverlight support for output protections](https://go.microsoft.com/fwlink/?LinkId=617318).
 
 ## <a id="schema"></a>Esquema XML de la plantilla de licencia de PlayReady
     <?xml version="1.0" encoding="utf-8"?>

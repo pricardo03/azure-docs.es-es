@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2190978b2583b2f5d8a1b10431c65fd24fe6842d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050770"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228154"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Actualizar el clúster de Azure Service Fabric independiente en Windows Server 
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ Puede actualizar el clúster a la nueva versión solo si usa una configuración 
 Hay dos flujos de trabajo distintos para actualizar el clúster a la versión más reciente o a una versión de Service Fabric compatible. Uno de los flujos es para los clústeres que tienen conectividad para descargar automáticamente la versión más reciente. El otro es para los clústeres que no tienen conectividad para descargar la versión más reciente de Service Fabric.
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Actualización de los clústeres con conectividad para descargar el código y la configuración más recientes
-Siga estos pasos para actualizar el clúster a una versión compatible, si los nodos del clúster tienen conectividad a Internet al [Centro de descarga de Microsoft](http://download.microsoft.com).
+Siga estos pasos para actualizar el clúster a una versión compatible, si los nodos del clúster tienen conectividad a Internet al [Centro de descarga de Microsoft](https://download.microsoft.com).
 
-Para los clústeres con conectividad al [Centro de descarga de Microsoft](http://download.microsoft.com), Microsoft comprueba periódicamente la disponibilidad de nuevas versiones de Service Fabric.
+Para los clústeres con conectividad al [Centro de descarga de Microsoft](https://download.microsoft.com), Microsoft comprueba periódicamente la disponibilidad de nuevas versiones de Service Fabric.
 
 Cuando una nueva versión de Service Fabric está disponible, el paquete se descarga localmente en el clúster y se aprovisiona para la actualización. Además, para informar al cliente de esta nueva versión, el sistema muestra una advertencia de estado de clúster explícita similar a la siguiente:
 
@@ -106,7 +106,7 @@ Cuando vea la advertencia de mantenimiento del clúster, haga lo siguiente:
     Después de corregir los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos descritos anteriormente.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Actualización de los clústeres *sin conectividad* para descargar el código y la configuración más recientes
-Siga estos pasos para actualizar el clúster a una versión compatible, si los nodos del clúster no tienen conectividad a Internet al [Centro de descarga de Microsoft](http://download.microsoft.com).
+Siga estos pasos para actualizar el clúster a una versión compatible, si los nodos del clúster no tienen conectividad a Internet al [Centro de descarga de Microsoft](https://download.microsoft.com).
 
 > [!NOTE]
 > Si está ejecutando un clúster que no está conectado a Internet, tendrá que supervisar el blog del equipo de Service Fabric para conocer más información acerca de nuevas versiones. El sistema no muestra ninguna advertencia de mantenimiento de clúster para informarle de una nueva versión.  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 9b49d21dad9bb1e48194cc31940c5cd53c909dc0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 583a84fd943f6dab63f94e2811e21853e6e5f6a1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263106"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959178"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Creación de un grupo de acciones con una plantilla de Resource Manager
 En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de acciones. Mediante el uso de plantillas, puede configurar automáticamente grupos de acciones que se pueden reutilizar en determinados tipos de alertas. Estos grupos de acciones garantizan que se notifique a todas las entidades correctas cuando se desencadene una alerta.
@@ -166,4 +166,4 @@ Para crear un grupo de acciones mediante una plantilla de Resource Manager, cree
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre los [grupos de acciones](monitoring-action-groups.md).
 * Obtenga más información sobre [alertas](monitoring-overview-alerts.md).
-* Aprenda a agregar [alertas mediante una plantilla de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Aprenda a agregar [alertas mediante una plantilla de Resource Manager](alert-activity-log.md).
