@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144958"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239379"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de volúmenes de Azure Files en Service Fabric (versión preliminar)
 El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
 
 > [!NOTE]
-> La versión 6.255.389.9494 del complemento de volúmenes de Azure Files es una versión preliminar que está disponible con este documento. Como versión preliminar, **no** se admite para su uso en entornos de producción.
+> La versión 6.4.571.9494 del complemento de volúmenes de Azure Files es una versión preliminar que está disponible con este documento. Como versión preliminar, **no** se admite para su uso en entornos de producción.
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -66,7 +66,7 @@ En la sección fabricSettings de la plantilla ARM (para las implementaciones de 
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Implementación de la aplicación de Azure Files en Service Fabric
 
-La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse del [vínculo](https://aka.ms/sfvolume) siguiente. La aplicación puede implementarse en el clúster mediante [API de PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o [FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse del [vínculo](https://aka.ms/sfvolume6.4) siguiente. La aplicación puede implementarse en el clúster mediante [API de PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o [FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Mediante la línea de comandos, cambie el directorio al directorio raíz del paquete de aplicación descargado.
 
@@ -102,11 +102,11 @@ La aplicación de Service Fabric que proporciona los volúmenes para los contene
 4. Crear la aplicación En el comando para crear la aplicación siguiente, tenga en cuenta el parámetro de aplicación **ListenPort**. Este valor especificado para este parámetro de aplicación es el puerto en el que el complemento de volúmenes de Azure Files escucha las solicitudes desde el demonio de Docker. Es importante asegurarse de que el puerto que se proporciona a la aplicación no entre en conflicto con ningún otro puerto que usen el clúster o las aplicaciones.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.255.389.9494 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.255.389.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -118,11 +118,11 @@ La aplicación de Service Fabric que proporciona los volúmenes para los contene
 El número de instancias de servicio predeterminado para la aplicación del complemento de volúmenes de Azure Files es -1; es decir, hay una instancia del servicio implementada en cada nodo del clúster. Sin embargo, al implementar la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local, el recuento de instancias de servicio debe especificarse como 1. Esto puede hacerse a través del parámetro de aplicación **InstanceCount**. Por lo tanto, el comando para implementar la aplicación del complemento de volúmenes de Azure Files en un clúster de desarrollo local es:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.255.389.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.255.389.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 ## <a name="configure-your-applications-to-use-the-volume"></a>Configuración de las aplicaciones para usar el volumen
 El siguiente fragmento de código muestra cómo se puede especificar un volumen basado en Azure Files en el manifiesto de aplicación de la aplicación. El elemento específico de interés es la etiqueta **Volume**:
@@ -130,31 +130,32 @@ El siguiente fragmento de código muestra cómo se puede especificar un volumen 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
-            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
                 <DriverOption Name="shareName" Value="" />
                 <DriverOption Name="storageAccountName" Value="" />
                 <DriverOption Name="storageAccountKey" Value="" />
+                <DriverOption Name="storageAccountFQDN" Value="" />
             </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 
@@ -166,12 +167,23 @@ En el elemento **Volume** en el fragmento de código anterior, el complemento de
 
 Como se muestra en los elementos **DriverOption** en el fragmento de código anterior, el complemento de volúmenes de Azure Files admite las siguientes opciones de controlador:
 
+Opciones de controlador admitidas:
 - **shareName**: nombre del recurso compartido de archivos de Azure Files que proporciona el volumen para el contenedor
 - **storageAccountName**: nombre de la cuenta de almacenamiento de Azure que contiene el recurso compartido de archivos de Azure Files
 - **storageAccountKey**: clave de acceso de la cuenta de almacenamiento de Azure que contiene el recurso compartido de archivos de Azure Files
-
-Todas las opciones de controlador anteriores son obligatorias.
-
+- **storageAccountFQDN**: nombre de dominio asociado con la cuenta de almacenamiento. Si no se especifica storageAccountFQDN, el nombre de dominio se formará utilizando el sufijo predeterminado (.file.core.windows.net) con storageAccountName. 
+    ```xml
+    - Example1: 
+        <DriverOption Name="shareName" Value="myshare1" />
+        <DriverOption Name="storageAccountName" Value="myaccount1" />
+        <DriverOption Name="storageAccountKey" Value="mykey1" />
+        <!-- storageAccountFQDN will be "myaccount1.file.core.windows.net" -->
+    - Example2: 
+        <DriverOption Name="shareName" Value="myshare2" />
+        <DriverOption Name="storageAccountName" Value="myaccount2" />
+        <DriverOption Name="storageAccountKey" Value="mykey2" />
+        <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
+    ```
 ## <a name="using-your-own-volume-or-logging-driver"></a>Uso de su propio controlador de volumen o registro
 Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o un [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471537"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254483"
 ---
 ### <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -111,10 +111,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>¿Cuáles son los límites conocidos del servicio?
 
-* Azure Firewall tiene un límite flexible de 1000 TB por firewall por mes.
-* Una instancia de Azure Firewall que se está ejecutando en una red virtual central tiene limitaciones de emparejamiento de red virtual, con un máximo de 50 redes virtuales de radio.  
-* Azure Firewall no funciona con el emparejamiento global, por lo que debe tener al menos una implementación de firewall por región.
-* Azure Firewall admite 10 000 reglas de aplicación y 10 000 reglas de red.
+Para ver los límites del servicio Azure Firewall, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../articles/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>¿Azure Firewall en la red virtual de un concentrador puede reenviar y filtrar el tráfico de red entre dos redes virtuales de radio?
 

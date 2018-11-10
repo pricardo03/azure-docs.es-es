@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716008"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227406"
 ---
 > [!NOTE]
 > Esta documentación no está actualizada y no es precisa. En su lugar, vaya a la [Guía para vendedores de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) para obtener instrucciones acerca de cómo publicar ofertas en Azure Marketplace.
@@ -28,7 +28,7 @@ ms.locfileid: "39716008"
 Este artículo sirve de ayuda a los desarrolladores para crear, implementar y administrar sus soluciones incluidas en Azure Marketplace para que otros asociados y clientes de Azure las compren y usen.
 
 ## <a name="marketplace-publishing"></a>Publicación de Marketplace
-Como publicador de Azure, puede distribuir y vender su solución o servicio innovador a otros desarrolladores, ISV y profesionales de TI de Marketplace. A través de Marketplace, puede llegar a clientes que desean desarrollar rápidamente sus aplicaciones basadas en la nube y soluciones para dispositivos móviles. Si la solución está dirigida a usuarios empresariales, puede que le interese el Marketplace de [AppSource](http://appsource.microsoft.com).
+Como publicador de Azure, puede distribuir y vender su solución o servicio innovador a otros desarrolladores, ISV y profesionales de TI de Marketplace. A través de Marketplace, puede llegar a clientes que desean desarrollar rápidamente sus aplicaciones basadas en la nube y soluciones para dispositivos móviles. Si la solución está dirigida a usuarios empresariales, puede que le interese el Marketplace de [AppSource](https://appsource.microsoft.com).
 
 
 ## <a name="supported-types-of-solutions"></a>Tipos de soluciones admitidas
@@ -51,7 +51,7 @@ Para publicar una [solución](https://createopportunity.azurewebsites.net) de m�
 >[!NOTE]
 > Si va a trabajar con un administrador de cuentas asociado o un administrador asociado de DX, pídales que nominen su solución para el programa Azure Certified. También puede ir a la página web de [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) y rellenar el formulario de solicitud. En el cuadro de **contacto con el patrocinador de Microsoft**, escriba el correo electrónico del administrador de cuentas asociado o el administrador asociado de DX.
 
-Si se cumplen los criterios de elegibilidad de las [directivas de participación de Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833) y se aprueba u solicitud, comenzaremos a trabajar con usted para incorporar su solución a Marketplace.
+Si se cumplen los criterios de elegibilidad de las [directivas de participación de Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833) y se aprueba u solicitud, comenzaremos a trabajar con usted para incorporar su solución a Marketplace.
 
 ### <a name="register-your-account-as-a-microsoft-seller"></a>Registrar de la cuenta como vendedor de Microsoft
 Registre su cuenta Microsoft como una [cuenta de Microsoft Developer](marketplace-publishing-accounts-creation-registration.md).

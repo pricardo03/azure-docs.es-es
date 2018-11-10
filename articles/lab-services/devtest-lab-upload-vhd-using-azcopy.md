@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e35686e7ba7c2e88d62930082d39856673a661b6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 482bfe41ebfec7353466f7e243e9e767caee7828
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782454"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228290"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Carga de archivos VHD en la cuenta de almacenamiento del laboratorio mediante AzCopy
 
@@ -33,11 +33,11 @@ En Azure DevTest Labs, se pueden usar archivos VHD para crear imágenes personal
 
 ## <a name="step-by-step-instructions"></a>Instrucciones paso a paso
 
-Los siguientes pasos le guían en la carga de un archivo VHD en Azure DevTest Labs mediante [AzCopy](http://aka.ms/downloadazcopy). 
+Los siguientes pasos le guían en la carga de un archivo VHD en Azure DevTest Labs mediante [AzCopy](https://aka.ms/downloadazcopy). 
 
 1. Obtenga el nombre de la cuenta de almacenamiento del laboratorio mediante el portal de Azure:
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 
@@ -65,7 +65,7 @@ Los siguientes pasos le guían en la carga de un archivo VHD en Azure DevTest La
 
 1. Carga del archivo VHD mediante AzCopy:
  
-1. [Descargue e instale la versión más reciente de AzCopy](http://aka.ms/downloadazcopy).
+1. [Descargue e instale la versión más reciente de AzCopy](https://aka.ms/downloadazcopy).
 
 1. Abra una ventana de comandos y vaya al directorio de instalación de AzCopy. Opcionalmente, puede agregar la ubicación de instalación de AzCopy a la ruta de acceso del sistema. De forma predeterminada, AzCopy se instala en el directorio siguiente:
 
