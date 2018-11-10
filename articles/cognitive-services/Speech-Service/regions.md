@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 088e581da7511797a0f39959d867c6298262462a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468133"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242337"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiones del servicio Voz
 
@@ -37,7 +37,7 @@ En el [SDK del servicio Voz](speech-sdk.md), las regiones se especifican como un
 
 En la tabla siguiente se enumeran las regiones disponibles para el **reconocimiento de voz** y la **traducción**.
 
-  Region | Parámetro del SDK de Voz | Portal
+  Region | Parámetro del SDK de Voz | Portal de personalización de Voz
  ------|-------|--------
  Oeste de EE. UU. | `westus` | https://westus.cris.ai
  Oeste de EE. UU. 2 | `westus2` | https://westus2.cris.ai 

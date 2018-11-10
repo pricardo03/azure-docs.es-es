@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d8e469289f72fe892ea7c3da99972e6326c75eb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242543"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Creación de una máquina virtual Linux clásica con la CLI de Azure clásica
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ En este tema se describe cómo crear una máquina virtual (VM) Linux con la CLI 
 * Incorporación de la máquina virtual a un conjunto de disponibilidad o una ubicación
 
 > [!IMPORTANT]
-> Si desea que la máquina virtual use una red virtual, con el fin de poder conectarse a ella directamente mediante un nombre de host o configurar conexiones entre locales, asegúrese de que especifica la red virtual al crear la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener detalles acerca de las redes virtuales, consulte [Información general sobre Azure Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> Si desea que la máquina virtual use una red virtual, con el fin de poder conectarse a ella directamente mediante un nombre de host o configurar conexiones entre locales, asegúrese de que especifica la red virtual al crear la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener detalles acerca de las redes virtuales, consulte [Información general sobre Azure Virtual Network](https://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 

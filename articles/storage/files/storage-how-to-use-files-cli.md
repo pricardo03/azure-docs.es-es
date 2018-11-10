@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945025"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158982"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure mediante la CLI de Azure
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) mediante la CLI de Azure. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
@@ -185,6 +185,80 @@ az storage file list \
 ```
 
 Aunque el comando `az storage file copy start` es práctico para los movimientos de archivos entre recursos compartidos de archivos de Azure y contenedores de Azure Blob Storage, se recomienda usar AzCopy para movimientos mayores. (Mayores en términos de número o tamaño de los archivos que se van a mover). Más información acerca de [AzCopy para Linux](../common/storage-use-azcopy-linux.md) y [AzCopy para Windows](../common/storage-use-azcopy.md). AzCopy debe estar instalado localmente. AzCopy no está disponible en Cloud Shell. 
+
+## <a name="create-and-manage-share-snapshots"></a>Creación y administración de instantáneas de recurso compartido
+Otra tarea útil que puede hacer con un recurso compartido de archivos de Azure consiste en crear instantáneas del recurso compartido. Una instantánea conserva una copia de un momento dado de un recurso compartido de archivos de Azure. Las instantáneas del recurso compartido son similares a algunas tecnologías de sistemas operativos con las que es posible que ya esté familiarizado:
+
+- Instantáneas del [Administrador de volúmenes lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
+- Instantáneas de [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
+- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de archivos Windows, como NTFS y ReFS. Puede crear una instantánea de recurso compartido mediante el comando [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
+
+```azurecli-interactive
+SNAPSHOT=$(az storage share snapshot \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --query "snapshot" | tr -d '"')
+```
+
+### <a name="browse-share-snapshot-contents"></a>Examen del contenido de la instantánea del recurso compartido
+Para examinar el contenido de una instantánea del recurso compartido, pase la marca de tiempo de la instantánea del recurso compartido que ha capturado en la variable `$SNAPSHOT` al comando `az storage file list`:
+
+```azurecli-interactive
+az storage file list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --snapshot $SNAPSHOT \
+    --output table
+```
+
+### <a name="list-share-snapshots"></a>Enumerar instantáneas del recurso compartido
+Puede ver la lista de instantáneas que ha realizado para el recurso compartido con el siguiente comando:
+
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --include-snapshot \
+    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
+```
+
+### <a name="restore-from-a-share-snapshot"></a>Restauración desde una instantánea de recurso compartido
+Puede restaurar un archivo con el comando `az storage file copy start` que ha utilizado antes. En primer lugar, elimine el archivo SampleUpload.txt que cargó, de forma que pueda restaurarlo desde la instantánea:
+
+```azurecli-interactive
+# Delete SampleUpload.txt
+az storage file delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --path "myDirectory/SampleUpload.txt"
+ # Build the source URI for a snapshot restore
+URI=$(az storage account show \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT \
+    --query "primaryEndpoints.file" | tr -d '"')
+ URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+ # Restore SampleUpload.txt from the share snapshot
+az storage file copy start \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --source-uri $URI \
+    --destination-share "myshare" \
+    --destination-path "myDirectory/SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>Eliminación de una instantánea de recurso compartido
+Para eliminar una instantánea del recurso compartido, utilice el comando [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Use la variable que contiene la referencia `$SNAPSHOT` al parámetro `--snapshot`:
+
+```azurecli-interactive
+az storage share delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --snapshot $SNAPSHOT
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando haya acabado, puede usar el comando [`az group delete`](/cli/azure/group#delete) para eliminar el grupo de recursos y todos los recursos relacionados: 

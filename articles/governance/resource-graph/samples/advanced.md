@@ -4,17 +4,17 @@ description: Utilice Azure Resource Graph para ejecutar algunas consultas avanza
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647840"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085383"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avanzadas de Resource Graph
 
@@ -31,11 +31,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
-La CLI de Azure (mediante una extensión) y Azure PowerShell (mediante un módulo) admiten Azure Resource Graph. Antes de realizar cualquiera de las siguientes consultas, compruebe que el entorno está listo. Consulte la [CLI de Azure](../first-query-azurecli.md#add-the-resource-graph-extension) y [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) para conocer los pasos para instalar y validar el entorno de shell que prefiera.
+La CLI de Azure (mediante una extensión) y Azure PowerShell (mediante un módulo) admiten Azure Resource Graph. Antes de ejecutar cualquiera de las siguientes consultas, compruebe que el entorno está listo. Consulte la [CLI de Azure](../first-query-azurecli.md#add-the-resource-graph-extension) y [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) para conocer los pasos para instalar y validar el entorno de shell que prefiera.
 
-## <a name="vmss-capacity"></a>Obtención del tamaño y la capacidad de VMSS
+## <a name="vmss-capacity"></a>Obtener la capacidad y el tamaño del conjunto de escalado de máquinas virtuales
 
-Esta consulta busca los recursos del conjunto de escalado de máquinas virtuales (VMSS) y obtiene varios detalles, incluido el tamaño de la máquina virtual y la capacidad del conjunto de escalado. Esta información usa la función `toint()` para convertir la capacidad en un número para que se pueda ordenar. Esto también cambia el nombre de los valores devueltos en propiedades con nombre personalizadas.
+Esta consulta busca los recursos del conjunto de escalado de máquinas virtuales y obtiene varios detalles, incluido el tamaño de la máquina virtual y la capacidad del conjunto de escalado. La consulta usa la función `toint()` para convertir la capacidad en un número para que se pueda ordenar. Por último, se cambia el nombre de las columnas por propiedades con nombre personalizadas.
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,8 +75,8 @@ Esta consulta busca las máquinas virtuales que coincidan con una [expresión re
 **matches regex @** nos permite definir regex para coincidir, que es **^Contoso(.*)[0-9]+$**. Esa definición de regex se explica como:
 
 - `^` - La coincidencia debe empezar al principio de la cadena.
-- `Contoso` - La cadena principal con la que buscamos la coincidencia (distingue entre mayúsculas y minúsculas).
-- `(.*)` - Una coincidencia de subexpresión:
+- `Contoso`: la cadena distingue mayúsculas de minúsculas.
+- `(.*)`: una coincidencia de subexpresión:
   - `.` - Coincide con cualquier carácter individual (excepto saltos de línea).
   - `*` - Coincide con el elemento anterior cero o más veces.
 - `[0-9]` - Coincidencia de grupo caracteres para los números del 0 al 9.

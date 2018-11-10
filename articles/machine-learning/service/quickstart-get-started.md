@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456820"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159016"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Guía de inicio rápido: Uso de Azure Portal para empezar a trabajar con Azure Machine Learning
 
-En esta guía de inicio rápido, aprenderá a usar Azure Portal para crear un área de trabajo de Azure Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning. 
+En esta guía de inicio rápido, aprenderá a usar Azure Portal para crear un área de trabajo de Azure Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning. Esta guía de inicio rápido usa recursos en la nube y no requiere ninguna instalación. Si prefiere configurar su propio servidor de Jupyter Notebook, consulte [Guía de inicio rápido: Uso de Python para empezar a trabajar con Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Además de los dos cuadernos, se ve un archivo `config.json`. Este archivo de co
 
 Seleccione `01.run-experiment.ipynb` para abrir el cuaderno.
 
-Para ejecutar las celdas de una en una, utilice `Shift`+`Enter`. O bien, seleccione `Cells` > `Run All` para ejecutar todo el cuaderno. Cuando vea un asterisco [*] junto a una celda, significa que se está ejecutando. Cuando finalice el código de esa celda, aparece un número.
+Para ejecutar las celdas de una en una, utilice `Shift`+`Enter`. O bien, seleccione `Cells` > `Run All` para ejecutar todo el cuaderno. Cuando vea un asterisco [*] junto a una celda, significa que se está ejecutando. Cuando finalice el código de esa celda, aparece un número. 
 
-Es posible que se le pida que inicie sesión. Copie el código del mensaje. A continuación, seleccione el vínculo y pegue el código en la nueva ventana. Asegúrese de no copiar un espacio antes o después del código. Inicie sesión con la misma cuenta que usó en Azure Portal.
-
- ![Registro](./media/quickstart-get-started/login.png)
-
-En el cuaderno, la segunda celda lee los datos de `config.json` para conectarse a su área de trabajo.
-```
-ws = Workspace.from_config()
-```
-
-La tercera celda de código inicia un experimento con el nombre "my-first-experiment". Utilice este nombre para buscar información de la ejecución de nuevo en el área de trabajo.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-En la última celda del cuaderno, observe que los valores se escriben en un archivo de registro.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-Puede ver estos valores en el área de trabajo después de ejecutar el código.
+Después de haber completado la ejecución de todas las celdas del cuaderno, puede ver los valores registrados en el área de trabajo.
 
 ## <a name="view-logged-values"></a>Visualización de los datos registrados
 
@@ -121,11 +98,11 @@ Consulte la información sobre la ejecución que acaba de realizar. Desplácese 
 
  ![Vínculo del historial de ejecución](./media/quickstart-get-started/report.png)
 
-Consulte los trazados que se crearon automáticamente de los valores registrados.  
+Consulte los trazados que se crearon automáticamente de los valores registrados. Cada vez que registre varios valores con el mismo parámetro de nombre, se genera automáticamente un trazado.
 
    ![Visualización del historial](./media/quickstart-get-started/plots.png)
 
-Como el código para la aproximación de pi usa valores aleatorios, los trazados mostrarán otros valores.
+Como el código para la aproximación de pi usa valores aleatorios, los trazados mostrarán otros valores.  
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 

@@ -9,18 +9,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 10/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 4d1b27c9b1694f987ea7461c16899f3e5ecb84d2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144392"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50141000"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
-Al implementar los recursos, debe especificar si la implementación es una actualización incremental o una actualización completa.  La diferencia principal entre estos dos modos es la forma en que Resource Manager controla los recursos existentes en el grupo de recursos que no están en la plantilla.
-El modo predeterminado es el incremental.
+Al implementar los recursos, debe especificar si la implementación es una actualización incremental o una actualización completa.  La diferencia principal entre estos dos modos es la forma en que Resource Manager controla los recursos existentes en el grupo de recursos que no están en la plantilla. El modo predeterminado es el incremental.
 
 ## <a name="incremental-and-complete-deployments"></a>Implementaciones de incrementales y completadas
 Al implementar recursos:
@@ -28,19 +27,21 @@ Al implementar recursos:
 * En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla. 
 * En el modo incremental, Resource Manager **deja sin modificar** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
 
-En ambos modos, Resource Manager intenta aprovisionar todos los recursos especificados en la plantilla. Si el recurso ya existe en el grupo de recursos y su configuración es igual, los resultados de la operación no cambian. Si cambia la configuración de un recurso, el recurso se aprovisiona con esos nuevos valores. Si intenta actualizar la ubicación o el tipo de un recurso existente, la implementación produce un error. En su lugar, implemente un nuevo recurso con la ubicación o escriba la que necesite.
+En ambos modos, Resource Manager intenta crear todos los recursos especificados en la plantilla. Si el recurso ya existe en el grupo de recursos y su configuración es igual, los resultados de la operación no cambian. Si cambia los valores de propiedad de un recurso, el recurso se actualiza con esos nuevos valores. Si intenta actualizar la ubicación o el tipo de un recurso existente, la implementación produce un error. En su lugar, implemente un nuevo recurso con la ubicación o escriba la que necesite.
+
+Al volver a implementar un recurso en modo incremental, especifique todos los valores de propiedad del recurso, no solo los que va a actualizar. Si no especifica determinadas propiedades, Resource Manager interpreta la actualización como que sobrescribe esos valores.
 
 ## <a name="example-result"></a>Resultado de ejemplo
 
 Para ilustrar la diferencia entre el modo incremental y el completo, considere el escenario siguiente.
 
-**Grupo de recursos existente** contiene:
+El **grupo de recursos** contiene:
 
 * Recurso A
 * Recurso B
 * Recurso C
 
-**Plantilla** define:
+La **plantilla** contiene:
 
 * Recurso A
 * Recurso B

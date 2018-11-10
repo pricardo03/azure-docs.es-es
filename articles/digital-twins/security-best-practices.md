@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364351"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092192"
 ---
 # <a name="security-best-practices"></a>Procedimientos recomendados de seguridad
 
@@ -26,15 +26,16 @@ En este artículo se resumen los principales procedimientos recomendados que deb
 > [!IMPORTANT]
 > Revise los recursos de seguridad adicionales (incluidos los proveedores de dispositivos) para garantizar la seguridad máxima del espacio de IoT.
 
-## <a name="iot-security-best-practices"></a>Procedimientos recomendados de seguridad de IoT
+## <a name="iot-security-best-practices"></a>Procedimientos recomendados para la seguridad de IoT
 
 Algunos de los procedimientos principales para proteger los dispositivos IoT de forma segura son:
 
 > [!div class="checklist"]
 > * Proteja cada dispositivo que esté conectado al espacio de IoT con medios a prueba de manipulaciones.
 > * Limite el rol de cada dispositivo, sensor y persona dentro del espacio de IoT. Si se pone en riesgo, el impacto será menor.
-> * Posible uso de filtrado de dirección IP de dispositivo.
+> * Posible uso de filtrado de dirección IP de dispositivo y restricción de puertos.
 > * Limite el ancho de banda de E/S y dispositivo para mejorar el rendimiento. La limitación de velocidad puede mejorar la seguridad al impedir ataques por denegación de servicio.
+> * Mantenga actualizado el firmware del dispositivo.
 
 Algunos de los procedimientos más importantes para proteger de forma segura un espacio de IoT son:
 
@@ -55,7 +56,7 @@ Azure Digital Twins usa Azure Active Directory para autenticar a los usuarios y 
 
 > [!div class="checklist"]
 > * Almacene secretos y claves de aplicación de Azure Active Directory en una ubicación segura, como [Key Vault](https://azure.microsoft.com/services/key-vault/).
-> * Para autenticarse, use un certificado emitido por [entidades emisoras de certificados](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) de confianza en lugar de secretos de aplicación.
+> * Para autenticarse, use un certificado emitido por una [entidad emisora de certificados](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) de confianza en lugar de secretos de aplicación.
 > * Limite el ámbito de acceso de OAuth 2.0 para un token.
 > * Compruebe la longitud de tiempo que es válido un token y si un token sigue siendo válido.
 > * Establezca periodos de tiempo adecuados durante los cuales los tokens son válidos.

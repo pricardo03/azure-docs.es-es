@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868282"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212886"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Administración de permisos de base de datos del Explorador de datos de Azure
 
 El Explorador de datos de Azure le permite controlar el acceso a bases de datos y tablas mediante un modelo de *control de acceso basado en rol*. Bajo este modelo, las *entidades de seguridad* (usuarios, grupos y aplicaciones) se asignan a *roles*. Las entidades de seguridad pueden acceder a recursos según los roles que tengan asignados.
 
-En este artículo se describen los roles disponibles y cómo asignar entidades de seguridad a esos roles.
+En este artículo se describen los roles disponibles y cómo asignar entidades de seguridad a esos roles mediante Azure Portal y los comandos de administración del Explorador de datos de Azure.
 
 ## <a name="roles-and-permissions"></a>Roles y permisos
 

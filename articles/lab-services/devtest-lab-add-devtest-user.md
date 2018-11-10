@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573407"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243716"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adición de propietarios y usuarios en Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -41,19 +41,19 @@ En la tabla siguiente se muestran las acciones que pueden realizar los usuarios 
 | --- | --- | --- | --- |
 | **Tareas de laboratorio** | | | |
 | Agregar usuarios a un laboratorio |Sin  |Sí |Sin  |
-| Actualizar la configuración de costo |Sin  |Sí |Sí |
+| Actualizar la configuración de costo |Sin  |SÍ |SÍ |
 | **Tareas base de máquina virtual** | | | |
-| Agregar y quitar imágenes personalizadas |Sin  |Sí |Sí |
-| Agregar, actualizar y eliminar las fórmulas |Sí |Sí |Sí |
-| Incluir en la lista de permitidos imágenes de Azure Marketplace |Sin  |Sí |Sí |
+| Agregar y quitar imágenes personalizadas |Sin  |SÍ |SÍ |
+| Agregar, actualizar y eliminar las fórmulas |SÍ |Sí |SÍ |
+| Incluir en la lista de permitidos imágenes de Azure Marketplace |Sin  |SÍ |SÍ |
 | **Tareas de la máquina virtual** | | | |
-| Creación de máquinas virtuales |Sí |Sí |Sí |
-| Iniciar, detener y eliminar máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
-| Actualizar directivas de máquinas virtuales |Sin  |Sí |Sí |
-| Agregar discos de datos o quitarlos en máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
+| Creación de máquinas virtuales |SÍ |Sí |SÍ |
+| Iniciar, detener y eliminar máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |SÍ |SÍ |
+| Actualizar directivas de máquinas virtuales |Sin  |SÍ |SÍ |
+| Agregar discos de datos o quitarlos en máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |SÍ |SÍ |
 | **Tareas de artefacto** | | | |
-| Agregar y quitar repositorios de artefacto |Sin  |Sí |Sí |
-| Aplicar artefactos |Sí |Sí |Sí |
+| Agregar y quitar repositorios de artefacto |Sin  |SÍ |SÍ |
+| Aplicar artefactos |SÍ |Sí |SÍ |
 
 > [!NOTE]
 > Cuando un usuario crea una máquina virtual, a ese usuario se le asigna automáticamente el rol **Propietario** de la máquina virtual creada.
@@ -64,7 +64,7 @@ En la tabla siguiente se muestran las acciones que pueden realizar los usuarios 
 Los propietarios y los usuarios se pueden agregar en el nivel de laboratorio a través de Azure Portal. Un usuario puede ser un usuario externo con una [cuenta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)válida.
 Los siguientes pasos le guiarán a través del proceso de agregación de un propietario o usuario a un laboratorio de Azure DevTest Labs:
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.
 4. En la hoja del laboratorio, seleccione **Directivas y configuración**. 
@@ -116,11 +116,11 @@ Puede recuperar los valores `subscriptionId`, `labResourceGroup` y `labName` de 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Agregar un propietario o usuario en el nivel de suscripción
 Los permisos de Azure se propagan desde el ámbito primario al secundario en Azure. Por lo tanto, los propietarios de una suscripción de Azure que contiene laboratorios, automáticamente son propietarios de estos. También serán propietarios de las máquinas virtuales y de los demás recursos creados por los usuarios del laboratorio y el servicio Azure DevTest Labs. 
 
-Puede agregar propietarios adicionales a un laboratorio a través de la hoja del laboratorio en [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). Sin embargo, el ámbito de administración del propietario agregado será más limitado que el ámbito del propietario de la suscripción. Por ejemplo, los propietarios agregados no tienen acceso completo a algunos de los recursos que el servicio DevTest Labs crea en la suscripción. 
+Puede agregar propietarios adicionales a un laboratorio a través de la hoja del laboratorio en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040). Sin embargo, el ámbito de administración del propietario agregado será más limitado que el ámbito del propietario de la suscripción. Por ejemplo, los propietarios agregados no tienen acceso completo a algunos de los recursos que el servicio DevTest Labs crea en la suscripción. 
 
 Para agregar un propietario a una suscripción de Azure, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, en la lista, **Suscripciones**.
 3. Seleccione la suscripción deseada.
 4. Seleccione el icono **Acceder** . 

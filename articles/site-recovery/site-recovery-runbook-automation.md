@@ -1,25 +1,18 @@
 ---
-title: Incorporación de runbooks de Azure Automation a los planes de recuperación en Azure Site Recovery | Microsoft Docs
-description: Obtenga información sobre cómo Azure Site Recovery puede ayudarle a ampliar los planes de recuperación mediante Azure Automation. Aprenda a realizar tareas complejas durante la recuperación en Azure.
-services: site-recovery
-documentationcenter: ''
+title: Incorporación de runbooks de Azure Automation a los planes de recuperación de Site Recovery | Microsoft Docs
+description: Obtenga información sobre cómo extender los planes de recuperación con Azure Automation para la recuperación ante desastres con Azure Site Recovery
 author: ruturaj
 manager: gauravd
-editor: ''
-ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
-ms.devlang: powershell
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578772"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211118"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de Azure Automation a los planes de recuperación
 En este artículo se explica cómo se integra Azure Site Recovery con Azure Automation para ayudarle a ampliar los planes de recuperación. Los planes de recuperación pueden organizar la recuperación de máquinas virtuales protegidas con Site Recovery. Los planes de recuperación funcionan para la replicación en una nube secundaria y para la replicación en Azure. Los planes de recuperación además ayudan a que la recuperación sea **coherente y precisa**, **repetible** y **automatizada**. Si conmuta por error las máquinas virtuales en Azure, la integración con Azure Automation amplía los planes de recuperación. Se puede usar para ejecutar runbooks, que ofrecen eficaces tareas de automatización.

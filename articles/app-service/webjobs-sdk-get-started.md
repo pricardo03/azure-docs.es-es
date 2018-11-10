@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580450"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140356"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -182,7 +182,7 @@ En esta sección, configurará el registro de consola que utiliza la nueva plata
 
 El emulador de Azure Storage que se ejecuta localmente no tiene todas las características que necesita el SDK de WebJobs. Por lo tanto, en esta sección creará una cuenta de almacenamiento en Azure y configurará el proyecto para utilizarla.
 
-1. Abra el **Explorador de servidores** e inicie sesión en Azure. Haga clic con el botón derecho en el nodo **Azure** y, después, seleccione **Conectar a la suscripción de Microsoft Azure**.
+1. Abra el **Explorador de servidores** en Visual Studio e inicie sesión en Azure. Haga clic con el botón derecho en el nodo **Azure** y, después, seleccione **Conectar a la suscripción de Microsoft Azure**.
 
    ![Inicio de sesión en Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ En esta sección, va a crear y ejecutar el proyecto localmente, y desencadenar l
 
 1. Cierre la ventana de la consola.
 
-1. En el **Explorador de servidores**, expanda el nodo de la nueva cuenta de almacenamiento y, después, haga clic con el botón derecho en **Colas**. 
+1. En el **Explorador de servidores** en Visual Studio, expanda el nodo de la nueva cuenta de almacenamiento y, después, haga clic con el botón derecho en **Colas**. 
 
 1. Seleccione **Crear cola**. 
 
@@ -310,7 +310,7 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
 ### <a name="configure-app-settings"></a>Configuración de aplicaciones 
 
-1. En el **Explorador de servidores**, expanda el nodo **App Service** bajo **Azure**.
+1. En el **Explorador de servidores** en Visual Studio, expanda el nodo **App Service** en **Azure**.
 
 1. Expanda el grupo de recursos que se encuentra en la aplicación de App Service y, a continuación, haga clic con el botón derecho en la aplicación de App Service.
 
@@ -396,7 +396,7 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
 En esta sección vuelve a realizar una ejecución local para verificar que los datos de registro van ahora a Application Insights, así como a la consola.
 
-1. Use el **Explorador de servidores** para crear un mensaje de cola, de la misma manera que lo hizo [anteriormente](#trigger-the-function), excepto en que va a escribir *¡Hola App Insights!* como texto del mensaje.
+1. Use el **Explorador de servidores** en Visual Studio para crear un mensaje de cola, de la misma manera que lo hizo [anteriormente](#trigger-the-function), excepto en que va a escribir *¡Hola App Insights!* como texto del mensaje.
 
 1. Ejecute el proyecto.
 
@@ -442,7 +442,6 @@ En esta sección se implementa el proyecto como WebJob. Lo implementa en una apl
 
 1. Asegúrese de que no está en una ejecución local (cierre la ventana la de consola si aún está abierta). En caso contrario, la instancia local podría ser la primera que va a procesar los mensajes de cola que cree.
 
-1. Use el **Explorador de servidores** para crear un mensaje de cola, de la misma manera que lo hizo [anteriormente](#trigger-the-function), excepto en que va a escribir *¡Hola Azure!*
 
 1. Actualice la página **Cola** en Visual Studio y el nuevo mensaje desaparece porque la función que se ejecuta en Azure App Service lo ha procesado.
 
@@ -485,7 +484,7 @@ Los enlaces de entrada simplifican el código que lee los datos. En este ejemplo
 
 1. Cree un contenedor de blobs en la cuenta de almacenamiento.
 
-   a. En el **Explorador de servidores**, expanda el nodo de la cuenta de almacenamiento, haga clic con el botón derecho en **Blobs** y, a continuación, seleccione **Crear contenedor de blobs**.
+   a. En el **Explorador de servidores** en Visual Studio, expanda el nodo de la cuenta de almacenamiento, haga clic con el botón derecho en **Blobs** y, a continuación, seleccione **Crear contenedor de blobs**.
 
    b. En el cuadro de diálogo **Crear contenedor de blobs**, especifique *contenedor* como nombre para el contenedor y, después, haga clic en **Aceptar**.
 

@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269367"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418286"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se muestran los pasos a seguir para configurar informes para Azure Backup mediante un almacén de Recovery Services. También muestra cómo acceder a informes mediante Power BI. Cuando haya completado estos pasos, puede ir directamente a Power BI para ver, personalizar y crear informes.
 
+> [!IMPORTANT]
+> Desde el 1 de noviembre de 2018, algunos clientes pueden ver problemas al cargar los datos en la aplicación de Azure Backup en Power BI, con el mensaje “Se encontraron caracteres adicionales al final de la entrada JSON. La interfaz IDataReader produjo la excepción.”.
+Esto es debido a un cambio en el formato en el que los datos se cargan en la cuenta de almacenamiento.
+Descargue la aplicación más reciente (versión 1.8) para evitar este problema.
+>
+>
+
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 - Los informes de Azure Backup se admiten para copias de seguridad de máquinas virtuales de Azure y copias de seguridad de archivos y carpetas con el Agente de Azure Recovery Services.
-- Los informes para Azure SQL Database, Data Protection Manager y Azure Backup Server no se admiten en este momento.
+- Los informes para Azure SQL Database, recursos compartidos de Azure Files, Data Protection Manager y Azure Backup Server no se admiten en este momento.
 - Puede ver los informes de los almacenes y las suscripciones, en caso de que la misma cuenta de almacenamiento esté configurada para cada uno de los almacenes. La cuenta de almacenamiento seleccionada debe estar en la misma región que el almacén de Recovery Services.
 - La frecuencia de actualización programada para los informes es de 24 horas en Power BI. También puede realizar una actualización ad hoc de los informes en Power BI. En este caso, los últimos datos de la cuenta de almacenamiento del cliente se utilizan para representar los informes.
 
@@ -67,23 +74,24 @@ Siga estos pasos para configurar la cuenta de almacenamiento para el almacén de
       ![Ver la configuración de diagnóstico, paso 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Después de configurar los informes al guardar la cuenta de almacenamiento, *espere 24 horas* para que finalice la inserción de datos iniciales. Importe el paquete de contenido de Azure Backup en Power BI solo después de ese tiempo. Para más información, consulte la [sección de preguntas frecuentes](#frequently-asked-questions). 
+> Después de configurar los informes al guardar la cuenta de almacenamiento, *espere 24 horas* para que finalice la inserción de datos iniciales. Importe la aplicación de Azure Backup en Power BI solo después de ese tiempo. Para más información, consulte la [sección de preguntas frecuentes](#frequently-asked-questions). 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>Visualización de informes en Power BI 
 Después de configurar la cuenta de almacenamiento para informes con el almacén de Recovery Services, los datos de informes tardarán unas 24 horas en empezar a fluir. Transcurridas 24 horas desde la configuración de la cuenta de almacenamiento, siga estos pasos para ver los informes en Power BI.
-1. [Inicie sesión](https://powerbi.microsoft.com/landing/signin/) en Power BI.
-2. Seleccione **Obtener datos**. En **Biblioteca de paquetes de contenido**, en **Servicios**, seleccione **Obtener**. Siga los pasos de la [documentación de Power BI para acceder al paquete de contenido](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+Si desea personalizar y compartir el informe, cree un área de trabajo y realice los pasos siguientes:
 
-     ![Importación del paquete de contenido](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Inicie sesión](https://powerbi.microsoft.com/landing/signin/) en Power BI.
+2. Seleccione **Obtener datos**. En **Más formas de crear su propio contenido**, seleccione **Paquetes de contenido de servicio**. Siga los pasos de la [documentación de Power BI para conectarse a un servicio](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. En la barra **Búsqueda**, escriba **Azure Backup** y seleccione **Obtenerla ahora**.
 
       ![Obtención del paquete de contenido](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Escriba el nombre de la cuenta de almacenamiento que se configuró en el paso 5 anterior y seleccione **Siguiente**.
 
     ![Escribir el nombre de la cuenta de Storage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Escriba la clave de cuenta de almacenamiento de esta cuenta de Storage. Para [ver y copiar las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys), vaya a la cuenta de almacenamiento en Azure Portal. 
+5. Mediante el método de autenticación "Clave", escriba la clave de cuenta de almacenamiento de esta cuenta de Storage. Para [ver y copiar las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys), vaya a la cuenta de almacenamiento en Azure Portal. 
 
      ![Escribir la cuenta de Storage](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -95,9 +103,7 @@ Después de configurar la cuenta de almacenamiento para informes con el almacén
     
     ![Importación correcta del paquete de contenido](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. Cuando los datos se importan correctamente, el paquete de contenido de **Azure Backup** se muestra en **Aplicaciones** en el panel de navegación. En **Paneles**, **Informes** y **Conjunto de datos**, la lista ahora muestra Azure Backup con estrellas amarillas que identifican los informes recién importados.
-
-     ![Paquete de contenido de Azure Backup](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. Cuando los datos se importan correctamente, el paquete de contenido de **Azure Backup** se muestra en **Aplicaciones** en el panel de navegación. En **Paneles**, **Informes** y **Conjuntos de datos**, la lista muestra ahora Azure Backup.
      
 8. En **Paneles**, seleccione **Azure Backup**, donde se muestra un conjunto de informes clave anclados.
 

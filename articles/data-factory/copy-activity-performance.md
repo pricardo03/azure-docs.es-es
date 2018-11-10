@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002252"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416943"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Como referencia, la tabla siguiente muestra la cantidad de procesamiento de copi
 Puntos a tener en cuenta:
 
 * La capacidad de proceso se calcula con la siguiente fórmula: [tamaño de los datos leídos del origen]/[duración de la ejecución de Copiar actividad].
-* Los números de referencia de rendimiento de la tabla se midieron mediante el conjunto de datos [TPC-H](http://www.tpc.org/tpch/) en una ejecución de actividad de copia única.
+* Los números de referencia de rendimiento de la tabla se midieron mediante el conjunto de datos [TPC-H](http://www.tpc.org/tpch/) en una ejecución de actividad de copia única. Los archivos de prueba de los almacenes basados en archivos son varios archivos con 10 GB de tamaño.
 * En los almacenes de datos de Azure, el origen y el receptor se encuentran en la misma región de Azure.
 * Para la copia híbrida entre almacenes de datos locales y en la nube, cada nodo de Integration Runtime autohospedado se ejecutaba en una máquina independiente del almacén de datos con la especificación siguiente. Si se ejecutó una única actividad, la operación de copia solo consumió una pequeña parte del ancho de banda de red, memoria o CPU de la máquina de prueba.
     <table>
@@ -76,7 +76,7 @@ Puntos a tener en cuenta:
 
 
 > [!TIP]
-> Para lograr un mayor rendimiento, use más unidades de integración de datos (DIU) que el número máximo predeterminado de DIU permitidas, que son 32 para una ejecución de actividad de copias de nube a nube. Por ejemplo, con 100 DIU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1,0 GBps**. Consulte la sección [Unidades de integración de datos](#data-integration-units) para obtener más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DIU.
+> Puede conseguir un mayor rendimiento mediante el uso de más unidades de integración de datos (DIU). Por ejemplo, con 100 DIU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1,0 GBps**. Consulte la sección [Unidades de integración de datos](#data-integration-units) para obtener más detalles sobre esta característica y el escenario admitido. 
 
 ## <a name="data-integration-units"></a>Unidades de integración de datos
 
@@ -94,7 +94,7 @@ Para reemplazar esta configuración predeterminada, especifique un valor para la
 Puede ver las unidades de integración de datos que realmente se usan en cada ejecución de copia en la salida de la actividad, cuando se supervisa una ejecución de actividad. Obtenga detalles en [Supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Si necesita más DIU para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de ocho y más actualmente solo funciona cuando se **copian varias archivos desde Blob Storage, Data Lake Store, Amazon S3, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube**.
+> La configuración de unidades de integración de datos **en un número superior a 4** actualmente solo funciona cuando se **copian varias archivos desde Blob Storage, Data Lake Store, Amazon S3, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube**.
 >
 
 **Ejemplo:**

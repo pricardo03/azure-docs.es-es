@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541911"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240603"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 Un clúster de Azure Service Fabric es un recurso que usted posee. Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos. Los clústeres sin protección no se admiten para cargas de trabajo de producción. 
@@ -85,7 +85,7 @@ Los usuarios con el rol de administrador tienen acceso total a las funcionalidad
 Los roles de administrador y de usuario del cliente se definen al crear el clúster. Para asignar roles, proporcione identidades diferentes (por ejemplo, con certificados o Azure AD) a cada tipo de rol. Para más información sobre la configuración del control de acceso predeterminada y cómo cambiarla, consulte [Control de acceso basado en roles para clientes de Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 y Service Fabric
-Los certificados digitales X.509 se usan habitualmente para autenticar clientes y servidores. También se usan para cifrar y firmar digitalmente los mensajes. Service Fabric usa certificados X.509 para proteger un clúster y proporcionar características de seguridad de las aplicaciones. Para más información acerca de los certificados digitales X.509, consulte [Trabajar con certificados](http://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/key-vault-get-started.md) se usa para administrar certificados para clústeres de Service Fabric en Azure.
+Los certificados digitales X.509 se usan habitualmente para autenticar clientes y servidores. También se usan para cifrar y firmar digitalmente los mensajes. Service Fabric usa certificados X.509 para proteger un clúster y proporcionar características de seguridad de las aplicaciones. Para más información acerca de los certificados digitales X.509, consulte [Trabajar con certificados](https://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/key-vault-get-started.md) se usa para administrar certificados para clústeres de Service Fabric en Azure.
 
 Algunos puntos importantes que hay que tener en cuenta:
 
@@ -109,7 +109,7 @@ Hay otras cuestiones que deben tenerse en cuenta:
 
 * El campo **Asunto** puede tener varios valores. Los valores llevan un prefijo de inicialización para indicar el tipo de valor. Normalmente, la inicialización es **CN** (para *nombre común*); por ejemplo, **CN = www.contoso.com**. 
 * El campo **Firmante** puede estar en blanco. 
-* Si el campo opcional **Nombre alternativo de firmante** está relleno, debe contener tanto el nombre común del certificado como una entrada por nombre alternativo de firmante. Estos se especifican como valores de **Nombre DNS**. Para aprender a generar certificados que tengan SAN, consulte [Cómo agregar un nombre alternativo del sujeto a un certificado LDAP seguro](http://support.microsoft.com/kb/931351).
+* Si el campo opcional **Nombre alternativo de firmante** está relleno, debe contener tanto el nombre común del certificado como una entrada por nombre alternativo de firmante. Estos se especifican como valores de **Nombre DNS**. Para aprender a generar certificados que tengan SAN, consulte [Cómo agregar un nombre alternativo del sujeto a un certificado LDAP seguro](https://support.microsoft.com/kb/931351).
 * El valor del campo **Propósitos planteados** del certificado debe incluir un valor apropiado, como **Autenticación de servidor** o **Autenticación de cliente**.
 
 ### <a name="application-certificates-optional"></a>Certificados de aplicación (opcionales)

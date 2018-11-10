@@ -1,36 +1,35 @@
 ---
 title: 'Tutorial: redirigir el tráfico web basado en la dirección URL - CLI de Azure'
-description: Obtenga información sobre cómo redirigir el tráfico web basado en la URL a grupos de servidores escalables específicos mediante la CLI de Azure.
+description: En este tutorial aprenderá a redirigir el tráfico web basado en la URL a grupos de servidores escalables específicos mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f683d63683e903d947d0789a16a8efa48196d36a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 68532ec4ae7e6d6b496ece8d08755555f756a60e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026201"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413458"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: redirigir el tráfico web basado en la dirección URL mediante la CLI de Azure
 
-Puede usar la CLI de Azure para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos basados en la dirección URL que se usa para acceder a la aplicación. En este tutorial, creará una instancia de [Azure Application Gateway](application-gateway-introduction.md) con tres grupos de back-end mediante [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtengan la información que necesiten en el momento adecuado.
+Como administrador de IT que administra el tráfico web, desea ayudar a los clientes o usuarios a obtener la información que necesitan lo más rápidamente posible. Una manera en la que puede optimizar su experiencia es mediante el enrutamiento de diferentes clases de tráfico web a diferentes recursos de servidor. Este tutorial le muestra cómo usar la CLI de Azure para instalar y configurar el enrutamiento de Application Gateway para distintos tipos de tráfico de la aplicación. Posteriormente, el enrutamiento dirige el tráfico a diferentes granjas de servidores según la dirección URL.
 
-Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](application-gateway-url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos.
+![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-route-cli/scenario.png)
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configuración de la red
-> * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
-> * Crear grupos de back-end escalables.
-
-![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-route-cli/scenario.png)
+> * Crear un grupo de recursos para los recursos de red que necesitará
+> * Crear los recursos de red
+> * Crear una puerta de enlace de aplicaciones para el tráfico que procede de la aplicación
+> * Especificar granjas de servidores y reglas de enrutamiento para los distintos tipos de tráfico
+> * Crear un conjunto de escalado para cada granja para que esta se pueda escalar de forma automática
+> * Ejecutar una prueba para comprobar que los distintos tipos de tráfico van a la granja correcta
 
 Si lo prefiere, puede completar este tutorial con [Azure PowerShell](tutorial-url-route-powershell.md) o [Azure Portal](create-url-route-portal.md).
 
@@ -42,17 +41,17 @@ Si decide instalar y usar la CLI de forma local, en este tutorial necesitará la
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Para crear un grupo de recursos, use [az group create](/cli/azure/group#create).
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos mediante `az group create`.
 
 En el ejemplo siguiente, se crea un grupo de recursos llamado *myResourceGroupAG* en la ubicación *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Crear recursos de red 
+## <a name="create-network-resources"></a>Crear recursos de red
 
-Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az-net). A continuación, agregue la subred llamada *myBackendSubnet* que necesitan los servidores de back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante `az network vnet create`. A continuación, agregue la subred llamada *myBackendSubnet* que necesitan los servidores de back-end mediante `az network vnet subnet create`. Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante `az network public-ip create`.
 
 ```azurecli-interactive
 az network vnet create \
@@ -74,9 +73,9 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-the-application-gateway-with-url-map"></a>Creación de la puerta de enlace de aplicaciones con asignación de direcciones URL
+## <a name="create-the-app-gateway-with-a-url-map"></a>Creación de la puerta de enlace de aplicaciones con una asignación de direcciones URL
 
-Use [az network application-gateway create](/cli/azure/network/application-gateway#create) para crear una puerta de enlace de aplicaciones denominada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myAGPublicIPAddress* creados anteriormente. 
+Use `az network application-gateway create` para crear una puerta de enlace de aplicaciones denominada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myAGPublicIPAddress* creados anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -96,16 +95,18 @@ az network application-gateway create \
 
  La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, podrá ver estas nuevas características:
 
-- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
-- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
-- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
+|Característica  |DESCRIPCIÓN  |
+|---------|---------|
+|appGatewayBackendPool     |Una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.|
+|appGatewayBackendHttpSettings     |Especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.|
+|appGatewayHttpListener     |Agente de escucha predeterminado asociado con appGatewayBackendPool.|
+|appGatewayFrontendIP     |Asigna myAGPublicIPAddress a appGatewayHttpListener.|
+|rule1     |La regla de enrutamiento predeterminada asociada a appGatewayHttpListener.|
 
-### <a name="add-image-and-video-backend-pools-and-port"></a>Adición de un puerto de back-end y grupos de back-end de imágenes y vídeo
+### <a name="add-image-and-video-backend-pools-and-a-port"></a>Adición de un puerto de back-end y grupos de back-end de imágenes y vídeo
 
-Agregue los grupos de back-end denominados *imagesBackendPool* y *videoBackendPool* a la puerta de enlace de aplicaciones mediante [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create). El puerto de front-end de los grupos se agrega mediante [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). 
+Agregue los grupos de back-end denominados *imagesBackendPool* y *videoBackendPool* a la puerta de enlace de aplicaciones mediante `az network application-gateway address-pool create`. Agregue el puerto de front-end para los grupos mediante `az network application-gateway frontend-port create`.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -125,9 +126,9 @@ az network application-gateway frontend-port create \
   --name port8080
 ```
 
-### <a name="add-backend-listener"></a>Adición del agente de escucha de back-end
+### <a name="add-a-backend-listener"></a>Adición de un agente de escucha de back-end
 
-Agregue el agente de escucha de back-end llamado *backendListener* que es necesario para enrutar el tráfico mediante [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
+Agregue el agente de escucha de back-end llamado *backendListener* que es necesario para enrutar el tráfico mediante `az network application-gateway http-listener create`.
 
 
 ```azurecli-interactive
@@ -139,9 +140,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-url-path-map"></a>Adición de asignación de ruta de URL
+### <a name="add-a-url-path-map"></a>Adición de una asignación de ruta de URL
 
-Las asignaciones correspondientes a la ruta de dirección URL garantizan que direcciones URL específicas se enruten hacia grupos de back-end específicos. Cree asignaciones de ruta de dirección URL llamadas *imagePathRule* y *videoPathRule* mediante [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) y [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)
+Las asignaciones correspondientes a la ruta de dirección URL garantizan que direcciones URL específicas se enruten hacia grupos de back-end específicos. Cree una asignación de rutas de URL llamada *imagePathRule* y *videoPathRule* mediante `az network application-gateway url-path-map create` y `az network application-gateway url-path-map rule create`.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -164,9 +165,9 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-routing-rule"></a>Adición de reglas de enrutamiento
+### <a name="add-a-routing-rule"></a>Agregar una regla de enrutamiento
 
-La regla de enrutamiento asocia las asignaciones de URL con el agente de escucha que ha creado. Agregue una regla llamada *rule2* mediante [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+La regla de enrutamiento asocia las asignaciones de URL con el agente de escucha que ha creado. Agregue una regla denominada *rule2* mediante `az network application-gateway rule create`.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -179,7 +180,7 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
+## <a name="create-vm-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
 En este tutorial, creará tres conjuntos de escalado de máquinas virtuales que admitan los tres grupos de back-end que ha creado. Cree los conjuntos de escalado denominados *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
 
@@ -233,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Como, por ejemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* o *http://40.121.222.19:8080/video/test.htm*.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use az network public-ip show. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Como, por ejemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* o *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -262,13 +263,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración de la red
-> * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
-> * Crear grupos de back-end escalables.
 
 > [!div class="nextstepaction"]
 > [Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL](./tutorial-url-redirect-cli.md)

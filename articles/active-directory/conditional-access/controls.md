@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406779"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092311"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory? 
 
@@ -166,8 +166,14 @@ Los controles de sesión permiten limitar la experiencia desde una aplicación e
 
 ### <a name="use-app-enforced-restrictions"></a>Usar restricciones que exige la aplicación
 
-Puede usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube. Esto ayuda a la aplicación en la nube a saber si el usuario procede de un dispositivo compatible o un dispositivo unido al dominio. Actualmente este control solo se admite con SharePoint como aplicación en la nube. SharePoint usa la información del dispositivo para proporcionar a los usuarios una experiencia completa o limitada según el estado del dispositivo.
-Para más información sobre cómo requerir el acceso limitado con SharePoint consulte [Controlar el acceso desde dispositivos no administrados](https://aka.ms/spolimitedaccessdocs).
+Puede usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube. La información del dispositivo permite que las aplicaciones de nube sepan si una conexión se inicia desde un dispositivo compatible o unido al dominio. Este control solo admite Exchange Online y SharePoint Online como aplicaciones de nube seleccionadas. Cuando se selecciona, la aplicación de nube usa la información del dispositivo para proporcionar a los usuarios una experiencia completa o limitada, según el estado del dispositivo.
+
+Para obtener más información, consulte:
+
+- [Habilitación del acceso limitado con SharePoint Online](https://aka.ms/spolimitedaccessdocs) 
+
+- [Habilitación del acceso limitado con Exchange Online](https://aka.ms/owalimitedaccess)
+
 
 
 

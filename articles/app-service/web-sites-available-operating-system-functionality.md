@@ -12,17 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 9b4c87bd0889718fcb8938a9e3bb9207b8fe727a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850161"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420463"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
-En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones que se ejecutan en el [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
+En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
+
+> [!NOTE] 
+> Las [aplicaciones Linux](containers/app-service-linux-intro.md) en App Service se ejecutan en sus propios contenedores. No se permite ningún acceso al sistema operativo host, pero sí tiene acceso a la raíz del contenedor. Del mismo modo, para las [aplicaciones que se ejecutan en contenedores de Windows](app-service-web-get-started-windows-container.md), tiene acceso administrativo al contenedor, pero no al sistema operativo host. 
+>
 
 <a id="tiers"></a>
 

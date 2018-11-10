@@ -1,239 +1,176 @@
 ---
-title: 'Guía de inicio rápido: búsqueda de traducciones alternativas con Python: Translator Text API'
+title: 'Guía de inicio rápido: Obtención de traducciones alternativas, Python: Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido buscará traducciones alternativas y ejemplos de términos en contexto mediante Translator Text API con Python.
+description: En esta guía de inicio rápido, aprenderá a buscar traducciones alternativas y ejemplos de uso para un texto específico con Python y Translator Text REST API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: cb8f6addd9fa68cd5a4683f52621b05dcd25e7b4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6e75ceb388b3111ea9ec31ba6bffded4077a019b
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646426"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248683"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-python"></a>Guía de inicio rápido: búsqueda de traducciones alternativas con la API REST Translator Text (Python)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Guía de inicio rápido: Uso de Translator Text API para obtener traducciones alternativas con Python
 
-En esta guía de inicio rápido se buscan detalles de las posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante Translator Text API.
+En esta guía de inicio rápido, aprenderá a buscar traducciones alternativas y ejemplos de uso para un texto específico con Python y Translator Text REST API.
+
+En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Translator Text. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere [Python 3.x](https://www.python.org/downloads/) para ejecutar este código.
+Esta guía de inicio rápido requiere:
 
-Para usar Translator Text API, también necesita una clave de suscripción; consulte [Cómo suscribirse a Translator Text API](translator-text-how-to-signup.md).
+* Python 2.7.x o 3.x
+* Una clave de suscripción de Azure para Translator Text
 
-## <a name="dictionary-lookup-request"></a>Solicitud Dictionary Lookup
+## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
-Con lo siguiente se obtienen traducciones alternativas de una palabra mediante el método [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md).
-
-1. Cree un nuevo proyecto de Python en el editor de código que prefiera.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `subscriptionKey` por una clave de acceso válida para la suscripción.
-4. Ejecute el programa.
+Cree un nuevo proyecto de Python con su IDE o editor favorito. A continuación, copie este fragmento de código en un archivo llamado `dictionary-lookup.py`.
 
 ```python
 # -*- coding: utf-8 -*-
+import os, requests, uuid, json
+```
 
-import http.client, urllib.parse, uuid, json
+> [!NOTE]
+> Si no ha usado estos módulos deberá instalarlos antes de ejecutar el programa. Para instalar estos paquetes, ejecute: `pip install requests uuid`.
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+El primer comentario le indica al intérprete de Python que debe usar la codificación UTF-8. Después, se importan los módulos necesarios para leer la clave de suscripción desde una variable de entorno, construir la solicitud HTTP, crear un identificador único y controlar la respuesta JSON que devuelve Translator Text API.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+## <a name="set-the-subscription-key-base-url-and-path"></a>Establecimiento de la clave de suscripción, la dirección URL base y la ruta de acceso
 
-host = 'api.cognitive.microsofttranslator.com'
+En este ejemplo se intenta leer la clave de suscripción de Translator Text desde la variable de entorno `TRANSLATOR_TEXT_KEY`. Si no está familiarizado con las variables de entorno, puede establecer `subscriptionKey` como una cadena y convertir en comentario la instrucción condicional.
+
+Copie este código en el proyecto:
+
+```python
+# Checks to see if the Translator Text subscription key is available
+# as an environment variable. If you are setting your subscription key as a
+# string, then comment these lines out.
+if 'TRANSLATOR_TEXT_KEY' in os.environ:
+    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
+else:
+    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
+    exit()
+# If you want to set your subscription key as a string, uncomment the line
+# below and add your subscription key.
+#subscriptionKey = 'put_your_key_here'
+```
+
+Actualmente, hay un punto de conexión disponible para Translator Text y está establecido como `base_url`. `path` establece la ruta de `dictionary/lookup` e identifica que deseamos usar la versión 3 de la API.
+
+`params` se utiliza para establecer los idiomas de entrada y salida. En este ejemplo, se van a usar inglés y español: `en` y `es`.
+
+>[!NOTE]
+> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Búsqueda de diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+
+```python
+base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
-
-params = '&from=en&to=fr';
-
-text = 'great'
-
-def lookup (content):
-
-    headers = {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': str(uuid.uuid4())
-    }
-
-    conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path + params, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-requestBody = [{
-    'Text' : text,
-}]
-content = json.dumps(requestBody, ensure_ascii=False).encode('utf-8')
-result = lookup (content)
-
-# Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-# We want to avoid escaping any Unicode characters that result contains. See:
-# https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
-
-print (output)
+params = '&from=en&to=es';
+constructed_url = base_url + path + params
 ```
 
-## <a name="dictionary-lookup-response"></a>Respuesta de Dictionary Lookup
+## <a name="add-headers"></a>Incorporación de encabezados
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo:
+La manera más fácil de autenticar una solicitud es pasar la clave de suscripción como un encabezado `Ocp-Apim-Subscription-Key`, que es el que se usa en este ejemplo. O bien, puede intercambiar la clave de suscripción para un token de acceso y pasar este token como un encabezado `Authorization` para validar la solicitud. Para más información, consulte [Autenticación](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-```json
-[
-  {
-    "normalizedSource": "great",
-    "displaySource": "great",
-    "translations": [
-      {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
-          },
-          {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
-          },
-...
-        ]
-      },
-      {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
-]
-```
-
-## <a name="dictionary-examples-request"></a>Solicitud Dictionary Examples
-
-Con lo siguiente se obtienen ejemplos contextuales del uso de un término en el diccionario mediante el método [Dictionary Examples](./reference/v3-0-dictionary-examples.md).
-
-1. Cree un nuevo proyecto de Python en el editor de código que prefiera.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `subscriptionKey` por una clave de acceso válida para la suscripción.
-4. Ejecute el programa.
+Copie este fragmento de código en el proyecto:
 
 ```python
-# -*- coding: utf-8 -*-
-
-import http.client, urllib.parse, uuid, json
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
-
-host = 'api.cognitive.microsofttranslator.com'
-path = '/dictionary/examples?api-version=3.0'
-
-params = '&from=en&to=fr';
-
-text = 'great'
-translation = 'formidable'
-
-def examples (content):
-
-    headers = {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': str(uuid.uuid4())
-    }
-
-    conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path + params, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-requestBody = [{
-    'Text' : text,
-    'Translation' : translation,
-}]
-content = json.dumps(requestBody, ensure_ascii=False).encode('utf-8')
-result = examples (content)
-
-# Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-# We want to avoid escaping any Unicode characters that result contains. See:
-# https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
-
-print (output)
+headers = {
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Content-type': 'application/json',
+    'X-ClientTraceId': str(uuid.uuid4())
+}
 ```
 
-## <a name="dictionary-examples-response"></a>Respuesta de Dictionary Examples
+## <a name="create-a-request-to-find-alternate-translations"></a>Creación de una solicitud para buscar traducciones alternativas
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo:
+Defina la cadena (o cadenas) para las que desea encontrar traducciones:
+
+```python
+# You can pass more than one object in body.
+body = [{
+    'text': 'Elephants'
+}]
+```
+
+A continuación, vamos a crear una solicitud POST mediante el módulo `requests`, que usa tres argumentos: la dirección URL concatenada, los encabezados de solicitud y el cuerpo de solicitud:
+
+```python
+request = requests.post(constructed_url, headers=headers, json=body)
+response = request.json()
+```
+
+## <a name="print-the-response"></a>Impresión de la respuesta
+
+El último paso es imprimir los resultados. Este fragmento de código adorna los resultados mediante una clasificación de las claves, el establecimiento de una sangría y la declaración de separadores de elementos y de claves.
+
+```python
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+```
+
+## <a name="put-it-all-together"></a>Colocación de todo junto
+
+Eso es todo, ha creado un sencillo programa que llama a Translator Text API y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
+
+```console
+python dictionary-lookup.py
+```
+
+Si desea comparar su código con el nuestro, el ejemplo completo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
+
+## <a name="sample-response"></a>Respuesta de muestra
 
 ```json
 [
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
-    ]
-  }
+    {
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
+            {
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
+            }
+        ]
+    }
 ]
 ```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si ha codificado de forma rígida la clave de suscripción en el programa, asegúrese de quitarla cuando haya terminado con esta guía de inicio rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore el código de ejemplo de esta guía de inicio rápido y otros, incluida la traducción y la transliteración, así como otros proyectos de Translator Text de ejemplo de GitHub.
-
 > [!div class="nextstepaction"]
-> [Explorar ejemplos de Python en GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)
+> [Explorar ejemplos de Python en GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+
+## <a name="see-also"></a>Otras referencias
+
+Además de para la transliteración de texto, aprenda a usar Translator Text API para:
+
+* [Traducir texto](quickstart-python-translate.md)
+* [Transliterar texto](quickstart-python-transliterate.md)
+* [Identificar el idioma de entrada](quickstart-python-detect.md)
+* [Obtener una lista de idiomas admitidos](quickstart-python-languages.md)
+* [Determinar la longitud de las oraciones de una entrada](quickstart-python-sentences.md)

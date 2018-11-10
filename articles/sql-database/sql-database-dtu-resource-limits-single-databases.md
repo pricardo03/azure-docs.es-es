@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 0a514cced50a2a05008c03dfb438cceefb332d17
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 5ddcacbf805ae9d2ce093058b21d53189457ffb9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987331"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233776"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en DTU
 
@@ -81,7 +81,7 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |||||||
 
 > [!IMPORTANT]
-> Hay más de 1 TB de almacenamiento en el nivel Prémium disponible actualmente en todas las regiones excepto en las siguientes: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Norte de Reino Unido, Sur de Reino Unido, US DoD (centro), US DoD (este), US Government Central y Centro-oeste de EE. UU.  En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Hay más de 1 TB de almacenamiento en el nivel premium disponible actualmente en todas las regiones excepto en las siguientes: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Norte de Reino Unido, Sur de Reino Unido, US DoD (centro), US DoD (este), US Government Central y Centro-oeste de EE. UU.  En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Base de datos única: cambiar el tamaño de almacenamiento
 
@@ -131,7 +131,7 @@ Las siguientes consideraciones y limitaciones se aplican a las bases de datos P1
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md) para conocer las respuestas a las preguntas más frecuentes.
-- Consulte la [Información general de los límites de recursos en un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información sobre los límites en los niveles de servidor y suscripción.
+- Consulte [Introducción a los límites de recursos de un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 - Para más información sobre las DTU y eDTU, consulte [DTU y eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Para más información sobre los límites de tamaño de tempdb, consulte [Límites de tempdb en SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

@@ -1,6 +1,6 @@
 ---
 title: Esta guía de inicio rápido le muestra cómo inscribir dispositivos X.509 en el servicio Azure Device Provisioning con Python | Microsoft Docs
-description: En este inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con Python
+description: Esta guía de inicio rápido usa inscripciones de grupos. En este inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
@@ -10,18 +10,18 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 84ec165a78f873f6378e840d7f339cb7590dc098
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1eae992785eac18727c138b4e31369f1cf57f93e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227391"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157248"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Guía de inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Los dispositivos están inscritos en una instancia de Device Provisioning Service mediante la creación de un [grupo de inscripción](concepts-service.md#enrollment-group) o de una [inscripción individual](concepts-service.md#individual-enrollment). En esta guía de inicio rápido se muestra cómo usar Python para crear mediante programación un [grupo de inscripción](concepts-service.md#enrollment-group) que usa certificados X.509 intermedios o raíces de una entidad de certificación. Un grupo de inscripción controla el acceso al servicio de aprovisionamiento de los dispositivos que comparten un certificado de firma común en su cadena de certificados. El grupo de inscripción se crea mediante el [SDK del servicio de aprovisionamiento de Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) y una aplicación Python de ejemplo. La creación de inscripción individuales con el *SDK del servicio de aprovisionamiento de Python* es todavía un trabajo en curso. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para más información sobre el uso de la infraestructura de clave pública (PKI) basada en certificados X.509 con Azure IoT Hub y el servicio Device Provisioning, consulte [Introducción a la seguridad mediante certificados de entidades de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+Los dispositivos están inscritos en una instancia de Device Provisioning Service mediante la creación de un [grupo de inscripción](concepts-service.md#enrollment-group) o de una [inscripción individual](concepts-service.md#individual-enrollment). En esta guía de inicio rápido se muestra cómo usar Python para crear mediante programación un [grupo de inscripción](concepts-service.md#enrollment-group) que usa certificados X.509 intermedios o raíces de una entidad de certificación. Un grupo de inscripción controla el acceso al servicio de aprovisionamiento de los dispositivos que comparten un certificado de firma común en su cadena de certificados. El grupo de inscripción se crea mediante el [SDK del servicio de aprovisionamiento de Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) y una aplicación Python de ejemplo. La creación de inscripción individuales con el *SDK del servicio de aprovisionamiento de Python* es todavía un trabajo en curso. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para más información sobre el uso de la infraestructura de clave pública (PKI) basada en certificados X.509 con Azure IoT Hub y el servicio Device Provisioning, consulte [Introducción a la seguridad mediante certificados de entidades de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 En esta guía de inicio rápido se asume que ya ha creado un centro de IoT y una instancia de Device Provisioning Service. Si aún no ha creado estos recursos, complete la guía de inicio rápido [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este artículo.
 
@@ -42,7 +42,7 @@ Aunque los pasos de este artículo funcionan en máquinas Windows y Linux, este 
 
 En esta guía de inicio rápido debe tener un archivo .pem o .cer que contenga la porción pública de un certificado X.509 intermedio o raíz de entidad de certificación. Se debe cargar este certificado en el servicio de aprovisionamiento y que este lo compruebe. 
 
-El [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) contiene herramientas de prueba que pueden ayudarle a crear una cadena de certificados X.509, cargar un certificado raíz o intermedio a partir de esa cadena y realizar la prueba de posesión con el servicio para comprobar el certificado. Los certificados creados con las herramientas del SDK están diseñados para usarse en las **pruebas de desarrollo únicamente**. Estos certificados **no se deben usar en producción**. Contienen contraseñas codificadas de forma rígida ("1234") que expiran después de 30 días. Para saber cómo obtener certificados adecuados para el código de producción, consulte [Cómo obtener un certificado de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) en la documentación de Azure IoT Hub.
+El [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) contiene herramientas de prueba que pueden ayudarle a crear una cadena de certificados X.509, cargar un certificado raíz o intermedio a partir de esa cadena y realizar la prueba de posesión con el servicio para comprobar el certificado. Los certificados creados con las herramientas del SDK están diseñados para su uso en las **pruebas de desarrollo únicamente**. Estos certificados **no se deben usar en producción**. Contienen contraseñas codificadas de forma rígida ("1234") que expiran después de 30 días. Para saber cómo obtener certificados adecuados para el código de producción, consulte [Cómo obtener un certificado de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) en la documentación de Azure IoT Hub.
 
 Para usar estas herramientas de prueba para generar certificados, realice los pasos siguientes: 
  
@@ -65,7 +65,7 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
 
 1. Con un editor de texto, cree un nuevo archivo **EnrollmentGroup.py**.
 
-1. Agregue las siguientes instrucciones y variables `import` al principio del archivo **EnrollmentGroup.py**. Después, reemplace `dpsConnectionString` por la cadena de conexión que se encuentra en **Directivas de acceso compartido** en **Servicio Device Provisioning** de **Azure Portal**. Reemplace el marcador de posición de certificado por el certificado creado anteriormente en [Preparación de los certificados de prueba](quick-enroll-device-x509-python.md#prepare-test-certificates). Por último, cree un único `registrationid`, y asegúrese de que solo consta de caracteres alfanuméricos en minúsculas y guiones.  
+1. Agregue las siguientes instrucciones y variables `import` al principio del archivo **EnrollmentGroup.py**. Después, reemplace `dpsConnectionString` por la cadena de conexión que se encuentra en **Directivas de acceso compartido** en **Device Provisioning Service** de **Azure Portal**. Reemplace el marcador de posición de certificado por el certificado creado anteriormente en [Preparación de los certificados de prueba](quick-enroll-device-x509-python.md#prepare-test-certificates). Por último, cree un único `registrationid`, y asegúrese de que solo consta de caracteres alfanuméricos en minúsculas y guiones.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient

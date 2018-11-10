@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 863e465d888774730b9d9269024665a097a1207b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429310"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238886"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
@@ -135,8 +135,8 @@ Los filtros de fila se aplican a las rilas especificadas y a las filas relaciona
   
 |Tabla|Expresión DAX|  
 |-----------|--------------------|  
-|Region|=Region[Country]="EE. UU."|  
-|ProductCategory|=ProductCategory[Name]="Bicicletas"|  
+|Region|=Region[Country]="USA"|  
+|ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |Transacciones|=Transactions[Year]=2016|  
   
  El efecto neto es que los miembros pueden consultar filas de datos cuando el cliente se encuentra en EE. UU., la categoría de producto es "bicicletas" y el año es 2016. Los usuarios no pueden consultar transacciones fuera de los EE. UU., transacciones que no sean bicicletas o transacciones que no se hayan realizado el 2016, a menos que sean miembro de otro rol que conceda estos permisos.

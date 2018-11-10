@@ -1,6 +1,6 @@
 ---
-title: Replicación de máquinas virtuales de Hyper-V en nubes de Virtual Machine Manager en un sitio secundario con PowerShell (Azure Resource Manager) | Microsoft Docs
-description: Describe la replicación de máquinas virtuales de Hyper-V en nubes de Virtual Machine Manager en un sitio de Virtual Machine Manager secundario mediante PowerShell (Resource Manager)
+title: Configuración de la recuperación ante desastres de las máquinas virtuales de Hyper-V en nubes de VMM a un sitio secundario con Azure Site Recovery y PowerShell | Microsoft Docs
+description: Describe cómo configurar la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM en un sitio VMM secundario con Azure Site Recovery y PowerShell.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 896b3cb3c40673dfbc7269cab1d37790f78912b0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041363"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214586"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Replicación de máquinas virtuales de Hyper-V en un sitio secundario con PowerShell (Resource Manager)
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con PowerShell (Resource Manager)
 
 En este artículo se explica cómo automatizar los pasos necesarios para la replicación de máquinas virtuales de Hyper-V en nubes de System Center Virtual Machine Manager a una nube de Virtual Machine Manager en un sitio local secundario con [Azure Site Recovery](site-recovery-overview.md).
 

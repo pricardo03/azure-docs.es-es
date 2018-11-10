@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eb3489c24bd5aa328620c5a6c14ee71882a6a6f2
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249577"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414625"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Extensión de alertas de Log Analytics en Alertas de Azure
 Hasta hace poco, Azure Log Analytics incluía su propia funcionalidad de alerta, que podía informarle proactivamente de las condiciones en función de datos de Log Analytics. Las reglas de alertas se administraban en el portal de Microsoft Operations Management Suite. La nueva experiencia de alertas integra ahora las alertas en distintos servicios de Microsoft Azure. Está disponible como **Alertas** en Azure Monitor en Azure Portal e incluye las alertas de registros de actividad, las métricas y los registros tanto de Log Analytics como de Azure Application Insights. 
@@ -35,7 +35,7 @@ El proceso de trasladar las alertas de Log Analytics a Alertas de Azure no impli
 
 Cuando programa alertas en un área de trabajo de Log Analytics para que se extiendan a Azure, éstas continúan funcionando y no comprometen en modo alguno la configuración. Es posible que, una vez programadas, las alertas no estén disponibles para ser modificadas temporalmente, pero se pueden seguir creando nuevas Alertas de Azure durante este tiempo. Si intenta editar o crear alertas desde el portal de Operations Management Suite, tiene la posibilidad de seguir creándolas desde el área de trabajo de Log Analytics. También puede crearlas desde Alertas de Azure en Azure Portal.
 
- ![Captura de pantalla de la opción para crear alertas en Log Analytics o en Alertas de Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
+ ![Captura de pantalla de la opción para crear alertas en Log Analytics o en Alertas de Azure](media/monitoring-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
 > La extensión de alertas de Log Analytics a Azure no ocasionará cargos en su cuenta. El uso de Alertas de Azure con alertas de Log Analytics basadas en consultas no se facturará, siempre que el uso cumpla con los límites y las condiciones que se estipulan en la [directiva de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  
@@ -47,7 +47,7 @@ Para extender las alertas a Alertas de Azure, puede usar a un asistente disponib
 ## <a name="experience-after-extending-your-alerts"></a>Experiencia después de extender las alertas
 Cuando las alertas se extienden a Alertas de Azure, siguen estando disponibles en el portal de Operations Management Suite para su administración de la misma manera que antes.
 
-![Captura de pantalla del portal de Operations Management Suite, con presentación de las alertas](./media/monitor-alerts-extend/PostExtendList.png)
+![Captura de pantalla del portal de Operations Management Suite, con presentación de las alertas](media/monitoring-alerts-extend/PostExtendList.png)
 
 Cuando intente modificar una alerta existente o crear una alerta en el portal de Operations Management Suite, se le redirigirá automáticamente a Alertas de Azure.  
 

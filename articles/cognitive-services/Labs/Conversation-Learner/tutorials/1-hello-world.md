@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 271141f24ff729fc99210af67ad769a5ef83a65c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170878"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242728"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Creación de un modelo "Hola mundo" de Conversation Learner
 
@@ -23,7 +23,7 @@ Este tutorial muestra cómo empezar a usar Conversation Learner, lo que incluye 
 
 ## <a name="video"></a>Vídeo
 
-[![Vista previa del tutorial 1](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+[![Vista previa del tutorial 1](https://aka.ms/cl-tutorial-01-preview)](https://aka.ms/blis-tutorial-01)
 
 
 ## <a name="requirements"></a>Requisitos
@@ -40,7 +40,7 @@ Empiece en la página principal de la interfaz de usuario web.
 ### <a name="create-the-model"></a>Crear el modelo
 1. Haga clic en New Modelo (Modelo nuevo).
 2. En el campo Name (Nombre), escriba "Hola mundo"
-3. Click Create
+3. Haga clic en Crear.
 
 ### <a name="create-an-action"></a>Creación de una acción
 
@@ -49,7 +49,7 @@ Empiece en la página principal de la interfaz de usuario web.
     - Una acción puede ser un mensaje de texto que Conversation Learner devuelve al usuario, una llamada a una API o una tarjeta.
 3. En Response (Respuesta), escriba "Hola mundo"
     - Se trata de la respuesta que devolverá el bot
-4. Click Create
+4. Haga clic en Crear.
 
 Ha creado lo primero que el bot puede hacer, es decir, devolver una respuesta de texto.
 

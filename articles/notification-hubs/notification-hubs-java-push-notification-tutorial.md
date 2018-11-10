@@ -14,19 +14,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fe20cf9c9137dc1ca41d3b8e2445bac079fb33fc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7ced71f2d0a8c5d956bbdbcd8fcae485aee3fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142701"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241586"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Uso de Notification Hubs desde Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. Este es un proyecto de código abierto; puede ver el código entero del SDK en el [SDK de Java]. 
 
-En general, puede acceder a todas las características de Notification Hubs desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST de Notification Hubs, como se describe en el tema de MSDN [API de REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
+En general, puede acceder a todas las características de Notification Hubs desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST de Notification Hubs, como se describe en el tema de MSDN [API de REST de Notification Hubs](https://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
 
 El SDK admite actualmente:
 

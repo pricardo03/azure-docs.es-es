@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391477"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414002"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para implementar sus aplicaciones en Azure. En este artículo se muestra cómo implementar una aplicación Java en un conjunto de escalado de máquinas virtuales (VMSS) de Azure.  
@@ -23,7 +23,7 @@ Ansible permite automatizar la implementación y la configuración de recursos e
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Conjunto de escalado de máquinas virtuales**: si aún no tiene un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado de máquinas virtuales con Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) se usa para descargar un ejemplo de Java utilizado en este tutorial.
-- **Java SE Development Kit (JDK)**: el JDK se usa para compilar el proyecto de Java de ejemplo.
+- **Java SE Development Kit (JDK)**: el [JDK](https://aka.ms/azure-jdks) se usa para compilar el proyecto de Java de ejemplo.
 - **Herramientas de compilación Maven de Apache**: las [herramientas de compilación Maven de Apache](https://maven.apache.org/download.cgi) se usan para compilar el proyecto de Java de ejemplo.
 
 > [!Note]

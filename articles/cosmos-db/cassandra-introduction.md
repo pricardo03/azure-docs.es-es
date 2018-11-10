@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: fe0ed06c5ecd0a84e9999c09cd312ddea2557f80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1037f7921093d38d9020bafd9fd3597f27ca5011
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221673"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230257"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introducción a Cassandra API de Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Cassandra API permite interactuar con los datos almacenados en Azure Cosmos DB m
   - [Aplicación .NET](create-cassandra-dotnet.md)
   - [Aplicación Python](create-cassandra-python.md)
 
-* Introducción a la [creación de una cuenta de Cassandra API, una base de datos y una tabla](create-cassandra-api-account-java.md) usando una aplicación de Java.
+* Introducción a la [creación de una cuenta de Cassandra API, una base de datos y una tabla](create-cassandra-api-account-java.md) mediante una aplicación de Java.
 
 * [Carga de datos de ejemplo en la tabla de Cassandra API](cassandra-api-load-data.md) mediante el uso de una aplicación de Java.
 

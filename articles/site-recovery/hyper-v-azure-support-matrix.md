@@ -1,21 +1,21 @@
 ---
-title: Matriz de compatibilidad para la replicación de Hyper-V en Azure | Microsoft Docs
-description: Se resumen los requisitos y componentes compatibles para la replicación de Hyper-V en Azure con Azure Site Recovery
+title: Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure | Microsoft Docs
+description: Se resumen los requisitos y componentes compatibles para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079215"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210727"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de compatibilidad para la replicación de Hyper-V en Azure
+# <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
 
 En este artículo se resumen los ajustes y los componentes compatibles para la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure mediante [Azure Site Recovery](site-recovery-overview.md).

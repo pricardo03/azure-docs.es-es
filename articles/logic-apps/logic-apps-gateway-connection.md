@@ -3,19 +3,18 @@ title: Obtener acceso a orígenes de datos locales para Azure Logic Apps | Docum
 description: Cree y configure la puerta de enlace de datos local para tener acceso a orígenes de datos locales desde aplicaciones lógicas.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.date: 10/01/2018
+ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145696"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413713"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales desde Azure Logic Apps con una puerta de enlace de datos local
 
@@ -34,18 +33,17 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 
 * La instalación de puerta de enlace no está asociada a un recurso de puerta de enlace en Azure. La instalación de puerta de enlace solo se puede vincular a un recurso de puerta de enlace, lo que sucede cuando se crea el recurso de puerta de enlace y se selecciona la instalación de puerta de enlace. Esta vinculación hace que la instalación de puerta de enlace no esté disponible para otros recursos.
 
-* Cuando inicie sesión en Azure Portal y cree el recurso de puerta de enlace, debe usar la misma cuenta de inicio de sesión que se usó previamente para [instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md#requirements).
-También debe usar la misma [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) que se usó para instalar la puerta de enlace. Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Cuando inicie sesión en Azure Portal y cree el recurso de puerta de enlace, asegúrese de usar la misma cuenta de inicio de sesión que se usó previamente para [instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md#requirements) junto con la misma [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) que se utilizó para instalar la puerta de enlace. Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
-* Para crear y mantener el recurso de puerta de enlace en Azure Portal, la [cuenta del servicio de Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) debe tener al menos permisos de **Colaborador**. La puerta de enlace de datos local se ejecuta como un servicio de Windows y está configurada para usar `NT SERVICE\PBIEgwService` con las credenciales de inicio de sesión del servicio de Windows. 
+* Para crear y mantener el recurso de puerta de enlace en Azure Portal, la [cuenta del servicio de Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) necesita al menos permisos de **Colaborador**. La puerta de enlace de datos local se ejecuta como un servicio de Windows y está configurada para usar `NT SERVICE\PBIEgwService` con las credenciales de inicio de sesión del servicio de Windows. 
 
   > [!NOTE]
   > Esta cuenta de servicio de Windows no es la misma que se usa para conectarse a orígenes de datos locales, ni la cuenta profesional o educativa de Azure que se usa para iniciar sesión en servicios en la nube.
 
 ## <a name="download-and-install-gateway"></a>Descarga e instalación de la puerta de enlace
 
-Para poder continuar con los pasos descritos en este artículo, debe tener la puerta de enlace instalada en un equipo local.
-Y, si aún no lo ha hecho, siga los [pasos para descargar e instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). 
+Para poder continuar con los pasos descritos en este artículo, asegúrese de que la puerta de enlace ya está instalada en un equipo local.
+Si aún no lo ha hecho, siga los pasos para [descargar e instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 
@@ -64,7 +62,7 @@ Después de instalar la puerta de enlace en un equipo local, puede crear un recu
 
    | Propiedad | DESCRIPCIÓN | 
    |----------|-------------|
-   | **Name** | Nombre del recurso de puerta de enlace. | 
+   | **Nombre** | Nombre del recurso de puerta de enlace. | 
    | **Suscripción** | Nombre de la suscripción de Azure, que debe ser la misma suscripción de la aplicación lógica. La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión. | 
    | **Grupos de recursos** | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para organizar recursos relacionados. | 
    | **Ubicación** | Azure restringe esta ubicación a la misma región que se seleccionó para el servicio en la nube de la puerta de enlace durante la [instalación de puerta de enlace](../logic-apps/logic-apps-gateway-install.md). <p>**Nota**: Asegúrese de que la ubicación del recurso de puerta de enlace coincide con la ubicación del servicio en la nube de la puerta de enlace. De lo contrario, es posible que la instalación de la puerta de enlace no aparezca en la lista de puertas de enlace instaladas para que la pueda seleccionar en el paso siguiente. Puede usar regiones diferentes para el recurso de puerta de enlace y la aplicación lógica. | 
@@ -155,7 +153,7 @@ Para crear un recurso de puerta de enlace diferente, asociar la puerta de enlace
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

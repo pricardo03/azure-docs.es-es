@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c221093caebca66f6d0b79951cb1a45b8933c5e9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4fd7d47313b67a0014919b14546926f5d78972a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954427"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240331"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción de Azure**. Si no tiene ninguna suscripción, puede crear una [cuenta de evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* **Suscripción de Azure**. Si no tiene ninguna suscripción, puede crear una [cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
 * Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
 * Instale **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps). Esta guía de inicio rápido usa PowerShell para invocar llamadas a la API de REST.
@@ -78,7 +78,7 @@ Ejecute los comandos siguientes para autenticarse con Azure Active Directory (AA
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]"https://login.microsoftonline.com/${tenantId}"
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($appId, $authKey)
 $result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
-$authHeader = @{
+$authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
 'Authorization'=$result.CreateAuthorizationHeader()

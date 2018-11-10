@@ -4,16 +4,16 @@ description: Este artículo le guiará a través de la creación y administraci�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dd7ec4f1d0c018a3c7eed19bea523f7c09bfea3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985323"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242643"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
@@ -74,7 +74,13 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   El comando crea una definición de directiva denominada _Audit Storage Accounts Open to Public Networks_ (Auditoría de cuentas de almacenamiento abiertas a las redes públicas). Para más información acerca de otros parámetros que puede utilizar, consulte [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   El comando crea una definición de directiva denominada _Audit Storage Accounts Open to Public Networks_ (Auditoría de cuentas de almacenamiento abiertas a las redes públicas).
+   Para más información acerca de otros parámetros que puede utilizar, consulte [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+
+   Cuando se llama sin parámetros de ubicación, `New-AzureRmPolicyDefinition` elige de forma predeterminada guardar la definición de directiva en la suscripción seleccionada del contexto de sesiones. Para guardar la definición en una ubicación diferente, use los siguientes parámetros:
+
+   - **SubscriptionId**: se guarda en una suscripción diferente. Requiere un valor de _GUID_.
+   - **ManagementGroupName**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
 
 1. Después de crear la definición de directiva, puede crear una asignación de directiva mediante la ejecución de los siguientes comandos:
 
@@ -85,6 +91,13 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
    ```
 
    Reemplace _ContosoRG_ por el nombre del grupo de recursos que desee.
+
+   El parámetro **Scope** en `New-AzureRmPolicyAssignment` también funciona con las suscripciones y los grupos de administración. El parámetro utiliza una ruta de acceso de recurso completo, que devuelve la propiedad **ResourceId** en `Get-AzureRmResourceGroup`. El patrón de **Scope** para cada contenedor es como sigue.
+   Reemplace `{rgName}`, `{subId}` y `{mgName}` con el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente.
+
+   - Grupo de recursos `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Suscripción `/subscriptions/{subId}/`
+   - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Para más información acerca de cómo administrar las directivas de recursos mediante el módulo de PowerShell de Azure Resource Manager, consulte [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 

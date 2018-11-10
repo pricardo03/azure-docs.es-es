@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 36d65abb26435581f3e6c9c4a9fc46bb3dd538ce
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362792"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240348"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: instalación y creación del clúster de Service Fabric
 
@@ -37,7 +37,7 @@ En la segunda parte de la serie, se aprende a:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Descarga del paquete de Service Fabric para Windows Server
 
-Service Fabric proporciona un paquete de instalación para crear clústeres independientes de Service Fabric.  [Descargue el paquete de instalación](http://go.microsoft.com/fwlink/?LinkId=730690) en el equipo local.  Una vez descargado correctamente, cópielo a través de la conexión RDP en la instancia de EC2 y péguelo en el escritorio.
+Service Fabric proporciona un paquete de instalación para crear clústeres independientes de Service Fabric.  [Descargue el paquete de instalación](https://go.microsoft.com/fwlink/?LinkId=730690) en el equipo local.  Una vez descargado correctamente, cópielo a través de la conexión RDP en la instancia de EC2 y péguelo en el escritorio.
 
 Seleccione el archivo ZIP, abra el menú contextual y seleccione **Extract All** > **Extract** (Extraer todos > Extraer).  Al extraer los archivos se generará una carpeta en el escritorio con el mismo nombre que el del archivo ZIP.
 

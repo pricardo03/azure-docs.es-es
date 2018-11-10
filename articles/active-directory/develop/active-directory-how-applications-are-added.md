@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577237"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241504"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 
@@ -69,7 +69,7 @@ Al igual que los objetos de aplicación, las entidades de servicio se pueden cre
 
 * Cuando los usuarios inician sesión en una aplicación de terceros integrada con Azure AD.
   * Durante el inicio de sesión, se solicita a los usuarios que proporcionen permiso a la aplicación para acceder a su perfil y otros permisos. La primera persona que dé su consentimiento hará que una entidad de servicio que representa la aplicación se añada al directorio.
-* Cuando los usuarios inician sesión en servicios en línea de Microsoft, como [Office 365](http://products.office.com/).
+* Cuando los usuarios inician sesión en servicios en línea de Microsoft, como [Office 365](https://products.office.com/).
   * Al suscribirse a Office 365 o probar una versión de prueba, se crean una o más entidades de servicio en el directorio que representa los distintos servicios que se usan para ofrecer toda la funcionalidad asociada a Office 365.
   * Algunos servicios de Office 365 como SharePoint crean entidades de servicio de forma continua para permitir una comunicación segura entre los componentes que incluyen los flujos de trabajo.
 * Cuando un administrador añade una aplicación desde la galería de aplicaciones (esto también creará un objeto de aplicación subyacente).

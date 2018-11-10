@@ -4,17 +4,17 @@ description: Las evaluaciones y los efectos de Azure Policy determinan el cumpli
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970862"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233419"
 ---
 # <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
 
@@ -40,6 +40,44 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 - Una directiva o iniciativa que ya está asignada a un ámbito se actualiza. El ciclo de evaluación y control de tiempo en este escenario es el mismo que para una nueva asignación a un ámbito.
 - Un recurso se implementa en un ámbito con una asignación a través del Administrador de recursos, REST, CLI de Azure o Azure PowerShell. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento para el recurso individual están disponibles en el portal y en los SDK unos 15 minutos más tarde. Este evento no causa una evaluación de otros recursos.
 - Ciclo de evaluación de cumplimiento estándar. Una vez cada 24 horas, las asignaciones se evalúan automáticamente. Una directiva o iniciativa grande evaluada en un ámbito amplio de recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de la evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
+- Examen a petición
+
+### <a name="on-demand-evaluation-scan"></a>Examen de evaluación a petición
+
+Con una llamada a la API de REST se puede iniciar un examen de evaluación de una suscripción o un grupo de recursos. Se trata de un proceso asincrónico. Por ello, el punto de conexión de REST que iniciará el examen no espera hasta que este esté completo para responder. En su lugar, proporciona un URI para consultar el estado de la evaluación solicitada.
+
+En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
+
+- `{YourRG}`: reemplácelo por el nombre del grupo de recursos
+- `{subscriptionId}`: reemplácelo por el identificador de suscripción
+
+El examen admite la evaluación de recursos de una suscripción o de un grupo de recursos. Inicie un examen para el ámbito deseado con un comando **POST** de API REST mediante las siguientes estructuras de URI:
+
+- Subscription
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Grupos de recursos
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+La llamada devuelve un estado **202 - Aceptado**. En el encabezado de la respuesta se incluye una propiedad **Location** con el formato siguiente:
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` se genera estáticamente para el ámbito solicitado. Si un ámbito ya está realizando un examen a petición, no se iniciará un nuevo examen. En su lugar, se proporciona a la nueva solicitud el mismo URI de `{ResourceContainerGUID}` **Location** para el estado. Un comando **GET** de API REST en el URI **Location** devolverá una respuesta **202 - Aceptado** mientras la evaluación esté en curso. Cuando haya finalizado el examen de evaluación, devolverá un estado **200 OK**. El cuerpo de un examen completo es una respuesta JSON con el estado:
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>Cómo funciona el cumplimiento
 

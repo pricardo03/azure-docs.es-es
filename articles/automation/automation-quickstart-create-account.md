@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6d473d8874208297e905a5d90a08ffd870ffa8a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426199"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091831"
 ---
 # <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 
@@ -35,6 +35,9 @@ Inicie sesión en Azure en https://portal.azure.com
 1. Escriba la información de la cuenta. En **Crear cuenta de ejecución de Azure**, elija **Sí** para que los artefactos destinados a simplificar la autenticación en Azure se habiliten automáticamente. Es importante tener en cuenta que al crear una cuenta de Automation, el nombre no se podrá cambiar una vez que se elige. Una cuenta de Automation puede administrar los recursos de todas las regiones y suscripciones de un inquilino determinado. Cuando haya terminado, haga clic en **Crear** para iniciar la implementación de la cuenta de Automation.
 
     ![Escriba la información sobre su cuenta de Automation en la página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
+
+    > [!NOTE]
+    > Para obtener una lista actualizada de ubicaciones en las que se puede implementar una cuenta de Automation, consulte [Productos disponibles por región](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
 
 1. Cuando la implementación haya finalizado, haga clic en ** **Todos los servicios**, seleccione **Cuentas de Automation** y seleccione la cuenta de Automation que creó.
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 10/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3f207cdb3af3f7e328cd5843053240bbbe15980e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055515"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418350"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,9 @@ La actividad de copia admite tres escenarios para detectar, omitir y registrar d
     Por ejemplo: copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
 
 >[!NOTE]
->Esta característica no se aplica cuando la actividad de copia se configura para invocar el mecanismo de carga de datos externos, incluido [PolyBase en Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) o [Unload en Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). Para cargar datos en SQL Data Warehouse mediante PolyBase, use la compatibilidad de tolerancia a errores nativa de PolyBase especificando "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" en la actividad de copia.
+>- Para cargar datos en SQL Data Warehouse mediante PolyBase, defina la configuración de tolerancia a errores nativa de PolyBase especificando directivas de rechazo a través de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" en la actividad de copia. Aún puede habilitar la redirección de filas incompatibles de PolyBase a Blob o ADLS de la forma habitual, como se muestra a continuación.
+>- Esta característica no se aplica cuando la actividad de copia está configurada para invoca el mecanismo [Unload de Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
+
 
 ## <a name="configuration"></a>Configuración
 En el ejemplo siguiente se proporciona una definición JSON para configurar la omisión de las filas incompatibles en la actividad de copia:

@@ -1,24 +1,24 @@
 ---
 title: Arquitectura de replicación de Azure en Azure en Azure Site Recovery | Microsoft Docs
-description: En este artículo se proporciona una visión general de los componentes y la arquitectura usados al replicar máquinas virtuales de Azure entre regiones de Azure mediante el servicio de Azure Site Recovery.
+description: En este artículo se proporciona información general sobre los componentes y la arquitectura usados al configurar la recuperación ante desastres de las máquinas virtuales de Azure entre regiones de Azure, mediante el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 20387c325497934ccb2e02188b24a0125f937e00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0069ece5d02ad52b6fea9add7817e63fa3c412b6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078264"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212741"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>Arquitectura de replicación de Azure en Azure
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
 
-En este artículo se describen la arquitectura que se usa al replicar, conmutar por error y recuperar máquinas virtuales de Azure entre regiones de Azure, mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
+En este artículo se describe la arquitectura usada al implementar la recuperación ante desastres con replicación, conmutación por error y recuperación de máquinas virtuales (VM) de Azure entre regiones de Azure, mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
 
 
 

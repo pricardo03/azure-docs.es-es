@@ -1,6 +1,6 @@
 ---
 title: Inscripción de un dispositivo de TPM al servicio Azure Device Provisioning con Java | Microsoft Docs
-description: 'Inicio rápido de Azure: Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java'
+description: 'Guía de inicio rápido de Azure: Inscripción de un dispositivo de TPM a Azure IoT Hub Device Provisioning Service mediante el SDK del servicio de Java En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,19 +10,19 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 68f8125ddc0691346813bb31124fa3abd4976296
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b0068bc912de13590cd9bc7418ea6fcdb01189f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234096"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420496"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-En estos pasos se muestra cómo inscribir un dispositivo de TPM simulado mediante programación en el servicio Azure IoT Hub Device Provisioning con el [SDK del servicio de Java](https://azure.github.io/azure-iot-sdk-java/service/) con la ayuda de una aplicación de Java de ejemplo. Aunque el SDK del servicio de Java funciona en máquinas Windows y Linux, este artículo usa una máquina de desarrollo de Windows para guiarle por el proceso de inscripción.
+En estos pasos se muestra cómo crear una inscripción individual para un dispositivo de TPM simulado mediante programación en el servicio Azure IoT Hub Device Provisioning Service con el [SDK del servicio Java](https://azure.github.io/azure-iot-sdk-java/service/) y una aplicación de Java de ejemplo. Aunque el SDK del servicio de Java funciona en máquinas Windows y Linux, este artículo usa una máquina de desarrollo de Windows para guiarle por el proceso de inscripción.
 
 Asegúrese de [configurar un servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) y de [simular un dispositivo de TPM](quick-create-simulated-device.md#simulatetpm) antes de continuar.
 
@@ -30,9 +30,9 @@ Asegúrese de [configurar un servicio Azure IoT Hub Device Provisioning con Azur
 
 ## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo 
 
-1. Asegúrese de que tiene [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado en su máquina. 
+1. Asegúrese de que tiene [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado en su máquina. 
 
-2. Establezca las variables de entorno para la instalación de Java. La variable `PATH` debería incluir la ruta de acceso completa al directorio *jdk1.8.x\bin*. Si esta es la primera instalación de Java de su máquina, cree una nueva variable de entorno con el nombre `JAVA_HOME` y haga que señale a la ruta de acceso completa del directorio *jdk1.8.x*. En una máquina con Windows, este directorio se encuentra normalmente en la carpeta *C:\\Archivos de programa\\Java\\*. Puede crear o modificar las variables de entorno si busca **Editar las variables de entorno del sistema** en el **Panel de control** de su máquina Windows. 
+2. Establezca las variables de entorno para la instalación de Java. La variable `PATH` debería incluir la ruta de acceso completa al directorio *jdk1.8.x\bin*. Si esta es la primera instalación de Java de su máquina, cree una nueva variable de entorno con el nombre `JAVA_HOME` y haga que señale a la ruta de acceso completa del directorio *jdk1.8.x*. En una máquina con Windows, este directorio se encuentra en la carpeta *C:\\Archivos de programa\\Java\\*. Puede crear o modificar las variables de entorno si busca **Editar las variables de entorno del sistema** en el **Panel de control** de su máquina Windows. 
 
   Para comprobar si Java está correctamente configurado en la máquina, ejecute el comando siguiente en la ventana Comandos:
 
@@ -145,7 +145,7 @@ Si tiene previsto explorar el ejemplo del servicio de Java, no elimine los recur
 
 1. Cierre la ventana de salida de ejemplo de Java en su máquina.
 1. Cierre la ventana del simulador de TPM que haya creado para simular el dispositivo de TPM.
-1. Navegue a su servicio de Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione el *id. de registro* del dispositivo que inscribió en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja. 
+1. Vaya a su servicio de Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione el *id. de registro* del dispositivo que inscribió en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, inscribió un dispositivo de TPM simulado al servicio de Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 

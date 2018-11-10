@@ -1,6 +1,6 @@
 ---
 title: Inscripción de un dispositivo de TPM al servicio Azure Device Provisioning con Node.js | Microsoft Docs
-description: 'Inicio rápido de Azure: Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Node.js'
+description: 'Guía de inicio rápido de Azure: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service mediante el SDK del servicio para Node.js. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/21/2017
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: feec3083ae924cbc87b34912d6aa0ceaa0555a18
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: de08538750f704ddc85ba69bd64742b3e68c8a3c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523053"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156755"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Node.js
 
@@ -104,7 +104,7 @@ Si tiene previsto explorar los ejemplos del servicio de Node.js, no elimine los 
 
 1. Cierre la ventana de salida de ejemplo de Node.js en su máquina.
 1. Si creó un dispositivo de TPM simulado, cierre la ventana del simulador de TPM.
-2. Navegue a su servicio de Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione el *id. de registro* de la entrada de inscripción que creó en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja. 
+2. Vaya a su servicio de Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione el *id. de registro* de la entrada de inscripción que creó en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja. 
  
 ## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, creó una entrada de inscripción individual mediante programación para un dispositivo de TPM y, opcionalmente, creó un dispositivo de TPM simulado en su máquina y lo aprovisionó con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958438"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211373"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -71,7 +71,6 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 * Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br>
   Los siguientes servicios NO son compatibles:
     * CDN
-    * Prueba de carga de Azure DevOps Services
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -81,10 +80,9 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Prueba de carga de Azure DevOps Services
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidad de Servicios globales de Azure)
 * Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br>Los siguientes servicios **no son compatibles**:
     * CDN
-    * Prueba de carga de Azure DevOps Services
     * Multi-Factor Authentication
     * Traffic Manager
 

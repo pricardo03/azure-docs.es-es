@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144501"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140864"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guía de inicio rápido: Prueba de una solución de supervisión remota basada en la nube
 
-En esta guía de inicio rápido, se muestra cómo implementar el acelerador de soluciones de supervisión remota de Azure IoT para ejecutar una simulación de supervisión remota basada en la nube. Después de implementar el acelerador de soluciones, utilice la página **Panel** para visualizar los dispositivos simulados en un mapa y la página **Mantenimiento** para responder a una alerta de presión desde un dispositivo refrigerador simulado. Puede utilizar este acelerador de soluciones como punto de partida de su propia implementación o como una herramienta de aprendizaje.
+En esta guía de inicio rápido se muestra cómo implementar el acelerador de soluciones de supervisión remota de Azure IoT. En esta solución basada en la nube, se usa la página **Panel** para visualizar los dispositivos simulados en un mapa y la página **Mantenimiento** para responder a una alerta de presión de un dispositivo refrigerador simulado. Puede utilizar este acelerador de soluciones como punto de partida de su propia implementación o como una herramienta de aprendizaje.
 
-La implementación inicial configura el acelerador de soluciones de supervisión remota para una empresa denominada Contoso. Contoso administra una selección de diferentes tipos de dispositivos, como los refrigeradores, implementados en diferentes entornos físicos. Un dispositivo refrigerador envía los datos de telemetría de la presión, la temperatura y la humedad al acelerador de soluciones de supervisión remota.
+La implementación inicial configura el acelerador de soluciones para una empresa llamada Contoso. Como un operador de Contoso, administra una selección de diferentes tipos de dispositivos, como los refrigeradores, implementados en diferentes entornos físicos. Un dispositivo refrigerador envía los datos de telemetría de la presión, la temperatura y la humedad al acelerador de soluciones de supervisión remota.
 
 Para completar esta guía de inicio rápido, necesita una suscripción de Azure.
 
@@ -38,7 +38,7 @@ Haga clic en **Try Now** (Probar ahora) en el icono **Remote Monitoring** (Super
 
 En la página **Create Remote Monitoring solution** (Crear solución de supervisión remota), seleccione una implementación **Básica**. Si implementa el acelerador de soluciones para saber cómo funciona o para ejecutar una demostración, elija la opción **Básica** para aminorar los costos.
 
-Elija **.NET** como lenguaje. Las implementaciones de Java y de .NET tienen características idénticas.
+Elija **.NET** como lenguaje. Las implementaciones de Java y de .NET tienen las mismas características.
 
 Escriba un valor único de **Nombre de la solución** para el acelerador de soluciones de supervisión remota. En este inicio rápido, llamamos al nuestro **contoso-rm2**.
 
@@ -68,15 +68,15 @@ Haga clic en **Aceptar** para aceptar la solicitud de permisos; el panel de la s
 
 El panel de soluciones muestra la siguiente información acerca de los dispositivos simulados de Contoso:
 
-* **Estadísticas del dispositivo** muestra información resumida sobre las alertas y el número total de dispositivos. En la implementación predeterminada, Contoso tiene 10 dispositivos simulados de diferentes tipos.
+* El panel **Estadísticas del dispositivo** muestra información resumida sobre las alertas y el número total de dispositivos. En la implementación predeterminada, Contoso tiene 10 dispositivos simulados de diferentes tipos.
 
-* **Ubicaciones de dispositivo** muestra dónde se ubican físicamente los dispositivos. El color de la marca muestra cuándo existen alertas del dispositivo.
+* El panel **Ubicaciones de dispositivos** muestra dónde se ubican físicamente los dispositivos. El color de la marca muestra cuándo existen alertas del dispositivo.
 
-* **Alertas** muestra detalles de las alertas de los dispositivos.
+* El panel **Alertas** muestra detalles de las alertas de los dispositivos.
 
-* **Telemetría** muestra la telemetría de los dispositivos. Para ver los distintos flujos de telemetría, haga clic en los tipos de telemetría en la parte superior.
+* El panel **Telemetría** muestra los datos de telemetría de los dispositivos. Para ver los distintos flujos de telemetría, haga clic en los tipos de telemetría en la parte superior.
 
-* **Análisis** muestra información combinada sobre las alertas de los dispositivos.
+* El panel **Análisis** muestra información combinada sobre las alertas de los dispositivos.
 
 ## <a name="respond-to-an-alert"></a>Respuesta a una alerta
 
@@ -98,7 +98,7 @@ Ahora ha identificado el problema que desencadenó la alerta y el dispositivo as
 
 ### <a name="fix-the-issue"></a>Corrección del problema
 
-Para indicar a otros operadores que ahora está trabajando en la alerta, selecciónela y cambie el **Estado de la alerta** a **Confirmada**:
+Para indicar a otros operadores que está trabajando en la alerta, selecciónela y cambie el **Estado de la alerta** a **Confirmada**:
 
 [![Selección y confirmación de la alerta](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-expanded.png#lightbox)
 

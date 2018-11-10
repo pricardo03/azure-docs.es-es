@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645804"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230563"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Cómo usar el reconocimiento de entidades con nombre en Text Analytics (versión preliminar)
 
@@ -95,7 +95,7 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 + Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634).
 
-+ Establezca el punto de conexión HTTP para la extracción de frases clave. Debe incluir el recurso `/entities`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Establezca un encabezado de solicitud para incluir la clave de acceso para las operaciones de Text Analytics. Para obtener más información, consulte [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Cómo buscar puntos de conexión y claves de acceso).
 

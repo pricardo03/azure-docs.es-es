@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269265"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215266"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -72,11 +72,6 @@ Las máquinas se pueden expandir en la asignación para mostrar los grupos de pr
 
 De forma predeterminada, las asignaciones de Service Map muestran los 30 últimos minutos de la información de dependencia. Mediante los controles de tiempo de la parte superior izquierda, se pueden consultar las asignaciones de intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio). Los datos de Mapa de servicio se almacenan durante 30 días en áreas de trabajo pagadas y durante 7 días en áreas de trabajo disponibles.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>Notificaciones de estado y colores en el borde
 En la parte inferior de cada servidor en el mapa puede haber una lista de notificaciones de estado que expresan información de estado acerca del servidor. Las notificaciones indican que hay cierta información pertinente para el servidor de una de las integraciones de solución. Al hacer clic en una notificación se pasa directamente a los detalles del estado en el panel derecho. Las notificaciones de estado actualmente disponibles incluyen alertas, departamento de servicios, cambios, seguridad y actualizaciones.
 
@@ -104,7 +99,7 @@ Ahí puede elegir **Crear nuevo** y proporcionarle un nombre al grupo.
 ![Dar nombre al grupo](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Actualmente los grupos de equipos están limitados a diez servidores, aunque se planea aumentar este límite pronto.
+>Los grupos de máquinas están limitados a 10 servidores.
 
 ### <a name="viewing-a-group"></a>Visualización de un grupo
 Una vez que se han creado algunos grupos, puede verlos si elige la pestaña grupos.

@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2d22e995f489a6379a2f134b461b8bb17160919e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b85fe520bf29d10bb3dac1246349abbdadaf6df3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113842"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158744"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge (versión preliminar)
 
-Muchas soluciones de IoT utilizan servicios de análisis para obtener información sobre los datos a medida que llegan a la nube desde los dispositivos de IoT. Con Azure IoT Edge, puede tomar la lógica de [Azure Stream Analytics][azure-stream] y llevarla al mismo dispositivo. Al procesar los flujos de telemetría en el perímetro, puede reducir la cantidad de datos cargados y reducir el tiempo que se tarda en reaccionar ante la información procesable.
+Muchas soluciones de IoT utilizan servicios de análisis para obtener información sobre los datos a medida que llegan a la nube desde los dispositivos de IoT. Con Azure IoT Edge, puede tomar la lógica de [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) y llevarla al propio dispositivo. Al procesar los flujos de telemetría en el perímetro, puede reducir la cantidad de datos cargados y reducir el tiempo que se tarda en reaccionar ante la información procesable.
 
 Azure IoT Edge y Azure Stream Analytics están integrados para que pueda crear un trabajo de Azure Stream Analytics en Azure Portal y después implementarlo como un módulo de IoT Edge sin código adicional.  
 
@@ -207,7 +207,7 @@ En este tutorial se implementan dos módulos. El primero es **tempSensor**, que 
 
     Debería ver el nuevo módulo de Stream Analytics en ejecución junto con el módulo del agente de IoT Edge y el centro de IoT Edge.
 
-    ![Salida del módulo][7]
+    ![Salida del módulo](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Visualización de datos
 
@@ -219,7 +219,7 @@ Ahora puede ir a su dispositivo de IoT Edge para revisar la interacción entre e
    iotedge list  
    ```
 <!--
-   ![Docker output][8]
+   ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
 -->
 1. Vea todos los registros del sistema y datos de métrica. Use el nombre del módulo de Stream Analytics:
 
@@ -229,7 +229,7 @@ Ahora puede ir a su dispositivo de IoT Edge para revisar la interacción entre e
 
 Podrá observar que la temperatura de la máquina sube gradualmente hasta alcanzar 70 grados durante 30 segundos. Después, el módulo de Stream Analytics desencadena un restablecimiento y la temperatura de la máquina vuelve a bajar a 21. 
 
-   ![Registro de Docker][9]
+   ![Registro de Docker](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 
@@ -247,29 +247,4 @@ En caso contrario, para evitar gastos, puede eliminar las configuraciones locale
 En este tutorial ha configurado un trabajo de Azure Stream Analytics para analizar datos desde un dispositivo IoT Edge. A continuación, ha cargado este módulo de Azure Stream Analytics en su dispositivo IoT Edge para procesar y reaccionar al aumento de temperatura localmente, así como para enviar el flujo de datos agregado a la nube. Para ver cómo Azure IoT Edge puede crear más soluciones para la empresa, siga con los otros tutoriales.
 
 > [!div class="nextstepaction"] 
-> [Implementación de un modelo de Azure Machine Learning como módulo][lnk-ml-tutorial]
-
-<!-- Images. -->
-[4]: ./media/tutorial-deploy-stream-analytics/add_device.png
-[5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
-[6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/module_output2.png
-[8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
-[9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
-[10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
-[11]: ./media/tutorial-deploy-stream-analytics/temp_module.png
-
-
-<!-- Links -->
-[lnk-what-is-iot-edge]: what-is-iot-edge.md
-[lnk-module-dev]: module-development.md
-[iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/azure/storage/
-[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-[lnk-module-tutorial]: tutorial-csharp-module.md
-[lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
-
+> [Implementación de un modelo de Azure Machine Learning como módulo](tutorial-deploy-machine-learning.md)

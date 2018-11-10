@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: c645b0a99493c71a9fa1416c16876da30bcff891
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: bc82f0b71c6963c4f5a356180a1eabbca1b166c4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367668"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156959"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub para aprovisionar usuarios automáticamente
 
@@ -32,7 +32,7 @@ El objetivo de este tutorial es explicar los pasos que hay que realizar en GitHu
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 *   Un inquilino de Azure Active Directory
-*   Un inquilino de GitHub con el [plan Empresa](https://help.github.com/articles/organization-billing-plans/#business-plan) o uno superior habilitado 
+*   Un inquilino de GitHub con el [plan Business Cloud](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) o uno superior habilitado 
 *   Una cuenta de usuario de GitHub con permisos de administrador 
 
 > [!NOTE]

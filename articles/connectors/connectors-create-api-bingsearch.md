@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 9997f27f360f84ff3cd185d7c12c45519513d82b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021292"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233096"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Búsqueda de noticias con Bing Search y Azure Logic Apps 
 
@@ -27,7 +27,7 @@ Por ejemplo, puede encontrar noticias basadas en criterios de búsqueda y hacer 
 Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si nunca trabajó con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el artículo sobre [Inicio rápido: creación de su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obtener información técnica específica del conector, consulte la <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">referencia sobre el conector de Bing Search</a>.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una [cuenta de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -55,9 +55,9 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
    | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
    |----------|----------|-------|-------------| 
-   | Search Query (Consulta de búsqueda) | Sí | <*search-words*> | Escriba las palabras clave de búsqueda que desee usar. |
-   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. | 
-   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. | 
+   | Search Query (Consulta de búsqueda) | SÍ | <*search-words*> | Escriba las palabras clave de búsqueda que desee usar. |
+   | Mercados | SÍ | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. | 
+   | Búsqueda segura | SÍ | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. | 
    | Recuento | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. | 
    | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados | 
    ||||| 
@@ -80,7 +80,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. En Azure Portal o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
 
-2. En el desencadenador o acción, elija **Nuevo paso** > **Agregar una acción**.
+2. En el desencadenador o acción, elija **Nuevo paso** > **Agregar una acción**.
 
    En este ejemplo se utiliza este desencadenador:**Bing Search - On new news article** (Bing Search: Con artículo de noticias nuevo).
 
@@ -90,7 +90,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
    Elija el signo más (**+**) que aparece y, luego, elija **Agregar una acción**.
 
 3. En el cuadro de búsqueda, escriba "Bing Search" como filtro.
-En la lista de acciones, seleccione la acción que desee.
+En la lista de acciones, seleccione la que desee.
 
    En este ejemplo se usa esta acción: **Bing Search - List news by query** (Bing Search: Enumerar noticias por consulta).
 
@@ -102,9 +102,9 @@ En la lista de acciones, seleccione la acción que desee.
 
    | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
    |----------|----------|-------|-------------| 
-   | Search Query (Consulta de búsqueda) | Sí | <*search-expression*> | Escriba una expresión para consultar los resultados del desencadenador. Puede seleccionar entre los campos de la lista de contenido dinámico o crear una expresión con el generador de expresiones. |
-   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. | 
-   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. | 
+   | Search Query (Consulta de búsqueda) | SÍ | <*search-expression*> | Escriba una expresión para consultar los resultados del desencadenador. Puede seleccionar entre los campos de la lista de contenido dinámico o crear una expresión con el generador de expresiones. |
+   | Mercados | SÍ | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. | 
+   | Búsqueda segura | SÍ | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. | 
    | Recuento | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. | 
    | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados | 
    ||||| 
@@ -149,9 +149,9 @@ En la lista de acciones, seleccione la acción que desee.
 
    | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
    |----------|----------|-------|-------------| 
-   | Nombre de la conexión | Sí | <*connection-name*> | El nombre que se va a crear para su conexión |
-   | Versión de API | Sí | <*Versión de API*> | De forma predeterminada, la versión de la API de Bing Search se establece en la versión actual. Puede seleccionar una versión anterior si es necesario. | 
-   | Clave de API | Sí | <*API-key*> | La clave de API de Bing Search que obtuvo anteriormente. Si no tiene una clave, obtenga su [clave de API ahora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nombre de la conexión | SÍ | <*connection-name*> | El nombre que se va a crear para su conexión |
+   | Versión de API | SÍ | <*Versión de API*> | De forma predeterminada, la versión de la API de Bing Search se establece en la versión actual. Puede seleccionar una versión anterior si es necesario. | 
+   | Clave de API | SÍ | <*API-key*> | La clave de API de Bing Search que obtuvo anteriormente. Si no tiene una clave, obtenga su [clave de API ahora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por ejemplo: 
@@ -167,7 +167,7 @@ Para obtener datos técnica, como los desencadenadores, las acciones y los lími
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 96b449e372417298ee3517d6a45c245d440a01c2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fc732065f328f653082286508db74cc29107854e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047398"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232015"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Administración de Azure Data Lake Analytics mediante una aplicación .NET
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -24,7 +24,7 @@ En este artículo se describe cómo administrar cuentas, orígenes de datos, usu
 ## <a name="prerequisites"></a>requisitos previos
 
 * **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado**.
-* **SDK de Microsoft Azure para .NET versión 2.5 o posterior**.  Instálelo usando el [instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
+* **SDK de Microsoft Azure para .NET versión 2.5 o posterior**.  Instálelo usando el [instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx).
 * **Paquetes de NuGet requeridos**
 
 ### <a name="install-nuget-packages"></a>Instalación de paquetes NuGet

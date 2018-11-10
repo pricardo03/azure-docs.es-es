@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2b8cc34e5ace5e252acae94a16858a69edc63a1c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646320"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240246"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes
 
@@ -29,10 +29,8 @@ En este tutorial, creará una cuenta de almacenamiento, una máquina virtual, un
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
-> * Configuración de un entorno seguro
 > * Apertura de una plantilla de inicio rápido
 > * Exploración de la plantilla
-> * Edición del archivo de parámetros
 > * Implementación de la plantilla
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -41,8 +39,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools.  Consulte [Instalación de la extensión ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* Para evitar los ataques de difusión de contraseña, genere una contraseña para la cuenta de administrador de la máquina virtual. Este es un ejemplo:
+* [Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools.  Consulte [Instalación de la extensión ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -66,37 +64,45 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 
 Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
-- ¿Cuántos recursos de Azure se definen en esta plantilla?
-- Uno de los recursos es una cuenta de Azure Storage.  ¿Se parece la definición a la que se usó en el último tutorial?
-- ¿Encuentra las referencias de la plantilla para los recursos definidos en esta plantilla?
-- ¿Encuentra las dependencias de los recursos?
+* ¿Cuántos recursos de Azure se definen en esta plantilla?
+* Uno de los recursos es una cuenta de Azure Storage.  ¿Se parece la definición a la que se usó en el último tutorial?
+* ¿Encuentra las referencias de la plantilla para los recursos definidos en esta plantilla?
+* ¿Encuentra las dependencias de los recursos?
 
 1. En Visual Studio Code, contraiga los elementos hasta que vea únicamente los elementos de primer nivel y los de segundo nivel dentro de **Recursos**:
 
     ![Plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    La plantilla define cinco recursos.
-2. Expanda el primer recurso. Es una cuenta de almacenamiento. La definición será idéntica a la que se usó al principio del último tutorial.
+    La plantilla define cinco recursos:
+
+    * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+
+2. Expanda el primer recurso. Es una cuenta de almacenamiento. Compare la definición del recurso con la [referencia de la plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Definición de la cuenta de almacenamiento de las plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expanda el segundo recurso. El tipo de recurso es **Microsoft.Network/publicIPAddresses**. Para buscar la referencia de la plantilla, vaya a la [referencia de la plantilla](https://docs.microsoft.com/azure/templates/), escriba **dirección ip pública** o **direcciones ip públicas** en el campo **Filtrar por título**. Comparar la definición del recurso con la referencia de la plantilla.
+3. Expanda el segundo recurso. El tipo de recurso es `Microsoft.Network/publicIPAddresses`. Compare la definición del recurso con la [referencia de la plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definición de dirección IP pública de las plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Repita el último paso para buscar las referencias de la plantilla de los restantes recursos definidos en esta plantilla.  Comparar las definiciones de los recursos con las referencias.
-5. Expanda el cuarto recurso:
+4. Expanda el cuarto recurso. El tipo de recurso es `Microsoft.Network/networkInterfaces`:  
 
     ![Elemento dependson de las plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
-    El elemento dependsOn le permite definir un recurso como dependiente de uno o varios recursos. En este ejemplo, este recurso es un elemento networkInterface.  Depende de otros dos recursos:
+    El elemento dependsOn le permite definir un recurso como dependiente de uno o varios recursos. El recurso depende de otros dos recursos:
 
-    * publicIPAddress
-    * virtualNetwork
+    * `Microsoft.Network/publicIPAddresses`
+    * `Microsoft.Network/virtualNetworks`
 
-6. Expanda el quinto recurso. Este recurso es una máquina virtual. Depende de otros dos recursos:
+5. Expanda el quinto recurso. Este recurso es una máquina virtual. Depende de otros dos recursos:
 
-    * StorageAccount
-    * networkInterface
+    * `Microsoft.Storage/storageAccounts`
+    * `Microsoft.Network/networkInterfaces`
 
 El siguiente diagrama muestra los recursos y la información de dependencia de esta plantilla:
 
@@ -129,22 +135,23 @@ Existen muchos métodos para la implementación de plantillas.  En este tutorial
     ```bash
     cat azuredeploy.json
     ```
-7. En Cloud Shell, ejecute los siguientes comandos de PowerShell. Para mejorar la seguridad, utilice una contraseña generada para la cuenta de administrador de la máquina virtual. Consulte [Requisitos previos](#prerequisites).
+7. En Cloud Shell, ejecute los siguientes comandos de PowerShell. Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Consulte [Requisitos previos](#prerequisites).
 
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
-    $adminPassword = Read-Host -Prompt "Enter the admin password"
-    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -adminUsername = $adminUsername `
-        -adminPassword = $adminPassword `
-        -dnsLabelPrefix = $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json 
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json
     ```
 8. Ejecute el siguiente comando de PowerShell para que aparezca la máquina virtual recién creada:
 
@@ -155,7 +162,7 @@ Existen muchos métodos para la implementación de plantillas.  En este tutorial
 
     El nombre de la máquina virtual está codificado de forma rígida como **SimpleWinVM** dentro de la plantilla.
 
-9. Inicie sesión en la máquina virtual para probar las credenciales del administrador. 
+9. RDP a la máquina virtual para comprobar que la máquina virtual se ha creado correctamente.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -170,7 +177,5 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 En este tutorial, ha desarrollado e implementado una plantilla para crear una máquina virtual, una red virtual y los recursos dependientes. Para aprender a implementar recursos de Azure según condiciones, consulte:
 
-
 > [!div class="nextstepaction"]
 > [Condiciones de uso](./resource-manager-tutorial-use-conditions.md)
-

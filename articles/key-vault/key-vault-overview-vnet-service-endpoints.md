@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404331"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246661"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de VNET para Azure Key Vault
 
@@ -44,7 +44,7 @@ Estos son los pasos necesarios para configurar firewalls y redes virtuales. Esto
 Consulte [Configure Azure Key Vault Firewalls and Virtual Networks](key-vault-network-security.md) (Configurar los firewalls y las redes virtuales de Azule Key Vault) para obtener instrucciones detalladas paso a paso.
 
 > [!IMPORTANT]
-> Una vez que las reglas del firewall están en vigor, todas las operaciones del [plano de datos](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) de Key Vault SOLAMENTE se pueden realizar cuando las solicitudes del autor de la llamada se originan desde redes virtuales o rangos de direcciones IPV4 permitidos. Esto también se aplica al acceso al almacén de claves desde Azure Portal. Aunque un usuario puede ir a un almacén de claves desde Azure Portal, es posible que no pueda enumerar las claves, secretos o certificados si su máquina cliente no está en la lista de dispositivos permitidos. Esto también afecta al "selector de Key Vault" de otros servicios de Azure. Los usuarios pueden ver la lista de almacenes de claves, pero no pueden enumerar las claves si las reglas del firewall limitan su máquina cliente.
+> Una vez que las reglas del firewall están en vigor, todas las operaciones del [plano de datos](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) de Key Vault SOLAMENTE se pueden realizar cuando las solicitudes del autor de la llamada se originan desde redes virtuales o rangos de direcciones IPV4 permitidos. (Para obtener más información sobre el plano de administración frente al plano de datos, consulte [este artículo](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control). Esto también se aplica al acceso al almacén de claves desde Azure Portal). Aunque un usuario puede ir a un almacén de claves desde Azure Portal, es posible que no pueda enumerar las claves, secretos o certificados si su máquina cliente no está en la lista de dispositivos permitidos. Esto también afecta al "selector de Key Vault" de otros servicios de Azure. Los usuarios pueden ver la lista de almacenes de claves, pero no pueden enumerar las claves si las reglas del firewall limitan su máquina cliente.
 
 
 > [!NOTE]

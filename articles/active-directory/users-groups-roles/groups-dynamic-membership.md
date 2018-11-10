@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855279"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215334"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -316,7 +316,7 @@ La regla de "todos los dispositivos" se construye mediante una expresión única
 device.objectid -ne null
 ```
 
-### <a name="extension-properties-and-custom-extension-properties"></a>Propiedades de extensión y propiedades de extensión personalizadas
+## <a name="extension-properties-and-custom-extension-properties"></a>Propiedades de extensión y propiedades de extensión personalizadas
 
 Las reglas de pertenencia dinámica admiten los atributos de extensión y las propiedades de extensión personalizadas como propiedades de cadena. Los atributos de extensión se sincronizan desde Windows Server AD local y tienen el formato "ExtensionAttributeX", donde X es igual a un número de 1 a 15. Este es un ejemplo de una regla que utiliza un atributo de extensión como propiedad:
 
@@ -335,7 +335,7 @@ Un ejemplo de una regla que utiliza una propiedad de extensión personalizada es
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-El nombre de la propiedad personalizada se puede encontrar en el directorio mediante la consulta de una propiedad de usuario a través del explorador de Graph y la búsqueda del nombre en cuestión.
+El nombre de la propiedad personalizada se puede encontrar en el directorio mediante la consulta de una propiedad de usuario a través del explorador de Graph y la búsqueda del nombre en cuestión. También, ahora puede seleccionar el vínculo **Get custom extension properties** (Obtener propiedades de extensión personalizadas) en el generador de reglas dinámicas de grupos de usuarios para escribir un identificador de aplicación único y recibir la lista completa de propiedades de extensión personalizadas para usar al crear una regla de pertenencia dinámica. Esta lista también se puede actualizar esta lista para obtener nuevas propiedades de extensión personalizada para la aplicación.
 
 ## <a name="rules-for-devices"></a>Reglas de dispositivos
 

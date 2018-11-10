@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990627"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248411"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Obtener información sobre cómo usar los manifiestos de implementación para implementar módulos y establecer rutas
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge
 
-Cada dispositivo IoT Edge ejecuta al menos dos módulos: $edgeAgent y $edgeHub, que constituyen el tiempo de ejecución de IoT Edge. Además de esos dos estándar, cualquier dispositivo IoT Edge puede ejecutar varios módulos para llevar a cabo cualquier número de procesos. Si implementa todos estos módulos en un dispositivo a la vez, necesita una manera de declarar qué módulos se incluyen y cómo interactúan entre sí. 
+Cada dispositivo IoT Edge ejecuta al menos dos módulos: $edgeAgent y $edgeHub, que constituyen el tiempo de ejecución de IoT Edge. Además, cualquier dispositivo IoT Edge puede ejecutar varios módulos para llevar a cabo cualquier número de procesos. Si implementa todos estos módulos en un dispositivo a la vez, necesita una manera de declarar qué módulos se incluyen y cómo interactúan entre sí. 
 
 El *manifiesto de implementación* es un documento JSON que describe lo siguiente:
 
@@ -27,7 +27,7 @@ El *manifiesto de implementación* es un documento JSON que describe lo siguient
 
 Todos los dispositivos IoT Edge deben configurarse con un manifiesto de implementación. Si no, una instancia de IoT Edge en tiempo de ejecución recién instalada notificará un código de error hasta que se configuren con un manifiesto válido. 
 
-En los tutoriales de Azure IoT Edge, creará un manifiesto de implementación a través de un asistente del portal de Azure IoT Edge. También puede aplicar un manifiesto de implementación mediante programación con REST o el SDK del servicio IoT Hub. Para más información, consulte el artículo [Descripción de las implementaciones de IoT Edge][lnk-deploy].
+En los tutoriales de Azure IoT Edge, creará un manifiesto de implementación a través de un asistente del portal de Azure IoT Edge. También puede aplicar un manifiesto de implementación mediante programación con REST o el SDK del servicio IoT Hub. Para más información, consulte el artículo [Descripción de las implementaciones de IoT Edge](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Creación de un manifiesto de implementación
 
@@ -138,7 +138,7 @@ El origen especifica de dónde proceden los mensajes. Puede ser cualquiera de lo
 | `/messages/modules/{moduleId}/outputs/{output}` | Cualquier mensaje de dispositivo a nube que envíe un módulo concreto con una salida específica. |
 
 ### <a name="condition"></a>Condición
-La condición es opcional en una declaración de ruta. Si desea pasar todos los mensajes desde el receptor al origen, simplemente omita la cláusula **WHERE** por completo. También puede usar el [lenguaje de consulta de IoT Hub][lnk-iothub-query] para filtrar determinados mensajes o tipos de mensajes que cumplen la condición.
+La condición es opcional en una declaración de ruta. Si desea pasar todos los mensajes desde el receptor al origen, simplemente omita la cláusula **WHERE** por completo. O bien, puede usar el [lenguaje de consulta de IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar por determinados mensajes o tipos de mensajes que cumplen la condición.
 
 Los mensajes que pasan entre módulos con IoT Edge tienen el mismo formato que los mensajes que pasan entre los dispositivos y Azure IoT Hub. Todos los mensajes tienen el formato JSON y tienen los parámetros **systemProperties**, **appProperties** y **body**. 
 
@@ -262,10 +262,4 @@ Esto es un ejemplo de documento JSON de manifiesto de implementación.
 
 * Para ver una lista completa de propiedades que pueden o deben incluirse en $edgeAgent y $edgeHub, consulte [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Propiedades del agente de Edge y el centro de Edge).
 
-* Ahora que sabe cómo se usan los módulos de IoT Hub, [descubra los requisitos y las herramientas para desarrollar módulos de IoT Edge][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* Ahora que sabe cómo se usan los módulos de IoT Hub, [descubra los requisitos y las herramientas para desarrollar módulos de IoT Edge](module-development.md).

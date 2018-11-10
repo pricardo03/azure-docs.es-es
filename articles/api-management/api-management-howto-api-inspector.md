@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057334"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415889"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depuración de las API con el seguimiento de solicitudes
 
@@ -34,18 +34,19 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
++ Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Además, completar el tutorial siguiente: [Import and publish your first API](import-and-publish.md) (Importación y publicación de la primera API).
 
 ## <a name="trace-a-call"></a>Realizar el seguimiento de una llamada
 
+![Seguimiento de API](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. Seleccione **API**.
 2. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-3. Seleccione la operación **GetSpeakers**.
-4. Cambie a la pestaña **Prueba**.
+3. Cambie a la pestaña **Prueba**.
+4. Seleccione la operación **GetSpeakers**.
 5. Asegúrese de incluir un encabezado HTTP denominado **Ocp-Apim-Trace** con el valor establecido en **true**.
-
-    ![Encabezado de seguimiento de API](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > Si Ocp-Apim-Subscription-Key no se rellena automáticamente, puede recuperar el valor del Portal para desarrolladores y exponer las claves en la página de perfil.
@@ -57,9 +58,9 @@ En este tutorial, aprenderá a:
     En la sección de **entrada**, verá la solicitud original que API Management recibió del autor de la llamada y todas las directivas aplicadas a la solicitud, que incluyen directivas de límite de velocidad y de set-header que se agregaron en el paso 2.
 
     En la sección **back-end**, verá las solicitudes que API Management envió al back-end de la API y la respuesta que recibió.
-    
+
     En la sección de **salida**, verá todas las directivas que se aplican a la respuesta antes de enviarla de vuelta al autor de la llamada.
- 
+
     > [!TIP]
     > Cada paso muestra también el tiempo transcurrido desde que API Management recibe la solicitud.
 

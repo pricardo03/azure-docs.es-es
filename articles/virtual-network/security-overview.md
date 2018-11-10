@@ -4,9 +4,6 @@ description: Obtenga información sobre los grupos de seguridad de red y de apli
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987023"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159084"
 ---
 # <a name="security-groups"></a>Grupos de seguridad
 <a name="network-security-groups"></a>
@@ -60,9 +57,9 @@ Las reglas de seguridad aumentada permiten simplificar la definición de segurid
  Las siguientes etiquetas de servicio están disponibles para su uso en la definición de reglas de seguridad. Sus nombres pueden variar ligeramente según el [modelo de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): esta etiqueta incluye el espacio de direcciones de red virtual (todos los intervalos CIDR definidos para la red virtual), todos los espacios de direcciones locales conectados y las redes virtuales [del mismo nivel](virtual-network-peering-overview.md) o redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta indica el equilibrador de carga de la infraestructura de Azure. La etiqueta se traducirá en una [dirección IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) donde se originan los sondeos de mantenimiento de Azure. Si no usa el equilibrador de carga de Azure, puede reemplazar esta regla.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta indica el equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](security-overview.md##azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Si no usa el equilibrador de carga de Azure, puede reemplazar esta regla.
 * **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta denota el espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible mediante la red pública de Internet. El intervalo de direcciones incluye el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP de Azure e incluye todas las direcciones IP públicas del centro de datos. Si especifica *AzureCloud* como valor, el tráfico a las direcciones IP públicas de Azure se permite o deniega. Si solo desea permitir el acceso a AzureCloud en una [región](https://azure.microsoft.com/regions) determinada, puede especificarla. Por ejemplo, si desea permitir el acceso a AzureCloud solo en la región este de EE. UU., puede especificar *AzureCloud.EastUS* como etiqueta de servicio. 
+* **AzureCloud** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP de Azure e incluye todas las [direcciones IP públicas del centro de datos](https://www.microsoft.com/download/details.aspx?id=41653). Si especifica *AzureCloud* como valor, el tráfico a las direcciones IP públicas de Azure se permite o deniega. Si solo desea permitir el acceso a AzureCloud en una [región](https://azure.microsoft.com/regions) determinada, puede especificarla. Por ejemplo, si desea permitir el acceso a AzureCloud solo en la región este de EE. UU., puede especificar *AzureCloud.EastUS* como etiqueta de servicio. 
 * **AzureTrafficManager** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP de las direcciones IP de sondeo de Azure Traffic Manager. En [Preguntas más frecuentes sobre Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs), puede encontrar más información acerca de las direcciones IP de sondeo de Azure Traffic Manager. 
 * **Storage** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Storage. Si especifica *Storage* como valor, el tráfico al almacenamiento se permite o se deniega. Si solo desea permitir el acceso al almacenamiento de una determinada [región](https://azure.microsoft.com/regions), puede especificarla. Por ejemplo, si desea permitir el acceso a Azure Storage solo en la región este de EE. UU., puede especificar *Storage.EastUS* como etiqueta de servicio. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este. Todos los prefijos de dirección representados por esta etiqueta también se representan mediante la etiqueta **Internet**. 
 * **Sql** (solo para Resource Manager): esta etiqueta denota los prefijos de direcciones de los servicios Azure SQL Database y Azure SQL Data Warehouse. Si especifica *Sql* como valor, el tráfico a Sql se permite o se deniega. Si solo desea permitir el acceso a SQL en una [región](https://azure.microsoft.com/regions) determinada, puede especificarla. Por ejemplo, si desea permitir el acceso a Azure SQL Database solo en la región este de EE. UU., puede especificar *Sql.EastUS* como etiqueta de servicio. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de un servidor o base de datos SQL específicos. Todos los prefijos de dirección representados por esta etiqueta también se representan mediante la etiqueta **Internet**. 
@@ -79,7 +76,6 @@ Las reglas de seguridad aumentada permiten simplificar la definición de segurid
 * **GatewayManager** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Gateway Manager. Si especifica *GatewayManager* como valor, el tráfico a GatewayManager se permite o se deniega. Si solo desea permitir el acceso a GatewayManager en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: GatewayManager.[nombre de región]. 
 * **AzureDataLake** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Data Lake. Si especifica *AzureDataLake* como valor, el tráfico a AzureDataLake se permite o se deniega. 
 * **AzureActiveDirectory** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Active Directory. Si especifica *AzureActiveDirectory* como valor, el tráfico a AzureActiveDirectory se permite o se deniega.  
-* **CorpNetSAW** (solo Resource Manager): esta etiqueta denota los prefijos de dirección de los [dispositivos CorpNetSAW](../security/azure-security-iaas.md) que maneja Azure. En algunos casos, los servicios de Azure pueden usar esta etiqueta de servicio para solicitar acceso a las instancias administradas del cliente para mejorar la compatibilidad. Si especifica *CorpNetSAW* como valor, el tráfico a CorpNetSAW se permite o se deniega. 
 
 > [!NOTE]
 > Las etiquetas de servicios de los servicios de Azure indican los prefijos de dirección de la nube específica que se va a usar. No se admiten etiquetas de servicio regionales en nubes nacionales, solo en formato global. Por ejemplo, *Storage* y *Sql*.

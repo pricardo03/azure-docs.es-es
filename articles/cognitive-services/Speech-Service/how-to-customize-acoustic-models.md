@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466093"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215249"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Creación de un modelo acústico personalizado
 
@@ -53,7 +53,7 @@ Un conjunto de datos acústico para personalizar el modelo acústico consta de d
 * Todos los archivos de audio del conjunto de datos deben almacenarse en el formato de audio WAV (RIFF).
 * El audio debe tener una frecuencia de muestreo de 8 kHz o 16 kHz y los valores de muestreo deben almacenarse como enteros (shorts) con firma de modulación por impulsos codificados (PCM) de 16 bits sin comprimir.
 * Solo se admiten archivos de audio de un solo canal (mono).
-* Los archivos de audio deben tener una duración de entre 100 microsegundos y 1 minuto. Lo ideal es que cada archivo de audio empiece y termine con al menos 100 microsegundos de silencio, y que dure entre 500 microsegundos y 1 segundo.
+* Los archivos de audio pueden tener una duración entre 100 microsegundos y 1 minuto, aunque lo ideal es que oscilen entre 10 y 12 segundos. Lo ideal es que cada archivo de audio empiece y termine con al menos 100 microsegundos de silencio, y que dure entre 500 microsegundos y 1 segundo.
 * Si tiene ruido de fondo en los datos, se recomienda tener también algunos ejemplos con segmentos de silencio más largos en sus datos, &mdash;por ejemplo, unos segundos&mdash;, antes o después del contenido de voz.
 * Cada archivo de audio debe consistir en una sola expresión, por ejemplo, una sola frase para dictado, una sola consulta o un solo turno de un sistema de diálogo.
 * Cada archivo de audio del conjunto de datos debe tener un nombre de archivo único y una extensión. wav.
@@ -69,7 +69,7 @@ Un conjunto de datos acústico para personalizar el modelo acústico consta de d
 | Frecuencia de muestreo | 8000 hercios (Hz) o 16 000 Hz |
 | Canales | 1 (mono) |
 | Formato de ejemplo | PCM, entero de 16 bits |
-| Duración del archivo | 0,1 segundo < duración < 60 segundos |
+| Duración del archivo | 0,1 segundo < duración < 12 segundos | 
 | Cuello de latencia | > 0,1 segundo |
 | Formato de archivo | .zip |
 | Tamaño de archivo máximo | 2 GB |

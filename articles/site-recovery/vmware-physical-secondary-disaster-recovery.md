@@ -1,21 +1,18 @@
 ---
 title: Configuración de recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos en un sitio secundario con Azure Site Recovery | Microsoft Docs
 description: Obtenga información sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos Windows y Linux en un sitio secundario con Azure Site Recovery.
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618995"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215470"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
@@ -176,7 +173,7 @@ La actualización 5 de Scout es una actualización acumulativa. Contiene todas l
 > [!NOTE]
 > * Las correcciones de los clústeres P2V solo son aplicables a los clústeres de MSCS físicos que se acaban de proteger con Site Recovery Scout Update 5. Para instalar las correcciones de los clústeres en clústeres de MSCS P2V protegidos con actualizaciones anteriores, siga los pasos de actualización mencionados en la sección 12 de las [notas de la versión de Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
 > * Si en el momento de volver a protegerlos, el mismo conjunto de discos está activo en cada uno de los nodos de clúster que cuando los protegió inicialmente, por lo que la nueva protección de un clúster de MSCS físico solo puede reusar discos de destino existentes. En caso contrario, use los pasos manuales de la sección 12 de las [notas de la versión de Site Recovery Scout](https://aka.ms/asr-scout-release-notes) para mover los discos del lado de destino a la ruta de acceso correcta al almacén de datos, para volver a usarlos cuando se vuelva a realizar la protección. Si vuelve a proteger el clúster de MSCS en modo P2V sin seguir los pasos de actualización, crea un disco en el servidor ESXi de destino. Deberá eliminar manualmente los discos antiguos del almacén de datos.
-> * Cuando un servidor SLES11 o SLES11 de origen (con cualquier Service Pack) se reinicia correctamente, debe marcar manualmente los pares de replicación de disco **raíz** para volver a sincronizarlos. No hay ninguna notificación en la interfaz de CX. Si no marca el disco raíz para resincronización, es posible que note problemas con la integridad de datos.
+> * Cuando un origen SLES11 o SLES11 de origen (con cualquier Service Pack) se reinicia correctamente, debe marcar manualmente los pares de replicación de disco **raíz** para volver a sincronizarlos. No hay ninguna notificación en la interfaz de CX. Si no marca el disco raíz para resincronización, es posible que note problemas con la integridad de datos.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1, actualización 4

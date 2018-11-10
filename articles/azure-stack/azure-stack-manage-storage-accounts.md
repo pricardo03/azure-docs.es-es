@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452282"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240722"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Administración de cuentas de almacenamiento en Azure Stack
 Aprenda a administrar cuentas de almacenamiento en Azure Stack para buscar, recuperar y reclamar capacidad de almacenamiento según las necesidades empresariales.
@@ -136,8 +136,8 @@ También puede usar PowerShell para reemplazar explícitamente el período de re
 **Para reclamar la capacidad mediante PowerShell:**   
 
 1. Confirme que ha instalado y configurado Azure PowerShell. Si no es así, use las siguientes instrucciones: 
-   * Para instalar la versión más reciente de Azure PowerShell y asociarla a su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Para más información sobre los cmdlets de Azure Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
+   * Para instalar la versión más reciente de Azure PowerShell y asociarla a su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Para más información sobre los cmdlets de Azure Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Ejecute los siguientes cmdlets:
 
 > [!NOTE]  

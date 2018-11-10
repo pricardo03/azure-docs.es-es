@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: copias de seguridad; copia de seguridad de máquina virtual
-ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985901"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233548"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 
@@ -324,8 +324,8 @@ La tabla siguiente proporciona información adicional acerca del agente de máqu
 
 | **operación** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalación del agente de la máquina virtual |<li>Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador. <li>[Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |<li> Instale el [agente de Linux](https://github.com/Azure/WALinuxAgent) más reciente desde GitHub. Para completar la instalación, necesita privilegios de administrador. <li> [Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |
-| Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
+| Instalación del agente de la máquina virtual |<li>Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador. <li>[Actualice la propiedad de la máquina virtual](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |<li> Instale el [agente de Linux](https://github.com/Azure/WALinuxAgent) más reciente desde GitHub. Para completar la instalación, necesita privilegios de administrador. <li> [Actualice la propiedad de la máquina virtual](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |
+| Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
 | Validación de la instalación del agente de máquina virtual |<li>Acceda a la carpeta *C:\WindowsAzure\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. |N/D |
 
 ### <a name="backup-extension"></a>Extensión de Backup
@@ -340,4 +340,4 @@ Si tiene problemas para realizar cualquiera de las tareas de este artículo, con
 El costo de la copia de seguridad de máquinas virtuales de Azure se basa en el número de instancias protegidas. Para obtener una definición de una instancia protegida, consulte [Descripción de una instancia protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Para obtener un ejemplo de cálculo del costo de copia de seguridad de una máquina virtual, consulte [¿Cómo se calculan las instancias protegidas?](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Consulte la página de precios de Azure Backup para obtener información acerca de los [precios de Backup](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="questions"></a>¿Tiene preguntas?
-Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
+Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](https://aka.ms/azurebackup_feedback).

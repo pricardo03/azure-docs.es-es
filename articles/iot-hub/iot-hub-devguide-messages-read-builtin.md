@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: e43d00fde0f76efa4398865757c44d94592b8291
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 02ea4b94f8d1442360bebb36fdbba13d973f8555
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585519"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242422"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
-De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (**/messages/events**), que es compatible con [Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/
+De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (**/messages/events**), que es compatible con [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/
 ). Actualmente, este punto de conexión solo se expone mediante el protocolo [AMQP](https://www.amqp.org/) en el puerto 5671. IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
 
 | Propiedad            | DESCRIPCIÓN |
@@ -65,7 +65,7 @@ Los SDK y las integraciones que puede usar con los puntos de conexión compatibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre los puntos de conexión de IoT Hub, consulte [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
+* Para más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
 
 * En las [guías de inicio rápidos](quickstart-send-telemetry-node.md) se muestra cómo enviar mensajes del dispositivo a la nube desde dispositivos simulados y cómo leer los mensajes desde el punto de conexión integrado. 
 

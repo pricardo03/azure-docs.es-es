@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: d99c9732bb1bf494b87d2073ba002264c7a51634
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221254"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421363"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Ejecutar un clúster de Cassandra en Azure para Linux con Node.js
 
@@ -118,13 +118,13 @@ Las siguientes versiones de software se utilizan durante la implementación:
 
 <table>
 <tr><th>Software</th><th>Origen</th><th>Versión</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](https://aka.ms/azure-jdks) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-Debe aceptar de forma manual la licencia de Oracle al descargar JRE. Por lo tanto, para simplificar la implementación, le recomendamos que descargue todo el software necesario en el escritorio. A continuación, cárguelo en la imagen de plantilla Ubuntu para crearlo como precursor para la implementación del clúster.
+Para simplificar la implementación, le recomendamos que descargue todo el software necesario en el escritorio. A continuación, cárguelo en la imagen de plantilla Ubuntu para crearlo como precursor para la implementación del clúster.
 
 Descargue el software anterior en un directorio conocido de descargas (por ejemplo, %TEMP%/downloads en Windows o ~/Downloads en la mayoría de distribuciones de Linux o Mac) en el equipo local.
 

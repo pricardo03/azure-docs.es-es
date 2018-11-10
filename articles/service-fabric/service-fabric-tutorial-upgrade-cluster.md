@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2191ffabee31d12fb5b581280f924546b0078255
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3d3559f789d928f546042d5b2ee4f18edcedc052
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405471"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227389"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric en Azure
 
@@ -51,7 +51,7 @@ Antes de empezar este tutorial:
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o la [CLI de Azure](/cli/azure/install-azure-cli).
 * Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure
-* Si implementa un clúster de Windows, configure un entorno de desarrollo de Windows. Instale [Visual Studio 2017](http://www.visualstudio.com) y las cargas de trabajo de **desarrollo Azure**, **desarrollo web y ASP.NET**, y **desarrollo a través de plataformas .NET Core**.  Después, configure un [entorno de desarrollo .NET](service-fabric-get-started.md).
+* Si implementa un clúster de Windows, configure un entorno de desarrollo de Windows. Instale [Visual Studio 2017](https://www.visualstudio.com) y las cargas de trabajo de **desarrollo Azure**, **desarrollo web y ASP.NET**, y **desarrollo a través de plataformas .NET Core**.  Después, configure un [entorno de desarrollo .NET](service-fabric-get-started.md).
 * Si implementa un clúster Linux, configure un entorno de desarrollo Java en [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Instale la [CLI de Service Fabric](service-fabric-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure

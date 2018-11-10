@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092548"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240858"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso  
   
@@ -71,7 +71,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |ignore-case|Puede establecerse en True o False. Si se establece en True, se omite la presencia de mayúsculas/minúsculas cuando el valor del encabezado se compara con el conjunto de valores aceptables.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante y saliente  
   
@@ -126,7 +126,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound (entrada)  
   
@@ -181,7 +181,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante  
   
@@ -224,7 +224,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |ip-filter action="allow &#124; forbid"|Especifica si se deben permitir o no las llamadas para los intervalos y direcciones IP especificados.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante  
 -   **Ámbitos de la directiva:** global, producto, API, operación  
@@ -279,7 +279,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound (entrada)  
 -   **Ámbitos de la directiva:** producto  
@@ -336,7 +336,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |renewal-period|Período de tiempo en segundos tras el cual se restablece la cuota.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante  
 -   **Ámbitos de la directiva:** global, producto, API, operación  
@@ -506,7 +506,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |URL|Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante  
 -   **Ámbitos de la directiva:** global, producto, API, operación  

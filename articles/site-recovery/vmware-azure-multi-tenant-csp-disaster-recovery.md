@@ -1,21 +1,20 @@
 ---
-title: Configuración de la replicación de VMware a Azure en un entorno multiinquilino con Site Recovery y el programa Proveedor de soluciones en la nube (CSP) | Microsoft Docs
-description: Se describe cómo crear y administrar suscripciones de inquilinos mediante CSP e implementar Azure Site Recovery en una instalación multiinquilino
-services: site-recovery
+title: Configuración de la recuperación ante desastres de VMware en Azure en un entorno multiinquilino mediante Site Recovery y el programa Proveedor de soluciones en la nube (CSP) | Microsoft Docs
+description: Describe cómo configurar la recuperación ante desastres de VMware en un entorno multiinquilino con Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354128"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208908"
 ---
-# <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configuración de la replicación de VMware en un entorno multiinquilino con el programa Proveedor de soluciones en la nube (CSP)
+# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configuración de la recuperación ante desastres de VMware en Azure en un entorno multiinquilino con el programa Proveedor de soluciones en la nube (CSP)
 
 El [programa CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) fomenta escenarios de colaboración para servicios en la nube de Microsoft, lo que incluye Office 365, Enterprise Mobility Suite y Microsoft Azure. Con CSP, los asociados tienen una relación completa con los clientes y se convierten en el principal punto de contacto de la relación. Los asociados pueden implementar suscripciones de Azure para los clientes y combinarlas con sus propias ofertas personalizadas de valor añadido.
 

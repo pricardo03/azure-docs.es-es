@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13d1353b0f8b3320972973d428f4aedb0fb68ac8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990695"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212767"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Configuración de la replicación de datos de entrada de Azure Database for MariaDB
 
@@ -62,7 +62,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
    Creación de una cuenta de usuario en el servidor maestro que está configurado con privilegios de replicación. Esto puede realizarse a través de los comandos SQL o una herramienta como MySQL Workbench. Tenga en cuenta si planea replicar con SSL, ya que necesitará especificarse al crear el usuario. Consulte la documentación de MariaDB para entender cómo [agregar cuentas de usuario](https://mariadb.com/kb/en/library/create-user/) en el servidor maestro. 
 
-   En los siguientes comandos, el nuevo rol de replicación creado es capaz de acceder al servidor maestro desde cualquier máquina, no solo desde la máquina que hospeda al propio servidor maestro en sí. Esto se hace especificando "syncuser@'%'" en el comando create user. Consulte la documentación de MariaDB para obtener más información sobre la [especificación de nombres de cuenta](https://mariadb.com/kb/en/library/create-user/#account-names).
+   En los siguientes comandos, el nuevo rol de replicación creado es capaz de acceder al servidor maestro desde cualquier máquina, no solo desde la máquina que hospeda al propio servidor maestro en sí. Para ello, se especifica "syncuser\@'%'" en el comando create user. Consulte la documentación de MariaDB para obtener más información sobre la [especificación de nombres de cuenta](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **Comando SQL**
 

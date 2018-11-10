@@ -1,5 +1,5 @@
 ---
-title: Cómo solucionar problemas de Azure Monitor para contenedores | Microsoft Docs
+title: Solución de problemas de Azure Monitor para contenedores (versión preliminar) | Microsoft Docs
 description: En este artículo se describe cómo se pueden detectar y solucionar problemas con Azure Monitor para contenedores.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 19d015947e5d2331c50cd64956e8a7650f96616d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 69e5a61d5e66e5904df31456e9311a39058787b2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638331"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212359"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Solución de problemas de Azure Monitor para contenedores
+# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Solución de problemas de Azure Monitor para contenedores (versión preliminar)
 
 Al configurar la supervisión del clúster de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores, puede encontrar un problema que impida la recopilación de datos o el informe del estado. En este artículo se detallan algunos problemas comunes y los pasos para solucionarlos.
 

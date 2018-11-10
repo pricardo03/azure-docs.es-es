@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3a27f275cfc151b374ea2807580b430c4e9aa1e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815433"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420254"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,8 @@ Para usar la autenticación de clave de cuenta de almacenamiento, se admiten las
 Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizar una firma de acceso compartido para conceder a un cliente permisos limitados a los objetos de su cuenta de almacenamiento durante un periodo de tiempo especificado. No tiene que compartir las claves de acceso de su cuenta. La firma de acceso compartido es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la firma de acceso compartido, el cliente solo tiene que pasar la firma de acceso compartido al método o constructor adecuados. Para más información acerca de las firmas de acceso compartido, consulte el artículo de [información sobre el modelo de firmas de acceso compartido ](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory ahora admite **firmas de acceso compartido de servicio** y **firmas de acceso compartido de cuenta**. Para más información acerca de estos dos tipos y cómo construirlos consulte [Tipos de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+>- Data Factory ahora admite **firmas de acceso compartido de servicio** y **firmas de acceso compartido de cuenta**. Para más información acerca de estos dos tipos y cómo construirlos consulte [Tipos de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures).
+>- En la configuración posterior del conjunto de datos, la ruta de la carpeta es la ruta absoluta a partir del nivel del contenedor. Deberá configurar una alineada con la ruta de acceso del URI de SAS.
 
 > [!TIP]
 > Puede ejecutar los siguientes comandos de PowerShell para generar una firma de acceso compartido de servicio para la cuenta de almacenamiento. Reemplace los marcadores de posición y conceda el permiso necesario.
@@ -191,7 +192,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 }
 ```
 
-### <a name="managed-identity"></a>Identidades administradas para la autenticación de recursos de Azure
+### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
 Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad de servicio para la autenticación de Blob Storage, de manera similar a como usa su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
 

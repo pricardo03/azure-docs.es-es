@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a10d354cf819ebaa7e2199d9de0566b3e6bfd1bf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145939"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243767"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introducción a Azure Storage (proyectos de WebJobs de Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -145,5 +145,5 @@ Para más información sobre cómo usar el objeto **CloudTable** , consulte [Int
 Para más información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para más información acerca de cómo usar el SDK de WebJobs y Azure WebJobs, consulte [Recursos de documentación de Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
+En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para más información acerca de cómo usar el SDK de WebJobs y Azure WebJobs, consulte [Recursos de documentación de Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
 

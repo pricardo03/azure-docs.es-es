@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 601d022917adc71ff3a3c728c7b674ae47a632c4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645480"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238485"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
 Aprenda a recuperar los valores de secreto de Azure Key Vault y a usarlos como parámetros durante la implementación de Resource Manager. El valor nunca se expone, ya que solo se hace referencia a su identificador de Key Vault. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./resource-manager-keyvault-parameter.md)
 
-En este tutorial, se creará una máquina virtual y varios recursos dependientes, y para ellos se usará la misma plantilla que en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). La contraseña del administrador de la máquina virtual se recupera de Azure Key Vault.
+En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes. En este tutorial se personaliza la plantilla para recuperar la contraseña de administrador de la máquina virtual desde Azure Key Vault.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -42,13 +42,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="prepare-the-key-vault"></a>Preparación de Key Vault
 
 En esta sección se usa una plantilla de Resource Manager para crear una instancia de Key Vault y un secreto. Esta plantilla:
 
-* Crea una instancia de Key Vault con la propiedad **enabledForTemplateDeployment** habilitada. El valor de esta propiedad debe ser true para que el proceso de implementación de plantilla pueda acceder a los secretos definidos en esta instancia de Key Value.
+* Cree una instancia de Key Vault con la propiedad `enabledForTemplateDeployment` habilitada. El valor de esta propiedad debe ser true para que el proceso de implementación de plantilla pueda acceder a los secretos definidos en esta instancia de Key Value.
 * Agrega un secreto a Key Vault.  El secreto almacena la contraseña del administrador de la máquina virtual.
 
 Si usted (como usuario que va a implementar la plantilla de máquina virtual) no es propietario ni colaborador de Key Vault, para poder acceder a Key Vault el propietario o colaborador debe concederle el permiso pertinente. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./resource-manager-keyvault-parameter.md)
@@ -58,7 +64,9 @@ La plantilla necesita el identificador de objeto de usuario de Azure AD para con
 1. Ejecute el siguiente comando de Azure PowerShell o de la CLI de Azure.  
 
     ```azurecli-interactive
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -95,21 +103,21 @@ Para crear una instancia de Key Vault:
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` es una propiedad de Key Vault. El valor de esta propiedad debe ser true para poder recuperar los secretos de esta instancia de Key Vault durante la implementación. 
+    `enabledForTemplateDeployment` es una propiedad de Key Vault. El valor de esta propiedad debe ser true para poder recuperar los secretos de esta instancia de Key Vault durante la implementación.
 6. Vaya a la línea 89. Se trata de la definición de secreto de Key Vault.
 7. Seleccione **Descartar** en la parte inferior de la página. No ha realizado ningún cambio.
 8. Compruebe que ha especificado todos los valores como se muestra en la captura de pantalla anterior y haga clic en **Comprar** en la parte inferior de la página.
 9. Seleccione el icono de la campana (notificación) en la parte superior de la página para abrir el panel **Notificaciones**. Espere hasta que el recurso se implemente correctamente.
-8. Seleccione **Ir al grupo de recursos** en el panel **Notificaciones**. 
-9. Seleccione el nombre del almacén de claves para abrirlo.
-10. Seleccione **Directivas de acceso** en el panel izquierdo. Su nombre (Active Directory) debe aparecer en la lista. Si no aparece, significa que no tiene permiso para acceder al almacén de claves.
-11. Seleccione **Haga clic para mostrar las directivas de acceso avanzado**. Observe que **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** está seleccionado. Es otra condición para que la integración con Key Vault funcione.
+10. Seleccione **Ir al grupo de recursos** en el panel **Notificaciones**. 
+11. Seleccione el nombre del almacén de claves para abrirlo.
+12. Seleccione **Directivas de acceso** en el panel izquierdo. Su nombre (Active Directory) debe aparecer en la lista. Si no aparece, significa que no tiene permiso para acceder al almacén de claves.
+13. Seleccione **Haga clic para mostrar las directivas de acceso avanzado**. Observe que **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** está seleccionado. Es otra condición para que la integración con Key Vault funcione.
 
-    ![Directivas de acceso de la integración de Key Vault en la plantilla de Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. Seleccione **Propiedades** en el panel izquierdo.
-13. Realice una copia del valor de **Identificador de recurso**. Este identificador es necesario cuando se implementa la máquina virtual.  El formato del identificador de recurso es:
+    ![Directivas de acceso de la integración de Key Vault en la plantilla de Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. Seleccione **Propiedades** en el panel izquierdo.
+15. Realice una copia del valor de **Identificador de recurso**. Este identificador es necesario cuando se implementa la máquina virtual.  El formato del identificador de recurso es:
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -124,8 +132,17 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Seleccione **Abrir** para abrir el archivo. Es el mismo escenario que se ha usado en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-4. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
-5. Repita los pasos 1 a 4 para abrir la dirección URL siguiente y, después, guarde el archivo como **azuredeploy.parameters.json**.
+4. La plantilla define cinco recursos:
+
+    * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+5. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
+6. Repita los pasos 1 a 4 para abrir la dirección URL siguiente y, después, guarde el archivo como **azuredeploy.parameters.json**.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json

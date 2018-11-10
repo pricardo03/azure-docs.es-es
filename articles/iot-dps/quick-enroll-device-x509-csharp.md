@@ -1,6 +1,6 @@
 ---
 title: Esta guía de inicio rápido le muestra cómo inscribir dispositivos X.509 en el servicio Azure Device Provisioning con C# | Microsoft Docs
-description: En esta guía de inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con C#
+description: Esta guía de inicio rápido usa inscripciones de grupos. En esta guía de inicio rápido, inscribirá dispositivos X.509 en Azure IoT Hub Device Provisioning Service con C#.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/21/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: cf2a2dfbb46b8958e10431ba61e4bd8bc7ae18d6
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 4c466c8289d7ebde484ea627eecfcbba6a5bc4aa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204966"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157418"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Guía de inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con C#
 
@@ -43,7 +43,7 @@ Aunque los pasos de este artículo funcionan en máquinas Windows y Linux, este 
 
 En esta guía de inicio rápido debe tener un archivo .pem o .cer que contenga la porción pública de un certificado X.509 intermedio o raíz de entidad de certificación. Se debe cargar este certificado en el servicio de aprovisionamiento y que este lo compruebe. 
 
-El [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) contiene herramientas de prueba que pueden ayudarle a crear una cadena de certificados X.509, cargar un certificado raíz o intermedio a partir de esa cadena y realizar la prueba de posesión con el servicio para comprobar el certificado. Los certificados creados con las herramientas del SDK están diseñados para usarse en las **pruebas de desarrollo únicamente**. Estos certificados **no se deben usar en producción**. Contienen contraseñas codificadas de forma rígida ("1234") que expiran después de 30 días. Para saber cómo obtener certificados adecuados para el código de producción, consulte [Cómo obtener un certificado de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) en la documentación de Azure IoT Hub.
+El [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) contiene herramientas de prueba que pueden ayudarle a crear una cadena de certificados X.509, cargar un certificado raíz o intermedio a partir de esa cadena y realizar la prueba de posesión con el servicio para comprobar el certificado. Los certificados creados con las herramientas del SDK están diseñados para su uso en las **pruebas de desarrollo únicamente**. Estos certificados **no se deben usar en producción**. Contienen contraseñas codificadas de forma rígida ("1234") que expiran después de 30 días. Para saber cómo obtener certificados adecuados para el código de producción, consulte [Cómo obtener un certificado de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) en la documentación de Azure IoT Hub.
 
 Para usar estas herramientas de prueba para generar certificados, realice los pasos siguientes: 
  

@@ -10,20 +10,20 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2018
+ms.date: 10/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c3d208b12166a590c68753fb4f58c9bb6e55610
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 80246114ac839efa0025dfbc29b9bdbbe2b740be
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225538"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084812"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
 En este artículo, se explica el uso de la CLI de Azure con plantillas de Resource Manager para implementar recursos en Azure. Si no está familiarizado con los conceptos asociados a la implementación y administración de las soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).  
 
-La plantilla de Resource Manager que ha implementado puede ser un archivo local en su equipo, o un archivo externo ubicado en un repositorio como GitHub. La plantilla que se implementa en este artículo está disponible en la sección [Plantilla de ejemplo](#sample-template), o como [plantilla de la cuenta de almacenamiento en GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+La plantilla de Resource Manager que ha implementado puede ser un archivo local en su equipo, o un archivo externo ubicado en un repositorio como GitHub. La plantilla que se implementa en este artículo está disponible como una [plantilla de cuenta de almacenamiento en GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -116,9 +116,46 @@ az group deployment create \
 
 La implementación especificada debe haberse realizado correctamente.
 
-## <a name="parameter-files"></a>Archivos de parámetros
+## <a name="parameters"></a>Parámetros
 
-En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros debe estar en el siguiente formato:
+Para pasar valores de parámetros, puede usar parámetros en línea o un archivo de parámetros. Los ejemplos anteriores de este artículo muestran parámetros en línea.
+
+### <a name="inline-parameters"></a>Parámetros en línea
+
+Para pasar parámetros en línea, proporcione los valores en `parameters`. Por ejemplo, para pasar una cadena y una matriz a una plantilla en un shell de Bash, use:
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters exampleString='inline string' exampleArray='("value1", "value2")'
+```
+
+También puede obtener el contenido del archivo y proporcionar ese contenido como un parámetro en línea.
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
+```
+
+Obtener un valor de parámetro de un archivo es útil cuando se necesita proporcionar valores de configuración. Por ejemplo, puede proporcionar [valores de cloud-init para una máquina virtual Linux](../virtual-machines/linux/using-cloud-init.md).
+
+El formato de arrayContent.json es:
+
+```json
+[
+    "value1",
+    "value2"
+]
+```
+
+### <a name="parameter-files"></a>Archivos de parámetros
+
+En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros puede ser un archivo local o un archivo externo con un identificador URI accesible.
+
+El archivo de parámetros debe estar en el siguiente formato:
 
 ```json
 {
@@ -132,7 +169,7 @@ En lugar de pasar parámetros como valores en línea en el script, quizá le res
 }
 ```
 
-Tenga en cuenta que la sección de parámetros incluye un nombre de parámetro que coincide con el parámetro definido en la plantilla (storageAccountType). El archivo de parámetros contiene un valor para el parámetro. Este valor se pasa automáticamente a la plantilla durante la implementación. Puede crear varios archivos de parámetros para diferentes escenarios de implementación y, después, pasar el archivo de parámetros adecuado. 
+Tenga en cuenta que la sección de parámetros incluye un nombre de parámetro que coincide con el parámetro definido en la plantilla (storageAccountType). El archivo de parámetros contiene un valor para el parámetro. Este valor se pasa automáticamente a la plantilla durante la implementación. Puede crear varios archivos de parámetros y, después, pasar el archivo de parámetros adecuado para el escenario. 
 
 Copie el ejemplo anterior y guárdelo como un archivo denominado `storage.parameters.json`.
 
@@ -145,6 +182,19 @@ az group deployment create \
   --template-file storage.json \
   --parameters @storage.parameters.json
 ```
+
+### <a name="parameter-precedence"></a>Prioridad de parámetros
+
+Puede usar parámetros en línea y un archivo de parámetros local en la misma operación de implementación. Por ejemplo, puede especificar algunos valores en el archivo de parámetros local y agregar otros valores en línea durante la implementación. Si proporciona valores para un parámetro en el archivo de parámetros local y en línea, el valor en línea tiene prioridad.
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters @demotemplate.parameters.json \
+  --parameters exampleArray=@arrtest.json
+```
+
 
 ## <a name="test-a-template-deployment"></a>Prueba de una implementación de plantilla
 
@@ -166,7 +216,7 @@ Si no se detectan errores, el comando devuelve información sobre la implementac
       ...
 ```
 
-Si se detecta un error, el comando devuelve un mensaje de error. Por ejemplo, si se intenta pasar un valor incorrecto a la SKU de la cuenta de almacenamiento, se devuelve el error siguiente:
+Si se detecta un error, el comando devuelve un mensaje de error. Por ejemplo, si se pasa un valor incorrecto para la SKU de la cuenta de almacenamiento, se devuelve el error siguiente:
 
 ```azurecli
 {
@@ -197,59 +247,10 @@ Si la plantilla tiene un error de sintaxis, el comando devuelve un error que ind
 }
 ```
 
-## <a name="sample-template"></a>Plantilla de ejemplo
-
-La plantilla siguiente se usa para los ejemplos de este artículo. Cópiela y guárdela como un archivo denominado storage.json. Para comprender cómo crear esta plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).  
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-          "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "Storage", 
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "storageAccountName": {
-          "type": "string",
-          "value": "[variables('storageAccountName')]"
-      }
-  }
-}
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
 * Los ejemplos de este artículo implementan recursos en un grupo de recursos de su suscripción predeterminada. Para usar una suscripción diferente, consulte [Administración de varias suscripciones de Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
+* Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero que no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
 * Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md).
-* Para el lanzamiento seguro del servicio en varias regiones, vea [Azure Deployment Manager](deployment-manager-overview.md).
+* Para el lanzamiento seguro del servicio en más de una región, consulte [Azure Deployment Manager](deployment-manager-overview.md).

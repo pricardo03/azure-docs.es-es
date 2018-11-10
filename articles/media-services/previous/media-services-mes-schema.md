@@ -2,24 +2,23 @@
 title: Esquema de Media Encoder Standard | Microsoft Docs
 description: En este artículo se proporciona información general sobre el esquema de Media Encoder Standard.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 346d7aecb6a4295f8ceb64bc1b5c6494b7b41bfd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f7d5cafa39daccccbd35c44510038d28601aed
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783894"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241759"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema de Media Encoder Standard
 En este artículo se describen algunos de los elementos y tipos del esquema XML en los que se basan los [valores preestablecidos de Media Encoder Standard](media-services-mes-presets-overview.md). En el artículo se proporciona una explicación de los elementos y sus valores válidos.  
@@ -32,6 +31,7 @@ Define un valor preestablecido de codificación.
 | --- | --- | --- |
 | **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Elemento raíz, indica que los orígenes de entrada se van a codificar. |
 | **Outputs** |[Outputs](media-services-mes-schema.md#Output) |Colección de archivos de salida deseados. |
+| **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|Controle el tamaño del fotograma de vídeo de salida, el relleno, los píxeles o la relación de aspecto de pantalla. **StretchMode** podría ser uno de los siguientes valores: **Ninguno**, **AutoSize** (valor predeterminado) o **AutoFit**.<br/><br/>**Ninguno**: siga estrictamente la resolución de salida (por ejemplo, el **ancho** y **alto** del valor preestablecido) sin tener en cuenta la proporción de píxeles o relación de aspecto de pantalla del vídeo de entrada. Se recomienda en escenarios como los de [recorte](media-services-crop-video.md), donde el vídeo de salida tiene una relación de aspecto diferente en comparación con la entrada. <br/><br/>**AutoSize**: la resolución de los resultados cabrán dentro de la ventana (ancho * alto) especificado por el valor predeterminado. Sin embargo, el codificador genera un vídeo de salida que tiene la relación de aspecto de píxel cuadrada (1:1). Por lo tanto, el ancho o alto de salida se pueden invalidar para que coincida con la relación de aspecto de pantalla de la entrada, sin relleno. Por ejemplo, si la entrada es 1920 x 1080 y el valor preestablecido de codificación requiere 1280 x 1280, se invalida el valor del alto en el valor preestablecido y la salida será de 1280 x 720, que mantiene la relación de aspecto de entrada de 16:9. <br/><br/>**AutoFit**: si es necesario, rellene el vídeo de salida (con formato letterbox o pillarbox) para que admita la resolución de salida que desee, asegurándose de que la región activa del vídeo en la salida tenga la misma relación de aspecto que la entrada. Por ejemplo, supongamos que la entrada es de 1920 x 1080 y el valor preestablecido de codificación requiere 1280 x 1280. A continuación, el vídeo de salida estará en 1280 x 1280, pero contendrá un rectángulo de 1280 x 720 interno de "vídeo activo" con la relación de aspecto de 16:9 y regiones con formato letterbox y 280 píxeles de alto en la parte superior e inferior. Otro ejemplo, si la entrada es de 1440 x 1080 y el valor preestablecido de codificación requiere 1280 x 720, la salida será de 1280 x 720, que contiene un rectángulo interno de 960 x 720 con relación de aspecto de 4:3, y regiones con formato pillarbox y 160 píxeles de ancho a la izquierda y derecha. 
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -131,11 +131,10 @@ Para detalles sobre qué valores son válidos para cada perfil, consulte la tabl
 ### <a name="audio-codec-details"></a>Detalles de códec de audio
 Códec de audio|Detalles  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 12000: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 16000: 8 &lt;= velocidad de bits &lt;32<br/><br/>- 22050: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 24000: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 32000: 32 &lt;= velocidad de bits &lt;= 192<br/><br/> - 44100: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 48000: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 88200: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> - 96000: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> 2.<br/><br/> - 11025: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 12000: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 16000: 16 &lt;= velocidad de bits &lt; 40<br/><br/> - 22050: 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 24000: 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 32000: 40 &lt;= velocidad de bits &lt;= 384<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= velocidad de bits &lt;= 896<br/><br/> - 44100: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 44100: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 896 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 896 &lt;= velocidad de bits &lt;= 1024  
-**HEAACV1**|1:<br/><br/> - 22050: velocidad de bits = 8<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: velocidad de bits = 64<br/><br/> 2.<br/><br/> - 32000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 88200 : 96 &lt;= velocidad de bits &lt;= 128<br/><br/> - 96000 : 96 &lt;= velocidad de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 44100 : 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= velocidad de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= velocidad de bits &lt;= 448  
+**AACLC**|1:<br/><br/> - 11025: 8 &lt;= velocidad de bits &lt;= 16<br/><br/> - 12000: 8 &lt;= velocidad de bits &lt;= 16<br/><br/> - 16000: 8 &lt;= velocidad de bits &lt;= 32<br/><br/>- 22050: 24 &lt;= velocidad de bits &lt;= 32<br/><br/> - 24000: 24 &lt;= velocidad de bits &lt;= 32<br/><br/> - 32000: 32 &lt;= velocidad de bits &lt;= 192<br/><br/> - 44100: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 48000: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 88200: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> - 96000: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> 2.<br/><br/> - 11025: 16 &lt;= velocidad de bits &lt;= 24<br/><br/> - 12000: 16 &lt;= velocidad de bits &lt;= 24<br/><br/> - 16000: 16 &lt;= velocidad de bits &lt;= 40<br/><br/> - 22050: 32 &lt;= velocidad de bits &lt;= 40<br/><br/> - 24000: 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 32000: 40 &lt;= velocidad de bits &lt;= 384<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= velocidad de bits &lt;= 896<br/><br/> - 44100: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 44100: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 896 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 896 &lt;= velocidad de bits &lt;= 1024  
+**HEAACV1**|1:<br/><br/> - 22050: velocidad de bits = 8<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: velocidad de bits = 64<br/><br/> 2.<br/><br/> - 32000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 88200 : 96 &lt;= velocidad de bits &lt;= 128<br/><br/> - 96000: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= velocidad de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= velocidad de bits &lt;= 448  
 **HEAACV2**|2.<br/><br/> - 22050: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= velocidad de bits &lt;= 64  
   
-
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |

@@ -7,49 +7,50 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: b8c9bc1944e9ed0281616062a84958c953d08694
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180665"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415821"
 ---
 # <a name="reset-expressroute-peerings"></a>Restablecimiento de emparejamientos de ExpressRoute
 
-En este artículo se describe cómo deshabilitar y habilitar los emparejamientos de un circuito de ExpressRoute mediante PowerShell. Cuando se deshabilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se cerrará. Perderá la conectividad mediante este emparejamiento a Microsoft. Cuando habilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se desactivará. Volverá a establecer la conectividad mediante este emparejamiento a Microsoft. Puede habilitar y deshabilitar el emparejamiento de Microsoft y el emparejamiento privado de Azure en un circuito de ExpressRoute de forma independiente. La primera vez que configure los emparejamientos en el circuito de ExpressRoute, los emparejamientos se habilitan de forma predeterminada. 
+En este artículo se describe cómo deshabilitar y habilitar los emparejamientos de un circuito de ExpressRoute mediante PowerShell. Cuando se deshabilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se cerrará. Perderá la conectividad mediante este emparejamiento a Microsoft. Cuando habilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se desactivará. Volverá a establecer la conectividad mediante este emparejamiento a Microsoft. Puede habilitar y deshabilitar el emparejamiento de Microsoft y el emparejamiento privado de Azure en un circuito de ExpressRoute de forma independiente. La primera vez que configure los emparejamientos en el circuito de ExpressRoute, los emparejamientos se habilitan de forma predeterminada.
 
 Hay un par de escenarios en los que puede resultarle útil restablecer los emparejamientos de ExpressRoute.
 * Pruebe la implementación y el diseño de recuperación ante desastres. Por ejemplo, tiene dos circuitos de ExpressRoute. Puede deshabilitar los emparejamientos de un circuido y forzar la conmutar por error del tráfico de red a otro circuito.
 * Habilite la detección de reenvío bidireccional (BFD) en el emparejamiento privado de Azure de su circuito de ExpressRoute. BFD está habilitado de forma predeterminada si el circuito de ExpressRoute se creó después del 1 de agosto de 2018. Si el circuito se creó antes de esa fecha, BFD no estará habilitado. Para habilitar BFD, debe deshabilitar el emparejamiento y volverlo a habilitar. Hay que tener en cuenta que BFD solo es compatible con el emparejamiento privado de Azure.
 
+### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>Restablecimiento de un emparejamiento
 
-1. Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Si ejecuta PowerShell de manera local, abra la consola de PowerShell con privilegios elevados y conéctese a su cuenta. Use el siguiente ejemplo para conectarse:
 
-2. Abra la consola de PowerShell con privilegios elevados y conéctese a su cuenta. Use el siguiente ejemplo para conectarse:
-
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
-3. Si tiene varias suscripciones de Azure, compruebe las suscripciones de la cuenta.
+2. Si tiene varias suscripciones de Azure, compruebe las suscripciones de la cuenta.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
-4. Especifique la suscripción que desea usar.
+3. Especifique la suscripción que desea usar.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
-5. Ejecute los comandos siguientes para recuperar el circuito de ExpressRoute.
+4. Ejecute los comandos siguientes para recuperar el circuito de ExpressRoute.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
-6. Identifique el emparejamiento que quiere habilitar o deshabilitar. *Peerings* es una matriz. En el ejemplo siguiente, Peerings[0] es el emparejamiento privado de Azure y Peerings[1], el emparejamiento de Microsoft.
+5. Identifique el emparejamiento que quiere habilitar o deshabilitar. *Peerings* es una matriz. En el ejemplo siguiente, Peerings[0] es el emparejamiento privado de Azure y Peerings[1], el emparejamiento de Microsoft.
 
-  ```powershell
+  ```azurepowershell-interactive
 Name                             : ExpressRouteARMCircuit
 ResourceGroupName                : ExpressRouteResourceGroup
 Location                         : westus
@@ -130,9 +131,9 @@ Authorizations                   : []
 AllowClassicOperations           : False
 GatewayManagerEtag               :
   ```
-7. Ejecute el comando siguiente para cambiar el estado del emparejamiento.
+6. Ejecute el comando siguiente para cambiar el estado del emparejamiento.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```

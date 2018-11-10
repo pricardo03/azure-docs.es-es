@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: b0f1ba7f0799fb9f8f58370a39758416eab43dc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2dffc178a017d8b16ea7a36407d8bbf62c6d642
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195811"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242150"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -68,7 +68,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
 
 1. Escriba `Team` para el nombre de clase y haga clic en **Agregar**.
 
-    ![Agregar la clase del modelo](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
+    ![Agregar de clase de modelo](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
 
 1. Reemplace las instrucciones `using` de la parte superior del archivo *Team.cs* por las siguientes instrucciones `using`:
 
@@ -79,7 +79,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
     using System.Data.Entity.SqlServer;
     ```
 
-1. Reemplace la definición de la clase `Team` por el siguiente fragmento de código que contiene una definición de clase `Team` actualizada, así como algunas otras clases auxiliares de Entity Framework. Este tutorial utiliza el enfoque de Code First con Entity Framework. Este enfoque permite a Entity Framework crear la base de datos desde el código. Para más información sobre el enfoque de Code First en Entity Framework, consulte [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542).
+1. Reemplace la definición de la clase `Team` por el siguiente fragmento de código que contiene una definición de clase `Team` actualizada, así como algunas otras clases de asistente de Entity Framework. Este tutorial utiliza el enfoque de Code First con Entity Framework. Este enfoque permite a Entity Framework crear la base de datos desde el código. Para más información sobre el enfoque de Code First en Entity Framework, consulte [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542).
 
     ```csharp
     public class Team
@@ -150,7 +150,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
     }
     ```
 
-1. En el **Explorador de soluciones**, haga doble clic en el archivo **web.config** para abrirlo.
+1. En el **Explorador de soluciones**, haga doble clic en el archivo **Web.config** para abrirlo.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
@@ -673,7 +673,7 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
-   | **Password** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
+   | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
    | **Ubicación** | *Este de EE. UU.* | Seleccione la región en la que creó la caché y la instancia de App Service. |
 
 1. Haga clic en **Anclar al panel** y, después, en **Crear** para crear la nueva base de datos y el servidor.
@@ -731,7 +731,7 @@ Cuando haya terminado con la aplicación del tutorial de ejemplo, puede eliminar
 > La eliminación de un grupo de recursos es irreversible y el grupo de recursos y todos los recursos que contiene se eliminarán de forma permanente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo en un grupo de recursos existente que contenga recursos que desee mantener, puede eliminar cada uno de los recursos individualmente en sus hojas respectivas.
 >
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 2. Escriba el nombre de su grupo de recursos en el cuadro de texto **Filtrar elementos** .
 3. Haga clic en **...**  a la derecha del grupo de recursos y haga clic en **Eliminar grupo de recursos**.
 

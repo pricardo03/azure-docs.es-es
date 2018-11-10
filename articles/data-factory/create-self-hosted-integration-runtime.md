@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817164"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248938"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -109,7 +109,7 @@ Para instalar el entorno de ejecución de integración autohospedado, descargue 
 
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidad y escalabilidad
-Un entorno de ejecución de integración autohospedado puede asociarse con varios equipos locales. Dichos equipos se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno de ejecución de integración autohospedado. Las ventajas de tener varios nodos (equipos locales con una puerta de enlace instalada) para una puerta de enlace lógica son:
+Un entorno de ejecución de integración autohospedado puede asociarse con varios equipos locales. Estas máquinas se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno de ejecución de integración autohospedado. Las ventajas de tener varios nodos (equipos locales con una puerta de enlace instalada) para una puerta de enlace lógica son:
 * Mayor disponibilidad del entorno de ejecución de integración autohospedado para que deje de ser el único punto de error de la solución de Big Data o la integración de datos en la nube con Azure Data Factory, lo que garantiza la continuidad con un máximo de cuatro nodos.
 * Rendimiento mejorado durante el movimiento de datos entre almacenes de datos locales y en la nube. Obtenga más información sobre las [comparaciones de rendimiento](copy-activity-performance.md).
 
@@ -146,6 +146,8 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Uso compartido del entorno de ejecución de integración autohospedado con varias factorías de datos
 
 Puede volver a usar una infraestructura de entorno de ejecución de integración autohospedado existente que ya ha configurado en una factoría de datos. Esto le permite crear un *entorno de ejecución de integración autohospedado vinculado* en una factoría de datos diferente haciendo referencia a otro entorno de ejecución de IR autohospedado existente (compartido).
+
+Para compartir un entorno de ejecución de integración autohospedado mediante PowerShell, consulte [Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell](create-shared-self-hosted-integration-runtime-powershell.md) (Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory con PowerShell).
 
 ### <a name="terminology"></a>Terminología
 

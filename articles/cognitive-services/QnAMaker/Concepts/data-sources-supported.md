@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 36d74c7fba472956d57344977de79a4cbfd2cf02
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4c96eb5b49c72fe9bb5ab977c773407889c56805
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648520"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213311"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -28,7 +28,7 @@ En la tabla siguiente se resumen los tipos de contenido y los formatos de archiv
 |URL|Preguntas más frecuentes (sin formato, con secciones o con una página principal de temas)|[Preguntas más frecuentes sin formato](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [Preguntas más frecuentes con vínculos](https://www.microsoft.com/software-download/faq), [Preguntas más frecuentes con página principal de temas](https://support.microsoft.com/products/windows?os=windows-10)|
 |PDF/DOC|Preguntas más frecuentes, manual de producto, prospectos, documento, folleto, directiva, guía de soporte técnico, preguntas y respuestas estructuradas, etc.|[Preguntas y respuestas estructuradas.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Manual de producto de ejemplo.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [Ejemplo semiestructurado.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [Documento técnico de ejemplo.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
 |Excel|Archivo de preguntas y respuestas estructurado (incluyendo compatibilidad con HTML, RTF)|[Preguntas más frecuentes de preguntas y respuestas de ejemplo.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|Archivo de preguntas y respuestas estructurado|[Charla de ejemplo.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
+|TXT/TSV|Archivo de preguntas y respuestas estructurado|[Charla de ejemplo.tsv](https://github.com/Microsoft/BotBuilder-PersonalityChat/blob/master/CSharp/Datasets/scenario_responses_the_friend.tsv)|
 
 ## <a name="faq-urls"></a>Preguntas más frecuentes sobre las direcciones URL
 

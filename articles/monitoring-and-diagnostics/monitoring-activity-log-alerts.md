@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5ddf510d50f38ed9aaf742bd06c330e53ffe1391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f007ca3aacb338c14bf481ee58407596c8290ad
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992803"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091630"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
 
@@ -50,7 +50,7 @@ Las alertas del registro de actividad tienen algunas opciones en común:
 - **Evento iniciado por**: también se conoce como el "llamador." La dirección de correo electrónico o el identificador de Azure Active Directory del usuario que realizó la operación.
 
 > [!NOTE]
-> En una suscripción, hasta 100 reglas de alertas para la actividad del ámbito en el nivel: de un único recurso, de todos los recursos de un grupo de recursos (o) de suscripción completa.
+> En una suscripción se pueden crear hasta 100 reglas de alertas para una actividad del ámbito en el nivel: de un único recurso, de todos los recursos de un grupo de recursos (o) de suscripción completa.
 
 Cuando se activa una alerta del registro de actividad, usa un grupo de acciones para generar acciones o notificaciones. Un grupo de acciones es un conjunto reutilizable de destinatarios de notificación, como direcciones de correo electrónico, direcciones URL del webhook o números de teléfono para SMS. Se puede hacer referencia a los receptores desde varias alertas para centralizar y agrupar los canales de notificación. Al definir la alerta del registro de actividad, tiene dos opciones. Puede:
 

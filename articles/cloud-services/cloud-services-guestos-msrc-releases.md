@@ -11,17 +11,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 10/28/2018
 ms.author: raiye
-ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377521"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215521"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## <a name="october-2018-guest-os"></a>SO invitado de octubre de 2018
+>[!NOTE]
+>El sistema operativo invitado de octubre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios.
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Ver. 18-10 | [4462917] | Seguridad de Windows 10 | 5.24 | 9 de octubre de 2018 |
+| Ver. 18-10 | [4464330] | Seguridad de Windows 10 | 6.0 | 9 de octubre de 2018 |
+| Ver. 18-10 | [4462915] | Seguridad de Windows | 2.79 | 9 de octubre de 2018 |
+| Ver. 18-10 | [4462931] | Seguridad de Windows | 3.66 | 9 de octubre de 2018 |
+| Ver. 18-10 | [4462941] | Seguridad de Windows | 4.59 | 9 de octubre de 2018 |
+| Ver. 18-10 | [4462930] | Intermitente | 3.66, 4.59, 5.24, 6.0 | 9 de octubre de 2018 |
+| Ver. 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 de octubre de 2018 |
+| N/D | [4339284] | Actualización de zona horaria | 2.79, 3.66, 4.59 | 24 de julio de 2018 |
+| N/D | [4457144] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, septiembre | 2.79 | 11 de septiembre de 2018 |
+| N/D | [4457044] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 3.5, septiembre | 2.79 | 11 de septiembre de 2018 |
+| N/D | [4457038] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 4.5.2, septiembre | 2.79 | 11 de septiembre de 2018 |
+| N/D | [4457135] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, septiembre | 3.66 | 11 de septiembre de 2018 |
+| N/D | [4457042] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 3.5, septiembre | 3.66 | 11 de septiembre de 2018 |
+| N/D | [4457037] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 4.5.2, septiembre | 3.66 | 11 de septiembre de 2018 |
+| N/D | [4457129] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad, septiembre | 4.59 | 11 de septiembre de 2018 |
+| N/D | [4457045] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 3.5, septiembre | 4.59 | 11 de septiembre de 2018 |
+| N/D | [4457036] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 4.5.2, septiembre | 4.59 | 11 de septiembre de 2018 |
+
+[4462917]: http://support.microsoft.com/kb/4462917
+[4464330]: http://support.microsoft.com/kb/4464330
+[4462915]: http://support.microsoft.com/kb/4462915
+[4462931]: http://support.microsoft.com/kb/4462931
+[4462941]: http://support.microsoft.com/kb/4462941
+[4462930]: http://support.microsoft.com/kb/4462930
+[4462949]: http://support.microsoft.com/kb/4462949
+[4339284]: http://support.microsoft.com/kb/4339284
+[4457144]: http://support.microsoft.com/kb/4457144
+[4457044]: http://support.microsoft.com/kb/4457044
+[4457038]: http://support.microsoft.com/kb/4457038
+[4457135]: http://support.microsoft.com/kb/4457135
+[4457042]: http://support.microsoft.com/kb/4457042
+[4457037]: http://support.microsoft.com/kb/4457037
+[4457129]: http://support.microsoft.com/kb/4457129
+[4457045]: http://support.microsoft.com/kb/4457045
+[4457036]: http://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>SO invitado de septiembre de 2018
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |

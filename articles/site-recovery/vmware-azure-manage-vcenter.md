@@ -1,20 +1,19 @@
 ---
-title: " Administración de servidores VMware vCenter en Azure Site Recovery | Microsoft Docs"
-description: En este artículo se describe como agregar y administrar VMware vCenter en Azure Site Recovery.
+title: Administración de servidores VMware vCenter para la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo agregar y administrar VMware vCenter para la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: ramamill
-ms.openlocfilehash: 6f3edf8e5d7a6fda1795991ac0a21cc316c29414
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 854d7724aebd882414287b19c015ef1425bfa6db
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950451"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210302"
 ---
-# <a name="manage-vmware-vcenter-servers"></a>Administración de servidores VMware vCenter 
+# <a name="manage-vmware-vcenter-server"></a>Administración de servidores VMware vCenter
 
 En este artículo se describen las diversas operaciones de Site Recovery que se pueden realizar en un servidor VMware vCenter. Compruebe los [requisitos previos](vmware-physical-azure-support-matrix.md#replicated-machines) antes de empezar.
 
@@ -34,7 +33,7 @@ En unos 15 minutos la información de la cuenta se sincronizará con el servicio
 
 ### <a name="account-permissions"></a>Permisos de la cuenta
 
-|**Task** | **Cuenta** | **permisos** | **Detalles**|
+|**Task** | **Cuenta** | **Permisos** | **Detalles**|
 |--- | --- | --- | ---|
 |**Detección y migración automáticas (sin conmutación por recuperación)** | Necesita al menos un usuario de solo lectura. | Objeto de centro de datos  –> Propagar al objeto secundario, rol = solo lectura | El usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.<br/><br/> Para restringir el acceso, asigne el rol **Sin acceso** con **Propagate to child object** (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).|
 |**Replicación y conmutación por error** | Necesita al menos un usuario de solo lectura.| Objeto de centro de datos  –> Propagar al objeto secundario, rol = solo lectura | El usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.<br/><br/> Para restringir el acceso, asigne el rol **Sin acceso** con **Propagate to child object** (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).<br/><br/> Es útil para la migración, pero no para la replicación completa, la conmutación por error o la conmutación por recuperación.|

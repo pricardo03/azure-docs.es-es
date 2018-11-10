@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956513"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210421"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>¿Qué es el control de acceso basado en rol (RBAC)?
 
@@ -54,7 +54,7 @@ Una *entidad de seguridad* es un objeto que representa a un usuario, un grupo o 
 
 ![Entidad de seguridad para una asignación de roles](./media/overview/rbac-security-principal.png)
 
-- Usuario: individuo que tiene un perfil en Azure Active Directory. También puede asignar roles a usuarios de otros inquilinos. Para información sobre los usuarios de otras organizaciones, consulte el artículo sobre la [colaboración B2B de Azure Active Directory](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Usuario: individuo que tiene un perfil en Azure Active Directory. También puede asignar roles a usuarios de otros inquilinos. Para información sobre los usuarios de otras organizaciones, consulte el artículo sobre la [colaboración B2B de Azure Active Directory](../active-directory/b2b/what-is-b2b.md).
 - Grupo: conjunto de usuarios creado en Azure Active Directory. Cuando se asigna un rol a un grupo, todos los usuarios dentro de ese grupo tienen ese rol. 
 - Entidad de servicio: identidad de seguridad que las aplicaciones o los servicios usan para acceder a recursos específicos de Azure. Puede considerarla como una *identidad de usuario* (nombre de usuario y contraseña o certificado) de una aplicación.
 
@@ -130,3 +130,4 @@ Los siguientes son los pasos de alto nivel que RBAC usa para determinar si tiene
 - [Inicio rápido: Concesión de acceso a un usuario mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
 - [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md)
 - [Descripción de los distintos roles en Azure](rbac-and-directory-admin-roles.md)
+- [Adopción de la nube empresarial: administración del acceso a los recursos en Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

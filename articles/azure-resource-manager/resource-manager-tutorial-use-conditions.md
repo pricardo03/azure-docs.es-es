@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 325071be56935ca02adccf69f99fa1718e3f7b91
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456973"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239430"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Uso de condiciones en plantillas de Azure Resource Manager
 
-Aprenda a implementar recursos de Azure según condiciones. 
+Aprenda a implementar recursos de Azure según condiciones.
 
-El escenario que se usa en este tutorial es parecido al utilizado en el [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). En este tutorial, creará una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento.
+En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -40,7 +40,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
@@ -53,7 +59,16 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Seleccione **Abrir** para abrir el archivo.
-4. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
+4. La plantilla define cinco recursos:
+
+    * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+5. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Modificación de la plantilla
 
@@ -61,6 +76,8 @@ Realice dos cambios en la plantilla existente:
 
 * Incorporación de un parámetro de nombre de cuenta de almacenamiento. Los usuarios pueden especificar un nuevo nombre de cuenta de almacenamiento o uno que ya exista.
 * Agregue un nuevo parámetro llamado **newOrExisting**. En la implementación se usa este parámetro para determinar dónde crear una cuenta de almacenamiento o usar una cuenta de almacenamiento existente.
+
+Éste es el procedimiento para realizar los cambios:
 
 1. Abra **azuredeploy.json** en Visual Studio Code.
 2. Reemplace **variables('storageAccountName')** por **parameters('storageAccountName')** en toda la plantilla.  Hay tres apariciones de **variables('storageAccountName')**.
@@ -74,7 +91,7 @@ Realice dos cambios en la plantilla existente:
     ```json
     "storageAccountName": {
       "type": "string"
-    },    
+    },
     "newOrExisting": {
       "type": "string", 
       "allowedValues": [
@@ -112,22 +129,26 @@ Realice dos cambios en la plantilla existente:
 
 Para implementar la plantilla, siga las instrucciones que se indican en [Implementación de la plantilla](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template).
 
-Al implementar la plantilla mediante Azure PowerShell, deberá especificar un parámetro adicional:
+Al implementar la plantilla mediante Azure PowerShell, es preciso especificar un parámetro adicional. Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Consulte [Requisitos previos](#prerequisites).
 
 ```azurepowershell
+$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password"
+$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-$vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin `
+    -adminPassword $vmPassword `
+    -dnsLabelPrefix $dnsLabelPrefix `
+    -storageAccountName $storageAccountName `
+    -newOrExisting $newOrExisting `
     -TemplateFile azuredeploy.json
 ```
 
@@ -147,7 +168,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, desarrollará una plantilla que permite a los usuarios elegir entre crear una cuenta de almacenamiento y usar una ya existente. La máquina virtual creada en este tutorial requiere un nombre de usuario y una contraseña de administrador. En lugar de pasar la contraseña durante la implementación, puede almacenarla previamente mediante Azure Key Vault y recuperarla en su transcurso. Para aprender a recuperar secretos de Azure Key Vault y usar los secretos en la implementación de plantillas, consulte:
+En este tutorial, ha desarrollado una plantilla que permite a los usuarios elegir entre crear una cuenta de almacenamiento y usar una existente. Para aprender a recuperar secretos de Azure Key Vault y usar los secretos como contraseñas en la implementación de plantillas, consulte:
 
 > [!div class="nextstepaction"]
 > [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md) (Integración de Key Vault en la implementación de plantillas)

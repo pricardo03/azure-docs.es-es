@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466688"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092958"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
-La auditoría de base de datos SQL de Azure realiza el seguimiento de eventos de base de datos y los registra en un registro de auditoría de la cuenta de Azure Storage. La auditoría también:
+La auditoría de Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage, área de trabajo OMS o Event Hubs. La auditoría también:
 
 - Puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 
 - Posibilita y facilita la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
+
 
 ## <a id="subheading-1"></a>Información general de auditoría de base de datos SQL de Azure
 
@@ -51,7 +56,7 @@ Puede definirse una directiva de auditoría para una base de datos específica o
 
 - Si la *auditoría de blobs de servidor* está habilitada, *se aplica siempre a la base de datos*. La base de datos se auditará, independientemente de la configuración de auditoría de la base de datos.
 
-- Habilitar la auditoría de blobs en la base de datos, además de en el servidor, *no* invalidará ni cambiará ninguna de las opciones de la auditoría del servidor de blobs. Ambas auditorías existirán en paralelo. En otras palabras, la base de datos se auditará dos veces en paralelo; una vez por la directiva de servidor y otra vez por la directiva de base de datos.
+- Habilitar la auditoría de blobs en la base de datos o el almacenamiento de datos, además de en el servidor, *no* invalida ni cambia ninguna de las opciones de la auditoría del servidor de blobs. Ambas auditorías existirán en paralelo. En otras palabras, la base de datos se auditará dos veces en paralelo; una vez por la directiva de servidor y otra vez por la directiva de base de datos.
 
    > [!NOTE]
    > Debe habilitar tanto la auditoría de blobs de servidor como la auditoría de blobs de base de datos, a menos que:
@@ -79,7 +84,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 
     ![Panel de navegación][3]
 
-5. **Nuevo**: ahora tiene varias opciones para configurar dónde se escribirán los registros de auditoría. Puede escribir registros en una cuenta de almacenamiento de Azure, en un área de trabajo de Log Analytics para su consumo por Log Analytics o en un centro de eventos para consumirlos mediante el centro de eventos. Puede configurar cualquier combinación de estas opciones, y los registros de auditoría se escribirán en cada una.
+5. **Nuevo**: ahora tiene varias opciones para configurar dónde se escribirán los registros de auditoría. Puede escribir registros en una cuenta de almacenamiento de Azure, en un área de trabajo de Log Analytics para el consumo de Log Analytics o en un centro de eventos para consumirlos mediante el centro de eventos. Puede configurar cualquier combinación de estas opciones, y los registros de auditoría se escribirán en cada una.
 
     ![opciones de almacenamiento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -98,6 +103,11 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 9. Haga clic en **Save**(Guardar).
 10. Si quiere personalizar los eventos auditados, puede hacerlo a través de los [cmdlets de PowerShell](#subheading-7) o de la [API de REST](#subheading-9).
 11. Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>Si habilita la auditoría en una instancia de Azure SQL Data Warehouse, o en un servidor que tenga una instancia de este, **hará que esta instancia se reanude** incluso en el caso de que estuviera anteriormente en pausa. **Asegúrese de poner en pausa el almacenamiento de datos después de volver a habilitar la auditoría**.
+
 
 ## <a id="subheading-3"></a>Análisis de registros e informes de auditoría
 
@@ -206,6 +216,9 @@ En el entorno de producción, es probable que actualice periódicamente las clav
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     Puede configurar la auditoría de los distintos tipos de acciones y grupos de acciones con PowerShell, según se describe en la sección [Administración de auditorías de SQL Database mediante Azure PowerShell](#subheading-7).
+
+- Cuando se usa la autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra los detalles de estos eventos.
+
 
 ## <a id="subheading-7"></a>Administración de auditorías de SQL Database mediante Azure PowerShell
 

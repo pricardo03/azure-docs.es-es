@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8ecdf1fffb51c0b8e9ce996307595a5444a64ee
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413091"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417470"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solución de problemas de activación de máquinas virtuales Windows de Azure
 
@@ -82,7 +82,7 @@ Este paso no se aplica a Windows 2012 o Windows 2008 R2. Usa la característica 
 2. Vaya a Inicio, busque en Windows PowerShell, haga clic con el botón derecho en Windows PowerShell y seleccione Ejecutar como administrador.
 
 3. Asegúrese de que la VM está configurada para usar el servidor de KMS de Azure correcto. Para ello, ejecute el siguiente comando:
-  
+  
     ```
     iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
     kms.core.windows.net:1688
@@ -90,11 +90,11 @@ Este paso no se aplica a Windows 2012 o Windows 2008 R2. Usa la característica 
     El comando debe devolver: Key Management Service machine name set to kms.core.windows.net:1688 successfully (El nombre de máquina del servicio de administración de claves se estableció correctamente en kms.core.windows.net:1688).
 
 4. Compruebe con Psping que dispone de conectividad con el servidor de KMS. Vaya a la carpeta en la que extrajo la descarga de Pstools.zip y ejecute lo siguiente:
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
+  
   En la penúltima línea, asegúrese de que aparece: Enviados = 4, Recibidos = 4, Perdidos = 0 (0 % de pérdida).
 
   Si el valor de perdidos es mayor que 0 (cero), la máquina virtual no tiene conectividad con el servidor de KMS server. En este caso, si la VM está en una red virtual y tiene especificado un servidor DNS personalizado, debe asegurarse de que el servidor DNS es capaz de resolver kms.core.windows.net. También puede cambiar el servidor DNS a uno que pueda resolver kms.core.windows.net.

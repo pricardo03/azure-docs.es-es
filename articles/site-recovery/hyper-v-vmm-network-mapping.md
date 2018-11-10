@@ -1,21 +1,21 @@
 ---
-title: Asignación de red para la replicación de VM de Hyper-V (con VMM) en Azure con Site Recovery | Microsoft Docs
-description: Describe la configuración de la asignación de red para la replicación de máquinas virtuales administradas de Hyper-V en nubes de VMM con Azure Site Recovery.
+title: Asignación de red para la recuperación ante desastres de máquinas virtuales de Hyper-V (con VMM) en Azure con Site Recovery | Microsoft Docs
+description: Se describe cómo configurar la asignación de red para la recuperación ante desastres de máquinas virtuales de Hyper-V (administradas en nubes de VMM) en Azure con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: d683554a97a1616b0d4d7b1ae95d62b476de04eb
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078518"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212988"
 ---
-# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparación de la asignación de redes para la replicación de una máquina virtual de Hyper-V en Azure
+# <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparación de la asignación de red para la recuperación ante desastres de las máquinas virtuales de Hyper-V en Azure
 
 
 Este artículo le ayuda a entender y preparar la asignación de red cuando replica VM de Hyper-V de nubes de System Center Virtual Machine Manager (VMM) en Azure, o en un sitio secundario, mediante el servicio [Azure Site Recovery](site-recovery-overview.md).

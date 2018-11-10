@@ -4,9 +4,6 @@ description: En este artículo se explica cómo equilibrar la carga del tráfico
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432450"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154944"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de tráfico ponderado en Traffic Manager
 
-Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto de extremos idénticos, que incluye servicios en la nube y sitios web, y enviar tráfico a cada uno de ellos de forma equitativa (round robin). Los siguientes pasos describen cómo configurar este tipo de método de enrutamiento de tráfico.
+Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto de extremos idénticos, que incluye servicios en la nube y sitios web, y enviar tráfico a cada uno de ellos de forma equitativa. Los siguientes pasos describen cómo configurar este tipo de método de enrutamiento de tráfico.
 
 > [!NOTE]
-> Azure Web App ya le proporciona la funcionalidad de equilibrio de carga Round Robin para sitios web en una región de Azure (que contiene varios centros de datos). El Administrador de tráfico permite especificar el método de enrutamiento del tráfico round robin para sitios web en distintos centros de datos.
+> Azure Web App ya le proporciona la funcionalidad de equilibrio de carga Round Robin para sitios web en una región de Azure (que puede incluir varios centros de datos). Traffic Manager permite distribuir el tráfico entre los sitios web en distintos centros de datos.
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Para configurar el método de enrutamiento de tráfico ponderado
 

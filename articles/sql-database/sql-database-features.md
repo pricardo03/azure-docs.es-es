@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: b68e65bdcefcabb2804b259cff45e0a8719f7ab7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d650e0d8b76af8d6bdef5aeadf821e3d8f6d1c79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870523"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241878"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de funciones: Azure SQL Database frente a SQL Server 
 
@@ -26,7 +26,7 @@ Azure SQL Database comparte una base de código común con SQL Server. Las carac
 Microsoft continúa agregando características a Azure SQL Database. Visite la página web Actualizaciones de servicios de Azure para las actualizaciones más recientes mediante estos filtros:
 
 * Filtrado a [Servicio de SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
-* Filtrado a Disponibilidad general [Anuncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para características de SQL Database.
+* Filtrado a Disponibilidad general [Anuncios (GA)](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para características de SQL Database.
 
 ## <a name="sql-server-feature-support-in-azure-sql-database"></a>Compatibilidad con las características de SQL Server en Azure SQL Database
 
@@ -128,7 +128,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | SÍ | SÍ |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | SÍ | SÍ |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No; consulte el artículo sobre [eventos extendidos](sql-database-xevent-db-diff-from-svr.md). | SÍ |
-| [Replicación de SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Solo los suscriptores de replicación transaccional y replicación de instantáneas](sql-database-cloud-migrate.md) | Sí; [Replicación con Instancia administrada de SQL Database (versión preliminar)](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Replicación de SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Solo los suscriptores de replicación transaccional y replicación de instantáneas](sql-database-cloud-migrate.md) | Sí; [Replicación con Instancia administrada de SQL Database (versión preliminar)](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No; [consulte el artículo sobre Power BI](https://docs.microsoft.com/power-bi/) | No; [consulte el artículo sobre Power BI](https://docs.microsoft.com/power-bi/) |
 | [procedimientos almacenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | SÍ | SÍ |
 | [Funciones almacenadas del sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | La mayoría; consulte las funciones. | S; consulte el artículo sobre las [diferencias de procedimientos almacenados, funciones y desencadenadores](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

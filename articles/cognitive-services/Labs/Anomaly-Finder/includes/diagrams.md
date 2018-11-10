@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: a1cda1cea2089363331ae437cb7ad802429779f4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 506270b1828e98f14e3fe7a84b7f780e209e2669
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888703"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165867"
 ---
 Los datos devueltos con el valor esperado y los márgenes superior e inferior predeterminados. En la práctica, puede definir un parámetro [sensibilidad] y luego usar (ExpectedValue + sensibilidad * UpperMargin) como el límite superior y (ExpectedValue - sensibilidad * LowerMargin) como el límite inferior para poder ajustar por su cuenta el punto de anomalía. El valor de [sensibilidad] debe ser mayor que 1. A continuación, se presentan algunos diagramas de ajuste.
 

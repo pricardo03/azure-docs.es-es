@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321638"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092798"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este tema se describen los requisitos previos y los de hardware de Azure AD Connect.
@@ -63,7 +63,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usado por Azure AD Connect
 * Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada, se instala SQL Server 2012 Express LocalDB (versión ligera de SQL Server Express). SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server.
 * Si utiliza una instancia de SQL Server independiente, se aplican estos requisitos:
-  * Azure AD Connect admite todas las versiones de Microsoft SQL Server, desde SQL Server 2008 (con el Service Pack más reciente) hasta SQL Server 2016 SP1. **No se admite** Microsoft Azure SQL Database como base de datos.
+  * Azure AD Connect admite todas las versiones de Microsoft SQL Server, desde SQL Server 2008 (con el Service Pack más reciente) hasta SQL Server 2017. **No se admite** Microsoft Azure SQL Database como base de datos.
   * Debe usar una intercalación de SQL sin distinción de mayúsculas y minúsculas. Estas intercalaciones se identifican porque el nombre incluye \_CI_. **No se puede utilizar** para emplear una intercalación sin distinción de mayúsculas y minúsculas, y se identifica porque el nombre incluye \_CS_.
   * Solo se puede tener un motor de sincronización por cada instancia de SQL. **No se puede** compartir una instancia de SQL con FIM/MIM Sync, DirSync o la Sincronización de Azure AD.
 

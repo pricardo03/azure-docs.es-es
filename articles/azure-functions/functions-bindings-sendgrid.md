@@ -3,19 +3,19 @@ title: Enlaces de SendGrid de Azure Functions
 description: Referencia de enlaces de SendGrid de Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: glenga
-ms.openlocfilehash: 212f8b0dacf5fa56e48df99fb10b11da54df57ac
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: 23ec5cd6eee3333922b5371a0ece631ebbc20939
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091227"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248038"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
 
@@ -101,8 +101,9 @@ Este es el código de script de C#:
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TraceWriter log, string input, out Mail message)
+public static void Run(ILogger log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -151,7 +152,7 @@ Este es el código de JavaScript:
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
@@ -198,6 +199,31 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**text**|**Texto**| Contenido del correo electrónico. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>configuración de host.json
+
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|---------|---------|---------| 
+|De|N/D|Dirección de correo electrónico del remitente en todas las funciones.| 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116919"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231243"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implementación de Kubernetes en Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116919"
 > [!Note]  
 > Kubernetes en Azure Stack está en versión preliminar.
 
-En el siguiente artículo se analiza la resolución de problemas del clúster de Kubernetes. Puede revisar la alerta y el estado de la implementación mediante los elementos necesarios para la implementación. Es posible que deba recopilar los registros de implementación de Azure Stack o las máquinas virtuales de Linux que hospedan Kubernetes. Además, deberá trabajar con el administrador de Azure Stack para recuperar los registros de un punto de conexión administrativo.
+En el siguiente artículo se analiza la resolución de problemas del clúster de Kubernetes. Puede revisar la alerta y el estado de la implementación si observa los elementos necesarios para la implementación. Es posible que deba recopilar los registros de implementación de Azure Stack o las máquinas virtuales de Linux que hospedan Kubernetes. Además, deberá trabajar con el administrador de Azure Stack para recuperar los registros de un punto de conexión administrativo.
 
 ## <a name="overview-of-deployment"></a>Información general de la implementación
 
@@ -47,7 +47,7 @@ En el siguiente diagrama se muestra el proceso general para implementar el clús
     Escribe los valores necesarios para configurar el clúster de Kubernetes que incluye:
     -  **Nombre de usuario**: nombre de usuario de las instancias de Linux Virtual Machines que forman parte del clúster de Kubernetes y DVM.
     -  **Clave pública SSH**: clave que se usa para la autorización en todas las máquinas Linux creadas como parte del clúster de Kubernetes y DVM.
-    -  **Entidad de servicio**: id. que usa el proveedor de nube de Azure Kubernetes. El id. de cliente identificado como identificador de la aplicación cuando se creó la entidad de servicio. 
+    -  **Entidad de servicio**: id. que usa el proveedor de nube de Azure Kubernetes. El identificador de cliente que se identificó como identificador de la aplicación cuando se creó la entidad de servicio. 
     -  **Secreto de cliente**: la clave que se estableció al crear la entidad de servicio.
 
 2. Crea la VM de implementación y la extensión de script personalizada.

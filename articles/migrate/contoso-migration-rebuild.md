@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092989"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233589"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migración de Contoso: Recompilar una aplicación local en Azure
 
@@ -139,7 +139,7 @@ Contoso ejecutará la migración de la forma siguiente:
 > * **Paso 1: Aprovisionar AKS y ACR**: Contoso aprovisiona el clúster de AKS administrado y el registro de contenedores de Azure mediante PowerShell
 > * **Paso 2: Compilar contenedores de Docker**: configura la integración continua para contenedores de Docker mediante Azure DevOps y los inserta en ACR.
 > * **Paso 3: Implementar microservicios de back-end**: implementa el resto de la infraestructura que aprovecharán los microservicios de back-end.
-> * **Paso 4: Implementar la infraestructura de front-end**: implementa la infraestructura de front-end, incluidos el almacenamiento de blobs para los teléfonos de mascota, Cosmos DB y Vision API.
+> * **Paso 4: Implementar la infraestructura de front-end**: implementa la infraestructura de front-end, lo que incluye el almacenamiento de blobs para los teléfonos de mascota, Cosmos DB y Vision API.
 > * **Paso 5: Migrar el back-end**: implementa los microservicios y se ejecuta en AKS, para migrar el back-end.
 > * **Paso 6: Publicar el front-end**: publica la aplicación SmartHotel360 en el servicio App de Azure y la instancia de Function App a la que llamará el servicio de mascotas.
 
@@ -545,7 +545,7 @@ Los administradores de Contoso ahora pueden publicar el sitio web.
 
     ![Nuevo entorno](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-14. Seleccionan **Implementación de Azure App Service con espacio** y asignan el nombre **Producción** al entorno.
+14. Seleccionan **Implementación de Azure App Service con espacio** y asignan el nombre **Prod** al entorno.
 15. Hacen clic en **1 job, 2 tasks** (1 trabajo, 2 tareas) y seleccionan la suscripción, el nombre de App Service y el espacio de **ensayo**.
 
     ![Nombre del entorno](./media/contoso-migration-rebuild/vsts-publishfront10.png)

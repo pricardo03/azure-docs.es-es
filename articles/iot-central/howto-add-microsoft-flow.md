@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 7a52ee11e52367755d2a241a0bea2cfc053cff3d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039945"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155582"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creación de flujos de trabajo con el conector de IoT Central en Microsoft Flow
 
@@ -96,6 +96,8 @@ En esta sección se muestra cómo actualizar las propiedades y la configuración
     ![Id. de dispositivo del Device Explorer de IoT Central](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. Puede actualizar el nombre del dispositivo. Para actualizar cualquiera de las propiedades y la configuración del dispositivo, debe seleccionar la plantilla de dispositivo que quiera actualizar en la lista desplegable **Plantilla de dispositivo**. El icono de la acción se expande para mostrar todas las propiedades y la configuración que puede actualizar.
+
+    ![Flujo de trabajo de actualización de dispositivos de Flow](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. Seleccione cada una de las propiedades y la configuración que desee actualizar. En el panel Contenido dinámico, elija la entrada correspondiente del desencadenador. En este ejemplo, el valor Ubicación se propaga hacia abajo para actualizar la propiedad Ubicación del dispositivo.
 

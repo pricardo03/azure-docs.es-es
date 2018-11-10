@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0eb74cee8fb1f4c5d301693a4d53e5d564e12a00
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 349fd1f129d93a2893e2585267d17661e141ad0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053956"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242218"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copia de datos desde Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,12 +36,12 @@ En concreto, este conector Sybase admite las siguientes funcionalidades:
 - SAP Sybase SQL Anywhere (ASA), **versión 16 y superior**; no se admite IQ ni ASE.
 - La copia de datos con autenticación **básica** o de **Windows**.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar este conector Sybase, necesitará lo siguiente:
 
 - Configurar un entorno Integration Runtime autohospedado. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
-- Instalar el [proveedor de datos para Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 o posterior en la máquina de Integration Runtime.
+- Instalar el [proveedor de datos para Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 o posterior en la máquina de Integration Runtime.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -55,13 +55,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado Sybase:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Sybase** | Sí |
-| Servidor | Nombre del servidor de Sybase. |Sí |
-| Base de datos | Nombre de la base de datos Sybase. |Sí |
-| authenticationType | Tipo de autenticación usado para conectarse a la base de datos Sybase.<br/>Los valores permitidos son: **Básica** y **Windows**. |Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de Sybase. |Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
+| Tipo | La propiedad type debe establecerse en: **Sybase** | SÍ |
+| Servidor | Nombre del servidor de Sybase. |SÍ |
+| Base de datos | Nombre de la base de datos Sybase. |SÍ |
+| authenticationType | Tipo de autenticación usado para conectarse a la base de datos Sybase.<br/>Los valores permitidos son: **Básica** y **Windows**. |SÍ |
+| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de Sybase. |SÍ |
+| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |SÍ |
 
 **Ejemplo:**
 
@@ -96,7 +96,7 @@ Para copiar datos desde Sybase, establezca la propiedad type del conjunto de dat
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | SÍ |
 | tableName | Nombre de la tabla de la base de datos Sybase. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -125,7 +125,7 @@ Para copiar datos desde Sybase, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | SÍ |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

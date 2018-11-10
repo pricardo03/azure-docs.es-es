@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bb6236203a1165361505c8699ba94bff54e41c2a
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393771"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247357"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
-Cuando se inicia un runbook en Azure Automation, se crea un trabajo. Un trabajo es una instancia única de ejecución de un runbook. Un trabajador de Azure Automation está asignado para ejecutar cada trabajo. Aunque los trabajadores los comparten varias cuentas de Azure, los trabajos de diferentes cuentas de Automation están aislados entre sí. No tiene el control sobre qué servicios de trabajo solicitar para el trabajo. Un runbook individual puede tener muchos trabajos que se ejecutan al mismo tiempo. Se puede reutilizar el entorno de ejecución para los trabajos de la misma cuenta de Automation. Al ver la lista de runbooks en Azure Portal, se muesta el estado de todos los trabajos iniciados por cada runbook. Puede ver la lista de trabajos de cada runbook para hacer un seguimiento de su estado. Para obtener una descripción de los distintos estados de trabajo, consulte [Estados del trabajo](#job-statuses).
+Cuando se inicia un runbook en Azure Automation, se crea un trabajo. Un trabajo es una instancia única de ejecución de un runbook. Un trabajador de Azure Automation está asignado para ejecutar cada trabajo. Aunque los trabajadores los comparten varias cuentas de Azure, los trabajos de diferentes cuentas de Automation están aislados entre sí. No tiene el control sobre qué servicios de trabajo solicitar para el trabajo. Un runbook individual puede tener muchos trabajos que se ejecutan al mismo tiempo. Se puede reutilizar el entorno de ejecución para los trabajos de la misma cuenta de Automation. Cuantos más trabajos se ejecuten al mismo tiempo, más a menudo se podrán enviar al mismo espacio aislado. Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afectarse entre sí; un ejemplo es ejecutar el cmdlet `Disconnect-AzureRMAccount`. Ejecutar este cmdlet desconectaría cada trabajo de runbook en el proceso de espacio aislado compartido. Al ver la lista de runbooks en Azure Portal, se muesta el estado de todos los trabajos iniciados por cada runbook. Puede ver la lista de trabajos de cada runbook para hacer un seguimiento de su estado. Los registros de trabajo se almacenan durante un máximo de 30 días. Para obtener una descripción de los distintos estados de trabajo, consulte [Estados del trabajo](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -36,7 +36,7 @@ Los trabajos tienen acceso a los recursos de Azure mediante una conexión a la s
 
 En la tabla siguiente se describen los diferentes estados posibles para un trabajo. PowerShell tiene dos tipos de errores, errores de terminación y de no terminación. Los primeros cambian el estado del runbook a **Failed** (Con error) si se producen. Los segundos permiten que el script continúe después de que sucedan. Un ejemplo de un error de no terminación es utilizar el cmdlet `Get-ChildItem` con una ruta de acceso que no existe. PowerShell se ve que la ruta de acceso no existe, genera un error y pasa a la carpeta siguiente. El error no establecería el estado de runbook en **Failed** (Con error) y se podría marcarse como **Completed** (Completado). Para forzar a un runbook a detenerse ante un error de no terminación, puede usar `-ErrorAction Stop` en el cmdlet.
 
-| Status | Descripción |
+| Status | DESCRIPCIÓN |
 |:--- |:--- |
 | Completed |El trabajo se completó correctamente. |
 | Con error |Para [Runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md), no se pudo compilar el runbook. Para [Runbooks de script de PowerShell](automation-runbook-types.md), no se pudo iniciar el runbook o el trabajo tenía una excepción. |

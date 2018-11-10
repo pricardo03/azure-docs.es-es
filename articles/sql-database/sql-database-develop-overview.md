@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 06/20/2018
-ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063598"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241606"
 ---
 # <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Azure SQL Database.
@@ -61,7 +61,7 @@ Cuando se produce un error transitorio al conectar con SQL Database, el código 
 
 ## <a name="managing-connections"></a>Administración de conexiones
 * En la lógica de conexión de cliente, reemplace el tiempo de espera predeterminado para que sea de 30 segundos.  El valor predeterminado de 15 segundos es demasiado corto para conexiones que dependen de Internet.
-* Si usa un [grupo de conexiones](http://msdn.microsoft.com/library/8xx3tyca.aspx), asegúrese de cerrar la conexión en el momento en que el programa no la esté usando activamente y no esté preparándose para volver a usarla.
+* Si usa un [grupo de conexiones](https://msdn.microsoft.com/library/8xx3tyca.aspx), asegúrese de cerrar la conexión en el momento en que el programa no la esté usando activamente y no esté preparándose para volver a usarla.
 
 ## <a name="network-considerations"></a>Consideraciones sobre la red
 * En el equipo que hospeda el programa cliente, asegúrese de que el firewall permita la comunicación TCP saliente en el puerto 1433.  Más información: [Configuración del firewall en Azure SQL Database mediante Azure Portal](sql-database-configure-firewall-settings.md).

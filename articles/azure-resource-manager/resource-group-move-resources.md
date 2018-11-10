@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394421"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093840"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -28,8 +28,10 @@ Al mover los recursos, el grupo de origen y el grupo de destino se bloquean dura
 No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. El nuevo grupo de recursos puede tener una ubicación diferente, pero eso no cambia la ubicación del recurso.
 
 > [!NOTE]
-> En este artículo se describe cómo mover los recursos de una oferta de cuenta de Azure. Si realmente desea cambiar la oferta de cuenta de Azure (por ejemplo, actualizar de pago por uso a prepago) sin dejar de trabajar con los recursos existentes, consulte [Cambio a otra oferta de Azure](../billing/billing-how-to-switch-azure-offer.md).
->
+> En este artículo se describe cómo mover los recursos de una oferta de cuenta de Azure. Si desea cambiar la oferta de cuentas de Azure (por ejemplo, para actualizar de gratuita a de pago por uso) deberá convertir su suscripción. 
+> * Para actualizar a una evaluación gratuita, consulte [Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso](..//billing/billing-upgrade-azure-subscription.md).
+> * Para cambiar a una cuenta de pago por uso, consulte [Cambie la suscripción de pago por uso de Azure a otra oferta](../billing/billing-how-to-switch-azure-offer.md).
+> * Si no puede convertir la suscripción, [cree una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md). Seleccione **Administración de suscripciones** para el tipo de problema.
 >
 
 ## <a name="checklist-before-moving-resources"></a>Lista de comprobación antes de mover recursos
@@ -269,7 +271,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 
 A partir del 24 de septiembre de 2018 se permite mover discos administrados. 
 
-1. Para habilitar esta característica es necesario registrarse.
+1. En la suscripción de origen, registre esta característica.
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

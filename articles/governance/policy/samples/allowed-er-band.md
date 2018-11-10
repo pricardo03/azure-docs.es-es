@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de Azure Policy: Ancho de banda de ExpressRoute permitido'
+title: 'Ejemplo de Azure Policy: Ancho de banda permitido de ExpressRoute'
 description: Esta directiva de ejemplo requiere que ExpressRoute use un conjunto de anchos de banda especificados.
 services: azure-policy
 author: DCtheGeek
@@ -9,14 +9,14 @@ ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: d1676bb3a7ad16c4ea94cf805b8aeec817d34388
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27b78b7af905ae6294f83cd1dce643fb18f31ca6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996781"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250368"
 ---
-# <a name="allowed-express-route-bandwidth"></a>Ancho de banda permitido de ExpressRoute
+# <a name="allowed-expressroute-bandwidth"></a>Ancho de banda permitido de ExpressRoute
 
 Esta directiva requiere que ExpressRoute use un conjunto de anchos de banda especificados. Se especifica una matriz de las SKU que se pueden especificar para ExpressRoute.
 
@@ -24,7 +24,7 @@ Esta directiva requiere que ExpressRoute use un conjunto de anchos de banda espe
 
 ## <a name="sample-template"></a>Plantilla de ejemplo
 
-[!code-json[main](../../../../policy-templates/samples/Network/express-route-bandwidthInMbps/azurepolicy.json "Allowed Express Route bandwidth")]
+[!code-json[main](../../../../policy-templates/samples/Network/express-route-bandwidthInMbps/azurepolicy.json "Allowed ExpressRoute bandwidth")]
 
 Puede implementar esta plantilla mediante [Azure Portal](#deploy-with-the-portal), con [PowerShell](#deploy-with-powershell) o con la [CLI de Azure](#deploy-with-azure-cli).
 
@@ -37,7 +37,7 @@ Puede implementar esta plantilla mediante [Azure Portal](#deploy-with-the-portal
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "express-route-bandwidthInMbps" -DisplayName "Allowed Express Route bandwidth" -description "This policy enables you to specify a set of express route bandwidths that your organization can deploy." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.parameters.json' -Mode All
+$definition = New-AzureRmPolicyDefinition -Name "express-route-bandwidthInMbps" -DisplayName "Allowed ExpressRoute bandwidth" -description "This policy enables you to specify a set of express-route bandwidths that your organization can deploy." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.parameters.json' -Mode All
 $definition
 $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -listOfBandwidthinMbps <Allowed Bandwidth> -PolicyDefinition $definition
 $assignment
@@ -56,7 +56,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ```azurecli-interactive
-az policy definition create --name 'express-route-bandwidthInMbps' --display-name 'Allowed Express Route bandwidth' --description 'This policy enables you to specify a set of express route bandwidths that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.parameters.json' --mode All
+az policy definition create --name 'express-route-bandwidthInMbps' --display-name 'Allowed ExpressRoute bandwidth' --description 'This policy enables you to specify a set of ExpressRoute bandwidths that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-bandwidthInMbps/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "express-route-bandwidthInMbps"
 ```

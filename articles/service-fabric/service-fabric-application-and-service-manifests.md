@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 10/29/2018
 ms.author: ryanwi
-ms.openlocfilehash: b79206b9d456226d14984e8a1c1002c07c4f626a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208478"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230291"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
-En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>Descripción de un servicio en ServiceManifest.xml
-El manifiesto de servicio define mediante declaración el tipo de servicio y la versión. Especifica los metadatos de servicio, como el tipo de servicio, las propiedades de estado, las métricas de equilibrio de carga, archivos binarios del servicio y archivos de configuración.  Dicho de otro modo, describe los paquetes de código, configuración y datos que componen un paquete de servicio para admitir uno o más tipos de servicio. Un manifiesto de servicio puede contener varios paquetes de código, configuración y datos, que puede tener varias versiones independientes. Este es un manifiesto de servicio para el servicio de front-end web de ASP.NET Core de la [aplicación de ejemplo de votos](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+El manifiesto de servicio define mediante declaración el tipo de servicio y la versión. Especifica los metadatos de servicio, como el tipo de servicio, las propiedades de estado, las métricas de equilibrio de carga, archivos binarios del servicio y archivos de configuración.  Dicho de otro modo, describe los paquetes de código, configuración y datos que componen un paquete de servicio para admitir uno o más tipos de servicio. Un manifiesto de servicio puede contener varios paquetes de código, configuración y datos, que puede tener varias versiones independientes. Este es un manifiesto de servicio para el servicio de front-end web de ASP.NET Core de la [aplicación de ejemplo de votación](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (y estos son [algunos ejemplos más detallados](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,7 +76,7 @@ Los escenarios de uso de **SetupEntryPoint** habituales se corresponden a cuando
 * configuración e inicialización de las variables de entorno que el ejecutable del servicio necesita. Esto no se limita tan solo a los archivos ejecutables escritos a través de los modelos de programación de Service Fabric. Por ejemplo, npm.exe necesita algunas variables de entorno configuradas para implementar una aplicación node.js.
 * Configuración del control de acceso mediante la instalación de certificados de seguridad.
 
-Para obtener más información sobre cómo configurar **SetupEntryPoint**, vea [Configuración de la directiva para un punto de entrada del programa de instalación del servicio](service-fabric-application-runas-security.md).
+Para más información acerca de cómo configurar SetupEntryPoint, consulte [Configuración de la directiva para un punto de entrada del programa de instalación del servicio](service-fabric-application-runas-security.md)
 
 **EnvironmentVariables** (sin establecer en el ejemplo anterior) proporciona una lista de variables de entorno que se establecen para este paquete de código. Las variables de entorno se pueden invalidar en `ApplicationManifest.xml` para proporcionar valores diferentes para distintas instancias de servicio. 
 
@@ -108,7 +108,7 @@ For more information about other features supported by service manifests, refer 
 ## <a name="describe-an-application-in-applicationmanifestxml"></a>Descripción de una aplicación en ApplicationManifest.xml
 Mediante declaración, el manifiesto de aplicación describe el tipo de aplicación y la versión. Especifica metadatos de composición de servicios como nombres estables, esquema de particiones, recuento de instancias/factor de replicación, directiva de seguridad y aislamiento, restricciones de ubicación, reemplazos de configuración y tipos de servicio constituyentes. También se describen los dominios de equilibrio de carga en los que se coloca la aplicación.
 
-Por lo tanto, un manifiesto de aplicación describe elementos en el nivel de aplicación y hace referencia a uno o más manifiestos de servicio para componer un tipo de aplicación. Este es el manifiesto de aplicación para la [aplicación de ejemplo de votos](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+Por lo tanto, un manifiesto de aplicación describe elementos en el nivel de aplicación y hace referencia a uno o más manifiestos de servicio para componer un tipo de aplicación. Este es el manifiesto de aplicación para la [aplicación de ejemplo de votación](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (y estos algunos [ejemplos más detallados](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

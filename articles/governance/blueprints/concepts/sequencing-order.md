@@ -4,20 +4,24 @@ description: Información acerca del ciclo de vida de un plano técnico y detall
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c09fb26d8375e08281241aaed3f6f6e30acc755b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955459"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094585"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
-Azure Blueprint usa un **orden de secuenciación** para determinar el orden de creación de recursos al procesar la asignación de un plano técnico. En este artículo se explica el orden de secuenciación predeterminado que se usa, cómo personalizarlo y cómo se procesa el orden personalizado.
+Azure Blueprint usa un **orden de secuenciación** para determinar el orden de creación de recursos al procesar la asignación de un plano técnico. En este artículo se explican los conceptos siguientes:
+
+- El orden de secuenciación predeterminado que se usa
+- Cómo personalizar el orden
+- Cómo se procesa el orden personalizado
 
 Hay variables en los ejemplos JSON que se deben reemplazar por los suyos propios:
 
@@ -32,7 +36,7 @@ Si el plano técnico no contiene ninguna directiva para el orden al implementar 
 - Artefactos de **plantilla de Azure Resource Manager** de nivel de suscripción ordenados por nombre de artefacto
 - Artefactos de **grupo de recursos** (incluidos los secundarios) ordenados por nombre de marcador de posición
 
-Dentro de cada artefacto de **grupo de recursos** que se procesa, se usa el orden de secuencia siguiente para crear los artefactos dentro de ese grupo de recursos:
+Dentro de cada artefacto de **grupo de recursos**, se usa el orden de secuencia siguiente para crear los artefactos dentro de ese grupo de recursos:
 
 - Artefactos secundarios de **asignación de roles** de grupo de recursos ordenados por nombre de artefacto
 - Artefactos de **asignación de directiva** secundarios de grupo de recursos ordenados por nombre de artefacto
@@ -40,14 +44,13 @@ Dentro de cada artefacto de **grupo de recursos** que se procesa, se usa el orde
 
 ## <a name="customizing-the-sequencing-order"></a>Personalización del orden de secuenciación
 
-Al crear planos técnicos de gran tamaño, puede ser necesario que un recurso se cree en un orden específico en relación con otro. El patrón de uso más común es cuando un plano técnico incluye varias plantillas de Azure Resource Manager. Para ello, Azure Blueprint permite definir el orden de secuenciación.
+Al crear planos técnicos de gran tamaño, puede ser necesario que los recursos se creen en un orden específico. El patrón de uso más común de este escenario se da cuando un plano técnico incluye varias plantillas de Azure Resource Manager. Para que Blueprints controle este patrón, permite definir el orden de secuenciación.
 
-Esto se logra definiendo una propiedad `dependsOn` en JSON. Solo los objetos de artefacto y del plano técnico (para grupos de recursos) admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
+La ordenación se logra definiendo una propiedad `dependsOn` en JSON. Solo los objetos de artefacto y del plano técnico (para grupos de recursos) admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Ejemplo: plano técnico con el grupo de recursos ordenado
 
-Se trata de un plano técnico de ejemplo con un grupo de recursos que ha definido un orden personalizado de secuenciación declarando un valor para `dependsOn`, junto con un grupo de recursos estándar. En este caso, el artefacto denominado **assignPolicyTags** se procesará antes que el grupo de recursos **ordered-rg**.
-**standard-rg** se procesará en el orden de secuenciación predeterminado.
+Este plano técnico de ejemplo tiene un grupo de recursos que ha definido un orden personalizado de secuenciación declarando un valor para `dependsOn`, junto con un grupo de recursos estándar. En este caso, el artefacto denominado **assignPolicyTags** se procesará antes que el grupo de recursos **ordered-rg**. **standard-rg** se procesará en el orden de secuenciación predeterminado.
 
 ```json
 {
@@ -78,7 +81,7 @@ Se trata de un plano técnico de ejemplo con un grupo de recursos que ha definid
 
 ### <a name="example---artifact-with-custom-order"></a>Ejemplo de artefacto con orden personalizado
 
-Se trata de un ejemplo de artefacto de directiva que depende de una plantilla de Azure Resource Manager. Con el orden predeterminado, se crearía un artefacto de directiva antes que la plantilla de Azure Resource Manager. Esto permite que el artefacto de directiva espere a que se cree la plantilla de Azure Resource Manager.
+Este ejemplo es un artefacto de directiva que depende de una plantilla de Azure Resource Manager. Con el orden predeterminado, se crearía un artefacto de directiva antes que la plantilla de Azure Resource Manager. Esta ordenación permite que el artefacto de directiva espere a que se cree la plantilla de Azure Resource Manager.
 
 ```json
 {
@@ -99,14 +102,14 @@ Se trata de un ejemplo de artefacto de directiva que depende de una plantilla de
 
 ## <a name="processing-the-customized-sequence"></a>Procesamiento de la secuencia personalizada
 
-Durante el proceso de creación, se usa una ordenación topológica para crear el grafo de dependencias del plano técnico y sus artefactos. Así se garantiza que se admitan varios niveles de dependencias entre grupos de recursos y artefactos.
+Durante el proceso de creación, se usa una ordenación topológica para crear el grafo de dependencias de los artefactos del plano técnico. La comprobación garantiza que se admita cada nivel de dependencia entre los grupos de recursos y los artefactos.
 
-Si se declara una dependencia en el plano técnico o un artefacto que no alteraría el orden predeterminado, no se realiza ningún cambio en el orden de secuenciación. Algunos ejemplos de esta área son un grupo de recursos que depende de una asignación de directiva secundaria "standard-rg" de grupo de recursos o una directiva de nivel de suscripción que depende de la asignación de roles secundaria 'standard-rg". En ambos casos, el `dependsOn` no habría alterado el orden de secuenciación predeterminado y no se habría realizado ningún cambio.
+Si se declara una dependencia de artefacto que no alteraría el orden predeterminado, no se realiza ningún cambio. Un ejemplo es un grupo de recursos que depende de una directiva de nivel de suscripción. Otro ejemplo es una asignación de una directiva secundaria "standard-rg" de un grupo de recursos que dependa de la asignación de roles secundarios de un grupo de recursos "standard-rg". En ambos casos, el `dependsOn` no habría alterado el orden de secuenciación predeterminado y no se habría realizado ningún cambio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida de los planos técnicos](lifecycle.md).
+- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md)
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md)
-- Más información sobre la [actualización de las asignaciones existentes](../how-to/update-existing-assignments.md)
-- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico
+- Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
+- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323916"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210132"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Procesamiento de datos y funciones definidas por el usuario
 
@@ -25,7 +25,7 @@ Una vez que los dispositivos envían datos de telemetría a Digital Twins, los d
 
 ![Flujo de procesamiento de Digital Twins][1]
 
-1. La fase _validación_ transforma el mensaje de telemetría entrante en un formato [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) reconocido. Esta fase también ejecuta la validación de dispositivos y sensores.
+1. La fase _validación_ transforma el mensaje de telemetría entrante en un formato de [**objeto de transferencia de datos**](https://en.wikipedia.org/wiki/Data_transfer_object) reconocido. Esta fase también ejecuta la validación de dispositivos y sensores.
 1. La fase _coincidencia_ busca las funciones definidas por el usuario adecuadas para ejecutarse. Los buscadores de coincidencias predefinidos buscarán las funciones definidas por el usuario según la información del dispositivo, del sensor y del espacio a partir del mensaje entrante de telemetría.
 1. La fase _proceso_ ejecuta a las funciones definidas por el usuario coincidentes en la fase anterior. Estas funciones pueden leer y actualizar los valores calculados en los nodos de un grafo espacial y pueden emitir notificaciones personalizadas.
 1. La fase _envío_ enruta las notificaciones personalizadas de la fase de proceso a puntos de conexión definidos en el grafo.
@@ -40,11 +40,11 @@ El procesamiento de datos en Azure Digital Twins consiste en definir tres objeto
 
 Los _buscadores de coincidencias_ definen un conjunto de condiciones que evalúan las acciones que llevarán a cabo según la telemetría entrante del sensor. Estas condiciones para establecer la coincidencia podrían incluir propiedades del sensor, el dispositivo primario del sensor y el espacio primario del sensor. Las condiciones se expresan como comparaciones frente a una [ruta de acceso JSON](http://jsonpath.com/), tal como se describe en el ejemplo siguiente:
 
-- Todos los sensores del tipo de datos `Temperature`.
+- Todos los sensores de tipo de datos **Temperatura**.
 - Que tienen `01` en su puerto.
-- Que pertenecen a los dispositivos con la clave de propiedad extendida `Manufacturer` establecida en el valor `GoodCorp`.
-- Que pertenecen a los espacios del tipo `Venue`.
-- Que son descendientes del elemento primario `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Que pertenecen a los dispositivos con la clave de propiedad extendida **Fabricante** establecida en el valor `"GoodCorp"`.
+- Que pertenecen a los espacios del tipo `"Venue"`.
+- Que son descendientes del elemento primario **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

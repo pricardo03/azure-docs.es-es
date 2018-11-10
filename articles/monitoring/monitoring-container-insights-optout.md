@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7cd2aecf21a86bb58452e48fcdf1d79f1d3a2104
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d2cf2fec50e3dd803d828537ddd724ee61015c71
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321231"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248293"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores (versión preliminar)
 
 Si después de habilitar la supervisión del clúster de AKS decide ya no desea supervisarla, puede *no participar*.  En este artículo se muestra cómo realizar esta tarea mediante la CLI de Azure o con las plantillas de Azure Resource Manager proporcionadas.  
 
@@ -111,7 +111,7 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
 
 4. Edite los valores de **aksResourceId** y **aksResourceLocation** usando los valores del clúster de AKS, que puede encontrar en la página **Propiedades** del clúster seleccionado.
 
-    ![Página de propiedades del contenedor](./media/monitoring-container-health/container-properties-page.png)
+    ![Página de propiedades del contenedor](media/monitoring-container-insights-optout/container-properties-page.png)
 
     Mientras está en la página de **propiedades**, copie también el **identificador de recurso del área de trabajo**. Este valor es necesario si decide que desea eliminar el área de trabajo de Log Analytics más adelante. La eliminación del área de trabajo de Log Analytics no se realiza como parte de este proceso. 
 

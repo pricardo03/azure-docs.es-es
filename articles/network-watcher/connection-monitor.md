@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639034"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093047"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: supervisar la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
@@ -30,6 +30,7 @@ La comunicación correcta entre una máquina virtual (VM) y un punto de conexió
 > [!div class="checklist"]
 > * Crear dos máquinas virtuales.
 > * Supervisar la comunicación entre VM con la funcionalidad de supervisión de conexiones de Network Watcher.
+> * Generar alertas basadas en métricas del monitor de conexión
 > * Diagnosticar un problema de comunicación entre dos VM y aprender a resolverlo
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -120,6 +121,19 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
     | AVG. ROUND-TRIP          | Le permite conocer el tiempo de ida y vuelta para hacer la conexión, en milisegundos. El monitor de conexión sondea la conexión cada 60 segundos, por lo que puede controlar la latencia a lo largo del tiempo.                                         |
     | Hops                     | El monitor de conexión le permite conocer los saltos entre los dos puntos de conexión. En este ejemplo, la conexión se realiza entre dos VM de la misma red virtual, por lo que solo hay un salto, a la dirección IP 10.0.0.5. Si algún sistema existente o ruta personalizada redirige el tráfico entre las VM a través de una puerta de enlace de VPN o una aplicación virtual de red, por ejemplo, se enumeran saltos adicionales.                                                                                                                         |
     | STATUS                   | Las marcas de verificación verdes de cada punto de conexión le indican que el estado de cada punto de conexión es correcto.    ||
+
+## <a name="generate-alerts"></a>Generación de alertas
+
+Las alertas se crean mediante reglas de alertas en Azure Monitor y pueden ejecutar automáticamente consultas guardadas o búsquedas de registros personalizadas a intervalos regulares. Una alerta generada puede ejecutar automáticamente una o varias acciones, como notificar a una persona o iniciar otro proceso. Al establecer una regla de alertas, el recurso de destino determina la lista de métricas disponibles que puede usar para generar alertas.
+
+1. En Azure Portal, seleccione el servicio **Monitor** y, a continuación, seleccione **Alertas** > **Nueva regla de alertas**.
+2. Haga clic en **Seleccionar destino** y, a continuación, seleccione los recursos que desea establecer como destino. Seleccione la **Suscripción** y establezca el **Tipo de recurso** para filtrar hasta encontrar el monitor de conexión que desea usar.
+
+    ![pantalla de alerta con el destino seleccionado](./media/connection-monitor/set-alert-rule.png)
+1. Una vez haya seleccionado un recurso de destino, seleccione **Agregar criterios**. Network Watcher tiene [métricas sobre las que puede crear alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Establezca **Señales disponibles** en las métricas ProbesFailedPercent y AverageRoundtripMs:
+
+    ![página de alertas con señales seleccionadas](./media/connection-monitor/set-alert-signals.png)
+1. Rellene los detalles de la alerta, como el nombre de la regla de alertas, la descripción y la gravedad. También puede agregar un grupo de acciones a la alerta para automatizar y personalizar la respuesta de la alerta.
 
 ## <a name="view-a-problem"></a>Ver un problema
 

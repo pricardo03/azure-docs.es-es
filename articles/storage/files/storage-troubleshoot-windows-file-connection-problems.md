@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386348"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242983"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
-En este artículo se enumeran los problemas habituales relacionados con Microsoft Azure Files cuando se conecta desde clientes Windows. También se proporcionan posibles causas de estos problemas y sus resoluciones. Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para asegurarse de que el entorno de cliente Windows cumpla los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo y le ayuda a configurar su entorno para obtener un rendimiento óptimo. Esta información también se puede encontrar en el [Solucionador de problemas de recursos compartidos de Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), que proporciona los pasos necesarios para ayudarle con problemas relativos la conexión, asignación o montaje de recursos compartidos de Azure Files.
+En este artículo se enumeran los problemas habituales relacionados con Microsoft Azure Files cuando se conecta desde clientes Windows. También se proporcionan posibles causas de estos problemas y sus resoluciones. Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  para asegurarse de que el entorno de cliente Windows cumpla los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo y le ayuda a configurar su entorno para obtener un rendimiento óptimo. Esta información también se puede encontrar en el [Solucionador de problemas de recursos compartidos de Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), que proporciona los pasos necesarios para ayudarle con problemas relativos a la conexión, asignación o montaje de recursos compartidos de Azure Files.
 
 
 <a id="error53-67-87"></a>
@@ -189,6 +189,24 @@ Para copiar un archivo a través de la red, primero debe descifrarlo. Use uno de
   - Valor = 1
 
 Tenga en cuenta que la configuración de la clave del Registro afecta a todas las operaciones de copia llevadas a cabo en recursos compartidos de red.
+
+## <a name="slow-enumeration-of-files-and-folders"></a>Enumeración lenta de archivos y carpetas
+
+### <a name="cause"></a>Causa
+
+Este problema puede producirse si hay no hay suficiente memoria caché en el equipo cliente para directorios grandes.
+
+### <a name="solution"></a>Solución
+
+Para resolver este problema, ajuste el valor de registro **DirectoryCacheEntrySizeMax** para permitir almacenar en caché listados de directorios más grandes en el equipo cliente:
+
+- Ubicación: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Nombre del valor: DirectoryCacheEntrySizeMax 
+- Tipo de valor: DWORD
+ 
+ 
+Por ejemplo, puede establecerlo en 0x100000 y ver si el rendimiento mejora.
+
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

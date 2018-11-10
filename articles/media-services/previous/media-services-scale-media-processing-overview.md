@@ -4,22 +4,21 @@ description: Este tema ofrece una introducción al escalado de procesamiento de 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f15ba7606136786b49eb4d6a0da097e7abf3fab4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033080"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231668"
 ---
 # <a name="scaling-media-processing-overview"></a>Información general del escalado de procesamiento de medios
 Esta página proporciona una introducción a cómo y por qué se debe escalar el procesamiento de medios. 
@@ -32,11 +31,11 @@ Además de especificar el tipo de unidad reservada, puede especificar el aprovis
 ## <a name="choosing-between-different-reserved-unit-types"></a>Selección de los distintos tipos de unidad reservada
 Con esta tabla será más fácil tomar la decisión de elegir entre distintas velocidades de codificación. En ella se proporcionan también algunos casos de referencias comparativas en [un vídeo que puede descargar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para realizar sus propias pruebas:
 
-| Escenarios | **S1** | **S2** | **S3** |
-| --- | --- | --- | --- |
-| Caso de uso previsto |Codificación con velocidad de bits sencilla. <br/>Archivos con resolución SD o menor, no sujetos a limitación temporal y de bajo costo. |Codificación con velocidad de bits sencilla y múltiple.<br/>Uso normal para codificación SD y HD. |Codificación con velocidad de bits sencilla y múltiple.<br/>Vídeos con resolución Full HD y 4K. Codificación con respuesta más rápida, sujeta a limitación temporal. |
-| Referencia comparativa para vídeo de 7 minutos |La codificación de un archivo MP4 con velocidad de bits sencilla con la misma resolución tarda aproximadamente 5 minutos. |La codificación con el valor predeterminado H264 Single Bitrate 720p tardará aproximadamente 8 minutos.<br/><br/>La codificación con el valor predeterminado "H264 Multiple Bitrate 720p" tardará aproximadamente 16,8 minutos. |La codificación con el valor predeterminado H264 Single Bitrate 1080p tardará aproximadamente 4 minutos.<br/><br/>La codificación con el valor predeterminado "H264 Multiple Bitrate 1080p" tarda aproximadamente 8 minutos. |
-
+|Tipo de RU|Escenario|Resultados de ejemplo para el [vídeo de 7 min y 1080 p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|---|---|---|
+| **S1**|Codificación con velocidad de bits sencilla. <br/>Archivos con resolución SD o menor, no sujetos a limitación temporal y de bajo costo.|La codificación en el archivo MP4 de resolución SD de velocidad de bits única con "H264 Single Bitrate SD 16x9" tarda 10 minutos.|
+| **S2**|Codificación con velocidad de bits sencilla y múltiple.<br/>Uso normal para codificación SD y HD.|La codificación con el valor predeterminado H264 Single Bitrate 720p tardará aproximadamente 8 minutos.<br/><br/>La codificación con el valor predeterminado "H264 Multiple Bitrate 720p" tardará aproximadamente 16,8 minutos.|
+| **S3**|Codificación con velocidad de bits sencilla y múltiple.<br/>Vídeos con resolución Full HD y 4K. Codificación con respuesta más rápida, sujeta a limitación temporal.|La codificación con el valor predeterminado H264 Single Bitrate 1080p tardará aproximadamente 4 minutos.<br/><br/>La codificación con el valor predeterminado "H264 Multiple Bitrate 1080p" tarda aproximadamente 8 minutos.|
 
 ## <a name="considerations"></a>Consideraciones
 > [!IMPORTANT]

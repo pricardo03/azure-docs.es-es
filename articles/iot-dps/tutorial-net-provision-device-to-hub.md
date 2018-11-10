@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918135"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241334"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscripción del dispositivo en una instancia de IoT Hub mediante el cliente del servicio Azure IoT Hub Device Provisioning (.NET)
 
@@ -230,7 +230,7 @@ Inicie el dispositivo para permitir que la aplicación cliente inicie el registr
 
 ## <a name="verify-the-device-is-registered"></a>Comprobar que el dispositivo está registrado
 
-Una vez que arranque el dispositivo, se deben realizar las siguientes acciones. Consulte la aplicación de ejemplo del simulador TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) para más información. 
+Una vez que arranque el dispositivo, se deben realizar las siguientes acciones. Para más información, consulte el [ejemplo de aprovisionamiento de dispositivos cliente](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device). 
 
 1. El dispositivo envía una solicitud de registro al servicio Device Provisioning.
 2. En el caso de los dispositivos TPM, el servicio Device Provisioning devuelve un desafío de registro al que responde el dispositivo. 

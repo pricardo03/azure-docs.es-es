@@ -10,27 +10,28 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 79572a364c2346ffd567cab7d3633ae398715210
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945797"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239960"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Tutorial: Creación de una plantilla de Azure Resource Manager para la implementación de una cuenta de almacenamiento cifrada
+# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Tutorial: Implementación de una cuenta de Azure Storage cifrada con la plantilla de Resource Manager
 
-Aprenda a buscar información para completar una plantilla de Azure Resource Manager.
+Aprenda a encontrar la información del esquema de la plantilla y a usar dicha información para crear plantillas de Azure Resource Manager.
 
-En este tutorial, usará una plantilla base a partir de las plantillas de inicio rápido de Azure para crear una cuenta de Azure Storage.  Mediante la documentación de referencia de la plantilla, personalizará la plantilla base para crear una cuenta de almacenamiento cifrada.
+En este tutorial se usa una plantilla base de las plantillas de inicio rápido de Azure. Utilice la documentación de referencia de la plantilla para personalizar la plantilla para crear una cuenta de Storage cifrada.
 
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
 > * Abra una plantilla de inicio rápido.
 > * Descripción de la plantilla
+> * Búsqueda de la referencia de la plantilla
 > * Edición de la plantilla
 > * Implementación de la plantilla
 
@@ -44,7 +45,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
+[Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) es un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:
@@ -57,58 +58,22 @@ La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta
 
 ## <a name="understand-the-schema"></a>Información sobre el esquema
 
-En VS Code, contraiga la plantilla al nivel raíz. Tiene la estructura más sencilla con los siguientes elementos:
+1. En VS Code, contraiga la plantilla al nivel raíz. Tiene la estructura más sencilla con los siguientes elementos:
 
-![La estructura más sencilla de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
+    ![La estructura más sencilla de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-* **$schema**: especifique la ubicación del archivo de esquema JSON que describe la versión del lenguaje de plantilla.
-* **contentVersion**: especifique cualquier valor para este elemento para documentar cambios importantes en la plantilla.
-* **parámetros**: especifique los valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos.
-* **variables**: especifique los valores que se usan como fragmentos JSON en la plantilla para simplificar las expresiones de lenguaje de plantilla.
-* **recursos**: especifique los tipos de recursos que se implementan o actualizan en un grupo de recursos.
-* **salidas**: especifique los valores que se devuelven después de la implementación.
+    * **$schema**: especifique la ubicación del archivo de esquema JSON que describe la versión del lenguaje de plantilla.
+    * **contentVersion**: especifique cualquier valor para este elemento para documentar cambios importantes en la plantilla.
+    * **parámetros**: especifique los valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos.
+    * **variables**: especifique los valores que se usan como fragmentos JSON en la plantilla para simplificar las expresiones de lenguaje de plantilla.
+    * **recursos**: especifique los tipos de recursos que se implementan o actualizan en un grupo de recursos.
+    * **salidas**: especifique los valores que se devuelven después de la implementación.
 
-## <a name="use-parameters"></a>Uso de parámetros
+2. Expanda **recursos**. Hay un recurso `Microsoft.Storage/storageAccounts` definido. La plantilla crea una cuenta de Storage sin cifrar.
 
-Los parámetros le permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto. Puede usar los parámetros definidos en la plantilla al establecer los valores de la cuenta de almacenamiento.
+    ![Definición de cuenta de almacenamiento de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-![Parámetros de plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
-
-En esta plantilla, se definen dos parámetros. Tenga en cuenta que se usa una función de plantilla en location.defaultValue:
-
-```json
-"defaultValue": "[resourceGroup().location]",
-```
-
-La función resourceGroup() devuelve un objeto que representa el grupo de recursos actual. Para obtener una lista de las funciones de plantilla, consulte [Funciones de la plantilla de Azure Resource Manager](./resource-group-template-functions.md).
-
-Para usar los parámetros definidos en la plantilla:
-
-```json
-"location": "[parameters('location')]",
-"name": "[parameters('storageAccountType')]"
-```
-
-## <a name="use-variables"></a>Uso de variables
-
-Las variables le permiten crear valores que pueden usarse en toda la plantilla. Las variables ayudan a reducir la complejidad de las plantillas.
-
-![Variables de plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-variables.png)
-
-Esta plantilla define una variable *storageAccountName*. En la definición, se usan dos funciones de plantilla:
-
-- **concat()**: permite concatenar cadenas. Para más información, consulte [concat](./resource-group-template-functions-string.md#concat).
-- **uniqueString()**: crea una cadena de hash determinista basada en los valores proporcionados como parámetros. Cada cuenta de Azure Storage debe tener un nombre único en todo Azure. Esta función proporciona una cadena única. Para obtener más funciones de cadena, consulte [Funciones de cadena](./resource-group-template-functions-string.md).
-
-Para usar la variable definida en la plantilla:
-
-```json
-"name": "[variables('storageAccountName')]"
-```
-
-## <a name="edit-the-template"></a>Edición de la plantilla
-
-El objetivo de este tutorial es definir una plantilla para crear una cuenta de almacenamiento cifrada.  La plantilla de ejemplo solo crea una cuenta de almacenamiento sin cifrar básica. Para buscar la configuración relacionada con el cifrado, puede usar la referencia de plantilla de la cuenta de Azure Storage.
+## <a name="find-the-template-reference"></a>Búsqueda de la referencia de la plantilla
 
 1. Vaya a [Plantillas de Azure](https://docs.microsoft.com/azure/templates/).
 2. En **Filtrar por título**, escriba **cuentas de almacenamiento**.
@@ -120,17 +85,52 @@ El objetivo de este tutorial es definir una plantilla para crear una cuenta de a
 
     ```json
     "encryption": {
-        "keySource": "Microsoft.Storage",
+      "services": {
+        "blob": {
+          "enabled": boolean
+        },
+        "file": {
+          "enabled": boolean
+        }
+      },
+      "keySource": "string",
+      "keyvaultproperties": {
+        "keyname": "string",
+        "keyversion": "string",
+        "keyvaulturi": "string"
+      }
+    },
+    ```
+
+    En la misma página web, la descripción siguiente confirma que el objeto `encryption` se usa para crear una cuenta de almacenamiento cifrada.
+
+    ![Cifrado de la cuenta de almacenamiento de referencia de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
+
+    Y hay dos maneras de administrar la clave de cifrado. Puede usar las claves de cifrado administradas por Microsoft con el Cifrado del servicio Storage, o puede usar sus propias claves de cifrado. Para simplificar este tutorial, use la opción `Microsoft.Storage`, con el fin de que no tenga que crear una instancia de Azure Key Vault.
+
+    ![Objeto de cifrado de la cuenta de almacenamiento de referencia de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
+
+    El objeto de cifrado debe ser como este:
+
+    ```json
+    "encryption": {
         "services": {
             "blob": {
                 "enabled": true
+            },
+            "file": {
+              "enabled": true
             }
-        }
+        },
+        "keySource": "Microsoft.Storage"
     }
     ```
-5. Desde Visual Studio Code, modifique la plantilla para que el elemento resources final sea parecido a:
-    
-    ![Recursos de la cuenta de almacenamiento cifrada de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+
+## <a name="edit-the-template"></a>Edición de la plantilla
+
+Desde Visual Studio Code, modifique la plantilla para que el elemento resources sea como este:
+
+![Recursos de la cuenta de almacenamiento cifrada de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 

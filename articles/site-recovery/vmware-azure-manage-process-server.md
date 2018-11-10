@@ -1,17 +1,17 @@
 ---
-title: Administración de un servidor de procesos en Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe cómo administrar un servidor de procesos configurado para la replicación de servidores físicos y máquinas virtuales de VMware en Azure Site Recovery.
+title: Administración de un servidor de procesos para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe la administración de un servidor de procesos configurado para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: b3c6f1d130a6f5427fe8377bd70de743f0700052
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434847"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209129"
 ---
 # <a name="manage-process-servers"></a>Administración de servidores de proceso
 

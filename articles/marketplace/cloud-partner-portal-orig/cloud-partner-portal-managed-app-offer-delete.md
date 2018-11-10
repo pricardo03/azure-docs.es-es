@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 02b4ad8aea3904ba0e99a5ea4d4d035f970e171a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5ad106d45c8bae2d41e0bde74b27f80f4d8ab79b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808382"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241283"
 ---
 <a name="delete-an-offersku-from-azure-marketplace"></a>Eliminación de una oferta/SKU de Azure Marketplace 
 ==========================================
 
 Puede decidir eliminar su oferta de Marketplace por varios motivos. Es posible que los nuevos clientes ya no puedan adquirir o implementar la oferta, pero los clientes ya existentes no se verán afectados.
-La finalización de la oferta es el proceso de terminación del servicio o contrato de licencia entre usted y los clientes existentes. Las directrices y las directivas relacionadas con la retirada y la terminación de la oferta se rigen en virtud del [acuerdo del anunciante de Microsoft Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560) (consulte la sección 7)
+La finalización de la oferta es el proceso de terminación del servicio o contrato de licencia entre usted y los clientes existentes. Las directrices y las directivas relacionadas con la retirada y la terminación de la oferta se rigen en virtud del [contrato del anunciante de Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (véase la sección 7)
 7) y las [directivas de participación](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (consulte la sección 6.2). Se analizan los diferentes escenarios de eliminación admitidos y los pasos que puede seguir en ellos.
 
 <a name="delete-a-live-sku-from-azure-marketplace"></a>Eliminación de una SKU en directo de Azure Marketplace 

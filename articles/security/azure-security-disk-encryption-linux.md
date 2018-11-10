@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 1cebb3dae8fbfd4188487a6ff7fca42ac0505cf0
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498494"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215385"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Linux 
 
@@ -252,7 +252,11 @@ El parámetro recorre todas las particiones y las cifra siempre que cumplan **to
 - No es una partición raíz, de arranque o del sistema operativo
 - Ya no está cifrada
 - No es un volumen BEK
+- No es un volumen RAID
+- No es un volumen LVM
 - Está montada
+
+Cifre los discos que componen el volumen LVM o RAID en lugar de los volúmenes LVM o RAID.
 
 ### <a name="bkmk_EFAPSH"> </a> Uso del parámetro EncryptFormatAll con la CLI de Azure
 Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure.

@@ -1,21 +1,22 @@
 ---
-title: Arquitectura de replicación de servidor físico o VMware en Azure Site Recovery | Microsoft Docs
-description: Este artículo proporciona información general de los componentes y la arquitectura usados al replicar máquinas virtuales de VMware locales o servidores físicos de Windows o Linux a un sitio secundario de VMware con Azure Site Recovery
+title: Arquitectura de recuperación ante desastres de servidor físico o VMware en Azure Site Recovery | Microsoft Docs
+description: En este artículo se proporciona información general sobre los componentes y la arquitectura usados durante la recuperación ante desastres de máquinas virtuales de VMware locales o servidores físicos de Windows o Linux a un sitio secundario de VMware con Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922703"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215130"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>Arquitectura de replicación de servidor físico o VMware en VMware
+# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de una máquina virtual de VMware o un servidor físico a VMware
 
-En este artículo, se describe la arquitectura y los procesos que se usan al replicar, conmutar por error y recuperar máquinas virtuales de VMware locales, o servidores físicos de Windows o Linux, en un sitio secundario de VMware mediante [Azure Site Recovery](site-recovery-overview.md).
+En este artículo se describe la arquitectura y los procesos usados al configurar la replicación, la conmutación por error y la recuperación de máquinas virtuales (VM) de VMware o de servidores físicos de Windows o Linux en un sitio secundario de VMware durante una recuperación ante desastres, mediante [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componentes de la arquitectura

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144556"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233684"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 
@@ -48,7 +48,7 @@ El control de Biblioteca es donde selecciona las [actividades](#activities) para
 |:--- |:--- |
 | Cmdlets |Incluye todos los cmdlets que se pueden usar en su runbook. Los cmdlets se organizan por módulo. Están disponibles todos los módulos que ha instalado en su cuenta de Automation. |
 | Runbooks |Incluye los runbooks de la cuenta de Automatización de Azure. Estos runbooks se pueden agregar al lienzo para usarse como runbooks secundarios. Solo se muestran los runbooks del mismo tipo básico que el del runbook que se está editando; para los runbooks gráficos, solo se muestran los basados en PowerShell, mientras que para los runbooks gráficos de flujo de trabajo de PowerShell, solo se muestran los basados en el flujo de trabajo de PowerShell. |
-| Recursos |Incluye los [recursos de Automatización](http://msdn.microsoft.com/library/dn939988.aspx) de su cuenta de Automatización que se pueden usar en el runbook. Cuando agrega un recurso a un runbook, este agrega una actividad de flujo de trabajo que obtiene el recurso seleccionado. En el caso de los recursos de variables, puede seleccionar si agregar una actividad para obtener o seleccionar la variable. |
+| Recursos |Incluye los [recursos de Automatización](https://msdn.microsoft.com/library/dn939988.aspx) de su cuenta de Automatización que se pueden usar en el runbook. Cuando agrega un recurso a un runbook, este agrega una actividad de flujo de trabajo que obtiene el recurso seleccionado. En el caso de los recursos de variables, puede seleccionar si agregar una actividad para obtener o seleccionar la variable. |
 | Control de Runbook |Incluye las actividades de control de runbook que se pueden usar en el runbook actual. Una *unión* toma varias entradas y espera hasta que todas se completen antes de continuar con el flujo de trabajo. Una actividad de *código* ejecuta una o varias líneas de código de PowerShell o de flujo de trabajo de esta herramienta, en función del tipo de runbook gráfico. Puede usar esta actividad para ejecutar código personalizado o utilizar funcionalidades que sean difíciles de obtener con otras actividades. |
 
 ### <a name="configuration-control"></a>Control de Configuración
@@ -336,7 +336,7 @@ Los datos que crea cualquier actividad que no tiene un vínculo saliente se guar
 
 ## <a name="powershell-expressions"></a>Expresiones de PowerShell
 
-Una de las ventajas de la creación gráfica es que proporciona la capacidad de crear un runbook teniendo mínimos conocimientos de PowerShell. No obstante, actualmente es necesario conocer un poco PowerShell para rellenar determinados [valores de parámetro](#activities) y para configurar [condiciones de vínculo](#links-and-workflow). En esta sección se proporciona una introducción rápida a las expresiones de PowerShell para aquellos usuarios que quizás no estén familiarizados con esta interfaz. En [Scripting con Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx)están disponibles todos los detalles sobre PowerShell.
+Una de las ventajas de la creación gráfica es que proporciona la capacidad de crear un runbook teniendo mínimos conocimientos de PowerShell. No obstante, actualmente es necesario conocer un poco PowerShell para rellenar determinados [valores de parámetro](#activities) y para configurar [condiciones de vínculo](#links-and-workflow). En esta sección se proporciona una introducción rápida a las expresiones de PowerShell para aquellos usuarios que quizás no estén familiarizados con esta interfaz. En [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx)están disponibles todos los detalles sobre PowerShell.
 
 ### <a name="powershell-expression-data-source"></a>Origen de datos de expresiones de PowerShell
 Puede usar una expresión de PowerShell como origen de datos para rellenar el valor de un [parámetro de actividad](#activities) con los resultados de algún código de PowerShell. Podría tratarse de una sola línea de código que realizara alguna función simple o varias líneas que desarrollaran cierta lógica compleja. La salida de un comando que no está asignado a una variable se envía al valor del parámetro.
@@ -414,7 +414,7 @@ Puede combinar varias condiciones, mediante un [operador lógico](https://techne
 
 ### <a name="hashtables"></a>Tablas hash
 
-[Tablas hash](http://technet.microsoft.com/library/hh847780.aspx) son pares de nombre-valor que son útiles para devolver un conjunto de valores. Las propiedades de ciertas actividades pueden esperar una tabla hash en lugar de un valor simple. También puede ver cómo se hace referencia a una tabla hash como un diccionario.
+[Tablas hash](https://technet.microsoft.com/library/hh847780.aspx) son pares de nombre-valor que son útiles para devolver un conjunto de valores. Las propiedades de ciertas actividades pueden esperar una tabla hash en lugar de un valor simple. También puede ver cómo se hace referencia a una tabla hash como un diccionario.
 
 Una tabla hash se crea con la siguiente sintaxis. Una tabla hash puede contener cualquier número de entradas, pero cada una se define mediante un nombre y valor.
 

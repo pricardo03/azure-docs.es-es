@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b812d60363ffebf1f4374b6fd44dff5e67497e08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf7dd8b111683a3b5b2f0a9f371c08ffb788fe58
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241079"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Uso de Notification Hubs desde PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Puede acceder a todas las características de Notification Hubs desde un back-end de Java, PHP o Ruby usando la interfaz REST de Notification Hubs tal como se describe en el tema de MSDN [API de REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Puede acceder a todas las características de Notification Hubs desde un back-end de Java, PHP o Ruby usando la interfaz REST de Notification Hubs tal como se describe en el tema de MSDN [API de REST de Notification Hubs](https://msdn.microsoft.com/library/dn223264.aspx).
 
 En este tema le mostraremos cómo:
 
@@ -32,7 +32,7 @@ En este tema le mostraremos cómo:
 * Siga el [tutorial introductorio](notification-hubs-ios-apple-push-notification-apns-get-started.md) para la plataforma móvil que elija, implementando la parte del back-end en PHP.
 
 ## <a name="client-interface"></a>Interfaz del cliente
-La interfaz del cliente principal puede proporcionar los mismos métodos disponibles en el [SDK de Notification Hubs .NET](http://msdn.microsoft.com/library/jj933431.aspx), que le permite trasladar todos los tutoriales y ejemplos actualmente disponibles en este sitio directamente y con el que contribuye la comunidad en Internet.
+La interfaz del cliente principal puede proporcionar los mismos métodos disponibles en el [SDK de Notification Hubs .NET](https://msdn.microsoft.com/library/jj933431.aspx), que le permite trasladar todos los tutoriales y ejemplos actualmente disponibles en este sitio directamente y con el que contribuye la comunidad en Internet.
 
 Puede encontrar todo el código disponible en el [ejemplo de contenedor REST para PHP].
 
@@ -49,7 +49,7 @@ Para enviar una notificación nativa de iOS:
 Si todavía no lo ha hecho, siga el [tutorial introductorio] hasta la última sección en la que tiene que implementar el back-end.
 También puede usar el código del [ejemplo de contenedor REST para PHP] e ir directamente a la sección [Finalización del tutorial](#complete-tutorial).
 
-Puede encontrar todos los detalles para implementar un contenedor REST completo en [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). En esta sección se describe la implementación para PHP de los principales pasos requeridos para acceder a puntos de conexión REST de Notification Hubs:
+Puede encontrar todos los detalles para implementar un contenedor REST completo en [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). En esta sección se describe la implementación para PHP de los principales pasos requeridos para acceder a puntos de conexión REST de Notification Hubs:
 
 1. Análisis de la cadena de conexión
 2. Generación del token de autenticación
@@ -92,7 +92,7 @@ Esta es la clase principal que implementa el cliente, cuyo constructor analiza l
 
 
 ### <a name="create-security-token"></a>Creación del token de seguridad
-Los detalles de la creación del token de seguridad están disponibles [aquí](http://msdn.microsoft.com/library/dn495627.aspx).
+Los detalles de la creación del token de seguridad están disponibles [aquí](https://msdn.microsoft.com/library/dn495627.aspx).
 El siguiente método tiene que agregarse a la clase **NotificationHub** para crear el token basándose en el URI de la solicitud actual y en las credenciales extraídas de la cadena de conexión.
 
     private function generateSasToken($uri) {
@@ -135,7 +135,7 @@ En primer lugar, definamos una clase que representa una notificación.
 
 Esta clase es un contenedor para un cuerpo de notificación nativa, o un conjunto de propiedades en el caso de una notificación de plantilla, y un conjunto de encabezados que contienen formato (plataforma o plantilla nativa) y propiedades específicas de la plataforma (como la propiedad de expiración de Apple y los encabezados WNS).
 
-Consulte la [documentación de las API de REST de Notification Hubs](http://msdn.microsoft.com/library/dn495827.aspx) y los formatos de las plataformas de notificación específicas para todas las opciones disponibles.
+Consulte la [documentación de las API de REST de Notification Hubs](https://msdn.microsoft.com/library/dn495827.aspx) y los formatos de las plataformas de notificación específicas para todas las opciones disponibles.
 
 Con esta clase, ahora podemos escribir los métodos de envío de notificaciones dentro de la clase **NotificationHub** .
 

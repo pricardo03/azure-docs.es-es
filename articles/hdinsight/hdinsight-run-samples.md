@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84c28eebc2bcf1bfdfcb0995f1caa05ed19629e2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111006"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250842"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -42,7 +42,7 @@ En la actualidad, muchas personas prefieren Hive y Pig a MapReduce.  Para más i
 
 **Requisitos previos**:
 
-* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **un clúster de HDInsight**. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Una estación de trabajo con Azure PowerShell**.
 
@@ -167,7 +167,7 @@ El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>GraySort de 10 GB
-Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
+Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
@@ -211,7 +211,6 @@ En este artículo y en los artículos en cada una de las muestras, ha obtenido i
 * [Uso de Pig con Hadoop en HDInsight][hdinsight-use-pig]
 * [Uso de Hive con Hadoop en HDInsight][hdinsight-use-hive]
 * [Envío de trabajos de Hadoop en HDInsight][hdinsight-submit-jobs]
-* [Documentación de SDK de HDInsight de Azure][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Anexo A: código fuente del recuento de palabras
 
@@ -977,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

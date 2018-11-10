@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 31f61a1d6dee19ada60a1024a235f6329d7d5ca0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377821"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242167"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescalado de Azure SQL
 
@@ -253,7 +253,7 @@ Sí. Para realizar una migración desde orígenes de datos distintos a SQL Serve
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>¿Cuál es el Acuerdo de Nivel de Servicio que se proporciona para una base de datos de Hiperescalado?
 
-Por lo general no se proporciona ningún Acuerdo de Nivel de Servicio durante la versión preliminar pública. No obstante, Hiperescalado proporciona el mismo nivel de alta disponibilidad que las ofertas actuales de SQL Database. Consulte [Acuerdo de Nivel de Servicio](http://azure.microsoft.com/support/legal/sla/).
+Por lo general no se proporciona ningún Acuerdo de Nivel de Servicio durante la versión preliminar pública. No obstante, Hiperescalado proporciona el mismo nivel de alta disponibilidad que las ofertas actuales de SQL Database. Consulte [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/).
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>¿Administra el servicio Azure SQL Database las copias de seguridad de las bases de datos en mi lugar?
 

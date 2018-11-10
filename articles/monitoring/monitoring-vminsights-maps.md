@@ -1,5 +1,5 @@
 ---
-title: Cómo ver las dependencias de aplicación con Azure Monitor para máquinas virtuales | Microsoft Docs
+title: Cómo ver las dependencias de aplicación con Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: La asignación es una característica de Azure Monitor para máquinas virtuales que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información sobre cómo usarla en una variedad de escenarios.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402156"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095485"
 ---
-# <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para máquinas virtuales para conocer los componentes de una aplicación
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
 
 En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y a usar la característica de asignación. Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md) (Habilitar Azure Monitor para máquinas virtuales).

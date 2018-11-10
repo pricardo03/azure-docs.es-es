@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 02675b8cdc8c509764b20893bde54b50bec74a50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240365"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242156"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -23,7 +23,7 @@ Le damos la bienvenida a Academic Knowledge API. Con este servicio, podrá inter
 
 Los datos de MAG se extraen del índice de web de Bing, así como de una base de conocimiento interna de Bing. Como resultado de la indexación de Bing en curso, esta API contendrá información nueva de la web después de la detección y la indexación por parte de Bing. En función de este conjunto de datos, Academic Knowledge API permite un diálogo interactivo, guiado por el conocimiento, que combina perfectamente la búsqueda reactiva con experiencias de sugerencia proactivas, resultados de búsqueda de grafos de documentos de investigación enriquecidos y distribuciones de histograma de los valores de atributo para un conjunto de artículos y las entidades relacionadas.
 
-Para obtener más información sobre Microsoft Academic Graph, consulte [http://aka.ms/academicgraph](http://aka.ms/academicgraph).
+Para obtener más información sobre Microsoft Academic Graph, consulte [http://aka.ms/academicgraph](https://aka.ms/academicgraph).
 
 Academic Knowledge API se ha movido de Cognitive Services (versión preliminar) a Laboratorios de Cognitive Services. La nueva página de inicio para el proyecto es: [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). La clave de API existente seguirá funcionando hasta el 24 de mayo de 2018. Tras esta fecha, vuelva a generar una nueva clave de API. Tenga en cuenta esa versión preliminar de pago ya no estará disponible una vez que expire la clave existente. Póngase en contacto con nuestro equipo si el nivel gratuito de la API no es suficiente para sus fines. 
 

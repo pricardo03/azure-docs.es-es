@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389283"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231889"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -74,9 +74,9 @@ Este error se produce si el recurso compartido de archivos de Azure ya está sie
 Si ve este mensaje y el recurso compartido de archivos de Azure no está siendo utilizado actualmente por un punto de conexión de nube, complete los siguientes pasos para borrar los metadatos de Azure File Sync en el recurso compartido de archivos de Azure:
 
 > [!Warning]  
-> Si se eliminan los metadatos en un recurso compartido de archivos de Azure que está siendo utilizado por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. 
+> Si se eliminan los metadatos en un recurso compartido de archivos de Azure que está siendo utilizado por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. 
 
-1. Vaya al recurso compartido de archivos de Azure en Azure Portal.  
+1. Vaya al recurso compartido de archivos de Azure en Azure Portal.  
 2. Haga clic con el botón derecho en el recurso compartido de archivos de Azure y seleccione **Editar metadatos**.
 3. Haga clic con el botón derecho en **SyncService** y, a continuación, seleccione **Eliminar**.
 
@@ -258,9 +258,9 @@ La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aú
 | Juego de caracteres | Número de caracteres |
 |---------------|-----------------|
 | <ul><li>0x0000009D ( cosc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
+| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (specials) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Errores de sincronización comunes
@@ -519,7 +519,7 @@ Este error se produce porque hay cambios en el recurso compartido de archivos Az
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
-| **Cadena de error** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Cadena de error** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Se requiere una corrección** | SÍ |
 | | |
 | **HRESULT** | 0x80c80253 |

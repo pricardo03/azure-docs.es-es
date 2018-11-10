@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4b254f9a4446a1b0ff400e0d63effe68fc4f82b4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: cf39ba6b1754a5e809e7295f2783846e95636ce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363673"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241743"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implementación de una plantilla en Azure Stack mediante PowerShell
 
@@ -35,7 +35,7 @@ En este ejemplo, se utilizan cmdlets de AzureRM PowerShell y una plantilla almac
 >[!NOTE]
 >Antes de probar este ejemplo, asegúrese de que se haya [configurado PowerShell](azure-stack-powershell-configure-user.md) para un usuario de Azure Stack.
 
-1. Vaya a [http://aka.ms/AzureStackGitHub](http://aka.ms/AzureStackGitHub) y busque la plantilla **101-simple-windows-vm**. Guarde la plantilla en esta ubicación: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+1. Vaya a [http://aka.ms/AzureStackGitHub](https://aka.ms/AzureStackGitHub) y busque la plantilla **101-simple-windows-vm**. Guarde la plantilla en esta ubicación: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
 2. Abra un símbolo del sistema de PowerShell con privilegios elevados.
 3. En el siguiente script, sustituya *username* (nombre de usuario) y *password* (contraseña) por su nombre de usuario y contraseña, y luego ejecute el script.
 

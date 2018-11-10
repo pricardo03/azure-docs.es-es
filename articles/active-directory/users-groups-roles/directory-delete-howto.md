@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142726"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139693"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminación de un inquilino de Azure Active Directory
 Cuando se elimina un inquilino, también se eliminan todos los recursos que contiene. Debe preparar el inquilino, reduciendo sus recursos asociados antes de eliminarlo. Solo un administrador global de Azure Active Directory (Azure AD) puede eliminar a un inquilino de Azure AD desde el portal.
@@ -73,7 +73,7 @@ Puede colocar una suscripción en un estado **Deprovisoned** (Desaprovisionado) 
   
   ![términos y condiciones](./media/directory-delete-howto/delete-terms.png)
 
-4. Ahora que ha cambiado el estado de la suscripción, esta se marca para eliminarla. La suscripción entra en el estado **Deprovisioned** (Desaprovisionado) 72 horas más tarde.
+4. Ahora que ha cambiado el estado de la suscripción, esta se marca para eliminarla. La suscripción entra en el estado **Desaprovisionado** 72 horas más tarde.
 
 5. Una vez que haya eliminado una suscripción en el inquilino y hayan transcurrido 72 horas, puede iniciar sesión de nuevo en el centro de administración de Azure AD y no debería requerirse ninguna acción ni haber ninguna suscripción que bloquee la eliminación de inquilinos. Debe ser capaz de eliminar correctamente el inquilino de Azure AD.
   

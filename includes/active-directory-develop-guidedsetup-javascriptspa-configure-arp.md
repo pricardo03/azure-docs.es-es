@@ -14,27 +14,26 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: c2b86e79f0364ee84e01fee5e9837db5a6b618a2
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 66021fa8140da2faae4ecab07c98b0df4ea5297a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843532"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50142884"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Adición de información de registro de la aplicación a su aplicación
 
-En este paso, necesita configurar la dirección URL de redireccionamiento de la información de registro de su aplicación y luego agregar el identificador de la aplicación a la aplicación JavaScript SPA.
+En este paso, debe configurar la dirección URL de redireccionamiento de la información de registro de su aplicación y luego agregar el identificador de la aplicación a la aplicación JavaScript SPA.
 
 ### <a name="configure-redirect-url"></a>Configuración de la URL de redireccionamiento
 
 Configure el campo `Redirect URL` con la dirección URL de la página index.html basada en el servidor web y luego haga clic en *Actualizar*.
 
-
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Instrucciones en Visual Studio para obtener la dirección URL de redireccionamiento
 > Siga estos pasos para obtener la dirección URL de redireccionamiento:
-> 1.    En el **Explorador de soluciones**, seleccione el proyecto y fíjese en la ventana **Propiedades**. Si no ve una ventana **Propiedades**, presione **F4**.
-> 2.    Copie el valor de **URL** en el Portapapeles:<br/> ![Propiedades del proyecto](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.    Pegue el valor en **URL de redireccionamiento**, en la parte superior de esta página, y haga clic en **Actualizar**.
+> 1. En el **Explorador de soluciones**, seleccione el proyecto y fíjese en la ventana **Propiedades**. Si no ve una ventana **Propiedades**, presione **F4**.
+> 2. Copie el valor de **URL** en el Portapapeles:<br/> ![Propiedades del proyecto](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3. Pegue el valor como una **URL de redireccionamiento** en la parte superior de esta página, y seleccione **Actualizar**.
 
 <p/>
 
@@ -44,7 +43,7 @@ Configure el campo `Redirect URL` con la dirección URL de la página index.html
 
 ### <a name="configure-your-javascript-spa-application"></a>Configuración de la aplicación JavaScript SPA
 
-1.  En el archivo `index.html` creado durante la instalación del proyecto, agregue la información de registro de aplicación. Agregue el código siguiente en la parte superior, dentro de las etiquetas `<script></script>` en el cuerpo del archivo `index.html`:
+1. En el archivo `index.html` creado durante la instalación del proyecto, agregue la información de registro de aplicación. Agregue el código siguiente en la parte superior, dentro de las etiquetas `<script></script>` en el cuerpo del archivo `index.html`:
 
 ```javascript
 var applicationConfig = {

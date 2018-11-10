@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: 2dca04cadd4c5b904c752ac8a01af8bcb7c6ae33
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c519a3b71068570ff864ccc0eb0292cebd51173a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243733"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 
@@ -50,7 +50,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Visual Studio 2017
 
-* Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](http://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
+* Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
 ## <a name="receive-messages-in-the-device-app"></a>Recepción de mensajes en la aplicación de dispositivo
 
@@ -114,7 +114,7 @@ En esta sección, escribirá una aplicación de consola de .NET que envía mensa
    using Microsoft.Azure.Devices;
    ```
 
-5. Agregue los campos siguientes a la clase **Program**. Sustituya el valor del marcador de posición por la cadena de conexión de IoT Hub de [Enviar datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md):
+5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor del marcador de posición por la cadena de conexión de IoT Hub de [Enviar datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md):
 
    ``` csharp
    static ServiceClient serviceClient;
@@ -209,4 +209,4 @@ En este procedimiento, ha aprendido a enviar y recibir mensajes de nube a dispos
 
 Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [Acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/).
 
-Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure](iot-hub-devguide.md).
+Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).

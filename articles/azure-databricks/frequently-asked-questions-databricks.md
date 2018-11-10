@@ -1,34 +1,31 @@
 ---
-title: 'Azure Databricks: Preguntas comunes y ayuda | Microsoft Docs'
+title: 'Azure Databricks: preguntas comunes y ayuda'
 description: Obtenga respuestas a las preguntas comunes e información para solucionar problemas acerca de Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434608"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138368"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Preguntas más frecuentes sobre Azure Databricks
 
-Este artículo muestra las principales consultas que pueden surgir en relación con Azure Databricks. También se muestran algunos problemas comunes que puede encontrar al usar Databricks. Para más información, consulte [¿Qué es Azure Databricks?](what-is-azure-databricks.md) 
+Este artículo muestra las principales preguntas que pueden surgir en relación con Azure Databricks. También se muestran algunos problemas comunes que puede encontrar al usar Databricks. Para más información, consulte [¿Qué es Azure Databricks?](what-is-azure-databricks.md) 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>¿Puedo usar mis propias claves para el cifrado local? 
-En la versión actual, no se admite el uso de sus propias claves de Azure Key Vault. 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>¿Puedo usar Azure Key Vault para almacenar claves o secretos que se usarán en Azure Databricks?
+Sí. Puede usar Azure Key Vault para almacenar claves o secretos que se usarán en Azure Databricks. Para más información, consulte el artículo sobre los [ámbitos respaldados por Azure Key Vault](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
 
-## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>¿Puedo usar redes virtuales de Azure con Databricks?
-Se crea una red virtual como parte del aprovisionamiento de Databricks. En esta versión, no puede usar su propia red virtual de Azure.
+
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>¿Puedo usar Azure Virtual Networks con Databricks?
+Sí. Puede usar una instancia de Azure Virtual Network (red virtual) con Azure Databricks. Para más información, consulte el artículo sobre la [implementación de Azure Databricks en Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>¿Cómo accedo a Azure Data Lake Store desde un bloc de notas? 
 
@@ -116,7 +113,7 @@ Para instrucciones más detalladas, consulte [Tipos y proveedores de recursos](.
 
 #### <a name="background"></a>Fondo
 
-Azure Databricks está integrado con Azure AD. Esto le permite establecer permisos dentro de Azure Databricks (por ejemplo, en equipos portátiles o clústeres) mediante la especificación de los usuarios de Azure AD. Para que Azure Databricks pueda generar una lista de los nombres de los usuarios de Azure AD, necesita permisos de lectura de dicha información. Para ello, se requiere una autorización. Si la autorización no está disponible aún, aparecerá el error.
+Azure Databricks está integrado con Azure Active Directory. Se pueden establecer permisos dentro de Azure Databricks (por ejemplo, en cuadernos o clústeres) mediante la especificación de los usuarios de Azure AD. Para que Azure Databricks pueda generar una lista de los nombres de los usuarios de Azure AD, necesita permisos de lectura de dicha información, además de consentimiento. Si la autorización no está disponible aún, aparecerá el error.
 
 #### <a name="solution"></a>Solución
 

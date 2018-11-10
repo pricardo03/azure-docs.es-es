@@ -4,16 +4,16 @@ description: Información acerca del mecanismo para actualizar una asignación e
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ecac0fb21a6691874d5e8db49eadd7114d41845f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956207"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093792"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -25,11 +25,11 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
 ## <a name="updating-assignments"></a>Actualización de asignaciones
 
-1. Inicie el servicio Azure Blueprint en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva** en el panel de la izquierda. En la página **Directiva**, haga clic en **Planos técnicos**.
+1. Haga clic en **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, haga clic en **Planos técnicos**.
 
 1. Seleccione **Planos técnicos asignados** desde la página de la izquierda.
 
-1. En la lista de planos técnicos, haga clic con el botón izquierdo en la asignación del plano técnico y, a continuación, haga clic en el botón **Actualizar asignación** o haga clic con el botón derecho en la asignación del plano técnico y seleccione **Actualizar asignación**.
+1. En la lista de planos técnicos, haga clic con el botón izquierdo en la asignación del plano técnico. Después, haga clic en el botón **Actualizar asignación** o haga clic con el botón derecho en la asignación del plano técnico y seleccione **Actualizar asignación**.
 
    ![Actualización de la asignación](../media/update-existing-assignments/update-assignment.png)
 
@@ -45,27 +45,31 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
 ## <a name="rules-for-updating-assignments"></a>Reglas de la actualización de asignaciones
 
-La implementación de las asignaciones actualizadas sigue unas reglas importantes. Estas reglas determinan lo que le sucede a un recurso existente según el cambio solicitado y el tipo de recurso de artefacto que se va a implementar o actualizar.
+La implementación de las asignaciones actualizadas sigue unas reglas importantes. Estas reglas determinan lo que sucede en los recursos ya implementados. El cambio solicitado y el tipo de recurso del artefacto que se va a implementar o actualizar determinan las acciones que se realizan.
 
 - Asignaciones de roles
-  - Si cambia el rol o el encargado de rol (usuario, grupo o aplicación), se crea una nueva asignación de roles. La asignación de roles implementada previamente se deja en su lugar.
+  - Si cambia el rol o el encargado de rol (usuario, grupo o aplicación), se crea una nueva asignación de roles. Las asignaciones de roles implementadas previamente se dejan en su lugar.
 - Asignaciones de directiva
   - Si cambian los parámetros de la asignación de directiva, se actualiza la asignación existente.
-  - Si cambia la definición de la asignación de directiva, se crea una nueva. La asignación de directiva implementada anteriormente se deja en su lugar.
-  - Si se quita el artefacto de asignación de directiva del plano técnico, la asignación de directiva implementada anteriormente se deja en su lugar.
+  - Si la definición de la asignación de directiva se cambia, se crea una asignación de directiva nueva. Las asignaciones de directivas implementadas previamente se dejan en su lugar.
+  - Si se quita el artefacto de asignación de directiva del plano técnico, las asignaciones de directivas implementadas anteriormente se dejan en su lugar.
 - Plantillas del Administrador de recursos de Azure
-  - La plantilla se procesa mediante Resource Manager como **PUT**. Como cada tipo de recurso se trata de forma distinta, revise la documentación de cada recurso incluido para determinar el impacto de esta acción cuando la ejecuta Azure Blueprint.
+  - La plantilla se procesa mediante Resource Manager como **PUT**. Como cada tipo de recurso trata esta acción de forma distinta, revise la documentación de cada recurso incluido para determinar el efecto de esta acción cuando la ejecuta Blueprints.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Posibles errores en la actualización de asignaciones
 
 Al actualizar las asignaciones, es posible realizar cambios que se interrumpan cuando se ejecutan. Un ejemplo se da al cambiar la ubicación de un grupo de recursos una vez que se haya implementado. Puede realizarse cualquier cambio que [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) admita, pero, si este produjera un error con Azure Resource Manager, también lo generaría en la asignación.
 
-No hay ningún límite en el número de veces que una asignación se puede actualizar. Por lo tanto, si se produce un error, ya sea debido a un parámetro incorrecto, un objeto ya existente o un cambio no permitido por Azure Resource Manager, determine el error y actualice otra vez la asignación.
+No hay ningún límite en el número de veces que una asignación se puede actualizar. Si se produce un error, determínelo y realice otra actualización en la asignación.  Escenarios de error de ejemplo:
+
+- Un parámetro incorrecto
+- Un objeto ya existente
+- Un cambio no admitido por Azure Resource Manager
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida de los planos técnicos](../concepts/lifecycle.md).
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md)
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md)
+- Más información sobre el [ciclo de vida del plano técnico](../concepts/lifecycle.md)
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md)
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico

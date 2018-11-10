@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: 697245a6465fc15c943acefa4b820982fbaecb55
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 38190cc613ea9d3723cc3f0f563842e8416689aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887605"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241351"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -29,13 +29,13 @@ Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manag
 
 - **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad** : con los almacenes de Recovery Services, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
 
-- **Supervisión central para el entorno de TI híbrido**: con los almacenes de Recovery Services, puede supervisar no solo sus [máquinas virtuales de IaaS de Azure](backup-azure-manage-vms.md), sino también sus [recursos locales](backup-azure-manage-windows-server.md#manage-backup-items) desde un portal central. [Más información](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Supervisión central para el entorno de TI híbrido**: con los almacenes de Recovery Services, puede supervisar no solo sus [máquinas virtuales de IaaS de Azure](backup-azure-manage-vms.md), sino también sus [recursos locales](backup-azure-manage-windows-server.md#manage-backup-items) desde un portal central. [Más información](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
 - **Control de acceso basado en rol (RBAC)**: RBAC permite un control muy detallado de la administración de acceso en Azure. [Azure proporciona diversas funciones integradas](../role-based-access-control/built-in-roles.md) y Azure Backup tiene tres [roles integrados para administrar puntos de recuperación](backup-rbac-rs-vault.md). Los almacenes de Recovery Services son compatibles con RBAC, que restringe el acceso de copia de seguridad y restauración al conjunto definido de roles de usuario. [Más información](backup-rbac-rs-vault.md)
 
-- **Protección de todas las configuraciones de Azure Virtual Machines**: los almacenes de Recovery Services protegen las máquinas virtuales basadas en Resource Manager, incluidos discos Premium, Managed Disks y máquinas virtuales cifradas. La actualización de un almacén de Backup a un almacén de Recovery Services proporciona la oportunidad de actualizar máquinas virtuales basadas en Service Manager a máquinas virtuales basadas en Resource Manager. Al actualizar el almacén, puede conservar los puntos de recuperación de máquinas virtuales basadas en Service Manager y configurar la protección de las máquinas virtuales actualizadas (habilitadas para Resource Manager). [Más información](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Protección de todas las configuraciones de Azure Virtual Machines**: los almacenes de Recovery Services protegen las máquinas virtuales basadas en Resource Manager, incluidos discos Premium, Managed Disks y máquinas virtuales cifradas. La actualización de un almacén de Backup a un almacén de Recovery Services proporciona la oportunidad de actualizar máquinas virtuales basadas en Service Manager a máquinas virtuales basadas en Resource Manager. Al actualizar el almacén, puede conservar los puntos de recuperación de máquinas virtuales basadas en Service Manager y configurar la protección de las máquinas virtuales actualizadas (habilitadas para Resource Manager). [Más información](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Restauración instantánea para máquinas virtuales de IaaS**: con los almacenes de Recovery Services, puede restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual, lo que permite unos tiempos de restauración más rápidos. La restauración instantánea para máquinas virtuales de IaaS está disponible tanto para máquinas virtuales Windows como Linux. [Más información](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Restauración instantánea para máquinas virtuales de IaaS**: con los almacenes de Recovery Services, puede restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual, lo que permite unos tiempos de restauración más rápidos. La restauración instantánea para máquinas virtuales de IaaS está disponible tanto para máquinas virtuales Windows como Linux. [Más información](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Administración de almacenes de Recovery Services en el portal
 La creación y administración de almacenes de Recovery Services en Azure Portal es fácil porque el servicio Backup está integrado en otros servicios de Azure. Esta integración significa que se puede crear o administrar un almacén de Recovery Services *en el contexto del servicio de destino*. Por ejemplo, para ver los puntos de recuperación de una máquina virtual, selecciónela y haga clic en **Copia de seguridad** en el menú Operaciones.

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498290"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242966"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opciones para migrar datos desde la serie 5000-7000 de StorSimple 
 
@@ -29,15 +29,21 @@ La serie 5000-7000 de StorSimple alcanzará el [fin del soporte técnico](https:
 
 ## <a name="migration-options"></a>Opciones de migración
 
-Los clientes que usan la serie 5000-7000 de StorSimple tienen las dos opciones claves siguientes:
+Los clientes que usan la serie 5000-7000 de StorSimple tienen las opciones siguientes:
 
-- **Actualización a la serie 8000 de StorSimple**: actualice a la serie 8000 de StorSimple y permanezca así en la plataforma StorSimple.  Esta ruta de actualización requiere que los clientes reemplacen los dispositivos de la serie 5000-7000 a una serie 8000. Los datos se migran desde el dispositivo de la serie 5000-7000 mediante la herramienta de migración. Una vez que la migración se haya completado correctamente, los dispositivos de la serie 8000 de StorSimple seguirán colocando datos en capas en Azure Blob Storage. 
+- **Opciones de Azure**:
+
+    - **Actualización a la serie 8000 de StorSimple**: actualice a la serie 8000 de StorSimple y permanezca así en la plataforma StorSimple.  Esta ruta de actualización requiere que los clientes reemplacen los dispositivos de la serie 5000-7000 a una serie 8000. Los datos se migran desde el dispositivo de la serie 5000-7000 mediante la herramienta de migración. Una vez que la migración se haya completado correctamente, los dispositivos de la serie 8000 de StorSimple seguirán colocando datos en capas en Azure Blob Storage. 
 
     Para obtener más información sobre cómo migrar datos mediante la serie 8000 de StorSimple, vaya a [Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000](storsimple-8000-migrate-from-5000-7000.md).
 
-- **Migración a Azure File Sync**: esta nueva opción de migración permite a los clientes almacenar los recursos compartidos de archivos de su organización en Azure Files. Estos recursos compartidos de archivos se pueden centralizar luego para acceder a ellos de forma local mediante Azure File Sync (AFS). AFS puede implementarse en un host de Windows Server. La migración de datos real se realiza entonces como una copia de host o mediante la herramienta de migración.
+    - **Migración a Azure File Sync**: esta nueva opción de migración permite a los clientes almacenar los recursos compartidos de archivos de su organización en Azure Files. Estos recursos compartidos de archivos se pueden centralizar luego para acceder a ellos de forma local mediante Azure File Sync (AFS). AFS puede implementarse en un host de Windows Server. La migración de datos real se realiza entonces como una copia de host o mediante la herramienta de migración.
 
     Para obtener más información sobre cómo migrar datos a Azure File Sync, vaya a [Migrate data from StorSimple 5000-7000 series to Azure File Sync](https://aka.ms/StorSimpleMigrationAFS) (Migración de datos desde la serie 5000-7000 de StorSimple a Azure File Sync).
+
+- **Opciones de terceros**:
+
+    - **Migrar a Panzura Freedom NAS**: los clientes de StorSimple 5000-7000 pueden elegir migrar a Panzura Freedom NAS para mantener sus datos en Azure. La solución Panzura Freedom proporciona una solución NAS que abarca centros de datos, oficinas, y nubes públicas y privadas. La solución permite flujos de trabajo de locales, híbridos y en la nube para clientes móviles, SMB y NFS. Esta migración es compatible con Panzura y los clientes pueden comenzar solicitando soporte técnico para la migración desde el [sitio web de Panzura](https://panzura.com/storsimple-migration/).
 
 ## <a name="migration---frequently-asked-questions"></a>Migración: preguntas frecuentes
 
@@ -50,11 +56,11 @@ A. La serie 5000-7000 de StorSimple llega al [final del servicio](https://suppor
 A. Podrá seguir usando los datos en Azure cuando haya migrado a un servicio más reciente. 
 
 
-### <a name="q--what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>P:  ¿Qué ocurre con los datos que he almacenado localmente en el dispositivo de StorSimple? 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>P: ¿Qué ocurre con los datos que he almacenado localmente en el dispositivo de StorSimple? 
 
 A. Los datos que se encuentran en el dispositivo local se pueden copiar en el servicio más reciente, como se describe en los documentos de migración.
 
-### <a name="what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>¿Qué ocurre si quiero mantener mi dispositivo de la serie 5000/7000 de StorSimple? 
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>P: ¿Qué ocurre si quiero mantener mi dispositivo de la serie 5000/7000 de StorSimple? 
 
 A. Si bien los servicios podrían seguir funcionando, Microsoft ya no podrá proporcionar soporte técnico de hardware y software. Se recomienda totalmente la migración para la continuidad empresarial.
 

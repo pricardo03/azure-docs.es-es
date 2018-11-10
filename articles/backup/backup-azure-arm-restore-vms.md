@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377646"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420530"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -151,7 +151,7 @@ En la hoja **Restore configuration** (Configuración de restauración), haga cli
 La **restauración en contexto** se realiza a través de la pestaña **Reemplazar el existente**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Reemplazar discos existentes desde un punto de restauración
-La opción **Reemplazar el existente** ayuda a reemplazar los discos existentes en la VM actual por el punto de restauración seleccionado. Esta operación puede realizarse solo si existe la VM actual. Si se ha eliminado por algún motivo, no se puede realizar esta operación; como alternativa, se recomienda usar la opción **Crear nuevo** para crear máquinas virtuales o discos para continuar con las operaciones de restauración. Durante las operaciones de reemplazo de discos existentes, como medida de precaución, realizamos la copia de seguridad de los datos antes de iniciar dichas operaciones. Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo se reflejará en la VM. La opción Reemplazar el existente es actualmente compatible con Managed Disks y VM sin cifrar actualmente.  
+La opción **Reemplazar el existente** ayuda a reemplazar los discos existentes en la VM actual por el punto de restauración seleccionado. Esta operación puede realizarse solo si existe la VM actual. Si se ha eliminado por algún motivo, no se puede realizar esta operación; como alternativa, se recomienda usar la opción **Crear nuevo** para crear máquinas virtuales o discos para continuar con las operaciones de restauración. Durante las operaciones de reemplazo de discos existentes, como medida de precaución, realizamos la copia de seguridad de los datos antes de iniciar dichas operaciones. Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo se reflejará en la VM. La opción **Reemplazar el existente** actualmente no es compatible con discos no administrados y máquinas virtuales cifradas. Tampoco se admite para [máquinas virtuales generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) y para máquinas virtuales creadas mediante [imágenes personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  En la hoja **Restaurar configuración**, la única entrada que debe seleccionarse es **Ubicación de ensayo**.
 
@@ -170,7 +170,7 @@ Haga clic en el hipervínculo de las notificaciones para ir a la lista **BackupJ
 
 Se abre la hoja **Trabajos de copia de seguridad**, que muestra la lista de trabajos.
 
-![Lista de máquinas virtuales en un almacén](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![Lista de máquinas virtuales en un almacén](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>Uso de plantillas para personalizar una máquina virtual restaurada
 Una vez que ha [finalizado la operación de los discos de restauración](#Track-the-restore-operation), use la plantilla que se generó como parte de la operación de restauración para crear una nueva máquina virtual con una configuración diferente a la de la configuración de copia de seguridad. También puede usarla para personalizar los nombres de recursos que se crearon durante el proceso de creación de una nueva máquina virtual desde un punto de restauración.

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: ae6f7646192b7bee8cbd836f1eff3814c26a6b46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ed35380e66e6d5d59058552d8e0504220c100b73
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427338"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231396"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -88,7 +88,11 @@ En la imagen siguiente se muestra cómo habilitar la autenticación de Azure AD 
   
 ### <a name="powershell"></a>PowerShell  
 
-Para habilitar la autenticación de Azure AD a través de SMB desde Azure PowerShell, instale primero el módulo `AzureRM.Storage 6.0.0-preview`. Para más información acerca de cómo instalar PowerShell, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Para habilitar la autenticación de Azure AD a través de SMB desde Azure PowerShell, primero instale el módulo `AzureRM.Storage`, versión `6.0.0-preview`, como se indica a continuación. Para más información sobre cómo instalar PowerShell, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps):
+
+```powershell
+Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+```
 
 A continuación, cree una nueva cuenta de almacenamiento y, después, llame a [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) y establezca el parámetro **EnableAzureFilesAadIntegrationForSMB** en **true**. En el ejemplo siguiente, no olvide reemplazar los valores del marcador de posición por los suyos propios.
 
@@ -263,14 +267,14 @@ Se admiten los siguientes conjuntos de permisos en el directorio raíz de un rec
 
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>Montar un recurso compartido de archivos de Azure desde el símbolo del sistema
 
-Use el comando **net use** de Windows para montar el recurso compartido de archivos de Azure. No olvide reemplazar los valores del marcador de posición en el ejemplo por los suyos propios. Para más información sobre cómo montar los recursos compartidos de archivos, consulte [Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows](storage-how-to-use-files-windows.md).
+Use el comando **net use** de Windows para montar el recurso compartido de archivos de Azure. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios. Para más información sobre cómo montar los recursos compartidos de archivos, consulte [Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows](storage-how-to-use-files-windows.md).
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar los permisos NTFS con icacls
-Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los suyos propios.
+Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios.
 
 ```
 icacls <mounted-drive-letter> /grant <user-email>:(f)
@@ -284,7 +288,7 @@ Ahora está preparado para comprobar que ha completado los pasos anteriores corr
 
 ![Captura de pantalla que muestra la pantalla Inicio de sesión de Azure AD para la autenticación de usuario](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
 
-Después, use el comando siguiente para montar el recurso compartido de archivos de Azure. Reemplace los valores del marcador de posición por los suyos propios. Dado que ya se ha autenticado, no tiene que proporcionar la clave de la cuenta de almacenamiento ni el nombre de usuario y la contraseña de Azure AD. Azure AD a través de SMB admite el inicio de sesión único con las credenciales de Azure AD.
+Después, use el comando siguiente para montar el recurso compartido de archivos de Azure. Reemplace los valores del marcador de posición por los propios. Dado que ya se ha autenticado, no tiene que proporcionar la clave de la cuenta de almacenamiento ni el nombre de usuario y la contraseña de Azure AD. Azure AD a través de SMB admite el inicio de sesión único con las credenciales de Azure AD.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

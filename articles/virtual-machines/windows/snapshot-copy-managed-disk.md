@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091307"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232586"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
-Una instantánea es una copia completa de solo lectura de un disco duro virtual (VHD). Tome una instantánea de un disco duro virtual de datos o del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual. 
+Una instantánea es una copia completa de solo lectura de un disco duro virtual (VHD). Tome una instantánea de un disco duro virtual de datos o del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual.
+
+Si va a usar la instantánea para crear una máquina virtual, se recomienda un cierre limpio de la máquina virtual antes de tomar una instantánea para así limpiar cualquier proceso que esté en curso.
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal 
 

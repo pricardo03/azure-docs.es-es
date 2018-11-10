@@ -4,8 +4,6 @@ description: En este artículo se muestra cómo configurar el equilibrio de carg
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0759b6a8e3deb9bc1d04e41598e4eef9304ecd83
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160662"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416416"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure
 
@@ -63,7 +61,7 @@ Para obtener acceso a la aplicación web en Internet, necesita una dirección IP
 
 ## <a name="create-outbound-public-ip-address"></a>Creación de una dirección IP pública de salida 
 
-Cree una dirección IP estándar para el comando [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) de configuración de salida del front-end de Load Balancer denominado *mypublicipoutbound* en *myresourcegroupoutbound*.
+Cree una dirección IP estándar para el comando [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) de configuración de salida del front-end de Load Balancer.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +79,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-load-balancer"></a>Cree un equilibrador de carga
 
-Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) una instancia de Load Balancer denominada *lb* que incluya una configuración de IP de front-end de entrada llamada *myfrontendinbound* y un grupo de servidores back-end llamado *bepool* que esté asociado a la dirección IP pública *mypublicipinbound* que creó en el paso anterior.
+Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) una instancia de Load Balancer denominada *lb* que incluya una configuración de IP de front-end de entrada y un grupo de servidores back-end que esté asociado a la dirección IP pública *mypublicipinbound* que creó en el paso anterior.
 
 ```azurecli-interactive
   az network lb create \

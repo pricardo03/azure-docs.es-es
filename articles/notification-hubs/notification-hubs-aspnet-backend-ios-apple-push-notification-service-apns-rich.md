@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: 21ed7dd1120958576651703283a0732e3843546d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777464"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232519"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Inserción enriquecida de Azure Notification Hubs
 ## <a name="overview"></a>Información general
@@ -136,7 +136,7 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 2. Haga clic en **Funciones**, active los **Modos en segundo plano** y active la casilla **Notificaciones remotas**.
    
     ![][IOS3]
-3. Vaya a **Main.storyboard**y asegúrese de que dispone de un Controlador de vista (al que se hace referencia en este tutorial como Controlador de vista de inicio) en el tutorial [Notificación a usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+3. Vaya a **Main.storyboard** y asegúrese de que dispone de un Controlador de vista (al que se hace referencia en este tutorial como Controlador de vista de inicio) en el tutorial [Notificación a usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 4. Agregue un **Controlador de navegación** al guion gráfico y mantenga presionada la tecla Control mientras lo arrastra al Controlador de vista de inicio para convertirlo en la **vista raíz** de la navegación. Asegúrese de que esté seleccionado **Is Initial View Controller** en el Inspector de atributos solo para el Controlador de navegación.
 5. Agregue un **Controlador de vista** al guion gráfico y agregue una **Vista de imagen**. Esta es la página que verán los usuarios una vez que deseen obtener más información al hacer clic en la notificación. El guión gráfico debe tener el aspecto siguiente:
    

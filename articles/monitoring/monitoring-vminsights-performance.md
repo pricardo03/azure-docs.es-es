@@ -1,5 +1,5 @@
 ---
-title: Cómo representar el rendimiento en gráficos con Azure Monitor para VM | Microsoft Docs
+title: Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: El rendimiento es una característica de Azure Monitor para máquinas virtuales que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información sobre cómo usarla en una variedad de escenarios.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a63a9d22638231aa076cc4ced9030a378d0c36e4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 776a8901696bd69eeee6fd4b3622c8992bfc25a3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429497"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094319"
 ---
-# <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Cómo representar el rendimiento en gráficos con Azure Monitor para VM
+# <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)
 Azure Monitor para VM incluye un conjunto de gráficos de rendimiento que tienen como destino varios indicadores clave de rendimiento (KPI) para ayudarle a determinar el rendimiento de una máquina virtual. Los gráficos muestran el uso de los recursos durante un período de tiempo para que pueda identificar cuellos de botella, anomalías, o cambiar a una perspectiva en la que se muestre cada máquina a fin de ver el uso de los recursos en función de la métrica seleccionada. Aunque hay varios elementos a tener en cuenta cuando se trata del rendimiento, Azure Monitor para máquinas virtuales se centra en el sistema operativo según se manifiesta a través del procesador, la memoria, los adaptadores de red y los discos. El rendimiento complementa la característica de supervisión de mantenimiento y ayuda a exponer los problemas que indican un posible error en el componente del sistema. Además, es compatible con la optimización y los ajustes para lograr la eficiencia, así como con el planeamiento de capacidad.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspectiva de varias VM de Azure Monitor

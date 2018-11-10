@@ -4,23 +4,16 @@ description: Este documento proporciona información general sobre cómo vincula
 services: expressroute
 documentationcenter: na
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: 354f7c455e1a2846bbdd63fa12b1cc01e2a1b9c5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 36a591fc40648d7cc9f08a1f60d4c21c91fb8b7a
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29877558"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249703"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conexión de una red virtual a un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -31,10 +24,16 @@ ms.locfileid: "29877558"
 > * [PowerShell (clásico)](expressroute-howto-linkvnet-classic.md)
 >
 
-Este artículo lo ayudará a vincular redes virtuales a circuitos ExpressRoute de Azure a través del modelo de implementación de Resource Manager y PowerShell. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. En este artículo también se muestra cómo actualizar el vínculo de una red virtual. 
+Este artículo lo ayudará a vincular redes virtuales a circuitos ExpressRoute de Azure a través del modelo de implementación de Resource Manager y PowerShell. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. En este artículo también se muestra cómo actualizar el vínculo de una red virtual.
+
+* Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute estándar. Todas las redes virtuales deben pertenecer a la misma región geopolítica al utilizar un circuito de ExpressRoute estándar. 
+
+* Una red virtual solo se puede vincular a cuatro circuitos ExpressRoute como máximo. Use los pasos de este artículo para crear un nuevo objeto de conexión para cada circuito ExpressRoute al que quiere conectarse. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
+
+* Puede vincular una red virtual fuera de la región geopolítica del circuito de ExpressRoute, o bien conectar un mayor número de redes virtuales a este si habilitó el complemento premium de ExpressRoute. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
+
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Instale la versión más reciente de los módulos de Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 * Revise los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 
@@ -44,17 +43,13 @@ Este artículo lo ayudará a vincular redes virtuales a circuitos ExpressRoute d
   * Asegúrese de que el emparejamiento privado de Azure está configurado y el emparejamiento BGP entre la red y Microsoft está activo para habilitar la conectividad de extremo a extremo.
   * Asegúrese de que ha creado y aprovisionado totalmente una red virtual y una puerta de enlace de red virtual. Siga las instrucciones para [crear una puerta de enlace de red virtual en ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Una puerta de enlace de red virtual para ExpressRoute usa el GatewayType "ExpressRoute", no VPN.
 
-* Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute estándar. Todas las redes virtuales deben pertenecer a la misma región geopolítica al utilizar un circuito de ExpressRoute estándar. 
-
-* Una red virtual solo se puede vincular a cuatro circuitos ExpressRoute como máximo. Use el proceso siguiente para crear un objeto de conexión para cada circuito de ExpressRoute al que quiere conectarse. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
-
-* Puede vincular una red virtual fuera de la región geopolítica del circuito de ExpressRoute, o bien conectar un mayor número de redes virtuales a este si habilitó el complemento premium de ExpressRoute. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
-
+### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conexión de una red virtual en la misma suscripción a un circuito
 Puede conectar una puerta de enlace de red virtual a un circuito ExpressRoute mediante el siguiente cmdlet. Asegúrese de que la puerta de enlace de red virtual se crea y está lista para vincular antes de ejecutar el cmdlet:
 
-```powershell
+```azurepowershell-interactive
 $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
@@ -87,7 +82,7 @@ El propietario del circuito crea una autorización. Esto da lugar a la creación
 
 El fragmento de código del cmdlet siguiente muestra cómo crear una autorización:
 
-```powershell
+```azurepowershell-interactive
 $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
@@ -112,7 +107,7 @@ La respuesta a esta contendrá la clave y el estado de la autorización:
 
 El propietario del circuito puede revisar todas las autorizaciones emitidas en un circuito concreto ejecutando el siguiente cmdlet:
 
-```powershell
+```azurepowershell-interactive
 $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
@@ -121,7 +116,7 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 
 El propietario del circuito puede agregar las autorizaciones mediante el siguiente cmdlet:
 
-```powershell
+```azurepowershell-interactive
 $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
@@ -134,7 +129,7 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 
 El propietario del circuito puede revocar o eliminar las autorizaciones al usuario ejecutando el siguiente cmdlet:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 ```    
@@ -145,7 +140,7 @@ El usuario del circuito necesita el Id. de mismo nivel y una clave de autorizaci
 
 El id. de mismo nivel se puede comprobar con el siguiente comando:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
@@ -153,7 +148,7 @@ Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
 El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una autorización de vínculo:
 
-```powershell
+```azurepowershell-interactive
 $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
 $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
@@ -170,7 +165,7 @@ Puede actualizar ciertas propiedades de una conexión de red virtual.
 
 La red virtual puede estar conectada a varios circuitos ExpressRoute. Es posible que reciba el mismo prefijo de más de un circuito ExpressRoute. Para elegir la conexión por la que enviar el tráfico destinado a este prefijo, puede cambiar el valor de *RoutingWeight* de una conexión. El tráfico se enviará por la conexión con el valor más alto de *RoutingWeight*.
 
-```powershell
+```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
 $connection.RoutingWeight = 100
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection

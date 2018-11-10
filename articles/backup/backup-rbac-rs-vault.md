@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012063"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412812"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
@@ -34,24 +34,34 @@ Si quiere definir sus propios roles para tener un mayor control, consulte cómo 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Asignación de roles integrados de Backup a las acciones de administración de copia de seguridad
 En la tabla siguiente se capturan acciones de administración de Backup y el rol RBAC mínimo correspondiente necesario para realizar esa operación.
 
-| Operación de administración | Rol RBAC mínimo necesario |
-| --- | --- |
-| Crear almacén de Recovery Services | Colaborador en el grupo de recursos del almacén |
-| Habilitar la copia de seguridad de VM de Azure | Operador de copias se seguridad definido en el ámbito del grupo de recursos que contiene el almacén, colaborador de la máquina virtual en VM |
-| Copia de seguridad a petición de VM | Operador de copia de seguridad |
-| Restaurar VM | Operador de copias de seguridad, colaborador de grupo de recursos donde se implementa la máquina virtual, lectura en la red virtual y unión en la subred seleccionada |
-| Restaurar discos y archivos individuales a partir de la copia de seguridad de VM | Operador de copia de seguridad, colaborador de máquina virtual en VM |
-| Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
-| Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
-| Eliminar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
-| Detener copia de seguridad (con retención de datos o eliminación de datos) en copia de seguridad de VM | Colaborador de copia de seguridad |
-| Registrar Windows Server, cliente o SCDPM local o Azure Backup Server | Operador de copia de seguridad |
-| Eliminar Windows Server, cliente o SCDPM local registrado o Azure Backup Server | Colaborador de copia de seguridad |
+| Operación de administración | Rol RBAC mínimo necesario | Ámbito requerido |
+| --- | --- | --- |
+| Crear almacén de Recovery Services | Colaborador | Grupo de recursos que contiene el almacén |
+| Habilitar la copia de seguridad de VM de Azure | Operador de copias de seguridad | Grupo de recursos que contiene el almacén |
+| | Colaborador de la máquina virtual | Recurso de máquina virtual |
+| Copia de seguridad a petición de VM | Operador de copias de seguridad | Recurso de almacén de recuperación |
+| Restaurar VM | Operador de copias de seguridad | Grupo de recursos en el que se implementará la máquina virtual |
+| | Colaborador de la máquina virtual | Grupo de recursos en el que se implementará la máquina virtual |
+| Restaurar la copia de seguridad de la máquina virtual de discos no administrados | Operador de copias de seguridad | Recurso de almacén de recuperación |
+| | Colaborador de la máquina virtual | Recurso de máquina virtual |
+| | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento |
+| Restaurar discos administrados de la copia de seguridad de la máquina virtual | Operador de copias de seguridad | Recurso de almacén de recuperación |
+| | Colaborador de la máquina virtual | Recurso de máquina virtual |
+| | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento |
+| | Colaborador | Grupo de recursos en el cual se restaurará el disco administrado |
+| Restaurar archivos individuales desde la copia de seguridad de la máquina virtual | Operador de copias de seguridad | Recurso de almacén de recuperación |
+| | Colaborador de la máquina virtual | Recurso de máquina virtual |
+| Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
+| Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
+| Eliminar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
+| Detener copia de seguridad (con retención de datos o eliminación de datos) en copia de seguridad de VM | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
+| Registrar Windows Server, cliente o SCDPM local o Azure Backup Server | Operador de copias de seguridad | Recurso de almacén de recuperación |
+| Eliminar Windows Server, cliente o SCDPM local registrado o Azure Backup Server | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md): introducción a RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI de Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API de REST](../role-based-access-control/role-assignments-rest.md)
+  * [API DE REST](../role-based-access-control/role-assignments-rest.md)
 * [Solución de problemas del control de acceso basado en roles](../role-based-access-control/troubleshooting.md): sugerencias para resolver problemas frecuentes.

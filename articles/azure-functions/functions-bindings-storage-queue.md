@@ -3,21 +3,21 @@ title: Enlaces de Azure Queue Storage para Azure Functions
 description: Obtenga información acerca de cómo usar enlaces de salida y desencadenador de Azure Queue Storage en Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
+ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: cb72b3f6b0a665f1a4d39d1e8533be51faa4c107
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: e47233f075482b9ad00336ce1aaeae78465be2d5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167144"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248580"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -62,9 +62,9 @@ public static class QueueFunctions
     [FunctionName("QueueTrigger")]
     public static void QueueTrigger(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 }
 ```
@@ -97,6 +97,7 @@ Este es el código de script de C#:
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System;
 
@@ -108,9 +109,9 @@ public static void Run(CloudQueueMessage myQueueItem,
     string id,
     string popReceipt,
     int dequeueCount,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -197,7 +198,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los s
   [FunctionName("QueueTrigger")]
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -209,7 +210,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los s
   [FunctionName("QueueTrigger")]
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
-      TraceWriter log)
+      ILogger log)
   {
       ....
   }
@@ -329,9 +330,9 @@ public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
     [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
+    public static string QueueOutput([HttpTrigger] dynamic input,  ILogger log)
     {
-        log.Info($"C# function processed: {input.Text}");
+        log.LogInformation($"C# function processed: {input.Text}");
         return input.Text;
     }
 }
@@ -379,7 +380,7 @@ public class CustomQueueMessage
     public string Title { get; set; }
 }
 
-public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
+public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
 {
     return input;
 }
@@ -391,7 +392,7 @@ Puede enviar varios mensajes a la vez mediante el uso de un parámetro `ICollect
 public static void Run(
     CustomQueueMessage input, 
     ICollector<CustomQueueMessage> myQueueItems, 
-    TraceWriter log)
+    ILogger log)
 {
     myQueueItems.Add(input);
     myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
@@ -476,7 +477,7 @@ El atributo se aplica a un parámetro `out` o al valor de retorno de la función
 ```csharp
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
-public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+public static string Run([HttpTrigger] dynamic input,  ILogger log)
 {
     ...
 }
@@ -487,7 +488,7 @@ Puede establecer la propiedad `Connection` para especificar la cuenta de almacen
 ```csharp
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
-public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+public static string Run([HttpTrigger] dynamic input,  ILogger log)
 {
     ...
 }
@@ -537,6 +538,39 @@ En las funciones de JavaScript, use `context.bindings.<name>` para tener acceso 
 | Cola | [Códigos de error de cola](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, tabla, cola | [Códigos de error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, tabla, cola |  [Solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>configuración de host.json
+
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "queues": {
+            "maxPollingInterval": "00:00:02",
+            "visibilityTimeout" : "00:00:30",
+            "batchSize": 16,
+            "maxDequeueCount": 5,
+            "newBatchThreshold": 8
+        }
+    }
+}
+```  
+
+
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|---------|---------|---------| 
+|maxPollingInterval|00:00:02|Intervalo máximo entre sondeos de la cola. El valor mínimo es 00:00:00.100 (100 ms). | 
+|visibilityTimeout|00:00:00|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje. | 
+|batchSize|16|El número de mensajes en cola que el runtime de Functions recupera simultáneamente y procesa en paralelo. Cuando el número que se está procesando llega a `newBatchThreshold` el runtime obtiene otro lote y empieza a procesar esos mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es `batchSize` más `newBatchThreshold`. Este límite se aplica por separado a cada función desencadenada por la cola. <br><br>Si desea evitar la ejecución en paralelo de los mensajes de una cola, puede establecer `batchSize` en 1. Sin embargo, este valor solo elimina la simultaneidad siempre y cuando la aplicación de función se ejecute en una única máquina virtual (VM). Si la aplicación de función se escala horizontalmente a varias máquinas virtuales, cada una de ellas podría ejecutar una instancia de cada función desencadenada por la cola.<br><br>El valor máximo de `batchSize` es 32. | 
+|maxDequeueCount|5|Número de veces que se intenta procesar un mensaje antes de pasarlo a la cola de mensajes dudosos.| 
+|newBatchThreshold|batchSize/2|Siempre que el número de mensajes que se procesan simultáneamente llega a este número, el runtime recupera otro lote.| 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

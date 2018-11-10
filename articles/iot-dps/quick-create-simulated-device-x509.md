@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante C | Microsoft Docs'
-description: En este inicio rápido, creará y aprovisionará un dispositivo X.509 simulado mediante el SDK de dispositivos C para el servicio Azure IoT Hub Device Provisioning
+description: En esta guía de inicio rápido se utilizan inscripciones individuales. En esta guía de inicio rápido, creará y aprovisionará un dispositivo X.509 simulado mediante el SDK de dispositivos para C para Azure IoT Hub Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/16/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9eb80b085f979208999b6764d6e4014cdbcfd2a0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8b7848392ebd8ec44dcf646b13911aaafe905ae3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159132"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158929"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado mediante el SDK para C de Azure IoT
 
@@ -22,7 +22,13 @@ ms.locfileid: "47159132"
 
 En este inicio rápido, aprenderá a crear y ejecutar un simulador de dispositivos X.509 en un equipo de desarrollo Windows. Configurará este dispositivo simulado para asignarlo a un centro de IoT mediante una inscripción en una instancia del servicio Device Provisioning. Se usará código de ejemplo del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular una secuencia de arranque para el dispositivo. El dispositivo se reconocerá en función de la inscripción en el servicio de aprovisionamiento y se asignará al centro de IoT.
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Además, asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este inicio rápido. 
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [Conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Además, asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este inicio rápido. 
+
+Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
+- [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un único dispositivo.
+
+En este artículo se mostrarán las inscripciones individuales.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

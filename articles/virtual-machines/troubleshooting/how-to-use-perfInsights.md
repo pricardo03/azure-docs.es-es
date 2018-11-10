@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 29af7ad8b582682189320185c460597af53cf6d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413240"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243920"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) es una herramienta de diagnóstico de autoayuda que recopila y analiza los datos de diagnóstico y proporciona un informe para ayudar a solucionar los problemas de rendimiento de las máquinas virtuales Windows en Azure. Se puede ejecutar en máquinas virtuales como una herramienta independiente o directamente desde el portal mediante [Diagnóstico de rendimiento para máquinas virtuales de Azure](performance-diagnostics.md) o mediante la instalación de la [extensión Azure Performance Diagnostics VM](performance-diagnostics-vm-extension.md).
+[PerfInsights](https://aka.ms/perfinsightsdownload) es una herramienta de diagnóstico de autoayuda que recopila y analiza los datos de diagnóstico y proporciona un informe para ayudar a solucionar los problemas de rendimiento de las máquinas virtuales Windows en Azure. Se puede ejecutar en máquinas virtuales como una herramienta independiente o directamente desde el portal mediante [Diagnóstico de rendimiento para máquinas virtuales de Azure](performance-diagnostics.md) o mediante la instalación de la [extensión Azure Performance Diagnostics VM](performance-diagnostics-vm-extension.md).
 
 Si experimenta problemas de rendimiento con las máquinas virtuales, ejecute esta herramienta antes de ponerse en contacto con el servicio de soporte técnico.
 
@@ -190,7 +190,7 @@ Para más información acerca de esta opción, consulte [Instalación de la exte
 Para ejecutar la herramienta PerfInsights, siga estos pasos:
 
 
-1. Descargue [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
+1. Descargue [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
 2. Desbloquee el archivo PerfInsights.zip. Para ello, haga clic con el botón derecho en el archivo PerfInsights.zip y seleccione **Propiedades**. En la pestaña **General**, seleccione **Desbloquear** y haga clic en **Aceptar**. Así se asegura de que la herramienta se ejecuta sin advertencias de seguridad adicionales.  
 

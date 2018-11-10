@@ -1,22 +1,20 @@
 ---
-title: Administración de interfaces de red en Azure Site Recovery para la replicación de local a Azure | Microsoft Docs
-description: Describe cómo administrar las interfaces de red para la replicación de local a Azure con Azure Site Recovery
-services: site-recovery
+title: Administración de interfaces de red en Azure Site Recovery para la recuperación ante desastres local en Azure | Microsoft Docs
+description: Se describe cómo administrar las interfaces de red para la recuperación ante desastres local en Azure con Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352417"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212461"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Administración de interfaces de red de máquina virtual para la replicación de local a Azure
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Administración de interfaces de red de máquina virtual para la recuperación ante desastres local en Azure
 Una máquina virtual (VM) en Azure debe tener al menos una interfaz de red conectada. Puede tener tantas interfaces de red conectadas como admita el tamaño de la máquina virtual.
 
 De forma predeterminada, la primera interfaz de red de una máquina virtual de Azure se define como la interfaz de red principal. Todas las demás interfaces de red de la máquina virtual son interfaces de red secundarias. También de forma predeterminada, todo el tráfico saliente de la máquina virtual se envía a la dirección IP asignada a la configuración de IP principal de la interfaz de red principal.

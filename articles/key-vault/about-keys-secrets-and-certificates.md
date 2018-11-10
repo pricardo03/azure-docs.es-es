@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958661"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139011"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -245,7 +245,7 @@ Además los datos secretos, se pueden especificar los siguientes atributos:
 
 - *exp*: tipo IntDate, opcional, el valor predeterminado es **forever** (indefinidamente). El atributo *exp* (hora de expiración) identifica la hora de expiración después de la cual NO SE DEBEN recuperar los datos secretos, excepto en las [situaciones particulares](#date-time-controlled-operations). Este campo tiene fines **informativo** únicamente, que informa a los usuarios del servicio del almacén de claves que no se puede usar un determinado secreto. Su valor debe ser un número que contenga un valor IntDate.   
 - *nbf*: tipo IntDate, opcional, el valor predeterminado es **now** (ahora). El atributo *nbf* (no antes de) identifica la hora antes de la cual NO SE DEBEN recuperar los datos secretos, excepto en las [situaciones particulares](#date-time-controlled-operations). Este campo tiene fines **informativos** únicamente. Su valor debe ser un número que contenga un valor IntDate. 
-- *enabled*: booleano, opcional, el valor predeterminado es **true**. Este atributo especifica si se pueden recuperar los datos secretos. El atributo enabled se usa junto con nbf y *exp* y cuando se produce una operación entre nbf y exp, solo se permitirá si enabled se establece en **true**. Las operaciones fuera de la franja entre *nbf* y *exp* se deniegan automáticamente, excepto en [situaciones particulares](#date-time-controlled-operations).  
+- *enabled*: booleano, opcional, el valor predeterminado es **true**. Este atributo especifica si se pueden recuperar los datos secretos. El atributo enabled se usa junto con *nbf* y *exp* y cuando se produce una operación entre *nbf* y *exp*, solo se permitirá si enabled se establece en **true**. Las operaciones fuera de la franja entre *nbf* y *exp* se deniegan automáticamente, excepto en [situaciones particulares](#date-time-controlled-operations).  
 
 Existen atributos de solo lectura adicionales que se incluyen en cualquier respuesta que incluya atributos de secreto:  
 

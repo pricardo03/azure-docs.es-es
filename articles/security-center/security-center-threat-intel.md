@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714435"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241726"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mapa de alertas de seguridad e información sobre amenazas
 En este artículo obtendrá ayuda para usar el mapa de alertas de seguridad y el mapa de inteligencia sobre amenazas basada en eventos de seguridad de Azure Security Center para solucionar problemas relacionados con la seguridad.
@@ -106,4 +106,4 @@ En este artículo, ha aprendido a utilizar la inteligencia sobre amenazas de Sec
 * [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
 * [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Obtenga respuestas a preguntas frecuentes acerca del uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.

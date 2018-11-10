@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: efbc020f482a46621eb5c3e3cd6137d1114da6de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129614"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415838"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copia de datos de Marketo con Azure Data Factory (versión preliminar)
 
@@ -32,6 +32,9 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 Puede copiar datos de Marketo en cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+
+>[!NOTE]
+>Este conector de Marketo se basa en la API REST de Marketo. Tenga en cuenta que Marketo tiene un [límite de solicitudes simultáneas](http://developers.marketo.com/rest-api/) en el lado del servicio. Si encuentra algún error como los siguientes: "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" (Error al intentar usar REST API: el límite de velocidad máx. "100" se superó en "20" s (606)) o "Error while attempting to use REST API: Concurrent access limit '10' reached (615)" (Error al intentar usar REST API: se alcanzó el límite de acceso simultáneo de "10" (615)), considere la posibilidad de reducir las ejecuciones de actividad de copia simultáneas para reducir el número de solicitudes al servicio.
 
 ## <a name="getting-started"></a>Introducción
 

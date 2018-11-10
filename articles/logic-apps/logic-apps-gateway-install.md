@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855432"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420105"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -60,12 +60,14 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 * Estos son los requisitos para el equipo local:
 
   **Requisitos mínimos**
+
   * .NET Framework 4.5.2
   * versión de 64 bits de Windows 7 o Windows Server 2008 R2 (o posterior)
 
   **Requisitos recomendados**
+
   * CPU de 8 núcleos
-  * 8 GB de memoria
+  * 8 GB de memoria
   * Versión de 64 bits de Windows Server 2012 R2 (o posterior)
 
 * **Consideraciones importantes**
@@ -75,11 +77,11 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
     > [!TIP]
     > Para minimizar la latencia, puede instalar la puerta de enlace lo más cerca posible del origen de datos o en el mismo equipo, suponiendo que tiene los permisos necesarios.
 
-  * Instale la puerta de enlace en un equipo que esté conectado a Internet, siempre activado y *no* entre al modo de suspensión. En caso contrario, no se podrá ejecutar la puerta de enlace. Además, el rendimiento podría verse afectado en una red inalámbrica.
+  * Instale la puerta de enlace en un equipo que esté conectado a Internet, siempre activado y *no* entre al modo de suspensión. En caso contrario, no se podrá ejecutar la puerta de enlace. 
+  Además, el rendimiento podría verse afectado en una red inalámbrica.
 
-  * Durante la instalación, solo puede iniciar sesión con una [cuenta profesional o educativa](../active-directory/sign-up-organization.md) que Azure Active Directory (Azure AD) administre y no una cuenta de Microsoft. 
-  Además, asegúrese de que esta cuenta no sea una cuenta B2B (de invitado) de Azure. 
-  También debe utilizar la misma cuenta de inicio de sesión en Azure Portal cuando registre la instalación de puerta de enlace al crear un recurso de Azure para la puerta de enlace. 
+  * Durante la instalación, solo puede iniciar sesión con una [cuenta profesional o educativa](../active-directory/sign-up-organization.md) que administre Azure Active Directory (Azure AD), como por ejemplo, @contoso.onmicrosoft.com, y no con una cuenta de Azure B2B (invitado) ni con una cuenta personal de Microsoft, como @hotmail.com o @outlook.com. 
+  Asegúrese de utilizar la misma cuenta de inicio de sesión cuando registre la instalación de su puerta de enlace en Azure Portal creando un recurso de puerta de enlace. 
   Luego puede seleccionar este recurso de puerta de enlace al crear la conexión de la aplicación lógica con el origen de datos local. 
   [¿Por qué debo usar una cuenta profesional o educativa de Azure AD?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
   * Si ya tiene una puerta de enlace que configuró con un instalador cuya versión es anterior a 14.16.6317.4, no puede cambiar la ubicación de la puerta de enlace ejecutando el instalador más reciente. Pero puede usar el instalador más reciente para instalar una nueva puerta de enlace con la ubicación que desee.
   
     Si tiene un instalador de puerta de enlace cuya versión es anterior a 14.16.6317.4, pero no ha instalado todavía la puerta de enlace, puede descargar y usar el instalador más reciente.
+
+## <a name="high-availability-support"></a>Alta disponibilidad
+
+La puerta de enlace de datos local admite alta disponibilidad cuando se tienen varias instalaciones de puerta de enlace y se configuran como clústeres. Si ya hay una puerta de enlace existente cuando vaya a crear otra puerta de enlace, tiene la posibilidad de crear clústeres de alta disponibilidad. Estos clústeres organizan las puertas de enlace en grupos que pueden ayudar a evitar únicos puntos de error. Además, todos los conectores de la puerta de enlace de datos local admiten ahora alta disponibilidad.
+
+Para utilizar la puerta de enlace de datos local, revise estos requisitos y consideraciones:
+
+* Debe tener al menos una instalación de puerta de enlace en la misma suscripción de Azure que la puerta de enlace principal y la clave de recuperación para esa instalación. 
+
+* La puerta de enlace principal debe ejecutar la actualización de puerta de enlace de noviembre de 2017 o posterior.
+
+Después de cumplir estos requisitos, cuando cree su próxima puerta de enlace, seleccione **Add to an existing gateway cluster** (Agregar a un clúster de puerta de enlace existente), seleccione la puerta de enlace principal para su clúster e indique la clave de recuperación de esa puerta de enlace principal.
+Para obtener más información, consulte [Clústeres de alta disponibilidad para puerta de enlace a datos local](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="install-gateway"></a>
 
@@ -160,19 +175,6 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
    ![Puerta de enlace finalizada](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 10. Registre ahora la puerta de enlace en Azure mediante la [creación de un recurso de Azure para la instalación de puerta de enlace](../logic-apps/logic-apps-gateway-connection.md). 
-
-## <a name="enable-high-availability"></a>Habilitación de alta disponibilidad
-
-La puerta de enlace de datos local admite alta disponibilidad cuando se tienen varias instalaciones de puerta de enlace y se configuran como clústeres. Si ya hay una puerta de enlace existente cuando vaya a crear otra puerta de enlace, tiene la posibilidad de crear clústeres de alta disponibilidad. Estos clústeres organizan las puertas de enlace en grupos que pueden ayudar a evitar únicos puntos de error. Para utilizar esta funcionalidad, revise estos requisitos y consideraciones:
-
-* Solo algunos conectores admiten alta disponibilidad como, por ejemplo, el conector del sistema de archivos. 
-     
-* Debe tener al menos una instalación de puerta de enlace en la misma suscripción de Azure que la puerta de enlace principal y la clave de recuperación para esa instalación. 
-
-* La puerta de enlace principal debe ejecutar la actualización de puerta de enlace de noviembre de 2017 o posterior.
-
-Después de cumplir estos requisitos, cuando cree su próxima puerta de enlace, seleccione **Add to an existing gateway cluster** (Agregar a un clúster de puerta de enlace existente), seleccione la puerta de enlace principal para su clúster e indique la clave de recuperación de esa puerta de enlace principal.
-Para obtener más información, consulte [Clústeres de alta disponibilidad para puerta de enlace a datos local](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="update-gateway-installation"></a>
 

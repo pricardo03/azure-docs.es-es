@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 907cec2784b4ad22555f6b29efb6d670ce7d48d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0437bd46537d8b7024618706aba12660abca5512
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443654"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414699"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integración de Azure Active Directory con LINE WORKS
 
@@ -53,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de LINE WORKS desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-line-works-from-the-gallery"></a>Incorporación de LINE WORKS desde la galería
 Para configurar la integración de LINE WORKS en Azure AD, es preciso agregar LINE WORKS desde la galería a la lista de aplicaciones SaaS administradas.
@@ -62,19 +61,19 @@ Para configurar la integración de LINE WORKS en Azure AD, es preciso agregar LI
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![Botón Azure Active Directory][1]
+    ![imagen](./media/worksmobile-tutorial/selectazuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
+    ![imagen](./media/worksmobile-tutorial/a_select_app.png)
     
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![imagen](./media/worksmobile-tutorial/a_new_app.png)
 
-1. En el cuadro de búsqueda, escriba **LINE WORKS** , seleccione **LINE WORKS**  en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **LINE WORKS** , seleccione **LINE WORKS**  en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![LINE WORKS en la lista de resultados](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
+     ![imagen](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -82,15 +81,13 @@ En esta sección, podrá configurar y probar el inicio de sesión único de Azur
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de LINE WORKS para un usuario de Azure AD. Es decir, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de LINE WORKS.
 
-Para establecer la relación de vínculo, en LINE WORKS, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
-
 Para configurar y probar el inicio de sesión único de Azure AD con LINE WORKS, es necesario completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de LINE WORKS](#create-a-line-works-test-user)**: para tener un homólogo de Britta Simon en LINE WORKS que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de LINE WORKS](#create-a-line-works-test-user)**: para tener un homólogo de Britta Simon en LINE WORKS que esté vinculado a su representación en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -98,132 +95,109 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 **Para configurar el inicio de sesión único de Azure AD con LINE WORKS, realice los pasos siguientes:**
 
-1. En Azure Portal, en la página de integración de la aplicación **WORKS**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **LINE WORKS**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![imagen](./media/worksmobile-tutorial/b1_b2_select_sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/worksmobile-tutorial/tutorial_lineworks_samlbase.png)
+2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, haga clic en **Seleccionar** para el modo **SAML** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de LINE WORKS**, lleve a cabo los pasos siguientes:
+    ![imagen](./media/worksmobile-tutorial/b1_b2_saml_sso.png)
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de LINE WORKS](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`.
+    ![imagen](./media/worksmobile-tutorial/b1-domains_and_urlsedit.png)
 
-    b. En el cuadro de texto **Identificador**, escriba el valor `worksmobile.com`.
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de LINE WORKS](mailto:dl_ssoinfo@worksmobile.com) para obtener este valor.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://auth.worksmobile.com/d/login/<domain>/?userId=<ID@domain>`
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (sin procesar)** y, a continuación, guarde el archivo de certificado en el equipo.
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL: `worksmobile.com`
 
-    ![Vínculo de descarga del certificado](./media/worksmobile-tutorial/tutorial_lineworks_certificate.png) 
+    ![imagen](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
 
-1. Haga clic en el botón **Guardar** .
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Raw)** y guárdelo en su equipo.
 
-    ![Botón Configurar inicio de sesión único](./media/worksmobile-tutorial/tutorial_general_400.png)
+    ![imagen](./media/worksmobile-tutorial/tutorial_lineworks_certficate.png)
 
-1. En la sección **Configuración de LINE WORKS**, haga clic en **Configurar LINE WORKS** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+6. En la sección **Configurar LINE WORKS**, copie la dirección URL adecuada según sus necesidades.
 
-    ![Configuración de LINE WORKS](./media/worksmobile-tutorial/tutorial_lineworks_configure.png) 
+    a. URL de inicio de sesión
 
-1. Para configurar el inicio de sesión único en **LINE WORKS**, es preciso enviar los datos descargados del **archivo Certificado, Dirección URL de inicio de sesión, SAML Entity ID (Identificador de identidad de SAML) y SAML Single Sign-On Service (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de LINE WORKS](mailto:dl_ssoinfo@worksmobile.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+    b. Identificador de Azure AD
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. URL de cierre de sesión
+
+    ![imagen](./media/worksmobile-tutorial/d1_samlsonfigure.png) 
+
+7. Para configurar el inicio de sesión único en el lado **LINE WORKS**, lea los [documentos de SSO de LINE WORKS](https://developers.worksmobile.com/jp/document/1001080101) y configure un entorno de LINE WORKS.
+
+> [!NOTE]
+> Deberá convertir el archivo de certificado descargado de .cert a .pem.
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![imagen](./media/worksmobile-tutorial/d_users_and_groups.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/worksmobile-tutorial/create_aaduser_01.png)
+    ![imagen](./media/worksmobile-tutorial/d_adduser.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/worksmobile-tutorial/create_aaduser_02.png)
+    ![imagen](./media/worksmobile-tutorial/d_userproperties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/worksmobile-tutorial/create_aaduser_03.png)
+    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
 
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/worksmobile-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-
-    d. Haga clic en **Create**(Crear).
+    d. Seleccione **Crear**.
  
 ### <a name="create-a-line-works-test-user"></a>Creación de un usuario de prueba de LINE WORKS
 
-En esta sección, creará un usuario llamado Britta Simon en LINE WORKS. Trabaje con el [equipo de soporte técnico de LINE WORKS](mailto:dl_ssoinfo@worksmobile.com) para agregar usuarios a la plataforma de LINE WORKS.
+En esta sección, creará un usuario llamado Britta Simon en LINE WORKS. Acceda a la [página de administración de LINE WORKS](https://admin.worksmobile.com) y agregue usuarios a la plataforma LINE WORKS.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a LINE WORKS.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
-**Para asignar Britta Simon a LINE WORKS, realice los pasos siguientes:**
+    ![imagen](./media/worksmobile-tutorial/d_all_applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **LINE WORKS**.
 
-    ![Asignar usuario][201] 
+    ![imagen](./media/worksmobile-tutorial/tutorial_lineworks_app.png)
 
-1. En la lista de aplicaciones, seleccione **LINE WORKS**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo a LINE WORKS en la lista de aplicaciones](./media/worksmobile-tutorial/tutorial_lineworks_app.png)  
+    ![imagen](./media/worksmobile-tutorial/d_leftpaneusers.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![imagen](./media/worksmobile-tutorial/d_assign_user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Panel Agregar asignación][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de LINE WORKS en el panel de acceso, debería iniciar sesión automáticamente en su aplicación LINE WORKS.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
-
-[1]: ./media/lineworks-tutorial/tutorial_general_01.png
-[2]: ./media/lineworks-tutorial/tutorial_general_02.png
-[3]: ./media/lineworks-tutorial/tutorial_general_03.png
-[4]: ./media/lineworks-tutorial/tutorial_general_04.png
-
-[100]: ./media/lineworks-tutorial/tutorial_general_100.png
-
-[200]: ./media/lineworks-tutorial/tutorial_general_200.png
-[201]: ./media/lineworks-tutorial/tutorial_general_201.png
-[202]: ./media/lineworks-tutorial/tutorial_general_202.png
-[203]: ./media/lineworks-tutorial/tutorial_general_203.png
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
-ms.openlocfilehash: 009206f1e0ba848538ed2c666032a63051d062e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790753"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247184"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Especificar la configuración DNS en un archivo de configuración de servicio
 ## <a name="dns-elements"></a>Elementos DNS
@@ -41,9 +41,9 @@ Un archivo de configuración de servicio puede contener un elemento DnsServers c
 ## <a name="see-also"></a>Otras referencias
 [Esquema de configuración del servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Esquema de configuración de Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Esquema de configuración de Azure Virtual Network](https://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configuración de una red virtual mediante un archivo de configuración de red](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Configuración de una red virtual mediante un archivo de configuración de red](https://go.microsoft.com/fwlink/?LinkId=248094)
 
-[Información acerca de la configuración de red virtual en el Portal de administración](http://go.microsoft.com/fwlink/?LinkId=248092)
+[Información acerca de la configuración de red virtual en el Portal de administración](https://go.microsoft.com/fwlink/?LinkId=248092)
 

@@ -14,12 +14,12 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: a1e472d237977d1948c69828d8ec391522896774
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058213"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232807"
 ---
 # <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>Ejemplo de la CLI: creación de un clúster de Batch AI mediante un archivo de configuración de clúster
 
@@ -27,7 +27,7 @@ Este script muestra cómo usar un archivo de configuración JSON para especifica
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.38 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para esta guía es preciso que ejecute la versión 2.0.38 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para determinar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Script de ejemplo
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: 1d1506e26beec3cc48a904ddeb9bbb4e7656a08e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783754"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240144"
 ---
 # <a name="deliver-content-to-customers"></a>Entrega de contenido a los clientes
 Al proporcionar contenido de vídeo bajo demanda o streaming a los clientes, el objetivo consiste en entregar vídeo de alta calidad a varios dispositivos en condiciones de red diferentes.
@@ -70,9 +70,9 @@ Los localizadores tienen fecha de expiración. El Portal de Azure establece una 
 > 
 > 
 
-Para actualizar la fecha de caducidad de un localizador, use las API de [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Para actualizar la fecha de caducidad de un localizador, use las API de [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o de [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
-Los localizadores no están diseñados para administrar el control de acceso por usuario. Puede conceder derechos de acceso diferentes a usuarios individuales con las soluciones de administración de derechos digitales (DRM). Para obtener más información, consulte [Protección de archivos multimedia](http://msdn.microsoft.com/library/azure/dn282272.aspx).
+Los localizadores no están diseñados para administrar el control de acceso por usuario. Puede conceder derechos de acceso diferentes a usuarios individuales con las soluciones de administración de derechos digitales (DRM). Para obtener más información, consulte [Protección de archivos multimedia](https://msdn.microsoft.com/library/azure/dn282272.aspx).
 
 Al crear un localizador, puede haber un retraso de 30 segundos debido a los procesos de almacenamiento y propagación requeridos en Azure Storage.
 

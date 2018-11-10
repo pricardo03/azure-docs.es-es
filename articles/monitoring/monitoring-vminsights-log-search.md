@@ -1,5 +1,5 @@
 ---
-title: Cómo consultar registros de Azure Monitor para VM | Microsoft Docs
+title: Cómo consultar registros de Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: La solución Azure Monitor para VM reenvía los datos de métricas y registros a Log Analytics y, en este artículo, se describen los registros y se incluyen consultas de ejemplo.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269401"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095429"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Cómo consultar registros de Azure Monitor para VM
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al almacén de datos de Log Analytics en Azure Monitor.  Estos datos están disponibles para realizar [búsquedas](../log-analytics/log-analytics-log-searches.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 ## <a name="map-records"></a>Registros de asignación
@@ -102,15 +102,15 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
 |MaliciousIP |Dirección RemoteIp |
-|IndicatorThreadType |Indicador de amenazas detectadas es uno de los siguientes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+|IndicatorThreadType |El indicador de amenazas detectado es uno de los siguientes valores: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
 |DESCRIPCIÓN |Descripción de la amenaza observada. |
-|TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos, *blanco*, *verde*, *ámbar*, *rojo*. |
+|TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos: *blanco*, *verde*, *ámbar*, *rojo*. |
 |Confianza |Los valores válidos se encuentran entre *0 y 100*. |
 |Gravedad |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
 |FirstReportedDateTime |La primera vez que el proveedor informó sobre el indicador. |
 |LastReportedDateTime |La última vez que Interflow ha visto el indicador. |
 |IsActive |Indica que los indicadores se desactivan con el valor *True* o *False*. |
-|ReportReferenceLink |Vínculos a informes relacionados con un objeto observable especificado. |
+|ReportReferenceLink |Vincula a informes relacionados con un objeto observable especificado. |
 |AdditionalInformation |Proporciona información adicional, si procede, sobre la amenaza observada. |
 
 ### <a name="servicemapcomputercl-records"></a>Registros de ServiceMapComputer_CL

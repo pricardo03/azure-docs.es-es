@@ -1,7 +1,7 @@
 ---
 title: Migrar de Translator Speech API al servicio Voz
 titleSuffix: Azure Cognitive Services
-description: Use este tema para obtener información sobre cómo migrar sus aplicaciones de Translator Speech API al servicio Voz.
+description: Obtenga información sobre cómo migrar sus aplicaciones de Translator Speech API al servicio Voz.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: a35c4a7f2d2b64bd3650df1f18d08da4ea191e3a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466399"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415481"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar de Translator Speech API al servicio Voz
 
@@ -32,11 +32,11 @@ Use este artículo para obtener información sobre cómo migrar sus aplicaciones
 | Traducción a voz                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Punto de conexión global                                   | :heavy_check_mark:                                              | :heavy_minus_sign:                 | El servicio Voz no ofrece actualmente un punto de conexión global. Un punto de conexión global puede dirigir automáticamente el tráfico al punto de conexión regional más cercano, reduciendo la latencia en la aplicación.                                                    |
 | Puntos de conexión regionales                                | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Límite de tiempo de conexión                             | 90 minutos                                               | Ilimitado con SDK. 10 minutos con una conexión WebSocket                                                                                                                                                                                                                                                                                   |
+| Límite de tiempo de conexión                             | 90 minutos                                               | Ilimitado con SDK. 10 minutos con una conexión WebSockets                                                                                                                                                                                                                                                                                   |
 | Clave de autenticación de encabezado                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Varios idiomas que se traducen en una sola solicitud | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDK disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vea la [Documentación del SDK del servicio Voz](index.yml) para obtener información de SDK disponibles.                                                                                                                                                    |
-| Conexiones WebSocket                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Conexiones de WebSockets                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | API Languages                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | El servicio Voz es compatible con el mismo conjunto de idiomas que se describe en el artículo de [referencia de idiomas de la API Translator](../translator-speech/languages-reference.md). |
 | Marcador y filtro de obscenidad                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -49,15 +49,15 @@ Use este artículo para obtener información sobre cómo migrar sus aplicaciones
 
 ## <a name="migration-strategies"></a>Estrategias de migración
 
-Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Translator Speech, deben actualizarlas para que usen el servicio Voz. Vea la documentación del [servicio Voz](index.yml) para obtener información sobre SDK disponibles, ejemplos de código y tutoriales. A continuación se muestran algunos aspectos que deben tenerse en cuenta al migrar:
+Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Translator Speech, deben actualizarlas para que usen el servicio Voz. Vea la documentación del [servicio Voz](index.yml) para obtener información sobre SDK disponibles, ejemplos de código y tutoriales. Tenga en cuenta lo siguiente cuando esté migrando:
 
-* El servicio Voz no ofrece actualmente un punto de conexión global. Deberá determinar si la aplicación funcionará eficazmente con un único punto de conexión regional para todo su tráfico. Si no lo hace, deberá usar la ubicación geográfica para determinar el punto de conexión más eficaz.
+* El servicio Voz no ofrece actualmente un punto de conexión global. Determine si la aplicación funciona eficazmente con un único punto de conexión regional para todo su tráfico. Si no lo hace, use la ubicación geográfica para determinar el punto de conexión más eficaz.
 
-* Si la aplicación usa conexiones de larga duración y no puede usar los SDK disponibles, puede usar una conexión de WebSocket y administrar el límite de tiempo de espera de 10 minutos volviendo a conectar en el momento adecuado.
+* Si la aplicación usa conexiones de larga duración y no puede usar un SDK disponible, puede usar una conexión de WebSockets. Administre el límite de tiempo de espera de 10 minutos volviendo a conectarse en los momentos adecuados.
 
-* Si la aplicación utiliza las API Translator Text y Translator Speech para habilitar los modelos de traducción personalizada, podrá agregar los identificadores “Categoría” directamente mediante el servicio de voz.
+* Si la aplicación utiliza las API Translator Text y Translator Speech para habilitar los modelos de traducción personalizada, puede agregar los identificadores "Categoría" directamente mediante el servicio de voz.
 
-* El servicio Voz puede completar las traducciones en varios idiomas en una sola solicitud, a diferencia de Translator Speech API.
+* A diferencia de Translator Speech API, el servicio Voz puede completar las traducciones en varios idiomas en una sola solicitud.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030621"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248734"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -30,7 +30,7 @@ Una empresa que tiene un sitio web multimedia de noticias está interesada en ob
 
 Para identificar los temas que son tendencias en tiempo real en Twitter, la empresa necesita el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave. En otras palabras, la necesidad es un motor que analice los análisis de opinión basados en esta fuente de redes sociales.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial, va a utilizar una aplicación cliente que se conecta a Twitter y busca tweets que tienen ciertos hashtags (que se pueden establecer). Para ejecutar la aplicación y analizar los tweets mediante Azure Stream Analytics, debe tener lo siguiente:
 
 * Una suscripción de Azure
@@ -235,7 +235,7 @@ Para comparar el número de menciones entre temas, se usa una [ventana de saltos
 
 1. Cierre la hoja **Entradas** si no lo ha hecho ya.
 
-2. En la hoja del trabajo, haga clic en el cuadro **Consulta**. Azure muestra las entradas y salidas que están configuradas para el trabajo y le permite crear una consulta que permite transformar el flujo de entrada a medida que se envía a la salida.
+2. En el hoja **Introducción**, haga clic en **Editar consulta** cerca de la parte superior derecha del cuadro Consulta. Azure muestra las entradas y salidas que están configuradas para el trabajo y le permite crear una consulta que permite transformar el flujo de entrada a medida que se envía a la salida.
 
 3. Asegúrese de que la aplicación TwitterWpfClient se está ejecutando. 
 
@@ -279,7 +279,7 @@ En la tabla siguiente se enumeran los campos que forman parte de los datos de st
 |Propiedad JSON | Definición|
 |--- | ---|
 |CreatedAt | La hora en que se creó el tweet|
-|Tema. | El tema que coincide con la palabra clave especificada|
+|Tema | El tema que coincide con la palabra clave especificada|
 |SentimentScore | La puntuación de opinión de Sentiment140|
 |Autor | El identificador de Twitter que envía el tweet|
 |Texto | El cuerpo completo del tweet|

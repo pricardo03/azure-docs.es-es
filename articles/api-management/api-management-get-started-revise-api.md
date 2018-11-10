@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c1c884e05d357db7e23574dbd31f206d6c3fe23c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41921017"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414491"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Uso de revisiones para realizar cambios que no producen interrupciones de forma segura
 Cuando la API esté lista y los desarrolladores empiecen a usarla, tendrá que realizar cambios en dicha API y, al mismo tiempo, no interrumpir a quienes la llaman. También resulta útil informar a los desarrolladores de los cambios realizados. Esto se logra en Azure API Management con las **revisiones**. Para más información, consulte [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versiones y revisiones) y [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/) (Control de versiones con Azure API Management).
@@ -36,10 +36,13 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
++ Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Agregar una nueva revisión
+
+![Agregar revisión de API](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
 
 1. Seleccione la página **API**.
 2. Seleccione **Demo Conference API** en la lista de API (u otra API a la que desee agregar revisiones).
@@ -48,8 +51,6 @@ En este tutorial, aprenderá a:
 
     > [!TIP]
     > También puede seleccionar **Agregar revisión** en el menú contextual (**...**) de la API.
-    
-    ![Menú Revisiones cerca de la parte superior de la pantalla](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 5. Incluya una descripción de la nueva revisión que ayude a saber para qué va a servir.
 6. Seleccione **Crear**
@@ -59,6 +60,8 @@ En este tutorial, aprenderá a:
     > La API original permanece en **Revisión 1**. Esta es la revisión que los usuarios siguen llamando hasta que decida convertir otra en actual.
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>Realizar cambios que no producen interrupciones en la revisión
+
+![Modificar revisión](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
 
 1. Seleccione **Demo Conference API** en la lista de API.
 2. Seleccione la pestaña **Diseño** situada junto a la parte superior de la pantalla.
@@ -78,6 +81,7 @@ En este tutorial, aprenderá a:
 1. Seleccione la pestaña **Revisiones** en el menú junto a la parte superior de la página.
 
     ![El menú de revisión en la pantalla de revisión.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+
 2. Abra el menú contextual (**...**) de **Revisión 2**.
 3. Seleccione **Convertir en actual**.
 4. Active la casilla **Post to Public Change log for this API** (Publicar en el registro de cambios público de esta API), si quiere publicar notas sobre este cambio. Especifique una descripción del cambio que puedan ver los desarrolladores, por ejemplo: **Testing revisions. Se agregó una nueva operación de "prueba".**

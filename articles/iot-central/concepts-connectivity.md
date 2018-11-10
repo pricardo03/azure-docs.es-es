@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: d2ed07be829e48cc4fc0538c08fd498dea99e71e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985182"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157707"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividad de dispositivos en Azure IoT Central
 
@@ -43,7 +43,7 @@ En función de su caso de uso, siga las instrucciones para conectar dispositivos
 El modo de conectar un solo dispositivo a IoT Central mediante SAS es fácil y solo le llevará unos pocos pasos. 
 1. Agregue un **dispositivo real** en Device Explorer, haga clic en **+New > Real** (+Nuevo > Real) para agregar un dispositivo real.
     * Escriba el identificador de dispositivo **<span style="color:Red">(debe estar en minúsculas)</span>** o use el identificador de dispositivo sugerido.
-    * Escriba el nombre del dispositivo o use el nombre sugerido.   
+    * Escriba el nombre del dispositivo o use el nombre sugerido   
     ![Agregar dispositivo](media\concepts-connectivity\add-device.png)
 1. Obtenga detalles de conexión como el **id. de ámbito, el id. de dispositivo y la clave principal** para el dispositivo agregado; para ello, haga clic en **Conectar** en la página del dispositivo.
     * **[Id. de ámbito](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)**: se proporciona según la aplicación IoT Central y lo genera DPS; se usa para asegurar un id. de dispositivo único en una aplicación.
@@ -102,7 +102,7 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 1.  Seleccione los dispositivos que desea exportar y, a continuación, haga clic en la acción **Exportar**.
 1.  Una vez finalizada la exportación, se muestra un mensaje de confirmación junto con un vínculo para descargar el archivo generado.
 1.  Haga clic en el mensaje de operación correcta para descargar el archivo en una carpeta local en el disco.
-1.  El archivo CSV exportado tendrá la siguiente información de columnas: **id. del dispositivo, nombre del dispositivo, claves primaria y secundaria del dispositivo y huellas digitales del certificado primario y secundario.**
+1.  El archivo CSV exportado tendrá la siguiente información de columnas: **identificador de dispositivo, nombre de dispositivo, claves primaria y secundaria del dispositivo y huellas digitales del certificado primario y secundario**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

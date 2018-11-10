@@ -1,21 +1,20 @@
 ---
-title: Reprotección de máquinas virtuales de Azure a un sitio local | Microsoft Docs
-description: Después de que se produzca una conmutación por error de máquinas virtuales en Azure, puede iniciar una conmutación por recuperación para volver a poner las máquinas virtuales en el entorno local. Aprenda a reproteger antes de una conmutación por recuperación.
-services: site-recovery
+title: Reprotección de máquinas virtuales de Azure a un sitio local durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos | Microsoft Docs
+description: Después de la conmutación por error en Azure durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos, sepa cómo realizar la conmutación por recuperación desde Azure al sitio local.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346686"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213294"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotección de máquinas de Azure a un sitio local
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotección y conmutación por recuperación de máquinas en un sitio local después de la conmutación por error en Azure
 
 Tras la [conmutación por error](site-recovery-failover.md) de máquinas virtuales de VMware locales o de servidores físicos a Azure, el primer paso en la conmutación por recuperación en el sitio local es reproteger las máquinas virtuales de Azure que se crearon durante la conmutación por error. En este artículo se describe cómo hacerlo. 
 

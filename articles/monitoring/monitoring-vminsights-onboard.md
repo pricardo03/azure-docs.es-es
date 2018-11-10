@@ -1,5 +1,5 @@
 ---
-title: Incorporación de Azure Monitor para VM | Microsoft Docs
+title: Incorporación de Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: En este artículo se describe cómo incorporar y configurar Azure Monitor para VM para poder empezar a comprender el rendimiento de la aplicación distribuida y los problemas de estado identificados.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390251"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092781"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Cómo incorporar Azure Monitor para VM 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Cómo incorporar Azure Monitor para VM (versión preliminar)
 En este artículo se describe cómo configurar Azure Monitor para VM para supervisar el estado del sistema operativo de las máquinas virtuales de Azure, y detectar y asignar las dependencias de aplicación que pueden hospedar.  
 
 La habilitación de Azure Monitor para VM se logra mediante uno de los métodos siguientes y se proporcionan detalles sobre el uso de cada método más adelante en el artículo.  
@@ -31,7 +31,7 @@ La habilitación de Azure Monitor para VM se logra mediante uno de los métodos 
 * Varias VM o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto mediante PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar, asegúrese de disponer de los elementos que se describen en las subsecciones siguientes.
+Antes de empezar, asegúrese de conocer los elementos que se describen en las subsecciones siguientes.
 
 ### <a name="log-analytics"></a>Log Analytics 
 
@@ -340,7 +340,7 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
 Para habilitar Azure Monitor para VM a una escala que garantice el cumplimiento consistente y la habilitación automática de las máquinas virtuales aprovisionadas, se recomienda [Azure Policy](../azure-policy/azure-policy-introduction.md). Estas directivas:
 
 * Implementan el agente de Log Analytics y Dependency Agent 
-* Informan sobre los resultados de cumplimiento 
+* Informar sobre los resultados de cumplimiento 
 * Corrigen las máquinas virtuales no compatibles
 
 Habilite Azure Monitor para VM mediante la directiva que requiere el inquilino: 
@@ -352,7 +352,7 @@ Para más información acerca de la asignación de Azure Policy, consulte [Intro
 
 En la tabla siguiente se enumeran las definiciones de directiva proporcionadas.  
 
-|Nombre |Descripción |Tipo |  
+|NOMBRE |DESCRIPCIÓN |Escriba |  
 |-----|------------|-----|  
 |[Versión preliminar]: Habilitar Azure Monitor para VM |Permitir habilitar Azure Monitor para las máquinas virtuales (VM) en el ámbito especificado (grupo de administración, suscripción o grupo de recursos). Usa el área de trabajo de Log Analytics como parámetro. |Iniciativa |  
 |[Versión preliminar]: Auditar implementación de Dependency Agent: imagen de la VM (SO) no está en la lista |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está en la lista definida y el agente no está instalado. |Directiva |  
@@ -364,7 +364,7 @@ En la tabla siguiente se enumeran las definiciones de directiva proporcionadas.
 
 Directiva independiente (no se incluye con la iniciativa) 
 
-|Nombre |Descripción |Tipo |  
+|NOMBRE |DESCRIPCIÓN |Escriba |  
 |-----|------------|-----|  
 |[Versión preliminar]: auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe |Notificar que las máquinas virtuales no son compatibles si no se registran en el área de trabajo de Log Analytics especificada en la asignación de la directiva o iniciativa. |Directiva |
 

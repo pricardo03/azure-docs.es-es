@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990253"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415709"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Extensión de alertas de Log Analytics a Alertas de Azure
 Alertas de Azure está reemplazando la característica de alertas de Azure Log Analytics. Como parte de esta transición, las alertas que ha configurado originalmente en Log Analytics se extenderán a Azure. Si no quiere esperar a que se trasladen automáticamente a Azure, puede iniciar el proceso:
@@ -29,24 +29,24 @@ En los pasos siguientes se describen cómo ampliar las alertas para el espacio d
 
 1. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y, después, seleccione el icono de **Portal de OMS**.
-![Captura de pantalla del panel de suscripción a Log Analytics, con el icono del portal de OMS resaltado](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Captura de pantalla del panel de suscripción a Log Analytics, con el icono del portal de OMS resaltado](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. Después de redirigirse al portal de Operations Management Suite, seleccione el icono **Configuración**.
-![Captura de pantalla del portal de Operations Management Suite, con el icono Configuración resaltado](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Captura de pantalla del portal de Operations Management Suite, con el icono Configuración resaltado](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. En la página **Configuración**, seleccione **Alertas**.  
 5. Seleccione **Extender a Azure**.
-![Captura de pantalla de la página de configuración de alertas del portal de Operations Management Suite, con Extender a Azure resaltado](./media/monitor-alerts-extend/ExtendInto.png)
+![Captura de pantalla de la página de configuración de alertas del portal de Operations Management Suite, con Extender a Azure resaltado](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. Aparecerá un asistente de tres pasos en el panel **Alertas**. Lea la información general y seleccione **Siguiente**.
-![Captura de pantalla del paso 1 del asistente](./media/monitor-alerts-extend/ExtendStep1.png)  
+![Captura de pantalla del paso 1 del asistente](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. En el segundo paso, verá un resumen de los cambios propuestos, con los [grupos de acciones](monitoring-action-groups.md) adecuados enumerados, para las alertas. Si se ven acciones similares en más de una alerta, el asistente propondrá asociar un único grupo de acciones con todas ellas.  La convención de nomenclatura es como sigue: *WorkspaceName_AG_ #Number*. Para continuar, seleccione **Siguiente**.
-![Captura de pantalla del paso 2 del asistente](./media/monitor-alerts-extend/ExtendStep2.png)  
+![Captura de pantalla del paso 2 del asistente](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. En el último paso del asistente, seleccione **Finalizar** y confirme cuando se le solicite para iniciar el proceso. Opcionalmente, puede proporcionar una dirección de correo electrónico, para que se le notifique cuando el proceso se complete y todas las alertas se hayan trasladado correctamente a Alertas de Azure.
-![Captura de pantalla del paso 3 del asistente](./media/monitor-alerts-extend/ExtendStep3.png)
+![Captura de pantalla del paso 3 del asistente](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 Cuando finalice el asistente, en la página **Configuración de alertas**, se eliminará la opción de extender las alertas a Azure. En segundo plano, las alertas se trasladan a Azure, y esto puede llevar algún tiempo. Durante la operación, no puede realizar cambios en las alertas del portal de Operations Management Suite. Puede ver el estado actual en el banner en la parte superior del portal. Si ha proporcionado una dirección de correo electrónico anteriormente, recibirá un correo electrónico cuando el proceso haya finalizado correctamente.  
 
 
 Las alertas siguen apareciendo en el portal de Operations Management Suite, incluso después de haber sido trasladadas correctamente a Azure.
-![Captura de pantalla de la página de configuración de alertas del portal Operations Management Suite](./media/monitor-alerts-extend/PostExtendList.png)
+![Captura de pantalla de la página de configuración de alertas del portal Operations Management Suite](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>Opción 2: Uso de AlertsVersion API
@@ -460,7 +460,7 @@ Durante el proceso de la extensión de las alertas, los problemas pueden impedir
 > Si los usuarios de Log Analytics basados en la nube pública de Azure no toman las siguientes medidas de corrección antes del 5 de julio de 2018, las alertas se ejecutarán en Azure pero no activarán ninguna acción ni notificación. Para obtener notificaciones de alertas, debe editar y agregar manualmente [grupos de acciones](monitoring-action-groups.md) o usar el [script de PowerShell personalizado](#option-3---using-custom-powershell-script) anterior.
 
 Aquí se indican los pasos para corregir cada error:
-- **Error: Scope Lock is present at subscription/resource group level for write operations** (El bloqueo de ámbito está presente en el nivel de la suscripción o del grupo de recursos para las operaciones de escritura): ![captura de pantalla de la página de configuración de la alerta de Operations Management Suite con el mensaje de error del bloqueo de ámbito resaltado](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **Error: Scope Lock is present at subscription/resource group level for write operations** (El bloqueo de ámbito está presente en el nivel de la suscripción o del grupo de recursos para las operaciones de escritura): ![captura de pantalla de la página de configuración de la alerta de Operations Management Suite con el mensaje de error del bloqueo de ámbito resaltado](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     Cuando se habilita el bloqueo de ámbito, la característica restringe cualquier cambio nuevo en la suscripción o en el grupo de recursos que contiene el área de trabajo de Log Analytics (Operations Management Suite). El sistema no puede ampliar las alertas en Azure y crear grupos de acciones necesarias.
     
@@ -468,7 +468,7 @@ Aquí se indican los pasos para corregir cada error:
     
     Cuando resuelva el error mediante los pasos ilustrados en el artículo, Operations Management Suite extiende sus alertas a Azure dentro de la ejecución programada para el día siguiente. No es necesario realizar ninguna acción adicional ni iniciar nada.
 
-- **Error: Policy is present at subscription/resource group level** (Error: Directiva presente en el nivel de grupo de recursos/suscripción): ![captura de pantalla de la página de configuración de alertas del portal de Operations Management Suite con un mensaje de error de directiva resaltado](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Error: Policy is present at subscription/resource group level** (Error: Directiva presente en el nivel de grupo de recursos/suscripción): ![captura de pantalla de la página de configuración de alertas del portal de Operations Management Suite con un mensaje de error de directiva resaltado](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
     Cuando se aplica [Azure Policy](../azure-policy/azure-policy-introduction.md), restringe cualquier recurso nuevo en una suscripción o grupo de recursos que contiene el área de trabajo de Log Analytics (Operations Management Suite). El sistema no puede ampliar las alertas en Azure y crear grupos de acciones necesarias.
     

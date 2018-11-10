@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 9e4302b780d0c08afbc791a0aec6bfd806aba161
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fe854c6a33a950f9f937118b6048d547f1a2fe37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263711"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245773"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migración de las alertas de eventos de administración de Azure a Alertas del registro de actividad
 
@@ -28,7 +28,7 @@ ms.locfileid: "35263711"
 Azure Monitor (anteriormente Azure Insights) ofrecía una funcionalidad para crear una alerta desencadenada por eventos de administración y generar notificaciones a direcciones de correo electrónico o a una dirección URL de webhook. Es posible que haya creado una de estas alertas de cualquiera de las siguientes maneras:
 * En Azure Portal para ciertos tipos de recursos, bajo Supervisión -> Alertas -> Agregar alerta, donde "Alerta de" se ha establecido en "Eventos"
 * Mediante la ejecución del cmdlet de PowerShell Add-AzureRmLogAlertRule
-* Utilizando directamente [la API de REST alert](http://docs.microsoft.com/rest/api/monitor/alertrules) con odata.type = "ManagementEventRuleCondition" y dataSource.odata.type = "RuleManagementEventDataSource"
+* Utilizando directamente [la API de REST alert](https://docs.microsoft.com/rest/api/monitor/alertrules) con odata.type = "ManagementEventRuleCondition" y dataSource.odata.type = "RuleManagementEventDataSource"
  
 El siguiente script de PowerShell devuelve una lista de todas las alertas de eventos de administración que tiene en su suscripción, así como las condiciones establecidas en cada alerta.
 
@@ -95,7 +95,7 @@ Cada alerta está separada por una línea discontinua y los detalles incluyen el
 Esta funcionalidad se ha pasado a [Alertas del registro de actividad de Azure Monitor](monitoring-activity-log-alerts.md). Estas nuevas alertas permiten establecer una condición en los eventos del registro de actividad y recibir una notificación cuando un nuevo evento coincide con la condición. También ofrecen varias mejoras sobre las alertas de eventos de administración:
 * Puede volver a usar el grupo de destinatarios de notificación ("acciones") en muchas alertas mediante los [Grupos de acciones](monitoring-action-groups.md), lo que reduce la complejidad del cambio de quién debe recibir una alerta.
 * Puede recibir una notificación directamente en su teléfono mediante SMS con Grupos de acciones.
-* Puede [Crear alertas del registro de actividad con plantillas de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Puede [Crear alertas del registro de actividad con plantillas de Resource Manager](alert-activity-log.md).
 * Puede crear condiciones con mayor flexibilidad y complejidad para satisfacer sus necesidades específicas.
 * Las notificaciones se entregan más rápidamente.
  
@@ -103,7 +103,7 @@ Esta funcionalidad se ha pasado a [Alertas del registro de actividad de Azure Mo
  
 Para crear una nueva alerta del registro de actividad:
 * Siga [nuestra guía sobre cómo crear una alerta en Azure Portal](monitoring-activity-log-alerts.md)
-* Obtenga información acerca de cómo [crear una alerta mediante una plantilla de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Obtenga información acerca de cómo [crear una alerta mediante una plantilla de Resource Manager](alert-activity-log.md)
  
 Las alertas de eventos de administración que haya creado previamente no se migrarán automáticamente a las alertas del registro de actividad. Debe utilizar el script de PowerShell anterior para mostrar las alertas de eventos de administración que tiene configuradas y volver a crearlas manualmente como alertas del registro de actividad. Esto debe hacerse antes del 1 de octubre, después del cual las alertas de eventos de administración ya no estará visibles en la suscripción de Azure. Otros tipos de alertas de Azure, incluidas las alertas de métricas de Azure Monitor, las alertas de Application Insights y las alertas de Log Analytics no se ven afectadas por este cambio. Si tiene alguna pregunta, indíquela en los comentarios a continuación.
 
@@ -112,7 +112,7 @@ Las alertas de eventos de administración que haya creado previamente no se migr
 
 * Más información sobre el [registro de actividad](monitoring-overview-activity-logs.md)
 * Configuración de [alertas del registro de actividad a través de Azure Portal](monitoring-activity-log-alerts.md)
-* Configuración de [alertas del registro de actividad a través de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Configuración de [alertas del registro de actividad a través de Resource Manager](alert-activity-log.md)
 * Revisión del [esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md)
 * Más información sobre las [notificaciones del servicio](monitoring-service-notifications.md)
 * Más información sobre los [grupos de acciones](monitoring-action-groups.md)

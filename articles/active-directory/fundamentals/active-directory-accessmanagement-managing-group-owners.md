@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297782"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139727"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Procedimientos: Adición o eliminación de propietarios del grupo en Azure Active Directory
 Los grupos de Azure Active Directory (Azure AD) pertenecen a propietarios del grupo, quienes también lo administran. El propietario de un recurso (administrador) asigna propietarios del grupo para que administren un grupo y sus miembros. Los propietarios del grupo no deben ser miembros del grupo. Una vez se ha asignado un propietario del grupo, solo puede agregar o quitar propietarios el propietario de un recurso.
@@ -29,7 +29,7 @@ Agregue propietarios del grupo adicionales a un grupo con Azure AD.
 ### <a name="to-add-a-group-owner"></a>Para agregar un propietario del grupo
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global para el directorio.
 
-2. Seleccione **Azure Active Directory**, **Grupos** y, a continuación, el grupo para el que quiera agregar un propietario (en este ejemplo, _MDM policy - West_ (Directiva MDM - Oeste)).
+2. Seleccione **Azure Active Directory**, **Grupos** y, a continuación, el grupo para el que quiera agregar un propietario (en este ejemplo, *MDM policy - West* (Directiva MDM - Oeste)).
 
 3. En la página **MDM policy - West Overview** (Información general de la directiva de MDM - Oeste), seleccione **Propietarios**.
 
@@ -47,7 +47,7 @@ Elimine un propietario de un grupo mediante Azure AD.
 ### <a name="to-remove-an-owner"></a>Para quitar un propietario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global para el directorio.
 
-2. Seleccione **Azure Active Directory**, **Grupos** y, a continuación, el grupo para el que quiera agregar un propietario (en este ejemplo, _MDM policy - West_ (Directiva MDM - Oeste)).
+2. Seleccione **Azure Active Directory**, **Grupos** y a continuación el grupo en el que quiera eliminar un propietario (en este ejemplo, *MDM policy - West*).
 
 3. En la página **MDM policy - West Overview** (Información general de la directiva de MDM - Oeste), seleccione **Propietarios**.
 

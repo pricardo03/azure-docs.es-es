@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190163"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249618"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Asignación de roles de directorio de Azure AD en PIM
 
@@ -112,6 +112,39 @@ Siga estos pasos para quitar a un usuario específico de un rol diferente.
     ![Quitar un rol](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     La asignación de rol se quita.
+
+## <a name="authorization-error-when-assigning-roles"></a>Error de autorización al asignar roles
+
+Si recientemente habilitó PIM para una suscripción y obtiene un error de autorización cuando intenta que un usuario pueda optar a un rol de directorio, es posible que la entidad de servicio MS-PIM aún no tenga los permisos adecuados. La entidad de servicio MS PIM debe tener el rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator) para asignar roles a otros usuarios. En lugar de esperar hasta que se asigne a MS-PIM el rol de administrador de acceso de usuario, puede asignarlo manualmente.
+
+Siga estos pasos para asignar el rol de administrador de acceso de usuario a la entidad de servicio de MS-PIM para una suscripción.
+
+1. Inicie sesión en Azure Portal como administrador global.
+
+1. Elija **Todos los servicios** y, después, **Suscripciones**.
+
+1. Elija su suscripción.
+
+1. Elija **Control de acceso (IAM)** para ver la lista actual de las asignaciones de roles en el ámbito de la suscripción.
+
+   ![Hoja Control de acceso (IAM) para una suscripción](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Compruebe si la entidad de servicio **MS PIM** tiene asignado el rol **Administrador de acceso de usuario**.
+
+1. Si no es así, elija **Agregar** para abrir el panel **Agregar permisos**.
+
+1. En la lista desplegable **Rol**, seleccione el rol **Administrador de acceso de usuario**.
+
+1. En la lista **Seleccionar**, busque y seleccione la entidad de servicio **MS PIM**.
+
+   ![Adición de permisos para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Elija **Guardar** para asignar el rol.
+
+   Después de unos momentos, se asignará a la entidad de servicio MS-PIM el rol Administrador de acceso de usuario en el ámbito de la suscripción.
+
+   ![Rol Administrador de acceso de usuario para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170640"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240875"
 ---
 # <a name="demo-password-reset"></a>Demostración: restablecimiento de contraseña
 En esta demostración se muestra un bot de soporte técnico sencillo que puede facilitar los restablecimientos de contraseña. 
@@ -24,7 +24,7 @@ Muestra cómo Conversation Learner puede aprender flujos de diálogos no trivial
 
 ## <a name="video"></a>Vídeo
 
-[![Vista previa de la demostración sobre contraseñas](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
+[![Vista previa de la demostración sobre contraseñas](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Requisitos
 Para poder utilizar este tutorial, debe ejecutar el bot de restablecimiento de contraseña.

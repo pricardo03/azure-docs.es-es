@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: b0b8fd3eb80d7418546788565402042de20ab3e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2d43a73d93b24599b28af849ee9d1532441ef6bc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129325"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233569"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -55,7 +55,7 @@ Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya
 
 El enfoque de proxy CORS que se describe en la respuesta anterior es adecuado para desarrollo, pruebas y aprendizaje.
 
-Sin embargo, en un entorno de producción, debe hospedar un script del lado servidor en el mismo dominio que la página web que usa Bing Web Search API. Este script debería realizar en realidad las llamadas API tras la solicitud del código de JavaScript de la página web y pasar nuevamente al cliente todos los resultados, incluidos los encabezados. Dado que los dos recursos (página y script) comparten un origen, CORS no se aplica y los encabezados especiales son accesibles para el código de JavaScript en la página web.
+Sin embargo, en un entorno de producción, debe hospedar un script del lado servidor en el mismo dominio que la página web que usa Bing Web Search API. Este script debería realizar en realidad las llamadas API tras la solicitud del código de JavaScript de la página web y pasar nuevamente al cliente todos los resultados, incluidos los encabezados. Dado que los dos recursos (página y script) comparten un origen, no se aplica CORS y el código de JavaScript puede acceder a los encabezados especiales en la página web.
 
 Este enfoque también protege la clave de API de una exposición pública, ya que solo la necesita el script del lado servidor. El script puede usar otro método para asegurarse de que la solicitud está autorizada.
 

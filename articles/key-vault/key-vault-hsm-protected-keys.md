@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 31998c3b9cc151e96d0b2e0b85895603698f493b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f027ced7d6e317bfdf101cb792d9f2f2b7612242
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303225"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247751"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Generación y transferencia de claves protegidas con HSM para Azure Key Vault
 
@@ -61,7 +61,7 @@ En la tabla siguiente puede ver una lista de los requisitos previos del método 
 | Una suscripción a Azure |Para crear un almacén de claves de Azure, se necesita una suscripción a Azure: [Regístrese para obtener la versión de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | Nivel de servicio Premium de Azure Key Vault, que admita claves protegidas con HSM |Para obtener más información sobre los niveles de servicio y las funcionalidades de Azure Key Vault, consulte el sitio web [Precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) . |
 | HSM de Thales, tarjetas inteligentes y software compatible |Debe tener acceso al módulo de seguridad de hardware de Thales y al conocimiento operacional básico de los HSM de Thales. Para ver la lista de modelos compatibles o comprar un HSM, consulte [Módulo de seguridad de hardware de Thales](https://www.thales-esecurity.com/msrms/buy) . |
-| El siguiente hardware y software:<ol><li>Una estación de trabajo x64 sin conexión con un sistema operativo Windows 7 y software Thales nShield versión 11.50 o superior.<br/><br/>Si esta estación de trabajo ejecuta Windows 7, debe [instalar Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una estación de trabajo conectada a Internet y con un sistema operativo Windows 7 como mínimo y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **con al menos la versión 1.1.0** instalada.</li><li>Una unidad USB u otro dispositivo de almacenamiento portátil con al menos 16 MB de espacio libre.</li></ol> |Por seguridad, se recomienda que la primera estación de trabajo no esté conectada a una red. Sin embargo, esta recomendación no es de obligado cumplimiento.<br/><br/>Tenga en cuenta que en las instrucciones siguientes, esta estación de trabajo se conoce como la desconectada.</p></blockquote><br/>Además, si la clave de inquilino es para una red de producción, se recomienda usar una segunda estación de trabajo independiente para descargar el conjunto de herramientas y cargar la clave de inquilino. Sin embargo, para la prueba puede usar la misma estación de trabajo que la primera.<br/><br/>Tenga en cuenta que en las instrucciones siguientes, la segunda estación de trabajo se conoce como la que está conectada a Internet.</p></blockquote><br/> |
+| El siguiente hardware y software:<ol><li>Una estación de trabajo x64 sin conexión con un sistema operativo Windows 7 y software Thales nShield versión 11.50 o superior.<br/><br/>Si esta estación de trabajo ejecuta Windows 7, debe [instalar Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una estación de trabajo conectada a Internet y con un sistema operativo Windows 7 como mínimo y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **con al menos la versión 1.1.0** instalada.</li><li>Una unidad USB u otro dispositivo de almacenamiento portátil con al menos 16 MB de espacio libre.</li></ol> |Por seguridad, se recomienda que la primera estación de trabajo no esté conectada a una red. Sin embargo, esta recomendación no es de obligado cumplimiento.<br/><br/>Tenga en cuenta que en las instrucciones siguientes, esta estación de trabajo se conoce como la desconectada.</p></blockquote><br/>Además, si la clave de inquilino es para una red de producción, se recomienda usar una segunda estación de trabajo independiente para descargar el conjunto de herramientas y cargar la clave de inquilino. Sin embargo, para la prueba puede usar la misma estación de trabajo que la primera.<br/><br/>Tenga en cuenta que en las instrucciones siguientes, la segunda estación de trabajo se conoce como la que está conectada a Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generación y transferencia de una clave a un HSM de Azure Key Vault
 
@@ -101,7 +101,7 @@ No cierre la ventana de Azure PowerShell.
 
 ### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Paso 1.3: descarga del conjunto de herramientas BYOK para Azure Key Vault
 
-Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas de BYOK para Azure Key Vault](http://www.microsoft.com/download/details.aspx?id=45345) de su región geográfica o instancia de Azure. Utilice la siguiente información para identificar el nombre del paquete para descargar y su hash de paquete SHA-256 correspondiente:
+Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas de BYOK para Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45345) de su región geográfica o instancia de Azure. Utilice la siguiente información para identificar el nombre del paquete para descargar y su hash de paquete SHA-256 correspondiente:
 
 - - -
 **Estados Unidos:**

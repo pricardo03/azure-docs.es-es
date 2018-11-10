@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190279"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238804"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Planeamiento de la implementación de unión a Azure Active Directory híbrido
 
@@ -95,13 +95,13 @@ Si está confiando en la Herramienta de preparación del sistema (Sysprep), aseg
 
 Si está confiando en una instantánea de máquina virtual (VM) para crear otras máquinas virtuales, asegúrese de usar una instantánea de VM que no se haya configurado para la unión a Azure AD híbrido.
 
-El registro de dispositivos Windows de nivel inferior no es compatible con los dispositivos configurados para el perfil de usuario móvil o las credenciales móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
+La unión de dispositivos de nivel inferior a Azure AD híbrido:
 
-- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- El registro de dispositivos de Windows de nivel inferior **no** se admite al usar la autenticación de paso a través de Azure AD sin el inicio de sesión único de conexión directa.
+- **Es** compatible en entornos no federados a través del [inicio de sesión único de conexión directa de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- El registro de dispositivos de Windows de nivel inferior **no se** admite en dispositivos que usan perfiles móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
+- **No es** compatible cuando se usa la autenticación de paso a través de Azure AD sin inicio de sesión único de conexión directa.
+
+- **No es** compatible cuando se usa con credenciales móviles o perfil de usuario móvil o cuando se usa la infraestructura de escritorio virtual (VDI).
 
 
 No se admite el registro de Windows Server que ejecuta el rol de controlador de dominio (DC).

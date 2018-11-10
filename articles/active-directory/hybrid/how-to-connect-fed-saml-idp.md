@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ce57857ecc5b8e18aecdcc58754e5f9bf5b22a74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306124"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243119"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -193,7 +193,7 @@ En el procedimiento siguiente se explica cómo convertir un dominio estándar ex
 Para más información sobre "Set-MsolDomainAuthentication", consulte: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Debe ejecutar "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" solo si configura una extensión ECP para el proveedor de identidades. Los clientes de Exchange Online, excepto Outlook Web Application (OWA), dependen de un punto de conexión activo basado en POST. Si el STS de SAML 2.0 implementa un punto de conexión activo de forma similar a ECP de Shibboleth, es posible que estos clientes enriquecidos puedan interactuar con el servicio Exchange Online.
+>Solo debe ejecutar "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" si configura una extensión ECP para el proveedor de identidades. Los clientes de Exchange Online, excepto Outlook Web Application (OWA), dependen de un punto de conexión activo basado en POST. Si el STS de SAML 2.0 implementa un punto de conexión activo de forma similar a ECP de Shibboleth, es posible que estos clientes enriquecidos puedan interactuar con el servicio Exchange Online.
 
 Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para más información sobre la conversión de dominios, consulte: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 

@@ -1,0 +1,257 @@
+---
+title: Filtrado de eventos para Azure Event Grid
+description: Muestra cómo crear suscripciones de Azure Event Grid que filtran eventos.
+services: event-grid
+author: tfitzmac
+ms.service: event-grid
+ms.topic: conceptual
+ms.date: 10/29/2018
+ms.author: tomfitz
+ms.openlocfilehash: 8bf7ac9daf928c35a3d6efcac528d3372fa87c8a
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252047"
+---
+# <a name="filter-events-for-event-grid"></a>Filtrado de eventos para Event Grid
+
+En este artículo se muestra cómo filtrar eventos al crear una suscripción de Event Grid. Para obtener información sobre las opciones de filtrado de eventos, consulte [Understand event filtering for Event Grid subscriptions](event-filtering.md) (Descripción del filtrado de events para suscripciones de Event Grid).
+
+## <a name="filter-by-event-type"></a>Filtrar por tipo de evento
+
+Al crear una suscripción de Event Grid, puede especificar qué [tipos de evento](event-schema.md) se envían al punto de conexión. En los ejemplos de esta sección se crean suscripciones de eventos para un grupo de recursos, pero se limitan los eventos que se envían a `Microsoft.Resources.ResourceWriteFailure` y `Microsoft.Resources.ResourceWriteSuccess`. Si necesita más flexibilidad al filtrar eventos por tipos de eventos, consulte [Filtrado por operadores avanzados y campos de datos](#filter-by-advanced-operators-and-data-fields).
+
+Para PowerShell, use el parámetro `-IncludedEventType` al crear la suscripción.
+
+```powershell
+$includedEventTypes = "Microsoft.Resources.ResourceWriteFailure", "Microsoft.Resources.ResourceWriteSuccess"
+
+New-AzureRmEventGridSubscription `
+  -EventSubscriptionName demoSubToResourceGroup `
+  -ResourceGroupName myResourceGroup `
+  -Endpoint <endpoint-URL> `
+  -IncludedEventType $includedEventTypes
+```
+
+Para la CLI de Azure, use el parámetro `--included-event-types`. En el ejemplo siguiente se usa la CLI de Azure en un shell de Bash:
+
+```azurecli
+includedEventTypes="Microsoft.Resources.ResourceWriteFailure Microsoft.Resources.ResourceWriteSuccess"
+
+az eventgrid event-subscription create \
+  --name demoSubToResourceGroup \
+  --resource-group myResourceGroup \
+  --endpoint <endpoint-URL> \
+  --included-event-types $includedEventTypes
+```
+
+Para una plantilla de Resource Manager, use la propiedad `includedEventTypes`.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.EventGrid/eventSubscriptions",
+    "name": "[parameters('eventSubName')]",
+    "apiVersion": "2018-09-15-preview",
+    "properties": {
+      "destination": {
+        "endpointType": "WebHook",
+        "properties": {
+          "endpointUrl": "[parameters('endpoint')]"
+        }
+      },
+      "filter": {
+        "subjectBeginsWith": "",
+        "subjectEndsWith": "",
+        "isSubjectCaseSensitive": false,
+        "includedEventTypes": [
+          "Microsoft.Resources.ResourceWriteFailure",
+          "Microsoft.Resources.ResourceWriteSuccess"
+        ]
+      }
+    }
+  }
+]
+```
+
+## <a name="filter-by-subject"></a>Filtrar por asunto
+
+Puede filtrar eventos por el asunto de los datos del evento. Puede especificar un valor que debe coincidir con el principio o el final del asunto. Si necesita más flexibilidad al filtrar eventos por asunto, consulte [Filtrado por operadores avanzados y campos de datos](#filter-by-advanced-operators-and-data-fields).
+
+En el siguiente ejemplo de PowerShell, se crea una suscripción de eventos que filtra por el principio del asunto. Se usa el parámetro `-SubjectBeginsWith` para limitar los eventos a aquellos de un recurso específico. Se pasa el identificador de recurso de un grupo de seguridad de red.
+
+```powershell
+$resourceId = (Get-AzureRmResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
+
+New-AzureRmEventGridSubscription `
+  -Endpoint <endpoint-URL> `
+  -EventSubscriptionName demoSubscriptionToResourceGroup `
+  -ResourceGroupName myResourceGroup `
+  -SubjectBeginsWith $resourceId
+```
+
+En el siguiente ejemplo de PowerShell se crea una suscripción para un almacenamiento de blobs. Se limitan los eventos a aquellos con un asunto que termina por `.jpg`.
+
+```powershell
+$storageId = (Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
+
+New-AzureRmEventGridSubscription `
+  -EventSubscriptionName demoSubToStorage `
+  -Endpoint <endpoint-URL> `
+  -ResourceId $storageId `
+  -SubjectEndsWith ".jpg"
+```
+
+En el siguiente ejemplo de la CLI de Azure, se crea una suscripción de eventos que filtra por el principio del asunto. Se usa el parámetro `--subject-begins-with` para limitar los eventos a aquellos de un recurso específico. Se pasa el identificador de recurso de un grupo de seguridad de red.
+
+```azurecli
+resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --name demoSubscriptionToResourceGroup \
+  --resource-group myResourceGroup \
+  --endpoint <endpoint-URL> \
+  --subject-begins-with $resourceId
+```
+
+En el siguiente ejemplo de la CLI de Azure se crea una suscripción para un almacenamiento de blobs. Se limitan los eventos a aquellos con un asunto que termina por `.jpg`.
+
+```azurecli
+storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name demoSubToStorage \
+  --endpoint <endpoint-URL> \
+  --subject-ends-with ".jpg"
+```
+
+En el siguiente ejemplo de plantilla de Resource Manager, se crea una suscripción de eventos que filtra por el principio del asunto. Se usa la propiedad `subjectBeginsWith` para limitar los eventos a aquellos de un recurso específico. Se pasa el identificador de recurso de un grupo de seguridad de red.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.EventGrid/eventSubscriptions",
+    "name": "[parameters('eventSubName')]",
+    "apiVersion": "2018-09-15-preview",
+    "properties": {
+      "destination": {
+        "endpointType": "WebHook",
+        "properties": {
+          "endpointUrl": "[parameters('endpoint')]"
+        }
+      },
+      "filter": {
+        "subjectBeginsWith": "[resourceId('Microsoft.Network/networkSecurityGroups','demoSecurityGroup')]",
+        "subjectEndsWith": "",
+        "isSubjectCaseSensitive": false,
+        "includedEventTypes": [ "All" ]
+      }
+    }
+  }
+]
+```
+
+En el siguiente ejemplo de plantilla de Resource Manager se crea una suscripción para un almacenamiento de blobs. Se limitan los eventos a aquellos con un asunto que termina por `.jpg`.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts/providers/eventSubscriptions",
+    "name": "[concat(parameters('storageName'), '/Microsoft.EventGrid/', parameters('eventSubName'))]",
+    "apiVersion": "2018-09-15-preview",
+    "properties": {
+      "destination": {
+        "endpointType": "WebHook",
+        "properties": {
+          "endpointUrl": "[parameters('endpoint')]"
+        }
+      },
+      "filter": {
+        "subjectEndsWith": ".jpg",
+        "subjectBeginsWith": "",
+        "isSubjectCaseSensitive": false,
+        "includedEventTypes": [ "All" ]
+      }
+    }
+  }
+]
+```
+
+## <a name="filter-by-operators-and-data"></a>Filtrado por operadores y datos
+
+Para usar el filtrado avanzado, debe instalar una extensión en versión preliminar para la CLI de Azure. Puede usar [CloudShell](/azure/cloud-shell/quickstart) o instalar la CLI de Azure localmente.
+
+### <a name="install-extension"></a>Instalación de la extensión
+
+En CloudShell:
+
+* Si ha instalado la extensión anteriormente, actualícela `az extension update -n eventgrid`
+* Si no ha instalado la extensión anteriormente, instálela `az extension add -n eventgrid`
+
+Para una instalación local:
+
+1. Desinstale la CLI de Azure localmente.
+1. Instale la [versión más reciente](/cli/azure/install-azure-cli) de la CLI de Azure.
+1. Inicie la ventana de comando.
+1. Desinstale las versiones anteriores de la extensión `az extension remove -n eventgrid`.
+1. Instale la extensión `az extension add -n eventgrid`.
+
+Ahora está listo para usar el filtrado avanzado.
+
+### <a name="subscribe-with-advanced-filters"></a>Suscripción con filtros avanzados
+
+Para obtener información acerca de los operadores y las claves que puede usar para el filtrado avanzado, consulte [Advanced filtering](event-filtering.md#advanced-filtering) (Filtrado avanzado).
+
+En el ejemplo siguiente se crea un tema personalizado. Se suscribe al tema personalizado y filtra por un valor en el objeto de datos. Los eventos que tienen la propiedad de color establecida en azul, rojo o verde se envían a la suscripción.
+
+```azurecli-interactive
+topicName=<your-topic-name>
+endpointURL=<endpoint-URL>
+
+az group create -n gridResourceGroup -l eastus2
+az eventgrid topic create --name $topicName -l eastus2 -g gridResourceGroup
+
+topicid=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --source-resource-id $topicid \
+  -n demoAdvancedSub \
+  --advanced-filter data.color stringin blue red green \
+  --endpoint $endpointURL \
+  --expiration-date "2018-11-30"
+```
+
+Tenga en cuenta que se ha establecido una fecha de expiración para la suscripción. La suscripción de eventos expira automáticamente después de esa fecha. Establezca una fecha de expiración para las suscripciones a eventos que solo se necesitan durante un tiempo limitado.
+
+### <a name="test-filter"></a>Prueba del filtro
+
+Para probar el filtro, envíe un evento con el campo de color establecido en verde.
+
+```azurecli-interactive
+topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name $topicName -g gridResourceGroup --query "key1" --output tsv)
+
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "green"},"dataVersion": "1.0"} ]'
+
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
+```
+
+El evento se envía al punto de conexión.
+
+Para probar un escenario donde no se envía el evento, envíe un evento con el campo de color establecido en amarillo.
+
+```azurecli-interactive
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
+
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
+```
+
+El amarillo no es uno de los valores especificados en la suscripción, por lo que el evento no se entrega a su suscripción.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Para información sobre la supervisión de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
+* Para más información sobre la clave de autenticación, vea [Seguridad y autenticación de Event Grid](security-authentication.md).
+* Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

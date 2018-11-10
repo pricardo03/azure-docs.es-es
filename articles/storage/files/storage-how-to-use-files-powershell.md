@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 16f557d48f8056d438d55fdd066395e7e36ed8a5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945491"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157384"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Guía de inicio rápido: Creación y administración de un recurso compartido de archivos de Azure con Azure PowerShell 
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) con PowerShell. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
@@ -165,6 +165,57 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 ```
 
 Aunque el cmdlet `Start-AzureStorageFileCopy` es conveniente para los movimientos de archivos ad hoc entre recursos compartidos de archivos de Azure y contenedores de almacenamiento de Azure Blob, se recomienda usar AzCopy para movimientos mayores (en cuanto al número o el tamaño de los archivos que se van a mover). Obtenga más información sobre [AzCopy para Windows](../common/storage-use-azcopy.md) y [AzCopy para Linux](../common/storage-use-azcopy-linux.md). AzCopy se debe instalar localmente; ya que no está disponible en Cloud Shell. 
+
+## <a name="create-and-manage-share-snapshots"></a>Creación y administración de instantáneas de recurso compartido
+Una tarea útil adicional que puede hacer con un recurso compartido de archivos de Azure consiste en crear instantáneas de recurso compartido. Una instantánea conserva un punto en el tiempo para un recurso compartido de archivos de Azure. Las instantáneas de recurso compartido son similares a las tecnologías de sistemas operativos que es posible que conozca, como son:
+- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de archivos Windows como NTFS y ReFS
+- Instantáneas del [Administrador de volúmenes lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
+- Instantáneas de [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS. 
+ Puede crear una instantánea de un recurso compartido mediante el método `Snapshot` en el objeto de PowerShell para un recurso compartido de archivos, que se recupera con el cmdlet [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare). 
+
+```azurepowershell-interactive
+$share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
+$snapshot = $share.Snapshot()
+```
+
+### <a name="browse-share-snapshots"></a>Examen de las instantáneas de recurso compartido
+Puede examinar el contenido de la instantánea del recurso compartido pasando la referencia de la instantánea (`$snapshot`) al parámetro `-Share` del cmdlet `Get-AzureStorageFile`.
+
+```azurepowershell-interactive
+Get-AzureStorageFile -Share $snapshot
+```
+
+### <a name="list-share-snapshots"></a>Enumerar instantáneas del recurso compartido
+Puede ver la lista de instantáneas que ha realizado para el recurso compartido con el siguiente comando.
+
+```azurepowershell-interactive
+Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
+```
+
+### <a name="restore-from-a-share-snapshot"></a>Restauración desde una instantánea de recurso compartido
+Puede restaurar un archivo mediante el comando `Start-AzureStorageFileCopy` que hemos usado antes. Para los fines de esta guía de inicio rápido, primero eliminaremos nuestro archivo `SampleUpload.txt` que cargamos previamente para poder restaurarlo a partir de la instantánea.
+
+```azurepowershell-interactive
+# Delete SampleUpload.txt
+Remove-AzureStorageFile `
+    -Context $storageAcct.Context `
+    -ShareName "myshare" `
+    -Path "myDirectory\SampleUpload.txt"
+ # Restore SampleUpload.txt from the share snapshot
+Start-AzureStorageFileCopy `
+    -SrcShare $snapshot `
+    -SrcFilePath "myDirectory\SampleUpload.txt" `
+    -DestContext $storageAcct.Context `
+    -DestShareName "myshare" `
+    -DestFilePath "myDirectory\SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>Eliminación de una instantánea de recurso compartido
+Puede eliminar una instantánea de recurso compartido mediante el cmdlet [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare), con la variable que contiene la referencia `$snapshot` al parámetro `-Share`.
+
+```azurepowershell-interactive
+Remove-AzureStorageShare -Share $snapshot
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando haya terminado, puede usar el cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos relacionados. 

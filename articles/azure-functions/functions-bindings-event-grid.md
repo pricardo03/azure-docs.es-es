@@ -3,20 +3,20 @@ title: Desencadenador de Event Grid para Azure Functions
 description: Comprenda cómo se pueden controlar eventos de Event Grid en Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
-ms.author: glenga
-ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: cshoe
+ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128390"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249210"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -53,7 +53,7 @@ Vea el ejemplo específico del lenguaje de un desencadenador de Event Grid:
 
 Para ver un ejemplo de un desencadenador HTTP, consulte [Cómo utilizar un desencadenador HTTP](#use-an-http-trigger-as-an-event-grid-trigger) más adelante en este artículo.
 
-### <a name="c-example"></a>Ejemplo de C#
+### <a name="c-version-1x"></a>C# (Versión 1.x)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) de Functions 1.x que enlaza a `JObject`:
 
@@ -63,19 +63,22 @@ using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
         {
-            log.Info(eventGridEvent.ToString(Formatting.Indented));
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
         }
     }
 }
 ```
+
+### <a name="c-2x"></a>C# (2.x)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) de Functions 2.x que enlaza a `EventGridEvent`.
 
@@ -84,15 +87,16 @@ using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
-            log.Info(eventGridEvent.Data.ToString());
+            log.LogInformation(eventGridEvent.Data.ToString());
         }
     }
 }
@@ -119,6 +123,8 @@ Estos son los datos de enlace del archivo *function.json*:
 }
 ```
 
+#### <a name="c-script-version-1x"></a>Script de C# (versión 1.x)
+
 Este es el código de script de C# de Functions 1.x que enlaza a `JObject`:
 
 ```cs
@@ -133,15 +139,18 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
+#### <a name="c-script-version-2x"></a>Script de C# (versión 2.x)
+
 Este es el código de script de C# de Functions 2.x que enlaza a `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
 using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
 
-public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
+public static void Run(EventGridEvent eventGridEvent, ILogger log)
 {
-    log.Info(eventGridEvent.Data.ToString());
+    log.LogInformation(eventGridEvent.Data.ToString());
 }
 ```
 
@@ -207,7 +216,7 @@ Este es el código de Java:
 ```
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `EventGridTrigger` en los parámetros cuyo valor provendría de EventGrid. Los parámetros con estas anotaciones hacen que la función se ejecuta cuando llega un evento.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`. 
-     
+
 ## <a name="attributes"></a>Atributos
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs).
@@ -216,11 +225,11 @@ A continuación, se muestra un atributo `EventGridTrigger` en una signatura de m
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILogger log)
 {
     ...
 }
- ```
+```
 
 Para obtener un ejemplo completo, consulte [Ejemplo de C#](#c-example).
 
@@ -432,7 +441,7 @@ Use una herramienta como [Postman](https://www.getpostman.com/) o [curl](https:/
 
 ```
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 
 El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.
 
@@ -494,11 +503,11 @@ Cree una suscripción a Event Grid del tipo que quiere probar y asígnele el pun
 Use este patrón de punto de conexión para las funciones 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 Use este patrón de punto de conexión para las funciones 2.x:
 ```
 https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
-``` 
+```
 El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.
 
 A continuación se facilita un ejemplo mediante el uso de la CLI de Azure:
@@ -536,9 +545,9 @@ El siguiente ejemplo de código C# para un desencadenador HTTP simula el comport
 [FunctionName("HttpTrigger")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequestMessage req,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     var messages = await req.Content.ReadAsAsync<JArray>();
 
@@ -547,7 +556,7 @@ public static async Task<HttpResponseMessage> Run(
         "Microsoft.EventGrid.SubscriptionValidationEvent", 
         System.StringComparison.OrdinalIgnoreCase))
     {
-        log.Info("Validate request received");
+        log.LogInformation("Validate request received");
         return req.CreateResponse<object>(new
         {
             validationResponse = messages[0]["data"]["validationCode"]
@@ -559,9 +568,9 @@ public static async Task<HttpResponseMessage> Run(
     {
         // Handle one event.
         EventGridEvent eventGridEvent = message.ToObject<EventGridEvent>();
-        log.Info($"Subject: {eventGridEvent.Subject}");
-        log.Info($"Time: {eventGridEvent.EventTime}");
-        log.Info($"Event data: {eventGridEvent.Data.ToString()}");
+        log.LogInformation($"Subject: {eventGridEvent.Subject}");
+        log.LogInformation($"Time: {eventGridEvent.EventTime}");
+        log.LogInformation($"Event data: {eventGridEvent.Data.ToString()}");
     }
 
     return req.CreateResponse(HttpStatusCode.OK);
@@ -604,9 +613,9 @@ El siguiente ejemplo de código C# para un desencadenador HTTP simula el comport
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
@@ -618,7 +627,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
         "Microsoft.EventGrid.SubscriptionValidationEvent",
         System.StringComparison.OrdinalIgnoreCase))
         {
-            log.Info("Validate request received");
+            log.LogInformation("Validate request received");
             return req.CreateResponse<object>(new
             {
                 validationResponse = message[0]["data"]["validationCode"]
@@ -629,9 +638,9 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     {
         // The request is not for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
-        log.Info($"Source: {message["source"]}");
-        log.Info($"Time: {message["eventTime"]}");
-        log.Info($"Event data: {message["data"].ToString()}");
+        log.LogInformation($"Source: {message["source"]}");
+        log.LogInformation($"Time: {message["eventTime"]}");
+        log.LogInformation($"Event data: {message["data"].ToString()}");
     }
 
     return req.CreateResponse(HttpStatusCode.OK);

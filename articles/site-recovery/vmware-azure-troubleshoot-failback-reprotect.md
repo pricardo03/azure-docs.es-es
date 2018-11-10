@@ -1,22 +1,20 @@
 ---
-title: Solución de errores durante la conmutación por recuperación de máquinas virtuales de Azure en instancias de VMware locales con Azure Site Recovery | Microsoft Docs
-description: En este artículo se describen maneras de solucionar errores comunes de conmutación por recuperación y reprotección durante la conmutación por recuperación en VMware desde Azure, mediante Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Solución de problemas de conmutación por recuperación al entorno local durante la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describen formas de solucionar los problemas de conmutación por recuperación y reprotección durante la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: c5ba0f1d98f3e4023e767bf3eea7a0b497d47686
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 89484e14d69493c74ed1ff983cf88ec146e0313d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920981"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210370"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>Solución de problemas en la conmutación por recuperación de Azure en VMware
+# <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Solución de problemas de conmutación por recuperación al entorno local desde Azure
 
 En este artículo se explica cómo solucionar los problemas que se puede encontrar al realizar una conmutación por recuperación de las máquinas virtuales de Azure en la infraestructura local de VMware, después de una conmutación por error en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 

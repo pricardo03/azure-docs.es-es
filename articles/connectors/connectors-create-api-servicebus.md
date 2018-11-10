@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048781"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232722"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Intercambio de mensajes en la nube con Azure Service Bus y Azure Logic Apps
 
@@ -64,7 +64,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
       ![Copia de la cadena de conexión del espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar si la cadena de conexión está asociada al espacio de nombres de Service Bus o a una entidad de mensajería, como una cola, compruebe la cadena de conexión del parámetro `EntityPath`. Si encuentra este parámetro, la cadena de conexión es para una entidad específica y no es la correcta para la aplicación lógica.
+   > Para confirmar si la cadena de conexión está asociada al espacio de nombres de Service Bus o a una entidad de mensajería, como una cola, compruebe la cadena de conexión del parámetro `EntityPath` . Si encuentra este parámetro, la cadena de conexión es para una entidad específica y no es la correcta para la aplicación lógica.
 
 ## <a name="add-trigger-or-action"></a>Incorporación de un desencadenador o una acción
 
@@ -140,7 +140,7 @@ Para obtener detalles técnicos acerca de desencadenadores, acciones y límites,
 ## <a name="get-support"></a>Obtención de soporte técnico
 
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

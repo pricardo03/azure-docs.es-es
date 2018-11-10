@@ -1,20 +1,19 @@
 ---
-title: Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure con Site Recovery | Microsoft Docs
-description: Obtenga información sobre cómo conmutar por error servidores físicos y máquinas virtuales de VMware en Azure y conmutar por recuperación en el sitio local con Azure Site Recovery.
-services: site-recovery
+title: Conmutación por error y conmutación por recuperación de máquinas virtuales de VMware y servidores físicos durante la recuperación ante desastres a Azure con Site Recovery | Microsoft Docs
+description: Aprenda a conmutar por error servidores físicos y máquinas virtuales de VMware a Azure y a conmutar por recuperación al sitio local durante la recuperación ante desastres con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457097"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215351"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure
 

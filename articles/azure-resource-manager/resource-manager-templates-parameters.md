@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604342"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417776"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sección de parámetros de plantillas de Azure Resource Manager
 En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Estos valores de parámetros permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto (por ejemplo, desarrollo, prueba y producción). No tiene que especificar parámetros en la plantilla, pero sin parámetros la plantilla implementaría siempre los mismos recursos con los mismos nombres, ubicaciones y propiedades.
 
-Está limitado a 255 parámetros en una plantilla. Puede reducir el número de parámetros mediante el uso de objetos que contienen varias propiedades, tal como se muestra en este artículo.
+Está limitado a 256 parámetros en una plantilla. Puede reducir el número de parámetros mediante el uso de objetos que contienen varias propiedades, tal como se muestra en este artículo.
 
 ## <a name="define-and-use-a-parameter"></a>Definición y uso de un parámetro
 
@@ -85,19 +85,19 @@ El ejemplo anterior mostraba solo algunas de las propiedades que puede utilizar 
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| parameterName |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
-| Tipo |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
+| parameterName |SÍ |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
+| Tipo |SÍ |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | defaultValue |Sin  |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
 | allowedValues |Sin  |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin  |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
 | maxValue |Sin  |El valor máximo de parámetros de tipo int, este valor es inclusivo. |
 | minLength |Sin  |La longitud mínima de los parámetros de tipo cadena, secureString y matriz; este valor es inclusivo. |
 | maxLength |Sin  |La longitud máxima de los parámetros de tipo cadena, secureString y matriz; este valor es inclusivo. |
-| Descripción |Sin  |Descripción del parámetro que se muestra a los usuarios a través del portal. |
+| description |Sin  |Descripción del parámetro que se muestra a los usuarios a través del portal. |
 
 ## <a name="template-functions-with-parameters"></a>Funciones de plantilla con parámetros
 
-Cuando se proporciona el valor predeterminado de un parámetro, puede usar la mayoría de las funciones de plantilla. Puede usar otro valor de parámetro para compilar un valor predeterminado. La plantilla siguiente muestra el uso de funciones en el valor predeterminado:
+Cuando se especifica el valor predeterminado de un parámetro, puede usar la mayoría de las funciones de plantilla. Puede usar otro valor de parámetro para compilar un valor predeterminado. La plantilla siguiente muestra el uso de funciones en el valor predeterminado:
 
 ```json
 "parameters": {
@@ -197,7 +197,7 @@ La información siguiente puede ser útil cuando se trabaja con parámetros:
    * Nombres de recurso que desea especificar para facilitar la identificación.
    * Valores que usa con frecuencia para completar otras tareas (como un nombre de usuario administrador).
    * Secretos (como contraseñas).
-   * El número o matriz de valores que se usarán cuando cree varias instancias de un tipo de recurso.
+   * El número o matriz de valores que se usarán cuando cree más de una instancia de un tipo de recurso.
 * Use una mezcla de mayúsculas y minúsculas para los nombres de parámetro.
 * Proporcione una descripción de cada parámetro en los metadatos:
 
@@ -212,7 +212,7 @@ La información siguiente puede ser útil cuando se trabaja con parámetros:
    }
    ```
 
-* Defina los valores predeterminados de los parámetros (excepto en el caso de las contraseñas y claves SSH). Al proporcionar un valor predeterminado, el parámetro se convierte en opcional durante la implementación. El valor predeterminado puede ser una cadena vacía. 
+* Defina los valores predeterminados de los parámetros (excepto en el caso de las contraseñas y claves SSH). Al especificar un valor predeterminado, el parámetro se convierte en opcional durante la implementación. El valor predeterminado puede ser una cadena vacía. 
    
    ```json
    "parameters": {

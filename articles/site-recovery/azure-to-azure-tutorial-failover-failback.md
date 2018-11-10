@@ -1,20 +1,20 @@
 ---
-title: Conmutación por error y conmutación por recuperación de las máquinas virtuales de Azure replicadas en una región secundaria de Azure con Azure Site Recovery
-description: Aprenda a conmutar por error y por recuperación la replicación de las máquinas virtuales de Azure en una región secundaria de Azure con Azure Site Recovery
+title: Conmutación por error y conmutación por recuperación de las máquinas virtuales de Azure IaaS replicadas en una región secundaria de Azure para la recuperación ante desastres con el servicio Azure Site Recovery.
+description: Aprenda a realizar la conmutación por error y la conmutación por recuperación de las máquinas virtuales de Azure replicadas en una región secundaria de Azure para la recuperación ante desastres con el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9917656a3bc8fd8cfe7d71786dc39d296a2449c1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456514"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239294"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Conmutación por error y por recuperación de máquinas virtuales de Azure entre regiones de Azure
 
@@ -34,7 +34,7 @@ Este tutorial describe cómo conmutar por error una sola máquina virtual de Azu
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que ha completado una [exploración de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md) para comprobar que todo funciona según lo previsto.
-- Compruebe las propiedades de la máquina virtual antes de ejecutar la conmutación por error de prueba. La máquina virtual debe cumplir los [requisitos de Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
+- Compruebe las propiedades de la máquina virtual antes de ejecutar la conmutación por error de prueba. La máquina virtual debe cumplir los [requisitos de Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Ejecución de una conmutación por error en la región secundaria
 

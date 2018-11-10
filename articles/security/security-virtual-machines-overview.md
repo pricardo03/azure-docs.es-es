@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: fb6a984ff838305b4ce411538465c0b9b5c152da
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 631fe91bc72093cf5ad87779853df4901a27a068
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886921"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249128"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
+
 Puede usar las máquinas virtuales de Azure para implementar una amplia gama de soluciones informáticas con facilidad. El servicio es compatible con Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP y Azure BizTalk Services. Gracias a ello, puede implementar cualquier carga de trabajo y cualquier lenguaje en casi cualquier sistema operativo.
 
 Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que ejecuta la máquina virtual. Puede compilar e implementar aplicaciones con la tranquilidad de saber que sus datos están protegidos en centros de datos de alta seguridad.
@@ -37,6 +38,7 @@ Con Azure, puede crear soluciones compatibles con seguridad mejorada que:
 El objetivo de este artículo es proporcionar una visión general de las principales características de seguridad de Azure que se pueden usar con máquinas virtuales. Además, se incluyen vínculos a artículos que ofrecen detalles de cada una de estas características para que pueda tener más información al respecto.  
 
 ## <a name="antimalware"></a>Antimalware
+
 Con Azure, puede usar el software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro y Kaspersky. Este software le ayudará a proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas.
 
 Microsoft Antimalware para Azure Cloud Services y Virtual Machines es una funcionalidad de protección en tiempo real que permite identificar y eliminar virus, spyware y otro software malintencionado.  Microsoft Antimalware para Azure activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure.
@@ -58,13 +60,30 @@ Al implementar y habilitar Microsoft Antimalware para Azure, están disponibles 
 
 Obtenga más información acerca del software antimalware para proteger las máquinas virtuales:
 
-* [Microsoft Antimalware para Cloud Services y Virtual Machines de Azure](azure-security-antimalware.md)
+* [Microsoft Antimalware para Azure Cloud Services y Virtual Machines](azure-security-antimalware.md)
 * [Implementación de soluciones antimalware en Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](../virtual-machines/windows/classic/install-trend.md)
 * [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](../virtual-machines/windows/classic/install-symantec.md)
 * [Soluciones de seguridad en Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
+Para una protección aún más eficaz, considere el uso de la [Protección contra amenazas avanzada de Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Con ATP de Windows Defender, obtiene lo siguiente:
+
+* [Reducción de la superficie expuesta a ataques](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Protección de próxima generación](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
+* [Protección y respuesta de punto de conexión](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
+* [Investigación y corrección automatizadas](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
+* [Puntuación segura](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Búsqueda avanzada](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
+* [Administración y API](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
+* [Protección contra amenazas de Microsoft](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
+
+Más información: 
+
+* [Introducción a protección contra amenazas avanzada de Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
+* [Información general sobre las capacidades de ATP de Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
+
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware
+
 Las protecciones del cifrado y autenticación se pueden mejorar si se mejora la clave de seguridad. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en Azure Key Vault. 
 
 Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en Key Vault con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
@@ -76,6 +95,7 @@ Más información:
 * [Blog de Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Cifrado de discos de máquinas virtuales
+
 Azure Disk Encryption es una nueva funcionalidad que permite cifrar los discos de las máquinas virtuales de Windows y Linux. Azure Disk Encryption usa la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos.
 
 La solución se integra con Azure Key Vault para controlar y administrar los secretos y las claves de cifrado de los discos en la suscripción de Key Vault. Gracias a ello, se garantiza que todos los datos de los discos de máquinas virtuales se cifren en reposo en Azure Storage.
@@ -86,6 +106,7 @@ Más información:
 * [Guía de inicio rápido: Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Copia de seguridad de máquina virtual
+
 Azure Backup es una solución escalable que protege los datos de su aplicación sin necesidad de realizar ninguna inversión y afrontando unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones. Con Azure Backup, las máquinas virtuales que ejecutan Windows y Linux están protegidas.
 
 Más información:
@@ -95,6 +116,7 @@ Más información:
 * [P+F del servicio Azure Backup](../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
+
 Una parte importante de la estrategia de BCDR de la organización es averiguar cómo mantener las aplicaciones y cargas de trabajo corporativas listas para su funcionamiento cuando se producen interrupciones planificadas e imprevistas. Azure Site Recovery le ayuda a coordinar la replicación, la conmutación por error y la recuperación de aplicaciones y cargas de trabajo para que estén disponibles desde una ubicación secundaria si la ubicación principal deja de funcionar.
 
 Site Recovery:
@@ -112,6 +134,7 @@ Más información:
 * [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Redes virtuales
+
 Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que las máquinas virtuales de Azure estén conectadas a una instancia de Azure Virtual Network. 
 
 Azure Virtual Network es una construcción lógica creada encima del tejido de red físico de Azure. Cada instancia lógica de Azure Virtual Network está aislada de todas las demás redes virtuales de Azure. Este aislamiento contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
@@ -123,6 +146,7 @@ Más información:
 * [Networking features and partnerships for Enterprise scenarios (Características de red y asociaciones para escenarios empresariales)](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Informes y administración de directivas de seguridad
+
 Azure Security Center ayuda a evita y a detectar las amenazas, además de a responder a ellas. Security Center aporta visibilidad mejorada y control sobre la seguridad de los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
 
 Security Center le ayuda a optimizar y supervisar la seguridad de las máquinas virtuales de la siguiente manera:
@@ -137,9 +161,24 @@ Más información:
 * [Guía de planeamiento y operaciones de Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Cumplimiento normativo
+
 Azure Virtual Machines tiene las certificaciones de FISMA, FedRAMP, HIPAA, PCI DSS nivel 1 y otros programas de cumplimiento fundamentales. Esta certificación facilita en gran medida que sus propias aplicaciones de Azure cumplan los requisitos de cumplimiento y que su empresa satisfaga una amplia variedad de requisitos normativos nacionales e internacionales.
 
 Más información:
 
 * [Centro de confianza de Microsoft: conformidad](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance (La nube de confianza: Seguridad, privacidad y cumplimiento de Microsoft Azure)](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+
+## <a name="confidential-computing"></a>Computación confidencial
+
+Si bien la computación confidencial no forma técnicamente parte de la seguridad de la máquina virtual, el tema de la seguridad de la máquina virtual pertenece al tema de nivel superior de la seguridad "computacional". La computación confidencial pertenece a la categoría de seguridad "computacional". 
+
+La computación confidencial asegura que cuando los datos están "descubiertos", lo cual se requiere para un procesamiento eficiente, se mantienen protegidos dentro de un entorno de ejecución de confianza https://en.wikipedia.org/wiki/Trusted_execution_environment (también conocido como un enclave), de lo cual se muestra un ejemplo en la ilustración siguiente.  
+
+Los entornos de ejecución de confianza garantizan que no hay ninguna manera de ver datos u operaciones desde el exterior, ni siquiera con un depurador. Incluso aseguran que solo se permite el acceso a los datos al código autorizado. Si el código está alterado o modificado, se deniegan las operaciones y se deshabilita el entorno. El entorno de ejecución de confianza aplica estas protecciones a todo el proceso de ejecución del código que contiene. 
+
+Más información:
+
+* [Introducing Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/) (Introducción a la computación confidencial de Azure)  
+* [Azure confidential computing](https://azure.microsoft.com/blog/azure-confidential-computing/) (Computación confidencial de Azure)  
+

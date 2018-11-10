@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227243"
+---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migración de recursos IaaS del modelo de implementación clásica a Azure Resource Manager
 En primer lugar, es importante conocer la diferencia entre operaciones del plano de datos y del plano de administración en los recursos de infraestructura como servicio (IaaS).
 
@@ -69,7 +82,7 @@ Una vez que se completa la operación de preparación, tiene la opción de visua
 > [!NOTE]
 > No es posible seleccionar el nombre de un grupo de recursos creado para los recursos migrados (es decir, "-Migrated"). Sin embargo, una vez que se haya completado la migración, puede usar la característica de movimiento de Azure Resource Manager para mover recursos al grupo de recursos que desee. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../articles/resource-group-move-resources.md).
 
-Las dos siguientes capturas de pantalla muestran el resultado después de una operación de preparación correcta. La primera muestra un grupo de recursos que contiene el servicio en la nube original. La segunda muestra el nuevo grupo de recursos "-Migrated" que contiene los recursos equivalentes de Azure Resource Manager.
+Las dos capturas de pantalla siguientes muestran el resultado después de una operación de preparación correcta. La primera muestra un grupo de recursos que contiene el servicio en la nube original. La segunda muestra el nuevo grupo de recursos "-Migrated" que contiene los recursos equivalentes de Azure Resource Manager.
 
 ![Captura de pantalla que muestra el servicio en la nube original](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
 
@@ -118,7 +131,7 @@ Después de finalizar la validación, puede confirmar la migración. Los recurso
 
 Este es un diagrama de flujo que muestra cómo realizar la migración:
 
-![Captura de pantalla que muestra los pasos de migración](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Traslación del modelo de implementación clásica a los recursos de Resource Manager
 Puede encontrar las representaciones del modelo de implementación clásica y de Resource Manager de los recursos en la tabla siguiente. Actualmente no se admiten otras funciones y recursos.
@@ -137,7 +150,7 @@ Puede encontrar las representaciones del modelo de implementación clásica y de
 | Conjunto de punto de conexión de carga equilibrada |Equilibrador de carga |En el modelo de implementación clásica, la plataforma asignaba un equilibrador de carga implícito para cada servicio en la nube. Durante la migración, se crea un nuevo recurso de equilibrador de carga, y el conjunto de puntos de conexión con equilibrio de carga se convierte en reglas de equilibrador de carga. |
 | Reglas NAT de entrada |Reglas NAT de entrada |Los puntos de conexión de entrada definidos en la VM se convierten en reglas de traducción de direcciones de red de entrada en el equilibrador de carga durante la migración. |
 | Dirección VIP |Dirección IP pública con nombre DNS |La dirección IP virtual se convierte en una dirección IP pública y se asocia con el equilibrador de carga. Solo se puede migrar una dirección IP virtual si hay un punto de conexión de entrada asignado a ella. |
-| Red virtual |Red virtual |La red virtual se migra con todas sus propiedades al modelo de implementación de Resource Manager. Se crea un nuevo grupo de recursos con el nombre `-migrated`. |
+| Virtual network |Virtual network |La red virtual se migra con todas sus propiedades al modelo de implementación de Resource Manager. Se crea un nuevo grupo de recursos con el nombre `-migrated`. |
 | Direcciones IP reservadas |Dirección IP pública con método de asignación estático |Las direcciones IP reservadas asociadas con el equilibrador de carga se migran junto con la migración del servicio en la nube o de la máquina virtual. Actualmente, no se admite la migración de direcciones IP reservadas no asociadas. |
 | Dirección IP pública por máquina virtual |Dirección IP pública con método de asignación dinámico |La dirección IP pública asociada a la máquina virtual se convierte como un recurso de dirección IP público con el método de asignación establecido en estático. |
 | Grupos de seguridad de red |Grupos de seguridad de red |Los grupos de seguridad de red asociados a una subred se clonan como parte de la migración al modelo de implementación de Resource Manager. El grupo de seguridad de red no se quita en el modelo de implementación clásica durante la migración. Sin embargo, las operaciones de plano de administración para el grupo de seguridad de red se bloquean cuando la migración está en curso. |

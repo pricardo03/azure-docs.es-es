@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a49ad2546babe8bef6b52be1d8a2dbaceec94003
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 758871537b89a9c010cfaddf324e2208f9846afb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391817"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241334"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Storage
 ## <a name="overview"></a>Información general
 Este artículo trata cuestiones de rendimiento y escalabilidad de Azure Storage. Para ver un resumen de otros límites de Azure, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
-> Todas las cuentas de almacenamiento se ejecutan en la nueva topología de red plana y admiten los objetivos de escalabilidad y rendimiento descritos en este artículo, independientemente de cuándo se crearon. Para obtener más información acerca de la arquitectura de red plana de Azure Storage y de la escalabilidad, vea [Microsoft Azure Storage: un servicio de almacenamiento en la nube altamente disponible](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+> Todas las cuentas de almacenamiento se ejecutan en la nueva topología de red plana y admiten los objetivos de escalabilidad y rendimiento descritos en este artículo, independientemente de cuándo se crearon. Para obtener más información acerca de la arquitectura de red plana de Azure Storage y de la escalabilidad, vea [Microsoft Azure Storage: un servicio de almacenamiento en la nube altamente disponible](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 > 
 
 > [!IMPORTANT]
@@ -63,5 +63,5 @@ Con Azure File Sync, hemos tratado de diseñar, en la medida de lo posible, un u
 * [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-subscription-service-limits.md)
 * [Replicación de Azure Storage](../storage-redundancy.md)
 * [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](../storage-performance-checklist.md)
-* [Microsoft Azure Storage: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [Microsoft Azure Storage: un servicio de almacenamiento en nube altamente disponible con gran coherencia](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: sngun
-ms.openlocfilehash: e804ddec5f7aebf58352e87e483bf2bdeca0fce0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3bae365b879019862dd76ac8a857d4ded2b6c4bb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49989057"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241035"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conexión de Qlik Sense a Azure Cosmos DB y visualización de los datos
 
 Qlik Sense es una herramienta de visualización de datos que combina datos de orígenes diferentes en una sola vista. Qlik Sense indexa todas las posibles relaciones de los datos para poder obtener conocimiento inmediato de los datos. Puede visualizar los datos de Azure Cosmos DB con el uso de Qlik Sense. En este artículo se describen los pasos necesarios para conectar Azure Cosmos DB a Qlik Sense y para visualizar los datos. 
 
 > [!NOTE]
-> La conexión de Azure Cosmos DB a Qlik Sense actualmente es compatible solamente con las cuentas de API de SQL de Azure Cosmos DB.
+> La conexión de Qlik Sense con Azure Cosmos DB actualmente es compatible solamente con las cuentas de SQL API de Azure Cosmos DB y la API de MongoDB.
 
 Puede conectar Qlik Sense a Azure Cosmos DB con:
 
