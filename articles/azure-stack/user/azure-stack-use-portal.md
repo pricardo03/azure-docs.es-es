@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713753"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086512"
 ---
 # <a name="use-the-azure-stack-portal"></a>Uso del portal de Azure Stack
 
@@ -32,12 +32,13 @@ El operador de Azure Stack (un proveedor de servicios o un administrador de su o
 
 - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
 - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es https://portal.local.azurestack.external.
-
-![Captura de pantalla del portal del usuario de Azure Stack](media/azure-stack-use-portal/UserPortal.png)
+- La zona horaria predeterminada para todas las implementaciones de Azure Stack se establece conforme a la Hora universal coordinada (UTC). Aunque puede seleccionar una zona horaria al instalar Azure Stack, se revertirá automáticamente a la hora UTC de forma predeterminada durante la instalación.
 
 ## <a name="customize-the-dashboard"></a>Personalización del panel
 
 El panel contiene un conjunto predeterminado de iconos. Puede seleccionar **Edit dashboard** (Editar panel) para modificar el panel predeterminado o **New dashboard** (Nuevo panel) para crear un panel personalizado. Puede personalizar fácilmente un panel agregando o quitando iconos. Por ejemplo, para agregar un icono de Compute, seleccione **+ Crear un recurso**. Haga clic con el botón derecho en **Compute** y, luego, seleccione **Pin to dashboard** (Anclar al panel).
+
+![Captura de pantalla del portal del usuario de Azure Stack](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Creación de una suscripción y examen de los recursos disponibles
 

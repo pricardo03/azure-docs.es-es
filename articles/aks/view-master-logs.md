@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406048"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138183"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Confi
 ![Habilitación del área de trabajo de Log Analytics para el clúster de AKS de Log Analytics](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics. 
+>Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Programación de un pod de prueba en el clúster de AKS
 
@@ -82,7 +82,7 @@ Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparec
 
 ![Selección del área de trabajo de Log Analytics para el clúster de AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
-En el lado izquierdo, elija **Búsqueda de registros**. Para ver *kube-apiserver*, escriba la siguiente consulta en el cuadro de texto:
+En el lado izquierdo, elija **Registros**. Para ver *kube-apiserver*, escriba la siguiente consulta en el cuadro de texto:
 
 ```
 AzureDiagnostics

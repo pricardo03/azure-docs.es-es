@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801937"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086954"
 ---
 # <a name="how-to-configure-password-writeback"></a>Cómo configurar la escritura diferida de contraseñas
 
@@ -72,13 +72,14 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 3. En el panel izquierdo, haga clic con el botón derecho en el objeto que representa la raíz del dominio y elija **Propiedades** > **Seguridad** > **Avanzado**.
 4. En la pestaña **Permisos**, haga clic en **Agregar**.
 5. Elija la cuenta a la que se van a aplicar los permisos (en el programa de instalación de Azure AD Connect).
-6. En la lista desplegable **Se aplica a**, seleccione **Descendent User objects** (Objetos de usuario descendiente).
+6. En la lista desplegable **Se aplica a**, seleccione **Descendent User objects** (Objetos del usuario descendientes).
 7. En **Permisos**, active las casillas para las siguientes opciones:
-    * **Restablecimiento de contraseñas**
     * Haga clic en **Cambiar contraseña**.
+    * **Restablecimiento de contraseñas**
+8. En **Propiedades**, active las casillas de las siguientes opciones:
     * **Escribir lockoutTime**
     * **Escribir pwdLastSet**
-8. Haga clic en **Aplicar o Aceptar** para aplicar los cambios y salir de los cuadros de diálogo abiertos.
+9. Haga clic en **Aplicar o Aceptar** para aplicar los cambios y salir de los cuadros de diálogo abiertos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

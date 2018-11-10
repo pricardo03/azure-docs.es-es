@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure | Microsoft Docs
-description: Este artículo le enseña a ejecutar Azure Site Recovery Deployment Planner para la replicación de Hyper-V en Azure.
+title: Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure | Microsoft Docs
+description: En este artículo se describe cómo ejecutar Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094197"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213345"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 
 Puede ejecutar la herramienta de línea de comandos Site Recovery Deployment Planner (ASRDeploymentPlanner.exe) en cualquiera de los cuatro modos siguientes: 
 -   [Obtención de la lista de máquinas virtuales (VM)](#get-vm-list-for-profiling-hyper-v-vms)

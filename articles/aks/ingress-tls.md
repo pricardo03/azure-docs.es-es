@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 4679b800126f75596dcb78b46c65c6ac2b616729
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7a7acb7da2e5999fc844fe6c6c2e191783df9190
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364632"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093972"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS en Azure Kubernetes Service (AKS)
 
@@ -25,6 +25,7 @@ También puede:
 - [Crear un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 - [Habilitar el complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
 - [Crear un controlador de entrada que usa una red privada interna y una dirección IP][aks-ingress-internal]
+- [Crear un controlador de entrada que usa sus propios certificados TLS][aks-ingress-own-tls]
 - [Crear un controlador de entrada con una dirección IP pública estática y configurar Let's Encrypt para generar certificados TLS de forma automática][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -259,14 +260,14 @@ A continuación, agregue la ruta de acceso */hello-world-two* al FQDN, como *htt
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En este artículo, se usa Helm para instalar los componentes de entrada, los certificados y las aplicaciones de ejemplo. Al implementar un gráfico de Helm, se crean algunos recursos de Kubernetes. Estos recursos incluyen pods, implementaciones y servicios. Para limpiarlos, quite primero los recursos de certificado:
+En este artículo, se usa Helm para instalar los componentes de entrada, los certificados y las aplicaciones de ejemplo. Al implementar un gráfico de Helm, se crean algunos recursos de Kubernetes. Estos recursos incluyen pods, implementaciones y servicios. Para eliminarlos, quite primero los recursos de certificado:
 
 ```console
 kubectl delete -f certificates.yaml
 kubectl delete -f cluster-issuer.yaml
 ```
 
-Ahora, despliegue una lista de las versiones de Helm con el comando `helm list`. Busque los gráficos denominados *nginx-ingress*, *cert-manager*, y *aks-helloworld*, tal y como se muestra en la salida del ejemplo siguiente:
+Ahora, despliegue una lista de las versiones de Helm con el comando `helm list`. Busque los gráficos denominados *nginx-ingress*, *cert-manager* y *aks-helloworld*, tal y como se muestra en la salida del ejemplo siguiente:
 
 ```
 $ helm list
@@ -278,7 +279,7 @@ flabby-deer             1           Tue Oct 16 17:27:06 2018    DEPLOYED    aks-
 linting-echidna         1           Tue Oct 16 17:27:02 2018    DEPLOYED    aks-helloworld-0.1.0                default
 ```
 
-Elimine las versiones con el comando `helm delete`. En el ejemplo siguiente se elimina la implementación de entrada NGINX, así como el administrador de certificados y las dos aplicaciones hola mundo de AKS de ejemplo.
+Elimine las versiones con el comando `helm delete`. En el ejemplo siguiente se elimina la implementación de entrada NGINX, así como el administrador de certificados y las dos aplicaciones Hola mundo de AKS de ejemplo.
 
 ```
 $ helm delete billowing-kitten loitering-waterbuffalo flabby-deer linting-echidna
@@ -314,6 +315,7 @@ También puede:
 - [Crear un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 - [Habilitar el complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
 - [Crear un controlador de entrada que usa una red privada interna y una dirección IP][aks-ingress-internal]
+- [Crear un controlador de entrada que usa sus propios certificados TLS][aks-ingress-own-tls]
 - [Crear un controlador de entrada con una dirección IP pública estática y configurar Let's Encrypt para generar certificados TLS de forma automática][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
@@ -335,3 +337,4 @@ También puede:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

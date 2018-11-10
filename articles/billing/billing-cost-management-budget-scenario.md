@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259218"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094820"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
 
@@ -139,7 +139,7 @@ Cada aplicación lógica debe comenzar con un desencadenador, que se activa cuan
 4.  Busque "análisis del archivo JSON" en el cuadro de búsqueda del **Diseñador de aplicaciones lógicas** para buscar y seleccionar la [acción](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) **Operaciones de datos: análisis del archivo JSON**. 
     
     ![Azure - Aplicación lógica: agregar la acción de análisis del archivo JSON](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  Escriba "Carga" como el nombre de **Contenido** para la carga del análisis del archivo JSON.
+5.  Escriba "Payload" (carga) como el nombre de **contenido** para la carga de análisis del archivo JSON o use la etiqueta "Body" (cuerpo) del contenido dinámico.
 6.  Seleccione la opción **Use sample payload to generate schema** (Usar una carga de ejemplo para generar el esquema) en el cuadro **Análisis del archivo JSON**.
     
     ![Azure - Aplicación lógica: usar datos de JSON de ejemplo para generar el esquema](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 

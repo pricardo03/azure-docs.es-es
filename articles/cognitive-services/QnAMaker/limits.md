@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384969"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137300"
 ---
 # <a name="qna-maker-limits"></a>Límites de QnA Maker
 Lista completa de los límites de QnA Maker.
@@ -41,7 +41,7 @@ Lista completa de los límites de QnA Maker.
 
 ## <a name="knowledge-base-content-limits"></a>Límites de contenido de la base de conocimiento
 Límites generales del contenido de la base de conocimiento:
-* Longitud del texto de la respuesta: 250000
+* Longitud del texto de la respuesta: 25 000
 * Longitud del texto de la pregunta: 1000
 * Longitud del texto de clave y valor de metadatos: 100
 * Caracteres admitidos para el nombre de metadatos: alfabéticos, dígitos y _  

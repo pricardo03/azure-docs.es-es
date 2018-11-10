@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142976"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138666"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicaciones virtuales de red en Azure
 
@@ -77,14 +77,14 @@ Uso de PowerShell
 **Comprobación de si se puede enrutar el tráfico a la aplicación virtual de red**
 
 1. En [Azure Portal](https://portal.azure.com), abra **Network Watcher**, seleccione **Próximo salto**.
-2. Especifique la máquina virtual que desee que sea la aplicación virtual de red del próximo salto y una dirección IP de destino en la que ver el próximo salto. 
+2. Especifique una máquina virtual que esté configurada para redirigir el tráfico a la aplicación virtual de red y una dirección IP de destino en la cual se va a ver el próximo salto. 
 3. Si la aplicación virtual de red no aparece como **próximo salto**, comprueba y actualice las tablas de rutas de Azure.
 
 **Comprobación de si el tráfico puede llegar a la aplicación virtual de red**
 
 1.  En [Azure Portal](https://portal.azure.com), abra **Network Watcher** y, después, seleccione **Comprobación del flujo de IP**. 
-2.  Especifique una máquina virtual y la dirección IP de la aplicación virtual de red y, después, compruebe si el tráfico está bloqueado por algún grupo de seguridad de red (NSG).
-3.  Si existe una regla del grupo de seguridad de red que bloquee el tráfico, localice dicho grupo en las reglas de **seguridad eficaces** y, a continuación, actualícela para permitir el paso del tráfico. A continuación, ejecute **Comprobación del flujo de IP** de nuevo y use **Comprobación de conectividad** para probar las comunicaciones TCP de la máquina virtual a la dirección IP interna o externa.
+2.  Especifique la máquina virtual y la dirección IP de la aplicación virtual de red y, después, compruebe si el tráfico está bloqueado por algún grupo de seguridad de red (NSG).
+3.  Si existe una regla del grupo de seguridad de red que bloquee el tráfico, localice dicho grupo en las reglas de **seguridad eficaces** y, a continuación, actualícela para permitir el paso del tráfico. A continuación, ejecute **Comprobación del flujo de IP** de nuevo y use **Solución de problemas de conexión** para probar las comunicaciones TCP de la máquina virtual a la dirección IP interna o externa.
 
 **Comprobación de si la aplicación virtual de red y las máquinas virtuales están escuchando el tráfico esperado**
 

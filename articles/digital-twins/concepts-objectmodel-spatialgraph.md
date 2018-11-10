@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323934"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215113"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Descripción de los modelos de objetos de Digital Twins y del grafo de inteligencia espacial
 
@@ -25,7 +25,7 @@ Con los _modelos de objetos de Digital Twins_ y la _ontología_ preparados, se p
 
 ![Creación de un grafo espacial con Digital Twins][1]
 
-<a id="model" />
+<a id="model"></a>
 
 El grafo espacial reúne los espacios, los dispositivos, los sensores y los usuarios. Se vinculan entre sí de la misma manera que en el mundo real: el local 43 tiene cuatro plantas, cada una de ellas con varias zonas. Los usuarios se relacionan con las estaciones de trabajo y se les concede acceso a partes del grafo.  Por ejemplo, un administrador tendrá derechos para realizar cambios en el grafo espacial, mientras que un visitante solo podrá ver determinados datos del edificio.
 
@@ -52,19 +52,19 @@ Otras categorías de objetos son:
 - **Buscadores de coincidencias**: objetos que determinan qué UDF se ejecutará para un mensaje de telemetría determinado.
 - **Puntos de conexión**: ubicaciones donde pueden enrutarse los mensajes de telemetría y los eventos de Digital Twins, como `Event Hub`, `Service Bus` o `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Grafo de inteligencia espacial
 
 **Gráfico espacial**: grafo jerárquico de los espacios, los dispositivos y las personas que se definen en el **modelo de objetos de Digital Twins**. El grafo espacial es compatible con la _herencia_, el _filtrado_, el _recorrido_, el _escalado_ y la _extensibilidad_. Los usuarios pueden administrar el grafo espacial e interactuar con él con una colección de API REST (consulte a continuación).
 
-El usuario que implementa una instancia del servicio Digital Twins en su suscripción se convierte en el administrador global del nodo raíz, lo cual le que concede automáticamente acceso completo a toda la estructura. A continuación, este usuario puede aprovisionar los espacios en el grafo mediante `Space` API. Se pueden aprovisionar dispositivos mediante `Device` API; sensores, mediante `Sensor` API; etc. También ofrecemos [herramientas de código abierto](https://github.com/Azure-Samples/digital-twins-samples-csharp) para aprovisionar el grafo en bloque.
+El usuario que implementa una instancia del servicio Digital Twins en su suscripción se convierte en el administrador global del nodo raíz, lo cual le que concede automáticamente acceso completo a toda la estructura. A continuación, este usuario puede aprovisionar los espacios en el grafo mediante Space API. Los dispositivos se podrían aprovisionar mediante Device API, los sensores mediante Sensor API, etc. También ofrecemos [herramientas de código abierto](https://github.com/Azure-Samples/digital-twins-samples-csharp) para aprovisionar el grafo en bloque.
 
 La _herencia_ del grafo se aplica a los permisos y las propiedades que descienden de un nodo primario y a todos los nodos por debajo de este. Por ejemplo, cuando se asigna un rol a un usuario en un nodo determinado, el usuario tendrá los permisos de ese rol para el nodo especificado y todos los nodos debajo de él. Además, todos los nodos debajo de ese nodo determinado heredarán las claves de propiedad y el tipo extendido definidos para él.
 
-El _filtrado_ de grafos permite a los usuarios restringir los resultados de la solicitud por identificador, nombre, tipo, subtipo, espacio primario, espacio asociado, tipo de datos del sensor, claves y valores de propiedad, traverse, minLevel, maxLevel y otros parámetros de filtro de OData.
+El _filtrado_ de grafos permite a los usuarios restringir los resultados de la solicitud por identificador, nombre, tipo, subtipo, espacio primario, espacio asociado, tipo de datos del sensor, claves y valores de propiedad, como *traverse*, *minLevel*, *maxLevel* y otros parámetros de filtro de OData.
 
-El _recorrido_ del grafo permite a los usuarios recorrer el grafo espacial en toda su amplitud y profundidad. El grafo se puede recorrer en profundidad de arriba a abajo o de abajo a arriba con los parámetros de navegación `traverse`, `minLevel` y `maxLevel`. La amplitud del grafo se puede recorrer para obtener nodos secundarios directamente conectados a un espacio primario o a uno de los secundarios. Al consultar un objeto, podría obtener todos los objetos relacionados que tengan relación con ese objeto mediante el parámetro `includes` de las distintas versiones de GET API.
+El _recorrido_ del grafo permite a los usuarios recorrer el grafo espacial en toda su amplitud y profundidad. El grafo se puede recorrer en profundidad de arriba a abajo o de abajo a arriba con los parámetros de navegación *traverse*, *minLevel* y *maxLevel*. La amplitud del grafo se puede recorrer para obtener nodos secundarios directamente conectados a un espacio primario o a uno de los secundarios. Al consultar un objeto, podría obtener todos los objetos relacionados con ese objeto mediante el parámetro *includes* de las distintas versiones de GET API.
 
 Azure Digital Twins garantiza la _escalabilidad_ del grafo para poder ocuparse de las cargas de trabajo del mundo real. Digital Twins puede usarse para representar grandes carteras de bienes inmuebles, infraestructura, dispositivos, sensores, telemetría y mucho más.
 
@@ -78,10 +78,10 @@ Una vez implementado Azure Digital Twins desde [Azure Portal](https://portal.azu
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| Nombre del atributo personalizado | Reemplace por |
+| Nombre del atributo personalizado | Reemplazar por |
 | --- | --- |
-| `yourInstanceName` | El nombre de la instancia de Azure Digital Twins |
-| `yourLocation` | La región de servidor en la que está hospedada la instancia |
+| *suNombreDeInstancia* | El nombre de la instancia de Azure Digital Twins |
+| *suUbicación* | La región de servidor en la que está hospedada la instancia |
 
  En la siguiente imagen se ve el formato de la dirección URL completo:
 

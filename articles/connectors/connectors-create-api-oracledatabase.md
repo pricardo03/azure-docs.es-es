@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8e83a246c815a01b417f7658535906c396bf5996
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296026"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230240"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -27,7 +27,7 @@ Mediante el conector de una base de datos de Oracle, crea flujos de trabajo orga
 
 Este artículo le muestra cómo usar el conector de una base de datos de Oracle en una aplicación lógica.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Versiones de Oracle compatibles: 
     * Oracle 9 y versiones posteriores
@@ -36,9 +36,9 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 * Instale la puerta de enlace de datos local. Puede ver los pasos en [Conexión a datos locales desde aplicaciones lógicas](../logic-apps/logic-apps-gateway-connection.md). Esta puerta de enlace puede conectarse a una base de datos de Oracle local o a una VM de Azure con una base de datos de Oracle instalada. 
 
     > [!NOTE]
-    > La puerta de enlace de datos local actúa como un puente, proporcionando una transferencia de datos segura entre los datos locales (datos que no están en la nube) y las aplicaciones lógicas. La misma puerta de enlace se puede utilizar con varios servicios y varios orígenes de datos. Por lo tanto, solo debe instalar la puerta de enlace una vez.
+    > La puerta de enlace de datos local actúa como un puente, proporcionando una transferencia de datos segura entre los datos locales (datos que no están en la nube) y las aplicaciones lógicas. La misma puerta de enlace se puede utilizar con varios servicios y varios orígenes de datos. Por lo tanto, solo debe instalar la puerta de enlace una vez.
 
-* Instale el cliente Oracle en la misma máquina en la que instaló la puerta de enlace de datos local. Asegúrese de instalar el proveedor de datos de Oracle de 64-bits para .NET de Oracle:  
+* Instale el cliente Oracle en la misma máquina en la que instaló la puerta de enlace de datos local. Asegúrese de instalar el proveedor de datos de Oracle de 64-bits para .NET de Oracle:  
 
   [64-bits ODAC 12c versión 4 (12.1.0.2.4) para Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -97,25 +97,25 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
 #### <a name="error-cannot-reach-the-gateway"></a>**Error**: No se puede alcanzar la puerta de enlace
 
-**Causa**: La puerta de enlace de datos local no puede conectarse con la nube. 
+**Causa**: La puerta de enlace de datos local no puede conectarse con la nube. 
 
-**Mitigación**: Asegúrese de que la puerta de enlace se esté ejecutando en el equipo local donde la instaló y que se pueda conectar a Internet.  Se recomienda no instalar la puerta de enlace en un equipo que pueda apagarse o suspenderse. También puede reiniciar el servicio de la puerta de enlace de datos local (PBIEgwService).
+**Mitigación**: Asegúrese de que la puerta de enlace se esté ejecutando en el equipo local donde la instaló y que se pueda conectar a Internet.  Se recomienda no instalar la puerta de enlace en un equipo que pueda apagarse o suspenderse. También puede reiniciar el servicio de la puerta de enlace de datos local (PBIEgwService).
 
 #### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Error**: El proveedor que está usando está en desuso: 'System.Data.OracleClient requiere la versión 8.1.7 del software cliente de Oracle o una versión posterior'. Vea [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar el proveedor oficial.
 
-**Causa**: El SDK del cliente Oracle no está instalado en la misma máquina en la que se ejecuta la puerta de enlace de datos local.  
+**Causa**: El SDK del cliente Oracle no está instalado en la misma máquina en la que se ejecuta la puerta de enlace de datos local.  
 
 **Resolución**: Descargue e instale el SDK del cliente Oracle en la misma máquina que la puerta de enlace de datos local.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Error**: La tabla '[Tablename]' no define las columnas clave.
 
-**Causa**: La tabla no tiene ninguna clave principal.  
+**Causa**: La tabla no tiene ninguna clave principal.  
 
 **Resolución**: El conector de la base de datos de Oracle requiere que se utilice una tabla con una columna de clave principal.
 
 #### <a name="currently-not-supported"></a>Actualmente no se admite
 
-* Vistas y procedimientos almacenados 
+* Vistas y procedimientos almacenados 
 * Todas las tablas con claves compuestas
 * Tipos de objetos anidados en tablas
  
@@ -127,7 +127,7 @@ Vea los desencadenadores y las acciones definidos en Swagger y vea también todo
 
 El [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) es un excelente lugar para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Azure Logic Apps. 
 
-Puede ayudar a mejorar Logic Apps y conectores al votar y enviar sus ideas en [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Puede ayudar a mejorar Logic Apps y conectores al votar y enviar sus ideas en [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

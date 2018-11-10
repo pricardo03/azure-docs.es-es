@@ -1,5 +1,5 @@
 ---
-title: Supervisar el estado de la máquina virtual con Azure Monitor para las máquinas virtuales | Microsoft Docs
+title: Supervisión del estado de la máquina virtual con Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: En este artículo se describe cómo entender el estado de la máquina virtual y el sistema operativo subyacente con Azure Monitor para las máquinas virtuales.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387828"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094234"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprender el estado de sus máquinas virtuales de Azure con Azure Monitor para las máquinas virtuales
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque se podían supervisar distintas condiciones mediante Log Analytics o Azure Monitor, no estaban diseñadas para modelar ni representar el estado general de la máquina virtual o de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
 
 El estado de mantenimiento general de la máquina virtual de Azure y el sistema operativo subyacente pueden observarse desde dos perspectivas con el estado de Azure Monitor para máquinas virtuales, ya sea directamente desde la máquina virtual o bien en todas las máquinas virtuales de un grupo de recursos de Azure Monitor.
@@ -35,7 +35,7 @@ En esta sección se describen los criterios de estado predeterminados definidos 
 
 ### <a name="windows-vms"></a>Máquinas virtuales Windows
 
-- Megabytes disponibles de memoria 
+- Megabytes disponibles de memoria 
 - Media de segundos del disco por escritura (disco lógico)
 - Media de segundos del disco por escritura (disco)
 - Media de segundos del disco lógico por lectura

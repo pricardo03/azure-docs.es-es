@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: efaf551d134d339205d40966cb84f41b408559bd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394185"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210455"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Guía de inicio rápido: Ingesta de datos desde el centro de eventos en el Explorador de datos de Azure
 
@@ -25,9 +25,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https:
 
 Además de una suscripción de Azure, necesita lo siguiente para completar esta guía de inicio rápido:
 
-* [Una base de datos y un clúster de prueba](create-cluster-database-portal.md)
+* [Base de datos y clúster de prueba](create-cluster-database-portal.md)
 
-* [Una aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que genera los datos
+* [Una aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que genera los datos y los envía a un centro de eventos
 
 * [Visual studio 2017, versión 15.3.2 o superior](https://www.visualstudio.com/vs/) para ejecutar la aplicación de ejemplo
 
@@ -37,9 +37,9 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Crear un centro de eventos
 
-En esta guía de inicio rápido, generará datos de ejemplo y los enviará a un centro de eventos. El primer paso es crear un centro de eventos. Para hacerlo, utilice una plantilla de Azure Resource Manager (ARM) en Azure Portal.
+En esta guía de inicio rápido, generará datos de ejemplo y los enviará a un centro de eventos. El primer paso es crear un centro de eventos. Para hacerlo, utilice una plantilla de Azure Resource Manager en Azure Portal.
 
-1. Seleccione el botón siguiente para iniciar la implementación.
+1. Use el botón siguiente para iniciar la implementación. Se recomienda abrir el vínculo en otra pestaña o ventana, para que pueda seguir el resto de los pasos de este artículo.
 
     [![Implementación en Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -69,13 +69,15 @@ En esta guía de inicio rápido, generará datos de ejemplo y los enviará a un 
 
 1. Seleccione **Comprar**, que confirma que está creando recursos en su suscripción.
 
-1. Seleccione **Notificaciones** en la barra de herramientas (el icono de campana) para supervisar el proceso de aprovisionamiento. La implementación puede tardar varios minutos en realizarse correctamente, pero puede continuar con el siguiente paso ahora.
+1. Seleccione **Notificaciones** en la barra de herramientas para supervisar el proceso de aprovisionamiento. La implementación puede tardar varios minutos en realizarse correctamente, pero puede continuar con el siguiente paso ahora.
+
+    ![Notificaciones](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Creación de una tabla de destino en el Explorador de datos de Azure
 
 Ahora creará una tabla en el Explorador de datos de Azure, al que Event Hubs enviará datos. Creará la tabla en el clúster y la base de datos aprovisionada en **Requisitos previos**.
 
-1. En Azure Portal, bajo el clúster, seleccione **Consulta**.
+1. En Azure Portal, vaya al clúster y, a continuación, seleccione **Consulta**.
 
     ![Vínculo a la aplicación Consulta](media/ingest-data-event-hub/query-explorer-link.png)
 
@@ -92,11 +94,11 @@ Ahora creará una tabla en el Explorador de datos de Azure, al que Event Hubs en
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Este comando asigna los datos de JSON entrantes a los nombres de columna y tipos de datos utilizados al crear la tabla.
+    Este comando asigna los datos JSON entrantes a los nombres de columna y tipos de datos de la tabla (TestTable).
 
 ## <a name="connect-to-the-event-hub"></a>Conexión a Event Hubs
 
-Ahora se conectará al centro de eventos desde el Explorador de datos de Azure, para que los datos que fluyen en el centro de eventos se transmitan a la tabla de prueba.
+Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se efectúa esta conexión, los datos que fluyen al centro de eventos se transmiten a la tabla de prueba que creó anteriormente en este artículo.
 
 1. Seleccione **Notificaciones** en la barra de herramientas para comprobar que la implementación del centro de eventos se ha realizado correctamente.
 
@@ -118,27 +120,27 @@ Ahora se conectará al centro de eventos desde el Explorador de datos de Azure, 
     | Espacio de nombres del centro de eventos | Nombre de espacio de nombres único | Nombre elegido anteriormente que identifica el espacio de nombres. |
     | Centro de eventos | *test-hub* | El centro de eventos que creó. |
     | Grupo de consumidores | *test-group* | Grupo de consumidores de eventos definido en el centro de eventos que creó. |
+    | Tabla de destino | Deje **Mis datos incluyen información de enrutamiento** sin seleccionar. | Hay dos opciones para el enrutamiento: *estático* y *dinámico*. En esta guía de inicio rápido usará el enrutamiento estático (predeterminado), en el que se especifican el nombre de la tabla, el formato de archivo y la asignación. También puede usar el enrutamiento dinámico, en el que los datos incluyen la información de enrutamiento necesaria. |
     | Tabla | *TestTable* | La tabla que creó en **TestDatabase**. |
     | Formato de datos | *JSON* | Se admiten los formatos CSV y JSON. |
-    | Asignación de columnas | *TestMapping* | La asignación que creó en **TestDatabase**. |
-
-    En esta guía de inicio rápido, usará el *enrutamiento estático* desde el centro de eventos, donde se especifica el nombre de la tabla, el formato de archivo y la asignación. También puede usar el enrutamiento dinámico, donde la aplicación establece estas propiedades.
+    | Asignación de columnas | *TestMapping* | La asignación que creó en **TestDatabase**, que asigna los datos JSON entrantes a los nombres de columnas y tipos de datos de **TestTable**.|
+    | | |
 
 ## <a name="copy-the-connection-string"></a>Copiar la cadena de conexión
 
-Al ejecutar la aplicación para generar datos de ejemplo, necesita la cadena de conexión para el espacio de nombres del centro de eventos.
+Al ejecutar la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que se enumera en los requisitos previos, necesitará la cadena de conexión para el espacio de nombres del centro de eventos.
 
 1. En el espacio de nombres del centro de eventos que creó, seleccione **Directivas de acceso compartido** y **RootManageSharedAccessKey**.
 
     ![Directivas de acceso compartido](media/ingest-data-event-hub/shared-access-policies.png)
 
-1. Copie **Cadena de conexión: clave principal**.
+1. Copie **Cadena de conexión: clave principal**. Péguelo en la sección siguiente.
 
     ![Cadena de conexión](media/ingest-data-event-hub/connection-string.png)
 
 ## <a name="generate-sample-data"></a>Generación de datos de ejemplo
 
-Ahora que están conectados el Explorador de datos de Azure y el centro de eventos, use la aplicación de ejemplo que descargó para generar datos.
+Ahora que están conectados Azure Data Explorer y el centro de eventos, use la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que descargó para generar datos.
 
 1. Abra la aplicación de ejemplo en Visual Studio.
 
@@ -156,11 +158,13 @@ Ahora que están conectados el Explorador de datos de Azure y el centro de event
 
 ## <a name="review-the-data-flow"></a>Revisión del flujo de datos
 
+Con la aplicación de generación de datos, ahora puede ver el flujo de datos desde el centro de eventos a la tabla del clúster.
+
 1. En Azure Portal, bajo el centro de eventos, verá el pico de actividad cuando se ejecuta la aplicación.
 
     ![Gráfico del centro de eventos](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Vuelva a la aplicación y deténgala cuando llegue al mensaje 99.
+1. Vuelva a la aplicación de ejemplo y deténgala cuando llegue al mensaje 99.
 
 1. Ejecute la siguiente consulta en la base de datos de prueba para comprobar cuántos mensajes se han enviado a la base de datos hasta el momento.
 

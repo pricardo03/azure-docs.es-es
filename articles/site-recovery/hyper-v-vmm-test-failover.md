@@ -1,19 +1,18 @@
 ---
 title: Ejecución de una exploración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con Azure Site Recovery | Microsoft Docs
-description: Obtenga información acerca de cómo ejecutar una exploración de la recuperación ante desastres para máquinas virtuales de Hyper-V en nubes de VMM en un centro de datos secundario con Azure Site Recovery.
-services: site-recovery
+description: Obtenga información acerca de cómo ejecutar una exploración de la recuperación ante desastres para máquinas virtuales de Hyper-V en nubes de VMM en un centro de datos local secundario con Azure Site Recovery.
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 03533af27ac6fd406b4639c31c3add0015a76f45
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918805"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211356"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Ejecución de una exploración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
 

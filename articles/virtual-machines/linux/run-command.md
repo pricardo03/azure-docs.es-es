@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267756"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158812"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Linux con el comando Ejecutar
 
@@ -38,6 +38,9 @@ A continuación, se muestra una lista de restricciones que están presentes cuan
 * El tiempo máximo que se puede ejecutar un script es de 90 minutos después de agotarse el tiempo de espera
 * La conectividad saliente de la máquina virtual es necesaria para devolver los resultados del script.
 
+> [!NOTE]
+> Para poder funcionar correctamente, el comando Ejecutar requiere conectividad (puerto 443) a las direcciones IP públicas de Azure. Si la extensión no tiene acceso a estos puntos de conexión, los scripts se pueden ejecutar correctamente pero no devuelven los resultados. Si va a bloquear el tráfico de la máquina virtual, puede usar las [etiquetas de servicio](../../virtual-network/security-overview.md#service-tags) para permitir el tráfico a las direcciones IP públicas de Azure mediante el uso de la etiqueta `AzureCloud`.
+
 ## <a name="azure-cli"></a>Azure CLI
 
 A continuación, se muestra un ejemplo que utiliza el comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para ejecutar un script de PowerShell en una máquina virtual Linux de Azure.
@@ -55,7 +58,7 @@ Navegue a una máquina virtual en [Azure](https://portal.azure.com) y seleccione
 
 ![Lista de comandos Ejecutar](./media/run-command/run-command-list.png)
 
-Elija un comando para ejecutar. Algunos de los comandos pueden tener parámetros de entrada obligatorios u opcionales. Para estos comandos, los parámetros se presentan como campos de texto para que pueda proporcionar los valores de entrada. Para cada comando, puede ver el script que se está ejecutando expandiendo **Ver script**. **RunShellScript** es diferente de los otros comandos, ya que permite proporcionar sus propios scripts personalizados. 
+Elija un comando para ejecutar. Algunos de los comandos pueden tener parámetros de entrada obligatorios u opcionales. Para estos comandos, los parámetros se presentan como campos de texto para que pueda proporcionar los valores de entrada. Para cada comando, puede ver el script que se está ejecutando expandiendo **Ver script**. **RunShellScript** es diferente de los otros comandos, ya que permite proporcionar sus propios scripts personalizados.
 
 > [!NOTE]
 > Los comandos integrados no son editables.

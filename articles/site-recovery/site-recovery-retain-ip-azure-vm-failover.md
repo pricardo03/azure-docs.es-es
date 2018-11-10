@@ -1,22 +1,19 @@
 ---
-title: Conservar las direcciones IP cuando se conmuta por error máquinas virtuales de Azure en otra región de Azure | Microsoft Docs
-description: Aquí se describe cómo conservar las direcciones IP de Azure en escenarios de conmutación por error de Azure con Azure Site Recovery
+title: Retención de las direcciones IP para conmutación por error de máquinas virtuales de Azure | Microsoft Docs
+description: Describe cómo retener las direcciones IP cuando se conmuta por error máquinas virtuales de Azure para la recuperación ante desastres en una región secundaria con Azure Site Recovery
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353329"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213039"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Conservar las direcciones IP para la conmutación por error de una máquina virtual de Azure
+# <a name="ip-address-retention-for-azure-vm-failover"></a>Retención de direcciones IP para la conmutación por error de máquinas virtuales de Azure
 
 Azure Site Recovery permite la recuperación ante desastres de las máquinas virtuales de Azure. Cuando se conmuta por error desde una región de Azure a otra, los clientes a menudo necesitan conservar sus configuraciones de IP. Por ello, Site Recovery imita la red virtual de origen y la estructura de la subred de forma predeterminada cuando se crean estos recursos en la región de destino. En cuanto a las máquinas virtuales de Azure configuradas mediante direcciones IP privadas y estáticas, Site Recovery dedica el máximo esfuerzo en aprovisionar la misma IP privada en la máquina virtual de destino, siempre y cuando un recurso de Azure o una máquina virtual replicada no haya bloqueado esa IP.
 

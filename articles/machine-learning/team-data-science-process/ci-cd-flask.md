@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304295"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094404"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante Docker y Kubernetes
 Para una aplicación de IA, suele haber dos flujos de trabajo: los científicos de datos, que crean modelos de aprendizaje automático, y los desarrolladores de aplicaciones, que crean la aplicación y la exponen a los usuarios finales para que la consuman. En este artículo, se muestra cómo implementar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de IA. Una aplicación de IA es una combinación de código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para este artículo, obtenemos un modelo previamente entrenado de una cuenta de almacenamiento de blobs de Azure privada; también podría ser una cuenta de AWS S3. Usaremos una aplicación web sencilla de Python Flask para el artículo.
@@ -38,7 +38,7 @@ Estos son los requisitos previos para seguir la canalización de CI/CD que se de
 * [Organización de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Clúster de Azure Container Service (AKS) donde se ejecuta Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Cuenta de Azure Container Registy (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [Cuenta de Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Instale Kubectl para ejecutar comandos en clústeres de Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Necesitaremos esta opción para obtener la configuración del clúster de ACS. 
 * Bifurque el repositorio de GitHub a su cuenta de GitHub.
 
@@ -70,5 +70,5 @@ La arquitectura de canalización se indica a continuación.
 ## <a name="references"></a>Referencias
 * [Proceso de ciencia de datos en equipo (TDSP)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

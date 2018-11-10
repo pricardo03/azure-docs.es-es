@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457043"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093979"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 
@@ -40,7 +40,8 @@ En la lista siguiente se describen los requisitos de certificados que son necesa
 - Al cambiar los certificados, deben estar emitidos por la misma entidad certificación interna utilizada para firmar los certificados proporcionados en la implementación o por cualquier entidad de certificación pública anterior.
 - No se admite el uso de certificados autofirmados.
 - Para la implementación y la rotación, se puede usar un certificado único que abarque todos los espacios de nombres en los campos Nombre del firmante y Nombre alternativo del firmante (SAN) del certificado, O BIEN se pueden usar certificados individuales para cada uno de los espacios de nombres siguientes requeridos por los servicios de Azure Stack que se van a usar. Para ambos enfoques hay que usar caracteres comodín para los puntos de conexión donde sean necesarios, como **KeyVault** y **KeyVaultInternal**. 
-- El algoritmo de firma no puede ser SHA1, ya que debe ser más seguro. 
+- El cifrado PFX del certificado debe ser 3DES. 
+- El algoritmo de firma de certificado no debe ser SHA1. 
 - El formato del certificado debe ser PFX, porque las claves públicas y privadas son necesarias para la instalación de Azure Stack. 
 - El cifrado de PFX debe ser 3DES (este es el valor predeterminado cuando se exporta desde un cliente de Windows 10 o desde un almacén de certificados de Windows Server 2016).
 - Los archivos PFX de certificado deben tener un valor "Digital Signature" (firma digital) y "KeyEncipherment" (cifrado de clave) en el campo "Key Usage" (uso de clave).

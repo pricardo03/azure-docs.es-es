@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883931"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139113"
 ---
 # <a name="integrate-speech-service"></a>Integración de Speech Service
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, que ya se incluye como referencia. 
@@ -39,7 +39,7 @@ Esta aplicación tiene intenciones, entidades y expresiones relacionadas con el 
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Incorporación de entidad pregenerada KeyPhrase
-Después de importar la aplicación, seleccione **Entidades** y luego **Manage prebuilt entities** (Administrar entidades pregeneradas). Agregue la entidad **KeyPhrase**. La entidad KeyPhrase extrae el tema principal de la expresión.
+Después de importar la aplicación, seleccione **Entities** (Entidades) y luego **Add prebuilt entity** (Agregar entidad creada previamente). Agregue la entidad **KeyPhrase**. La entidad KeyPhrase extrae el tema principal de la expresión.
 
 ## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
 1. En la barra de navegación superior derecha, seleccione el botón **Entrenar** para entrenar la aplicación de LUIS.

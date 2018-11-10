@@ -1,6 +1,6 @@
 ---
-title: Conmutación por recuperación en Azure Site Recovery | Microsoft Docs
-description: En este artículo se proporciona información general acerca de los diversos tipos de conmutación por recuperación y advertencias que deben considerarse al conmutar por recuperación de forma local con el servicio de Azure Site Recovery.
+title: Conmutación por recuperación durante la recuperación ante desastres con Azure Site Recovery | Microsoft Docs
+description: En este artículo se proporciona información general acerca de los diversos tipos de conmutación por recuperación y advertencias que deben considerarse al conmutar por recuperación de forma local durante la recuperación ante desastres con el servicio de Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920396"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210149"
 ---
 # <a name="overview-of-failback"></a>Introducción a la conmutación por recuperación
 
-Después de conmutar por error a Azure, puede conmutar por recuperación a su sitio local. Existen dos tipos diferentes de conmutación por error posibles con Azure Site Recovery: 
+Una vez que ha conmutado por error en Azure como parte del proceso de recuperación ante desastres, puede conmutar por recuperación a su sitio local. Existen dos tipos diferentes de conmutación por error posibles con Azure Site Recovery: 
 
 - Conmutación por recuperación a la ubicación original 
 - Conmutación por recuperación a la ubicación alternativa

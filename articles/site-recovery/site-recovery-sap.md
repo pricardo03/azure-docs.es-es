@@ -1,27 +1,23 @@
 ---
-title: Protección de la implementación de una aplicación SAP NetWeaver de niveles múltiples mediante Azure Site Recovery | Microsoft Docs
-description: En este artículo se explica cómo proteger las implementaciones de aplicaciones SAP NetWeaver mediante Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configuración de la recuperación ante desastres para la implementación de aplicaciones de SAP NetWeaver de niveles múltiples con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo configurar la recuperación ante desastres para la implementación de aplicaciones de SAP NetWeaver mediante Azure Site Recovery.
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318697"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211730"
 ---
-# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Protección de la implementación de una aplicación SAP NetWeaver de niveles múltiples mediante Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
 
 La mayor parte de las implementaciones SAP grandes y medianas usan algún tipo de solución de recuperación ante desastres. La importancia de las soluciones de recuperación ante desastres sólidas y verificables ha aumentado a medida que cada vez más procesos empresariales básicos se trasladan a aplicaciones como SAP. Azure Site Recovery se probó e integró con aplicaciones SAP. Site Recovery supera las funcionalidades de la mayoría de las soluciones de recuperación ante desastres locales, con un costo total de propiedad (TCO) menor que las soluciones de la competencia.
 
@@ -62,7 +58,7 @@ Se recomienda establecer esta infraestructura antes de implementar Site Recovery
 
 Esta arquitectura de referencia muestra la ejecución de SAP NetWeaver en un entorno Windows en Azure con alta disponibilidad.  Esta arquitectura se implementa con tamaños de máquina virtual (VM) específicos que se pueden cambiar para acomodarse a las necesidades de la organización.
 
-![Diagrama de un modelo de implementación de SAP típico](./media/site-recovery-sap/reference_sap.png)
+![Diagrama de un modelo de implementación de SAP típico](./media/site-recovery-sap/sap-netweaver_latest.png)
 
 ## <a name="disaster-recovery-considerations"></a>Consideraciones acerca de la recuperación ante desastres
 

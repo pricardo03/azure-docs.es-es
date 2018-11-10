@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144520"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139032"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Inicio rápido: Prueba de una solución basada en la nube para administrar los dispositivos IoT industriales
 
@@ -32,13 +32,13 @@ Si no tiene ninguna, cree una [cuenta gratuita](https://azure.microsoft.com/free
 
 Al implementar el acelerador de soluciones para la suscripción de Azure, debe establecer algunas opciones de configuración.
 
-Inicie sesión en [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) con las credenciales de su cuenta de Azure.
+Vaya a [aceleradores de soluciones de IoT de Microsoft Azure](https://www.azureiotsolutions.com) e inicie sesión con las credenciales de la cuenta de Azure.
 
-Haga clic en **Try Now** (Probar ahora) en el icono **Connected Factory**.
+Haga clic en el icono **Fábrica conectada**. En la página **Fábrica conectada**, haga clic en **Probar ahora**:
 
-![Selección de Connected Factory](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Probar ahora](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-En la página **Create Connected Factory solution** (Crear solución Connected Factory), escriba un **nombre de solución** único para su acelerador de soluciones Connected Factory. Este nombre es el nombre del grupo de recursos de Azure que contiene todos los recursos del acelerador de soluciones. En este inicio rápido, llamamos al nuestro **MyDemoConnectedFactory**.
+En la página **Create Connected Factory solution** (Crear solución Connected Factory), escriba un **nombre de solución** único para su acelerador de soluciones Connected Factory. Este nombre es el nombre del grupo de recursos de Azure que contiene todos los recursos del acelerador de soluciones. Esta guía de inicio rápido usa el nombre **MyDemoConnectedFactory**.
 
 Seleccione la **Suscripción** y la **Región** que desea usar para implementar el acelerador de soluciones. Generalmente, elegirá la región más cercana. En esta guía de inicio rápido, vamos a usar **Visual Studio Enterprise** y **Este de EE. UU**. Debe ser un [administrador global o un usuario](iot-accelerators-permissions.md) en la suscripción.
 
@@ -66,7 +66,7 @@ La vista predeterminada es el *panel*. Use el menú de la parte izquierda de la 
 
 [![Panel de soluciones](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-Usará el panel para administrar los dispositivos IoT industriales. Connected Factory usa una jerarquía para mostrar una configuración de fábrica global. En el nivel superior de la jerarquía está la empresa que contiene una o varias fábricas, cada fábrica contiene líneas de producción y cada línea de producción se compone de estaciones. En cada nivel, puede ver valores de OEE y KPI, publicar nuevos nodos para telemetría y responder a las alarmas.
+Usará el panel para administrar los dispositivos IoT industriales. Connected Factory usa una jerarquía para mostrar una configuración de fábrica global. El nivel superior de la jerarquía es la empresa, que a su vez contiene una o varias fábricas. Cada fábrica contiene líneas de producción y cada línea de producción se compone de estaciones. En cada nivel, puede ver valores de OEE y KPI, publicar nuevos nodos para telemetría y responder a las alarmas.
 
 En el panel puede ver:
 
@@ -122,7 +122,7 @@ Si su suscripción tiene acceso a la [API de Bing Maps](iot-accelerators-faq-cf.
 
 ### <a name="alarms"></a>Alarmas
 
-El panel **Alarmas** muestra las alarmas generadas cuando un valor notificado o un valor de OEE o KPI calculado supera el umbral configurado. Este panel muestra las alarmas en cada nivel de la jerarquía, desde el nivel de estación a la empresa. Cada alarma incluye una descripción, la fecha, la hora, la ubicación y el número de repeticiones:
+El panel **Alarmas** muestra las alarmas generadas cuando un valor notificado o un valor de OEE o KPI calculado supera un umbral. Este panel muestra las alarmas en cada nivel de la jerarquía, desde el nivel de estación a la empresa. Cada alarma incluye una descripción, la fecha, la hora, la ubicación y el número de repeticiones:
 
 [![Alarmas](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
@@ -137,7 +137,7 @@ Haga clic en una de las alarmas, en la lista desplegable **Elegir acción**, eli
 
 Para analizar con mayor profundidad los datos de la alarma, haga clic en el gráfico del panel de la alarma.
 
-Estas alarmas las generan reglas que se especifican en un archivo de configuración del acelerador de soluciones. Estas reglas pueden generar alarmas cuando las cifras de OEE o KPI, o los valores de nodo de OPC UA superan su umbral configurado.
+Estas alarmas las generan reglas que se especifican en un archivo de configuración del acelerador de soluciones. Estas reglas pueden generar alarmas cuando las cifras de OEE o KPI o los valores de nodo de OPC UA superan un umbral. Puede establecer este valor de umbral.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

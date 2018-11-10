@@ -4,20 +4,22 @@ description: Obtenga información acerca de la solución de problemas relacionad
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405236"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092634"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
 En este artículo se describen soluciones para resolver problemas que pueden surgir al usar Update Management.
+
+Existe un solucionador de problemas de agente para que el agente de Hybrid Worker determine el problema subyacente. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md). Para todos los demás problemas, consulte la información detallada que aparece a continuación sobre posibles problemas.
 
 ## <a name="general"></a>General
 
@@ -110,6 +112,20 @@ Hybrid Runbook Worker no pudo generar un certificado autofirmado
 #### <a name="resolution"></a>Resolución
 
 Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
+
+### <a name="nologs"></a>Escenario: Los datos de Update Management no se muestran en Log Analytics para una máquina
+
+#### <a name="issue"></a>Problema
+
+Tiene máquinas en las que se muestra **No evaluado** en **Cumplimiento**, pero ve datos de latido en Log Analytics correspondientes a Hybrid Runbook Worker, pero no a Update Management.
+
+#### <a name="cause"></a>Causa
+
+Es posible que sea necesario volver a registrar e instalar Hybrid Runbook Worker.
+
+#### <a name="resolution"></a>Resolución
+
+Siga los pasos para [implementar Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) para volver a instalar Hybrid Worker.
 
 ### <a name="hresult"></a>Escenario: La máquina aparece como No evaluado y se muestra una excepción HResult
 

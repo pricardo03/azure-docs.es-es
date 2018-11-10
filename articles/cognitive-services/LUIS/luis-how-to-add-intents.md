@@ -7,140 +7,113 @@ author: diberry
 manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036089"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139931"
 ---
-# <a name="manage-intents"></a>Administrar intenciones 
-Agregue [intenciones](luis-concept-intent.md) a la aplicación de LUIS para identificar los grupos de preguntas o comandos que tienen las mismas intenciones. 
+# <a name="add-intents"></a>Adición de intenciones 
 
-Las intenciones se administran desde la sección **Build** (Compilar) en la barra de herramientas superior. Las intenciones se agregan y administran desde la página **Intents** (Intenciones), disponible en el panel de la izquierda. 
+Agregue [intenciones](luis-concept-intent.md) a la aplicación de LUIS para identificar los grupos de preguntas o comandos que tienen la misma intención. 
 
-En el procedimiento siguiente se muestra cómo agregar la intención "Bookflight" de la aplicación TravelAgent.
+Las intenciones se administran desde la barra de navegación superior de la sección **Build** (Compilar), desde el panel izquierdo **Intents** (Intenciones). 
+
+## <a name="create-an-app"></a>Creación de una aplicación
+
+1. Inicie sesión en el portal de [LUIS](https://www.luis.ai).
+
+1. Seleccione **Create new app** (Crear nueva aplicación). 
+
+1. Asigne el nombre `MyHumanResourcesApp` a la nueva aplicación. Seleccione la referencia cultural **English** (Inglés). La descripción es opcional. 
+
+1. Seleccione **Listo**. 
 
 ## <a name="add-intent"></a>Agregar intención
 
-1. Para abrir la aplicación (por ejemplo, TravelAgent) haga clic en su nombre en la página **My Apps** (Mis aplicaciones) y, después, haga clic en **Intents** (Intenciones) en el panel de la izquierda. 
-2. En la página **Intents** (Intenciones), haga clic en **Create new intent** (Crear nueva intención).
+1. La aplicación se abre en la lista **Intents** (Intenciones).
 
-3. En el cuadro de diálogo **Create new intent** (Crear nueva intención), escriba el nombre de intención "BookFlight" y haga clic en **Done** (Listo).
+1. En la página **Intents** (Intenciones), seleccione **Create new intent** (Crear intención).
+
+1. En el cuadro de diálogo **Create new intent** (Crear nueva intención), escriba el nombre de la intención `GetEmployeeInformation` y haga clic en **Done** (Listo).
 
     ![Agregar intención](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    En la página de detalles de la intención recién agregada, [agregue expresiones](#add-an-utterance-on-intent-page).
+## <a name="add-an-example-utterance"></a>Incorporación de una expresión de ejemplo
 
-## <a name="rename-intent"></a>Cambiar el nombre de la intención
+Las expresiones de ejemplo son ejemplos de texto de preguntas de los usuarios o de comandos. Para entrenar el servicio Language Understanding (LUIS), debe agregar expresiones de ejemplo a una intención.
 
-1. En la página **Intent** (Intención), haga clic en el icono de cambio de nombre ![Rename Intent](./media/luis-how-to-add-intents/Rename-Intent-btn.png) (Cambiar nombre de la intención) situado junto al nombre de intención. 
-
-2. En la página **Intent** (Intención), el nombre de la intención actual se muestra en un cuadro de diálogo. Cambie el nombre de intención y presione Entrar. El nombre nuevo se guarda y se muestra en la página de la intención.
-
-    ![Editar intención](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
-
-## <a name="delete-intent"></a>Eliminar intención
-Al eliminar una intención que no sea None, puede elegir agregar todas las expresiones a la intención None. Esto es útil si tiene que mover las expresiones en lugar de eliminarlas.   
-
-1. En la página **Intent** (Intención), haga clic en el botón **Delete Intent** (Eliminar intención) situado a la derecha del nombre de la intención. 
-
-    ![Botón Eliminar intención](./media/luis-how-to-add-intents/DeleteIntent.png)
-
-2. Haga clic en el botón "Ok" (Aceptar) en el cuadro de diálogo de confirmación.
-
-<!--
-    TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
-
-    ![Delete Intent Dialog](./media/luis-how-to-add-intents/DeleteIntent-Confirmation.png)
--->
-
-
-## <a name="add-an-utterance-on-intent-page"></a>Agregar una expresión en la página de la intención
-
-En la página de la intención, escriba una expresión pertinente que espere de los usuarios, como `book 2 adult business tickets to Paris tomorrow on Air France` en el cuadro de texto situado debajo del nombre de la intención y, después, presione Entrar. 
+1. En la página de detalles de la intención **GetEmployeeInformation**, escriba una expresión pertinente que espere de los usuarios, como `Does John Smith work in Seattle?`, en el cuadro de texto situado debajo del nombre de la intención y presione Entrar.
  
->[!NOTE]
->LUIS convierte todas las expresiones a minúsculas.
+    ![Captura de pantalla de la página de detalles de las intenciones, con la expresión resaltada](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-![Captura de pantalla de la página de detalles de las intenciones, con la expresión resaltada](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    LUIS pasa todas las expresiones a minúsculas y agrega espacios alrededor de los tokens como guiones.
 
-Las expresiones se agregan a la lista de expresiones de la intención actual. Después de agregar una expresión, [etiquete todas las entidades](luis-how-to-add-example-utterances.md) dentro de las expresiones y [entrene](luis-how-to-train.md) la aplicación. 
+## <a name="intent-prediction-discrepancy-errors"></a>Errores de discrepancia de predicción de intenciones 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Crear un patrón a partir de una expresión
-Vea [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page) (Adición de un patrón a partir de una de expresión existente en la página de la intención o entidad).
+Es posible que en una intención una expresión tenga una discrepancia de predicción de intenciones entre la intención seleccionada y la puntuación de predicción. LUIS indica esta discrepancia con un cuadro rojo alrededor del valor de **Labeled intent** (Intención etiquetada) en la fila de la expresión de ejemplo. 
 
-## <a name="edit-an-utterance-on-intent-page"></a>Editar una expresión en la página de la intención
+![Captura de pantalla de la página de detalles de las intenciones, con la expresión resaltada](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
-Para editar una expresión, seleccione el botón de puntos suspensivos (***...***) en el extremo derecho de la línea de esa expresión y seleccione **Edit** (Editar). Modifique el texto y, después, presione Entrar en el teclado.
+Seleccione **Train** (Entrenar) en la barra de navegación superior. La discrepancia de predicción habrá desaparecido.
 
-![Captura de pantalla de la página de detalles de las intenciones con el botón de puntos suspensivos resaltado](./media/luis-how-to-add-intents/edit-utterance.png) 
+## <a name="add-a-custom-entity"></a>Incorporación de una entidad personalizada
 
-## <a name="reassign-utterances-on-intent-page"></a>Reasignar expresiones en la página de la intención
-Puede cambiar la intención de una o más expresiones si las reasigna a otra intención. 
+Una vez agregada una expresión a una intención, podrá seleccionar texto de ella para crear una entidad personalizada. Una entidad personalizada es una manera de etiquetar texto para la extracción, junto con la intención correcta. 
 
-Para reasignar una sola expresión a otra intención, en el extremo derecho de la fila de la expresión, seleccione el nombre correcto de la intención bajo la columna **Labeled intent** (Intención etiquetada). La expresión se quita de la lista de expresiones de la intención actual. 
+1. Seleccione la palabra `Seattle` en la expresión. Aparecerán unos corchetes alrededor del texto y un menú desplegable. 
 
-![Captura de pantalla de la página de la intención BookFlight con la expresión de una intención seleccionada bajo la columna Labeled intent (Intención etiquetada).](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+    ![Captura de pantalla de la página de detalles Intents (Intenciones), creación de una entidad personalizada](./media/luis-how-to-add-intents/create-custom-entity.png) 
 
-Para cambiar la intención de varias expresiones, active las casillas situadas a la izquierda de las expresiones y, después, haga clic en **Reassign intent** (Reasignar intención). Seleccione la intención correcta de la lista.
+    En este ejemplo se selecciona una sola palabra para marcarla como entidad. Puede marcar simples palabras y frases como entidades.
 
-![Captura de pantalla de la página de la intención BookFlight con una expresión activada y el botón Reassign intent (Reasignar intención) resaltado](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+1. En el cuadro de texto superior del menú, escriba `Location` y seleccione **Create new entity** (Crear nueva entidad). 
 
-## <a name="delete-utterances-on-intent-page"></a>Eliminar expresiones en la página de la intención
+    ![Captura de pantalla de la página de detalles Intents (Intenciones), creación del nombre de entidad personalizada](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
 
-Para editar una expresión, seleccione el botón de puntos suspensivos (***...***) en el extremo derecho de la línea de esa expresión y seleccione **Delete** (Eliminar). La expresión se quita de la lista y de la aplicación de LUIS.
+1. En la ventana emergente **What type of entity do you want to create?** (¿Qué tipo de entidad desea crear?), valide que el **nombre de entidad** sea _Location_ (Ubicación) y el **tipo de entidad** , _Simple_ (Sencilla). Seleccione **Listo**.
 
-![Captura de pantalla de la página de detalles de la intención, con la opción Delete (Eliminar) resaltada](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
+## <a name="entity-prediction-discrepancy-errors"></a>Errores de discrepancia de predicción de entidades 
 
-Para eliminar varias expresiones:
+La entidad está subrayada en rojo para indicar una [discrepancia de predicción de entidades](luis-how-to-add-example-utterances.md#entity-status-predictions). Puesto que es la primera aparición de una entidad, no hay suficientes ejemplos de LUIS para garantizar que el texto se haya etiquetado con la entidad correcta. Esta discrepancia se quita cuando se entrena la aplicación. 
 
-1. Active las casillas situadas a la izquierda de la expresiones y, después, haga clic en **Delete utterances(s)** (Eliminar expresiones). 
+![Captura de pantalla de la página de detalles Intents (Intenciones), nombre de entidad personalizada resaltado en azul](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
 
-    ![Captura de pantalla de la página de detalles de la intención, con las expresiones activadas y el botón Delete utterances(s) (Eliminar expresiones) resaltado](./media/luis-how-to-add-intents/delete-several-utterances.png)
+El texto se resalta en azul, lo cual indica una entidad.  
 
-2. Haga clic en **Done** (Listo) en el cuadro de diálogo emergente **Delete utterances?** (¿Eliminar las expresiones?).
+## <a name="add-a-prebuilt-entity"></a>Adición de una entidad precompilada
 
-## <a name="search-in-utterances-on-intent-page"></a>Buscar expresiones en la página de la intención
-Puede buscar expresiones que contengan texto (palabras o frases) en la lista de expresiones de la intención. Por ejemplo, es posible que observe un error que implique una palabra determinada y que quiera buscar todos los ejemplos en los que se incluya esa palabra concreta. 
+Para más información, consulte la sección sobre [entidades precompiladas](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-1. Haga clic en el icono de lupa en la barra de herramientas.
+## <a name="using-the-contextual-toolbar"></a>Uso de la barra de herramientas contextual
 
-    ![Captura de pantalla de la página de intenciones, con el icono de búsqueda de la lupa resaltado](./media/luis-how-to-add-intents/magnifying-glass.png)
+Cuando se selecciona una o más expresiones de ejemplo en la lista, al activar la casilla a la izquierda de una expresión, la barra de herramientas de encima de la lista de expresiones permite realizar las siguientes acciones:
 
-2. Aparece un cuadro de texto de búsqueda. Escriba la palabra o frase en el cuadro de búsqueda en la esquina superior derecha de la lista de expresiones. La lista de expresiones se actualiza, para mostrar solo las que incluyen el texto de búsqueda. 
+* Reasignar intenciones: mover expresiones a distintas intenciones
+* Eliminar expresiones
+* Filtros de entidad: mostrar solo las expresiones con entidades filtradas
+* Mostrar todo/solo errores: mostrar expresiones con errores de predicción o mostrar todas las expresiones
+* Vista de entidades/tokens: mostrar la vista de las entidades con nombres de entidad o mostrar texto sin formato de las expresiones
+* Lupa: buscar expresiones que contengan texto específico
 
-    ![Captura de pantalla de la página de intenciones, con el cuadro de texto de búsqueda resaltado](./media/luis-how-to-add-intents/search-textbox.png)
+## <a name="working-with-an-individual-utterance"></a>Trabajo con una expresión individual
 
-    Para cancelar la búsqueda y restaurar la lista completa de expresiones, elimine el texto de búsqueda que ha escrito. Para cerrar el cuadro de texto de búsqueda, vuelva a hacer clic en el icono de lupa en la barra de herramientas.
+Las siguientes acciones se pueden realizar en una expresión individual a partir del menú de los puntos suspensivos a la derecha de esta:
 
-## <a name="prediction-discrepancy-errors-on-intent-page"></a>Errores de discrepancia de predicción en la página de la intención
-Es posible que en una intención, una expresión tenga una discrepancia entre la intención seleccionada y la puntuación de predicción. En LUIS, esta discrepancia se indica con un cuadro de color rojo alrededor de la puntuación. 
+* Editar: cambiar el texto de la expresión
+* Eliminar: quitar la expresión de la intención Si desea mantener la expresión, un método mejor es moverla a la intención **None** (Ninguna). 
+* Agregar un patrón: los patrones permiten tomar una expresión común y marcar el texto reemplazable y el irrelevante, lo que reduce la necesidad de más expresiones en la intención. 
 
-![Captura de pantalla de la página de la intención BookFlight, con la puntuación de discrepancia de predicción resaltada](./media/luis-how-to-add-intents/score-discrepancy.png) 
-
-## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filtrar por errores de discrepancia de predicción de intención en la página de la intención
-Para filtrar la lista de expresiones solo a las que tengan una discrepancia de predicción de intención, cambie de **Show All** (Mostrar todo) a **Errors only** (Solo errores) en la barra de herramientas. 
-
-## <a name="filter-by-entity-type-on-intent-page"></a>Filtrar por tipo de entidad en la página de la intención
-Use la lista desplegable **Entity filters** (Filtros de entidad) de la barra de herramientas para filtrar las expresiones por entidad. 
-
-![Captura de pantalla de la página de intenciones, con el filtro de tipo de entidad resaltado](./media/luis-how-to-add-intents/filter-by-entities.png) 
-
-Para quitar el filtro, seleccione el cuadro de filtro de color azul con esa palabra o frase en la barra de herramientas.  
-<!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
-
-## <a name="switch-to-token-view-on-intent-page"></a>Cambiar a la vista de tokens en la página de la intención
-Cambie a **Tokens View** (Vista de tokens) para ver los tokens en lugar de los nombres de tipo de entidad. En el teclado, también puede presionar **Control+E** para cambiar a la vista. 
-
-![Captura de pantalla de la página de la intención Bookflight con la vista de tokens resaltada](./media/luis-how-to-add-intents/toggle-tokens-view.png)
+La columna **Labeled intent** (Intención etiquetada) permite cambiar la intención de la expresión.
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Entrenar la aplicación después de cambiar el modelo con intenciones
+
 Después de agregar, editar o quitar intenciones, [entrene](luis-how-to-train.md) y [publique](luis-how-to-publish-app.md) la aplicación para que los cambios se apliquen a las consultas de punto de conexión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de agregar intenciones a la aplicación, la tarea siguiente consiste en empezar a agregar [expresiones de ejemplo](luis-how-to-add-example-utterances.md) para las intenciones que se han agregado. 
+Más información sobre la incorporación de [expresiones de ejemplo](luis-how-to-add-example-utterances.md) con entidades. 

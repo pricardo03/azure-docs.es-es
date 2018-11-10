@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 16252f690bfd34e596b2b8db26ab3a2ede0dfdee
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a8ed2f04bf3004907cdd6e33bfb30260233fb101
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48833560"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integración de Azure Active Directory con BorrowBox
 
@@ -61,15 +62,15 @@ Para configurar la integración de BorrowBox en Azure AD, deberá agregar Borrow
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![imagen](./media/borrowbox-tutorial/selectazuread.png)
+    ![imagen](./common/selectazuread.png)
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![imagen](./media/borrowbox-tutorial/a_select_app.png)
+    ![imagen](./common/a_select_app.png)
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![imagen](./media/borrowbox-tutorial/a_new_app.png)
+    ![imagen](./common/a_new_app.png)
 
 4. En el cuadro de búsqueda, escriba **BorrowBox**, seleccione **BorrowBox** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
@@ -97,21 +98,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **BorrowBox**, seleccione **Inicio de sesión único**.
 
-    ![imagen](./media/borrowbox-tutorial/B1_B2_Select_SSO.png)
+    ![imagen](./common/B1_B2_Select_SSO.png)
 
-2. Haga clic en **Cambiar el modo de inicio de sesión único** en la parte superior de la pantalla para seleccionar el modo **SAML**.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
 
-      ![imagen](./media/borrowbox-tutorial/b1_b2_saml_ssso.png)
+    ![imagen](./common/b1_b2_saml_sso.png)
 
-3. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![imagen](./media/borrowbox-tutorial/b1_b2_saml_sso.png)
+    ![imagen](./common/b1-domains_and_urlsedit.png)
 
-4. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![imagen](./media/borrowbox-tutorial/b1-domains_and_urlsedit.png)
-
-5. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso, ya que la aplicación ya se ha integrado previamente con Azure.
+4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
     ![imagen](./media/borrowbox-tutorial/tutorial_borrowbox_url.png)
 
@@ -122,29 +119,45 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![imagen](./media/borrowbox-tutorial/tutorial_borrowbox_url1.png)
 
     > [!NOTE]
-    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de cliente de BorrowBox](mailto:borrowbox@bolinda.com) para obtener el valor. 
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de cliente de BorrowBox](mailto:borrowbox@bolinda.com) para obtener el valor.
 
-6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el certificado adecuado según sus requisitos y guárdelo en el equipo.
+5. La aplicación BorrowBox espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
+
+    ![imagen](./media/borrowbox-tutorial/i4-attribute.png)
+
+6. En la sección **Notificaciones del usuario** del cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario), configure el atributo token SAML como se muestra en la imagen anterior y realice los siguientes pasos:
+    
+    a. Haga clic en el icono **Edit** (Editar) para abrir el cuadro de diálogo **Manage user claims** (Administrar notificaciones de usuario).
+
+    ![imagen](./media/borrowbox-tutorial/i2-attribute.png)
+
+    ![imagen](./media/borrowbox-tutorial/i3-attribute.png)
+
+    b. En la lista **Source attribute** (Atributo de origen), seleccione **user.mail**.
+
+    c. Haga clic en **Save**(Guardar). 
+
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el certificado adecuado según sus requisitos y guárdelo en el equipo.
 
     ![imagen](./media/borrowbox-tutorial/tutorial_borrowbox_certificate.png) 
 
-7. Para configurar el inicio de sesión único en **BorrowBox**, es preciso enviar el certificado o los metadatos que ha descargado de Azure Portal al [equipo de soporte técnico de BorrowBox](mailto:borrowbox@bolinda.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+8. Para configurar el inicio de sesión único en **BorrowBox**, es preciso enviar el certificado o los metadatos que ha descargado de Azure Portal al [equipo de soporte técnico de BorrowBox](mailto:borrowbox@bolinda.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, luego **Usuarios** y, por último, seleccione **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    ![imagen](./media/borrowbox-tutorial/d_users_and_groups.png)
+    ![imagen](./common/d_users_and_groups.png)
 
 2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![imagen](./media/borrowbox-tutorial/d_adduser.png)
+    ![imagen](./common/d_adduser.png)
 
 3. En las propiedades Usuario, siga estos pasos.
 
-    ![imagen](./media/borrowbox-tutorial/d_userproperties.png)
+    ![imagen](./common/d_userproperties.png)
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
@@ -159,7 +172,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en BorrowBox. BorrowBox admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a BorrowBox, se creará un nuevo usuario, en caso de que no exista.
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de BorrowBox](mailto:borrowbox@bolinda.com).
+>Si necesita crear un usuario manualmente, póngase en contacto con el  [equipo de soporte técnico de BorrowBox](mailto:borrowbox@bolinda.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -167,7 +180,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
-    ![imagen](./media/borrowbox-tutorial/d_all_applications.png)
+    ![imagen](./common/d_all_applications.png)
 
 2. En la lista de aplicaciones, seleccione **BorrowBox**.
 
@@ -175,11 +188,11 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![imagen](./media/borrowbox-tutorial/d_leftpaneusers.png)
+    ![imagen](./common/d_leftpaneusers.png)
 
 4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![imagen](./media/borrowbox-tutorial/d_assign_user.png)
+    ![imagen](./common/d_assign_user.png)
 
 4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
@@ -190,7 +203,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de BorrowBox en el panel de acceso, debería iniciar sesión automáticamente en su aplicación BorrowBox.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

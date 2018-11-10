@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345895"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140830"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Administración de cuentas de laboratorio en Azure Lab Services 
 En Azure Lab Services, una cuenta de laboratorio es un contenedor para laboratorios administrados, como los laboratorios de clase. Los administradores configuran una cuenta de laboratorio con Azure Lab Services y proporcionan acceso a los propietarios del laboratorio que pueden crear laboratorios en la cuenta. En este artículo se describe cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio.
@@ -90,6 +90,28 @@ Siga las instrucciones que aparecen en la sección anterior que muestra una list
 2. Seleccione **Eliminar** en la barra de herramientas. 
 3. Escriba **Sí** para confirmar.
 4. Seleccione **Eliminar**. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>Visualización y administración de laboratorios en la cuenta de laboratorio
+
+1. En la página **Cuenta de laboratorio**, seleccione **Laboratorios** en el menú de la izquierda.
+
+    ![Laboratorios en la cuenta](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. Verá una **lista de laboratorios** en la cuenta con la siguiente información: 
+    1. Nombre del laboratorio.
+    2. La fecha en que se creó el laboratorio. 
+    3. Dirección de correo electrónico del usuario que creó el laboratorio. 
+    4. Máximo número de usuarios permitidos en el laboratorio. 
+    5. Estado del laboratorio. 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>Eliminación de un laboratorio en la cuenta de laboratorio
+Siga las instrucciones que aparecen en la sección anterior para ver una lista de los laboratorios de la cuenta de laboratorio.
+
+1. Seleccione **... (puntos suspensivos)**  y después **Eliminar**. 
+
+    ![Botón de eliminación de un laboratorio](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Seleccione **Sí** en el mensaje de advertencia. 
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Introducción a la configuración de un laboratorio con Azure Lab Services:

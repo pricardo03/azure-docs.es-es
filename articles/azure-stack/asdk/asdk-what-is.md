@@ -13,18 +13,18 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fa20f746e55f784e02244355c96ac273b9906acc
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 62eccba1b876ca8272dacbbd97a1d28c8b796081
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339549"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138317"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>¿Qué es el Kit de desarrollo de Azure Stack?
-El tamaño de los [sistemas integrados de Microsoft Azure Stack](.\.\azure-stack-poc.md) va de los 4 a los 12 nodos. Estos sistemas son compatibles con Microsoft y con los asociados de hardware. Use los sistemas integrados de Azure Stack para permitir nuevos escenarios para las cargas de trabajo de producción. Si es un operador de Azure Stack que administra la infraestructura de sistemas integrados y ofrece servicios, consulte la [documentación del operador](https://docs.microsoft.com/azure/azure-stack).
+El tamaño de los [sistemas integrados de Microsoft Azure Stack](.\.\azure-stack-poc.md) va de los 4 a los 16 nodos y tiene un soporte técnico conjunto por parte de un asociado de hardware y Microsoft. Use los sistemas integrados de Azure Stack para permitir nuevos escenarios para las cargas de trabajo de producción. Si es un operador de Azure Stack que administra la infraestructura de sistemas integrados y ofrece servicios, consulte la [documentación del operador](https://docs.microsoft.com/azure/azure-stack).
 
 El Kit de desarrollo de Azure Stack (ASDK) es una implementación de un único nodo de Azure Stack que puede descargar y usar de **forma gratuita**. Todos los componentes de ASDK se instalan en máquinas virtuales que se ejecutan en un equipo servidor de un solo host, que debe cumplir o superar los [requisitos mínimos de hardware](asdk-deploy-considerations.md#hardware). El Kit de desarrollo de Azure Stack está pensado para proporcionar un entorno en el que pueda evaluar Azure Stack y desarrollar aplicaciones actuales con API y herramientas coherentes con Azure en un entorno *que no sea de producción*. 
 
@@ -47,7 +47,7 @@ Las implementaciones del ASDK en un solo nodo difieren de las implementaciones d
 
 |DESCRIPCIÓN|ASDK|Azure Stack multinodo|
 |-----|-----|-----|
-|**Escala**|Todos los componentes se instalan en un equipo servidor de un solo nodo.|Puede oscilar entre 4 y 12 nodos.|
+|**Escala**|Todos los componentes se instalan en un equipo servidor de un solo nodo.|Puede oscilar entre 4 y 16 nodos.|
 |**Resistencia**|La configuración de un solo nodo no proporciona alta disponibilidad|Se admiten funcionalidades de [alta disponibilidad](.\.\azure-stack-key-features.md#high-availability-for-azure-stack).|
 |**Redes**|El ASDK usa una máquina virtual llamada AzS-BGPNAT01 para enrutar todo el tráfico de red del ASDK. No hay ningún requisito de conmutación adicional.|La máquina virtual AzS-BGPNAT01 no existe en las implementaciones multinodo. Se necesita una [infraestructura de enrutamiento de red](.\.\azure-stack-network.md#network-infrastructure) más compleja, que incluya conmutadores de la parte superior del bastidor (TOR), de controlador de administración de placa base (BMC) y perimetrales (red de centro de datos).|
 |**Proceso de revisión y actualización**|Para cambiar a una nueva versión del ASDK, debe volver a implementar el ASDK en el equipo host del kit de desarrollo.|El proceso de [revisión y actualización](.\.\azure-stack-updates.md) se utiliza para actualizar la versión instalada de Azure Stack.|

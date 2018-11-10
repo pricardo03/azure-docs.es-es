@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142744"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240475"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -65,7 +65,7 @@ En este paso, use Azure Portal para crear una instancia de Azure Data Factory de
    > [!IMPORTANT]
    > El nombre de la factoría de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "ADFTutorialOnPremDF" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearla de nuevo. Use este nombre en lugar de ADFTutorialFactory al realizar los restantes pasos de este tutorial.
    >
-   > El nombre de la factoría de datos se puede registrar como un nombre **DNS** en el futuro y, por consiguiente, hacerse públicamente visible.
+   > El nombre de la factoría de datos se puede registrar como un nombre **DNS** en el futuro y, por lo tanto, que sea visible públicamente.
    >
    >
 4. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.

@@ -1,24 +1,24 @@
 ---
-title: " Administración del servidor de configuración para realizar la recuperación ante desastres del servidor físico con Azure Site Recovery | Microsoft Docs"
-description: En este artículo se describe cómo administrar un servidor de configuración existente para realizar la recuperación ante desastres del servidor físico en Azure con el servicio Azure Site Recovery.
+title: Administración del servidor de configuración para la recuperación ante desastres de servidores físicos locales en Azure con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo administrar el servidor de configuración de Azure Site Recovery para la recuperación ante desastres de servidores físicos en Azure.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951183"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213260"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
 
 Un servidor de configuración local se configura cuando se usa el servicio [Azure Site Recovery](site-recovery-overview.md) para realizar la recuperación ante desastres de servidores físicos en Azure. El servidor de configuración coordina la comunicación entre las máquinas locales y Azure, además de administrar la replicación de datos. En este artículo se resumen las tareas comunes para administrar el servidor de configuración después de que se haya implementado.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En esta tabla se resumen los requisitos previos para implementar la máquina del servidor de configuración local.
 
@@ -69,7 +69,7 @@ La versión más reciente del archivo de instalación del servidor de configurac
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. En **Comprobación de requisitos previos**, el programa de instalación ejecuta una comprobación para asegurarse de que se pueda ejecutar la instalación. Si aparece una advertencia sobre la **comprobación de la sincronización de hora global**, compruebe que la hora del reloj del sistema (configuración de **fecha y hora**) es la misma que la de la zona horaria.
 
-    ![requisitos previos](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Requisitos previos](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. En **MySQL Configuration** (Configuración de MySQL), cree credenciales para iniciar sesión en la instancia de servidor MySQL que se va a instalar.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -106,7 +106,7 @@ Ejecute el archivo de instalación del modo siguiente:
 
 ### <a name="parameters"></a>Parámetros
 
-|Nombre de parámetro| type | DESCRIPCIÓN| Valores|
+|Nombre de parámetro| Escriba | DESCRIPCIÓN| Valores|
 |-|-|-|-|
 | /ServerMode|Obligatorio|Especifica si se deben instalar los servidores de configuración y de procesos, o solo el servidor de procesos|CS<br>PS|
 |/InstallLocation|Obligatorio|La carpeta donde se instalan los componentes| Cualquier carpeta del equipo|

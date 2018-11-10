@@ -1,5 +1,5 @@
 ---
-title: Supervisar el rendimiento del clúster de AKS con Azure Monitor para contenedores | Microsoft Docs
+title: Supervisar el rendimiento del clúster de AKS con Azure Monitor para contenedores (versión preliminar) | Microsoft Docs
 description: En este artículo se describe cómo puede ver y analizar los datos de registro y rendimiento con Azure Monitor para contenedores.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: daec3d6e6cd8e4df3fdfe45fbb8ee98966c8a38e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638008"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214161"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers-preview"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores (versión preliminar)
 El rendimiento de sus clústeres de Azure Kubernetes Service (AKS) puede observarse desde dos perspectivas con Azure Monitor para contenedores, directamente desde un clúster AKS o ver todos los clústeres de AKS en una suscripción de Azure Monitor. 
 
 En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y cómo evaluar, investigar y resolver rápidamente los problemas detectados.

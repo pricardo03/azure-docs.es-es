@@ -1,20 +1,17 @@
 ---
-title: Creación y personalización de los planes de recuperación para la conmutación por error y recuperación en Azure Site Recovery | Microsoft Docs
-description: Aprenda a crear y personalizar planes de recuperación en Azure Site Recovery. En este artículo se describe cómo conmutar por error y recuperar máquinas virtuales y servidores físicos.
-services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
+title: Creación y personalización de planes de recuperación para la recuperación ante desastres mediante Azure Site Recovery | Microsoft Docs
+description: Aprenda a crear y personalizar planes de recuperación para la recuperación ante desastres mediante el servicio Azure Site Recovery.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5253b5743216fdb7cea9e3d387f64fdba8f56d8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226675"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212342"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creación y personalización de los planes de recuperación
 

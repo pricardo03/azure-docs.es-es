@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972667"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139533"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
 
@@ -60,9 +60,15 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
 
 * [SDK de Java](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
-* [API de REST](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [SDK de Node]
+
+* [API DE REST](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Técnicas de ingesta mediante programación**:
+
+* Ingesta de datos mediante el servicio de administración de datos Azure Data Explorer (ingesta confiable y de alto rendimiento)
+
+  * [**Ingesta de lotes**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (proporcionada por el SDK): el cliente carga los datos en Azure Blob Storage (designado por el servicio de administración de datos Azure Data Explorer) y envía una notificación a una cola de Azure. Esta es la técnica recomendada para la ingesta confiable y económica de datos de gran volumen.
 
 * Ingesta de datos directamente en el motor de Azure Data Explorer (más adecuado para la exploración y la creación de prototipos):
 
@@ -71,10 +77,6 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
   * **Ingesta de consulta**: comando de control (.set, .set-or-append, .set-or-replace) que señala a los resultados de la consulta, se usa para generar informes o pequeñas tablas temporales.
 
   * **Ingesta de almacenamiento**: comando de control (.ingest into) con datos almacenados externamente (por ejemplo, Azure Blob Storage) permite la ingesta en masa de datos de forma eficaz.
-
-* Ingesta de datos mediante el servicio de administración de datos Azure Data Explorer (ingesta confiable y de alto rendimiento)
-
-  * [**Ingesta de lotes**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (proporcionada por el SDK): el cliente carga los datos en Azure Blob Storage (designado por el servicio de administración de datos Azure Data Explorer) y envía una notificación a una cola de Azure. Esta es la técnica recomendada para la ingesta de datos de gran volumen, confiable y económica.
 
 **Latencia de los distintos métodos**:
 

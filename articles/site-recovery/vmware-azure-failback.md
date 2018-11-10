@@ -1,19 +1,19 @@
 ---
-title: Conmutación por recuperación de Azure a VMware con Azure Site Recovery | Microsoft Docs
-description: Después de que se produzca una conmutación por error de máquinas virtuales en Azure, puede iniciar una conmutación por recuperación para volver a ponerlas en el entorno local. Conozca los pasos para realizar una conmutación por recuperación.
+title: Conmutación por recuperación desde Azure durante la recuperación ante desastres de máquinas virtuales de VMware a Azure con Azure Site Recovery | Microsoft Docs
+description: Aprenda a conmutar por recuperación al sitio local tras la conmutación por error a Azure, durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.date: 10/11/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 841e036555723051dfeaf946f31eaf9eedaee798
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093517"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215181"
 ---
-# <a name="fail-back-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de Azure a un sitio local
+# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos de Azure a un sitio local
 
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure Virtual Machines en un entorno de VMware local. Siga las instrucciones que se describen en este artículo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos Windows/Linux tras la conmutación por error desde el sitio local a Azure mediante el tutorial [Conmutación por error en Azure Site Recovery](site-recovery-failover.md).
 

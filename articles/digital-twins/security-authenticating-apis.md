@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 414a52141aac05aac51bbb4fedf6ab67d98f2637
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638025"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092277"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Conexión y autenticación en las API
 
@@ -54,7 +54,7 @@ Para empezar a trabajar con las API de Digital Twins, puede usar un cliente como
     |---------|---------|
     | Tipo de concesión | Implícita |
     | Dirección URL de devolución de llamadas | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Dirección URL de autenticación | [https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0)
+    | Dirección URL de autenticación | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
     | Id. de cliente | Use el id. de aplicación para la aplicación de Azure AD que se creó o se reutilizó del paso 1 |
     | Ámbito | déjelo en blanco |
     | Estado | déjelo en blanco |

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241692"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231804"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Plantilla de solución del consorcio de prueba de trabajo de Ethereum
 
@@ -119,7 +119,7 @@ Quinta región| Quinta región para implementar la red del consorcio (visible ú
 
 ### <a name="network-size-and-performance"></a>Tamaño de red y rendimiento
 
-Después, en **Tamaño de red y rendimiento** especifique las entradas para el tamaño de la red del consorcio, como el número y tamaño de los nodos de minería de datos y de transacción.
+Después, en **Tamaño de red y rendimiento** especifique las entradas para el tamaño de la red del consorcio. Por ejemplo, el número y el tamaño de los nodos de minería y de transacción.
 
 ![Tamaño de red y rendimiento](./media/ethereum-deployment/network-size-performance.png)
 
@@ -316,7 +316,7 @@ Para instalar la extensión en Chrome, vaya a Personaliza y controla Google Chro
 
 ![Extensión MetaMask](./media/ethereum-deployment/metamask-extension.png)
 
-Una vez instalado, abra MetaMask y cree un nuevo almacén. De forma predeterminada, el almacén se conectará a la red de prueba Morden. Debe cambiar esta opción para conectarse a la red del consorcio privada implementada, en concreto al equilibrador de carga delante de los nodos de transacción. En la salida de la plantilla, recupere el punto de conexión del RPC de Ethereum del puerto 8545, denominado `ETHEREUM-RPC-ENDPOINT` y escriba el RPC personalizado como se muestra a continuación.
+Una vez instalado, abra MetaMask y cree un nuevo almacén. De forma predeterminada, el almacén se conectará a la red de prueba Morden. Cambie esta opción para conectarse a la red del consorcio privada implementada, en concreto al equilibrador de carga delante de los nodos de transacción. En la salida de la plantilla, recupere el punto de conexión del RPC de Ethereum del puerto 8545, denominado `ETHEREUM-RPC-ENDPOINT` y escriba el RPC personalizado como se muestra a continuación.
 
 ![Configuración de MetaMask](./media/ethereum-deployment/metamask-settings.png)
 

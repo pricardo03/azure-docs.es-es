@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628783"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158149"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
-Microsoft Azure IoT Central es una solución de software-como-servicio para IoT completamente administrada que facilita la creación de productos que conectan los mundos físico y digital. Dé vida a los productos conectados que tiene en mente y consiga lo siguiente:
+Microsoft Azure IoT Central es una solución de Software como servicio para IoT completamente administrada que facilita la creación de productos que conectan los mundos físico y digital. Dé vida a los productos conectados que tiene en mente y consiga lo siguiente:
 
 - Obtener nuevas conclusiones a partir de los dispositivos conectados para ofrecer mejores productos y experiencias a los clientes.
 - Crear nuevas oportunidades de negocio para su organización.
@@ -42,7 +42,7 @@ El siguiente vídeo ofrece una introducción a Azure IoT Central:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-El resto de este artículo describe los siguientes aspectos de Azure IoT Central:
+El resto de este artículo describe Azure IoT Central:
 
 - Los roles típicos asociados a un proyecto.
 - Cómo crear una aplicación.
@@ -65,7 +65,7 @@ Como compilador, usará Azure IoT Central para crear una solución de IoT person
 - Una aplicación basada en la nube que recibe los datos de telemetría de los dispositivos y le permite administrar los dispositivos.
 - Varios dispositivos que ejecutan código personalizado y que están conectados a la aplicación en la nube.
 
-Puede implementar rápidamente una nueva aplicación de Azure IoT Central y, después, ajustarla a sus requisitos específicos directamente en el explorador. Como compilador de Azure IoT Central, puede usar herramientas web para crear una _plantilla de dispositivo_ para los dispositivos que se conectan a la aplicación. Una plantilla de dispositivo es el plano técnico de un modelo de dispositivo que comparten todos los dispositivos que se crean a partir de esa plantilla de dispositivo compartida. Una plantilla de dispositivo define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
+Puede implementar rápidamente una nueva aplicación de Azure IoT Central y, después, ajustarla a sus requisitos específicos directamente en el explorador. Como compilador de Azure IoT Central, puede usar herramientas web para crear una _plantilla de dispositivo_ para los dispositivos que se conectan a la aplicación. Una plantilla de dispositivo es el plano técnico de un modelo de dispositivo. Todos los dispositivos que se crean a partir de la misma plantilla de dispositivo comparten la plantilla. Una plantilla de dispositivo define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
 
 - La telemetría que envía.
 - Las propiedades empresariales que un operador puede modificar.

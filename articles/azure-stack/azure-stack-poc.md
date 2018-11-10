@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: b2b81938eafe104369e52e72f9958e2adf2cca6f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345227"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137060"
 ---
 # <a name="what-is-azure-stack"></a>¿Qué es Azure Stack?
 
@@ -30,7 +30,7 @@ Microsoft Azure Stack es una plataforma en la nube híbrida que le permite propo
 Azure Stack se ofrece en dos opciones de implementación para satisfacer sus necesidades.
 
 ## <a name="azure-stack-integrated-systems"></a>Sistemas integrados de Azure Stack
-Los sistemas integrados de Azure Stack se ofrecen a través de una asociación de Microsoft y sus [asociados de hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), lo que crea una solución que ofrece innovación dirigida a la nube y simplicidad en la administración de la computación. Dado que Azure Stack se ofrece como un sistema en el que el software y el hardware están perfectamente integrados, tendrá la flexibilidad y el control que necesita, así como la capacidad de innovar desde la nube. El tamaño de los sistemas integrados de Azure Stack va de los 4 a los 12 nodos. Estos sistemas son compatibles con Microsoft y con los asociados de hardware.  Use los sistemas integrados de Azure Stack para crear nuevos escenarios e implementar nuevas soluciones para las cargas de trabajo de producción.
+Los sistemas integrados de Azure Stack se ofrecen a través de una asociación de Microsoft y sus [asociados de hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), lo que crea una solución que ofrece innovación dirigida a la nube y simplicidad en la administración de la computación. Dado que Azure Stack se ofrece como un sistema en el que el software y el hardware están perfectamente integrados, tendrá la flexibilidad y el control que necesita, así como la capacidad de innovar desde la nube. El tamaño de los sistemas integrados de Azure Stack va de los 4 a los 16 nodos y tiene un soporte técnico conjunto por parte de un asociado de hardware y Microsoft.  Use los sistemas integrados de Azure Stack para crear nuevos escenarios e implementar nuevas soluciones para las cargas de trabajo de producción.
 
 ## <a name="azure-stack-development-kit"></a>Kit de desarrollo de Azure Stack
 

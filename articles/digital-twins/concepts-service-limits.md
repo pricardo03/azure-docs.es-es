@@ -6,27 +6,27 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: aa5f6053bf1c98d2b84c02617da30f5d856ed3fc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323917"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212274"
 ---
 # <a name="public-preview-service-limits"></a>Límites de servicio de la versión preliminar pública
 
-Durante la versión preliminar pública, Azure Digital Twins tendrá límites de suscripción, instancia y frecuencia temporales que se describen a continuación.
+Durante la **versión preliminar pública**, Azure Digital Twins tendrá límites temporales de suscripción, instancia y frecuencia que se describen a continuación.
 
 Estas restricciones ayudan a simplificar el aprendizaje sobre el nuevo servicio y sus numerosas características.
 
 > [!NOTE]
-> Estos límites se pueden aumentar o eliminar con disponibilidad general (GA).
+> Estos límites se pueden aumentar o eliminar con **disponibilidad general** (**GA**).
 
 ## <a name="per-subscription-limits"></a>Límites por suscripción
 
-Durante la versión preliminar pública, cada suscripción de Azure puede crear o ejecutar exactamente una instancia de Azure Digital Twins a la vez.
+Durante la **versión preliminar pública**, cada suscripción de Azure puede crear o ejecutar exactamente una instancia de Azure Digital Twins a la vez.
 
 > [!TIP]
 > La eliminación de la instancia permite crear una nueva.
@@ -35,9 +35,9 @@ Durante la versión preliminar pública, cada suscripción de Azure puede crear 
 
 Por su parte, cada instancia de Azure Digital Twins puede tener:
 
-- Un recurso `IoTHub`
-- Un punto de conexión `EventHub` para el tipo de evento DeviceMessage
-- Hasta tres puntos de conexión `EventHub`, `ServiceBus` o `EventGrid` del tipo de evento `SensorChange`, `SpaceChange`, `TopologyOperation` o `UdfCustom`
+- Un recurso **IoTHub**
+- Un punto de conexión **EventHub** para el tipo de evento **DeviceMessage**
+- Hasta tres puntos de conexión **EventHub**, **ServiceBus** o **EventGrid** del tipo de evento **SensorChange**, **SpaceChange**, **TopologyOperation** o **UdfCustom**
 
 ## <a name="management-api-limits"></a>Límites de la API de administración
 
@@ -54,7 +54,7 @@ Los límites de frecuencia de las solicitudes a la API de administración son:
 Los siguientes límites establecen el total de llamadas de las funciones definidas por el usuario realizadas a la instancia de Azure Digital Twins:
 
 - 400 llamadas de biblioteca cliente por segundo
-- 100 llamadas SendNotification por segundo
+- 100 llamadas **SendNotification** por segundo
 
 > [!NOTE]
 > Las siguientes acciones pueden provocar que se apliquen límites de frecuencia adicionales temporalmente:

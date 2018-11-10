@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0746247d2c912ba66e81b95f45b168e32b522130
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d07873b34a41ff20b5007a88743f6b150d4d8a3d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988434"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212835"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Comprobar el estado de un clúster del Explorador de datos de Azure
 
@@ -35,6 +35,8 @@ Hay varios factores que afectan al estado de un clúster del Explorador de datos
 
     ![Métrica Keep Alive para clústeres](media/check-cluster-health/portal-metrics.png)
 
-1. Agregue otras métricas, como la CPU y el almacenamiento en memoria caché, para medir los recursos que el clúster utiliza.
+1. Es posible agregar otras métricas al gráfico. Seleccione el gráfico y, luego, **Agregar métrica**. Seleccione otra métrica; en este ejemplo se muestra **CPU**.
 
-1. Si necesita ayuda para diagnosticar problemas relacionados con el estado de un clúster, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com).
+    ![Adición de métrica](media/check-cluster-health/add-metric.png)
+
+1. Si necesita ayuda para diagnosticar problemas relacionados con el estado de un clúster, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

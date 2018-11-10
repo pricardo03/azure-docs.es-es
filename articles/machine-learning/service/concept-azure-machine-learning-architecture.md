@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237983"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210693"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Arquitectura y conceptos: ¿cómo funciona el servicio Azure Machine Learning? 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona el servicio Azure Machine Learning: arquitectura y conceptos
 
 En este documento se describen la arquitectura y los conceptos del servicio Azure Machine Learning. En el siguiente diagrama se muestran los componentes principales del servicio y se ilustra el flujo de trabajo general al utilizar el servicio: 
 
@@ -156,16 +156,28 @@ Un experimento es una agrupación de varias ejecuciones de un script determinado
 
 Para obtener un ejemplo del uso de un experimento, vea el documento [Guía de inicio rápido: Introducción al servicio Azure Machine Learning](quickstart-get-started.md).
 
+## <a name="pipelines"></a>Procesos
+
+Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación de modelo e inferencia. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso.
+
+Para más información sobre las canalizaciones de aprendizaje automático con este servicio, consulte el artículo [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>Destino de proceso
 
 Un destino de proceso es el recurso de proceso que se usa para ejecutar el script de aprendizaje o para hospedar la implementación del servicio web. Los destinos de proceso admitidos son los siguientes: 
 
-* Equipo local
-* Máquina virtual Linux en Azure (por ejemplo, Data Science Virtual Machine)
-* Clúster de Azure Batch AI
-* Apache Spark para HDInsight
-* Azure Container Instances
-* Azure Kubernetes Service
+| Destino de proceso | Cursos | Implementación |
+| ---- |:----:|:----:|
+| Equipo local | ✓ | &nbsp; |
+| Una única máquina virtual Linux en Azure</br>(como Data Science Virtual Machine) | ✓ | &nbsp; |
+| Clúster de Azure Batch AI | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Análisis con Azure Data Lake | ✓ | &nbsp; |
+| Apache Spark para HDInsight | ✓ | &nbsp; |
+| Azure Container Instances | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(matriz de puertas programables por campo) | &nbsp; | ✓ |
 
 Los destinos de proceso están asociados a un área de trabajo. Los usuarios del área de trabajo comparten los destinos de proceso que no sean el equipo local.
 
@@ -187,7 +199,7 @@ Para ver configuraciones de ejecución de ejemplo, vea el documento [Select and 
 
 Para entrenar un modelo, especifique el directorio que contiene el script de entrenamiento y los archivos asociados. También puede especificar un nombre del experimento, que se usará para almacenar la información recopilada durante el entrenamiento. Durante dicho proceso de entrenamiento, se copia todo el directorio en el entorno de entrenamiento (destino de proceso) y se inicia el script especificado por la configuración de ejecución. También se almacena una instantánea del directorio en el experimento del área de trabajo.
 
-Para obtener un ejemplo del uso de scripts para entrenar un modelo, vea [Creación de un área de trabajo con Python](quickstart-get-started.md).
+Puede encontrar un ejemplo en [Creación de un área de trabajo con Python](quickstart-get-started.md).
 
 ## <a name="logging"></a>Registro
 

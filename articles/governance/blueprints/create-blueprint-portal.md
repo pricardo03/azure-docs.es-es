@@ -4,21 +4,21 @@ description: Utilice los planos técnicos de Azure Blueprint para crear, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647279"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092134"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en el portal
 
-Entender cómo crear y asignar planos técnicos en Azure permite a una organización definir patrones comunes de coherencia y desarrollar configuraciones reutilizables y rápidamente implementables basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
+Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
 > [!div class="checklist"]
 > - Creación de un nuevo plano técnico y adición de varios artefactos compatibles
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 El primer paso para definir un patrón estándar de cumplimiento es elaborar un plano técnico a partir de los recursos disponibles. En este ejemplo, cree un nuevo plano técnico llamado MyBlueprint para configurar las asignaciones de roles y directivas para la suscripción, agregue un nuevo grupo de recursos y cree una plantilla de Resource Manager y una asignación de roles en el nuevo grupo de recursos.
 
-1. Inicie el servicio Azure Blueprint en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva** en el panel de la izquierda. En la página **Directiva**, haga clic en **Planos técnicos**.
+1. Haga clic en **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, haga clic en **Planos técnicos**.
 
 1. Seleccione **Definiciones del plano técnico** de la página de la izquierda y haga clic en el botón **+ Crear plano técnico** en la parte superior de la página.
 
@@ -49,7 +49,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 1. Compruebe que la información es correcta (los campos **Nombre del plano técnico** y **Ubicación de definición** no se pueden cambiar posteriormente) y haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
-1. Agregue la asignación de roles en la suscripción: haga clic en la fila **+ Agregar artefacto...** bajo **Suscripción** y se abrirá la ventana Agregar artefacto en el lado derecho del explorador. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione Colaborador y deje el campo _Agregar usuario, aplicación o grupo_ con la casilla que indica un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue la asignación de roles en la suscripción: haga clic en la fila **+ Agregar artefacto...** en **Suscripción** y se abrirá la ventana "Agregar artefacto" en el lado derecho del explorador. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione Colaborador y deje el campo _Agregar usuario, aplicación o grupo_ con la casilla que indica un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
    ![Artefacto: asignación de roles](./media/create-blueprint-portal/add-role-assignment.png)
 
@@ -58,14 +58,14 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 1. Agregue la asignación de directiva en la suscripción: haga clic en la fila **+ Agregar artefacto...** directamente bajo **Suscripción**. Seleccione "Asignación de directiva" para _Tipo de artefacto_. Cambie _Tipo_ a Integrado y en _Buscar_ escriba "etiqueta". Haga clic fuera de _Búsqueda_ para que se produzca el filtrado. Seleccione la opción Aplicar una etiqueta y su valor predeterminado a los grupos de recursos haciendo clic en ella. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
-1. Haga clic en la fila de la asignación de directiva Aplicar una etiqueta y su valor predeterminado a los grupos de recursos. Se abre la ventana para proporcionar parámetros al artefacto como parte de la definición del plano técnico y permite establecer los parámetros para todas las asignaciones (**parámetros estáticos**) basados en este plano técnico en lugar de durante la asignación (**parámetros dinámicos**). Para este ejemplo, se van a utilizar **parámetros dinámicos** durante la asignación del plano técnico, así que deje los valores predeterminados y haga clic en **Cancelar**.
+1. Haga clic en la fila de la asignación de directiva Aplicar una etiqueta y su valor predeterminado a los grupos de recursos. Se abre la ventana para proporcionar parámetros al artefacto como parte de la definición del plano técnico y permite establecer los parámetros para todas las asignaciones (**parámetros estáticos**) basados en este plano técnico en lugar de durante la asignación (**parámetros dinámicos**). Este ejemplo usa **parámetros dinámicos** durante la asignación del plano técnico, así que deje los valores predeterminados y haga clic en **Cancelar**.
 
 1. Agregue un grupo de recursos en la suscripción: haga clic en la fila **+ Agregar artefacto...** bajo **Suscripción**. Seleccione "Grupo de recursos" para _Tipo de artefacto_. Deje los campos _Nombre del grupo de recursos_ y _Ubicación_ en blanco, pero asegúrese de que la casilla esté activada en cada propiedad para hacerlos **parámetros dinámicos**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
 1. Agregue una plantilla en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo la entrada **ResourceGroup**. Seleccione "Plantilla de Azure Resource Manager" para _Tipo de artefacto_, establezca _Nombre para mostrar del artefacto_ en "Cuenta de almacenamiento" y deje _Descripción_ en blanco. En la pestaña **Plantilla** en el cuadro del editor, pegue la siguiente plantilla de Resource Manager. Después de pegar la plantilla, haga clic en la pestaña **Parámetros** y observe que el parámetro de plantilla **storageAccountType** y el valor predeterminado **Standard_LRS** se detectaron automáticamente y se rellenaron, pero se configuraron como un **parámetro dinámico**. Quite la marca de la casilla y observe que el menú desplegable solo contiene valores incluidos en la plantilla de Resource Manager en **allowedValues**. Active la casilla para volver a establecer un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
    > [!IMPORTANT]
-   > Si importa la plantilla, asegúrese de que el archivo es JSON solo y no incluye HTML. Cuando se apunte a una dirección URL en GitHub, asegúrese de que ha hecho clic en **RAW** para obtener el archivo JSON puro y no el que está encapsulado con HTML para mostrarse en GitHub. Si la plantilla importada no es JSON puro, se producirá un error.
+   > Si importa la plantilla, asegúrese de que el archivo es JSON solo y no incluye HTML. Cuando se apunte a una dirección URL en GitHub, asegúrese de que ha hecho clic en **RAW** para obtener el archivo JSON puro y no el que está encapsulado con HTML para mostrarse en GitHub. Si la plantilla importada no tiene formato JSON puro, se producirá un error.
 
    ```json
    {
@@ -111,7 +111,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    ![Artefacto: plantilla de Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. El plano técnico completado debería tener una apariencia similar a esta. Observe que cada artefacto tiene '_x_ de _y_ parámetros rellenados bajo la columna _Parámetros_. Los **parámetros dinámicos** se establecerán durante cada asignación del plano técnico.
+1. El plano técnico completado debería tener una apariencia similar a esta. Observe que cada artefacto tiene '_x_ de _y_ parámetros rellenados bajo la columna _Parámetros_. Los **parámetros dinámicos** se establecen durante cada asignación del plano técnico.
 
    ![Plano técnico completado](./media/create-blueprint-portal/completed-blueprint.png)
 
@@ -119,7 +119,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 ## <a name="edit-a-blueprint"></a>Edición de un plano técnico
 
-En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descripción ni la asignación de roles que se agrega al nuevo grupo de recursos. Ambos se pueden solucionar mediante la realización de los pasos siguientes:
+En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descripción ni la asignación de roles que se agregó al nuevo grupo de recursos. Ambas cuestiones se pueden solucionar siguiendo estos pasos:
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
@@ -129,7 +129,7 @@ En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descri
 
 1. Haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
-1. Agregue la asignación de roles en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo la entrada **ResourceGroup**. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione Propietario y quite la marca del campo _Agregar usuario, aplicación o grupo_ y busque y seleccione un usuario, aplicación o grupo para agregar. Este será un **parámetro estático** y se utilizará en cada asignación de este plano técnico. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue la asignación de roles en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo la entrada **ResourceGroup**. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione "Propietario" y quite la marca del campo _Agregar usuario, aplicación o grupo_ y busque y seleccione un usuario, aplicación o grupo para agregar. Este artefacto utiliza un **parámetro estático** que se establece igual en cada asignación de este plano técnico. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
    ![Artefacto: asignación de roles número 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -201,11 +201,11 @@ Ahora que el plano técnico se ha asignado a una suscripción, compruebe el prog
 
    ![Visualización de los detalles de la asignación](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. En la página **Detalles de la implementación**, compruebe que todos los artefactos se han implementado correctamente y que no ha habido ningún error durante la implementación. Si se han producido errores, consulte la [solución de problemas de los planos técnicos](./troubleshoot/general.md) para conocer los pasos necesarios para determinar el motivo del error.
+1. En la página **Detalles de la implementación**, compruebe que todos los artefactos se han implementado correctamente y que no ha habido ningún error durante la implementación. Si se han producido errores, consulte la [solución de problemas de planos técnicos](./troubleshoot/general.md) para conocer los pasos necesarios para determinar el motivo del error.
 
 ## <a name="unassign-a-blueprint"></a>Cancelación de la asignación de un plano técnico
 
-Los planos técnicos se pueden quitar de una suscripción si ya no se necesitan o se han reemplazado por planos técnicos más nuevos con patrones, directivas y diseños actualizados. Cuando se quita un plano técnico, se omiten los artefactos que se asignaron como parte de ese plano técnico. Para quitar una asignación de plano técnico, siga estos pasos:
+Si ya no es necesario, puede eliminar una asignación de plano técnico de una suscripción. Es posible que el plano técnico haya sido reemplazado por un plano más reciente con patrones, directivas y diseños actualizados. Cuando se quita un plano técnico, se omiten los artefactos que se asignaron como parte de ese plano técnico. Para eliminar una asignación de plano técnico, siga estos pasos:
 
 1. Seleccione **Planos técnicos asignados** desde la página de la izquierda.
 
@@ -220,7 +220,7 @@ Los planos técnicos se pueden quitar de una suscripción si ya no se necesitan 
 1. Haga clic con el botón derecho en el plano técnico que desea eliminar y seleccione **Eliminar plano técnico**; después, haga clic en **Sí** en el cuadro de diálogo de confirmación.
 
 > [!NOTE]
-> La eliminación de un plano técnico en este método también se eliminarán todas las **versiones publicadas** del plano técnico seleccionado. Para eliminar una única versión, abra el plano técnico, haga clic en la pestaña **Versiones publicadas**, seleccione y haga clic en la versión que desea eliminar y, después, haga clic en **Eliminar esta versión**. Además, un plano técnico con asignaciones no se puede eliminar hasta que se hayan eliminado todas las asignaciones de planos técnicos.
+> En la eliminación de un plano técnico en este método también se eliminarán todas las **versiones publicadas** del plano técnico seleccionado. Para eliminar una única versión, abra el plano técnico, haga clic en la pestaña **Versiones publicadas**, seleccione y haga clic en la versión que desea eliminar y, después, haga clic en **Eliminar esta versión**. Además, un plano técnico con asignaciones no se puede eliminar hasta que se hayan eliminado todas las asignaciones de planos técnicos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 127f6a5cd8f46b72a4cddcef09cb31b60edd0582
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067596"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157197"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Para más información sobre el panel de Kubernetes, consulte [Kubernetes Web UI
 
 En los pasos que se detallan en este documento se da por hecho que ha creado un clúster de AKS y que ha establecido una conexión `kubectl` con dicho clúster. Si necesita crear un clúster de AKS, consulte el [inicio rápido de AKS][aks-quickstart].
 
-También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
 
@@ -33,6 +33,9 @@ Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-brows
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!TIP]
+> Si ejecuta este comando desde Azure Cloud Shell, agregue el parámetro `--enable-cloud-console-aks-browse` para abrir el panel correctamente.
 
 Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes. Si un explorador web no se abre en el panel de Kubernetes, copie y pegue la dirección URL que anotó en la CLI de Azure, normalmente *http://127.0.0.1:8001*.
 

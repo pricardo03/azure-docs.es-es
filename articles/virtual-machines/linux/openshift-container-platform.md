@@ -3,8 +3,8 @@ title: Implementación de OpenShift Container Platform en Azure | Microsoft Docs
 description: Implemente OpenShift Container Platform en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,40 +15,41 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 48b6287fef673c5f335531b6f230993969fc9e1c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996339"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085893"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementación de OpenShift Container Platform en Azure
 
 Puede usar uno de los diversos métodos para implementar OpenShift Container Platform en Azure:
 
-- Puede implementar manualmente los componentes necesarios de la infraestructura Azure y, a continuación, seguir la [documentación](https://docs.openshift.com/container-platform/3.10/welcome/index.html) de OpenShift Container Platform.
+- Puede implementar manualmente los componentes necesarios de la infraestructura de Azure y, a continuación, seguir la [documentación de OpenShift Container Platform](https://docs.openshift.com/container-platform).
 - También puede usar una plantilla existente de [Resource Manager](https://github.com/Microsoft/openshift-container-platform/) que simplifica la implementación del clúster de OpenShift Container Platform.
 - Otra opción consiste en usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 En todos los casos, se requiere una suscripción a Red Hat. Durante la implementación, la instancia de Red Hat Enterprise Linux está registrada en la suscripción de Red Hat y asociada al identificador de grupo que contiene los derechos para OpenShift Container Platform.
-Asegúrese de que tiene un nombre de usuario de Red Hat Subscription Manager (RHSM), una contraseña y un identificador de grupo válidos. Puede comprobar esta información iniciando sesión en https://access.redhat.com.
+Asegúrese de que tiene un nombre de usuario, una contraseña y un identificador de grupo válidos para Red Hat Subscription Manager (RHSM). Puede usar una clave de activación, identificador de organización e identificador de grupo. Puede comprobar esta información iniciando sesión en https://access.redhat.com.
 
-## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>Implementación con la plantilla de Resource Manager para OpenShift Container Platform
+## <a name="deploy-using-the-openshift-container-platform-resource-manager-template"></a>Implementación de la plantilla de Resource Manager para OpenShift Container Platform
 
-Para realizar la implementación mediante la plantilla de Resource Manager, se usa un archivo de parámetros para proporcionar los parámetros de entrada. Para personalizar algún elemento de implementación que no sea posible con los parámetros de entrada, bifurque el repositorio de GitHub y cambie los elementos adecuados.
+Para realizar la implementación mediante la plantilla de Resource Manager, se usa un archivo de parámetros para proporcionar los parámetros de entrada. Para personalizar aún más la implementación, puede bifurcar el repositorio de GitHub y cambiar los elementos correspondientes.
 
-Algunas opciones de personalización comunes incluyen, entre otras:
+Algunas opciones de personalización comunes son, entre otras:
 
-- CIDR de red virtual (variable en azuredeploy.json)
 - Tamaño de máquina virtual de bastión (variable en azuredeploy.json)
 - Convenciones de nomenclatura (variables en azuredeploy.json)
 - Especificaciones del clúster de OpenShift, modificadas mediante el archivo de hosts (deployOpenShift.sh)
 
 ### <a name="configure-the-parameters-file"></a>Configuración del archivo de parámetros
 
-Use el valor `appId` de la entidad de servicio que creó anteriormente para el parámetro `aadClientId`. 
+La [plantilla de OpenShift Container Platform](https://github.com/Microsoft/openshift-container-platform) tiene varias ramas disponibles para las diferentes versiones de OpenShift Container Platform.  Según sus necesidades, puede implementar directamente desde el repositorio o puede bifurcar el repositorio y realizar cambios personalizados en las plantillas o los scripts antes de implementar.
 
-En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.parameters.json con todas las entradas necesarias.
+Use el valor `appId` de la entidad de servicio que creó anteriormente para el parámetro `aadClientId`.
+
+En el ejemplo siguiente se muestra un archivo de parámetros llamado azuredeploy.parameters.json con todas las entradas necesarias.
 
 ```json
 {
@@ -59,10 +60,27 @@ En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.pa
             "value": "Standard_E2s_v3"
         },
         "infraVmSize": {
-            "value": "Standard_E2s_v3"
+            "value": "Standard_D4s_v3"
         },
         "nodeVmSize": {
-            "value": "Standard_E2s_v3"
+            "value": "Standard_D4s_v3"
+        },
+        "cnsVmSize": {
+            "value": "Standard_E4s_v3"
+        },
+        "osImageType": {
+            "value": "defaultgallery"
+        },
+        "marketplaceOsImage": {
+            "value": {
+                "publisher": "RedHat",
+                "offer": "RHEL",
+                "sku": "7-RAW",
+                "version": "latest"
+            }
+        },
+        "storageKind": {
+            "value": "managed"
         },
         "openshiftClusterPrefix": {
             "value": "mycluster"
@@ -89,13 +107,10 @@ En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.pa
             "value": "true"
         },
         "enableLogging": {
-            "value": "true"
-        },
-        "enableCockpit": {
             "value": "false"
         },
-        "rhsmUsernamePasswordOrActivationKey": {
-            "value": "usernamepassword"
+        "enableCNS": {
+            "value": "false"
         },
         "rhsmUsernameOrOrgId": {
             "value": "{RHSM Username}"
@@ -104,6 +119,9 @@ En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.pa
             "value": "{RHSM Password}"
         },
         "rhsmPoolId": {
+            "value": "{Pool ID}"
+        },
+        "rhsmBrokerPoolId": {
             "value": "{Pool ID}"
         },
         "sshPublicKey": {
@@ -127,55 +145,141 @@ En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.pa
         "aadClientSecret": {
             "value": "{Strong Password}"
         },
-        "defaultSubDomainType": {
+        "masterClusterDnsType": {
+            "value": "default"
+        },
+        "masterClusterDns": {
+            "value": "console.contoso.com"
+        },
+        "routingSubDomainType": {
             "value": "nipio"
+        },
+        "routingSubDomain": {
+            "value": "routing.contoso.com"
+        },
+        "virtualNetworkNewOrExisting": {
+            "value": "new"
+        },
+        "virtualNetworkName": {
+            "value": "openshiftvnet"
+        },
+        "addressPrefixes": {
+            "value": "10.0.0.0/14"
+        },
+        "masterSubnetName": {
+            "value": "mastersubnet"
+        },
+        "masterSubnetPrefix": {
+            "value": "10.1.0.0/16"
+        },
+        "infraSubnetName": {
+            "value": "infrasubnet"
+        },
+        "infraSubnetPrefix": {
+            "value": "10.2.0.0/16"
+        },
+        "nodeSubnetName": {
+            "value": "nodesubnet"
+        },
+        "nodeSubnetPrefix": {
+            "value": "10.3.0.0/16"
+        },
+        "existingMasterSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/mastersubnet"
+        },
+        "existingInfraSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/masterinfrasubnet"
+        },
+        "existingCnsSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/cnssubnet"
+        },
+        "existingNodeSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/nodesubnet"
+        },
+        "masterClusterType": {
+            "value": "public"
+        },
+        "masterPrivateClusterIp": {
+            "value": "10.1.0.200"
+        },
+        "routerClusterType": {
+            "value": "public"
+        },
+        "routerPrivateClusterIp": {
+            "value": "10.2.0.201"
+        },
+        "routingCertType": {
+            "value": "selfsigned"
+        },
+        "masterCertType": {
+            "value": "selfsigned"
+        },
+        "proxySettings": {
+            "value": "none"
+        },
+        "httpProxyEntry": {
+            "value": "none"
+        },
+        "httpsProxyEntry": {
+            "value": "none"
+        },
+        "noProxyEntry": {
+            "value": "none"
         }
     }
 }
 ```
 
-Reemplace los elementos entre corchetes con su información específica.
+Reemplace los parámetros por su información específica.
 
-### <a name="deploy-by-using-azure-cli"></a>Implementación con la CLI de Azure
+Diferentes versiones pueden tener distintos parámetros; por ello, compruebe los parámetros necesarios para la rama que utilice.
+
+### <a name="deploy-using-azure-cli"></a>Implementación con la CLI de Azure
 
 > [!NOTE] 
-> El comando siguiente requiere la versión 8 de la CLI de Azure, o cualquier versión posterior. Puede comprobar la versión de la CLI con el comando `az --version`. Para actualizar la versión de la CLI, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> El comando siguiente requiere la CLI de Azure 2.0.8 o una versión posterior. Puede comprobar la versión de la CLI con el comando `az --version`. Para actualizar la versión de la CLI, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-En el ejemplo siguiente se implementa el clúster de OpenShift y todos los recursos relacionados en un grupo de recursos llamado myResourceGroup, con el nombre de implementación myOpenShiftCluster. Se hace referencia a la plantilla directamente desde el repositorio de GitHub y se usa un archivo de parámetros local denominado azuredeploy.parameters.json.
+En el ejemplo siguiente se implementa el clúster de OpenShift y todos los recursos relacionados en un grupo de recursos llamado openshiftrg, con el nombre de implementación myOpenShiftCluster. Se hace referencia a la plantilla directamente desde el repositorio de GitHub y se usa un archivo de parámetros local denominado azuredeploy.parameters.json.
 
 ```azurecli 
-az group deployment create -g myResourceGroup --name myOpenShiftCluster \
+az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```
 
-La implementación tarda al menos 30 minutos en completarse, según el número total de nodos implementados. La dirección URL de la consola de OpenShift y el nombre DNS del maestro OpenShift se imprimen en el terminal cuando concluye la implementación.
+La implementación tarda al menos 30 minutos en completarse, según el número total de nodos implementados y las opciones configuradas. El nombre de dominio completo DNS del host de tipo bastión y la dirección URL de la consola de OpenShift se imprimen en el terminal cuando concluye la implementación.
 
 ```json
 {
-  "OpenShift Console Uri": "http://openshiftlb.cloudapp.azure.com:8443/console",
-  "OpenShift Master SSH": "ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200"
+  "Bastion DNS FQDN": "bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com",
+  "OpenShift Console URL": "http://openshiftlb.eastus.cloudapp.azure.com/console"
 }
 ```
 
-## <a name="deploy-by-using-the-openshift-container-platform-azure-marketplace-offer"></a>Implementación con la oferta de Azure Marketplace de OpenShift Container Platform
+Si no desea que la línea de comandos espere hasta que finalice la implementación, agregue `--no-wait` como una de las opciones para la implementación del grupo. La salida de la implementación se puede recuperar en Azure Portal, en la sección de implementación del grupo de recursos.
+ 
+## <a name="deploy-using-the-openshift-container-platform-azure-marketplace-offer"></a>Implementación con la oferta de Azure Marketplace de OpenShift Container Platform
 
 La manera más sencilla de implementar OpenShift Container Platform en Azure es usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-Se trata de la opción más sencilla, pero también tiene funcionalidades de personalización limitadas. La oferta incluye tres opciones de configuración:
+Se trata de la opción más sencilla, pero también tiene funcionalidades de personalización limitadas. La oferta de Marketplace incluye las siguientes opciones de configuración:
 
-- **Pequeña**: implementa un clúster sin alta disponibilidad con un nodo maestro, un nodo de infraestructura, dos nodos de aplicación y un nodo bastión. Todos los nodos tienen tamaños de máquina virtual DS2v2 estándar. Este clúster requiere 10 núcleos en total y es adecuado para pruebas a pequeña escala.
-- **Media**: implementa un clúster de alta disponibilidad con tres nodos maestros, dos nodos de infraestructura, cuatro nodos de aplicación y un nodo bastión. Todos los nodos excepto el bastión tienen tamaños de máquina virtual DS3v2 estándar. El nodo bastión es DS2v2 estándar. Este clúster requiere 38 núcleos.
-- **Grande**: implementa un clúster de alta disponibilidad con tres nodos maestros, dos nodos de infraestructura, seis nodos de aplicación y un nodo bastión. Los nodos de infraestructura y maestro tienen tamaños de máquina virtual DS3v2 estándar. Los nodos de aplicación tienen tamaños de máquina virtual DS4v2 estándar y el nodo bastión tiene el tamaño DS2v2 estándar. Este clúster requiere 70 núcleos.
-
-La configuración del Proveedor de soluciones en la nube de Azure es opcional para los tamaños de clúster mediano y grande. El tamaño de clúster pequeño no ofrece una opción para configurar el Proveedor de soluciones en la nube de Azure.
+- **Nodos Maestros**: tres (3) nodos maestros con tipo de instancia configurable.
+- **Nodos de infraestructura**: tres (3) nodos de infraestructura con tipo de instancia configurable.
+- **Nodos**: el número de nodos es configurable (entre 2 y 9), así como el tipo de instancia.
+- **Tipo de disco**: se usan discos administrados.
+- **Redes**: compatibilidad con una red nueva o existente, así como un intervalo CIDR personalizado.
+- **CNS**: se puede habilitar CNS.
+- **Métricas**: se pueden habilitar métricas.
+- **Registro**: se puede habilitar el registro.
+- **Proveedor en la nube de Azure**: puede habilitarse.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Conexión con el clúster de OpenShift
 
-Cuando concluya la implementación, conéctese a la consola de OpenShift con el explorador mediante `OpenShift Console Uri`. Como alternativa, puede conectarse al maestro de OpenShift con el siguiente comando:
+Cuando finalice la implementación, puede recuperar la conexión de la sección de salida de la implementación. Conéctese a la consola de OpenShift con el explorador con `OpenShift Console URL`. Como alternativa, puede acceder mediante SSH al host de tipo bastión. El siguiente es un ejemplo en el que el nombre de usuario administrador es clusteradmin y el nombre de dominio completo de DNS de la dirección IP pública del host de tipo bastión es bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
-$ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
+$ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -183,11 +287,15 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el clúster de OpenShift y todos los recursos relacionados.
 
 ```azurecli 
-az group delete --name myResourceGroup
+az group delete --name openshiftrg
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Tareas posteriores a la implementación](./openshift-post-deployment.md)
 - [Solución de problemas de implementación de OpenShift en Azure](./openshift-troubleshooting.md)
-- [Introducción a OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+- [Introducción a OpenShift Container Platform](https://docs.openshift.com/container-platform)
+
+### <a name="documentation-contributors"></a>Colaboradores de documentación
+
+Gracias a Vincent Power (vincepower) y Alfred Sin (asinn826) por sus aportaciones para mantener actualizada esta documentación.

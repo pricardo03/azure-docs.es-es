@@ -1,29 +1,29 @@
 ---
-title: Conmutación por error y conmutación por recuperación de máquinas virtuales de Hyper-V replicadas en Azure con Site Recovery | Microsoft Docs
-description: Obtenga información sobre cómo conmutar por error máquinas virtuales de Hyper-V en Azure y conmutar por recuperación en el sitio local con Azure Site Recovery.
+title: Conmutación por error y conmutación por recuperación de máquinas virtuales de Hyper V durante la recuperación ante desastres a Azure con Azure Site Recovery | Microsoft Docs
+description: Aprenda a realizar la conmutación por error y la conmutación por recuperación de máquinas virtuales de Hyper V durante la recuperación ante desastres a Azure mediante el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076990"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210524"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de máquinas virtuales de Hyper-V replicadas en Azure
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Conmutar por error y conmutar por recuperación máquinas virtuales de Hyper-V replicadas en Azure
 
-En este tutorial se describe cómo conmutar por error una máquina virtual de Hyper-V en Azure. Después de que haya conmutado por error, conmute por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
+En este tutorial se describe cómo conmutar por error una máquina virtual de Hyper-V en Azure. Después de que ha conmutado por error, conmutará por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Verificar las propiedades de máquinas virtuales de Hyper-V para comprobar que se cumplen los requisitos de Azure.
 > * Ejecutar una conmutación por error en Azure.
-> * Conmutación por recuperación de Azure a un entorno local
+> * Conmutación por recuperación de Azure al entorno local
 > * Realizar replicación inversa en las máquinas virtuales locales para volver a iniciar la replicación en Azure
 
 Este es el quinto tutorial de su serie. En él se da por hecho que ya ha realizado las tareas de los tutoriales anteriores.    

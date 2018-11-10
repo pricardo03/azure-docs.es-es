@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: e0a4e069995c1e905834ff541b3562140b6ab01c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/30/2018
+ms.openlocfilehash: e89245a946848e46f3c7c502b6cd0e8017327e07
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379016"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419901"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Usar Instancia administrada de SQL Database con redes virtuales y casi un 100 % de compatibilidad
 
@@ -169,7 +169,7 @@ La autenticación de la Instancia administrada le indica la forma en que los usu
 - **Autenticación de SQL**:
 
   Este método de autenticación usa un nombre de usuario y una contraseña.
-- **Autenticación de Azure Active Directory**:
+- **Autenticación con Azure Active Directory**:
 
   Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
@@ -218,7 +218,7 @@ Instancia administrada tiene la ventaja de estar siempre actualizada en la nube,
 
 ### <a name="managed-instance-administration-features"></a>Características de administración de Instancia administrada
 
-Instancia administrada permite al administrador del sistema centrarse en lo más importante para el negocio. Muchas actividades del administrador del sistema o DBA no son necesarias, o son sencillas. Por ejemplo, la instalación y aplicación de revisiones de SO o RDBMS, las opciones dinámicas de cambio de tamaño y configuración de instancias, las copias de seguridad, la [replicación de bases de datos](replication-with-sql-database-managed-instance.md) (incluidas las bases de datos del sistema), la configuración de la alta disponibilidad y los flujos de datos de configuración del estado y supervisión del rendimiento.
+Instancia administrada permite al administrador del sistema centrarse en lo más importante para el negocio. Muchas actividades del administrador del sistema o DBA no son necesarias, o son sencillas. Por ejemplo, la instalación y aplicación de revisiones de SO o RDBMS, las opciones dinámicas de cambio de tamaño y configuración de instancias, las copias de seguridad, la [replicación de bases de datos](replication-with-sql-database-managed-instance.md) (incluidas las bases de datos del sistema), la configuración de la alta disponibilidad y los flujos de datos de configuración del estado y [supervisión del rendimiento](../log-analytics/log-analytics-azure-sql.md).
 
 > [!IMPORTANT]
 > Para obtener una lista de las características compatibles, parcialmente compatibles o no compatibles, consulte [Características de SQL Database](sql-database-features.md). Para obtener una lista de diferencias de T-SQL en Instancia administrada en comparación con SQL Server, consulte [Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Diferencias de T-SQL entre Instancia administrada y SQL Server)
@@ -241,4 +241,5 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 - Para más información acerca de la configuración de redes virtuales, consulte [Configuración de una red virtual de instancia administrada](sql-database-managed-instance-vnet-configuration.md).
 - Para ver una guía rápida en la que se crea una instancia administrada y se restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 - Para consultar un tutorial con Azure Database Migration Service (DMS) para la migración, consulte [Migración a Instancia administrada con DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para una supervisión avanzada del rendimiento de la base de datos de Instancia administrada con inteligencia de solución de problemas integrada, consulte [Supervisión de instancias de Azure SQL Database con Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md) 
 - Para obtener información de precios, vea [Precios de Instancia administrada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).

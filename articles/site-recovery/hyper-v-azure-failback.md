@@ -1,6 +1,6 @@
 ---
-title: Ejecución de una conmutación por recuperación en un sitio principal para máquinas virtuales de Hyper-V | Microsoft Docs
-description: Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Información acerca de la conmutación por recuperación de Azure a un centro de datos local.
+title: Ejecución de una conmutación por recuperación en caso de desastre de máquinas virtuales de Hyper-V desde Azure hacia el entorno local | Microsoft Docs
+description: Aprenda a conmutar por recuperación máquinas virtuales de Hyper-V a un sitio local durante una recuperación ante desastres en Azure con el servicio Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: fd171251ef465a28e4844901a529e0a3eaaf8f9d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b841dee766399f1e3c7325d2ab67e342dfa8657a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920879"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211866"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Ejecución de una conmutación por recuperación para máquinas virtuales de Hyper-V
 
 En este artículo se describe cómo se realiza la conmutación por recuperación de máquinas virtuales de Hyper-V protegidas por Site Recovery.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 1. Asegúrese de leer los detalles sobre los [diferentes tipos de conmutación por recuperación](concepts-types-of-failback.md) y las advertencias correspondientes.
 1. Asegúrese de que el servidor del sitio principal de VMM o el servidor de host Hyper-V está conectado a Azure.
 2. Debe haber realizado la acción **Confirmar** en la máquina virtual.
@@ -40,7 +40,7 @@ Después de la conmutación por error de la ubicación principal a la secundaria
 
 4. Si en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió al habilitarlo durante la instalación del proveedor en el servidor de VMM.
 5. Inicie la conmutación por error. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** .
-6. Si seleccionó la opción de sincronizar los datos antes de la conmutación por error, una vez que la sincronización de datos inicial haya finalizado y esté listo para apagar las máquinas virtuales en Azure, haga clic en **Trabajos**, en el nombre del trabajo de conmutación por error planeado y en **Completar conmutación por error**. La máquina de Azure se apagará, se transferirán los cambios más recientes a la máquina virtual local y esta se iniciará.
+6. Si seleccionó la opción para sincronizar los datos antes de la conmutación por error, una vez que la sincronización de datos inicial esté completa y esté listo para apagar las máquinas virtuales en Azure, haga clic en **Trabajos** > nombre del trabajo > **Completar conmutación por error**. La máquina de Azure se apagará, se transferirán los cambios más recientes a la máquina virtual local y esta se iniciará.
 7. Ahora puede iniciar sesión en la máquina virtual para confirmar que está disponible como se esperaba.
 8. La máquina virtual está en un estado pendiente de confirmación. Haga clic en **Confirmar** para confirmar la conmutación por error.
 9. Para completar la conmutación por recuperación, haga clic en **Replicación inversa** con el fin de comenzar a proteger la máquina virtual en el sitio principal.
@@ -57,7 +57,7 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 3. Seleccione **Elementos protegidos** -> **Grupo de protección** -> <ProtectionGroupName> -> <VirtualMachineName> en el que desea realizar la conmutación por recuperación y seleccione **Conmutación por error planeada**.
 4. En **Confirmar conmutación por error planeada** select **Crear máquina virtual local si no existe**.
 5. En Nombre de host,** seleccione el nuevo servidor host de Hyper-V en el que desea incluir la máquina virtual.
-6. En Sincronización de datos, se recomienda seleccionar la opción **Sincronizar los datos antes de la conmutación por error**. Así se reduce el tiempo de inactividad de las máquinas virtuales, ya que la sincronización se realiza sin apagarlas. Hace lo siguiente:
+6. En Sincronización de datos, se recomienda seleccionar la opción para sincronizar los datos antes de la conmutación por error. Así se reduce el tiempo de inactividad de las máquinas virtuales, ya que la sincronización se realiza sin apagarlas. Hace lo siguiente:
 
     - Fase 1: realiza una instantánea de la máquina virtual en Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
     - Fase 2: apaga la máquina virtual en Azure para que no se realice ningún nuevo cambio allí. El último conjunto de cambios se transfiere al servidor local y se inicia la máquina virtual local.

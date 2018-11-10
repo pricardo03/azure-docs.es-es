@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430030"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140813"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Ajuste de los hiperparámetros de un modelo
 
@@ -37,7 +37,7 @@ En escenarios de aprendizaje profundo o aprendizaje automático, el rendimiento 
 Azure Machine Learning le permite automatizar la exploración de hiperparámetros de manera eficiente, de forma que le ahorra una cantidad considerable de tiempo y recursos. Especifique el intervalo de valores de hiperparámetro y un número máximo de series de entrenamiento. El sistema inicia entonces automáticamente varias series simultáneas con configuraciones de parámetros diferentes y busca la configuración que da como resultado un rendimiento óptimo, según se mida mediante la métrica que haya elegido. Las series de entrenamientos con bajo rendimiento se terminan automáticamente de forma anticipada, lo que reduce el desperdicio de recursos de proceso. En su lugar, estos recursos se usan para explorar otras configuraciones de hiperparámetros.
 
 >[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168 
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168. 
 
 ## <a name="define-search-space"></a>Definición del espacio de búsqueda
 
@@ -238,16 +238,18 @@ En este ejemplo, se aplica la directiva de terminación anticipada en cada inter
 
 ### <a name="no-termination-policy"></a>Sin directiva de terminación
 
-Si quiere que todas las series de entrenamientos se ejecuten hasta su finalización, use NoTerminationPolicy. El efecto será el de no aplicar ninguna directiva de terminación anticipada.
+Si quiere que todas las series de entrenamientos se ejecuten hasta su finalización, establezca la directiva en None. El efecto será el de no aplicar ninguna directiva de terminación anticipada.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Directiva predeterminada
 
-Si no se especifica ninguna directiva, el servicio de ajuste de hiperparámetros usará una directiva de mediana de detención con `evaluation_interval` 1 y `delay_evaluation` 5 de forma predeterminada. Se trata de una configuración conservadora que puede proporcionar unos ahorros de entre un 25 % y un 35 % sin pérdidas de la métrica principal (según nuestros datos de evaluación).
+Si no se especifica ninguna directiva, el servicio de ajuste de hiperparámetros permitirá que todas las series de entrenamiento se ejecuten hasta completarse.
+
+>[!NOTE] 
+>Si está buscando una directiva conservadora que proporcione ahorros sin finalizar trabajos prometedores, puede usar una Directiva de mediana de detención con `evaluation_interval` 1 y `delay_evaluation` 5. Se trata de una configuración conservadora que puede proporcionar unos ahorros de entre un 25 % y un 35 % sin pérdidas de la métrica principal (según nuestros datos de evaluación).
 
 ## <a name="allocate-resources"></a>Asignación de recursos
 

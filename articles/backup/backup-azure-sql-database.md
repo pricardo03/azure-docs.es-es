@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434252"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211509"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Copia de seguridad de bases de datos de SQL Server en Azure
 
@@ -658,23 +658,23 @@ Azure Backup utiliza API nativas de SQL para todas las operaciones de copia de s
 El ejemplo siguiente es una consulta para capturar todos los trabajos de copia de seguridad de una base de datos denominada **DB1**. Personalice la consulta para realizar una supervisión avanzada.
 
 ```
-select CAST (
+select CAST (
 Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
 server_name,
 machine_name,
 backup_start_date,
 backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
  
 ```
 
@@ -703,7 +703,7 @@ Cuando se detiene la protección de una base de datos de SQL Server, Azure Backu
 * Detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación.
 * Detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación.
 
-Hay un costo por dejar los puntos de recuperación. A los puntos de recuperación para SQL se les aplica el cargo por los precios de instancias protegidas de SQL, además del almacenamiento consumido. Para más información sobre los precios de Azure Backup para SQL, vea la [página de precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/). 
+Si decide detener la copia de seguridad con datos de retención, los puntos de recuperación se limpiarán en función de la directiva de copia de seguridad. Hasta que no se hayan limpiado todos los puntos de recuperación, habrá un cargo del precio de instancia protegida de SQL, más el almacenamiento consumido. Para más información sobre los precios de Azure Backup para SQL, vea la [página de precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/). 
 
 Para detener la protección de una base de datos:
 

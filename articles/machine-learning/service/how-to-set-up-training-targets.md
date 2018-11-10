@@ -10,23 +10,23 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394891"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215487"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selección y uso de un destino de proceso para entrenar el modelo
 
-Con el servicio Azure Machine Learning, puede entrenar el modelo en distintos entornos. Estos entornos, llamados __destinos de proceso__, pueden ser locales o en la nube. En este documento, aprenderá acerca de los destinos de proceso admitidos y cómo usarlos.
+Con el servicio Azure Machine Learning, puede entrenar el modelo en distintos entornos. Estos entornos, llamados __destinos de proceso__, pueden ser locales o en la nube. En este documento, aprenderá sobre los destinos de proceso admitidos y cómo usarlos.
 
-Un destino de proceso es el recurso que ejecuta el script de entrenamiento u hospeda el modelo cuando se implementa como un servicio web. Se pueden crear y administrar mediante el SDK de Azure Machine Learning o la CLI. Si dispone de destinos de proceso creados por otro proceso (por ejemplo, Azure Portal o la CLI de Azure), para agregarlos, puede asociarlos al área de trabajo del servicio Azure Machine Learning.
+Un destino de proceso es el recurso que ejecuta el script de entrenamiento o que hospeda el modelo cuando se implementa como un servicio web. Se pueden crear y administrar mediante el SDK de Azure Machine Learning o la CLI. Si dispone de destinos de proceso creados por otro proceso (por ejemplo, Azure Portal o la CLI de Azure), para agregarlos, puede asociarlos al área de trabajo del servicio Azure Machine Learning.
 
 Puede comenzar con ejecuciones locales en la máquina y, a continuación, escalar vertical y horizontalmente a otros entornos, como las instancias de Data Science Virtual Machine con GPU o Azure Batch AI. 
 
 >[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168 
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168. 
 
 ## <a name="supported-compute-targets"></a>Destinos de proceso admitidos
 
@@ -36,8 +36,13 @@ El servicio Azure Machine Learning admite los siguientes destinos de proceso:
 |----|:----:|:----:|:----:|:----:|
 |[Equipo local](#local)| Es posible | &nbsp; | ✓ | &nbsp; |
 |[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Análisis con Azure Data Lake](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[HDInsight de Azure](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>*Azure Databricks y Azure Data Lake Analytics __solo__ se pueden usar en una canalización. Para más información sobre las canalizaciones, consulte el documento [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
 
 __[Azure Container Instances (ACI)](#aci)__ también se puede usar para entrenar modelos. Es una oferta de nube sin servidor que es económica y cuya creación y uso resultan sencillos. ACI no admite la aceleración de GPU, el ajuste automatizado de hiperparámetros ni la selección automatizada de modelos. Además, no se puede usar en una canalización.
 
@@ -52,7 +57,7 @@ Puede usar el SDK de Azure Machine Learning, la CLI de Azure o Azure Portal para
 > [!IMPORTANT]
 > No puede asociar una instancia existente de Azure Container Instances al área de trabajo. En su lugar, debe crear una nueva instancia.
 >
-> No puede crear un clúster de Azure HDInsight dentro de un área de trabajo. En su lugar, debe asociar un clúster existente.
+> No se pueden crear recursos de Azure HDInsight, Azure Databricks o Azure Data Lake Store en un área de trabajo. En su lugar, debe crear el recurso y, luego, asociarlo al área de trabajo.
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -178,6 +183,7 @@ Los pasos siguientes utilizan el SDK para configurar una máquina virtual Data S
     run_config.environment.docker.enabled = True
 
     # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -295,7 +301,6 @@ run_config.environment.docker.enabled = True
 
 # set Docker base image to the default CPU-based image
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
 # use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False
@@ -310,6 +315,106 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 En la creación de un destino de proceso de ACI, puede tardarse desde unos segundos a algunos minutos.
 
 Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento en Azure Container Instances, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
+
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks es un entorno basado en Apache Spark de la nube de Azure. Se puede usar como destino de proceso al entrenar modelos con una canalización de Azure Machine Learning.
+
+> [!IMPORTANT]
+> Un destino de proceso de Azure Databricks solo se puede usar en una canalización de Machine Learning.
+>
+> Para usarlo para entrenar a su modelo, primero debe crear un área de trabajo de Azure Databricks. Para crear estos recursos, consulte el documento [Ejecución de un trabajo de Spark en Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+
+Para asociar Azure Databricks como destino de proceso, debe usar el SDK de Azure Machine Learning y proporcionar la siguiente información:
+
+* __Nombre de proceso__: el nombre que desea asignar a este recurso de proceso.
+* __Id. de recurso__: el identificador de recurso del área de trabajo de Azure Databricks. El texto siguiente es un ejemplo del formato de este valor:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > Para obtener el identificador de recurso, use el siguiente comando de la CLI de Azure. Reemplace `<databricks-ws>` por el nombre del área de trabajo de Databricks:
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Token de acceso__: el token de acceso usado para autenticarse en Azure Databricks. Para generar un token de acceso, consulte el documento [Autenticación](https://docs.azuredatabricks.net/api/latest/authentication.html).
+
+El código siguiente muestra cómo asociar Azure Databricks como destino de proceso:
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics es una plataforma de análisis de macrodatos de la nube de Azure. Se puede usar como destino de proceso al entrenar modelos con una canalización de Azure Machine Learning.
+
+> [!IMPORTANT]
+> Un destino de proceso de Azure Data Lake Analytics solo se puede usar en una canalización de Machine Learning.
+>
+> Para usarlo para entrenar a su modelo, primero debe crear una cuenta de Azure Data Lake Analytics. Para crear este recurso, consulte la [Introducción a Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) documento.
+
+Para asociar Data Lake Analytics como destino de proceso, debe usar el SDK de Azure Machine Learning y proporcionar la siguiente información:
+
+* __Nombre de proceso__: el nombre que desea asignar a este recurso de proceso.
+* __Id. de recurso__: el identificador de recurso de la cuenta de Data Lake Analytics. El texto siguiente es un ejemplo del formato de este valor:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > Para obtener el identificador de recurso, use el siguiente comando de la CLI de Azure. Reemplace `<datalakeanalytics>` por el nombre de su cuenta de Data Lake Analytics:
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+El código siguiente muestra cómo asociar Data Lake Analytics como destino de proceso:
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar los datos antes del entrenamiento.
 
 ## <a id="hdinsight"></a>Asociación de un clúster HDInsight 
 
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>Envío de una ejecución de entrenamiento
-    
-El código para enviar una ejecución de entrenamiento es el mismo independientemente del destino de proceso:
+
+Hay dos maneras de enviar una serie de entrenamientos:
+
+* Enviar un objeto `ScriptRunConfig`
+* Enviar un objeto `Pipeline`
+
+> [!IMPORTANT]
+> Los destinos de proceso Azure Databricks, Azure Datalake Analytics y Azure HDInsight solo se pueden usar en una canalización.
+> No se puede usar el destino de proceso local en una canalización.
+
+### <a name="submit-using-scriptrunconfig"></a>Enviar mediante `ScriptRunConfig`
+
+El patrón de código para enviar una serie de entrenamientos mediante `ScriptRunConfig` es el mismo con independencia del destino de proceso:
 
 * Cree un `ScriptRunConfig` objeto con la configuración de ejecución para el destino de proceso.
 * Envíe la ejecución.
@@ -360,13 +476,46 @@ El código para enviar una ejecución de entrenamiento es el mismo independiente
 
 El ejemplo siguiente usa la configuración para el destino de proceso local administrado por el sistema que creó anteriormente en este documento:
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento con Spark en HDInsight, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### <a name="submit-using-a-pipeline"></a>Envío mediante una canalización
+
+El patrón de código para enviar una serie de entrenamientos mediante una canalización es el mismo con independencia del destino de proceso:
+
+* Agregue un paso a la canalización para el recurso de proceso.
+* Envíe una ejecución mediante la canalización.
+* Espere a que la ejecución se complete.
+
+En el ejemplo siguiente se usa el destino de proceso de Azure Databricks que creó anteriormente en este documento:
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Para más información sobre las canalizaciones de aprendizaje automático, consulte el documento [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
+
+Para ver cuadernos de Jupyter de ejemplo que muestran el entrenamiento mediante una canalización, consulte [https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Visualización y configuración del proceso mediante Azure Portal
 
@@ -387,11 +536,18 @@ Siga los pasos anteriores para ver la lista de destinos de proceso y, a continua
 
 1. Escriba un nombre para el destino de proceso.
 1. Seleccione el tipo de proceso que asociar a __Entrenamiento__. 
+
+    > [!IMPORTANT]
+    > No todos los tipos de proceso se pueden crear mediante Azure Portal. Actualmente, los tipos que se pueden crear para entrenamiento son:
+    > 
+    > * Máquina virtual
+    > * Batch AI
+
 1. Seleccione __Crear nuevo__ y rellene el formulario necesario. 
 1. Seleccione __Crear__
 1. Para ver el estado de la operación de creación, seleccione el destino de proceso en la lista.
 
-    ![Vea la lista de proceso](./media/how-to-set-up-training-targets/View_list.png). Entonces verá los detalles de ese proceso.
+    ![Ver la lista de procesos](./media/how-to-set-up-training-targets/View_list.png) Verá los detalles del destino de proceso.
     ![Ver detalles](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. Ahora puede enviar una ejecución en estos destinos como se ha detallado antes.
 
@@ -401,8 +557,16 @@ Siga los pasos anteriores para ver la lista de destinos de proceso y, a continua
 
 1. Haga clic en el signo **+** para agregar un destino de proceso.
 2. Escriba un nombre para el destino de proceso.
-3. Seleccione el tipo de proceso que asociar a Entrenamiento. Batch AI y Virtual Machines se admiten actualmente en el portal para el entrenamiento.
-4. Seleccione 'Usar existente'.
+3. Seleccione el tipo de proceso que asociar a Entrenamiento.
+
+    > [!IMPORTANT]
+    > No todos los tipos de proceso se pueden asociar mediante el portal.
+    > Actualmente, los tipos que se pueden asociar para entrenamiento son:
+    > 
+    > * Máquina virtual
+    > * Batch AI
+
+1. Seleccione 'Usar existente'.
     - Al asociar los clústeres de Batch AI, seleccione el destino de proceso en la lista desplegable, seleccione el área de trabajo de Batch AI y el clúster de Batch AI, y, a continuación, haga clic en **Crear**.
     - Al conectar una máquina virtual, escriba la dirección IP, la combinación de nombre de usuario y contraseña, las claves pública y privada, y el puerto, y haga clic en Crear.
 
@@ -412,7 +576,7 @@ Siga los pasos anteriores para ver la lista de destinos de proceso y, a continua
     > * [Creación y uso de claves SSH en Linux o macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Creación y uso de claves SSH en Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. Puede ver el estado de aprovisionamiento, si selecciona el destino de proceso en la lista de procesos.
+5. Para ver el estado de aprovisionamiento, seleccione el destino de proceso de la lista.
 6. Ahora puede enviar una ejecución en estos destinos.
 
 ## <a name="examples"></a>Ejemplos

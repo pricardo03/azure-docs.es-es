@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368093"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156330"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Cómo usar análisis para analizar los datos del dispositivo
 
@@ -21,7 +21,7 @@ ms.locfileid: "46368093"
 *Este artículo se aplica a los administradores, operadores y compiladores.*
 
 
-Microsoft Azure IoT Central proporciona completas funcionalidades de análisis para dotar de sentido a las enormes cantidades de datos de sus dispositivos. Para comenzar, visite **Analytics** en el menú de navegación izquierdo. 
+Azure IoT Central proporciona completas funcionalidades de análisis para dotar de sentido a las enormes cantidades de datos de sus dispositivos. Para comenzar, visite **Analytics** en el menú de navegación izquierdo. 
 
   ![Navegación de IoT Central a Analytics](media\howto-create-analytics\analytics-navigation.png)
 
@@ -65,7 +65,7 @@ Dispone de varias formas de modificar los resultados de la consulta para satisfa
 
  ![Presentación de la vista de cuadrícula para los análisis](media\howto-create-analytics\analytics-showgrid.png)
 
-El zoom le permite centrarse en los datos. Si encuentra un período de tiempo en el que quiere centrarse dentro del conjunto de resultados, utilice el cursor para seleccionar el área que desea ampliar y utilice los controles disponibles para realizar una de las siguientes acciones:
+El zoom le permite centrarse en los datos. Si encuentra un período de tiempo en el que quiere centrarse dentro del conjunto de resultados, use el cursor para seleccionar el área que desea ampliar y utilice los controles disponibles para realizar una de las siguientes acciones:
 * **Acercar:** cuando haya seleccionado un período de tiempo, se habilitará este control que le permite ampliar los datos.
 * **Alejar:** este control le permite alejarse un nivel a partir del último zoom. Por ejemplo, si ha acercado tres veces los datos, este control se alejará paso a paso.
 * **Restablecer zoom:** cuando haya ejecutado varios niveles de zoom, puede usar el control de restablecimiento de zoom para volver al conjunto de resultados original. 

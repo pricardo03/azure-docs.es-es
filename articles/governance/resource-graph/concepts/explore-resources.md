@@ -4,16 +4,16 @@ description: Aprenda a usar el lenguaje de consulta de gráfico de recursos para
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645939"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086903"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Exploración de recursos de Azure con el gráfico de recursos
 
@@ -21,7 +21,7 @@ El gráfico de recursos de Azure proporciona la capacidad de explorar y detectar
 
 ## <a name="explore-virtual-machines"></a>Exploración de máquinas virtuales
 
-Un recurso común en Azure es una máquina virtual. Como tipo de recurso, las máquinas virtuales tienen numerosas propiedades que se pueden consultar. Cada propiedad ofrece una opción para filtrar o buscar exactamente el recurso que está buscando.
+Un recurso común en Azure es una máquina virtual. Como tipo de recurso, las máquinas virtuales tienen muchas propiedades que se pueden consultar. Cada propiedad ofrece una opción para filtrar o buscar exactamente el recurso que está buscando.
 
 ### <a name="virtual-machine-discovery"></a>Detección de la máquina virtual
 
@@ -216,7 +216,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' an
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Máquinas virtuales conectadas a discos administrados premium
 
-Si quisiéramos obtener los detalles de los discos administrados premium que se asocian a estas máquinas virtuales **Standard_B2s**, podemos expandir la consulta para darnos el identificador del recurso de esos discos administrados.
+Si quisiéramos obtener los detalles de los discos administrados premium que están conectados a estas máquinas virtuales **Standard_B2s**, podríamos expandir la consulta para que nos proporcione el identificador de recurso de esos discos administrados.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
@@ -240,7 +240,7 @@ El resultado es una lista de identificadores de disco.
 
 ### <a name="managed-disk-discovery"></a>Detección de disco administrado
 
-Tomando el primer registro de la consulta anterior, vamos a explorar las propiedades que existen en el disco administrado que se asoció a la primera máquina virtual. La consulta actualizada utiliza el identificador del disco y cambia el tipo.
+Con el primer registro de la consulta anterior, vamos a explorar las propiedades que existen en el disco administrado que se asoció a la primera máquina virtual. La consulta actualizada utiliza el identificador del disco y cambia el tipo.
 
 Ejemplo de salida de la consulta anterior, por ejemplo:
 
@@ -314,7 +314,7 @@ Los resultados de JSON tienen una estructura similar a la del ejemplo siguiente:
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Exploración de máquinas virtuales para buscar direcciones IP públicas
 
-Este conjunto de consultas de varios pasos de la CLI de Azure primero busca y almacena todos los recursos de las interfaces de red conectados a máquinas virtuales, usa la lista de interfaces de red para buscar cada recurso de dirección IP que es una dirección IP pública y almacenar esos valores, y finalmente proporciona una lista de las direcciones IP públicas reales.
+Este conjunto de consultas de la CLI de Azure primero busca y almacena todos los recursos de interfaces de red (NIC) conectados a las máquinas virtuales. Después, utiliza la lista de NIC para buscar cada uno de los recursos que es una dirección IP y almacenar estos valores. Por último, proporciona una lista de las direcciones IP públicas.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-Una vez que tengamos el archivo `nics.txt`, lo usaremos en la siguiente consulta para obtener los detalles de los recursos de interfaz de red relacionados donde hay una dirección IP pública asociada a la NIC.
+Utilice el archivo `nics.txt` en la siguiente consulta para obtener los detalles de los recursos de interfaz de red relacionados en los que hay una dirección IP pública asociada a la NIC.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

@@ -1,5 +1,5 @@
 ---
-title: 'Supervisión de uso de bases de datos de Intelligent Insight: Azure SQL Database | Microsoft Docs'
+title: 'Supervisión del rendimiento de base de datos con Intelligent Insights: Azure SQL Database | Microsoft Docs'
 description: Azure SQL Database Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: b64c8f5d30f95cccf8a029adfd5c443a81597c4d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870696"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214688"
 ---
-# <a name="intelligent-insights-using-artificial-intelligence-to-monitor-database-usage"></a>Intelligent Insights con inteligencia artificial para supervisar el uso de la base de datos
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos
 
 Azure SQL Database Intelligent Insights le permite saber lo que ocurre con el rendimiento de la base de datos de Instancia administrada y SQL Database.
 

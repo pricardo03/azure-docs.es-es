@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: fea70e2b1912bde94e23dbd98fa933784d2a69ac
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638093"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140322"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Los roles de entidad en los patrones son subtipos contextuales
 Los roles son subtipos contextuales con nombre de una entidad que solo se usa en [patrones](luis-concept-patterns.md).
@@ -42,15 +42,10 @@ En la expresión de plantilla de un patrón, los roles se usan dentro de la expr
 ## <a name="role-syntax-in-patterns"></a>Sintaxis de los roles en los patrones
 La entidad y el rol se incluyen entre paréntesis, `{}`. La entidad y el rol se separan mediante dos puntos. 
 
-## <a name="roles-versus-hierarchical-entities"></a>Roles frente a entidades jerárquicas
-Las entidades jerárquicas proporcionan la misma información contextual que los roles, pero solo para las expresiones en **intenciones**. De forma similar, los roles proporcionan la misma información contextual que las entidades jerárquicas, pero solo en los **patrones**.
 
-|Aprendizaje contextual|Se usa en|
-|--|--|
-|entidades jerárquicas|intenciones|
-|roles|patrones|
+[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
-## <a name="roles-with-prebuilt-entities"></a>Roles con entidades creadas previamente
+## <a name="roles-with-prebuilt-entities"></a>Roles con entidades precompiladas
 
 Utilice roles con las entidades creadas previamente para dar sentido a distintas instancias de la entidad creada previamente dentro de una expresión. 
 
@@ -60,4 +55,4 @@ DatetimeV2, la entidad creada previamente, hace un gran trabajo al comprender un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo agregar [roles](luis-how-to-add-entities.md#add-role-to-pattern-based-entity).
+* Obtenga información sobre cómo agregar [roles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity).

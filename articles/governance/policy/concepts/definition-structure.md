@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427406"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212784"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -228,8 +228,8 @@ Se admiten los siguientes campos:
 
 La directiva admite tres tipos de efectos:
 
-- **Deny**: genera un evento en el registro de auditoría y se produce un error en la solicitud.
-- **Audit**: genera un evento de advertencia en el registro de auditoría pero no producirá un error en la solicitud.
+- **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
+- **Audit**: genera un evento de advertencia en el registro de actividad pero no genera un error en la solicitud.
 - **Append**: agrega el conjunto de campos definido a la solicitud.
 - **AuditIfNotExists**: habilita la auditoría si un recurso no existe.
 - **DeployIfNotExists**: implementa un recurso si todavía no existe.

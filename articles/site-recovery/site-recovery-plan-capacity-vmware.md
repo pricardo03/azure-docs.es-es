@@ -1,23 +1,22 @@
 ---
-title: Planeamiento de la capacidad y el escalado para la replicación de VMware en Azure con Azure Site Recovery | Microsoft Docs
-description: Use este artículo para planear la capacidad y escala cuando replique VM de VMware en Azure con Azure Site Recovery.
-services: site-recovery
+title: Planeamiento de la capacidad y el escalado para la recuperación ante desastres de VMware en Azure con Azure Site Recovery | Microsoft Docs
+description: Use este artículo para planear la capacidad y el escalado cuando configure la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 833000cb09d315a996ebc9e2d66210c805160f2a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9bc0d5976cf01eb61c2a09a35ccd3a834313ca00
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067561"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210506"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planeamiento de la capacidad y el escalado para la replicación de VMware con Azure Site Recovery
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-auzre"></a>Planeamiento de la capacidad y el escalado para la recuperación ante desastres de VMware en Azure
 
-Use este artículo para averiguar cómo planear la capacidad y el escalado cuando se replican VM de VMware locales y servidores físicos en Azure con [Azure Site Recovery](site-recovery-overview.md).
+Use este artículo para averiguar cómo planear la capacidad y el escalado cuando se replican máquinas virtuales VMware locales y servidores físicos en Azure con [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="how-do-i-start-capacity-planning"></a>¿Cómo se puede iniciar el planeamiento de la capacidad?
 

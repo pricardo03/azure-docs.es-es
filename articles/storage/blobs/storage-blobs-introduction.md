@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 03/27/2018
+ms.date: 10/17/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: c5a088e2bf9e05647e5f577db1a169ac73ccc4a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d91cc91c65e525726b0d615b46699a1af590ac94
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731179"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085536"
 ---
 # <a name="introduction-to-object-storage-in-azure"></a>Introducción al almacenamiento de objetos en Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "45731179"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [crear una cuenta de almacenamiento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Cree una cuenta de almacenamiento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Introducción a Blob Storage con .NET](storage-dotnet-how-to-use-blobs.md)
 * [Azure Storage samples using .NET](../common/storage-samples-dotnet.md) (Ejemplos de Azure Storage con .NET)
 * [Azure Storage samples using Java](../common/storage-samples-java.md) (Ejemplos de Azure Storage con Java)

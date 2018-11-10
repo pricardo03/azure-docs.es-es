@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241593"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231379"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Red de un único miembro de Hyperledger Fabric
 
@@ -28,7 +28,7 @@ Después de leer este artículo, habrá aprendido lo siguiente:
 
 ## <a name="about-blockchain"></a>Acerca de la cadena de bloques
 
-Si no está familiarizado con la comunidad de cadena de bloques, esta es una oportunidad excelente para conocer la tecnología de una manera sencilla y configurable en Azure. La cadena de bloques es la tecnología que se esconde detrás de Bitcoin; sin embargo, es mucho más que un habilitador de una moneda virtual. Es un compuesto de bases de datos existentes, sistemas distribuidos y tecnologías de cifrado que permite el cálculo seguro de varias partes con garantías en torno a inmutabilidad, verificabilidad, auditabilidad y resiliencia a los ataques. Diferentes protocolos emplean diferentes mecanismos para proporcionar estos atributos. [Hyperledger Fabric](https://github.com/hyperledger/fabric) es uno de estos protocolos.
+Si no está familiarizado con la comunidad de cadena de bloques, esta plantilla de solución es una oportunidad excelente para conocer la tecnología de una manera sencilla y configurable en Azure. La cadena de bloques es la tecnología que se esconde detrás de Bitcoin; sin embargo, es mucho más que un habilitador de una moneda virtual. Es un compuesto de bases de datos existentes, sistemas distribuidos y tecnologías de cifrado que permite el cálculo seguro de varias partes con garantías en torno a inmutabilidad, verificabilidad, auditabilidad y resiliencia a los ataques. Diferentes protocolos emplean diferentes mecanismos para proporcionar estos atributos. [Hyperledger Fabric](https://github.com/hyperledger/fabric) es uno de estos protocolos.
 
 ## <a name="consortium-architecture-on-azure"></a>Arquitectura de consorcio en Azure
 
@@ -36,7 +36,7 @@ Esta plantilla implementa una topología que ayuda a probar y simular la producc
 
 La red está formada por tres tipos de nodos:
 
-1. **Nodo miembro**: un nodo que ejecuta el servicio de pertenencia de Fabric que registra y administra miembros de la red. Este nodo se puede agrupar en clústeres a la larga para obtener escalabilidad y alta disponibilidad; sin embargo, en este laboratorio, se usará un nodo de un único miembro.
+1. **Nodo miembro**: un nodo que ejecuta el servicio de pertenencia de Fabric que registra y administra miembros de la red. Este nodo se puede agrupar en clústeres para obtener escalabilidad y alta disponibilidad pero, en este laboratorio, se usará un nodo de un único miembro.
 2. **Nodo solicitante**: un nodo que ejecuta el servicio de comunicación que implementa una garantía de entrega, como difusión total de pedidos o transacciones atómicas.
 3. **Nodo del mismo nivel**: un nodo que confirma las transacciones y mantiene el estado y una copia del libro de contabilidad distribuido.
 
@@ -57,13 +57,13 @@ Una vez que tenga una suscripción, vaya a [Azure Portal](https://portal.azure.c
 
 ## <a name="deployment"></a>Implementación
 
-Para comenzar, seleccione **Hyperledger Fabric Single Member Blockchain** y haga clic en **Crear**. Se abre la hoja **Aspectos básicos** en el asistente.
+Para empezar, seleccione **Hyperledger Fabric Single Member Blockchain** y haga clic en **Crear** para abrir la hoja **Basics** (Aspectos básicos) del asistente.
 
 La implementación de la plantilla le guiará en la configuración de la red de varios nodos. El flujo de implementación se divide en tres pasos: aspectos básicos, configuración de red y configuración de Fabric.
 
 ### <a name="basics"></a>Aspectos básicos
 
-En la hoja **Aspectos básicos**, especifique valores para los parámetros estándar de cualquier implementación, como la suscripción, el grupo de recursos y las propiedades básicas de la máquina virtual.
+En la hoja **Basics** (Aspectos básicos), especifique los valores para los parámetros estándar de cualquier implementación, como la suscripción, el grupo de recursos y las propiedades básicas de máquina virtual.
 
 ![Aspectos básicos](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,7 +72,7 @@ Nombre de parámetro| DESCRIPCIÓN| Valores permitidos|Valor predeterminado
 **Prefijo de recurso**| Una cadena que se usa como base para designar los recursos implementados.|6 caracteres o menos|N/D
 **Nombre de usuario de máquina virtual**| El nombre de usuario del administrador de cada una de las máquinas virtuales implementadas para este miembro.|Entre 1 y 64 caracteres|azureuser
 **Tipo de autenticación**| El método de autenticación en la máquina virtual.|Contraseña o clave pública SSH|Contraseña
-**Contraseña (Tipo de autenticación = Contraseña)**|La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe cumplir 3 de los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|N/D
+**Contraseña (Tipo de autenticación = Contraseña)**|La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|N/D
 **Clave SSH (Tipo de autenticación = Clave pública)**|La clave de shell seguro que se usa para el inicio de sesión remoto.||N/D
 **Restringir el acceso por dirección IP**|Opción para determinar si el acceso al punto de conexión de cliente está o no restringido.|Sí/No| Sin 
 **Dirección IP o subred permitidas (restringir el acceso por dirección IP = Sí)**|La dirección IP o el conjunto de direcciones IP que pueden tener acceso al punto de conexión de cliente cuando está habilitado el control de acceso.||N/D
@@ -82,7 +82,7 @@ Nombre de parámetro| DESCRIPCIÓN| Valores permitidos|Valor predeterminado
 
 ### <a name="network-size-and-performance"></a>Tamaño de red y rendimiento
 
-A continuación, en **Network size and performance** (Tamaño de red y rendimiento), especifique las entradas para el tamaño de la red de consorcio, como el número de miembros, los nodos solicitantes o los nodos del mismo nivel. Elija las opciones de infraestructura y el tamaño de la máquina virtual.
+Después, en **Tamaño de red y rendimiento** especifique las entradas para el tamaño de la red del consorcio. Por ejemplo, el número de nodos del mismo nivel, nodos solicitantes y nodos de pertenencia. Elija las opciones de infraestructura y el tamaño de la máquina virtual.
 
 ![Tamaño de red y rendimiento](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -94,7 +94,7 @@ Nombre de parámetro| DESCRIPCIÓN| Valores permitidos|Valor predeterminado
 **Rendimiento del almacenamiento**|El tipo de almacenamiento que respalda cada uno de los nodos implementados. Para más información sobre el almacenamiento, visite [Introducción a Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) y [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Estándar o Premium|Estándar
 **Tamaño de la máquina virtual** |El tamaño de máquina virtual usado para todos los nodos de la red.|Estándar A,<br />Estándar D,<br />Estándar D-v2,<br />Serie F estándar,<br />Estándar DS,<br />y Estándar FS|Estándar D1_v2
 
-### <a name="fabric-specific-settings"></a>Configuración específica de Fabric
+### <a name="fabric-specific-settings"></a>Configuración específica del tejido
 
 Por último, en **Fabric Settings** (Configuración de Fabric), especifique la configuración relativa a Fabric.
 
@@ -135,7 +135,7 @@ La pantalla de detalles muestra un resumen de la implementación, seguido de tre
 
 - _API-ENDPOINT_ se puede usar después de implementar una aplicación en la red.
 - _PREFIX_, también denominado _prefijo de implementación_, identifica de forma única los recursos y la implementación. Se usará al emplear las herramientas basadas en la línea de comandos.
-- _SSH-TO-FIRST-VM_ proporciona un comando ssh ya ensamblado, con todos los parámetros adecuados necesarios, para conectarse a la primera máquina virtual de la red; en el caso de Hyperledger Fabric, será el nodo de la entidad emisora de certificados de Fabric.
+- _SSH-TO-FIRST-VM_ proporciona un comando ssh ya ensamblado, con todos los parámetros adecuados necesarios, para conectarse a la primera máquina virtual de la red. Para Hyperledger Fabric, será el nodo de la entidad emisora de certificados de Fabric.
 
 Puede conectarse de forma remota a las máquinas virtuales de cada nodo mediante SSH con el nombre de usuario de administrador y la contraseña o la clave SSH proporcionados. Puesto que las máquinas virtuales de nodo no tienen sus propias direcciones IP públicas, debe volver a pasar por el equilibrador de carga y especificar el número de puerto. El comando de SSH para acceder al primer nodo de transacción es la tercera salida de plantilla, **SSH-TO-FIRST-VM (en la implementación de ejemplo: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Para llegar a nodos de transacción adicionales, aumente el número de puerto en uno (por ejemplo, el primer nodo de transacción está en el puerto 3000, el segundo en el 3001, el tercero en el 3002, etc.).
 

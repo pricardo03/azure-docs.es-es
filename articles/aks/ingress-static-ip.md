@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ffa1541439890a0591b52c1fdbc717c7d5aa5ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e528f06ffc6b7ef00800605f5f9022fe164821b4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362573"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091906"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Cree un controlador de entrada con una dirección IP pública estática en Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ También puede:
 
 - [Crear un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 - [Habilitar el complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
-- [Crear un controlador de entrada que usa una red privada interna y una dirección IP][aks-ingress-internal]
+- [Crear un controlador de entrada que usa sus propios certificados TLS][aks-ingress-own-tls]
 - [Crear un controlador de entrada con una dirección IP pública dinámica y configurar Let's Encrypt para generar certificados TLS de forma automática][aks-ingress-tls]
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -335,6 +335,7 @@ También puede:
 - [Crear un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 - [Habilitar el complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
 - [Crear un controlador de entrada que usa una red privada interna y una dirección IP][aks-ingress-internal]
+- [Crear un controlador de entrada que usa sus propios certificados TLS][aks-ingress-own-tls]
 - [Crear un controlador de entrada con una dirección IP pública dinámica y configurar Let's Encrypt para generar certificados TLS de forma automática][aks-ingress-tls]
 
 <!-- LINKS - external -->
@@ -356,3 +357,4 @@ También puede:
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

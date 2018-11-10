@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115117"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086784"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
-Las aplicaciones que se integran con Azure Active Directory (Azure AD) deben registrarse en un inquilino de Azure AD. Puede configurar la aplicación en [Azure Portal](https://portal.azure.com); para ello, seleccione **Registros de aplicaciones** en **Azure Active Directory**, elija la aplicación que quiere configurar y, luego, seleccione **Manifiesto**.
+El manifiesto de la aplicación contiene una definición de todos los atributos de un objeto de la aplicación en la plataforma de identidad de Microsoft. También sirve como mecanismo para actualizar el objeto de la aplicación. Para más información sobre la entidad Application y su esquema, consulte la [documentación sobre la entidad Application de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+Los atributos de una aplicación pueden configurarse en Azure Portal o mediante programación con Microsoft Graph. Sin embargo, hay algunos escenarios en los que será necesario editar el manifiesto de la aplicación para poder configurar los atributos de una aplicación. Entre los escenarios se incluyen los siguientes:
+
+* Si registró la aplicación como una cuenta multiinquilino de Azure AD y una cuenta personal de Microsoft, no podrá cambiar las cuentas de Microsoft compatibles en la interfaz de usuario. En su lugar, tendrá que utilizar el editor de manifiesto de la aplicación para cambiar los tipos de cuenta compatibles.
+* Si necesita definir permisos y roles compatibles con la aplicación, tendrá que modificar el manifiesto de la aplicación.
+
+## <a name="configure-the-app-manifest"></a>Configuración del manifiesto de la aplicación
+
+Para configurar el manifiesto de la aplicación:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el servicio **Azure Active Directory** y después **Registros de la aplicación** y **Registros de la aplicación (versión preliminar)**.
+1. Seleccione la aplicación que desee configurar.
+1. Desde la página **Introducción** de la aplicación, seleccione la sección **Manifiesto**. Se abrirá un editor de manifiestos basado en la Web que le permitirá editar el manifiesto desde el portal. Si lo desea, también puede seleccionar **Descargar** para editar el manifiesto de forma local y usar después **Cargar** para aplicarlo de nuevo a la aplicación.
 
 ## <a name="manifest-reference"></a>Referencia de manifiesto
 
@@ -63,7 +77,7 @@ Las aplicaciones que se integran con Azure Active Directory (Azure AD) deben reg
 | `requiredResourceAccess` | Tipo de matriz | Con el consentimiento dinámico, `requiredResourceAccess` controla la experiencia de consentimiento del administrador y la experiencia de consentimiento del usuario para usuarios que usan consentimiento estático. Sin embargo, no se controla la experiencia de consentimiento del usuario para el caso general.<br>`resourceAppId` es el único identificador del recurso al que la aplicación necesita acceso. Este valor debe ser igual que el valor de appId declarado en la aplicación del recurso de destino.<br>`resourceAccess` es una matriz que enumera los ámbitos de permiso de OAuth 2.0 y los roles de aplicación que necesita la aplicación del recurso especificado. Contiene los valores `id` y `type` de los recursos especificados. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>]</code> |
 | `samlMetadataUrl` | string | La dirección URL de los metadatos de SAML de la aplicación. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | string | Especifica la dirección URL a la página principal de la aplicación. | `https://MyRegisteredApp` |
-| `signInAudience` | string | Especifica qué cuentas de Microsoft se admiten para la aplicación actual. Los valores admitidos son:<ul><li>**AzureADMyOrg**: usuarios con una cuenta profesional o educativa de Microsoft en el inquilino de Azure AD de la organización (es decir, un solo inquilino)</li><li>**AzureADMultipleOrgs**: usuarios con una cuenta profesional o educativa de Microsoft en el inquilino de Azure AD de la organización (es decir, un multiinquilino)</li> <li>**AzureADandPersonalMicrosoftAccount**: los usuarios con una cuenta Microsoft personal o una cuenta profesional o educativa en el inquilino de Azure AD de la organización</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | string | Especifica qué cuentas de Microsoft se admiten en la aplicación actual. Los valores admitidos son:<ul><li>**AzureADMyOrg**: usuarios con una cuenta profesional o educativa de Microsoft en el inquilino de Azure AD de la organización (es decir, un solo inquilino)</li><li>**AzureADMultipleOrgs**: usuarios con una cuenta profesional o educativa de Microsoft en el inquilino de Azure AD de la organización (es decir, un multiinquilino)</li> <li>**AzureADandPersonalMicrosoftAccount**: los usuarios con una cuenta Microsoft personal o una cuenta profesional o educativa en el inquilino de Azure AD de la organización</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | Matriz de cadena | Cadenas personalizadas que pueden utilizarse para clasificar e identificar la aplicación. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## <a name="next-steps"></a>Pasos siguientes

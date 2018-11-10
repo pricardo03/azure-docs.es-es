@@ -1,23 +1,22 @@
 ---
-title: Matriz de compatibilidad de replicación de máquinas virtuales de VMware o servidores físicos en un sitio secundario de VMware con Azure Site Recovery | Microsoft Docs
-description: En este artículo, se resume la compatibilidad de replicación de una máquina virtual de VMware o un servidor físico en un sitio secundario con Azure Site Recovery
-services: site-recovery
+title: Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos en un sitio secundario de VMware con Azure Site Recovery | Microsoft Docs
+description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario de Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022000"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209809"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad de replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
 
-En este artículo, se resumen los elementos que pueden utilizarse con el servicio [Azure Site Recovery](site-recovery-overview.md) para replicar máquinas virtuales de VMware y servidores físicos Windows o Linux en un sitio de VMware secundario.
+En este artículo, se resumen los elementos compatibles cuando se usa el servicio [Azure Site Recovery](site-recovery-overview.md) para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos Windows o Linux en un sitio de VMware secundario.
 
 - Si quiere replicar máquinas virtuales de VMware o servidores físicos en Azure, consulte [esta matriz de compatibilidad](vmware-physical-azure-support-matrix.md).
 - Si quiere replicar máquinas virtuales de Hyper-V en un sitio secundario, consulte [esta matriz de compatibilidad](hyper-v-azure-support-matrix.md).

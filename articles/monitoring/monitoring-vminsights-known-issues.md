@@ -1,6 +1,6 @@
 ---
-title: Problemas conocidos de Azure Monitor para VM | Microsoft Docs
-description: Azure Monitor para VM es una solución de Azure que combina la supervisión de rendimiento y de mantenimiento del sistema operativo de la VM de Azure, así como la detección automática de las dependencias y los componentes de aplicación con otros recursos, y asigna la comunicación entre ellos. En este artículo se trata los problemas conocidos.
+title: Problemas conocidos de Azure Monitor para VM (versión preliminar) | Microsoft Docs
+description: Azure Monitor para máquinas virtuales es una solución de Azure que combina la supervisión de rendimiento y de mantenimiento del sistema operativo de la VM de Azure, así como la detección automática de las dependencias y los componentes de aplicación con otros recursos, y asigna la comunicación entre ellos. En este artículo se trata los problemas conocidos.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385098"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091681"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>Problemas conocidos con Azure Monitor para VM
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conocidos con Azure Monitor para VM (versión preliminar)
 
 Los siguientes son problemas conocidos de la característica de Mantenimiento de Azure Monitor para VM:
 

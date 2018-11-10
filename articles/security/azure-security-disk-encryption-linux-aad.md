@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 81a9f84a925fc424fc6371fcbe02a141d4ee8ec1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b0b67121e172bb29d1f95e56d3b31f509552bf2e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498358"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211237"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Habilitación de Azure Disk Encryption para máquinas virtuales Iaas de Linux (versión anterior)
 
@@ -192,8 +192,11 @@ El parámetro recorre todas las particiones y las cifra siempre que cumplan **to
 - No es una partición raíz, de arranque o del sistema operativo
 - Ya no está cifrada
 - No es un volumen BEK
+- No es un volumen RAID
+- No es un volumen LVM
 - Está montada
 
+Cifre los discos que componen el volumen LVM o RAID en lugar de los volúmenes LVM o RAID.
 
 ### <a name="bkmk_EFATemplate"> </a> Uso del parámetro EncryptFormatAll con una plantilla
 Para usar la opción EncryptFormatAll, use cualquier plantilla de Azure Resource Manager ya existente que cifre una máquina virtual Linux y cambie el campo **EncryptionOperation** del recurso AzureDiskEncryption.
@@ -300,7 +303,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 Puede agregar un nuevo disco de datos mediante [az vm disk attach](../virtual-machines/linux/add-disk.md), o [Azure Portal](../virtual-machines/linux/attach-disk-portal.md). Para poder cifrarlo, deberá montar primero el disco de datos recién asociado. Dado que la unidad de datos no se puede usar mientras el cifrado está en curso, deberá solicitar el cifrado de la unidad. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Habilitación del cifrado en un disco recién agregado con la CLI de Azure
- Si la VM se cifró previamente con "All", entonces el parámetro --volume-type debe permanecer como All. All incluye los discos de datos y del OS. Si la VM se cifró previamente con un tipo de volumen de "OS", entonces el parámetro--volume-type se debe cambiar a All, de modo que se incluyan el nuevo disco de datos y el SO. Si la VM se cifró con el tipo de volumen de "Data", entonces puede permanecer como "Data", tal y como se muestra a continuación. Para preparar el cifrado, no es suficiente con agregar y asociar un nuevo disco de datos a una VM. El disco recién conectado también se debe formatear y montar correctamente en la VM antes de habilitar el cifrado. En Linux, el disco se debe montar en /etc/fstab con un [nombre de dispositivo de bloque persistente](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-device-names-problems).  
+ Si la VM se cifró previamente con "All", entonces el parámetro --volume-type debe permanecer como All. All incluye los discos de datos y del SO. Si la VM se cifró previamente con un tipo de volumen de "OS", entonces el parámetro--volume-type se debe cambiar a All, de modo que se incluyan el nuevo disco de datos y el SO. Si la VM se cifró con el tipo de volumen de "Data", entonces puede permanecer como "Data", tal y como se muestra a continuación. Para preparar el cifrado, no es suficiente con agregar y asociar un nuevo disco de datos a una VM. El disco recién conectado también se debe formatear y montar correctamente en la VM antes de habilitar el cifrado. En Linux, el disco se debe montar en /etc/fstab con un [nombre de dispositivo de bloque persistente](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-device-names-problems).  
 
 A diferencia de la sintaxis de PowerShell, la CLI no requiere que el usuario proporcione ninguna versión de secuencia única cuando se habilita el cifrado. La CLI genera y usa su propio valor de versión de secuencia único automáticamente.
 

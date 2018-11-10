@@ -1,25 +1,18 @@
 ---
-title: Solución de problemas de conmutación por error en Azure | Microsoft Docs
-description: En este artículo se describe cómo solucionar problemas y errores comunes de la conmutación por error en Azure
-services: site-recovery
-documentationcenter: ''
+title: Solución de problemas de conmutaciones por error a Azure | Microsoft Docs
+description: En este artículo se describe cómo solucionar los problemas comunes que surgen durante la conmutación por error a Azure con Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: de0b3a51ae7c7cca91366b955c5fa74963d95d27
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391017"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211679"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Solución de problemas y errores cuando una máquina virtual se conmuta por error en Azure
 
@@ -63,7 +56,7 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure es
 
 1. Si la máquina virtual no se ha iniciado, realice la conmutación por error a un punto de recuperación anterior.
 2. Si la aplicación dentro de la máquina virtual no aparece, realice la conmutación por error a un punto de recuperación coherente con la aplicación.
-3. Si la máquina virtual está unida al dominio, asegúrese de que ese controlador de dominio funciona correctamente. Esto se puede hacer siguiendo los siguientes pasos:
+3. Si la máquina virtual está unida al dominio, asegúrese de que ese controlador de dominio funciona correctamente. Esto se puede hacer siguiendo estos pasos:
 
     a. Cree una nueva máquina virtual en la misma red.
 

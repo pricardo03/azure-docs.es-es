@@ -1,6 +1,6 @@
 ---
 title: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Java | Microsoft Docs
-description: 'Guía de inicio rápido de Azure: creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning'
+description: 'Guía de inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos para Java para IoT Hub Device Provisioning Service. Esta guía de inicio rápido utiliza inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,23 +10,29 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040744"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418235"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estos pasos muestran cómo simular un dispositivo X.509 en la máquina de desarrollo en la que se ejecuta el sistema operativo Windows, y usar un ejemplo de código para conectar este dispositivo simulado con el servicio Device Provisioning y IoT Hub. 
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
+Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [Conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
+
+Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
+- [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un único dispositivo.
+
+En este artículo se mostrarán las inscripciones individuales.
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno 
 
-1. Asegúrese de que tiene [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado en su máquina.
+1. Asegúrese de que tiene [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado en su máquina.
 
 2. Descargue e instale [Maven](https://maven.apache.org/install.html).
 
@@ -55,7 +61,7 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 En esta sección, usará un certificado X.509 autofirmado, así que es importante tener en cuenta lo siguiente:
 
 * Los certificados autofirmados son solo para la realización de pruebas, no se deben usar en producción.
-* La fecha de expiración predeterminada de un certificado autofirmado es de 1 año.
+* La fecha de expiración predeterminada de un certificado autofirmado es de un año.
 
 Usará código de ejemplo del [SDK para Java de Azure IoT](https://github.com/Azure/azure-iot-sdk-java.git) para crear el certificado que se usará con la entrada de inscripción individual en el dispositivo simulado.
 
@@ -96,7 +102,7 @@ Usará código de ejemplo del [SDK para Java de Azure IoT](https://github.com/Az
 
 ## <a name="simulate-the-device"></a>Simulación del dispositivo
 
-1. En la hoja de resumen del servicio Device Provisioning, seleccione **Introducción** y tome nota de los campos _Ámbito de id._ (Id. de ámbito) y _Provisioning Service Global Endpoint_ (Punto de conexión global del Servicio de aprovisionamiento).
+1. En la hoja de resumen del servicio Device Provisioning, seleccione **Introducción** y tome nota de los campos _Ámbito de id._ y _Provisioning Service Global Endpoint_ (Punto de conexión global del Servicio de aprovisionamiento).
 
     ![Información del servicio](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -108,7 +114,7 @@ Usará código de ejemplo del [SDK para Java de Azure IoT](https://github.com/Az
 
 3. Escriba la información del servicio de aprovisionamiento y de la identidad X.509 en el código. Se utiliza durante el aprovisionamiento automático para la atestación del dispositivo simulado, antes del registro de dispositivo:
 
-   - Edite el archivo `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para que incluya el _Id Scope_ (Id. de ámbito) y el _Provisioning Service Global Endpoint_ (Punto de conexión global del Servicio de aprovisionamiento) tal y como se indicó previamente. Incluya también el valor de _Client cert_ (Certificado de cliente) y _Client Cert Private Key_ (Clave privada del certificado de cliente) tal y como se indicó en la sección anterior.
+   - Edite el archivo `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para que incluya el _Ámbito de id._ y el _Provisioning Service Global Endpoint_ (Punto de conexión global del Servicio de aprovisionamiento) tal y como se indicó previamente. Incluya también el valor de _Client cert_ (Certificado de cliente) y _Client Cert Private Key_ (Clave privada del certificado de cliente) tal y como se indicó en la sección anterior.
 
       ```java
       private static final String idScope = "[Your ID scope here]";

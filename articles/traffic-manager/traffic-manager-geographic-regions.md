@@ -4,9 +4,6 @@ description: En este artículo se muestra la jerarquía de país o región usada
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201503"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138249"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Jerarquía de país o región usada por Azure Traffic Manager para el método de enrutamiento de tráfico geográfico
 
-En este artículo se muestran los países y las regiones que usa el método de enrutamiento de tráfico **geográfico** en Azure Traffic Manager. También puede obtener esta información mediante programación si llama a la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+En este artículo se muestran los países y las regiones que usa el método de enrutamiento de tráfico **geográfico** en Azure Traffic Manager. También puede obtener esta información mediante programación si llama a la [API REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(mundo)
 
@@ -379,9 +376,9 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - VC(San Vicente y las Granadinas)
 
-        - VG(Islas Vírgenes Británicas)
+        - VG (Islas Vírgenes Británicas)
 
-        - VI(Islas Vírgenes de los Estados Unidos)
+        - VI(Islas Islas Vírgenes)
 
         - XE(San Eustaquio)
 
@@ -691,6 +688,6 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre el [método de enrutamiento de tráfico geográfico en Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

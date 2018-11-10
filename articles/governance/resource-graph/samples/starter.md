@@ -4,17 +4,17 @@ description: Use Azure Resource Graph para ejecutar algunas consultas de inicio.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646635"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084537"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de inicio de Resource Graph
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
-La CLI de Azure (mediante una extensión) y Azure PowerShell (mediante un módulo) admiten Azure Resource Graph. Antes de realizar cualquiera de las siguientes consultas, compruebe que el entorno está listo. Consulte la [CLI de Azure](../first-query-azurecli.md#add-the-resource-graph-extension) y [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) para conocer los pasos para instalar y validar el entorno de shell que prefiera.
+La CLI de Azure (mediante una extensión) y Azure PowerShell (mediante un módulo) admiten Azure Resource Graph. Antes de ejecutar cualquiera de las siguientes consultas, compruebe que el entorno está listo. Consulte la [CLI de Azure](../first-query-azurecli.md#add-the-resource-graph-extension) y [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) para conocer los pasos para instalar y validar el entorno de shell que prefiera.
 
 ## <a name="count-resources"></a>Count Azure resources
 
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>List resources sorted by name
 
-Sin limitar cualquier tipo de recurso o propiedad de búsqueda de coincidencias específica, esta consulta solo devuelve el **nombre**, el **tipo** y la **ubicación** de los recursos de Azure, pero usa `order by` para ordenarlos por la propiedad **nombre** en orden ascendente (`asc`).
+Esta consulta devuelve cualquier tipo de recurso, pero solo las propiedades **name** (nombre), **type** (tipo) y **location** (ubicación). Usa `order by` para ordenar las propiedades por la propiedad **name** en orden ascendente (`asc`).
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>Show all virtual machines ordered by name in descending order
 
-En lugar de obtener todos los recursos de Azure, si solo deseamos obtener una lista de las máquinas virtuales (que son de tipo `Microsoft.Compute/virtualMachines`), podemos buscar coincidencias de la propiedad **tipo** en los resultados.
-De forma similar a la consulta anterior, `desc` cambia el `order by` a descendente. `=~` en el tipo de coincidencia indica a Resource Graph que distinga mayúsculas de minúsculas.
+Para enumerar solo las máquinas virtuales (que son de tipo `Microsoft.Compute/virtualMachines`), podemos hacer coincidir la propiedad **type** en los resultados. De forma similar a la consulta anterior, `desc` cambia el `order by` a descendente. `=~` en el tipo de coincidencia indica a Resource Graph que distinga mayúsculas de minúsculas.
 
 ```Query
 project name, location, type
@@ -112,7 +111,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | 
 
 ## <a name="count-os"></a>Count virtual machines by OS type
 
-Basado en la consulta anterior, todavía estamos limitando por los recursos de Azure de tipo `Microsoft.Compute/virtualMachines`, pero ya no se está limitando el número de registros devueltos.
+Basado en la consulta anterior, todavía se limita por los recursos de Azure de tipo `Microsoft.Compute/virtualMachines`, pero ya no se limita el número de registros devueltos.
 En su lugar, hemos usado `summarize` y `count()` para definir cómo agrupar y agregar los valores por propiedad, que en este ejemplo es `properties.storageProfile.osDisk.osType`. Para un ejemplo del aspecto de esta cadena en el objeto completo, vea [explorar recursos: detección de máquinas virtuales](../concepts/explore-resources.md#virtual-machine-discovery).
 
 ```Query
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>List all public IP addresses
 
-De forma similar a la consulta anterior, encontrará todo lo que era un tipo que contiene la palabra **publicIPAddresses**. Esta consulta se expande en ese patrón para excluir resultados donde **properties.ipAddress** es nulo para devolver solo **properties.ipAddress**y para `limit` los resultados a los 100 primeros. Es posible que sea necesario escapar las comillas según su shell elegido.
+De forma similar a la consulta anterior, encontrará todos los tipos que contienen la palabra **publicIPAddresses**.
+Esta consulta se expande en ese patrón para excluir resultados donde **properties.ipAddress** es nulo para devolver solo **properties.ipAddress**y para `limit` los resultados a los 100 primeros. Es posible que sea necesario escapar las comillas según su shell elegido.
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -200,7 +200,7 @@ Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properti
 
 ## <a name="list-tag"></a>List resources with a specific tag value
 
-Podemos limitar los resultados por propiedades que no sean del tipo de recurso de Azure, como una etiqueta. En este ejemplo, estamos filtrando recursos de Azure con el nombre de etiqueta **Environment** con un valor **Internal**.
+Podemos limitar los resultados por propiedades que no sean del tipo de recurso de Azure, como una etiqueta. En este ejemplo, se filtran los recursos de Azure con el nombre de etiqueta **Environment** que tienen un valor de **Internal**.
 
 ```Query
 where tags.environment=~'internal'
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-Si fuera necesario proporcionar también qué etiquetas tenía ese recurso y sus valores, este ejemplo podría ampliarse agregando la propiedad **tags** a la palabra clave `project`.
+Para proporcionar también las etiquetas del recurso y sus valores, agregue la propiedad **tags** a la palabra clave `project`.
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>List all storage accounts with specific tag value
 
-Combinando la funcionalidad de filtro del ejemplo anterior con el uso del filtrado por tipo de recurso de Azure por la propiedad **type**, podemos limitar nuestra búsqueda de determinados tipos de recursos de Azure con un valor y nombre de etiqueta específicos.
+Combina la funcionalidad de filtro del ejemplo anterior y filtra el tipo de recurso de Azure por la propiedad **type**. Esta consulta también limita la búsqueda para determinados tipos de recursos de Azure con un valor y nombre de etiqueta específicos.
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

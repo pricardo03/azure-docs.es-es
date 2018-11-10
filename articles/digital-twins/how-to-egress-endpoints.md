@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c917fab84448684cf29af162ec0781d764605f71
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323970"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212257"
 ---
 # <a name="egress-and-endpoints"></a>Salidas y puntos de conexión
 
 Azure Digital Twins admite el concepto de _puntos de conexión_ donde cada punto de conexión representa un agente de mensaje o evento en la suscripción de Azure del usuario. Los eventos y mensajes pueden enviarse al **centro de eventos**, a **Event Grid** y a los **temas de Service Bus**.
 
-Los eventos se enviarán a los extremos de acuerdo con las preferencias de enrutamiento definidas previamente: el usuario puede especificar qué punto de conexión debe recibir cualquiera de los siguientes eventos:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange` o `DeviceMessage`.
+Los eventos se enviarán a los puntos de conexión de acuerdo con las preferencias de enrutamientos definidas previamente: el usuario puede especificar qué punto de conexión debe recibir cualquiera de los siguientes eventos: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange** o **DeviceMessage**.
 
 Para obtener un conocimiento básico del enrutamiento de eventos y los tipos de eventos, consulte [Routing events and messages](concepts-events-routing.md) (Enrutamiento de eventos y mensajes).
 
@@ -27,9 +27,9 @@ Para obtener un conocimiento básico del enrutamiento de eventos y los tipos de 
 
 Estos son los formatos de evento para cada uno de los tipos de evento:
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  Se aplica a los cambios de los gráficos. La propiedad `subject` especifica el tipo de objeto afectado. Los tipos de objetos que podrían desencadenar este evento son: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`, `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata` y `UserExtendedProperty`.
+  Se aplica a los cambios de los gráficos. La propiedad *subject* especifica el tipo de objeto afectado. Los tipos de objetos que podrían desencadenar este evento son: **Device**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **Report**, **RoleDefinition**, **Sensor**, **SensorBlobMetadata**, **SensorExtendedProperty**, **Space**,  **SpaceBlobMetadata**, **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **System**, **User**, **UserBlobMetadata**, **UserExtendedProperty**.
 
   Ejemplo:
 
@@ -53,13 +53,16 @@ Estos son los formatos de evento para cada uno de los tipos de evento:
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourTopicName` | El nombre del tema personalizado |
+    | *yourTopicName* | El nombre del tema personalizado |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  Un evento enviado por una función definida por el usuario (UDF). Tenga en cuenta que este evento tiene que enviarse explícitamente desde la misma UDF.
+  Un evento enviado por una función definida por el usuario (UDF). 
+  
+  > [!IMPORTANT]
+  > Este evento tiene que enviarse explícitamente desde la misma UDF.
 
   Ejemplo:
 
@@ -81,11 +84,11 @@ Estos son los formatos de evento para cada uno de los tipos de evento:
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourTopicName` | El nombre del tema personalizado |
+    | *yourTopicName* | El nombre del tema personalizado |
 
-- `SensorChange`
+- **SensorChange**
 
   Una actualización del estado de un sensor según los cambios en los datos de telemetría.
 
@@ -116,11 +119,11 @@ Estos son los formatos de evento para cada uno de los tipos de evento:
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourTopicName` | El nombre del tema personalizado |
+    | *yourTopicName* | El nombre del tema personalizado |
 
-- `SpaceChange`
+- **SpaceChange**
 
   Una actualización del estado de un espacio según los cambios en los datos de telemetría.
 
@@ -151,17 +154,17 @@ Estos son los formatos de evento para cada uno de los tipos de evento:
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourTopicName` | El nombre del tema personalizado |
+    | *yourTopicName* | El nombre del tema personalizado |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  Le permite especificar una conexión de `EventHub` a la que también se pueden enrutar eventos de telemetría sin procesar desde Azure Digital Twins.
+  Le permite especificar una conexión de **EventHub** a la que también se pueden enrutar eventos de telemetría sin procesar desde Azure Digital Twins.
 
 > [!NOTE]
-> - `DeviceMessage` solo puede combinarse con `EventHub`; no podrá combinar `DeviceMessage` con ninguno de los otros tipos de eventos.
-> - Podrá especificar un único punto de conexión de la combinación de tipo `EventHub`/`DeviceMessage`.
+> - **DeviceMessage** solo se puede combinar con **EventHub**; no podrá combinar **DeviceMessage** con ninguno de los otros tipos de eventos.
+> - Podrá especificar un único punto de conexión de la combinación de tipo **EventHub** o **DeviceMessage**.
 
 ## <a name="configuring-endpoints"></a>Configuración de puntos de conexión
 
@@ -171,7 +174,7 @@ La administración de puntos de conexión se ejerce a través de la API de punto
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Enrute a **Service Bus** los tipos de evento: `SensorChange`, `SpaceChange` y `TopologyOperation`.
+- Enrutar a los tipos de evento **Service Bus**: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -187,14 +190,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourNamespace` | El espacio de nombres del punto de conexión |
-    | `yourPrimaryKey` | La cadena de conexión principal utilizada para autenticar |
-    | `yourSecondaryKey` | La cadena de conexión principal utilizada para autenticar |
-    | `yourTopicName` | El nombre del tema personalizado |
+    | *yourNamespace* | El espacio de nombres del punto de conexión |
+    | *yourPrimaryKey* | La cadena de conexión principal utilizada para autenticar |
+    | *yourSecondaryKey* | La cadena de conexión principal utilizada para autenticar |
+    | *yourTopicName* | El nombre del tema personalizado |
 
-- Enrute a **Event Grid** los tipos de evento: `SensorChange`, `SpaceChange` y `TopologyOperation`
+- Enrutar a los tipos de evento **Event Grid**: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -210,13 +213,13 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourPrimaryKey` | La cadena de conexión principal utilizada para autenticar|
-    | `yourSecondaryKey` | La cadena de conexión principal utilizada para autenticar |
-    | `yourTopicName` | El nombre del tema personalizado |
+    | *yourPrimaryKey* | La cadena de conexión principal utilizada para autenticar|
+    | *yourSecondaryKey* | La cadena de conexión principal utilizada para autenticar |
+    | *yourTopicName* | El nombre del tema personalizado |
 
-- Enrute al **centro de eventos** los tipos de evento: `SensorChange`, `SpaceChange` y `TopologyOperation`
+- Enrutar a los tipos de evento de **Event Hub**: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -232,14 +235,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourNamespace` | El espacio de nombres del punto de conexión |
-    | `yourPrimaryKey` | La cadena de conexión principal utilizada para autenticar |
-    | `yourSecondaryKey` | La cadena de conexión principal utilizada para autenticar |
-    | `yourEventHubName` | El nombre del centro de eventos |
+    | *yourNamespace* | El espacio de nombres del punto de conexión |
+    | *yourPrimaryKey* | La cadena de conexión principal utilizada para autenticar |
+    | *yourSecondaryKey* | La cadena de conexión principal utilizada para autenticar |
+    | *yourEventHubName* | El nombre del **centro de eventos**. |
 
-- Enrute al **centro de eventos** los tipos de evento `DeviceMessage`. Tenga en cuenta la inclusión de _EntityPath_ en el parámetro `connectionString`, que es obligatorio.
+- Enrutar al tipo de evento de **Event Hub**: **DeviceMessage**. La inclusión de `EntityPath` en **connectionString** es obligatoria.
 
   ```JSON
   {
@@ -253,12 +256,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Nombre del atributo personalizado | Reemplace por |
+    | Nombre del atributo personalizado | Reemplazar por |
     | --- | --- |
-    | `yourNamespace` | El espacio de nombres del punto de conexión |
-    | `yourPrimaryKey` | La cadena de conexión principal utilizada para autenticar |
-    | `yourSecondaryKey` | La cadena de conexión principal utilizada para autenticar |
-    | `yourEventHubName` | El nombre del centro de eventos |
+    | *yourNamespace* | El espacio de nombres del punto de conexión |
+    | *yourPrimaryKey* | La cadena de conexión principal utilizada para autenticar |
+    | *yourSecondaryKey* | La cadena de conexión principal utilizada para autenticar |
+    | *yourEventHubName* | El nombre del **centro de eventos**. |
 
 > [!NOTE]
 > Tras la creación de un nuevo punto de conexión, pueden transcurrir de 5 a 10 minutos para que comience a recibir eventos en el punto de conexión.

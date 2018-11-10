@@ -1,21 +1,20 @@
 ---
-title: Configuración de un servidor de procesos en Azure para conmutación por recuperación de máquinas virtuales y servidores físicos de VMware con Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe cómo configurar un servidor de procesos en Azure para la conmutación por recuperación de máquinas virtuales de Azure a VMware.
-services: site-recovery
+title: Configuración de un servidor de procesos en Azure para conmutar por recuperación máquinas virtuales de VMware y servidores físicos con Azure Site Recovery durante la recuperación ante desastres | Microsoft Docs
+description: En este artículo se describe cómo configurar un servidor de procesos en Azure, para conmutar por recuperación máquinas virtuales de VMware y servidores físicos desde Azure hacia el entorno local durante la recuperación ante desastres.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955394"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212240"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Configuración de servidores de procesos adicionales con escalabilidad
+# <a name="scale-for-failback-with-additional-process-servers"></a>Escala para la conmutación por recuperación con servidores de procesos adicionales
 
 De forma predeterminada, al replicar servidores físicos o máquinas virtuales de VMware en Azure con [Site Recovery](site-recovery-overview.md), un servidor de procesos se instala en la máquina del servidor de configuración y se usa para coordinar la transferencia de datos entre Site Recovery y la infraestructura local. Para aumentar la capacidad y el escalado horizontal de la implementación de replicación, puede agregar servidores de procesos independientes adicionales. En este artículo se describe cómo hacerlo.
 
@@ -31,9 +30,9 @@ Compruebe los requisitos de tamaño que se resumen en la tabla. En general, si d
 
 | **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- |
-|4 vCPU (2 sockets * 2 núcleos a 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
-|8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Replicar entre 85 y 150 máquinas. |
-|12 vCPU (2 sockets * 6 núcleos a 2,5 GHz), 24 GB de memoria |1 TB |1 TB a 2 TB |Replicar entre 150 y 225 máquinas. |
+|4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
+|8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Replicar entre 85 y 150 máquinas. |
+|12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria |1 TB |1 TB a 2 TB |Replicar entre 150 y 225 máquinas. |
 
 Donde cada máquina de origen protegida está configurada con 3 discos de 100 GB cada uno.
 

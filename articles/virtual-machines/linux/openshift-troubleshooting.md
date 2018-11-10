@@ -3,8 +3,8 @@ title: Solución de problemas de implementación de OpenShift en Azure | Microso
 description: Solución de problemas de implementación de OpenShift en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,34 +15,109 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 35e554d3a9c7e7d56546ae9723c33eb59e906472
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
-ms.locfileid: "24139457"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085850"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Solución de problemas de implementación de OpenShift en Azure
 
-Si el clúster de OpenShift no se implementa correctamente, pruebe estas tareas de solución de problemas para detectar el problema. Consulte el estado de implementación y compárelo con la siguiente lista de códigos de salida:
+Si el clúster de OpenShift no se implementa correctamente, Azure Portal proporcionará una salida de error. La salida puede ser difícil de leer, lo que hace difícil identificar el problema. Examine rápidamente esta salida en busca de un código de salida 3, 4 o 5. El siguiente contenido proporciona información sobre estos tres códigos de salida:
 
 - Código de salida 3: el nombre de usuario de suscripción de Red Hat/contraseña o id. de organización/clave de activación es incorrecto.
 - Código de salida 4: el id. de grupo de Red Hat es incorrecto o no hay derechos disponibles.
 - Código de salida 5: no se puede aprovisionar el volumen de grupo fino de Docker.
-- Código de salida 6: error en la instalación del clúster de OpenShift.
-- Código de salida 7: la instalación del clúster de OpenShift se realizó correctamente, pero hubo un error de configuración del Proveedor de soluciones en la nube de Azure; problema de configuración maestra en nodo maestro.
-- Código de salida 8: la instalación del clúster de OpenShift se realizó correctamente, pero hubo un error de configuración del Proveedor de soluciones en la nube de Azure; problema de configuración del nodo en nodo maestro.
-- Código de salida 9: la instalación del clúster de OpenShift se realizó correctamente, pero hubo un error de configuración del Proveedor de soluciones en la nube de Azure; problema de configuración del nodo en nodo de aplicación o infraestructura.
-- Código de salida 10: la instalación del clúster de OpenShift se realizó correctamente, pero hubo un error de configuración del Proveedor de soluciones en la nube de Azure; se están corrigiendo los nodos maestros o el maestro no se puede definir como no programable.
-- Código de salida 11: error al implementar las métricas
-- Código de salida 12: error al implementar el registro
 
-En el caso de los códigos de salida del 7 al 10, el clúster de OpenShift se instaló, pero hubo un error en la configuración del Proveedor de soluciones en la nube de Azure. Puede usar SSH en el nodo maestro (OpenShift Origin) o nodo de bastión (OpenShift Container Platform) y, desde ahí, usar SSH en cada uno de los nodos del clúster y corregir los problemas.
+Para los demás códigos de salida, conéctese a los hosts mediante ssh para ver los archivos de registro.
 
-Una causa frecuente de los errores con los códigos de salida del 7 al 9 es que la entidad de servicio no tenía los permisos adecuados para la suscripción o el grupo de recursos. Si el problema es ese, asigne los permisos correctos y vuelva a ejecutar manualmente el script que generó un error y los scripts subsiguientes.
+**OpenShift Container Platform**
 
-Asegúrese de reiniciar el servicio que generó el error (por ejemplo, ystemctl restart atomic-openshift-node.service) antes de volver a ejecutar los scripts.
+Conéctese mediante SSH al host del cuaderno de estrategias de Ansible. Para la plantilla o la oferta de Marketplace, use el host de tipo bastión. Desde el host de tipo bastión puede acceder mediante SSH a todos los demás nodos del clúster (master, infraestructura, CNS, proceso). Deberá ser el usuario root para ver los archivos de registro. El usuario root está deshabilitado para el acceso mediante SSH de forma predeterminada, por lo que no debe utilizarlo para conectarse mediante SSH a otros nodos.
 
-Para solucionar otros problemas, use SSH en el nodo principal en el puerto 2200 (Origin) o en el nodo de bastión en el puerto 22 (Container Platform). Debe estar en la raíz (sudo su-) y navegar al directorio siguiente: /var/lib/waagent/custom-script/download.
+**OKD**
 
-Aquí verá las carpetas denominadas "0" y "1". En cada una de estas carpetas, verá dos archivos: "stderr" y "stdout". Examine estos archivos para determinar dónde se produjo el error.
+Conéctese mediante SSH al host del cuaderno de estrategias de Ansible. Para la plantilla de OKD (versión 3.9 y anteriores), use el host master-0. Para la plantilla de OKD (versión 3.10 y versiones posterior), use el host de tipo bastión. Desde el host del cuaderno de estrategias de Ansible puede acceder mediante SSH a todos los demás nodos del clúster (master, infraestructura, CNS, proceso). Deberá ser el usuario root (sudo su -) para ver los archivos de registro. El usuario root está deshabilitado para el acceso mediante SSH de forma predeterminada, por lo que no debe utilizarlo para conectarse mediante SSH a otros nodos.
+
+## <a name="log-files"></a>Archivos de registro
+
+Los archivos de registro (stderr y stdout) para los scripts de preparación del host se encuentran en /var/lib/waagent/custom-script/download/0 en todos los hosts. Si se produjo un error durante la preparación del host, puede ver estos archivos de registro para determinar el error.
+
+Si los scripts de preparación se han ejecutado correctamente, deberá examinar los archivos de registro del directorio /var/lib/waagent/custom-script/download/1 del host del cuaderno de estrategias de Ansible. Si se produjo el error durante la instalación actual de OpenShift, el archivo stdout mostrará el error. Utilice esta información para ponerse en contacto con soporte técnico para más ayuda.
+
+Salida de ejemplo
+
+```json
+TASK [openshift_storage_glusterfs : Load heketi topology] **********************
+fatal: [mycluster-master-0]: FAILED! => {"changed": true, "cmd": ["oc", "--config=/tmp/openshift-glusterfs-ansible-IbhnUM/admin.kubeconfig", "rsh", "--namespace=glusterfs", "deploy-heketi-storage-1-d9xl5", "heketi-cli", "-s", "http://localhost:8080", "--user", "admin", "--secret", "VuoJURT0/96E42Vv8+XHfsFpSS8R20rH1OiMs3OqARQ=", "topology", "load", "--json=/tmp/openshift-glusterfs-ansible-IbhnUM/topology.json", "2>&1"], "delta": "0:00:21.477831", "end": "2018-05-20 02:49:11.912899", "failed": true, "failed_when_result": true, "rc": 0, "start": "2018-05-20 02:48:50.435068", "stderr": "", "stderr_lines": [], "stdout": "Creating cluster ... ID: 794b285745b1c5d7089e1c5729ec7cd2\n\tAllowing file volumes on cluster.\n\tAllowing block volumes on cluster.\n\tCreating node mycluster-cns-0 ... ID: 45f1a3bfc20a4196e59ebb567e0e02b4\n\t\tAdding device /dev/sdd ... OK\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdf ... OK\n\tCreating node mycluster-cns-1 ... ID: 596f80d7bbd78a1ea548930f23135131\n\t\tAdding device /dev/sdc ... Unable to add device: Unable to execute command on glusterfs-storage-4zc42:   Device /dev/sdc excluded by a filter.\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdd ... OK\n\tCreating node mycluster-cns-2 ... ID: 42c0170aa2799559747622acceba2e3f\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdf ... OK\n\t\tAdding device /dev/sdd ... OK", "stdout_lines": ["Creating cluster ... ID: 794b285745b1c5d7089e1c5729ec7cd2", "\tAllowing file volumes on cluster.", "\tAllowing block volumes on cluster.", "\tCreating node mycluster-cns-0 ... ID: 45f1a3bfc20a4196e59ebb567e0e02b4", "\t\tAdding device /dev/sdd ... OK", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdf ... OK", "\tCreating node mycluster-cns-1 ... ID: 596f80d7bbd78a1ea548930f23135131", "\t\tAdding device /dev/sdc ... Unable to add device: Unable to execute command on glusterfs-storage-4zc42:   Device /dev/sdc excluded by a filter.", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdd ... OK", "\tCreating node mycluster-cns-2 ... ID: 42c0170aa2799559747622acceba2e3f", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdf ... OK", "\t\tAdding device /dev/sdd ... OK"]}
+
+PLAY RECAP *********************************************************************
+mycluster-cns-0       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-cns-1       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-cns-2       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-infra-0     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-infra-1     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-infra-2     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-master-0    : ok=502  changed=198  unreachable=0    failed=1   
+mycluster-master-1    : ok=348  changed=140  unreachable=0    failed=0   
+mycluster-master-2    : ok=348  changed=140  unreachable=0    failed=0   
+mycluster-node-0      : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-node-1      : ok=143  changed=55   unreachable=0    failed=0   
+localhost                  : ok=13   changed=0    unreachable=0    failed=0   
+
+INSTALLER STATUS ***************************************************************
+Initialization             : Complete (0:00:39)
+Health Check               : Complete (0:00:24)
+etcd Install               : Complete (0:01:24)
+Master Install             : Complete (0:14:59)
+Master Additional Install  : Complete (0:01:10)
+Node Install               : Complete (0:10:58)
+GlusterFS Install          : In Progress (0:03:33)
+    This phase can be restarted by running: playbooks/openshift-glusterfs/config.yml
+
+Failure summary:
+
+  1. Hosts:    mycluster-master-0
+     Play:     Configure GlusterFS
+     Task:     Load heketi topology
+     Message:  Failed without returning a message.
+```
+
+Los errores más comunes durante la instalación son:
+
+1. La clave privada tiene frase de contraseña
+2. El secreto de Key Vault con la clave privada no se ha creado correctamente
+3. Las credenciales de la entidad de servicio se especificaron incorrectamente
+4. La entidad de servicio no tiene acceso de colaborador al grupo de recursos
+
+### <a name="private-key-has-a-passphrase"></a>La clave privada tiene una frase de contraseña
+
+Verá un error que indica que se denegó el permiso de acceso mediante SSH. Conéctese mediante SSH al host del cuaderno de estrategias de Ansible para buscar una frase de contraseña de la clave privada.
+
+### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>El secreto de Key Vault con la clave privada no se ha creado correctamente
+
+La clave privada se inserta en el host del cuaderno de estrategias de Ansible: ~/.ssh/id_rsa. Confirme que este archivo es correcto. Para comprobarlo, abra una sesión de SSH en uno de los nodos del clúster desde el host del cuaderno de estrategias de Ansible.
+
+### <a name="service-principal-credentials-were-entered-incorrectly"></a>Las credenciales de la entidad de servicio se especificaron incorrectamente
+
+Al proporcionar la entrada a la plantilla o la oferta de Marketplace, se proporcionó la información incorrecta. Asegúrese de que usa el identificador de aplicación (clientId) y la contraseña (clientSecret) correctas para la entidad de servicio. Puede verificarlo con el siguiente comando de la CLI de Azure.
+
+```bash
+az login --service-principal -u <client id> -p <client secret> -t <tenant id>
+```
+
+### <a name="service-principal-doesnt-have-contributor-access-to-the-resource-group"></a>La entidad de servicio no tiene acceso de colaborador al grupo de recursos
+
+Si está habilitado el proveedor en la nube de Azure, la entidad de servicio utilizada debe tener acceso de colaborador al grupo de recursos. Puede verificarlo con el siguiente comando de la CLI de Azure.
+
+```bash
+az group update -g <openshift resource group> --set tags.sptest=test
+```
+
+## <a name="additional-tools"></a>Herramientas adicionales
+
+Para algunos errores, también puede usar los comandos siguientes para extraer más información:
+
+1. systemctl status <service>
+2. journalctl -xe

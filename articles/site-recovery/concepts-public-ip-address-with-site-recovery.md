@@ -1,22 +1,21 @@
 ---
-title: Dirección IP pública con Site Recovery | Microsoft Docs
-description: Describe cómo configurar direcciones IP públicas con Azure Site Recovery y Azure Traffic Manager para la migración y recuperación ante desastres
+title: Uso de direcciones IP públicas tras la conmutación por error con Azure Site Recovery | Microsoft Docs
+description: Se describe cómo configurar direcciones IP públicas con Azure Site Recovery y Azure Traffic Manager para la migración y la recuperación ante desastres.
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435844"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215283"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Dirección IP pública con Site Recovery
+# <a name="set-up-public-ip-addresses-after-failover"></a>Configuración de direcciones IP públicas tras la conmutación por error
 
 Las direcciones IP públicas permiten a los recursos de Internet la comunicación entrante a los recursos de Azure. También habilitan los recursos de Azure para la comunicación saliente a Internet y los servicios de Azure orientados al público con una dirección IP asignada al recurso.
 - La comunicación entrante desde Internet a los recursos, como Azure Virtual Machines, Azure Application Gateway, Azure Load Balancer, Azure VPN Gateway y otros. Todavía puede comunicarse con recursos como máquinas virtuales desde Internet, si una máquina virtual no tiene asignada una dirección IP pública, y siempre que la máquina virtual forme parte de un grupo de back-end de un equilibrador de carga, y el equilibrador de carga tenga asignada una dirección IP pública.

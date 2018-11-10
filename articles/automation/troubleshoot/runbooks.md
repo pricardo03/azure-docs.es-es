@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955455"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094871"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -93,8 +93,9 @@ Este error se produce si el nombre de la suscripción no es válido o si el usua
 
 Para determinar si se ha autenticado correctamente en Azure y tener acceso a la suscripción que intenta seleccionar, siga estos pasos:  
 
-1. Asegúrese de que ejecuta el cmdlet **Add-AzureAccount** antes de ejecutar el cmdlet **Select-AzureSubscription**.  
-2. Si continúa recibiendo este mensaje de error, modifique el código agregando el parámetro **-AzureRmContext** a continuación del cmdlet **Add-AzureAccount** y luego ejecute el código.
+1. Pruebe el script fuera de Azure Automation para asegurarse de que funciona de forma independiente.
+2. Asegúrese de que ejecuta el cmdlet **Add-AzureAccount** antes de ejecutar el cmdlet **Select-AzureSubscription**.  
+3. Si continúa recibiendo este mensaje de error, modifique el código agregando el parámetro **-AzureRmContext** a continuación del cmdlet **Add-AzureAccount** y luego ejecute el código.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -104,7 +105,7 @@ Para determinar si se ha autenticado correctamente en Azure y tener acceso a la 
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>Escenario: Error de autenticación en Azure porque está habilitada la autenticación multifactor
 
@@ -305,7 +306,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 * Compruebe que ha escrito correctamente el nombre del cmdlet.  
 * Asegúrese de que el cmdlet existe en su cuenta de Automation y de que no hay ningún conflicto. Para comprobar si está presente el cmdlet, abra un runbook en modo de edición y busque el cmdlet que quiere encontrar en la biblioteca o ejecute `Get-Command <CommandName>`. Una vez que haya comprobado que el cmdlet está disponible para la cuenta y que no hay conflictos de nombres con otros cmdlets o runbooks, agréguelo al lienzo y asegúrese de que está utilizando un parámetro válido establecido en su runbook.  
 * Si tiene un conflicto de nombres y el cmdlet está disponible en dos módulos diferentes, puede resolver este problema mediante el nombre completo del cmdlet. Por ejemplo, puede usar **NombreDeMódulo\NombredeCmdlet**.  
-* Si está ejecutando el runbook local en un grupo de trabajo híbrido, asegúrese de que el cmdlet o módulo está instalado en el equipo que hospeda el trabajo híbrido.
+* Si está ejecutando el runbook en un entorno local en un grupo de trabajo híbrido, asegúrese de que el cmdlet o el módulo están instalados en la máquina que hospeda el trabajo híbrido.
 
 ### <a name="long-running-runbook"></a>Escenario: un runbook de larga ejecución no se puede completar
 

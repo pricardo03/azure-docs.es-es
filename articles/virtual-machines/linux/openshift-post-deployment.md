@@ -4,7 +4,7 @@ description: Tareas adicionales posteriores a la implementación de un clúster 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: najoshi
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7b129eea513b7856ca99b02842b3b9c33c6ec19b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426454"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084992"
 ---
 # <a name="post-deployment-tasks"></a>Tareas posteriores a la implementación
 
-Después de implementar un clúster de OpenShift, puede configurar elementos adicionales. En este artículo se trata lo siguiente:
+Después de implementar un clúster de OpenShift, puede configurar elementos adicionales. En este artículo se describe:
 
 - Cómo configurar el inicio de sesión único con Azure Active Directory (Azure AD)
 - Configuración de Log Analytics para supervisar OpenShift
 - Cómo configurar las métricas y el registro
+- Cómo instalar Open Service Broker para Azure (OSBA)
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Configurar el inicio de sesión único con Azure Active Directory
 
@@ -39,15 +40,15 @@ Para usar Azure Active Directory para la autenticación, primero debe crear un r
 Estos pasos usan la CLI de Azure para crear el registro de aplicación y la GUI (portal) para definir los permisos. Para crear el registro de aplicación, se necesitan los cinco datos siguientes:
 
 - Nombre para mostrar: nombre del registro de aplicación (p. ej.: OCPAzureAD)
-- Página principal: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Identificador URI: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Página principal: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Identificador URI: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - Dirección URL de respuesta: dirección URL pública maestra y nombre de registro de la aplicación (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Contraseña: contraseña segura (use una contraseña segura)
 
 En el ejemplo siguiente, se creará un registro de aplicación con la información anterior:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com/console --password {Strong Password}
 ```
 
 Si el comando se ejecuta correctamente, recibirá una salida JSON similar a la siguiente:
@@ -58,9 +59,9 @@ Si el comando se ejecuta correctamente, recibirá una salida JSON similar a la s
   "appPermissions": null,
   "availableToOtherTenants": false,
   "displayName": "OCPAzureAD",
-  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console",
+  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com/console",
   "identifierUris": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/console"
   ],
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
@@ -82,7 +83,7 @@ En Azure Portal:
 
   ![Registro de aplicaciones](media/openshift-post-deployment/app-registration.png)
 
-6.  Haga clic en el paso 1 (Seleccionar API) y, después, en **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Haga clic en **Seleccionar** en la parte inferior.
+6.  Haga clic en el paso 1 (Seleccionar API) y, después, en **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Haga clic en **Seleccionar** en la parte inferior.
 
   ![Selección de API del registro de aplicaciones](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -106,7 +107,7 @@ En el archivo yaml, busque las siguientes líneas:
 
 ```yaml
 oauthConfig:
-  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console/
+  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com/console/
   grantConfig:
     method: auto
   identityProviders:
@@ -146,16 +147,9 @@ Inserte las líneas siguientes inmediatamente después de las líneas anteriores
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Busque el identificador de inquilino mediante el siguiente comando de CLI: ```az account show```.
+Asegúrese de que el texto se alinea correctamente en identityProviders. Busque el identificador de inquilino mediante el siguiente comando de CLI: ```az account show```.
 
 Reinicie los servicios maestros de OpenShift en todos los nodos maestros:
-
-**OpenShift Origin**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
 
 **OpenShift Container Platform (OCP) con varios maestros**
 
@@ -170,135 +164,47 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
+**OKD con varios maestros**
+
+```bash
+sudo systemctl restart origin-master-api
+sudo systemctl restart origin-master-controllers
+```
+
+**OKD con un solo maestro**
+
+```bash
+sudo systemctl restart origin-master
+```
+
 En la consola de OpenShift, ahora verá dos opciones para la autenticación: htpasswd_auth y [App Registration].
 
 ## <a name="monitor-openshift-with-log-analytics"></a>Supervisión de OpenShift con Log Analytics
 
-Existen dos opciones para supervisar OpenShift con Log Analytics: instalación del agente de Log Analytics en el host de la máquina virtual o un contenedor de Log Analytics. En este artículo se proporcionan instrucciones para implementar el contenedor de Log Analytics.
+Hay tres maneras de agregar al agente de Log Analytics a OpenShift.
+- Instalar el agente de Log Analytics para Linux directamente en cada nodo de OpenShift
+- Habilitar la extensión de máquina virtual de Log Analytics en cada nodo de OpenShift
+- Instalar el agente de Log Analytics como daemon-set de OpenShift
 
-## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Creación de un proyecto de OpenShift para Log Analytics y definición del acceso de usuario
-
-```bash
-oadm new-project omslogging --node-selector='zone=default'
-oc project omslogging
-oc create serviceaccount omsagent
-oadm policy add-cluster-role-to-user cluster-reader system:serviceaccount:omslogging:omsagent
-oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent
-```
-
-## <a name="create-a-daemon-set-yaml-file"></a>Crear un archivo yaml de conjunto de demonios
-
-Cree un archivo denominado ocp-omsagent.yml:
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: oms
-spec:
-  selector:
-    matchLabels:
-      name: omsagent
-  template:
-    metadata:
-      labels:
-        name: omsagent
-        agentVersion: 1.4.0-45
-        dockerProviderVersion: 10.0.0-25
-    spec:
-      nodeSelector:
-        zone: default
-      serviceAccount: omsagent
-      containers:
-      - image: "microsoft/oms"
-        imagePullPolicy: Always
-        name: omsagent
-        securityContext:
-          privileged: true
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        - containerPort: 25224
-          protocol: UDP
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-        - mountPath: /etc/omsagent-secret
-          name: omsagent-secret
-          readOnly: true
-        livenessProbe:
-          exec:
-            command:
-              - /bin/bash
-              - -c
-              - ps -ef | grep omsagent | grep -v "grep"
-          initialDelaySeconds: 60
-          periodSeconds: 60
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-      - name: omsagent-secret
-        secret:
-         secretName: omsagent-secret
-````
-
-## <a name="create-a-secret-yaml-file"></a>Crear un archivo yaml secreto
-
-Para crear el archivo yaml secreto, se necesitan dos datos: el identificador del área de trabajo de Log Analytics y la clave compartida del área de trabajo de Log Analytics. 
-
-A continuación se incluye un archivo ocp-secret.yml de ejemplo: 
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: omsagent-secret
-data:
-  WSID: wsid_data
-  KEY: key_data
-```
-
-Reemplace wsid_data por el identificador del área de trabajo de Log Analytics codificado en Base64. Después, reemplace key_data por la clave compartida del área de trabajo de Log Analytics codificada en Base64.
-
-```bash
-wsid_data='11111111-abcd-1111-abcd-111111111111'
-key_data='My Strong Password'
-echo $wsid_data | base64 | tr -d '\n'
-echo $key_data | base64 | tr -d '\n'
-```
-
-## <a name="create-the-secret-and-daemon-set"></a>Crear el secreto y conjunto de demonios
-
-Implementar el archivo secreto:
-
-```bash
-oc create -f ocp-secret.yml
-```
-
-Implementar el conjunto de demonios del agente de Log Analytics:
-
-```bash
-oc create -f ocp-omsagent.yml
-```
+Las instrucciones completas se encuentran aquí: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## <a name="configure-metrics-and-logging"></a>Configurar las métricas y el registro
 
-La plantilla de Azure Resource Manager para OpenShift Container Platform proporciona parámetros de entrada para habilitar las métricas y el registro. La oferta de Marketplace de OpenShift Container Platform y la plantilla de Resource Manager de OpenShift Origin no lo hacen.
+En función de la rama, las plantillas de Azure Resource Manager para OpenShift Container Platform y OKD pueden proporcionar parámetros de entrada para habilitar las métricas y el registro como parte de la instalación.
 
-Si se usó la plantilla de Resource Manager de OCP, y las métricas y el registro no estaban habilitados durante la instalación; o si se usó la oferta de Marketplace de OCP, se pueden habilitar fácilmente en otro momento. Si se usa la plantilla de Resource Manager de OpenShift Origin, se necesita cierto trabajo previo.
+La oferta de Marketplace de OpenShift Container Platform también proporciona una opción para habilitar las métricas y el registro durante la instalación del clúster.
 
-### <a name="openshift-origin-template-pre-work"></a>Trabajo previo de la plantilla de OpenShift Origin
+Si las métricas o el registro no se han habilitado durante la instalación del clúster, se pueden habilitar fácilmente con posterioridad.
 
-1. SSH para el primer nodo maestro que usa el puerto 2200.
+### <a name="ansible-inventory-pre-work"></a>Trabajo previo de inventario de Ansible
 
-   Ejemplo:
+Compruebe que el archivo de inventario de Ansible (/etc/ansible/hosts) tiene las variables adecuadas para las métricas y el registro. El archivo de inventario puede encontrarse en diferentes hosts según la plantilla utilizada.
 
-   ```bash
-   ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
-   ```
+Para la plantilla de OpenShift Container y la oferta de Marketplace, el archivo de inventario se encuentra en el host de tipo bastión. Para la plantilla de OKD, el archivo de inventario se encuentra en el host master-0 o el host de tipo bastión en función de la rama en uso.
 
-2. Edite el archivo /etc/ansible/hosts y agregue las líneas siguientes después de la sección de proveedor de identidad (# Enable HTPasswdPasswordIdentityProvider):
+1. Edite el archivo /etc/ansible/hosts y agregue las líneas siguientes después de la sección de proveedor de identidad (# Enable HTPasswdPasswordIdentityProvider). Si ya están presentes estas líneas, no las agregue de nuevo.
+
+   OpenShift y OKD versiones 3.9 y anteriores
 
    ```yaml
    # Setup metrics
@@ -320,35 +226,130 @@ Si se usó la plantilla de Resource Manager de OCP, y las métricas y el registr
    openshift_master_logging_public_url=https://kibana.$ROUTING
    ```
 
+   OpenShift y OKD versiones 3.10 y posteriores
+
+   ```yaml
+   # Setup metrics
+   openshift_metrics_install_metrics=false
+   openshift_metrics_start_cluster=true
+   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
+
+   # Setup logging
+   openshift_logging_install_logging=false
+   openshift_logging_fluentd_nodeselector={"logging":"true"}
+   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_master_public_url=https://kibana.$ROUTING
+   ```
+
 3. Reemplace $ROUTING con la cadena usada para la opción openshift_master_default_subdomain en el mismo archivo /etc/ansible/hosts.
 
 ### <a name="azure-cloud-provider-in-use"></a>Proveedor de soluciones en la nube de Azure en uso
 
-En el primer nodo maestro (Origin) o nodo de bastión (OCP), use SSH con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
+Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
+
+**OpenShift Container Platform 3.7 y versiones anteriores**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### <a name="azure-cloud-provider-not-in-use"></a>Proveedor de soluciones en la nube de Azure que no está en uso
-
-En el primer nodo maestro (Origin) o nodo de bastión (OCP), use SSH con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
+**OpenShift Container Platform 3.9 y versiones posteriores**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
 ```
+
+**OKD 3.7 y versiones anteriores**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_hosted_logging_storage_kind=dynamic
+```
+
+**OKD 3.9 y versiones posteriores**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
+```
+
+### <a name="azure-cloud-provider-not-in-use"></a>Proveedor de soluciones en la nube de Azure que no está en uso
+
+Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
+
+
+**OpenShift Container Platform 3.7 y versiones anteriores**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OpenShift Container Platform 3.9 y versiones posteriores**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.7 y versiones anteriores**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.9 y versiones posteriores**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+## <a name="install-open-service-broker-for-azure-osba"></a>Instalación de Open Service Broker para Azure (OSBA)
+
+Open Service Broker para Azure (OSBA) le permite aprovisionar Azure Cloud Services directamente desde OpenShift. OSBA es una implementación de Open Service Broker API para Azure. Open Service Broker API es una especificación que define un lenguaje común para proveedores en la nube que las aplicaciones nativas pueden usar para administrar servicios en la nube sin dependencia del proveedor.
+
+Para instalar OSBA en OpenShift, siga las instrucciones que encontrará aquí: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
-- [Introducción a OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Introducción a OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Introducción a OKD](https://docs.okd.io/latest)

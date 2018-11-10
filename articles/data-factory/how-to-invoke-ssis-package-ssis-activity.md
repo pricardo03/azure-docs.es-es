@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960165"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092464"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad Ejecutar paquete de SSIS de Azure Data Factory
 En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad Ejecutar paquete SSIS. 
@@ -91,9 +91,11 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
 
 ### <a name="optionally-parameterize-the-activity"></a>Si lo desea, parametrice la actividad
 
-Si lo desea, asigne valores, expresiones o funciones, que pueden hacer referencia a las variables del sistema de Data Factory, a los parámetros del paquete o del proyecto en formato JSON utilizando el botón **Ver código fuente** en la parte inferior del cuadro de actividad Ejecutar paquete de SSIS, o el botón **Código**, en la esquina superior derecha del área de canalización. Por ejemplo, puede asignar los parámetros de la canalización de Data Factory a los parámetros del paquete o del proyecto de SSIS, tal y como se muestra en las capturas de pantalla siguientes:
+Si lo desea, asigne valores, expresiones o funciones, que pueden hacer referencia a las variables del sistema de Data Factory, a los parámetros del paquete o del proyecto en formato JSON utilizando el botón "Ver código fuente" en la parte inferior del cuadro de actividad Ejecutar paquete de SSIS, o el botón "Código", en la esquina superior derecha del área de canalización. Por ejemplo, puede asignar los parámetros de la canalización de Data Factory a los parámetros del paquete o del proyecto de SSIS, tal y como se muestra en las capturas de pantalla siguientes:
 
 ![Edición de script JSON para la actividad Ejecutar paquete de SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Adición de parámetros a la actividad Ejecutar paquete de SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![Adición de parámetros a la actividad Ejecutar paquete de SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ En este paso se crea una canalización con una actividad Ejecutar paquete de SSI
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ En este paso se crea una canalización con una actividad Ejecutar paquete de SSI
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

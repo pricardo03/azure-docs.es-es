@@ -1,6 +1,6 @@
 ---
-title: Eliminación del almacén de Site Recovery
-description: Aprenda a eliminar un almacén de Azure Site Recovery, en función del escenario de Site Recovery.
+title: Eliminación de un almacén de Recovery Services configurado para el servicio Azure Site Recovery
+description: Aprenda a eliminar un almacén de Recovery Services configurado para Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971195"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212427"
 ---
-# <a name="delete-a-site-recovery-vault"></a>Eliminación del almacén de Site Recovery
+# <a name="delete-a-site-recovery-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services para Site Recovery
 
 Las dependencias pueden evitar la eliminación de un almacén de Azure Site Recovery. Las acciones que hay que llevar a cabo varían en función del escenario de Site Recovery. Para eliminar un almacén de Azure Backup, consulte el artículo sobre la [eliminación de un almacén de Azure Backup](../backup/backup-azure-delete-vault.md).
 

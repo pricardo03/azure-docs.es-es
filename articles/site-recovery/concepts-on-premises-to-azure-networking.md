@@ -1,22 +1,21 @@
 ---
-title: Configuración de direccionamiento IP para conectar tras la conmutación por error a Azure con Azure Site Recovery | Microsoft Docs
-description: Se describe cómo configurar el direccionamiento IP para conectarse a máquinas virtuales de Azure tras la conmutación por error desde el entorno local con Azure Site Recovery.
+title: Configuración del direccionamiento IP para la conexión tras la recuperación ante desastres y la conmutación por error en Azure con Azure Site Recovery | Microsoft Docs
+description: Se describe cómo configurar el direccionamiento IP para la conexión a máquinas virtuales de Azure tras la recuperación ante desastres y la conmutación por error desde el entorno local con Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 9b7797ba58a44e64460f4dbc58d562b4c470c043
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353094"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215232"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configuración del direccionamiento IP para conectarse tras la conmutación por error a Azure
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configuración del direccionamiento IP para la conexión a máquinas virtuales de Azure tras la conmutación por error
 
 En este artículo se explican los requisitos de redes para conectarse a máquinas virtuales de Azure después de usar el servicio [Azure Site Recovery](site-recovery-overview.md) para replicación y conmutación por error en Azure.
 
