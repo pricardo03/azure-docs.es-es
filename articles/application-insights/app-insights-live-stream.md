@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a7953781776fa4d7c9ae47901bb5f0c28a87ff2b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091198"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958498"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -203,7 +203,7 @@ Si quiere ver el efecto que tendría un aumento de carga, use la hoja Prueba de 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Supervisión del uso con Application Insights](app-insights-web-track-usage.md)
+* [Supervisión del uso con Application Insights](app-insights-usage-overview.md)
 * [Uso de la Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 * [Generador de perfiles](app-insights-profiler.md)
 * [Depurador de instantáneas](app-insights-snapshot-debugger.md)

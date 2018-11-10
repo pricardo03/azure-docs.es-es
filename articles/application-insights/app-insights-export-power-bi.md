@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246622"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963122"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](http://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](app-insights-overview.md).
@@ -41,7 +41,7 @@ Para importar la consulta de Application Insights, utilice la versión de escrit
 Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportación de una consulta de Analytics
-1. [Abra Analytics y escriba la consulta](app-insights-analytics-tour.md).
+1. [Abra Analytics y escriba la consulta](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Pruebe y refine la consulta hasta que esté satisfecho con los resultados. Asegúrese de que la consulta se ejecuta correctamente en Analytics antes de exportarla.
 3. En el menú **Exportar**, elija **Power BI (M)**. Guarde el archivo de texto.
    
@@ -109,7 +109,7 @@ Si la reducción del conjunto de datos que procede de la consulta de Analytics n
    * Reemplace **https://management.azure.com/subscriptions/...**
    * por **https://api.applicationinsights.io/beta/apps/...**
 3. Por último, actualice las credenciales al modo básico y use su clave de API.
-  
+ �
 
 **Script existente**
  ```
@@ -155,5 +155,5 @@ Después de la importación inicial, el panel y los informes seguirán actualiz�
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Power BI: más información](http://www.powerbi.com/learning/)
-* [Tutorial de Analytics](app-insights-analytics-tour.md)
+* [Tutorial de Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962954"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964193"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor. Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. La siguiente lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Para consultar estas métricas y acceder a ellas, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -535,7 +535,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|Media|Límite de almacenamiento del registro del servidor|Sin dimensiones|
 |active_connections|Conexiones activas|Recuento|Media|Conexiones activas|Sin dimensiones|
 |connections_failed|Conexiones con errores|Recuento|Total|Conexiones con errores|Sin dimensiones|
-|network_bytes_egress|Red externa|Bytes|Total|Red externa a través de conexiones activas|Sin dimensiones|
+|network_bytes_egress|Red interna|Bytes|Total|Red externa a través de conexiones activas|Sin dimensiones|
 |network_bytes_ingress|Red interna|Bytes|Total|Red interna a través de conexiones activas|Sin dimensiones|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
@@ -587,8 +587,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |devices.totalDevices|Total de dispositivos (en desuso)|Recuento|Total|Número de dispositivos registrados en IoT Hub|Sin dimensiones|
 |devices.connectedDevices.allProtocol|Dispositivos conectados (en desuso) |Recuento|Total|Número de dispositivos conectados a IoT Hub|Sin dimensiones|
 |d2c.telemetry.egress.success|Enrutamiento: mensajes de telemetría entregados|Recuento|Total|Número de veces que los mensajes se han entregado correctamente a todos los puntos de conexión mediante el enrutamiento de IoT Hub. Si un mensaje se enruta a varios puntos de conexión, este valor aumenta en uno por cada entrega correcta. Si un mensaje se enruta al mismo punto de conexión varias veces, este valor aumenta en uno por cada entrega correcta.|Sin dimensiones|
-|d2c.telemetry.egress.dropped|Enrutamiento: mensajes de telemetría quitados |Recuento|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|Sin dimensiones|
-|d2c.telemetry.egress.orphaned|Enrutamiento: mensajes de telemetría huérfanos |Recuento|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con las reglas de enrutamiento (incluida la regla de reserva). |Sin dimensiones|
+|d2c.telemetry.egress.dropped|Enrutamiento: mensajes de telemetría quitados |Recuento|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|Sin dimensiones|
+|d2c.telemetry.egress.orphaned|Enrutamiento: mensajes de telemetría huérfanos |Recuento|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con las reglas de enrutamiento (incluida la regla de reserva). |Sin dimensiones|
 |d2c.telemetry.egress.invalid|Enrutamiento: mensajes de telemetría incompatibles|Recuento|Total|Número de veces que el enrutamiento de IoT Hub no ha podido entregar mensajes debido a una incompatibilidad con el punto de conexión. Este valor no incluye los reintentos.|Sin dimensiones|
 |d2c.telemetry.egress.fallback|Enrutamiento: mensajes entregados a la reserva|Recuento|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes al punto de conexión asociado con la ruta de reserva.|Sin dimensiones|
 |d2c.endpoints.egress.eventHubs|Enrutamiento: mensajes entregados al centro de eventos|Recuento|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión del centro de eventos.|Sin dimensiones|
@@ -1570,6 +1570,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MemoryPercentage|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|Instance|
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Lea información sobre las métricas en Azure Monitor](monitoring-overview-metrics.md)
-* [Creación de alertas basadas en métricas](insights-receive-alert-notifications.md)
+* [Lea información sobre las métricas en Azure Monitor](../monitoring/monitoring-data-collection.md)
+* [Creación de alertas basadas en métricas](monitoring-overview-alerts.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](monitoring-overview-of-diagnostic-logs.md)

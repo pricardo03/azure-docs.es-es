@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: d58c86c17cdab360f37a09b28bdf705cb781a620
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 9daca1876a291cb1f726e7c0eb4840c57f5c54c8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023841"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741324"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Información y uso de los SDK de Azure IoT Hub
 
@@ -167,4 +167,4 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 * [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md)
 * [Compatibilidad con MQTT de IoT Hub](iot-hub-mqtt-support.md)
 * [Referencia de la API REST de IoT Hub](/rest/api/iothub/)
-* [Compatibilidad de plataformas de SDK de Azure IoT](iot-hub-device-sdk-platform-support.md)
+* [Compatibilidad con plataformas de SDK de Azure IoT](iot-hub-device-sdk-platform-support.md)

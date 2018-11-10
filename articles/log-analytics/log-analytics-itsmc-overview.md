@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 526ba73858322ee41f649a338f22226da6af33e7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421193"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964090"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -157,13 +157,13 @@ Asimismo, el panel también proporciona información acerca del estado del conec
 
 También puede visualizar los incidentes que se sincronizan con los equipos afectados dentro de la solución Service Map.
 
-Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Permite ver los servidores a medida que piensa en ellos, como los sistemas interconectados que ofrecen servicios críticos. Mapa de servicio muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente. [Más información](../operations-management-suite/operations-management-suite-service-map.md).
+Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Permite ver los servidores a medida que piensa en ellos, como los sistemas interconectados que ofrecen servicios críticos. Mapa de servicio muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente. [Más información](../monitoring/monitoring-service-map.md).
 
 Si usa la solución Service Map, puede ver los elementos de la consola de servicio creados en la solución ITSM tal como se muestra en el ejemplo siguiente:
 
 ![Pantalla de Log Analytics](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Obtenga más información en: [Service Map](../operations-management-suite/operations-management-suite-service-map.md).
+Obtenga más información en: [Service Map](../monitoring/monitoring-service-map.md).
 
 
 ## <a name="additional-information"></a>Información adicional

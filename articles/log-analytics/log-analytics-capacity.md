@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182627"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961949"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Con la solución Capacidad y rendimiento (versión preliminar) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
@@ -50,8 +50,8 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Soporte técnico | DESCRIPCIÓN |
 |---|---|---|
-| [Agentes de Windows](log-analytics-windows-agent.md) | SÍ | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
-| [Agentes de Linux](log-analytics-linux-agents.md) | Sin     | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
+| [Agentes de Windows](log-analytics-agent-windows.md) | SÍ | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
+| [Agentes de Linux](log-analytics-quick-collect-linux-computer.md) | Sin     | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
 | [Grupo de administración de SCOM](log-analytics-om-agents.md) | SÍ |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
 | [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | Azure Storage no incluye datos de capacidad y rendimiento.|
 
@@ -64,7 +64,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 Realice el siguiente paso para agregar la solución Capacidad y rendimiento a un área de trabajo.
 
-- Agregue la solución Capacity and Performance a un área de trabajo de Log Analytics mediante el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).
+- Agregue la solución Capacity and Performance a un área de trabajo de Log Analytics mediante el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md).
 
 ## <a name="management-packs"></a>Módulos de administración
 
@@ -97,7 +97,7 @@ Haga clic en el icono Capacidad y rendimiento para abrir el panel Capacidad y re
 - **Hosts**
     - **Utilización de la CPU del host** Muestra una tendencia gráfica de la utilización de la CPU de los equipos host y una lista de hosts, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de host para abrir la búsqueda de registros y ver datos del contador de CPU relativos a máquinas virtuales hospedadas.
     - **Utilización de memoria del host** Muestra una tendencia gráfica de la utilización de la memoria de los equipos host y una lista de hosts, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de host para abrir la búsqueda de registros y ver datos del contador de la memoria relativos a máquinas virtuales hospedadas.
-- **Virtual Machines**
+- **Máquinas virtuales**
     - **Utilización de la CPU de VM** Muestra una tendencia gráfica de la utilización de la CPU de las máquinas virtuales y una lista de máquinas virtuales, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto de las 3 principales máquinas virtuales. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de máquina virtual para abrir la búsqueda de registros y ver detalles agregados del contador de CPU relativos a la máquina virtual.
     - **Utilización de la memoria de VM** Muestra una tendencia gráfica de la utilización de la memoria de las máquinas virtuales y una lista de máquinas virtuales, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto de las 3 principales máquinas virtuales. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de máquina virtual para abrir la búsqueda de registros y ver detalles agregados del contador de memoria relativos a la máquina virtual.
     - **E/S por segundo de disco total de VM** Muestra una tendencia gráfica de las IOPS de disco totales de las máquinas virtuales y una lista de las máquinas virtuales con las IOPS de cada una de ellas, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto de las 3 principales máquinas virtuales. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de máquina virtual para abrir la búsqueda de registros y ver detalles agregados del contador de IOPS de disco relativos a la máquina virtual.
@@ -138,4 +138,4 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo en los 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsqueda de datos mediante búsquedas de registros](log-analytics-log-search.md) para ver datos detallados de Capacidad y rendimiento.
+* Use [Búsqueda de datos mediante búsquedas de registros](log-analytics-queries.md) para ver datos detallados de Capacidad y rendimiento.

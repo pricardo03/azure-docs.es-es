@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050245"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958906"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Información general de Application Insights para DevOps
 
@@ -231,6 +231,6 @@ Puede comenzar a trabajar de varias maneras, según las características de la a
 * [Aplicación web ASP.NET](app-insights-asp-net.md)
 * [Aplicación web de Java](app-insights-java-get-started.md)
 * [Aplicación web de Node.js](app-insights-nodejs.md)
-* Aplicaciones ya implementadas hospedadas en [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) o [Azure](app-insights-azure.md).
+* Aplicaciones ya implementadas hospedadas en [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) o [Azure](app-insights-overview.md).
 * [Páginas web](app-insights-javascript.md): aplicación de una sola página o una página web normal. Use esta característica por su cuenta o además de las opciones de servidor.
 * [Pruebas de disponibilidad](app-insights-monitor-web-app-availability.md) para probar la aplicación desde la red Internet pública.

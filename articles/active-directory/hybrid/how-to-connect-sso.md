@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 8b74cf533c0fe59a0967b7063791df2cfc9a7a77
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054191"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913938"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -58,7 +58,7 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 - Se admiten los clientes Win32 de Office 365 (Outlook, Word, Excel, etc.) con las versiones 16.0.8730 y posteriores mediante un flujo no interactivo. En OneDrive, tendrá que activar la [función de configuración silenciosa de OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para disfrutar de una experiencia de inicio de sesión silenciosa.
 - Puede habilitarse a través de Azure AD Connect.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
-- Se admite en clientes basados en el explorador web y en clientes de Office que admiten la [autenticación moderna](https://aka.ms/modernauthga) en plataformas con la funcionalidad de autenticación de Kerberos:
+- Se admite en clientes basados en el explorador web y en clientes de Office que admiten la [autenticación moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) en plataformas con la funcionalidad de autenticación de Kerberos:
 
 | SO\Explorador |Internet Explorer|perimetral|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 

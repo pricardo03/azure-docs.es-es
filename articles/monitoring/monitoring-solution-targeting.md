@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1aaa753c91a324621dc66fab23e5fed3a9d11d01
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887405"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912772"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Selección de destino de las soluciones de administración en Azure (versión preliminar)
 Cuando se agrega una solución de administración a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
@@ -74,5 +74,5 @@ La selección de destino de solución no se puede utilizar con las soluciones si
 - Evaluación de estado del agente
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre las soluciones de administración, incluidas las soluciones que están disponibles para instalar en su entorno, en [Adición de soluciones de administración de Azure Log Analytics al área de trabajo](../log-analytics/log-analytics-add-solutions.md).
+- Obtenga más información sobre las soluciones de administración, incluidas las soluciones que están disponibles para instalar en su entorno, en [Adición de soluciones de administración de Azure Log Analytics al área de trabajo](monitoring-solutions.md).
 - Para obtener más información sobre la creación de grupos de equipos, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md).

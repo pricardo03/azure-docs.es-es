@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836881"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963781"
 ---
 # <a name="retrain-a-classic-web-service"></a>Reentrenamiento de un servicio web clásico
 El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Debe haber configurado un experimento de entrenamiento y un experimento predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ Hay dos formas en que puede agregar un nuevo punto de conexión a un servicio we
 2. Uso del portal de servicios web de Microsoft Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Incorporación de un punto de conexión mediante programación
-También puede agregar puntos de conexión de puntuación mediante el código de ejemplo proporcionado en este [repositorio de GitHub](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+También puede agregar puntos de conexión de puntuación mediante el código de ejemplo proporcionado en este [repositorio de GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Uso del portal de servicios web de Microsoft Azure para agregar un punto de conexión
 1. En Machine Learning Studio, en la columna de navegación izquierda, haga clic en Servicios web.

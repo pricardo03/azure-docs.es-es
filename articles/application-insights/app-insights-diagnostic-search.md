@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038785"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958413"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 Búsqueda es una característica de [Application Insights](app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
-(Para consultas más complejas sobre los datos, use [Analytics](app-insights-analytics-tour.md)).
+(Para consultas más complejas sobre los datos, use [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)).
 
 ## <a name="where-do-you-see-search"></a>¿Dónde verá Search?
 
@@ -102,7 +102,7 @@ Encuentre todos los elementos con el mismo valor de propiedad:
 ## <a name="search-the-data"></a>Búsqueda de los datos
 
 > [!NOTE]
-> Para escribir consultas más complejas, abra [**Analytics**](app-insights-analytics-tour.md) desde la parte superior de la hoja Buscar.
+> Para escribir consultas más complejas, abra [**Analytics**](../log-analytics/query-language/get-started-analytics-portal.md) desde la parte superior de la hoja Buscar.
 > 
 
 Puede buscar términos en cualquiera de los valores de propiedad. Esto es especialmente útil si ha escrito [eventos personalizados](app-insights-api-custom-events-metrics.md) con valores de propiedad. 
@@ -164,7 +164,7 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Pasos siguientes
-* [Escribir consultas complejas en Analytics](app-insights-analytics-tour.md)
+* [Escribir consultas complejas en Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * [Envío de registros y telemetría personalizada a Application Insights](app-insights-asp-net-trace-logs.md).
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta](app-insights-monitor-web-app-availability.md)
 * [Solución de problemas](app-insights-troubleshoot-faq.md)

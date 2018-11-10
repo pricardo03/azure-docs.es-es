@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167059"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961082"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 Obtenga información sobre el rendimiento y la utilización de su página web o aplicación. Si agrega [Application Insights](app-insights-overview.md) al script de la página, obtendrá los intervalos de carga de la página y de las llamadas AJAX, recuentos y detalles sobre las excepciones del explorador y los errores de AJAX, así como usuarios y recuentos de sesiones. Todos estos datos se pueden segmentar por página, sistema operativo del cliente y versión del explorador, geolocalización y otras dimensiones. Puede establecer alertas sobre recuentos de errores o sobre cargas de página lentas. Y mediante la inserción de llamadas de seguimiento en el código de JavaScript, puede controlar cómo se utilizan las distintas características de la aplicación de la página web.
@@ -230,7 +230,7 @@ El nombre de la página puede contener los mismos caracteres que una dirección 
 ## <a name="usage-tracking"></a>Seguimiento de uso
 ¿Desea averiguar qué hacen los usuarios con su aplicación?
 
-* [Más información sobre las herramientas de análisis de comportamiento de usuario](app-insights-web-track-usage.md)
+* [Más información sobre las herramientas de análisis de comportamiento de usuario](app-insights-usage-overview.md)
 * [Más información sobre las API para eventos y métricas personalizados](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Vídeo
@@ -241,7 +241,7 @@ El nombre de la página puede contener los mismos caracteres que una dirección 
 
 
 ## <a name="next"></a> Pasos siguientes
-* [Seguir el uso](app-insights-web-track-usage.md)
+* [Seguir el uso](app-insights-usage-overview.md)
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
-* [Compilación - Métrica - Aprendizaje](app-insights-web-track-usage.md)
+* [Compilación - Métrica - Aprendizaje](app-insights-usage-overview.md)
 

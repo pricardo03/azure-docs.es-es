@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298649"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958610"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detallados para servicios y aplicaciones web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>¿Por qué necesito Application Insights?
@@ -172,7 +172,7 @@ Cuando se genera una alerta, Application Insights puede crear automáticamente u
 ## <a name="next-steps"></a>Pasos siguientes
 Empezar a usar Application Insights es fácil. Tiene opciones principalmente para:
 
-* Instrumentar una aplicación web ya en ejecución. Le proporciona toda la información de telemetría del rendimiento integrada. Está disponible para [Java](app-insights-java-live.md) y [servidores IIS](app-insights-monitor-performance-live-website-now.md), así como para [Azure Web Apps](app-insights-azure.md).
+* Instrumentar una aplicación web ya en ejecución. Le proporciona toda la información de telemetría del rendimiento integrada. Está disponible para [Java](app-insights-java-live.md) y [servidores IIS](app-insights-monitor-performance-live-website-now.md), así como para [Azure Web Apps](app-insights-overview.md).
 * Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](app-insights-asp-net.md) o [Java](app-insights-java-get-started.md), así como para [Node.js](app-insights-nodejs.md) y [otros tipos](app-insights-platforms.md). 
 * Instrumentar [cualquier página web](app-insights-javascript.md) agregando un fragmento de código corto.
 

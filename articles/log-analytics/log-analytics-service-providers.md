@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: ef3cc76c0188cb2a0d3236d462d0645e3e45040b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ef1956f5283105548ba8790b87e82c35d6c9e1cd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044287"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960946"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics para proveedores de servicios
 Log Analytics puede ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales en la nube del cliente. 
@@ -82,6 +82,6 @@ Hay dos opciones para implementar la ubicación central en Log Analytics:
 ## <a name="next-steps"></a>Pasos siguientes
 * Automatice la creación y configuración de áreas de trabajo con [plantillas de Resource Manager](log-analytics-template-workspace-configuration.md).
 * Automatice la creación de áreas de trabajo con [PowerShell](log-analytics-powershell-workspace-configuration.md). 
-* Use [alertas](log-analytics-alerts.md) para integrarse con sistemas existentes.
+* Use [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para integrarse con sistemas existentes.
 * Genere informes de resumen con [Power BI](log-analytics-powerbi.md).
 * Revise el proceso de [configurar Log Analytics y Power BI para supervisar varios clientes de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers).

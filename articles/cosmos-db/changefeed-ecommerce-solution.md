@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144559"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740984"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
@@ -104,7 +104,7 @@ Ahora creará una colección que contenga los eventos de sitio de comercio elect
    * Como **Capacidad de almacenamiento**, seleccione **Sin límite**.  
    * En el campo **Clave de partición**, escriba **/Item**. Esta clave distingue mayúsculas de minúsculas, así que asegúrese de escribirlo correctamente.  
    * En el campo **Rendimiento**, escriba **10 000**.  
-   * Haga clic en el botón **Aceptar**.  
+   * Seleccione el botón **Aceptar**.  
 
 3. Cree entonces otra colección de nombre **leases** para el procesamiento de la fuente de cambios. La colección de concesiones coordina el procesamiento de la fuente de cambios entre varios roles de trabajo. Se utiliza una colección independiente para almacenar las concesiones con una concesión por partición.  
 
@@ -114,7 +114,7 @@ Ahora creará una colección que contenga los eventos de sitio de comercio elect
    * En el campo **Id. de colección**, escriba **leases**.  
    * Como **Capacidad de almacenamiento**, seleccione **Fija**.  
    * Deje el campo **Rendimiento** establecido en su valor predeterminado.  
-   * Haga clic en el botón **Aceptar**.
+   * Seleccione el botón **Aceptar**.
 
 ## <a name="get-the-connection-string-and-keys"></a>Obtención de la cadena de conexión y las claves
 
@@ -180,7 +180,7 @@ Para ver cómo la fuente de cambios procesa nuevas acciones en un sitio de comer
  
 6. Espere a que el programa se ejecute. Las estrellas indican que están llegando datos. Mantenga el programa en ejecución: es importante que se recopilen grandes cantidades de datos.  
 
-7. Si navega a [Azure Portal](http://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y luego al **Explorador de datos**, verá los datos aleatorios importados en su  **changefeedlabcollection**.
+7. Si navega a [Azure Portal](http://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y luego al **Explorador de datos**, verá los datos aleatorios importados en su ** changefeedlabcollection**.
  
    ![Datos generados en el portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -207,7 +207,7 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
    * Deje **Formato de serialización de eventos**como **JSON**.  
    * Deje el campo **Codificación** establecido en **UTF-8**.  
    * Deje el campo **Tipo de compresión de eventos** establecido en **Ninguno**.  
-   * Haga clic en el botón **Save** (Guardar).
+   * Seleccione el botón **Guardar**.
 
 5. Navegue a la página de trabajo de Stream Analytics y seleccione **Salidas**.  
 
@@ -219,10 +219,10 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
    * Deje el campo **Área de trabajo de grupo** establecido en **Autorizar conexión para cargar áreas de trabajo**.  
    * En el campo **Nombre del conjunto de datos**, escriba **averagePrice**.  
    * En el campo **Nombre de la tabla**, escriba **averagePrice**.  
-   * Haga clic en el botón **Autorizar** y siga las instrucciones para autorizar la conexión en Power BI.  
-   * Haga clic en el botón **Save** (Guardar).  
+   * Seleccione el botón **Autorizar** y siga las instrucciones para autorizar la conexión en Power BI.  
+   * Seleccione el botón **Guardar**.  
 
-8. Vuelva a **streamjob1** y haga clic en **Editar consulta**.
+8. Vuelva a **streamjob1** y seleccione **Editar consulta**.
 
    ![Editar consulta](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Haga clic en **Guardar** en la esquina superior izquierda.  
+10. Seleccione **Guardar** en la esquina superior izquierda.  
 
-11. Vuelva ahora a **streamjob1** y haga clic en el botón **Iniciar** situado en la parte superior de la página. Azure Stream Analytics puede tardar unos minutos en iniciarse, pero, finalmente, verá que cambia de "Iniciando" a "En ejecución".
+11. Vuelva ahora a **streamjob1** y seleccione el botón **Iniciar** situado en la parte superior de la página. Azure Stream Analytics puede tardar unos minutos en iniciarse, pero, finalmente, verá que cambia de "Iniciando" a "En ejecución".
 
 ## <a name="connect-to-power-bi"></a>Conexión a Power BI
 
@@ -249,19 +249,19 @@ Power BI es un conjunto de herramientas de análisis de negocios que sirve para 
 
 3. Seleccione **+Agregar icono** en la esquina superior derecha.  
 
-4. Seleccione **Datos de streaming personalizados** y haga clic en el botón **Siguiente**.  
+4. Seleccione **Datos de transmisión personalizados** y el botón **Siguiente**.  
  
-5. Seleccione **averagePrice** en **YOUR DATASETS** (SUS CONJUNTOS DE DATOS) y haga clic en **Siguiente**.  
+5. Seleccione **averagePrice** en **SUS CONJUNTOS DE DATOS** y elija **Siguiente**.  
 
 6. En el campo **Tipo de visualización**, seleccione **Gráfico de barras agrupadas** en el menú desplegable. En **Eje**, agregue la acción. Omita **Leyenda** sin agregar nada. Luego, en la sección siguiente denominada **Valor**, agregue **avg**. Seleccione **Siguiente**, agregue el título del gráfico y elija **Aplicar**. Debería ver un nuevo gráfico en el panel.  
 
 7. Ahora, si quiere visualizar más métricas, puede volver a **streamjob1** y crear tres salidas más con los siguientes campos.
 
-   a. **Alias de salida:** incomingRevenueOutput, nombre del conjunto de datos: incomingRevenue, nombre de la tabla: incomingRevenue  
+    a. **Alias de salida:** incomingRevenueOutput, nombre del conjunto de datos: incomingRevenue, nombre de la tabla: incomingRevenue  
    b. **Alias de salida:** top5Output, nombre del conjunto de datos: top5, nombre de la tabla: top5  
    c. **Alias de salida:** uniqueVisitorCountOutput, nombre del conjunto de datos: uniqueVisitorCount, nombre de la tabla: uniqueVisitorCount
 
-   Haga clic en **Editar consulta** y pegue las siguientes consultas **por encima** de la que ya escribió.
+   Seleccione **Editar consulta** y pegue las siguientes consultas **por encima** de la que ya escribió.
 
    ```sql
     /*TOP 5*/
@@ -329,7 +329,7 @@ Ahora verá cómo puede usar la nueva herramienta de análisis de datos para con
 
    Agregue otra colección en **changefeedlabdatabase** de nombre **topItems** con capacidad de almacenamiento **Sin límite**. Escriba **/Item** como clave de partición.
 
-2. Haga clic en la colección **topItems** y, en **Escala y configuración** establezca **Período de vida** como **30 segundos** para que la colección topItems se actualice cada 30 segundos.
+2. Seleccione la colección **topItems** y, en **Escala y configuración**, establezca **Período de vida** como **30 segundos** para que la colección topItems se actualice cada 30 segundos.
 
    ![Período de vida](./media/changefeed-ecommerce-solution/time-to-live.png)
 

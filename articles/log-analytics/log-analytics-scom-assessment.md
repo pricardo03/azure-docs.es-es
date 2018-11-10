@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 39e11f35870fa3a3573e5f1af467cfbd898a1563
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182151"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006522"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -212,7 +212,7 @@ Cada recomendación incluye pautas que indican por qué es importante. Use estas
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Uso de las recomendaciones del área centradas en la comprobación de estado
 
-Para poder usar una solución de comprobación de estado en Log Analytics, debe tenerla instalada. Para obtener más información sobre cómo instalar soluciones, consulte [Install a management solution](log-analytics-add-solutions.md) (Instalar una solución de administración). Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono de System Center Operations Manager Health Check en la página **Información general** del área de trabajo en Azure Portal.
+Para poder usar una solución de comprobación de estado en Log Analytics, debe tenerla instalada. Para obtener más información sobre cómo instalar soluciones, consulte [Install a management solution](../monitoring/monitoring-solutions.md) (Instalar una solución de administración). Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono de System Center Operations Manager Health Check en la página **Información general** del área de trabajo en Azure Portal.
 
 Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
@@ -238,7 +238,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-queries.md), la consulta anterior cambiaría como sigue.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-queries.md), la consulta anterior cambiaría como sigue.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Búsquedas de registros](log-analytics-log-searches.md) para obtener más información sobre cómo analizar recomendaciones y datos de System Center Operations Manager Health Check.
+- [Búsquedas de registros](log-analytics-queries.md) para obtener más información sobre cómo analizar recomendaciones y datos de System Center Operations Manager Health Check.
