@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390319"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420257"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -37,6 +37,37 @@ Permisos necesarios | Para más información sobre los permisos necesarios para 
 
 Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>Estado de la versión 
+
+25/10/2018: publicado para descargar
+
+ 
+### <a name="new-features-and-improvements"></a>Nuevas características y mejoras 
+
+
+- Se ha cambiado la funcionalidad de reescritura de atributos para asegurar que el correo de voz alojado funciona como se esperaba.  En determinados escenarios, Azure AD sobrescribía el atributo msExchUcVoicemailSettings durante la reescritura con un valor nulo.  Azure AD ya no borrará el valor local de este atributo si el valor de la nube no está establecido.
+- Se mejoró el manejo de las reglas predeterminadas modificadas. Se le notificará si ha realizado cambios en las reglas predeterminadas y se le ofrecerán opciones para repararlas. 
+- Se agregaron diagnósticos en el asistente de Azure AD Connect para investigar e identificar problemas de conectividad con Azure AD. Estos diagnósticos también se pueden ejecutar directamente a través de Powershell con el cmdlet Test- AdSyncAzureServiceConnectivity. 
+- Se agregaron diagnósticos en el asistente de Azure AD Connect para investigar e identificar problemas de conectividad con AD. Estos mismos diagnósticos también se pueden ejecutar directamente a través de Powershell con la función Start-ConnectivityValidation en el módulo ADConnectivityTools de Powershell.  Para obtener más información, vea [¿Qué es el módulo de PowerShell ADConnectivityTool?](how-to-connect-adconnectivitytools.md)
+- Se agregó una comprobación previa de la versión del esquema de AD para Hybrid Azure Active Directory Join y la reescritura de dispositivos 
+- Se cambió la búsqueda de atributos de la página Extensión de directorio para que no distinga mayúsculas de minúsculas.
+-   Se ha agregado compatibilidad total con TLS 1.2. Esta versión admite que todos los demás protocolos se deshabiliten y que solo TLS 1.2 se habilite en la máquina donde está instalado Azure AD Connect.  Para obtener más información, consulte [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md) (Aplicación de TLS 1.2 para Azure AD Connect)
+
+ 
+
+### <a name="fixed-issues"></a>Problemas corregidos   
+
+- Se ha corregido un error donde la actualización de Azure AD Connect produciría un error si se estaba usando SQL Always On. 
+- Se ha corregido un error para poder analizar correctamente los nombres de UO que contenían una barra diagonal. 
+- Se ha solucionado un problema por el que la Autenticación de paso a través se deshabilitaba al realizar una instalación limpia en el modo de ensayo. 
+- Se ha corregido un error que impedía que el módulo de PowerShell se cargara al ejecutar las herramientas de solución de problemas 
+- Se ha corregido un error que impedía que los clientes usaran valores numéricos en el primer carácter de un nombre de host. 
+- Se ha corregido un error que hacía que Azure AD Connect permitiera particiones y selecciones de contenedor no válidas. 
+- Se ha corregido el mensaje de error "Contraseña no válida" cuando está habilitado SSO de escritorio. 
+- Se han corregido varios errores de Administración de confianza de AD FS  
+- Al configurar la escritura diferida de dispositivo: se ha corregido la comprobación de esquema para buscar la clase de objeto msDs-DeviceContainer (introducida en WS2012 R2)
 
  
 ## <a name="118820"></a>1.1.882.0  
@@ -1019,7 +1050,7 @@ Ha cambiado el nombre de Azure AD Sync a Azure AD Connect.
 
 **Nuevas características:**
 
-* Instalación de la [configuración rápida](how-to-connect-install-express.md)
+* [configuración rápida](how-to-connect-install-express.md)
 * Posibilidad de [configurar AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * Posibilidad de [actualizar desde DirSync](how-to-dirsync-upgrade-get-started.md)
 * [Evitar eliminaciones accidentales](how-to-connect-sync-feature-prevent-accidental-deletes.md)

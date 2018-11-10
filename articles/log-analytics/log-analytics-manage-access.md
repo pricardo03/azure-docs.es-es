@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421176"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964159"
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
 
@@ -52,7 +52,7 @@ Desde el punto de vista del consumo, se recomienda crear el menor número de ár
 * Un proveedor de servicio administrado que necesita mantener los datos de Log Analytics para cada cliente que administra aislados de los datos de otro cliente.
 * Como tal, tiene que administrar varios clientes y desea que cada cliente, departamento o grupo empresarial vea sus propios datos, pero no los datos de los demás.
 
-Cuando se usan agentes de Windows para recopilar datos, se puede [configurar cada uno de ellos para que informe a una o varias áreas de trabajo](log-analytics-windows-agents.md).
+Cuando se usan agentes de Windows para recopilar datos, se puede [configurar cada uno de ellos para que informe a una o varias áreas de trabajo](log-analytics-agent-windows.md).
 
 Si usa System Center Operations Manager, cada grupo de administración de Operations Manager se puede conectar con una sola área de trabajo. Se puede instalar Microsoft Monitoring Agent en los equipos administrados por Operations Manager y hacer que el agente informe tanto a Operations Manager como a una diferente área de trabajo de Log Analytics.
 
@@ -73,7 +73,7 @@ Puede ver los detalles sobre el área de trabajo en Azure Portal.
     ![Información detallada acerca del área de trabajo](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Administración de cuentas y usuarios
-Cada área de trabajo puede tener varias cuentas asociadas, y cada cuenta puede tener acceso a varias áreas de trabajo. El acceso se administra a través del [acceso basado en rol de Azure](../active-directory/role-based-access-control-configure.md). Estos derechos de acceso se aplican en el acceso a Azure Portal y a la API.
+Cada área de trabajo puede tener varias cuentas asociadas, y cada cuenta puede tener acceso a varias áreas de trabajo. El acceso se administra a través del [acceso basado en rol de Azure](../role-based-access-control/role-assignments-portal.md). Estos derechos de acceso se aplican en el acceso a Azure Portal y a la API.
 
 
 Las siguientes actividades también requieren permisos de Azure:
@@ -87,7 +87,7 @@ Las siguientes actividades también requieren permisos de Azure:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Administración del acceso a Log Analytics mediante permisos de Azure
-Para conceder acceso al área de trabajo de Log Analytics mediante permisos de Azure, siga los pasos que se describen en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
+Para conceder acceso al área de trabajo de Log Analytics mediante permisos de Azure, siga los pasos que se describen en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md).
 
 Azure tiene dos roles de usuario integrados para Log Analytics:
 - Lector de Log Analytics
@@ -146,7 +146,7 @@ Use estos roles para conceder a los usuarios acceso en distintos ámbitos:
 - Grupo de recursos: acceso a todas las áreas de trabajo del grupo de recursos
 - Recurso: acceso solo al área de trabajo especificada
 
-Se recomienda que realice las asignaciones en el nivel de recurso (área de trabajo) para asegurarse de que el control de acceso es preciso.  Use [roles personalizados](../active-directory/role-based-access-control-custom-roles.md) para crear roles con los permisos específicos necesarios.
+Se recomienda que realice las asignaciones en el nivel de recurso (área de trabajo) para asegurarse de que el control de acceso es preciso.  Use [roles personalizados](../role-based-access-control/custom-roles.md) para crear roles con los permisos específicos necesarios.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Vincular un área de trabajo existente a una suscripción de Azure
 Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben estar vinculadas a una suscripción de Azure en el momento de la creación. Las áreas de trabajo creadas antes de esta fecha deben estar vinculadas a un área de trabajo la próxima vez que inicie sesión. Al crear el área de trabajo desde Azure Portal, o al vincular el área de trabajo a una suscripción de Azure, su instancia de Azure Active Directory quedará vinculada como su cuenta de organización.
@@ -241,5 +241,5 @@ Su nuevo plan de datos se muestra en la cinta de opciones del portal OMS, que se
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Recopilar datos de equipos en su entorno con Log Analytics](log-analytics-concept-hybrid.md) para recopilar datos de los equipos de su centro de datos o de otro entorno en la nube.
 * Consulte [Recopilación de datos de máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md) para configurar la recopilación de datos de máquinas virtuales de Azure.  
-* [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) (Incorporación de soluciones de Log Analytics desde la galería de soluciones) para agregar funcionalidad y recopilar datos.
+* [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md) (Incorporación de soluciones de Log Analytics desde la galería de soluciones) para agregar funcionalidad y recopilar datos.
 

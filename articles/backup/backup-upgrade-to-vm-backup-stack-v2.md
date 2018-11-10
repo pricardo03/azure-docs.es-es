@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406541"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962544"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Actualización a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure
 
@@ -28,8 +28,8 @@ El modelo de implementación de Resource Manager para la actualización a la pil
 
 * Capacidad de usar cuentas de almacenamiento originales de una máquina virtual no administrada al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
     > [!NOTE]
-    > Esta funcionalidad no es la misma que reemplazar los discos de la máquina virtual con los datos de punto de recuperación. 
-    
+    > Esta funcionalidad no es la misma que reemplazar los discos de la máquina virtual con los datos de punto de recuperación.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>¿Qué es lo que cambia en la nueva pila?
 En la actualidad, el trabajo de copia de seguridad consta de dos fases:
@@ -55,7 +55,7 @@ De forma predeterminada, las instantáneas se conservan durante siete días. Est
 * Para las cuentas de almacenamiento premium, las instantáneas tomadas para los puntos de recuperación de instantánea se consideran en el límite de 10 TB de espacio asignado.
 
 > [!NOTE]
-> Actualice a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure para obtener soporte técnico de Azure Backup para [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) y máquinas virtuales con hasta 32 discos de datos.
+> Actualice a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure para obtener soporte técnico de Azure Backup para [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## <a name="upgrade"></a>Actualizar
 ### <a name="the-azure-portal"></a>El Portal de Azure
@@ -119,4 +119,4 @@ Cada día se toma una instantánea nueva. Hay siete instantáneas individuales. 
 Las instantáneas incrementales se usan para los discos no administrados. Para discos administrados, la colección de puntos de restauración creada por Azure Backup usa las instantáneas de blob y, por tanto, son incrementales.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>¿Cómo obtener soporte técnico para discos administrados SSD estándar para una máquina virtual?
-Actualice a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure para obtener soporte técnico de Azure Backup para [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Después de actualizar, también puede hacer una copia de seguridad de máquinas virtuales con hasta 32 discos de datos.
+Actualice a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure para obtener soporte técnico de Azure Backup para [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).

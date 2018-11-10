@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
-ms.openlocfilehash: 656a5df21d1f7dd2e7662dc3a0415581eae02b00
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7cb8c992b4c131b7f28eca6c2f35ee9facdf8d4e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471244"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416110"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar de Custom Speech Service al servicio Voz
 
@@ -41,14 +41,14 @@ El modelo de precios es más sencillo, al pasar a un modelo de precios por hora 
 4. Actualice la aplicación cliente para usar las API y el servicio Voz. 
 
 > [!NOTE]
-> * LUIS: si habilitó la voz en Language Understanding (LUIS), un único recurso de LUIS en la misma región funcionará para LUIS, así como todos los servicios de voz. Consulte la documentación de [Reconocimiento de intenciones a partir de contenido de voz](how-to-recognize-intents-from-speech-csharp.md).
-> * La traducción de texto a texto no forma parte del servicio Voz. Necesita su propia suscripción a recursos de Azure.
+> * Si habilitó la voz en Language Understanding (LUIS), un único recurso de LUIS en la misma región funcionará para LUIS, así como todos los servicios de voz. Para obtener más información, consulte [Reconocimiento de intenciones a partir de contenido de voz](how-to-recognize-intents-from-speech-csharp.md).
+> * La traducción de texto a texto no forma parte del servicio Voz. Esta funcionalidad requiere su propia suscripción de recursos de Azure.
   
 
 
 ## <a name="migration-for-existing-customers"></a>Migración para los clientes actuales
 
-Los clientes existentes tienen que migrar sus claves de recursos existentes con el servicio Voz en el portal del servicios Voz. Para ello, siga los pasos que se describen a continuación: 
+Migre sus claves de recursos existentes con el servicio Voz en el portal del servicio Voz. Para ello, siga los pasos que se describen a continuación: 
 
 > [!NOTE] 
 > Las claves de recursos solo se pueden migrar en la misma región. 
@@ -61,8 +61,8 @@ Los clientes existentes tienen que migrar sus claves de recursos existentes con 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Prueba gratuita del servicio Voz](get-started.md)
-* Obtenga información sobre los conceptos de [convertir voz en texto](./speech-to-text.md)
+* [Prueba gratuita del servicio Voz](get-started.md).
+* Obtenga información sobre los conceptos de [conversión de voz en texto](./speech-to-text.md).
 
 ## <a name="see-also"></a>Otras referencias
 

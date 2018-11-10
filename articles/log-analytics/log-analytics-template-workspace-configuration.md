@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 833bb6838733395d83468be3d2960c7c237aa3fc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402225"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957682"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
@@ -521,6 +521,6 @@ La galería de plantillas de inicio rápido de Azure incluye varias plantillas p
 * [Agregar una cuenta de almacenamiento existente a Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implemente el agente de Windows en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../virtual-machines/windows/extensions-oms.md).
-* [Implemente el agente de Linux en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../virtual-machines/linux/extensions-oms.md).
+* [Implemente el agente de Windows en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../virtual-machines/extensions/oms-windows.md).
+* [Implemente el agente de Linux en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../virtual-machines/extensions/oms-linux.md).
 

@@ -4,20 +4,30 @@ description: Se proporciona información general sobre los problemas conocidos d
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945525"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413340"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
 ## <a name="troubleshoot-common-errors"></a>Solución de errores comunes
 
 [Azure Migrate](migrate-overview.md) evalúa las cargas de trabajo locales para su migración a Azure. Use este artículo para solucionar problemas al implementar y usar Azure Migrate.
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Utilizo el archivo OVA de detección continua, pero las máquinas virtuales que se eliminan en mi entorno local aún se muestran en el portal.
+
+El dispositivo de detección continua solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de máquina virtual, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
+
+- Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
+
+   ![Detención de la detección](./media/troubleshooting-general/stop-discovery.png)
+
+- Eliminación de máquinas virtuales: debido a la forma en que está diseñado el dispositivo, la eliminación de las máquinas virtuales no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Error al crear el proyecto de migración, que indica que *las solicitudes deben contener encabezados de identidad del usuario*
 
@@ -41,19 +51,18 @@ Puede ir a la sección **Essentials** en la página **Introducción** del proyec
 
    ![Ubicación del proyecto](./media/troubleshooting-general/geography-location.png)
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Utilizo el archivo OVA de detección continua, pero las máquinas virtuales que se eliminan en mi entorno local aún se muestran en el portal.
-
-El dispositivo de detección continua solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de máquina virtual, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
-
-1. Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
-
-2. Eliminación de máquinas virtuales: debido a la forma en que está diseñado el dispositivo, la eliminación de las máquinas virtuales no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
-
 ## <a name="collector-errors"></a>Errores del recopilador
 
-### <a name="deployment-of-collector-ova-failed"></a>Error de implementación del archivo OVA del recopilador
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>La implementación Azure Migrate Collector produjo el siguiente error: El archivo de manifiesto proporcionado no es válido: Entrada de manifiesto OVF no válida.
 
-Esto podría suceder si el archivo OVA se descarga parcialmente o debido al explorador si usa el cliente web vSphere para implementar dicho archivo. Asegúrese de que la descarga haya finalizado e intente implementar el archivo OVA con un explorador diferente.
+1. Compruebe si el archivo OVA de Azure Migrate Collector se descarga correctamente mediante la comprobación del valor hash. Consulte este [artículo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para comprobar el valor hash. Si el valor de hash no coincide, vuelva a descargar el archivo OVA e intente de nuevo la implementación.
+2. Si sigue sin funcionar y utiliza el cliente de VMware vSphere para implementar el OVF, intente implementarlo mediante el cliente web de vSphere. Si sigue sin funcionar, intente usar otro explorador web.
+3. Si está usando el cliente web de vSphere e intenta implementarlo en vCenter Server 6.5, pruebe a implementar el archivo OVA directamente en el host ESXi siguiendo estos pasos:
+  - Conéctese directamente al host ESXi (en lugar de vCenter Server) mediante el cliente web (https://<*dirección IP del host*>/ui)
+  - Vaya a Inicio > Inventario
+  - Haga clic en Archivo > Deploy OVF template (Implementar plantilla OVF) > Busque el archivo OVA y complete la implementación.
+4. Si la implementación sigue sin funcionar, póngase en contacto con el soporte técnico de Azure Migrate.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>El recopilador no es capaz de conectarse a Internet
 
@@ -212,9 +221,8 @@ Para recopilar el Seguimiento de eventos para Windows, haga lo siguiente:
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de error del recopilador y acciones recomendadas
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Código de error | Nombre del error                      | Message                                                                       | Causas posibles                                                                                        | Acción recomendada                                                                                                                          |
+| Código de error | Nombre del error   | Message   | Causas posibles | Acción recomendada  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | El recopilador expiró.                                                        | Recopilador expirado.                                                                                    | Descargue una versión más reciente del recopilador y vuelva a intentarlo.                                                                                      |
 | 751       | UnableToConnectToServer        | No se puede conectar con vCenter Server "%Name;" debido al siguiente error: %ErrorMessage;.     | Para obtener más detalles, consulte el mensaje de error.                                                             | Resuelva el problema y vuelva a intentarlo.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | El servidor "%Name;" no es ninguna instancia de vCenter Server.                                  | Proporcione los detalles de vCenter Server.                                                                       | Vuelva a intentar la operación con los detalles correctos de vCenter Server.                                                                                   |

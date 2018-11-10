@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117175"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962204"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Alertas unificadas en Azure Monitor
 
@@ -82,9 +82,9 @@ Siga estos pasos para crear una regla de alertas nueva:
  
 Este proceso simplificado de creación ya no requiere que el usuario sepa las señales o el origen de supervisión admitidos antes de seleccionar un recurso de Azure. La lista de señales disponibles se filtra automáticamente según el recurso de destino seleccionado y lo ayuda a definir la lógica de la regla de alertas.
 
-Puede obtener más información sobre cómo crear reglas de alertas en [Creación, visualización y administración de alertas mediante Azure Monitor](monitor-alerts-unified-usage.md).
+Puede obtener más información sobre cómo crear reglas de alertas en [Creación, visualización y administración de alertas mediante Azure Monitor](alert-metric.md).
 
-Las alertas están disponibles a través de varios servicios de supervisión de Azure. Para obtener más información sobre cómo y cuándo usar cada uno de estos servicios, consulte [Supervisión de aplicaciones y recursos de Azure](./monitoring-overview.md). En la tabla siguiente se proporciona una lista de los tipos de reglas de alertas disponibles a través de Azure. También se muestra lo que admite actualmente la experiencia de alertas unificada.
+Las alertas están disponibles a través de varios servicios de supervisión de Azure. Para obtener más información sobre cómo y cuándo usar cada uno de estos servicios, consulte [Supervisión de aplicaciones y recursos de Azure](../azure-monitor/overview.md). En la tabla siguiente se proporciona una lista de los tipos de reglas de alertas disponibles a través de Azure. También se muestra lo que admite actualmente la experiencia de alertas unificada.
 
 | **Origen de supervisión** | **Tipo de señal**  | **Descripción** | 
 |-------------|----------------|-------------|
@@ -224,7 +224,7 @@ La página de detalles del grupo inteligente incluye las secciones siguientes.
 | Historial | Muestra cada acción que realiza el grupo inteligente y los cambios hechos en él. Se limita actualmente a los cambios de estado y a los cambios de pertenencia de una alerta. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Obtenga información sobre cómo usar la nueva experiencia de Alertas para crear, ver y administrar alertas](monitor-alerts-unified-usage.md).
+- [Obtenga información sobre cómo usar la nueva experiencia de Alertas para crear, ver y administrar alertas](alert-metric.md).
 - [Obtenga información sobre las alertas de registros en la experiencia de Alertas](monitor-alerts-unified-log.md).
 - [Obtenga información sobre las alertas de métricas en la experiencia de Alertas](monitoring-near-real-time-metric-alerts.md).
-- [Obtenga información sobre las alertas de registros de actividad en la experiencia de Alertas](monitoring-activity-log-alerts-new-experience.md).
+- [Obtenga información sobre las alertas de registros de actividad en la experiencia de Alertas](alert-activity-log.md).
