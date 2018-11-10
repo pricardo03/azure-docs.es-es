@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/17/2018
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: a1705913e1656901d0a87a3cebb2eb69a6c7ad63
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698594"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740577"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB (parte 6): incorporación de las funciones Post, Put y Delete a la aplicación
 
@@ -88,13 +88,13 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
     });
     ```
 
-5. Ejecute la aplicación para comprobar que todo funcionó. En Visual Studio Code, guarde los cambios, haga clic en el botón **Depurar** ![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) en el lado izquierdo y haga clic en el botón **Iniciar depuración** ![Icono Iniciar depuración en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Ejecute la aplicación para comprobar que todo funcionó. En Visual Studio Code, guarde los cambios, seleccione el botón **Depurar** ![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) en el lado izquierdo y seleccione el botón **Iniciar depuración** ![Icono Iniciar depuración en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Ahora vuelva atrás en el explorador de Internet y abra la pestaña Red de las herramientas de desarrollador; en la mayoría de los equipos, debe presionar F12. Vaya a [http://localhost:3000](http://localhost:3000) para ver las llamadas realizadas a través de la red.
 
     ![Pestaña Funciones de red en Chrome que muestra la actividad de red](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. Agregue un nuevo héroe; para ello, haga clic en el botón **Add New Hero** (Agregar nuevo héroe). Escriba el identificador "999", el nombre "Fred" y el mensaje "Hello"; y haga clic en **Guardar**. En la pestaña Red debería ver que ha enviado una solicitud POST para el nuevo héroe. 
+7. Agregue un nuevo héroe; para ello, seleccione el botón **Add New Hero** (Agregar nuevo héroe). Escriba el identificador "999", el nombre "Fred" y el mensaje "Hello"; y haga clic en **Guardar**. En la pestaña Red debería ver que ha enviado una solicitud POST para el nuevo héroe. 
 
     ![Pestaña Funciones de red de Chrome que muestra la actividad de red para las funciones Get y Post](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -173,17 +173,17 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
     };
     ```
 
-4. Ahora que hemos actualizado el código, haga clic en el botón **Reiniciar** ![botón Reiniciar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) en Visual Studio Code.
+4. Ahora que hemos actualizado el código, seleccione el botón **Reiniciar** ![botón Reiniciar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) en Visual Studio Code.
 
-5. Actualice la página en el explorador de Internet y haga clic en el botón **Add New Hero** (Agregar nuevo héroe). Agregue un nuevo héroe con el identificador "9", el nombre "Starlord" y el mensaje "Hello". Haga clic en el botón **Guardar** para guardar el nuevo héroe.
+5. Actualice la página en el explorador de Internet y seleccione el botón **Add New Hero** (Agregar nuevo héroe). Agregue un nuevo héroe con el identificador "9", el nombre "Starlord" y el mensaje "Hello". Haga clic en el botón **Guardar** para guardar el nuevo héroe.
 
-6. Ahora seleccione el héroe **Starlord** y cambie el mensaje de "Hi" a "Bye"; después, haga clic en el botón **Guardar**. 
+6. Ahora seleccione el héroe **Starlord** y cambie el mensaje de "Hi" a "Bye"; después, seleccione el botón **Guardar**. 
 
     Ahora puede seleccionar el identificador en la pestaña Red para mostrar la carga. En la carga puede ver que el mensaje ahora está establecido en "Bye".
 
     ![Aplicación Heroes y pestaña Red que muestra la carga](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    También puede eliminar uno de los héroes de la interfaz de usuario y ver el tiempo que se tarda en completar la operación de eliminación. Para probarlo, haga clic en el botón "Eliminar" del héroe llamado "Fred".
+    También puede eliminar uno de los héroes de la interfaz de usuario y ver el tiempo que se tarda en completar la operación de eliminación. Para probarlo, seleccione el botón "Eliminar" del héroe llamado "Fred".
 
     ![Aplicación Heroes y la pestaña Red que muestra el tiempo para completar las funciones](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

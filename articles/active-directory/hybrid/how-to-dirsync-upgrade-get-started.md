@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7d11d238b921c63d1d2317371da07d8e49e8ac9d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301979"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228630"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Actualización desde DirSync
 Azure AD Connect es el sucesor de DirSync. En este tema, se explican distintas formas de realizar actualizaciones desde DirSync. Estos pasos no funcionan para la actualización desde otra versión de Azure AD Connect ni desde Sincronización de Azure AD.
 
-Antes de empezar a instalarlo, debe [descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se señalan en [Requisitos previos de Azure AD Connect](how-to-connect-install-prerequisites.md). En concreto, lea la información acerca de las siguientes áreas, ya que son diferentes de DirSync:
+Antes de empezar a instalarlo, debe [descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se señalan en [Requisitos previos de Azure AD Connect](how-to-connect-install-prerequisites.md). En concreto, lea la información acerca de las siguientes áreas, ya que son diferentes de DirSync:
 
 * La versión necesaria de .Net y PowerShell. Se requiere que en el servidor se encuentren versiones más recientes de las que necesitaba DirSync.
 * La configuración del servidor proxy. Si se usa un servidor proxy para conectarse a Internet, este valor debe configurarse antes de realizar la actualización. DirSync siempre utiliza el servidor proxy configurado para el usuario que lo instala, pero Azure AD Connect usa la configuración de la máquina en su lugar.

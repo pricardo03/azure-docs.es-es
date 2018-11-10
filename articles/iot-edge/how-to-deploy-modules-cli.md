@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e872b7eaeb7743221b8cdf41dd0a24ea0c4287d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c882321af38b21f4820345b8ce5448227cb121c6
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967496"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977641"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implementación de módulos de Azure IoT Edge con la CLI de Azure
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo crear un manifiesto de implementación de JSO
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
 * Un [dispositivo de IoT Edge](how-to-register-device-cli.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
-* [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
+* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
 * La [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
@@ -112,7 +112,7 @@ Cambie los directorios a la carpeta donde se guarda el manifiesto de implementac
 Utilice el siguiente comando para aplicar la configuración a un dispositivo IoT Edge:
 
    ```cli
-   az iot hub apply-configuration --device-id [device id] --hub-name [hub name] --content [file path]
+   az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
 El parámetro "device id" distingue mayúsculas y minúsculas. El parámetro "content" apunta al archivo del manifiesto de implementación que guardó. 

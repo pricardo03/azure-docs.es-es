@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e1c85b345acdce6f50cfa169977c513ba0ae2a3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989642"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740440"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Administración de costos mediante Cloudyn
 
@@ -61,7 +61,7 @@ En la página **Cost Allocation 360°** (Asignación de costos 360°), seleccion
 
 
 
-En el ejemplo, 14.444 $ aparece sin clasificar (sin etiquetas).
+En el ejemplo, 19 680 USD aparece sin clasificar (sin etiquetas).
 
 A continuación, seleccione **Uncategorized Resources** (Recursos sin categoría) y seleccione los servicios que tengan costos sin asignar. A continuación, defina las reglas para asignar costos.
 

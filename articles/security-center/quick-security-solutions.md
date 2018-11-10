@@ -3,7 +3,7 @@ title: 'Guía de inicio rápido de Azure Security Center: Conexión de solucione
 description: 'Guía de inicio rápido de Azure Security Center: Conexión de soluciones de seguridad'
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: afc72f5b18460578b0cfcd085fe601184a2f898b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: rkarlin
+ms.openlocfilehash: d02c71865f900c2b75da60bd2e989e04a6823d11
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561304"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005247"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Guía de inicio rápido: Conexión de soluciones de seguridad a Security Center
 
@@ -30,7 +30,7 @@ Esta guía de inicio rápido le muestra cómo:
 - Conectar una solución de seguridad a Security Center mediante registros CEF
 - Validar la conexión con la solución de seguridad
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
 
 Para completar esta guía de inicio rápido, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita los primeros 60 días. En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.

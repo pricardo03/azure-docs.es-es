@@ -3,7 +3,7 @@ title: Creación de un conjunto de escalado de máquinas virtuales de Azure | Mi
 description: Aprenda a modificar y actualizar un conjunto de escalado de máquinas virtuales de Azure con las API REST, Azure PowerShell y la CLI de Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: negat
-ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: manayar
+ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322080"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740594"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 A lo largo del ciclo de vida de las aplicaciones, puede que tenga la necesidad de modificar o actualizar el conjunto de escalado de máquinas virtuales. Estas actualizaciones pueden incluir cómo actualizar la configuración del conjunto de escalado o cambiar la configuración de la aplicación. En este artículo se describe cómo modificar un conjunto de escalado existente con las API REST, Azure PowerShell o la CLI de Azure.
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Estas propiedades describen la configuración de la instancia de máquina virtual, no la del conjunto de escalado como un todo. Por ejemplo, el modelo de conjunto de escalado tiene la propiedad `overprovision`, mientras que el modelo de una instancia de máquina virtual de un conjunto de escalado no. Esta diferencia se debe a que el exceso de aprovisionamiento es una propiedad del conjunto de escalado como un todo, y no de las instancias de máquinas virtuales individuales del conjunto de escalado. Para más información sobre el aprovisionamiento en exceso, consulte [Consideraciones de diseño para conjuntos de escalado](virtual-machine-scale-sets-design-overview.md#overprovisioning).
+Estas propiedades describen la configuración de una instancia de máquina virtual en un conjunto de escalado, no la del conjunto de escalado como un todo. Por ejemplo, el modelo de conjunto de escalado tiene la propiedad `overprovision`, mientras que el modelo de una instancia de máquina virtual de un conjunto de escalado no. Esta diferencia se debe a que el exceso de aprovisionamiento es una propiedad del conjunto de escalado como un todo, y no de las instancias de máquinas virtuales individuales del conjunto de escalado. Para más información sobre el aprovisionamiento en exceso, consulte [Consideraciones de diseño para conjuntos de escalado](virtual-machine-scale-sets-design-overview.md#overprovisioning).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>La vista de la instancia de máquina virtual del conjunto de escalado
-Al igual que un conjunto de escalado tiene una vista de instancia, cada instancia de máquina virtual de este tiene su propia vista de instancia. Para consultar la vista de instancia de una instancia de máquina virtual de un conjunto de escalado puede usar:
+Al igual que un conjunto de escalado tiene una vista de instancia, cada instancia de máquina virtual de este tiene su propia vista de instancia. Para consultar la vista de instancia de una instancia de máquina virtual concreta de un conjunto de escalado puede usar:
 
 - API REST con [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) de la manera siguiente:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Estas propiedades describen el estado actual del entorno de tiempo de ejecución de la instancia de máquina virtual, que incluye cualquier extensión que se aplica al conjunto de escalado.
+Estas propiedades describen el estado actual del entorno de tiempo de ejecución de una instancia de máquina virtual en un conjunto de escalado, que incluye cualquier extensión que se aplica al conjunto de escalado.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Actualización de las propiedades globales del conjunto de escalado

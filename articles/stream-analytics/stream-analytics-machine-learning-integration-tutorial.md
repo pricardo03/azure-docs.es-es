@@ -3,18 +3,18 @@ title: Integración de Azure Stream Analytics con Azure Machine Learning
 description: En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning mediante una función definida por el usuario.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5468117fe117623b2e03fdf8ec451a9a0151e3dd
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527919"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979172"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Análisis de opiniones mediante Azure Stream Analytics y Azure Machine Learning
 En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning. Un modelo de análisis de opiniones de Machine Learning de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones en tiempo real. Cortana Intelligence Suite permite realizar esta tarea sin preocuparse por las complejidades de la creación de un modelo de análisis de opiniones.
@@ -36,7 +36,7 @@ La imagen siguiente muestra esta configuración. Como se ha indicado, para un es
 
 ![Información general sobre la integración de Stream Analytics Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Una suscripción de Azure activa.

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c6e0521f37e85bcb3395de0ad1e9d463125e17f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469805"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218906"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en una aplicación para UWP mediante el SDK de Voz
 
@@ -70,7 +70,7 @@ Necesita una clave de suscripción del servicio Voz para completar este inicio r
 1. La línea de salida siguiente aparece en la consola del Administrador de paquetes.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
    ```
 
 1. Dado que la aplicación usa el micrófono para entrada de voz, agregue la funcionalidad de **micrófono** al proyecto. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** para editar el manifiesto de aplicación. Después, seleccione la pestaña **Capabilities** (Funcionalidades), active la casilla de verificación de la funcionalidad **Microphone** (Micrófono) y guarde los cambios.

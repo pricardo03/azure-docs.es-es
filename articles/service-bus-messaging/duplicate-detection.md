@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: fb42f9920ce173b25cbc16725cf1f9dfd96fcc9e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5241020b1db3797891ae13da54cc9225bbd4619b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853460"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741274"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -41,6 +41,9 @@ El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identifi
 En el portal, la característica se activa durante la creación de la entidad con la casilla **Habilitar detección de duplicados**, que está desactivada de forma predeterminada. La configuración para la creación de nuevos temas es equivalente.
 
 ![][1]
+
+> [!IMPORTANT]
+> No puede habilitar o deshabilitar la detección de duplicados después de crear la cola. Solo puede hacerlo en el momento de creación de la cola. 
 
 Mediante programación, establezca el indicador con la propiedad [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) en la API de .NET Framework completa. Con la API de Azure Resource Manager, el valor se establece con la propiedad [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 

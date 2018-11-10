@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038497"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979206"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -50,7 +50,7 @@ En este artículo se incluyen las preguntas frecuentes sobre la configuración y
 - [¿Cuáles son las características y funcionalidades que proporcionan los IPS/IDS y DDoS básicos de Azure?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [¿Cómo se habilita HTTP/2 en máquinas virtuales de Cloud Services?](#how-to-enable-http2-on-cloud-services-vm)
 
-**permisos**
+**Permisos**
 
 - [¿Pueden los ingenieros dentro de Microsoft ejecutar instancias de protocolo de escritorio remoto en el servicio en la nube sin permiso?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [No puedo usar el escritorio remoto con una máquina virtual del servicio en la nube mediante el archivo RDP. Aparece el siguiente error: se ha producido un error de autenticación (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -112,10 +112,8 @@ Puede automatizar esta tarea mediante un script de inicio (batch/cmd/PowerShell)
 Este certificado se usa para cifrar las claves de la máquina en los roles de web de Azure. Para más información, consulte este aviso [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Para más información, consulte los siguientes artículos.
-- 
-  [Configuración y ejecución de tareas de inicio en un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- 
-  [Tareas de inicio comunes de un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Configuración y ejecución de tareas de inicio en un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Tareas de inicio comunes de un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -144,7 +142,7 @@ Para obtener más información, vea los documentos siguientes:
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>¿Cómo se puede habilitar el registro de WAD para Cloud Services?
 Puede habilitar el registro de Windows Azure Diagnostics (WAD) a través de las opciones siguientes:
-1. [Habilitar desde Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+1. [Habilitar desde Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Habilitar mediante código de .Net](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Habilitar mediante Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
@@ -250,7 +248,7 @@ Para más información acerca de cómo integrar Azure Diagnostics con Applicatio
 
 Para más información acerca de cómo habilitar Application Insights para Cloud Services, consulte [Application Insights para Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-Para más información acerca de cómo habilitar Azure Diagnostics Logging para Cloud Services, consulte [Activación de diagnósticos en los proyectos de servicios en la nube antes de implementarlos](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+Para más información acerca de cómo habilitar Azure Diagnostics Logging para Cloud Services, consulte [Activación de diagnósticos en los proyectos de servicios en la nube antes de implementarlos](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>Genérico
 
@@ -296,8 +294,7 @@ Los ajustes del diario no son configurables, por lo que no se pueden desactivar.
 
 Puede habilitar la extensión antimalware mediante el script de PowerShell en la tarea de inicio. Siga los pasos descritos en los siguientes artículos para implementarla: 
  
-- 
-  [Creación de una tarea de inicio de PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
+- [Creación de una tarea de inicio de PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 Para obtener más información sobre los escenarios de implementación de antimalware y cómo habilitarlo desde el portal, vea [Escenarios de implementación de Antimalware](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).

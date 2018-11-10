@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: b7f0e1ff359d7ec062f35360c107e33999ca198a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cb2b3d02cdeadbe45b93b0185a8c0064b9d61e93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414257"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227712"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envío mensajes de nube a dispositivo con IoT Hub (Java)
 
@@ -40,7 +40,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Java:
 * **send-c2d-messages**, que envía un mensaje de nube a dispositivo a la aplicación de dispositivo simulado a través de IoT Hub y recibe la confirmación de entrega.
 
 > [!NOTE]
-> El Centro de IoT ofrece compatibilidad con el SDK en muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Visite el [Centro para desarrolladores de IoT de Azure](http://azure.microsoft.com/develop/iot)para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure.
+> El Centro de IoT ofrece compatibilidad con el SDK en muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Visite el [Centro para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot)para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -50,7 +50,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * [Maven 3](https://maven.apache.org/install.html)
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](http://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Recepción de mensajes en la aplicación de dispositivo simulado
 

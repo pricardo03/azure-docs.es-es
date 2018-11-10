@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: babanisa
-ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068202"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741528"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -37,7 +37,7 @@ Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure
 
 1. **Protocolo de enlace ValidationCode**: en el momento de la creación de la suscripción a eventos, EventGrid publica un "evento de validación de suscripción" en el punto de conexión. El esquema de este evento es similar a cualquier otro EventGridEvent y la parte de datos de este evento incluye una propiedad `validationCode`. Una vez que la aplicación ha comprobado que la solicitud de validación es para una suscripción a eventos esperada, el código de aplicación debe responder devolviendo el código de validación a EventGrid. Este mecanismo del protocolo de enlace se admite en todas las versiones de EventGrid.
 
-2. **Protocolo de enlace ValidationURL (protocolo de enlace manual)**: en algunos casos, puede que no tenga el control del código fuente del punto de conexión para poder implementar el protocolo de enlace ValidationCode. Por ejemplo, si usa un servicio de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de responder con el código de validación mediante programación. A partir de la versión 2018-05-01-preview, EventGrid ahora admite un protocolo de enlace de validación manual. Si va a crear una suscripción de eventos mediante SDK o herramientas que usan esta nueva versión de API (2018-05-01-preview), EventGrid envía una propiedad `validationUrl` como parte de los datos del evento de validación de suscripción. Para completar el protocolo de enlace, simplemente haga una solicitud GET en esa dirección URL, ya sea a través de un cliente de REST o mediante el explorador web. La dirección URL de validación proporcionada es válida solo durante unos 10 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual en 10 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que crear la suscripción de eventos antes de volver a intentar la validación manual.
+2. **Protocolo de enlace ValidationURL (protocolo de enlace manual)**: en algunos casos, puede que no tenga el control del código fuente del punto de conexión para poder implementar el protocolo de enlace ValidationCode. Por ejemplo, si usa un servicio de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), no puede responder con el código de validación mediante programación. A partir de la versión 2018-05-01-preview, EventGrid ahora admite un protocolo de enlace de validación manual. Si va a crear una suscripción de eventos mediante el SDK o la herramienta que usa la versión de API 2018-05-01-preview, EventGrid envía una propiedad `validationUrl` como parte de los datos del evento de validación de suscripción. Para completar el protocolo de enlace, simplemente haga una solicitud GET en esa dirección URL, ya sea a través de un cliente de REST o mediante el explorador web. La dirección URL de validación proporcionada es válida solo durante unos 10 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual en 10 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que crear la suscripción de eventos de nuevo antes de intentar la validación manual.
 
 Este mecanismo de validación manual se encuentra disponible en versión preliminar. Para usarla, debe instalar la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para [CLI de Azure](/cli/azure/install-azure-cli). Puede instalarla con `az extension add --name eventgrid`. Si usa la API REST, asegúrese de que está usando `api-version=2018-05-01-preview`.
 
@@ -93,7 +93,7 @@ Durante la creación de la suscripción a eventos, si ve un mensaje de error, pa
 
 ### <a name="event-delivery-security"></a>Seguridad de entrega de eventos
 
-Puede proteger el punto de conexión del webhook mediante la incorporación de parámetros de consulta a la URL del webhook al crear una suscripción a eventos. Establezca uno de estos parámetros de consulta como secreto, como un [token de acceso](https://en.wikipedia.org/wiki/Access_token) con el que el webhook reconozca que el evento viene de Event Grid con permisos válidos. Event Grid incluye estos parámetros de consulta en cada entrega de eventos al webhook.
+Puede proteger el punto de conexión del webhook mediante la incorporación de parámetros de consulta a la URL del webhook al crear una suscripción a eventos. Establezca uno de estos parámetros de consulta para que sea un secreto, como un [token de acceso](https://en.wikipedia.org/wiki/Access_token). Puede utilizar el webhook para que reconozca que el evento procede de Event Grid con permisos válidos. Event Grid incluye estos parámetros de consulta en cada entrega de eventos al webhook.
 
 Al editar la suscripción al evento, los parámetros de consulta no se muestran ni se devuelven, a menos que el parámetro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) se utilice en la [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) de Azure.
 
@@ -174,11 +174,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Control de acceso de administración
 
-Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en roles (RBAC) de Azure.
+Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en rol (RBAC) de Azure.
 
 ### <a name="operation-types"></a>Tipos de operación
 
-Azure Event Grid admite las siguientes acciones:
+Event Grid admite las siguientes acciones:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -187,13 +187,17 @@ Azure Event Grid admite las siguientes acciones:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-Las tres últimas operaciones devuelven información potencialmente confidencial, la cual se filtra de las operaciones de lectura normales. Se recomienda restringir el acceso a estas operaciones. Se pueden crear roles personalizados con [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), la [interfaz de la línea de comandos (CLI) de Azure](../role-based-access-control/role-assignments-cli.md) y la [API de REST](../role-based-access-control/role-assignments-rest.md).
+Las tres últimas operaciones devuelven información potencialmente confidencial, la cual se filtra de las operaciones de lectura normales. Se recomienda restringir el acceso a estas operaciones. 
 
-### <a name="enforcing-role-based-access-check-rbac"></a>Exigencia de la comprobación de acceso basada en roles (RBAC)
+### <a name="built-in-roles"></a>Roles integrados
 
-Utilice los pasos siguientes para exigir RBAC para los distintos usuarios:
+Event Grid proporciona dos roles integrados para administrar las suscripciones de eventos. Estos roles son `EventSubscription Contributor (Preview)` y `EventSubscription Reader (Preview)`. Son importantes al implementar los dominios de eventos. Para obtener más información acerca de las acciones concedidas, consulte [Event Domain - access management](event-domains.md#access-management) (Eventos de dominio: administración de acceso).
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Creación de un archivo de definición de rol personalizado (.json)
+También puede [asignar estos roles a un usuario o grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+### <a name="custom-roles"></a>Roles personalizados
+
+Si tiene que especificar permisos distintos a los de los roles integrados, puede crear roles personalizados.
 
 Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a los usuarios realizar distintas acciones.
 
@@ -201,18 +205,18 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -220,22 +224,22 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -243,37 +247,25 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Creación y asignación de roles personalizados con la CLI de Azure
-
-Para crear un rol personalizado, use:
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-Para asignar el rol a un usuario, use:
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+Puede crear roles personalizados con [PowerShell](../role-based-access-control/custom-roles-powershell.md), la [CLI de Azure](../role-based-access-control/custom-roles-cli.md) o [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

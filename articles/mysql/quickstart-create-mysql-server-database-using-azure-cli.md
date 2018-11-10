@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/01/2018
 ms.custom: mvc
-ms.openlocfilehash: c5d76141de6f5d256c7591da928c1395e83a8362
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6e6a22d450aa9b51aa16ebf5e712d65e924b7869
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406029"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958396"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Creación de una Base de datos de Azure para el servidor MySQL con la CLI de Azure
 En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una Base de datos de Azure para el servidor MySQL en un grupo de recursos de Azure en unos cinco minutos. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
@@ -136,12 +136,12 @@ El resultado está en formato JSON. Tome nota de los valores de **fullyQualified
 ```
 
 ## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>Conexión al servidor mediante la herramienta mysql.exe de la línea de comandos
-Conéctese al servidor mediante la herramienta **mysql.exe** de la línea de comandos. Puede descargarlo desde [aquí](https://dev.mysql.com/downloads/) e instalarlo en su equipo. En su lugar, también puede hacer clic en el botón **Pruébelo** de los códigos de ejemplo o en el botón `>_` de la barra de herramientas situada en la parte superior derecha de Azure Portal e iniciar **Azure Cloud Shell**.
+Conéctese al servidor mediante la herramienta **mysql.exe** de la línea de comandos. Puede descargarlo desde [aquí](https://dev.mysql.com/downloads/) e instalarlo en su equipo. 
 
 Escriba los comandos siguientes: 
 
 1. Conéctese al servidor con la herramienta de la línea de comandos **mysql**:
-```azurecli-interactive
+```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 

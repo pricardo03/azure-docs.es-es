@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 112b9bac5d99556201b2038cf150293c9f2ed86d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781867"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005808"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restauración de una instancia de Azure SQL Data Warehouse 
 En este artículo, aprenderá cómo hacer lo siguiente en Azure Portal y PowerShell:
@@ -25,10 +25,6 @@ En este artículo, aprenderá cómo hacer lo siguiente en Azure Portal y PowerSh
 - Realizar una restauración a partir de una base de datos eliminada
 - Realizar una restauración a partir de una copia de seguridad de replicación geográfica
 - Crear una copia del almacenamiento de datos desde un punto de restauración definido por el usuario
-
-> [!NOTE]
-> A partir del 27 de agosto, la restauración entre servidores se deshabilitó debido a una regresión conocida. Estamos trabajando activamente en una solución como nuestra máxima prioridad. Sentimos las molestias. Mientras tanto, puede aprovechar su [copia de seguridad geográfica](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) para hacer restauraciones en los servidores.  
->
 
 ## <a name="before-you-begin"></a>Antes de empezar
 **Compruebe la capacidad DTU**. Cada instancia de SQL Data Warehouse está hospedada en un servidor SQL Server (p. ej., myserver.database.windows.net) que tiene una cuota de DTU predeterminada.  Para poder restaurar una instancia de SQL Data Warehouse, compruebe que su servidor SQL Server tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para obtener más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU][Request a DTU quota change].

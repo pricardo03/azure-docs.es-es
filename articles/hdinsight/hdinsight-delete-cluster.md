@@ -2,19 +2,19 @@
 title: Eliminación de un clúster de Azure HDInsight
 description: Información sobre las distintas formas de eliminar un clúster de HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 39404ff74552b11e982cf5968c0eb131ea642e27
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dff9420eb0f91652cc134a37d1b248e2e5b2b681
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979461"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004542"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>Eliminación de un clúster de HDInsight con el explorador, PowerShell o la CLI clásica de Azure
 
@@ -41,7 +41,7 @@ Desde un símbolo del sistema de PowerShell, utilice el siguiente comando para e
 
 Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
 
-## <a name="azure-classic-cli"></a>CLI clásica de Azure
+## <a name="azure-classic-cli"></a>CLI de Azure clásica
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 

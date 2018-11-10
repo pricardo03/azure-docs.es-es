@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023958"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740967"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "50023958"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Se ha corregido un problema que podía producirse al procesar la división cuando se creaban particiones de la colección de concesión. El problema podía provocar que no se eliminaran de la colección de concesiones las concesiones de las particiones desaparecidas. Este problema se ha corregido en esta versión.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Cálculo del estimador fijo para las cuentas Multi Master y formato de token de sesión nuevo.

@@ -3,17 +3,17 @@ title: Nivel de compatibilidad de los trabajos de Azure Stream Analytics
 description: Obtenga información acerca de cómo establecer un nivel de compatibilidad para un trabajo de análisis de Azure Stream Analytics y de los principales cambios en el nivel de compatibilidad más reciente.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343595"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977720"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
  

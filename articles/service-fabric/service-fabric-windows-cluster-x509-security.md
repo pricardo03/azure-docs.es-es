@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721847"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228579"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Protección de un clúster independiente en Windows mediante certificados X.509
 En este artículo se describe cómo proteger la comunicación entre los diversos nodos de un clúster de Windows independiente. También se describe cómo autenticar a los clientes que se conectan a este clúster mediante certificados X.509. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster y a las aplicaciones implementadas, así como realizar tareas de administración. La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo.  
@@ -257,7 +257,7 @@ Si usa almacenes de emisor, no es necesario realizar ninguna actualización de c
 ## <a name="acquire-the-x509-certificates"></a>Adquisición de certificados X.509
 Para proteger la comunicación en el clúster, primero debe obtener certificados X.509 para los nodos del clúster. Además, para limitar la conexión a este clúster a los equipos o usuarios autorizados, debe obtener e instalar certificados para los equipos cliente.
 
-Para los clústeres que ejecutan cargas de trabajo de producción, use un certificado X.509 firmado por una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) con el fin de proteger el clúster. Para obtener más información sobre cómo obtener estos certificados, consulte [Cómo obtener un certificado](http://msdn.microsoft.com/library/aa702761.aspx).
+Para los clústeres que ejecutan cargas de trabajo de producción, use un certificado X.509 firmado por una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) con el fin de proteger el clúster. Para obtener más información sobre cómo obtener estos certificados, consulte [Cómo obtener un certificado](https://msdn.microsoft.com/library/aa702761.aspx).
 
 En los clústeres que se usan con fines de prueba, puede usar un certificado autofirmado.
 

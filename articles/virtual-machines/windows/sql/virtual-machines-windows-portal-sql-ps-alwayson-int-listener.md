@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381802"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228222"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn: Resource Manager
 En este tema se muestra cómo llevar a cabo dos tareas:
@@ -41,7 +41,7 @@ Temas relacionados:
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>Configuración de Firewall de Windows
-Configure Firewall de Windows para permitir el acceso de SQL Server. Las reglas de firewall permiten las conexiones TCP para el uso de puertos por la instancia de SQL Server, así como el sondeo del agente de escucha. Para instrucciones detalladas, consulte [Configurar Firewall de Windows para el acceso al motor de base de datos](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Cree una regla de entrada para el puerto de SQL Server y para el puerto de sondeo.
+Configure Firewall de Windows para permitir el acceso de SQL Server. Las reglas de firewall permiten las conexiones TCP para el uso de puertos por la instancia de SQL Server, así como el sondeo del agente de escucha. Para instrucciones detalladas, consulte [Configurar Firewall de Windows para el acceso al motor de base de datos](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Cree una regla de entrada para el puerto de SQL Server y para el puerto de sondeo.
 
 Si restringe el acceso con Azure Network Security Group, asegúrese de que las reglas de permiso incluyan las direcciones IP de back-end de VM con SQL Server, y direcciones IP flotantes del equilibrador de carga para la escucha de grupo de disponibilidad y la dirección IP principal del clúster, si corresponde.
 
@@ -110,7 +110,7 @@ El puerto de front-end es el que las aplicaciones usan para conectarse a la inst
 > Para los grupos de disponibilidad de SQL Server, cada dirección IP requiere un puerto de sondeo específico. Por ejemplo, si una dirección IP en un equilibrador de carga utiliza el puerto de sondeo 59999, no puede usarlo ninguna otra dirección IP de ese equilibrador de carga.
 
 * Para información sobre los límites del equilibrador de carga, consulte **IP de front-end privada por equilibrador de carga** en [Límites de redes - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Para información acerca de los límites de los grupos de disponibilidad, consulte [Restricciones (grupos de disponibilidad)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Para información acerca de los límites de los grupos de disponibilidad, consulte [Restricciones (grupos de disponibilidad)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 El script siguiente agrega una nueva dirección IP a un equilibrador de carga existente. El equilibrador de carga interno usa el puerto del agente de escucha para el puerto de front-end de equilibrio de carga. Este puerto puede ser aquel en el que SQL Server escucha. Para las instancias predeterminadas de SQL Server, se trata del puerto 1433. La regla de equilibrio de carga para un grupo de disponibilidad requiere una dirección IP flotante (Direct Server Return), así que el puerto de back-end es el mismo que el puerto de front-end. Actualice las variables para su entorno. 
 
@@ -188,7 +188,7 @@ Para probar la conexión:
 La conexión SQLCMD se establece automáticamente con la instancia de SQL Server en la que se hospede la réplica principal. 
 
 > [!NOTE]
-> Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](http://technet.microsoft.com/library/cc753558.aspx) para más información. 
+> Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](https://technet.microsoft.com/library/cc753558.aspx) para más información. 
 > 
 > 
 
@@ -205,9 +205,9 @@ Para más información, consulte [Configuración manual de grupos de disponibili
 ## <a name="powershell-cmdlets"></a>Cmdlets de PowerShell
 Use los siguientes cmdlets de PowerShell para crear un equilibrador de carga interno para máquinas virtuales de Azure.
 
-* [New-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) crea un equilibrador de carga. 
-* [New-AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) crea una configuración IP de front-end para un equilibrador de carga. 
-* [New-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) crea una configuración de regla para un equilibrador de carga. 
-* [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) crea una configuración de grupo de direcciones de back-end para un equilibrador de carga. 
-* [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) crea una configuración de sondeo para un equilibrador de carga.
-* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) quita un equilibrador de carga de un grupo de recursos de Azure.
+* [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) crea un equilibrador de carga. 
+* [New-AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) crea una configuración IP de front-end para un equilibrador de carga. 
+* [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) crea una configuración de regla para un equilibrador de carga. 
+* [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) crea una configuración de grupo de direcciones de back-end para un equilibrador de carga. 
+* [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) crea una configuración de sondeo para un equilibrador de carga.
+* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) quita un equilibrador de carga de un grupo de recursos de Azure.

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: f515ddc58a9f9b434e40f44ca7cc50d738ed69f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6d6d29d9bce68f22a83f2b4de228968b00b8bba0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993126"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739607"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)
 
@@ -60,7 +60,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>Instalación del entorno de ejecución del contenedor 
 
-Azure IoT Edge se basa en un entorno de ejecución de contenedor [compatible con OCI][lnk-oci]. Para escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby][lnk-moby] que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de contenedor de Docker CE/EE son totalmente compatibles con el entorno de ejecución de Moby.
+Azure IoT Edge se basa en un entorno de ejecución de contenedor [compatible con OCI](https://www.opencontainers.org/). En los escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby](https://mobyproject.org/) que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de contenedor de Docker CE/EE son totalmente compatibles con el entorno de ejecución de Moby.
 
 Actualice apt-get.
 
@@ -108,7 +108,7 @@ Un único dispositivo de IoT Edge se puede aprovisionar manualmente mediante una
 
 ### <a name="option-1-manual-provisioning"></a>Opción 1: Aprovisionamiento manual
 
-Para aprovisionar manualmente un dispositivo, debe proporcionarle una [cadena de conexión de dispositivo][lnk-dcs] que puede crear mediante el registro de un nuevo dispositivo en su instancia de IoT Hub.
+Para aprovisionar manualmente un dispositivo, debe proporcionarle una [cadena de conexión](how-to-register-device-portal.md), que puede crear mediante el registro de un dispositivo nuevo en su instancia de IoT Hub.
 
 
 Abra el archivo de configuración. 
@@ -143,7 +143,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opción 2: Aprovisionamiento automático
 
-Para aprovisionar automáticamente un dispositivo, [configure el servicio Device Provisioning y recupere el identificador de registro del dispositivo][lnk-dps] (DPS). El aprovisionamiento automático solo funciona con dispositivos que tienen un chip de Módulo de plataforma segura (TPM). Por ejemplo, los dispositivos Raspberry Pi no incluyen TPM de forma predeterminada. 
+Para aprovisionar automáticamente un dispositivo, [configure el servicio Device Provisioning y recupere el identificador de registro del dispositivo](how-to-auto-provision-simulated-device-linux.md). El aprovisionamiento automático solo funciona con dispositivos que tienen un chip de Módulo de plataforma segura (TPM). Por ejemplo, los dispositivos Raspberry Pi no incluyen TPM de forma predeterminada. 
 
 Abra el archivo de configuración. 
 
@@ -201,17 +201,11 @@ sudo iotedge list
 
 Necesita privilegios elevados para ejecutar comandos `iotedge`. Después de instalar el entorno de ejecución, cierre la sesión en la máquina e iníciela de nuevo para actualizar sus permisos automáticamente. Hasta entonces, use **sudo** delante de los comandos `iotedge`.
 
-En dispositivos con recursos limitados, se recomienda encarecidamente que establezca la variable de entorno *OptimizeForPerformance* en *false* según las instrucciones de la [guía de resolución de problemas][lnk-trouble].
+En dispositivos con recursos limitados, se recomienda encarecidamente establecer la variable de entorno *OptimizeForPerformance* en *false*, tal como se indica en las instrucciones de la [guía para la solución de problemas](troubleshoot.md).
 
 Si la red tiene un servidor proxy, siga los pasos descritos en [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) (Configuración del dispositivo IoT Edge para comunicarse mediante un servidor proxy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene problemas con la instalación correcta del entorno de ejecución de Edge, consulte la página de [solución de problemas][lnk-trouble].
+Si tiene problemas con la instalación correcta del entorno de ejecución de Edge, consulte la página de [solución de problemas](troubleshoot.md).
 
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md

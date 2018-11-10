@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 297b3f4c9ef110f8adc9dcb5cd9eac9e30729a5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180132"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006539"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recopilación de registros y métricas de Azure para servicios de Log Analytics
 
@@ -51,7 +51,7 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 | Almacenes de recuperación         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (versión preliminar)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Servicios de búsqueda         | Microsoft.Search/searchServices         | Diagnóstico | Diagnóstico | |
 | Espacio de nombres de Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnóstico | Diagnóstico | [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (versión preliminar)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (versión preliminar)](../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnóstico | [Azure SQL Analytics (versión preliminar)](log-analytics-azure-sql.md) |
 | Storage                 |                                         |             | Script      | [Azure Storage Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extensión   | Extensión <br> Diagnóstico  | |
@@ -61,14 +61,14 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 
 
 > [!NOTE]
-> Para la supervisión de máquinas virtuales de Azure (Linux y Windows), se recomienda instalar la [extensión para máquinas virtuales de Log Analytics](log-analytics-azure-vm-extension.md). El agente proporciona información recopilada desde dentro de las máquinas virtuales. También puede utilizar la extensión para conjuntos de escalado de máquinas virtuales.
+> Para la supervisión de máquinas virtuales de Azure (Linux y Windows), se recomienda instalar la [extensión para máquinas virtuales de Log Analytics](log-analytics-quick-collect-azurevm.md). El agente proporciona información recopilada desde dentro de las máquinas virtuales. También puede utilizar la extensión para conjuntos de escalado de máquinas virtuales.
 >
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Diagnósticos de Azure directos a Log Analytics
 Muchos recursos de Azure son capaces de escribir registros de diagnóstico y métricas directamente en Log Analytics; de hecho, esta es la forma preferida de recopilar los datos para el análisis. Al utilizar los diagnósticos de Azure, los datos se escriben inmediatamente en Log Analytics y no es necesario escribir primero los datos en el almacenamiento.
 
-Los recursos de Azure que admiten [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) pueden enviar sus registros y métricas directamente a Log Analytics.
+Los recursos de Azure que admiten [Azure Monitor](../azure-monitor/overview.md) pueden enviar sus registros y métricas directamente a Log Analytics.
 
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a Log Analytics a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
@@ -158,5 +158,5 @@ La galería de plantillas de Azure tiene [ejemplos del uso de Azure Automation](
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) (Uso de Blob Storage para IIS y de Table Storage para eventos) para aprender a leer los registros para servicios de Azure que escriben diagnósticos en Table Storage o registros ISS en Blob Storage.
-* [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para más información sobre los datos.
-* [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para analizar los datos.
+* [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md) para más información sobre los datos.
+* [Búsquedas de registros en Log Analytics](log-analytics-queries.md) para analizar los datos.

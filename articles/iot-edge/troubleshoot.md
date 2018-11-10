@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 632a91e9c76f14bceace00c9cee29a189b604464
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068509"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740219"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -108,7 +108,7 @@ Cuando el demonio de seguridad de IoT Edge se esté ejecutando, examine los regi
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>Visualización de mensajes que se envían mediante el centro de Edge
 
-Vea los mensajes que se envían mediante el centro de Edge y recopile información sobre las actualizaciones de las propiedades del dispositivo con los registros detallados procedentes de los contenedores del entorno de ejecución de edgeAgent y edgeHub. Para activar los registros detallados en estos contenedores, establezca `RuntimeLogLevel` en el archivo de configuración yaml. Para abrir el archivo:
+Puede ver los mensajes que se envían mediante el centro de Edge y recopilar la información que se encuentra en los registros detallados procedentes de los contenedores del entorno de ejecución. Para activar los registros detallados en estos contenedores, establezca `RuntimeLogLevel` en el archivo de configuración yaml. Para abrir el archivo:
 
 En Linux:
 
@@ -122,7 +122,7 @@ En Windows:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-De forma predeterminada, el elemento `agent` tendrá un aspecto similar al siguiente:
+De forma predeterminada, el elemento `agent` tendrá un aspecto similar al del ejemplo siguiente:
 
    ```yaml
    agent:
@@ -146,7 +146,7 @@ Reemplace `env: {}` por:
 
 Guarde el archivo y reinicie el administrador de seguridad de IoT Edge.
 
-También puede comprobar los mensajes que se envían entre los dispositivos de IoT Hub e IoT Edge. Vea estos mensajes mediante la extensión de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) para Visual Studio Code. Para más instrucciones, consulte [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Herramienta práctica para desarrollar con Azure IoT).
+También puede comprobar los mensajes que se envían entre los dispositivos de IoT Hub e IoT Edge. Vea estos mensajes mediante la extensión de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) para Visual Studio Code. Para más información, consulte [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Herramienta práctica para desarrollar con Azure IoT).
 
 ### <a name="restart-containers"></a>Reinicio de los contenedores
 Después de investigar los registros y mensajes para obtener información, puede intentar reiniciar los contenedores:
@@ -181,7 +181,7 @@ En Windows:
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>El agente de Edge se detiene después de aproximadamente un minuto
 
-El agente de Edge se inicia y se ejecuta correctamente durante un minuto aproximadamente y, a continuación, se detiene. Los registros indican que el agente de Edge está intentando conectarse a IoT Hub a través de AMQP y aproximadamente 30 segundos después intenta conectarse mediante AMQP con el protocolo Websocket. Cuando se produce un error, se cierra el agente de Edge. 
+El agente de Edge se inicia y se ejecuta correctamente durante un minuto aproximadamente y, a continuación, se detiene. Los registros indican que el agente de Edge intenta conectarse a IoT Hub a través de AMQP y después intenta conectarse mediante AMQP con el protocolo WebSocket. Cuando se produce un error, se cierra el agente de Edge. 
 
 Registros de ejemplo de Edge:
 
@@ -193,7 +193,7 @@ Registros de ejemplo de Edge:
 ```
 
 ### <a name="root-cause"></a>Causa principal
-Una configuración de redes en la red del host está impidiendo que el agente de Edge alcance la red. El agente intentará conectarse en primer lugar a través de AMQP (puerto 5671). Si se produce un error, lo intentará mediante los protocolos websocket (puerto 443).
+Una configuración de redes en la red del host está impidiendo que el agente de Edge alcance la red. El agente intentará conectarse en primer lugar a través de AMQP (puerto 5671). Si se produce un error en la conexión, lo intentará mediante los protocolos WebSocket (puerto 443).
 
 El entorno de ejecución de IoT Edge configura una red para cada uno de los módulos en los que se comunica. En Linux, esta red es una red de puente. En Windows, se usa NAT. Este problema es más frecuente en los dispositivos de Windows que usan contenedores de Windows que usan la red NAT. 
 
@@ -235,7 +235,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 ```
 
 ### <a name="root-cause"></a>Causa principal
-El tiempo de ejecución de IoT Edge solo puede admitir los nombres de host que tienen menos de 64 caracteres. Normalmente, esto no supone un problema para las máquinas físicas, pero puede generarse al configurar el tiempo de ejecución en una máquina virtual. Los nombres de host generados automáticamente para las máquinas virtuales Windows hospedadas en Azure, en particular, suelen ser largos. 
+El tiempo de ejecución de IoT Edge solo puede admitir los nombres de host que tienen menos de 64 caracteres. Las máquinas físicas no suelen tener nombres de host largos, pero el problema es más común en una máquina virtual. Los nombres de host generados automáticamente para las máquinas virtuales Windows hospedadas en Azure, en particular, suelen ser largos. 
 
 ### <a name="resolution"></a>Resolución
 Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquina virtual y, a continuación, estableciendo el nombre DNS como nombre de host en el comando de configuración.
@@ -265,16 +265,16 @@ Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquin
 Es posible que encuentre problemas de estabilidad en dispositivos restringidos como Raspberry Pi, especialmente cuando se utiliza como puerta de enlace. Los síntomas incluyen excepciones de memoria insuficiente en el módulo del concentrador perimetral, los dispositivos de nivel inferior no pueden conectarse o el dispositivo deja de enviar mensajes de telemetría después de unas horas.
 
 ### <a name="root-cause"></a>Causa principal
-El centro de Edge, que forma parte del entorno de ejecución perimetral, está optimizado para el rendimiento de manera predeterminada y se intenta asignar grandes fragmentos de memoria. Esto no es ideal para dispositivos con perímetro limitado y puede causar problemas de estabilidad.
+El centro de Edge, que forma parte del entorno de ejecución perimetral, está optimizado para el rendimiento de manera predeterminada y se intenta asignar grandes fragmentos de memoria. Esta optimización no es ideal para dispositivos con perímetro limitado y puede causar problemas de estabilidad.
 
 ### <a name="resolution"></a>Resolución
-Para el centro de Edge se establece una variable de entorno **OptimizeForPerformance** en **false**. Existen dos formas de hacerlo:
+Para el centro de Edge, se establece una variable de entorno **OptimizeForPerformance** en **false**. Existen dos formas de hacerlo:
 
 En la interfaz de usuario: 
 
 En el portal de *Detalles del dispositivo*->*Establecer módulos*->*Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge*, cree una variable de entorno llamada *OptimizeForPerformance* que se establece en *false* para el *centro de Edge*.
 
-![optimizeforperformance][img-optimize-for-perf]
+![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
 
 **O bien**
 
@@ -297,7 +297,7 @@ En el manifiesto de implementación:
 Si aparece EventLogException al usar`Get-WinEvent` en Windows, compruebe las entradas del registro.
 
 ### <a name="root-cause"></a>Causa principal
-El comando de PowerShell `Get-WinEvent` se basa en que esté presente una entrada del registro para encontrar los registros por un elemento `ProviderName` concreto.
+El comando de PowerShell `Get-WinEvent` se basa en que esté presente una entrada del Registro para encontrar los registros por un elemento `ProviderName` concreto.
 
 ### <a name="resolution"></a>Resolución
 Establezca una entrada del registro para el demonio de IoT Edge. Cree un archivo **iotedge.reg** con el siguiente contenido e impórtelo en el Registro de Windows haciendo doble clic en él o mediante el comando `reg import iotedge.reg`:
@@ -327,7 +327,7 @@ Asegúrese de que el módulo de IoT Edge personalizado siempre usa el mismo iden
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Reglas de configuración de puertos y firewall para la implementación de IoT Edge
-Azure IoT Edge permite la comunicación desde un servidor perimetral de un entorno local a Azure en la nube mediante protocolos de IoT Hub compatibles; consulte cómo [elegir un protocolo de comunicación](../iot-hub/iot-hub-devguide-protocols.md). Para mejorar la seguridad, los canales de comunicación entre Azure IoT Edge e IoT Hub de Azure siempre están configurados para ser de salida; esto se basa en el [patrón de comunicación asistida de servicios](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), que reduce la superficie expuesta a ataques que una entidad malintencionada podría explorar. La comunicación entrante solo es necesaria para escenarios específicos donde Azure IoT Hub necesita enviar mensajes hacia el servidor de Azure IoT Edge (por ejemplo, en la mensajería de nube a dispositivo); de nuevo, estos se protegen mediante canales TLS seguros y se pueden proteger aún más con certificados X.509 y módulos de dispositivos TPM. El Administrador de seguridad de Azure IoT Edge rige cómo se puede establecer esta comunicación; consulte [Administrador de seguridad de IoT Edge](../iot-edge/iot-edge-security-manager.md).
+Azure IoT Edge permite la comunicación desde un servidor perimetral de un entorno local a Azure en la nube mediante protocolos de IoT Hub compatibles; consulte cómo [elegir un protocolo de comunicación](../iot-hub/iot-hub-devguide-protocols.md). Para mejorar la seguridad, los canales de comunicación entre Azure IoT Edge y Azure IoT Hub siempre están configurados para que sea la salida. Esta configuración se basa en el [patrón de comunicación asistida de servicios](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), que minimiza la superficie de ataque que una entidad malintencionada puede explorar. La comunicación entrante solo es necesaria para escenarios específicos donde Azure IoT Hub necesita insertar mensajes en el dispositivo de Azure IoT Edge. Los mensajes de nube a dispositivo están protegidos mediante canales TLS seguros y pueden protegerse aún más mediante los certificados X.509 y los módulos de dispositivos TPM. El Administrador de seguridad de Azure IoT Edge rige cómo se puede establecer esta comunicación; consulte [Administrador de seguridad de IoT Edge](../iot-edge/iot-edge-security-manager.md).
 
 Aunque IoT Edge permite una mejor configuración para proteger el entorno de ejecución de Azure IoT Edge y los módulos implementados, todavía depende de la configuración de la máquina y la red subyacentes. Por lo tanto, es fundamental garantizar que las reglas adecuadas de red y del firewall se configuran para establecer una comunicación segura de Edge en la nube. Lo siguiente puede utilizarse como guía al configurar las reglas de firewall para los servidores subyacentes donde se hospeda el entorno de ejecución de Azure IoT Edge:
 
@@ -335,11 +335,9 @@ Aunque IoT Edge permite una mejor configuración para proteger el entorno de eje
 |--|--|--|--|--|
 |MQTT|8883|BLOQUEADO (valor predeterminado)|BLOQUEADO (valor predeterminado)|<ul> <li>Configure el valor de Saliente (de salida) para que sea Abierto cuando se usa MQTT como protocolo de comunicación.<li>1883 para MQTT no es compatible con IoT Edge. <li>Se deben bloquear las conexiones entrantes (de entrada).</ul>|
 |AMQP|5671|BLOQUEADO (valor predeterminado)|ABIERTO (valor predeterminado)|<ul> <li>Protocolo de comunicación predeterminado de IoT Edge. <li> Debe configurarse para ser Abierto si Azure IoT Edge no está configurado para otros protocolos compatibles o AMQP es el protocolo de comunicación que se desea.<li>5672 para AMQP no es compatible con IoT Edge.<li>Bloquee este puerto cuando Azure IoT Edge use un protocolo compatible de IoT Hub diferente.<li>Se deben bloquear las conexiones entrantes (de entrada).</ul></ul>|
-|HTTPS|443|BLOQUEADO (valor predeterminado)|ABIERTO (valor predeterminado)|<ul> <li>Configure Saliente (de salida) para que sea Abierto en el puerto 443 para el aprovisionamiento de IoT Edge; esto es necesario al usar scripts manuales o el servicio Device Provisioning (DPS) de Azure IoT. <li>La conexión entrante (de entrada) solo debe ser Abierta en escenarios concretos: <ul> <li>  Si tiene una puerta de enlace transparente con dispositivos de hoja que puedan enviar solicitudes de método. En este caso, no es necesario que el puerto 443 esté abierto a las redes externas para conectarse a IOT Hub ni proporcionar servicios de IoTHub mediante Azure IoT Edge. Por lo tanto, la regla de entrada podría limitarse solo a los puertos entrantes (de entrada) abiertos desde la red interna. <li> En el caso de escenarios de cliente a dispositivo (C2D).</ul><li>80 para HTTP no es compatible con IoT Edge.<li>Si no se pueden configurar los protocolos que no sean HTTP (por ejemplo, AMQP, MQTT) en la empresa; los mensajes pueden enviarse a través de WebSockets. En ese caso, el puerto 443 se utilizará para la comunicación de WebSocket.</ul>|
+|HTTPS|443|BLOQUEADO (valor predeterminado)|ABIERTO (valor predeterminado)|<ul> <li>Configure el valor de las conexiones salientes (de salida) para que sea abierto en 443 para el aprovisionamiento de IoT Edge. Esta configuración es necesaria cuando se usen scripts manuales o Azure IoT Device Provisioning Service (DPS). <li>La conexión entrante (de entrada) solo debe ser Abierta en escenarios concretos: <ul> <li>  Si tiene una puerta de enlace transparente con dispositivos de hoja que puedan enviar solicitudes de método. En este caso, no es necesario que el puerto 443 esté abierto a las redes externas para conectarse a IOT Hub ni proporcionar servicios de IoTHub mediante Azure IoT Edge. Por lo tanto, la regla de entrada podría limitarse solo a los puertos entrantes (de entrada) abiertos desde la red interna. <li> En el caso de escenarios de cliente a dispositivo (C2D).</ul><li>80 para HTTP no es compatible con IoT Edge.<li>Si no se pueden configurar los protocolos que no sean HTTP (por ejemplo, AMQP o MQTT) en la empresa; los mensajes pueden enviarse a través de WebSockets. En ese caso, el puerto 443 se utilizará para la comunicación de WebSocket.</ul>|
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-¿Cree que encontró un error en la plataforma de IoT Edge? Use la opción [Enviar un problema](https://github.com/Azure/iotedge/issues) para que podamos seguir mejorando. 
+¿Cree que encontró un error en la plataforma de IoT Edge? [Envíe un problema](https://github.com/Azure/iotedge/issues) para que podamos seguir mejorando. 
 
-<!-- Images -->
-[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

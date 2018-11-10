@@ -4,7 +4,7 @@ description: Conversión de una plantilla de conjunto de escalado en una plantil
 keywords: conjuntos de escalado de máquinas virtuales
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
-ms.author: negat
-ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781078"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739573"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado
 
-Los clientes con una plantilla de Resource Manager para crear un conjunto de escalado no sin usar un disco administrado pueden modificarla para usar un disco administrado. En este artículo se muestra cómo hacerlo, con el ejemplo de una solicitud de incorporación de cambios de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates), un repositorio basado en la comunidad de las plantillas de Resource Manager de ejemplo. La solicitud de incorporación de cambios completa se puede ver aquí: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), y las partes relevantes de la diferencia pueden encontrarse a continuación, junto con una explicación:
+Los clientes con una plantilla de Resource Manager para crear un conjunto de escalado no sin usar un disco administrado pueden modificarla para usar un disco administrado. En este artículo se muestra cómo hacerlo, con el ejemplo de una solicitud de incorporación de cambios de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates), un repositorio basado en la comunidad de las plantillas de Resource Manager de ejemplo. La solicitud de incorporación de cambios completa se puede ver en [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) y las partes relevantes de la diferencia pueden encontrarse a continuación, junto con una explicación:
 
 ## <a name="making-the-os-disks-managed"></a>Administración de los discos de sistema operativo
 
@@ -143,7 +143,7 @@ Si especifica `n` discos en esta matriz, cada máquina virtual del conjunto de e
 Para más información acerca del uso de discos de datos con conjuntos de escalado, consulte [este artículo](./virtual-machine-scale-sets-attached-disks.md).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para las plantillas de Azure Resource Manager de ejemplo que usan conjuntos de escalado, busque "vmss" en el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Para obtener información general, consulte la [página de destino principal de los conjuntos de escalado](https://azure.microsoft.com/services/virtual-machine-scale-sets/).

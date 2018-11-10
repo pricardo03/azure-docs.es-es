@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: e826dcdbc6d32e6f0ad6ddf72a95869c96af6d69
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 633d29d3e2e8a8ab0b746549f126ad45ea781d6e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456531"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227899"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Introducción al envío de mensajes a Azure Event Hubs en .NET Standard
-Event Hubs es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Event Hubs, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT). Información general detallada de Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
+Event Hubs es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Event Hubs, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta funcionalidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT). Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
 Este tutorial muestra cómo enviar eventos a un centro de eventos mediante una aplicación de consola escrita en C# con .NET Core. 
 
@@ -30,11 +30,11 @@ Este tutorial muestra cómo enviar eventos a un centro de eventos mediante una a
 > Puede descargar esta guía de inicio rápido como un ejemplo desde [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), reemplazar las cadenas `EventHubConnectionString` y `EventHubName` con los valores del centro de eventos, y ejecutarlo. También puede seguir los pasos de este tutorial para crear el suyo propio.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017, pero también se admite Visual Studio 2015.
-* [Herramientas de .NET Core Visual Studio 2015 o 2017](http://www.microsoft.com/net/core). 
+* [Microsoft Visual Studio 2015 o 2017](https://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017, pero también se admite Visual Studio 2015.
+* [Herramientas de .NET Core Visual Studio 2015 o 2017](https://www.microsoft.com/net/core). 
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creación de un espacio de nombres de Event Hubs y un centro de eventos
-El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento de [este artículo](event-hubs-create.md) y después continúe con los pasos siguientes en este tutorial.
+El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento de [este artículo](event-hubs-create.md) y después continúe con los pasos siguientes de este tutorial.
 
 ## <a name="create-a-console-application"></a>Creación de una aplicación de consola
 

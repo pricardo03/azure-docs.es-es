@@ -3,19 +3,19 @@ title: ¿Qué es HBase en Azure HDInsight?
 description: Una introducción a Apache HBase en HDInsight, una base de datos NoSQL basada en Hadoop. Obtenga información acerca de los casos de uso y compare HBase con otros clústeres de Hadoop.
 keywords: bigtable, nosql, qué es hbase, apache hbase, hbase, información general hbase,
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 17f607cacc9b243df7f066a1f6be38dacdb0e2fb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 8cdf6ec4b02c6e194ea631687078d1851c465e45
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048620"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005723"
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Qué es HBase en HDInsight: una base de datos NoSQL que proporciona funciones de tipo BigTable para Hadoop
 Apache HBase es una base de datos NoSQL de código abierto que se compila en Hadoop y se modela después de Google BigTable. HBase proporciona acceso aleatorio y enorme coherencia para grandes cantidades de datos no estructurados y semiestructurados en una base de datos sin esquemas organizada por familias de columnas.
@@ -55,10 +55,10 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al uso de HBase con Hadoop en HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Create HDInsight clusters on Azure Virtual Network](./apache-hbase-provision-vnet.md) (Creación de clústeres de HDInsight en Azure Virtual Network)
-* [Configuración de la replicación geográfica de HBase en HDInsight](apache-hbase-replication.md)
+* [Configuración de la replicación de HBase en HDInsight](apache-hbase-replication.md)
 * [Compilar aplicaciones Java para Apache HBase](./apache-hbase-build-java-maven-linux.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Apache HBase](https://hbase.apache.org/)
 * [Bigtable: un sistema de almacenamiento distribuido para datos estructurados](http://research.google.com/archive/bigtable.html)
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696146"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740015"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Claves únicas en Azure Cosmos DB
 
@@ -130,7 +130,7 @@ Documento JSON de ejemplo.
 El ejemplo de comando siguiente muestra cómo crear un índice único en los campos de nombre, apellido y correo electrónico de la colección de usuarios para la API de MongoDB. Esto garantiza la unicidad de una combinación de los tres campos en todos los documentos de la colección. Para las colecciones de la API de MongoDB, se crea el índice único después de crear la colección, pero antes de rellenarla.
 
 > [!NOTE]
-> El formato de clave único para las cuentas de la API de MongoDB es diferente de las cuentas de la API de SQL, donde no tiene que especificar el carácter de barra diagonal inversa (/) delante del nombre del campo. 
+> El formato de clave único para las cuentas de la API de MongoDB es diferente de las cuentas de la API de SQL, donde no tiene que especificar el carácter de barra diagonal (/) delante del nombre del campo. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

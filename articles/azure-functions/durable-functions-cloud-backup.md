@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4fec410db81077fd454f29d3359dc3728aad4bff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987552"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739624"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Escenario de distribución ramificada de entrada/salida en Durable Functions: ejemplo de copia de seguridad en la nube
 
@@ -131,7 +131,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> La función `HttpStart` que se está invocando solo funciona con contenido con formato JSON. Por este motivo, se necesita el encabezado `Content-Type: application/json` y se codifica la ruta de acceso de directorio como cadena JSON.
+> La función `HttpStart` que se está invocando solo funciona con contenido con formato JSON. Por este motivo, se necesita el encabezado `Content-Type: application/json` y se codifica la ruta de acceso de directorio como cadena JSON. Además, el fragmento de código HTTP da por supuesto que hay una entrada en el archivo `host.json` que elimina el prefijo `api/` predeterminado de todas las direcciones URL de las funciones de activación de HTTP. Puede encontrar el marcador para esta configuración en el archivo `host.json` en los ejemplos.
 
 Esta solicitud HTTP desencadena el orquestador `E2_BackupSiteContent` y pasa la cadena `D:\home\LogFiles` como un parámetro. La respuesta proporciona un vínculo para obtener el estado de esta operación de copia de seguridad:
 

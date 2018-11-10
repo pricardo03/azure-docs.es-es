@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996560"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959280"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmisión de registros de diagnóstico de Azure a un centro de eventos
 Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a cualquier aplicación mediante la opción "Exportar a Event Hubs" integrada en el Portal o habilitando el identificador de regla de autorización de Event Hubs en una configuración de diagnóstico por medio de los cmdlets de Azure PowerShell o la CLI de Azure.
@@ -44,7 +44,7 @@ Estas son solo algunas formas de usar la funcionalidad de streaming para registr
 Puede habilitar el streaming de registros de diagnóstico mediante programación, a través del portal o mediante la [API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). En cualquier caso, se crea una configuración de diagnóstico en la que se especifica un espacio de nombres de Event Hubs y las categorías de registro y métricas que se desea enviar al espacio de nombres. Se crea un centro de eventos en el espacio de nombres para cada categoría de registro que se habilita. Una **categoría de registro** de diagnóstico es un tipo de registro que un recurso puede recopilar.
 
 > [!WARNING]
-> La habilitación y streaming de registros de diagnóstico desde recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) [requiere ejecutar una serie de pasos distinta](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> La habilitación y streaming de registros de diagnóstico desde recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) [requiere ejecutar una serie de pasos distinta](azure-diagnostics-streaming-event-hubs.md).
 
 El espacio de nombres de Event Hubs no tiene que estar necesariamente en la misma suscripción que el recurso que emite los registros, siempre que el usuario que configure el valor tenga el acceso RBAC adecuado a ambas suscripciones y estas formen parte del mismo inquilino de AAD.
 
@@ -191,10 +191,10 @@ Puede ver una lista de todos los proveedores de recursos que admiten el streamin
 
 ## <a name="stream-data-from-compute-resources"></a>Transmisión de datos de Recursos de proceso
 
-También puede transmitir los registros de diagnóstico de los recursos de Compute mediante el agente de Microsoft Azure Diagnostics. [Consulte este artículo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para ver cómo configurarlo.
+También puede transmitir los registros de diagnóstico de los recursos de Compute mediante el agente de Microsoft Azure Diagnostics. [Consulte este artículo](azure-diagnostics-streaming-event-hubs.md) para ver cómo configurarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Streaming de registros de Azure Active Directory con Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Streaming de registros de Azure Active Directory con Azure Monitor](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Más información sobre los registros de Diagnósticos de Azure](monitoring-overview-of-diagnostic-logs.md)
-* [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Introducción a Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 36c42830738f160b24f65e86576ba93aac1ea737
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413139"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005605"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solución de problemas de una máquina virtual de Azure mediante la virtualización anidada en Azure
 
@@ -101,7 +101,7 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 11. Seleccione **Conectar un disco duro virtual más adelante**.
 
-    ![Imagen de la opción Conectar un disco duro virtual más adelante](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![Imagen de la opción Conectar un disco duro virtual más adelante](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Seleccione **Finalizar** cuando se haya creado la máquina virtual.
 
@@ -109,11 +109,11 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 14. Seleccione **Controlador IDE 0** y **Unidad de disco duro** y, a continuación, haga clic en **Agregar**.
 
-    ![Imagen sobre cómo agregar una nueva unidad de disco duro](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![Imagen sobre cómo agregar una nueva unidad de disco duro](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. En **Disco duro físico**, seleccione el disco de la máquina virtual con problemas que ha conectado a la máquina virtual de Azure. Si no ve ningún disco en la lista, compruebe si el disco se ha establecido como sin conexión mediante Administración de discos.
 
-    ![Imagen sobre al montaje del disco](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![Imagen sobre al montaje del disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Seleccione **Aplicar** y luego **Aceptar**.
@@ -130,11 +130,11 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 3.  Vaya a **Todos los recursos**, busque el nombre del disco y, a continuación, seleccione el disco.
 
-     ![Imagen sobre la búsqueda del disco](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![Imagen sobre la búsqueda del disco](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Haga clic en **Crear máquina virtual**.
 
-     ![Imagen sobre la creación de la máquina virtual desde el disco](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![Imagen sobre la creación de la máquina virtual desde el disco](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 También puede utilizar Azure PowerShell para crear la máquina virtual desde el disco. Para obtener más información, consulte cómo [crear la nueva máquina virtual desde un disco existente mediante PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 

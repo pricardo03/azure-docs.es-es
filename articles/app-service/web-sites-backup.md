@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886411"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227848"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](app-service-web-overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación. 
@@ -155,7 +155,7 @@ Ejecute copias de seguridad de la misma forma que lo haría normalmente, [manual
 ## <a name="how-backups-are-stored"></a>Cómo se almacenan las copias de seguridad
 Después de realizar una o varias copias de seguridad de la aplicación, dichas copias de seguridad estarán visibles en la página **Contenedores** de la cuenta de almacenamiento, así como en la aplicación. En la cuenta de almacenamiento, cada copia de seguridad consta de un archivo `.zip` que contiene los datos de copia de seguridad y un archivo `.xml` que contiene un manifiesto del contenido del archivo `.zip`. Puede descomprimir y examinar estos archivos si quiere disponer de acceso a las copias de seguridad sin tener que realizar una restauración de la aplicación.
 
-La copia de seguridad de la base de datos para la aplicación se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una base de datos SQL basándose en la exportación del BACPAC, vea [Importar un archivo de bacpac para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
+La copia de seguridad de la base de datos para la aplicación se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una base de datos SQL basándose en la exportación del BACPAC, vea [Importar un archivo de bacpac para crear una nueva base de datos de usuario](https://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
 > La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.

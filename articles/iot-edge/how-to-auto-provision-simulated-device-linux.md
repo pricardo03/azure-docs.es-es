@@ -4,16 +4,16 @@ description: Usar un TPM simulado en una máquina virtual con Linux para probar 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9609aab6c70bc0c2755de142023bd26e7417987a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347861"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739675"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Crear y aprovisionar un dispositivo Edge con un TPM virtual en una máquina virtual con Linux
 
@@ -97,7 +97,7 @@ En la máquina virtual, cree una herramienta de SDK de C que se pueda utilizar p
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configurar IoT Hub Device Provisioning Service
 
-Cree una nueva instancia de IoT Hub Device Provisioning Service en Azure y vincúlela a IoT Hub. Puede seguir las instrucciones de [Configuración de IoT DPS](../iot-dps/quick-setup-auto-provision.md).
+Cree una nueva instancia de IoT Hub Device Provisioning Service en Azure y vincúlela a IoT Hub. Puede seguir las instrucciones de [Configuración de IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
 
 Cuando Device Provisioning Service esté en ejecución, copie el valor de **Ámbito de id.** de la página de información general. Use este valor cuando configure el entorno de ejecución de IoT Edge. 
 
@@ -180,7 +180,7 @@ Siga estos pasos para dar acceso a TPM. Como alternativa, puede conseguir lo mis
    La salida correcta tendrá un aspecto similar al siguiente:
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. Abra el archivo de invalidaciones del entorno de ejecución de IoT Edge. 
@@ -257,4 +257,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El proceso de inscripción en Device Provisioning Service permite establecer la id. de dispositivo y las etiquetas del dispositivo gemelo al mismo tiempo que aprovisiona el nuevo dispositivo. Puede usar esos valores para dirigirse a dispositivos individuales o grupos de dispositivos con la administración automática de dispositivos. Obtenga información sobre la [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](how-to-deploy-monitor.md) o la [utilización de la CLI de Azure](how-to-deploy-monitor-cli.md)
+El proceso de inscripción en Device Provisioning Service permite establecer la id. de dispositivo y las etiquetas del dispositivo gemelo al mismo tiempo que aprovisiona el nuevo dispositivo. Puede usar esos valores para dirigirse a dispositivos individuales o grupos de dispositivos con la administración automática de dispositivos. Obtenga información sobre la [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](how-to-deploy-monitor.md) o [mediante la CLI de Azure](how-to-deploy-monitor-cli.md)

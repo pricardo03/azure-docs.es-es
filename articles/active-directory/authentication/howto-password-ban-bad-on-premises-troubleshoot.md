@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187356"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741188"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Versión preliminar: Supervisión, informes y solución de problemas de Protección con contraseña de Azure AD
 
 |     |
 | --- |
-| Protección con contraseña y Lista personalizada de contraseñas prohibidas de Azure AD son versiones preliminares públicas de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La protección con contraseña de Azure AD es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Después de la implementación de Protección con contraseña de Azure AD, la supervisión y la notificación son tareas fundamentales. En este artículo se detalla dónde registra cada servicio la información y cómo envía notificaciones sobre el uso de Protección con contraseña de Azure AD.
@@ -88,7 +88,7 @@ Algunos otros mensajes importantes de registro de eventos a tener en cuenta son:
 
 Se aceptó la contraseña para el usuario especificado porque no hay disponible aún una directiva de contraseñas de Azure
 
-UserName: <user> FullName: <user>
+Nombre de usuario: algún usuario Nombre completo: algún usuario
 
 Esta condición se puede deber a uno o varios de los siguientes motivos: %n
 
@@ -195,8 +195,8 @@ Si decide desinstalar la versión preliminar pública del software y limpiar tod
 2. Desinstale el software del agente de controlador de dominio de todos los controladores de dominio. En este paso es **necesario** reiniciar.
 3. Quite manualmente todos los puntos de conexión del servicio de proxy en cada contexto de nomenclatura de dominio. La ubicación de estos objetos se puede detectar con el siguiente comando de Active Directory Powershell:
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -207,8 +207,8 @@ Si decide desinstalar la versión preliminar pública del software y limpiar tod
 4. Quite manualmente todos los puntos de conexión del agente de controlador de dominio de cada contexto de nomenclatura de dominio. Puede haber uno estos objetos por cada controlador de dominio del bosque, dependiendo del grado de extensión de la implementación de la versión preliminar del software. La ubicación de ese objeto se puede detectar con el siguiente comando de Active Directory Powershell:
 
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
