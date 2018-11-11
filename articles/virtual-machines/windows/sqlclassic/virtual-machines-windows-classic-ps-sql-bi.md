@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098753"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242898"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server en Azure Virtual Machines
 > [!IMPORTANT] 
@@ -78,9 +78,9 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 
 | Característica de BI de SQL Server | Instalada en la imagen de la galería | Notas |
 | --- | --- | --- |
-| **Modo nativo de Reporting Services** |Sí |Instalado pero requiere configuración, incluida la dirección URL del administrador de informes. Vea la sección [Configurar Reporting Services](#configure-reporting-services). |
+| **Modo nativo de Reporting Services** |SÍ |Instalado pero requiere configuración, incluida la dirección URL del administrador de informes. Vea la sección [Configurar Reporting Services](#configure-reporting-services). |
 | **Modo de SharePoint de Reporting Services** |Sin  |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
-| **Minería de datos y multidimensional de Analysis Services (OLAP)** |Sí |Instalado y configurado como la instancia de Analysis Services predeterminada |
+| **Minería de datos y multidimensional de Analysis Services (OLAP)** |SÍ |Instalado y configurado como la instancia de Analysis Services predeterminada |
 | **Tabular de Analysis Services** |Sin  |Se admite en imágenes de SQL Server 2012, 2014 y 2016, pero no se instala de forma predeterminada. Instale otra instancia de Analysis Services. Vea la sección Instalar otras características y servicios de SQL Server en este tema. |
 | **Analysis Services PowerPivot para SharePoint** |Sin  |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
 
@@ -336,7 +336,7 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 ![puertos que deben abrirse para aplicaciones de bi en máquinas virtuales de Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## <a name="resources"></a>Recursos
-* Revise la directiva de compatibilidad para software de servidor de Microsoft usado en el entorno de máquina virtual de Azure. En el tema siguiente se resume la compatibilidad con características como BitLocker, agrupación en clústeres de conmutación por error y equilibrio de carga de red. [Compatibilidad de software de servidor de Microsoft para Azure Virtual Machines](http://support.microsoft.com/kb/2721672).
+* Revise la directiva de compatibilidad para software de servidor de Microsoft usado en el entorno de máquina virtual de Azure. En el tema siguiente se resume la compatibilidad con características como BitLocker, agrupación en clústeres de conmutación por error y equilibrio de carga de red. [Compatibilidad de software de servidor de Microsoft para Azure Virtual Machines](https://support.microsoft.com/kb/2721672).
 * [Información general sobre SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)

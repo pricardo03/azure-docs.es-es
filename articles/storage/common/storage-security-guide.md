@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243801"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -479,7 +479,7 @@ Para más información sobre el uso compartido de recursos entre orígenes y có
 * [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage en MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Se trata de la documentación de referencia para la compatibilidad con el uso compartido de recursos entre orígenes para los servicios de Azure Storage. Contiene vínculos a artículos que se aplican a cada servicio de almacenamiento, se muestra un ejemplo y se explica cada elemento en el archivo del uso compartido de recursos entre orígenes.
-* [Microsoft Azure Storage: Introducing CORS (Almacenamiento de Microsoft Azure: Introducción a uso compartido de recursos entre orígenes)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: Introducing CORS (Microsoft Azure Storage: Introducción a uso compartido de recursos entre orígenes)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Se trata de un vínculo al artículo inicial del blog en el que se anuncia el uso compartido de recursos entre orígenes y se muestra cómo utilizarlo.
 
@@ -490,7 +490,7 @@ Para más información sobre el uso compartido de recursos entre orígenes y có
 
    Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.
 
-   Para obtener más información, consulte [Windows Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)(Información general de MD5 de Azure Blob service).
+   Para obtener más información, consulte [Windows Azure Blob MD5 Overview](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)(Información general de MD5 de Azure Blob service).
 2. **¿Y qué ocurre con el cumplimiento de la norma FIPS para el Gobierno de EE. UU.?**
 
    La norma Federal Information Processing Standard (FIPS) de EE. UU. define los algoritmos criptográficos aprobados para su uso por los sistemas informáticos del Gobierno Federal de EE. UU para la protección de los datos confidenciales. La habilitación del modo FIPS en un servidor o escritorio de Windows indica al sistema operativo que solo se deben usar los algoritmos criptográficos validados por FIPS. Si una aplicación utiliza algoritmos no compatibles, se invalidarán las aplicaciones. Con .NET Framework en su versión 4.5.2 u otra posterior, la aplicación cambia automáticamente los algoritmos criptográficos para utilizar los algoritmos conformes a FIPS cuando el equipo está en modo FIPS.

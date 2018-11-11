@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962137"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245365"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Inicio rápido: Eliminación de una aplicación de Azure Active Directory
 
@@ -69,7 +69,7 @@ Un subconjunto de las aplicaciones que aparecen en el filtro **Todas las aplicac
 
 En términos técnicos, estas aplicaciones multiinquilino proceden de otro inquilino y se registraron en su inquilino durante el proceso de consentimiento. Más específicamente, se representan solo mediante un objeto de entidad de servicio en su inquilino, sin un objeto aplicación correspondiente. Para más información sobre las diferencias entre objetos de aplicación y objetos de entidad de servicio, consulte [Objetos de aplicación y de entidad de servicio en Azure AD](app-objects-and-service-principals.md).
 
-Para eliminar el acceso de una aplicación multiinquilino a su directorio (después de concederle consentimiento), el administrador de la compañía debe eliminar la entidad de servicio de la aplicación. El administrador debe tener acceso de administrador global y puede eliminar el acceso a través de Azure Portal o usar los [Cmdlets de PowerShell de Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151).
+Para eliminar el acceso de una aplicación multiinquilino a su directorio (después de concederle consentimiento), el administrador de la compañía debe eliminar la entidad de servicio de la aplicación. El administrador debe tener acceso de administrador global y puede eliminar el acceso a través de Azure Portal o usar los [Cmdlets de PowerShell de Azure AD](https://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

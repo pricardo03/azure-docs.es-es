@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408615"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239804"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure 
 
-La máquina virtual Geo Artificial Intelligence Data Science Virtual Machine (Geo-DSVM) es una extensión de la conocida [Azure Data Science Virtual Machine](http://aka.ms/dsvm) que se ha configurado especialmente para combinar la inteligencia artificial con el análisis geoespacial. Los análisis geoespaciales en la máquina virtual se realizan con tecnología de [ArcGIS Pro](https://www.arcgis.com/features/index.html). La máquina virtual de ciencia de datos permite la formación rápida de modelos de aprendizaje automático e incluso de modelos de aprendizaje profundo con datos enriquecidos con información geográfica. Solo es compatible en DSVM con Windows 2016. 
+La máquina virtual Geo Artificial Intelligence Data Science Virtual Machine (Geo-DSVM) es una extensión de la conocida [Azure Data Science Virtual Machine](https://aka.ms/dsvm) que se ha configurado especialmente para combinar la inteligencia artificial con el análisis geoespacial. Los análisis geoespaciales en la máquina virtual se realizan con tecnología de [ArcGIS Pro](https://www.arcgis.com/features/index.html). La máquina virtual de ciencia de datos permite la formación rápida de modelos de aprendizaje automático e incluso de modelos de aprendizaje profundo con datos enriquecidos con información geográfica. Solo es compatible en DSVM con Windows 2016. 
 
 La máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial contiene varias herramientas para inteligencia artificial, entre las que se incluyen las siguientes:
 

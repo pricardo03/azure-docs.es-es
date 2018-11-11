@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242575"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242915"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
@@ -41,7 +41,7 @@ El objetivo es usar las API de [enrutamiento dependiente de los datos](sql-datab
 
 - Uso de Visual Studio (2012 o posterior)
 - Creación de tres instancias de Azure SQL Database
-- Descargue el proyecto de ejemplo: [Herramientas de bases de datos elásticas para SQL de Azure - Particiones con varios inquilinos](http://go.microsoft.com/?linkid=9888163)
+- Descargue el proyecto de ejemplo: [Herramientas de bases de datos elásticas para SQL de Azure - Particiones con varios inquilinos](https://go.microsoft.com/?linkid=9888163)
   - Rellene la información para las bases de datos al comienzo de **Program.cs** 
 
 Este proyecto amplía el descrito en [Herramientas de bases de datos elásticas para SQL de Azure - Integración de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) mediante la adición de compatibilidad con bases de datos de partición de varios inquilinos. El proyecto compila una sencilla aplicación de consola para la creación de blogs y publicaciones. El proyecto incluye cuatro inquilinos y dos bases de datos de la partición multiinquilino. Esta configuración se ilustra en el diagrama anterior. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> En un proyecto complejo, es posible que deba agregar el predicado a cientos de tablas, lo que puede resultar muy tedioso. Hay un procedimiento almacenado de la aplicación auxiliar que genera una directiva de seguridad y agrega un predicado a todas las tablas de un esquema. Para más información, consulte la entrada de blog [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script)(Aplicación de la seguridad de nivel de fila a todas las tablas - script de aplicación auxiliar).
+> En un proyecto complejo, es posible que deba agregar el predicado a cientos de tablas, lo que puede resultar muy tedioso. Hay un procedimiento almacenado de la aplicación auxiliar que genera una directiva de seguridad y agrega un predicado a todas las tablas de un esquema. Para más información, consulte la entrada de blog [Apply Row-Level Security to all tables – helper script (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script)(Aplicación de la seguridad de nivel de fila a todas las tablas - script de aplicación auxiliar).
 
 Ahora, si vuelve a ejecutar la aplicación de ejemplo, los inquilinos ven solamente las filas que les pertenecen. Además, la aplicación no puede insertar filas que pertenezcan a inquilinos que no sea el que está conectado en ese momento a la base de datos de la partición ni puede actualizar el valor de TenantId en las filas visibles. Si la aplicación intenta realizar cualquiera de las dos acciones, se genera una excepción DbUpdateException.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Mantenimiento 
 
 - **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
-- **Agregar tablas nuevas**: cada vez que se cree una tabla, agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
+- **Agregar tablas nuevas**: cada vez que se cree una tabla, agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
 
 ## <a name="summary"></a>Resumen
 
@@ -358,7 +358,7 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 
-Si tiene preguntas, póngase en contacto con nosotros en el [foro de SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Y agregue todas las solicitudes de característica al [foro de comentarios de SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Si tiene preguntas, póngase en contacto con nosotros en el [foro de SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Y agregue todas las solicitudes de característica al [foro de comentarios de SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

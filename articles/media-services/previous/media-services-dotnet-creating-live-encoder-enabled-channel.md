@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 946de42c499182f8785866f362677779b105760d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: aaf9fba7b3a2667577c26ade9cd88bcc87c60f61
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940830"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243852"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Cómo realizar el streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple con .NET
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 > 
 > 
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Este paso también puede realizarse después de crear el canal.
 
@@ -88,11 +88,11 @@ En el artículo se muestra cómo hacer lo siguiente:
 7. Mostrar y ocultar pizarras. Iniciar y detener anuncios. Se usan las API de ejecución prolongada.
 8. Limpiar el canal y todos los recursos asociados.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 * Una cuenta de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica Web Apps de Azure App Service.
-* Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
+* Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte [Creación de una cuenta](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versiones posteriores.
 * Debe usar el SDK de Media Services para .NET versión 3.2.0.0 o posterior.
 * Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.

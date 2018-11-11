@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0fdf768008161fbb72e48dae937a4172222dbb63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399056"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239753"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Uso de Azure Storage para la copia de seguridad y la restauración de SQL Server
 ## <a name="overview"></a>Información general
 A partir de SQL Server 2012 SP1 CU2, ahora puede escribir copias de seguridad de SQL Server directamente en el servicio Almacenamiento de blobs de Azure. Puede usar esta funcionalidad para realizar la copia de seguridad en Azure Blob service y restaurar desde él con un servidor SQL Databse local o un servidor de SQL Database de una máquina virtual de Azure. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos en la nube y desde ella. Puede emitir instrucciones BACKUP o RESTORE mediante T-SQL o SMO.
 
-SQL Server 2016 presenta nuevas funcionalidades; puede usar [copias de seguridad de instantánea de archivos](http://msdn.microsoft.com/library/mt169363.aspx) para realizar copias de seguridad prácticamente instantáneas y restauraciones increíblemente rápidas.
+SQL Server 2016 presenta nuevas funcionalidades; puede usar [copias de seguridad de instantánea de archivos](https://msdn.microsoft.com/library/mt169363.aspx) para realizar copias de seguridad prácticamente instantáneas y restauraciones increíblemente rápidas.
 
 En este tema se explica por qué podría decidir utilizar Azure Storage para realizar copias de seguridad de SQL y además se describen los componentes implicados. Puede usar los recursos que se proporciona al final del artículo para obtener acceso a tutoriales e información adicional para comenzar a usar este servicio con las copias de seguridad de SQL Server.
 
@@ -37,10 +37,10 @@ A la hora de realizar una copia de seguridad de SQL Server, se enfrenta a varias
 * **Hardware administrado**: con los servicios de Azure no hay sobrecarga por la administración del hardware. Los servicios de Azure administran el hardware y ofrecen replicación geográfica para conseguir redundancia y protección contra los errores del hardware.
 * **Almacenamiento ilimitado**: al habilitar una copia de seguridad directa en blobs de Azure, tendrá acceso a un almacenamiento prácticamente ilimitado. Como alternativa, la copia de seguridad en un disco de máquina virtual de Azure tiene límites basados en el tamaño de la máquina. Existe un límite en el número de discos que se pueden conectar a una máquina virtual de Azure para copias de seguridad. Este límite es de 16 discos para una instancia muy grande e inferior para las instancias menores.
 * **Disponibilidad de copia de seguridad**: las copias de seguridad almacenadas en blobs de Azure están disponibles desde cualquier lugar y en cualquier momento, y es fácil tener acceso a ellas para restauraciones en un servidor SQL Server local o en otro servidor SQL Server que se ejecute en una máquina virtual de Azure, sin necesidad de conectar o desconectar la base de datos o de descargar y conectar el VHD.
-* **Costo**: pague solo por el servicio que use. Puede ser tan rentable como una opción de archivado de copias de seguridad externa. Consulte la [Calculadora de precios de Azure](http://go.microsoft.com/fwlink/?LinkId=277060 "Calculadora de precios") y el [Artículo de precios de Azure](http://go.microsoft.com/fwlink/?LinkId=277059 "Artículo de precios") para más información.
-* **Instantáneas de almacenamiento**: cuando los archivos de base de datos se almacenan en un blob de Azure y está utilizando SQL Server 2016, puede usar [copias de seguridad de instantánea de archivo](http://msdn.microsoft.com/library/mt169363.aspx) para realizar copias de seguridad casi instantáneas y restauraciones increíblemente rápidas.
+* **Costo**: pague solo por el servicio que use. Puede ser tan rentable como una opción de archivado de copias de seguridad externa. Consulte la [Calculadora de precios de Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Calculadora de precios") y el [Artículo de precios de Azure](https://go.microsoft.com/fwlink/?LinkId=277059 "Artículo de precios") para más información.
+* **Instantáneas de almacenamiento**: cuando los archivos de base de datos se almacenan en un blob de Azure y está utilizando SQL Server 2016, puede usar [copias de seguridad de instantánea de archivo](https://msdn.microsoft.com/library/mt169363.aspx) para realizar copias de seguridad casi instantáneas y restauraciones increíblemente rápidas.
 
-Para obtener más información, consulte [Copia de seguridad y restauración de SQL Server con el servicio Azure Blob Storage](http://go.microsoft.com/fwlink/?LinkId=271617).
+Para obtener más información, consulte [Copia de seguridad y restauración de SQL Server con el servicio Azure Blob Storage](https://go.microsoft.com/fwlink/?LinkId=271617).
 
 En las dos secciones siguientes se presenta el servicio Almacenamiento de blobs de Azure, junto con los componentes necesarios de SQL Server. Es importante comprender los componentes y su interacción para usar correctamente la característica de copia de seguridad y restauración del servicio Almacenamiento de blobs de Azure.
 
@@ -51,7 +51,7 @@ Los siguientes componentes de Azure se utilizan al realizar una copia de segurid
 | --- | --- |
 | **Storage Account** |La cuenta de almacenamiento es el punto de partida de todos los servicios de almacenamiento. Para obtener acceso a un servicio Azure Blob Storage, primero debe crear una cuenta de Azure Storage. Para obtener más información acerca del servicio Azure Blob Storage, consulte [Uso del servicio Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Contenedor** |Un contenedor ofrece la agrupación de un conjunto de blobs y puede almacenar un número ilimitado de ellos. Para realizar una copia de seguridad de SQL Server en Azure Blob service, debe haber creado un contenedor raíz como mínimo. |
-| **Blob** |Un archivo de cualquier tipo y tamaño. Los blobs son direccionables mediante el formato de dirección URL siguiente: **https://[cuenta de almacenamiento].blob.core.windows.net/[contenedor]/[blob]**. Para más información sobre los blobs en páginas, consulte la [descripción de los blobs en bloques y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |Un archivo de cualquier tipo y tamaño. Los blobs son direccionables mediante el formato de dirección URL siguiente: **https://[cuenta de almacenamiento].blob.core.windows.net/[contenedor]/[blob]**. Para más información sobre los blobs en páginas, consulte la [descripción de los blobs en bloques y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Componentes de SQL Server
 Se utilizan los siguientes componentes de SQL Server al realizar una copia de seguridad en el servicio de Almacenamiento de blobs de Azure.
@@ -66,7 +66,7 @@ Se utilizan los siguientes componentes de SQL Server al realizar una copia de se
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 1. Cree una cuenta de Azure si aún no tiene una. Si va a evaluar Azure, podría considerar la [evaluación gratuita](https://azure.microsoft.com/free/).
 2. A continuación, siga uno de los siguientes tutoriales para crear una cuenta de almacenamiento y realizar una restauración.
    

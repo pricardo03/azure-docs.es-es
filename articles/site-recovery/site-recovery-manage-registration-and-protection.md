@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214093"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244345"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Quitar servidores y deshabilitar la protección
 
@@ -34,7 +34,7 @@ Si replica máquinas virtuales de VMware o servidores físicos de Windows/Linux 
 3. Escriba el ID del servidor VMM.
 4. Disocie las directivas de replicación de las nubes en el servidor VMM que desea quitar.  En **Site Recovery Infrastructure** > **For System Center VMM** >  **Replication Policies**, (Infraestructura de Site Recovery > Para System Center VMM > Directivas de replicación) haga doble clic en la directiva asociada. Haga clic con el botón derecho en la nube > **Disassociate** (Desasociar).
 5. Elimine el servidor VMM o el nodo activo. En **Site Recovery Infrastructure** > **For System Center VMM** > **VMM Servers** (Infraestructura de Site Recovery > Para System Center VMM > Servidores VMM) haga clic con el botón derecho en el servidor > **Eliminar**.
-6. Si el servidor de VMM estaba en estado desconectado, descargue y ejecute el [script de limpieza](http://aka.ms/asr-cleanup-script-vmm) en el servidor VMM. Abra PowerShell con la opción **Ejecutar como administrador** para cambiar la directiva de ejecución para el ámbito predeterminado (LocalMachine). En el script, especifique el ID del servidor VMM que desea quitar. El script quita el registro y la información de emparejamiento de nube del servidor.
+6. Si el servidor de VMM estaba en estado desconectado, descargue y ejecute el [script de limpieza](https://aka.ms/asr-cleanup-script-vmm) en el servidor VMM. Abra PowerShell con la opción **Ejecutar como administrador** para cambiar la directiva de ejecución para el ámbito predeterminado (LocalMachine). En el script, especifique el ID del servidor VMM que desea quitar. El script quita el registro y la información de emparejamiento de nube del servidor.
 5. Ejecute el script de limpieza en cualquier servidor VMM secundario.
 6. Ejecute el script de limpieza en tos los demás nodos de clúster VMM pasivos que tengan instalado el proveedor.
 7. Desinstale el proveedor manualmente en el servidor VMM. Si tiene un clúster, quítelo de todos los nodos.

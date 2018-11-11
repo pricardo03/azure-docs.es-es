@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5a71fada190939abf638cd1b681adff7e80970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530040"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244549"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desarrollo con Java para Azure Files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -231,6 +231,6 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 * [SDK de Azure Storage para Android](https://github.com/azure/azure-storage-android)
 * [Referencia del SDK del cliente de Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog del equipo de Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog del equipo de Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Transferencia de datos con la utilidad en línea de comandos AzCopy](../common/storage-use-azcopy.md)
 * [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)

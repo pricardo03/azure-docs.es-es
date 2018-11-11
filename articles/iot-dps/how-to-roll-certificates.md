@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387895"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247728"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Implementación de certificados de dispositivo X.509
 
 Durante el ciclo de vida de la solución de IoT, necesitará implementar certificados. Dos de las razones principales para implementar certificados sería una infracción de seguridad y la caducidad de los certificados. 
 
-La implementación de certificados es un procedimiento recomendado de seguridad para ayudar a proteger el sistema en caso de una infracción de seguridad. Como parte de la [asunción de la metodología de infracción de seguridad](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft recomienda la necesidad de contar con procesos de seguridad reactivos junto con medidas preventivas. La implementación de los certificados de dispositivo se debe incluir como parte de estos procesos de seguridad. La frecuencia con la que implementa los certificados dependerá de las necesidades de seguridad de la solución. Los clientes con soluciones que involucran datos altamente confidenciales pueden implementar el certificado diariamente, mientras que otros usuarios implementan sus certificados cada dos años.
+La implementación de certificados es un procedimiento recomendado de seguridad para ayudar a proteger el sistema en caso de una infracción de seguridad. Como parte de la [asunción de la metodología de infracción de seguridad](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft recomienda la necesidad de contar con procesos de seguridad reactivos junto con medidas preventivas. La implementación de los certificados de dispositivo se debe incluir como parte de estos procesos de seguridad. La frecuencia con la que implementa los certificados dependerá de las necesidades de seguridad de la solución. Los clientes con soluciones que involucran datos altamente confidenciales pueden implementar el certificado diariamente, mientras que otros usuarios implementan sus certificados cada dos años.
 
 La implementación de certificados de dispositivo implica actualizar el certificado almacenado en el dispositivo y el centro de IoT. Después, el dispositivo puede reaprovisionarse así mismo con el centro de IoT mediante [autoaprovisionamiento](concepts-auto-provisioning.md) normal con Device Provisioning Service.
 

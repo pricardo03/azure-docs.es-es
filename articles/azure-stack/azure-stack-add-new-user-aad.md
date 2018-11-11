@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038024"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240127"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adición de una nueva cuenta de inquilino de Azure Stack en Azure Active Directory
 
@@ -40,10 +40,10 @@ Debe tener una suscripción de Azure para usar el Portal de Azure.
 
     ![Página Agregar nuevo usuario, Usuario con información de usuario](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-    - **Nombre (obligatorio).** Nombre y apellido del nuevo usuario. Por ejemplo, Mary Parker.
+    - **Nombre (obligatorio).** Nombre y apellidos del nuevo usuario. Por ejemplo, Mary Parker.
     - **Nombre de usuario (obligatorio).** Nombre de usuario del nuevo usuario. Por ejemplo, mary@contoso.com.
         La parte de dominio del nombre de usuario debe usar el nombre de dominio predeterminado inicial <_nombre de dominio_>.onmicrosoft.com o un nombre de dominio personalizado, como contoso.com. Para obtener más información sobre cómo crear un nombre de dominio personalizado, vea [Incorporación de un nombre de dominio personalizado a Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
-    - **Perfil.** De forma opcional, puede agregar más información sobre el usuario. También puede agregar información del usuario posteriormente. Para obtener más información sobre cómo agregar información de usuario, vea [Incorporación o modificación de la información del perfil de usuario](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    - **Perfil.** Si quiere, puede agregar más información sobre el usuario. También puede agregar información del usuario posteriormente. Para obtener más información sobre cómo agregar información de usuario, vea [Incorporación o modificación de la información del perfil de usuario](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
     - **Rol del directorio.**  elija **Usuario**.
 
 5. Active **Mostrar contraseña** y copie la contraseña generada automáticamente proporcionada en el cuadro **Contraseña**. Necesitará esta contraseña para el proceso inicial de inicio de sesión.
@@ -65,7 +65,7 @@ Si no tiene una suscripción de Azure, no puede usar Azure Portal para agregar u
 > 
 
 1. Instale el [Ayudante para el inicio de sesión de Microsoft Online Services para profesionales de TI (RTW)](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Instale el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297) y ábralo.
+2. Instale el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) y ábralo.
 3. Ejecute los siguientes cmdlets:
 
     ```powershell

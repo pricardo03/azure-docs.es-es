@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dca9d7900ce229b1cddbef8d0dee44bc0061dc42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611313"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243784"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
-En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
+En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
 
 Con las plantillas de Azure Resource Manager, puede automatizar fácilmente la implementación y la configuración de sus recursos de Azure.  En este tutorial se muestra cómo implementar una aplicación web y configurar automáticamente la información de conexión de la cuenta de Azure Cosmos DB.
 
@@ -29,7 +29,7 @@ Después de completar este tutorial, podrá responder a las siguientes preguntas
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 > [!TIP]
 > Aunque en este tutorial no se exige experiencia con plantillas de Azure Resource Manager o JSON, si quiere modificar las plantillas o las opciones de implementación a las que se hace referencia, entonces sí es necesario tener conocimientos sobre cada una de estas áreas.
 > 
@@ -114,7 +114,7 @@ Ahora implementaremos su segunda plantilla.  Esta plantilla resulta útil para m
 9. Observe que existen valores de configuración de la aplicación para el punto de conexión de Azure Cosmos DB y para cada una de las claves maestras de Azure Cosmos DB.
 
     ![Captura de pantalla de configuración de la aplicación](./media/create-website/TemplateDeployment10.png)  
-10. No dude en continuar explorando Azure Portal o siga uno de nuestros [ejemplos](http://go.microsoft.com/fwlink/?LinkID=402386) de Azure Cosmos DB para crear su propia aplicación de Azure Cosmos DB.
+10. No dude en continuar explorando Azure Portal o siga uno de nuestros [ejemplos](https://go.microsoft.com/fwlink/?LinkID=402386) de Azure Cosmos DB para crear su propia aplicación de Azure Cosmos DB.
 
 <a name="NextSteps"></a>
 
@@ -122,14 +122,14 @@ Ahora implementaremos su segunda plantilla.  Esta plantilla resulta útil para m
 Felicidades. Ha implementado Azure Cosmos DB, una aplicación web de App Service y una aplicación web de ejemplo mediante plantillas de Azure Resource Manager.
 
 * Para más información sobre Azure Cosmos DB, haga clic [aquí](http://azure.com/docdb).
-* Para obtener más información acerca de aplicaciones de servicio web de la aplicación de Azure, haga clic en [aquí](http://go.microsoft.com/fwlink/?LinkId=325362).
+* Para obtener más información acerca de aplicaciones de servicio web de la aplicación de Azure, haga clic en [aquí](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Para obtener más información sobre las plantillas del Administrador de recursos de Azure, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 

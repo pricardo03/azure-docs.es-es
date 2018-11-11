@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023192"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241777"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ Para obtener acceso al agente de escucha desde el exterior de la red virtual, de
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-A diferencia del ejemplo anterior, se debe usar autenticación de SQL, ya que el autor de la llamada no puede usar la autenticación de Windows por Internet. Para más información, consulte [Always On Availability Group in Azure VM: Client Connectivity Scenarios](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)(Grupo de disponibilidad AlwaysOn en la máquina virtual de Azure: escenarios de conectividad de cliente). Al usar la autenticación de SQL, asegúrese de que crea el mismo inicio de sesión en ambas réplicas. Para obtener más información sobre cómo solucionar problemas de inicio de sesión con grupos de disponibilidad, consulte [Asignar inicios de sesión o usar un usuario de base de datos SQL contenido para conectar con otras réplicas y asignarlas a las bases de datos de disponibilidad](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+A diferencia del ejemplo anterior, se debe usar autenticación de SQL, ya que el autor de la llamada no puede usar la autenticación de Windows por Internet. Para más información, consulte [Always On Availability Group in Azure VM: Client Connectivity Scenarios](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)(Grupo de disponibilidad AlwaysOn en la máquina virtual de Azure: escenarios de conectividad de cliente). Al usar la autenticación de SQL, asegúrese de que crea el mismo inicio de sesión en ambas réplicas. Para obtener más información sobre cómo solucionar problemas de inicio de sesión con grupos de disponibilidad, consulte [Asignar inicios de sesión o usar un usuario de base de datos SQL contenido para conectar con otras réplicas y asignarlas a las bases de datos de disponibilidad](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán que especificar **MultisubnetFailover=True** en la cadena de conexión. Esto se traduce en intentos de conexión en paralelo con las réplicas de las diferentes subredes. Tenga en cuenta que este escenario incluye una implementación de grupo de disponibilidad AlwaysOn entre regiones.
 

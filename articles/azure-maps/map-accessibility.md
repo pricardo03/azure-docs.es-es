@@ -11,18 +11,18 @@ ms.service: azure-maps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: 59e4226d7abb1d2692c531f146685feb203ab423
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ef948b4dca3d3800a81ac52f3a73beee2558d21c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247235"
 ---
 # <a name="building-an-accessible-application"></a>Creación de una aplicación accesible
 
 Este artículo muestra cómo crear una aplicación de mapas que se puede usar con un lector de pantalla.
 
-## <a name="understand-the-code"></a>Comprensión del código
+## <a name="understand-the-code"></a>Comprendiendo el código
 
 <iframe height='500' scrolling='no' title='Crear una aplicación accesible' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vea el lápiz <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Crear una aplicación accesible</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -42,4 +42,4 @@ Más información sobre la clase Popup y los métodos utilizados en este artícu
 Consulte más ejemplos de código:
 
 > [!div class="nextstepaction"]
-> [Página de ejemplos de código](http://aka.ms/AzureMapsSamples)
+> [Página de ejemplos de código](https://aka.ms/AzureMapsSamples)

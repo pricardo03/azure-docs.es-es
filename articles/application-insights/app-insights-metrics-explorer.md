@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c35f4366b2290164036316be8de730e20aa99bf
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cc9b3bd1d038bd8aa9c01e806e5448824011bc93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092669"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240756"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploración de métricas en Application Insights
 Las métricas de [Application Insights][start] son valores medidos y recuentos de eventos que se envían en telemetría desde la aplicación. Ayudar a detectar problemas de rendimiento y a observar las tendencias sobre cómo se utiliza la aplicación. Hay una amplia gama de métricas estándar y también se pueden crear los propios eventos y métricas personalizados.
@@ -180,7 +180,7 @@ Para recibir notificaciones por correo electrónico de los valores no habituales
 Si quiere que los datos se exporten continuamente para procesarlos externamente, puede usar la [Exportación continua](app-insights-export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
-Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Análisis
 [Análisis](app-insights-analytics.md) es una forma más versátil de analizar los datos de telemetría mediante un eficaz lenguaje de consulta. Utilícelo si desea combinar o calcular resultados a partir de métricas, o realizar una exploración en profundidad del rendimiento reciente de su aplicación. 
@@ -194,14 +194,14 @@ En el gráfico de una métrica, puede hacer clic en el icono Análisis para ir d
 
     Si desea establecer filtros diferentes en gráficos diferentes, créelos en hojas diferentes y guárdelos como elementos favoritos independientes. Si lo desea, puede anclarlos al panel para verlos en paralelo.
 * Si agrupa un gráfico por una propiedad que no está definida en la métrica, no habrá nada en el gráfico. Intente borrar "Agrupar por" o elija una propiedad de agrupación diferente.
-* Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para servicios web de Java, aplicaciones de escritorio de Windows, [servicios y aplicaciones web IIS si instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md) y [Azure Cloud Services](app-insights-azure.md). No están disponibles para los sitios web de Azure.
+* Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para servicios web de Java, aplicaciones de escritorio de Windows, [servicios y aplicaciones web IIS si instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md) y [Azure Cloud Services](app-insights-overview.md). No están disponibles para los sitios web de Azure.
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Supervisión del uso con Application Insights](app-insights-web-track-usage.md)
+* [Supervisión del uso con Application Insights](app-insights-usage-overview.md)
 * [Uso de la Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 
 <!--Link references-->

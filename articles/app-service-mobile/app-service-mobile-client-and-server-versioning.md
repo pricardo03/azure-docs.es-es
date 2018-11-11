@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1f5626b1001f2d5deb3fa84d64eab6acf6c94b7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "27593381"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239532"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Mobile Apps y Mobile Services
 La versión más reciente de Azure Mobile Services es la característica **Mobile Apps** de Azure App Service.
@@ -29,7 +29,7 @@ Es decir, debe usar el SDK de cliente de *Mobile Apps* con un SDK de servidor de
 
 Nota: cada vez que este documento hace referencia a un back-end de *Mobile Services* , no es necesario que esté hospedado en Mobile Services. Ahora es posible migrar un servicio móvil para que se ejecute en App Service sin realizar ningún cambio en el código, pero el servicio seguirá usando versiones de SDK de *Mobile Services*.
 
-Para más información sobre la migración a App Service sin realizar ningún cambio en el código, consulte el artículo [Migrate your existing Azure mobile service to App Service].
+Para más información sobre la migración a App Service sin realizar ningún cambio en el código, consulte el artículo [Migración de un servicio móvil a Azure App Service].
 
 ## <a name="header-specification"></a>Especificación del encabezado
 La clave `ZUMO-API-VERSION` se puede especificar en el encabezado HTTP o en la cadena de consulta. El valor es una cadena de versión con el formato **x.y.z**.
@@ -73,7 +73,7 @@ Nota: los SDK de cliente de Mobile Services *no* envían un valor de encabezado 
 | Plataforma de cliente | Versión | Valor de encabezado de versión |
 | --- | --- | --- |
 | Cliente administrado (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |N/D |
-| iOS |[2.2.2](http://aka.ms/gc6fex) |N/D |
+| iOS |[2.2.2](https://aka.ms/gc6fex) |N/D |
 | Android |[2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) |N/D |
 | HTML |[1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |N/D |
 
@@ -99,8 +99,8 @@ La comprobación de versión se introdujo a partir de las siguientes versiones d
 | Plataforma de cliente | Versión | Valor de encabezado de versión |
 | --- | --- | --- |
 | Cliente administrado (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
-| iOS |[3.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
-| Android |[3.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) |3.0.0 |
+| iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
+| Android |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) |3.0.0 |
 
 <!-- TODO: add HTML version when released -->
 
@@ -122,11 +122,11 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 | 3.0.0-3.x.y |False/Sin especificar |400 - Solicitud incorrecta |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Migrate your existing Azure mobile service to App Service]
+* [Migración de un servicio móvil a Azure App Service]
 
 [Clientes de Mobile Services]: #MobileServicesClients
 [Clientes de Mobile Apps]: #MobileAppsClients
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrate your existing Azure mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Migración de un servicio móvil a Azure App Service]: app-service-mobile-migrating-from-mobile-services.md

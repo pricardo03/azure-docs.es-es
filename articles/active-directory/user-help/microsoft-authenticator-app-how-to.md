@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: d5ea6f18fb288711bae67b6840ddb5b8bb9942c2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393259"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245450"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introducción a la aplicación Microsoft Authenticator
 
@@ -39,7 +39,7 @@ También puede usar la aplicación Microsoft Authenticator con cuentas que no se
 
 ## <a name="install-the-app"></a>Instalación de la aplicación
 
-La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) y [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). Para obtener los mejores resultados, debe permitir que la aplicación reciba notificaciones cuando se le pida. 
+La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) y [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). Para obtener los mejores resultados, debe permitir que la aplicación reciba notificaciones cuando se le pida. 
 
 ## <a name="add-accounts-to-the-app"></a>Incorporación de cuentas a la aplicación
 
@@ -51,7 +51,7 @@ Para una cuenta Microsoft personal (una que use para iniciar sesión en Outlook.
 
 ### <a name="add-a-work-or-school-account"></a>Adición de una cuenta profesional o educativa
 
-1. Si es posible, vaya a la pantalla [Comprobación de seguridad adicional](http://aka.ms/mfasetup) en otro equipo o dispositivo. Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) o póngase en contacto con su administrador.
+1. Si es posible, vaya a la pantalla [Comprobación de seguridad adicional](https://aka.ms/mfasetup) en otro equipo o dispositivo. Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) o póngase en contacto con su administrador.
 
     >[!Note]
     >Si el administrador ha activado la experiencia de versión preliminar de la información de seguridad, puede seguir las instrucciones de [Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md).

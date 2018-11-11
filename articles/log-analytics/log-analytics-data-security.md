@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 97fa3e9cf043037bf2fe4b0ba198bbdf68de9fa4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044695"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244481"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](../security/security-microsoft-trust-center.md).  
@@ -36,7 +36,7 @@ El servicio Log Analytics administra sus datos basados en la nube de forma segur
 * Cumplimiento normativo
 * Certificaciones de estándares de seguridad
 
-Póngase en contacto con nosotros si tiene preguntas, sugerencias o problemas acerca de la siguiente información, incluidas nuestras directivas de seguridad en [Opciones de soporte técnico de Azure](http://azure.microsoft.com/support/options/).
+Póngase en contacto con nosotros si tiene preguntas, sugerencias o problemas acerca de la siguiente información, incluidas nuestras directivas de seguridad en [Opciones de soporte técnico de Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="sending-data-securely-using-tls-12"></a>Envío de datos de forma segura con TLS 1.2 
 
@@ -86,7 +86,7 @@ La tabla siguiente muestra ejemplos de los tipos de datos:
 | Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Seguridad física
-El servicio Log Analytics está a cargo de personal de Microsoft y todas las actividades se registran y se pueden auditar. Log Analytics funciona como un servicio de Azure y cumple con todos los requisitos de cumplimiento y seguridad de Azure. Puede ver detalles acerca de la seguridad física de los recursos de Azure en la página 18 de la [Información general de la seguridad de Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Los derechos de acceso físico para proteger áreas de las personas que ya no tienen ninguna responsabilidad en el servicio de Log Analytics se cambian en un plazo de un día hábil, incluidas la transferencia y la finalización. Puede consultar información sobre la infraestructura física global que se utiliza en los [centros de datos de Microsoft](https://azure.microsoft.com/global-infrastructure/).
+El servicio Log Analytics está a cargo de personal de Microsoft y todas las actividades se registran y se pueden auditar. Log Analytics funciona como un servicio de Azure y cumple con todos los requisitos de cumplimiento y seguridad de Azure. Puede ver detalles acerca de la seguridad física de los recursos de Azure en la página 18 de la [Información general de la seguridad de Microsoft Azure](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Los derechos de acceso físico para proteger áreas de las personas que ya no tienen ninguna responsabilidad en el servicio de Log Analytics se cambian en un plazo de un día hábil, incluidas la transferencia y la finalización. Puede consultar información sobre la infraestructura física global que se utiliza en los [centros de datos de Microsoft](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>Administración de incidentes
 Log Analytics incluye un proceso de administración de incidentes que cumplen todos los servicios de Microsoft. Resumiendo:
@@ -158,7 +158,7 @@ En lo que respecta a Operations Manager, el grupo de administración de este est
 
 Toda la comunicación se cifra entre sistemas conectados y el servicio Log Analytics. El protocolo TLS (HTTPS) se utiliza para el cifrado.  Se sigue el proceso del SDL de Microsoft para garantizar que el servicio Log Analytics está actualizado con los últimos avances en protocolos criptográficos.
 
-Cada tipo de agente recopila datos para Log Analytics. El tipo de datos recopilados depende de los tipos de soluciones usadas. Puede ver un resumen del proceso de recolección de datos en el artículo [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md). Además, hay información más detallada disponible sobre este tema para la mayoría de las soluciones. Una solución es una agrupación de vistas predefinidas, consultas de búsqueda de registros, reglas de recopilación de datos y lógica de procesamiento. Solo los administradores pueden usar Log Analytics para importar una solución. Una vez importada, la solución se transfiere a los servidores de administración de Operations Manager (en caso de utilizarse) y, después, a los agentes que haya elegido. Posteriormente, los agentes recopilan los datos.
+Cada tipo de agente recopila datos para Log Analytics. El tipo de datos recopilados depende de los tipos de soluciones usadas. Puede ver un resumen del proceso de recolección de datos en el artículo [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md). Además, hay información más detallada disponible sobre este tema para la mayoría de las soluciones. Una solución es una agrupación de vistas predefinidas, consultas de búsqueda de registros, reglas de recopilación de datos y lógica de procesamiento. Solo los administradores pueden usar Log Analytics para importar una solución. Una vez importada, la solución se transfiere a los servidores de administración de Operations Manager (en caso de utilizarse) y, después, a los agentes que haya elegido. Posteriormente, los agentes recopilan los datos.
 
 ## <a name="2-send-data-from-agents"></a>2. Envío de datos desde agentes
 El registro de todos los tipos de agentes se efectúa con una clave de inscripción y se establece una conexión segura entre el agente en cuestión y el servicio Log Analytics mediante la autenticación basada en certificados y SSL con el puerto 443. Log Analytics utiliza un almacén secreto para generar y mantener las claves. Las claves privadas se alternan cada 90 días, y se almacenan en Azure y administran a través de las operaciones de Azure que siguen las estrictas prácticas regulatorias y de cumplimiento normativo.

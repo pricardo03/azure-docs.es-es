@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719994"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239852"
 ---
 # <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
 
@@ -137,7 +137,7 @@ Los administradores de Azure que hayan iniciado sesión en Azure Portal con una 
 Para probar con una cuenta de usuario *diferente*, siga estos pasos:
 
 1. En la parte superior derecha de Azure Portal o del portal Mis aplicaciones, seleccione **Cerrar sesión**. 
-2. Ir al portal [Mis aplicaciones](http://myapps.microsoft.com).
+2. Ir al portal [Mis aplicaciones](https://myapps.microsoft.com).
 3. En la página de inicio de sesión, escriba el nombre de usuario y la contraseña de la cuenta del directorio que desea probar.
 
 

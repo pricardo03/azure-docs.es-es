@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888158"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242881"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Entorno de desarrollo para Azure Machine Learning 
 
@@ -59,7 +59,7 @@ Se recomienda [Visual Studio Code](https://code.visualstudio.com/), ya que propo
 
 ## <a name="data-science-virtual-machine"></a>Máquina virtual de ciencia de datos
 
-Data Science Virtual Machine (DSVM) es una combinación de los entornos anteriores. Es una máquina virtual en la plataforma Azure que tiene cuadernos de Jupyter Notebook, Visual Studio Code y el SDK de Azure Machine Learning preinstalado. Crear la máquina virtual es más complejo que Azure Notebooks, pero menos compleja que la configuración de una máquina desde el principio. Dado que el software necesario está preinstalado en la imagen de la máquina virtual, puede empezar a experimentar con Azure Machine Learning rápidamente una vez que se haya creado la máquina virtual.
+Data Science Virtual Machine (DSVM) es una combinación de los entornos anteriores. Es una máquina virtual en la plataforma Azure que tiene cuadernos de Jupyter Notebook, Visual Studio Code y el SDK de Azure Machine Learning preinstalado. Dado que el software necesario está preinstalado en la imagen de la máquina virtual, puede empezar a experimentar con Azure Machine Learning rápidamente una vez que se haya creado la máquina virtual.
 
 DSVM le permite seleccionar los recursos de proceso que necesita, como CPU, GPU y memoria. También está instala previamente con otros editores como PyCharm, así como con software de aprendizaje automático popular como TensorFlow, Keras y PyTorch. Si no está instalado el software que necesita, puede instalarlo.
 

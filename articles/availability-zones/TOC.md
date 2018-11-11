@@ -1,6 +1,6 @@
 
 # Resistencia de Azure
-## [Página de características de la resistencia de Azure](http://azure.microsoft.com/features/resiliency)
+## [Página de características de la resistencia de Azure](https://azure.microsoft.com/features/resiliency)
 ## [Diseño de aplicaciones resistentes de Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # Alta disponibilidad

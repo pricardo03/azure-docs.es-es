@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365241"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245076"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Inicio rápido: Implementación de Azure Data Box Disk mediante Azure Portal (versión preliminar)
 
@@ -31,11 +31,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Antes de empezar:
 
-- Asegúrese de que su suscripción está habilitada para el servicio Azure Data Box. Para habilitar la suscripción para este servicio, [regístrese en el servicio](http://aka.ms/azuredataboxfromdiskdocs).
+- Asegúrese de que su suscripción está habilitada para el servicio Azure Data Box. Para habilitar la suscripción para este servicio, [regístrese en el servicio](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Inicie sesión en Azure Portal en [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Orden
 
@@ -70,11 +70,11 @@ Este paso tarda aproximadamente 5 minutos.
     3. Ejecute la herramienta de desbloqueo de Data Box Disk y proporcione la clave de paso. Si desea reinsertar algún disco, vuelva a ejecutar la herramienta de desbloqueo y escriba la clave de paso. **No utilice el cuadro de diálogo de BitLocker ni la clave de BitLocker para desbloquear el disco.** Para más información sobre el desbloqueo de discos, vaya a la sección de [desbloqueo de discos en un cliente de Windows]() o de [desbloqueo de discos en un cliente de Linux]().
     4. La herramienta muestra la letra de unidad asignada al disco. Tome nota de la letra de unidad del disco. Se usa en los pasos siguientes.
 
-## <a name="copy-data-and-verify"></a>Copia de los datos y verificación
+## <a name="copy-data-and-validate"></a>Copia de datos y validación
 
 El tiempo en completar esta operación depende del tamaño de los datos. 
 
-1. La unidad contiene las carpetas *PageBlob*, *BlockBlob* y *AzureImportExport*. Arrastre y coloque los datos que deben importarse como blobs en bloques en la carpeta *BlockBlob* para copiarlos. De forma similar, puede arrastrar y colocar los datos como VHD/VHDX en la carpeta *PageBlob*.
+1. La unidad contiene las carpetas *PageBlob*, *BlockBlob* y *DataBoxDiskImport*. Arrastre y coloque los datos que deben importarse como blobs en bloques en la carpeta *BlockBlob* para copiarlos. De forma similar, puede arrastrar y colocar los datos como VHD/VHDX en la carpeta *PageBlob*.
 
     Se crea un contenedor en la cuenta de almacenamiento de Azure para cada subcarpeta bajo las carpetas *BlockBlob* y *PageBlob*. Todos los archivos bajo las carpetas *BlockBlob* y *PageBlob* se copian en un contenedor predeterminado `$root` bajo la cuenta de Azure Storage.
 
@@ -82,7 +82,7 @@ El tiempo en completar esta operación depende del tamaño de los datos.
     > - Todos los contenedores y blobs deben adecuarse a las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Si no se siguen estas reglas, se producirá un error en la carga de datos en Azure.
     > - Asegúrese de que los archivos no superen ~4,75 TiB para blobs en bloques y ~8 TiB para blobs en páginas.
 
-2. (Opcional) Una vez completada la copia, le recomendamos que ejecute el script `DataBoxDiskValidation.cmd` proporcionado en la carpeta *AzureImportExport* para generar sumas de comprobación para la validación. Según el tamaño de los datos, este paso puede tardar un rato. 
+2. (Opcional) Una vez completada la copia, le recomendamos que ejecute el script `DataBoxDiskValidation.cmd` proporcionado en la carpeta *DataBoxDiskImport* para generar sumas de comprobación para la validación. Según el tamaño de los datos, este paso puede tardar un rato. 
 3. Desconecte la unidad. 
 
 

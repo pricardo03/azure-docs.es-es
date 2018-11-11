@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6d5c721ab84c28bae9415dceeaa09fd12cc05824
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733032"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240093"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 
@@ -25,7 +25,7 @@ En este artículo se muestra cómo mostrar información de tráfico e incidentes
 <iframe height='456' scrolling='no' title='Visualización del tráfico en un mapa' src='//codepen.io/azuremaps/embed/WMLRPw/?height=456&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Mostrar tráfico en un mapa</a> por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-En el código anterior, el primer bloque de código construye un objeto mapa. Puede consultar [Creación de un mapa](map-create.md) para obtener instrucciones.
+En el código anterior, el primer bloque de código construye un objeto de mapa. Puede consultar [Creación de un mapa](map-create.md) para obtener instrucciones.
 
 El segundo bloque de código utiliza la función [setTraffic ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) de la clase map para mostrar los flujos de tráfico y las incidencias en el mapa.
 
@@ -39,7 +39,7 @@ Más información sobre las clases y los métodos utilizados en este artículo:
 Consulte los siguientes artículos para obtener ejemplos de código completos:
 
 > [!div class="nextstepaction"]
-> [Página de ejemplos de código](http://aka.ms/AzureMapsSamples)
+> [Página de ejemplos de código](https://aka.ms/AzureMapsSamples)
 
 Mejore sus experiencias de usuario:
 

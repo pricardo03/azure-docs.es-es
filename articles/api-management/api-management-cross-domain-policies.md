@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129041"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246657"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CrossDomainPolicies"></a> Directivas entre dominios  
   
@@ -54,14 +54,14 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|entre dominios|Elemento raíz. Los elementos secundarios deben ajustarse a la [especificación de archivos de directivas entre dominios de Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sí|  
+|entre dominios|Elemento raíz. Los elementos secundarios deben ajustarse a la [especificación de archivos de directivas entre dominios de Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|SÍ|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
--   **Secciones de la directiva:** inbound  
+-   **Secciones de la directiva:** inbound (entrada)  
 -   **Ámbitos de la directiva:** global  
   
 ##  <a name="CORS"></a> CORS  
@@ -69,7 +69,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
  CORS permite a un explorador y a un servidor interactuar y determinar si se permiten o no solicitudes específicas entre orígenes (por ejemplo, llamadas XMLHttpRequests realizadas desde JavaScript en una página web a otros dominios). Esto permite más flexibilidad que si solo se permiten solicitudes del mismo origen, pero es más seguro que permitir todas las solicitudes entre orígenes.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <cors allow-credentials="false|true">  
@@ -123,26 +123,26 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|cors|Elemento raíz.|Sí|N/D|  
-|allowed-origins|Contiene elementos `origin` que describen los orígenes permitidos para las solicitudes entre dominios. `allowed-origins` puede contener un único elemento `origin` que especifica `*` para permitir cualquier origen, o uno o varios elementos `origin` que contienen un identificador URI.|Sí|N/D|  
-|origin|El valor puede ser `*` para permitir todos los orígenes o un identificador URI que especifica un único origen. El URI debe incluir un esquema, un host y un puerto.|Sí|Si se omite el puerto en un identificador URI, se usa el puerto 80 para HTTP y el puerto 443 para HTTPS.|  
-|allowed-methods|Este elemento es necesario si se permiten métodos distintos de GET o POST. Contiene elementos `method` que especifican los verbos HTTP admitidos.|No|Si esta sección no está presente, se admiten GET y POST.|  
+|cors|Elemento raíz.|SÍ|N/D|  
+|allowed-origins|Contiene elementos `origin` que describen los orígenes permitidos para las solicitudes entre dominios. `allowed-origins` puede contener un único elemento `origin` que especifica `*` para permitir cualquier origen, o uno o varios elementos `origin` que contienen un identificador URI.|SÍ|N/D|  
+|origin|El valor puede ser `*` para permitir todos los orígenes o un identificador URI que especifica un único origen. El URI debe incluir un esquema, un host y un puerto.|SÍ|Si se omite el puerto en un identificador URI, se usa el puerto 80 para HTTP y el puerto 443 para HTTPS.|  
+|allowed-methods|Este elemento es necesario si se permiten métodos distintos de GET o POST. Contiene elementos `method` que especifican los verbos HTTP admitidos.|Sin |Si esta sección no está presente, se admiten GET y POST.|  
 |estático|Especifica un verbo HTTP.|Al menos un elemento `method` es necesario si la sección `allowed-methods` está presente.|N/D|  
-|allowed-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados que pueden incluirse en la solicitud.|No|N/D|  
-|expose-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados a los que tendrá acceso el cliente.|No|N/D|  
+|allowed-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados que pueden incluirse en la solicitud.|Sin |N/D|  
+|expose-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados a los que tendrá acceso el cliente.|Sin |N/D|  
 |encabezado|Especifica un nombre de encabezado.|Al menos un elemento `header` es necesario en `allowed-headers` o `expose-headers` si está presente la sección.|N/D|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|allow-credentials|El encabezado `Access-Control-Allow-Credentials` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el cliente pueda enviar credenciales en solicitudes entre dominios.|No|false|  
-|preflight-result-max-age|El encabezado `Access-Control-Max-Age` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el agente del usuario pueda almacenar en caché la respuesta preparatoria.|No|0|  
+|allow-credentials|El encabezado `Access-Control-Allow-Credentials` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el cliente pueda enviar credenciales en solicitudes entre dominios.|Sin |false|  
+|preflight-result-max-age|El encabezado `Access-Control-Max-Age` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el agente del usuario pueda almacenar en caché la respuesta preparatoria.|Sin |0|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound  
 -   **Ámbitos de la directiva:** API, operación  
@@ -150,7 +150,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ##  <a name="JSONP"></a> JSONP  
  La directiva `jsonp` agrega JSON con compatibilidad con relleno (JSONP) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript. JSONP es un método utilizado en los programas JavaScript para solicitar datos desde un servidor en un dominio diferente. JSONP sortea la limitación exigida por la mayoría de los exploradores web donde el acceso a las páginas web debe estar en el mismo dominio.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <jsonp callback-parameter-name="callback function name" />  
@@ -168,18 +168,18 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|jsonp|Elemento raíz.|Sí|  
+|jsonp|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|callback-parameter-name|La llamada de función de JavaScript entre dominios prefijada con el nombre de dominio completo en donde reside la función.|Sí|N/D|  
+|callback-parameter-name|La llamada de función de JavaScript entre dominios prefijada con el nombre de dominio completo en donde reside la función.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
   
 -   **Secciones de la directiva:** outbound  
 -   **Ámbitos de la directiva:** global, producto, API, operación  

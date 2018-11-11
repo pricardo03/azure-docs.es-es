@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391687"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242201"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Uso del servicio Azure Import/Export para la copia de datos sin conexión en Azure Data Lake Storage Gen1
 En este artículo, aprenderá a copiar conjuntos de datos de gran tamaño (más de 200 GB) en Azure Data Lake Storage Gen1 mediante el empleo de métodos de copia sin conexión, como el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md). En concreto, el archivo de ejemplo que utilizamos en este artículo tiene 339 420 860 416 bytes; es decir, ocupa unos 319 GB de espacio en disco. Llamaremos a este archivo "319GB.tsv".
@@ -52,7 +52,7 @@ Siga las instrucciones de [Uso del servicio Azure Import/Export para transferir 
 
 1. Adquiera un disco duro que cumpla los requisitos para poder utilizarse con el servicio Azure Import/Export.
 2. Identifique una cuenta de Azure Storage donde vayan a copiarse los datos cuando se envíen al centro de datos de Azure.
-3. Utilice la [herramienta Azure Import/Export](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), una utilidad de línea de comandos. Abajo, podrá encontrar un fragmento de código de ejemplo que muestra cómo utilizar la herramienta.
+3. Utilice la [herramienta Azure Import/Export](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), una utilidad de línea de comandos. Abajo, podrá encontrar un fragmento de código de ejemplo que muestra cómo utilizar la herramienta.
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/

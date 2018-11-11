@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246691"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introducción a un ejemplo de colecciones de áreas de trabajo de Power BI
 
@@ -26,9 +26,9 @@ Con las **colecciones de áreas de trabajo de Microsoft Power BI**, puede integr
 
 Antes de seguir avanzando, hay que guardar los siguientes recursos, pues ayudan a integrar los informes de Power BI en la aplicación de ejemplo y también sus propias aplicaciones.
 
-* [Aplicación web de área de trabajo de ejemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Aplicación web de área de trabajo de ejemplo](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referencia de API de colecciones de áreas de trabajo de Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [SDK de .NET de Power BI](http://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
+* [SDK de .NET de Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
 * [Ejemplo de inserción de informe de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Antes de seguir avanzando, hay que guardar los siguientes recursos, pues ayudan 
 
 Veamos la configuración del entorno de desarrollo de Visual Studio para acceder a los componentes necesarios para ejecutar la aplicación de ejemplo.
 
-1. Descargue y descomprima el ejemplo [Power BI Workspace Collections - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) (Colecciones de áreas de trabajo de Power BI - Integración de un informe en una aplicación web) en GitHub.
+1. Descargue y descomprima el ejemplo [Power BI Workspace Collections - Integrate a report into a web app](https://go.microsoft.com/fwlink/?LinkId=761493) (Colecciones de áreas de trabajo de Power BI - Integración de un informe en una aplicación web) en GitHub.
 2. Abra **PowerBI embedded.sln** en Visual Studio. Puede que necesite ejecutar el comando **Update-Package** en la Consola del Administrador de paquetes NuGET para actualizar los paquetes utilizados en esta solución.
 3. Compile la solución.
 4. Ejecute la aplicación de consola **ProvisionSample** . En la aplicación de consola del ejemplo, aprovisione un área de trabajo e importe un archivo PBIX.
@@ -51,7 +51,7 @@ Veamos la configuración del entorno de desarrollo de Visual Studio para acceder
 8. Copie y guarde el recién creado **identificador del área de trabajo** para utilizarlo más adelante en este artículo. Una vez creado el **identificador del área de trabajo**, **Azure Portal** puede encontrarlo.
 
     ![Identificador de área de trabajo en Azure Portal](media/get-started-sample/workspace-id.png)
-9. Para importar un archivo PBIX en su **área de trabajo**, seleccione la opción **6. Importe el archivo de escritorio PBIX en un área de trabajo existente**. Si no tiene una archivo PBIX a mano, puede descargar la [muestra de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Para importar un archivo PBIX en su **área de trabajo**, seleccione la opción **6. Importe el archivo de escritorio PBIX en un área de trabajo existente**. Si no tiene una archivo PBIX a mano, puede descargar la [muestra de PBIX de análisis comercial](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. Si se le solicita, escriba un nombre descriptivo para su **Dataset**.
 
 Debería obtener una respuesta similar a la siguiente:
@@ -83,7 +83,7 @@ El ejemplo de aplicación web es una aplicación de ejemplo que representa los i
     ```
 3. Ejecute la aplicación web **EmbedSample**.
 
-Una vez ejecutada la aplicación web **EmbedSample**, el panel de navegación izquierdo debe contener un menú **Informes** menú. Para ver el informe que ha importado, expanda **Informes** y haga clic en un informe. Por ejemplo, si ha importado la [muestra de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547), la aplicación web de muestra tendría el siguiente aspecto:
+Una vez ejecutada la aplicación web **EmbedSample**, el panel de navegación izquierdo debe contener un menú **Informes** menú. Para ver el informe que ha importado, expanda **Informes** y haga clic en un informe. Por ejemplo, si ha importado la [muestra de PBIX de análisis comercial](https://go.microsoft.com/fwlink/?LinkID=780547), la aplicación web de muestra tendría el siguiente aspecto:
 
 ![Barra de navegación izquierda de ejemplo dentro de la aplicación de ejemplo](media/get-started-sample/sample-left-nav.png)
 

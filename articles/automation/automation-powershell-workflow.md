@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239430"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation
 
@@ -22,7 +22,7 @@ Los runbooks de Azure Automation se implementan como flujos de trabajo de Window
 
 Un flujo de trabajo es una secuencia de pasos programados y conectados que realizan tareas de larga duración o requieren la coordinación de varios pasos en varios dispositivos o nodos administrados. Las ventajas de un flujo de trabajo en un script normal incluyen la capacidad de realizar una acción en varios dispositivos simultáneamente y la capacidad de recuperarse automáticamente de los errores. Un flujo de trabajo de Windows PowerShell es un script de Windows PowerShell que usa Windows Workflow Foundation. Aunque el flujo de trabajo está escrito con sintaxis de Windows PowerShell y se inicia mediante Windows PowerShell, se procesa mediante Windows Workflow Foundation.
 
-Para obtener información detallada sobre los temas de este artículo, vea [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
+Para obtener información detallada sobre los temas de este artículo, vea [Introducción al flujo de trabajo de Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Estructura básica de un flujo de trabajo
 
@@ -45,9 +45,9 @@ El código de flujo de trabajo de PowerShell es casi idéntico al código de scr
 
 ### <a name="activities"></a>Actividades
 
-Una actividad es una tarea específica de un flujo de trabajo. Al igual que un script se compone de uno o varios comandos, un flujo de trabajo se compone de una o varias actividades que se realizan en secuencia. El flujo de trabajo de Windows PowerShell convierte automáticamente muchos de los cmdlets de Windows PowerShell en actividades cuando se ejecuta un flujo de trabajo. Cuando se especifica uno de estos cmdlets en el runbook, Windows Workflow Foundation ejecuta la actividad correspondiente. Para los cmdlets sin actividad correspondiente, el flujo de trabajo de Windows PowerShell ejecuta automáticamente el cmdlet dentro de una actividad [InlineScript](#inlinescript) . Hay un conjunto de cmdlets que están excluidos y no se pueden usar en un flujo de trabajo a menos que incluya explícitamente en un bloque de InlineScript. Para obtener más información sobre estos conceptos, consulte [Uso de actividades en los flujos de trabajo de scripts](http://technet.microsoft.com/library/jj574194.aspx).
+Una actividad es una tarea específica de un flujo de trabajo. Al igual que un script se compone de uno o varios comandos, un flujo de trabajo se compone de una o varias actividades que se realizan en secuencia. El flujo de trabajo de Windows PowerShell convierte automáticamente muchos de los cmdlets de Windows PowerShell en actividades cuando se ejecuta un flujo de trabajo. Cuando se especifica uno de estos cmdlets en el runbook, Windows Workflow Foundation ejecuta la actividad correspondiente. Para los cmdlets sin actividad correspondiente, el flujo de trabajo de Windows PowerShell ejecuta automáticamente el cmdlet dentro de una actividad [InlineScript](#inlinescript) . Hay un conjunto de cmdlets que están excluidos y no se pueden usar en un flujo de trabajo a menos que incluya explícitamente en un bloque de InlineScript. Para obtener más información sobre estos conceptos, consulte [Uso de actividades en los flujos de trabajo de scripts](https://technet.microsoft.com/library/jj574194.aspx).
 
-Las actividades de flujo de trabajo comparten un conjunto de parámetros comunes para configurar su funcionamiento. Para más información sobre los parámetros comunes del flujo de trabajo, vea [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Las actividades de flujo de trabajo comparten un conjunto de parámetros comunes para configurar su funcionamiento. Para más información sobre los parámetros comunes del flujo de trabajo, vea [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Parámetros posicionales
 
@@ -152,7 +152,7 @@ Aunque las actividades InlineScript pueden ser críticas en algunos flujos de tr
 * No puede usar la [ejecución en paralelo](#parallel-processing) dentro de un bloque de InlineScript.
 * InlineScript afecta a la escalabilidad del flujo de trabajo, ya que retiene la sesión de Windows PowerShell durante todo el bloque de InlineScript.
 
-Para más información sobre el uso de InlineScript, vea [Ejecutar comandos de Windows PowerShell en un flujo de trabajo](http://technet.microsoft.com/library/jj574197.aspx) y [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Para más información sobre el uso de InlineScript, vea [Ejecutar comandos de Windows PowerShell en un flujo de trabajo](https://technet.microsoft.com/library/jj574197.aspx) y [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Procesamiento en paralelo
 
@@ -291,7 +291,7 @@ workflow CreateTestVms
 
 Este paso no es necesario si se autentica utilizando una cuenta de ejecución configurada con una entidad de servicio.
 
-Para obtener más información acerca de los puntos de control, consulte [Adición de puntos de control a un flujo de trabajo de scripts](http://technet.microsoft.com/library/jj574114.aspx).
+Para obtener más información acerca de los puntos de control, consulte [Adición de puntos de control a un flujo de trabajo de scripts](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

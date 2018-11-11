@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232212"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242830"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre SQL Database
 
@@ -27,7 +27,7 @@ La versión actual de SQL Database es V12. Se ha retirado la versión V11.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>¿Qué es el Acuerdo de Nivel de Servicio para SQL Database?
 
-Garantizamos la conectividad en el 99,99 % de las ocasiones, como mínimo, entre su instancia de Microsoft Azure SQL Database y nuestra puerta de enlace de Internet, con independencia del nivel de servicio. El 0,01 % está reservado a las revisiones, actualizaciones y conmutaciones por error. Para más información, consulte [Acuerdo de Nivel de Servicio](http://azure.microsoft.com/support/legal/sla/). Para obtener información acerca de la arquitectura de disponibilidad de Azure SQL Database, consulte [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
+Garantizamos la conectividad en el 99,99 % de las ocasiones, como mínimo, entre su instancia de Microsoft Azure SQL Database y nuestra puerta de enlace de Internet, con independencia del nivel de servicio. El 0,01 % está reservado a las revisiones, actualizaciones y conmutaciones por error. Para más información, consulte [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/). Para obtener información acerca de la arquitectura de disponibilidad de Azure SQL Database, consulte [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>¿Puedo controlar cuando se produce el tiempo de inactividad de la aplicación de revisiones?
 

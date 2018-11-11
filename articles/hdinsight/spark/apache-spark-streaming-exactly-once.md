@@ -3,17 +3,17 @@ title: 'Creación de trabajos de Spark Streaming con el procesamiento de eventos
 description: Configuración de Spark Streaming para procesar un evento una sola vez
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618828"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241328"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creación de trabajos de Spark Streaming con el procesamiento de eventos del tipo "exactly-once"
 
@@ -61,13 +61,21 @@ Los puntos de control se habilitan en Spark Streaming en dos pasos.
 
 1. En el objeto StreamingContext, configure la ruta de acceso de almacenamiento para los puntos de control:
 
-    val ssc = new StreamingContext(spark, Seconds(1))  ssc.checkpoint("/path/to/checkpoints")
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     En HDInsight, estos puntos de control deben guardarse en el almacenamiento predeterminado conectado al clúster, es decir, en Azure Storage o en Azure Data Lake Store.
 
 2. Después, especifique un intervalo (en segundos) del punto de control en DStream. En cada intervalo, los datos de estado derivados del evento de entrada se guardan en el almacenamiento. Los datos de estado guardados pueden reducir el cálculo necesario para recompilar el estado a partir del evento de origen.
 
-    val lines = ssc.socketTextStream("hostname", 9999)  lines.checkpoint(30)  ssc.start()  ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Uso de receptores idempotentes
 
