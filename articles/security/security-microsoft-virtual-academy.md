@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540055"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248085"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Cursos de seguridad de Azure de Microsoft Virtual Academy
 Microsoft Virtual Academy proporciona cursos en línea gratuitos para ayudar a los desarrolladores, profesionales de TI y expertos en el tratamiento de los datos, así como a los alumnos a conocer la tecnología más reciente, desarrollar sus capacidades y avanzar en su profesión.
@@ -48,7 +48,7 @@ En esta sesión, aprenda cómo Azure Active Directory y Microsoft Advanced Threa
 
 [Security in a Cloud-Enabled World](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474) (Seguridad en un mundo habilitado para la nube)
 
-Un grupo de expertos le llevan por el plan de responsabilidad del cliente del póster [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) (Seguridad de Microsoft Cloud para arquitectos de empresa). También proporcionan recomendaciones para modernizar cada una de las partes de su postura sobre seguridad, como gobierno, estrategias de contención, operaciones de seguridad, protección de recursos de valor alto, protección de la información y seguridad de usuarios y dispositivos, con un énfasis especial en la protección del control administrativo. Aprenda del mismo marco que usa el equipo de ciberseguridad de Microsoft para evaluar la seguridad de la nube de los clientes y construirles un plan de seguridad.
+Un grupo de expertos le llevan por el plan de responsabilidad del cliente del póster [Microsoft Cloud Security for Enterprise Architects](https://www.microsoft.com/download/48121) (Seguridad de Microsoft Cloud para arquitectos de empresa). También proporcionan recomendaciones para modernizar cada una de las partes de su postura sobre seguridad, como gobierno, estrategias de contención, operaciones de seguridad, protección de recursos de valor alto, protección de la información y seguridad de usuarios y dispositivos, con un énfasis especial en la protección del control administrativo. Aprenda del mismo marco que usa el equipo de ciberseguridad de Microsoft para evaluar la seguridad de la nube de los clientes y construirles un plan de seguridad.
 
 [Microsoft Azure IaaS Deep Dive](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888) (Inmersión en IaaS de Microsoft Azure)
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946993"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281904"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
 
-El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 > [!NOTE]
 > Azure tiene dos métodos de escalado automático. Una versión anterior del escalado automático se aplica a Virtual Machines (conjuntos de disponibilidad). Esta característica tiene una compatibilidad limitada, por lo que, para poder usar el escalado automático de manera más rápida y fiable, recomendamos la migración a los conjuntos de escalado de máquinas virtuales. En este artículo, se incluye un vínculo sobre cómo utilizar la tecnología antigua.  
@@ -96,7 +96,7 @@ Para obtener más información, consulte [Escalado vertical de máquinas virtual
 ## <a name="methods-of-access"></a>Métodos de acceso
 Puede configurar el escalado automático en los siguientes lugares:
 
-* [Azure Portal](insights-how-to-scale.md)
+* [Azure Portal](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [Interfaz de línea de comandos (CLI) multiplataforma](insights-cli-samples.md#autoscale)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -104,11 +104,11 @@ Puede configurar el escalado automático en los siguientes lugares:
 ## <a name="supported-services-for-autoscale"></a>Servicios compatibles con el escalado automático
 | Servicio | Esquema y documentos |
 | --- | --- |
-| Web Apps |[Escalado en Web Apps](insights-how-to-scale.md) |
+| Web Apps |[Escalado en Web Apps](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Escalado automático de un servicio en la nube](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: clásico |[Escalado de conjuntos de disponibilidad clásicos de máquina virtual](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines: conjuntos de escalado de Windows |[Escalado de conjuntos de escalado de máquinas virtuales en Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines : conjuntos de escalado de Linux |[Escalado de conjuntos de escalado de máquinas virtuales en Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtual Machines: conjuntos de escalado de Windows |[Escalado de conjuntos de escalado de máquinas virtuales en Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtual Machines : conjuntos de escalado de Linux |[Escalado de conjuntos de escalado de máquinas virtuales en Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: ejemplo de Windows |[Configuración avanzada de escalado automático con plantillas de Resource Manager para VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | Servicio API Management|[Escalado automático de una instancia de Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

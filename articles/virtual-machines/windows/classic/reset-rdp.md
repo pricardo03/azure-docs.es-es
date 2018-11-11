@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e91f75299dddf0ac173499a531ea959292082a9f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931385"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246555"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una máquina virtual Windows con el modelo de implementación clásica
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Si el comando **write-host** muestra **True**, el agente de la máquina virtual está instalado. Si aparece **False**, consulte las instrucciones y un vínculo a la descarga en la publicación del blog de Azure [Agente de máquina virtual y extensiones, parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) .
+Si el comando **write-host** muestra **True**, el agente de la máquina virtual está instalado. Si aparece **False**, consulte las instrucciones y un vínculo a la descarga en la publicación del blog de Azure [Agente de máquina virtual y extensiones, parte 2](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) .
 
 Si creó la máquina virtual con el Portal, compruebe si `$vm.GetInstance().ProvisionGuestAgent` devuelve un valor **True**. De lo contrario, puede configurarlo con este comando:
 
@@ -108,7 +108,7 @@ Si la extensión de acceso de la máquina virtual de Azure no responde y no pued
 
 [Características y extensiones de las máquinas virtuales de Azure](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Conexión a una máquina virtual de Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Conexión a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

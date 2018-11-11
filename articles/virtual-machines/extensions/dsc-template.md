@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: e24353013110bfa95f23b75bbd81fd6d1048b95a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830848"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231007"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -167,7 +167,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 | settings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
 | settings.configurationData.url |string |Especifica la dirección URL desde la que descargar el archivo de datos de configuración (.psd1) que se usará como entrada para la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationDataUrlSasToken** en el valor de su token de SAS. |
 | settings.privacy.dataCollection |string |Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son **Enable**, **Disable**, **''** o **$null**. Si se deja esta propiedad en blanco o como null, se habilita la telemetría. El valor predeterminado es **''**. Para más información, consulte [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure). |
-| settings.advancedOptions.downloadMappings |Colección |Define las ubicaciones alternativas desde las que descargar WMF. Para más información, consulte el artículo sobre la [extensión DSC 2.8 de Azure y cómo asignar las descargas de las dependencias de la extensión a su propia ubicación](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.advancedOptions.downloadMappings |Colección |Define las ubicaciones alternativas desde las que descargar WMF. Para más información, consulte el artículo sobre la [extensión DSC 2.8 de Azure y cómo asignar las descargas de las dependencias de la extensión a su propia ubicación](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
 | protectedSettings.configurationUrlSasToken |string |Especifica el token de SAS que se usa para acceder a la dirección URL que **settings.configuration.url** define. Esta propiedad no está cifrada. |
 | protectedSettings.configurationDataUrlSasToken |string |Especifica el token de SAS que se usa para acceder a la dirección URL que **settings.configurationData.url** define. Esta propiedad no está cifrada. |

@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024790"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282344"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -27,13 +27,13 @@ ms.locfileid: "50024790"
 > Esta es la documentación preliminar para crear soluciones de administración que se encuentran actualmente en versión preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.   
 
 
-Las [soluciones de administración](monitoring-solutions.md) suelen incluir [búsquedas guardadas](../log-analytics/log-analytics-log-searches.md) en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo [alertas](../log-analytics/log-analytics-alerts.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../resource-manager-template-walkthrough.md) para que puedan incluirse en [soluciones de administración](monitoring-solutions-creating.md).
+Las [soluciones de administración](monitoring-solutions.md) suelen incluir [búsquedas guardadas](../log-analytics/log-analytics-queries.md) en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que puedan incluirse en [soluciones de administración](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](monitoring-solutions-creating.md).  
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](monitoring-solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../resource-group-authoring-templates.md) y un archivo de solución.
+En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](monitoring-solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) y un archivo de solución.
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
@@ -54,9 +54,9 @@ En la tabla siguiente se muestra la versión de API del recurso usado en este ej
 
 
 ## <a name="saved-searches"></a>Búsquedas guardadas
-Incluya [búsquedas guardadas](../log-analytics/log-analytics-log-searches.md) en una solución para permitir a los usuarios consultar los datos recopilados por la solución.  Las búsquedas guardadas aparecerán en **Búsquedas guardadas** en Azure Portal.  También es necesaria una búsqueda guardada para cada alerta.   
+Incluya [búsquedas guardadas](../log-analytics/log-analytics-queries.md) en una solución para permitir a los usuarios consultar los datos recopilados por la solución.  Las búsquedas guardadas aparecerán en **Búsquedas guardadas** en Azure Portal.  También es necesaria una búsqueda guardada para cada alerta.   
 
-Los recursos de [búsquedas guardadas de Log Analytics](../log-analytics/log-analytics-log-searches.md) tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` y presentan la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
+Los recursos de [búsquedas guardadas de Log Analytics](../log-analytics/log-analytics-queries.md) tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` y presentan la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

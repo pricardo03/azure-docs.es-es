@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240399"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replicación con Instancia administrada de SQL Database
 
@@ -77,7 +77,7 @@ Admite:
 ## <a name="configure-publishing-and-distribution-example"></a>Configuración del ejemplo de publicación y distribución
 
 1. [Cree una Instancia administrada de Azure SQL Database](sql-database-managed-instance-create-tutorial-portal.md) en el portal.
-2. [Cree una cuenta de Azure Storage](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo.
+2. [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo.
 
    Asegúrese de copiar las claves de almacenamiento. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Admite:
 
    En los scripts de ejemplo siguientes, reemplace `<Publishing_DB>` por el nombre de esta base de datos.
 
-4. Cree un usuario de base de datos con autenticación de SQL para el distribuidor. Consulte [Creación de usuarios de base de datos](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilice una contraseña segura.
+4. Cree un usuario de base de datos con autenticación de SQL para el distribuidor. Consulte [Creación de usuarios de base de datos](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilice una contraseña segura.
 
    En los scripts de ejemplo siguientes, use `<SQL_USER>` y `<PASSWORD>` con el usuario y la contraseña de la base de datos de esta cuenta de SQL Server.
 
-5. [Conéctese a Instancia administrada de Azure SQL Database](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Conéctese a Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Ejecute la consulta siguiente para agregar el distribuidor y la base de datos de distribución.
 
@@ -197,4 +197,4 @@ No se admiten las siguientes características:
 
 ## <a name="see-also"></a>Otras referencias
 
-- [¿Qué es la Instancia administrada?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [¿Qué es la Instancia administrada?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

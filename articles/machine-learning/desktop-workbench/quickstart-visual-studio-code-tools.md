@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: a2c4455735523b6b726dedb13151627d8ce70f22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 935ddfdee34462a0156a6b013282a01fe9ea145b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991766"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239297"
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>Herramientas de Visual Studio Code para AI
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
-Herramientas de Visual Studio Code para AI es una extensión de desarrollo para compilar, probar e implementar soluciones de aprendizaje profundo/AI. Ofrece una integración sin problemas con Azure Machine Learning, principalmente, una vista del historial de ejecución que detalla el rendimiento de aprendizajes anteriores y métricas personalizadas. Ofrece una vista de explorador de ejemplos que permite examinar y arrancar un proyecto nuevo con [Microsoft Cognitive Toolkit (anteriormente, CNTK)](http://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) y otro marco de aprendizaje profundo. Por último, proporciona un explorador para destinos de proceso que permite enviar trabajos para entrenar modelos en entornos remotos, como máquinas virtuales de Azure o servidores Linux con GPU. 
+Herramientas de Visual Studio Code para AI es una extensión de desarrollo para compilar, probar e implementar soluciones de aprendizaje profundo/AI. Ofrece una integración sin problemas con Azure Machine Learning, principalmente, una vista del historial de ejecución que detalla el rendimiento de aprendizajes anteriores y métricas personalizadas. Ofrece una vista de explorador de ejemplos que permite examinar y arrancar un proyecto nuevo con [Microsoft Cognitive Toolkit (anteriormente, CNTK)](https://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) y otro marco de aprendizaje profundo. Por último, proporciona un explorador para destinos de proceso que permite enviar trabajos para entrenar modelos en entornos remotos, como máquinas virtuales de Azure o servidores Linux con GPU. 
  
 ## <a name="getting-started"></a>Introducción 
 Para empezar, descargue e instale [Visual Studio Code](https://code.visualstudio.com/Download). Una vez abierto Visual Studio Code, siga los pasos que se describen a continuación:
