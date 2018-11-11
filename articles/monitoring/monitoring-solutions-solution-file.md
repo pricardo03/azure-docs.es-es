@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46e6ea791752045b0f1afbf1e83e43f498415e54
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887465"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278215"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creación de un archivo de solución de administración en Azure (versión preliminar)
 > [!NOTE]
 > La versión de la documentación para crear soluciones de administración en Azure está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.  
 
-Las soluciones de administración de Azure se implementan como [plantillas de Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../azure-resource-manager/resource-group-authoring-templates.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo configurar recursos de solución típicos.
+Las soluciones de administración de Azure se implementan como [plantillas de Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../azure-resource-manager/resource-group-authoring-templates.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo configurar recursos de solución típicos.
 
 
 ## <a name="tools"></a>Herramientas
@@ -34,7 +34,7 @@ Las soluciones de administración de Azure se implementan como [plantillas de Re
 Puede usar cualquier editor de texto para trabajar con archivos de solución, pero se recomienda aprovechar las características proporcionadas en Visual Studio o Visual Studio Code como se describe en los siguientes artículos.
 
 - [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Trabajo con plantillas de Azure Resource Manager en Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
+- [Trabajo con plantillas de Azure Resource Manager en Visual Studio Code](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -74,7 +74,7 @@ En la tabla siguiente se describen los atributos de un parámetro.
 | Tipo |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
 | categoría |Categoría opcional para el parámetro.  Los parámetros de la misma categoría se agrupan juntos. |
 | control |Funcionalidad adicional para los parámetros de cadena.<br><br>datetime: se muestra el control de fecha y hora.<br>guid: el valor del GUID se genera automáticamente y no se muestra el parámetro. |
-| Descripción |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
+| description |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
 
 ### <a name="standard-parameters"></a>Parámetros estándar
 En la tabla siguiente se enumeran los parámetros estándar de todas las soluciones de administración.  Estos valores se rellenan para el usuario en lugar de pedírseles cuando se instala la solución desde las plantillas de Azure Marketplace o de inicio rápido.  El usuario debe proporcionar los valores si la solución se instala con otro método.
@@ -84,7 +84,7 @@ En la tabla siguiente se enumeran los parámetros estándar de todas las solucio
 >
 >
 
-| . | Escriba | DESCRIPCIÓN |
+| Parámetro | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | accountName |string |Nombre de la cuenta de Azure Automation. |
 | pricingTier |string |Plan de tarifa del área de trabajo de Log Analytics y de la cuenta de Azure Automation. |

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031465"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277484"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9: Extracción de opiniones de expresión global
 En este tutorial va a crear una aplicación que muestra cómo extraer opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
@@ -51,7 +51,7 @@ Continúe con la aplicación creada en el último tutorial, denominada **HumanRe
 
 Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
 
-1.  Descargue y guarde [el archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
 
 2. Importe el archivo JSON en una aplicación nueva.
 
@@ -60,7 +60,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 ## <a name="employeefeedback-intent"></a>Intención EmployeeFeedback 
 Agregue una nueva intención para capturar los comentarios de los miembros de la empresa. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Haga clic en **Create new intent** (Crear intención).
 

@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 965a35eb4cf33abe78ca802e8d59f13a649dec0a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982868"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279235"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recibir una notificación cuando el valor de una métrica cumple una condición
 
 Azure Monitor pone las métricas a disposición de muchos recursos de Azure. Estas métricas transmiten el rendimiento y el estado de esos recursos. En muchos casos, los valores de las métricas pueden apuntar a algo erróneo de un recurso. Puede crear alertas de métricas para supervisar el comportamiento anómalo y recibir notificaciones si se produce alguno. Este inicio rápido aborda la creación de una aplicación lógica, la creación de un trabajo y la visualización de las métricas para la aplicación lógica. Luego, trata sobre la creación de una alerta y la recepción de una notificación para una métrica para el recurso de la aplicación lógica.
 
-Para obtener más información sobre las métricas y las alertas de métricas, consulte [Azure Monitor metrics overview](./monitoring-overview-metrics.md) (Información general sobre las métricas de Azure Monitor) e [Azure Monitor alerts overview](./monitoring-overview-alerts.md) (Información general sobre las alertas en Azure Monitor). 
+Para obtener más información sobre las métricas y las alertas de métricas, consulte [Azure Monitor metrics overview](../monitoring/monitoring-data-collection.md) (Información general sobre las métricas de Azure Monitor) e [Azure Monitor alerts overview](./monitoring-overview-alerts.md) (Información general sobre las alertas en Azure Monitor). 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

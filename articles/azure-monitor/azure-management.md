@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 46c59d02294dea34a4713f44f31733035c68d66e
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057848"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277467"
 ---
 # <a name="azure-management---monitoring"></a>Administración de Azure: supervisión
 
@@ -41,7 +41,7 @@ La supervisión es el acto de recopilar y analizar datos para determinar el rend
 Configurar hace referencia a la implementación inicial y a la configuración de aplicaciones y recursos, y a su mantenimiento continuado con revisiones y actualizaciones.  La automatización de estas tareas a través de scripts y directivas le permite eliminar la redundancia, reducir el tiempo y esfuerzo que debe invertir, y aumentar la precisión y eficiencia.  [Azure Automation](..\automation\automation-intro.md) proporciona la mayor parte de los servicios para automatizar las tareas de configuración.  Además de runbooks para automatizar los procesos, proporciona configuración y administración de las actualizaciones, lo que le ayudará no solo a administrar la configuración mediante directivas, sino también a identificar e implementar las actualizaciones.
 
 ## <a name="govern"></a>Control
-El gobierno proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure.  Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.  En Azure, el gobierno se implementa principalmente con dos servicios.  [Azure Policy](../azure-policy/azure-policy-introduction.md) permite crear, asignar y administrar definiciones de directivas que aplican distintas reglas y acciones a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los contratos de nivel de servicio. [Azure Cost Management de Cloudyn](../cost-management/overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube, entre los que se incluyen AWS y Google.
+El gobierno proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure.  Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.  En Azure, el gobierno se implementa principalmente con dos servicios.  [Azure Policy](../governance/policy/overview.md) permite crear, asignar y administrar definiciones de directivas que aplican distintas reglas y acciones a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los contratos de nivel de servicio. [Azure Cost Management de Cloudyn](../cost-management/overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube, entre los que se incluyen AWS y Google.
 
 ## <a name="secure"></a>Protección
 La administración de la seguridad de las aplicaciones, recursos y datos conlleva la combinación de la evaluación de las amenazas, la recopilación y el análisis de los datos de seguridad, y la garantía de que tanto las aplicaciones como los recursos están diseñados y configurados de forma segura.  La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.  También debe consultar [Introducción a la seguridad de Azure](../security/azure-security.md), donde encontrará información completa acerca la seguridad en Azure e instrucciones para configurar de forma segura los recursos de Azure.

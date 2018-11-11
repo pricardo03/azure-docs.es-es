@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419374"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279116"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor  
 
@@ -57,7 +57,7 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
    > [!NOTE]
 
-   > Las listas de las alertas pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro [consulta guardada])), tal como se muestra en la ilustración anterior. Por tanto, los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas en otro momento. Puede encontrar más detalles sobre el uso de consultas guardadas en [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) o [¿Qué es Log Analytics?](../log-analytics/log-analytics-overview.md). 
+   > Las listas de las alertas pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro [consulta guardada])), tal como se muestra en la ilustración anterior. Por tanto, los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas en otro momento. Puede encontrar más detalles sobre el uso de consultas guardadas en [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-queries.md) o [¿Qué es Log Analytics?](../log-analytics/log-analytics-queries.md). 
 
 1.  *Alertas de registro*: una vez seleccionada esta opción, la consulta de alertas se puede indicar en el campo **Consulta de búsqueda**; si la sintaxis de la consulta es incorrecta, en el campo aparece el error en ROJO. Si la sintaxis de consulta es correcta, como referencia, se muestran los datos históricos de la consulta indicada en formato de gráfico con la opción de retocar la ventana de tiempo desde las últimas seis horas hasta la última semana.
 
@@ -132,7 +132,7 @@ Por lo tanto, la sección siguiente proporcionan detalles sobre el uso de la pla
 ### <a name="azure-resource-template-for-log-analytics"></a>Plantilla de recursos de Azure para Log Analytics
 Las reglas de alerta que ejecutan una búsqueda guardada a intervalos regulares crean alertas de Log Analytics. Si los resultados de la consulta coinciden con los criterios especificados, se crea un registro de alertas y se ejecutan una o varias acciones. 
 
-Existen plantillas de recursos para la búsqueda guardada de Log Analytics y alertas de Log Analytics disponibles en la sección Log Analytics de la documentación. Para más información, consulte [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md) (Adición de búsquedas y alertas guardadas de Log Analytics), que incluye ejemplos ilustrativos además de detalles del esquema.
+Existen plantillas de recursos para la búsqueda guardada de Log Analytics y alertas de Log Analytics disponibles en la sección Log Analytics de la documentación. Para más información, consulte [Adding Log Analytics saved searches and alerts](../monitoring/monitoring-solutions-resources-searches-alerts.md) (Adición de búsquedas y alertas guardadas de Log Analytics), que incluye ejemplos ilustrativos además de detalles del esquema.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Plantilla de recursos de Azure para Application Insights
 Las alertas de recursos de Application Insights tienen un tipo de `Microsoft.Insights/scheduledQueryRules/`. Para más información sobre este tipo de recurso, vea [Azure Monitor: referencia de la API de reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Si la operación se realiza correctamente, se devolverá 201 para indicar que se
 * Más información sobre las [alertas de registro en las alertas de Azure](monitor-alerts-unified-log.md).
 * Conocer las [acciones de webhook para alertas de registro](monitor-alerts-unified-log-webhook.md)
 * Más información sobre [Application Insights](../application-insights/app-insights-analytics.md)
-* Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Más información sobre [Log Analytics](../log-analytics/log-analytics-queries.md). 
 

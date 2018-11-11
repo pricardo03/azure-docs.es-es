@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886167"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277843"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extracción de patrones relacionados contextualmente
 
@@ -49,7 +49,7 @@ Si tiene dificultades con la detección de la entidad simple porque se trata de 
 > * Crear una lista de frases de ciudades
 > * Obtener intenciones y entidades del punto de conexión
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usar una aplicación existente
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
@@ -64,7 +64,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
 ## <a name="create-new-entities"></a>Creación de entidades nuevas
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Entities** (Entidades) en el menú de navegación de la izquierda. 
 
@@ -254,7 +254,7 @@ Las ciudades, al igual que lo que ocurre con los nombres de personas, son compli
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades del punto de conexión
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Move wayne berry from miami to mount vernon`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -380,6 +380,8 @@ En este tutorial, la aplicación de recursos humanos detecta expresiones sobre c
 |--|--|--|
 |[Jerárquica (sin roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |Este tutorial (con roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
+Para más información, consulte [Roles frente a entidades jerárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

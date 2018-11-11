@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983691"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278096"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivo de registros de diagnóstico de Azure
 
@@ -26,7 +26,7 @@ En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, necesita [crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md) en la que poder archivar los registros de diagnóstico. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas del registro de actividad y de diagnóstico en una cuenta de almacenamiento, puede que tenga sentido utilizar igualmente esa cuenta de almacenamiento para los registros de diagnóstico a fin de mantener todos los datos de supervisión en una ubicación central.
+Antes de comenzar, necesita [crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) en la que poder archivar los registros de diagnóstico. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas del registro de actividad y de diagnóstico en una cuenta de almacenamiento, puede que tenga sentido utilizar igualmente esa cuenta de almacenamiento para los registros de diagnóstico a fin de mantener todos los datos de supervisión en una ubicación central.
 
 > [!NOTE]
 >  Actualmente no puede archivar datos en una cuenta de almacenamiento que está detrás de una red virtual protegida.
@@ -161,7 +161,7 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Descargar blobs para el análisis](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Descargar blobs para el análisis](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Streaming de registros de diagnóstico a un espacio de nombres de Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Archivar registros de Azure Active Directory con Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Información general sobre los registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)

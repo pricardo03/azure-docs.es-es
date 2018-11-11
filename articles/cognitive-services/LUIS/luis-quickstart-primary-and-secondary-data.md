@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867551"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277807"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial: 7: Extracción de nombres con la lista de entidades y frases simple
 
@@ -86,7 +86,7 @@ Esta aplicación de LUIS tiene nombres de trabajos en varias intenciones. Median
 
 Una vez que las entidades están marcadas en las expresiones de ejemplo, es importante agregar una lista de frases para aumentar la señal de la entidad simple. Una lista de frases **no** se usa como una coincidencia exacta y no es necesario que tenga todos los valores posibles que espera. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. En la página **Intents** (Intenciones), seleccione la intención **ApplyForJob**. 
 
