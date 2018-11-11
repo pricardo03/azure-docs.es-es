@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a3f2021a1a1e0a0ff97c5966e151894fd7b6743b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1f94e297e784d000c829a50c077e7fa6d303333f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574649"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962221"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -160,7 +160,7 @@ Estos pasos se aplican solo si aún no ha configurado ninguna cuenta de SendGrid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre cómo crear [consultas de análisis](app-insights-analytics-using.md).
+* Más información sobre cómo crear [consultas de análisis](../log-analytics/query-language/get-started-queries.md).
 * Obtenga más información sobre [consultar mediante programación los datos de Application Insights](https://dev.applicationinsights.io/).
 * Más información acerca de [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 * Más información sobre [Microsoft Flow](https://ms.flow.microsoft.com).
