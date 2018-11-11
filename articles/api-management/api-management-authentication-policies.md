@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 4d13d9dbea9da9db5bfe9a9af85fdbf9eab1ae84
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4c4c03fffa5786bf3a50f4d2c03511f0a2de0f48
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26127766"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250958"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
 
 ##  <a name="AuthenticationPolicies"></a> Directivas de autenticación  
   
@@ -33,7 +33,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ##  <a name="Basic"></a> Autenticación con Basic  
  Use la directiva `authentication-basic` para realizar la autenticación con un servicio de back-end mediante autenticación Básica. Esta directiva establece eficazmente el encabezado de autorización HTTP en el valor correspondiente a las credenciales proporcionadas en la directiva.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <authentication-basic username="username" password="password" />  
@@ -47,28 +47,28 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|authentication-basic|Elemento raíz.|Sí|  
+|authentication-basic|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|nombre de usuario|Especifica el nombre de usuario de la credencial básica.|Sí|N/D|  
-|contraseña|Especifica la contraseña de usuario de la credencial básica.|Sí|N/D|  
+|nombre de usuario|Especifica el nombre de usuario de la credencial básica.|SÍ|N/D|  
+|contraseña|Especifica la contraseña de usuario de la credencial básica.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound (entrada)  
   
 -   **Ámbitos de la directiva:** API  
   
 ##  <a name="ClientCertificate"></a> Autenticación Básica  
- Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar primero en API Management](http://go.microsoft.com/fwlink/?LinkID=511599) y se identifica mediante su huella digital.  
+ Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar primero en API Management](https://go.microsoft.com/fwlink/?LinkID=511599) y se identifica mediante su huella digital.  
   
-### <a name="policy-statement"></a>Declaración de directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <authentication-certificate thumbprint="thumbprint" />  
@@ -82,18 +82,18 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Nombre|Descripción|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
-|authentication-certificate|Elemento raíz.|Sí|  
+|authentication-certificate|Elemento raíz.|SÍ|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|La huella digital del certificado de cliente.|Sí|N/D|  
+|thumbprint|La huella digital del certificado de cliente.|SÍ|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound (entrada)  
   

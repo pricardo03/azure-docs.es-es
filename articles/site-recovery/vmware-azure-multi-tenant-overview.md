@@ -1,22 +1,20 @@
 ---
-title: Introducción a la compatibilidad multiinquilino para la replicación de máquinas virtuales de VMware en Azure (CSP) con Azure Site Recovery | Microsoft Docs
-description: Introducción al soporte técnico de Azure Site Recovery para las suscripciones de inquilino en un entorno de varios inquilinos, mediante el programa CSP.
-services: site-recovery
+title: Introducción a la compatibilidad multiinquilino con la recuperación ante desastres de máquinas virtuales de VMware en Azure (CSP) con Azure Site Recovery | Microsoft Docs
+description: Proporciona información general sobre la compatibilidad de Azure Site Recovery con la recuperación ante desastres de VMWare en Azure en un programa de entorno multiinquilino (CSP).
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352878"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210767"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Introducción a la compatibilidad multiinquilino para la replicación de VMware en Azure con CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Introducción a la compatibilidad multiinquilino con la recuperación ante desastres de máquinas virtuales de VMware en Azure (CSP)
 
 [Azure Site Recovery](site-recovery-overview.md) admite entornos multiinquilino para las suscripciones de inquilino. También admite la arquitectura multiinquilino para suscripciones de inquilino que se crean y administran mediante el programa del Proveedor de soluciones en la nube (CSP) de Microsoft.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576477"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253438"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de la versión de Azure BizTalk Services
 
@@ -188,7 +188,7 @@ Considere un escenario donde usa comportamientos basados en el nombre para ident
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Los puentes siguen procesando los mensajes aunque la Base de datos SQL esté sin conexión
 Los puentes de BizTalk Services continúan procesando los mensajes durante un tiempo, aunque Microsoft Azure SQL Database (que almacena la información de ejecución como artefactos y canalizaciones implementados) esté sin conexión. El motivo es que BizTalk Services usan la configuración de puentes y artefactos almacenada en caché.
-Si no desea que los puentes procesen mensajes cuando SQL Database está sin conexión, puede usar los cmdlets de PowerShell de BizTalk Services para detener o suspender el servicio de BizTalk. Consulte el ejemplo de código [Azure BizTalk Service Management](http://go.microsoft.com/fwlink/p/?LinkID=329019) para conocer los cmdlets de Windows PowerShell para administrar operaciones.  
+Si no desea que los puentes procesen mensajes cuando SQL Database está sin conexión, puede usar los cmdlets de PowerShell de BizTalk Services para detener o suspender el servicio de BizTalk. Consulte el ejemplo de código [Azure BizTalk Service Management](https://go.microsoft.com/fwlink/p/?LinkID=329019) para conocer los cmdlets de Windows PowerShell para administrar operaciones.  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>La lectura del mensaje XML en el componente de código personalizado de un puente incluye un carácter de marca de orden de byte (BOM) adicional
 Considere un escenario donde quiere leer un mensaje XML dentro del código personalizado de un puente. Si usa la API de .NET System.Text.Encoding.UTF8.GetString(bytes), se incluye un carácter BOM adicional en la salida al comienzo del mensaje. Por lo tanto, si no quiere que la salida incluya dicho carácter, debe usar ```System.IO.StreamReader().ReadToEnd()```.

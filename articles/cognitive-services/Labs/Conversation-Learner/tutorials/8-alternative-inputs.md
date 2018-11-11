@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171024"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252554"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Uso de entradas alternativas
 
@@ -23,7 +23,7 @@ En este tutorial se explica cómo usar el campo "Entradas alternativas" para la 
 
 ## <a name="video"></a>Vídeo
 
-[![Vista previa del tutorial 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Vista previa del tutorial 8](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Requisitos
 Para poder realizar este tutorial debe ejecutar el bot del tutorial general
@@ -51,7 +51,7 @@ Las "entradas alternativas" son expresiones de usuario alternativas que el usuar
 1. Haga clic en Actions (Acciones) y, a continuación, en New Action (Nueva acción).
 2. En Response (Respuesta), escriba "Which city do you want?" (¿Qué ciudad desea?).
 3. En Disqualifying Entities (Entidades descalificadas), escriba $city.
-3. Click Create
+3. Haga clic en Crear.
 
 A continuación, cree la segunda acción:
 
@@ -66,7 +66,7 @@ Cree la tercera acción:
 3. En Response (Respuesta), escriba "Try asking for the weather" (Intentar consultar el tiempo).
     - Esto sería para responder a la pregunta del usuario, como "what can the system do?" (¿Qué puede hacer el sistema?).
 4. En Disqualifying Entities (Entidades descalificadas), escriba $city.
-4. Click Create
+4. Haga clic en Crear.
 
 Ahora dispone de tres acciones.
 

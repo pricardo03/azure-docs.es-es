@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321859"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250822"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)
 
@@ -141,7 +141,7 @@ Los siguientes pasos muestran cómo crear una cola:
   
     ![Crear cola](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Como se dijo anteriormente, el método **CloudQueue.CreateIfNotExists** devuelve **true** solo si la cola no existía pero se creó. Por lo tanto, si se ejecuta la aplicación cuando la cola existe, el método devuelve **false**. Para ejecutar la aplicación varias veces, debe eliminar la cola antes de ejecutar la aplicación de nuevo. La eliminación de la cola puede realizarse a través del método **CloudQueue.Delete**. También puede eliminar la cola mediante [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) o [el Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Como se dijo anteriormente, el método **CloudQueue.CreateIfNotExists** devuelve **true** solo si la cola no existía pero se creó. Por lo tanto, si se ejecuta la aplicación cuando la cola existe, el método devuelve **false**. Para ejecutar la aplicación varias veces, debe eliminar la cola antes de ejecutar la aplicación de nuevo. La eliminación de la cola puede realizarse a través del método **CloudQueue.Delete**. También puede eliminar la cola mediante [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) o [el Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-a-message-to-a-queue"></a>un mensaje a una cola
 

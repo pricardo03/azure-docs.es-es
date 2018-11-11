@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: db976fb61c5659fbdcb7ba30aa4f619d52d441c4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402514"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252401"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de comprobación de la seguridad de Azure Database
 
@@ -47,7 +47,7 @@ Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Az
 | ------------ | -------- |
 |**Protección de datos**||
 | <br> Cifrado en movimiento o tránsito| <ul><li>[Seguridad de la capa de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para el cifrado de datos cuando los datos se pasan a las redes.</li><li>Las bases de datos requieren una comunicación segura desde los clientes basados en el protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) a través de TLS (Seguridad de la capa de transporte).</li></ul> |
-|<br>Cifrado en reposo| <ul><li>[Cifrado de datos transparente](http://go.microsoft.com/fwlink/?LinkId=526242), cuando los datos inactivos se almacenan físicamente en cualquier formato digital.</li></ul>|
+|<br>Cifrado en reposo| <ul><li>[Cifrado de datos transparente](https://go.microsoft.com/fwlink/?LinkId=526242), cuando los datos inactivos se almacenan físicamente en cualquier formato digital.</li></ul>|
 |**Control de acceso**||  
 |<br> Acceso a la base de datos | <ul><li>[Autenticación](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Autenticación de Azure Active Directory). La autenticación de AD usa las identidades administradas por Azure Active Directory.</li><li>[Autorización](https://docs.microsoft.com/azure/sql-database/sql-database-control-access). Conceda a los usuarios los privilegios mínimos necesarios.</li></ul> |
 |<br>Acceso a las aplicaciones| <ul><li>[Seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131). Se usa la directiva de seguridad, al mismo tiempo que se restringe el acceso de nivel de fila según el contexto de ejecución, rol o identidad de un usuario).</li><li>[Enmascaramiento dinámico de datos](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started). El uso de directivas y permisos limita la exposición de información confidencial al enmascararla para los usuarios sin privilegios</li></ul>|

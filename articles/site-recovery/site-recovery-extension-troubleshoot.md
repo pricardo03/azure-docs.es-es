@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227491"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215045"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Solución de problemas con el agente de Azure Site Recovery
 
@@ -64,7 +64,7 @@ Es posible que el agente de máquina virtual se haya dañado o que el servicio s
 1. Determine si el "servicio Windows Azure Guest Agent" se está ejecutando en los servicios de máquina virtual (services.msc). Intente reiniciar el "servicio Windows Azure Guest Agent".    
 2. Si el servicio Windows Azure Guest Agent no está visible en los servicios, en el Panel de control, vaya a **Programas y características** para determinar si está instalado.
 4. Si Windows Azure Guest Agent aparece en **Programas y características**, desinstálelo.
-5. Descargue e instale la [versión más reciente del MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
+5. Descargue e instale la [versión más reciente del MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
 6. Compruebe que el servicio Windows Azure Guest Agent aparece en los servicios.
 7. Reinicie el trabajo de protección.
 

@@ -1,6 +1,6 @@
 ---
-title: Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual de Windows
-description: Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual de Windows
+title: Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
+description: Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,33 +8,35 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8945ee49ff41a65548da5a3a3c374279bdcc435
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345193"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413594"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
 
-La [extensión Microsoft Azure Diagnostics](azure-diagnostics.md) (WAD) de Azure Monitor le permite recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual.  La extensión puede enviar datos de telemetría a muchas ubicaciones diferentes que aparecen en el artículo vinculado anteriormente.  
+Con la [extensión Diagnostics](azure-diagnostics.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows al almacén de datos de Azure Monitor. A partir de Microsoft Azure Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. Almacenarlas en esta ubicación permite tener acceso a las mismas acciones disponibles para las métricas de la plataforma.  Las acciones incluyen la generación de alertas casi en tiempo real, la creación de gráficos, el enrutamiento, el acceso desde la API REST y mucho más.  Anteriormente, la extensión Microsoft Azure Diagnostics se escribía en Azure Storage, pero no el almacén de datos de Azure Monitor.   
+En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows al almacén de datos de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. 
+
+Almacenarlas en esta ubicación permite tener acceso a las mismas acciones para las métricas de la plataforma. Las acciones incluyen la generación de alertas casi en tiempo real, la creación de gráficos, el enrutamiento, el acceso desde una API REST y mucho más. Anteriormente, la extensión Diagnostics se escribía en Azure Storage, pero no en el almacén de datos de Azure Monitor.   
 
 Si no está familiarizado con las plantillas de Resource Manager, obtenga información sobre las [implementaciones de plantilla](../azure-resource-manager/resource-group-overview.md) y su estructura y sintaxis.  
 
-## <a name="pre-requisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-- La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
+- La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- Debe tener instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1), o bien puede usar [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md). 
+- Debe tener instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
  
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configuración de Azure Monitor como receptor de datos 
-La extensión Azure Diagnostics usa una característica denominada "receptores de datos" para enrutar las métricas y los registros a distintas ubicaciones.  En los pasos siguientes se muestra cómo usar una plantilla de Resource Manager y PowerShell para implementar una VM con el nuevo receptor de datos "Azure Monitor". 
+La extensión Azure Diagnostics usa una característica denominada "receptores de datos" para enrutar las métricas y los registros a distintas ubicaciones. En los pasos siguientes se muestra cómo usar una plantilla de Resource Manager y PowerShell para implementar una VM con el nuevo receptor de datos "Azure Monitor". 
 
 ## <a name="author-resource-manager-template"></a>Creación de una plantilla de Resource Manager 
-En este ejemplo, puede usar una plantilla de ejemplo disponible públicamente. Las plantillas iniciales se encuentran en https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 
+En este ejemplo, puede usar una plantilla de ejemplo disponible públicamente. Las plantillas iniciales se encuentran en https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows. 
 
 - **Azuredeploy.json** es una plantilla de Resource Manager configurada previamente para la implementación de una máquina virtual. 
 
@@ -45,7 +47,7 @@ Descargue y guarde ambos archivos localmente.
 ###  <a name="modify-azuredeployparametersjson"></a>Modificación de azuredeploy.parameters.json
 Abra el archivo *azuredeploy.parameters.json*. 
 
-1. Especifique los valores de *adminUsername* y *adminPassword* para la VM. Estos parámetros se utilizan para el acceso remoto a la VM. Para evitar el secuestro de la VM, NO use los valores de esta plantilla. Los bots buscan por Internet los nombres de usuario y las contraseñas en repositorios públicos de GitHub. Es probable que sean VM de prueba con estos valores predeterminados.  
+1. Especifique los valores de **adminUsername** y **adminPassword** para la VM. Estos parámetros se utilizan para el acceso remoto a la VM. Para evitar el secuestro de la VM, NO use los valores de esta plantilla. Los bots buscan por Internet los nombres de usuario y las contraseñas en repositorios públicos de GitHub. Es probable que sean VM de prueba con estos valores predeterminados.  
 
 1. Cree un dnsname único para la VM.  
 
@@ -56,7 +58,7 @@ Abra el archivo *azuredeploy.json*.
 Agregue un identificador de cuenta de almacenamiento a la sección de **variables** de la plantilla después de la entrada para **storageAccountName**.  
 
 ```json
-// Find these lines 
+// Find these lines. 
 "variables": { 
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]", 
 
@@ -64,12 +66,12 @@ Agregue un identificador de cuenta de almacenamiento a la sección de **variable
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Agregue estas identidades administradas para la extensión de recursos de Azure a la plantilla en la parte superior de la sección "resources".  La extensión garantiza que Azure Monitor acepte las métricas que se emiten.  
+Agregue esta extensión de Managed Service Identity (MSI) a la plantilla en la parte superior de la sección **resources**. La extensión garantiza que Azure Monitor acepte las métricas que se emiten.  
 
 ```json
-//Find this code 
+//Find this code. 
 "resources": [
-// Add this code directly below
+// Add this code directly below.
     { 
         "type": "Microsoft.Compute/virtualMachines/extensions", 
         "name": "WADExtensionSetup", 
@@ -89,7 +91,7 @@ Agregue estas identidades administradas para la extensión de recursos de Azure 
     }, 
 ```
 
-Agregue la configuración de "identity" en el recurso de VM para asegurarse de que Azure asigne a la extensión MSI una identidad del sistema. Este paso garantiza que la VM pueda emitir métricas de invitado sobre sí misma a Azure Monitor. 
+Agregue la configuración de **identity** en el recurso de VM para asegurarse de que Azure asigne a la extensión MSI una identidad del sistema. Este paso garantiza que la VM pueda emitir métricas de invitado sobre sí misma a Azure Monitor. 
 
 ```json
 // Find this section
@@ -120,7 +122,7 @@ Agregue la configuración de "identity" en el recurso de VM para asegurarse de q
     ...
 ```
 
-Agregue la siguiente configuración para habilitar la extensión de diagnóstico en una máquina virtual Windows.  En una máquina virtual sencilla basada en Resource Manager, se puede agregar la configuración de extensión a la matriz de recursos de la máquina virtual. La línea "sinks": "AzMonSink" y la correspondiente "SinksConfig" más adelante en la sección permiten que la extensión emita métricas directamente a Azure Monitor. No dude en agregar o quitar contadores de rendimiento según sea necesario.  
+Agregue la siguiente configuración para habilitar la extensión de diagnóstico en una máquina virtual Windows.  En una máquina virtual sencilla basada en Resource Manager, se puede agregar la configuración de extensión a la matriz de recursos de la máquina virtual. La línea "sinks"&mdash; "AzMonSink" y la correspondiente "SinksConfig" más adelante en la sección&mdash;permiten que la extensión emita métricas directamente a Azure Monitor. No dude en agregar o quitar contadores de rendimiento según sea necesario.  
 
 
 ```json
@@ -229,20 +231,20 @@ Guarde y cierre ambos archivos.
 ## <a name="deploy-the-resource-manager-template"></a>Implementación de la plantilla de Resource Manager 
 
 > [!NOTE]
-> Debe estar ejecutando la versión de la extensión 1.5 o superior de Azure Diagnostics y, A LA VEZ, tener la propiedad"autoUpgradeMinorVersion": establecida en "true" en la plantilla de Resource Manager.  A continuación, Azure carga la extensión adecuada cuando se inicia la VM. Si no tiene estas opciones en la plantilla, modifíquelas y vuelva a implementar la plantilla. 
+> Debe estar ejecutando la versión de la extensión 1.5 o superior de Azure Diagnostics Y tener la propiedad **autoUpgradeMinorVersion**: establecida en "true" en la plantilla de Resource Manager.  A continuación, Azure carga la extensión adecuada cuando se inicia la VM. Si no tiene estas opciones en la plantilla, modifíquelas y vuelva a implementar la plantilla. 
 
 
-Para implementar la plantilla de Resource Manager, se usará Azure PowerShell.  
+Para implementar la plantilla de Resource Manager, se usa Azure PowerShell.  
 
-1. Inicie PowerShell 
+1. Inicie PowerShell. 
 1. Inicie sesión en Azure con `Login-AzureRmAccount`.
 1. Obtenga una lista de suscripciones con `Get-AzureRmSubscription`.
-1. Establezca la suscripción en la que va a crear o actualizar la máquina virtual. 
+1. Establezca la suscripción que se usa para crear o actualizar la máquina virtual en: 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Cree un nuevo grupo de recursos para la VM que se va a implementar mediante el comando siguiente. 
+1. Para crear un nuevo grupo de recursos para la VM que se está implementando, ejecute el comando siguiente: 
 
    ```PowerShell
     New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>" 
@@ -250,7 +252,7 @@ Para implementar la plantilla de Resource Manager, se usará Azure PowerShell.
    > [!NOTE] 
    > Recuerde [usar una región de Azure que esté habilitada para las métricas personalizadas](metrics-custom-overview.md). 
  
-1. Ejecute los siguientes comandos para implementar la VM con  
+1. Ejecute los comandos siguientes para implementar la máquina virtual mediante la plantilla de Resource Manager.
    > [!NOTE] 
    > Si quiere actualizar una VM existente, simplemente agregue *-Mode Incremental* al final del comando siguiente. 
  
@@ -258,28 +260,28 @@ Para implementar la plantilla de Resource Manager, se usará Azure PowerShell.
    New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>" 
    ```
   
-1. Cuando se complete correctamente la implementación, usted debe ser capaz de encontrar la VM en Azure Portal, y esta debería emitir métricas a Azure Monitor. 
+1. Una vez que la implementación se realice correctamente, la máquina virtual debe estar en Azure Portal, emitiendo métricas a Azure Monitor. 
 
    > [!NOTE] 
    > Puede que surjan errores en torno al parámetro vmSkuSize seleccionado. Si ocurre, vuelva al archivo azuredeploy.json y actualice el valor predeterminado del parámetro vmSkuSize. En este caso, se recomienda probar "Standard_DS1_v2". 
 
 ## <a name="chart-your-metrics"></a>Gráfico de las métricas 
 
-1. Iniciar sesión en Azure Portal. 
+1. Inicie sesión en el Portal de Azure. 
 
-1. En el menú de la izquierda, haga clic en **Monitor**. 
+2. En el menú de la izquierda, seleccione **Monitor**. 
 
-1. En la página Monitor, haga clic en **Métricas**. 
+3. En la página Monitor, seleccione **Métricas**. 
 
-   ![Página Métricas](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![Página Métricas](media/metrics-store-custom-guestos-resource-manager-vm/metrics.png) 
 
-1. Cambie el período de agregación a **Últimos 30 minutos**.  
+4. Cambie el período de agregación a **Últimos 30 minutos**.  
 
-1. En la lista desplegable de recursos, seleccione la VM que acaba de crear. Si no ha cambiado el nombre de la plantilla, debe ser *SimpleWinVM2*.  
+5. En el menú desplegable de recursos, seleccione la VM que ha creado. Si no ha cambiado el nombre de la plantilla, debe ser *SimpleWinVM2*.  
 
-1. En la lista desplegable de espacios de nombres, seleccione **azure.vm.windows.guest**. 
+6. En el menú desplegable de espacios de nombres, seleccione **azure.vm.windows.guest**. 
 
-1. En la lista desplegable de métricas, seleccione **Memory\%Committed Bytes in Use** (Memoria%Bytes confirmados en uso).  
+7. En el menú desplegable de métricas, seleccione **Memory\%Committed Bytes in Use** (Memoria%Bytes confirmados en uso).  
  
 
 ## <a name="next-steps"></a>Pasos siguientes

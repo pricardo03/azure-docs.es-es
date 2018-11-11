@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390064"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253506"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desarrollo de una imagen de máquina virtual de forma local para Azure Marketplace
 Se recomienda encarecidamente que desarrolle discos duros virtuales de Azure (VHD) directamente en la nube mediante el uso del Protocolo de escritorio remoto. Sin embargo, si es necesario, es posible descargar un disco duro virtual y desarrollarlo mediante infraestructura local.  
@@ -71,7 +71,7 @@ Una vez que conozca la dirección URL de blob, podrá descargar el disco duro vi
    ![dibujo](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>Descarga de un disco duro virtual mediante PowerShell
-Además de utilizar el Portal de Azure, puede usar el cmdlet [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) para descargar el disco duro virtual del sistema operativo.
+Además de utilizar el Portal de Azure, puede usar el cmdlet [Save-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) para descargar el disco duro virtual del sistema operativo.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -139,7 +139,7 @@ Cree un contenedor de la manera siguiente.
 Una vez creados la cuenta de almacenamiento y el contenedor, puede cargar sus discos duros virtuales preparados. Es posible usar PowerShell, la herramienta de línea de comandos de Linux u otras herramientas de administración de Azure Storage.
 
 ### <a name="upload-a-vhd-via-powershell"></a>Cargar un disco duro virtual a través de PowerShell
-Use el cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
+Use el cmdlet [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) .
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 

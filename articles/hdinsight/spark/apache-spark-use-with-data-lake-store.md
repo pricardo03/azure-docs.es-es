@@ -3,18 +3,18 @@ title: Uso de Apache Spark para analizar datos en Azure Data Lake Store
 description: Ejecución de trabajos de Spark para analizar los datos almacenados en Azure Data Lake Store
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: aae63b06999c0b8eafa0d42608d32a4d467a900c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041068"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255257"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Store
 
@@ -34,7 +34,7 @@ En este tutorial usará Jupyter Notebook, disponible con los clústeres de HDIns
 >
 >
 
-Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento adicional y Azure Storage Blob como almacenamiento predeterminado, primero debe copiar algunos datos de ejemplo en la cuenta de Data Lake Store. Puede usar los datos de ejemplo de la instancia de Azure Storage Blob asociada al clúster de HDInsight. Puede usar la [herramienta ADLCopy](http://aka.ms/downloadadlcopy) para hacerlo. Descargue e instale la herramienta desde el vínculo.
+Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento adicional y Azure Storage Blob como almacenamiento predeterminado, primero debe copiar algunos datos de ejemplo en la cuenta de Data Lake Store. Puede usar los datos de ejemplo de la instancia de Azure Storage Blob asociada al clúster de HDInsight. Puede usar la [herramienta ADLCopy](https://aka.ms/downloadadlcopy) para hacerlo. Descargue e instale la herramienta desde el vínculo.
 
 1. Abra un símbolo del sistema y vaya al directorio donde está instalada la herramienta AdlCopy, normalmente `%HOMEPATH%\Documents\adlcopy`.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: ed7f02d3e389db3bc772c4fcb00a7b3877d60173
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794531"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248392"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificación de una configuración DNS en un archivo de configuración de red virtual
 Un archivo de configuración de red tiene dos elementos que puede usar para especificar la configuración del sistema de nombres de dominio (DNS): **DnsServers** y **DnsServerRef**. Puede agregar una lista de los servidores DNS especificando sus direcciones IP y nombres de referencia en el elemento **DnsServers** . Asimismo, puede usar un elemento **DnsServerRef** para especificar qué entradas del servidor DNS desde el elemento DnsServers se usan en diferentes sitios de red de la red virtual.
@@ -36,7 +36,7 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
 > 
 > 
 
-[Elemento DNS](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Elemento DNS](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -51,7 +51,7 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
 > 
 > 
 
-[Elemento Sitios de red virtual](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Elemento Sitios de red virtual](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -65,7 +65,7 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Entienda el [esquema de configuración de la instancia de Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248093).
+* Entienda el [esquema de configuración de la instancia de Azure Virtual Network](https://go.microsoft.com/fwlink/?LinkId=248093).
 * Entienda el [esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Configuración de una red virtual mediante un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: magoedte
-ms.openlocfilehash: a399c3968e5ee1e2d1f6d623a68dbb1e15cef212
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 81db6720422de111cc5b390c58e9020d7c19f90a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088507"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282040"
 ---
 # <a name="overview-of-the-azure-agents-to-monitor-azure-virtual-machines"></a>Introducción a los agentes de Azure para supervisar máquinas virtuales de Azure
 Microsoft Azure ofrece varias maneras de recopilar diferentes tipos de datos de máquinas virtuales hospedadas en Azure u otros proveedores de nube que ejecutan Microsoft Windows y Linux.  Este artículo le ayudará entender las diferencias y las funcionalidades disponibles de cada agente para poder determinar cuál será el adecuado para la administración de servicios y los requisitos de supervisión generales.  
@@ -27,7 +27,7 @@ Microsoft Azure ofrece varias maneras de recopilar diferentes tipos de datos de 
 ## <a name="comparing-azure-diagnostic-and-log-analytics-agent"></a>Comparación del agente de Azure Diagnostic y Log Analytics
 Actualmente, en Azure hay dos tipos de agentes disponibles para supervisar una máquina virtual de Azure: la extensión Azure Diagnostics y el agente de Log Analytics para Linux y Windows.  Estos agentes están diseñados fundamentalmente para recopilar métricas y registros y reenviarlos a un repositorio. Sin embargo, ahí terminan sus similitudes.  
 
-La [extensión Azure Diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md), incluida en Azure Cloud Services desde que empezó a estar disponible con carácter general en 2010, es un agente que ofrece una colección simple de datos de diagnóstico de un recurso IaaS de Azure, como una máquina virtual, y almacena los datos en Azure Storage.  Una vez en el almacenamiento, puede verlos con una de las diversas herramientas disponibles, como el [Explorador de servidores en Visual Studio](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) y el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+La [extensión Azure Diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md), incluida en Azure Cloud Services desde que empezó a estar disponible con carácter general en 2010, es un agente que ofrece una colección simple de datos de diagnóstico de un recurso IaaS de Azure, como una máquina virtual, y almacena los datos en Azure Storage.  Una vez en el almacenamiento, puede verlos con una de las diversas herramientas disponibles, como el [Explorador de servidores en Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) y el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Ahora puede elegir recopilar:
 
@@ -38,7 +38,7 @@ Ahora puede elegir recopilar:
 * Recopilar eventos de registro de syslog  
 * Volcados de memoria 
 
-Los datos también se puede reenviar a [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-overview.md) o a servicios que no son de Azure mediante [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Los datos también se puede reenviar a [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-queries.md) o a servicios que no son de Azure mediante [Event Hubs](../event-hubs/event-hubs-about.md). 
 
 Para realizar una supervisión avanzada en la que deba hacer más que recopilar métricas y un subconjunto de registros, se necesita el agente de Log Analytics para Windows y Linux.  Con este agente, podrá utilizar los servicios de Azure como Automation y Log Analytics, incluido el conjunto completo de características que ofrecen, para realizar una administración integral de las máquinas virtuales de Azure en todo su ciclo de vida. Esto incluye:
 

@@ -2,19 +2,19 @@
 title: 'Instalación y uso de Giraph en HDInsight (Hadoop): Azure'
 description: Aprenda a instalar Giraph en clústeres de HDInsight basados en Linux mediante acciones de script. Las acciones de script le permiten personalizar el clúster durante la creación; así, puede cambiar la configuración del clúster o instalar utilidades y servicios.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: f5d7a5587d47f7601f8dc3f65318a6b7d486f58e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953300"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011670"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
 
@@ -68,7 +68,7 @@ Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al
 
 2. En la sección **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
-   * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
+   * **NOMBRE**: escriba un nombre sencillo para la acción de script.
 
    * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 

@@ -1,20 +1,20 @@
 ---
-title: Migración de máquinas virtuales de AWS a Azure con Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe cómo migrar máquinas virtuales Windows que se ejecutan en Amazon Web Services (AWS) en Azure con Azure Site Recovery.
+title: Migración de máquinas virtuales de AWS a Azure con el servicio Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo migrar máquinas virtuales Windows que se ejecutan en Amazon Web Services (AWS) a Azure mediante Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078943"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252146"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -119,7 +119,7 @@ En la página **Preparar origen**, seleccione **+Servidor de configuración**.
 
 1. Use una instancia de EC2 que ejecute Windows Server 2012 R2 para crear un servidor de configuración y registrarlo en el almacén de recuperación.
 2. Configure el proxy en la máquina virtual de la instancia de EC2 que usa como el servidor de configuración para que pueda acceder a [Direcciones URL del servicio](site-recovery-support-matrix-to-azure.md).
-3. Descargue [Instalación unificada de Microsoft Azure Site Recovery](http://aka.ms/unifiedinstaller_wus). Puede descargarlo en la máquina local y, a continuación, copiarlo en la máquina virtual que usa como el servidor de configuración.
+3. Descargue [Instalación unificada de Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). Puede descargarlo en la máquina local y, a continuación, copiarlo en la máquina virtual que usa como el servidor de configuración.
 4. Seleccione el botón **Descargar** para descargar la clave de registro del almacén. Copie el archivo descargado en la máquina virtual que usa como el servidor de configuración.
 5. En la máquina virtual, haga clic con el botón derecho en el instalador que descargó para la Instalación unificada de Microsoft Azure Site Recovery y seleccione **Ejecutar como administrador**.
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973005"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418854"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -36,11 +36,10 @@ En este tutorial, aprenderá a:
 En el vídeo siguiente se muestra cómo supervisar API Management con Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
++ Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
 
@@ -55,17 +54,16 @@ API Management emite métricas cada minuto, lo que le ofrece visibilidad casi en
 * Solicitudes de puerta de enlace no autorizadas: el número de solicitudes API que recibieron códigos de respuesta HTTP, incluidos 401, 403 y 429.
 * Otras solicitudes de puerta de enlace: el número de solicitudes API que recibieron códigos de respuesta HTTP que no pertenecen a ninguna de las categorías anteriores (por ejemplo, 418).
 
+![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 Para acceder a la métrica:
 
 1. Seleccione **Métricas** en el menú situado cerca de la parte inferior de la página.
 
     ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. En la lista desplegable, seleccione las métricas que le interesan (puede agregar varias métricas).  
-    Por ejemplo, seleccione **Total Gateway Requests** (Solicitudes totales de puerta de enlace) y **Failed Gateway Requests** (Solicitudes de puerta de enlace con error).
-3. El gráfico muestra el número total de llamadas API. También muestra el número de llamadas API que no se pudieron realizar.
-
-    ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+2. En la lista desplegable, seleccione las métricas que le interesen. Por ejemplo, **Solicitudes de puerta de enlace correctas**. También puede agregar más métricas al gráfico.
+3. El gráfico muestra el número total de llamadas API correctas.
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configuración de una regla de alerta para solicitudes no autorizadas
 
@@ -102,6 +100,8 @@ Los registros de actividad proporcionan información sobre las operaciones lleva
 
 Puede acceder a registros de actividad en el servicio API Management o a los registros de todos los recursos de Azure en Azure Monitor. 
 
+![registros de actividad](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 Para ver los registros de actividad:
 
 1. Seleccione la instancia del servicio APIM.
@@ -111,8 +111,6 @@ Para ver los registros de actividad:
 
 3. Seleccione el ámbito de filtrado que desee y haga clic en **Aplicar**.
 
-    ![registros de actividad](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
-
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
 Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad. Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan información detallada acerca de las operaciones que el recurso ha realizado.
@@ -120,7 +118,7 @@ Los registros de diagnóstico proporcionan información valiosa acerca de las op
 Para configurar registros de diagnóstico:
 
 1. Seleccione la instancia del servicio APIM.
-2. Haga clic en **Registros de diagnóstico**.
+2. Haga clic en **Configuración de diagnóstico**.
 
     ![registros de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7d42c026975a18c7574e4bc64ec28ab3ed0082bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248459"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adición de nodos de ráfaga a petición a un clúster de HPC Pack en Azure
 Si configura un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en Azure, es posible que desee conocer alguna forma de escalar o reducir verticalmente la capacidad de clúster de forma rápida, sin mantener un conjunto de máquinas virtuales de nodos de proceso preconfiguradas. En este artículo se muestra cómo agregar nodos de "ráfaga" a petición (instancias de rol de trabajo que se ejecutan en un servicio en la nube) como recursos de proceso a un nodo principal de Azure. 
@@ -33,7 +33,7 @@ Si configura un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/l
 
 Los pasos de este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual del nodo principal de HPC Pack basado en la nube para realizar una implementación de prueba o de prueba de concepto. Los pasos de alto nivel son los mismos que los de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones acerca de las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Nodo principal de HPC Pack implementado en una máquina virtual de Azure** : puede usar una máquina virtual del nodo principal independiente o una que forme parte de un clúster de mayor tamaño. Para crear un nodo principal independiente, consulte [Creación del nodo principal de un clúster de HPC Pack en una máquina virtual de Azure con una imagen de Marketplace](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para ver las opciones de implementación de HPC Pack, consulte [Opciones para crear y administrar un clúster de informática de alto rendimiento (HPC) de Linux en Azure con Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]
@@ -68,7 +68,7 @@ En este escenario, puede elegir el **Certificado de administración de Azure de 
 
 2. Haga clic en **Certificados de administración** > **Cargar**.
 
-Para ver opciones adicionales para configurar el certificado de administración, consulte [Escenarios para configurar el certificado de administración de Azure para implementaciones de ráfaga de Azure](http://technet.microsoft.com/library/gg481759.aspx).
+Para ver opciones adicionales para configurar el certificado de administración, consulte [Escenarios para configurar el certificado de administración de Azure para implementaciones de ráfaga de Azure](https://technet.microsoft.com/library/gg481759.aspx).
 
 ## <a name="step-3-deploy-azure-nodes-to-the-cluster"></a>Paso 3: Implementar nodos de Azure al clúster
 Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los mismos que los empleados con un nodo principal local. Para más información, consulte las secciones siguientes en [Pasos para implementar nodos de Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
@@ -79,7 +79,7 @@ Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los
 
 Después de agregar e iniciar los nodos, estarán listos para que los use para ejecutar trabajos de clúster.
 
-Si tiene problemas al implementar nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
+Si tiene problemas al implementar nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/jj159097.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para usar un tamaño de instancia de proceso intensivo para los nodos de ráfaga, consulte las consideraciones de [Tamaños de máquina virtual de procesos de alto rendimiento](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

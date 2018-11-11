@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382746"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248320"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad AlwaysOn en Azure
 En este artículo se explica cómo puede crear un equilibrador de carga para un grupo de disponibilidad de SQL Server AlwaysOn en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
@@ -120,7 +120,7 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
 4.  Haga clic en **OK**. 
 
 > [!NOTE]
-> Asegúrese de que el puerto especificado esté abierto en el firewall de las dos instancias de SQL Server. En estas dos instancias, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](http://technet.microsoft.com/library/cc753558.aspx) para obtener más información. 
+> Asegúrese de que el puerto especificado esté abierto en el firewall de las dos instancias de SQL Server. En estas dos instancias, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](https://technet.microsoft.com/library/cc753558.aspx) para obtener más información. 
 > 
 > 
 
@@ -276,7 +276,7 @@ Después de configurar el grupo de disponibilidad para usar la nueva dirección 
 Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribuido, el equilibrador de carga necesita una regla adicional. Esta regla almacena el puerto usado por el escucha del grupo de disponibilidad distribuido.
 
 >[!IMPORTANT]
->Este paso solo se aplica si el grupo de disponibilidad forma parte de un [grupo de disponibilidad distribuido](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+>Este paso solo se aplica si el grupo de disponibilidad forma parte de un [grupo de disponibilidad distribuido](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
 
 1. En cada servidor que forma parte del grupo de disponibilidad distribuido, cree una regla de entrada en el puerto TCP del escucha del grupo de disponibilidad distribuido. En muchos ejemplos, la documentación usa el puerto 5022. 
 
@@ -289,7 +289,7 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
    |**Nombre** |Nombre para identificar la regla de equilibrio de carga para el grupo de disponibilidad distribuido. 
    |**Frontend IP address** (Dirección IP de front-end) |Use la misma dirección IP de front-end que en el grupo de disponibilidad.
    |**Protocolo** |TCP
-   |**Puerto** |5022: el puerto para el [escucha de punto de conexión del grupo de disponibilidad distribuido](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Puede ser cualquier puerto disponible.  
+   |**Puerto** |5022: el puerto para el [escucha de punto de conexión del grupo de disponibilidad distribuido](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Puede ser cualquier puerto disponible.  
    |**Puerto back-end** | 5022: use el mismo valor que en **Puerto**.
    |**Grupo de back-end** |El grupo que contiene las máquinas virtuales con las instancias de SQL Server. 
    |**Sondeo de estado** |Elija el sondeo que creó.

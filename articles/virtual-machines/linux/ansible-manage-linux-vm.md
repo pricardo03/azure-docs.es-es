@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: d9ff0387a1d02eb5f4684048aeed8ad0079b28ef
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251328"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Uso de Ansible para administrar una máquina virtual Linux en Azure
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar máquinas virtuales de Azure al igual que podría hacerlo con cualquier otro recurso. Este artículo muestra cómo utilizar un cuaderno de Ansible para iniciar y detener una máquina virtual Linux. 
@@ -27,7 +27,7 @@ Ansible permite automatizar la implementación y la configuración de recursos e
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Uso de Ansible para desasignar (detener) una máquina virtual de Azure
 Esta sección muestra cómo usar Ansible para desasignar (detener) una máquina virtual de Azure
 
-1.  Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Abra [Cloud Shell](/azure/cloud-shell/overview).
 
@@ -85,7 +85,7 @@ Esta sección muestra cómo usar Ansible para desasignar (detener) una máquina 
 ## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Uso de Ansible para iniciar una máquina virtual de Azure desasignada (detenida)
 Esta sección muestra cómo usar Ansible para iniciar una máquina virtual de Azure desasignada (detenida)
 
-1.  Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Abra [Cloud Shell](/azure/cloud-shell/overview).
 

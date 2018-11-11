@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: e22a2431ecae68278276b069bc199cfea60cd413
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 5d2edd3b4d8655133ef2835f0d0e579280123ae7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347365"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249428"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -27,7 +27,7 @@ Hay varias opciones configuradas para usted con el fin de brindar el soporte té
 
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Notifique problemas en el entorno de producción o bien solicite soporte técnico de pago para Azure
 
-Si desea informar sobre problemas en el clúster de Service Fabric que implementó en Azure, abra una incidencia de soporte técnico [en Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) o en el [Portal de soporte técnico de Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Si desea informar sobre problemas en el clúster de Service Fabric que implementó en Azure, abra una incidencia de soporte técnico [en Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) o en el [Portal de soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Más información sobre:
  
@@ -38,7 +38,7 @@ Más información sobre:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Notifique problemas en el entorno de producción o bien solicite soporte técnico de pago para clústeres independientes de Service Fabric
 
-Si desea informar sobre problemas en el clúster de Service Fabric que implementó de forma local o en otras nubes, abra una incidencia de soporte técnico profesional en el [Portal de soporte técnico de Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Si desea informar sobre problemas en el clúster de Service Fabric que implementó de forma local o en otras nubes, abra una incidencia de soporte técnico profesional en el [Portal de soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Más información sobre:
 

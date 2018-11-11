@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 611896dc9428092a76a891168b48f6962d760e60
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093218"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254577"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -431,13 +431,13 @@ Microsoft Azure ofrece rutas de aprendizaje de los conceptos fundamentales sobre
 |:-------------------|--------------|
 | [Ruta de aprendizaje de mantenimiento predictivo mediante árboles y bosques aleatorios](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Público | 
 | [Ruta de aprendizaje de mantenimiento predictivo mediante aprendizaje profundo](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Público |
-| [Desarrollador de inteligencia artificial en Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
-| [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Público |
+| [Desarrollador de inteligencia artificial en Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
+| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizaje de Azure AI de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Público |
 | [Seminarios web sobre Microsoft AI en YouTube ](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Presentación de Microsoft AI](http://channel9.msdn.com/Shows/AI-Show) | Público |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Asociados |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Asociados |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | Asociados |
+| [Microsoft Partner Network](https://learningportal.microsoft.com) | Asociados |
 
 Además, instituciones académicas, como Stanford y MIT, además de otras empresas educativas, ofrecen cursos en línea abiertos y masivos (MOOC) gratis sobre la inteligencia artificial.

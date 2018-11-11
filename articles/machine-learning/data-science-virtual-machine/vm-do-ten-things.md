@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395736"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250924"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Diez cosas que puede hacer en Windows Data Science Virtual Machine
 
@@ -64,9 +64,9 @@ Este es el aspecto que tendrá la configuración personalizada del entorno en Vi
 
 ![Programa de instalación de PTVS](./media/vm-do-ten-things/PTVSSetup.png)
 
-Para más detalles acerca de cómo crear entornos de Python, consulte la [documentación de PTVS](http://aka.ms/ptvsdocs) .
+Para más detalles acerca de cómo crear entornos de Python, consulte la [documentación de PTVS](https://aka.ms/ptvsdocs) .
 
-Ya está configurado el entorno para crear un nuevo proyecto de Python. Vaya a **Archivo** -> **Nuevo** -> **Proyecto** -> **Python** y seleccione el tipo de aplicación de Python que va a compilar. Puede establecer el entorno de Python del proyecto actual en la versión deseada (Python 2.7 o 3.6) si hace clic con el botón derecho en los **entornos de Python**, selecciona **Agregar o quitar entornos de Python** y, por último, selecciona el entorno que desea. Puede encontrar más información acerca de cómo trabajar con PTVS en la [documentación](http://aka.ms/ptvsdocs) del producto.
+Ya está configurado el entorno para crear un nuevo proyecto de Python. Vaya a **Archivo** -> **Nuevo** -> **Proyecto** -> **Python** y seleccione el tipo de aplicación de Python que va a compilar. Puede establecer el entorno de Python del proyecto actual en la versión deseada (Python 2.7 o 3.6) si hace clic con el botón derecho en los **entornos de Python**, selecciona **Agregar o quitar entornos de Python** y, por último, selecciona el entorno que desea. Puede encontrar más información acerca de cómo trabajar con PTVS en la [documentación](https://aka.ms/ptvsdocs) del producto.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Utilizar un cuaderno de Jupyter Notebook para explorar y modelar los datos con Python o R
 Jupyter Notebook es un eficaz entorno que proporciona un IDE basado en explorador para la exploración y el modelado de datos. En un cuaderno de Jupyter Notebook se pueden utilizar Python 2, Python 3 o R (tanto de código abierto como de Microsoft R Server).
@@ -806,7 +806,7 @@ A continuación se muestran los pasos que debe realizar como requisitos previos 
 
 1. El SDK de Python para Azure Cosmos DB ya está instalado en DSVM (ejecute ```pip install pydocumentdb --upgrade``` desde la línea de comandos para actualizar).
 2. Cree una base de datos y una cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com).
-3. Descargue la "herramienta de migración de Azure Cosmos DB" desde [aquí](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) y extráigala en el directorio que prefiera.
+3. Descargue la "herramienta de migración de Azure Cosmos DB" desde [aquí](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) y extráigala en el directorio que prefiera.
 4. Importe los datos de JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en Cosmos DB con los siguientes parámetros de comando para la herramienta de migración (dtui.exe desde el directorio en que instaló la herramienta de migración de Cosmos DB). Especifique las ubicaciones de origen y destino con estos parámetros:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

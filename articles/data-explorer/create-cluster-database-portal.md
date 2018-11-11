@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394228"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214824"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guía de inicio rápido: Creación de un clúster y de la base de datos del Explorador de datos de Azure
 
@@ -31,11 +31,11 @@ Creará un clúster del Explorador de datos de Azure en un grupo de recursos de 
 
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal.
 
-1. Busque *Explorador de datos de Azure* y, a continuación, seleccione **Explorador de datos de Azure**.
+1. Busque *Azure Data Explorer*.
 
    ![Búsqueda de recursos](media/create-cluster-database-portal/search-resources.png)
 
-1. En la esquina superior derecha, seleccione **Crear**.
+1. En **Azure Data Explorer**, en la parte inferior de la pantalla, seleccione **Crear**.
 
 1. Escriba un nombre único para el clúster, seleccione su suscripción y cree un grupo de recursos denominado *Grupo de recursos de prueba*.
 
@@ -50,11 +50,13 @@ Creará un clúster del Explorador de datos de Azure en un grupo de recursos de 
     | Nombre del clúster | Un nombre de clúster único | Elija un nombre único que identifique el clúster. Por ejemplo, *miclusterdeprueba*. El nombre de dominio *[region].kusto.windows.net* se anexa al nombre del clúster que proporcione. El nombre solo puede contener letras minúsculas y números. Debe contener entre 3 y 22 caracteres.
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el servidor.|
     | Grupos de recursos | *test-resource-group* | Cree un nuevo grupo de recursos. |
-    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades.
-    | Especificación de proceso | *D13_v2* | Seleccione la especificación de precio más bajo para esta guía de inicio rápido. En un sistema de producción, seleccione la especificación que mejor se adapte a sus necesidades.
+    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor cubra sus necesidades.
+    | Especificaciones de Compute | *D13_v2* | Seleccione la especificación de precio más bajo para esta guía de inicio rápido. En un sistema de producción, seleccione la especificación que mejor se adapte a sus necesidades.
     | | |
 
-1. Seleccione **Crear** para aprovisionar el clúster. Normalmente, el aprovisionamiento tarda unos diez minutos. Seleccione **Notificaciones** en la barra de herramientas (icono de campana) para supervisar el proceso de aprovisionamiento.
+1. Seleccione **Crear** para aprovisionar el clúster. Normalmente, el aprovisionamiento tarda unos diez minutos. Seleccione **Notificaciones** en la barra de herramientas para supervisar el proceso de aprovisionamiento.
+
+    ![Notificaciones](media/create-cluster-database-portal/notifications.png)
 
 1. Cuando el proceso haya finalizado, seleccione **Notificaciones** y, a continuación, **Ir al recurso**.
 

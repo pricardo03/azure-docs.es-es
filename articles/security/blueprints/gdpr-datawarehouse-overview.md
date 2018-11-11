@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 84e26212b1102d693b84e5b66fbd606da2673934
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d1099b813e84cd4885b011dec205a1e631fc6599
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405946"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250720"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-gdpr"></a>Azure Security and Compliance Blueprint: Data Warehouse para el RGPD
 
 ## <a name="overview"></a>Información general
 El Reglamento general de protección de datos (RGPD) contiene muchos requisitos sobre la recopilación, almacenamiento y uso de información personal, incluida la forma en que las organizaciones identifican y protegen los datos personales, se adaptan a los requisitos de transparencia, detectan e informan de las infracciones de datos personales, y ofrecen cursos sobre la privacidad al personal y a otros empleados. El RGPD ofrece un mayor control sobre los datos personales e impone muchas nuevas obligaciones a las organizaciones que recopilan, controlan o analizan datos personales. El RGPD impone nuevas reglas sobre las organizaciones que ofrecen bienes y servicios a personas de la Unión Europea (UE) o que recopilan y analizan datos vinculados a residentes de la UE. El RGPD se aplica con independencia de la ubicación de la organización.
 
-Microsoft ha diseñado Azure con medidas de seguridad y directivas de privacidad líderes del sector para proteger los datos en la nube, incluidas las categorías de datos personales identificadas por el RGPD. Los [términos contractuales](http://aka.ms/Online-Services-Terms) de Microsoft comprometen a Microsoft con los requisitos de los procesadores.
+Microsoft ha diseñado Azure con medidas de seguridad y directivas de privacidad líderes del sector para proteger los datos en la nube, incluidas las categorías de datos personales identificadas por el RGPD. Los [términos contractuales](https://aka.ms/Online-Services-Terms) de Microsoft comprometen a Microsoft con los requisitos de los procesadores.
 
 Esta instancia de Azure Security and Compliance Blueprint proporciona una guía para implementar una arquitectura de almacenamiento de datos en Azure que ayuda con los requisitos del RGPD. Esta solución muestra las formas en que los clientes pueden cumplir con los requisitos específicos de seguridad y cumplimiento y sirve como base para que los clientes compilen y configuren sus propias soluciones de almacenamiento de datos en Azure. Los clientes pueden utilizar esta arquitectura de referencia y seguir el [proceso de cuatro pasos](https://aka.ms/gdprebook) de Microsoft en su recorrido hacia el cumplimiento del RGPD:
 1. Descubrir: identificar qué datos personales existen y dónde residen.
