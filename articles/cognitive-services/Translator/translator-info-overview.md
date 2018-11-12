@@ -10,26 +10,28 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: erhopf
-ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645077"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037454"
 ---
 # <a name="what-is-translator-text-api"></a>¿Qué es Translator Text API?
 
-Translator Text API puede integrarse perfectamente en aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario en [más de 60 idiomas](languages.md). Se puede usar en cualquier plataforma de hardware y con cualquier sistema operativo para realizar la traducción de un idioma de texto a texto.
+Translator Text API es fácil de integrar en sus aplicaciones, sitios web, herramientas y soluciones. Permite agregar experiencias de usuario multilingüe en [más de 60 idiomas](languages.md) y se puede usar en cualquier plataforma de hardware con cualquier sistema operativo para la traducción de texto a texto.
 
-Translator Text API forma parte de la colección de [API de Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
+Translator Text API forma parte de [Azure Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
 
 ## <a name="about-microsoft-translator"></a>Acerca de Microsoft Translator
 
-Microsoft Translator es un servicio de traducción automática basado en la nube. En el centro de este servicio están Translator Text API y [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation), que dan servicio a diversos productos y servicios de Microsoft y que utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo para que su contenido llegue a una audiencia mundial.
+Microsoft Translator es un servicio de traducción automática basado en la nube. En el centro de este servicio está Translator Text API, que da servicio a diversos productos y servicios de Microsoft y que utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo para que su contenido llegue a una audiencia mundial.
 
-La traducción de voz también está disponible mediante la [versión preliminar del servicio Voz de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/), que combina los componentes Translator Speech API, Bing Speech API y Custom Speech Service (versión preliminar), ya existentes, en un servicio unificado y totalmente personalizable.  
+La traducción de voz, con la tecnología de Translator Text API, también está disponible mediante [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina la funcionalidad de Translator Speech API, Bing Speech API y Custom Speech Service (versión preliminar) en un servicio totalmente personalizable y unificado. Speech Service reemplaza a Translator Speech API, que se retirará el 15 de octubre de 2019.
 
-Obtenga más información sobre el [servicio Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
+## <a name="language-support"></a>Compatibilidad con idiomas
+
+Microsoft Translator proporciona compatibilidad con varios idiomas de traducción, transliteración, detección de idioma y diccionarios. Consulte [Compatibilidad con idiomas](language-support.md) para obtener una lista completa o puede acceder a la lista mediante programación con la [API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## <a name="language-customization"></a>Personalización de lenguaje
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7cea11f448f20ace2dd50454834e60ce3a3c3b70
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: e1ace09ba293cf80b2dbbe8f746eb7fd5bc8d7cb
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584275"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036400"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Tutorial: Configuración de la identidad de nube híbrida para aplicaciones de Azure y Azure Stack
 
@@ -74,7 +74,7 @@ Una instalación de Azure Stack conectada a Azure Active Directory con una suscr
 Para conectarse a Azure Stack mediante código, use la API de los puntos de conexión de Azure Resource Manager para obtener los puntos de conexión de autenticación y Graph para la instalación de Azure Stack y, luego, autentíquese mediante solicitudes de REST. Puede encontrar una aplicación cliente de ejemplo en [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
->A menos que el SDK de Azure correspondiente al lenguaje seleccionado admita perfiles de API de Azure, puede que el SDK no funcione con Azure Stack. Para más información acerca de los perfiles de la API de Azure, consulte el artículo [Administración de los perfiles de la versión de API](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles).
+>A menos que el SDK de Azure correspondiente al lenguaje seleccionado admita perfiles de API de Azure, puede que el SDK no funcione con Azure Stack. Para más información acerca de los perfiles de la API de Azure, consulte el artículo [Administración de los perfiles de la versión de API](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

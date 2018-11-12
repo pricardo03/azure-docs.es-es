@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575820"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036604"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Hacer que una imagen de máquina virtual esté disponible en Azure Stack
 
@@ -30,7 +30,7 @@ En Azure Stack, puede poner las imágenes de máquina virtual a disposición de 
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Agregación de una imagen de máquina virtual a través del portal
 
-> [!NOTE]
+> [!NOTE]  
 > Con este método, debe crear el elemento de Marketplace por separado.
 
 Debe poderse hacer referencia a las imágenes mediante un identificador URI de Blob Storage. Prepare una imagen de sistema operativo Windows o Linux en formato VHD (no VHDX) y, a continuación, cargue la imagen en una cuenta de almacenamiento en Azure o Azure Stack. Si la imagen ya se ha cargado en Blob Storage en Azure o Azure Stack, puede omitir el paso 1.
@@ -39,7 +39,7 @@ Debe poderse hacer referencia a las imágenes mediante un identificador URI de B
 
    - Azure Stack solo admite máquinas virtuales de primera generación (1) en el formato de disco duro virtual de disco fijo. El formato fijo estructura el disco lógico linealmente dentro del archivo, de manera que el desplazamiento del disco X se almacena en el desplazamiento del blob X. Un pequeño pie de página al final del blob describe las propiedades del disco duro virtual. Para confirmar la fijación del disco, use el comando [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) de PowerShell.  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack no admite discos duros virtuales dinámicos. Cambiar el tamaño de un disco dinámico conectado a una máquina virtual producirá un error de estado en esta. Para mitigar este problema, elimine la máquina virtual sin eliminar el disco de la máquina virtual, un blob de disco duro virtual de una cuenta de almacenamiento. A continuación, convierta el disco duro virtual dinámico a fijo y vuelva a crear la máquina virtual.
 
    * Es más eficaz cargar una imagen en Blob Storage de Azure Stack que en Azure Blob Storage porque se tarda menos tiempo en insertar la imagen en el repositorio de imágenes de Azure Stack.
