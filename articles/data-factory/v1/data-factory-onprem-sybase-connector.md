@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 75fbfe1e682f0022385bb5c406d772bb217180fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0832d5a3f5b529a815046bb6f12755ad733ff03c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045276"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260574"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Movimiento de datos de Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ En este artículo se explica el uso de la actividad de copia en Azure Data Facto
 
 Puede copiar datos de un almacén de datos de Sybase local a cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como receptores. Data Factory solo admite actualmente el movimiento de datos de un almacén de datos de Sybase a otros almacenes de datos, pero no viceversa. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 El servicio Factoría de datos admite la conexión a orígenes de Sybase locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
 
 La puerta de enlace es necesaria incluso si la base de datos Sybase está hospedada en una máquina virtual de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual de IaaS como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
@@ -42,7 +42,7 @@ La puerta de enlace es necesaria incluso si la base de datos Sybase está hosped
 > Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 ## <a name="supported-versions-and-installation"></a>Versiones compatibles e instalación
-Para que Data Management Gateway se conecte a la Base de datos Sybase, es preciso instalar el [proveedor de datos para Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 o posterior en el mismo sistema que Data Management Gateway. 
+Para que Data Management Gateway se conecte a la Base de datos Sybase, es preciso instalar el [proveedor de datos para Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 o posterior en el mismo sistema que Data Management Gateway. 
 
 Se admite SAP Sybase SQL Anywhere (ASA), versión 16 y posterior; no se admite IQ ni ASE.
 
@@ -67,14 +67,14 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **OnPremisesSybase** |Sí |
-| Servidor |Nombre del servidor de Sybase. |Sí |
-| Base de datos |Nombre de la base de datos Sybase. |Sí |
+| Tipo |La propiedad type debe establecerse en: **OnPremisesSybase** |SÍ |
+| Servidor |Nombre del servidor de Sybase. |SÍ |
+| Base de datos |Nombre de la base de datos Sybase. |SÍ |
 | schema |Nombre del esquema de la base de datos. |Sin  |
-| authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
+| authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |SÍ |
 | nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. |Sí |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. |SÍ |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).

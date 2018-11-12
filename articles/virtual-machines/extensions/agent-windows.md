@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428562"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253999"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de máquina virtual habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y la configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de máquina virtual de Azure, no se pueden ejecutar extensiones de máquina virtual.
@@ -60,7 +60,7 @@ Para arrancar una máquina virtual debe tener el agente de aprovisionamiento ins
 Si no tiene instalados los agentes, no puede usar algunos servicios de Azure, como Azure Backup o Azure Security. Estos servicios requieren una extensión para instalarse. Si ha implementado una máquina virtual sin WinGA, puede instalar más tarde la versión más reciente del agente.
 
 ### <a name="manual-installation"></a>Instalación manual
-El agente de máquina virtual de Windows puede instalarse manualmente con un paquete de Windows Installer. Es posible que sea necesaria la instalación manual cuando se crea una imagen de máquina virtual personalizada que se implementa en Azure. Para instalar manualmente el agente de máquina virtual de Windows, [descargue el instalador del agente de máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789).
+El agente de máquina virtual de Windows puede instalarse manualmente con un paquete de Windows Installer. Es posible que sea necesaria la instalación manual cuando se crea una imagen de máquina virtual personalizada que se implementa en Azure. Para instalar manualmente el agente de máquina virtual de Windows, [descargue el instalador del agente de máquina virtual](https://go.microsoft.com/fwlink/?LinkID=394789).
 
 Para instalar el agente de máquina virtual, haga doble clic en el archivo de Windows Installer. Para una instalación automatizada o desatendida del agente de máquina virtual, ejecute el comando siguiente:
 

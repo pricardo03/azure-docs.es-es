@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 3821e13fd968e458e463e90ef338da6637d8d8f2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622021"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256806"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalación de .NET en roles de Azure Cloud Services
 En este artículo se describe cómo instalar versiones de .NET Framework que no viene con el SO invitado de Azure. Puede usar .NET en el SO invitado para configurar el rol de trabajo y el rol web del servicio en la nube.
@@ -34,7 +34,7 @@ Para instalar .NET en el rol de trabajo y el rol web, incluya el instalador web 
 ## <a name="add-the-net-installer-to-your-project"></a>Agregar el instalador de .NET al proyecto
 Para descargar el instalador web de .NET Framework, elija la versión que desea instalar:
 
-* [Instalador web de .NET 4.7.2](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [Instalador web de .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Instalador web de .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Para agregar el instalador para un rol *web*:

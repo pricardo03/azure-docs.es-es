@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161772"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237849"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Uso de plantillas de Administrador de recursos de Azure en Azure Stack
 
@@ -30,7 +30,7 @@ Puede utilizar las plantillas de Azure Resource Manager para implementar y aprov
 
 Estas plantillas se pueden implementar con el portal de Microsoft Azure Stack, PowerShell, con la línea de comandos y Visual Studio.
 
-Las plantillas de inicio rápido siguientes están disponibles en [GitHub](http://aka.ms/azurestackgithub):
+Las plantillas de inicio rápido siguientes están disponibles en [GitHub](https://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implementación de SharePoint Server(sin implementación de alta disponibilidad)
 

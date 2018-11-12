@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038528"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262325"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ Para solucionar problemas en aplicaciones cliente que usan Microsoft Azure Stora
   
     Consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md) para obtener más información sobre la configuración de la supervisión en Azure Portal.
 * **AzCopy**. Los registros del servidor de Azure Storage se almacenan como blobs, por lo que puede usar AzCopy para copiar estos blobs de registro en un directorio local y, luego, analizarlos con el analizador de mensajes de Microsoft. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) para obtener más información sobre AzCopy.
-* **Analizador de mensajes de Microsoft**. El analizador de mensajes es una herramienta que usa archivos de registro y que muestra los datos de registro en un formato visual para que sean más fáciles de filtrar, buscar y agrupar en conjuntos útiles; gracias a esto, podrá analizar errores y problemas de rendimiento. Vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para más información sobre el analizador de mensajes.
+* **Analizador de mensajes de Microsoft**. El analizador de mensajes es una herramienta que usa archivos de registro y que muestra los datos de registro en un formato visual para que sean más fáciles de filtrar, buscar y agrupar en conjuntos útiles; gracias a esto, podrá analizar errores y problemas de rendimiento. Vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para más información sobre el analizador de mensajes.
 
 ## <a name="about-the-sample-scenario"></a>Acerca del escenario de ejemplo
 Para este tutorial, analizaremos un escenario donde las métricas de Azure Storage indican una tasa de éxito de bajo porcentaje de una aplicación que llama a Azure Storage. La métrica de tasa de éxito de bajo porcentaje (señalada como **PercentSuccess** en [Azure Portal](https://portal.azure.com) y en las tablas de métricas) hace un seguimiento de las operaciones que se realizaron correctamente, pero que devolvieron un código de estado HTTP superior a 299. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**. Para más información sobre la métrica de tasa de éxito de bajo porcentaje, vea [Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -51,7 +51,7 @@ En nuestro escenario de ejemplo, una vez que hayamos establecido la métrica de 
 ### <a name="some-causes-of-400-range-errors"></a>Algunas de las causas de los errores del intervalo 400
 En los siguientes ejemplos se exponen algunas muestras de errores de intervalo 400 para solicitudes de Azure Blob Storage, así como sus posibles causas. Cualquiera de estos errores, además de los errores en el intervalo 300 y el intervalo 500, pueden ser la razón de una tasa de bajo porcentaje de éxito.
 
-Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) en MSDN para más información sobre los errores generales de Azure Storage y sobre los errores específicos de cada uno de los servicios de almacenamiento.
+Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](https://msdn.microsoft.com/library/azure/dd179382.aspx) en MSDN para más información sobre los errores generales de Azure Storage y sobre los errores específicos de cada uno de los servicios de almacenamiento.
 
 **Ejemplos de código de estado 404 (no encontrado)**
 
@@ -79,7 +79,7 @@ En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipo
 * El **registro de seguimiento de red HTTP**, que recopila datos sobre las solicitudes HTTP/HTTPS y datos de respuesta, incluidas las operaciones de Azure Storage. En este tutorial, crearemos un seguimiento de red a través del analizador de mensajes.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar el registro y las métricas del lado servidor
-Primero, necesitaremos configurar el registro y las métricas de Azure Storage para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
+Primero, necesitaremos configurar el registro y las métricas de Azure Storage para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](https://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](https://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
 
 **Mediante Azure Portal**
 
@@ -124,7 +124,7 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Configurar el registro del lado cliente de .NET
-Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de Microsoft Azure Storage para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para más información.
+Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de Microsoft Azure Storage para Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para más información.
 
 El registro del lado cliente incluye información detallada sobre el modo en que el cliente prepara la solicitud y recibe y procesa la respuesta.
 
@@ -160,7 +160,7 @@ En este tutorial, primero deberá recopilar y guardar un seguimiento de red en e
 > 
 > 
 
-Vea el tema sobre el [uso de las características de seguimiento de red](http://technet.microsoft.com/library/jj674819.aspx) en TechNet para más información.
+Vea el tema sobre el [uso de las características de seguimiento de red](https://technet.microsoft.com/library/jj674819.aspx) en TechNet para más información.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Revisar los datos de las métricas en Azure Portal
 Una vez que la aplicación haya estado en ejecución durante un rato, puede revisar los gráficos de las métricas que aparezcan en [Azure Portal](https://portal.azure.com) para ver el rendimiento de su servicio.
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 AzCopy está disponible para su descarga en la página de [descargas de Azure](https://azure.microsoft.com/downloads/) . Para obtener más información sobre cómo usar AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
-Para obtener más información sobre cómo descargar los registros del lado servidor, consulte [Descarga de datos de registro del registro de almacenamiento](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Para obtener más información sobre cómo descargar los registros del lado servidor, consulte [Descarga de datos de registro del registro de almacenamiento](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Usar el analizador de mensajes de Microsoft para analizar los datos de registro
-El analizador de mensajes de Microsoft es una herramienta para capturar, mostrar y analizar el protocolo del tráfico de mensajes, eventos y otros mensajes del sistema o de una aplicación, usando para ello escenarios de diagnóstico y de solución de problemas. El analizador de mensajes también permite cargar, agregar y analizar los datos procedentes de registros y de archivos de seguimiento guardados. Para más información sobre el analizador de mensajes, vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx).
+El analizador de mensajes de Microsoft es una herramienta para capturar, mostrar y analizar el protocolo del tráfico de mensajes, eventos y otros mensajes del sistema o de una aplicación, usando para ello escenarios de diagnóstico y de solución de problemas. El analizador de mensajes también permite cargar, agregar y analizar los datos procedentes de registros y de archivos de seguimiento guardados. Para más información sobre el analizador de mensajes, vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
 
 El analizador de mensajes incluye herramientas del servicio Azure Storage que hacen más fácil analizar los registros de red, de cliente y de servidor. En esta sección, abordaremos el uso de estas herramientas para solucionar el problema del bajo porcentaje de éxito en los registros de almacenamiento.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Descargar e instalar el analizador de mensajes y las herramientas de Azure Storage
-1. Descargue el [analizador de mensajes](http://www.microsoft.com/download/details.aspx?id=44226) del Centro de descarga de Microsoft y ejecute el programa de instalación.
+1. Descargue el [analizador de mensajes](https://www.microsoft.com/download/details.aspx?id=44226) del Centro de descarga de Microsoft y ejecute el programa de instalación.
 2. Inicie el analizador de mensajes.
 3. En el menú **Herramientas**, seleccione **Administrador de activos**. En el cuadro de diálogo **Administrador de activos**, seleccione **Descargas** y filtre por **Azure Storage**. Verá las herramientas de Azure Storage como se muestra en la imagen de abajo.
 4. Haga clic en **Sync All Displayed Items** (Sincronizar todos los elementos que se muestran) para instalar las herramientas de Azure Storage. Tiene disponibles los siguientes recursos:
@@ -231,7 +231,7 @@ Primero, deberá indicar el intervalo de tiempo que desea revisar e intentar que
 
 Si, aun así, la cantidad de datos de registro es demasiado grande, conviene delimitarlos con un filtro de sesión antes de cargarlos. En el cuadro **Session Filter** (Filtros de sesión), seleccione el botón **Library** (Biblioteca) para elegir un filtro predefinido; por ejemplo, elija **Global Time Filter I** (Filtro de tiempo global) de entre los filtros de Azure Storage para poder filtrar según un intervalo de tiempo. Tras ello, puede editar los parámetros del filtro para especificar la marca de tiempo de inicio y de fin del intervalo que quiera ver. También puede filtrar los datos según un código de estado específico; por ejemplo, puede cargar solo las entradas de registro que tengan un código de estado 404.
 
-Para más información sobre cómo importar datos de registro al analizador de mensajes de Microsoft, vea el tema de [recuperación de datos de mensajes](http://technet.microsoft.com/library/dn772437.aspx) en TechNet.
+Para más información sobre cómo importar datos de registro al analizador de mensajes de Microsoft, vea el tema de [recuperación de datos de mensajes](https://technet.microsoft.com/library/dn772437.aspx) en TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Usar el identificador de solicitud de cliente para poner en correlación los datos de los archivos de registro
 La biblioteca de cliente de Azure Storage crea de forma automática un identificador único de solicitud de cliente para cada solicitud. Este valor se escribe en los registros de cliente, de servidor y de seguimiento de red para que se pueda usar para poner en correlación los datos de los tres registros en el analizador de mensajes. Vea [Id. de solicitud de cliente](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) para más información sobre este identificador.
@@ -337,7 +337,7 @@ Si usa los datos que se muestran en los diseños de vista de estas dos pestañas
 Cuando sepa qué dirección del blob produjo el error 404, podrá realizar un examen más exhaustivo. Si, en las entradas de registro, busca otros mensajes relacionados operaciones en el mismo blob, podrá saber si el cliente ya había eliminado la entidad.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Analizar otros tipos de errores de almacenamiento
-Ahora que ya está familiarizado con el analizador de mensajes y su uso para analizar los datos de sus registros, podrá analizar otros tipos de errores usando diseños de vista, reglas de color y criterios de búsqueda o filtrado. En las siguientes tablas se muestran distintos problemas con los que podría encontrarse y los criterios de filtrado que puede usar para poder localizarlos. Para más información sobre cómo crear filtros y sobre el lenguaje de filtrado del analizador de mensajes, vea el tema sobre el [filtrado de datos de mensajes](http://technet.microsoft.com/library/jj819365.aspx).
+Ahora que ya está familiarizado con el analizador de mensajes y su uso para analizar los datos de sus registros, podrá analizar otros tipos de errores usando diseños de vista, reglas de color y criterios de búsqueda o filtrado. En las siguientes tablas se muestran distintos problemas con los que podría encontrarse y los criterios de filtrado que puede usar para poder localizarlos. Para más información sobre cómo crear filtros y sobre el lenguaje de filtrado del analizador de mensajes, vea el tema sobre el [filtrado de datos de mensajes](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Para investigar... | Use la expresión de filtro... | La expresión se aplica al registro (de cliente, de servidor, de red, todos) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 Para más información sobre los escenarios de solución integral de problemas en Azure Storage, vea los siguientes recursos:
 
 * [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
-* [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Storage Analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
 * [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
-* [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
+* [Guía de funcionamiento del analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx)

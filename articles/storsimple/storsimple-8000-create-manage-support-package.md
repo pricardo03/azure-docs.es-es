@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743585"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254373"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crear y administrar un paquete de soporte para la serie StorSimple 8000
 
@@ -72,10 +72,10 @@ Puede compartir su paquete de soporte generado manualmente con el servicio de so
 
 Puede usar los siguientes parámetros con el cmdlet Export-HcsSupportPackage.
 
-| . | Obligatorio/opcional | DESCRIPCIÓN |
+| Parámetro | Obligatorio/opcional | DESCRIPCIÓN |
 | --- | --- | --- |
-| `-Path` |Requerido |Se usa para proporcionar la ubicación de la carpeta compartida de red en la que se coloca el paquete de soporte. |
-| `-EncryptionPassphrase` |Requerido |Se utiliza para proporcionar una frase de contraseña que ayuda a cifrar el paquete de soporte. |
+| `-Path` |Obligatorio |Se usa para proporcionar la ubicación de la carpeta compartida de red en la que se coloca el paquete de soporte. |
+| `-EncryptionPassphrase` |Obligatorio |Se utiliza para proporcionar una frase de contraseña que ayuda a cifrar el paquete de soporte. |
 | `-Credential` |Opcional |Se usa para suministrar credenciales de acceso a la carpeta compartida de red. |
 | `-Force` |Opcional |Se utiliza para omitir el paso de confirmación de la frase de contraseña de cifrado. |
 | `-PackageTag` |Opcional |Se usa para especificar un directorio en *Path* en que se coloca el paquete de soporte. El valor predeterminado es [nombre de dispositivo]-[fecha y hora actuales:aaaa-MM-dd-HH-mm-ss]. |
@@ -93,7 +93,7 @@ Para editar un paquete de soporte antes de cargarlo en el sitio de soporte técn
 #### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Para editar un paquete de soporte en Windows PowerShell para StorSimple
 
 1. Genere un paquete de soporte como se describe en [Para crear un paquete de soporte en Windows PowerShell para StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Descargue el script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente en su cliente.
+2. [Descargue el script](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente en su cliente.
 3. Importe el módulo de Windows PowerShell. Deberá especificar la ruta de acceso a la carpeta local en la que descargó el script. Para importar el módulo, escriba:
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`
@@ -145,7 +145,7 @@ A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volv
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre la [información recopilada en el paquete de soporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
 * Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

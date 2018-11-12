@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f60fde6f0066cf88bd1bd942e475fe410ff16581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948407"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256535"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Linux en Service Fabric
 
@@ -52,7 +52,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 Para implementar la aplicación en Azure, se necesita un clúster de Service Fabric que ejecute la aplicación. Los Party Cluster ofrecen una manera fácil de crear rápidamente un clúster de Service Fabric. Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure y operados por el equipo de Service Fabric. Puede usar un Party Cluster para implementar aplicaciones y aprender todo lo relacionado con la plataforma. El clúster usa un único certificado autofirmado para la seguridad de nodo a nodo y de cliente a nodo.
 
-Inicie sesión y [únase a un clúster de Linux](http://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. Haga clic en el vínculo **Léame** para buscar la contraseña del certificado e instrucciones sobre cómo configurar varios entornos para el certificado. Conserve las páginas **Bienvenida** y **Léame** abiertas; se usarán algunas de las instrucciones en los pasos siguientes.
+Inicie sesión y [únase a un clúster de Linux](https://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. Haga clic en el vínculo **Léame** para buscar la contraseña del certificado e instrucciones sobre cómo configurar varios entornos para el certificado. Conserve las páginas **Bienvenida** y **Léame** abiertas; se usarán algunas de las instrucciones en los pasos siguientes.
 
 > [!Note]
 > Hay un número limitado de clústeres Party Cluster disponibles por hora. Si se produce un error al intentar registrarse en un Party Cluster, puede esperar un tiempo y volver a intentarlo o puede seguir estos pasos de [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) para crear un clúster en su suscripción.

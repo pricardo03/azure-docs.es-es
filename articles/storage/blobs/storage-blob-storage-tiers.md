@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427593"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253727"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y prémium (versión preliminar)
 
@@ -65,7 +65,7 @@ Durante la versión preliminar, el nivel de acceso Premium:
 - Solo está disponible en las siguientes regiones: Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU.
 - No admite niveles automáticos y administración del ciclo de vida de datos
 
-Para saber cómo registrarse para obtener la versión preliminar del nivel de acceso Premium, consulte [ Introducción a Azure Premium Blob Storage](http://aka.ms/premiumblob).
+Para saber cómo registrarse para obtener la versión preliminar del nivel de acceso Premium, consulte [ Introducción a Azure Premium Blob Storage](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Nivel de acceso frecuente
 
@@ -97,7 +97,7 @@ Entre los ejemplos de escenarios de uso del nivel de almacenamiento de archivo s
 ### <a name="blob-rehydration"></a>Rehidratación de blobs
 Para leer datos de un almacenamiento de archivo, primero debe cambiar el nivel del blob a acceso frecuente o esporádico. Este proceso se conoce como rehidratación y puede tardar en completarse hasta 15 horas. Para un rendimiento óptimo, se recomienda el uso de tamaños de blob grandes. La rehidratación de varios blobs pequeños a la vez puede suponer tiempo adicional.
 
-Durante la rehidratación, puede comprobar la propiedad de blob **Archive Status** para confirmar si el nivel ha cambiado. El estado indica "rehydrate-pending-to-hot" (rehidratación pendiente para acceso frecuente) o "rehydrate-pending-to-cool" (rehidratación pendiente para acceso esporádico), según el nivel de destino. Al finalizar, se quita la propiedad de blob archive status y la propiedad de blob **Access Tier** refleja el nuevo nivel de acceso frecuente o esporádico.  
+Durante la rehidratación, puede comprobar la propiedad de blob **Archive Status** para confirmar si el nivel ha cambiado. El estado indica "rehydrate-pending-to-hot" (rehidratación pendiente para acceso frecuente) o "rehydrate-pending-to-cool" (rehidratación pendiente para acceso esporádico), según el nivel de destino. Al finalizar, se quita la propiedad de estado Archive y la propiedad de blob **Access Tier** refleja el nuevo nivel de acceso frecuente o esporádico.  
 
 ## <a name="blob-level-tiering"></a>Almacenamiento por niveles de blob
 

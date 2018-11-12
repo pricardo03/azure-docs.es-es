@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 9a7ab3881cd1058a60ff7d5f6e50c296f042e76e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206086"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249003"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementación de varios ejecutables invitados
 En este artículo se muestra cómo empaquetar e implementar varios ejecutables invitados en Azure Service Fabric. Para crear e implementar un solo paquete de Service Fabric, lea el artículo sobre cómo [implementar un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ Puede utilizar Visual Studio para generar el paquete de aplicación que contiene
 * [Ejemplo de dos ejecutables invitados (C# y Node.js) que se comunican a través del servicio de nombres con REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaquetar manualmente la aplicación del ejecutable invitado múltiple
-También puede empaquetar manualmente el ejecutable invitado. Para el empaquetado manual, este artículo usa la herramienta de empaquetado de Service Fabric, que está disponible en [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+También puede empaquetar manualmente el ejecutable invitado. Para el empaquetado manual, este artículo usa la herramienta de empaquetado de Service Fabric, que está disponible en [http://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Empaquetado de la aplicación Node.js
 Este artículo asume que no tiene instalado Node.js en los nodos del clúster de Service Fabric. Por tanto, es preciso agregar Node.exe en el directorio raíz de la aplicación de nodo antes del empaquetado. La estructura del directorio de la aplicación Node.js (con marco web Express y un motor de plantillas Jade) debe ser similar a la siguiente:

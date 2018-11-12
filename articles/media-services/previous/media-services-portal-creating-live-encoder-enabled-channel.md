@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: b9ac1696594ab9f7cb67bb0e340c6a80158e67e2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d53e2e76253bdccfeb43f6c718d9fe3ae7f3f21a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940989"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251992"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Cómo realizar el streaming en vivo con Azure Media Services para crear transmisiones de velocidad de bits múltiple con el portal de Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API de REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [API DE REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -44,7 +44,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 > 
 > 
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).
    
     Este paso también puede realizarse después de crear el canal.
 2. Cree e inicie un canal. 
@@ -71,7 +71,7 @@ En este tutorial, se utiliza el portal de Azure para realizar las tareas siguien
 5. Reproduzca el contenido.
 6. Realice la limpieza.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 * Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. 

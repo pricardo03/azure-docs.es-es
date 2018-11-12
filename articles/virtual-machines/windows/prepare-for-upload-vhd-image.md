@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388181"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258466"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 Antes de cargar una máquina virtual Windows desde un entorno local en Microsoft Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite **solo máquinas virtuales de generación 1** que estén en el formato de archivo VHD y tengan un disco de tamaño fijo. El tamaño máximo permitido para los discos duros virtuales es de 1023 GB. Puede convertir una máquina virtual de generación 1 del sistema de archivos VHDX a VHD y de un disco de expansión dinámica a uno de tamaño fijo. Sin embargo, no puede cambiar la generación de una máquina virtual. Para obtener más información, consulte [¿Debería crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
@@ -48,7 +48,7 @@ Después de convertir el disco, cree una máquina virtual que use el disco conve
 >Los comandos de este artículo se deben ejecutar en una sesión de PowerShell con privilegios elevados.
 
 ### <a name="convert-disk-by-using-powershell"></a>Conversión de disco con PowerShell
-Puede convertir un disco virtual mediante el comando [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) en Windows PowerShell. Seleccione **Ejecutar como administrador** al iniciar PowerShell. 
+Puede convertir un disco virtual mediante el comando [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) en Windows PowerShell. Seleccione **Ejecutar como administrador** al iniciar PowerShell. 
 
 El comando de ejemplo siguiente convierte de VHDX a VHD y de un disco de expansión dinámica a uno de tamaño fijo:
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 En este comando, reemplace el valor de "-Path" por la ruta de acceso al disco duro virtual que desea convertir y el valor de "-DestinationPath" por la nueva ruta de acceso y el nombre del disco convertido.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Conversión del formato de disco VMDK de VMware
-Si tiene una imagen de máquina virtual Windows en el [formato de archivo VMDK](https://en.wikipedia.org/wiki/VMDK), conviértalo en un disco duro virtual con [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Consulte el artículo [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Cómo convertir un VMDK de VMWare a VHD de Hyper-V) del blog para obtener más información.
+Si tiene una imagen de máquina virtual Windows en el [formato de archivo VMDK](https://en.wikipedia.org/wiki/VMDK), conviértalo en un disco duro virtual con [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Consulte el artículo [How to Convert a VMWare VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Cómo convertir un VMDK de VMWare a VHD de Hyper-V) del blog para obtener más información.
 
 ## <a name="set-windows-configurations-for-azure"></a>Establecimiento de configuraciones de Windows para Azure
 
@@ -377,7 +377,7 @@ Para obtener más información sobre cómo crear una máquina virtual desde un d
 - [Creación de una máquina virtual a partir de un disco especializado](create-vm-specialized.md)
 - [Create a VM from a specialized VHD disk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master) (Creación de una máquina virtual a partir de un disco duro virtual especializado)
 
-Si desea crear una imagen generalizada, debe ejecutar sysprep. Para obtener más información sobre Sysprep, consulte [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx). 
+Si desea crear una imagen generalizada, debe ejecutar sysprep. Para obtener más información sobre Sysprep, consulte [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx). 
 
 No todos los roles o aplicaciones instalados en un equipo basado en Windows admiten esta generalización. Así pues, antes de ejecutar este procedimiento, consulte el siguiente artículo para asegurarse de que sysprep admite el rol de ese equipo. Para obtener más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con los roles de servidor).
 
@@ -401,7 +401,7 @@ No todos los roles o aplicaciones instalados en un equipo basado en Windows admi
 ## <a name="complete-recommended-configurations"></a>Realice las configuraciones recomendadas
 Los siguientes valores de configuración no afectan a la carga de discos duros virtuales. Sin embargo, se recomienda firmemente que los configure.
 
-* Instale el [agente de máquina virtual de Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). A continuación, puede habilitar las extensiones de máquina virtual. Las extensiones de máquina virtual implementan la mayor parte de la funcionalidad crítica que es posible que quiera usar con las máquinas virtuales, como el restablecimiento de contraseñas, la configuración de RDP, etc. Para más información, consulte:
+* Instale el [agente de máquina virtual de Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). A continuación, puede habilitar las extensiones de máquina virtual. Las extensiones de máquina virtual implementan la mayor parte de la funcionalidad crítica que es posible que quiera usar con las máquinas virtuales, como el restablecimiento de contraseñas, la configuración de RDP, etc. Para más información, consulte:
 
     - [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/) (Agente de VM y extensiones: parte 1)
     - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) (Agente de VM y extensiones: parte 2)

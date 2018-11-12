@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714196"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261565"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Requisitos previos generales para crear una oferta para Azure Marketplace
 Conozca los requisitos previos generales, centrados en procesos de negocio, que se necesitan para avanzar con el proceso de la creación de ofertas.
@@ -70,7 +70,7 @@ Se trata de la suscripción que usará para crear las imágenes de máquina virt
 
 ## <a name="sell-from-countries"></a>Países de "Venta-de"
 > [!WARNING]
-> Para vender sus servicios en Azure Marketplace, es necesario que se asegure de que la entidad registrada procede de uno de los países desde donde está permitida la venta. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para la lista completa, vea la sección 1b de la página [Directivas de participación de Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> Para vender sus servicios en Azure Marketplace, es necesario que se asegure de que la entidad registrada procede de uno de los países desde donde está permitida la venta. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para la lista completa, vea la sección 1b de la página [Directivas de participación de Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 

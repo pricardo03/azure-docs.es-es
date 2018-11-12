@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240892"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256462"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
 **¿En qué consisten las competiciones de Cortana Intelligence?**
 
-Las competiciones de Microsoft Cortana Intelligence unen a una comunidad global de aficionados a los datos para resolver de forma colectiva algunos de los problemas de la ciencia de datos más complejos del mundo. Las competiciones de Cortana Intelligence permiten a los aficionados a los datos de todo el mundo competir y generar modelos de ciencia de datos inteligentes y de alta precisión. Estas competiciones hospedadas están basadas en conjuntos de datos exclusivos que se han hecho públicos por primera vez. Los participantes pueden ganar premios u obtener reconocimiento a través de diez marcadores públicos principales. Puede acceder a la página principal de competiciones en [aka.ms/CIComp](http://aka.ms/CIComp).
+Las competiciones de Microsoft Cortana Intelligence unen a una comunidad global de aficionados a los datos para resolver de forma colectiva algunos de los problemas de la ciencia de datos más complejos del mundo. Las competiciones de Cortana Intelligence permiten a los aficionados a los datos de todo el mundo competir y generar modelos de ciencia de datos inteligentes y de alta precisión. Estas competiciones hospedadas están basadas en conjuntos de datos exclusivos que se han hecho públicos por primera vez. Los participantes pueden ganar premios u obtener reconocimiento a través de diez marcadores públicos principales. Puede acceder a la página principal de competiciones en [aka.ms/CIComp](https://aka.ms/CIComp).
 
 **¿Con qué frecuencia publica Microsoft nuevas competiciones?**
 
@@ -37,7 +37,7 @@ Para preguntas generales, puede usar el [foro de Microsoft Azure Machine Learnin
 
 **¿Cómo puedo participar en una competición?**
 
-Acceda a la página principal de las [competiciones](https://gallery.cortanaintelligence.com/competitions) a través de [Azure AI Gallery](https://gallery.cortanaintelligence.com/) o vaya a [http://aka.ms/CIComp](http://aka.ms/CIComp). En la página principal se enumeran todas las competiciones en curso. Cada competición incluye instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro.
+Acceda a la página principal de las [competiciones](https://gallery.cortanaintelligence.com/competitions) a través de [Azure AI Gallery](https://gallery.cortanaintelligence.com/) o vaya a [http://aka.ms/CIComp](https://aka.ms/CIComp). En la página principal se enumeran todas las competiciones en curso. Cada competición incluye instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro.
 
 1. Busque la competición en la que le gustaría participar, lea todas las instrucciones y vea el vídeo tutorial. Después, haga clic en el botón **Enter Competition** (Entrar en la competición) y copie el experimento de inicio en el área de trabajo existente de Azure Machine Learning. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.   
 
@@ -98,7 +98,7 @@ Microsoft comprobará los resultados del marcador privado y, a continuación, no
 
 **¿Cómo recibiré el dinero del premio si gano una competición?**
 
-Si ganado una competición, debe firmar un formulario de consentimiento, licencia y declaración de idoneidad. En este formulario vuelven a aparecer las normas de la competición. Los ganadores deben rellenar un formulario de impuestos W-9, o bien un formulario W-8BEN si no son contribuyentes de los Estados Unidos. Nos pondremos en contacto con todos los ganadores como parte del proceso de desembolso de los premios y para ello usaremos el correo electrónico con el que se registraron. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener más detalles.
+Si ganado una competición, debe firmar un formulario de consentimiento, licencia y declaración de idoneidad. En este formulario vuelven a aparecer las normas de la competición. Los ganadores deben rellenar un formulario de impuestos W-9, o bien un formulario W-8BEN si no son contribuyentes de los Estados Unidos. Nos pondremos en contacto con todos los ganadores como parte del proceso de desembolso de los premios y para ello usaremos el correo electrónico con el que se registraron. Consulte los [Términos y condiciones](https://aka.ms/comptermsandconditions) para obtener más detalles.
 
 **¿Qué ocurre si más de una entrada recibe la misma puntuación?**
 
@@ -114,5 +114,5 @@ Actualmente, la plataforma de la competición solo admite las participaciones en
 
 **¿Se conservan las participaciones y soluciones de las competiciones de los usuarios?**
 
-Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener información específica.
+Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](https://aka.ms/comptermsandconditions) para obtener información específica.
 

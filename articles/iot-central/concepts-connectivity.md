@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157707"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238747"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividad de dispositivos en Azure IoT Central
 
@@ -150,7 +150,7 @@ Para conectar dispositivos a IoT Central mediante certificados X509, hay tres pa
     
     A continuación se muestran algunas herramientas útiles de línea de comandos que puede usar para generar certificados de entidad de certificación y certificados de dispositivo.
 
-    * Si usa MxChip, aquí tiene una [herramienta de línea de comandos](http://aka.ms/iotcentral-docs-dicetool) para generar certificados de entidad de certificación que le permitirá agregarlos a la aplicación IoT Central y comprobar los mismos. 
+    * Si usa MxChip, aquí tiene una [herramienta de línea de comandos](https://aka.ms/iotcentral-docs-dicetool) para generar certificados de entidad de certificación que le permitirá agregarlos a la aplicación IoT Central y comprobar los mismos. 
 
     *   Use esta [herramienta de línea de comandos](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) para:
         * Crear la cadena de certificados (siga el paso 2 de los documentos de GitHub). 
@@ -165,7 +165,7 @@ Para conectar dispositivos a IoT Central mediante certificados X509, hay tres pa
     Programe el dispositivo con información del servicio de aprovisionamiento, para que pueda obtener los detalles de la conexión y la asignación de la aplicación IoT Central cuando está encendido.    
 
     **Más información** 
-    *   Implementación de muestra para [RaspberryPi.](http://aka.ms/iotcentral-docs-Raspi-releases)  
+    *   Implementación de muestra para [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Cliente de dispositivo de muestra en C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 

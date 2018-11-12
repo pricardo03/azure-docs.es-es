@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665729"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230638"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>P+F sobre bases de datos MySql ClearDB con Azure App Service
 Estas P+F responden a preguntas comunes sobre el uso y la adquisición de bases de datos MySQL ClearDB para Azure Web Apps.
@@ -106,7 +106,7 @@ Los clientes indirectos de EA pueden encontrar sus suscripciones de Azure Market
 El acceso a Azure Marketplace para los servicios de terceros puede administrarse mediante los administradores de inscripción de EA Azure. Estos pueden deshabilitar o volver a habilitar el acceso a las compras de terceros desde la Tienda en Administrar cuentas y Administrar suscripciones, en la sección Cuentas en Enterprise Portal.
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>¿Con quién puedo ponerme en contacto si tengo dudas sobre la factura de los servicios de ClearDB en mi suscripción EA?
-Póngase en contacto con el servicio de [atención al cliente de Enterprise](http://aka.ms/AzureEntSupport) para resolver las dudas sobre la facturación de su inscripción EA. El equipo de soporte técnico del Portal EA responderá a sus preguntas o resolverá el problema.
+Póngase en contacto con el servicio de [atención al cliente de Enterprise](https://aka.ms/AzureEntSupport) para resolver las dudas sobre la facturación de su inscripción EA. El equipo de soporte técnico del Portal EA responderá a sus preguntas o resolverá el problema.
 
 ## <a name="more-information"></a>Más información
 [P+F sobre Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)

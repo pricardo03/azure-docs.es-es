@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9adc285ecdc7a88d03aef9abf0132c51f60b445a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404110"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247439"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalles de la recopilación de datos para las soluciones de administración en Azure
 En este artículo se incluye una lista de las [soluciones de administración](monitoring-solutions.md) disponibles de Microsoft con vínculos a la documentación detallada.  También se proporciona información sobre el método y la frecuencia de recopilación de datos en Log Analytics.  Puede usar la información de este artículo para identificar las diferentes soluciones disponibles y comprender los requisitos de conexión y flujo de datos de las distintas soluciones de administración. 
@@ -44,7 +44,7 @@ Explicaciones de las columnas:
 | [Análisis de registros de actividad](../log-analytics/log-analytics-activity.md) | Azure | | | | | | según notificación |
 | [Evaluación de AD](../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 días |
 | [Estado de replicación de AD](../log-analytics/log-analytics-ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 días |
-| [Agent Health](../operations-management-suite/oms-solution-agenthealth.md) | Windows y Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |
+| [Agent Health](monitoring-solution-agenthealth.md) | Windows y Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |a la llegada |
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutos |
@@ -57,20 +57,20 @@ Explicaciones de las columnas:
 | [Azure SQL Analytics (versión preliminar)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Copia de seguridad](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | según notificación |
 | [Capacity and Performance (versión preliminar)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |a la llegada |
-| [Seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
-| [Seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md) |Linux |&#8226; | | | | |Cada hora |
+| [Seguimiento de cambios](../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
+| [Seguimiento de cambios](../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |Cada hora |
 | [Contenedores](../log-analytics/log-analytics-containers.md) | Windows y Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
 | [Análisis de Key Vault](../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |según notificación |
-| [Evaluación de malware](../log-analytics/log-analytics-malware.md) |Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
+| [Evaluación de malware](../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
 | [Monitor de rendimiento de red](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Protocolos de enlace TCP cada 5 segundos; se envían datos cada 3 minutos. |
-| [Office 365 Analytics (versión preliminar)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |según notificación |
+| [Office 365 Analytics (versión preliminar)](monitoring-solution-office-365.md) |Windows | | | | | |según notificación |
 | **Solución de administración** | **Plataforma** | **Agente de supervisión de Microsoft** | **Agente de Operations Manager** | **Almacenamiento de Azure** | **¿Se requiere Operations Manager?** | **Se envían los datos del agente de Operations Manager a través del grupo de administración** | **Frecuencia de recopilación** |
 | [Análisis de Service Fabric](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutos |
-| [Mapa de servicio](../operations-management-suite/operations-management-suite-service-map.md) | Windows y Linux | &#8226; | &#8226; |  |  |  | 15 segundos |
+| [Mapa de servicio](monitoring-service-map.md) | Windows y Linux | &#8226; | &#8226; |  |  |  | 15 segundos |
 | [Evaluación de SQL](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 días |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |a la llegada |
 | [System Center Operations Manager Assessment (versión preliminar)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | siete días |
-| [Administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |al menos 2 veces al día y 15 minutos después de instalar una actualización |
+| [Administración de actualizaciones](../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |al menos 2 veces al día y 15 minutos después de instalar una actualización |
 | [Preparación para la actualización](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 días |
 | [VMware Monitoring (en desuso)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutos |
 | [Wire Data 2.0 (versión preliminar)](../log-analytics/log-analytics-wire-data.md) |Windows (2012 R2 / 8.1 o posterior) |&#8226; |&#8226; | | | | 1 minuto |
@@ -79,4 +79,4 @@ Explicaciones de las columnas:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Aprenda a [crear consultas](../log-analytics/log-analytics-log-searches.md) para analizar los datos recopilados por las soluciones de administración.
+* Aprenda a [crear consultas](../log-analytics/log-analytics-queries.md) para analizar los datos recopilados por las soluciones de administración.

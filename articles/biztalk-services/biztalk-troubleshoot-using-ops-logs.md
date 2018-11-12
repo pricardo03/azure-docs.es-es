@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256075"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: solución de problemas mediante registros de operaciones
 
@@ -31,8 +31,8 @@ ms.locfileid: "24102025"
 Registros de operaciones es una característica de Servicios de administración, que permite consultar registros históricos de operaciones realizadas realizados en servicios de Azure, como BizTalk Services. Esta característica le permite consultar datos históricos relacionados con las operaciones de administración en su suscripción a Servicios de BizTalk de hasta 180 días de antigüedad.
 
 > [!NOTE]
-> Esta característica únicamente captura registros para operaciones de administración de BizTalk Services, como cuándo se ha iniciado el servicio, una copia de seguridad, y así sucesivamente. El seguimiento de estas operaciones se realiza mediante las [API de REST de BizTalk Services](http://msdn.microsoft.com/library/azure/dn232347.aspx). Para obtener una lista completa de las operaciones que se siguen mediante los Servicios de administración, consulte [Seguimiento de operaciones mediante Servicios de administración de Azure](#bizops).<br/><br/>
-> No captura los registros de actividades relacionadas con el tiempo de ejecución de los Servicios de BizTalk (como mensajes procesados por puentes, etc.). Para consultar estos registros, debe utilizar la vista de seguimiento desde el portal de BizTalk Services. Para obtener más información, consulte [Mensajes de seguimiento](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Esta característica únicamente captura registros para operaciones de administración de BizTalk Services, como cuándo se ha iniciado el servicio, una copia de seguridad, y así sucesivamente. El seguimiento de estas operaciones se realiza mediante las [API de REST de BizTalk Services](https://msdn.microsoft.com/library/azure/dn232347.aspx). Para obtener una lista completa de las operaciones que se siguen mediante los Servicios de administración, consulte [Seguimiento de operaciones mediante Servicios de administración de Azure](#bizops).<br/><br/>
+> No captura los registros de actividades relacionadas con el tiempo de ejecución de los Servicios de BizTalk (como mensajes procesados por puentes, etc.). Para consultar estos registros, debe utilizar la vista de seguimiento desde el portal de BizTalk Services. Para obtener más información, consulte [Mensajes de seguimiento](https://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
@@ -45,7 +45,7 @@ Registros de operaciones es una característica de Servicios de administración,
 ## <a name="bizops"></a>Seguimiento de operaciones mediante Servicios de administración de Azure
 En la tabla siguiente se enumeran las operaciones cuyo seguimiento se realiza utilizando Servicios de administración de Azure.
 
-| Nombre de la operación | Tarea |
+| Nombre de la operación | Task |
 | --- | --- |
 | CreateBizTalkService |Operación para crear un nuevo Servicio BizTalk |
 | DeleteBizTalkService |Operación para eliminar un Servicio BizTalk |
@@ -64,15 +64,15 @@ En la tabla siguiente se enumeran las operaciones cuyo seguimiento se realiza ut
 | PurgeBackupBizTalkService |Operación para purgar copias de seguridad del Servicio BizTalk fuera el período de retención |
 
 ## <a name="see-also"></a>Otras referencias
-* [Copia de seguridad del servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Restauración del servicio de BizTalk a partir de una copia de seguridad](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: gráfico del estado de aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Copia de seguridad del servicio de BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Restauración del servicio de BizTalk a partir de una copia de seguridad](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: gráfico de las ediciones Developer, Basic, Standard y Premium](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: gráfico del estado de aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: pestañas Panel, Monitor y Escala](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: limitaciones](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: nombre del emisor y clave del emisor](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 

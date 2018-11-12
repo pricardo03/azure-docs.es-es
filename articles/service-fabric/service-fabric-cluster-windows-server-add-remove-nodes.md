@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212551"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251026"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
 Una vez que [cree su clúster de Service Fabric independiente en máquinas con Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades (empresariales) cambien y que deba agregar o eliminar nodos del clúster. En este artículo, se muestran los pasos detallados para llevarlo a cabo. Tenga en cuenta que no se permite agregar o eliminar nodos en los clústeres de desarrollo local.
@@ -29,7 +29,7 @@ Una vez que [cree su clúster de Service Fabric independiente en máquinas con W
 1. Prepare la máquina virtual o la máquina que desea agregar al clúster; para ello, siga los pasos descritos en [Planeamiento y preparación de la implementación de un clúster de Service Fabric](service-fabric-cluster-creation-for-windows-server.md).
 2. Identifique a qué dominio de error y de actualización va a agregar esta máquina o VM.
 3. Abra una conexión de Escritorio remoto (RDP) en la máquina o VM que desea agregar al clúster.
-4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) en esta máquina o VM y descomprímalo.
+4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) en esta máquina o VM y descomprímalo.
 5. Ejecute PowerShell con privilegios elevados y vaya a la ubicación del paquete descomprimido.
 6. Ejecute el script *AddNode.ps1* con los parámetros que describen el nuevo nodo que se va a agregar. En el ejemplo siguiente se agrega un nuevo nodo denominado VM5, con el tipo NodeType0 y la dirección IP 182.17.34.52, en UD1 y fd:/dc1/r0. *ExistingClusterConnectionEndPoint* es un punto de conexión para un nodo que ya está presente en el clúster existente, puede ser la dirección IP de *cualquier* nodo del clúster.
 

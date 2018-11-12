@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870832"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237900"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0
 
@@ -183,7 +183,7 @@ Una respuesta correcta podría tener el siguiente aspecto:
 | refresh_token |Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para obtener más tokens de acceso una vez que expire el token de acceso actual. Los tokens de actualización son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos periodos. |
 | ID_token |Un JSON Web Token (JWT) sin signo que representa un [identificador de token](id-tokens.md). La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. |
 
-Para más información sobre los tokens web JSON, consulte la [especificación de borrador de JWT IETF](http://go.microsoft.com/fwlink/?LinkId=392344).   Para más información acerca de `id_tokens`, consulte el [flujo de conexión de OpenID de v1.0](v1-protocols-openid-connect-code.md).
+Para más información sobre los tokens web JSON, consulte la [especificación de borrador de JWT IETF](https://go.microsoft.com/fwlink/?LinkId=392344).   Para más información acerca de `id_tokens`, consulte el [flujo de conexión de OpenID de v1.0](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Respuesta de error
 Los errores de puntos de conexión de emisión de tokens son los códigos de error HTTP, ya que el cliente llama directamente al punto de conexión de emisión de tokens. Además del código de estado HTTP, el punto de conexión de emisión de tokens de Azure AD también devuelve un documento JSON con objetos que describen el error.

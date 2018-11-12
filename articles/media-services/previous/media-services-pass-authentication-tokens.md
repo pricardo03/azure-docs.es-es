@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: dwgeo
-ms.openlocfilehash: b6aca2928465b73e35ac15f01bb776b1f69add0b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 204a2122f38306f2c883436fb13397b45fd91980
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783124"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254628"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Obtenga información sobre cómo pasan los clientes tokens al servicio de entrega de claves de Azure Media Services.
 Los clientes suelen preguntar cómo un reproductor puede pasar tokens al servicio de entrega de claves de Azure Media Services para la verificación, a fin de que el reproductor pueda obtener la clave. Media Services admite los formatos de token web simple (SWT) y de JSON Web Token (JWT). La autenticación de token puede aplicarse a cualquier tipo de clave, con independencia de que use el cifrado común o el cifrado de sobre Estándar de cifrado avanzado (AES) en el sistema.
@@ -52,7 +52,7 @@ Esta opción se usa para la adquisición de la licencia de PlayReady, mediante e
     ```
     Coloque el token de autenticación en el elemento Token.
 
-- Mediante una lista de reproducción alternativa de HTTP Live Streaming (HLS). Si necesita configurar la autenticación de token para la reproducción AES + HLS en iOS/Safari, no hay una manera de enviar directamente el token. Para más información sobre cómo alternar la lista de reproducción para habilitar este escenario, vea esta [entrada de blog](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+- Mediante una lista de reproducción alternativa de HTTP Live Streaming (HLS). Si necesita configurar la autenticación de token para la reproducción AES + HLS en iOS/Safari, no hay una manera de enviar directamente el token. Para más información sobre cómo alternar la lista de reproducción para habilitar este escenario, vea esta [entrada de blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

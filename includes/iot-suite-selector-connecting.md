@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ed2d52c906bda7060f09769fa689f824026669c5
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 218fc33390575a3df96d0b7d7696b3085c38c8f2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979583"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264437"
 ---
 > [!div class="op_single_selector"]
 > * [C en Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -37,7 +37,7 @@ El dispositivo de ejemplo también:
 * Responde a las acciones que se desencadenan desde la página **Dispositivos** de la solución.
 * Responde a los cambios de configuración que se envían desde la página **Dispositivos** de la solución.
 
-Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de comenzar
 

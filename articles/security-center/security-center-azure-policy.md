@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: 3c198ea44953c0b2e72a544cd0e83b6592d9a81f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0b38c6895421b43d6f80e0c34cc23b379a673559
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032091"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261951"
 ---
 # <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Configurar directivas de seguridad en Security Center o en Azure Policy
 
@@ -125,6 +125,6 @@ En este artículo, ha aprendido a configurar directivas de seguridad en Security
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Visibilidad de todos los inquilinos en Azure Security Center](security-center-management-groups.md): aprenda a configurar grupos de administración para Azure Security Center. 
 * [Preguntas frecuentes acerca de Azure Security Center](security-center-faq.md): obtenga respuestas a las preguntas más frecuentes sobre cómo usar el servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
 Para más información acerca de Azure Policy, consulte [¿Qué es Azure Policy?](../azure-policy/azure-policy-introduction.md)

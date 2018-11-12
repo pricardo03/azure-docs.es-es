@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2028de68b3c50f24c46bfafd804b00e84301a9d7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125251"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256602"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
-En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplic. web en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](https://docs.microsoft.com/visualstudio/debugger/) de manera remota o consultando los registros del servidor web o de aplicación.
+En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplic. web en [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](https://docs.microsoft.com/visualstudio/debugger/) de manera remota o consultando los registros del servidor web o de aplicación.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -36,7 +36,7 @@ Aprenderá a realizar los siguientes procedimientos:
 * Visualización de registros de servidor web, incluidos mensajes de error detallados y seguimiento de solicitudes con error.
 * Envío de registros de diagnóstico a una cuenta de Azure Storage y su visualización aquí.
 
-Si tiene Visual Studio Ultimate, también puede usar [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) para la depuración. IntelliTrace no se trata en este tutorial.
+Si tiene Visual Studio Ultimate, también puede usar [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) para la depuración. IntelliTrace no se trata en este tutorial.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación web de Azure que configuró en [Creación de una aplicación web ASP.NET Core en Azure](app-service-web-get-started-dotnet-framework.md). Para las secciones WebJobs, necesitará la aplicación que cree en [Introducción al SDK de Azure WebJobs][GetStartedWJ].
@@ -48,7 +48,7 @@ El tutorial supone que está utilizando Visual Studio 2017.
 La característica de registros de streaming solo funciona para aplicaciones dirigidas a .NET Framework 4 o superior.
 
 ## <a name="sitemanagement"></a>Administración y configuración de la aplicación web
-Visual Studio proporciona acceso a un subconjunto de las funciones de administración de aplicaciones web y los ajustes de configuración disponibles en [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). En esta sección podrá ver las opciones y funciones disponibles mediante el **Explorador de servidores**. Para ver las últimas características de integración de Azure, pruebe también **Cloud Explorer** . Puede abrir dos ventanas del menú **Ver** .
+Visual Studio proporciona acceso a un subconjunto de las funciones de administración de aplicaciones web y los ajustes de configuración disponibles en [Azure Portal](https://go.microsoft.com/fwlink/?LinkId=529715). En esta sección podrá ver las opciones y funciones disponibles mediante el **Explorador de servidores**. Para ver las últimas características de integración de Azure, pruebe también **Cloud Explorer** . Puede abrir dos ventanas del menú **Ver** .
 
 1. Si aún no ha iniciado sesión en Azure en Visual Studio, haga clic con el botón derecho en **Azure** y seleccione Conectar a la **suscripción de Microsoft Azure** en el **Explorador de servidores**.
 
@@ -59,7 +59,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
    >
    >
 
-    Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+    Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. En el **Explorador de servidores**, expanda **Azure** y, a continuación, **App Service**.
 3. Expanda el grupo de recursos que incluye la aplicación web que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](app-service-web-get-started-dotnet-framework.md) y luego haga clic con el botón derecho en el nodo de la aplicación web y haga clic en **Ver configuración**.
 
@@ -253,13 +253,13 @@ Si la función [escribió registros](https://github.com/Azure/azure-webjobs-sdk/
 ```
 * Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código.  Para más información, consulte [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code) (Elección de depurar solo código de usuario con Solo mi código en Visual Studio).
 * Cuando habilita la característica de depuración remota, se inicia un temporizador en el servidor y 48 horas después la característica se desactiva automáticamente. Este límite de 48 horas es por motivos de seguridad y rendimiento. Puede activar fácilmente la característica las veces que lo desee. Recomendamos dejarla deshabilitada cuando no esté realizando activamente una depuración.
-* Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Información general de registros de diagnóstico
 Una aplicación de ASP.NET que se ejecuta en una aplicación web de Azure puede crear las siguientes clases de registros:
 
 * **Registros de seguimiento de aplicación**<br/>
-  La aplicación crea estos registros mediante la llamada a métodos de la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) .
+  La aplicación crea estos registros mediante la llamada a métodos de la clase [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) .
 * **Registros de servidor web**<br/>
   El servidor web crea una entrada de registro para cada solicitud HTTP a la aplicación web.
 * **Registros de mensaje de error detallados**<br/>
@@ -340,7 +340,7 @@ public ActionResult Contact()
 ```
 
 `WebPageTraceListener` le permite ver los resultados de seguimiento si navega a `/trace.axd`.
-3. Agregue un <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de seguimiento</a> bajo `<system.web>` en el archivo Web.config, como en el siguiente ejemplo:
+3. Agregue un <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de seguimiento</a> bajo `<system.web>` en el archivo Web.config, como en el siguiente ejemplo:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -475,7 +475,7 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
     ![Archivo descargado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
    * Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\Application*.
-   * Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
+   * Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
    * Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
 
     (La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).  
@@ -554,7 +554,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/ff683677.aspx).
+     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/ff683677.aspx).
 14. To look at the details for a single row, double-click one of the rows.
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
@@ -624,17 +624,17 @@ Ha visto cómo Visual Studio facilita la visualización de registros creados por
 Para obtener más información sobre cómo solucionar problemas de aplicaciones web en Azure App Service, consulte los siguientes recursos:
 
 * [Supervisión de aplicaciones web](web-sites-monitor.md)
-* [Investigación de fugas de memoria en Azure Web Apps con Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Artículo del blog ALM de Microsoft sobre las características de Visual Studio para el análisis de problemas de memoria administrada.
+* [Investigación de fugas de memoria en Azure Web Apps con Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Artículo del blog ALM de Microsoft sobre las características de Visual Studio para el análisis de problemas de memoria administrada.
 * [Herramientas en línea de Aplicaciones web de Azure que debe conocer](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Publicación en el blog de Amit Apple.
 
 Si desea obtener ayuda para una pregunta específica sobre la solución de problemas, comience una conversación en alguno de los siguientes foros:
 
 * [El foro sobre Azure en el sitio de ASP.NET](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [El foro de Azure en MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/).
+* [El foro de Azure en MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
 * [StackOverflow.com](http://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Depuración en Visual Studio
-Para más información acerca del uso del modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) y [Sugerencias de depuración de Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Para más información acerca del uso del modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) y [Sugerencias de depuración de Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Depuración remota en Azure
 Para obtener más información sobre la depuración remota para aplicaciones web de Azure y WebJobs, consulte los siguientes recursos:
@@ -644,21 +644,21 @@ Para obtener más información sobre la depuración remota para aplicaciones web
 * [Introducción a la depuración remota en Azure App Service Web Apps, 3ª parte: entorno de varias instancias y GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Depuración de WebJobs](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Si su aplicación web utiliza una API web de Azure o el back-end de Mobile Services y necesita depurarlo, consulte [Depuración de back-end de .NET en Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
+Si su aplicación web utiliza una API web de Azure o el back-end de Mobile Services y necesita depurarlo, consulte [Depuración de back-end de .NET en Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
 
 ### <a name="tracing-in-aspnet-applications"></a>Seguimiento en aplicaciones de ASP.NET
 No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET disponibles en Internet. Lo mejor que puede hacer es comenzar con materiales de introducción antiguos escritos para Web Forms, porque MVC todavía no existía, y complementarlos con las publicaciones más recientes en blogs que se centran en temas específicos. Algunos buenos sitios para comenzar son los siguientes recursos:
 
 * [Supervisión y telemetría (crear aplicaciones en la nube para el mundo real con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   Capítulo de un libro electrónico con recomendaciones para realizar seguimiento en aplicaciones de la nube de Azure.
-* [Seguimiento de ASP.NET](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [Seguimiento de ASP.NET](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Un recurso antiguo, pero siempre útil, con una introducción básica al tema.
-* [Agentes de escucha de seguimiento](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  Brinda información acerca de los agentes de escucha de seguimiento, pero no menciona [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Tutorial: Integración del seguimiento de ASP.NET con el seguimiento de System.Diagnostics](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [Agentes de escucha de seguimiento](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  Brinda información acerca de los agentes de escucha de seguimiento, pero no menciona [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
+* [Tutorial: Integración del seguimiento de ASP.NET con el seguimiento de System.Diagnostics](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   Este artículo también es antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
-* [Seguimiento en vistas Razor de ASP.NET MVC](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](http://msdn.microsoft.com/library/bb397417.aspx) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
+* [Seguimiento en vistas Razor de ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+  Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](https://msdn.microsoft.com/library/bb397417.aspx) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
 
 ``` c#
 try
@@ -684,12 +684,12 @@ Además, no es necesario realizar un seguimiento de ASP.NET o de `System.Diagnos
 ### <a name="analyzing-web-server-logs"></a>Análisis de registros de servidor web
 Para obtener más información acerca del análisis de registros de servidor web, consulte los siguientes recursos:
 
-* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
+* [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Una herramienta para visualizar datos en registros de servidor web (archivos *.log* ).
 * [Solución de problemas de rendimiento de IIS o errores de aplicación al usar LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.
-* [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
-* [El código de estado HTTP en IIS 7.0, IIS 7.5 y IIS 8.0](http://support.microsoft.com/kb/943891)
+* [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [El código de estado HTTP en IIS 7.0, IIS 7.5 y IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Análisis de registros de seguimiento de solicitudes con error
 El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimiento de solicitudes erróneas](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing), que puede ser muy práctica para comprender cómo utilizar estos registros. Sin embargo, esta documentación se centra principalmente en la configuración del seguimiento de solicitudes con error en IIS, algo que no puede hacer en Azure Web Apps.

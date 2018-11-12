@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831031"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282278"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extracción de datos relacionados contextualmente
 En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, las ubicaciones de origen y destino para un traslado físico de un edificio y oficina a otro edificio y oficina están relacionadas. Para generar un pedido de trabajo, ambos datos pueden ser necesarios y están relacionados entre sí.  
@@ -57,7 +57,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Eliminación de la entidad de número creada previamente de la aplicación
 Para ver la expresión completa y marcar los elementos secundarios jerárquicos, quite temporalmente la entidad numérica creada previamente.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Entities** (Entidades) en el menú izquierdo.
 
@@ -83,7 +83,7 @@ Para ver la expresión completa y marcar los elementos secundarios jerárquicos,
 
     En el tutorial de [lista de entidades](luis-quickstart-intent-and-list-entity.md), se designa a un empleado por nombre, dirección de correo electrónico, extensión telefónica, número de teléfono móvil o número del seguro social federal de Estados Unidos. Estos números de empleado se utilizan en las expresiones. Las expresiones de ejemplo anteriores incluyen diferentes maneras de anotar las ubicaciones de origen y destino, marcadas en negrita. Un par de expresiones solo tienen destinos de forma intencionada. Esto ayuda a LUIS a entender cómo se colocan esas ubicaciones en la expresión cuando no se especifica el origen.     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Creación de una entidad de ubicación
 LUIS necesita entender lo que es una localización mediante el etiquetado del origen y del destino en las expresiones. Si necesita ver el enunciado en la vista de token (sin formato), seleccione el conmutador en la barra encima de las expresiones etiquetadas como **Entities View** (Vista de entidades). Después de cambiar el modificador, el control tiene la etiqueta **Tokens View** (Vista de tokens).
@@ -119,7 +119,7 @@ Agregue la entidad numérica creada previamente a la aplicación.
 
 1. Seleccione **Entities** (Entidades) en el menú de navegación izquierdo.
 
-2. Haga clic en el botón **Manage prebuilt entities** (Administrar entidades creadas previamente).
+2. Seleccione el botón **Add prebuilt entity** (Agregar entidad creada previamente).
 
 3. Seleccione **number** (número) en la lista de entidades predeterminadas, a continuación, seleccione **Done** (Listo).
 
@@ -248,6 +248,10 @@ Las ubicaciones en este ejemplo, como `a-1234`, siguen un formato específico de
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="hierarchical-entities-versus-roles"></a>Diferencias entre entidades jerárquicas y roles
+
+Para más información, consulte [Roles frente a entidades jerárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Este tutorial creó una nueva intención y agregó expresiones de ejemplo para los datos aprendidos contextualmente de las ubicaciones de origen y destino. Una vez que la aplicación está entrenada y publicada, una aplicación cliente puede usar esa información para crear un vale de movimiento con la información relevante.

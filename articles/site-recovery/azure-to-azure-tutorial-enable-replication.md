@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 63a45aa02eadd0b5739c1624af524883171a7055
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8dc6b7da77988a789de04578d6653b192f58afa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261730"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -81,9 +81,9 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 Si desea controlar la conectividad de salida con direcciones IP en lugar de con direcciones URL, incluya en la lista de permitidos los intervalos del centro de datos correspondientes, las direcciones de Office 365 y las direcciones de los puntos de conexión de servicio para los firewall basados en IP, el servidor proxy o las reglas de NSG.
 
-  - [Intervalos de direcciones IP del centro de datos de Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Intervalos de direcciones IP del centro de datos de Windows Azure en Alemania](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Intervalos de direcciones IP del centro de datos de Windows Azure en China](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [Intervalos de direcciones IP del centro de datos de Windows Azure en Alemania](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [Intervalos de direcciones IP del centro de datos de Windows Azure en China](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Direcciones URL e intervalos de direcciones IP de Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Direcciones IP de puntos de conexión del servicio Site Recovery](https://aka.ms/site-recovery-public-ips)
 

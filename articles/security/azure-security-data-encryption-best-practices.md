@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 86724ca49884f1072297ffcf4fc6498db5ae8ac3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465884"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254645"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 Para contribuir a proteger los datos en la nube, debe tener en cuenta los posibles estados que pueden tener los datos y los controles disponibles para ese estado. Los procedimientos recomendados para el cifrado y seguridad de datos de Azure están relacionados con los siguientes estados de datos:
@@ -132,11 +132,11 @@ Se recomienda que:
 - Aplique etiquetas que reflejen sus requisitos empresariales. Por ejemplo, aplique la etiqueta "extremadamente confidencial" a todos los documentos y correos electrónicos que contienen datos de alto secreto para clasificar y proteger estos datos. A continuación, solo los usuarios autorizados podrán acceder a estos datos, con cualquier restricción que especifique.
 - Configure [el registro de uso para Azure RMS](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) para que pueda supervisar cómo usa el servicio de protección su organización.
 
-Las organizaciones con puntos débiles en la [clasificación de datos](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) y la protección de archivos pueden ser más susceptibles a la fuga o el uso incorrecto de datos. Con la protección adecuada de los archivos, puede analizar los flujos de datos para extraer conclusiones sobre su negocio, detectar comportamientos de riesgo y tomar medidas correctivas, realizar un seguimiento del acceso a los documentos, etc.
+Las organizaciones con puntos débiles en la [clasificación de datos](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) y la protección de archivos pueden ser más susceptibles a la fuga o el uso incorrecto de datos. Con la protección adecuada de los archivos, puede analizar los flujos de datos para extraer conclusiones sobre su negocio, detectar comportamientos de riesgo y tomar medidas correctivas, realizar un seguimiento del acceso a los documentos, etc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 
-Los siguientes recursos proporcionan más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
-* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): para obtener información actualizada sobre lo último en seguridad de Azure.
+En los siguientes recursos se ofrece más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
+* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: eb909384805c96ce656cacf86adceedc55613c0f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4fc1c0b87aa5312be0ccac50681e952dc7f1c4ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113665"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251736"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -108,7 +108,7 @@ A continuación, se conectará a la cuenta de Azure Cosmos DB y creará la colec
     | **Identificador de colección** | Elementos | Nombre de la nueva colección. Debe coincidir con el nombre definido en el enlace de función.  |
     | **Capacidad de almacenamiento** | Fija (10 GB)|Use el valor predeterminado. Este valor corresponde a la capacidad de almacenamiento de la base de datos. |
     | **Rendimiento** |400 RU| Use el valor predeterminado. Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante. |
-    | **[Clave de partición](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /categoría|Una clave de partición que distribuye los datos uniformemente a cada partición. La selección de la clave de partición correcta es importante al crear una colección de rendimiento. | 
+    | **[Clave de partición](../cosmos-db/partition-data.md)** | /categoría|Una clave de partición que distribuye los datos uniformemente a cada partición. La selección de la clave de partición correcta es importante al crear una colección de rendimiento. | 
 
 1. Haga clic en **Aceptar** para crear la colección Elementos. Puede que la colección tarde un poco en crearse.
 

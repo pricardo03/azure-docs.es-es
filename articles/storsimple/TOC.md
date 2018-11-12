@@ -61,6 +61,7 @@
 
 ## Información general
 ### [¿Cuál es la solución?](storsimple-overview.md)
+### [Comparación de opciones de transferencia de datos](storsimple-8000-choose-storage-solution.md)
 ### [Mapa de aprendizaje de StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Consideraciones sobre la seguridad](storsimple-8000-security.md)
 ### [Disponibilidad en regiones](storsimple-regions.md)
@@ -105,7 +106,7 @@
 ###### [Conmutación por error al mismo dispositivo](storsimple-8000-device-failover-same-device.md)
 ##### [Administración del catálogo de copias de seguridad](storsimple-8000-manage-backup-catalog.md)
 ##### [Administrar directivas de copia de seguridad](storsimple-8000-manage-backup-policies-u2.md)
-##### [Administración de cuentas de almacenamiento](storsimple-8000-manage-storage-accounts.md)
+##### [Administrar cuentas de almacenamiento](storsimple-8000-manage-storage-accounts.md)
 ##### [Administrar contenedores de volúmenes](storsimple-8000-manage-volume-containers.md)
 ##### [Administración de volúmenes: actual](storsimple-8000-manage-volumes-u2.md)
 ###### [Preguntas más frecuentes: volúmenes anclados localmente](storsimple-8000-local-volume-faq.md)
@@ -183,7 +184,7 @@
 #### [Desde dispositivos de la serie 5000 o 7000](storsimple-8000-migration-options.md)
 ##### [A dispositivos StorSimple de la serie 8000](storsimple-8000-migrate-from-5000-7000.md)
 ##### [A Azure File Sync](storsimple-5000-7000-afs-migration.md)
-#### [Desde otros dispositivos de almacenamiento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Desde otros dispositivos de almacenamiento](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Actualizar
 #### [Instalación de actualización 5: actual](storsimple-8000-install-update-5.md)
@@ -206,7 +207,7 @@
 #### [Versión: disponibilidad general](storsimple-july-2014-release-notes.md)
 
 ## Referencia
-### [API de REST](https://docs.microsoft.com/rest/api/storsimple)
+### [API DE REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Cmdlets de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 
@@ -248,8 +249,8 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=storsimple)
-## [Blog de soporte técnico](http://blogs.msdn.com/b/storsimple/)
-## [Avisos de terceros](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Blog de soporte técnico](https://blogs.msdn.com/b/storsimple/)
+## [Avisos de terceros](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: f15846f3de7162c61edce8aaf5c493bb1444df36
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498562"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255888"
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 
@@ -154,7 +154,7 @@ Con Azure AD Privileged Identity Management, podrá:
 
 Más información:
 
-* [Administración de identidades con privilegios de Azure AD](../active-directory/privileged-identity-management/pim-configure.md)
+* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
 * [Roles en Privileged Identity Management de Azure AD](../active-directory/privileged-identity-management/pim-roles.md)
 * [Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
@@ -178,7 +178,7 @@ Las soluciones de identidad de Microsoft abarcan funcionalidades locales y de nu
 
 Más información:
 
-* [Notas del producto sobre identidad híbrida](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
+* [Notas del producto sobre identidad híbrida](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Blog del equipo de Azure AD](https://blogs.technet.microsoft.com/ad/)
 

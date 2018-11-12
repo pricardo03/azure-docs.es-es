@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013270"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255700"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager: Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Clásico: PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [Vídeo: Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -53,7 +53,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 * Tipo de puerta de enlace = "ExpressRoute" (Este tipo es obligatorio para una configuración de ExpressRoute).
 * Nombre de IP pública de puerta de enlace = "MyERGWVIP"
 
-Puede ver un [vídeo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de estos pasos antes de comenzar la configuración.
+Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de estos pasos antes de comenzar la configuración.
 
 ## <a name="create-the-gateway-subnet"></a>Cree la subred de la puerta de enlace.
 

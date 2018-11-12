@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345278"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260591"
 ---
 # <a name="azure-stack-1807-update"></a>Actualización de Azure Stack 1807
 
@@ -94,7 +94,7 @@ Esta actualización incluye las siguientes correcciones para Azure Stack.
 - **Mejor tiempo de creación de VM** para las máquinas virtuales que se crean con imágenes que se descargan de Azure Marketplace.
 
 <!-- TBD | IS, ASDK -->  
-- **Mejoras en la facilidad de uso de Azure Stack Capacity Planner**. Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) ahora ofrece una experiencia simplificada para la entrada de caché S2D y la capacidad de S2D al definir las SKU de la solución. Se ha quitado el límite de 1000 máquinas virtuales.
+- **Mejoras en la facilidad de uso de Azure Stack Capacity Planner**. Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) ahora ofrece una experiencia simplificada para la entrada de caché S2D y la capacidad de S2D al definir las SKU de la solución. Se ha quitado el límite de 1000 máquinas virtuales.
 
 
 ### <a name="fixed-issues"></a>Problemas corregidos
@@ -238,7 +238,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
    - *Instancia del rol de infraestructura no disponible*
    - *Nodo de la unidad de escalado desconectado*
    
-  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo utilizando el portal de administración o PowerShell.
+  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo mediante el portal de administración o PowerShell.
 
 <!-- 1264761 - IS ASDK -->  
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  
@@ -329,7 +329,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - No se garantiza que las direcciones IP públicas que se implementan mediante el método de asignación dinámica se conserven después de emitirse una detención o desasignación.
 
 <!-- 2529607 - IS ASDK --> 
-- Durante la *rotación secreta* de Azure Stack, hay un período en el que las direcciones IP públicas no son accesibles entre dos y cinco minutos.
+- Durante la *rotación secreta* de Azure Stack, hay un período en el que las direcciones IP públicas a nivel de instancia no son accesibles entre dos y cinco minutos.
 
 <!-- 2664148 - IS ASDK --> 
 - En los escenarios en los que el inquilino tenga acceso a sus máquinas virtuales mediante un túnel VPN S2S, podría encontrarse con que los intentos de conexión producen un error si la subred local se ha agregado a la puerta de enlace de red local una vez que la puerta de enlace ya está creada. 

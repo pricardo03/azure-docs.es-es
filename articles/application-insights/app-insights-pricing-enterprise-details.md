@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 65307eab0bf1b5f502f11c14c369826cd12e0966
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: b2a93c7d3b512a34ab5d2e4fd020415739466c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311089"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235299"
 ---
 # <a name="enterprise-plan-details"></a>Detalles del plan Enterprise
 
@@ -26,7 +26,7 @@ Azure Application Insights dispone de dos planes de precios: Básico y Enterpris
 
 En el plan Enterprise, se cobra por nodo y cada nodo recibe una asignación de datos diaria. En el plan de precios Enterprise, se cobran los datos ingeridos que sobrepasan la asignación incluida. Si usa Operations Management Suite, debería elegir el plan Enterprise. 
 
-Para ver los precios vigentes actualmente en su moneda y región, consulte [Precios de Application Insights](http://azure.microsoft.com/pricing/details/application-insights/).
+Para ver los precios vigentes actualmente en su moneda y región, consulte [Precios de Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
 > En abril de 2018, [introdujimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Más información sobre el [nuevo modelo de precios](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), cómo [evaluar el impacto de pasar a este modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en función de los patrones de uso y [cómo participar en el nuevo modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).

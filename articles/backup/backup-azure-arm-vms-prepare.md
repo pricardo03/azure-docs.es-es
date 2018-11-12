@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025946"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256279"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparación para copias de seguridad de máquinas virtuales de Azure
 
-En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure. Al hacer una copia de seguridad de una máquina virtual, los datos de copia de seguridad o los puntos de recuperación se almacenan en un almacén de copia de seguridad de Recovery Services. 
+En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure. Al hacer una copia de seguridad de una máquina virtual, los datos de copia de seguridad o los puntos de recuperación se almacenan en un almacén de copia de seguridad de Recovery Services.
 
 
 
@@ -45,7 +45,7 @@ Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de segur
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitaciones al realizar copias de seguridad y restaurar una máquina virtual
 Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 
-* No se admite la copia de seguridad de máquinas virtuales con más de 32 discos de datos.
+* No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
 * No se admite la copia de seguridad de máquinas virtuales Linux en las que se ha usado el cifrado LUKS (Linux Unified Key Setup).
 * No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Si hace esto, se espera un error de los escritores de CSV. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM.
 * Los datos de la copia de seguridad no incluyen unidades montadas de red conectadas a una máquina virtual.
@@ -182,8 +182,8 @@ Si tiene problemas para realizar una copia de seguridad de la máquina virtual d
 
 | **operación** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalación del agente de la máquina virtual |Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. |<li> Instale el [agente de Linux](../virtual-machines/extensions/agent-linux.md) más reciente. Necesitará privilegios de administrador para efectuar la instalación. Se recomienda instalar el agente desde el repositorio de distribución. **No se recomienda** instalar el agente de máquina virtual Linux directamente desde github.  |
-| Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se recomienda actualizar el agente desde el repositorio de distribución. **No se recomienda** actualizar el agente de máquina virtual Linux directamente desde github.<br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
+| Instalación del agente de la máquina virtual |Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. |<li> Instale el [agente de Linux](../virtual-machines/extensions/agent-linux.md) más reciente. Necesitará privilegios de administrador para efectuar la instalación. Se recomienda instalar el agente desde el repositorio de distribución. **No se recomienda** instalar el agente de máquina virtual Linux directamente desde github.  |
+| Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se recomienda actualizar el agente desde el repositorio de distribución. **No se recomienda** actualizar el agente de máquina virtual Linux directamente desde github.<br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
 | Validación de la instalación del agente de máquina virtual |<li>Acceda a la carpeta *C:\WindowsAzure\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. |N/D |
 
 ### <a name="backup-extension"></a>Extensión de Backup
@@ -194,7 +194,7 @@ El servicio Backup instala la extensión de copia de seguridad tanto si la máqu
 ## <a name="establish-network-connectivity"></a>Establecimiento de conectividad de red
 Para administrar las instantáneas de máquina virtual, la extensión de copia de seguridad necesita conectividad con las direcciones IP públicas de Azure. Sin la conectividad a Internet adecuada, las solicitudes HTTP superan el tiempo de espera de la máquina virtual y se produce un error en la operación de copia de seguridad. Si la implementación tiene restricciones de acceso establecidas (por ejemplo, a través de un grupo de seguridad de red [NSG]), elija una de estas opciones para proporcionar una ruta de acceso clara para el tráfico de copia de seguridad:
 
-* [Incluir los intervalos de IP de un centro de datos de Azure en una lista blanca](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [Incluir los intervalos de IP de un centro de datos de Azure en una lista blanca](https://www.microsoft.com/download/details.aspx?id=41653).
 * Implementación de un servidor proxy HTTP para enrutar el tráfico.
 
 Al decidir qué opción utilizar, hay que buscar el equilibrio entre costo, control pormenorizado y facilidad de uso.
@@ -205,7 +205,7 @@ Al decidir qué opción utilizar, hay que buscar el equilibrio entre costo, cont
 | Usar un servidor proxy HTTP |Se permite un control detallado en el proxy sobre las direcciones URL de almacenamiento.<br><br>Un único punto de acceso a Internet para las máquinas virtuales.<br><br>No están sujetas a cambios de direcciones IP de Azure. |Costes adicionales de ejecutar una máquina virtual con el software de proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
-Para incluir los intervalos de IP de un centro de datos de Azure en una lista blanca, visite el [sitio web de Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653), donde encontrará información detallada acerca de los intervalos de IP, junto con instrucciones.
+Para incluir los intervalos de IP de un centro de datos de Azure en una lista blanca, visite el [sitio web de Azure](https://www.microsoft.com/download/details.aspx?id=41653), donde encontrará información detallada acerca de los intervalos de IP, junto con instrucciones.
 
 Con las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) puede permitir conexiones al almacenamiento de la región concreta. Asegúrese de que la regla que permite el acceso a la cuenta de almacenamiento tiene mayor prioridad que la que bloquea el acceso a Internet.
 
@@ -305,7 +305,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>¿Tiene preguntas?
-Si tiene alguna pregunta o hay alguna característica que desea que se incluya, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
+Si tiene alguna pregunta o hay alguna característica que desea que se incluya, [envíenos sus comentarios](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha preparado el entorno para realizar la copia de seguridad de la máquina virtual, el siguiente paso lógico es crear una copia de seguridad. El artículo de planeamiento ofrece información más detallada sobre la realización de copias de seguridad de máquinas virtuales.

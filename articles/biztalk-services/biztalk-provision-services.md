@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26632728"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261968"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Creación de BizTalk Services mediante Azure Portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "26632728"
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
-> Para iniciar sesión en el Portal de Azure, se necesita una suscripción a Azure y una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Consulte [Evaluación gratuita de Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> Para iniciar sesión en el Portal de Azure, se necesita una suscripción a Azure y una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Consulte [Evaluación gratuita de Azure](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>Creación de un servicio de BizTalk
@@ -84,7 +84,7 @@ Estos requisitos no se aplican a la versión gratuita.
 <br/><br/>
 La cuenta de Azure puede tener varias suscripciones y la puede administrar alguien que tenga permisos. Por ejemplo, el titular de su cuenta de Azure crea una suscripción llamada <em>BizTalkServiceSubscription</em> y concede acceso a la misma a los administradores de BizTalk de la empresa (por ejemplo, ContosoBTSAdmins@live.com). En este escenario, los administradores de BizTalk inician sesión en Azure y tienen permisos totales de administrador en todos los servicios hospedados en la suscripción, incluidos Azure BizTalk Services. Los administradores de BizTalk no son los titulares de la cuenta de Azure y, por lo tanto, no tienen acceso a información de facturación alguna.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Administración de suscripciones y cuentas de almacenamiento en Azure</a> proporciona más información.
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=267577">Administración de suscripciones y cuentas de almacenamiento en Azure</a> proporciona más información.
 </td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ La cuenta de Azure puede tener varias suscripciones y la puede administrar algui
 <br/><br/>
 Cuando cree un servicio de BizTalk, puede usar un servidor de Azure SQL Server existente, una instancia de Azure SQL Database existente, o bien puede crear automáticamente un servidor o una base de datos nuevos.
 <br/><br/>
-La escala de SQL Database se configura automáticamente. Normalmente, la escala predeterminada es suficiente para un Servicio de BizTalk. El cambio de la escala puede afectar al precio. Consulte <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930">Cuentas y facturación en Azure SQL Database</a>
+La escala de SQL Database se configura automáticamente. Normalmente, la escala predeterminada es suficiente para un Servicio de BizTalk. El cambio de la escala puede afectar al precio. Consulte <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Cuentas y facturación en Azure SQL Database</a>
 <br/><br/>
 <strong>Notas</strong>
 <br/>
@@ -123,7 +123,7 @@ La configuración de almacenamiento predeterminada es suficiente para un Servici
 <br/><br/>
 Cuando crea una cuenta de almacenamiento, se crean automáticamente una clave primaria y una clave secundaria. Estas claves controlan el acceso a su cuenta de almacenamiento. El servicio de BizTalk utiliza automáticamente la clave principal.
 <br/><br/>
-Consulte <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">Almacenamiento</a> para más información.
+Consulte <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285671">Almacenamiento</a> para más información.
 </td>
 </tr>
 
@@ -165,16 +165,16 @@ Las conexiones híbridas se usan para conectar un sitio web de Azure o un servic
  Vea [Conexiones híbridas](integration-hybrid-connection-overview.md) para obtener más información, incluida la creación y la administración de conexiones híbridas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que se crea un servicio de BizTalk, familiarícese con [BizTalk Services: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md). Su servicio de BizTalk está listo para las aplicaciones. Para comenzar a crear aplicaciones, vaya a [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Ahora que se crea un servicio de BizTalk, familiarícese con [BizTalk Services: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md). Su servicio de BizTalk está listo para las aplicaciones. Para comenzar a crear aplicaciones, vaya a [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [BizTalk Services: Gráfico de ediciones](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: gráfico de estado](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: copias de seguridad y restauración](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: limitaciones](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)<br/>
-* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Conexiones híbridas](integration-hybrid-connection-overview.md)
+* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [conexiones híbridas](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

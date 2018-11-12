@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139011"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262287"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -398,7 +398,7 @@ Para poder crear un emisor de certificados en un almacén de claves, deben reali
 
     -   Proporciona la configuración que se usará para crear un objeto de emisor del proveedor en el almacén de claves  
 
-Para más información acerca de cómo crear objetos de emisor desde el portal de certificados, consulte el [blog de certificados de Key Vault](http://aka.ms/kvcertsblog)  
+Para más información acerca de cómo crear objetos de emisor desde el portal de certificados, consulte el [blog de certificados de Key Vault](https://aka.ms/kvcertsblog)  
 
 Key Vault permite la creación de varios objetos de emisor con diferente configuración del proveedor de emisor. Una vez que se crea un objeto de emisor, se puede hacer referencia a su nombre en una o varias directivas de certificado. Al hacer referencia al objeto de emisor se indica a Key Vault que utilice la configuración de acuerdo con lo especificado en el objeto de emisor al solicitar el certificado X.509 al proveedor de la entidad emisora de certificados durante la creación y la renovación de certificados.  
 

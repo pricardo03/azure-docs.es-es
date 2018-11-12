@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262036"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -100,7 +100,7 @@ Las siguientes entradas de blog proporcionan orientación e información sobre e
 * [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) (Implementación de una nueva máquina virtual en un laboratorio de DevTest Labs existente desde Azure DevOps Services)
 * [Using Azure DevOps Services release management for continuous deployments to Dev Test Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) (Uso de la administración de versiones de Azure DevOps Services para implementaciones continuas en Dev Test Labs)
 
-Para otras cadenas de herramientas de entrega continua (CD) o integración continua (CI), puede lograr los mismos escenarios implementando [plantillas de Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) mediante [cmdlets de Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) y [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](http://aka.ms/dtlrestapis) a fin de integrarlas con su cadena de herramientas.  
+Para otras cadenas de herramientas de entrega continua (CD) o integración continua (CI), puede lograr los mismos escenarios implementando [plantillas de Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) mediante [cmdlets de Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) y [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](https://aka.ms/dtlrestapis) a fin de integrarlas con su cadena de herramientas.  
 
 
 **Máquinas virtuales**
@@ -141,7 +141,7 @@ Para automatizar la carga de archivos VHD para crear imágenes personalizadas, d
 
 Para buscar la cuenta de almacenamiento de destino asociada al laboratorio:
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. En el menú de la izquierda, seleccione **Grupos de recursos**.
 3. Busque y seleccione el grupo de recursos asociado al laboratorio.
 4. En **Información general**, seleccione una de las cuentas de almacenamiento.

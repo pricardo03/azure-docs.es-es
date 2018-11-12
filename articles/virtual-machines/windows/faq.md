@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: c60b7df4d766ddf321ce2c807994f3b83046f1ef
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058070"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253370"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Preguntas más frecuentes sobre máquinas virtuales Windows
 En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, consulte [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -28,7 +28,7 @@ En este artículo se responden algunas preguntas frecuentes que los usuarios pla
 ## <a name="what-can-i-run-on-an-azure-vm"></a>¿Qué puedo ejecutar en una máquina virtual de Azure?
 Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Para obtener información sobre la directiva de soporte de software de servidor de Microsoft ejecutado en Azure, consulte [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)
 
-Existen determinadas versiones de Windows 7, Windows 8.1 y Windows 10 para suscriptores de ventajas de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
+Existen determinadas versiones de Windows 7, Windows 8.1 y Windows 10 para suscriptores de ventajas de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>¿Cuánto almacenamiento puedo usar con una máquina virtual?
 Cada disco de datos puede ser de hasta 4 TB (4095 GB). El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -54,7 +54,7 @@ Si tiene una aplicación que necesita usar la letra de unidad D:, puede reasigna
 Para cambiar la letra de la unidad, mueva el archivo de paginación y reasigne las letras de unidad; sin embargo, debe asegurarse de realizar los pasos en un orden específico. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="can-i-add-an-existing-vm-to-an-availability-set"></a>¿Puedo agregar una máquina virtual existente a un conjunto de disponibilidad?
-Nº Si desea que la máquina virtual forme parte de un conjunto de disponibilidad, debe crearla dentro del conjunto. Actualmente no es posible agregar una máquina virtual a un conjunto de disponibilidad una vez creada.
+No. Si desea que la máquina virtual forme parte de un conjunto de disponibilidad, debe crearla dentro del conjunto. Actualmente no es posible agregar una máquina virtual a un conjunto de disponibilidad una vez creada.
 
 ## <a name="can-i-upload-a-virtual-machine-to-azure"></a>¿Puedo cargar una máquina virtual en Azure?
 Sí. Para obtener instrucciones, consulte [Migrating on-premises VMs to Azure](on-prem-to-azure.md) (Migración de máquinas virtuales locales a Azure).

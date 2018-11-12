@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 48555dc8d1cc027cb771e0ba0678c6cb12d6785f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 233296a825653938da158fc70952c7fe7931498c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697982"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261832"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Sugerencias de rendimiento para Azure Cosmos DB y Async Java
 
@@ -65,7 +65,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 5. **Implementación del retroceso según intervalos de getRetryAfterInMilliseconds**
 
-    Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación cliente debe retroceder de acuerdo con el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos. Para más información, consulte [Superación de los límites de rendimiento reservados en Azure Cosmos DB](request-units.md#RequestRateTooLarge) y DocumentClientException.getRetryAfterInMilliseconds.
+    Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación cliente debe retroceder de acuerdo con el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos. 
 6. **Escalado horizontal de la carga de trabajo de cliente**
 
     Si va a realizar pruebas en niveles de alto rendimiento (>50 000 RU/s), la aplicación cliente puede volverse un cuello de botella debido a que la máquina limita el uso de CPU o de la red. Si llega a este punto, puede seguir insertando la cuenta de Azure Cosmos DB mediante la escala horizontal de las aplicaciones cliente en varios servidores.

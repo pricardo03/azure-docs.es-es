@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 2571420e3497e85ec1bf37b340015b061e8c91d4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8a96cfdedcde9b4037627f3e61af862c0600ca20
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258484"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net#  para Azure Machine Learning
 
@@ -230,7 +230,7 @@ Hay dos conjuntos de propiedades que controlan el completado y que se excluyen m
 Para obtener más información acerca de las redes convolucionales y sus aplicaciones, consulte estos artículos: 
 
 + [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
++ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf) 
 + [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ## <a name="pooling-bundles"></a>Conjuntos de agrupación
@@ -460,7 +460,8 @@ output Digit [10] from Hid3 all;
 + El número de ponderaciones por kernel es `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. O `26 * 50 = 1300`.
 + Puede calcular los nodos en cada capa oculta del modo siguiente:
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5` `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa, [50, 5, 5], de este modo: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Dado que `Sharing[d]` es False solo para `d == 0`, el número de kernels es `MapCount * NodeCount\[0] = 10 * 5 = 50`. 

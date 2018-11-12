@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239362"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259146"
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
 
@@ -67,7 +67,7 @@ El cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten
 Más información acerca del cifrado de cliente:
 
 * [Cifrado del lado cliente para Microsoft Azure Storage (vista previa)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Cloud security controls series: Encrypting Data in Transit (Serie de controles de seguridad en la nube: cifrado de datos en tránsito)](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Cloud security controls series: Encrypting Data in Transit (Serie de controles de seguridad en la nube: cifrado de datos en tránsito)](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Cifrado en reposo
 

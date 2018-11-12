@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 53020eeb96927143b2fb7394aee64f9b7ea55df9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752928"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248969"
 ---
 # <a name="management-solutions-in-azure"></a>Soluciones de administración en Azure
 Las soluciones de administración aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Este artículo proporciona una breve descripción de las soluciones de administración en Azure y los detalles sobre su uso e instalación.
@@ -104,5 +104,5 @@ Para eliminar una solución instalada, busque en la [lista de soluciones instala
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga un [lista de soluciones de administración de Microsoft](monitoring-solutions-inventory.md).
-* Aprenda a [crear consultas](../log-analytics/log-analytics-log-searches.md) para analizar los datos recopilados por las soluciones de administración.
+* Aprenda a [crear consultas](../log-analytics/log-analytics-queries.md) para analizar los datos recopilados por las soluciones de administración.
 

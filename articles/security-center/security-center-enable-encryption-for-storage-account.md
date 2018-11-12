@@ -3,7 +3,7 @@ title: Habilitación del cifrado para la cuenta de almacenamiento en Azure Secur
 description: Este documento muestra cómo implementar las recomendaciones de Azure Security Center de **Habilitar el cifrado para la cuenta de Azure Storage**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
-ms.author: terrylan
-ms.openlocfilehash: 3765d150c63515337be13d821dce51944eae4655
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 69fbbe13c2c6c8a2bb193054a9b8e613832005e2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298275"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257323"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Habilitación del cifrado para la cuenta de Azure Storage en Azure Security Center
 Azure Security Center puede recomendar que habilite el cifrado del servicio de Azure Storage para datos en reposo.
@@ -63,7 +63,7 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png

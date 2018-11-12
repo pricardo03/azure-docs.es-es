@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236591"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253455"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migración a la versión más reciente del servicio Azure Machine Learning 
 
@@ -38,7 +38,7 @@ En la tabla y el artículo siguientes se explica lo que puede hacer con los recu
 |Imágenes registradas|Sin |Vuelva a crear la imagen de Docker de la implementación en una nueva área de trabajo.|
 |Servicios web implementados|Sin |Ninguno. Seguirán funcionando tal cual <br/>o bien [impleméntelos de nuevo con la versión más reciente](#services).|
 |Experimentación y <br/>Cuentas de administración de modelos|Sin |[Cree una área de trabajo](#resources) en su lugar.|
-|CLI y SDK de Machine Learning|Sin |Use los nuevos [CLI](reference-azure-machine-learning-cli.md) y [SDK](http://aka.ms/aml-sdk) para el nuevo trabajo.|
+|CLI y SDK de Machine Learning|Sin |Use los nuevos [CLI](reference-azure-machine-learning-cli.md) y [SDK](https://aka.ms/aml-sdk) para el nuevo trabajo.|
 
 
 Más información acerca de lo [que cambió en esta versión](overview-what-happened-to-workbench.md).
@@ -62,7 +62,7 @@ Esta nueva área de trabajo es el recurso de servicio de nivel superior y le per
 
 En lugar de tener sus proyectos en un área de trabajo en la nube, ahora son directorios en el equipo local en la versión más reciente. Consulte un diagrama de la [arquitectura más reciente](concept-azure-machine-learning-architecture.md). 
 
-Para continuar usando el directorio local que contiene los archivos y scripts, especifique el nombre del directorio en el comando de Python ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) o con el comando de la CLI "az ml project attach".
+Para continuar usando el directorio local que contiene los archivos y scripts, especifique el nombre del directorio en el comando de Python ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) o con el comando de la CLI "az ml project attach".
 
 Por ejemplo: 
 ```python
