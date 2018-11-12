@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e13ba0bcbd24dcc3cd08a0d2886f1da9d85de79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970931"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249921"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo
 
@@ -54,7 +54,7 @@ Revise los siguientes elementos *antes* de crear un nuevo proyecto:
 * El contenido (distinto del que está en la carpeta "docs") no debe superar los 25 MB de tamaño. Consulte la nota que sigue a esta lista.
 * La carpeta sample\_data es solo para archivos de datos pequeños (menos de 5 MB) con los que puede probar el código o iniciar un desarrollo temprano.
 * Almacenar archivos, como Word y PowerPoint, puede aumentar sustancialmente el tamaño de la carpeta "docs". Le recomendamos que busque una Wiki colaborativa, [SharePoint](https://products.office.com/sharepoint/collaboration) u otro recurso colaborativo para almacenar estos archivos.
-* Para más información sobre cómo tratar con archivos de gran tamaño y salidas en Machine Learning, lea [Guardar los cambios y trabajar con archivos de gran tamaño](http://aka.ms/aml-largefiles).
+* Para más información sobre cómo tratar con archivos de gran tamaño y salidas en Machine Learning, lea [Guardar los cambios y trabajar con archivos de gran tamaño](https://aka.ms/aml-largefiles).
 
 > [!NOTE]
 > Todo el contenido relacionado con la documentación (texto, marcas, imágenes y otros archivos de documento) que *no* se utilice durante la ejecución del proyecto, a excepción del archivo readme.md, debe residir en la carpeta denominada "docs" (todo en minúsculas). Esta es una carpeta especial que la ejecución de Azure Machine Learning ignora para que su contenido no se copie innecesariamente en el destino de proceso. Los objetos de esta carpeta tampoco cuentan para el tamaño límite de 25 MB del proyecto. La carpeta "documentos", por ejemplo, es el lugar indicado para almacenar los archivos de imagen grandes necesarios en la documentación. Git seguirá controlando estos archivos a través del historial de ejecuciones. 

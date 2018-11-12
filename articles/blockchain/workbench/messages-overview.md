@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dcf31bd6b128115962e30dd6653364c4cd65047d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241583"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235996"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 
 Además de proporcionar una API REST, Azure Blockchain Workbench proporciona integración basada en mensajería. Workbench publica eventos centrados en el libro de contabilidad a través de Azure Event Grid, lo que permite a los consumidores de nivel final ingerir datos o realizar acciones en función de estos eventos. Para aquellos clientes que precisan de mensajería de confianza, Azure Blockchain Workbench también entrega mensajes a un punto de conexión de Azure Service Bus.
 
-Los desarrolladores también han manifestado interés en la posibilidad de que sistemas externos puedan comunicarse e iniciar transacciones para crear usuarios, crear contratos y actualizar contratos en un libro de contabilidad. Aunque esta funcionalidad no se expone actualmente en la versión preliminar pública, puede encontrar un ejemplo que desarrolla esta funcionalidad en [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample).
+Los desarrolladores también han manifestado interés en la posibilidad de que sistemas externos puedan comunicarse e iniciar transacciones para crear usuarios, crear contratos y actualizar contratos en un libro de contabilidad. Aunque esta funcionalidad no se expone actualmente en la versión preliminar pública, puede encontrar un ejemplo que desarrolla esta funcionalidad en [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample).
 
 ## <a name="event-notifications"></a>Notificaciones de eventos
 

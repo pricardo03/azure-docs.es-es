@@ -8,12 +8,12 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: a1a6208d3710c9610f9271ad19564abf2532f5d4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bb219b6db97e654c8fb6db0b1c43f3326db7b9c5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995012"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232066"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introducción al uso de la CLI de Azure por parte de Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -108,7 +108,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure.  Para cargar datos a Azure Blob Storage, consulte [Uso de la CLI de Azure con Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Envío de trabajos de Análisis de Data Lake
-Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para más información acerca de U-SQL, consulte [Introducción a U-SQL](data-lake-analytics-u-sql-get-started.md) y [U-SQL Language Reference](http://go.microsoft.com/fwlink/?LinkId=691348) (Referencia del lenguaje U-SQL).
+Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para más información acerca de U-SQL, consulte [Introducción a U-SQL](data-lake-analytics-u-sql-get-started.md) y [U-SQL Language Reference](https://go.microsoft.com/fwlink/?LinkId=691348) (Referencia del lenguaje U-SQL).
 
 **Para crear un script de trabajo de Análisis de Data Lake**
 

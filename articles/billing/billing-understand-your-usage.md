@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230468"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Descripción de los términos de los cargos de uso detallados de Microsoft Azure 
 
@@ -77,7 +77,7 @@ La sección de uso diario del archivo CSV muestra los detalles de uso que afecta
 |Servicio consumido |El servicio de la plataforma Azure que ha usado. |
 |Grupo de recursos |El grupo de recursos en el que se ejecuta el medidor implementado. <br/><br/>Para más información, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |Id. de instancia | Identificador del medidor. <br/><br/> El identificador contiene el nombre especificado para el medidor cuando se creó. Es el nombre del recurso o el id. de recurso completo. Para más información, consulte [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Etiquetas | Etiqueta asignada al medidor. Use etiquetas para agrupar los registros de facturación.<br/><br/>Por ejemplo, puede usar etiquetas para distribuir los costos por el departamento que utiliza el medidor. Los servicios que admiten la emisión de etiquetas son máquinas virtuales, almacenamiento y servicios de red aprovisionados mediante la [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para más información, consulte [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organización de los recursos de Azure con etiquetas). |
+|Etiquetas | Etiqueta asignada al medidor. Use etiquetas para agrupar los registros de facturación.<br/><br/>Por ejemplo, puede usar etiquetas para distribuir los costos por el departamento que utiliza el medidor. Los servicios que admiten la emisión de etiquetas son máquinas virtuales, almacenamiento y servicios de red aprovisionados mediante la [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para más información, consulte [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organización de los recursos de Azure con etiquetas). |
 |Información adicional |Metadatos específicos del servicio. Por ejemplo, un tipo de imagen de una máquina virtual. |
 |Información de servicio 1 |El nombre del proyecto al que pertenece el servicio en la suscripción. |
 |Información de servicio 2 |Campo heredado que captura los metadatos específicos del servicio opcional. |

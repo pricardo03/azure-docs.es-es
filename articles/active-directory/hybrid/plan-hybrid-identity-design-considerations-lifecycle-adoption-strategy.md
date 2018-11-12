@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 43aaddc224403f69f90452c024f24eab8c5bdcd2
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304704"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251770"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
 En esta tarea, va a definir la estrategia de administración de identidades para que su solución de identidad híbrida cumpla los requisitos empresariales que definió en [Determinación de las tareas de administración de identidad híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -94,7 +94,7 @@ Revise la siguiente tabla para comparar las opciones de sincronización:
 | Opción de administración de sincronización | Ventajas | Desventajas |
 | --- | --- | --- |
 | Basada en la sincronización (a través de DirSync o AADConnect) |Usuarios y grupos se sincronizan desde una ubicación local y la nube. <br>  **Control de directivas**: se pueden establecer directivas de cuenta a través de Active Directory, lo que proporciona al administrador la capacidad de administrar directivas de contraseñas, estaciones de trabajo, restricciones, controles de bloqueo, etc. sin tener que realizar más tareas en la nube.  <br>  **Control de acceso**: puede restringir el acceso al servicio en la nube para que se pueda acceder a los servicios a través del entorno corporativo, a través de servidores en línea o ambos. <br>  Menos llamadas al soporte técnico: si los usuarios tienen que recordar menos contraseñas, es menos probable que las olviden. <br>  Seguridad: la información y las identidades de usuarios están protegidas porque todos los servidores y servicios usados en el inicio de sesión único se controlan de forma local. <br>  Compatibilidad con la autenticación sólida: puede usar la autenticación sólida (también denominada autenticación en dos fases) con el servicio en la nube. Sin embargo, si usa la autenticación sólida, debe emplear el inicio de sesión único. | |
-| Basada en la federación (a través de AD FS) |Habilitada por el servicio de token de seguridad (STS). Al configurar un STS para proporcionar acceso de inicio de sesión único con un servicio en la nube de Microsoft, va a crear una confianza federada entre su STS local y el dominio federado que especificó en el inquilino de Azure AD. <br> Permite a los usuarios finales utilizar el mismo conjunto de credenciales para obtener acceso a varios recursos <br>los usuarios finales no tienen que mantener varios conjuntos de credenciales. Sin embargo, los usuarios deben proporcionar sus credenciales para cada uno de los recursos participantes. Se admiten escenarios de B2B y B2C. |Requiere personal especializado para implementar y mantener servidores AD FS locales dedicados. Existen restricciones para el uso de la autenticación sólida, si va a usar AD FS para su STS. Para obtener más información, consulte la página sobre la [configuración de opciones avanzadas de AD FS 2.0](http://go.microsoft.com/fwlink/?linkid=235649). |
+| Basada en la federación (a través de AD FS) |Habilitada por el servicio de token de seguridad (STS). Al configurar un STS para proporcionar acceso de inicio de sesión único con un servicio en la nube de Microsoft, va a crear una confianza federada entre su STS local y el dominio federado que especificó en el inquilino de Azure AD. <br> Permite a los usuarios finales utilizar el mismo conjunto de credenciales para obtener acceso a varios recursos <br>los usuarios finales no tienen que mantener varios conjuntos de credenciales. Sin embargo, los usuarios deben proporcionar sus credenciales para cada uno de los recursos participantes. Se admiten escenarios de B2B y B2C. |Requiere personal especializado para implementar y mantener servidores AD FS locales dedicados. Existen restricciones para el uso de la autenticación sólida, si va a usar AD FS para su STS. Para obtener más información, consulte la página sobre la [configuración de opciones avanzadas de AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]
 > Para obtener más información, consulte [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142986"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237971"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
-En este artículo se explica cómo crear una instancia de clúster de conmutación por error (FCI) de SQL Server en Azure Virtual Machines con el modelo de Resource Manager. Esta solución usa [Espacios de almacenamiento directo \(S2D\) de Windows Server 2016 Datacenter Edition ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como una SAN virtual de software que sincroniza el almacenamiento (discos de datos) entre los nodos (Azure Virtual Machines) de Windows Cluster. S2D es una novedad de Windows Server 2016.
+En este artículo se explica cómo crear una instancia de clúster de conmutación por error (FCI) de SQL Server en Azure Virtual Machines con el modelo de Resource Manager. Esta solución usa [Espacios de almacenamiento directo \(S2D\) de Windows Server 2016 Datacenter Edition ](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como una SAN virtual de software que sincroniza el almacenamiento (discos de datos) entre los nodos (Azure Virtual Machines) de Windows Cluster. S2D es una novedad de Windows Server 2016.
 
 El siguiente diagrama muestra la solución completa en máquinas virtuales de Azure:
 
@@ -44,7 +44,7 @@ El diagrama anterior muestra:
    >[!NOTE]
    >Todos los recursos de Azure que están en el diagrama se encuentran en el mismo grupo de recursos.
 
-Para más información acerca de S2D, consulte [Espacios de almacenamiento directo \(S2D\) de Windows Server 2016 Datacenter Edition](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+Para más información acerca de S2D, consulte [Espacios de almacenamiento directo \(S2D\) de Windows Server 2016 Datacenter Edition](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D admite dos tipos de arquitecturas, convergidas e hiperconvergidas. La arquitectura de este documento es hiperconvergida. Las infraestructuras hiperconvergidas colocan el almacenamiento en los mismos servidores que hospedan la aplicación en clúster. En esta arquitectura, el almacenamiento se realiza en cada nodo de FCI de SQL Server.
 
@@ -52,13 +52,13 @@ S2D admite dos tipos de arquitecturas, convergidas e hiperconvergidas. La arquit
 
 En Azure Virtual Machines, puede obtener licencias de SQL Server mediante imágenes de VM de pago por uso (PAYG) o traiga su propia licencia (BYOL). El tipo de imagen que elija afecta a cómo se le cobra.
 
-Con las licencias PAYG, una instancia de clúster de conmutación por error (FCI) de SQL Server en Azure Virtual Machines incurre en cargos para todos los nodos de FCI, incluidos los nodos pasivos. Para obtener más información, consulte [Precios de máquinas virtuales SQL Server Enterprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+Con las licencias PAYG, una instancia de clúster de conmutación por error (FCI) de SQL Server en Azure Virtual Machines incurre en cargos para todos los nodos de FCI, incluidos los nodos pasivos. Para obtener más información, consulte [Precios de máquinas virtuales SQL Server Enterprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Los clientes con Contrato Enterprise con Software Assurance tienen derecho a utilizar un nodo FCI pasivo gratuito por cada nodo activo. Para aprovechar esta ventaja en Azure, use imágenes de VM BYOL y, a continuación, use la misma licencia en los nodos activos y pasivos de FCI. Para obtener más información, consulte [Contrato Enterprise](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Los clientes con Contrato Enterprise con Software Assurance tienen derecho a utilizar un nodo FCI pasivo gratuito por cada nodo activo. Para aprovechar esta ventaja en Azure, use imágenes de VM BYOL y, a continuación, use la misma licencia en los nodos activos y pasivos de FCI. Para obtener más información, consulte [Contrato Enterprise](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
 
 Para comparar las licencias de PAYG y BYOL para SQL Server en Azure Virtual Machines, consulte [Introducción a máquinas virtuales con SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
-Para obtener información completa acerca de las licencias de SQL Server, consulte los [precios](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
+Para obtener información completa acerca de las licencias de SQL Server, consulte los [precios](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Plantilla de Azure de ejemplo
 
@@ -71,12 +71,12 @@ Antes de continuar, es preciso que sepa varias cosas y otras que deben estar en 
 ### <a name="what-to-know"></a>Lo que necesita saber
 Debe estar familiarizado con el funcionamiento de las siguientes tecnologías:
 
-- [Tecnologías de clúster de Windows](http://technet.microsoft.com/library/hh831579.aspx)
-- [Instancias del clúster de conmutación por error de SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Tecnologías de clúster de Windows](https://technet.microsoft.com/library/hh831579.aspx)
+- [Instancias del clúster de conmutación por error de SQL Server](https://msdn.microsoft.com/library/ms189134.aspx).
 
 También debe tener conocimientos generales de las siguientes tecnologías:
 
-- [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Grupos de recursos de Azure](../../../azure-resource-manager/resource-group-portal.md)
 
 > [!IMPORTANT]
@@ -225,11 +225,11 @@ El siguiente paso es configurar el clúster de conmutación por error con S2D. E
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-A modo de referencia, en los siguientes pasos se siguen las instrucciones del paso 3 de [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+A modo de referencia, en los siguientes pasos se siguen las instrucciones del paso 3 de [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### <a name="validate-the-cluster"></a>Validación del clúster
 
-En esta guía se hace referencia a las instrucciones en [validar clúster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+En esta guía se hace referencia a las instrucciones en [validar clúster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
 Valide el clúster en la interfaz de usuario o con PowerShell.
 
@@ -259,7 +259,7 @@ Después de validar el clúster, cree el clúster de conmutación por error.
 
 ### <a name="create-the-failover-cluster"></a>Creación del clúster de conmutación por error
 
-Esta guía hace referencia a la [Creación del clúster de conmutación por error](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Esta guía hace referencia a la [Creación del clúster de conmutación por error](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 Para crear el clúster de conmutación por error, necesita:
 - Los nombres de las máquinas virtuales que se convierten en nodos del clúster.
@@ -276,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Testigo en la nube es un nuevo tipo de testigo de quórum de clúster almacenado en una instancia de Azure Storage Blob. Esto elimina la necesidad de que una máquina virtual independiente hospede un recurso compartido testigo.
 
-1. [Cree un testigo en la nube para el clúster de conmutación por error](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Cree un testigo en la nube para el clúster de conmutación por error](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
 1. Cree un contenedor de blobs.
 
 1. Guarde las claves de acceso y la dirección URL del contenedor.
 
-1. Configure el testigo de cuórum de clúster de conmutación por error. Consulte [Configurar el testigo de cuórum en la interfaz de usuario](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la IU.
+1. Configure el testigo de cuórum de clúster de conmutación por error. Consulte [Configurar el testigo de cuórum en la interfaz de usuario](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la IU.
 
 ### <a name="add-storage"></a>Agregue almacenamiento
 
-Los discos de S2D deben estar vacío y no pueden tener particiones ni otros datos. Para limpiar los discos siga [los pasos de esta guía](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+Los discos de S2D deben estar vacío y no pueden tener particiones ni otros datos. Para limpiar los discos siga [los pasos de esta guía](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Habilite Espacios de almacenamiento directo \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Habilite Espacios de almacenamiento directo \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    El siguiente comando de PowerShell habilita los espacios de almacenamiento directo.  
 
@@ -298,7 +298,7 @@ Los discos de S2D deben estar vacío y no pueden tener particiones ni otros dato
 
    En **Administrador de clústeres de conmutación por error**, puede ver el grupo de almacenamiento.
 
-1. [Cree un volumen](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Cree un volumen](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    Una de las características de S2D es que crea automáticamente un grupo de almacenamiento cuando se habilita. Ya está listo para crear un volumen. El commandlet de PowerShell `New-Volume` automatiza el proceso de creación de volúmenes, lo que incluye la aplicación de formato, la adición al clúster y la creación de un volumen compartido de clúster (CSV). En el ejemplo siguiente se crea un CSV de 800 gigabytes (GB).
 
@@ -343,7 +343,7 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 1. Haga clic en **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
-   >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó esta imagen, instale las herramientas de SQL Server por separado. Consulte [Descarga de SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
+   >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó esta imagen, instale las herramientas de SQL Server por separado. Consulte [Descarga de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="step-5-create-azure-load-balancer"></a>Paso 5: Crear un equilibrador de carga de Azure
 
@@ -478,7 +478,7 @@ El **Administrador de clústeres de conmutación por error** muestra el rol y su
 Para probar la conectividad, inicie sesión en otra máquina virtual de la misma red virtual. Abra **SQL Server Management Studio** y conéctese al nombre de la FCI de SQL Server.
 
 >[!NOTE]
->Si es necesario, puede [descargar SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+>Si es necesario, puede [descargar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -491,10 +491,10 @@ En máquinas virtuales de Azure, MSDTC no se admite en Windows Server 2016 y ver
 
 ## <a name="see-also"></a>Otras referencias
 
-[Instalación de S2D con escritorio remoto (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[Instalación de S2D con escritorio remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Espacios de almacenamiento directo en Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Espacios de almacenamiento directo en Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Compatibilidad de SQL Server con S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

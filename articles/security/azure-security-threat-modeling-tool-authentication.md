@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307427"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251566"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -156,7 +156,7 @@ ms.locfileid: "43307427"
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | OnPrem, SQL Azure |
 | **Atributos**              | Versión de SQL: MSSQL2012, Versión de SQL: V12 |
-| **Referencias**              | [Prácticas recomendadas de seguridad con bases de datos independientes](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **Referencias**              | [Prácticas recomendadas de seguridad con bases de datos independientes](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Pasos** | La ausencia de una directiva de contraseña exigida puede aumentar la probabilidad de que se establezca una credencial no segura en una base de datos independiente. Aproveche la autenticación de Windows. |
 
 ## <a id="authn-sas-tokens"></a>Uso de las credenciales de autenticación por dispositivo mediante tokens SaS

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841820"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232749"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
 | Producto o servicio | Artículo |
@@ -157,7 +157,7 @@ También debe destruir la sesión del usuario llamando al método Session.Abando
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType - OnPrem |
-| **Referencias**              | [httpCookies (Elemento, Esquema de configuración de ASP.NET)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [Propiedad HttpCookie.Secure](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Referencias**              | [httpCookies (Elemento, Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [Propiedad HttpCookie.Secure](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **Pasos** | Normalmente, las cookies solo son accesibles para el dominio a cuyo ámbito se limitaron. Lamentablemente, la definición de "dominio" no incluye el protocolo, así que las cookies que se crean a través de HTTPS son accesibles a través de HTTP. El atributo "secure" indica al explorador que la cookie solo debe estar disponible a través de HTTPS. Asegúrese de que todas las cookies establecidas a través de HTTPS usen el atributo **secure**. Para aplicar el requisito en el archivo Web.config, establezca el atributo requireSSL en true. Se trata del método preferido porque aplicará el atributo **secure** para todas las cookies actuales y futuras sin necesidad de que se realice ningún otro cambio en el código.|
 
 ### <a name="example"></a>Ejemplo

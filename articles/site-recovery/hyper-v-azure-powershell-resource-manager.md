@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214790"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229414"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -24,7 +24,7 @@ En este artículo se describe la forma de usar Windows PowerShell con Azure Reso
 
 Azure PowerShell ofrece comandos cmdlet para administrar Azure con Windows PowerShell. Los cmdlets de PowerShell de Site Recovery que están disponibles con Azure PowerShell para Azure Resource Manager le permiten proteger y recuperar los servidores en Azure.
 
-No es necesario ser un experto en PowerShell para leer este artículo, pero sí debe conocer conceptos básicos, como módulos, comandos cmdlet y sesiones. Le recomendamos que lea [Introducción a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) y [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) (Usar Azure PowerShell con Azure Resource Manager).
+No es necesario ser un experto en PowerShell para leer este artículo, pero sí debe conocer conceptos básicos, como módulos, comandos cmdlet y sesiones. Le recomendamos que lea [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) y [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) (Usar Azure PowerShell con Azure Resource Manager).
 
 > [!NOTE]
 > Los asociados de Microsoft que forman parte del programa Proveedor de soluciones en la nube (CSP) pueden configurar y administrar la protección de los servidores de sus clientes en sus suscripciones a CSP correspondientes (suscripciones de inquilino).

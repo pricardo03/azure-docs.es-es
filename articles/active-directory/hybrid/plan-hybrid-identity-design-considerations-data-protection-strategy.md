@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434762"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238155"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
@@ -74,7 +74,7 @@ Una parte fundamental de la administración de contenido es saber quién tiene a
 * Adición o eliminación de licencias
 
 > [!NOTE]
-> Para obtener más información acerca de las capacidades de registro de Azure, consulte el documento [Microsoft Azure Security and Audit Log Management](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) (Seguridad de Microsoft Azure y administración del registro de auditoría).
+> Para obtener más información acerca de las capacidades de registro de Azure, consulte el documento [Microsoft Azure Security and Audit Log Management](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) (Seguridad de Microsoft Azure y administración del registro de auditoría).
 > En función de cómo respondiera a las preguntas de [Determinación de los requisitos de administración de contenido](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), podría determinar cómo desea administrar el contenido en una solución de identidad híbrida. Aunque todas las opciones que se exponen en la tabla 6 pueden integrarse con Azure AD, es importante definir la que sea más adecuada para sus necesidades empresariales.
 >
 >

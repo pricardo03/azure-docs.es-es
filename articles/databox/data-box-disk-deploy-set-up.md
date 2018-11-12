@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740492"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232899"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempaquetado, conexión y desbloqueo de Azure Data Box Disk
 
@@ -75,7 +75,7 @@ Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
     En este procedimiento, solo usará la herramienta Data Box Disk Unlock. Las otras dos herramientas se usarán más adelante.
 
     > [!div class="nextstepaction"]
-    > [Descargar conjunto de herramientas de Data Box Disk para Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Descargar conjunto de herramientas de Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin)         
 
 3. Extraiga el conjunto de herramientas en el mismo equipo que va a utilizar para copiar los datos. 
 4. Abra una ventana del símbolo del sistema o ejecute Windows PowerShell como administrador en el mismo equipo.
@@ -131,7 +131,7 @@ Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
 2. Descargue el conjunto de herramientas de Data Box Disk que se corresponde con el cliente de Linux.  
 
     > [!div class="nextstepaction"]
-    > [Descargar conjunto de herramientas de Data Box Disk para Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Descargar conjunto de herramientas de Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. En el cliente Linux, abra un terminal. Vaya a la carpeta en la que descargó el software. Cambie los permisos de archivo para que pueda ejecutar estos archivos. Escriba el siguiente comando:  
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371492"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253081"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
 
@@ -35,7 +35,7 @@ En el diagrama se muestra lo que va a crear en el tutorial.
 
 ## <a name="review-availability-group-documentation"></a>Revisión de la documentación del grupo de disponibilidad
 
-En este tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Si no está familiarizado con esta tecnología, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+En este tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Si no está familiarizado con esta tecnología, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Crear una cuenta de Azure
@@ -349,7 +349,7 @@ Ahora que ha terminado de configurar Active Directory y los objetos de usuario, 
 
 ## <a name="create-sql-server-vms"></a>Creación de las máquinas virtuales con SQL Server
 
-Cree tres máquinas virtuales adicionales. La solución requiere dos máquinas virtuales con instancias de SQL Server. Una tercera máquina virtual funciona como testigo. Windows Server 2016 puede usar un [testigo en la nube](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). No obstante, para mantener la coherencia con los sistemas operativos anteriores, este documento usa una máquina virtual como testigo.  
+Cree tres máquinas virtuales adicionales. La solución requiere dos máquinas virtuales con instancias de SQL Server. Una tercera máquina virtual funciona como testigo. Windows Server 2016 puede usar un [testigo en la nube](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). No obstante, para mantener la coherencia con los sistemas operativos anteriores, este documento usa una máquina virtual como testigo.  
 
 Tenga en cuenta las siguientes decisiones de diseño antes de continuar.
 

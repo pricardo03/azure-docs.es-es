@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579864"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239056"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -111,7 +111,7 @@ Otras funcionalidades de Azure Active Directory incluyen:
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) proporciona un servicio de administración de identidades global y de alta disponibilidad para aplicaciones de consumo que se escalan a cientos de millones de identidades. Se puede integrar en plataformas móviles y web. Los consumidores pueden iniciar sesión en todas las aplicaciones con experiencias personalizables usando sus cuentas de redes sociales existentes o mediante la creación de credenciales.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Aislamiento de los administradores de Microsoft y eliminación de datos
-Microsoft aplica medidas seguras para proteger los datos contra el acceso inadecuado o el uso por parte de personas no autorizadas. Estos controles y procesos operativos están detallados en los [términos de los servicios en línea](http://aka.ms/Online-Services-Terms), que recoge los compromisos contractuales que controlan el acceso a los datos.
+Microsoft aplica medidas seguras para proteger los datos contra el acceso inadecuado o el uso por parte de personas no autorizadas. Estos controles y procesos operativos están detallados en los [términos de los servicios en línea](https://aka.ms/Online-Services-Terms), que recoge los compromisos contractuales que controlan el acceso a los datos.
 
 -   Los ingenieros de Microsoft no tienen acceso de forma predeterminada a los datos en la nube. En su lugar, se les concede acceso, bajo la supervisión de la administración, solo cuando sea necesario. El acceso se controla y registra cuidadosamente y se revoca tan pronto como deje de ser necesario.
 
@@ -119,7 +119,7 @@ Microsoft aplica medidas seguras para proteger los datos contra el acceso inadec
 
 Los servicios de negocios con certificaciones auditadas como la ISO/IEC 27001 se verifican con regularidad por Microsoft y otras empresas de auditoría acreditadas, que llevan a cabo auditorías de muestra para certificar que el acceso se produce solo con fines legítimos de la empresa. Siempre puede tener acceso a sus propios datos de cliente en cualquier momento y por cualquier motivo.
 
-Si se elimina algún dato, Microsoft Azure eliminará los datos, incluidas las copias en memoria caché y las copias de seguridad. Para los servicios incluidos en el ámbito, la eliminación se realizará 90 días después del final del período de retención. (Los servicios incluidos en el ámbito se definen en los términos del procesamiento de datos, en los [términos de los servicios en línea](http://aka.ms/Online-Services-Terms).)
+Si se elimina algún dato, Microsoft Azure eliminará los datos, incluidas las copias en memoria caché y las copias de seguridad. Para los servicios incluidos en el ámbito, la eliminación se realizará 90 días después del final del período de retención. (Los servicios incluidos en el ámbito se definen en los términos del procesamiento de datos, en los [términos de los servicios en línea](https://aka.ms/Online-Services-Terms).)
 
 Si una unidad de disco utilizada para el almacenamiento sufre un error de hardware, se [borra o destruye](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de un modo seguro antes de que Microsoft la devuelva al fabricante para su reemplazo o reparación. Los datos de la unidad se sobrescriben para asegurarse de que no se puedan recuperar de ninguna forma.
 

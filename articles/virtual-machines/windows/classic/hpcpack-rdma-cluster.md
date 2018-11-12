@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 52338cc21e46b544c2abb79cd7094615c837a2e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345244"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233786"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI
 Configure un clúster de Windows RDMA en Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) y [tamaños de máquina virtual HPC compatibles con RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) para ejecutar aplicaciones de Message Passing Interface (MPI) paralelas. Cuando configura nodos basados en Windows Server compatibles con RDMA en un clúster de HPC Pack, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y rendimiento alto en Azure que está basada en tecnología de acceso directo a memoria remota (RDMA).
@@ -51,19 +51,19 @@ A continuación, se presentan consideraciones y pasos para enviar ráfagas a ins
     Descargue el paquete de instalación de HPC Pack más reciente del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver los requisitos y las instrucciones de preparación de una implementación de ráfaga de Azure, consulte el artículo sobre [ráfagas a instancias de trabajo de Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Configurar un certificado de administración en la suscripción a Azure**
    
-    Configure un certificado para proteger la conexión entre el nodo principal y Azure. Para ver las opciones y los procedimientos, consulte [Escenarios para configurar el certificado de administración de Azure para HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Para las implementaciones de prueba, HPC Pack instale un certificado de administración predeterminado de Microsoft HPC Azure que puede cargar rápidamente a su suscripción de Azure.
+    Configure un certificado para proteger la conexión entre el nodo principal y Azure. Para ver las opciones y los procedimientos, consulte [Escenarios para configurar el certificado de administración de Azure para HPC Pack](https://technet.microsoft.com/library/gg481759.aspx). Para las implementaciones de prueba, HPC Pack instale un certificado de administración predeterminado de Microsoft HPC Azure que puede cargar rápidamente a su suscripción de Azure.
 3. **Crear un nuevo servicio en la nube y una cuenta de almacenamiento**
    
     Use Azure Portal para crear un servicio en la nube (clásica) y una cuenta de almacenamiento (clásica) para la implementación. Cree estos recursos en una región donde los tamaños de serie H, A8 o A9 que quiera usar estén disponibles. Consulte [Productos de Azure por región](https://azure.microsoft.com/regions/services/).
 
 4. **Crear una plantilla de nodo de Azure**
    
-    Use el Asistente para crear plantillas de nodo en el Administrador de clústeres de HPC. Para conocer los pasos, consulte [Crear una plantilla de nodo de Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) en "Pasos para implementar nodos de Azure con Microsoft HPC Pack".
+    Use el Asistente para crear plantillas de nodo en el Administrador de clústeres de HPC. Para conocer los pasos, consulte [Crear una plantilla de nodo de Azure](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) en "Pasos para implementar nodos de Azure con Microsoft HPC Pack".
    
     Para las pruebas iniciales, es recomendable configurar una directiva de disponibilidad manual en la plantilla.
 5. **Agregar nodos al clúster**
    
-    Use el Asistente para agregar nodos en el Administrador de clústeres de HPC. Para obtener más información, consulte [Agregar nodos de Azure al clúster de Windows HPC](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
+    Use el Asistente para agregar nodos en el Administrador de clústeres de HPC. Para obtener más información, consulte [Agregar nodos de Azure al clúster de Windows HPC](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
    
     Cuando especifique el tamaño de los nodos, seleccione uno de los tamaños de instancia compatibles con RDMA.
    
@@ -76,7 +76,7 @@ A continuación, se presentan consideraciones y pasos para enviar ráfagas a ins
     Seleccione los nodos y use la acción **Iniciar** en el Administrador de clústeres de HPC. Cuando se complete el aprovisionamiento, seleccione los nodos y use la acción **Poner en línea** en el Administrador de clústeres de HPC. Los nodos están listos para ejecutar trabajos.
 7. **Enviar trabajos al clúster**
    
-   Use las herramientas de envío de trabajos de HPC Pack para ejecutar trabajos de clúster. Consulte [Microsoft HPC Pack: Administración de trabajos](http://technet.microsoft.com/library/jj899585.aspx).
+   Use las herramientas de envío de trabajos de HPC Pack para ejecutar trabajos de clúster. Consulte [Microsoft HPC Pack: Administración de trabajos](https://technet.microsoft.com/library/jj899585.aspx).
 8. **Detener (desaprovisionar) los nodos**
    
    Cuando termine de ejecutar los trabajos, desconecte los nodos y use la acción **Detener** del Administrador de clústeres de HPC.

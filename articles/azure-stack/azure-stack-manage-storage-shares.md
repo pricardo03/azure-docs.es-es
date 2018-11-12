@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452333"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249904"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Administración de la capacidad de almacenamiento para Azure Stack 
 
@@ -138,7 +138,7 @@ La migración consolida todos los blobs de contenedores en el nuevo recurso comp
 > La migración de blobs para un contenedor es una operación sin conexión que requiere el uso de PowerShell. Hasta que se complete la migración, todos los blobs del contenedor que se va a migrar permanecen sin conexión y no se pueden utilizar. También debe evitar la actualización de Azure Stack hasta que se completen todas las migraciones en curso.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Para migrar contenedores mediante PowerShell
-1. Confirme que ha [instalado y configurado Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](http://go.microsoft.com/fwlink/?LinkId=394767).
+1. Confirme que ha [instalado y configurado Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Examine el contenedor para entender qué datos hay sobre el recurso compartido que planea migrar. Para identificar los mejores contenedores candidatos para la migración en un volumen, utilice el cmdlet **AzsStorageContainer Get**:
 
     ````PowerShell  

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: 1e9ed9d3500b112f98492e6a85d02a1f1843c7c3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ab47db7629c92b0e6a5b268c9d233135485a37a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365584"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237727"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -46,7 +46,7 @@ En este tutorial realizará lo siguiente:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
-- [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+- [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Creación de un proyecto que admita Google Cloud Messaging
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
@@ -524,7 +524,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Cree un token de firma de acceso a software (SaS) para autenticar una solicitud POST de envío de mensajes al centro de notificaciones. Analice los datos de clave de la cadena de conexión y cree el token SaS como se menciona en la referencia de API REST de [Conceptos comunes](http://msdn.microsoft.com/library/azure/dn495627.aspx). El código siguiente es un ejemplo de implementación.
+6. Cree un token de firma de acceso a software (SaS) para autenticar una solicitud POST de envío de mensajes al centro de notificaciones. Analice los datos de clave de la cadena de conexión y cree el token SaS como se menciona en la referencia de API REST de [Conceptos comunes](https://msdn.microsoft.com/library/azure/dn495627.aspx). El código siguiente es un ejemplo de implementación.
    
     En `MainActivity.java`, agregue el método siguiente a la clase `MainActivity` para analizar la cadena de conexión.
    

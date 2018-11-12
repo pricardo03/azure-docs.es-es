@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667454"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238082"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -35,7 +35,7 @@ El diagrama muestra lo que va a crear en el tutorial.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En el tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Para más información, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+En el tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Para más información, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 En la tabla siguiente se enumeran los requisitos previos que debe completar antes de iniciar este tutorial:
 
@@ -119,7 +119,7 @@ Agregue el otro servidor SQL Server al clúster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Agregar un recurso compartido de cuórum de clúster
 
-En este ejemplo, el clúster de Windows usa un recurso compartido de archivos para crear un cuórum de clúster. Este tutorial utiliza un cuórum de mayoría de recurso compartido de archivos y nodo. Para más información, consulte [Descripción de las configuraciones de cuórum en un clúster de conmutación por error](http://technet.microsoft.com/library/cc731739.aspx).
+En este ejemplo, el clúster de Windows usa un recurso compartido de archivos para crear un cuórum de clúster. Este tutorial utiliza un cuórum de mayoría de recurso compartido de archivos y nodo. Para más información, consulte [Descripción de las configuraciones de cuórum en un clúster de conmutación por error](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Conéctese al servidor miembro de testigo de recurso compartido de archivos con una sesión de Escritorio remoto.
 
@@ -168,7 +168,7 @@ A continuación, establezca el quórum de clúster.
 1. En **Seleccionar el testigo de quórum**, haga clic en **Configurar un testigo de recurso compartido de archivos**.
 
    >[!TIP]
-   >Windows Server 2016 admite un testigo en la nube. Si elige este tipo de testigo, no necesita ningún testigo de recurso compartido de archivos. Para más información, consulte [Implementación de un testigo en la nube para un clúster de conmutación por error](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa un testigo de recurso compartido de archivos, que es compatible con los sistemas operativos anteriores.
+   >Windows Server 2016 admite un testigo en la nube. Si elige este tipo de testigo, no necesita ningún testigo de recurso compartido de archivos. Para más información, consulte [Implementación de un testigo en la nube para un clúster de conmutación por error](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa un testigo de recurso compartido de archivos, que es compatible con los sistemas operativos anteriores.
 
 1. En **Configurar un testigo de recurso compartido de archivos**, escriba la ruta de acceso para el recurso compartido que creó. Haga clic en **Next**.
 
@@ -515,7 +515,7 @@ Para probar la conexión:
 La conexión SQLCMD se establece automáticamente con la instancia de SQL Server en la que se hospede la réplica principal.
 
 > [!TIP]
-> Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](http://technet.microsoft.com/library/cc753558.aspx) para más información.
+> Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](https://technet.microsoft.com/library/cc753558.aspx) para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

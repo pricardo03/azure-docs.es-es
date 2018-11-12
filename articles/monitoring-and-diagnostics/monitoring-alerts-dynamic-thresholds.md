@@ -9,12 +9,12 @@ ms.date: 04/27/2018
 ms.author: mbullwin
 ms.reviewer: antonfr
 ms.component: alerts
-ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263320"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233973"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Alertas con umbrales dinámicos en Azure Monitor (versión preliminar pública limitada)
 
@@ -30,7 +30,7 @@ Las alertas basadas en umbrales dinámicos están disponibles para todos los or�
 
 ## <a name="sign-up-to-access-the-preview"></a>Registro para acceder a la versión preliminar
 
-Para probar esta funcionalidad, [regístrese en la versión preliminar](http://aka.ms/DynamicThresholdMetricAlerts). Como siempre, nos encantaría recibir sus comentarios; envíelos a [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+Para probar esta funcionalidad, [regístrese en la versión preliminar](https://aka.ms/DynamicThresholdMetricAlerts). Como siempre, nos encantaría recibir sus comentarios; envíelos a [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
 
 ## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>Configuración de alertas con umbrales dinámicos
 

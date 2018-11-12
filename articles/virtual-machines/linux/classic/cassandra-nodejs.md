@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421363"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237866"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Ejecutar un clúster de Cassandra en Azure para Linux con Node.js
 
@@ -49,7 +49,7 @@ Cassandra puede implementarse en una sola región de Azure o para varias regione
 ### <a name="single-region-deployment"></a>Implementación de una sola región
 Comencemos con una implementación de una sola región y recopilaremos lo aprendido en la creación de un modelo de varias regiones. La red virtual de Azure se usará para crear subredes aisladas, de modo que se puedan cumplir los requisitos de seguridad de red mencionados anteriormente.  El proceso descrito en la creación de la implementación de una sola región usa Ubuntu 14.04 LTS y Cassandra 2.08. Sin embargo, en el proceso se pueden usar fácilmente otras variantes de Linux. Estas son algunas de las características sistémicas de la implementación de una sola región.  
 
-**Alta disponibilidad:** Los nodos de Cassandra que se muestran en la Ilustración 1 se implementan en dos conjuntos de disponibilidad para que los nodos se repartan entre varios dominios de error para una alta disponibilidad. Las máquinas virtuales que se anotan con cada conjunto de disponibilidad se asignan a dos dominios de error. Azure usa el concepto de dominio de error para administrar períodos de inactividad no planeados (por ejemplo, errores de hardware o software). El concepto del dominio de actualización (por ejemplo, revisiones o actualizaciones de host o de SO invitado o actualizaciones de aplicaciones) se utiliza para administrar el período de tiempo de inactividad. Consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](http://msdn.microsoft.com/library/dn251004.aspx) para el rol de dominios de error y de actualización a fin de alcanzar alta disponibilidad.
+**Alta disponibilidad:** Los nodos de Cassandra que se muestran en la Ilustración 1 se implementan en dos conjuntos de disponibilidad para que los nodos se repartan entre varios dominios de error para una alta disponibilidad. Las máquinas virtuales que se anotan con cada conjunto de disponibilidad se asignan a dos dominios de error. Azure usa el concepto de dominio de error para administrar períodos de inactividad no planeados (por ejemplo, errores de hardware o software). El concepto del dominio de actualización (por ejemplo, revisiones o actualizaciones de host o de SO invitado o actualizaciones de aplicaciones) se utiliza para administrar el período de tiempo de inactividad. Consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](https://msdn.microsoft.com/library/dn251004.aspx) para el rol de dominios de error y de actualización a fin de alcanzar alta disponibilidad.
 
 ![Implementación de una sola región](./media/cassandra-nodejs/cassandra-linux1.png)
 

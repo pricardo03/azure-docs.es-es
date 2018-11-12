@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/28/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 8acb808e4b60926fbe6b3faa3fa6a7174a190884
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094248"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238138"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>¿Qué es Azure Data Box Disk? (versión preliminar)
 
@@ -44,10 +44,10 @@ Los discos cuentan con cifrado de unidad BitLocker de Microsoft, mientras que la
 A. Si desea transferir 40 TB de datos (o menos) a Azure, es aconsejable usar de los discos de Data Box.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>P: ¿Cuánto cuestan los discos de Data Box?
-A. Durante la versión preliminar, los discos de Data Box Disk está disponibles sin costo alguno. El envío es también gratuito; sin embargo, se aplicarán los gastos de almacenamiento de Azure.
+A. Para más información sobre el precio de Data Box Disks, vaya a la [página de precios de la versión preliminar](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P: ¿Cómo se obtienen los discos de Data Box? 
-A.  Para obtener los discos de Azure Data Box, primero es preciso registrarse para obtener la [versión preliminar de Data Box Disk](http://aka.ms/AzureDataBox). Luego, es preciso iniciar sesión en Azure Portal y cree un pedido de discos de Data Box. Proporcione su información de contacto y los datos de notificación. Una vez que realiza el pedido, y en función de la disponibilidad, los discos se envían en un plazo máximo de 10 días.   
+A.  Para obtener los discos de Azure Data Box, primero es preciso registrarse para obtener la [versión preliminar de Data Box Disk](https://aka.ms/AzureDataBox). Luego, es preciso iniciar sesión en Azure Portal y cree un pedido de discos de Data Box. Proporcione su información de contacto y los datos de notificación. Una vez que realiza el pedido, y en función de la disponibilidad, los discos se envían en un plazo máximo de 10 días.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>P: ¿Cuál es la cantidad máxima de datos que se puede transferir con los discos de Data Box en una instancia?
 A. Para cinco discos de 8 TB cada uno (7 TB de capacidad usable), la capacidad máxima usable es 35 TB. Por tanto, puede transferir 35 TB de datos en una instancia.  Para transferir más datos, es preciso solicitar más discos.
@@ -72,7 +72,7 @@ A.  En Azure Portal, vaya a su pedido de discos de Data Box y, después, a **Det
 Para obtener instrucciones detalladas, consulte los temas donde se explica [cómo desbloquear discos en un cliente de Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) o [cómo desbloquear discos en un cliente de Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>P: ¿Se puede usar un equipo host Linux para conectarse y copiar los datos de los discos de Data Box?
-A.  Sí. Tanto los clientes de Linux como los clientes de Windows pueden utilizarse para conectar y copiar datos en los discos de Data Box Disk. Para más información, vaya a la lista de [sistemas operativos compatibles](data-box-disk-system-requirements.md) del equipo host.
+A.  Sí. Tanto los clientes de Linux como los de Windows pueden utilizarse para conectar y copiar datos en los discos de Data Box Disk. Para más información, vaya a la lista de [sistemas operativos compatibles](data-box-disk-system-requirements.md) del equipo host.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P: Quiero cancelar un pedido una vez que los discos se han enviado. ¿Por qué no está disponible el botón de cancelación?
 A.  El pedido solo se puede cancelar durante el periodo que va entre la realización del pedido y el momento en que se realiza el envío. Una vez que los discos se han enviado, no de puede cancelar el pedido. Durante el periodo de la versión preliminar, los discos se pueden devolver sin costo alguno, aunque es probable que esto cambie cuando la solución está disponible con carácter general. 

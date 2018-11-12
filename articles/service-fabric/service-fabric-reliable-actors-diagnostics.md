@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 03c8bf129bcb8bf1b8af4bb7d189f1a38ba8f503
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 61c01e8ea3b4cbe7b5f7ab83ab35383d74df3105
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809097"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234943"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnósticos y supervisión del rendimiento de Reliable Actors
 El tiempo de ejecución de Reliable Actors emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) y [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando el tiempo de ejecución y ayudarán con la solución de problemas y la supervisión de rendimiento.
@@ -27,7 +27,7 @@ El tiempo de ejecución de Reliable Actors emite eventos [EventSource](https://m
 ## <a name="eventsource-events"></a>Eventos EventSource
 El nombre del proveedor de EventSource del tiempo de ejecución de Reliable Actors es "Microsoft-ServiceFabric-Actors". Los eventos de este origen de eventos aparecen en la ventana [Eventos de diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) cuando la aplicación de actor se [depura en Visual Studio](service-fabric-debugging-your-application.md).
 
-Otros ejemplos de herramientas y tecnologías que ayudan a recopilar o ver eventos EventSource son [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) y [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Otros ejemplos de herramientas y tecnologías que ayudan a recopilar o ver eventos EventSource son [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) y [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Palabras clave
 Todos los eventos que pertenecen al EventSource de Reliable Actors están asociados a una o varias palabras clave. Esto habilita el filtrado de los eventos que se recopilan. Se definen los siguientes bits de palabras clave:
@@ -96,7 +96,7 @@ El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacion
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Detallado |0x2 |El tiempo de ejecución de los actores está a punto de invocar un método de actor. |
 | ActorMethodStop |8 |Detallado |0x2 |Un método de actor terminó de ejecutarse. Por ejemplo, se ha devuelto la llamada asincrónica del tiempo de ejecución al método de actor y se completó la tarea que el método de actor devolvió. |
-| ActorMethodThrewException |9 |Warning (Advertencia) |0x3 |Se produjo una excepción durante la ejecución de un método de actor, bien durante la llamada asincrónica del tiempo de ejecución al método actor o bien durante la ejecución de la tarea el método de actor devolvió. Este evento indica algún tipo de error en el código de actor que debe investigarse. |
+| ActorMethodThrewException |9 |Advertencia |0x3 |Se produjo una excepción durante la ejecución de un método de actor, bien durante la llamada asincrónica del tiempo de ejecución al método actor o bien durante la ejecución de la tarea el método de actor devolvió. Este evento indica algún tipo de error en el código de actor que debe investigarse. |
 
 El tiempo de ejecución de Reliable Actors publica los siguientes contadores de rendimiento relacionados con la ejecución de los métodos de actor.
 

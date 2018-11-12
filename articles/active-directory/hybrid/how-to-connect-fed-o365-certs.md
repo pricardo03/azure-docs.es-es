@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0205552c073bf03c40da4d108256fa09e71fbbe3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309894"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237102"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -51,9 +51,9 @@ Azure AD intenta supervisar los metadatos de federación y actualizar el token d
 > [!IMPORTANT]
 > Si utiliza AD FS, para garantizar la continuidad del negocio, compruebe que los servidores tienen las actualizaciones siguientes para que no se produzcan errores de autenticación de los problemas conocidos. Esta acción mitiga los problemas conocidos del servidor de proxy de AD FS para esta renovación y períodos de renovación futuros:
 >
-> Server 2012 R2: [paquete acumulativo de mayo de 2014 de Windows Server](http://support.microsoft.com/kb/2955164)
+> Server 2012 R2: [paquete acumulativo de mayo de 2014 de Windows Server](https://support.microsoft.com/kb/2955164)
 >
-> Server 2008 R2 y 2012: [Se produce un error en la autenticación a través de proxy en Windows Server 2012 o Windows Server 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
+> Server 2008 R2 y 2012: [Se produce un error en la autenticación a través de proxy en Windows Server 2012 o Windows Server 2008 R2 SP1](https://support.microsoft.com/kb/3094446)
 >
 >
 

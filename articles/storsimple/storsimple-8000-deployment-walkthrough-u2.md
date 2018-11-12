@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 34648426086bdd67f19ec227ddf0d931f3837c0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698620"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238002"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementación del dispositivo StorSimple local (Update 3 u otra posterior)
 
@@ -66,7 +66,7 @@ Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conect
 ## <a name="deployment-configuration-checklist"></a>Lista de comprobación de la configuración de implementación
 Antes de implementar el dispositivo, deberá recopilar información para configurar el software en el dispositivo StorSimple. La preparación de parte de esta información con antelación simplifica el proceso de implementación del dispositivo StorSimple en el entorno. Descargue y use esta lista de comprobación para anotar los detalles de configuración cuando implemente el dispositivo.
 
-* [Descargar la lista de comprobación de la configuración de implementación de StorSimple](http://www.microsoft.com/download/details.aspx?id=49159)
+* [Descargar la lista de comprobación de la configuración de implementación de StorSimple](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>Requisitos previos de implementación
 Las siguientes secciones explican los requisitos previos de configuración para el servicio de Administrador de dispositivos de StorSimple y el dispositivo StorSimple.

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 54eefc9c488718dae25e35ef0c5f0f5c50dea16c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041748"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236937"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticación y autorización con Colecciones de áreas de trabajo de Power BI
 
@@ -170,7 +170,7 @@ Body
    
    ![Flujo de tokens de aplicación: el servicio envía un informe al usuario](media/get-started-sample/token-6.png)
 
-Después de que **Colecciones de áreas de trabajo de Power BI** envíe un informe al usuario, este podrá ver el informe en su aplicación personalizada. Por ejemplo, si ha importado el [archivo PBIX de ejemplo de análisis de datos de venta](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), la aplicación web de ejemplo tendría el siguiente aspecto:
+Después de que **Colecciones de áreas de trabajo de Power BI** envíe un informe al usuario, este podrá ver el informe en su aplicación personalizada. Por ejemplo, si ha importado el [archivo PBIX de ejemplo de análisis de datos de venta](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), la aplicación web de ejemplo tendría el siguiente aspecto:
 
 ![Ejemplo de informe insertado en la aplicación](media/get-started-sample/sample-web-app.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055761"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234772"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Cuaderno de estrategias de la solución Vehicle Telemetry Analytics: profundización en la solución
 Este menú vincula a las secciones de este cuaderno de estrategias: 
@@ -123,7 +123,7 @@ La siguiente consulta de Stream Analytics se usa para conservar los datos en Blo
 
 
 ### <a name="batch-analysis"></a>Análisis por lotes
-También se genera un conjunto de datos de señales de vehículo y diagnóstico simulados para un análisis por lotes más completo. Este volumen adicional es necesario para garantizar un volumen de datos representativo para el procesamiento por lotes. Con este propósito, se utiliza PrepareSampleDataPipeline en el flujo de trabajo de Data Factory, para generar un conjunto de datos de señales de vehículo y diagnóstico simulados de un año completo. Para descargar la solución de Visual Studio de actividad .NET personalizada de Data Factory para realizar personalizaciones adaptadas a sus necesidades, vaya a la página web de la [actividad personalizada de Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077). 
+También se genera un conjunto de datos de señales de vehículo y diagnóstico simulados para un análisis por lotes más completo. Este volumen adicional es necesario para garantizar un volumen de datos representativo para el procesamiento por lotes. Con este propósito, se utiliza PrepareSampleDataPipeline en el flujo de trabajo de Data Factory, para generar un conjunto de datos de señales de vehículo y diagnóstico simulados de un año completo. Para descargar la solución de Visual Studio de actividad .NET personalizada de Data Factory para realizar personalizaciones adaptadas a sus necesidades, vaya a la página web de la [actividad personalizada de Data Factory](https://go.microsoft.com/fwlink/?LinkId=717077). 
 
 Este flujo de trabajo muestra los datos de ejemplo preparados para el procesamiento por lotes.
 
@@ -674,4 +674,4 @@ Este documento contiene un desglose detallado de la solución de análisis de te
 * [SDK de Azure Event Hubs para la ingesta de flujos](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funcionalidades de movimiento de datos de Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Actividad .NET en Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)
-* [Solución de Visual Studio para la actividad .NET en Azure Data Factory para preparar datos de ejemplo](http://go.microsoft.com/fwlink/?LinkId=717077) 
+* [Solución de Visual Studio para la actividad .NET en Azure Data Factory para preparar datos de ejemplo](https://go.microsoft.com/fwlink/?LinkId=717077) 

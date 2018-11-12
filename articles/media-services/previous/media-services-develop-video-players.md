@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 71d8b020fe96094c15965fd82615e3182e333990
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783464"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237050"
 ---
 # <a name="develop-video-player-applications"></a>Desarrollo de aplicaciones para reproductor de vídeo
 ## <a name="overview"></a>Información general
@@ -29,17 +29,17 @@ Azure Media Services proporciona las herramientas que necesita para crear aplica
 >Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
  
 ## <a name="azure-media-player"></a>Azure Media Player
-[Azure Media Player](http://aka.ms/ampinfo) es un reproductor de vídeo web integrado para reproducir contenido multimedia de Microsoft Azure Media Services en una gran variedad de exploradores y dispositivos. Explorador multimedia de Azure utiliza los estándares del sector, como HTML5, Media Source Extensions (MSE, extensiones de origen multimedia) y Encrypted Media Extensions (EME, extensiones multimedia cifradas) para proporcionar una experiencia de streaming adaptativa enriquecida. Cuando estos estándares no están disponibles en un dispositivo o en un explorador, Azure Media Player usa Flash y Silverlight como tecnología de reserva. Independientemente de la tecnología de reproducción que se usa, los desarrolladores tendrán una interfaz unificada de JavaScript para tener acceso a las API. Esto permite que el contenido proporcionado por Azure Media Services se reproduzca a través de una amplia gama de dispositivos y exploradores sin ningún esfuerzo adicional.
+[Azure Media Player](https://aka.ms/ampinfo) es un reproductor de vídeo web integrado para reproducir contenido multimedia de Microsoft Azure Media Services en una gran variedad de exploradores y dispositivos. Explorador multimedia de Azure utiliza los estándares del sector, como HTML5, Media Source Extensions (MSE, extensiones de origen multimedia) y Encrypted Media Extensions (EME, extensiones multimedia cifradas) para proporcionar una experiencia de streaming adaptativa enriquecida. Cuando estos estándares no están disponibles en un dispositivo o en un explorador, Azure Media Player usa Flash y Silverlight como tecnología de reserva. Independientemente de la tecnología de reproducción que se usa, los desarrolladores tendrán una interfaz unificada de JavaScript para tener acceso a las API. Esto permite que el contenido proporcionado por Azure Media Services se reproduzca a través de una amplia gama de dispositivos y exploradores sin ningún esfuerzo adicional.
 
 Microsoft Azure Media Services permite ofrecer contenido con formatos de streaming DASH, Smooth Streaming y HLS para reproducir contenido. Azure Media Player tiene en cuenta estos diversos formatos y reproduce automáticamente el vínculo mejor según las capacidades del explorador y plataforma. Microsoft Azure Media Services también permite el cifrado dinámico de recursos con el cifrado PlayReady o el cifrado de sellado de AES de 128 bits. Azure Media Player permite el descifrado del contenido cifrado de AES de 128 bits y PlayReady cuando se configura correctamente. 
 
 Para obtener más información:
 
-* [Azure Media Player](http://aka.ms/ampinfo)
-* [Documentación de Azure Media Player](http://aka.ms/ampdocs) 
+* [Azure Media Player](https://aka.ms/ampinfo)
+* [Documentación de Azure Media Player](https://aka.ms/ampdocs) 
 * [Blog de introducción a Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
-* [Suscríbase para mantenerse al día con la versión más reciente de Azure Media Player](http://aka.ms/ampsignup)
-* [Agregue nuevas solicitudes, ideas, comentarios](http://aka.ms/ampuservoice) 
+* [Suscríbase para mantenerse al día con la versión más reciente de Azure Media Player](https://aka.ms/ampsignup)
+* [Agregue nuevas solicitudes, ideas y comentarios](https://aka.ms/ampuservoice) 
 
 ## <a name="other-tools-for-creating-player-applications"></a>Otras herramientas para crear aplicaciones del reproductor
 También puede usar algunos de los SDK siguientes:
@@ -49,8 +49,8 @@ También puede usar algunos de los SDK siguientes:
 * [Plataforma multimedia de Microsoft: Player Framework](http://playerframework.codeplex.com/) 
 * [Documentación de HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Complemento Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-* [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](http://aka.ms/sspk) 
-* [Desarrollo de aplicaciones de vídeo de XBOX](http://xbox.create.msdn.com/) 
+* [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](https://aka.ms/sspk) 
+* [Desarrollo de aplicaciones de vídeo de XBOX](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Publicidad
 Azure Media Services admite la inserción de anuncios mediante Plataforma multimedia de Microsoft: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada marco de trabajo de reproductor contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en el archivo multimedia:

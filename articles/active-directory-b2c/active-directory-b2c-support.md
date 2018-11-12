@@ -10,23 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4ceef533145bea75247eb26998b998552293ef63
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 04eae00d40470d5f6c992d9a0c8c9b0b49d7495f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449331"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007644"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: presentación de solicitudes de soporte técnico
 Puede presentar solicitudes de soporte técnico para Azure Active Directory (Azure AD) B2C en el Portal de Azure mediante estos pasos:
 
-1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Cambie del inquilino B2C a otro inquilino que tenga asociada una suscripción de Azure. Normalmente, es el inquilino del empleado o el inquilino predeterminado que se creó cuando se registró para una suscripción de Azure. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+1. Cambie del inquilino B2C a otro inquilino que tenga asociada una suscripción de Azure. Normalmente, es el inquilino del empleado o el inquilino predeterminado que se creó cuando se registró para una suscripción de Azure. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
    
     ![Soporte técnico: Cambiar inquilinos](./media/active-directory-b2c-support/support-switch-dir.png)
+
 3. Después de cambiar de inquilino, haga clic en **Ayuda y soporte técnico**.
    
     ![Soporte técnico: Ayuda y soporte técnico](./media/active-directory-b2c-support/support-support.png)
+    
 4. Haga clic en **Nueva solicitud de soporte técnico**.
    
     ![Soporte técnico: Nuevo](./media/active-directory-b2c-support/support-new.png)

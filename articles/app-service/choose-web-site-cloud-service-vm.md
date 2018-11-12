@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022577"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238512"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparación de Azure App Service, Virtual Machines, Service Fabric y Cloud Services
 
@@ -47,7 +47,7 @@ La siguiente tabla compara las funcionalidades de App Service, Cloud Services, V
 | Soporte para WebMatrix |X | |X | | |
 | Acceso a servicios como Service Bus, Almacenamiento, Base de datos SQL |X |X |X |X | |
 | Web de host o nivel de servicios web de una arquitectura multinivel |X |X |X |X | |
-| Nivel medio del host de una arquitectura multinivel |X |X |X |X |Las aplicaciones web de App Service pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. |
+| Nivel medio del host de una arquitectura multinivel |X |X |X |X |Las aplicaciones web de App Service pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](https://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. |
 | Soporte integrado de MySQL como servicio |X |X | | | |
 | Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python |X |X |X |X |Service Fabric admite la creación de un front-end web con [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md), o bien se puede implementar cualquier tipo de aplicación (Node.js, Java, etc.) como un [ejecutable invitado](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Escalado horizontal a varias instancias sin volver a implementar |X |X |X |X |Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para enrutar las solicitudes entre las máquinas y asegurarse de que tiene más de una instancia de máquina virtual en el [conjunto de disponibilidad](../virtual-machines/windows/manage-availability.md). |

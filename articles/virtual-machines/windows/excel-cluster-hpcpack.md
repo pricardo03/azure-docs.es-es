@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5b8d3aa69d6a141394395f012e5cc57873cafaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421219"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235945"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Introducción a la ejecución de cargas de trabajo de Excel y SOA en un clúster de HPC Pack en Azure
 En este artículo se muestra cómo implementar un clúster de Microsoft HPC Pack 2012 R2 en máquinas virtuales de Azure con una plantilla de inicio rápido de Azure, o bien, de manera opcional, un script de implementación de Azure PowerShell. El clúster usa imágenes de VM de Azure Marketplace diseñadas para ejecutar cargas de trabajo de Microsoft Excel o de Arquitectura orientada a servicios (SOA) con HPC Pack. Puede usar el clúster para ejecutar servicios de SOA y Excel HPC desde un equipo cliente local. Los servicios de Excel HPC incluyen la descarga de libros de Excel y las funciones definidas por el usuario de Excel o UDF.
@@ -225,7 +225,7 @@ Siga estos pasos para descargar un libro de Excel para que se ejecute en el clú
         </startup>
     </configuration>
     ```
-1. Configure el cliente para enviar trabajos al clúster de HPC Pack. Una opción es descargar la [instalación completa de HPC Pack 2012 R2 actualización 3](http://www.microsoft.com/download/details.aspx?id=49922) e instale el cliente de HPC Pack. De manera alternativa, descargue e instale las [utilidades de cliente de HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) y el paquete redistribuible de Visual C++ 2010 adecuado para su equipo ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
+1. Configure el cliente para enviar trabajos al clúster de HPC Pack. Una opción es descargar la [instalación completa de HPC Pack 2012 R2 actualización 3](https://www.microsoft.com/download/details.aspx?id=49922) e instale el cliente de HPC Pack. De manera alternativa, descargue e instale las [utilidades de cliente de HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) y el paquete redistribuible de Visual C++ 2010 adecuado para su equipo ([x64](https://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 1. En este ejemplo, usamos un libro de Excel de ejemplo denominado ConvertiblePricing_Complete.xlsb. Puede descargarlas [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
 1. Copie el libro de Excel en una carpeta de trabajo como D:\Excel\Run.
 1. Abra el libro de Excel. En la cinta **Desarrollar**, haga clic en **Complementos COM** y confirme que el complemento COM de HPC Pack Excel se cargó correctamente.
@@ -262,7 +262,7 @@ Para ejecutar UDF de Excel, siga los pasos de 1 a 3 anteriores para configurar e
 > 
 > 
 
-Una vez que el clúster esté implementado correctamente, siga estos pasos para ejecutar una UDF de Excel integrada de ejemplo. Para UDF personalizadas de Excel, consulte los [recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para compilar las funciones XLL e implementarlas en el clúster de IaaS.
+Una vez que el clúster esté implementado correctamente, siga estos pasos para ejecutar una UDF de Excel integrada de ejemplo. Para UDF personalizadas de Excel, consulte los [recursos](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para compilar las funciones XLL e implementarlas en el clúster de IaaS.
 
 1. Abra un nuevo libro de Excel. En la cinta **Desarrollar**, haga clic en **Complementos**. En el cuadro de diálogo, haga clic en **Examinar**, vaya a la carpeta %CCP_HOME%Bin\XLL32 y seleccione el archivo ClusterUDF32.xll de ejemplo. Si ClusterUDF32 no existe en el equipo cliente, cópielo de la carpeta %CCP_HOME%Bin\XLL32 en el nodo principal.
    
@@ -280,7 +280,7 @@ Una vez que el clúster esté implementado correctamente, siga estos pasos para 
 Para ejecutar aplicaciones generales de SOA en el clúster de HPC Pack IaaS, use primero uno de los métodos que aparecen en el paso 1 para implementar el clúster. En este caso, especifique una imagen de nodo de proceso genérica porque no necesita tener instalado Excel en los nodos de proceso. A continuación, siga estos pasos.
 
 1. Después de recuperar el certificado del clúster, impórtelo en el equipo cliente en Cert: \CurrentUser\Root.
-1. Instale el [SDK de HPC Pack 2012 R2 Update 3](http://www.microsoft.com/download/details.aspx?id=49921) y las utilidades de cliente de [HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Estas herramientas le permiten desarrollar y ejecutar aplicaciones cliente de SOA.
+1. Instale el [SDK de HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49921) y las utilidades de cliente de [HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Estas herramientas le permiten desarrollar y ejecutar aplicaciones cliente de SOA.
 1. Descargue el [código de ejemplo](https://www.microsoft.com/download/details.aspx?id=41633)de HelloWorldR2. Abra HelloWorldR2.sln en Visual Studio 2010 o 2012. (Este ejemplo no es compatible actualmente con las versiones más recientes de Visual Studio).
 1. Primero compile el proyecto EchoService. Luego, implemente el servicio en el clúster de IaaS de la misma manera que se implementa en un clúster local. Para obtener pasos detallados, consulte el archivo Léame.doc en HelloWordR2. Modifique y compile HelloWorldR2 y otros proyectos tal como se describe en la sección siguiente para generar las aplicaciones cliente de SOA que se ejecutan en un clúster de IaaS de Azure.
 
@@ -343,7 +343,7 @@ Para usar el enlace NetTcp, la configuración es similar que al conectarse a un 
 La aplicación cliente de SOA no requiere cambios excepto modificar el nombre principal por el nombre completo del clúster de IaaS.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [estos recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para obtener más información sobre cómo ejecutar las cargas de trabajo de Excel con HPC Pack.
+* Consulte [estos recursos](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para obtener más información sobre cómo ejecutar las cargas de trabajo de Excel con HPC Pack.
 * Consulte [Administración de servicios de SOA en Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) para obtener más información sobre la implementación y administración de servicios de SOA con HPC Pack.
 
 <!--Image references-->

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211900"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232178"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configuración de la recuperación ante desastres para Active Directory y DNS
 
@@ -44,7 +44,7 @@ Puede usar Site Recovery para proteger la máquina virtual que hospeda el contro
 El controlador de dominio que se haya replicado con Site Recovery se utiliza para la [conmutación por error de prueba](#test-failover-considerations). Asegúrese de que cumple los requisitos siguientes:
 
 1. El controlador de dominio es un servidor de catálogo global.
-2. El controlador de dominio debe ser el propietario del rol FSMO para los roles que se necesitan durante una conmutación por error de prueba. De lo contrario, estos roles deberán [asumirse](http://aka.ms/ad_seize_fsmo) después de la conmutación por error.
+2. El controlador de dominio debe ser el propietario del rol FSMO para los roles que se necesitan durante una conmutación por error de prueba. De lo contrario, estos roles deberán [asumirse](https://aka.ms/ad_seize_fsmo) después de la conmutación por error.
 
 ### <a name="configure-vm-network-settings"></a>Configuración de las opciones de red de la máquina virtual
 Para la máquina virtual que hospeda al controlador de dominio o DNS, en Site Recovery, configure los valores de red en la configuración **Proceso y red** de la máquina virtual replicada. Esto asegura que la máquina virtual se conecte a la red adecuada después de la conmutación por error.
@@ -93,7 +93,7 @@ La mayoría de las aplicaciones requieren la presencia de un controlador de domi
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Eliminación de las referencias a otros controladores de dominio
-Al iniciar una conmutación por error de prueba, no incluya todos los controladores de dominio en la red de prueba. Para quitar las referencias a los demás controladores de dominio que existan en su entorno de producción, puede que tenga que [asumir los roles FSMO de Active Directory](http://aka.ms/ad_seize_fsmo) y realizar una [limpieza de metadatos](https://technet.microsoft.com/library/cc816907.aspx) para los controladores de dominio que falten.
+Al iniciar una conmutación por error de prueba, no incluya todos los controladores de dominio en la red de prueba. Para quitar las referencias a los demás controladores de dominio que existan en su entorno de producción, puede que tenga que [asumir los roles FSMO de Active Directory](https://aka.ms/ad_seize_fsmo) y realizar una [limpieza de metadatos](https://technet.microsoft.com/library/cc816907.aspx) para los controladores de dominio que falten.
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Problemas causados por las medidas de seguridad de la virtualización
@@ -180,7 +180,7 @@ Si se cumplen las condiciones anteriores, es probable que el controlador de domi
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Para obtener más información, consulte [Disable the requirement that a global catalog server be available to validate user logons](http://support.microsoft.com/kb/241789) (Deshabilitar el requisito de que haya un servidor de catálogo global disponible para validar los inicios de sesión de usuario).
+    Para obtener más información, consulte [Disable the requirement that a global catalog server be available to validate user logons](https://support.microsoft.com/kb/241789) (Deshabilitar el requisito de que haya un servidor de catálogo global disponible para validar los inicios de sesión de usuario).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS y controlador de dominio en equipos diferentes
 

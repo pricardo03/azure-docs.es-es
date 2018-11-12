@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26628855"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232987"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Creación y administración de conexiones híbridas
 
@@ -105,7 +105,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [Conexiones híbridas de Azure App Service](../app-service/app-service-hybrid-connections.md) también es un buen recurso.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Uso de la directiva de grupo para controlar los recursos locales utilizados por una conexión híbrida
-1. Descargue las [plantillas administrativas del Administrador de conexiones híbridas](http://www.microsoft.com/download/details.aspx?id=42963).
+1. Descargue las [plantillas administrativas del Administrador de conexiones híbridas](https://www.microsoft.com/download/details.aspx?id=42963).
 2. Extraiga los archivos.
 3. En el equipo que modifica la directiva de grupo, haga lo siguiente:  
    
@@ -118,7 +118,7 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [Introducción a las conexiones híbridas](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Otras referencias
-[API REST para administrar BizTalk Services en Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[API REST para administrar BizTalk Services en Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Gráfico de ediciones](biztalk-editions-feature-chart.md)  
 [Creación de una instancia de BizTalk Services](biztalk-provision-services.md)  
 [BizTalk Services: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md)

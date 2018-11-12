@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046225"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229482"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depuración de código C# definido por el usuario para trabajos de U-SQL con errores
 
 U-SQL proporciona un modelo de extensibilidad mediante C#. En los scripts de U-SQL es fácil llamar a funciones de C# y realizar funciones de análisis que no admitiría un lenguaje declarativo similar a SQL. Para más información sobre la extensibilidad de U-SQL, consulte la [Guía de programación de U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-En la práctica, cualquier código puede necesitar depuración, pero es difícil depurar un trabajo distribuido con código personalizado en la nube con unos archivos de registro limitados. Las [Herramientas de Azure Data Lake para Visual Studio](http://aka.ms/adltoolsvs) incluyen una característica denominada **depuración de vértice con errores**, que ayuda a que sea más fácil depurar los errores que se producen en el código personalizado. Cuando se produce un error en el trabajo de U-SQL, el servicio conserva el estado de error y la herramienta le ayuda a descargar el entorno con error de la nube en la máquina local para su depuración. La descarga local captura todo el entorno en la nube, incluidos el código de usuario y los datos de entrada.
+En la práctica, cualquier código puede necesitar depuración, pero es difícil depurar un trabajo distribuido con código personalizado en la nube con unos archivos de registro limitados. Las [Herramientas de Azure Data Lake para Visual Studio](https://aka.ms/adltoolsvs) incluyen una característica denominada **depuración de vértice con errores**, que ayuda a que sea más fácil depurar los errores que se producen en el código personalizado. Cuando se produce un error en el trabajo de U-SQL, el servicio conserva el estado de error y la herramienta le ayuda a descargar el entorno con error de la nube en la máquina local para su depuración. La descarga local captura todo el entorno en la nube, incluidos el código de usuario y los datos de entrada.
 
 En el siguiente vídeo se demuestra la depuración de vértice con errores en las Herramientas de Azure Data Lake para Visual Studio.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785894"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251839"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming sin conexión para iOS 
  Azure Media Services proporciona un conjunto de [servicios de protección de contenido](https://azure.microsoft.com/services/media-services/content-protection/) de alto diseño que abarca:
@@ -190,7 +190,7 @@ Existen tres ejemplos de pruebas en Media Services que abarcan los tres escenari
 * FPS protegido, con pista de vídeo y audio pero sin audio alternativo.
 * FPS protegido, solo con vídeo, sin audio.
 
-Puede encontrar estos ejemplos en [este sitio de demostración](http://aka.ms/poc#22), con el certificado de aplicación correspondiente hospedado en una aplicación web de Azure.
+Puede encontrar estos ejemplos en [este sitio de demostración](https://aka.ms/poc#22), con el certificado de aplicación correspondiente hospedado en una aplicación web de Azure.
 Ya sea con un ejemplo de la versión 3 o de la versión 4 del SDK de FPS Server, si una lista de reproducción maestra contiene audio alternativo, durante el modo sin conexión solo reproduce audio. Por lo tanto, es necesario quitar el audio alternativo. Es decir, tanto el segundo como el tercer ejemplo mencionados anteriormente funcionan en el modo en línea y en el modo sin conexión. En el primer ejemplo, el audio se reproduce solo en el modo sin conexión, mientras que el streaming en línea funciona correctamente.
 
 ## <a name="faq"></a>Preguntas más frecuentes

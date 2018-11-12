@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143325"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233089"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 Para usar HTTPS en la máquina virtual, necesitará un certificado SSL de confianza. Según el escenario, puede usar uno de los dos métodos siguientes:
 
-* Un certificado SSL válido emitido por una entidad de certificación (CA) y de confianza de Microsoft. Se requiere la distribución de los certificados raíz de CA mediante el programa de certificados raíz de Microsoft. Para más información sobre este programa, consulte [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) (Programas de certificados raíz SSL de Windows y Windows Phone) (CA miembros) e [Introduction to The Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx) (Introducción al Programa de certificados raíz de Microsoft).
+* Un certificado SSL válido emitido por una entidad de certificación (CA) y de confianza de Microsoft. Se requiere la distribución de los certificados raíz de CA mediante el programa de certificados raíz de Microsoft. Para más información sobre este programa, consulte [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) (Programas de certificados raíz SSL de Windows y Windows Phone) (CA miembros) e [Introduction to The Microsoft Root Certificate Program](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx) (Introducción al Programa de certificados raíz de Microsoft).
 * Un certificado autofirmado. No se recomiendan los certificados autofirmados para entornos de producción.
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>Para usar un certificado creado por una entidad de certificación (CA) de confianza

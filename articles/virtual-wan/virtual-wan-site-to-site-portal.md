@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 475a1bf7a547a809a17a9aa9b8f98cc7ef4ea252
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c99d3df23e0ba9733e8762fe8fc22a4c69d3bcfb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181250"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236863"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -48,7 +48,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="openvwan"></a>2. Creación de una instancia de Virtual WAN
 
-Desde un explorador, navegue al [Portal de Azure](http://aka.ms/azurevirtualwanpreviewfeatures) e inicie sesión con su cuenta de Azure.
+Desde un explorador, navegue al [Portal de Azure](https://aka.ms/azurevirtualwanpreviewfeatures) e inicie sesión con su cuenta de Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

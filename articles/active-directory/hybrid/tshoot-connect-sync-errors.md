@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406864"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250482"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -219,6 +219,29 @@ Cuando un atributo supera los límites de tamaño, longitud o recuento estableci
 
 ### <a name="how-to-fix"></a>Solución
 1. Asegúrese de que el atributo que produce el error está dentro de los límites permitidos.
+
+## <a name="existing-admin-role-conflict"></a>Conflicto de rol de administrador existente
+
+### <a name="description"></a>DESCRIPCIÓN
+Se producirá un **conflicto de rol de administrador existente** en un objeto de usuario durante la sincronización cuando ese objeto de usuario tenga:
+
+- permisos administrativos y
+- el mismo UserPrincipalName que un objeto existente de Azure AD
+
+Azure AD Connect no puede hacer coincidir parcialmente un objeto de usuario de AD local con un objeto de usuario de Azure AD que tenga una función administrativa asignada.  Para más información, consulte [Rellenado de UserPrincipalName de Azure AD](plan-connect-userprincipalname.md).
+
+![Administrador existente](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>Solución
+Para resolver este problema, realice una de las siguientes acciones:
+
+
+- cambiar el nombre de UserPrincipalName a un valor que no coincida con el de un usuario administrador en Azure AD, lo que creará un nuevo usuario en Azure AD con el valor de UserPrincipalName correspondiente
+- quitar el rol administrativo del usuario administrador en Azure AD, lo que permitirá la coincidencia parcial entre el objeto de usuario local y el objeto de usuario de Azure AD existente.
+
+>[!NOTE]
+>Puede asignar el rol administrativo al objeto de usuario existente después de que se haya completado la coincidencia parcial entre el objeto de usuario local y el objeto de usuario de Azure AD.
 
 ## <a name="related-links"></a>Vínculos relacionados
 * [Buscar objetos de Active Directory en el centro de administración de Active Directory](https://technet.microsoft.com/library/dd560661.aspx)

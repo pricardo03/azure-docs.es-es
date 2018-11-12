@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452673"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251447"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -57,7 +57,7 @@ En la lista siguiente se describen los puntos de conexión:
 
 * **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con el protocolo [AMQP](https://www.amqp.org/). El punto de conexión de invocación de método se muestra en el protocolo HTTPS.
   
-  * *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con [Azure Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/). Un servicio back-end puede usarse para leer los [mensajes de dispositivo a nube](iot-hub-devguide-messages-d2c.md) enviados por los dispositivos. Además de este punto de conexión integrado, puede crear puntos de conexión personalizados en el centro de IoT.
+  * *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Un servicio back-end puede usarse para leer los [mensajes de dispositivo a nube](iot-hub-devguide-messages-d2c.md) enviados por los dispositivos. Además de este punto de conexión integrado, puede crear puntos de conexión personalizados en el centro de IoT.
   
   * *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables [de nube a dispositivo](iot-hub-devguide-messages-c2d.md) y recibir las confirmaciones de entrega o expiración correspondientes.
   

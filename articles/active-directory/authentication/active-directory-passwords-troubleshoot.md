@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321808"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233633"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -99,7 +99,7 @@ Un procedimiento recomendado para solucionar problemas con la escritura diferida
 | Código | Nombre o mensaje | DESCRIPCIÓN |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "A restriction prevents the password from being changed to the current one specified" (Una restricción impide que la contraseña se modifique por la que ha especificado actualmente). | Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple los requisitos del dominio en cuanto al filtrado, la vigencia de la contraseña, el historial o la complejidad. <br> <br> Si tiene una vigencia mínima de la contraseña y ha cambiado recientemente la contraseña dentro de ese margen de tiempo, no puede volver a cambiarla hasta que alcance la duración especificada en el dominio. Para las pruebas, la vigencia mínima debe establecerse en 0. <br> <br> Si tiene habilitados los requisitos del historial de contraseñas, debe seleccionar una contraseña que no se haya utilizado en las últimas *N* veces, donde *N* es la configuración del historial de contraseñas. Si selecciona una contraseña que se haya usado en las últimas *N* veces, verá un error en este caso. Para las pruebas, el historial mínimo debe establecerse en 0. <br> <br> Si tiene requisitos de complejidad de contraseña, todos ellos se aplican cuando el usuario intenta cambiar o restablecer una contraseña. <br> <br> Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación. |
-| 6329 | MMS(3040): admaexport.cpp(2837): el servidor no contiene el control de directiva de contraseña LDAP. | Este problema se produce si el control LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) no está habilitado en los controladores de dominio. Para usar la característica de escritura diferida de contraseña, debe habilitar el control. Para ello, los controladores de dominio deben estar en Windows Server 2008 (con el SP más reciente) o una versión posterior. Si los controladores de dominio están en 2008 (antes de la versión R2), también debe aplicar la revisión [KB2386717](http://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): el servidor no contiene el control de directiva de contraseña LDAP. | Este problema se produce si el control LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) no está habilitado en los controladores de dominio. Para usar la característica de escritura diferida de contraseña, debe habilitar el control. Para ello, los controladores de dominio deben estar en Windows Server 2008 (con el SP más reciente) o una versión posterior. Si los controladores de dominio están en 2008 (antes de la versión R2), también debe aplicar la revisión [KB2386717](https://support.microsoft.com/kb/2386717). |
 | HR 8023042 | El motor de sincronización devolvió un error hr=80230402, mensaje=Error al intentar obtener un objeto debido a que hay entradas duplicadas con el mismo delimitador. | Este error se produce cuando se habilita el mismo identificador de usuario en varios dominios. Por ejemplo se produciría si se están sincronizando los bosques de cuentas y recursos, y tienen el mismo identificador de usuario que está habilitado en cada bosque. <br> <br> Este error también puede ocurrir si usa un atributo delimitador que no sea único, como un alias o UPN, y dos usuarios comparten el mismo. <br> <br> Para resolver este problema, asegúrese de no tener ningún usuario duplicado dentro de los dominios y de estar utilizando un atributo delimitador único para cada usuario. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>El origen del evento es PasswordResetService
@@ -215,7 +215,7 @@ Se recomienda realizar este paso solo después de probar los dos primeros pasos 
 > Si ha personalizado las reglas de sincronización predefinidas, *realice una copia de seguridad de ellas antes de continuar con la actualización y, cuando haya terminado, vuelva a implementarlas manualmente*.
 >
 
-1. Descargue la versión más reciente de AD Connect del [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Descargue la versión más reciente de AD Connect del [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Puesto que ya ha instalado Azure AD Connect, solo necesita realizar una actualización in situ para actualizar la instalación de Azure AD Connect a la versión más reciente.
 1. Ejecute el paquete descargado y siga las instrucciones en pantalla para actualizar el equipo de Azure AD Connect.
 

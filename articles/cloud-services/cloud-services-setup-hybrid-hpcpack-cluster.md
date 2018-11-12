@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.openlocfilehash: ad5c13723eef352148a40e3e7f4f2ff616867296
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55dfd7e5ea93ae941d73612cc70ed82d48db725a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23985313"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236745"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Configuración de un clúster híbrido de informática de alto rendimiento (HPC) con nodos de proceso de Azure a petición y Microsoft HPC Pack
 Use Microsoft HPC Pack 2012 R2 y Azure para configurar un pequeño clúster híbrido de informática de alto rendimiento (HPC). El clúster que se muestra en el artículo consta del nodo principal de un HPC Pack local y algunos nodos de ejecución que se implementan a petición en un servicio en la nube de Azure. A continuación, podrá ejecutar trabajos informáticos en el clúster híbrido.
@@ -29,7 +29,7 @@ Use Microsoft HPC Pack 2012 R2 y Azure para configurar un pequeño clúster híb
 
 Este tutorial muestra un enfoque, en ocasiones denominado clúster "ráfaga en la nube", para usar recursos de escalables y a petición a fin de ejecutar aplicaciones informáticas que consumen numerosos recursos.
 
-En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para más información y conocer los pasos que se deben dar para implementar un clúster de HPC Pack híbrido a gran escala en un entorno de producción o para usar HPC Pack 2016, consulte las [instrucciones detalladas](http://go.microsoft.com/fwlink/p/?LinkID=200493). Para otros escenarios de HPC Pack, incluida la implementación automatizada de clústeres en máquinas virtuales de Azure, consulte [Opciones de clúster de HPC con Microsoft HPC Pack en Azure](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para más información y conocer los pasos que se deben dar para implementar un clúster de HPC Pack híbrido a gran escala en un entorno de producción o para usar HPC Pack 2016, consulte las [instrucciones detalladas](https://go.microsoft.com/fwlink/p/?LinkID=200493). Para otros escenarios de HPC Pack, incluida la implementación automatizada de clústeres en máquinas virtuales de Azure, consulte [Opciones de clúster de HPC con Microsoft HPC Pack en Azure](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure** : si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos.
@@ -38,10 +38,10 @@ En este tutorial se supone que no cuenta con experiencia previa con los clúster
   * El equipo debe estar unido a un dominio de Active Directory. Para realizar pruebas, puede configurar el equipo del nodo principal como controlador de dominio. Para agregar el rol del servidor de Active Directory Domain Services y promover el equipo del nodo principal como controlador de dominio, consulte la documentación de Windows Server.
   * Para admitir HPC Pack, el sistema operativo debe estar instalado en uno de estos idiomas: inglés, japonés o chino (simplificado).
   * Compruebe que estén instaladas las actualizaciones importantes y esenciales.
-* **HPC Pack 2012 R2** - [Descargue](http://go.microsoft.com/fwlink/p/?linkid=328024) el paquete de instalación completo de la última versión gratis y copie los archivos en el equipo del nodo principal. Elija los archivos de instalación que tengan el mismo idioma que su instalación de Windows Server.
+* **HPC Pack 2012 R2** - [Descargue](https://go.microsoft.com/fwlink/p/?linkid=328024) el paquete de instalación completo de la última versión gratis y copie los archivos en el equipo del nodo principal. Elija los archivos de instalación que tengan el mismo idioma que su instalación de Windows Server.
 
     >[!NOTE]
-    > Si desea usar HPC Pack 2016, en lugar de HPC Pack 2012 R2, se necesita configuración adicional. Consulte las [instrucciones detalladas](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+    > Si desea usar HPC Pack 2016, en lugar de HPC Pack 2012 R2, se necesita configuración adicional. Consulte las [instrucciones detalladas](https://go.microsoft.com/fwlink/p/?LinkID=200493).
     > 
 * **Cuenta de dominio**. Esta cuenta se debe configurar con permisos de administrador local en el nodo principal para instalar HPC Pack.
 * **Conectividad TCP en el puerto 443** desde el nodo principal a Azure.
@@ -68,7 +68,7 @@ En primer lugar, debe instalar Microsoft HPC Pack en un equipo local con Windows
 
 8. Acepte las opciones seleccionadas de forma predeterminada en las páginas restantes del asistente. En la página **Instalar componentes** requeridos, haga clic en **Instalar**.
    
-    ![Instalar][install_hpc6]
+    ![Instalación][install_hpc6]
 
 9. Cuando finalice la instalación, desactive **Iniciar Administrador de clústeres de HPC** y, a continuación, haga clic en **Finalizar**. (El Administrador de clústeres HPC se inicia en un paso posterior).
    
@@ -130,7 +130,7 @@ Para usar el administrador de clústeres de HPC para implementar nodos de Azure 
 
 5. En la **lista de tareas pendientes de implementación**, haga clic en **Proporcionar credenciales de instalación**.
 
-6. En el cuadro de diálogo **Credenciales de instalación** , escriba las credenciales de la cuenta de dominio que ha usado para instalar HPC Pack. y, a continuación, haga clic en **Aceptar**. 
+6. En el cuadro de diálogo **Credenciales de instalación** , escriba las credenciales de la cuenta de dominio que ha usado para instalar HPC Pack. A continuación, haga clic en **Aceptar**. 
    
     ![Credenciales de instalación][config_hpc6]
    
@@ -268,7 +268,7 @@ Después de probar el clúster, detenga los nodos de Azure e impida que se produ
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Explore la documentación correspondiente a [HPC Pack](https://technet.microsoft.com/library/cc514029).
-* Para configurar una implementación híbrida de clústeres HPC Pack a mayor escala, consulte [Irrupción en instancias de rol de trabajo de Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+* Para configurar una implementación híbrida de clústeres HPC Pack a mayor escala, consulte [Irrupción en instancias de rol de trabajo de Azure con Microsoft HPC Pack](https://go.microsoft.com/fwlink/p/?LinkID=200493).
 * Para ver otras formas de crear un clúster HPC Pack en Azure como, por ejemplo, el uso de plantillas de Azure Resource Manager, consulte [Opciones de clúster HPC con Microsoft HPC Pack en Azure](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

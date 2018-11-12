@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737420"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238529"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -61,9 +61,9 @@ También puede crear actividades personalizadas de .NET para mover o procesar da
 ## <a name="architecture-of-a-sample-solution"></a>Arquitectura de una solución de ejemplo
   La arquitectura que se describe en este artículo es para una solución simple. También es relevante para escenarios complejos, como el modelado de riesgos de los servicios financieros, el procesamiento y la representación de imágenes y el análisis de genoma.
 
-En el diagrama se ilustra cómo Data Factory organiza el movimiento y procesamiento de los datos. También se muestra cómo Batch procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar su consulta (11 x 17 pulgadas o tamaño A3). Para acceder al diagrama para que se pueda imprimir, vea [HPC and data orchestration by using Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686) (Orquestación de datos y HPC con Batch y Data Factory).
+En el diagrama se ilustra cómo Data Factory organiza el movimiento y procesamiento de los datos. También se muestra cómo Batch procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar su consulta (11 x 17 pulgadas o tamaño A3). Para acceder al diagrama para que se pueda imprimir, vea [HPC and data orchestration by using Batch and Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686) (Orquestación de datos y HPC con Batch y Data Factory).
 
-[![Diagrama de procesamiento de datos de gran escala](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Diagrama de procesamiento de datos de gran escala](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 La lista siguiente proporciona los pasos básicos del proceso. La solución incluye código y explicaciones para compilar la solución completa.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa38d0ef3d00bf5fdb886703cd882ec5ba552b95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26629693"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234041"
 ---
 # <a name="hybrid-connections-overview"></a>Introducción a las conexiones híbridas
 
@@ -94,9 +94,9 @@ Los siguientes puertos TCP se usan en las conexiones híbridas:
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Otras referencias
-[API REST para administrar BizTalk Services en Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[API REST para administrar BizTalk Services en Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Gráfico de ediciones](biztalk-editions-feature-chart.md)  
-[Creación de un servicio de BizTalk](biztalk-provision-services.md)  
+[Creación de una instancia de BizTalk Services](biztalk-provision-services.md)  
 [BizTalk Services: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
