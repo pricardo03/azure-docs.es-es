@@ -8,12 +8,12 @@ ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409191"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231471"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
@@ -99,7 +99,7 @@ Para eliminar un objeto de Data Catalog selecciónelo en el portal y haga clic e
 Un experto es una persona que tiene una perspectiva informada acerca de un objeto de datos. Un objeto puede tener varios expertos. No es necesario que un experto sea el "propietario" de un objeto, puede ser simplemente alguien que sepa cómo se pueden (y deben) utilizar los datos.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>¿Cómo comparto información con el equipo de Data Catalog si surge algún problema?
-Para notificar cualquier problema, compartir información y formular preguntas, vaya al [foro de Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Para notificar cualquier problema, compartir información y formular preguntas, vaya al [foro de Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>¿Funciona el catálogo con otro origen de datos que me interesa?
 Trabajamos activamente para agregar más orígenes de datos a Data Catalog. Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique que está de acuerdo con esta sugerencia si ya se ha planteado) en el [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog).
@@ -127,4 +127,4 @@ Seleccione los recursos de datos en Data Catalog y haga clic en el botón **Toma
 Para actualizar los metadatos de los recursos de datos que ya están registrados en el catálogo, solo hay que volver a registrar el origen de datos que contiene los recursos. Los cambios que se produzcan en el origen de datos, como la incorporación o eliminación de columnas de tablas o vistas, se actualizan en el catálogo, pero se mantienen las anotaciones que han realizado los usuarios.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>No encuentro ninguna respuesta a mi pregunta. ¿Dónde puedo encontrarla?
-Vaya al [foro de Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
+Vaya al [foro de Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.

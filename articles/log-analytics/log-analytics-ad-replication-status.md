@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c850eee67224d09ea2715a58c3cd8eca4ab07af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041909"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009749"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Supervisión del estado de replicación de Active Directory con Azure Log Analytics
 
@@ -34,7 +34,7 @@ El paquete de la solución AD Replication Status supervisa con regularidad el en
 Utilice la siguiente información para instalar y configurar la solución.
 
 * Debe instalar los agentes en controladores del dominio que se vaya a evaluar. Como alternativa, instale los agentes en servidores miembros y configure los agentes para que envíen datos de replicación de AD a Log Analytics. Para conocer el proceso de conexión de equipos Windows a Log Analytics, consulte [Conexión de equipos Windows a Log Analytics](log-analytics-windows-agent.md). Si el controlador de dominio ya forma parte de un entorno de System Center Operations Manager que le gustaría conectar a Log Analytics, consulte [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
-* Agregue la solución Active Directory Replication Status al área de trabajo de Log Analytics mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+* Agregue la solución Active Directory Replication Status al área de trabajo de Log Analytics mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md).  No es necesario realizar ninguna configuración más.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalles de recopilación de datos de Estado de replicación de AD
 En la tabla siguiente se muestran los métodos de recolección de datos y otros detalles sobre cómo se recopilan los datos para el Estado de replicación de AD.
@@ -110,7 +110,7 @@ Al hacer clic en cualquier elemento de las listas, con la búsqueda de registros
 
 ![Errores del Estado de replicación de AD en resultados de búsqueda](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Desde aquí, puede filtrar aún más, modificar la consulta de la búsqueda, etc. Para obtener más información acerca del uso de la Búsqueda de registros, consulte [Búsquedas de registros](log-analytics-log-searches.md).
+Desde aquí, puede filtrar aún más, modificar la consulta de la búsqueda, etc. Para obtener más información acerca del uso de la Búsqueda de registros, consulte [Búsquedas de registros](log-analytics-queries.md).
 
 El campo **HelpLink** muestra la dirección URL de una página de TechNet con detalles adicionales acerca de ese error específico. Puede copiar y pegar este vínculo en la ventana del explorador para ver información sobre la solución de problemas y corregir el error.
 
@@ -154,4 +154,4 @@ Si necesita ayuda para conectarse a uno de los controladores de dominio, puede v
 Si no desea conectar ninguno de los controladores de dominio directamente a Log Analytics o a System Center Operations Manager, consulte [Habilitación de un controlador que no sea de dominio para enviar datos de AD a Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Utilice [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de estado de replicación de Active Directory.
+* Utilice [Búsquedas de registros en Log Analytics](log-analytics-queries.md) para ver datos detallados de estado de replicación de Active Directory.

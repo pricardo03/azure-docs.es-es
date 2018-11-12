@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 8779b067c33ce76cd60b020e2952bcbccf0dd944
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230417"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Uso del almacenamiento de colas de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -128,7 +128,7 @@ queue_service.delete_queue('taskqueue')
 Ahora que está familiarizado con los aspectos básicos del Almacenamiento en cola, siga estos vínculos para obtener más información.
 
 * [Centro para desarrolladores de Python](https://azure.microsoft.com/develop/python/)
-* [API de REST de servicios de Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
+* [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355)
 * [Blog del equipo de Azure Storage]
 * [SDK de Microsoft Azure Storage para Python]
 

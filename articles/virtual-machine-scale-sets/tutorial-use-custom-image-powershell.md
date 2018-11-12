@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363613"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230519"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -76,7 +76,7 @@ Para personalizar la máquina virtual, vamos a instalar un servidor web básico.
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-El último paso para preparar la máquina virtual para su uso como una imagen personalizada es generalizar la máquina virtual. Sysprep quita todas las configuraciones y la información de la cuenta personal y restablece la máquina virtual a un estado limpio para futuras implementaciones. Para más información, consulte [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx).
+El último paso para preparar la máquina virtual para su uso como una imagen personalizada es generalizar la máquina virtual. Sysprep quita todas las configuraciones y la información de la cuenta personal y restablece la máquina virtual a un estado limpio para futuras implementaciones. Para más información, consulte [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx).
 
 Para generalizar la máquina virtual, ejecute Sysprep y prepare la máquina virtual para poder usarla sin necesidad de configuraciones adicionales. Cuando termine, indique a Sysprep que apague la máquina virtual:
 

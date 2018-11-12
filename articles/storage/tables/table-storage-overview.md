@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 316e10d56e5c235c4d64dde0fde4dcb9429629c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18b8fab53e9e2de6d083b3a9e78001a3844b38d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527794"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226350"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Introducción al almacenamiento de tablas en Azure
 
@@ -34,6 +34,6 @@ Table Storage se puede usar para almacenar conjuntos de datos flexibles, como da
 
 * Consulte la documentación de referencia de Table service para obtener información detallada acerca de las API disponibles:
 
-    * [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
+    * [Referencia de API de REST](https://msdn.microsoft.com/library/azure/dd179355)

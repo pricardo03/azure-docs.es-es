@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406328"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257670"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -30,7 +30,7 @@ La solución de administración de Office 365 permite supervisar el entorno de O
 - Supervise las actividades del administrador para realizar el seguimiento de cambios de configuración u operaciones de privilegios elevados.
 - Detecte e investigue comportamientos de usuario no deseados, que puede personalizar para las necesidades de la organización.
 - Demuestre el cumplimiento de las normas y las auditorías. Por ejemplo, puede supervisar las operaciones de acceso a archivos en los archivos confidenciales, lo que pueden ayudarle con el proceso de cumplimiento y auditoría.
-- Solucione problemas operativos mediante [búsqueda de registros](../log-analytics/log-analytics-log-search.md) en los datos de actividad de Office 365 de su organización.
+- Solucione problemas operativos mediante [búsqueda de registros](../log-analytics/log-analytics-queries.md) en los datos de actividad de Office 365 de su organización.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Se requiere lo siguiente antes de la instalación y configuración de esta solución.
@@ -709,6 +709,6 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre la actualización.
+* Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-queries.md) para ver datos detallados sobre la actualización.
 * [Cree sus propios paneles](../log-analytics/log-analytics-dashboards.md) para mostrar las consultas de búsqueda favoritas de Office 365.
-* [Cree alertas](../log-analytics/log-analytics-alerts.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  
+* [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  

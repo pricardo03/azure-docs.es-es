@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cf5ace29dabd3a55524fe38403a07e3916ea7d6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390899"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230757"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copia de datos de Azure Storage Blobs a Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "44390899"
 >
 >
 
-Azure Data Lake Storage Gen1 proporciona una herramienta de línea de comandos, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar datos desde los siguientes orígenes:
+Azure Data Lake Storage Gen1 proporciona una herramienta de línea de comandos, [AdlCopy](https://aka.ms/downloadadlcopy), para copiar datos desde los siguientes orígenes:
 
 * De Azure Storage Blobs a Data Lake Storage Gen1. No puede utilizar AdlCopy para copiar datos de Data Lake Storage Gen1 a Azure Storage Blob.
 * Entre dos cuentas de Azure Data Lake Storage Gen1.
@@ -43,7 +43,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 * **blobs de Azure Storage** con algunos datos.
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cuenta de Azure Data Lake Analytics (opcional)**. Consulte el artículo de [introducción a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obtener instrucciones sobre cómo crear una cuenta de Data Lake Analytics.
-* **Herramienta AdlCopy**. Instale la herramienta de AdlCopy de [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+* **Herramienta AdlCopy**. Instale la herramienta de AdlCopy de [http://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxis de la herramienta AdlCopy
 Use la siguiente sintaxis para trabajar con la herramienta AdlCopy.
@@ -180,5 +180,5 @@ AdlCopy admite la copia de datos que contienen miles de archivos y carpetas. Sin
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Uso de Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

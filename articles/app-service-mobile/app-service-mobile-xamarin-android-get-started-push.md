@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: e2388c887f4a96883aa64a0a6fec3a5a9df5b8cc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 71cb39465bd6c180861325ab451aa11be14a80e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818201"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231676"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Agregar notificaciones push a la aplicación de Xamarin.Android
 
@@ -35,7 +35,7 @@ Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el p
 
 En este tutorial, es necesario configurar:
 
-* Una cuenta de Google activa. Puede registrarse para obtener una cuenta de Google en [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+* Una cuenta de Google activa. Puede registrarse para obtener una cuenta de Google en [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Componente del cliente de Google Cloud Messaging](http://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Configurar un Centro de notificaciones
@@ -62,7 +62,7 @@ En este tutorial, es necesario configurar:
 
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="test"></a>Prueba de las notificaciones push en su aplicación
+## <a name="test"></a>Prueba de las notificaciones de inserción en su aplicación
 
 Puede probar la aplicación con un dispositivo virtual en el emulador. Hay pasos de configuración adicionales necesarios cuando se ejecuta en un emulador.
 

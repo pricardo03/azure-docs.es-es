@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420275"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037046"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
 
@@ -141,7 +141,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
        1. Una carpeta `.NET FRAMEWORK 3.5`, que contiene una instalación personalizada para instalar una versión anterior de .NET Framework que puede ser necesaria para los componentes personalizados en cada nodo del entono de ejecución de integración de Azure-SSIS.
 
-       1. Una carpeta `AAS`, que contiene una configuración personalizada para instalar las bibliotecas cliente en cada nodo de Azure-SSIS IR que permiten a las tareas de Analysis Services conectarse a la instancia de Azure Analysis Services (AAS) mediante la autenticación de entidad de servicio. En primer lugar, descargue la versión más reciente de los instaladores de Windows o las bibliotecas cliente de **MSOLAP (amd64)** y **AMO** (por ejemplo, `x64_15.0.900.108_SQL_AS_OLEDB.msi` y `x64_15.0.900.108_SQL_AS_AMO.msi`) desde [aquí](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers) y luego cárguelos todos juntos con `main.cmd` en el contenedor.  
+       1. Una carpeta `AAS`, que contiene una configuración personalizada para instalar las bibliotecas cliente en cada nodo de Azure-SSIS IR que permiten a las tareas de Analysis Services conectarse a la instancia de Azure Analysis Services (AAS) mediante la autenticación de entidad de servicio. En primer lugar, descargue la versión más reciente de los instaladores de Windows o las bibliotecas cliente de **MSOLAP (amd64)** y **AMO** (por ejemplo, `x64_15.0.900.108_SQL_AS_OLEDB.msi` y `x64_15.0.900.108_SQL_AS_AMO.msi`) desde [aquí](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers) y luego cárguelos todos juntos con `main.cmd` en el contenedor.  
 
        1. Una carpeta `BCP`, que contiene una instalación personalizada para instalar utilidades de línea de comandos de SQL Server (`MsSqlCmdLnUtils.msi`), incluido el programa de copia masiva (`bcp`), en cada nodo del entorno de ejecución de integración de Azure-SSIS.
 

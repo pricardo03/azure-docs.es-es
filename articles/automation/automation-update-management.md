@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093843"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037403"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -35,7 +35,7 @@ El siguiente diagrama muestra una vista conceptual del comportamiento y un flujo
 
 ![Flujo del proceso de Update Management](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Se puede utilizar Update Management para incorporar de forma nativa máquinas en varias suscripciones en el mismo inquilino. Para administrar máquinas en otro inquilino, debe incorporarlas como [máquinas que no son de Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Se puede utilizar Update Management para incorporar de forma nativa máquinas en varias suscripciones en el mismo inquilino.
 
 Una vez que se publique un CVE, la revisión tarda de 2 a 3 horas en aparecer en las máquinas Linux para su evaluación.  Para las máquinas Windows, la revisión tarda de 12 a 15 horas en aparecer para su evaluación tras su publicación.
 
